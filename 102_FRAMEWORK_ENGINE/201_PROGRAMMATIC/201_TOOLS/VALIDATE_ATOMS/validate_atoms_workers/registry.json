@@ -195,8 +195,8 @@
     },
     "CA-R-1283": {
       "version": 13,
-      "sha256": "c051da31166b5caace04b3f341e966d7a85bab4f2e052cc5eb9201d110e3a66a",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+      "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
       "required": false,
       "obligations": [
         "domain.content_role"
@@ -204,8 +204,8 @@
     },
     "CA-R-1231": {
       "version": 14,
-      "sha256": "63ae0e976214856cf78111ce9e66fd379f4d856c262cf21b350fccb9c341e951",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1231-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-concern-atoms.md",
+      "sha256": "bb665befe48a357fab79f17c9d1a604d6e46345ea929a06feeb6a8e825f5930f",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1231-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-concern-atoms.md",
       "required": false,
       "obligations": [
         "domain.type.concern"
@@ -213,8 +213,8 @@
     },
     "CA-R-1232": {
       "version": 14,
-      "sha256": "51b128bffbb1b9987d8fc45bb43694278ea7215dd23c935f07bb4f8df72305b0",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1232-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-analysis-atoms.md",
+      "sha256": "d40415ebf2c7c07fccb5ea4a8b55cf670b6e292c6800eaee97ea308ea4ac9bd5",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1232-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-analysis-atoms.md",
       "required": false,
       "obligations": [
         "domain.type.analysis"
@@ -276,8 +276,8 @@
     },
     "CA-R-1565": {
       "version": 5,
-      "sha256": "4c087228a0a859505240e9dbe9f961c70ea6f0e42124f8cb1e20a2abedc3c2d1",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-CORE-REQUIREMENT--admit-the-operations-atom-types.md",
+      "sha256": "ec302438794099e2a70d5bccf49b6489b92516b38bccb204e1266a55b2696f0e",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-CORE-REQUIREMENT--admit-the-operations-atom-types.md",
       "required": false,
       "obligations": [
         "domain.type.operations"
@@ -285,8 +285,8 @@
     },
     "CA-R-1574": {
       "version": 4,
-      "sha256": "e3a2d537057c541c4d7b4375ae0de39e176d689831fab03ebecf69adf6acc02e",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1574-CORE_META_MODEL-CORE-REQUIREMENT--define-the-common-plan-atom.md",
+      "sha256": "a8350a67846ca08e8e0e7231b2cd01526a10c463cfbddcb8446a8e50d14c824e",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1574-CORE_META_MODEL-CORE-REQUIREMENT--define-the-common-plan-atom.md",
       "required": false,
       "obligations": [
         "plan.model"

@@ -19,6 +19,7 @@ from .settings import CEILINGS
 from .support_authority import support_sources
 from .check_support import Check
 from .check_graph_extended import relations_resolution, plan_resolution
+from .check_schema_extended import TYPE_CONTRIBUTIONS
 from .proposed_references import ProposedReferenceError, inventory_proposed_references
 from .graph_authority_refresh import APPROVED_GRAPH_AUTHORITY_IDS
 from artifact_metadata import project_identity
@@ -30,7 +31,11 @@ _REGISTRY_IDS = (
     "CA-D-276", "CA-D-269", "CA-D-268", "CA-D-270", "CA-D-274", "CA-D-446",
     "CA-D-479", "CA-D-482", "CA-D-483",
 )
-_SUPPORT_IDS = ("CA-D-494", "CA-D-440", "CA-D-441", "CA-D-442", "CA-R-1308", "CA-R-1313", "CA-D-324", "CA-D-466", "CA-D-461")
+_SUPPORT_IDS = (
+    "CA-D-494", "CA-D-440", "CA-D-441", "CA-D-442", "CA-R-1308", "CA-R-1313",
+    "CA-D-324", "CA-D-466", "CA-D-461",
+    *TYPE_CONTRIBUTIONS, "CA-R-1283", "CA-R-1700", "CA-R-1506",
+)
 _GRAPH_IDS = tuple(sorted(APPROVED_GRAPH_AUTHORITY_IDS))
 _FRONTIER_STATUS_IDS = {
     "Concern": "CA-R-1608", "Analysis": "CA-R-1875", "Plan": "CA-R-1539",
@@ -44,7 +49,7 @@ _CODES = frozenset(
         "frontmatter.author", "author.resolution", "frontmatter.atom_id",
         "frontmatter.subjects", "frontmatter.relations", "frontmatter.claim_target_scope_unit",
         "target.resolution", "frontmatter.status",
-        "body.sections",
+        "body.sections", "model.domains",
     }
 )
 

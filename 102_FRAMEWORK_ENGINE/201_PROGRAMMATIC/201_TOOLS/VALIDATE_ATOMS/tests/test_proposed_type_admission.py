@@ -1,0 +1,105 @@
+"""Current source-bound Type checks at the shared proposed-carrier boundary."""
+
+import hashlib
+from pathlib import Path
+import sys
+import unittest
+from unittest.mock import patch
+
+TOOL = Path(__file__).resolve().parents[1]
+TOOLS = TOOL.parent
+PROJECT = TOOLS.parents[2]
+sys.path[:0] = [str(TOOLS), str(TOOL)]
+
+from validate_atoms_workers import proposed_carrier
+from validate_atoms_workers.authority import Obligation
+from validate_atoms_workers.check_schema_extended import ADAPTERS, TYPE_CONTRIBUTIONS
+from validate_atoms_workers.check_support import Check
+from validate_atoms_workers.parsing import parse_carrier
+
+
+class ProposedTypeAdmissionTests(unittest.TestCase):
+    def setUp(self):
+        self.context = proposed_carrier.source_context_from_project(PROJECT)
+
+    def check_type(self, role, kind):
+        check = Check(Obligation("model.domains", [], True, "verified sources"),
+                      self.context.authority, self.context.inputs)
+        metadata = {"content_role": role}
+        if kind is not None:
+            metadata["type"] = kind
+        ADAPTERS["model.domains"](metadata, "", check)
+        return check
+
+    def test_current_type_bindings_are_complete_and_exact(self):
+        consumed = set(TYPE_CONTRIBUTIONS) | {"CA-R-1283", "CA-R-1700", "CA-R-1506"}
+        sources = {row["binding"]["atom_id"]: row for row in self.context.inputs["sources"]}
+        self.assertTrue(consumed <= sources.keys())
+        for identifier in consumed:
+            with self.subTest(identifier=identifier):
+                entry = proposed_carrier._entry(identifier)
+                path = PROJECT / entry["source_path"]
+                raw = path.read_bytes()
+                metadata = parse_carrier(raw, path).metadata
+                self.assertEqual((metadata["atom_id"], metadata["version"], metadata["status"]),
+                                 (identifier, entry["version"], "Active"))
+                self.assertNotIn("projection", metadata)
+                self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
+
+    def test_supported_role_types_and_ordinary_absence(self):
+        admitted = {
+            "Concern": ("Question", "Conflict", "Problem"),
+            "Analysis": ("Analysis Report", "Rationale"),
+            "Plan": ("Plan", "Action Policy"),
+            "Requirement": (None, "Boundary", "Constraint", "Goal", "Demand"),
+            "Method": (None, "Implementation Method", "Implementation Decision",
+                       "External Implementation Method", "Method Binding"),
+            "Evaluation": ("QA Case", "Evaluation Control", "Evaluation Approach"),
+            "Delivery": (None, "Release Definition", "Environment Definition"),
+            "Operations": ("Action", "Workflow", "Step", "Actor"),
+        }
+        for role, kinds in admitted.items():
+            for kind in kinds:
+                with self.subTest(role=role, kind=kind):
+                    check = self.check_type(role, kind)
+                    self.assertEqual((check.findings, check.gaps), ([], []))
+        for role, kind in (("Plan", "Action"), ("Concern", "Plan"),
+                           ("Analysis", "Action"), ("Requirement", "QA Case"),
+                           ("Method", "Plan"), ("Delivery", "Action"),
+                           ("Operations", "Plan"), ("Evaluation", "Evaluation"),
+                           ("Evaluation", "Test")):
+            with self.subTest(role=role, kind=kind):
+                self.assertTrue(self.check_type(role, kind).findings)
+        self.assertTrue(self.check_type("Implementation", "Code").gaps)
+
+    def test_shared_boundary_rejects_plan_action(self):
+        metadata = dict(
+            atom_id="CA-P-999999", content_role="Plan", type="Plan",
+            current_scope_unit="caprmedio", claim_target_scope_unit="caprmedio",
+            local_tier="Standard", global_tier=2, status="Active", version=1,
+            author="Anatoly Maslennikov", updated_at="2026-10-13 12:00:00 +0400",
+            subjects={"governs": "Tool", "depends_on": []}, relations={},
+        )
+        body = ("# Summary\n\nType admission\n\n## Objective\n\nCheck a Plan.\n\n"
+                "## Details\n\n### Definition of Done\n\nThe check passes.\n")
+        path = Path("03_plan/CA-P-999999--type-admission.md")
+        proposed_carrier.validate_proposed_carrier(metadata, body, self.context, path)
+        with self.assertRaises(proposed_carrier.ProposedCarrierError):
+            proposed_carrier.validate_proposed_carrier(
+                dict(metadata, type="Action"), body, self.context, path)
+
+    def test_missing_or_changed_type_pin_refuses_context(self):
+        original = proposed_carrier._entry
+        for changed in (False, True):
+            def entry(identifier, **kwargs):
+                result = original(identifier, **kwargs)
+                if identifier == "CA-R-1666":
+                    return dict(result, sha256="0" * 64) if changed else {}
+                return result
+            with self.subTest(changed=changed), patch.object(proposed_carrier, "_entry", entry):
+                with self.assertRaises(proposed_carrier.ProposedCarrierError):
+                    proposed_carrier.source_context_from_project(PROJECT)
+
+
+if __name__ == "__main__":
+    unittest.main()

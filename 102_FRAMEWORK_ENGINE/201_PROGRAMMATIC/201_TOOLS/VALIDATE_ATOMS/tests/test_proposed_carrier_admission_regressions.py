@@ -305,7 +305,7 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         target = self.put(control / "unit/09_operations/action.md", TARGET.replace(b"version: 7", b"type: Action\nversion: 7"))
         self.put(control / "unit/evidence/09_operations/broken.md", b"---\natom_id: [unterminated\n---\n")
         self.put(control / "unit/09_operations/evidence/broken.md", b"---\natom_id: [unterminated\n---\n")
-        metadata = self.metadata(atom_id="CA-E-701", content_role="Evaluation", type="Evaluation", relations={"evaluation_for": ["CA-O-701"]})
+        metadata = self.metadata(atom_id="CA-E-701", content_role="Evaluation", type="QA Case", relations={"evaluation_for": ["CA-O-701"]})
         body = "# Summary\n\nEvaluate action.\n\n## Scope\n\nSelected action.\n\n## Claim\n\nVerify the action.\n\n## Details\n\nIndependent check.\n"
         before = snapshot(self.root)
 

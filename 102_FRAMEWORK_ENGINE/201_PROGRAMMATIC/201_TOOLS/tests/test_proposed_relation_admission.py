@@ -189,7 +189,7 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
         version: int = 1,
         extra: str = "",
     ) -> str:
-        kind = f'type: "{role}"\n' if role in {"Evaluation", "Plan"} else ""
+        kind = 'type: "QA Case"\n' if role == "Evaluation" else 'type: "Plan"\n' if role == "Plan" else ""
         return (
             f'atom_id: "{atom_id}"\n'
             f'content_role: "{role}"\n'

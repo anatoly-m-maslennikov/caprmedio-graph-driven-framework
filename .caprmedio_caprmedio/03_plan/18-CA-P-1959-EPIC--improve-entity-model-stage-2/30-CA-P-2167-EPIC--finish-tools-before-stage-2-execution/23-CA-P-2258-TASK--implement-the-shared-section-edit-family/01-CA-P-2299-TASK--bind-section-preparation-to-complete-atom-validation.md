@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Workflow, Configuration, Plan]
-version: 2
-updated_at: "2026-10-13 19:06:21 +0400"
+version: 3
+updated_at: "2026-10-13 19:25:32 +0400"
 relations:
   is_decomposition_of: [CA-P-2258]
 ---
@@ -35,7 +35,7 @@ Estimated own work: 15 minutes. Split larger work into bounded children before e
 
 The private, no-write section preparation helper and independent literal-byte tests are implemented. Actual selected admission, exact pinned section authority, source/candidate checks, currentness, no-op and unrelated-byte preservation have focused proof. No public receiver or write route is added.
 
-A real regression showed the shared finite validator accepts an invalid Plan/Action Type. [CA-P-2324 — Enforce source-bound role Type domains](01-CA-P-2299-TASK--bind-section-preparation-to-complete-atom-validation/01-CA-P-2324-TASK--enforce-source-bound-role-type-domains.md) enables the existing generic role/Type check against unchanged current domain authority, rather than accepting only the convenient Plan fixture. This Task remains Active until that gap and the fresh independent portfolio pass. Full-project legacy admission and publication remain separate.
+A real regression showed the shared finite validator accepted an invalid Plan/Action Type. [CA-P-2324 — Enforce source-bound role Type domains](01-CA-P-2299-TASK--bind-section-preparation-to-complete-atom-validation/done/01-CA-P-2324-TASK--enforce-source-bound-role-type-domains.md) is now Done after independent exact-source and regression acceptance. Section preparation passed 34 tests without expected failures, including optional R/M/D Type, ID-kind/role mismatch and exact-header preservation. See .caprmedio_caprmedio/_projection/core-entity-review/stage2/tools-first/section-preparation-and-type-admission-acceptance.md. This Task remains Active for receiving/admission reconciliation; no live write or full-checkout validity is inferred.
 
 ### Definition of Done
 
