@@ -87,6 +87,11 @@ by this project.
 ### Notation
 
 - `/`: broader kind to narrower kind.
+- `/<classification>`: the whole classification at that path, without selecting
+  one value. `Atom/Content Role` means all Content Roles; adding `: Plan`
+  selects the Plan branch. Likewise, `Atom/Type` covers all Atom Types, while
+  `Atom/Content Role: Plan/Type` covers Types within the Plan branch. Keep the
+  path; do not replace it with a separate Term or dependent Property name.
 - `.`: bearer qualification for a dependent entity or component. Source
   Properties are dependent Objects; Projection Properties belong to their
   Projection and remain derived.
@@ -104,6 +109,8 @@ by this project.
 Content Role and Type name classifications of Atom subtypes. Canonical examples:
 
 ```text
+Atom/Content Role
+Atom/Content Role: Plan
 Atom/Content Role: Requirement/Type: Demand
 Atom/Content Role: Requirement/Type: Demand.Status
 Atom/Content Role: Plan.Status: Backlog
@@ -278,6 +285,8 @@ General D policies can cover multiple Properties and Objects.
 Content Role and Atom Type classify Atom subtypes, not `Atom.Content Role`
 or `Atom.Type` dependent entities in this graph. Stored `content_role` and `type`
 fields can represent these classifications; no storage field is renamed or removed.
+Unqualified classification Subjects retain `/Content Role` or `/Type`; they
+do not need separate names such as `Content Role` or `Atom Type`.
 Tiers and internal/external/relational Governance Locus remain Properties or
 classifications, not additional Object roots. Other uses of Type, such as
 `Scope Unit.Type` and `Actor.Actor Type`, are unchanged by this Atom decision.
