@@ -10,7 +10,7 @@ from types import MappingProxyType
 # Reviewed byte closure; carried named authority must also be admitted.
 SCHEMA_PINS = MappingProxyType({
     "CA-D-364": (10, "4f7513eb67fe6075f58c29d06accc4fd16c9dca7e823d794c7a4dc90cd9668c9"),
-    "CA-D-366": (9, "c784150f0606565346419b44ba38e2333870de6bcbd3bf90e16dae76dbdc8e33"),
+    "CA-D-366": (10, "93c8eddc61260a52f2b6c708f4e6809a5b1a8a4d12e37dd82b5afe0568b531d2"),
     "CA-D-375": (10, "d32280d1b04a033a9398745c8471e731bbca293ffcfe4260d9136c06951c950b"),
     "CA-D-376": (9, "f03248c4d66a550d2c2ad6018b1a42a5cf2ac6aba0488e1d3c38c388ecedb321"),
     "CA-D-378": (10, "9435f3abb5a56f46c37c43c3e758afa1e288a0af259f39a34237495d8fcf255f"),
@@ -51,15 +51,19 @@ class ProjectSettingsSnapshot:
     obsolete_names: tuple[str, ...] | None
     source: SourcePin
     schema_sources: tuple[SchemaPin, ...]
+    project_mcp_http_port: int | None
 
     def to_document(self) -> dict:
         """Return a fresh complete value copy, retaining optional-field absence."""
         project = {"name": self.name}
         if self.obsolete_names is not None:
             project["obsolete_names"] = list(self.obsolete_names)
-        return {"schema_version": self.schema_version, "project": project,
-                "artifacts": {"identity": {"project_prefix": self.project_prefix}},
-                "paths": {"control_root": self.control_root}}
+        document = {"schema_version": self.schema_version, "project": project,
+                    "artifacts": {"identity": {"project_prefix": self.project_prefix}},
+                    "paths": {"control_root": self.control_root}}
+        if self.project_mcp_http_port is not None:
+            document["project_mcp"] = {"http_port": self.project_mcp_http_port}
+        return document
 
 
 @dataclass(frozen=True)
@@ -86,9 +90,9 @@ def _string(value, field: str) -> str:
     return value
 
 
-def _parse_settings(document: dict) -> tuple[str, str, str, tuple[str, ...] | None]:
+def _parse_settings(document: dict) -> tuple[str, str, str, tuple[str, ...] | None, int | None]:
     """Pure complete-schema validation; no identity-only subset or normalization."""
-    _table(document, {"schema_version", "project", "artifacts", "paths"}, set(), "settings")
+    _table(document, {"schema_version", "project", "artifacts", "paths"}, {"project_mcp"}, "settings")
     if type(document["schema_version"]) is not str or document["schema_version"] != "2.0":
         raise _SchemaError("schema_version", "The exact string schema version 2.0 is required.")
     project = _table(document["project"], {"name"}, {"obsolete_names"}, "project")
@@ -111,4 +115,10 @@ def _parse_settings(document: dict) -> tuple[str, str, str, tuple[str, ...] | No
         for value in obsolete:
             _string(value, "project.obsolete_names")
         obsolete = tuple(obsolete)
-    return name, prefix, control, obsolete
+    port = None
+    if "project_mcp" in document:
+        mcp = _table(document["project_mcp"], {"http_port"}, set(), "project_mcp")
+        port = mcp["http_port"]
+        if type(port) is not int or not 1 <= port <= 65535:
+            raise _SchemaError("project_mcp.http_port", "An exact integer in 1..65535 is required.")
+    return name, prefix, control, obsolete, port

@@ -61,7 +61,7 @@ class ProjectSettingsReaderTests(unittest.TestCase):
         return result
 
     def test_complete_schema_optional_absence_and_exact_value_copy(self):
-        self.assertEqual(("reader", "READ", ".caprmedio_reader", None), _parse_settings(copy.deepcopy(DOCUMENT)))
+        self.assertEqual(("reader", "READ", ".caprmedio_reader", None, None), _parse_settings(copy.deepcopy(DOCUMENT)))
         document = copy.deepcopy(DOCUMENT)
         document["project"]["obsolete_names"] = [" reader ", "reader", "reader"]
         self.assertEqual(tuple(document["project"]["obsolete_names"]), _parse_settings(document)[3])
@@ -99,6 +99,7 @@ class ProjectSettingsReaderTests(unittest.TestCase):
         self.assertIsNotNone(snapshot)
         self.assertFalse(hasattr(snapshot, "history"))
         self.assertFalse(hasattr(snapshot, "revision"))
+        self.assertIsNone(snapshot.project_mcp_http_port)
         self.assertEqual(self.source.sha256, snapshot.source.sha256)
         self.assertEqual(self.source.relative_path.as_posix(), snapshot.source.path)
         self.assertEqual(DOCUMENT, snapshot.to_document())
@@ -108,6 +109,34 @@ class ProjectSettingsReaderTests(unittest.TestCase):
                                      (snapshot.schema_sources[0], "version", 100)):
             with self.assertRaises(FrozenInstanceError):
                 setattr(target, field, value)
+
+    def test_optional_mcp_port_exact_values_presence_and_immutability(self):
+        for port in (1, 56317, 65535):
+            with self.subTest(port=port):
+                document = copy.deepcopy(DOCUMENT)
+                document["project_mcp"] = {"http_port": port}
+                self.path.write_bytes(render_document(document))
+                self.source = capture_source(self.root, self.path.relative_to(self.root))
+                result = self.read()
+                self.assertEqual((), result.errors)
+                self.assertEqual(port, result.snapshot.project_mcp_http_port)
+                self.assertEqual(document, result.snapshot.to_document())
+                copy_document = result.snapshot.to_document()
+                copy_document["project_mcp"]["http_port"] = 1
+                self.assertEqual(port, result.snapshot.project_mcp_http_port)
+                with self.assertRaises(FrozenInstanceError):
+                    result.snapshot.project_mcp_http_port = 1
+
+    def test_optional_mcp_port_refuses_types_range_missing_and_extra_fields(self):
+        for value in (None, False, [], "56317", {}, {"http_port": True}, {"http_port": False},
+                      {"http_port": 0}, {"http_port": 65536}, {"http_port": -1},
+                      {"http_port": 56317.0}, {"http_port": "56317"},
+                      {"http_port": 56317, "extra": 1}):
+            with self.subTest(value=value):
+                document = copy.deepcopy(DOCUMENT)
+                document["project_mcp"] = value
+                with self.assertRaises(_SchemaError):
+                    _parse_settings(document)
 
     def test_journal_is_never_enumerated_or_read_even_when_malformed(self):
         journal = self.control / "_journal"

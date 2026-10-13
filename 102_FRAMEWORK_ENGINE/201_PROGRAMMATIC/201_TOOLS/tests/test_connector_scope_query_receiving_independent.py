@@ -182,6 +182,17 @@ class ScopeQueryReceivingIndependentTests(unittest.TestCase):
         state["source_evidence"]["project_structure"]["sha256"] = "0" * 64
         self.assert_error(self.invoke(expected_state=state), "stale_state")
 
+    def test_port_bearing_settings_reach_genuine_query_with_exact_source_evidence(self):
+        document = copy.deepcopy(self.fixture.document)
+        document["project_mcp"] = {"http_port": 49152}
+        self.fixture.write_document(document)
+        self.selection = resolve_project(self.root)
+        result = self.invoke()
+        self.assertEqual(["ALPHA", "BETA", "CHILD", "UNMATERIALIZED", "independent"], self.identities(result))
+        self.assertEqual(self.fixture.source.sha256, result["current_state"]["source_evidence"]["project_settings"]["sha256"])
+        self.assertEqual(document, self.selection.settings)
+        self.assertNotIn("http_port", str(result["data"]))
+
     def test_closed_query_rejects_paging_invalid_modes_and_omitted_frontier(self):
         cases = []
         filters = self.filters(); filters["page_size"] = 1; cases.append(filters)

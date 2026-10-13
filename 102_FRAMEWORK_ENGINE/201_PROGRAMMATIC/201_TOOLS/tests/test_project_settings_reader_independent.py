@@ -49,12 +49,35 @@ class ProjectSettingsSchemaIndependentTests(unittest.TestCase):
                 if prior is not None:
                     document["project"]["obsolete_names"] = prior
                 self.assertEqual(("independent", "TEST", ".caprmedio_independent",
-                                  None if prior is None else tuple(prior)), self.parse(document))
+                                  None if prior is None else tuple(prior), None), self.parse(document))
         document = copy.deepcopy(self.document)
         document["project"]["name"] = "indépendant"
         document["artifacts"]["identity"]["project_prefix"] = "ÄΩ_7"
         document["paths"]["control_root"] = ".caprmedio_indépendant"
-        self.assertEqual(("indépendant", "ÄΩ_7", ".caprmedio_indépendant", None), self.parse(document))
+        self.assertEqual(("indépendant", "ÄΩ_7", ".caprmedio_indépendant", None, None), self.parse(document))
+
+    def test_optional_port_presence_and_exact_integer_boundaries(self):
+        self.assertIsNone(self.parse(self.document)[4])
+        self.assertNotIn("project_mcp", self.document)
+        for port in (1, 49152, 65535):
+            with self.subTest(port=port):
+                document = copy.deepcopy(self.document)
+                document["project_mcp"] = {"http_port": port}
+                parsed = self.parse(document)
+                self.assertEqual(port, parsed[4])
+                self.assertIs(type(parsed[4]), int)
+                self.assertEqual(("independent", "TEST", ".caprmedio_independent", None), parsed[:4])
+
+    def test_optional_port_table_is_closed_and_never_coerces(self):
+        tables = [None, True, 1, "table", [], {}, {"port": 49152}, {"http_port": 49152, "host": "localhost"}]
+        tables += [{"http_port": value} for value in (True, False, 0, -1, 65536, 1.0, "49152", [], {}, None)]
+        for table in tables:
+            with self.subTest(table=table):
+                document = copy.deepcopy(self.document)
+                document["project_mcp"] = table
+                with self.assertRaises(schema._SchemaError) as raised:
+                    self.parse(document)
+                self.assertTrue(raised.exception.field)
 
     def test_missing_required_and_extra_keys_refuse_every_level(self):
         for location in ((), ("project",), ("artifacts",), ("artifacts", "identity"), ("paths",)):
@@ -176,6 +199,45 @@ class ProjectSettingsReaderIndependentTests(unittest.TestCase):
         self.assertEqual(expected, {(pin.path, pin.sha256) for pin in value.schema_sources})
         self.assertEqual(set(SCHEMA_IDS), {pin.atom_id for pin in value.schema_sources})
         self.assertFalse(self.journal.exists())
+        self.assertIsNone(value.project_mcp_http_port)
+        self.assertNotIn("project_mcp", value.to_document())
+
+    def test_valid_optional_port_roundtrips_and_is_deeply_immutable_without_journal(self):
+        import connector_bindings
+        self.journal.mkdir()
+        (self.journal / "invalid.ndjson").write_bytes(b"not-json\n")
+        original = connector_bindings._read_source
+        def no_journal(path):
+            self.assertFalse(path.is_relative_to(self.journal), "Port-bearing Settings read accessed Journal")
+            return original(path)
+        for port in (1, 49152, 65535):
+            with self.subTest(port=port):
+                document = copy.deepcopy(self.document)
+                document["project_mcp"] = {"http_port": port}
+                self.write_document(document)
+                with mock.patch.object(connector_bindings, "_read_source", no_journal):
+                    value = self.assert_read(self.read())
+                self.assertEqual(port, value.project_mcp_http_port)
+                self.assertIs(type(value.project_mcp_http_port), int)
+                self.assertEqual(document, value.to_document())
+                self.assertEqual(hashlib.sha256(self.settings.read_bytes()).hexdigest(), value.source.sha256)
+                with self.assertRaises(dataclasses.FrozenInstanceError):
+                    value.project_mcp_http_port = 2
+                exported = value.to_document()
+                exported["project_mcp"]["http_port"] = 2
+                self.assertEqual(document, value.to_document())
+
+    def test_invalid_optional_port_tables_have_structured_effect_free_refusal(self):
+        tables = [True, 1, "table", [], {}, {"port": 49152}, {"http_port": 49152, "host": "localhost"}]
+        tables += [{"http_port": value} for value in (True, False, 0, -1, 65536, 1.0, "49152", [], {})]
+        for table in tables:
+            with self.subTest(table=table):
+                document = copy.deepcopy(self.document)
+                document["project_mcp"] = table
+                self.write_document(document)
+                result = self.read()
+                self.assert_refused(result)
+                self.assertEqual("schema_invalid", result.errors[0].code)
 
     def test_optional_values_and_unicode_are_preserved_exactly(self):
         for prior in (None, [], ["OLD", "OLD", "independent", " Mixed ", "   "]):
@@ -240,7 +302,8 @@ class ProjectSettingsReaderIndependentTests(unittest.TestCase):
     def test_metadata_only_schema_substitution_cannot_supply_authority(self):
         authority = self.authorities[0]
         path = self.root / authority.relative_path
-        path.write_text("---\natom_id: CA-D-366\nversion: 9\n---\n# Fabricated policy\n")
+        version = schema.SCHEMA_PINS["CA-D-366"][0]
+        path.write_text(f"---\natom_id: CA-D-366\nversion: {version}\n---\n# Fabricated policy\n")
         self.assert_refused(self.read(authorities=[capture_source(self.root, authority.relative_path), *self.authorities[1:]]))
 
     def test_snapshot_provenance_and_exported_documents_are_immutable(self):
