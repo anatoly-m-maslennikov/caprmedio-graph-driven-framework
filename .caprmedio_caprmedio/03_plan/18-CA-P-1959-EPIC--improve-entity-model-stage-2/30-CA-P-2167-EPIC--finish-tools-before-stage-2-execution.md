@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 32
-updated_at: "2026-10-13 21:40:47 +0400"
+version: 33
+updated_at: "2026-10-13 22:13:02 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,16 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Current continuation checkpoint — 2026-10-13 22:13:02 +0400
+
+Ten bounded Tasks are now Done: P2270/P2302/P2303/P2304 after current 23-release/49-graph verification, and P2325–P2330 after independent exact cleanup/history reconciliation and current finite PRMEDO source admission. No source cleanup was repeated. See graph-and-direct-release-completion.md and bounded-cleanup-task-closure.md in the tools-first projection evidence.
+
+The shared actual-Session admission helper and private O212/O218 read receivers are implemented and independently checked; all 264 connector tests passed. P2340/P2341/P2300 stay Active because the production complete Settings validator and remaining receiving branches are not complete. This packet registered no new route or runtime capability.
+
+Latest Operator decision: build only the new no-legacy Settings reader. Do not migrate either Settings file, remove legacy fields or migrate existing callers now. The proposed preserve-unknown/legacy reader is not accepted. Define and independently review the narrow closed current Project schema, then implement and test the new reader; the existing legacy-rich carrier must receive truthful unsupported-field diagnostics rather than silent compatibility.
+
+MCP initialization still fails and no server listens at the configured port. The two live Settings observations remain unregistered; direct writing is not authorized. Current lifecycle binding also needs real canonical-registry reconciliation (95 missing and 15 stale paths among 162 unique pins), not blind pin replacement or another unapproved historical-repair exception. Explicit Draft identity/source conflicts and actual cascade execution remain open. Keep this Epic Active.
 
 ### Current continuation checkpoint — 2026-10-13 21:40:47 +0400
 

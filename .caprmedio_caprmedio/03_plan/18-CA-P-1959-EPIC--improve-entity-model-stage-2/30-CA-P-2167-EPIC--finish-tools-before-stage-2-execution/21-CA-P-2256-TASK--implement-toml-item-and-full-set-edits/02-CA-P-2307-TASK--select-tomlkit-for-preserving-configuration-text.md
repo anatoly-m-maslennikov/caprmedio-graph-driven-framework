@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Configuration, Method, Evaluation, Delivery, Plan]
-version: 10
-updated_at: "2026-10-13 21:40:47 +0400"
+version: 11
+updated_at: "2026-10-13 22:13:02 +0400"
 relations:
   is_decomposition_of: [CA-P-2256]
 ---
@@ -28,6 +28,10 @@ Select TOMLKit for preserving configuration text
 Author and independently check the bounded selecting Method, Delivery and Evaluation for TOMLKit. Bind the Operator approval, exact package selection, capability, carrier/interface, boundary cost and evidence. Prepare any required affected FPF review Plan; do not infer its execution from dependency approval.
 
 ## Details
+
+### Current continuation checkpoint — 2026-10-13 22:13:02 +0400
+
+P2325–P2330 are now Done after current independent exact-byte audit; no approved source change was repeated. Current M383v3/D632v3/E635v2 and this Task's prior v10 passed actual finite PRMEDO admission with zero findings/gaps and no relation bypass. Evidence is bounded-cleanup-task-closure.md under the tools-first projection. The old source-admission blocker is superseded within this bounded packet. Complete Settings/receiving/publication integration still belongs to P2297 and wider parents. The new no-legacy reader decision does not authorize editing existing Settings or callers. Keep this Task Active for its remaining receiving-dependent acceptance.
 
 ### Verified continuation — 2026-10-13 21:40:47 +0400
 

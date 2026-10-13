@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Configuration, Workflow, Plan]
-version: 1
-updated_at: "2026-10-13 20:49:49 +0400"
+version: 2
+updated_at: "2026-10-13 22:13:02 +0400"
 relations:
   is_decomposition_of: [CA-P-2295]
 ---
@@ -28,6 +28,10 @@ Bind selected Scope Read receiver
 A private production O212 receiver binds the existing Scope Read adapter to an actual selected Action and RunExecutionSession.
 
 ## Details
+
+### Current continuation checkpoint — 2026-10-13 22:13:02 +0400
+
+The private O212 receiver now binds a genuine recorded Action/Session, independent sealed context, retained Settings/Structure pins and the existing reader. Author and independent tests passed; all 264 connector checks passed. Evidence is selected-read-receivers-checkpoint.md under the tools-first projection. No route was registered. Production complete Settings-schema validation is still an explicit dependency, not a fixture callback claimed as current policy. The Operator selected new-reader-only work with no legacy compatibility; existing Settings and callers must stay unchanged. This Task remains Active. Decompose remaining schema/production binding work into a new bounded child before further own implementation work.
 
 Estimated own work: up to 15 minutes. Split before exceeding this bound. Root owns Plans and Git; workers own disjoint implementation/test files and preserve other workers' edits. Inherit accepted parent RMEDO and independent review gates.
 

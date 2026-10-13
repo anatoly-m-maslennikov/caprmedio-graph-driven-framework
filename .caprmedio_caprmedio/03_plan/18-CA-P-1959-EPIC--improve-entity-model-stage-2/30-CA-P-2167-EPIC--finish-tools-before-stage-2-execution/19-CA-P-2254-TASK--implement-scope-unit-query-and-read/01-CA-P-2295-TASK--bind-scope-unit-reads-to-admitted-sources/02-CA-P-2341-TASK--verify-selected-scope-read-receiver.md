@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Configuration, Workflow, Plan]
-version: 1
-updated_at: "2026-10-13 20:49:49 +0400"
+version: 2
+updated_at: "2026-10-13 22:13:02 +0400"
 relations:
   is_decomposition_of: [CA-P-2295]
 ---
@@ -28,6 +28,10 @@ Verify selected Scope Read receiver
 Independent tests prove the production Scope Read receiver executes through genuine admission and preserves source bytes.
 
 ## Details
+
+### Current continuation checkpoint — 2026-10-13 22:13:02 +0400
+
+Independent receiving verification passed 12 actual Session checks, including current source copies, full Structure output, stale/missing/wrong Action evidence, denied permission, mutation refusal and unchanged source/Journal bytes. Root integration passed all 264 connector tests. Evidence is selected-read-receivers-checkpoint.md under the tools-first projection. Disposable complete Settings schemas in fixtures do not prove production Settings policy. Keep this verification Task Active for the eventual accepted production reader binding; no live/runtime route acceptance is implied.
 
 Estimated own work: up to 15 minutes. Split before exceeding this bound. Root owns Plans and Git; workers own disjoint implementation/test files and preserve other workers' edits. Inherit accepted parent RMEDO and independent review gates.
 
