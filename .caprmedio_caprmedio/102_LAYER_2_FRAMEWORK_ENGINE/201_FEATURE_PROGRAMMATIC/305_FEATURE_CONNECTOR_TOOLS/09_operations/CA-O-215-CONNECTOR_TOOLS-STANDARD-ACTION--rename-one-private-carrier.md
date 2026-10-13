@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Artifact/Carrier","Action","Workflow","Atom","Operator"]
-version: 2
-updated_at: "2026-10-13 02:07:21 +0400"
+version: 3
+updated_at: "2026-10-13 23:27:54 +0400"
 relations:
   relates_to: [CA-R-1941, CA-M-381, CA-E-633, CA-D-630, CA-D-625, CA-R-1093]
 ---
@@ -30,7 +30,7 @@ require CA-D-630's exact private rename binding, current source **and** parent e
 
 ### Action **and** result
 
-recheck the bound source/parent/destination **and** inventory **before** the permitted storage effect. perform **only** the supplied same-parent name change. independently verify the exact destination, old source absence **and** preserved contents/modes/inventory/unrelated frontier, **then** return CA-D-625's common result with actual evidence.
+require CA-R-1941's exact staged-change review **and** fresh trusted authorization/window record, including recorded outside-edits-paused confirmation. within that confirmed window, acquire the existing shared Engine lock **and** recheck the complete bound source/parent/destination, inventory, preservation, authority **and** permission frontier **before** the permitted storage effect; retain the lock through independent readback **and** verification. perform **only** the supplied same-parent name change. independently verify the exact destination, old source absence **and** preserved contents/modes/inventory/unrelated frontier, **then** return CA-D-625's common result with actual evidence.
 
 a same-binding request is a no-op **only** **when** requested state is verified already satisfied **and** unchanged. failure retains known partial effects; unknown effects require `effect_uncertain`, **and** nonempty errors are never success. no automatic retry, rollback promise **or** reference discovery/rewrite is implied.
 

@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Artifact/Carrier","Action","Workflow","Atom","Operator"]
-version: 2
-updated_at: "2026-10-13 02:07:21 +0400"
+version: 3
+updated_at: "2026-10-13 23:27:54 +0400"
 relations:
   relates_to: [CA-R-1941, CA-M-381, CA-E-633, CA-D-630, CA-D-625, CA-R-1093]
 ---
@@ -30,7 +30,7 @@ require CA-D-630's private remove binding, approved root/parent, exact expected 
 
 ### Action **and** result
 
-recheck the exact classification, root/parent, source state **and** empty-folder evidence **before** the effect. remove **only** that bound file **or** empty folder; never discover child targets, follow a symlink, accept a wildcard/recursive flag **or** touch a destination, referrer **or** unrelated carrier. independently verify observed absence **and** the unchanged preservation frontier.
+require CA-R-1941's exact staged-cleanup review **and** fresh trusted authorization/window record, including recorded outside-edits-paused confirmation. within that confirmed window, acquire the existing shared Engine lock **and** recheck the exact positive non-Atom eligibility, classification, root/parent, source state, empty-folder evidence, preservation, authority **and** permission frontier **before** the effect; retain the lock through independent readback **and** verification. remove **only** that bound file **or** empty folder; never discover child targets, follow a symlink, accept a wildcard/recursive flag **or** touch a destination, referrer **or** unrelated carrier. independently verify observed absence **and** the unchanged preservation frontier.
 
 return CA-D-625's actual data/current_state/effects/errors. a bound already-absent cleanup state is a no-op **only** **when** absence was explicitly expected, eligibility/permission remains valid **and** unchanged requested state is independently verified. missing expected-present source is a failure, **not** inferred completion. retain known partial effects; unknown effects require `effect_uncertain` **and** errors cannot indicate success.
 

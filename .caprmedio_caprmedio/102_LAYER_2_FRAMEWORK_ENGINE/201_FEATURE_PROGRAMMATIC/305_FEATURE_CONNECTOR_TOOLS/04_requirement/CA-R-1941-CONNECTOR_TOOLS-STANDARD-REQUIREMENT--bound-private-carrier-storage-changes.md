@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Artifact/Carrier","Action","Workflow","Atom","Operator"]
-version: 2
-updated_at: "2026-10-13 02:07:21 +0400"
+version: 3
+updated_at: "2026-10-13 23:27:54 +0400"
 relations:
   relates_to: [CA-R-1936, CA-R-1093, CA-M-381, CA-E-633, CA-D-630, CA-O-215, CA-O-216, CA-O-217, CA-O-040]
 ---
@@ -34,10 +34,14 @@ rename changes **only** the explicitly supplied name within the same parent. mov
 
 remove **must** be separately approved non-Atom storage cleanup of one file **or** one empty folder. a nonempty folder, uncertain classification, Atom/current/historical carrier, required history, protected source **or** unapproved cleanup target is rejected. there is no delete-Atom operation. cleanup neither follows symlinks nor enumerates descendants into a removal set. an existing admitted Atom lifecycle operation **may** use a private carrier move **only** through its exact admitted lifecycle/currentness/history context; the helper cannot substitute for Archive, retire, replacement **or** authority admission.
 
+**before** an actual rename, move **or** cleanup effect, stage **and** review the exact source-bound intended location/absence change **and** its affected source, parents, destination, finite inventory, preservation **and** governing authority frontier. the existing bound authorization **must** resolve a fresh purpose-specific trusted-host record of the Operator's review **and** recorded confirmation that manual editing, maintenance/script writes, Git **and** synchronization are paused for that exact frontier. bind the record **to** the exact logical request, private Action/variant, selected Session/Run **and** affected files. caller-written data, hashes, approval flags **or** arbitrary callbacks cannot mint confirmation; unavailable, missing, stale **or** mismatched confirmation refuses **before** effects.
+
+reuse the existing shared cooperative Engine publication lock within that confirmed exclusive window. hold it from **before** final complete admission/currentness revalidation through the exact storage effect, independent readback **and** verification. recheck the complete bound frontier **after** acquiring the lock; unavailable window **or** lock, changed evidence **or** failed admission stops **before** effects. lock ownership does **not** create permission. the model does **not** protect against writers ignoring the confirmed window **or** shared lock **and** establishes no crash-atomicity, cleanup restoration, automatic retry **or** replay guarantee.
+
 the result **must** follow CA-D-625's `data/current_state/effects/errors` roles. success requires independent verification of this variant's declared postconditions. unknown effects require `effect_uncertain`; nonempty errors are **not** success, even with known partial effects. empty errors cannot mean merely that no exception occurred. a no-op requires verified requested state already satisfied **and** unchanged; a missing expected-present source is **not** an inferred completed rename/move/remove.
 
 ## Details
 
 CA-M-381 supplies binding construction; CA-D-630 binds representation; CA-O-215/216/217 define the three reusable Actions; CA-E-633 supplies falsifiable cases. CA-O-040 is different: its generic Artifact rename includes canonical-reference rewrites. These private helpers never discover or rewrite references, create domain identity or report a logical lifecycle operation completed from a storage effect alone.
 
-Retain existing admitted action-local storage safeguards; do not invent a transaction, overwrite fallback, rollback promise, retry, resume, lock or concurrent-publication protocol. Unsupported or unprovable safe realization is a blocker, not permission to weaken the boundary. These are required contracts, not implementation or independent acceptance.
+retain existing admitted action-local storage safeguards; do **not** invent a transaction, overwrite fallback, rollback promise, retry, resume **or** new lock/concurrent-publication protocol. reuse **only** the approved exclusive-window **and** shared Engine lock safeguards above; no live cleanup **or** production activation follows from this source amendment. unsupported **or** unprovable safe realization is a blocker, **not** permission **to** weaken the boundary. these are required contracts, **not** implementation **or** independent acceptance.

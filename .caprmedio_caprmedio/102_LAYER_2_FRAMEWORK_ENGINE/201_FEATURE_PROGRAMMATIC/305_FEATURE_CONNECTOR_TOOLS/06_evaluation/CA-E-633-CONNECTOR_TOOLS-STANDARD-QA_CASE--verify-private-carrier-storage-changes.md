@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Artifact/Carrier","Action","Workflow","Atom","Operator"]
-version: 2
-updated_at: "2026-10-13 02:07:21 +0400"
+version: 3
+updated_at: "2026-10-13 23:27:54 +0400"
 relations:
   evaluation_for: [CA-R-1941, CA-D-630, CA-O-215, CA-O-216, CA-O-217]
   relates_to: [CA-E-628, CA-M-381]
@@ -39,6 +39,12 @@ Prepare a bounded temporary root with a file, empty folder, nested folder with a
 - Move a file and explicitly inventoried folder to the exact bound destination. Require source absence, exact destination and preservation evidence. Any basename change must have been explicit in the approved binding; no inferred rename or merge passes.
 - Remove one explicitly approved non-Atom file and one independently confirmed empty non-Atom folder. Require observed absence and unchanged unrelated/protected/history carriers. No child-removal effect is admitted.
 
+### Exclusive-window fixtures
+
+supply the exact staged location/absence change, independently resolved private bindings, complete affected frontier **and** genuine recorded selected Session/Action. bind the Operator's reviewed change **and** recorded outside-edits-paused confirmation through the existing trusted authorization binding, **not** a caller flag, JSON/hash-derived approval **or** arbitrary approving callback. exercise the accepted cases above under the existing shared Engine lock, with independent **before**/**after** evidence; raw-helper successes **and** refusal-**only** admission tests do **not** establish positive receiving acceptance.
+
+require a cooperating Engine writer **in** another process **to** wait while final revalidation, the Carrier effect **and** readback hold the shared lock. change the bound evidence **before** acquisition **and** require refusal **after** acquisition **without** a Carrier effect. refuse missing, stale, mismatched **or** fabricated review/window confirmation **and** unavailable/invalid lock **before** effects. a writer ignoring the confirmed window **or** shared lock is outside this cooperative guarantee; do **not** claim that a last-moment check prevents that race.
+
 ### Refusal and uncertainty cases
 
 1. Reject an unknown private variant, public physical path target, malformed binding, missing permission, unresolved roots, root/ancestor target, escape, missing or ambiguous source, wrong kind and stale source/parent/destination state without effects.
@@ -51,4 +57,4 @@ Prepare a bounded temporary root with a file, empty folder, nested folder with a
 
 ### Acceptance and disposition
 
-Compare exact independent before/proposed/after ledgers, resolved bindings and actual effect/error evidence. Any widened set, hidden reference/lifecycle decision, lost preservation evidence or false completion rejects the realization. Retain unresolved evidence and known effects; no automatic rollback, retry, resume or concurrent-publication guarantee is inferred. This source specifies future functional checks, not packet acceptance.
+compare exact independent **before**/proposed/**after** ledgers, resolved bindings **and** actual effect/error evidence. **any** widened set, hidden reference/lifecycle decision, lost preservation evidence **or** false completion rejects the realization. retain unresolved evidence **and** known effects, including failed lock-exit verification **after** an effect; unknown effects require `effect_uncertain` **and** no automatic retry. reuse **only** the approved exclusive-window/shared-lock boundary; no automatic rollback, cleanup restoration promise, retry, resume, replay **or** stronger concurrent-publication guarantee is inferred. these are rules **and** isolated test-fixture requirements **only**; no live cleanup **or** production activation is established. this source specifies future functional checks, **not** packet acceptance.
