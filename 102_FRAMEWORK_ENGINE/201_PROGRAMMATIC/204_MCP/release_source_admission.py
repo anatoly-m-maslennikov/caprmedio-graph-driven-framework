@@ -11,8 +11,16 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
+import sys
 import tomllib
 from typing import Any, Mapping
+
+
+_TOOLS_CODE = Path(__file__).resolve().parent.parent / "201_TOOLS"
+if str(_TOOLS_CODE) not in sys.path:
+    sys.path.insert(0, str(_TOOLS_CODE))
+
+from WORKFLOW_OPERATIONS.PROJECT_STRUCTURE import project_structure  # noqa: E402
 
 
 AUTHORITY_REF = (
@@ -58,6 +66,11 @@ _TOOLS_RMED_ROOTS = {
 _RMED_ROLES = {
     "requirements": "Requirement", "methods": "Method",
     "evaluations": "Evaluation", "deliveries": "Delivery",
+}
+_SOURCE_OWNERS = ("PROJECT_TOOLS", "TOOLS", "CONNECTOR_TOOLS", "TOOL_WORKFLOWS")
+_ROLE_FOLDERS = {
+    "Requirement": "04_requirement", "Method": "05_method", "Evaluation": "06_evaluation",
+    "Delivery": "07_delivery", "Operations": "09_operations",
 }
 
 
@@ -182,16 +195,26 @@ def _frontmatter(raw: bytes) -> dict[str, str]:
         ) from error
 
 
-def _checked_source_root(root: Path, source_root: str) -> tuple[Path, PurePosixPath]:
+def _checked_source_root(
+    root: Path, source_root: str, registered_root: str | None = None, *, allow_missing: bool = False,
+) -> tuple[Path, PurePosixPath]:
     if not isinstance(source_root, str) or not source_root:
         _reject("source root must be a nonempty Project-relative path", code="release-source-path-unsafe")
     relative = PurePosixPath(source_root)
     if (relative.is_absolute() or relative.as_posix() != source_root or "\\" in source_root
             or ":" in source_root or any(part in {".", ".."} for part in relative.parts)):
         _reject("source root must be a canonical Project-relative path", code="release-source-path-unsafe")
-    allowed = {PurePosixPath(_OPERATIONS_ROOT), *map(PurePosixPath, _RMED_ROOTS.values()),
-               *map(PurePosixPath, _TOOLS_RMED_ROOTS.values())}
-    if relative not in allowed:
+    if registered_root is None:
+        allowed = relative == PurePosixPath(_OPERATIONS_ROOT)
+    else:
+        owner = PurePosixPath(registered_root)
+        allowed = (owner.parts and owner.parts[0] == _CONTROL_ROOT
+                   and owner.as_posix() == registered_root and "\\" not in registered_root
+                   and ":" not in registered_root
+                   and not any(part in {".", "..", "archive", "_projection", "000_CAPRMEDIO_framework"}
+                               for part in owner.parts)
+                   and relative.parent == owner and relative.name in _ROLE_FOLDERS.values())
+    if not allowed:
         _reject("source root is outside the declared Project authoring boundary", code="release-source-unregistered")
     path = root.joinpath(*relative.parts)
     cursor = root
@@ -199,30 +222,62 @@ def _checked_source_root(root: Path, source_root: str) -> tuple[Path, PurePosixP
         cursor /= part
         if cursor.is_symlink():
             _reject("source root contains a symlink", code="release-source-path-unsafe")
-    if not path.is_dir():
+        if cursor.exists() and not cursor.is_dir():
+            _reject("source root is unavailable", code="release-source-unavailable")
+    if not path.is_dir() and (not allow_missing or path.exists()):
         _reject("source root is unavailable", code="release-source-unavailable")
     return path, relative
 
 
-def _registered_scope(root: Path, scope_unit: str, authority_path: str) -> None:
-    """Require the current Project structure to register a source authority root."""
+def _scope_units(root: Path) -> list[dict[str, Any]]:
     structure = root / _CONTROL_ROOT / "project_structure.toml"
-    if structure.is_symlink() or not structure.is_file():
+    if structure.parent.is_symlink() or structure.is_symlink() or not structure.is_file():
         _reject("Project structure is unavailable", code="release-source-unregistered")
     try:
         document = tomllib.loads(structure.read_text(encoding="utf-8"))
+        if (set(document) != {"schema_version", "scope_units"}
+                or type(document["schema_version"]) is not int or document["schema_version"] != 1):
+            raise ValueError("Project Structure schema is invalid")
         rows = document.get("scope_units")
-        if not isinstance(rows, list):
+        if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
             raise ValueError("scope_units is absent")
-        matches = [row for row in rows if isinstance(row, dict)
-                   and row.get("scope_unit_name") == scope_unit
-                   and row.get("authority_path") == authority_path]
-        if len(matches) != 1:
-            raise ValueError("source scope registration is not unique")
-    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError, ValueError) as error:
+        project_structure._validate_tree(rows, root)
+        return rows
+    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError, ValueError, TypeError, RuntimeError) as error:
         raise ReleaseSourceAdmissionError(
             "release-source-unregistered", "source scope registration is invalid"
         ) from error
+
+
+def _registered_scope(root: Path, scope_unit: str, authority_path: str) -> None:
+    """Require one declaration of the source owner, including its exact binding."""
+    matches = [row for row in _scope_units(root) if row.get("scope_unit_name") == scope_unit]
+    if len(matches) != 1 or matches[0]["authority_path"].removesuffix("/") != authority_path:
+        _reject("source scope registration is invalid", code="release-source-unregistered")
+
+
+def _source_roots(root: Path, role: str) -> tuple[tuple[str, str, str | None], ...]:
+    """Discover only the applicable declared Tool owners, never arbitrary files."""
+    rows = _scope_units(root)
+    roots = [(_OPERATIONS_ROOT, "caprmedio", None)] if role == "Operations" else []
+    owners: set[str] = set()
+    for scope in _SOURCE_OWNERS:
+        matches = [row for row in rows if row.get("scope_unit_name") == scope]
+        optional = scope in {"CONNECTOR_TOOLS", "TOOL_WORKFLOWS"} or role == "Operations"
+        if not matches and optional:
+            continue
+        if (len(matches) != 1 or matches[0].get("parent") != "PROGRAMMATIC"
+                or not isinstance(matches[0].get("authority_path"), str)):
+            _reject("source scope registration is invalid", code="release-source-unregistered")
+        owner = matches[0]["authority_path"].removesuffix("/")
+        if owner in owners:
+            _reject("source scope registration is invalid", code="release-source-unregistered")
+        owners.add(owner)
+        source_root = f"{owner}/{_ROLE_FOLDERS[role]}"
+        path, _relative = _checked_source_root(root, source_root, owner, allow_missing=optional)
+        if path.is_dir():
+            roots.append((source_root, scope, owner))
+    return tuple(roots)
 
 
 def _scan_current_source_root(
@@ -239,7 +294,7 @@ def _scan_current_source_root(
     """
     if registered_root is not None:
         _registered_scope(root, expected_scope, registered_root)
-    base, _relative_base = _checked_source_root(root, source_root)
+    base, _relative_base = _checked_source_root(root, source_root, registered_root)
     rows: list[tuple[Path, bytes, dict[str, str]]] = []
     for path in sorted(base.rglob("*.md")):
         relative = path.relative_to(root)
@@ -313,11 +368,7 @@ def resolve_current_source_pin(
     else:
         if operation_type is not None or role not in set(_RMED_ROLES.values()):
             _reject("RMED source role/type is invalid", code="release-source-identity-invalid")
-        family = next(key for key, value in _RMED_ROLES.items() if value == role)
-        source_roots = ((_RMED_ROOTS[family], "PROJECT_TOOLS", _PROJECT_TOOLS_ROOT),
-                        (_TOOLS_RMED_ROOTS[family], "TOOLS", _TOOLS_ROOT))
-    if role == "Operations":
-        source_roots = ((_OPERATIONS_ROOT, "caprmedio", None),)
+    source_roots = _source_roots(root, role)
     candidates: list[tuple[Path, bytes, dict[str, str]]] = []
     for source_root, expected_scope, registered_root in source_roots:
         for path, raw, frontmatter in _source_index.rows(source_root, expected_scope, registered_root):
