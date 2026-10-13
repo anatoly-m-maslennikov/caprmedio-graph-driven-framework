@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 28
-updated_at: "2026-10-13 15:25:45 +0400"
+version: 29
+updated_at: "2026-10-13 18:24:31 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,14 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Admitted lookup and contained Status changes — 2026-10-13
+
+CA-P-2314 now follows the completed FPF design challenge `workflow-carrier-whitelist-d96b9733` and the Operator's follow-up decisions. Discover references through declared Scope Unit and selected Project roots, declared Content Role/Status placement, and authenticated same-stem Plan/Workflow/Step containers only. Unknown folders cannot supply targets or Plan parents. Legacy noncanonical `archive/` layouts stay excluded; their migration is separate later work.
+
+Every parent Status change cascades to all contained latest P/O Atom versions, including nested Tasks/subtasks and Steps/substeps. Preserve nesting, older historical revisions and referenced Atoms outside the tree. Cascade means explicit independently admitted per-Atom changes through a Workflow, not inferred read-time Status or a new multi-target atomic connector. Current lookup work does not implement these mutations. CA-P-2264 owns the later lifecycle implementation and bounded tests, including single-target adapter compatibility, actual Version/history/Journal effects, and any unsupported child Status refusal. No new Status values, automatic retry or live migration are inferred.
+
+Accept the narrow amended source packet independently before binding it in lookup. Then verify the helper, caller, exact sources and admitted-frontier currentness. Source acceptance, a completed review and focused tests do not close the whole Tools Epic or establish installed-runtime readiness.
 
 ### Local Subject application completed — 2026-10-13
 

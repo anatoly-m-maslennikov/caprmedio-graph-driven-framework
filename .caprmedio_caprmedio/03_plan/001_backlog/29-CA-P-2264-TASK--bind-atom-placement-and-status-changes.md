@@ -14,8 +14,8 @@ status: Backlog
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 1
-updated_at: "2026-10-13 00:21:20 +0400"
+version: 2
+updated_at: "2026-10-13 18:24:31 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2269, CA-P-2276]
@@ -29,6 +29,14 @@ Bind Atom placement and Status changes
 Atom placement and allowed Status changes use their actual semantic lifecycle adapters.
 
 ## Details
+
+### Contained P/O Status cascade
+
+The Operator chose all-status cascading for contained P and O Atom trees. Changing a parent Status changes every contained Atom's latest version to that same admitted Status; keep Tasks/subtasks and Steps/substeps inside their parent tree. Older historical revisions and referenced Atoms outside the tree remain untouched. Do not infer a child's Status from its parent during reads.
+
+Compose independent single-Atom actions; do not turn the connector or CA-O-129 request into an atomic multi-target operation. Preserve each changed Atom's Version +1, exact predecessor bytes, actual time and Journal/effect results. A no-op leaves metadata unchanged. Never invent an unsupported Status: retain per-Atom model validation and explicit refusal; resolve any concrete unsupported descendant case before enabling that workflow. No automatic retry or rollback of earlier independent actions is added.
+
+The existing lifecycle code resolves and changes one target; it does not yet collect descendants or move matching Directory Carriers. Split this work into bounded children before execution: align Workflow/Action/Step receiving contracts, discover latest contained carriers, compose admitted changes while preserving nesting/history, then independently test P/O recursion, outside references, historical bytes, refusal and partial failure. Include Draft promotion if routed through a separate adapter. CA-P-2314's lookup fix does not prove cascade execution. Legacy `archive/` migration remains separate later work.
 
 Estimated own work: 15 minutes. Assignee: AI Agent. Split concrete work larger than this bound into actual bounded children before execution. This Backlog Task is current pending work, not a future-Version Scope or authorization to execute now.
 

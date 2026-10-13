@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Configuration, Method, Evaluation, Delivery, Plan]
-version: 3
-updated_at: "2026-10-13 17:20:07 +0400"
+version: 4
+updated_at: "2026-10-13 18:24:31 +0400"
 relations:
   is_decomposition_of: [CA-P-2256]
 ---
@@ -47,6 +47,6 @@ The three bounded validator Tasks are Done after independent review. Full admiss
 
 ### Definition of Done
 
-Further discovery work follows [CA-P-2314 — Restrict reference discovery to admitted Atom containers](02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/04-CA-P-2314-TASK--restrict-reference-discovery-to-admitted-atom-containers.md). The Operator chose a positive folder whitelist, not exclusion Settings, and a recursive Plan-style sibling-file/optional-folder convention for Workflows, Steps and substeps. Actions stay separate outside that tree. D467 and its E500 example are being aligned; a new read-only FPF review Plan precedes implementation. No old carriers are moved automatically.
+Further discovery work follows [CA-P-2314 — Restrict reference discovery to admitted Atom containers](02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/04-CA-P-2314-TASK--restrict-reference-discovery-to-admitted-atom-containers.md). The Operator chose a positive folder whitelist, not exclusion Settings, and a recursive Plan-style sibling-file/optional-folder convention for Workflows, Steps and substeps. Actions stay separate outside that tree. The approved read-only FPF design challenge completed under Plan `workflow-carrier-whitelist-d96b9733`. Follow-up decisions require all parent Status changes to cascade through latest contained P/O Atoms only, preserving history and external references; read-time lookup still checks each carried Status. CA-P-2314 implements the admitted-container lookup after the affected source amendments are independently accepted. Actual lifecycle cascade implementation remains under CA-P-2264; legacy `archive/` migration is deferred. No old carriers are moved automatically.
 
 The bounded outcome has exact source/implementation pins, actual relevant checks and a different reviewer's acceptance. Preparation is not implementation; a Plan is not an executed FPF review. The parent and CA-P-2297 remain Active until their separate receiving/publication requirements pass.
