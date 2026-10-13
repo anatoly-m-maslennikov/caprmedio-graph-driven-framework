@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 3
-updated_at: "2026-10-13 18:52:21 +0400"
+version: 4
+updated_at: "2026-10-13 19:25:32 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2278]
@@ -44,7 +44,7 @@ The registered-owner resolver passed bounded independent checks (11 focused test
 
 ### Bounded continuation — 2026-10-13
 
-[CA-P-2315 — Resolve graph authority from declared sources](35-CA-P-2270-TASK--refresh-authority-consumers-and-release-admission/01-CA-P-2315-TASK--resolve-graph-authority-from-declared-sources.md) repairs the graph-authority refresh consumer's obsolete source roots. Preserve the finite source-ID set, exact current source checks and stale-pin refusal. This does not authorize manifest-wide repinning or source migration. The Operator deferred legacy source migration again; the malformed legacy Concern and missing current CA-D-572 remain separate blockers. This parent stays Active.
+[CA-P-2315 — Resolve graph authority from declared sources](35-CA-P-2270-TASK--refresh-authority-consumers-and-release-admission/done/01-CA-P-2315-TASK--resolve-graph-authority-from-declared-sources.md) is Done after independent acceptance and commit 92261be4e. The finite source-ID set, exact source checks and stale-pin refusal remain intact. Later PRMEDO-only cleanup is separately approved under CA-P-2325; C/A remains deferred. Missing current CA-D-572 still blocks complete Release admission. This parent stays Active.
 
 ### Definition of Done
 
