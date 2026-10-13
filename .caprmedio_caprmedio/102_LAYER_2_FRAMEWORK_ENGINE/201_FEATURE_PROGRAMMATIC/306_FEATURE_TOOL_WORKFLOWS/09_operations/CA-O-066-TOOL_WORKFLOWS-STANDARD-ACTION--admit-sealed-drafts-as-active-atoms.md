@@ -20,8 +20,8 @@ subjects:
     - "Atom/Revision"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 3
-updated_at: "2026-10-12 23:49:24 +0400"
+version: 4
+updated_at: "2026-10-13 18:55:32 +0400"
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
@@ -51,6 +51,8 @@ Admit Sealed Drafts as Active Atoms **means** the reusable Action that accepts o
 This accepted Draft becomes **`=1`** byte-identical active Atom with its admitted Operator-supplied identity. remain **in** dry-run mode **without** delegated apply authority. stop **or** roll back on invalid input, uncertain identity admission, collision, stale Carrier, changed destination absence **or** incomplete promotion. incomplete **or** unverified restoration is **not** successful recovery.
 
 A first identity admission preserves the Draft-byte rule above; it does not invent a prior same-ID Atom Revision. Any actual change to an already identified Atom follows Version N+1 and actual Project-time updated_at, with exact prior N history retained; no-op retains Version/time.
+
+For a folder-backed Plan, Workflow or Step Draft, include its matching Directory Carrier in this one target's admitted destination map and retain its nested tree beside the promoted Markdown Carrier with the governed matching stem. Preserve exact older Revision bytes and do not migrate noncanonical legacy archive trees. Relocation does not infer or rewrite descendants' Status or Revision metadata. When this admission is a component of the R1521 containment cascade, the caller separately binds every selected descendant's latest Revision to its own model-admitted Status Action, rechecking its current location after earlier effects. This Action retains the Operator-supplied identity-admission conditions above, selects no other target and proves completion only for its one admission; referenced Atoms outside the tree remain untouched.
 
 ## Independent Atom batch boundary
 

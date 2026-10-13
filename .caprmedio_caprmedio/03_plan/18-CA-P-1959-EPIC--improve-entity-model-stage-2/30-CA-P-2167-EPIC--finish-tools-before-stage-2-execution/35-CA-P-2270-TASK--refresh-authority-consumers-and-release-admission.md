@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 2
-updated_at: "2026-10-13 04:51:49 +0400"
+version: 3
+updated_at: "2026-10-13 18:52:21 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2278]
@@ -41,6 +41,10 @@ Deliver the exact changed or reviewed manifest and focused check results to the 
 ### Current checkpoint
 
 The registered-owner resolver passed bounded independent checks (11 focused tests and 11 independent assertions). Full Release admission remains unproven: CA-D-572 was deliberately archived without a current successor. Do not restore it or use historical/installed bytes as current authority. Source/consumer disposition remains separate from the accepted resolver change.
+
+### Bounded continuation — 2026-10-13
+
+[CA-P-2315 — Resolve graph authority from declared sources](35-CA-P-2270-TASK--refresh-authority-consumers-and-release-admission/01-CA-P-2315-TASK--resolve-graph-authority-from-declared-sources.md) repairs the graph-authority refresh consumer's obsolete source roots. Preserve the finite source-ID set, exact current source checks and stale-pin refusal. This does not authorize manifest-wide repinning or source migration. The Operator deferred legacy source migration again; the malformed legacy Concern and missing current CA-D-572 remain separate blockers. This parent stays Active.
 
 ### Definition of Done
 

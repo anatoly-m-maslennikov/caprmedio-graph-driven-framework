@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 29
-updated_at: "2026-10-13 18:24:31 +0400"
+version: 30
+updated_at: "2026-10-13 19:01:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,10 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Continued independent work — 2026-10-13
+
+Keep the whole Epic open. CA-P-2315 repairs graph authority lookup; CA-P-2299 completes source-bound section preparation; CA-P-2316–2319 decompose contained Status work; CA-P-2320–2323 align the chosen Settings filename and shared Project boundary checks. Each slice has its own independent evidence; none substitutes for receiving, portfolio or runtime completion. Legacy source migration remains a separate Operator decision, not an automatic exclusion or normalization.
 
 ### Admitted lookup and contained Status changes — 2026-10-13
 
@@ -206,7 +210,7 @@ CA-P-2279 is Done after [independent Configuration Read source acceptance](../..
 - [CA-P-2261 — Bind Scope Unit creation](../001_backlog/26-CA-P-2261-TASK--bind-scope-unit-creation.md)
 - [CA-P-2262 — Bind Scope Unit rename and move](../001_backlog/27-CA-P-2262-TASK--bind-scope-unit-rename-and-move.md)
 - [CA-P-2263 — Bind Subject rename to explicit property edits](../001_backlog/28-CA-P-2263-TASK--bind-subject-rename-to-explicit-property-edits.md)
-- [CA-P-2264 — Bind Atom placement and Status changes](../001_backlog/29-CA-P-2264-TASK--bind-atom-placement-and-status-changes.md)
+- [CA-P-2264 — Bind Atom placement and Status changes](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/29-CA-P-2264-TASK--bind-atom-placement-and-status-changes.md)
 - [CA-P-2265 — Bind Summary and Type replacement](../001_backlog/30-CA-P-2265-TASK--bind-summary-and-type-replacement.md)
 - [CA-P-2266 — Bind Project Structure updates](../001_backlog/31-CA-P-2266-TASK--bind-project-structure-updates.md)
 - [CA-P-2267 — Bind Project Settings updates](../001_backlog/32-CA-P-2267-TASK--bind-project-settings-updates.md)

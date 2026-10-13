@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Workflow, Configuration, Plan]
-version: 1
-updated_at: "2026-10-13 04:30:00 +0400"
+version: 2
+updated_at: "2026-10-13 19:06:21 +0400"
 relations:
   is_decomposition_of: [CA-P-2258]
 ---
@@ -30,6 +30,12 @@ Connect the pure section edit family to exact complete Atom observation and vali
 ## Details
 
 Estimated own work: 15 minutes. Split larger work into bounded children before execution. Inherit the parent Task's accepted contracts, current-source checks and authority boundaries. Internal helpers are not newly admitted Tools. Keep parsing, reading, writing and CLI responsibilities separate. The integration owner controls Plans and Git; parallel implementation owns disjoint files only.
+
+### Current implementation checkpoint
+
+The private, no-write section preparation helper and independent literal-byte tests are implemented. Actual selected admission, exact pinned section authority, source/candidate checks, currentness, no-op and unrelated-byte preservation have focused proof. No public receiver or write route is added.
+
+A real regression showed the shared finite validator accepts an invalid Plan/Action Type. [CA-P-2324 — Enforce source-bound role Type domains](01-CA-P-2299-TASK--bind-section-preparation-to-complete-atom-validation/01-CA-P-2324-TASK--enforce-source-bound-role-type-domains.md) enables the existing generic role/Type check against unchanged current domain authority, rather than accepting only the convenient Plan fixture. This Task remains Active until that gap and the fresh independent portfolio pass. Full-project legacy admission and publication remain separate.
 
 ### Definition of Done
 

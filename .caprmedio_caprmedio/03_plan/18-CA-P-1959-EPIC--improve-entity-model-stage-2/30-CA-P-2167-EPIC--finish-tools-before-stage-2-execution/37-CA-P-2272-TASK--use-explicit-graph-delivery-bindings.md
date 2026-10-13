@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 3
-updated_at: "2026-10-13 05:09:14 +0400"
+version: 4
+updated_at: "2026-10-13 19:01:00 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2278]
@@ -45,6 +45,15 @@ Explicit Delivery binding and terminal-slash compatibility passed bounded indepe
 ### Bounded acceptance and remaining gate
 
 The [bounded independent graph receipt](../../../_projection/core-entity-review/stage2/tools-first/declaration-graph-acceptance.md) accepts the topology/observation implementation and exact pins: 30 tests passed and the current read-only declaration probe returned 29 Scope Units. The shared cross-Project path guard remains incomplete, so complete invalid-declaration refusal is not yet accepted and this Task stays Active. Settings revision resolution also blocks full graph/runtime readiness. No publication is authorized by the bounded receipt.
+
+### Bounded Project boundary continuation
+
+The Operator chose caprmedio_project_settings.toml as the canonical Settings filename; align the conflicting rules without renaming current Settings. Separate foreign-boundary refusal from graph Settings revision evidence. No synthetic receipts, broad legacy migration or installed activation.
+
+- [CA-P-2320 — Align canonical Settings filename](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/01-CA-P-2320-TASK--align-canonical-settings-filename.md)
+- [CA-P-2321 — Verify declaration path Project boundaries](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/001_backlog/02-CA-P-2321-TASK--verify-declaration-path-project-boundaries.md)
+- [CA-P-2322 — Bind declaration boundary consumers](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/001_backlog/03-CA-P-2322-TASK--bind-declaration-boundary-consumers.md)
+- [CA-P-2323 — Verify Project boundary refusal](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/001_backlog/04-CA-P-2323-TASK--verify-project-boundary-refusal.md)
 
 ### Definition of Done
 

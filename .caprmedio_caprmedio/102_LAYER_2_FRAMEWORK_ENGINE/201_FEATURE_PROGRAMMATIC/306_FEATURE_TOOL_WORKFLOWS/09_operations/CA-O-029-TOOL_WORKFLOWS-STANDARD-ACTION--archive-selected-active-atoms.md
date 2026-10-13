@@ -17,8 +17,8 @@ subjects:
     - "Atom/Revision"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 7
-updated_at: "2026-10-12 23:49:24 +0400"
+version: 8
+updated_at: "2026-10-13 18:55:32 +0400"
 relations: {}
 ---
 # Summary
@@ -37,6 +37,8 @@ Archive Selected Active Atoms **means** the reusable Action that archives one ex
 4. execute only through the current admitted Project-local route with exact sealed permission and rechecked source/destination evidence. Safely perform and verify this one Atom's archival effect, retaining its actual result and required recording.
 5. on failure recover only this Action's verified mutable frontier while preserving earlier successful Atoms, pre-existing history and accepted Journal evidence. Retain truthful failed/partial/unknown effects if recovery or recording is incomplete.
 6. return the actual archived Atom ID and Version. In replacement 100 -> 200, archival targets and reports 100; it neither reports 200 as the archived target nor automatically changes references from 100 to 200.
+
+For a folder-backed Plan, Workflow or Step, include its matching Directory Carrier in this one Atom's admitted placement map and retain the recursively contained tree under the parent's governed archived placement and matching basename. Preserve exact older Revision bytes and do not migrate noncanonical legacy archive trees. Relocation does not infer or rewrite descendants' Status or Revision metadata. The calling Workflow composes the required R1521 cascade as separate individually admitted Actions for the parent and each selected descendant's latest Revision; this Action neither selects those descendants nor reports their changes complete. Referenced Atoms outside the Carrier tree remain untouched.
 
 ### Batch and stop boundary
 
