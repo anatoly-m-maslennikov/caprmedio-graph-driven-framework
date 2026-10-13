@@ -32,6 +32,12 @@ _REGISTRY_IDS = (
 )
 _SUPPORT_IDS = ("CA-D-494", "CA-D-440", "CA-D-441", "CA-D-442", "CA-R-1308", "CA-R-1313", "CA-D-324", "CA-D-466", "CA-D-461")
 _GRAPH_IDS = tuple(sorted(APPROVED_GRAPH_AUTHORITY_IDS))
+_FRONTIER_STATUS_IDS = {
+    "Concern": "CA-R-1608", "Analysis": "CA-R-1875", "Plan": "CA-R-1539",
+    "Requirement": "CA-R-1309", "Method": "CA-R-1397", "Evaluation": "CA-R-1398",
+    "Delivery": "CA-R-1399", "Operations": "CA-R-1874",
+}
+_FRONTIER_IDS = ("CA-D-434", "CA-D-467", "CA-D-460", "CA-D-481", *_FRONTIER_STATUS_IDS.values())
 _CODES = frozenset(
     {
         "frontmatter.common_encoding", "frontmatter.version", "frontmatter.updated_at",
@@ -130,6 +136,25 @@ def _current(reader: ReadContext) -> None:
         raise ProposedCarrierError("selected Project inputs are unavailable") from error
 
 
+def _frontier_status_folders(context: VerifiedSourceContext, plan_mapping: dict[str, str]) -> dict[str, dict[str, str]]:
+    report: Record = {"bindings": {}, "coverage": {"gaps": []}}
+    with bind_selection(context._selection):
+        sources = {
+            identifier: _source(context.root, identifier, context._reader, report, graph=identifier in _GRAPH_IDS)
+            for identifier in _FRONTIER_IDS
+        }
+    mappings = {}
+    for role, identifier in _FRONTIER_STATUS_IDS.items():
+        statuses = _domain(sources[identifier]["text"])
+        if not statuses:
+            raise ProposedCarrierError("reference status-directory authority is unavailable")
+        mappings[role] = {status: "" if status.casefold() == "active" else status.lower() for status in statuses}
+    if set(plan_mapping) != set(mappings["Plan"]):
+        raise ProposedCarrierError("reference Plan status-directory authority is incomplete")
+    mappings["Plan"] = plan_mapping
+    return mappings
+
+
 def validate_proposed_carrier(
     metadata: Record, body: str, verified_source_context: VerifiedSourceContext, relative_path: Path,
     *, allow_existing_relations: bool = False,
@@ -181,8 +206,8 @@ def validate_proposed_carrier(
         None,
     )
     plan_mapping = (
-        dict(re.findall(r"- ([A-Za-z]+): .*?`([^`]+)`", plan_source["text"]))
-        if role == "Plan" and plan_source is not None
+        {"Active": "", **dict(re.findall(r"- ([A-Za-z]+): .*?`([^`]+)`", plan_source["text"]))}
+        if plan_source is not None
         else {}
     )
     source = next((row for row in verified_source_context.inputs["sources"] if row["binding"]["atom_id"] == "CA-D-324"), None)
@@ -195,12 +220,16 @@ def validate_proposed_carrier(
         raise ProposedCarrierError("complete-carrier validation failed or is unresolved")
     if relations and (not allow_existing_relations or plan_deep):
         targets = [target for values in relations.values() if isinstance(values, list) for target in values]
+        status_folders = _frontier_status_folders(verified_source_context, plan_mapping)
         try:
             inventory = inventory_proposed_references(
                 verified_source_context.root,
                 verified_source_context.inputs["structure"],
                 targets,
-                project_authority_paths=tuple(control / directory for directory in mapping.values()),
+                admitted_role_folders=mapping,
+                admitted_status_folders=status_folders,
+                project_authority_paths=(control,),
+                project_name=verified_source_context.inputs["_project_identity"]["project"]["name"],
                 candidate_metadata=metadata,
                 candidate_path=control / relative_path,
                 admitted_plan_status_folders=plan_mapping or None,

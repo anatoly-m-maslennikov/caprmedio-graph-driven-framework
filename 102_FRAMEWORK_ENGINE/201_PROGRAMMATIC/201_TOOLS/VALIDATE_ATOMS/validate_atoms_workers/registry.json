@@ -98,7 +98,7 @@
     "CA-D-481": {
       "version": 4,
       "sha256": "f9a0d601d76895e245c78765004c60cb4c4ffbb01bb578afc0ce6279c2cf2ccb",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-481-CORE_META_MODEL-DELIVERY--store-plan-decomposition-on-the-decomposing-plan.md",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-481-CORE_META_MODEL-DELIVERY--store-plan-decomposition-on-the-decomposing-plan.md",
       "required": true,
       "obligations": [
         "plan.decomposition",
@@ -222,8 +222,8 @@
     },
     "CA-R-1309": {
       "version": 12,
-      "sha256": "4b47c171e8af7bf976f759e01191d3bc01f727b7e6ee82859f4a58f9bff0f514",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1309-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-requirement-status-values.md",
+      "sha256": "603e7e954ba83f21dc2f548e402a76f09f1cc39f4ac5cf619d0d5bc01b3cad7f",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1309-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-requirement-status-values.md",
       "required": false,
       "obligations": [
         "domain.status.requirement"
@@ -231,8 +231,8 @@
     },
     "CA-R-1397": {
       "version": 9,
-      "sha256": "52accf5188b4cfdf85ab673fe81ab797b7738db1320ac6c5e56d70d358fd762c",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1397-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-method-status-values.md",
+      "sha256": "b18023c1108023137f539703aec3812c3675c257ba154ac0a08cc087621669fb",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1397-CORE_META_MODEL-GENERAL--register-core-method-status-values.md",
       "required": false,
       "obligations": [
         "domain.status.method"
@@ -240,8 +240,8 @@
     },
     "CA-R-1398": {
       "version": 9,
-      "sha256": "dc1dbb09dfb242f72e6f6df5a5bd212fadf674f29e5cfafcdccc130ae4db63b5",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-evaluation-status-values.md",
+      "sha256": "f7b33130be9d98abc56a2b0cdd15ea064e32ffa40fff12449fe6ec97b0ab3bf2",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL-GENERAL--register-core-evaluation-status-values.md",
       "required": false,
       "obligations": [
         "domain.status.evaluation"
@@ -250,7 +250,7 @@
     "CA-R-1399": {
       "version": 9,
       "sha256": "bb45378bdbf9c9e840b603907977676eac9e657d170f9f60ac630605b1d2203f",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md",
       "required": false,
       "obligations": [
         "domain.status.delivery"
@@ -259,7 +259,7 @@
     "CA-R-1539": {
       "version": 4,
       "sha256": "ce1395908987e58b681c5f22f2f08cae5c89478d8184aa7ace97ad2a400d75e8",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
       "required": false,
       "obligations": [
         "domain.status.plan"
@@ -267,8 +267,8 @@
     },
     "CA-R-1608": {
       "version": 3,
-      "sha256": "5d2d7f27b439171b92153a81dcaaa4ce8499dde4e837e61902fe889fb24ca53e",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
+      "sha256": "5bf01a8f1d27c69cddcc939e74f3b11325b376565281fdcb2054b77bd18ae672",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
       "required": false,
       "obligations": [
         "domain.status.concern"

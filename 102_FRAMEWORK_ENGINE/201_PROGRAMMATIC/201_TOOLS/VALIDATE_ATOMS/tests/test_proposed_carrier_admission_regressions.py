@@ -18,7 +18,7 @@ from VALIDATE_ATOMS.validate_atoms_workers.authority import Obligation
 from VALIDATE_ATOMS.validate_atoms_workers.check_structure_extended import ADAPTERS
 from VALIDATE_ATOMS.validate_atoms_workers.check_support import Check
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
-    ProposedCarrierError, _REGISTRY_IDS, _SUPPORT_IDS, _entry,
+    ProposedCarrierError, _FRONTIER_IDS, _GRAPH_IDS, _REGISTRY_IDS, _SUPPORT_IDS, _entry,
     source_context_from_project, validate_proposed_carrier,
 )
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_references import (
@@ -27,7 +27,7 @@ from VALIDATE_ATOMS.validate_atoms_workers.proposed_references import (
 
 
 PLAN_BODY = "# Summary\n\nIndependent Plan\n\n## Objective\n\nCheck admission.\n\n## Details\n\n### Definition of Done\n\nExact controls pass.\n"
-TARGET = b"---\natom_id: CA-O-701\ncontent_role: Operations\nstatus: Active\nversion: 7\n---\n# Summary\n\nRequested target\n"
+TARGET = b"---\natom_id: CA-O-701\ncontent_role: Operations\ncurrent_scope_unit: TEST\nstatus: Active\nversion: 7\n---\n# Summary\n\nRequested target\n"
 
 
 def snapshot(root):
@@ -51,19 +51,21 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
 
     def inventory(self):
         return inventory_proposed_references(
-            self.root, {"scope_units": [{"authority_path": "authority"}]}, ["CA-O-701"],
+            self.root, {"scope_units": [{"scope_unit_name": "TEST", "authority_path": "authority"}]}, ["CA-O-701"],
+            admitted_role_folders={"Operations": "09_operations"},
+            admitted_status_folders={"Operations": {"Active": "", "Archived": "archived"}},
         )
 
     def test_unrelated_partial_and_identityless_legacy_do_not_block_exact_target(self):
-        source = self.put("authority/requested.md", TARGET)
-        self.put("authority/unrelated.md", b"---\natom_id: CA-M-999\nversion: 1\n---\n# Legacy\n")
-        self.put("authority/archive/old.md", b"---\nversion: 2\n---\n# Historical legacy\n")
+        source = self.put("authority/09_operations/requested.md", TARGET)
+        self.put("authority/09_operations/unrelated.md", b"---\natom_id: CA-M-999\nversion: 1\n---\n# Legacy\n")
+        self.put("authority/09_operations/archive/old.md", b"---\nversion: 2\n---\n# Historical legacy\n")
         before = snapshot(self.root)
         result = self.inventory()
         self.assertEqual(len(result.direct_targets), 1)
         actual = result.direct_targets[0]
         self.assertEqual((actual.atom_id, actual.status, actual.version, actual.path),
-                         ("CA-O-701", "Active", 7, "authority/requested.md"))
+                         ("CA-O-701", "Active", 7, "authority/09_operations/requested.md"))
         self.assertEqual(actual.sha256, hashlib.sha256(TARGET).hexdigest())
         self.assertEqual(source.read_bytes(), TARGET)
         self.assertEqual(snapshot(self.root), before)
@@ -73,7 +75,7 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
                     TARGET.replace(b"version: 7", b"version: 0"),
                     TARGET.replace(b"version: 7", b"version: true")):
             with self.subTest(raw=raw):
-                self.put("authority/requested.md", raw)
+                self.put("authority/09_operations/requested.md", raw)
                 before = snapshot(self.root)
                 with self.assertRaises(ProposedReferenceError):
                     self.inventory()
@@ -85,27 +87,27 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
             (TARGET, b"---\natom_id: [unterminated\n---\n# Malformed\n"),
         ):
             with self.subTest(requested=requested, unrelated=unrelated):
-                self.put("authority/requested.md", requested)
+                self.put("authority/09_operations/requested.md", requested)
                 if unrelated is not None:
-                    self.put("authority/unrelated.md", unrelated)
+                    self.put("authority/09_operations/unrelated.md", unrelated)
                 with self.assertRaises(ProposedReferenceError):
                     self.inventory()
 
-    def test_duplicate_current_missing_and_archive_only_targets_refuse(self):
-        first = self.put("authority/one.md", TARGET)
-        second = self.put("authority/two.md", TARGET)
+    def test_duplicate_current_missing_and_archived_status_targets_refuse(self):
+        first = self.put("authority/09_operations/one.md", TARGET)
+        second = self.put("authority/09_operations/two.md", TARGET)
         with self.assertRaisesRegex(ProposedReferenceError, "ambiguous"):
             self.inventory()
         first.unlink()
         second.unlink()
         with self.assertRaisesRegex(ProposedReferenceError, "missing"):
             self.inventory()
-        self.put("authority/archive/old.md", TARGET)
+        self.put("authority/09_operations/archived/old.md", TARGET.replace(b"status: Active", b"status: Archived"))
         with self.assertRaisesRegex(ProposedReferenceError, "inactive or archived"):
             self.inventory()
 
     def test_filename_does_not_supply_missing_requested_identity(self):
-        self.put("authority/CA-O-701--not-an-identity-proof.md", b"---\nversion: 7\nstatus: Active\n---\n# Legacy\n")
+        self.put("authority/09_operations/CA-O-701--not-an-identity-proof.md", b"---\nversion: 7\nstatus: Active\n---\n# Legacy\n")
         with self.assertRaises(ProposedReferenceError):
             self.inventory()
 
@@ -265,18 +267,57 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         selection = self.project()
         base = selection.control_relative / "03_plan"
         parent = base / "CA-P-702--parent.md"
-        self.put(parent, b"---\natom_id: CA-P-702\ncontent_role: Plan\nstatus: Active\nversion: 1\n---\n# Summary\n\nParent\n")
+        self.put(parent, b"---\natom_id: CA-P-702\ncontent_role: Plan\ntype: Plan\ncurrent_scope_unit: amber\nstatus: Active\nversion: 1\n---\n# Summary\n\nParent\n")
         self.put(base / "unrelated-legacy.md", b"---\nversion: 1\n---\n# Legacy\n")
         before = snapshot(self.root)
         result = inventory_proposed_references(
-            self.root, {"scope_units": [{"authority_path": "authority"}]}, ["CA-P-702"],
+            self.root, {"scope_units": [{"scope_unit_name": "TEST", "authority_path": "authority"}]}, ["CA-P-702"],
             candidate_metadata=self.metadata(relations={"is_decomposition_of": ["CA-P-702"]}),
             candidate_path=parent.with_suffix("") / "CA-P-701--child.md",
-            project_authority_paths=(base,),
+            project_authority_paths=(selection.control_relative,), project_name="amber",
+            admitted_role_folders={"Plan": "03_plan"},
+            admitted_status_folders={"Plan": {"Active": "", "Done": "done"}},
         )
         self.assertEqual([row.atom_id for row in result.direct_targets], ["CA-P-702"])
         self.assertEqual([row.path for row in result.plan_parent_closure], [parent.as_posix()])
         self.assertEqual(snapshot(self.root), before)
+
+    def test_relation_bearing_caller_uses_verified_whitelist_and_graph_authority(self):
+        selection = self.project()
+        control = selection.control_relative
+        for identifier in dict.fromkeys((*_FRONTIER_IDS, *_GRAPH_IDS)):
+            entry = _entry(identifier, graph=identifier in _GRAPH_IDS)
+            source = REPOSITORY / entry["source_path"]
+            if not source.is_file():
+                source = HERE / "fixtures/extended_authority" / f"{identifier}.md"
+            raw = source.read_bytes()
+            self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
+            self.put(control.joinpath(*Path(entry["source_path"]).parts[1:]), raw)
+        structure = selection.structure_path.read_text()
+        selection.structure_path.write_text(
+            structure + '\n[[scope_units]]\nscope_unit_name = "TEST"\nparent = "PROJECT"\n'
+            'scope_unit_type = "Unordered"\nscope_unit_label = "Layer"\n'
+            'structural_level = 1\nnavigational_order_number = 1\n'
+            f'authority_path = "{control}/unit"\ndelivery_path = "unit"\n',
+            encoding="utf-8",
+        )
+        selection = resolve_project(self.root, control)
+        target = self.put(control / "unit/09_operations/action.md", TARGET.replace(b"version: 7", b"type: Action\nversion: 7"))
+        self.put(control / "unit/evidence/09_operations/broken.md", b"---\natom_id: [unterminated\n---\n")
+        self.put(control / "unit/09_operations/evidence/broken.md", b"---\natom_id: [unterminated\n---\n")
+        metadata = self.metadata(atom_id="CA-E-701", content_role="Evaluation", type="Evaluation", relations={"evaluation_for": ["CA-O-701"]})
+        body = "# Summary\n\nEvaluate action.\n\n## Scope\n\nSelected action.\n\n## Claim\n\nVerify the action.\n\n## Details\n\nIndependent check.\n"
+        before = snapshot(self.root)
+
+        with bind_selection(selection):
+            context = source_context_from_project(self.root)
+            result = validate_proposed_carrier(metadata, body, context, Path("06_evaluation/CA-E-701--related.md"))
+
+        self.assertFalse(result["findings"] + result["gaps"])
+        self.assertEqual(snapshot(self.root), before)
+        target.unlink()
+        with self.assertRaises(ProposedCarrierError):
+            validate_proposed_carrier(metadata, body, context, Path("06_evaluation/CA-E-701--related.md"))
 
 
 if __name__ == "__main__":

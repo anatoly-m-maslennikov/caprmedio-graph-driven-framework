@@ -117,9 +117,29 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-466-CORE_META_MODEL-STANDARD--place-carriers-by-applicable-status-delivery.md"
     },
     "CA-D-461": {
-      "version": 6,
-      "sha256": "e0135ae3093130e3a40f091882d53942f42c83ec5302788a8f4bc718bcf83390",
+      "version": 7,
+      "sha256": "136ce2d224ce82423c7be9fe93adf8fbd615f52826c158f587bf13e5849b487a",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-CORE--place-plan-carriers-by-status.md"
+    },
+    "CA-D-434": {
+      "version": 8,
+      "sha256": "a14c02222a752dc3eef6bc662432918e6bf09108d08a44db97cbe7753cc3e2f8",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-434-CORE_META_MODEL--place-authoritative-operations-atom-carriers.md"
+    },
+    "CA-D-467": {
+      "version": 6,
+      "sha256": "66b1e31eefc3e13177279d880802ae5d99ddc82e32c65a94c7659bb96515cff2",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md"
+    },
+    "CA-R-1874": {
+      "version": 1,
+      "sha256": "916f75193f373563730f84d8374a1ffd3d74a243fd0daa8c610b72c48935060a",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-operations-status-values.md"
+    },
+    "CA-R-1875": {
+      "version": 1,
+      "sha256": "4e9729d9a86cfde040939429e31efea27f72cc7fe0bf9645d1b993181072905b",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md"
     },
     "CA-R-1307": {
       "version": 12,
