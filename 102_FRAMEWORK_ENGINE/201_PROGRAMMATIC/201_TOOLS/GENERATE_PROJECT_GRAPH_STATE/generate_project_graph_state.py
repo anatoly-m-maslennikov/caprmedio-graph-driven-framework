@@ -162,8 +162,8 @@ def configuration_binding(config_sha: str, carrier: Path | None = None) -> dict[
     matches: list[dict[str, str]] = []
     carrier = CONFIG if carrier is None else carrier
     configuration_path = project_relative(carrier)
-    for carrier in sorted(JOURNAL.glob("*.ndjson")):
-        for number, line in enumerate(carrier.read_text(encoding="utf-8").splitlines(), 1):
+    for journal_carrier in sorted(JOURNAL.glob("*.ndjson")):
+        for number, line in enumerate(journal_carrier.read_text(encoding="utf-8").splitlines(), 1):
             try:
                 record = json.loads(line)
             except json.JSONDecodeError:
@@ -187,7 +187,7 @@ def configuration_binding(config_sha: str, carrier: Path | None = None) -> dict[
             matches.append(
                 {
                     "revision": str(result["version"]),
-                    "journal_carrier": project_relative(carrier),
+                    "journal_carrier": project_relative(journal_carrier),
                     "journal_line": str(number),
                     "journal_event_id": str(record.get("event_id", "unknown")),
                     "updated_at": updated_at,

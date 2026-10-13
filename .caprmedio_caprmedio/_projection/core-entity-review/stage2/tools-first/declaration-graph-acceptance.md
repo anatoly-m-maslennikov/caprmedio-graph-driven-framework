@@ -35,3 +35,16 @@ A separate pre-existing shared path-validation gap remains: a declared authority
 This receipt is derived evidence. No source/Subject migration, folder movement, graph output publication, stale historical-pin replacement or new native relation is included.
 
 Read-only follow-up by `/root/epic_scope_read` confirms that ProjectSelection, structural actions, source admission and Scope reads share the boundary gap. A correction belongs in declaration-path validation for both authority and Delivery, not every generic relative-path operation. It needs explicit owning-control identity and current Settings evidence, including revalidation. Current Core D363/D364 use named Settings files, while native helpers still use `caprmedio_project_settings.toml`; that binding mismatch must be settled before implementing a guessed boundary policy. Do not reject folders solely by prefix or require a complete foreign Project Structure before recognizing its Settings-defined identity.
+
+## Settings identifier correction
+
+The shadowing defect reported above was subsequently fixed on 2026-10-13. The Journal iteration uses a separate variable, preserving the requested Settings carrier's identifier while keeping receipt attribution, matching and resolved/unresolved/ambiguous behavior unchanged. Author: `/root/epic_bindings`; independent verifier: `/root/epic_property`.
+
+Six independent real-file fixture tests cover Project and Framework Settings, default and explicit selection, empty/unrelated/multiple Journals, resolved/ambiguous receipts, exact receipt attribution and source digest drift. The pre-fix generator from `b8667d8a3` fails five identifier cases and passes the empty-Journal case. The corrected generator passes all six; root reran the complete graph suite, 36 tests PASS. Fixture input bytes are unchanged by lookup. No production graph, Settings or Journal was written.
+
+| Corrected input | SHA-256 |
+| --- | --- |
+| `generate_project_graph_state.py` | `fd9f973835dfdbeaa6e79f18aaaeaf8698fe833fa0e5a8200e3f0629ecd50991` |
+| `tests/test_settings_binding_identity_independent.py` | `2956d108c033d37ba64f81d4ba98ad4192b4c33a9b1b5ffa732999e73f30539d` |
+
+These pins supersede only the generator's earlier pin for this bounded correction and add its independent tests. The original topology evidence remains historical. Missing current Settings revision receipts, the cross-Project path boundary and native/canonical filename mismatch remain open; CA-P-2272 is not complete.
