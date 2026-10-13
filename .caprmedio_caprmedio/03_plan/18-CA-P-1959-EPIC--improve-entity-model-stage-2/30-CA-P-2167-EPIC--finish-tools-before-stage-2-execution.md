@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 35
-updated_at: "2026-10-13 23:29:02 +0400"
+version: 36
+updated_at: "2026-10-13 23:46:09 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -29,17 +29,13 @@ The Tools required before affected Stage-2 execution have updated, independently
 
 ## Details
 
-### Current continuation checkpoint — 2026-10-13 23:29:02 +0400
+### Current continuation checkpoint — 2026-10-13 23:46:09 +0400
 
-The ordinary Settings file reader and approved optional port-schema/source alignment are complete in `de558c227`: 8 author checks, 44 independent connected checks and all 307 connector regressions passed. The earlier pending port-schema question is resolved for this bounded reader. It reads/parses/validates supplied Settings without Journal scanning or history/currentness output or gate; this work changes no live Settings, existing callers or MCP startup policy. P2354–P2356 are Done for their bounded ordinary-reader work. P2300 and broader complete Configuration Read receiving integration remain open.
+Seven Carrier v3 sources passed source-consistency review and are committed as `5ae7e5bc5`. Scope remains rules/test fixtures only, with no implementation, pin adoption or live/production activation. The current writer callback does not enforce the new safeguards; mocks do not establish readiness. Passing E633 acceptance requires real receiver enforcement and verification.
 
-The shared current-Atom Update correction is committed as `bced47e49`; P2361/P2362 are Done in `517f1f1fa` after exact Version +1, predecessor-byte preservation, unchanged no-op, authorization and recovery checks. This does not complete generic Property/Section receiving or the raw renderer. Draft/legacy policy remains excluded; the old Draft golden fixtures still fail setup against a removed authority root. P2257 and the broader affected parents stay Active.
+Approved PRMEDO conformance avoids deferred CONC076 TOML work. Three role-as-Type fields await the Operator's answer; unsupported `relates_to` remains unresolved. A typed-relation correction packet is available read-only but unapplied; R1093's context link can be dropped instead of a header bundle. Raw-carrier literal publication has a design, but D531/D585 amendments are needed and no literal field is implemented. Generic Property/Section receiving and the raw renderer remain open.
 
-Approved Carrier scope is rules and isolated test fixtures only, with no live or production activation. Read-only fixture investigation found that the current writer callback does not enforce the new safeguards. Successful mocks therefore do not make Carrier ready. Passing E633 acceptance requires real receiver enforcement and verification; the source author can complete the bounded source work independently without granting receiver readiness.
-
-The shared exact connector-state digest guard remains committed as `fa69890e3`. Private O211 and O047/O046 receiving remain independently accepted at `35093e276` and `5d60b9053`; P2357–P2360 are Done in `912935f1b` for those bounded private connections, not public-route or runtime activation.
-
-Keep this Epic Active. All other remaining gates and blockers are unchanged. These local source/code/fixture results grant no live Settings/caller migration, new public route/manifest, runtime activation or live Core migration, and do not close broader receiving, publication or portfolio acceptance.
+Draft-fixture corrections `6d878b18a`/`fa2b89564` pass 57 related checks, including all 9 Draft golden checks, resolving the old nine-case setup blocker. The current fixture blocker is 11 missing-`operators_registry` errors in a broader 34-check run, before source admission. Keep this Epic Active with its original DoD; historical notes are preserved and all other gates remain unchanged. No new Task/closure, Draft/legacy policy, live effects or runtime readiness is inferred.
 
 ### Current continuation checkpoint — 2026-10-13 22:13:02 +0400
 
