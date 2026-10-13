@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Workflow, Configuration, Plan]
-version: 1
-updated_at: "2026-10-13 04:30:00 +0400"
+version: 2
+updated_at: "2026-10-13 04:40:03 +0400"
 relations:
   is_decomposition_of: [CA-P-2253]
 ---
@@ -30,6 +30,10 @@ Bind the pure Atom Query/Read mechanics to the existing receiving admission, exp
 ## Details
 
 Estimated own work: 15 minutes. Split larger work into bounded children before execution. Inherit the parent Task's accepted contracts, current-source checks and authority boundaries. Internal helpers are not newly admitted Tools. Keep parsing, reading, writing and CLI responsibilities separate. The integration owner controls Plans and Git; parallel implementation owns disjoint files only.
+
+### Remaining receiving connection
+
+The bounded private dispatcher and its independent fixture review are complete. This is not connected runtime readiness. Continue the concrete receiving connection in [CA-P-2301 — Bind selected Read receivers](01-CA-P-2294-TASK--bind-atom-reads-to-admitted-sources/01-CA-P-2301-TASK--bind-selected-read-receivers.md).
 
 ### Definition of Done
 
