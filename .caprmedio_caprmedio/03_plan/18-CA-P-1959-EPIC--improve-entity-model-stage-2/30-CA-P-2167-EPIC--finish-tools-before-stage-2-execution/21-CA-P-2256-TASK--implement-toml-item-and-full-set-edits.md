@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 4
-updated_at: "2026-10-13 20:30:21 +0400"
+version: 5
+updated_at: "2026-10-13 20:40:12 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2266, CA-P-2267, CA-P-2269, CA-P-2275]
@@ -47,8 +47,8 @@ The initial private mechanics are implemented or in progress; this is not accept
 The Operator approved a narrowly scoped TOMLKit dependency, its M/D/E selection and the private connector implementation. It does not enable live writes or migration. Complete the bounded work through:
 
 - [CA-P-2307 — Select TOMLKit for preserving configuration text](21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text.md)
-- [CA-P-2308 — Preserve TOML text during pure edits](21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/03-CA-P-2308-TASK--preserve-toml-text-during-pure-edits.md)
-- [CA-P-2309 — Verify TOML text preservation independently](21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/04-CA-P-2309-TASK--verify-toml-text-preservation-independently.md)
+- [CA-P-2308 — Preserve TOML text during pure edits](21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/done/03-CA-P-2308-TASK--preserve-toml-text-during-pure-edits.md)
+- [CA-P-2309 — Verify TOML text preservation independently](21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/done/04-CA-P-2309-TASK--verify-toml-text-preservation-independently.md)
 - [CA-P-2310 — Integrate preserving TOML materialization](21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/001_backlog/05-CA-P-2310-TASK--integrate-preserving-toml-materialization.md)
 
 The existing receiving-schema Task CA-P-2297 remains separate. The additional Markdown/YAML library question is assessment-only, not dependency approval.
@@ -60,3 +60,7 @@ The typed source repair passed independent semantic and exact-history review, fo
 ### Definition of Done
 
 The Plan is **not** Done if applicable accepted contracts/FPF gates or current pins are missing; focused valid, refusal and no-op/error/effect checks fail or lack actual results; unrelated behavior regresses; implementation is claimed from preparation; or deferred/unauthorized capability is enabled. Own work must not exceed 15 minutes without prior decomposition.
+
+### Materializer acceptance — 2026-10-13
+
+P2308 and P2309 are Done after 20 actual tests and independent final-pin review. The pure helper preserves supported edits and exact no-ops; malformed, ambiguous or lossy layouts refuse. Dependency selection is pinned to TOMLKit 0.15.1 without changing existing lock package records. P2310 integration may now be assessed against actual receiving contracts; the parent is not Done and no live configuration writes are enabled.
