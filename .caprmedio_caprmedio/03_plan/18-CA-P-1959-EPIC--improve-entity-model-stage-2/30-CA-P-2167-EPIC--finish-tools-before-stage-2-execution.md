@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 36
-updated_at: "2026-10-13 23:46:09 +0400"
+version: 37
+updated_at: "2026-10-14 00:05:19 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -29,13 +29,13 @@ The Tools required before affected Stage-2 execution have updated, independently
 
 ## Details
 
-### Current continuation checkpoint — 2026-10-13 23:46:09 +0400
+### Current continuation checkpoint — 2026-10-14 00:05:19 +0400
 
-Seven Carrier v3 sources passed source-consistency review and are committed as `5ae7e5bc5`. Scope remains rules/test fixtures only, with no implementation, pin adoption or live/production activation. The current writer callback does not enforce the new safeguards; mocks do not establish readiness. Passing E633 acceptance requires real receiver enforcement and verification.
+Seven Carrier v4 relation-only source revisions are committed as `ed5de3af6`. E633 and O215–O217 passed admitted PRMEDO checks; R1941/M381/D630 remain blocked only by the known invalid Type fields awaiting the Operator's answer. This is source/rule work, not implementation, production pin adoption or live writes. Passing E633 acceptance still requires real receiver enforcement and verification; mock writer callbacks do not establish readiness.
 
-Approved PRMEDO conformance avoids deferred CONC076 TOML work. Three role-as-Type fields await the Operator's answer; unsupported `relates_to` remains unresolved. A typed-relation correction packet is available read-only but unapplied; R1093's context link can be dropped instead of a header bundle. Raw-carrier literal publication has a design, but D531/D585 amendments are needed and no literal field is implemented. Generic Property/Section receiving and the raw renderer remain open.
+Journal receipt-integrity correction `d7465c6b9` refuses canonical-digest tampering and orphan cache evidence. Independent code review passed; Root's fresh Journal 28, Appender 28 and Commit 25 checks all passed. The old 11-`operators_registry` fixture-error checkpoint is superseded by the final canonical lifecycle fixture committed as `b86b323ba`, SHA-256 `6c84bf55e63654d0365ee79374102dacde0bc290e4120bc8cbd3b9f7159b0c97`: author 34 checks, independent fixture review and fresh 34-check rerun (12.457 seconds) passed on unchanged pins. Historical notes remain unchanged; fixture repair grants no broader source/runtime acceptance.
 
-Draft-fixture corrections `6d878b18a`/`fa2b89564` pass 57 related checks, including all 9 Draft golden checks, resolving the old nine-case setup blocker. The current fixture blocker is 11 missing-`operators_registry` errors in a broader 34-check run, before source admission. Keep this Epic Active with its original DoD; historical notes are preserved and all other gates remain unchanged. No new Task/closure, Draft/legacy policy, live effects or runtime readiness is inferred.
+Keep this Epic and all broad parents Active with the original DoD. P2294/P2253/P2301 retain unfinished descendants and are not closed or cascaded. R805 v25/D010 v24 require lease expiry/fencing, but the trusted deadline source remains a later one-question gate: R1385/O037 envelope end is only a reuse candidate, and `wait_seconds` is not a lifetime. The three Type-header question remains pending. Generic Property/Section receiving, raw renderer/literal publication and other wider gates remain open. No new Settings caller integration, live migration, Task or closure is inferred.
 
 ### Current continuation checkpoint — 2026-10-13 22:13:02 +0400
 
