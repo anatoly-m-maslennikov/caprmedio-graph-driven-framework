@@ -1,7 +1,6 @@
 ---
 atom_id: CA-M-383
 content_role: Method
-type: Method
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
 local_tier: Standard
@@ -11,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Project Configuration", "Property", "Carrier", "Workflow"]
-version: 1
-updated_at: "2026-10-13 15:40:27 +0400"
+version: 2
+updated_at: "2026-10-13 19:35:54 +0400"
 relations:
   method_for: [CA-R-1936]
   relates_to: [CA-R-1935, CA-M-110, CA-M-281, CA-M-376, CA-O-204, CA-D-632, CA-E-635, CA-E-254]

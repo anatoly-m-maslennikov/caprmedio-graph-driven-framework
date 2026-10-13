@@ -1,4 +1,8 @@
 ---
+atom_id: "CA-M-110"
+content_role: "Method"
+current_scope_unit: "PROGRAMMATIC"
+status: "Active"
 cce_version: "cce_1"
 cce_form: "method"
 subjects:
@@ -7,8 +11,8 @@ subjects:
     - "Journal/Record"
     - "Atom/Content Role: Operations"
     - "programmatic software"
-version: 19
-updated_at: "2026-09-17 18:36:38 +0000"
+version: 20
+updated_at: "2026-10-13 19:17:17 +0400"
 relations: {"derived_from":["CA-A-053"],"child_of":["CA-M-261"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6

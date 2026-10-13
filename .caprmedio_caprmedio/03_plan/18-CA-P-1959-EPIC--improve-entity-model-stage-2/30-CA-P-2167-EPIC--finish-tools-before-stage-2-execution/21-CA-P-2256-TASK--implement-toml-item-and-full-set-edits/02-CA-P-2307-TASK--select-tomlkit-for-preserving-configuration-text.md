@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Configuration, Method, Evaluation, Delivery, Plan]
-version: 5
-updated_at: "2026-10-13 18:41:24 +0400"
+version: 6
+updated_at: "2026-10-13 19:25:32 +0400"
 relations:
   is_decomposition_of: [CA-P-2256]
 ---
@@ -48,6 +48,14 @@ The three bounded validator Tasks are Done after independent review. Full admiss
 ### Current lookup checkpoint — 2026-10-13
 
 CA-P-2314 is Done for the independently accepted admitted-container lookup and exact source bindings. The previous unknown-evidence blocker is resolved. Complete source admission now stops at the legacy SKILLS Concern `CAPRMEDIO-FRAMEWORK-ENGINE-CONC-076-SKILLS-PROBLEM--problem-core-skill-runtime-is-incomplete.md` without supported frontmatter inside an admitted `01_concern` folder. No source normalization or legacy migration was performed. See `.caprmedio_caprmedio/_projection/core-entity-review/stage2/tools-first/admitted-container-lookup-acceptance.md`. This parent remains Active; cascade execution stays with CA-P-2264 and TOMLKit implementation is not complete.
+
+### Approved PRMEDO-only continuation
+
+The Operator deferred C/A and approved the bounded cleanup in [CA-P-2325 — Repair approved PRMEDO admission carriers](02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/05-CA-P-2325-TASK--repair-approved-prmedo-admission-carriers.md). All 22 targets and 17 exact predecessor archives now pass independent review. P1631's destination numbering collision was corrected to unused 40.
+
+The Operator separately approved removing only the redundant Type headers from M383 and D632, tracked by [CA-P-2330 — Remove redundant TOML rule Types](02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/06-CA-P-2330-TASK--remove-redundant-toml-rule-types.md). The two source corrections and exact archives pass independent review. The explicit PRMEDO finite diagnostic finds four clean packet carriers and fifteen unique current endpoints; this is not complete graph admission.
+
+[CA-P-2331 — Bind explicit PRMEDO reference scope](02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/07-CA-P-2331-TASK--bind-explicit-prmedo-reference-scope.md) connects that scope to the real private proposed-carrier validator, preserving default behavior and refusing required off-scope references. See .caprmedio_caprmedio/_projection/core-entity-review/stage2/tools-first/bounded-prmedo-cleanup-acceptance.md. No other legacy migration or C/A changes are authorized. TOMLKit implementation remains pending.
 
 ### Definition of Done
 

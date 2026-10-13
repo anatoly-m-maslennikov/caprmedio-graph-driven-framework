@@ -25,7 +25,7 @@ Independent archive/link checks passed for P2167 v30, P2264 v3, P2270 v3, P2272 
 
 ## Gates retained
 
-P2316's affected FPF follow-up is plan-only and not executed. This receipt accepts source meaning and exact preservation, not cascade implementation, public receiver admission, installed activation, Settings revision provenance or whole-project validity. The Tools Epic stays Active.
+P2316's affected FPF follow-up was approved and its analytical step is undergoing independent validation; no final audit acceptance is recorded here yet. This receipt accepts source meaning and exact preservation, not cascade implementation, public receiver admission, installed activation, Settings revision provenance or whole-project validity. The Tools Epic stays Active.
 
 The latest migration scope is PRMEDO only; C and A remain deferred and untouched. Any required dependency on deferred content must remain explicit and unresolved, not reported as validated by omission. No legacy source migration has been performed by this packet.
 
@@ -33,10 +33,11 @@ The latest migration scope is PRMEDO only; C and A remain deferred and untouched
 
 | Deliverable | Owner | Exclusive scope | Dependency and acceptance | State |
 | --- | --- | --- | --- | --- |
-| Graph authority resolver | nonatom_rules; root review | Graph refresh, path-only pins, focused fixtures | Exact source bytes; 8 focused and 309 validator tests | Done locally in `92261be4e`; Plan closure pending |
+| Graph authority resolver | nonatom_rules; root review | Graph refresh, path-only pins, focused fixtures | Exact source bytes; 8 focused and 309 validator tests | Done in `92261be4e`; P2315 closure committed in `1dc3ce7c6` |
 | Source/Plan packets above | Authors above; connector_binding_review | Six sources, exact archives; root owns Plans | Independent source/archive/link review | Done source-only; affected FPF pending |
-| Section preparation | whitelist_impl; whitelist_tests | New helper and literal-byte tests | Real admission, exact sources, no effects; shared Type check | Implemented; final verification pending |
-| Generic role/Type check | nonatom_rules | Shared validator, finite pins/fixtures | All current supported roles, unchanged domains, stale refusal | In verification |
+| Section preparation | whitelist_impl; whitelist_tests | New helper and literal-byte tests | Real admission, exact sources, no effects; shared Type check | Private preparation accepted; 34 tests; committed `1398b1d3f`; receiver/publication pending |
+| Generic role/Type check | nonatom_rules; whitelist_tests | Shared validator, finite pins/fixtures | All current supported roles, unchanged domains, stale refusal | Independently accepted; P2324 Done; committed `1398b1d3f` |
 | Configuration receiver | project_context_fix | Read-only binding analysis | Complete Settings schema and exact receiving permission mapping | Blocked on concrete contracts; no code claimed |
-| PRMEDO legacy normalization | nonatom_surface | Read-only bounded inventory | Explicit identities/status/placement; no C/A changes | Diagnosis only |
-| Affected FPF review | receiving_rules_fpf_doer + independent warden | Temporary Plan files only | Validated Plan then Operator approval | Plan preparation |
+| Approved PRMEDO cleanup | nonatom_surface, whitelist_rules, root; connector_binding_review | Exact 14 Plan placements, 3 headers and 5 packet moves | Explicit approval, byte preservation, independent review | Implemented; independent acceptance pending |
+| Finite PRMEDO diagnostics | project_context_fix; root rerun | Read-only declared role/owner subset | Current source/target pins; no deferred reference admitted by omission | 15 direct endpoints found; M383/D632 Type corrections approved under P2330 |
+| Affected FPF review | receiving_rules_fpf_doer + independent warden | Temporary approved audit sets only | Validated Plan, Operator approval, independent step/final validation | Analytical step complete; validation running |

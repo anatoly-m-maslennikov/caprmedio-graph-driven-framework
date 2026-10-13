@@ -1,6 +1,10 @@
 ---
-version: 9
-updated_at: "2026-09-11 20:58:34 +0400"
+atom_id: "CA-D-250"
+content_role: "Delivery"
+current_scope_unit: "PROGRAMMATIC"
+status: "Active"
+version: 10
+updated_at: "2026-10-13 19:17:17 +0400"
 relations:
   child_of:
     - "CA-M-261"

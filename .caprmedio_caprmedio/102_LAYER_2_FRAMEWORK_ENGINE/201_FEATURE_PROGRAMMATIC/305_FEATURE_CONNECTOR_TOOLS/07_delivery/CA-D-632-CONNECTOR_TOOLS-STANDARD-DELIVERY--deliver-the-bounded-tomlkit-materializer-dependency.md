@@ -1,7 +1,6 @@
 ---
 atom_id: CA-D-632
 content_role: Delivery
-type: Delivery
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
 local_tier: Standard
@@ -11,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Project Configuration", "Carrier", "Implementation", "Method", "Evaluation"]
-version: 1
-updated_at: "2026-10-13 15:40:27 +0400"
+version: 2
+updated_at: "2026-10-13 19:35:54 +0400"
 relations:
   delivery_for: [CA-R-1936]
   relates_to: [CA-M-383, CA-M-110, CA-M-281, CA-D-250, CA-D-625, CA-O-204, CA-E-635, CA-E-254]
