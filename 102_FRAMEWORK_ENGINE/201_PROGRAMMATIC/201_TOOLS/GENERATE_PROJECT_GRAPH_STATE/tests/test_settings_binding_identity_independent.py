@@ -17,6 +17,7 @@ assert SPEC is not None and SPEC.loader is not None
 graph = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = graph
 SPEC.loader.exec_module(graph)
+from work_journal import validate_sealed_event, with_event_digest
 SCRATCH = Path.cwd() / ".caprmedio_tmp" / "tests" / "settings-identity-independent"
 
 
@@ -44,10 +45,16 @@ class SettingsBindingIdentityIndependentTests(unittest.TestCase):
         self.assertEqual(graph.configuration()["project"]["name"], "caprmedio")
 
     def record(self, path, version, event_id):
-        return {"kind": "governed_project_change", "event": "completed", "subject_kind": "file",
+        return validate_sealed_event(with_event_digest({
+                "schema_version": 3,
+                "kind": "governed_project_change", "event": "completed", "subject_kind": "file",
                 "occurred_at": "2026-10-13 05:00:00 +0400", "event_id": event_id,
-                "result": {"path": path.relative_to(self.root).as_posix(), "sha256": graph.sha(path),
-                           "version": version}}
+                "action_id": "settings-fixture", "author": "fixture-author",
+                "llm_session": {"app": "codex", "uuid": "fixture-session"},
+                "structural_scope": "caprmedio", "action_type": "ADD", "sources": [],
+                "result": {"state": "present", "filename": path.name,
+                           "path": path.relative_to(self.root).as_posix(), "sha256": graph.sha(path),
+                           "version": version}}))
 
     def write_journal(self, name, records):
         path = self.journal / name
@@ -84,8 +91,11 @@ class SettingsBindingIdentityIndependentTests(unittest.TestCase):
         self.write_journal("aa-empty.ndjson", [])
         wrong_path = self.record(self.project, 7, "unrelated-path")
         wrong_path["result"]["path"] = "some/other/settings.toml"
+        wrong_path["result"]["filename"] = "settings.toml"
+        wrong_path = validate_sealed_event(with_event_digest(wrong_path))
         wrong_digest = self.record(self.framework, 8, "unrelated-digest")
         wrong_digest["result"]["sha256"] = "0" * 64
+        wrong_digest = validate_sealed_event(with_event_digest(wrong_digest))
         self.write_journal("zz-unrelated.ndjson", [None, [], wrong_path, wrong_digest])
         bindings = self.read_bindings()
         self.assert_identity(bindings["project_settings"], self.project, "unresolved")
@@ -112,6 +122,36 @@ class SettingsBindingIdentityIndependentTests(unittest.TestCase):
         direct = graph.configuration_binding(graph.sha(self.framework))
         self.assert_identity(direct, self.framework, "resolved")
         self.assertEqual(direct["journal_event_id"], "framework-receipt")
+
+    def test_observed_baseline_and_completed_change_bind_independently(self):
+        for observed_path in (self.project, self.framework):
+            with self.subTest(observed=observed_path.name):
+                records = [self.record(self.project, 7, "project-receipt"),
+                           self.record(self.framework, 11, "framework-receipt")]
+                observed = records[0 if observed_path == self.project else 1]
+                observed.update(event="recovered", kind="governed_project_state")
+                for field in ("action_type", "sources"):
+                    observed.pop(field)
+                observed["recovery_evidence"] = {"carrier": {
+                    "path": observed["result"]["path"],
+                    "sha256": observed["result"]["sha256"],
+                    "observed_at": observed["occurred_at"],
+                    "observer_run_id": observed["llm_session"]["uuid"],
+                }}
+                records[0 if observed_path == self.project else 1] = validate_sealed_event(
+                    with_event_digest(observed)
+                )
+                receipt = self.write_journal("mixed-settings.ndjson", records)
+                bindings = self.read_bindings()
+                for kind, path, revision, line, event_id in (
+                    ("project_settings", self.project, "7", "1", "project-receipt"),
+                    ("framework_settings", self.framework, "11", "2", "framework-receipt"),
+                ):
+                    self.assert_identity(bindings[kind], path, "resolved")
+                    self.assertEqual(bindings[kind]["revision"], revision)
+                    self.assertEqual(bindings[kind]["journal_line"], line)
+                    self.assertEqual(bindings[kind]["journal_event_id"], event_id)
+                    self.assertEqual(bindings[kind]["journal_carrier"], receipt.relative_to(self.root).as_posix())
 
     def test_ambiguous_project_receipts_do_not_affect_framework_identity_or_receipt(self):
         first = self.write_journal("aa-first.ndjson", [

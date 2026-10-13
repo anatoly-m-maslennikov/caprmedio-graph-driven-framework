@@ -23,6 +23,7 @@ assert SPEC is not None and SPEC.loader is not None
 generate_project_graph_state = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = generate_project_graph_state
 SPEC.loader.exec_module(generate_project_graph_state)
+from work_journal import validate_sealed_event, with_event_digest
 
 
 class GenerateProjectGraphStateTests(unittest.TestCase):
@@ -552,12 +553,17 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         journal = self.control / "work_journal"
         journal.mkdir()
         records = [
-            {
+            validate_sealed_event(with_event_digest({
+                "schema_version": 3,
                 "kind": "governed_project_change", "event": "completed", "subject_kind": "file",
                 "occurred_at": "2026-09-11 00:00:00 +0400", "event_id": path.stem,
-                "result": {"path": path.relative_to(self.root).as_posix(),
+                "action_id": "settings-fixture", "author": "fixture-author",
+                "llm_session": {"app": "codex", "uuid": "fixture-session"},
+                "structural_scope": "fixture_project", "action_type": "ADD", "sources": [],
+                "result": {"state": "present", "filename": path.name,
+                           "path": path.relative_to(self.root).as_posix(),
                            "sha256": generate_project_graph_state.sha(path), "version": 1},
-            }
+            }))
             for path in (self.project_settings, self.framework_settings)
         ]
         receipt = journal / "settings.ndjson"

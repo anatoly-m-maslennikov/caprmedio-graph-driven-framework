@@ -24,6 +24,7 @@ from artifact_metadata import SETTINGS_PATH, atom_identifier, project_identity  
 from project_runtime import atomic_tempfile, repository_root  # noqa: E402
 from WORKFLOW_OPERATIONS.PROJECT_STRUCTURE import project_structure  # noqa: E402
 from project_selection import ProjectSelectionError, _DeclarationBoundaryProof, _declaration_boundary_proof, bound_selection  # noqa: E402
+from work_journal import WorkJournalError, validate_sealed_event  # noqa: E402
 
 
 ROOT = repository_root(SCRIPT)
@@ -159,11 +160,16 @@ def journal_records(journal: Path) -> list[tuple[Path, int, dict[str, object]]]:
 
 
 def configuration_binding(config_sha: str, carrier: Path | None = None) -> dict[str, str]:
-    """Resolve the one completed receipt for the canonical native carrier."""
+    """Resolve one sealed change or observed baseline for the native carrier."""
 
     matches: list[dict[str, str]] = []
     carrier = CONFIG if carrier is None else carrier
     configuration_path = project_relative(carrier)
+    try:
+        current_sha = sha(carrier)
+    except OSError:
+        current_sha = ""
+    project_name = project_identity(ROOT)["project"]["name"]
     for journal_carrier in sorted(JOURNAL.glob("*.ndjson")):
         for number, line in enumerate(journal_carrier.read_text(encoding="utf-8").splitlines(), 1):
             try:
@@ -172,17 +178,40 @@ def configuration_binding(config_sha: str, carrier: Path | None = None) -> dict[
                 continue
             if not isinstance(record, dict):
                 continue
-            result = record.get("result")
             if (
-                record.get("kind") != "governed_project_change"
-                or record.get("event") != "completed"
+                record.get("schema_version") != 3
+                or (record.get("event"), record.get("kind")) not in (
+                    ("completed", "governed_project_change"),
+                    ("recovered", "governed_project_state"),
+                )
                 or record.get("subject_kind") != "file"
-                or not isinstance(result, dict)
-                or result.get("path") != configuration_path
-                or result.get("sha256") != config_sha
-                or not isinstance(result.get("version"), int)
             ):
                 continue
+            try:
+                record = validate_sealed_event(record)
+            except (WorkJournalError, TypeError, AttributeError):
+                continue
+            result = record["result"]
+            if (
+                record["structural_scope"] != project_name
+                or result["state"] != "present"
+                or result["filename"] != carrier.name
+                or result.get("path") != configuration_path
+                or result.get("sha256") != config_sha
+                or config_sha != current_sha
+            ):
+                continue
+            if record["event"] == "recovered":
+                evidence = record["recovery_evidence"].get("carrier")
+                if (
+                    not isinstance(evidence, dict)
+                    or evidence.get("path") != configuration_path
+                    or evidence.get("sha256") != config_sha
+                    or evidence.get("observed_at") != record["occurred_at"]
+                    or not isinstance(evidence.get("observer_run_id"), str)
+                    or not evidence["observer_run_id"]
+                ):
+                    continue
             updated_at = normalise_timestamp(record.get("occurred_at"))
             if not updated_at:
                 continue

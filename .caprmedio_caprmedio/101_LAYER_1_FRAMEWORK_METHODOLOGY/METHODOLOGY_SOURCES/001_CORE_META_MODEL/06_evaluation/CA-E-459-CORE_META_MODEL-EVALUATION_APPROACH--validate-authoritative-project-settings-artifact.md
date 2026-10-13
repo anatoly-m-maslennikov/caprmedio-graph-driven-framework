@@ -9,8 +9,8 @@ subjects:
     - "Atom/Identifier/Project Prefix"
     - "Framework Instance Settings"
     - "CORE_META_MODEL"
-version: 16
-updated_at: "2026-10-02 20:09:13 +0400"
+version: 17
+updated_at: "2026-10-13 21:22:41 +0400"
 relations:
   evaluation_for:
     - CA-R-1738
@@ -57,6 +57,8 @@ the Evaluation **must** reject Project Settings **if**
 - lacks an Operator-selected Project Name,
 - lacks an Operator-selected Project Atom prefix,
 - treats a Methodology Atom, Framework Instance Settings, **or** a Projection as an independent authoritative source of either selected value,
-- **or** lacks an exact current Revision, SHA-256 Digest, **and** governed-change Work Journal receipt.
+- **or** lacks an exact current Revision, SHA-256 Digest, **and** Work Journal receipt admitted by CA-D-365.
 
 ## Details
+
+for recovered baseline registration, the Evaluation **must** check the exact selected Project, Carrier path, lineage-derived logical Revision, **and** Digest binding required by CA-D-365. verify that registration leaves Settings bytes unchanged **and** records the actual observation time **and** evidence-backed observer Run **or** session. reject an absent **or** ambiguous binding, a stale Carrier Digest, a path-based Revision reset **or** guessed allocation, **or** a fabricated Settings write, past mutation, author, **or** history. an admitted baseline receipt **must not** replace any Settings schema **or** ownership check above **or** authorize another operation.
