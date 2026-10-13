@@ -291,61 +291,46 @@ def navigational_order_number(
 
 
 def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dict[str, object]]:
-    """Discover active typed Scope Units and link each to its nearest typed parent."""
+    """Project complete accepted declarations, independently of folder naming."""
 
     try:
         project_name = project_identity(root)["project"]["name"]
     except ValueError as error:
         raise SystemExit(str(error)) from error
     default_mode = modes.get("default")
-    if not isinstance(default_mode, str) or not default_mode:
+    if default_mode not in {"strict", "casual"}:
         raise SystemExit("Project Configuration lacks authority_modes.default")
+    declarations, digest = _delivery_bindings(control, root)
+    nodes: dict[str, str] = {}
+    for authority, declaration in declarations.items():
+        path = root / authority
+        try:
+            node = path.relative_to(control).as_posix()
+        except ValueError:
+            node = path.relative_to(root).as_posix()
+        if node in nodes.values():
+            raise SystemExit(f"duplicate projected Scope Unit node ID: {node}")
+        nodes[str(declaration["scope_unit_name"])] = node
     rows: list[dict[str, object]] = []
-    for carrier in sorted((path for path in control.rglob("*") if path.is_dir()), key=lambda path: path.as_posix()):
-        if not active_path(carrier, control):
-            continue
-        if EPIC_DIRECTORY.fullmatch(carrier.name):
-            continue
-        parsed = parse_scope_unit_name(carrier.name)
-        if parsed is None:
-            continue
-        relative_to_control = carrier.relative_to(control).as_posix()
+    for authority, declaration in sorted(declarations.items()):
+        carrier = root / authority
+        name = str(declaration["scope_unit_name"])
+        parent = project_name if declaration["parent"] == "PROJECT" else nodes[str(declaration["parent"])]
+        prefix = re.match(r"([0-9]+)_", carrier.name)
         rows.append(
             {
-                "node_id": relative_to_control,
-                "scope_unit_name": parsed["scope_unit_name"],
+                **declaration,
+                "node_id": nodes[name],
                 "project_boundary_position": "PROJECT",
-                "scope_unit_type": parsed["scope_unit_type"],
-                "authority_path": carrier.relative_to(root).as_posix(),
-                "authority_materialized": True,
-                "numeric_prefix": parsed["numeric_prefix"],
-                "scope_unit_label": parsed["scope_unit_label"],
-                "authority_mode": default_mode,
-                "local_order": parsed["local_order"],
-                "parent": project_name,
-                "structural_parent": project_name,
+                "authority_materialized": carrier.is_dir(),
+                "numeric_prefix": prefix.group(1) if prefix else None,
+                "authority_mode": declaration.get("authority_mode", default_mode),
+                "authority_mode_inherited": "authority_mode" not in declaration,
+                "local_order": declaration.get("local_order"),
+                "parent": parent,
+                "structural_parent": parent,
+                "delivery_source_sha256": digest,
             }
-        )
-    if not rows:
-        raise SystemExit("no active typed Scope Unit Directory Carriers found")
-    by_path = {control / str(row["node_id"]): row for row in rows}
-    for row in rows:
-        parent = (control / str(row["node_id"])).parent
-        parent_row: dict[str, object] | None = None
-        while parent != control:
-            parent_row = by_path.get(parent)
-            if parent_row is not None:
-                row["parent"] = parent_row["node_id"]
-                row["structural_parent"] = parent_row["node_id"]
-                break
-            parent = parent.parent
-        row["structural_level"] = 1 if parent_row is None else int(parent_row["structural_level"]) + 1
-    structural_level_width = len(str(max(int(row["structural_level"]) for row in rows)))
-    for row in rows:
-        row["navigational_order_number"] = navigational_order_number(
-            str(row["numeric_prefix"]),
-            int(row["structural_level"]),
-            structural_level_width,
         )
     for row in rows:
         children = [child for child in rows if child["parent"] == row["node_id"]]
@@ -359,6 +344,60 @@ def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dic
         else:
             row["child_composition"] = "MIXED"
     return rows
+
+
+def directory_observations(
+    control: Path, root: Path, scope_unit_rows: list[dict[str, object]],
+) -> list[dict[str, object]]:
+    """Report physical carriers without accepting their naming or topology as declarations."""
+    declared = {root / str(row["authority_path"]).removesuffix("/"): row for row in scope_unit_rows}
+    paths = set(declared)
+    paths.update(path for path in control.rglob("*")
+                 if path.is_dir() and not path.is_symlink() and active_path(path, control)
+                 and SCOPE_UNIT_CANDIDATE.match(path.name))
+    nodes = {path: str(row["node_id"]) for path, row in declared.items()}
+    for path in paths - declared.keys():
+        nodes[path] = path.relative_to(control).as_posix()
+    materialized = {path for path in paths if path.is_dir()}
+    levels = {path: 1 + sum(parent in materialized for parent in path.parents) for path in materialized}
+    width = len(str(max(levels.values(), default=1)))
+    project_name = project_identity(root)["project"]["name"]
+    observations = []
+    for path in sorted(paths):
+        row = declared.get(path)
+        observation: dict[str, object] = {
+            "kind": "declared" if row is not None else "undeclared",
+            "node_id": nodes[path], "authority_path": path.relative_to(root).as_posix(),
+            "authority_materialized": path in materialized, "mismatches": [],
+        }
+        if path in materialized:
+            parent = next((ancestor for ancestor in path.parents if ancestor in materialized), None)
+            observation.update({"observed_parent": nodes[parent] if parent is not None else project_name,
+                                "observed_structural_level": levels[path]})
+            parsed = SCOPE_UNIT_NAME.fullmatch(path.name)
+            if parsed is not None:
+                local_order = parsed["local_order"]
+                observation.update({
+                    "observed_scope_unit_name": parsed["name"],
+                    "observed_scope_unit_type": "Ordered" if local_order is not None else "Unordered",
+                    "observed_scope_unit_label": parsed["unit_type"],
+                    "observed_numeric_prefix": parsed["numeric_prefix"],
+                    "observed_local_order": int(local_order) if local_order is not None else None,
+                })
+                prefix = parsed["numeric_prefix"]
+                if len(prefix) > width:
+                    observation["observed_prefix_structural_level"] = int(prefix[:width])
+                    observation["observed_navigational_order_number"] = int(prefix[width:])
+            if row is not None:
+                observation["mismatches"] = [field for field in (
+                    "scope_unit_name", "scope_unit_type", "scope_unit_label", "parent", "structural_level",
+                    "local_order", "navigational_order_number",
+                ) if "observed_" + field in observation and observation["observed_" + field] != row[field]]
+                if ("observed_prefix_structural_level" in observation
+                        and observation["observed_prefix_structural_level"] != row["structural_level"]):
+                    observation["mismatches"].append("numeric_prefix")
+        observations.append(observation)
+    return observations
 
 
 def current_directory_entries(directory: Path) -> list[dict[str, str]]:
@@ -500,12 +539,11 @@ def delivery_atom_binding(directory: Path, receipt: dict[str, str]) -> dict[str,
     return candidates[0]
 
 
-def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[dict[str, object]]:
-    """Bind Delivery paths to exact authoritative Project Structure declarations."""
-
-    carrier = CONTROL / "project_structure.toml"
+def _delivery_bindings(control: Path, root: Path) -> tuple[dict[str, dict[str, object]], str]:
+    """Read and validate exact declarations and their concrete directory bindings."""
+    carrier = control / "project_structure.toml"
     try:
-        if carrier.is_symlink() or not carrier.is_file():
+        if carrier.parent.is_symlink() or carrier.is_symlink() or not carrier.is_file():
             raise ValueError("Project Structure is missing or invalid")
         raw = carrier.read_bytes()
         document = tomllib.loads(raw.decode("utf-8"))
@@ -514,7 +552,7 @@ def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[
                 or not isinstance(document["scope_units"], list)):
             raise ValueError("Project Structure schema is invalid")
         declarations = document["scope_units"]
-        project_structure._validate_tree(declarations, ROOT)
+        project_structure._validate_tree(declarations, root)
         by_authority: dict[str, dict[str, object]] = {}
         for declaration in declarations:
             for field in ("authority_path", "delivery_path"):
@@ -526,7 +564,7 @@ def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[
                 if (relative.is_absolute() or canonical in {"", ".", ".."} or relative.as_posix() != canonical or ":" in value
                         or any(part in {".", ".."} for part in relative.parts)):
                     raise ValueError(f"unsafe Project Structure {field}: {value}")
-                cursor = ROOT
+                cursor = root
                 for part in relative.parts:
                     cursor /= part
                     if cursor.is_symlink():
@@ -537,16 +575,22 @@ def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[
             if authority in by_authority:
                 raise ValueError(f"duplicate Project Structure authority binding: {authority}")
             by_authority[authority] = declaration
-        for row in scope_unit_rows:
-            declaration = by_authority.get(str(row["authority_path"]))
-            if declaration is None or declaration["scope_unit_name"] != row["scope_unit_name"]:
-                raise ValueError(f"missing or mismatched Project Structure binding: {row['authority_path']}")
     except (OSError, UnicodeDecodeError, ValueError, TypeError, RuntimeError) as error:
         raise SystemExit(str(error)) from error
+    return by_authority, hashlib.sha256(raw).hexdigest()
 
-    source_digest = hashlib.sha256(raw).hexdigest()
+
+def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[dict[str, object]]:
+    """Bind Delivery paths to exact authoritative Project Structure declarations."""
+    by_authority, source_digest = _delivery_bindings(CONTROL, ROOT)
     for row in scope_unit_rows:
-        row["delivery_path"] = by_authority[str(row["authority_path"])]["delivery_path"]
+        if row.get("delivery_source_sha256", source_digest) != source_digest:
+            raise SystemExit("Project Structure changed after Scope rows were captured")
+        declaration = by_authority.get(str(row["authority_path"]).removesuffix("/"))
+        if declaration is None or declaration["scope_unit_name"] != row["scope_unit_name"]:
+            raise SystemExit(f"missing or mismatched Project Structure binding: {row['authority_path']}")
+    for row in scope_unit_rows:
+        row["delivery_path"] = by_authority[str(row["authority_path"]).removesuffix("/")]["delivery_path"]
         row["delivery_source_sha256"] = source_digest
         row["structure_sha256"] = canonical_json_digest(
             {key: row[key] for key in SCOPE_UNIT_GRAPH_FIELDS if key != "delivery_path"}
@@ -649,6 +693,7 @@ def project_scope_unit_graph(
     scope_unit_rows: list[dict[str, object]],
     source_atoms: list[dict[str, str]],
     executed_generator: Path | None = None,
+    *, observations: list[dict[str, object]] | None = None,
 ) -> str:
     project = config["project"]
     identity = config["artifacts"]["identity"]
@@ -699,6 +744,13 @@ def project_scope_unit_graph(
         lines += ["", "[[methodology_source_atoms]]"] + [
             f"{key} = {quote(value)}" for key, value in source_atom.items()
         ]
+    for observation in observations or []:
+        lines += ["", "[[directory_observations]]"]
+        for key, value in observation.items():
+            if value is None:
+                continue
+            encoded = str(value).lower() if isinstance(value, bool) else value if isinstance(value, int) else quote(value)
+            lines.append(f"{key} = {encoded}")
     return "\n".join(lines) + "\n"
 
 
@@ -708,6 +760,7 @@ def project_scope_unit_graph_sources(
     scope_unit_rows: list[dict[str, object]],
     source_atoms: list[dict[str, str]],
     executed_generator: Path | None = None,
+    *, observations: list[dict[str, object]] | None = None,
 ) -> str:
     generator = generator_metadata(executed_generator)
     lines = [
@@ -762,40 +815,36 @@ def project_scope_unit_graph_sources(
         )
     for row in scope_unit_rows:
         node_path = "scope_units." + str(row["node_id"])
-        structure_carrier = str(row["authority_path"])
-        structure_revision = "observed_scope_unit_structure"
-        structure_sha256 = str(row["structure_sha256"])
         for field in SCOPE_UNIT_GRAPH_FIELDS:
             if row[field] is None:
                 continue
-            if field == "delivery_path":
-                digest = str(row["delivery_source_sha256"])
+            if field in {"authority_materialized", "numeric_prefix"}:
+                observed = {key: row[key] for key in ("authority_path", "authority_materialized", "numeric_prefix")}
                 append_binding(
-                    node_path + "." + field, "project_structure",
-                    project_relative(CONTROL / "project_structure.toml"),
-                    "sha256:" + digest, digest,
+                    node_path + "." + field, "directory_observation", str(row["authority_path"]),
+                    "observed_directory", canonical_json_digest(observed),
                 )
                 continue
-            if field == "authority_mode":
-                kind = "framework_settings"
-            elif field in {"parent", "structural_parent"} and row[field] not in {item["node_id"] for item in scope_unit_rows}:
-                kind = "project_settings"
-            else:
-                kind = None
-            if kind is not None:
-                binding = bindings[kind]
+            if field == "authority_mode" and row.get("authority_mode_inherited", True):
+                binding = bindings["framework_settings"]
                 append_binding(
-                    node_path + "." + field, kind, binding["carrier"],
+                    node_path + "." + field, "framework_settings", binding["carrier"],
                     f"{binding['identifier']}@{binding['revision']}", binding["sha256"], binding,
                 )
                 continue
+            digest = str(row["delivery_source_sha256"])
             append_binding(
-                node_path + "." + field,
-                "scope_unit_directory_structure",
-                structure_carrier,
-                structure_revision,
-                structure_sha256,
+                node_path + "." + field, "project_structure",
+                project_relative(CONTROL / "project_structure.toml"), "sha256:" + digest, digest,
             )
+    for observation in observations or []:
+        for field, value in observation.items():
+            if value is not None:
+                append_binding(
+                    "directory_observations." + str(observation["authority_path"]) + "." + field,
+                    "directory_observation", str(observation["authority_path"]), "observed_directory",
+                    canonical_json_digest(observation),
+                )
     for source_atom in source_atoms:
         revision = source_atom["atom_id"] + "@" + source_atom["version"] + "," + source_atom["updated_at"]
         append_binding(
@@ -853,10 +902,11 @@ def main() -> None:
     source_atoms = active_source_atoms()
     modes = config["authority_modes"]
     assert isinstance(modes, dict)
-    rows = bind_scope_unit_structure(scope_units(CONTROL, ROOT, modes))
+    rows = scope_units(CONTROL, ROOT, modes)
+    observations = directory_observations(CONTROL, ROOT, rows)
     updated_at = source_updated_at(bindings, source_atoms)
-    graph_payload = project_scope_unit_graph(updated_at, config, bindings, rows, source_atoms)
-    sources_payload = project_scope_unit_graph_sources(updated_at, bindings, rows, source_atoms)
+    graph_payload = project_scope_unit_graph(updated_at, config, bindings, rows, source_atoms, observations=observations)
+    sources_payload = project_scope_unit_graph_sources(updated_at, bindings, rows, source_atoms, observations=observations)
     changed = (not OUTPUT.is_file() or OUTPUT.read_text(encoding="utf-8") != graph_payload) or (
         not SOURCE_MAP.is_file() or SOURCE_MAP.read_text(encoding="utf-8") != sources_payload
     )

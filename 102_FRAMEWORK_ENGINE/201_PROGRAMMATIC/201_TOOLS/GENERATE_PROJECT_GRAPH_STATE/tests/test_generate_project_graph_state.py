@@ -213,6 +213,7 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         self.write_structure(self.declarations)
         source = self.control / "project_structure.toml"
         before = source.read_bytes()
+        rows = generate_project_graph_state.scope_units(self.control, self.root, self.modes)
         bound = generate_project_graph_state.bind_scope_unit_structure(rows)
         tools = next(row for row in bound if row["scope_unit_name"] == "TOOLS")
         self.assertEqual("101_FRAMEWORK/201_PROGRAMMATIC/301_TOOLS/", tools["delivery_path"])
@@ -225,6 +226,57 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         with self.assertRaisesRegex(SystemExit, "duplicate Project Structure authority binding"):
             generate_project_graph_state.bind_scope_unit_structure(rows)
         self.assertEqual(original_rows, rows)
+        self.assertEqual(before, source.read_bytes())
+        self.assertFalse(generate_project_graph_state.OUTPUT.exists())
+        self.assertFalse(generate_project_graph_state.SOURCE_MAP.exists())
+
+    def test_changed_structure_cannot_repin_old_semantic_scope_rows(self) -> None:
+        rows = self.fixture_scope_units()
+        before = copy.deepcopy(rows)
+        self.declarations[2]["navigational_order_number"] = 7
+        self.write_structure(self.declarations)
+        with self.assertRaisesRegex(SystemExit, "changed after Scope rows"):
+            generate_project_graph_state.bind_scope_unit_structure(rows)
+        self.assertEqual(before, rows)
+        self.assertFalse(generate_project_graph_state.OUTPUT.exists())
+        self.assertFalse(generate_project_graph_state.SOURCE_MAP.exists())
+
+    def test_directory_observations_do_not_redeclare_folders_and_semantics_bind_toml(self) -> None:
+        rows = self.fixture_scope_units()
+        self.mkdir("101_LAYER_1_FRAMEWORK/201_FEATURE_PROGRAMMATIC/201_FEATURE_OTHER")
+        self.declarations[2]["authority_path"] = ".caprmedio_caprmedio/untyped-tools"
+        self.declarations[2]["authority_mode"] = "strict"
+        self.write_structure(self.declarations)
+        source = self.control / "project_structure.toml"
+        before = source.read_bytes()
+        rows = generate_project_graph_state.scope_units(self.control, self.root, self.modes)
+        observations = generate_project_graph_state.directory_observations(self.control, self.root, rows)
+        by_path = {item["authority_path"]: item for item in observations}
+        self.assertNotIn("OTHER", {row["scope_unit_name"] for row in rows})
+        self.assertEqual("undeclared", by_path[".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK/201_FEATURE_PROGRAMMATIC/201_FEATURE_OTHER"]["kind"])
+        self.assertFalse(by_path[".caprmedio_caprmedio/untyped-tools"]["authority_materialized"])
+        self.assertEqual("declared", by_path[".caprmedio_caprmedio/untyped-tools"]["kind"])
+        config = generate_project_graph_state.configuration()
+        bindings = generate_project_graph_state.settings_bindings()
+        atoms = generate_project_graph_state.active_source_atoms()
+        graph = generate_project_graph_state.project_scope_unit_graph("2026-10-01 00:00:00", config, bindings, rows, atoms, observations=observations)
+        sources = generate_project_graph_state.project_scope_unit_graph_sources("2026-10-01 00:00:00", bindings, rows, atoms, observations=observations)
+        document = tomllib.loads(sources)
+        by_field = {item["output_path"]: item for item in document["bindings"]}
+        for row in rows:
+            prefix = "scope_units." + str(row["node_id"]) + "."
+            for field in ("scope_unit_name", "scope_unit_type", "scope_unit_label", "parent", "structural_parent",
+                          "structural_level", "navigational_order_number", "authority_path", "delivery_path", "child_composition"):
+                self.assertEqual("project_structure", by_field[prefix + field]["source_kind"])
+                self.assertEqual(generate_project_graph_state.sha(source), by_field[prefix + field]["source_sha256"])
+            mode_kind = "project_structure" if row["scope_unit_name"] == "TOOLS" else "framework_settings"
+            self.assertEqual(mode_kind, by_field[prefix + "authority_mode"]["source_kind"])
+            self.assertEqual("directory_observation", by_field[prefix + "authority_materialized"]["source_kind"])
+        encoded_observations = [
+            {key: value for key, value in item.items() if value is not None} for item in observations
+        ]
+        self.assertEqual(encoded_observations, tomllib.loads(graph)["directory_observations"])
+        self.assertEqual(graph, generate_project_graph_state.project_scope_unit_graph("2026-10-01 00:00:00", config, bindings, rows, atoms, observations=observations))
         self.assertEqual(before, source.read_bytes())
         self.assertFalse(generate_project_graph_state.OUTPUT.exists())
         self.assertFalse(generate_project_graph_state.SOURCE_MAP.exists())
@@ -327,13 +379,23 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         self.assertEqual("UNORDERED", rows[0]["child_composition"])
         self.assertEqual("NONE", rows[2]["child_composition"])
 
-    def test_nearest_typed_scope_unit_is_parent_even_across_an_epic_directory(self) -> None:
+    def test_declared_scope_unit_parent_is_preserved_across_an_epic_directory(self) -> None:
         self.mkdir("101_LAYER_1_ROOT")
         self.mkdir(
             "101_LAYER_1_ROOT/03_plan/02-CA-Epic-004-ROOT-separate-epic-carrier/201_FEATURE_CHILD"
         )
         self.mkdir("101_LAYER_1_ROOT/archive/301_FEATURE_RETIRED")
         self.mkdir("jobs_archive/CA-J-100")
+        self.write_structure([
+            {"scope_unit_name": "ROOT", "parent": "PROJECT", "scope_unit_type": "Ordered",
+             "scope_unit_label": "LAYER", "structural_level": 1, "local_order": 1,
+             "navigational_order_number": 1, "authority_path": ".caprmedio_caprmedio/101_LAYER_1_ROOT",
+             "delivery_path": "root"},
+            {"scope_unit_name": "CHILD", "parent": "ROOT", "scope_unit_type": "Unordered",
+             "scope_unit_label": "FEATURE", "structural_level": 2, "navigational_order_number": 1,
+             "authority_path": ".caprmedio_caprmedio/101_LAYER_1_ROOT/03_plan/02-CA-Epic-004-ROOT-separate-epic-carrier/201_FEATURE_CHILD",
+             "delivery_path": "root/child"},
+        ])
 
         rows = generate_project_graph_state.scope_units(self.control, self.root, self.modes)
         parent_by_node = {row["node_id"]: row["structural_parent"] for row in rows}
@@ -356,6 +418,35 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
                 "02-CA-Epic-004-ROOT-separate-epic-carrier"
             )
         )
+
+    def test_declarations_override_legacy_prefix_and_include_untyped_and_missing_authority(self) -> None:
+        self.fixture_scope_units()
+        self.mkdir("101_LAYER_1_FRAMEWORK/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS")
+        self.mkdir("untyped-scope")
+        self.declarations[2]["authority_path"] = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS"
+        self.declarations[2]["navigational_order_number"] = 7
+        for name, authority in (("UNTYPED", "untyped-scope"), ("ABSENT", "not-materialized")):
+            self.declarations.append(
+                {"scope_unit_name": name, "parent": "PROGRAMMATIC", "scope_unit_type": "Unordered",
+                 "scope_unit_label": "CUSTOM", "structural_level": 3, "navigational_order_number": 8,
+                 "authority_path": ".caprmedio_caprmedio/" + authority, "delivery_path": "native/" + name}
+            )
+        self.write_structure(self.declarations)
+        source = self.control / "project_structure.toml"
+        before = source.read_bytes()
+        rows = generate_project_graph_state.scope_units(self.control, self.root, self.modes)
+        by_name = {row["scope_unit_name"]: row for row in rows}
+        self.assertEqual(6, len(rows))
+        self.assertEqual(3, by_name["TOOLS"]["structural_level"])
+        self.assertEqual(7, by_name["TOOLS"]["navigational_order_number"])
+        self.assertEqual("101_LAYER_1_FRAMEWORK/201_FEATURE_PROGRAMMATIC", by_name["TOOLS"]["parent"])
+        self.assertEqual("untyped-scope", by_name["UNTYPED"]["node_id"])
+        self.assertTrue(by_name["UNTYPED"]["authority_materialized"])
+        self.assertFalse(by_name["ABSENT"]["authority_materialized"])
+        self.assertEqual("CUSTOM", by_name["ABSENT"]["scope_unit_label"])
+        self.assertEqual(before, source.read_bytes())
+        self.assertFalse((self.control / "not-materialized").exists())
+        self.assertFalse(generate_project_graph_state.OUTPUT.exists())
 
     def test_directory_grammar_requires_layer_order_and_forbids_feature_order(self) -> None:
         layer = generate_project_graph_state.parse_scope_unit_name("101_LAYER_3_FRAMEWORK")
@@ -417,7 +508,7 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
 
 
     def test_identity_and_structural_project_parent_come_only_from_project_settings(self) -> None:
-        self.mkdir("101_LAYER_1_ROOT")
+        self.fixture_scope_units()
         with mock.patch.object(generate_project_graph_state, "ROOT", self.root), mock.patch.object(
             generate_project_graph_state, "CONFIG", self.framework_settings
         ):
@@ -646,8 +737,7 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         )
 
     def test_identical_scope_frontier_serializes_identically(self) -> None:
-        self.mkdir("101_LAYER_1_ROOT")
-        self.mkdir("101_LAYER_1_ROOT/201_FEATURE_CHILD")
+        self.fixture_scope_units()
 
         first = generate_project_graph_state.scope_units(self.control, self.root, self.modes)
         second = generate_project_graph_state.scope_units(self.control, self.root, self.modes)
