@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Workflow, Configuration, Plan]
-version: 1
-updated_at: "2026-10-13 04:30:00 +0400"
+version: 2
+updated_at: "2026-10-13 05:41:07 +0400"
 relations:
   is_decomposition_of: [CA-P-2257]
 ---
@@ -30,6 +30,12 @@ Prepare exact property edits against raw Atom carrier bytes, reusing existing YA
 ## Details
 
 Estimated own work: 15 minutes. Split larger work into bounded children before execution. Inherit the parent Task's accepted contracts, current-source checks and authority boundaries. Internal helpers are not newly admitted Tools. Keep parsing, reading, writing and CLI responsibilities separate. The integration owner controls Plans and Git; parallel implementation owns disjoint files only.
+
+### Bounded remaining YAML forms
+
+Independent checks found valid, unambiguous block-list boundary and trailing-comma append failures. Their bounded repair does not complete this Task: whole-Property removal from a flow mapping and unique multiline block-entry removal still hit unsupported-form shortcuts. No accepted contract limits these operations to narrower YAML layouts.
+
+Continue through [CA-P-2305 — Support remaining unambiguous YAML property spans](01-CA-P-2298-TASK--preserve-carrier-bytes-during-property-edits/01-CA-P-2305-TASK--support-remaining-unambiguous-yaml-property-spans.md). The child is limited to 15 minutes; retain the full original Objective and independent acceptance gate. No public binding, publication or live migration is enabled by pure transform tests.
 
 ### Definition of Done
 
