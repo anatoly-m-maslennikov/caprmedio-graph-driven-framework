@@ -112,7 +112,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
         before = self.path.read_bytes()
         result = self._preview(self._payload([
             {"field": "governs", "old": "Atom/Status", "new": "Atom/State"},
-            {"field": "depends_on", "index": 1, "old": "Atom/Revision", "new": "Atom/Revision/State"},
+            {"field": "depends_on", "old": "Atom/Revision", "new": "Atom/Revision/State"},
         ]))
         atom = result["atoms"][0]
         proposed = atom["proposed_carrier"].encode("utf-8")
@@ -128,7 +128,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
         self.assertFalse(atom["noop"])
         self.assertEqual(result["preview_sha256"], self._preview(self._payload([
             {"field": "governs", "old": "Atom/Status", "new": "Atom/State"},
-            {"field": "depends_on", "index": 1, "old": "Atom/Revision", "new": "Atom/Revision/State"},
+            {"field": "depends_on", "old": "Atom/Revision", "new": "Atom/Revision/State"},
         ]))["preview_sha256"])
 
     def test_empty_and_unchanged_patches_are_truthful_noops(self) -> None:
@@ -142,6 +142,24 @@ class SubjectPatchPreviewTests(unittest.TestCase):
                 self.assertEqual(atom["before_sha256"], atom["after_sha256"])
                 self.assertEqual(atom["before_version"], atom["after_version"])
                 self.assertIsNone(atom["illustrative_updated_at"])
+
+    def test_dependency_selector_rejects_index_missing_old_and_chained_new_value(self) -> None:
+        cases = [
+            ([{"field": "depends_on", "index": 1, "old": "Atom/Revision", "new": "Atom/State"}], "subject-patch-invalid"),
+            ([{"field": "depends_on", "old": "Missing", "new": "Atom/State"}], "subject-old-stale"),
+            ([{"field": "depends_on", "old": 1, "new": "Atom/State"}], "subject-value-invalid"),
+            ([{"field": "depends_on", "old": "Atom", "new": "Atom/State"},
+              {"field": "depends_on", "old": "Atom/State", "new": "Atom/Other"}], "subject-old-stale"),
+            ([{"field": "depends_on", "old": "Atom", "new": "Atom/State"},
+              {"field": "depends_on", "old": "Atom", "new": "Atom/Other"}], "subject-occurrence-duplicate"),
+        ]
+        before = self.path.read_bytes()
+        for patches, code in cases:
+            with self.subTest(patches=patches):
+                with self.assertRaises(operations.ToolError) as error:
+                    self._preview(self._payload(patches))
+                self.assertEqual(code, error.exception.code)
+                self.assertEqual(before, self.path.read_bytes())
 
     def test_selected_profile_evidence_is_sealed_for_noops(self) -> None:
         legacy = self._preview(self._payload([]))
@@ -266,7 +284,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
             {"field": "governs", "old": "Atom/Status", "new": "Atom/State/Again"},
         ])
         duplicates = self._payload([
-            {"field": "depends_on", "index": 1, "old": "Atom/Revision", "new": "Atom"},
+            {"field": "depends_on", "old": "Atom/Revision", "new": "Atom"},
         ])
         for payload, code in ((stale, "subject-pin-stale"), (repeated, "subject-occurrence-duplicate"), (duplicates, "subject-dependency-duplicate")):
             with self.subTest(code=code), patch.object(operations, "_validate_complete_carrier") as validate:

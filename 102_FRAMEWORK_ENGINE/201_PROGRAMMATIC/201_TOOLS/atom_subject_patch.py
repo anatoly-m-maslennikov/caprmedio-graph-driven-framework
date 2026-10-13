@@ -247,8 +247,7 @@ def _intent_from_plan(operations: Any, root: Path, plan: dict[str, Any], profile
         **{field: operations.frontmatter_scalar(plan["frontmatter"], field)
            for field in ("status", "updated_at", "content_role", "type")},
     }
-    patches = [{key: patch[key] for key in (("field", "index", "old", "new")
-               if patch["field"] == "depends_on" else ("field", "old", "new"))}
+    patches = [{key: patch[key] for key in ("field", "old", "new")}
                for patch in plan["patches"]]
     predecessor = None
     if not plan["noop"]:
@@ -783,21 +782,23 @@ def _plan_patch(  # noqa: C901 - validates one closed public patch shape.
     if field == "governs":
         if set(patch) != {"field", "old", "new"}:
             _fail(operations, "subject-patch-invalid", "governs patch has exactly field, old, and new")
-        index: int | None = None
-        node = governs
     elif field == "depends_on":
-        if set(patch) != {"field", "index", "old", "new"}:
-            _fail(operations, "subject-patch-invalid", "depends_on patch has exactly field, index, old, and new")
-        index = patch["index"]
-        if isinstance(index, bool) or not isinstance(index, int) or index < 0 or index >= len(dependencies):
-            _fail(operations, "subject-index-invalid", "depends_on patch index must identify one existing zero-based dependency")
-        node = dependencies[index]
+        if set(patch) != {"field", "old", "new"}:
+            _fail(operations, "subject-patch-invalid", "depends_on patch has exactly field, old, and new")
     else:
         _fail(operations, "subject-field-invalid", "subject patch field must be governs or depends_on")
     old = patch["old"]
     new = patch["new"]
     _valid_patch_value(operations, old, "old")
     _valid_patch_value(operations, new, "new")
+    index: int | None = None
+    node = governs
+    if field == "depends_on":
+        matches = [ordinal for ordinal, dependency in enumerate(dependencies) if dependency.value == old]
+        if len(matches) != 1:
+            _fail(operations, "subject-old-stale", "Subject patch old value must match exactly one original dependency")
+        index = matches[0]
+        node = dependencies[index]
     occurrence = (field, index)
     if occurrence in occurrences:
         _fail(operations, "subject-occurrence-duplicate", "Subject patch may name an occurrence only once", {"field": field, "index": index})

@@ -101,6 +101,28 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
         return {path.relative_to(self.root).as_posix(): path.read_bytes()
                 for path in self.root.rglob("*") if path.is_file()}
 
+    def test_by_value_dependency_replacements_bind_original_nodes_and_replay(self) -> None:
+        path = self._plan("Backlog")
+        before = self._snapshot()
+        payload = self._payload(path)
+        patches = [
+            {"field": "depends_on", "old": "Atom", "new": "Atom/Revision"},
+            {"field": "depends_on", "old": "Atom/Revision", "new": "Atom/Revision/Status"},
+        ]
+        payload[0]["subject_patches"] = patches
+        result = self._preview(payload)
+        atom = result["atoms"][0]
+        self.assertEqual([0, 1], [patch["index"] for patch in atom["patches"]])
+        self.assertTrue(all(set(patch["span"]) == {"start", "end"} for patch in atom["patches"]))
+        self.assertEqual(patches, atom["subject_intent"]["subject_patches"])
+        proposed = operations.parse_carrier(atom["proposed_carrier"].encode(), path)
+        self.assertEqual(["Atom/Revision", "Atom/Revision/Status"], proposed.metadata["subjects"]["depends_on"])
+        self.assertEqual("Backlog", proposed.metadata["status"])
+        prepared = subject_patch.prepare_subject_intent(self.root, atom["subject_intent"]["target"], patches)
+        materialized = subject_patch.materialize_subject_intent(self.root, prepared, "2026-10-14 00:40:00 +0400")
+        self.assertEqual(["Atom/Revision", "Atom/Revision/Status"], operations.parse_carrier(materialized["carrier_bytes"], path).metadata["subjects"]["depends_on"])
+        self.assertEqual(before, self._snapshot())
+
     def _installed_copy(self, path: Path, *, collection: str | None = None) -> Path:
         from RELEASE_VERSION.methodology_layout import resolve_methodology_layout
 

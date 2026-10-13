@@ -1558,7 +1558,7 @@ def describe(tool_id: str) -> dict[str, Any]:
             "output_evidence": ["subject_profile", "subject_profile_evidence"],
             "item_fields": ["selector", "expected", "subject_patches"],
             "expected_fields": ["atom_id", "version", "sha256"],
-            "patch_fields": ["field", "index (depends_on only)", "old", "new"],
+            "patch_fields": ["field", "old", "new"],
             "selector": "exact repository-relative file path", "apply_supported": False,
             "staging_option": "--stage-preview", "staging_only": True,
             "mcp_binding": None,
