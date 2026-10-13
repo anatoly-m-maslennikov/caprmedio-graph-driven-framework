@@ -162,9 +162,13 @@ def _frontier_status_folders(context: VerifiedSourceContext, plan_mapping: dict[
 
 def validate_proposed_carrier(
     metadata: Record, body: str, verified_source_context: VerifiedSourceContext, relative_path: Path,
-    *, allow_existing_relations: bool = False,
+    *, allow_existing_relations: bool = False, reference_roles: tuple[str, ...] | None = None,
 ) -> Record:
-    """Reject every failed, unresolved, or unsupported finite carrier obligation."""
+    """Reject every failed, unresolved, or unsupported finite carrier obligation.
+
+    Explicit reference roles bound traversal, not authority or rule coverage.
+    Scoped results certify only this carrier and its named reference closure.
+    """
 
     if relative_path.is_absolute() or ".." in relative_path.parts:
         raise ProposedCarrierError("carrier path is outside the selected Project")
@@ -219,11 +223,33 @@ def validate_proposed_carrier(
     if source is None or not isinstance(role, str):
         raise ProposedCarrierError("role-directory authority is unavailable")
     mapping = dict(re.findall(r"- ([A-Za-z]+): `([0-9]{2}_[a-z_]+)/`[;.]", source["text"]))
+    reference_mapping = mapping
+    if reference_roles is not None:
+        if (type(reference_roles) is not tuple or not reference_roles
+                or any(type(item) is not str or item not in mapping for item in reference_roles)
+                or len(set(reference_roles)) != len(reference_roles)):
+            raise ProposedCarrierError("reference roles must be a nonempty unique tuple of canonical admitted roles")
+        if role not in reference_roles:
+            raise ProposedCarrierError("carrier role is outside the explicit reference scope")
+        reference_mapping = {key: value for key, value in mapping.items() if key in reference_roles}
     control = verified_source_context._selection.control_relative
     result = validate_carrier(metadata, body, context, verified_source_context.inputs)
     if result["findings"] or result["gaps"] or any(item["outcome"] != "passed" for item in result["outcomes"]):
         raise ProposedCarrierError("complete-carrier validation failed or is unresolved")
-    if relations and (not allow_existing_relations or plan_deep):
+    if reference_roles is not None:
+        result["reference_scope"] = {
+            "extent": "finite-proposed-carrier",
+            "project": verified_source_context.inputs["_project_identity"]["project"]["name"],
+            "roles": list(reference_mapping),
+            "role_folders": dict(reference_mapping),
+            "authority_paths": sorted([
+                control.as_posix(),
+                *[row["authority_path"] for row in verified_source_context.inputs["structure"]["scope_units"]],
+            ]),
+            "direct_targets": [],
+            "plan_parent_closure": [],
+        }
+    if relations and (not allow_existing_relations or plan_deep or reference_roles is not None):
         targets = [target for values in relations.values() if isinstance(values, list) for target in values]
         status_folders = _frontier_status_folders(verified_source_context, plan_mapping)
         try:
@@ -231,8 +257,8 @@ def validate_proposed_carrier(
                 verified_source_context.root,
                 verified_source_context.inputs["structure"],
                 targets,
-                admitted_role_folders=mapping,
-                admitted_status_folders=status_folders,
+                admitted_role_folders=reference_mapping,
+                admitted_status_folders={key: value for key, value in status_folders.items() if key in reference_mapping},
                 project_authority_paths=(control,),
                 project_name=verified_source_context.inputs["_project_identity"]["project"]["name"],
                 candidate_metadata=metadata,
@@ -265,6 +291,15 @@ def validate_proposed_carrier(
                 for item in (*inventory.direct_targets, *inventory.plan_parent_closure)
             ],
         )
+        if reference_roles is not None:
+            resolved = (*inventory.direct_targets, *inventory.plan_parent_closure)
+            target_ids = {item.atom_id for item in resolved}
+            if any(source["binding"]["atom_id"] in target_ids
+                   and source["metadata"].get("content_role") not in reference_mapping
+                   for source in graph_inputs["sources"]):
+                raise ProposedCarrierError("bound authority target is outside the explicit reference scope")
+            result["reference_scope"]["direct_targets"] = [item.atom_id for item in inventory.direct_targets]
+            result["reference_scope"]["plan_parent_closure"] = [item.atom_id for item in inventory.plan_parent_closure]
         plan_status_source = next(
             (source for source in graph_sources if source["binding"]["atom_id"] == "CA-R-1539"), None
         )

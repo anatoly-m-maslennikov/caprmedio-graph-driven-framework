@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Configuration, Method, Evaluation, Delivery, Plan]
-version: 6
-updated_at: "2026-10-13 19:25:32 +0400"
+version: 7
+updated_at: "2026-10-13 19:53:09 +0400"
 relations:
   is_decomposition_of: [CA-P-2256]
 ---
@@ -55,7 +55,7 @@ The Operator deferred C/A and approved the bounded cleanup in [CA-P-2325 — Rep
 
 The Operator separately approved removing only the redundant Type headers from M383 and D632, tracked by [CA-P-2330 — Remove redundant TOML rule Types](02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/06-CA-P-2330-TASK--remove-redundant-toml-rule-types.md). The two source corrections and exact archives pass independent review. The explicit PRMEDO finite diagnostic finds four clean packet carriers and fifteen unique current endpoints; this is not complete graph admission.
 
-[CA-P-2331 — Bind explicit PRMEDO reference scope](02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/07-CA-P-2331-TASK--bind-explicit-prmedo-reference-scope.md) connects that scope to the real private proposed-carrier validator, preserving default behavior and refusing required off-scope references. See .caprmedio_caprmedio/_projection/core-entity-review/stage2/tools-first/bounded-prmedo-cleanup-acceptance.md. No other legacy migration or C/A changes are authorized. TOMLKit implementation remains pending.
+[CA-P-2331 — Bind explicit PRMEDO reference scope](02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/done/07-CA-P-2331-TASK--bind-explicit-prmedo-reference-scope.md) is Done after 58 passing reference tests and independent review. Actual scoped admission passed this Plan at its v6 checkpoint; M383/D632/E635 correctly refuse on unresolved canonical-ordering and relates_to authority gaps. See .caprmedio_caprmedio/_projection/core-entity-review/stage2/tools-first/explicit-prmedo-reference-scope-acceptance.md. No relation gate was bypassed. No other legacy migration or C/A changes are authorized. TOMLKit implementation remains pending.
 
 ### Definition of Done
 
