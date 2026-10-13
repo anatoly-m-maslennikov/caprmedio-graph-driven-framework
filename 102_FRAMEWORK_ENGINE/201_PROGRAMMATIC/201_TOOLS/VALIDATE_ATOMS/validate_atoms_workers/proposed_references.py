@@ -53,15 +53,22 @@ def _relative(root: Path, value: str | Path) -> Path:
     return absolute
 
 
-def _authority_roots(root: Path, structure: Mapping[str, Any]) -> list[Path]:
+def _authority_roots(
+    root: Path, structure: Mapping[str, Any], project_authority_paths: Iterable[str | Path],
+) -> list[Path]:
     units = structure.get("scope_units")
-    if not isinstance(units, list) or not units:
+    if not isinstance(units, list):
         raise ProposedReferenceError("Project Structure authority paths are unavailable")
-    roots: set[Path] = set()
+    paths = list(project_authority_paths)
     for unit in units:
         path = unit.get("authority_path") if isinstance(unit, Mapping) else None
         if not isinstance(path, str) or not path:
             raise ProposedReferenceError("Project Structure authority path is invalid")
+        paths.append(path)
+    roots: set[Path] = set()
+    for path in paths:
+        if not isinstance(path, (str, Path)) or not Path(path).parts:
+            raise ProposedReferenceError("Project authority path is invalid")
         candidate = _relative(root, path)
         # Applicable Methodology delivery/projection copies are never authority.
         upper_parts = {part.upper() for part in candidate.relative_to(root).parts}
@@ -80,7 +87,9 @@ def _is_derived(path: Path, root: Path) -> bool:
     return "_PROJECTION" in parts or "APPLICABLE_METHODOLOGY" in parts
 
 
-def _carrier(reader: ReadContext, root: Path, path: Path) -> TargetCarrier | None:
+def _carrier(
+    reader: ReadContext, root: Path, path: Path, requested: set[str],
+) -> TargetCarrier | None:
     if _is_derived(path, root):
         return None
     try:
@@ -90,10 +99,10 @@ def _carrier(reader: ReadContext, root: Path, path: Path) -> TargetCarrier | Non
         raise ProposedReferenceError("authoritative target carrier is unsafe or malformed") from error
     metadata = parsed.metadata
     atom_id, status, version = metadata.get("atom_id"), metadata.get("status"), metadata.get("version")
+    if not isinstance(atom_id, str) or atom_id not in requested:
+        return None
     if (
-        not isinstance(atom_id, str)
-        or not atom_id
-        or not isinstance(status, str)
+        not isinstance(status, str)
         or type(version) is not int
         or version < 1
     ):
@@ -163,6 +172,7 @@ def inventory_proposed_references(
     candidate_metadata: Mapping[str, Any] | None = None,
     candidate_path: str | Path | None = None,
     admitted_plan_status_folders: Mapping[str, str] | None = None,
+    project_authority_paths: Iterable[str | Path] = (),
 ) -> ProposedReferenceInventory:
     """Return exact current facts for named targets and a nested Plan parent chain.
 
@@ -173,6 +183,8 @@ def inventory_proposed_references(
     *actual authenticated parent carrier*.  A non-Active child Plan additionally
     requires its container folder from ``admitted_plan_status_folders``; callers
     must derive that finite mapping from validated CA-D-461 source evidence.
+    ``project_authority_paths`` is an internal binding of exact role subtrees
+    from validated selected Project Settings and CA-D-324 source evidence.
     Atom IDs never come from filenames.  A changed frontier, unsafe file,
     duplicate, missing or inactive named target raises
     ``ProposedReferenceError``.
@@ -183,7 +195,9 @@ def inventory_proposed_references(
         raise ProposedReferenceError("direct target IDs must be a finite unique nonempty set")
     reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
     try:
-        paths = reader.discover([str(item) for item in _authority_roots(root, project_structure)])
+        paths = reader.discover([
+            str(item) for item in _authority_roots(root, project_structure, project_authority_paths)
+        ])
     except (OSError, ReadFailure, LimitReached) as error:
         raise ProposedReferenceError("authoritative carrier frontier is unavailable") from error
 
@@ -193,8 +207,8 @@ def inventory_proposed_references(
     for path in paths:
         # Archives are scanned only to refuse an explicitly named non-active
         # target; they can never satisfy a target request.
-        item = _carrier(reader, root, path)
-        if item is None or item.atom_id not in requested:
+        item = _carrier(reader, root, path, requested)
+        if item is None:
             continue
         if _is_archive(path, root) or not _is_active_status(item.status):
             inactive.add(item.atom_id)
@@ -225,10 +239,9 @@ def inventory_proposed_references(
                     if parent not in active:
                         # Resolve only the newly named parent, retaining the same
                         # bounded frontier and then repeat the ordinary admission.
-                        requested.add(parent)
                         matches = []
                         for path in paths:
-                            item = _carrier(reader, root, path)
+                            item = _carrier(reader, root, path, {parent})
                             if item is not None and item.atom_id == parent:
                                 matches.append((path, item))
                         admitted = [

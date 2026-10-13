@@ -21,8 +21,9 @@ from .check_support import Check
 from .check_graph_extended import relations_resolution, plan_resolution
 from .proposed_references import ProposedReferenceError, inventory_proposed_references
 from .graph_authority_refresh import APPROVED_GRAPH_AUTHORITY_IDS
+from artifact_metadata import project_identity
 from authoritative_status_models import StatusModelError, resolve_status_model
-from project_selection import bound_selection
+from project_selection import ProjectSelection, active_selection, bind_selection, bound_selection
 
 
 _REGISTRY_IDS = (
@@ -51,6 +52,8 @@ class VerifiedSourceContext:
     root: Path
     authority: AuthorityContext
     inputs: Record
+    _selection: ProjectSelection
+    _reader: ReadContext
 
 
 def _entry(identifier: str, *, graph: bool = False) -> Record:
@@ -89,26 +92,42 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
     root = root.resolve()
     reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
     report: Record = {"bindings": {}, "coverage": {"gaps": []}}
-    sources = [_source(root, identifier, reader, report) for identifier in (*_REGISTRY_IDS, *_SUPPORT_IDS)]
-    selection = bound_selection(root)
-    control = selection.control_relative if selection is not None else Path('.caprmedio_caprmedio')
-    project_structure = root / control / "project_structure.toml"
-    operators = root / control / "operators_registry.toml"
     try:
-        structure = tomllib.loads(reader.read(project_structure).decode("utf-8"))
+        selection = active_selection(root)
+        control = selection.control_relative
+        for path in (selection.settings_path, selection.structure_path):
+            raw = reader.read(path)
+            pin = selection.provenance.get(path.relative_to(root).as_posix(), {})
+            if hashlib.sha256(raw).hexdigest() != pin.get("sha256"):
+                raise ProposedCarrierError("selected Project context changed after selection")
+        structure = tomllib.loads(raw.decode("utf-8"))
+        operators = selection.control_root / "operators_registry.toml"
         operator_raw = reader.read(operators)
-    except (OSError, UnicodeError, tomllib.TOMLDecodeError) as error:
+        with bind_selection(selection):
+            identity = project_identity(root)
+            sources = [_source(root, identifier, reader, report) for identifier in (*_REGISTRY_IDS, *_SUPPORT_IDS)]
+    except (OSError, RuntimeError, UnicodeError, ValueError) as error:
         raise ProposedCarrierError("required Project context is unreadable") from error
     inputs: Record = {
         "sources": sources,
         "control_relative": control.as_posix(),
         "structure": structure,
+        "_project_identity": identity,
         "operators_registry": load_operators_registry(
             {"operators_registry": {"path": str(operators), "sha256": hashlib.sha256(operator_raw).hexdigest()}},
             reader,
         ),
     }
-    return VerifiedSourceContext(root, resolve_context(sources), inputs)
+    _current(reader)
+    return VerifiedSourceContext(root, resolve_context(sources), inputs, selection, reader)
+
+
+def _current(reader: ReadContext) -> None:
+    try:
+        if reader.currentness()["state"] != "unchanged":
+            raise ProposedCarrierError("selected Project inputs changed during admission")
+    except (OSError, RuntimeError) as error:
+        raise ProposedCarrierError("selected Project inputs are unavailable") from error
 
 
 def validate_proposed_carrier(
@@ -117,13 +136,17 @@ def validate_proposed_carrier(
 ) -> Record:
     """Reject every failed, unresolved, or unsupported finite carrier obligation."""
 
+    if relative_path.is_absolute() or ".." in relative_path.parts:
+        raise ProposedCarrierError("carrier path is outside the selected Project")
+    _current(verified_source_context._reader)
     selected = tuple(item for item in verified_source_context.authority.obligations if item.code in _CODES)
     if {item.code for item in selected} != _CODES or any(not item.supported for item in selected):
         raise ProposedCarrierError("complete-carrier authority is unsupported or incomplete")
     try:
-        status_model = resolve_status_model(
-            verified_source_context.root, metadata, metadata.get("status")
-        )
+        with bind_selection(verified_source_context._selection):
+            status_model = resolve_status_model(
+                verified_source_context.root, metadata, metadata.get("status")
+            )
     except StatusModelError as error:
         raise ProposedCarrierError("status model is missing, ambiguous, or unadmitted") from error
     domains = dict(verified_source_context.authority.domains)
@@ -162,6 +185,11 @@ def validate_proposed_carrier(
         if role == "Plan" and plan_source is not None
         else {}
     )
+    source = next((row for row in verified_source_context.inputs["sources"] if row["binding"]["atom_id"] == "CA-D-324"), None)
+    if source is None or not isinstance(role, str):
+        raise ProposedCarrierError("role-directory authority is unavailable")
+    mapping = dict(re.findall(r"- ([A-Za-z]+): `([0-9]{2}_[a-z_]+)/`[;.]", source["text"]))
+    control = verified_source_context._selection.control_relative
     result = validate_carrier(metadata, body, context, verified_source_context.inputs)
     if result["findings"] or result["gaps"] or any(item["outcome"] != "passed" for item in result["outcomes"]):
         raise ProposedCarrierError("complete-carrier validation failed or is unresolved")
@@ -172,18 +200,20 @@ def validate_proposed_carrier(
                 verified_source_context.root,
                 verified_source_context.inputs["structure"],
                 targets,
+                project_authority_paths=tuple(control / directory for directory in mapping.values()),
                 candidate_metadata=metadata,
-                candidate_path=Path(verified_source_context.inputs.get("control_relative", ".caprmedio_caprmedio")) / relative_path,
+                candidate_path=control / relative_path,
                 admitted_plan_status_folders=plan_mapping or None,
             )
         except ProposedReferenceError as error:
             raise ProposedCarrierError("relation targets are missing, inactive, ambiguous, or cyclic") from error
         graph_reader = ReadContext(roots=[str(verified_source_context.root)], limits=dict(CEILINGS))
         graph_report: Record = {"bindings": {}, "coverage": {"gaps": []}}
-        graph_sources = [
-            _source(verified_source_context.root, identifier, graph_reader, graph_report, graph=True)
-            for identifier in _GRAPH_IDS
-        ]
+        with bind_selection(verified_source_context._selection):
+            graph_sources = [
+                _source(verified_source_context.root, identifier, graph_reader, graph_report, graph=True)
+                for identifier in _GRAPH_IDS
+            ]
         graph_inputs = dict(verified_source_context.inputs)
         graph_inputs.update(
             sources=[
@@ -195,7 +225,7 @@ def validate_proposed_carrier(
             ],
             reader=graph_reader,
             reference_complete=True,
-            path=verified_source_context.root / verified_source_context.inputs.get("control_relative", ".caprmedio_caprmedio") / relative_path,
+            path=verified_source_context.root / control / relative_path,
             references=[
                 {"path": verified_source_context.root / item.path, "metadata": item.metadata}
                 for item in (*inventory.direct_targets, *inventory.plan_parent_closure)
@@ -215,23 +245,24 @@ def validate_proposed_carrier(
             adapter(metadata, body, check)
             if check.findings or check.gaps:
                 raise ProposedCarrierError("relation or Plan decomposition admission failed or is unresolved")
+        _current(graph_reader)
     role = metadata.get("content_role")
     status = metadata.get("status")
-    names = {part.lower() for part in relative_path.parts[:-1]}
-    source = next((row for row in verified_source_context.inputs["sources"] if row["binding"]["atom_id"] == "CA-D-324"), None)
-    if source is None or not isinstance(role, str):
-        raise ProposedCarrierError("role-directory authority is unavailable")
-    mapping = dict(re.findall(r"- ([A-Za-z]+): `([0-9]{2}_[a-z_]+)/`[;.]", source["text"]))
     expected_role_directory = mapping.get(role)
-    if expected_role_directory is None or expected_role_directory not in names:
+    if expected_role_directory is None or expected_role_directory not in relative_path.parts[:-1]:
         raise ProposedCarrierError("carrier path disagrees with its carried content role")
     owner = metadata.get("current_scope_unit")
     rows = verified_source_context.inputs.get("structure", {}).get("scope_units", [])
     row = next((item for item in rows if item.get("scope_unit_name") == owner), None)
-    if not isinstance(row, dict) or not isinstance(row.get("authority_path"), str):
+    project_relative_path = control / relative_path
+    if owner == verified_source_context.inputs["_project_identity"]["project"]["name"]:
+        authority_path = control / expected_role_directory
+        if any(project_relative_path.is_relative_to(Path(item["authority_path"])) for item in rows):
+            raise ProposedCarrierError("Project-owned carrier is inside a declared Scope Unit authority")
+    elif isinstance(row, dict) and isinstance(row.get("authority_path"), str):
+        authority_path = Path(row["authority_path"])
+    else:
         raise ProposedCarrierError("carrier owner authority is unresolved")
-    authority_path = Path(row["authority_path"])
-    project_relative_path = Path(verified_source_context.inputs.get("control_relative", ".caprmedio_caprmedio")) / relative_path
     if not project_relative_path.is_relative_to(authority_path):
         raise ProposedCarrierError("carrier path is outside its carried owner authority")
     expected_status_directory = (
@@ -249,4 +280,5 @@ def validate_proposed_carrier(
     actual_status_directory = "" if role == "Plan" and status == "Active" else (tail[-1] if tail else "")
     if expected_status_directory is None or actual_status_directory != expected_status_directory:
         raise ProposedCarrierError("carrier path disagrees with its carried status")
+    _current(verified_source_context._reader)
     return result

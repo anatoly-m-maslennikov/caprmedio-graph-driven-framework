@@ -79,6 +79,9 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         )
         self.requirements.mkdir(parents=True)
         (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
+            "[project]\nkey = \"lifecycle-fixture\"\nname = \"lifecycle-fixture\"\n"
+            "repository_slug = \"lifecycle-fixture\"\n"
+            "[artifacts.identity]\nproject_prefix = \"CA\"\n"
             "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n"
             "[artifact_timestamps]\ntimezone = \"UTC\"\n", encoding="utf-8"
         )
