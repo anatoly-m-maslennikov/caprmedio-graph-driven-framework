@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Configuration, Method, Evaluation, Delivery, Plan]
-version: 4
-updated_at: "2026-10-13 18:24:31 +0400"
+version: 5
+updated_at: "2026-10-13 18:41:24 +0400"
 relations:
   is_decomposition_of: [CA-P-2256]
 ---
@@ -45,8 +45,12 @@ Keep PyYAML with targeted Markdown/frontmatter text edits, as the Operator confi
 
 The three bounded validator Tasks are Done after independent review. Full admission remains blocked by a non-Atom evidence document in the Plan reference frontier; requested legacy-source metadata remains unresolved. See `.caprmedio_caprmedio/_projection/core-entity-review/stage2/tools-first/proposed-carrier-admission-review.md`. This parent stays Active; no TOMLKit implementation or live publication follows automatically.
 
+### Current lookup checkpoint — 2026-10-13
+
+CA-P-2314 is Done for the independently accepted admitted-container lookup and exact source bindings. The previous unknown-evidence blocker is resolved. Complete source admission now stops at the legacy SKILLS Concern `CAPRMEDIO-FRAMEWORK-ENGINE-CONC-076-SKILLS-PROBLEM--problem-core-skill-runtime-is-incomplete.md` without supported frontmatter inside an admitted `01_concern` folder. No source normalization or legacy migration was performed. See `.caprmedio_caprmedio/_projection/core-entity-review/stage2/tools-first/admitted-container-lookup-acceptance.md`. This parent remains Active; cascade execution stays with CA-P-2264 and TOMLKit implementation is not complete.
+
 ### Definition of Done
 
-Further discovery work follows [CA-P-2314 — Restrict reference discovery to admitted Atom containers](02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/04-CA-P-2314-TASK--restrict-reference-discovery-to-admitted-atom-containers.md). The Operator chose a positive folder whitelist, not exclusion Settings, and a recursive Plan-style sibling-file/optional-folder convention for Workflows, Steps and substeps. Actions stay separate outside that tree. The approved read-only FPF design challenge completed under Plan `workflow-carrier-whitelist-d96b9733`. Follow-up decisions require all parent Status changes to cascade through latest contained P/O Atoms only, preserving history and external references; read-time lookup still checks each carried Status. CA-P-2314 implements the admitted-container lookup after the affected source amendments are independently accepted. Actual lifecycle cascade implementation remains under CA-P-2264; legacy `archive/` migration is deferred. No old carriers are moved automatically.
+Further discovery work follows [CA-P-2314 — Restrict reference discovery to admitted Atom containers](02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/done/04-CA-P-2314-TASK--restrict-reference-discovery-to-admitted-atom-containers.md). The Operator chose a positive folder whitelist, not exclusion Settings, and a recursive Plan-style sibling-file/optional-folder convention for Workflows, Steps and substeps. Actions stay separate outside that tree. The approved read-only FPF design challenge completed under Plan `workflow-carrier-whitelist-d96b9733`. Follow-up decisions require all parent Status changes to cascade through latest contained P/O Atoms only, preserving history and external references; read-time lookup still checks each carried Status. CA-P-2314 implements the admitted-container lookup after the affected source amendments are independently accepted. Actual lifecycle cascade implementation remains under CA-P-2264; legacy `archive/` migration is deferred. No old carriers are moved automatically.
 
 The bounded outcome has exact source/implementation pins, actual relevant checks and a different reviewer's acceptance. Preparation is not implementation; a Plan is not an executed FPF review. The parent and CA-P-2297 remain Active until their separate receiving/publication requirements pass.
