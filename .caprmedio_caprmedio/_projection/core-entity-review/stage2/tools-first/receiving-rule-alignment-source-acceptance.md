@@ -25,7 +25,7 @@ Independent archive/link checks passed for P2167 v30, P2264 v3, P2270 v3, P2272 
 
 ## Gates retained
 
-P2316's affected FPF follow-up was approved and its analytical step is undergoing independent validation; no final audit acceptance is recorded here yet. This receipt accepts source meaning and exact preservation, not cascade implementation, public receiver admission, installed activation, Settings revision provenance or whole-project validity. The Tools Epic stays Active.
+P2316's approved FPF alignment audit completed under plan-c410a7a2-3cf9-4d12-9f25-24f0835e491b; step and final validation each passed at attempt 1. RR-I1 remains unresolved: whether ancestor-only movement revises an unchanged current child. The final result was released conversationally, not saved as a report. This receipt does not claim cascade implementation, public receiver admission, installed activation, Settings revision provenance or whole-project validity. The Tools Epic stays Active.
 
 The latest migration scope is PRMEDO only; C and A remain deferred and untouched. Any required dependency on deferred content must remain explicit and unresolved, not reported as validated by omission. No legacy source migration has been performed by this packet.
 
@@ -38,6 +38,6 @@ The latest migration scope is PRMEDO only; C and A remain deferred and untouched
 | Section preparation | whitelist_impl; whitelist_tests | New helper and literal-byte tests | Real admission, exact sources, no effects; shared Type check | Private preparation accepted; 34 tests; committed `1398b1d3f`; receiver/publication pending |
 | Generic role/Type check | nonatom_rules; whitelist_tests | Shared validator, finite pins/fixtures | All current supported roles, unchanged domains, stale refusal | Independently accepted; P2324 Done; committed `1398b1d3f` |
 | Configuration receiver | project_context_fix | Read-only binding analysis | Complete Settings schema and exact receiving permission mapping | Blocked on concrete contracts; no code claimed |
-| Approved PRMEDO cleanup | nonatom_surface, whitelist_rules, root; connector_binding_review | Exact 14 Plan placements, 3 headers and 5 packet moves | Explicit approval, byte preservation, independent review | Implemented; independent acceptance pending |
-| Finite PRMEDO diagnostics | project_context_fix; root rerun | Read-only declared role/owner subset | Current source/target pins; no deferred reference admitted by omission | 15 direct endpoints found; M383/D632 Type corrections approved under P2330 |
-| Affected FPF review | receiving_rules_fpf_doer + independent warden | Temporary approved audit sets only | Validated Plan, Operator approval, independent step/final validation | Analytical step complete; validation running |
+| Approved PRMEDO cleanup | nonatom_surface, whitelist_rules, root; connector_binding_review | Exact 14 Plan placements, 3 headers and 5 packet moves | Explicit approval, byte preservation, independent review | Independently accepted in e082c6910; P1631 numbering corrected to 40 |
+| Finite PRMEDO diagnostics | project_context_fix; root rerun | Read-only declared role/owner subset | Current source/target pins; no deferred reference admitted by omission | 15 endpoints and four packet carriers pass finite diagnostics after approved M383/D632 corrections; P2331 real scoped admission in verification |
+| Affected FPF review | receiving_rules_fpf_doer + independent warden | Temporary approved audit sets only | Validated Plan, Operator approval, independent step/final validation | Complete and released; RR-I1 awaits owner disposition |
