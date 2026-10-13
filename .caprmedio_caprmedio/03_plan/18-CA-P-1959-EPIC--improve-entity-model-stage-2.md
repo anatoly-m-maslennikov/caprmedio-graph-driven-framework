@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 64
-updated_at: "2026-10-14 01:16:39 +0400"
+version: 65
+updated_at: "2026-10-14 02:36:49 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,18 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Current execution order — mapping before MCP readiness
+
+The Operator confirmed: finish mapping first, then make the existing MCP and Subject Tools usable for this migration. This order supersedes earlier tools-first prerequisites for mapping, including inherited descendant guidance. It does not complete mapping, Tool readiness or migration.
+
+1. Complete the current Core RMEDO old-Subject → new-Subject map against Candidate #4 and the latest Operator decisions. Account for every source and Subject occurrence; resolve unmapped names with the Operator instead of guessing or reviewing all Atom content now. Record approved unchanged/excluded cases explicitly. Map completeness means no undisposed mapping question, not that every Subject must change.
+2. After the map is complete, continue CA-P-2167 only for the migration path: repair MCP discovery/bindings; expose existing field-aware lookup and sealed preview/staging; connect the approved publication confirmation; handle old dependencies that converge on the same target without duplicate results; and verify the full path on isolated fixtures. Reuse existing implementations. Unrelated connector rebuilding and catalogs remain deferred.
+3. Recheck current source/model pins, stage the mapped Subjects-only changes and verify exact coverage and untouched content. Refresh any stale map entries before preparing the final packet.
+4. Apply only the separately approved exact sealed migration packet through the admitted route. Tool readiness and this Plan update do not approve live writes.
+5. Review and update Atom content by Subject later, under CA-P-1970.
+
+The MCP assessment found working status/discovery calls, but invalid binding evidence, no discovered Subject capability, an unconfigured trusted-host publication provider and duplicate-result refusal for converging dependencies. These are pending integration work, not proof that the existing local Tools must be rebuilt. Keep earlier local completion receipts and historical checkpoints unchanged.
 
 ### Latest Operator process override — 2026-10-14
 

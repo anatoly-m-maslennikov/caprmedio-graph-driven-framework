@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 38
-updated_at: "2026-10-14 00:22:57 +0400"
+version: 39
+updated_at: "2026-10-14 02:36:49 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,22 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Current execution order — after Subject mapping
+
+The Operator confirmed that the complete Subject map under CA-P-1959 comes first. This Epic's remaining MCP integration work follows mapping; it is not a prerequisite for preparing or resolving the map. This supersedes older tools-first sequencing for that read-only work. Completed local Tool Tasks remain Done; this Epic remains Active.
+
+After the map has an explicit disposition for every source/occurrence and no open mapping question, perform only these migration-readiness tasks:
+
+- Repair the relevant MCP discovery/bindings and expose the existing field-aware `governs`/`depends_on` lookup. Verify that an actual MCP request returns the expected source-pinned matches.
+- Expose the existing sealed Subjects-only preview and staging path. Verify staged output through MCP, with no authoritative source changes.
+- Connect the existing publication authorization to real Operator confirmation for the exact reviewed change and exclusive window. Preserve the shared Engine lock, stale-source checks and refusal without confirmation; request data must not manufacture permission.
+- Support mapped `depends_on` values that converge on one target. Preserve one resulting dependency, unrelated bytes and source pins; propagate the exact effect through preview, staging and apply checks. Check and narrowly align affected RMEDO before implementation.
+- Test the complete MCP path on isolated fixtures: lookup, preview, staging and approved apply, plus stale-source refusal, missing-confirmation refusal and converging dependencies. Verify Version/history/Journal effects and unchanged ordinary content.
+
+Reuse existing implementation and existing child work where it fits; split remaining implementation into bounded leaves before execution. Do not reopen completed local Tasks merely because installed integration is missing. General connector rebuilding, configuration/type catalogs and content migration remain deferred. Passing this bounded readiness check does not complete the wider Epic or authorize live Core migration.
+
+The current MCP assessment verified status/discovery responses, not usable end-to-end migration. Relevant binding evidence is invalid; the trusted-host publication provider is not configured; duplicate resulting dependencies are currently refused. The approximate 2–4 engineering-day estimate is provisional, not an execution deadline or acceptance criterion.
 
 ### Current continuation checkpoint — 2026-10-14 00:22:57 +0400
 
