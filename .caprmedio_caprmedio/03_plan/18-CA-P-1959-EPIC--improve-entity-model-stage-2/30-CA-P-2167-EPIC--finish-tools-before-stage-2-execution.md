@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 20
-updated_at: "2026-10-13 03:59:06 +0400"
+version: 21
+updated_at: "2026-10-13 04:03:51 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -126,7 +126,13 @@ CA-P-2279 owns the source correction and different-reviewer acceptance. Read and
 
 CA-P-2251 is now Done: the approved affected FPF alignment audit completed after Configuration Read acceptance, with I002/F002 verified and G003 closed. The prior pending-review statements above are historical checkpoints. All 36 accepted correction pins and the common interface sources were independently rechecked before continuation.
 
-The Operator authorized continuing this Epic. CA-P-2252 is Active for bounded pure shared contract support and focused tests; placement, adapters, independent portfolio fixtures and admission remain their own children. No existing MCP route, deferred publication mechanism or live migration is enabled. G004 remains unproven runtime work, not another unresolved source-design question.
+The Operator authorized continuing this Epic. CA-P-2252 is now Done for bounded pure shared contract support after independent structural acceptance; placement, adapters, independent portfolio fixtures and admission remain their own children. No existing MCP route, deferred publication mechanism or live migration is enabled. G004 remains unproven runtime work, not another unresolved source-design question.
+
+### Shared contract implementation acceptance
+
+CA-P-2252 completed the private pure `connector_contract.py` support and its focused test suite at the existing TOOLS boundary. [Independent structural acceptance](../../_projection/core-entity-review/stage2/tools-first/shared-connector-contract-acceptance.md) pins the code, tests and governing R1936/M376/E628/D625 sources: 15 focused tests and 140 independent assertions passed.
+
+No public API, existing caller, executable binding or backend changed. This is the shared-support prerequisite only. The receiving adapters and their actual schema, permission, source-state and observed-effect checks remain pending; the independent portfolio and runtime/live gates remain open. The next implementation leaves are the existing adapter Tasks, with explicit dependencies and fresh checks retained. This Epic remains Active.
 
 ### Decomposing Plans
 
@@ -138,7 +144,7 @@ CA-P-2279 is Done after [independent Configuration Read source acceptance](../..
 - [CA-P-2249 — Align Scope Unit Query and Read contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/14-CA-P-2249-TASK--align-scope-unit-query-and-read-contracts.md)
 - [CA-P-2250 — Align private carrier operation contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/15-CA-P-2250-TASK--align-private-carrier-operation-contracts.md)
 - [CA-P-2251 — Review complete rebuilt RMEDO with FPF](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/16-CA-P-2251-TASK--review-complete-rebuilt-rmedo-with-fpf.md)
-- [CA-P-2252 — Implement the shared connector contract](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/17-CA-P-2252-TASK--implement-the-shared-connector-contract.md)
+- [CA-P-2252 — Implement the shared connector contract](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/17-CA-P-2252-TASK--implement-the-shared-connector-contract.md)
 - [CA-P-2253 — Adapt Atom Query and independent Read](../001_backlog/18-CA-P-2253-TASK--adapt-atom-query-and-independent-read.md)
 - [CA-P-2254 — Implement Scope Unit Query and Read](../001_backlog/19-CA-P-2254-TASK--implement-scope-unit-query-and-read.md)
 - [CA-P-2255 — Implement private carrier edits](../001_backlog/20-CA-P-2255-TASK--implement-private-carrier-edits.md)
