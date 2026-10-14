@@ -17,10 +17,9 @@ import core_relation_candidates as candidates  # noqa: E402
 import core_relation_registry as registry  # noqa: E402
 import generate_entity_graph as graph  # noqa: E402
 import graph_fact_context as facts  # noqa: E402
+from historical_core_authority import _PINS, historical_authority_bytes  # noqa: E402
 
-WORKSPACE = TOOL_DIRECTORY.parents[3]
 CORE_PATH = registry._CORE_AUTHORITY_PATH
-ACTUAL_CORE = WORKSPACE / CORE_PATH
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp/tests/test_core_relation_candidates"
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 R1251_SUFFIX = "04_requirement/CA-R-1251-CORE_META_MODEL-CORE-REQUIREMENT--classify-property-as-a-dependent-entity.md"
@@ -48,7 +47,7 @@ class CoreRelationCandidateTests(unittest.TestCase):
     def copy_source(self, suffix: str) -> Path:
         destination = self.authority / suffix
         destination.parent.mkdir(parents=True, exist_ok=True)
-        destination.write_bytes((ACTUAL_CORE / suffix).read_bytes())
+        destination.write_bytes(historical_authority_bytes(suffix, _PINS[suffix]))
         return destination
 
     def inputs(self, ids=None):

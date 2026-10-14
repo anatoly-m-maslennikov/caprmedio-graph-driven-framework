@@ -30,10 +30,6 @@ SPEC.loader.exec_module(core)
 from historical_core_authority import historical_authority_bytes  # noqa: E402
 
 
-WORKSPACE = TOOL_DIRECTORY.parents[3]
-ACTUAL_CORE = WORKSPACE / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"
-
-
 def requirement(atom_id: str, *, target: str = "Entity", scope: str | None = "Core declaration only.",
                 claim: str | None = None, status: str = "Active", extra_frontmatter: str = "") -> str:
     scope_section = "" if scope is None else f"## Scope\n\n{scope}\n\n"
@@ -79,8 +75,6 @@ class CoreTermAdmissionTests(unittest.TestCase):
         )
         for _, (_, digest, _, suffix) in core._REQUIRED_AUTHORITIES.items():
             payload = historical_authority_bytes(suffix, digest)
-            if payload is None:
-                payload = (ACTUAL_CORE / suffix).read_bytes()
             self.assertEqual(digest, hashlib.sha256(payload).hexdigest())
             destination = self.authority_root / suffix
             destination.parent.mkdir(parents=True, exist_ok=True)

@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import shutil
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -13,11 +12,11 @@ from pydantic import ValidationError
 
 import test_graph_publication_safety as publication
 import test_selected_graphs as selected
+from historical_core_authority import historical_authority_bytes
 
 
 graph = publication.graph
 subject_notation = graph.subject_notation
-REPOSITORY = Path(__file__).resolve().parents[5]
 
 
 class PublicSubjectProfileTests(unittest.TestCase):
@@ -46,11 +45,12 @@ class PublicSubjectProfileTests(unittest.TestCase):
         pins = subject_notation.get_profile("approved").grammar_pins
         self.assertEqual(5, len(pins))
         for pin in pins:
-            source = REPOSITORY / pin.path
             destination = self.root / pin.path
-            self.assertEqual(pin.sha256, hashlib.sha256(source.read_bytes()).hexdigest())
+            suffix = "/".join(Path(pin.path).parts[-2:])
+            payload = historical_authority_bytes(suffix, pin.sha256)
+            self.assertEqual(pin.sha256, hashlib.sha256(payload).hexdigest())
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source, destination)
+            destination.write_bytes(payload)
 
     def write_subject(self, subject: str, *, depends_on: tuple[str, ...] = ()) -> None:
         self.source.write_text(

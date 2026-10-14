@@ -88,8 +88,7 @@ class GraphFactContextTests(unittest.TestCase):
         )
 
     def details_authorities(self) -> list[object]:
-        """Use the actual pinned assignment bytes, never a passed test flag."""
-        core = TOOL_DIRECTORY.parents[3] / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"
+        """Use fixed pinned assignment inputs, never a passed test flag."""
         destinations = self.repository / "authority"
         destinations.mkdir(exist_ok=True)
         sources = (
@@ -100,8 +99,6 @@ class GraphFactContextTests(unittest.TestCase):
         expected = {atom_id: digest for atom_id, _revision, digest in graph_fact_context._DETAILS_ASSIGNMENT_PINS}
         for atom_id, suffix in sources:
             payload = historical_authority_bytes(suffix, expected[atom_id])
-            if payload is None:
-                payload = (core / suffix).read_bytes()
             self.assertEqual(expected[atom_id], hashlib.sha256(payload).hexdigest())
             (destinations / Path(suffix).name).write_bytes(payload)
         carriers, diagnostics = graph_builder.discover_atoms(self.repository, destinations)
