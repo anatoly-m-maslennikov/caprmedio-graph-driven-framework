@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 69
-updated_at: "2026-10-14 23:49:48 +0400"
+version: 70
+updated_at: "2026-10-15 01:20:36 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,16 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Current runtime verification and suite reduction — 2026-10-15
+
+The reviewed query pagination fix is committed as afc33e7f1. It admits only the native Artifact pagination handle; other credential refusals and native snapshot checks remain. Earlier local fixes correct isolated Query fixtures, D514 discovery, stdio disconnection before HTTP startup, HTTP cleanup and test scheduling. Focused checks and independent reviews passed; they are not full-suite or installed-runtime acceptance.
+
+Run 6 used frozen source afc33e7f1. It completed 345 test-bearing modules plus one zero-test fixture before being stopped after confirmed failures: the misnamed Git fixture; HTTP W03 test-container startup; one MCP child startup; and four query initialization timeouts. The selected-workflow Docker module and final real launcher did not complete. The log is .caprmedio_tmp/verification/full-suite-20261015-run6-parallel-authorized.log. The ten-minute ETA is not demonstrated. The Git fixture rename is fixed in f6884bbcc; its 23 tests and discovery check pass.
+
+Next: retain bounded startup diagnostics without extending deadlines; move the exhaustive status matrix to real host execution while preserving every assertion and representative Docker coverage; independently review and test these changes before another full run. Do not infer the cause of lost startup diagnostics.
+
+Reviewed scratch contract-currentness and prospective Subject-incidence preparation preserve the 906 owners, 611 change candidates, 848 patches and 29 holds. They are preparation, not the final accepted entity graph. The live MCP and Core Subjects remain unchanged. Both Epics stay Active; fresh connected staging, final graph/packet checks, exact publication approval and reproduction remain open.
 
 ### Remove the project-wide Engine write lock — 2026-10-14
 
