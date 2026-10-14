@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 48
-updated_at: "2026-10-14 11:12:08 +0400"
+version: 49
+updated_at: "2026-10-14 11:28:57 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,14 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Connected activation and request readiness — 2026-10-14
+
+The Operator approved narrow MCP activation. Reviewed commit 15f9ce76e now runs in the Project MCP HTTP container on port 56317; unrelated dirty work and other services were excluded. Actual discovery and execution context report ATOM_SEARCH and ATOM_UPDATE as available through MCP with complete context. [Connected activation evidence](../../_projection/core-entity-review/stage2/tools-first/connected-preparation-activation.md) records exact image/container fingerprints and the distinction from installed-package release or operation execution. This supersedes the earlier unanswered activation question.
+
+[CA-P-2381 — Prepare logical Subject preview request](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/59-CA-P-2381-TASK--prepare-logical-subject-preview-request.md) is Done: all 611 owners and 848 ordered patches retained; four tests and independent exact conversion/source-pin review passed.
+
+Current-carrier structural checks pass 567 targets and refuse 44 for pre-existing placement, property, section or Type issues. Keep the frozen mapping/request unchanged. The Operator has been asked whether to hold those 44 and stage only targets accepted by actual MCP preview; no answer or structural/content repair is inferred. Live publication remains separately gated, and both parent Epics remain Active.
 
 ### Direct preparation locally complete — 2026-10-14 11:12 +0400
 
