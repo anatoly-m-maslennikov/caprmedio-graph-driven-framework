@@ -32,8 +32,8 @@ from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier  # noqa:
 
 AUTHORITY = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS"
 SOURCE_PINS = (
-    ("CA-D-009", 18, AUTHORITY + "/07_delivery/CA-D-009-TOOLS-DELIVERY--deliver-the-change-record-appender-script.md",
-     "96b9f0a2ed3d96b1cf0b0dfe8c5cc7ba3523f6ec33c77c24b6cb92a08062a600"),
+    ("CA-D-009", 19, AUTHORITY + "/07_delivery/CA-D-009-TOOLS-DELIVERY--deliver-the-change-record-appender-script.md",
+     "f3d7fb91436dd9b8bfb07c612161f3ede7f9f64ffd78edd5f7aa9c44c40099fa"),
     ("CA-O-221", 1, AUTHORITY + "/09_operations/CA-O-221-TOOLS-ACTION--append-sealed-journal-change-records.md",
      "84f9d9c9814e2c0e939e506cf5f4cebc5bc98eaa883957412b6b3165311b183c"),
 )

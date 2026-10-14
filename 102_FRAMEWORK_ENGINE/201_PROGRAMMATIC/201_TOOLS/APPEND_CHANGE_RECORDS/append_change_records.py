@@ -42,7 +42,7 @@ for _parent in SCRIPT_PATH.parents:
     if _parent.name == ".caprmedio":
         sys.pycache_prefix = str(_parent.parent / ".caprmedio_tmp" / "cache" / "python")
         break
-for _path in (TOOLS_ROOT, CONTEXT_ROOT):
+for _path in (TOOLS_ROOT, CONTEXT_ROOT, SCRIPT_PATH.parent):
     if str(_path) not in sys.path:
         sys.path.insert(0, str(_path))
 
@@ -58,10 +58,10 @@ from work_journal import (  # noqa: E402
     validate_partition,
     validate_sealed_event,
     append_sealed_events,
-    seal_append_context,
-    store_pending_event,
-    _read_pending_event,
-    recover_pending_event,
+    seal_append_context as seal_append_context,
+    store_pending_event as store_pending_event,
+    _read_pending_event as _read_pending_event,
+    recover_pending_event as recover_pending_event,
 )
 
 
@@ -90,95 +90,13 @@ class AppendChangeRecordsResult(RootModel[dict[str, JsonValue]]):
     """Preserve the canonical appender's structured result envelope."""
 
 
-class AppendChangeRecordsAdapter:
-    """Project-bound Journal writer; deliberately separate from the Git CLI."""
+from append_change_records_mcp import AppendChangeRecordsAdapter  # noqa: E402
 
-    def __init__(self, root: str | Path) -> None:
-        self.root = Path(root).resolve()
-
-    def invoke(self, request: AppendChangeRecordsRequest | Mapping[str, Any]) -> dict[str, Any]:
-        if not isinstance(request, AppendChangeRecordsRequest):
-            request = AppendChangeRecordsRequest.model_validate(request)
-        context, events = validate_context(_normalise_context({"context": request.root.context}))
-        if Path(context["trigger"]["repository"]["root"]).resolve() != self.root:
-            raise ToolError("descriptor-root-mismatch", "The sealed context belongs to another Project")
-        partition = {name: context[name] for name in ("author", "local_date", "timezone")}
-        predictions = predict_sealed_event_receipts(self.root, events, **partition)
-        result = {
-            "resolved_targets": {"repository": str(self.root), "action_id": context["action_id"], "event_ids": [event["event_id"] for event in events]},
-            "planned_effects": {"journal_records": events, "receipts": predictions},
-            "validation_results": [{"name": "sealed-context", "ok": True}, {"name": "sealed-events", "ok": True}, {"name": "bound-project", "ok": True}],
-        }
-        # Check every retained identity before attempting any event. A historical
-        # observation is never reconstructed from today's source or Git index.
-        retained: dict[str, dict[str, Any]] = {}
-        for event in events:
-            try:
-                pending, sealed, append_context, _ = _read_pending_event(self.root, event["event_id"])
-            except WorkJournalError as error:
-                if error.code != "pending-not-found":
-                    raise
-                continue
-            if canonical_json_bytes(sealed) != canonical_json_bytes(event) or any(append_context[name] != partition[name] for name in partition):
-                raise WorkJournalError("identity-collision", "Retained pending evidence differs from the supplied sealed observation")
-            retained[event["event_id"]] = pending
-        if not request.root.apply:
-            return _json_result(ok=True, mode="dry-run", result={**result, "receipts": predictions}, diagnostics=[])
-
-        receipts: list[dict[str, Any]] = []
-        index = 0
-        try:
-            for index, event in enumerate(events):
-                if event["event_id"] not in retained:
-                    # Seal the native partition immediately before its append,
-                    # allowing the existing writer's normal part rollover.
-                    retained[event["event_id"]] = store_pending_event(
-                        self.root, event, seal_append_context(self.root, event, **partition),
-                        result_ref=None, effect_refs=[], diagnostic="Journal recording pending",
-                    )
-                receipts.append(recover_pending_event(self.root, event["event_id"]))
-                retained.pop(event["event_id"], None)
-        except (ToolError, WorkJournalError, OSError, RuntimeError) as error:
-            pending_errors: list[str] = []
-            # Keep the failed and not-yet-attempted original records in the
-            # existing retry-only format; never replay their source effects.
-            try:
-                remaining_predictions = predict_sealed_event_receipts(self.root, events[index:], **partition)
-                # A writer/receipt/cleanup exception can occur after the bytes
-                # reached the Journal. Report exact observed receipts as well.
-                receipts.extend({key: value for key, value in receipt.items() if key != "disposition"}
-                                for receipt in remaining_predictions if receipt.get("disposition") == "reused")
-            except (WorkJournalError, OSError, RuntimeError) as prediction_error:
-                remaining_predictions = []
-                pending_errors.append(str(prediction_error))
-            for offset, event in enumerate(events[index:]):
-                if event["event_id"] in retained:
-                    continue
-                try:
-                    append_context = seal_append_context(self.root, event, **partition)
-                    if remaining_predictions:
-                        # Include unattempted records' normal part rollover in
-                        # their original native retry partition bindings.
-                        append_context["partition_ref"] = remaining_predictions[offset]["carrier"]
-                        append_context.pop("append_context_digest")
-                        append_context["append_context_digest"] = canonical_json_digest(append_context)
-                    retained[event["event_id"]] = store_pending_event(
-                        self.root, event, append_context,
-                        result_ref=None, effect_refs=[], diagnostic=str(error),
-                    )
-                except (WorkJournalError, OSError, RuntimeError) as pending_error:
-                    pending_errors.append(str(pending_error))
-            return _json_result(
-                ok=False, mode="apply", result={**result, "state": "recording_pending", "receipts": receipts,
-                    "pending_events": list(retained.values()), "unattempted_event_ids": [event["event_id"] for event in events[index + 1:]],
-                    "inspection_required": bool(pending_errors), "pending_errors": pending_errors},
-                diagnostics=[{"code": getattr(error, "code", "journal-write-failed"), "message": str(error)}],
-            )
-        return _json_result(ok=True, mode="apply", result={**result, "state": "complete", "receipts": receipts}, diagnostics=[])
+_MCP_NATIVE_MODULE = sys.modules[__name__]
 
 
 def create_adapter(root: str | Path) -> AppendChangeRecordsAdapter:
-    return AppendChangeRecordsAdapter(root)
+    return AppendChangeRecordsAdapter(Path(root).resolve(), _MCP_NATIVE_MODULE)
 
 
 def describe_tool() -> dict[str, Any]:
