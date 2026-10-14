@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 45
-updated_at: "2026-10-14 10:34:40 +0400"
+version: 46
+updated_at: "2026-10-14 10:38:15 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,18 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Discovery accepted; direct preparation next — 2026-10-14 10:38 +0400
+
+CA-P-2373 is Done. Fixture-only commit `dea79c410` restores the current selected-route and retired-source checks without changing production behavior. All 68 affected checks pass; Root independently reviewed the diffs and reran 63 checks. The earlier baseline failures are superseded for those suites. Installed runtime activation is still unverified.
+
+Direct preparation proceeds through these bounded leaves:
+
+- [CA-P-2378 — Align direct Subject preparation rules](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/56-CA-P-2378-TASK--align-direct-subject-preparation-rules.md).
+- [CA-P-2379 — Expose direct Subject preparation](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/57-CA-P-2379-TASK--expose-direct-subject-preparation.md).
+- [CA-P-2380 — Verify direct preparation MCP](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/58-CA-P-2380-TASK--verify-direct-preparation-mcp.md).
+
+Production adapter edits wait for independent source acceptance; transport test preparation can proceed separately. Keep the source map and prepared request unchanged. This closes neither the wider Epic nor live publication and installed-readiness gates.
 
 ### Direct preparation route approved — 2026-10-14 10:34 +0400
 
