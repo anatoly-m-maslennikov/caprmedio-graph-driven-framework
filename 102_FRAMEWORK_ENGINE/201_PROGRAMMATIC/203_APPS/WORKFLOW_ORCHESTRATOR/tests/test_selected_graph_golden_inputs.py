@@ -42,22 +42,18 @@ class SelectedGraphGoldenInputsTest(unittest.TestCase):
     def _native_graph_request(fixture: GoldenProject) -> dict[str, object]:
         """Direct Tool proof needs the same non-caller recording capability.
 
-        Selected-route execution receives this object from its real shared
-        Action-start recorder; this narrow native-adapter test constructs only
-        the structural capability needed to exercise Tool behavior.
+        Selected execution binds this from actual Run state, not a Journal
+        receipt; this native fixture uses the same structural constructor.
         """
 
         request = fixture.native_parameters()
+        route = next(row for row in fixture.manifest["routes"] if row["route"] == fixture.case.route)
+        action = route["ordered_actions"][0]
         request["run_recording_context"] = generate_entity_graph.actual_run_recording_context(
             "golden-workflow", "golden-step", "golden-action",
             {
-                "event_id": "golden-action-start",
-                "action_id": "golden-action",
-                "event_digest": "0" * 64,
-                "carrier": ".caprmedio_caprmedio/_journal/golden.ndjson",
-                "line": 1,
-                "previous_carrier_digest": "0" * 64,
-                "appended_carrier_digest": "1" * 64,
+                "run_id": "golden-action", "kind": "action", "parent_run_id": "golden-step",
+                "definition": {"atom_id": action["atom_id"], "version": action["version"]},
             },
         )
         return request

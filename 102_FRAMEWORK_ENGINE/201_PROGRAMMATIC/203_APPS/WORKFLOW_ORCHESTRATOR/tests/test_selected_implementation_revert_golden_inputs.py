@@ -8,7 +8,6 @@ import subprocess
 import sys
 import tempfile
 import unittest
-from datetime import datetime, timezone
 from unittest import mock
 
 
@@ -34,13 +33,6 @@ def digest(value: object) -> str:
 class Session:
     def start_run(self, requested_run_id: str) -> dict[str, str]: return {"run_id": requested_run_id}
     def finish_run(self, run_id: str, **kwargs: object) -> dict[str, object]: return {"run_id": run_id, **kwargs}
-
-
-class FrozenDatetime(datetime):
-    @classmethod
-    def now(cls, tz: timezone | None = None) -> "FrozenDatetime":
-        value = cls(2026, 10, 5, 12, 0, 0, tzinfo=timezone.utc)
-        return value if tz is None else value.astimezone(tz)
 
 
 class SelectedImplementationRevertGoldenInputsTest(unittest.TestCase):
@@ -88,7 +80,7 @@ class SelectedImplementationRevertGoldenInputsTest(unittest.TestCase):
             forecast = fixture.root / "forecast"; forecast.mkdir(); (forecast / ".git").mkdir();
             import shutil; shutil.copytree(fixture.root / ".caprmedio_caprmedio", forecast / ".caprmedio_caprmedio")
             forecast_target = lifecycle_intents.carrier_descriptor(forecast, "CA-R-100")
-            with mock.patch.object(lifecycle_intents, "datetime", FrozenDatetime):
+            with mock.patch.object(lifecycle_intents, "current_timestamp", return_value="2026-10-05 12:00:00 +0000"):
                 predicted = lifecycle_intents.update_atom_action(forecast, {**parameters, "target": forecast_target}, execute=True, authorized=True)
             self.assertEqual("applied", predicted["outcome"], predicted)
 
@@ -109,10 +101,10 @@ class SelectedImplementationRevertGoldenInputsTest(unittest.TestCase):
             effect = {"effect_id": "lifecycle-update", "target_id": "atom:CA-R-100", "expected_before": "active version 1", "expected_after": "active version 2", "expected_current_hash": digest(target), "expected_result_hash": digest(predicted["observed"]), "before_evidence": before["evidence_ref"], "after_evidence": after["evidence_ref"],
                 "capability_binding": {"capability_id": "lifecycle.update_atom", "parameters": parameters, "target": target, "permission_evidence": {"capability_id": "lifecycle.update_atom", "granted": True, **permission}, "evidence_refs": [before["evidence_ref"], after["evidence_ref"], history["evidence_ref"]]}}
             request = {"selected_change_refs": [selected["evidence_ref"]], "targets": ["atom:CA-R-100"], "affected_reference_hashes": {history["evidence_ref"]: history["evidence_hash"]}, "governing_definition_hash": "", "operator_decision": {"decision_id": "approved", "approved_effect_ids": ["lifecycle-update"], "status": "approved"}, "cancellation_boundary": {"after_effect_ids": ["lifecycle-update"]}, "executor_permission": {"capability": "governed-reversal", "granted": True}, "durable_evidence_location": "journal://fixture", "ordered_effects": [effect], "expected_result": {"state": "reverted"}, "history_reference_evidence": [history["evidence_ref"]], "current_hashes": {"atom:CA-R-100": digest(target)}, "selected_change": [selected], "history_record": [history], "affected_reference": [history], "before_record": [before], "after_record": [after]}
-            definition = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
+            definition = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
             definition_target = fixture.root / definition
             definition_target.parent.mkdir(parents=True, exist_ok=True)
-            definition_target.write_bytes((ROOT / definition).read_bytes())
+            definition_target.write_bytes(fixture._fixture_source(Path(definition)).read_bytes())
             definition_pin = hashlib.sha256(definition_target.read_bytes()).hexdigest()
             request["governing_definition"] = {"atom_id": "CA-O-131", "revision": 2, "evidence_ref": definition, "evidence_hash": definition_pin}
             request["governing_definition_hash"] = definition_pin
@@ -128,7 +120,7 @@ class SelectedImplementationRevertGoldenInputsTest(unittest.TestCase):
                 make_native_revert_service({"project_root": str(fixture.root), "approved_reversal_request": unsupported})
             admitted = service.handle({"operation": "admit", "reversal_request": request})
             self.assertEqual("admitted", admitted["outcome"], admitted)
-            with mock.patch.object(lifecycle_intents, "datetime", FrozenDatetime):
+            with mock.patch.object(lifecycle_intents, "current_timestamp", return_value="2026-10-05 12:00:00 +0000"):
                 result = service.execute_with_session(admitted["approved_reversal_manifest"], Session(), "w10-action")
             self.assertEqual("reverted", result["outcome"]); self.assertIn("Reverted detail.", target_path.read_text(encoding="utf-8"))
             self.assertTrue(any((fixture.root / ".caprmedio_caprmedio").rglob("CA-R-100--target@1.md")))
