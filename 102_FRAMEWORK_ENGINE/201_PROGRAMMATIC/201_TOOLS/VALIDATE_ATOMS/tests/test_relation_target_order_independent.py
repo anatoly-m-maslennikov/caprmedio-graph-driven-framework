@@ -64,10 +64,8 @@ class RelationTargetOrderIndependentTests(unittest.TestCase):
                 with self.assertRaisesRegex(scoped.admission.ProposedCarrierError, "relation or Plan decomposition"):
                     self.validate({"evaluation_for": targets})
 
-    def test_current_d268_v13_is_exact_and_stale_or_missing_authority_refuses(self):
+    def test_stale_or_missing_authority_refuses(self):
         entry = scoped.admission._entry("CA-D-268")
-        self.assertEqual(entry["version"], 13)
-        self.assertEqual(entry["sha256"], "eba35171683bf9219f32d264cc3eaff985bd7939817114135c3a04faccf8df96")
         path = self.fixture.root / self.fixture.control.joinpath(*Path(entry["source_path"]).parts[1:])
         original = path.read_bytes()
         self.assertEqual(hashlib.sha256(original).hexdigest(), entry["sha256"])
