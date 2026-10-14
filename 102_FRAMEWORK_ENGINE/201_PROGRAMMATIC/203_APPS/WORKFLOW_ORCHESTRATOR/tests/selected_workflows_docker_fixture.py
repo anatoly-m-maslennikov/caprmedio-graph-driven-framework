@@ -53,6 +53,12 @@ _CA_O_030_PATH = Path(
     "CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md"
 )
 _HISTORICAL_CA_O_030_DIGEST = "c2d70fa275a075d2fbc978cab246158cfd8413cec88716521336736d0bf060cc"
+_CONTEXT_DECLARATION_PATH = Path(
+    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+    "201_FEATURE_TOOLS/GET_EXECUTION_CONTEXT/07_delivery/"
+    "CA-D-514-GET_EXECUTION_CONTEXT--encode-get-execution-context-bindings.md"
+)
+_CONTEXT_DECLARATION_DIGEST = "76881743016a97914d2c8c1080c8122d44a84069f9d1e69505c818f631f93f05"
 JOURNAL_CASES = tuple(f"J{number:02d}" for number in range(1, 9))
 STATUS_DOMAINS = (
     ("Requirement", "R", "04_requirement", "CA-R-1309", ("Draft", "Active", "Archived")),
@@ -225,6 +231,7 @@ class GoldenProject:
         # Docker can make non-removable on macOS file-sharing backends.
         (self.root / ".git").mkdir()
         self._copy_runtime_readiness_definition()
+        self._copy_pinned(_CONTEXT_DECLARATION_PATH, _CONTEXT_DECLARATION_DIGEST)
         manifest = self._copy_reviewed_manifest()
         self.manifest = manifest
         return manifest
