@@ -55,7 +55,7 @@ def _admitted(runner, frozen):
     return execution
 
 
-async def confirm_subject_publication(context, runner, frozen, *, operator_name, staged_manifest):
+async def confirm_subject_publication(context, runner, frozen, *, operator_name, staged_manifest, operator_registry=None):
     """Host-owned inputs only; issue and consume confirmation in this process."""
     session = getattr(context, "session", None)
     request_id = getattr(context, "request_id", None)
@@ -87,6 +87,9 @@ async def confirm_subject_publication(context, runner, frozen, *, operator_name,
         if predecessor.sha256 is not None:
             raise ValueError("The exact predecessor archive must still be absent")
         pins = (saved, target, staged, candidate, predecessor, *authorities)
+        if operator_registry is not None:
+            operator_registry.revalidate()
+            pins += (operator_registry,)
         diff = "".join(difflib.unified_diff(source_raw.decode("utf-8").splitlines(keepends=True),
             candidate_raw.decode("utf-8").splitlines(keepends=True),
             fromfile=target.relative_path.as_posix(), tofile=candidate.relative_path.as_posix()))
