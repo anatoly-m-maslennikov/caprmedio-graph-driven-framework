@@ -357,12 +357,14 @@ def _assert_original_identity_unique(
     def candidates() -> tuple[Path, ...]:
         found: list[Path] = []
         for path in reader.inventory(control, remember=False):
-            if (operations._role_directory(path, control) is None
-                    or "_projection" in path.relative_to(control).parts
+            if ("_projection" in path.relative_to(control).parts
                     or operations._lifecycle(path, control) in {"draft", "archived"}):
                 continue
-            if path.is_symlink() and path.is_dir():
+            role = operations._role_directory(path, control)
+            if path.is_symlink() and (operations.ROLE_DIRECTORY.fullmatch(path.name) or (role and path.is_dir())):
                 _fail(operations, "subject-identity-inventory-unavailable", "an original role directory is a symlink")
+            if role is None:
+                continue
             if path.suffix.lower() == ".md":
                 found.append(path)
         return tuple(found)

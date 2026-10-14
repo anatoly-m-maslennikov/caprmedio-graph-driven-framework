@@ -18,7 +18,7 @@ def stage_subject_preview(root: Path, items: list[object], *, timestamp: str | N
     root = Path(root).resolve()
     preview = preview_subject_patches(root, items, timestamp=timestamp, subject_profile=subject_profile)
     if expected_preview_sha256 is not None and (
-            preview["preview_sha256"] != expected_preview_sha256 or (timestamp is None and not preview["noop"])):
+            preview["preview_sha256"] != expected_preview_sha256 or timestamp != preview["illustrative_updated_at"]):
         raise operations.ToolError("subject-stage-preview-mismatch", "Staging requires the same reviewed preview seal and illustrative time")
     base = root / ".caprmedio_tmp" / "subject-preview"
     batch: Path | None = None

@@ -99,10 +99,19 @@ class DirectPreparationGuardTests(unittest.TestCase):
         self.assertEqual(self.original.decode(), result["preview"]["atoms"][0]["proposed_carrier"])
         self.assertEqual(self.original, self.source.read_bytes())
 
+    def test_all_noop_sealed_stage_refuses_nonnull_time_before_creation(self):
+        items = self.fixture._payload(self.source, patches=False)
+        reviewed = self.preview(items, timestamp=None)
+        self.assert_no_create_refusal(expected=reviewed["preview_sha256"], items=items, timestamp=STAMP)
+
     def test_native_cli_omission_remains_compatible(self):
         result = staging.stage_subject_preview(self.root, self.items, timestamp=STAMP, subject_profile="legacy")
         self.assertEqual(self.preview(), result["preview"])
         self.assertTrue(result["sources_unchanged"])
+        noop = self.fixture._payload(self.source, patches=False)
+        result = staging.stage_subject_preview(self.root, noop, timestamp=STAMP, subject_profile="legacy")
+        self.assertTrue(result["preview"]["noop"])
+        self.assertIsNone(result["preview"]["illustrative_updated_at"])
 
     def test_unrelated_malformed_excluded_identity_headers_do_not_gate_preview(self):
         for header in ("atom_id: [invalid", '"atom_id" : [invalid', "atom_id: CA-C-7901\nbroken: ["):
@@ -129,6 +138,33 @@ class DirectPreparationGuardTests(unittest.TestCase):
                 self.assertEqual("subject-identity-inventory-unavailable", caught.exception.code)
                 self.assertEqual(before, self.ledger())
                 created.unlink()
+
+    def test_terminal_role_directory_symlink_cannot_hide_a_competing_identity(self):
+        hidden = self.root / "hidden_competitor"
+        hidden.mkdir()
+        (hidden / self.source.name).write_bytes(self.original)
+        link = self.root / ".caprmedio_caprmedio/other/03_plan"
+        link.parent.mkdir(parents=True)
+        link.symlink_to(hidden, target_is_directory=True)
+        for target_exists in (True, False):
+            with self.subTest(target_exists=target_exists):
+                if not target_exists:
+                    hidden.rename(self.root / "removed_competitor")
+                with self.assertRaises(operations.ToolError) as caught:
+                    self.preview()
+                self.assertEqual("subject-identity-inventory-unavailable", caught.exception.code)
+                self.assertEqual(self.original, self.source.read_bytes())
+                self.assertFalse((self.root / ".caprmedio_tmp/subject-preview").exists())
+
+    def test_terminal_role_symlink_in_excluded_archive_draft_projection_is_not_an_original(self):
+        hidden = self.root / "excluded_competitor"
+        hidden.mkdir()
+        (hidden / self.source.name).write_bytes(self.original)
+        for excluded in ("archive", "draft", "_projection"):
+            link = self.root / ".caprmedio_caprmedio/other" / excluded / "03_plan"
+            link.parent.mkdir(parents=True, exist_ok=True)
+            link.symlink_to(hidden, target_is_directory=True)
+        self.assertEqual(1, self.preview()["count"])
 
     def test_currentness_of_unrelated_excluded_identity_input_is_not_waived(self):
         excluded = self.excluded("atom_id: [invalid")
