@@ -37,6 +37,8 @@ from selected_workflows_docker_fixture import (  # noqa: E402
 )
 
 E2E_CONTEXT = load_test_context(os.environ, ROOT / ".caprmedio_tmp")
+MCP_STARTUP_TIMEOUT_SECONDS = 60
+MCP_CALL_TIMEOUT_SECONDS = 20
 
 
 def _structured_tool_result(response: Any) -> dict[str, Any]:
@@ -93,14 +95,25 @@ async def _stdio_client(parameters: Any) -> AsyncIterator[Any]:
     """One uncached MCP connection, scoped to its disposable Project."""
     from mcp import Client
 
-    async with Client(parameters, cache=None, mode="legacy", read_timeout_seconds=20) as client:
+    # Docker/bootstrap precedes the gateway's independently bounded child startup.
+    async with Client(
+        parameters, cache=None, mode="legacy", read_timeout_seconds=MCP_STARTUP_TIMEOUT_SECONDS
+    ) as client:
         yield client
+
+
+async def _stdio_tool_names(client: Any) -> set[str]:
+    """Read the installed SDK's Tool page under the existing call budget."""
+    async with asyncio.timeout(MCP_CALL_TIMEOUT_SECONDS):
+        return {tool.name for tool in (await client.list_tools()).tools}
 
 
 async def _stdio_tool_call(parameters: Any, tool: str, request: dict[str, Any]) -> dict[str, Any]:
     """A fresh connection for transport checks that explicitly prove reconnect."""
     async with _stdio_client(parameters) as client:
-        response = await client.call_tool(tool, {"request": request})
+        response = await client.call_tool(
+            tool, {"request": request}, read_timeout_seconds=MCP_CALL_TIMEOUT_SECONDS
+        )
     return _structured_tool_result(response)
 
 
@@ -132,7 +145,9 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
     async def _call(self, runtime: Runtime, root: Path, tool: str, request: dict) -> dict:
         """Reuse one fixture-bound client until an explicit reconnect boundary."""
         await self._connect(runtime, root)
-        response = await self._mcp_client.call_tool(tool, {"request": request})
+        response = await self._mcp_client.call_tool(
+            tool, {"request": request}, read_timeout_seconds=MCP_CALL_TIMEOUT_SECONDS
+        )
         return _structured_tool_result(response)
 
     async def _disconnect(self) -> None:
@@ -831,7 +846,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             launched = True
             await self._start(runtime)
             await self._connect(runtime, root)
-            self.assertIn(case.route, {tool.name for tool in await self._mcp_client.list_tools()})
+            self.assertIn(case.route, await _stdio_tool_names(self._mcp_client))
             fixture.corrupt_one_bound_source()
             before = fixture.snapshot()
             result = await self._call(

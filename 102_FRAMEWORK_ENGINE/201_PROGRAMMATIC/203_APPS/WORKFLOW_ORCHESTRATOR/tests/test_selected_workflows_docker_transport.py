@@ -17,6 +17,7 @@ import test_selected_workflows_docker_e2e as harness
 from test_selected_workflows_docker_e2e import (
     _stdio_client,
     _stdio_tool_call,
+    _stdio_tool_names,
     _structured_tool_result,
 )
 
@@ -48,17 +49,41 @@ class SelectedDockerHarnessTransportTests(unittest.IsolatedAsyncioTestCase):
 
         parameters = StdioServerParameters(command=sys.executable, args=["-B", "-c", ECHO_SERVER])
         async with _stdio_client(parameters) as client:
+            async with asyncio.timeout(20):
+                self.assertIsInstance(await client.list_tools(), types.ListToolsResult)
+            self.assertEqual({"readonly_echo"}, await _stdio_tool_names(client))
             first = _structured_tool_result(
-                await client.call_tool("readonly_echo", {"request": {"sequence": 1}})
+                await client.call_tool(
+                    "readonly_echo", {"request": {"sequence": 1}}, read_timeout_seconds=20
+                )
             )
             second = _structured_tool_result(
-                await client.call_tool("readonly_echo", {"request": {"sequence": 2}})
+                await client.call_tool(
+                    "readonly_echo", {"request": {"sequence": 2}}, read_timeout_seconds=20
+                )
             )
         reconnected = await _stdio_tool_call(parameters, "readonly_echo", {"sequence": 3})
         self.assertEqual({"sequence": 1}, first["request"])
         self.assertEqual({"sequence": 2}, second["request"])
         self.assertEqual(first["connection_id"], second["connection_id"])
         self.assertNotEqual(first["connection_id"], reconnected["connection_id"])
+
+    async def test_shared_call_and_listing_keep_twenty_second_budgets(self) -> None:
+        client = SimpleNamespace(
+            call_tool=AsyncMock(
+                return_value=types.CallToolResult(content=[], structured_content={})
+            ),
+            list_tools=AsyncMock(return_value=types.ListToolsResult(tools=[])),
+        )
+        context = AsyncMock()
+        context.__aenter__.return_value = client
+        with patch.object(harness, "_stdio_client", return_value=context):
+            self.assertEqual({}, await _stdio_tool_call("fixture", "echo", {}))
+        client.call_tool.assert_awaited_once_with("echo", {"request": {}}, read_timeout_seconds=20)
+        with patch.object(asyncio, "timeout", wraps=asyncio.timeout) as timeout:
+            self.assertEqual(set(), await _stdio_tool_names(client))
+        timeout.assert_called_once_with(20)
+        client.list_tools.assert_awaited_once_with()
 
     async def test_harness_reconnects_once_before_polling_and_refuses_cross_fixture_client(
         self,
@@ -70,7 +95,8 @@ class SelectedDockerHarnessTransportTests(unittest.IsolatedAsyncioTestCase):
             identity = len(connections)
             connections.append(parameters)
 
-            async def call_tool(tool, arguments):
+            async def call_tool(tool, arguments, *, read_timeout_seconds):
+                self.assertEqual(20, read_timeout_seconds)
                 calls.append((identity, tool, arguments))
                 statuses = [call for call in calls if call[1] == "workflow_orchestrator"]
                 outcome = "running" if len(statuses) == 1 else "completed"
@@ -151,7 +177,7 @@ class QueryClientLifetimeTests(unittest.TestCase):
                 self.harness._mcp_client = await self.harness._mcp_context.__aenter__()
                 self.opening_task = asyncio.current_task()
                 await self.harness._mcp_client.call_tool(
-                    "readonly_echo", {"request": {"route": route}}
+                    "readonly_echo", {"request": {"route": route}}, read_timeout_seconds=20
                 )
                 raise RuntimeError("fixture body failure after live MCP open")
 

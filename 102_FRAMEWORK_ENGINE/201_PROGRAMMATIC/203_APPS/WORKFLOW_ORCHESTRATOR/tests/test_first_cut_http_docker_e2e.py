@@ -393,14 +393,14 @@ class FirstCutCorpusTests(unittest.TestCase):
 
         asyncio.run(check_cleanup())
 
-    def test_local_stdio_client_uses_legacy_handshake_without_widening_timeout(self) -> None:
+    def test_local_stdio_client_uses_bounded_legacy_startup(self) -> None:
         async def connect() -> None:
             context = mock.AsyncMock()
             with mock.patch("mcp.Client", return_value=context) as factory:
                 async with selected_harness._stdio_client("fixture-parameters") as client:
                     self.assertIs(context.__aenter__.return_value, client)
                 factory.assert_called_once_with(
-                    "fixture-parameters", cache=None, mode="legacy", read_timeout_seconds=20
+                    "fixture-parameters", cache=None, mode="legacy", read_timeout_seconds=60
                 )
                 context.__aexit__.assert_awaited_once()
 
