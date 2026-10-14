@@ -125,6 +125,27 @@ def _reject_secrets(value: object, location: str = "parameters", *, _expected_st
                             _expected_state=_expected_state and isinstance(item, Mapping))
 
 
+def _reject_parameter_secrets(parameters: Mapping[str, Any], route: str) -> None:
+    query = parameters.get("query_request")
+    snapshot = query.get("snapshot") if isinstance(query, Mapping) else None
+    if (
+        route != "find_and_fetch_artifacts"
+        or not isinstance(query, Mapping)
+        or not isinstance(snapshot, Mapping)
+        or set(snapshot) != {"reference", "token", "digest"}
+    ):
+        _reject_secrets(parameters)
+        return
+    # This native continuation handle is not a credential; the Tool checks its retained binding.
+    _require_string(snapshot, "token")
+    inspected = dict(parameters)
+    inspected["query_request"] = {
+        **query,
+        "snapshot": {key: item for key, item in snapshot.items() if key != "token"},
+    }
+    _reject_secrets(inspected)
+
+
 def _definition(value: object, *, location: str = "definition") -> dict[str, Any]:
     if not isinstance(value, Mapping) or set(value) != {"atom_id", "version", "path", "digest"}:
         raise SelectedRunError("invalid-request", f"{location} must contain atom_id, version, path, and digest")
@@ -164,7 +185,7 @@ def _validate_common(request: Mapping[str, Any]) -> dict[str, Any]:
     _require_string(result, "operation_route")
     if not isinstance(result["parameters"], Mapping):
         raise SelectedRunError("invalid-request", "parameters must be a typed object")
-    _reject_secrets(result["parameters"])
+    _reject_parameter_secrets(result["parameters"], result["operation_route"])
     if _canonical_digest(result["parameters"]) != _require_digest(result.get("parameters_digest"), "parameters_digest"):
         raise SelectedRunError("digest-mismatch", "parameters_digest does not bind parameters")
     if not isinstance(result["target_frontier"], list) or not result["target_frontier"]:
