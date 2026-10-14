@@ -10,13 +10,15 @@ from pathlib import Path
 from typing import Any
 
 import atom_operations as operations
-from atom_subject_patch import _raw_frontmatter, _validate_complete, preview_subject_patches
+from atom_subject_patch import _IdentityParseCache, _raw_frontmatter, _validate_complete, preview_subject_patches
 
 
 def stage_subject_preview(root: Path, items: list[object], *, timestamp: str | None = None,
                           subject_profile: str = "legacy", expected_preview_sha256: str | None = None) -> dict[str, Any]:
     root = Path(root).resolve()
-    preview = preview_subject_patches(root, items, timestamp=timestamp, subject_profile=subject_profile)
+    identity_parse_cache = _IdentityParseCache()
+    preview = preview_subject_patches(root, items, timestamp=timestamp, subject_profile=subject_profile,
+                                      _identity_parse_cache=identity_parse_cache)
     if expected_preview_sha256 is not None and (
             preview["preview_sha256"] != expected_preview_sha256 or timestamp != preview["illustrative_updated_at"]):
         raise operations.ToolError("subject-stage-preview-mismatch", "Staging requires the same reviewed preview seal and illustrative time")
@@ -62,7 +64,7 @@ def stage_subject_preview(root: Path, items: list[object], *, timestamp: str | N
                 "validation": {"state": "passed", "logical_source_path": atom["selector"]},
             })
         final = preview_subject_patches(root, items, timestamp=preview["illustrative_updated_at"],
-                                        subject_profile=subject_profile)
+                                        subject_profile=subject_profile, _identity_parse_cache=identity_parse_cache)
         if final != preview:
             raise operations.ToolError("subject-stage-currentness-mismatch", "source preview changed during staging")
         _check_directories(root, directories)

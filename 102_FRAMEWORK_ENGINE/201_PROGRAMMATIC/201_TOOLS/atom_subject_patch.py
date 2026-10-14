@@ -13,7 +13,7 @@ import json
 import os
 import re
 import stat
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Mapping, Sequence
@@ -60,12 +60,31 @@ class _SourceSnapshot:
     fingerprint: tuple[int, int, int, int, int]
 
 
+@dataclass
+class _IdentityParseCache:
+    entries: dict[Path, tuple[bytes, dict[str, Any] | tuple[str, str]]] = field(default_factory=dict)
+
+    def metadata(self, operations: Any, raw: bytes, path: Path) -> dict[str, Any]:
+        cached = self.entries.get(path)
+        if cached is None or cached[0] != raw:
+            try:
+                result = operations.parse_carrier(raw, path).metadata
+            except operations.CarrierError as error:
+                result = (error.code, str(error))
+            self.entries[path] = (raw, result)
+        result = self.entries[path][1]
+        if isinstance(result, tuple):
+            raise operations.CarrierError(*result)
+        return result
+
+
 def preview_subject_patches(
     root: Path,
     items: list[object],
     *,
     timestamp: str | None = None,
     subject_profile: str = "legacy",
+    _identity_parse_cache: _IdentityParseCache | None = None,
 ) -> dict[str, Any]:
     """Prepare a sealed-in-memory preview of explicit Subject replacements.
 
@@ -82,6 +101,7 @@ def preview_subject_patches(
     except SubjectNotationError as error:
         _fail(operations, error.code, str(error))
     project_root = Path(root).resolve()
+    identity_parse_cache = _identity_parse_cache if _identity_parse_cache is not None else _IdentityParseCache()
     if not isinstance(items, list) or not items:
         _fail(operations, "subject-patches-required", "subject patch preview requires a non-empty atoms list")
     if timestamp is not None:
@@ -113,7 +133,7 @@ def preview_subject_patches(
 
     for item in planned:
         _assert_snapshot_current(operations, project_root, item["snapshot"], item["selector"])
-    _assert_original_identity_unique(operations, project_root, atom_ids, identity_layout)
+    _assert_original_identity_unique(operations, project_root, atom_ids, identity_layout, _parse_cache=identity_parse_cache)
     illustrative_at = _preview_timestamp(operations, project_root, timestamp) if has_change else None
     atoms: list[dict[str, Any]] = []
     for item in planned:
@@ -124,7 +144,7 @@ def preview_subject_patches(
         atoms.append(atom)
     for item in planned:
         _assert_snapshot_current(operations, project_root, item["snapshot"], item["selector"])
-    _assert_original_identity_unique(operations, project_root, atom_ids, identity_layout)
+    _assert_original_identity_unique(operations, project_root, atom_ids, identity_layout, _parse_cache=identity_parse_cache)
     _assert_grammar_current(operations, project_root, grammar)
     _assert_identity_layout_current(operations, project_root, identity_layout)
 
@@ -346,12 +366,14 @@ def _assert_identity_layout_current(
 def _assert_original_identity_unique(
     operations: Any, root: Path, atom_ids: set[str],
     layout: tuple[Path, tuple[_SourceSnapshot, ...]] | None,
+    *, _parse_cache: _IdentityParseCache | None = None,
 ) -> None:
     """Reject competing current identity claims, including outside the payload."""
 
     control = operations.control_root(root)
     _assert_identity_layout_current(operations, root, layout)
     reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
+    parse_cache = _parse_cache if _parse_cache is not None else _IdentityParseCache()
     matches: dict[str, list[str]] = {atom_id: [] for atom_id in atom_ids}
 
     def candidates() -> tuple[Path, ...]:
@@ -380,7 +402,8 @@ def _assert_original_identity_unique(
                 continue
             raw = reader.read(path)
             try:
-                metadata = operations.parse_carrier(raw, path).metadata
+                # Reuse parsing only after the existing fresh no-follow read matches exact bytes.
+                metadata = parse_cache.metadata(operations, raw, path)
             except operations.CarrierError:
                 normalized = raw.replace(b"\r\n", b"\n")
                 header = (normalized.split(b"\n---\n", 1)[0] if normalized.startswith(b"---\n") else b"").decode("utf-8", errors="replace")
