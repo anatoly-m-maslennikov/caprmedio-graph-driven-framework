@@ -151,7 +151,12 @@ def _run_modules(root: Path, modules: list[Path], environment: dict, integration
             (docker if _docker_module(root, module) else ordinary).submit(
                 run_module, root, module, environment
             ): module
-            for module in modules
+            for module in sorted(
+                modules,
+                key=lambda module: (
+                    module != root / APP / "tests/test_selected_workflows_docker_e2e.py"
+                ),
+            )
         }
         for future in as_completed(pending):
             module = pending.pop(future)

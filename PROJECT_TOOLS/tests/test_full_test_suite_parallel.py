@@ -25,15 +25,20 @@ class FullTestSuiteParallelTests(unittest.TestCase):
         ]
         modules += [
             self.case.file(str(full.APP / f"tests/test_{number}_docker_e2e.py"))
-            for number in range(4)
+            for number in range(3)
         ]
+        selected = self.case.file(str(full.APP / "tests/test_selected_workflows_docker_e2e.py"))
+        modules.append(selected)
         active = {"ordinary": 0, "docker": 0}
         peak = dict(active)
+        docker_starts: list[Path] = []
         lock, ready, release = threading.Lock(), threading.Event(), threading.Event()
 
         def execute(root, module, environment):
             lane = "docker" if full._docker_module(root, module) else "ordinary"
             with lock:
+                if lane == "docker":
+                    docker_starts.append(module)
                 active[lane] += 1
                 peak[lane] = max(peak[lane], active[lane])
                 if sum(active.values()) == 6:
@@ -62,6 +67,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
             try:
                 self.assertTrue(ready.wait(5))
                 self.assertEqual({"ordinary": 4, "docker": 2}, peak)
+                self.assertIn(selected, docker_starts[:2])
             finally:
                 release.set()
             self.assertEqual(0, future.result(timeout=5))
