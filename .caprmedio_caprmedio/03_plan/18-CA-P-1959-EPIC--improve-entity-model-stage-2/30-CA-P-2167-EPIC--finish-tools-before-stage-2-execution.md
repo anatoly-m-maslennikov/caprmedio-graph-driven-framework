@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 71
-updated_at: "2026-10-14 22:34:51 +0000"
+version: 72
+updated_at: "2026-10-14 23:05:10 +0000"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,14 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Run 10 evidence and remaining diagnostics — 2026-10-14 23:05:10 +0000
+
+Run 10 reported 354 modules, 3,241 tests, zero skips and one failed module: selected_workflows_docker_e2e. W02 failed at the inner twenty-second MCP child initialization boundary with timeout/connection closure. W04 enqueue reached the client's twenty-second timeout; its cause remains unknown and no effect is inferred from that timeout. The full suite did not pass, and the roughly ten-minute ETA was not met. Log: .caprmedio_tmp/verification/full-suite-20261015-run10-parallel.log.
+
+The query Docker module's seven tests passed in 391.864 seconds; the HTTP first-cut module passed in 372.048 seconds. Both real launcher groups completed with retained state unchanged. These passes do not establish acceptance of the remaining thirteen Docker execution routes or the full suite.
+
+Bounded fixes are committed as ebe37310e, b84f56f36 and a79dd1e19. A narrow fixture optimization and bounded diagnostic work remain underway, without an acceptance claim. Full semantic W11/W12 completion remains deferred; partial/mechanical coverage remains required. Keep this Epic Active: no live MCP replacement, Core Subject migration, fresh staging, live apply or publication approval follows from this checkpoint.
 
 ### Frozen-suite checkpoints and remaining runtime work — 2026-10-14 22:34:51 +0000
 
