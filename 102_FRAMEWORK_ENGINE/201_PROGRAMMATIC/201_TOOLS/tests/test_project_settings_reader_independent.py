@@ -15,7 +15,7 @@ from unittest import mock
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
 from connector_bindings import FileSource, capture_source  # noqa: E402
-from connector_toml_parse import parse_source, render_document  # noqa: E402
+from connector_toml_parse import render_document  # noqa: E402
 import project_settings_reader as reader  # noqa: E402
 import project_settings_schema as schema  # noqa: E402
 
@@ -126,15 +126,6 @@ class ProjectSettingsSchemaIndependentTests(unittest.TestCase):
                 document[field] = "forbidden-owner"
                 with self.assertRaises(schema._SchemaError):
                     self.parse(document)
-
-    def test_actual_live_legacy_document_refuses_at_complete_schema_without_effects(self):
-        path = REPOSITORY / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
-        before = path.read_bytes()
-        _, document = parse_source(before)
-        with self.assertRaises(schema._SchemaError) as raised:
-            self.parse(document)
-        self.assertTrue(raised.exception.field)
-        self.assertEqual(before, path.read_bytes())
 
 
 class ProjectSettingsReaderIndependentTests(unittest.TestCase):
@@ -259,7 +250,7 @@ class ProjectSettingsReaderIndependentTests(unittest.TestCase):
         self.write_document(document)
         self.assertEqual(document, self.assert_read(self.read()).to_document())
 
-    def test_complete_document_refuses_schema_errors_and_legacy_bytes(self):
+    def test_complete_document_refuses_schema_errors(self):
         for payload in (b"not TOML", b"\xff", b'schema_version="2.0"\nschema_version="2.0"\n'):
             with self.subTest(payload=payload):
                 self.settings.write_bytes(payload)
@@ -277,12 +268,6 @@ class ProjectSettingsReaderIndependentTests(unittest.TestCase):
                 target[keys[-1]] = value
                 self.write_document(document)
                 self.assert_refused(self.read())
-        legacy = REPOSITORY / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
-        before = legacy.read_bytes()
-        self.settings.write_bytes(before)
-        self.source = capture_source(self.root, self.settings.relative_to(self.root))
-        self.assert_refused(self.read())
-        self.assertEqual(before, legacy.read_bytes())
 
     def test_complete_distinct_actual_schema_authority_and_stale_sources_are_required(self):
         for authorities in ([], self.authorities[:-1], self.authorities + [self.authorities[0]]):

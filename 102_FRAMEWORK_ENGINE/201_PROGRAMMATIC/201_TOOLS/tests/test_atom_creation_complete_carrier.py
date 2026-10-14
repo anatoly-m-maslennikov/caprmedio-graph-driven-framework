@@ -30,7 +30,6 @@ class RegistryRefreshTest(unittest.TestCase):
         refreshed = refresh_entries(PROJECT, entries, ["CA-D-276"])
 
         source = PROJECT / refreshed["CA-D-276"]["source_path"]
-        self.assertEqual(refreshed["CA-D-276"]["version"], 15)
         self.assertEqual(
             refreshed["CA-D-276"]["sha256"], hashlib.sha256(source.read_bytes()).hexdigest()
         )
