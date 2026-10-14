@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 43
-updated_at: "2026-10-14 09:50:15 +0400"
+version: 44
+updated_at: "2026-10-14 10:24:40 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,14 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Direct Subject lookup locally complete — 2026-10-14 10:24 +0400
+
+CA-P-2369 and CA-P-2374–2377 are Done for their bounded proposal, rules, reader/provider and local MCP transport checks. The independently reviewed implementation is committed as `2a40cb4c8`; rules are `8186f93a4`, and Session receiver pin compatibility is `e75005fe0`. Final checks passed: 71 ATOM_SEARCH tests, 10 real MCP protocol tests and 55 affected Session tests. Two review findings were fixed: Project boundary/provenance revalidation and selected directory symlinks falsely appearing as empty results. Four adjacent unchanged O199 tests still fail before invocation on an absent legacy fixture; no full-suite success is claimed.
+
+The local reader returned 127 active Core matches with full coverage and zero diagnostics; all 906 Core sources and Settings/Structure stayed unchanged. [Local completion receipt](../../_projection/core-entity-review/stage2/tools-first/direct-subject-lookup-local-completion.md). No Subjects, ordinary content, Journal or migration candidate was changed by this verification.
+
+Installed readiness remains open: the connected Docker service has not been rebuilt or activated with this code. The Operator has been asked whether preview/staging should use separate direct MCP calls that preserve source Atoms and write candidates only to `.caprmedio_tmp`; that decision is unanswered. Lookup approval does not authorize it. Live publication still needs its real human-confirmation connection and applicable admission/manifest decisions. Keep this Epic and CA-P-1959 Active; content migration remains separate.
 
 ### Read-only lookup decision — 2026-10-14 09:50 +0400
 

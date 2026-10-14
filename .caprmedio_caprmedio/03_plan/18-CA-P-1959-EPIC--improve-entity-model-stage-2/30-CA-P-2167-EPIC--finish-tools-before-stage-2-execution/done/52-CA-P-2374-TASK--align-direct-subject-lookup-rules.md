@@ -14,11 +14,10 @@ status: Done
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Plan]
-version: 2
-updated_at: "2026-10-14 10:10:00 +0400"
+version: 3
+updated_at: "2026-10-14 10:27:00 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
-  depends_on: [CA-P-2369]
 ---
 # Summary
 
@@ -29,6 +28,8 @@ Align direct Subject lookup rules
 Amend only R863, M370, E301, D424, O046, R1936, M376 and D625 for the approved direct read-only Subject lookup. Preserve CLI and Session-based behavior, exact previous bytes and all mutation admission. No Session or Journal is required for this bounded direct observation.
 
 ## Details
+
+The independently accepted CA-P-2369 proposal is the input to this rule packet. Stage-specific work gates remain in the Epic; they are not Artifact depends_on Relations or whole-Task start blockers.
 
 Estimated own work: up to 15 minutes; split before exceeding this bound. Follow the independently reviewed lookup-exposure proposal. Root owns integration and Git. Preserve unrelated changes. Core Subject migration, ordinary content migration, broader connector rebuilding and live publication remain outside this Task.
 
