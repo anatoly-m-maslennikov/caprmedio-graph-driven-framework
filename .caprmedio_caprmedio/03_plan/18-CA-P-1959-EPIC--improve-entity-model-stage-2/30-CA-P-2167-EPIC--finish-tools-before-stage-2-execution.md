@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 72
-updated_at: "2026-10-14 23:05:10 +0000"
+version: 73
+updated_at: "2026-10-14 23:38:44 +0000"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,14 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Green suite, connected refresh and next release gate — 2026-10-14 23:38:44 +0000
+
+Run 11 passed at frozen source `401d19bdcb5fa287683f906662b39fadf68e6e05`: 354 modules, 3,244 tests, zero skips and zero failed modules; terminal exit 0, elapsed 1,012.440 seconds (about seventeen minutes). Log: `.caprmedio_tmp/verification/full-suite-20261015-run11-two-host.log`. The final real-launcher proof reports `completed` at `.caprmedio_tmp/tests/full-suite-integration/attempt-g5f9unsg/launcher-proof-l00yppf3/result.json`. This supersedes the earlier failed-suite checkpoints for current suite status; those records remain historical. The Operator accepted the speed and selected green suite → public release → Subject migration.
+
+The separately approved MCP refresh completed: container `0c00e534a5cbf8a5699597547e367bdf048b1bbd2dbd5a757f618606f9c53bfd`, image `sha256:bc975a18f34e0ea8dbac05b2a9d267363b4d09a66f36ed3bf67a93e274752c2e`, fingerprint `7c8adfb0bcf10e3e69231bcbc821dc24472f6d338f78945941566153da2e3ea5`. `READY_STARTED` then `READY_REUSED` both reported readiness true on port 56317. An actual connected `get_mcp_reload_status` request succeeded at generation `b45c03fe3e644755d9fb05fef1a7aeea35bc77ec255852eec2aebde665975c9b` with zero in-flight requests. All four retained Settings hashes stayed unchanged; Git was clean before this checkpoint.
+
+Next is the public release, pending Operator permission for the host command because the MCP container has no GitHub/Docker runtime. No public release, fresh staging, live Subject write or content migration is claimed. Keep this Epic Active: actual migration capability, fresh connected staging, final graph/candidate packet checks, exact live publication approval and independent reproduction remain open. A green suite and connected refresh do not complete those gates; full semantic W11/W12 completion remains deferred and partial/mechanical graph coverage remains required.
 
 ### Run 10 evidence and remaining diagnostics — 2026-10-14 23:05:10 +0000
 
