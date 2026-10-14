@@ -45,7 +45,16 @@ class AppendChangeRecordsTest(unittest.TestCase):
 
     def run_git(self, *args: str) -> str:
         return subprocess.run(
-            ["git", "-C", str(self.root), *args],
+            [
+                "git",
+                "-c",
+                "maintenance.auto=false",
+                "-c",
+                "gc.auto=0",
+                "-C",
+                str(self.root),
+                *args,
+            ],
             check=True,
             capture_output=True,
             text=True,
