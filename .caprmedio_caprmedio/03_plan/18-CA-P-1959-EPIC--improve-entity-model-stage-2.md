@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 70
-updated_at: "2026-10-14 15:42:02 +0400"
+version: 71
+updated_at: "2026-10-14 16:17:21 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,14 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Reviewed registry-repair progress — 2026-10-14 16:17 +0400
+
+Reviewed commits: `04978a5c1` aligns D531's already-assigned same-ID legacy update with Version +1, exact no-op and exact prior history; `9730ca25a` preserves exact predecessor N and publishes the replacement predecessor's Archived N+1 through the existing native status writer; `fe72fde0f` refreshes the query admission paths and passes 17 focused tests; `14b4c0247` archives obsolete R1877/D566 under the Operator's explicit approval, retaining exact prior bytes rather than changing their primary Claims. The native lifecycle suite passed 35 tests and replacement Journal checks passed nine. The four selected replacement tests still stop before invocation at the obsolete O127 fixture pin; native passes do not establish selected-route acceptance.
+
+The one full shared-registry FPF review completed with PASS. This supersedes the earlier pending-review checkpoint only; it is review evidence, not source/implementation acceptance, complete registry admission or runtime readiness. No retired Release contract is restored merely to satisfy an old pin.
+
+Remaining blockers are the full Release source/consumer packet and complete shared seventeen-route registry, local validation order, production query Settings file binding, and actual Codex live confirmation, which has not been tested. Finish those bounded alignments, verify the complete registry and its accepted query frontiers, and retain exact refusal/history/recording checks. Keep both Epics Active and the uncertain staging batches unchanged. This checkpoint authorizes no migration, publication, runtime activation, push, new scratch staging or content-Epic execution; each applicable live gate remains separate.
 
 ### Full shared registry repair selected — 2026-10-14 15:42 +0400
 
