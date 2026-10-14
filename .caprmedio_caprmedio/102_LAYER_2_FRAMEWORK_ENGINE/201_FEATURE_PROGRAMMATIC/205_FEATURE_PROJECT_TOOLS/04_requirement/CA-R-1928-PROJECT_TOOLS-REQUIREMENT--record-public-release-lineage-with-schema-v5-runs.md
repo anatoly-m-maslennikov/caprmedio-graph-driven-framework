@@ -10,10 +10,9 @@ status: "Active"
 subjects:
   governs: "Public release Journal lineage"
   depends_on: [Journal, Workflow, Step, Action, Tool Call]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
-relations:
-  relates_to: [CA-O-188, CA-M-369, CA-E-618, CA-D-618]
+version: 2
+updated_at: "2026-10-14 12:27:48 +0000"
+relations: {}
 ---
 # Summary
 

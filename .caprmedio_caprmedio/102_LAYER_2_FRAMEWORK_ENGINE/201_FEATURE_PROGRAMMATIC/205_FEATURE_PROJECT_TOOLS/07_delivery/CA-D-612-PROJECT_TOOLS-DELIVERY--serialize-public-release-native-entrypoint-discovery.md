@@ -10,10 +10,9 @@ status: "Active"
 subjects:
   governs: "PUBLIC_RELEASE native entrypoint discovery"
   depends_on: [Tool, Package, Capability Discovery]
-version: 2
-updated_at: "2026-10-10 19:05:35 +0400"
-relations:
-  delivery_for: [CA-R-1922]
+version: 3
+updated_at: "2026-10-14 12:27:48 +0000"
+relations: {}
 ---
 # Summary
 

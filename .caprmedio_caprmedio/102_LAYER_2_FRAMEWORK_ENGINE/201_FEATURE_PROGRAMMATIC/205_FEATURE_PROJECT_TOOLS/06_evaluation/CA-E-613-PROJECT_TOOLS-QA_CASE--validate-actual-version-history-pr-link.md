@@ -11,8 +11,8 @@ status: "Active"
 subjects:
   governs: "Version History actual PR link"
   depends_on: [Version History, Pull Request, Source Proof]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
+version: 2
+updated_at: "2026-10-14 12:27:48 +0000"
 relations:
   evaluation_for: [CA-R-1923, CA-M-366]
 ---
@@ -26,7 +26,7 @@ one public Version History entry.
 
 ## Claim
 
-**the Operator** **must** verify that an existing matching PR is linked before the first gate, while a newly created PR causes finalization with its returned URL and never accepts a guessed URL or placeholder.
+**the Operator** **must** verify that an existing matching PR is linked before the initial public push, while a newly created PR causes finalization with its returned URL and never accepts a guessed URL or placeholder.
 
 ## Details
 

@@ -10,10 +10,9 @@ status: "Active"
 subjects:
   governs: "Public release Pull Request identity"
   depends_on: [Pull Request, Git Branch, Personal Remote]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
-relations:
-  relates_to: [CA-O-190, CA-O-196, CA-O-198, CA-M-368, CA-E-616, CA-D-617]
+version: 2
+updated_at: "2026-10-14 12:27:48 +0000"
+relations: {}
 ---
 # Summary
 
@@ -29,4 +28,4 @@ one public release Pull Request boundary.
 
 ## Details
 
-Zero matches permits create after the initial gated push. More than one match, a changed existing identity, or an unsafe/nonmatching URL blocks the Workflow.
+Zero matches permits create after the actual initial push. More than one match, a changed existing identity, or an unsafe/nonmatching URL blocks the Workflow.

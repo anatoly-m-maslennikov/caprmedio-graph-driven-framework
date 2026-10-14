@@ -10,10 +10,9 @@ status: "Active"
 subjects:
   governs: "Version History public release entry"
   depends_on: [Version History, Pull Request, Version]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
-relations:
-  relates_to: [CA-O-190, CA-O-192, CA-O-198, CA-M-366, CA-E-613, CA-D-615]
+version: 2
+updated_at: "2026-10-14 12:27:48 +0000"
+relations: {}
 ---
 # Summary
 
@@ -29,4 +28,4 @@ one Version History entry for one public release.
 
 ## Details
 
-A guessed URL, placeholder, prose-only reference, or unrelated PR does not satisfy the Claim. When the URL is created after the initial gate, CA-O-198 owns the finalization and renewed gate.
+A guessed URL, placeholder, prose-only reference, or unrelated PR does not satisfy the Claim. When the actual URL becomes known after the initial push, CA-O-198 owns mechanical finalization and same-PR refresh without another suite or prompt.

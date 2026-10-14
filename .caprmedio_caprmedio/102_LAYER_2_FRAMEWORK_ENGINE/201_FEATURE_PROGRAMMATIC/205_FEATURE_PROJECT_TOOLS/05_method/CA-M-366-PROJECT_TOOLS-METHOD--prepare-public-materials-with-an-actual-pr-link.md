@@ -10,10 +10,10 @@ status: "Active"
 subjects:
   governs: "Public release documentation preparation"
   depends_on: [README, Pull Request, Version History, Source Proof]
-version: 3
-updated_at: "2026-10-10 19:05:35 +0400"
+version: 4
+updated_at: "2026-10-14 12:27:48 +0000"
 relations:
-  method_for: [CA-R-1922, CA-R-1923]
+  method_for: [CA-R-1923]
 ---
 # Summary
 
@@ -29,4 +29,4 @@ the public-release Tool **must** prepare README, one full PR body, and short Ver
 
 ## Details
 
-Version History remains a concise summary plus actual URL. The Tool completes the one fresh public suite after its initial material closure is frozen and before its first publication. If no matching PR exists, it adds that URL through one mechanical metadata-only follow-up commit and push after creation. That follow-up reopens the retained Public Full Gate; it does not rerun the suite, request a separate review or prompt, or change the tested candidate.
+Version History remains a concise summary plus actual URL. The Tool completes the one fresh public suite after its initial material closure is frozen and before its first publication. If no matching PR exists, it adds that URL through one mechanical metadata-only follow-up commit and push after creation. That follow-up reopens the actual passed initial public-suite and current source/material evidence; it does not rerun the suite, request a separate review or prompt, or change any non-metadata Version/source/material binding.

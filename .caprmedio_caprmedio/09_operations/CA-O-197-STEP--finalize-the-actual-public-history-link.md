@@ -9,9 +9,9 @@ status: "Active"
 author: "Anatoly Maslennikov"
 subjects:
   governs: "Public release/Step: finalize actual Version History link"
-  depends_on: [Version History, Pull Request, Full Gate, Git Commit, Journal]
-version: 2
-updated_at: "2026-10-10 19:05:19 +0400"
+  depends_on: [Version History, Pull Request, Git Commit, Journal]
+version: 3
+updated_at: "2026-10-14 12:27:48 +0000"
 relations:
   part_of: [CA-O-188]
   invokes: [CA-O-198]

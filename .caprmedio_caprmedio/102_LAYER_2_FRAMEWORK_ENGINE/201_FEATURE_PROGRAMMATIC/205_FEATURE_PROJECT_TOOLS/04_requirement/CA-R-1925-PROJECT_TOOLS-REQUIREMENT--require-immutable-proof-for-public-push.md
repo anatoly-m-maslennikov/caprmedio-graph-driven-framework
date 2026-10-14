@@ -10,10 +10,9 @@ status: "Active"
 subjects:
   governs: "Public push proof"
   depends_on: [Git Commit, Personal Remote, Tool Call, Journal]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
-relations:
-  relates_to: [CA-O-196, CA-O-198, CA-M-368, CA-E-615, CA-D-616]
+version: 2
+updated_at: "2026-10-14 12:27:48 +0000"
+relations: {}
 ---
 # Summary
 
@@ -25,7 +24,7 @@ one public `amm/dev` push effect.
 
 ## Claim
 
-**the Operator** **must** retain an immutable commit identity and remote effect reference for every public push of a gated source snapshot.
+**the Operator** **must** retain an immutable commit identity and remote effect reference for every public push of the selected public source/material bindings.
 
 ## Details
 
