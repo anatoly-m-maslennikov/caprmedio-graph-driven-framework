@@ -1,7 +1,7 @@
 """Real fifteen-route discovery; seventeen-row projection is not admission."""
 
 import asyncio
-import json
+import copy
 from pathlib import Path
 import sys
 import tempfile
@@ -93,12 +93,12 @@ class SelectedRegistryDiscoveryTests(unittest.TestCase):
             path.write_bytes(saved)
 
     def test_old_seventeen_row_projection_cannot_override_direct_release_contracts(self):
-        # Exercise the admitted-output projection seam only; current17 is not admitted.
-        from selected_routes import selected_manifest_ref
-
-        root = TOOLS.parents[2]
-        manifest = json.loads((root / selected_manifest_ref(root)).read_text())
-        manifest["manifest_ref"] = selected_manifest_ref(root)
+        # Well-formed legacy Release rows must not replace the direct contracts.
+        manifest = copy.deepcopy(self.manifest)
+        manifest["routes"].extend(
+            dict(copy.deepcopy(manifest["routes"][0]), route=route)
+            for route in ("release_version", "public.release")
+        )
         self.assertEqual(17, len(manifest["routes"]))
         rows = self.service._selected_route_rows(manifest)
         self.assertEqual(15, len(rows))
