@@ -9,6 +9,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 TOOLS = Path(__file__).resolve().parents[2]
@@ -143,8 +144,10 @@ class SubjectApplyProject:
         graph = runner._validate_graph(graph_request)
         tracker = runner._shared_tracker({"graph": graph, "request": {"execution": graph_request}})
         preview = tracker.run_selected_operation(request)
-        execute = self.golden.request(request_id=run_id, mode="execute",
-                                      receipt=preview["proposal_receipt"], receipt_digest=preview["proposal_receipt_digest"])
+        with patch.object(self.golden, "_requested_runs",
+                          return_value=SelectedExecution.build_requested_runs(graph, run_id)):
+            execute = self.golden.request(request_id=run_id, mode="execute",
+                                          receipt=preview["proposal_receipt"], receipt_digest=preview["proposal_receipt_digest"])
         for field in ("target_frontier", "target_frontier_digest", "effects", "effects_digest"):
             execute[field] = request[field]
         for field in ("target_frontier_digest", "effects_digest"):
