@@ -207,18 +207,24 @@ def copy_complete_selected_guard_fixture(project: Path) -> dict:
     """Current-source fifteen-route fixture; not a seventeen-route repair receipt."""
     tools = MCP.parent / "201_TOOLS"
     sys.path.insert(0, str(tools / "VALIDATE_ATOMS"))
-    from capability_discovery.service import Service
+    from validate_atoms_workers.parsing import parse_carrier
 
-    atoms, _bindings, _issues = Service(ROOT).catalog()
     manifest = json.loads((ROOT / selected_manifest_ref(ROOT)).read_text())
     assert tuple(row["route"] for row in manifest["routes"]) == SELECTED_ROUTE_NAMES
     manifest["query_source_admissions"] = copy.deepcopy(list(selected_routes._query_admission_specs(ROOT)))
     query = {row["route"]: row for row in manifest["query_source_admissions"]}
 
     def current_pin(pin):
-        source = atoms[pin["atom_id"]]
-        return {"atom_id": source["id"], "version": source["properties"]["version"],
-                "source_path": source["source_path"], "digest": source["sha256"]}
+        # Fixture inputs are the exact selected paths, not a whole Project catalog.
+        path = selected_routes._safe_path(ROOT, pin["source_path"])
+        raw = path.read_bytes()
+        metadata = parse_carrier(raw, path).metadata
+        assert metadata.get("atom_id") == pin["atom_id"], "fixture source identity differs"
+        assert str(metadata.get("status", "")).lower() == "active", "fixture source is not Active"
+        version = metadata.get("version")
+        assert type(version) is int and version > 0, "fixture source version is invalid"
+        return {"atom_id": pin["atom_id"], "version": version,
+                "source_path": pin["source_path"], "digest": hashlib.sha256(raw).hexdigest()}
 
     for route in manifest["routes"]:
         if route["route"] in query:
@@ -231,9 +237,9 @@ def copy_complete_selected_guard_fixture(project: Path) -> dict:
             route["ordered_actions"] = [current_pin(pin) for pin in route["ordered_actions"]]
         route["native_action_calls"] = [current_pin(pin) for pin in route["native_action_calls"]]
     freshness = manifest["source_freshness"]
-    registry = atoms["CA-A-1142"]
+    registry = current_pin({"atom_id": "CA-A-1142", "source_path": freshness["selected_source_registry_ref"]})
     freshness["selected_source_registry_ref"] = registry["source_path"]
-    freshness["selected_source_registry_digest"] = registry["sha256"]
+    freshness["selected_source_registry_digest"] = registry["digest"]
     freshness["selected_binding_digest"] = canonical_digest(manifest["routes"])
     manifest["canonical_manifest_sha256"] = canonical_digest(
         {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"})
