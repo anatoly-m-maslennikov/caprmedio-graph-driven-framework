@@ -7,7 +7,6 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
 
 TESTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TESTS))
@@ -64,9 +63,9 @@ class SelectedFullRegistryGuardTest(unittest.TestCase):
     def test_release_request_does_not_use_the_route_only_virtual_manifest(self) -> None:
         request = self.fixture.request("partial-release")
         request["execution"]["operation_route"] = "release_version"
-        with patch.object(selected_routes, "load_release_execution_manifest", side_effect=AssertionError("route-only Release admission called")):
-            with self.assertRaisesRegex(SelectedExecutionError, "complete selected definition manifest"):
-                self.runner.freeze(request)
+        self.assertFalse(hasattr(selected_routes, "load_release_execution_manifest"))
+        with self.assertRaisesRegex(SelectedExecutionError, "complete selected definition manifest"):
+            self.runner.freeze(request)
         self.assertFalse(self.runner.run_directory(request["run_id"]).exists())
 
     def test_retained_completed_result_is_inspected_without_replay(self) -> None:
