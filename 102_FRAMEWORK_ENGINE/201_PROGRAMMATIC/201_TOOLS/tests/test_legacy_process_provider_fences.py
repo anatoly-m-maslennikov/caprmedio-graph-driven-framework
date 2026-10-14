@@ -90,7 +90,8 @@ class LegacyProcessProviderFenceTests(unittest.IsolatedAsyncioTestCase):
             "[project]\nname=\"test\"\nkey=\"test\"\nrepository_slug=\"test\"\n"
             "[paths]\ncontrol_root=\".caprmedio_test\"\n"
             "[artifacts.identity]\nproject_prefix=\"TEST\"\n"
-            "[artifact_timestamps]\ntimezone=\"UTC\"\n",
+            "[artifact_timestamps]\ntimezone=\"UTC\"\n"
+            "[project_mcp]\nhttp_port=8099\n",
             encoding="utf-8",
         )
         (control / "project_structure.toml").write_text("schema_version=1\nscope_units=[]\n", encoding="utf-8")

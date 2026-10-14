@@ -85,6 +85,47 @@ class ImageGoldenTests(unittest.TestCase):
             self.manager(missing_source, lambda *_a, **_k: None).identity()
         self.assertEqual("IMAGE_INPUT_UNAVAILABLE", raised.exception.code)
 
+    def test_explicit_private_build_root_preserves_image_identity_and_contains_attempt(self) -> None:
+        source = self.source_fixture()
+        parent = self.fixture_root / "project-temp/run-private-images"
+        parent.mkdir(parents=True)
+        identity = self.manager(source, lambda *_a, **_k: None).identity()
+        def executor(argv, **_kwargs):
+            if "build" in argv:
+                iid = Path(argv[argv.index("--iidfile") + 1])
+                self.assertTrue(iid.is_relative_to(parent))
+                iid.write_text(IMAGE_ID, encoding="ascii")
+                return subprocess.CompletedProcess(argv, 0, "", "")
+            if "ls" in argv:
+                return subprocess.CompletedProcess(argv, 0, "", "")
+            inspection = [{"Id": IMAGE_ID, "Os": "linux", "Architecture": "amd64", "Config": {"Labels": {
+                "org.caprmedio.runtime.schema": "1", "org.caprmedio.runtime.fingerprint": identity.fingerprint,
+            }}}]
+            return subprocess.CompletedProcess(argv, 0, json.dumps(inspection), "")
+        manager = ImageManager(source, executor=executor, uid=1000, gid=1000, platform="linux/amd64", build_temp_root=parent)
+        self.assertEqual(identity, manager.identity())
+        self.assertEqual(IMAGE_ID, manager.resolve())
+        self.assertEqual(1, len(list(parent.iterdir())))
+
+    def test_explicit_missing_or_symlink_build_root_refuses_without_fallback(self) -> None:
+        source = self.source_fixture()
+        target = self.fixture_root / "real-temp"
+        target.mkdir()
+        alias = self.fixture_root / "alias-temp"
+        alias.symlink_to(target, target_is_directory=True)
+        for parent in (self.fixture_root / "missing-temp", alias):
+            with self.subTest(parent=parent):
+                calls = []
+                def executor(argv, **_kwargs):
+                    calls.append(tuple(argv))
+                    return subprocess.CompletedProcess(argv, 0, "", "")
+                manager = ImageManager(source, executor=executor, uid=1000, gid=1000, platform="linux/amd64", build_temp_root=parent)
+                with self.assertRaises(ImageError) as raised:
+                    manager.resolve()
+                self.assertEqual("BUILD_FAILED", raised.exception.code)
+                self.assertFalse(any("build" in argv for argv in calls))
+        self.assertEqual([], list(target.iterdir()))
+
     def test_matching_image_requires_the_exact_schema_and_source_fingerprint_labels(self) -> None:
         source = APP.parents[3]
         expected = self.manager(source, lambda *_a, **_k: None).identity()

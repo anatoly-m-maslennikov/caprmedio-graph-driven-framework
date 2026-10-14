@@ -75,7 +75,7 @@ _STARTUP_PHASES = frozenset({
     'initial_fingerprint', 'reload_fingerprint', 'fingerprint_verify',
     'child_handshake', 'list_tools', 'generation_ready', 'schema_validation',
 })
-_SINGLETON_LOCK_PARTS = ('.caprmedio_install', 'runtime_locks', 'mcp_hot_reload')
+_SINGLETON_LOCK_PARTS = ('.caprmedio_runtime', 'runtime', 'mcp_hot_reload')
 _INSTANCE_ID = re.compile(r'[0-9a-f]{64}\Z')
 _PROCESS_QUERY_MAX_BYTES = 64 * 1024
 _PROCESS_QUERY_MAX_SECONDS = 2.0
@@ -103,7 +103,7 @@ def _singleton_lock_path(root, instance_id):
         current = Path(root).resolve(strict=True)
         if not current.is_dir() or current.is_symlink():
             raise ValueError()
-        for part in _SINGLETON_LOCK_PARTS:
+        for part in (*_SINGLETON_LOCK_PARTS, instance_id):
             current = current / part
             status = os.lstat(current) if os.path.lexists(current) else None
             if status is None:
@@ -111,7 +111,7 @@ def _singleton_lock_path(root, instance_id):
                 status = os.lstat(current)
             if stat.S_ISLNK(status.st_mode) or not stat.S_ISDIR(status.st_mode):
                 raise ValueError()
-        return current / f'{instance_id}.lock'
+        return current / 'gateway.lock'
     except (OSError, RuntimeError, TypeError, ValueError) as error:
         raise RuntimeError('MCP gateway singleton fence is unavailable') from error
 
@@ -316,7 +316,8 @@ class Gateway:
         self.generation_fence = threading.Lock()
         self._singleton_descriptor = None
         self._initialized = False
-        self.storage = selection.reload_state if selection is not None else self.root / '.caprmedio_install/mcp_hot_reload'
+        self.storage = (selection.reload_state if selection is not None else
+                        self.root / '.caprmedio_runtime/runtime/mcp_hot_reload' / self._singleton_instance_id)
 
     @property
     def _singleton_instance_id(self):
@@ -361,7 +362,7 @@ class Gateway:
             if self.selection.host_root is not None:
                 arguments += ['--host-project-root', str(self.selection.host_root)]
         generation = Generation(StdioServerParameters(command=sys.executable,
-            args=['-B', '-X', f'pycache_prefix={self.storage / "bytecode" / fingerprint}',
+            args=['-B', '-X', f'pycache_prefix={self.root / ".caprmedio_tmp/mcp_hot_reload" / self._singleton_instance_id / fingerprint}',
                   *arguments],
             env=environment), fingerprint)
         phase = 'generation_ready'

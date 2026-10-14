@@ -21,7 +21,7 @@ from atom_operations import control_root, project_identity_prefix, resolve_repos
 from artifact_metadata import configured_timezone, project_identity
 from authoritative_status_models import _configured_control_root
 from capability_discovery.service import Service
-from hot_reload import Gateway
+from hot_reload import Gateway, _singleton_lock_path, _open_singleton_lock, _close_singleton_lock
 import selected_routes
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
 
@@ -56,6 +56,31 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual("UTC", str(configured_timezone(selection.root)))
                 self.assertEqual(selection.control_relative.as_posix() + "/_projection/selected_workflow_bindings.json",
                                  selected_routes.selected_manifest_ref(selection.root))
+
+    def test_runtime_namespace_properties_are_selected_and_read_only(self):
+        for selection in self.selections:
+            runtime = selection.root / ".caprmedio_runtime/runtime"
+            self.assertEqual(runtime / "project_mcp" / selection.instance_id, selection.launcher_state)
+            self.assertEqual(runtime / "mcp_hot_reload" / selection.instance_id, selection.reload_state)
+            self.assertFalse(runtime.exists())
+            self.assertFalse((selection.root / ".caprmedio_install").exists())
+
+    def test_gateway_fence_is_inside_exact_runtime_instance_and_retains_old_bytes(self):
+        selection = self.selections[0]
+        legacy = selection.root / ".caprmedio_install/runtime_locks/mcp_hot_reload" / (selection.instance_id + ".lock")
+        legacy.parent.mkdir(parents=True)
+        legacy.write_bytes(b"retained legacy observation")
+        expected = selection.reload_state / "gateway.lock"
+        self.assertEqual(expected, _singleton_lock_path(selection.root, selection.instance_id))
+        held = _open_singleton_lock(selection.root, selection.instance_id)
+        try:
+            with self.assertRaisesRegex(RuntimeError, "busy"):
+                _open_singleton_lock(selection.root, selection.instance_id)
+            other = _open_singleton_lock(self.selections[1].root, self.selections[1].instance_id)
+            _close_singleton_lock(other)
+        finally:
+            _close_singleton_lock(held)
+        self.assertEqual(b"retained legacy observation", legacy.read_bytes())
 
     def test_foreign_root_and_outside_project_source_refuse(self):
         alpha, beta = self.selections
@@ -168,6 +193,9 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
                             ("--instance-id", selection.instance_id), ("--host-project-root", str(selection.host_root))):
             self.assertEqual(value, args[args.index(flag) + 1])
         self.assertNotIn("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN", observed["params"].env)
+        self.assertIn(f'pycache_prefix={selection.root / ".caprmedio_tmp/mcp_hot_reload" / selection.instance_id / "fixed"}', args)
+        self.assertFalse((selection.reload_state / "bytecode").exists())
+        gateway._release_singleton_fence()
 
 
 if __name__ == "__main__":

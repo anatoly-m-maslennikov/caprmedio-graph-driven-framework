@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import hashlib
 import json
 import os
 import re
@@ -10,6 +11,7 @@ import shutil
 import stat
 import subprocess
 import sys
+import tempfile
 import tomllib
 from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path, PurePosixPath
@@ -68,7 +70,7 @@ def _project_path(root: Path, relative: Path, *, label: str, require_exists: boo
     current = root
     for component in relative.parts:
         current /= component
-        if current.exists() and current.is_symlink():
+        if os.path.lexists(current) and current.is_symlink():
             raise LocalReleaseError(f"local-release-{label}-unsafe")
     return candidate
 
@@ -109,8 +111,11 @@ def _read_structure(root: Path, config: Mapping[str, Any]) -> tuple[tuple[str, P
 
 
 def _walk_regular_files(root: Path, *, excluded_directories: frozenset[str] = frozenset()) -> list[Path]:
+    def fail(error: OSError) -> None:
+        raise LocalReleaseError("local-release-source-read-failed") from error
+
     collected: list[Path] = []
-    for directory, directories, names in os.walk(root, followlinks=False):
+    for directory, directories, names in os.walk(root, followlinks=False, onerror=fail):
         base = Path(directory)
         directories[:] = [name for name in directories if not _ignored(name) and name.casefold() not in excluded_directories]
         for name in directories:
@@ -128,7 +133,7 @@ def _walk_regular_files(root: Path, *, excluded_directories: frozenset[str] = fr
             if stat.S_ISLNK(mode) or not stat.S_ISREG(mode):
                 raise LocalReleaseError("local-release-source-entry-unsafe")
             collected.append(child)
-    return collected
+    return sorted(collected)
 
 
 def _active_atom(path: Path) -> bool:
@@ -281,6 +286,102 @@ def _deploy_bootstrap(root: Path, package: Path) -> None:
         raise LocalReleaseError("local-release-bootstrap-unavailable") from error
 
 
+def _file_identity(path: Path) -> tuple[str, int]:
+    return hashlib.sha256(path.read_bytes()).hexdigest(), stat.S_IMODE(path.stat().st_mode)
+
+
+def _verify_package(package: Path, expected: Mapping[str, tuple[str, int]]) -> None:
+    actual = {entry.relative_to(package).as_posix(): _file_identity(entry)
+              for entry in _walk_regular_files(package)}
+    if actual != expected:
+        raise LocalReleaseError("local-release-package-verification-failed")
+
+
+def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tuple[str, int]]:
+    excluded = frozenset({".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv"})
+    trees = (
+        (root / "102_FRAMEWORK_ENGINE", Path("102_FRAMEWORK_ENGINE")),
+        (product / "sources", Path("METHODOLOGY/sources")),
+        (product / "applicable_methodology", Path("METHODOLOGY/compiled")),
+        (root / "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca", Path("SKILLS/ca")),
+    )
+    sources: list[tuple[Path, Path]] = []
+    inventories: list[tuple[Path, list[Path]]] = []
+    for source, destination in trees:
+        if source.is_symlink() or not source.is_dir():
+            raise LocalReleaseError("local-release-package-source-unavailable")
+        members = _walk_regular_files(source, excluded_directories=excluded)
+        if not members:
+            raise LocalReleaseError("local-release-package-source-unavailable")
+        inventories.append((source, members))
+        (package / destination).mkdir(parents=True, exist_ok=True)
+        sources.extend((entry, destination / entry.relative_to(source)) for entry in members)
+    for name in ("pyproject.toml", "uv.lock", "version.toml"):
+        source = root / name
+        if source.is_symlink() or not source.is_file():
+            raise LocalReleaseError("local-release-package-source-unavailable")
+        sources.append((source, Path(name)))
+    expected = {}
+    for source, relative in sources:
+        expected[relative.as_posix()] = _file_identity(source)
+        destination = package / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)
+    for source, members in inventories:
+        if _walk_regular_files(source, excluded_directories=excluded) != members:
+            raise LocalReleaseError("local-release-package-source-changed")
+    for source, relative in sources:
+        if _file_identity(source) != expected[relative.as_posix()]:
+            raise LocalReleaseError("local-release-package-source-changed")
+    for relative in (
+        "SKILLS/ca/SKILL.md",
+        "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_mcp_bootstrap.py",
+        "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/start_mcp.py",
+        "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py",
+    ):
+        if relative not in expected:
+            raise LocalReleaseError("local-release-package-source-unavailable")
+    _verify_package(package, expected)
+    return expected
+
+
+def _cleanup_staging(root: Path, staging: Path | None) -> str:
+    if staging is None:
+        return ""
+    try:
+        _clear_owned(staging, label="temporary-package")
+    except (LocalReleaseError, OSError):
+        pass
+    return f"Retained temporary staging: `{staging.relative_to(root).as_posix()}`.\n" if os.path.lexists(staging) else ""
+
+
+def _image_manager(source: Path, temporary: Path | None = None):
+    docker = Path(__file__).resolve().parents[2] / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker"
+    if str(docker) not in sys.path:
+        sys.path.insert(0, str(docker))
+    from runtime_images import ImageManager
+    return ImageManager(source, build_temp_root=temporary)
+
+
+def _launcher_image(selection) -> str | None:
+    """Read only this selected instance's observation; never scan legacy state."""
+    try:
+        record = _project_path(selection.root, selection.launcher_state.relative_to(selection.root) / "last_launch.json",
+                               label="project-launch-state")
+        if not record.is_file():
+            return None
+        payload = json.loads(record.read_text(encoding="utf-8"))
+        image = payload.get("image_id") if isinstance(payload, dict) else None
+        if (isinstance(payload, dict) and payload.get("project_root") == str(selection.root)
+                and payload.get("control_root") == str(selection.control_root)
+                and payload.get("project_id") == selection.instance_id
+                and isinstance(image, str) and re.fullmatch(r"sha256:[0-9a-f]{64}", image)):
+            return image
+    except (LocalReleaseError, OSError, UnicodeDecodeError, json.JSONDecodeError):
+        pass
+    return None
+
+
 def run_local_release(project_root: Path | str, *, run_id: str,
                       runner: Callable[[tuple[str, ...], Path], Any] | None = None) -> dict[str, object]:
     """Run the direct local release without candidate selection or recovery state."""
@@ -288,42 +389,29 @@ def run_local_release(project_root: Path | str, *, run_id: str,
     if not isinstance(run_id, str) or not _RUN_ID.fullmatch(run_id):
         raise LocalReleaseError("local-release-run-id-invalid")
     root = _root(project_root)
+    from project_selection import ProjectSelectionError, resolve_project
+    try:
+        selection = resolve_project(root)
+    except ProjectSelectionError as error:
+        raise LocalReleaseError("local-release-project-selection-invalid") from error
     if runner is None:
         runner = lambda argv, cwd: subprocess.run(argv, cwd=cwd, text=True, capture_output=True, check=False)
 
     product = _target(root, Path(_DEFAULT_PRODUCT), label="product-root")
     installed = _target(root, Path(_DEFAULT_INSTALLED), label="installed-root")
-    package = _target(root, Path(".caprmedio_install/simple_local_release/package"), label="simple-package")
+    package: Path | None = None
+    prepared_product: Path | None = None
+    staging: Path | None = None
+    package_identity: dict[str, tuple[str, int]] = {}
+    product_identity: dict[str, tuple[str, int]] = {}
+    candidate_image: str | None = None
+    candidate_fingerprint: str | None = None
     runtime = _target(root, Path(".caprmedio_runtime/simple_local_release/package"), label="simple-runtime")
     if product == installed:
         raise LocalReleaseError("local-release-target-invalid")
 
-    prior_image: str | None = None
-    prior_project: str | None = None
-    state_root = root / ".caprmedio_install/project_mcp"
-    try:
-        records: list[tuple[str, str]] = []
-        if state_root.is_dir() and not state_root.is_symlink():
-            for state in state_root.iterdir():
-                record = state / "last_launch.json"
-                if (not re.fullmatch(r"[0-9a-f]{64}", state.name) or state.is_symlink()
-                        or not state.is_dir() or record.is_symlink() or not record.is_file()):
-                    continue
-                payload = json.loads(record.read_text(encoding="utf-8"))
-                image = payload.get("image_id") if isinstance(payload, dict) else None
-                if (
-                    isinstance(payload, dict)
-                    and payload.get("project_root") == str(root)
-                    and payload.get("control_root") == str(root / ".caprmedio_caprmedio")
-                    and payload.get("project_id") == state.name
-                    and isinstance(image, str)
-                    and re.fullmatch(r"sha256:[0-9a-f]{64}", image)
-                ):
-                    records.append((state.name, image))
-        if len(records) == 1:
-            prior_project, prior_image = records[0]
-    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
-        pass
+    prior_image = _launcher_image(selection)
+    prior_project = selection.instance_id if prior_image is not None else None
 
     failed_step = "validate_sources"
     mcp: Any = None
@@ -331,8 +419,8 @@ def run_local_release(project_root: Path | str, *, run_id: str,
     cleanup_note = "No proven superseded Project-owned image identity was available; none was removed."
     cleanup_pending = False
     phases = (
-        "validate sources", "tests", "copy active sources", "compile product", "copy product to installed framework",
-        "build package", "install project runtime", "start mcp", "final",
+        "validate sources", "tests", "copy active sources", "compile product", "build package", "prepare candidate image",
+        "copy product to installed framework", "install project runtime", "start mcp", "final",
     )
     try:
         for phase in phases:
@@ -432,35 +520,53 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                     raise LocalReleaseError("local-release-product-compile-blocked") from error
             elif phase == "copy product to installed framework":
                 failed_step = "copy_product_to_installed_framework"
+                _verify_package(package, package_identity)
+                _verify_package(prepared_product, product_identity)
                 _clear_target(installed, root=root, preserve=_PRESERVED_NAMES, label="installed-root")
-                _copy_tree(product, installed, preserve=_PRESERVED_NAMES)
+                _copy_tree(prepared_product, installed, preserve=_PRESERVED_NAMES)
             elif phase == "build package":
                 failed_step = "build_package"
-                _clear_target(package, root=root, preserve=frozenset(), label="simple-package")
-                for source, destination in (
-                    (root / "102_FRAMEWORK_ENGINE", package / "102_FRAMEWORK_ENGINE"),
-                    (product / "sources", package / "METHODOLOGY/sources"),
-                    (product / "applicable_methodology", package / "METHODOLOGY/compiled"),
-                    (root / "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca", package / "SKILLS/ca"),
-                ):
-                    if source.is_symlink() or not source.is_dir():
-                        raise LocalReleaseError("local-release-package-source-unavailable")
-                    destination.mkdir(parents=True, exist_ok=True)
-                    for entry in _walk_regular_files(source, excluded_directories=frozenset({
-                        ".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv",
-                    })):
-                        target = destination / entry.relative_to(source)
-                        target.parent.mkdir(parents=True, exist_ok=True)
-                        shutil.copy2(entry, target)
-                for name in ("pyproject.toml", "uv.lock", "version.toml"):
-                    source = root / name
-                    if source.is_symlink() or not source.is_file() or _ignored(source.name):
-                        raise LocalReleaseError("local-release-package-source-unavailable")
-                    shutil.copy2(source, package / name)
+                from project_runtime import owned_temporary_root, repository_root
+                temporary = _target(root, Path(".caprmedio_tmp/simple_local_release"), label="temporary-package")
+                if repository_root(root) != root:
+                    raise LocalReleaseError("local-release-temporary-project-mismatch")
+                owned_temporary_root(root, "simple_local_release")
+                staging = Path(tempfile.mkdtemp(prefix=f"{run_id}-", dir=temporary))
+                prepared_product = staging / "framework"
+                prepared_product.mkdir()
+                product_identity = {
+                    entry.relative_to(product).as_posix(): _file_identity(entry)
+                    for entry in _walk_regular_files(product)
+                    if entry.relative_to(product).parts[0] not in _PRESERVED_NAMES
+                }
+                _copy_tree(product, prepared_product, preserve=_PRESERVED_NAMES)
+                _verify_package(prepared_product, product_identity)
+                package = staging / "package"
+                package.mkdir()
+                package_identity = _prepare_package(root, prepared_product, package)
+            elif phase == "prepare candidate image":
+                failed_step = "prepare_candidate_image"
+                _verify_package(package, package_identity)
+                _verify_package(prepared_product, product_identity)
+                image_temporary = staging / "image_builds"
+                image_temporary.mkdir(mode=0o700)
+                manager = _image_manager(package, image_temporary)
+                candidate_image = manager.resolve()
+                candidate_fingerprint = manager.identity().fingerprint
+                if (not isinstance(candidate_image, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", candidate_image)
+                        or not isinstance(candidate_fingerprint, str) or not re.fullmatch(r"[0-9a-f]{64}", candidate_fingerprint)):
+                    raise LocalReleaseError("local-release-candidate-image-invalid")
+                _verify_package(package, package_identity)
             elif phase == "install project runtime":
                 failed_step = "install_project_runtime"
+                _verify_package(package, package_identity)
                 _clear_target(runtime, root=root, preserve=frozenset(), label="simple-runtime")
                 _copy_tree(package, runtime, preserve=frozenset())
+                _verify_package(runtime, package_identity)
+                manager = _image_manager(runtime)
+                if (manager.resolve(explicit_id=candidate_image, build_if_missing=False) != candidate_image
+                        or manager.identity().fingerprint != candidate_fingerprint):
+                    raise LocalReleaseError("local-release-installed-image-mismatch")
                 ca = _target(root, Path(".agents/skills/ca"), label="project-ca")
                 _clear_target(ca, root=root, preserve=frozenset(), label="project-ca")
                 _copy_tree(runtime / "SKILLS/ca", ca, preserve=frozenset())
@@ -527,33 +633,14 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                     mcp = runner((
                         "uv", "run", "--project", str(runtime), "--locked", "--no-sync", "--python", "3.14",
                         "--managed-python", "--no-env-file", "--group", "rmed-workflow-mcp", "python", str(launcher),
-                        "--project-root", str(root), "--source-root", str(runtime), "--output", "url", "project-mcp",
+                        "--project-root", str(root), "--source-root", str(runtime), "--image", candidate_image,
+                        "--no-build", "--output", "url", "project-mcp",
                     ), root)
                 except OSError as error:
                     raise LocalReleaseError("local-release-command-unavailable") from error
                 if getattr(mcp, "returncode", 0) != 0:
                     raise LocalReleaseError("local-release-command-failed")
-                try:
-                    records = []
-                    if state_root.is_dir() and not state_root.is_symlink():
-                        for state in state_root.iterdir():
-                            record = state / "last_launch.json"
-                            if (state.is_symlink() or not state.is_dir() or record.is_symlink() or not record.is_file()):
-                                continue
-                            payload = json.loads(record.read_text(encoding="utf-8"))
-                            image = payload.get("image_id") if isinstance(payload, dict) else None
-                            if (
-                                isinstance(payload, dict)
-                                and payload.get("project_root") == str(root)
-                                and payload.get("control_root") == str(root / ".caprmedio_caprmedio")
-                                and payload.get("project_id") == state.name
-                                and isinstance(image, str)
-                                and re.fullmatch(r"sha256:[0-9a-f]{64}", image)
-                            ):
-                                records.append(image)
-                    current_image = records[0] if len(records) == 1 else None
-                except (OSError, UnicodeDecodeError, json.JSONDecodeError):
-                    current_image = None
+                current_image = _launcher_image(selection)
                 if prior_image is not None and current_image is not None and prior_image != current_image:
                     try:
                         result = runner(("docker", "container", "ls", "--all", "--filter", f"ancestor={prior_image}", "--quiet"), root)
@@ -585,15 +672,18 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 )
                 receipt.parent.mkdir(parents=True, exist_ok=True)
                 endpoint = getattr(mcp, "stdout", None)
+                staging_note = _cleanup_staging(root, staging)
+                staging = None
                 receipt.write_text(
                     "# Simple local release receipt\n\n"
                     f"Run: `{run_id}`\n\n"
                     f"Endpoint: `{endpoint.strip() if isinstance(endpoint, str) else 'not reported'}`\n\n"
-                    f"Image cleanup: {cleanup_note}\n",
+                    f"Image cleanup: {cleanup_note}\n\n{staging_note}",
                     encoding="utf-8",
                 )
                 receipt_path = receipt.relative_to(root).as_posix()
     except Exception as error:
+        staging_note = _cleanup_staging(root, staging)
         relative = Path(".caprmedio_runtime/simple_local_release/reports") / f"{run_id}.md"
         report_path: str | None = None
         try:
@@ -603,7 +693,8 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 "# Simple local release failed\n\n"
                 f"Run: `{run_id}`\n\nStopped at: `{failed_step}`\n\n"
                 f"Error class: `{type(error).__name__}`\n\n"
-                "Manual action required: inspect the current project state before any retry.\n",
+                "Manual action required: inspect the current project state before any retry.\n\n"
+                f"{staging_note}",
                 encoding="utf-8",
             )
             report_path = relative.as_posix()

@@ -63,13 +63,7 @@ class LaunchError(RuntimeError):
 
 
 class _InstalledSelection:
-    """Retain a selected Project while relocating only installed MCP state.
-
-    ``ProjectSelection`` deliberately keeps its legacy ``.caprmedio_install``
-    compatibility properties.  An installed package activation must instead
-    use the post-migration runtime namespace without mutating that read-only
-    selection or either Project configuration carrier.
-    """
+    """Retain a selected Project with its admitted installed runtime state."""
 
     def __init__(self, selection: object, state: Path) -> None:
         self._selection = selection
@@ -95,7 +89,9 @@ def _state_root(selection: object) -> Path:
     value = getattr(selection, "launcher_state", None)
     if value is None:
         instance = getattr(selection, "instance_id", "")
-        value = root / ".caprmedio_install" / "project_mcp" / instance
+        if not isinstance(instance, str) or _FINGERPRINT.fullmatch(instance) is None:
+            raise LaunchError("PROJECT_SELECTION_REFUSED")
+        value = root / ".caprmedio_runtime" / "runtime" / "project_mcp" / instance
     try:
         state = Path(value)
         relative = state.relative_to(root)

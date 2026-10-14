@@ -86,11 +86,11 @@ class ProjectSelection:
 
     @property
     def launcher_state(self) -> Path:
-        return self.root / ".caprmedio_install" / "project_mcp" / self.instance_id
+        return self.root / ".caprmedio_runtime" / "runtime" / "project_mcp" / self.instance_id
 
     @property
     def reload_state(self) -> Path:
-        return self.root / ".caprmedio_install" / "mcp_hot_reload" / self.instance_id
+        return self.root / ".caprmedio_runtime" / "runtime" / "mcp_hot_reload" / self.instance_id
 
 
 _SELECTION: ContextVar[ProjectSelection | None] = ContextVar("caprmedio_project_selection", default=None)

@@ -278,7 +278,7 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assertEqual([], self.backend.rows)
 
     def test_external_project_lock_contention_reports_busy_without_runtime_effects(self):
-        lock_path = (self.project_root / ".caprmedio_install" / "project_mcp" /
+        lock_path = (self.project_root / ".caprmedio_runtime" / "runtime" / "project_mcp" /
                      INSTANCE_ID / "launch.lock")
         lock_path.parent.mkdir(parents=True)
         with lock_path.open("w", encoding="utf-8") as held:
