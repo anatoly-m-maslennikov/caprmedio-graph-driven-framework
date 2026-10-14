@@ -14,9 +14,12 @@ from atom_subject_patch import _raw_frontmatter, _validate_complete, preview_sub
 
 
 def stage_subject_preview(root: Path, items: list[object], *, timestamp: str | None = None,
-                          subject_profile: str = "legacy") -> dict[str, Any]:
+                          subject_profile: str = "legacy", expected_preview_sha256: str | None = None) -> dict[str, Any]:
     root = Path(root).resolve()
     preview = preview_subject_patches(root, items, timestamp=timestamp, subject_profile=subject_profile)
+    if expected_preview_sha256 is not None and (
+            preview["preview_sha256"] != expected_preview_sha256 or (timestamp is None and not preview["noop"])):
+        raise operations.ToolError("subject-stage-preview-mismatch", "Staging requires the same reviewed preview seal and illustrative time")
     base = root / ".caprmedio_tmp" / "subject-preview"
     batch: Path | None = None
     artifacts: dict[Path, tuple[int, int]] = {}

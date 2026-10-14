@@ -382,14 +382,15 @@ def _assert_original_identity_unique(
             except operations.CarrierError:
                 normalized = raw.replace(b"\r\n", b"\n")
                 header = (normalized.split(b"\n---\n", 1)[0] if normalized.startswith(b"---\n") else b"").decode("utf-8", errors="replace")
-                claims = re.findall(r"(?m)^(?:atom_id|\"atom_id\"|'atom_id'):\s*([^\n]*)$", header)
-                try:
-                    identities = [yaml.safe_load(claim) for claim in claims]
-                except yaml.YAMLError:
-                    _fail(operations, "subject-identity-inventory-unavailable", "an original identity claim cannot be resolved")
+                claims = re.findall(r"(?m)^(?:atom_id|\"atom_id\"|'atom_id')\s*:\s*([^\n]*)$", header)
+                identities = []
+                for claim in claims:
+                    try:
+                        identities.append(yaml.safe_load(claim))
+                    except yaml.YAMLError:
+                        continue  # Malformed unrelated C/A does not establish a selected identity claim.
                 if (filename_id in atom_ids or any(value in atom_ids for value in identities if isinstance(value, str))
-                        or any(re.search(r"(?<![A-Za-z0-9_-])" + re.escape(atom_id) + r"(?![A-Za-z0-9_-])", header) for atom_id in atom_ids)
-                        or ("atom_id" in header and not claims)):
+                        or any(re.search(r"(?<![A-Za-z0-9_-])" + re.escape(atom_id) + r"(?![A-Za-z0-9_-])", header) for atom_id in atom_ids)):
                     _fail(operations, "subject-identity-inventory-unavailable", "a selected identity has a malformed original source")
                 continue
             if "projection" in metadata:
