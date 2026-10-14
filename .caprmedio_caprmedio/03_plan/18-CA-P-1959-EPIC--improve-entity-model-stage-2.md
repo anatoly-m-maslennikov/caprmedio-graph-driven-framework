@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 80
-updated_at: "2026-10-14 21:24:00 +0400"
+version: 81
+updated_at: "2026-10-14 21:48:00 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,19 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Runtime-only tests and current migration preparation — 2026-10-14
+
+The Operator requires the release suite to test executable Runtime and scripts, not the conformance of today's Atoms, generated Projections or Journal data. Remove pure live-content audits from mandatory tests; preserve parser, generator, append/read, protocol, authorization, currentness, failure and no-replay behavior with isolated fixtures. Detach fixtures that borrow changing authority files. Do not delete an entire mixed module or suppress a real runtime failure because it mentions an Atom or Journal. The Operator specifically dropped the unsupported W11/W12 semantic-publication positive test; `77644b081` removes it while retaining malformed/stale refusals. This does not complete the separate semantic graph feature or E555/E556.
+
+Committed runtime progress: `b0f91cb98` removes the native-watch test race (18 tests and three slow-scan repetitions); `2f8951594` uses current query fixtures (five tests); `8147289f2` validates local-release inputs before tests/version/replacement (22 local and five consumer tests); `19df7cdca` aligns the direct-release refusal message (two tests); `7d34fb64b` separates actual effects from Journal logging failures (seven tests). `92d2fca4a` discovers and binds the selected public repository/PR before preparation, tests prepared materials before publication and refuses source drift during the suite (13 public, 11 route and five consumer tests). Its three production modules are 195/121/135 physical lines, with pinned formatting/lint and strict bounded typing checks passing. The graph Tool directory passed all 249 then-current tests without source changes. Independent reviews accepted these bounded behavioral changes, not a complete-suite or live-runtime result.
+
+A new preparation-only request generation is at `.caprmedio_tmp/stage2-migration-20261014/journal-rule-refresh/`. Five meaningful plain-Journal rule updates require current Version/hash tuples: D340, O163, R1491, R1525 and R1720. Their Subjects and mapped meanings remain supported. The new generation preserves 906 owners, 611 change candidates, 848 ordered patches and 29 whole-owner exclusions. Public request SHA-256: `b6e259eb5c9e88d92d47321350a29e627e366cd3a619fb13f4dc883e67d8abd1`; manifest: `8c7f2d5a8a43a8defd02c2746b200f33a34a4e861a6f6757562725be547f7abe`. Earlier requests and staging batches remain unchanged. Author generation, DTO, preservation and failure-mode checks passed. Independent review verified the exact five-tuple delta, all current pins/old Subject values, ordered intents, grammar/DTO provenance and eleven unchanged historical artifacts. This is not preview, staging or application authority.
+
+Bounded implementation-review exceptions retain existing test layout/style: native-watch test file 749 lines, query fixture 211 and Step-input fixture 206 versus the 200-line target; inherited formatting and native bootstrap E402 remain. Changed test units are at most 32 logical lines and preserve one coherent behavior; fixture C901 checks pass. Local-release preflight retains its existing ordered runner: file 703 lines, runner 245 logical lines and C901 58 versus 200/40/10 limits, without increased complexity; existing whole-file formatting/E731 and untouched helper complexity remain baseline. New preflight helpers meet their limits. These specific exceptions avoid unrelated reorganization during bounded fixes, not a general waiver. Reconsider fixture exceptions on the next fixture reorganization, and the runner exception before adding another release phase/branch or during planned decomposition.
+
+The full frozen-source suite, installed runtime verification, successful connected fresh staging, accepted graph/candidate packet, exact live publication approval and independent reproduction remain outstanding. Keep both Epics Active. No public push, PR, live release, restart or Core Subject/content migration occurred.
+
 
 ### Retire the old release and installer path — 2026-10-14
 
