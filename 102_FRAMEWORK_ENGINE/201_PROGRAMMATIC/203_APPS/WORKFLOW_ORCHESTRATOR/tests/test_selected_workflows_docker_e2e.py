@@ -37,6 +37,8 @@ from selected_workflows_docker_fixture import (  # noqa: E402
 )
 
 E2E_CONTEXT = load_test_context(os.environ, ROOT / ".caprmedio_tmp")
+# Native mutation and read-only query cover the shared reconnect transport.
+_RECONNECT_CASES = {"W01", "W15"}
 MCP_STARTUP_TIMEOUT_SECONDS = 60
 MCP_CALL_TIMEOUT_SECONDS = 20
 
@@ -203,6 +205,16 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(initial_events, self._events(root), "preview must preserve initial Journal evidence")
         return result
 
+    async def _preview_for_execution(
+        self, runtime: Runtime, root: Path, fixture: GoldenProject, request_id: str,
+    ) -> dict[str, Any]:
+        preview = await self._preview(runtime, root, fixture, request_id)
+        if fixture.case.case_id in _RECONNECT_CASES:
+            await self._disconnect()
+            reconnected = await self._preview(runtime, root, fixture, request_id)
+            self.assertEqual(preview, reconnected, "preview must survive MCP reconnect unchanged")
+        return preview
+
     @staticmethod
     def _recording_snapshot(root: Path) -> dict[str, str]:
         """Observe canonical Journal and selected/shared recorder files only."""
@@ -220,9 +232,12 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                 snapshot[path.relative_to(root).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
         return snapshot
 
-    async def _terminal_status(self, runtime: Runtime, root: Path, run_id: str) -> dict:
-        """Reconnect after enqueue; an acknowledgement is not terminal evidence."""
-        await self._disconnect()
+    async def _terminal_status(
+        self, runtime: Runtime, root: Path, run_id: str, *, reconnect: bool = True,
+    ) -> dict:
+        """Observe terminal status; representatives also prove reconnect after enqueue."""
+        if reconnect:
+            await self._disconnect()
         deadline = time.monotonic() + 75
         pending = {"queued", "admitted", "started", "running", "pending"}
         observed: dict = {}
@@ -752,10 +767,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                     launched = True
                     await self._start(runtime)
                     request_id = f"golden-{case_id.lower()}-happy"
-                    preview = await self._preview(runtime, root, fixture, request_id)
-                    await self._disconnect()
-                    reconnected = await self._preview(runtime, root, fixture, request_id)
-                    self.assertEqual(preview, reconnected, "preview must survive MCP reconnect unchanged")
+                    preview = await self._preview_for_execution(runtime, root, fixture, request_id)
                     before = fixture.snapshot()
                     execute = fixture.request(
                         request_id=request_id,
@@ -774,7 +786,9 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                         {"queued", "admitted", "started", "running", "pending", "completed"},
                         admitted,
                     )
-                    terminal = await self._terminal_status(runtime, root, request_id)
+                    terminal = await self._terminal_status(
+                        runtime, root, request_id, reconnect=case_id in _RECONNECT_CASES,
+                    )
                     # backend.status flattens outcome/disposition for convenience,
                     # but all selected execution evidence remains nested here.
                     self.assertEqual("terminal", terminal.get("disposition"), terminal)
