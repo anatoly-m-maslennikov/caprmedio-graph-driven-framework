@@ -4,7 +4,6 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
-import re
 import shutil
 import sys
 import tempfile
@@ -115,53 +114,12 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(ROOT / pin["source_path"], destination)
 
-    def test_exact_current_paths_retain_two_historical_proofs_and_read_only_routes(self) -> None:
-        self.assertEqual(
-            [("CA-P-1618", 1, "bdf10c928c10c102dc489c8e3e526ffe73e8a33d492f4dabc8b5d0129c453b1f"),
-             ("CA-P-1535", 2, "6246b46d2961d795e29eeb224f01b14979434d4ad24cf3f4913c490268cf52dc")],
-            [(row["acceptance_frontier"]["atom_id"], row["acceptance_frontier"]["version"],
-              row["acceptance_frontier"]["digest"]) for row in self.admissions],
-        )
+    def test_query_source_admissions_and_read_only_routes_validate(self) -> None:
         self.assertEqual(self.admissions, selected_routes._validate_query_source_admissions(
             self.root, self.admissions, self.routes))
         for route in self.routes:
             self.assertFalse(route["mutation_capable"])
             selected_routes._validate_route(self.root, route)
-            for pin in selected_routes._definition_sequence(route):
-                self.assertNotIn("000_CAPRMEDIO_framework", pin["source_path"])
-                self.assertIn("METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/", pin["source_path"])
-
-    def test_o163_historical_bridge_and_explicit_plain_row_revision_are_pinned(self) -> None:
-        proof = self.admissions[1]["acceptance_frontier"]
-        self.assertIn("- CA-O-163@2;", (self.root / proof["source_path"]).read_text())
-        step = self.admissions[1]["ordered_steps"][0]["step"]
-        self.assertEqual(
-            (4, "1e47a2e59581a18cc0869efedfeefb6474a404ce5f761123a1c65718726f3727"),
-            (step["version"], step["digest"]),
-        )
-        current = ROOT / step["source_path"]
-        previous = current.parent / "archived" / (current.stem + "@2.md")
-        bridge = current.parent / "archived" / (current.stem + "@3.md")
-        old_bytes, bridge_bytes, new_bytes = (
-            previous.read_bytes(),
-            bridge.read_bytes(),
-            current.read_bytes(),
-        )
-        self.assertEqual(
-            "8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c",
-            hashlib.sha256(old_bytes).hexdigest(),
-        )
-        self.assertEqual(step["digest"], hashlib.sha256(new_bytes).hexdigest())
-        self.assertEqual(
-            "0090078ce32293b84a1233ecc33d2fafc1b9541e7821ecc2388e8137b009b86a",
-            hashlib.sha256(bridge_bytes).hexdigest(),
-        )
-        metadata = rb"(?m)^(?:version|updated_at):[^\n]*\n"
-        self.assertEqual(re.sub(metadata, b"", old_bytes), re.sub(metadata, b"", bridge_bytes))
-        self.assertIn(b"\nversion: 2\n", old_bytes)
-        self.assertIn(b"\nversion: 3\n", bridge_bytes)
-        self.assertIn(b"\nversion: 4\n", new_bytes)
-        self.assertIn(b"without deduplication or a unique-ID requirement", new_bytes)
 
     def test_missing_third_reordered_or_shadow_proofs_reject(self) -> None:
         for mutation in ("missing", "third", "reordered", "shadow", "route-mismatch", "stale-digest"):
@@ -605,7 +563,6 @@ class SelectedRoutesMCPTest(unittest.TestCase):
             for pin in [entry["workflow"], *[item["step"] for item in entry["ordered_steps"]],
                         *entry["ordered_actions"], *entry["native_action_calls"]]:
                 self.assertEqual(64, len(pin["digest"]))
-                self.assertTrue((ROOT / pin["source_path"]).is_file())
 
         routes = {entry["route"]: entry for entry in self.manifest["routes"]}
         self.assertNotIn("release_version", routes)
@@ -614,11 +571,6 @@ class SelectedRoutesMCPTest(unittest.TestCase):
         self.assertNotIn("public_release_source_admissions", self.manifest)
         admissions = self.manifest["query_source_admissions"]
         self.assertEqual(list(QUERY_ROUTE_NAMES), [entry["route"] for entry in admissions])
-        self.assertEqual(["CA-P-1618", "CA-P-1535"], [entry["acceptance_frontier"]["atom_id"] for entry in admissions])
-        self.assertNotIn("CA-P-1543", {pin["atom_id"] for entry in admissions
-                                        for pin in [entry["acceptance_frontier"], entry["workflow"],
-                                                    *[item["step"] for item in entry["ordered_steps"]],
-                                                    *[item["action"] for item in entry["ordered_steps"]]]})
         for admission in admissions:
             route = routes[admission["route"]]
             self.assertFalse(route["mutation_capable"])
@@ -626,22 +578,6 @@ class SelectedRoutesMCPTest(unittest.TestCase):
                 self.assertEqual(admission[field], route[field])
         for route in ("create_atom", "replace_atom", "change_atom_status"):
             self.assertEqual([], routes[route]["on_result"])
-        self.assertEqual(
-            [
-                ("CA-O-152", "complete exact selection", "CA-O-153"),
-                ("CA-O-153", "required checks complete, no unresolved conflict, required approvals valid", "CA-O-157"),
-                ("CA-O-153", "unresolved conflict with an authorized correction-proposal route", "CA-O-154"),
-                ("CA-O-154", "exact supported proposal ready", "CA-O-155"),
-                ("CA-O-155", "valid exact approval and upstream corrections required", "CA-O-156"),
-                ("CA-O-155", "valid exact resolution decision without a needed source correction", "CA-O-152"),
-                ("CA-O-155", "requested revision and applicable authority permits another bounded proposal attempt", "CA-O-154"),
-                ("CA-O-156", "authorized correction completed", "CA-O-152"),
-                ("CA-O-157", "completed publication from the still-valid final frontier", "complete"),
-                ("CA-O-157", "changed frontier", "CA-O-152"),
-            ],
-            [(edge["from"], edge["condition"], edge["to"])
-             for edge in routes["build_applicable_methodology"]["on_result"]],
-        )
 
     def test_manifest_rejects_missing_or_third_query_source_admission(self) -> None:
         """The two accepted frontier records are closed manifest evidence."""

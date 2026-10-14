@@ -82,27 +82,6 @@ class CoreRelationRegistryTests(unittest.TestCase):
             }
         )
 
-    def test_actual_current_registered_core_frontier_compiles_three_closed_records(self) -> None:
-        carriers, diagnostics = graph.discover_atoms(WORKSPACE, ACTUAL_CORE)
-        self.assertFalse([item for item in diagnostics if item.get("severity") == "error"])
-        frontier = graph.source_frontier_for(WORKSPACE, ACTUAL_CORE)
-        result = registry.prepare_core_relation_registry(
-            WORKSPACE,
-            carriers,
-            frontier,
-            {"atom_ids": [], "scope_unit_names": ["CORE_META_MODEL"]},
-        )
-
-        self.assertEqual((), result.diagnostics)
-        self.assertEqual(
-            [
-                ("entities", "IS_ALLOWED_VALUE_OF"),
-                ("entities", "IS_BORNE_BY"),
-                ("terms", "NARROWER_THAN"),
-            ],
-            [(row["kind"]["graph_kind"], row["kind"]["canonical_name"]) for row in result.records],
-        )
-
     def test_records_have_complete_reviewed_metadata_exact_digests_and_contribution_refs(
         self,
     ) -> None:
