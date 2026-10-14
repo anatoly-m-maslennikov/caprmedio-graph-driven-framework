@@ -3,7 +3,7 @@
 import unittest
 from unittest import mock
 
-from test_commit_change_set import CommitChangeSetTests, commit_change_set as tool
+from commit_change_set_fixture import CommitChangeSetTests, commit_change_set as tool
 
 
 class PlainGitActionsTests(unittest.TestCase):
