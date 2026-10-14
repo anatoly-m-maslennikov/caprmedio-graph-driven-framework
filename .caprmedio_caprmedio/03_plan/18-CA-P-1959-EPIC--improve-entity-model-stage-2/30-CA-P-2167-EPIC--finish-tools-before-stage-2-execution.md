@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 42
-updated_at: "2026-10-14 06:26:16 +0400"
+version: 43
+updated_at: "2026-10-14 09:50:15 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,10 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Read-only lookup decision — 2026-10-14 09:50 +0400
+
+The Operator answered Yes: Subject lookup may return matching Atoms and source hashes directly, without a Workflow Session or Journal records. CA-P-2369 resumes its bounded interface work, followed by independently checked rules, implementation and MCP verification. Reuse ATOM_SEARCH and the current reader/matcher; do not manufacture authorization/context records or waive root/source validation. Mutation safeguards, staging/publication decisions and the current manifest contract remain unchanged. The unanswered-lookup statements in earlier checkpoints are superseded; both parent Epics remain Active.
 
 ### Installed readiness checkpoint — 2026-10-14 06:26 +0400
 
