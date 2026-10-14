@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 60
-updated_at: "2026-10-14 18:27:53 +0400"
+version: 61
+updated_at: "2026-10-14 18:58:25 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,8 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+Local implementation checkpoint: `ed9d4eaba` commits the plain Journal rules and exact predecessor histories; `4af84e77d` removes Journal proofs from installation-command rules. `caa4e05a0` implements plain append/read and Journal-independent Context/commit behavior (12 append/read, 23 Context, 23 disposable-Git, 15 native/adapter and 5 actual MCP protocol checks passed). `99a69741a` removes history prerequisites from graph generation and review recording (50 graph and 13 review checks passed). `9b1b11cc8` prepares the complete local-release payload and candidate image before replacing installed files; independent focused review passed, not full release acceptance. Caller closure, obsolete helper removal, full registry repair and installed acceptance remain open. No live Journal append, Subject publication, runtime restart or push occurred. Existing legacy formatting/size/complexity gaps remain explicit; the focused checks do not waive them.
 
 ### Shared Methods, registry repair and plain Journal — 2026-10-14
 
