@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 68
-updated_at: "2026-10-14 15:01:31 +0400"
+version: 69
+updated_at: "2026-10-14 15:28:37 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,12 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Accepted Codex confirmation trust model — 2026-10-14 15:28 +0400
+
+The Operator accepted the connected Codex Session's form response as sufficient confirmation without separate identity proof, provided the form shows the exact source-bound request, selected Session/Run, intended change and affected files and explicitly confirms review and the manual editing/maintenance-script/Git/sync pause. Tool arguments, client names and model assertions never count as that response. The earlier unresolved trust choice is superseded; its evidence remains history.
+
+CA-P-2167 may build and independently verify the narrow private same-process, one-use issuer-to-selected-dispatch connection under R866/O030/E304. Preserve the public API, route and request fields and refuse decline, cancel, malformed response, timeout, disconnect, mismatch or bound-evidence drift before effects. Existing admission, source checks, exclusive window/shared lock and live-publication guard remain unchanged. This decision authorizes connection work only, not publication, further scratch staging, runtime activation or restart. P1959 and P2167 remain Active; content migration remains separate.
 
 ### Fresh scratch-stage uncertainty and next local lanes — 2026-10-14 15:01 +0400
 

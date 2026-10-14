@@ -2,6 +2,12 @@
 
 Derived evidence, 2026-10-14. This is not an Atom, source authority, migration approval or installed-package release receipt.
 
+## Operator decision — Codex confirmation accepted, 2026-10-14
+
+The Operator explicitly accepts the connected Codex Session's exact-change form response as sufficient confirmation, without separate identity proof. This resolves the trust question below and supersedes the rejected terminal-confirmation proposal. Tool arguments, client names and model assertions do not count as that response. The form must show the exact change and affected files and obtain explicit review and outside-edits-paused confirmation for the existing one-use, same-process publication binding.
+
+R866 v24, O030 v17 and E304 v23 record this narrow decision. Building and testing the connection is authorized; no actual publication, runtime activation or new scratch stage is authorized by it. The separate selected-workflow admission scope question remains open. Earlier source pins in this report are historical to their recorded checks; these rule updates do not silently refresh or admit the selected manifest.
+
 ## Latest checkpoint — fresh stage uncertain and Codex confirmation required, 2026-10-14 15:01 +0400
 
 The Operator explicitly approved ONE new CA-D-253 scratch stage from the fresh connected preview, not the older uncertain stage. That one actual MCP call returned an error with an uncertain outcome. It is not a successful native staging receipt. This checkpoint supersedes the earlier unanswered fresh-stage approval and proposed terminal confirmation choice, without rewriting their historical evidence.

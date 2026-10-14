@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 54
-updated_at: "2026-10-14 15:01:31 +0400"
+version: 55
+updated_at: "2026-10-14 15:28:37 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,12 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Accepted Codex confirmation trust model — 2026-10-14 15:28 +0400
+
+The Operator accepted a form response from the connected Codex Session as sufficient confirmation, without separate identity proof, when the form shows the exact source-bound request, selected Session/Run, intended change and affected files and explicitly confirms review and the manual editing/maintenance-script/Git/sync pause. Tool arguments, client names and model assertions never count as that response. This supersedes earlier uncertainty about the confirmation trust choice only.
+
+Build and independently verify the narrow connection to the existing private issuer and selected dispatch in the same process, with a nonserializable one-use confirmation and unchanged public API, route and request fields. Decline, cancel, malformed response, timeout, disconnect, mismatch or bound-evidence drift refuse before effects. Existing source/assessment/permission/Run checks, exclusive window, shared Engine lock and live-publication guard remain binding. This decision authorizes connection work only; it does not approve publication, further scratch staging, runtime activation or restart. Keep P2167 and P1959 Active.
 
 ### Fresh scratch-stage uncertainty and next local lanes — 2026-10-14 15:01 +0400
 

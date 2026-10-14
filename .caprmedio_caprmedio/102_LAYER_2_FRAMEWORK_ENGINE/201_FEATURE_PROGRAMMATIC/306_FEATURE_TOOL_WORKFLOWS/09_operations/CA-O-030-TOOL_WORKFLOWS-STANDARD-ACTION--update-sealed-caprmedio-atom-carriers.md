@@ -19,8 +19,8 @@ subjects:
     - "Atom/Revision/Updated At"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 16
-updated_at: "2026-10-14 10:47:40 +0400"
+version: 17
+updated_at: "2026-10-14 15:28:37 +0400"
 relations: {}
 ---
 # Summary
@@ -71,7 +71,7 @@ The existing selected update route retains its completed current Analysis Report
 ### Selected staged-review publication access
 
 1. Before the publication window, stage and review the exact admitted source-bound change, retaining the existing sealed source/delta/intent, completed assessment, permission and Run evidence. Reopen the review evidence; a candidate or manifest is not an approval token. Candidate time remains illustrative and the existing actual-effect metadata materialization rule is unchanged.
-The existing `authorization_ref` must resolve a fresh purpose-specific trusted-host record of the Operator's explicit review of the exact source-bound intended change and manual editing/maintenance-script/Git/sync pause confirmation for the affected frontier. Bind the record to the exact existing request, source/delta/intent, selected Session/Run and affected files through a private host-to-dispatch binding. Request parsing, caller-written JSON/hash and arbitrary callbacks cannot mint it; no default runtime provider or new public request field is introduced. Missing issuer/resolver or missing, stale or mismatched confirmation stops before effects.
+The existing `authorization_ref` must resolve a fresh purpose-specific trusted-host record of the Operator's explicit review of the exact source-bound intended change and manual editing/maintenance-script/Git/sync pause confirmation for the affected frontier. Accept the connected Codex Session's form response as sufficient Operator confirmation, without separate identity proof, only when the form shows the exact request, selected Session/Run, intended change and affected files and explicitly confirms review and the pause. Tool arguments, client names, model assertions, caller-written JSON/hash and arbitrary callbacks cannot supply that response. Bind the record to the exact existing request, source/delta/intent, selected Session/Run and affected files. Privately issue and consume the nonserializable one-use confirmation through the existing selected dispatch in the same process, preserving the public API, route and request fields. Decline, cancel, malformed response, timeout, disconnect, missing issuer/resolver, missing or mismatched confirmation and bound-evidence drift stop before effects. Building this connection grants no publication or runtime-activation permission.
 
 2. Establish a short exclusive window over the affected current Carrier, predecessor-history destination and governing authority sources. No manual editing, maintenance/script write, Git operation or synchronization may change that frontier during the window. Acquire the one shared cooperative Engine publication lock before the final complete revalidation; inability to establish the window or lock stops before effects.
 3. While holding the lock, reopen and revalidate the exact source, ownership, grammar, report, complete-carrier, definition, permission, intent and current/history destination evidence. Apply only the already admitted one-target effect; materialize actual metadata once, retain exact predecessor bytes and independently read back current/history facts.

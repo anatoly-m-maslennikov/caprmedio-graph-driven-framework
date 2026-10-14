@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Artifact/Carrier", "Atom Change Classification", "Atom/Revision/Updated At"]
-version: 23
-updated_at: "2026-10-14 10:47:40 +0400"
+version: 24
+updated_at: "2026-10-14 15:28:37 +0400"
 relations:
   relates_to: [CA-O-030, CA-E-304, CA-O-067, CA-R-1432, CA-R-1788, CA-R-1464, CA-R-1415, CA-R-1371]
 ---
@@ -94,7 +94,7 @@ A changed current Carrier **must** retain ID, Summary, Status, path, filename, e
 
 For admitted one-target Subject publication, stage and review the exact source-bound change before a short exclusive window over the affected current Carrier, predecessor-history destination and governing authority sources. Reuse the existing sealed source/delta/intent, assessment, permission and Run bindings; review is not effect permission. Staged candidate metadata remain illustrative. Actual Version and Updated At are materialized under the existing effect-time rule, not fixed by candidate review.
 
-The existing `authorization_ref` **must** resolve a fresh purpose-specific trusted-host record of the Operator's explicit review of the exact source-bound intended change and confirmation to pause manual editing, maintenance/script writes, Git and synchronization for its affected current/history/authority frontier. Bind that record to the exact existing request, source/delta/intent, selected Session/Run and affected files; recheck it before effects. Use a private host-to-dispatch binding, not new public request fields. Request parsing, caller-written JSON or hashes and arbitrary callbacks cannot mint confirmation. An unavailable trusted-host issuer/resolver or missing, stale or mismatched record refuses before effects; no default runtime provider is implied.
+The existing `authorization_ref` **must** resolve a fresh purpose-specific trusted-host record of the Operator's explicit review of the exact source-bound intended change and confirmation to pause manual editing, maintenance/script writes, Git and synchronization for its affected current/history/authority frontier. A form response from the connected Codex Session is sufficient Operator confirmation when the form shows that exact request, selected Session/Run, intended change and affected files and explicitly confirms both review and the pause; no separate identity proof is required. Tool arguments, client names, model assertions, caller-written JSON or hashes and arbitrary callbacks never count as that response. Bind the record to the exact existing request, source/delta/intent, selected Session/Run and affected files; recheck it before effects. Issue the nonserializable one-use confirmation privately and consume it through the existing selected dispatch in the same process; the public API, route and request fields remain unchanged. Decline, cancel, malformed response, timeout, disconnect, unavailable issuer/resolver, missing or mismatched confirmation and any bound-evidence drift refuse before effects. This accepted trust model authorizes building the connection, not publication or runtime activation.
 
 During that window, no manual editing, maintenance/script write, Git operation or synchronization may change the affected sources, history or authority. One shared cooperative Engine publication lock **must** be held from before final complete revalidation through current/history effects, independent readback and any existing Action-local restoration. Recheck the exact admitted frontier after acquiring the lock; unavailable window or lock, stale evidence or failed admission stops before effects. Retain all existing identity, complete-carrier, byte-preservation, ownership, restoration and truthful failure requirements.
 
