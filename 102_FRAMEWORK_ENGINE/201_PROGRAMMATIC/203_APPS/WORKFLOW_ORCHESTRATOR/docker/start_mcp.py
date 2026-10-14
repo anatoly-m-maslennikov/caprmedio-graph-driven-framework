@@ -23,8 +23,19 @@ def _source_root(script_path: Path) -> Path | None:
 
 def _installed_source_root(project_root: Path) -> Path:
     selector = project_root / ".caprmedio_install" / "current.toml"
+    local_package = project_root / ".caprmedio_runtime" / "simple_local_release" / "package"
     try:
-        if selector.is_file() and not selector.is_symlink():
+        if any(path.is_symlink() for path in (local_package, local_package.parent, local_package.parent.parent)):
+            raise ValueError()
+        try:
+            local_package.lstat()
+        except FileNotFoundError:
+            local_present = False
+        else:
+            local_present = True
+        if local_present:
+            package = local_package
+        elif selector.is_file() and not selector.is_symlink():
             document = tomllib.loads(selector.read_text(encoding="utf-8"))
             release = document.get("release_relpath")
             if not isinstance(release, str) or _RELEASE.fullmatch(release) is None:
@@ -33,7 +44,7 @@ def _installed_source_root(project_root: Path) -> Path:
         elif selector.exists() or selector.is_symlink():
             raise ValueError()
         else:
-            package = project_root / ".caprmedio_runtime" / "simple_local_release" / "package"
+            package = local_package
         if package.is_symlink() or not package.is_dir() or package.resolve(strict=True) != package:
             raise ValueError()
         launcher = package / LAUNCHER_PATH
