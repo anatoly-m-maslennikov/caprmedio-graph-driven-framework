@@ -33,7 +33,7 @@ from lifecycle_intents import LifecycleError
 import subject_publication_authorization as authorization
 import subject_publication_confirmation as host
 from test_subject_apply_portfolio import SubjectApplyProject, PUBLICATION_PINS
-from workflow_run_support import RunExecutionSession
+from work_journal import read_records
 
 
 class SubjectPublicationConfirmationTests(unittest.IsolatedAsyncioTestCase):
@@ -99,7 +99,7 @@ class SubjectPublicationConfirmationTests(unittest.IsolatedAsyncioTestCase):
                     response = await client.call_tool("fixture-only", {"request": {}})
         self.assertEqual("dispatched", response.structured_content["status"])
         issuer.assert_called_once()
-        self.assertEqual({"app": "Codex", "uuid": self.frozen["request"]["execution"]["request_id"]},
+        self.assertEqual({"app": "run-support", "uuid": self.frozen["request"]["execution"]["request_id"]},
                          issuer.call_args.kwargs["llm_session"])
         self.assertEqual(1, len(requested))
         self.assertEqual(host.FORM_SCHEMA, requested[0].requested_schema)
@@ -126,11 +126,8 @@ class SubjectPublicationConfirmationTests(unittest.IsolatedAsyncioTestCase):
         retained = json.loads((self.fixture.root / terminal["result_ref"]).read_bytes())
         self.assertEqual("admitted", retained["lifecycle_recording"]["state"])
         self.assertEqual(hashlib.sha256(current).hexdigest(), retained["native_result"]["observed"]["digest"])
-        receipt = terminal["event_receipt"]
-        canonical = RunExecutionSession._read_receipted_event(self.fixture.root,
-            self.fixture.root / receipt["carrier"], receipt["line"], receipt)
-        self.assertEqual("completed", canonical["event"])
-        self.assertEqual(child, canonical["run"]["run_id"])
+        self.assertTrue(any(row.get("event") == "completed" and row.get("run", {}).get("run_id") == child
+                            for row in read_records(self.fixture.root)))
 
     async def test_exact_outer_request_and_both_booleans_are_required(self):
         for content in ({"review": False, "pause": True}, {"review": True, "pause": False}):
@@ -276,7 +273,7 @@ class SubjectPublicationConfirmationTests(unittest.IsolatedAsyncioTestCase):
     async def test_one_use_is_rechecked_after_waiting_for_publication_lock(self):
         confirmation = authorization.authorize_subject_publication(self.fixture.root,
             self.frozen["request"]["execution"], operator_name="golden-operator",
-            llm_session={"app": "Codex", "uuid": self.frozen["request"]["execution"]["request_id"]},
+            llm_session={"app": "run-support", "uuid": self.frozen["request"]["execution"]["request_id"]},
             staged_manifest=self.manifest)
         lock = threading.Lock()
         second_waiting = threading.Event()

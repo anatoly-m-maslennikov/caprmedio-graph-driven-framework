@@ -146,7 +146,7 @@ async def confirm_subject_publication(context, runner, frozen, *, operator_name,
     try:
         recheck_displayed()
         confirmation = authorize_subject_publication(runner.root, execution, operator_name=operator_name,
-            llm_session={"app": "Codex", "uuid": execution["request_id"]}, staged_manifest=staged_manifest)
+            llm_session={"app": "run-support", "uuid": execution["request_id"]}, staged_manifest=staged_manifest)
         recheck_displayed()
     except (AttributeError, KeyError, TypeError, ValueError, RuntimeError, OSError) as error:
         return _result("refused", diagnostic=str(error))

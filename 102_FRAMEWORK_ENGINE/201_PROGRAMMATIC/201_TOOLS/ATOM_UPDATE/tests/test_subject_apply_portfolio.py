@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import copy
 import hashlib
-import json
 import shutil
 import sys
 import tempfile
@@ -15,7 +14,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parents[2]
 REPOSITORY = TOOLS.parents[2]
 APP = TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR"
-for location in (TOOLS, APP, APP / "tests"):
+for location in (TOOLS, APP, APP / "tests", TOOLS.parent / "204_MCP/tests"):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))
 
@@ -23,8 +22,9 @@ import atom_operations as operations  # noqa: E402
 import atom_subject_apply as native  # noqa: E402
 import atom_subject_patch as subject_patch  # noqa: E402
 from lifecycle_intents import LifecycleError, carrier_descriptor, update_assessment_seal  # noqa: E402
-from selected_workflows_docker_fixture import GoldenCase, GoldenProject, MANIFEST_REF, digest  # noqa: E402
+from selected_workflows_docker_fixture import GoldenCase, GoldenProject, digest  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
+from test_selected_routes_mcp import copy_complete_selected_guard_fixture  # noqa: E402
 
 
 TEST_TEMP_ROOT = REPOSITORY / ".caprmedio_tmp/tests/test_subject_apply_portfolio"
@@ -44,47 +44,41 @@ CURRENT_W02_PINS = {
                  "e1da6f807f965d94bb2f6b829767fb23d34ea6dc600408f78408378caf208f89"),
 }
 PUBLICATION_PINS = {
-    "CA-R-866": (TOOL_WORKFLOWS + "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md", 24,
-                 "9044fd001f9124092de899e1cdbd6929b60aa993b079dfc4ed31fa2baedcec8b"),
+    "CA-R-866": (TOOL_WORKFLOWS + "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md", 25,
+                 "8530bda5df82fb9395ccdf4e8ad4c9b496cd864f5a395f8d6a1af77dac00d187"),
     "CA-M-371": (TOOL_WORKFLOWS + "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md", 11,
                  "5f775dcbbd365378731b7039b47c78d4c4eebaeb0991ed7850c0c44638d63d79"),
-    "CA-E-304": (TOOL_WORKFLOWS + "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md", 23,
-                 "8b42e677503e38f737d5473ae78d2c37d69bbec1ad29475b1e62ce21cf310fba"),
-    "CA-O-030": (TOOL_WORKFLOWS + "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md", 17,
-                 "196becd0fa476e1c2663f8f925a1fd5d97ff902781966580230a2878fdd4def8"),
+    "CA-E-304": (TOOL_WORKFLOWS + "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md", 24,
+                 "8a2464133f75760fa7fe78f399a860d1f3766807db7816423cf9ce109b5ce21a"),
+    "CA-O-030": (TOOL_WORKFLOWS + "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md", 18,
+                 "05916641aa04549840d329385e75f2f083f8cd3556bb2912eea06929bb93b6dc"),
     "CA-E-626": (TOOL_WORKFLOWS + "06_evaluation/CA-E-626-TOOL_WORKFLOWS-CORE-QA_CASE--verify-independent-atom-workflow-effects.md", 3,
                  "8cd555ffefdc8f59b80a5120b6b5e4fbe90fb9ea46396bea6d0bcbd1e7d081c5"),
 }
 
 
 class CurrentSubjectGoldenProject(GoldenProject):
-    """New isolated W02 manifest; not a refresh of accepted release evidence."""
+    """Real fifteen-route fixture; not seventeen-route or live release evidence."""
 
     def _copy_reviewed_manifest(self):
-        original = json.loads((self.source_root / MANIFEST_REF).read_bytes())
-        route = copy.deepcopy(next(row for row in original["routes"] if row["route"] == "update_atom"))
+        settings = self.root / operations.SETTINGS_PATH
+        fixture_settings = settings.read_bytes()
+        try:
+            manifest = copy_complete_selected_guard_fixture(self.root)
+        finally:
+            settings.write_bytes(fixture_settings)
+        route = next(row for row in manifest["routes"] if row["route"] == "update_atom")
         pins = [route["workflow"], *route["ordered_actions"], *route["native_action_calls"]]
         pins.extend(pin for pair in route["ordered_steps"] for pin in pair.values())
         current = {**CURRENT_W02_PINS, "CA-O-030": PUBLICATION_PINS["CA-O-030"]}
         assert {pin["atom_id"] for pin in pins} == set(current)
         for pin in pins:
             path, version, sha256 = current[pin["atom_id"]]
-            self._copy_pinned(Path(path), sha256)
-            frontmatter, _ = operations.split_frontmatter((self.root / path).read_text())
-            assert operations.frontmatter_scalar(frontmatter, "atom_id") == pin["atom_id"]
-            assert operations.frontmatter_scalar(frontmatter, "version") == str(version)
-            pin.update(source_path=path, version=version, digest=sha256)
+            assert (pin["source_path"], pin["version"], pin["digest"]) == (path, version, sha256)
         for path, version, sha256 in PUBLICATION_PINS.values():
             self._copy_pinned(Path(path), sha256)
             frontmatter, _ = operations.split_frontmatter((self.root / path).read_text())
             assert operations.frontmatter_scalar(frontmatter, "version") == str(version)
-        freshness = copy.deepcopy(original["source_freshness"])
-        self._copy_pinned(Path(freshness["selected_source_registry_ref"]), freshness["selected_source_registry_digest"])
-        freshness["selected_binding_digest"] = digest([route])
-        manifest = {"routes": [route], "source_freshness": freshness}
-        manifest["canonical_manifest_sha256"] = digest(manifest)
-        self.manifest_path.parent.mkdir(parents=True, exist_ok=True)
-        self.manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
         return manifest
 
 
