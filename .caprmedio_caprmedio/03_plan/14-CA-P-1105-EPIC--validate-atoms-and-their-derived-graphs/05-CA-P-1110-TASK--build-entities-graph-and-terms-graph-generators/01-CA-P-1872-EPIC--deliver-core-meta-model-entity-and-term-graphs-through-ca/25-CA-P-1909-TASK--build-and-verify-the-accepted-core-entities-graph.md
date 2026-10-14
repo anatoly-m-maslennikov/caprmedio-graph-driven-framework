@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 4
-updated_at: "2026-10-14 22:50:56 +0400"
+version: 5
+updated_at: "2026-10-14 23:22:14 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1910, CA-P-1967]
@@ -30,9 +30,21 @@ Apply only the Operator's accepted candidate decisions to a separately saved Cor
 
 ## Details
 
+### Accepted current derived-graph basis — 2026-10-14
+
+The Operator answered YES to the exact current-basis question through Codex question call `call_39ad769db88944b9808d27ceed4168fa`. The accepted basis is:
+
+- [Current Candidate #4](../../../../_projection/core-entity-review/presentation/operator.model.candidate-4.md), SHA-256 `a23019a1ee6cd3586640d6c3d9e211091f3683ac5f136058d745650570e78ca7`.
+- [Current Subject map](../../../../../.caprmedio_tmp/stage2-migration-20261014/subject-map/subject-map.current.json), SHA-256 `647f7a91ca166a9cfd08560f1303cfb2cc7d2724848dc50794cd1eee78e062f8`.
+- [Current source-coverage manifest](../../../../../.caprmedio_tmp/stage2-migration-20261014/journal-rule-refresh/manifest.json), SHA-256 `8c7f2d5a8a43a8defd02c2746b200f33a34a4e861a6f6757562725be547f7abe`.
+
+This binds the reviewed 906 owners and 4,530 occurrences: 611 supported change candidates, 266 unchanged owners and 29 whole-owner holds preserved unchanged. The three file hashes were rechecked against their actual current bytes when recording this answer.
+
+Acceptance is limited to the exact inputs for this separately derived graph. The graph has not yet been built or independently verified; its canonical hash, complete ledgers and decision comparison remain required. Tool readiness and currentness checks remain binding. No Core Subject/content change, native admission, staging, runtime activation or live publication is authorized by this answer. Live application retains its separate exact sealed-packet approval.
+
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
-Stage-2 integration gate: CA-P-2167's independent receipt for the current migration-readiness scope and CA-P-1975's post-grammar Tool readiness must be complete before this accepted-graph work. CA-P-1966's current mapping-disposition and source-rebind evidence must be independently accepted; its explicitly retained Active status does not reopen the completed mapping gate. The candidate still needs its explicit exact-hash Operator acceptance; new Plan creation or Tool readiness does not grant it.
+Stage-2 integration gate: CA-P-2167's independent receipt for the current migration-readiness scope and CA-P-1975's post-grammar Tool readiness must be complete before this accepted-graph work. CA-P-1966's current mapping-disposition and source-rebind evidence must be independently accepted; its explicitly retained Active status does not reopen the completed mapping gate. The exact current candidate/map/source basis has the explicit Operator acceptance recorded above; this does not satisfy Tool readiness, graph construction or independent graph verification.
 
 Readiness conditions: CA-P-1908 is Done, and an explicit recorded Operator decision identifies the exact candidate hash, source pins, occurrence-to-proposed-relation ledger and node-disposition ledger. Handoff, silence, confidence or Plan creation is not acceptance. If the decision or its bindings are missing, ambiguous or stale, remain deferred and ask the Operator; do not apply the candidate.
 
