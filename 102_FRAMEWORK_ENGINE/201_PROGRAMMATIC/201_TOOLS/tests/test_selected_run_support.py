@@ -182,9 +182,9 @@ class SelectedRunSupportTest(unittest.TestCase):
         self.assertEqual(1, self.effects)
         self.assertEqual("caller-workflow-run-1", result["run_ids"][0])
         self.assertEqual(2, len(result["run_ids"]))
-        self.assertEqual(4, len(result["event_receipts"]))
         journal = next((self.root / ".caprmedio_caprmedio/_journal").glob("*.ndjson"))
         events = [json.loads(line) for line in journal.read_text(encoding="utf-8").splitlines()]
+        self.assertEqual(4, len(events))
         self.assertEqual(["started", "started", "completed", "completed"], [event["event"] for event in events])
         self.assertTrue(all(event["schema_version"] == 5 for event in events))
         self.assertEqual("caller-workflow-run-1", events[0]["run"]["run_id"])
@@ -258,9 +258,9 @@ class SelectedRunSupportTest(unittest.TestCase):
         self.assertEqual("RuntimeError", result["execution_error"])
         self.assertEqual(["caller-workflow-run-1"], result["run_ids"])
         self.assertEqual("interrupted_pending", result["terminal_runs"][0]["outcome"])
-        self.assertEqual(2, len(result["event_receipts"]))
+        self.assertEqual(2, len(self._events()))
 
-    def test_terminal_outcome_matrix_writes_actual_v5_receipts(self) -> None:
+    def test_terminal_outcome_matrix_writes_actual_v5_observations(self) -> None:
         cases = (
             ("no_op", [], "completed"),
             ("failed", [], "failed"),
@@ -284,8 +284,9 @@ class SelectedRunSupportTest(unittest.TestCase):
             result = self._execute_request(tracker, request)
             self.assertEqual("terminal", result["disposition"])
             self.assertEqual(outcome, result["terminal_runs"][0]["outcome"])
-            self.assertEqual(2, len(result["event_receipts"]))
-            self.assertEqual(expected_event, result["event_receipts"][-1]["carrier"] and self._terminal_event(request["request_id"])["event"])
+            events = [event for event in self._events() if event["llm_session"]["uuid"] == request["request_id"]]
+            self.assertEqual(2, len(events))
+            self.assertEqual(expected_event, self._terminal_event(request["request_id"])["event"])
             self.assertEqual(effect_refs, self._terminal_event(request["request_id"])["effect_refs"])
 
     def test_exception_after_effect_records_partial_and_restart_recovery_never_reexecutes(self) -> None:
@@ -308,32 +309,27 @@ class SelectedRunSupportTest(unittest.TestCase):
         self.assertEqual(1, effects["count"])
 
         pending_request = {**self.request, "request_id": "request-pending-recovery"}
-        original_atomic = work_journal._atomic_json
-        receipt_writes = {"count": 0}
+        append = work_journal.append_sealed_events
 
-        def fail_receipt(path: Path, value: dict[str, object]) -> None:
-            if path.parent.name == "receipts":
-                receipt_writes["count"] += 1
-                if receipt_writes["count"] == 2:
-                    raise OSError("terminal receipt persistence interrupted")
-            original_atomic(path, value)
+        def fail_terminal_append(*args: object, **kwargs: object) -> object:
+            events = args[1]
+            if events[0]["event"] != "started":
+                raise OSError("terminal Journal append failed")
+            return append(*args, **kwargs)
 
-        with mock.patch.object(work_journal, "_atomic_json", side_effect=fail_receipt):
+        with mock.patch.object(work_journal, "append_sealed_events", side_effect=fail_terminal_append):
             pending = self._execute_request(tracker, pending_request)
-        self.assertEqual("recording_pending", pending["disposition"])
+        self.assertEqual("terminal", pending["disposition"])
+        self.assertEqual("partial", pending["terminal_runs"][0]["outcome"])
+        self.assertEqual(["03_plan/effect-before-exception.md"], pending["terminal_runs"][0]["effect_refs"])
+        self.assertIn("terminal Journal append failed", pending["diagnostics"])
+        self.assertEqual("terminal Journal append failed", pending["terminal_runs"][0]["recording_error"])
         self.assertEqual(2, effects["count"])
-        event_id = pending["pending_event_ids"][0]
+        self.assertEqual(["started"], [event["event"] for event in self._events() if event["llm_session"]["uuid"] == pending_request["request_id"]])
 
         restarted = RunTracker(self.root, source_observer=self.tracker.source_observer, executor=executor)
         replay = self._execute_request(restarted, pending_request)
         self.assertEqual("blocked", replay["disposition"])
-        self.assertEqual(2, effects["count"])
-        receipt = restarted.recover_recording(event_id)
-        self.assertEqual(event_id, receipt["event_id"])
-        self.assertEqual(2, effects["count"])
-        self.assertEqual(1, sum(1 for event in self._events() if event["event_id"] == event_id))
-        replay_after_recovery = self._execute_request(restarted, pending_request)
-        self.assertEqual("blocked", replay_after_recovery["disposition"])
         self.assertEqual(2, effects["count"])
 
     def _events(self) -> list[dict[str, object]]:

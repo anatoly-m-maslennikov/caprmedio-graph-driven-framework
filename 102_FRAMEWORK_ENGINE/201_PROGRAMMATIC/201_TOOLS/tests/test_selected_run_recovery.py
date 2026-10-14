@@ -148,21 +148,7 @@ class SelectedRunRecoveryTest(unittest.TestCase):
 
     @staticmethod
     def _evidence(events: list[dict[str, object]]) -> list[dict[str, object]]:
-        return [
-            {
-                "event": event,
-                "receipt": {
-                    "event_id": event["event_id"],
-                    "action_id": event["action_id"],
-                    "event_digest": event["event_digest"],
-                    "carrier": f"memory/{index}.ndjson",
-                    "line": 1,
-                    "previous_carrier_digest": "0" * 64,
-                    "appended_carrier_digest": "0" * 64,
-                },
-            }
-            for index, event in enumerate(events, start=1)
-        ]
+        return events
 
     def test_pure_validator_and_restore_reconstruct_terminal_state_without_effects(self) -> None:
         request = self._request()
@@ -174,20 +160,19 @@ class SelectedRunRecoveryTest(unittest.TestCase):
 
         self.assertEqual({"workflow-1660", "action-1660"}, set(session.actual))
         self.assertEqual({"workflow-1660", "action-1660"}, set(session.terminal))
-        self.assertEqual([], session.pending)
+        self.assertEqual([], session.recording_errors)
         self.assertEqual({}, session.observed_effects)
 
-    def test_pure_validator_rejects_duplicate_terminal_evidence(self) -> None:
+    def test_plain_reader_preserves_duplicate_terminal_observations(self) -> None:
         request = self._request()
         events = self._events(request)
         duplicate = dict(events[-1])
         duplicate["event_id"] = "event-end-workflow-duplicate"
         events.append(work_journal.with_event_digest(duplicate))
 
-        with self.assertRaisesRegex(SelectedRunError, "duplicate-terminal"):
-            selected_run_recovery.validate_selected_run_events(request, events)
+        self.assertEqual(events, selected_run_recovery.validate_selected_run_events(request, events))
 
-    def test_restore_rejects_recovery_evidence_out_of_causal_order(self) -> None:
+    def test_plain_reader_preserves_supplied_order_of_recovery_observations(self) -> None:
         request = self._request()
         events = self._interrupted_action_events(request)
         recovered = self._event(
@@ -199,12 +184,9 @@ class SelectedRunRecoveryTest(unittest.TestCase):
             outcome="completed",
             result_ref="results/action-1660.json",
         )
-        # The exact same facts are not lawful when the recovered fact precedes
-        # the canonical interruption.  Recovery must not reorder them.
         unordered = [events[0], events[1], recovered, events[2]]
 
-        with self.assertRaisesRegex(SelectedRunError, "invalid-recovery-order"):
-            RunExecutionSession.restore(object(), request, self._evidence(unordered))
+        self.assertEqual(unordered, selected_run_recovery.validate_selected_run_events(request, unordered))
 
     def test_release_recovery_reuses_started_id_and_locks_final_result(self) -> None:
         request = self._request()
@@ -225,7 +207,7 @@ class SelectedRunRecoveryTest(unittest.TestCase):
 
         self.assertEqual("terminal", final["disposition"])
         self.assertEqual("event-recovered-1", final["event_id"])
-        self.assertEqual("event-recovered-1", final["event_receipt"]["event_id"])
+        self.assertEqual([], session.recording_errors)
         self.assertEqual("recovered", tracker.events[-1]["event"])
         self.assertEqual("completed", session.terminal["action-1660"]["outcome"])
         self.assertEqual(1, len(tracker.events))
@@ -265,7 +247,7 @@ class SelectedRunRecoveryTest(unittest.TestCase):
         self.assertNotIn("interrupted_runs", result)
         self.assertEqual(["recovered", "recovered"], [event["event"] for event in tracker.events])
 
-    def test_failed_recovery_append_allows_only_exact_pending_event_recovery(self) -> None:
+    def test_failed_recovery_append_keeps_actual_final_state_and_visible_error(self) -> None:
         request = self._request()
         request["operation_route"] = "release_version"
         tracker = _MemoryTracker(request, fail_append=True)
@@ -276,8 +258,11 @@ class SelectedRunRecoveryTest(unittest.TestCase):
             action["run_id"], outcome="completed", result_ref="results/action-1660.json", effect_refs=[]
         )
 
-        self.assertEqual("recording_pending", pending["disposition"])
-        self.assertEqual(["event-recovered-1"], session.pending)
+        self.assertEqual("terminal", pending["disposition"])
+        self.assertEqual("completed", pending["outcome"])
+        self.assertEqual("simulated Journal append failure", pending["recording_error"])
+        self.assertEqual(["simulated Journal append failure"], session.recording_errors)
+        self.assertEqual("completed", session.terminal["action-1660"]["outcome"])
         self.assertEqual([], tracker.events)
         with self.assertRaisesRegex(SelectedRunError, "duplicate-terminal"):
             session.recover_run(
@@ -332,24 +317,11 @@ class _MemoryTracker:
             result_ref=result_ref,
         )
 
-    def _append_one(
-        self,
-        event: dict[str, object],
-        result_ref: str | None,
-        effect_refs: list[str],
-    ) -> dict[str, object]:
+    def _append_one(self, event: dict[str, object]) -> str | None:
         if self.fail_append:
-            raise OSError("simulated canonical Journal append failure")
+            return "simulated Journal append failure"
         self.events.append(event)
-        return {
-            "event_id": event["event_id"],
-            "action_id": event["action_id"],
-            "event_digest": event["event_digest"],
-            "carrier": f"memory/recovered-{len(self.events)}.ndjson",
-            "line": 1,
-            "previous_carrier_digest": "0" * 64,
-            "appended_carrier_digest": "0" * 64,
-        }
+        return None
 
 
 if __name__ == "__main__":
