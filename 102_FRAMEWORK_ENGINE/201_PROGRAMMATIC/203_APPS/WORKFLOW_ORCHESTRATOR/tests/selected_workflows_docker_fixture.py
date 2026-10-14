@@ -441,11 +441,15 @@ class GoldenProject:
         # exact copy of every current role authority available for the
         # all-role Docker proof; normal W04 still requests Requirement only.
         original_sources = self._fixture_source(self.compiler_source_dir.relative_to(self.root))
+        current_sources = [
+            path for path in original_sources.rglob("*.md") if "archive" not in path.parts
+        ]
         for _role, _letter, _directory, atom_id, _statuses in STATUS_DOMAINS:
-            matches = [path for path in original_sources.rglob(
-                f"{atom_id}-*.md") if "archive" not in path.parts]
+            matches = [path for path in current_sources if path.name.startswith(f"{atom_id}-")]
             if len(matches) != 1:
-                raise GoldenCorpusError(f"current {atom_id} status-model source is unavailable or ambiguous")
+                raise GoldenCorpusError(
+                    f"current {atom_id} status-model source is unavailable or ambiguous"
+                )
             source_model = matches[0]
             target_model = source / source_model.relative_to(original_sources)
             target_model.parent.mkdir(parents=True, exist_ok=True)
@@ -453,8 +457,7 @@ class GoldenProject:
             if target_model.read_bytes() != source_model.read_bytes():
                 raise GoldenCorpusError(f"fixture copy changed current {atom_id} status-model source")
         for atom_id in SEMANTIC_ASSESSMENT_AUTHORITIES:
-            matches = [path for path in original_sources.rglob(
-                f"{atom_id}-*.md") if "archive" not in path.parts]
+            matches = [path for path in current_sources if path.name.startswith(f"{atom_id}-")]
             if len(matches) != 1:
                 raise GoldenCorpusError(f"current {atom_id} semantic-assessment source is unavailable or ambiguous")
             source_authority = matches[0]
