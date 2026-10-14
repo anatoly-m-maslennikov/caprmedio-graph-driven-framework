@@ -1,7 +1,6 @@
 """Real stdio protocol with mock Atoms; no live review or Agent dispatch."""
 from contextlib import asynccontextmanager, redirect_stderr
 import io
-import json
 import os
 from pathlib import Path
 import re
@@ -21,6 +20,7 @@ MCP = SERVER.parent
 sys.path.insert(0, str(MCP))
 
 from selected_routes import QUERY_ROUTE_NAMES, SELECTED_ROUTE_NAMES  # noqa: E402
+from test_selected_routes_mcp import copy_complete_selected_guard_fixture  # noqa: E402
 
 
 # CA-D-548's eight stable helpers plus its gateway controls remain required.
@@ -43,6 +43,19 @@ D547_ADMITTED_SELECTED_ROUTES = (
 D547_SELECTED_CONTROL_TOOLS = frozenset({
     'get_selected_workflow_run', 'get_selected_action_run',
 })
+D547_DIRECT_RELEASE_TOOLS = frozenset({'release_version', 'public.release'})
+
+HELPER_DECLARATION_PATHS = (
+    'DISCOVER_TOOLS/07_delivery/CA-D-512-DISCOVER_TOOLS--encode-discover-tools-bindings.md',
+    'DISCOVER_OPERATIONS/07_delivery/CA-D-513-DISCOVER_OPERATIONS--encode-discover-operations-bindings.md',
+    'GET_EXECUTION_CONTEXT/07_delivery/CA-D-514-GET_EXECUTION_CONTEXT--encode-get-execution-context-bindings.md',
+    'GET_EXECUTION_STATUS/07_delivery/CA-D-515-GET_EXECUTION_STATUS--encode-get-execution-status-bindings.md',
+    'RESUME_EXECUTION_CONTEXT/07_delivery/CA-D-516-RESUME_EXECUTION_CONTEXT--encode-resume-execution-context-bindings.md',
+    'WATCH_EXECUTION/07_delivery/CA-D-517-WATCH_EXECUTION--encode-watch-execution-bindings.md',
+    '07_delivery/CA-D-518-TOOLS--register-rmed-atoms-base-revise-discovery-binding.md',
+    '07_delivery/CA-D-551-TOOLS-DELIVERY--place-artifact-query-tool-and-golden-test.md',
+    '07_delivery/CA-D-557-TOOLS-DELIVERY--bind-journal-query-source-route-to-one-tool.md',
+)
 
 # The stable gateway first boots an isolated implementation generation.  The
 # source tree is intentionally cold in sealed Unit runs, so allow that bounded
@@ -105,46 +118,32 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
         # a writable per-module TMPDIR for disposable protocol fixtures.
         self.temp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         (self.root / '.git').mkdir()
         control = self.root / '.caprmedio_caprmedio'
         control.mkdir()
         (control / 'caprmedio_project_settings.toml').write_text(
-            '[paths]\ncontrol_root=".caprmedio_caprmedio"\njournal_root=".caprmedio_caprmedio/_journal"\n')
+            '[project]\nname="caprmedio"\n[paths]\ncontrol_root=".caprmedio_caprmedio"\n'
+            'journal_root=".caprmedio_caprmedio/_journal"\nruntime_root=".caprmedio_runtime"\n')
+        (control / 'project_structure.toml').write_text(
+            'schema_version=1\n[[scope_units]]\nscope_unit_name="CORE_META_MODEL"\n'
+            'authority_path=".caprmedio_caprmedio/core"\ndelivery_path=".caprmedio_caprmedio/output"\n')
+        self._copy_declared_selected_manifest()
         (self.root / 'atom.md').write_text('mock original atom')
         (self.root / 'rules.md').write_text('mock applicable criteria')
 
     def _copy_declared_selected_manifest(self):
-        """Seed the disposable Project from the sealed manifest and its declared pins."""
-        manifest_ref = '.caprmedio_caprmedio/_projection/selected_workflow_bindings.json'
-        manifest_source = ROOT / manifest_ref
-        manifest = json.loads(manifest_source.read_text(encoding='utf-8'))
-        references = {manifest_ref, manifest['source_freshness']['selected_source_registry_ref']}
-
-        def collect(value):
-            if isinstance(value, dict):
-                for key, child in value.items():
-                    if key == 'source_path':
-                        references.add(child)
-                    collect(child)
-            elif isinstance(value, list):
-                for child in value:
-                    collect(child)
-
-        collect(manifest)
-        authority_ref = (
-            '.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/'
-            '201_FEATURE_TOOLS/07_delivery/'
-            'CA-D-572-TOOLS-DELIVERY--serialize-additive-release-route-source-admission.md'
-        )
-        authority = (ROOT / authority_ref).read_text(encoding='utf-8')
-        private = re.search(r'^## Private implementation carriers\n+```json\n(.*?)\n```$',
-                            authority, re.MULTILINE | re.DOTALL)
-        self.assertIsNotNone(private, 'D572 private implementation carriers are absent')
-        references.add(authority_ref)
-        references.update(item['source_path'] for item in json.loads(private.group(1)))
-
-        for relative in references:
+        """Copy admitted route pins and the actual helper registration sources."""
+        settings = self.root / '.caprmedio_caprmedio/caprmedio_project_settings.toml'
+        fixture_settings = settings.read_bytes()
+        try:
+            copy_complete_selected_guard_fixture(self.root)
+        finally:
+            settings.write_bytes(fixture_settings)
+        tools = Path('.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/'
+                     '201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS')
+        for declaration in HELPER_DECLARATION_PATHS:
+            relative = tools / declaration
             source = ROOT / relative
             self.assertTrue(source.is_file(), f'declared selected source is unavailable: {relative}')
             destination = self.root / relative
@@ -187,7 +186,6 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
                 _forward_startup_telemetry(stderr)
 
     async def test_real_server_discovery_marks_registered_query_bindings_mcp_available(self):
-        self._copy_declared_selected_manifest()
         async with self._server_client(cache=None) as client:
             registered = {tool.name: tool for tool in (await client.list_tools()).tools}
             self.assertTrue(set(QUERY_ROUTE_NAMES) <= set(registered))
@@ -229,7 +227,8 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
             self.assertTrue(next(tool for tool in tools.tools if tool.name == 'find_and_fetch_artifacts').annotations.read_only_hint)
             self.assertTrue(next(tool for tool in tools.tools if tool.name == 'find_and_fetch_journal_events').annotations.read_only_hint)
             self.assertEqual(
-                D548_REQUIRED_TOOLS | set(SELECTED_ROUTE_NAMES) | D547_SELECTED_CONTROL_TOOLS,
+                D548_REQUIRED_TOOLS | set(SELECTED_ROUTE_NAMES) | D547_SELECTED_CONTROL_TOOLS |
+                D547_DIRECT_RELEASE_TOOLS,
                 actual_tool_names,
             )
             schema = next(tool for tool in tools.tools if tool.name == 'workflow_orchestrator').input_schema
