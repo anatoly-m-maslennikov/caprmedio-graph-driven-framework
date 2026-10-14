@@ -1,9 +1,8 @@
-"""Actual recording-only repair after a real selected Subject publication."""
+"""Logging failure preserves real selected Subject effects without replay."""
 
 from __future__ import annotations
 
 import copy
-import hashlib
 import json
 from pathlib import Path
 import sys
@@ -23,11 +22,6 @@ from test_subject_apply_portfolio import SubjectApplyProject
 from workflow_run_support import RunExecutionSession
 
 
-def canonical_bytes(value):
-    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"),
-                      allow_nan=False).encode("utf-8")
-
-
 def carrier_snapshot(path):
     observed = path.lstat()
     return (path.read_bytes(), observed.st_dev, observed.st_ino, observed.st_mode,
@@ -44,7 +38,7 @@ class SelectedSubjectRecordingRecoveryTests(unittest.TestCase):
         self.root = Path(self.directory.name)
         self.fixture = SubjectApplyProject(self.root)
 
-    def test_real_pending_terminal_event_is_recovered_without_subject_republication(self):
+    def test_terminal_logging_failure_preserves_subject_publication_without_replay(self):
         runner, frozen = self.fixture.execution("subject-recording-only-repair")
         confirmation = self.fixture.confirmation(frozen)
         real_publish = native.subject_update_action
@@ -75,54 +69,37 @@ class SelectedSubjectRecordingRecoveryTests(unittest.TestCase):
         self.assertIsInstance(session, RunExecutionSession)
         self.assertEqual(applied["outcome"], "applied")
         self.assertEqual(applied["observed"]["version"], self.fixture.target["version"] + 1)
-        self.assertEqual(result["disposition"], "recording_pending")
+        self.assertEqual(result["disposition"], "terminal")
+        self.assertIn("isolated post-effect terminal recording failure", result["diagnostics"])
         self.assertEqual(self.fixture.archive.read_bytes(), self.fixture.before)
         current = carrier_snapshot(self.fixture.path)
         history = carrier_snapshot(self.fixture.archive)
 
         event = failed_events[0]
-        event_id = event["event_id"]
-        expected_bytes = canonical_bytes(event)
         self.assertEqual(event["run"]["run_id"], action_run_id)
         self.assertEqual(event["outcome"], "completed")
         self.assertTrue(event["effect_refs"])
-        self.assertIn(event_id, result["pending_event_ids"])
-        pending_path = work_journal._pending_path(self.root, event_id)
-        pending = json.loads(pending_path.read_bytes())
-        self.assertEqual(pending["event_bytes"].encode(), expected_bytes)
-        self.assertEqual(pending["event_bytes_digest"], hashlib.sha256(expected_bytes).hexdigest())
-        context = json.loads(pending["append_context_bytes"])
-        journal = self.root / context["partition_ref"]
-        before_journal = journal.read_bytes()
-        self.assertNotIn(expected_bytes, before_journal.splitlines())
-        receipt_path = work_journal._receipt_path(self.root, event_id)
-        self.assertFalse(receipt_path.exists())
+        terminal = next(row for row in result["terminal_runs"] if row["run_id"] == action_run_id)
+        self.assertEqual("terminal", terminal["disposition"])
+        self.assertEqual("completed", terminal["outcome"])
+        self.assertEqual("isolated post-effect terminal recording failure", terminal["recording_error"])
+        self.assertEqual(event["effect_refs"], terminal["effect_refs"])
+        retained = json.loads((self.root / terminal["result_ref"]).read_bytes())
+        self.assertEqual(applied, retained["native_result"])
+        rows = work_journal.read_records(self.root)
+        self.assertNotIn(event, rows)
 
         with patch.object(native, "subject_update_action", side_effect=AssertionError("Subject publication replayed")) as publisher, patch.object(
-            operations, "write_raw_atom_revision", side_effect=AssertionError("Atom carrier rewritten during recording repair"),
+            operations, "write_raw_atom_revision", side_effect=AssertionError("Atom carrier rewritten on repeat dispatch"),
         ) as writer, patch.object(session.tracker, "executor", side_effect=AssertionError("Run executor replayed")) as executor, patch.object(
-            session.tracker, "recover_recording", wraps=session.tracker.recover_recording,
-        ) as tracker_recovery, patch.object(work_journal, "recover_pending_event", wraps=work_journal.recover_pending_event) as journal_recovery:
-            receipt = session.recover(event_id)
+            work_journal, "append_sealed_events", side_effect=AssertionError("Journal append retried"),
+        ) as append:
             self.assertEqual(runner.dispatch(frozen), result)
         publisher.assert_not_called()
         writer.assert_not_called()
         executor.assert_not_called()
-        tracker_recovery.assert_called_once_with(event_id)
-        journal_recovery.assert_called_once_with(self.root, event_id)
-
-        after_journal = journal.read_bytes()
-        self.assertEqual(after_journal, before_journal + expected_bytes + b"\n")
-        self.assertEqual(json.loads(after_journal.splitlines()[-1]), event)
-        self.assertEqual(after_journal.splitlines().count(expected_bytes), 1)
-        self.assertEqual(receipt["event_id"], event_id)
-        self.assertEqual(receipt["event_digest"], event["event_digest"])
-        self.assertEqual(receipt["carrier"], context["partition_ref"])
-        self.assertEqual(receipt["line"], len(before_journal.splitlines()) + 1)
-        self.assertEqual(receipt["previous_carrier_digest"], hashlib.sha256(before_journal).hexdigest())
-        self.assertEqual(receipt["appended_carrier_digest"], hashlib.sha256(after_journal).hexdigest())
-        self.assertEqual(json.loads(receipt_path.read_bytes()), receipt)
-        self.assertFalse(pending_path.exists())
+        append.assert_not_called()
+        self.assertEqual(rows, work_journal.read_records(self.root))
         self.assertEqual(carrier_snapshot(self.fixture.path), current)
         self.assertEqual(carrier_snapshot(self.fixture.archive), history)
 
