@@ -35,6 +35,14 @@ def snapshot(root):
             for p in root.rglob("*") if p.is_file() and not p.is_symlink()}
 
 
+def authority_fixture_bytes(identifier, entry):
+    for path in sorted((HERE / "fixtures").glob(f"*/{identifier}.md")):
+        raw = path.read_bytes()
+        if hashlib.sha256(raw).hexdigest() == entry["sha256"]:
+            return raw
+    raise AssertionError("Missing exact fixture: " + identifier)
+
+
 class ProposedCarrierAdmissionRegressions(unittest.TestCase):
     def setUp(self):
         scratch = REPOSITORY / ".caprmedio_tmp/tests/proposed-carrier-admission"
@@ -111,7 +119,7 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         with self.assertRaises(ProposedReferenceError):
             self.inventory()
 
-    def project(self, name="amber", control_name=".caprmedio_selected", *, root=None):
+    def project(self, name="amber", control_name=".caprmedio_selected", *, root=None, source_ids=()):
         root = self.root if root is None else root
         control = root / control_name
         control.mkdir(parents=True, exist_ok=True)
@@ -130,22 +138,12 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         (control / "operators_registry.toml").write_text(
             '[[operators]]\nname = "Fixture Operator"\nrole = "project owner"\n', encoding="utf-8",
         )
-        for identifier in dict.fromkeys((*_REGISTRY_IDS, *_SUPPORT_IDS)):
+        for identifier in dict.fromkeys((*_REGISTRY_IDS, *_SUPPORT_IDS, "CA-R-1539", *source_ids)):
             entry = _entry(identifier)
-            source = REPOSITORY / entry["source_path"]
-            raw = source.read_bytes()
-            self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
+            raw = authority_fixture_bytes(identifier, entry)
             destination = control.joinpath(*Path(entry["source_path"]).parts[1:])
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(raw)
-        status_sources = list(REPOSITORY.glob(
-            ".caprmedio_*/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/*/04_requirement/CA-R-1539-*.md"
-        ))
-        self.assertEqual(len(status_sources), 1)
-        status_source = status_sources[0]
-        status_destination = control.joinpath(*status_source.relative_to(REPOSITORY).parts[1:])
-        status_destination.parent.mkdir(parents=True, exist_ok=True)
-        status_destination.write_bytes(status_source.read_bytes())
         return resolve_project(root, control_name)
 
     @staticmethod
@@ -287,11 +285,7 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         control = selection.control_relative
         for identifier in dict.fromkeys((*_FRONTIER_IDS, *_GRAPH_IDS)):
             entry = _entry(identifier, graph=identifier in _GRAPH_IDS)
-            source = REPOSITORY / entry["source_path"]
-            if not source.is_file():
-                source = HERE / "fixtures/extended_authority" / f"{identifier}.md"
-            raw = source.read_bytes()
-            self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
+            raw = authority_fixture_bytes(identifier, entry)
             self.put(control.joinpath(*Path(entry["source_path"]).parts[1:]), raw)
         structure = selection.structure_path.read_text()
         selection.structure_path.write_text(

@@ -14,11 +14,17 @@ from validate_atoms_workers import proposed_carrier
 from validate_atoms_workers.authority import Obligation
 from validate_atoms_workers.check_schema_extended import ADAPTERS
 from validate_atoms_workers.check_support import Check
+import test_proposed_carrier_admission_regressions as fixtures  # noqa: E402
 
 
 class ProposedTypeAdmissionTests(unittest.TestCase):
     def setUp(self):
-        self.context = proposed_carrier.source_context_from_project(PROJECT)
+        self.fixture = fixtures.ProposedCarrierAdmissionRegressions()
+        self.fixture.setUp()
+        self.addCleanup(self.fixture.doCleanups)
+        self.selection = self.fixture.project()
+        self.root = self.selection.root
+        self.context = proposed_carrier.source_context_from_project(self.root)
 
     def check_type(self, role, kind):
         check = Check(Obligation("model.domains", [], True, "verified sources"),
@@ -58,9 +64,9 @@ class ProposedTypeAdmissionTests(unittest.TestCase):
     def test_shared_boundary_rejects_plan_action(self):
         metadata = dict(
             atom_id="CA-P-999999", content_role="Plan", type="Plan",
-            current_scope_unit="caprmedio", claim_target_scope_unit="caprmedio",
+            current_scope_unit="amber", claim_target_scope_unit="amber",
             local_tier="Standard", global_tier=2, status="Active", version=1,
-            author="Anatoly Maslennikov", updated_at="2026-10-13 12:00:00 +0400",
+            author="Fixture Operator", updated_at="2026-10-13 12:00:00 +0400",
             subjects={"governs": "Tool", "depends_on": []}, relations={},
         )
         body = ("# Summary\n\nType admission\n\n## Objective\n\nCheck a Plan.\n\n"
@@ -81,7 +87,7 @@ class ProposedTypeAdmissionTests(unittest.TestCase):
                 return result
             with self.subTest(changed=changed), patch.object(proposed_carrier, "_entry", entry):
                 with self.assertRaises(proposed_carrier.ProposedCarrierError):
-                    proposed_carrier.source_context_from_project(PROJECT)
+                    proposed_carrier.source_context_from_project(self.root)
 
 
 if __name__ == "__main__":

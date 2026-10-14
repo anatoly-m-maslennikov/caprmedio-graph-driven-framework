@@ -15,14 +15,22 @@ from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 from VALIDATE_ATOMS.validate_atoms_workers.support_authority import support_sources
+import test_proposed_carrier_admission_regressions as fixtures  # noqa: E402
 
 
 SECTION_SOURCES = ("CA-R-1933", "CA-M-373", "CA-D-623")
 
 
 class SectionAuthorityTests(unittest.TestCase):
+    def setUp(self):
+        self.fixture = fixtures.ProposedCarrierAdmissionRegressions()
+        self.fixture.setUp()
+        self.addCleanup(self.fixture.doCleanups)
+        self.selection = self.fixture.project(source_ids=SECTION_SOURCES)
+        self.root = self.selection.root
+
     def test_selected_context_lazily_reads_exact_section_sources(self):
-        context = proposed_carrier.source_context_from_project(REPOSITORY)
+        context = proposed_carrier.source_context_from_project(self.root)
         initial_ids = {source["binding"]["atom_id"] for source in context.inputs["sources"]}
         self.assertTrue(set(SECTION_SOURCES).isdisjoint(initial_ids))
         report = {"bindings": {}, "coverage": {"gaps": []}}
@@ -34,14 +42,15 @@ class SectionAuthorityTests(unittest.TestCase):
                     )
                     entry = support_sources()[identifier]
                     self.assertEqual(source["binding"]["sha256"], entry["sha256"])
-                    self.assertEqual(source["binding"]["path"], str(REPOSITORY / entry["source_path"]))
+                    path = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
+                    self.assertEqual(source["binding"]["path"], str(path))
         self.assertEqual(context._reader.currentness()["state"], "unchanged")
 
     def test_missing_and_changed_section_sources_refuse(self):
         for identifier in SECTION_SOURCES:
             entry = support_sources()[identifier]
-            original = (REPOSITORY / entry["source_path"]).read_bytes()
-            with tempfile.TemporaryDirectory() as directory:
+            original = fixtures.authority_fixture_bytes(identifier, entry)
+            with tempfile.TemporaryDirectory(dir=self.root) as directory:
                 root = Path(directory).resolve()
                 path = root / entry["source_path"]
                 path.parent.mkdir(parents=True)
