@@ -231,13 +231,16 @@ class Service:
                 continue
             workflow = entry.get("workflow")
             actions = entry.get("ordered_actions")
-            if route not in self.exposed or not isinstance(workflow, dict) or not isinstance(actions, list):
+            native_actions = entry.get("native_action_calls", [])
+            if (route not in self.exposed or not isinstance(workflow, dict)
+                    or not isinstance(actions, list) or not isinstance(native_actions, list)):
                 continue
             workflow_id = workflow.get("atom_id")
-            action_ids = [item.get("atom_id") for item in actions if isinstance(item, dict)]
+            action_ids = [item.get("atom_id") for item in [*actions, *native_actions] if isinstance(item, dict)]
             if (not isinstance(route, str) or not isinstance(workflow_id, str) or not action_ids
                     or not all(isinstance(identity, str) for identity in action_ids)):
                 continue
+            action_ids = list(dict.fromkeys(action_ids))
             rows.append({
                 "name": route, "mcp_name": route, "availability": "mcp", "source_atom": workflow_id,
                 "workflow_ids": [workflow_id], "action_ids": action_ids, "selected_route": True,
