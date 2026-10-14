@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 72
-updated_at: "2026-10-14 16:55:16 +0400"
+version: 73
+updated_at: "2026-10-14 17:57:02 +0400"
 relations: {}
 ---
 # Summary
@@ -27,13 +27,15 @@ Build and resolve the current Core Meta-model RMEDO Subject map, then carry out 
 
 ## Details
 
-### Registry repair and staged replacements — 2026-10-14 16:55 +0400
+### Shared Methods, registry repair and first-change recording — 2026-10-14
 
-Committed repairs: `899186871` validates local release sources before tests and delivery (11 focused tests); `7d08e415e` fixes selected-Project query Settings binding (68 affected tests); `57f324144` excludes historical Atom carriers from current release-source discovery (15 tests). Independent reviews passed. Release source amendments and exact histories are in `856e93087`, `904ca7d08` and `fc903e1c9`. The full-registry FPF review passed, but source review and focused tests do not prove runtime readiness.
+Use the [compiled PROGRAMMATIC implementation prompt](../_projection/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/mrt_programmatic_methods_compact.projection.md) in every implementation-worker brief, together with the task's applicable RMEDO. It is a selected derived view, not new authority: small single-purpose modules/functions, pure decisions, objects only for owned state/resources/lifecycle, composition, typed boundaries, and conditional Methods. Recheck its sources when they change. Behavioral test passes do not establish formatting, complexity, size, typing, environment or full Method conformance. The inherited-Method audit found missing evidence and concrete construction/temp-placement gaps; repair and evaluate those without silently waiving the rules or widening untouched legacy scope.
 
-The Operator requires D562 and D563 replacements to stay staged until MCP supports recording. Both current sources remain unchanged. Reviewed D633 and D634 candidates are under `.caprmedio_tmp/stage2-migration-20261014/registry-repair/`; they are not active authority. Reuse the existing Journal writer through a minimal MCP connection, with truthful provenance and no invented Workflow Run. Do not substitute direct local recording. Commit `bdcc0f0a8` fixes producer/appender replacement-event identity compatibility; 60 affected tests pass. The MCP request path remains pending.
+Committed: `9cd9efff9` sets Journal segments to at most 1,000 rows (80 focused tests); `5aabd7a80` exposes the existing independent appender through MCP (17 new native/protocol tests); `aa0fa3e74` requires the complete registry before registration/freeze/new dispatch and removes direct/virtual Release bypasses (18 actual registry/query checks plus 12 isolated interpreter checks independently passed). The real complete fixture has fifteen routes, not seventeen. Known legacy full-suite failures and inherited-Method gaps remain explicit. No runtime activation is established by these commits.
 
-Commit `e0b3a46e0` aligns the public reader with D613 v8's four pairs and 24 source members; nine tests and independent review pass. Finish the local reader and shared dispatch, then verify the complete seventeen-route registry and accepted query frontiers. The dispatcher still names obsolete release phases. Actual Codex confirmation and connected migration remain unverified. Preserve both uncertain staging batches. Keep both Epics Active; Subjects-only migration, content work, runtime activation, live publication and push remain separate gates.
+The Operator requires only local and public release. Keep D562's ID and Summary; revise it for installation within local release. Do not create D634 or a separate installer flow. D633 remains the proposed D563 replacement. Direct local recording is allowed for these two actual changes, but the proposed four-row append was rejected. The Operator then approved allowing a first recorded change without an earlier Journal entry: record only actual changes, no automatic baseline and no claim of earlier Journal-only replay. Align the rules, writer, affected producers/readers and tests before publishing D562/D563 or appending their events. Known prior records still require honest links; malformed or unmatched known history is not absence.
+
+Finish release discovery, local source admission and shared dispatch; derive and verify the full seventeen-route registry without restoring obsolete release phases. The approved connected-process exception applies only to confirmed Subject updates, using the actual Codex form and existing validation, locks, selected execution and Journal. Its source packet passed ordinary review; implementation and runtime acceptance remain open. Preserve both uncertain staging batches. Keep both Epics Active: no Core Subject publication, content migration, runtime restart, push or completed-Epic claim follows from this checkpoint.
 
 ### Full shared registry repair selected — 2026-10-14 15:42 +0400
 
