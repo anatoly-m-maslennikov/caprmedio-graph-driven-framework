@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan]
-version: 2
-updated_at: "2026-10-14 11:39:13 +0400"
+version: 3
+updated_at: "2026-10-14 12:51:10 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
 ---
@@ -38,6 +38,8 @@ This is the Operator-approved connected tool verification, not approval to exclu
 Actual HTTP discovery/context, exact CA-D-253 lookup and sealed preview passed. The source bytes/mode stayed unchanged; Root independently inspected the responses. Evidence is recorded in connected-preparation-activation.md under the tools-first projection. Preview seal is ba718c8d430ccb7a88c141705019762aa24aa28257171fb37520bcf28e437d06. A fresh no-write request check revalidated all 906 source pins.
 
 Scratch staging was denied by the permission reviewer before process/MCP invocation for lack of explicit trusted approval for that one-Atom mutation. No stage artifacts were created. Request direct approval; do not retry through another route. Stage/readback acceptance remains unproven, so this Task stays Active.
+
+The Operator subsequently explicitly approved this one-Atom staging check. One real MCP stage request ran, but returned an uncertain error after about90seconds; the manifest appeared about11seconds later. Independent readback verifies the exact candidate and canonical manifest in .caprmedio_tmp/subject-preview/e7e1dc30c56941b19c1e8ba0843daae4, with all original source pins unchanged. The connected-preparation activation receipt records hashes and timing. Preserve the batch and do not replay. The permission gate for the attempted check is resolved, but successful Tool completion remains unproven pending gateway/implementation reconciliation. This Task remains Active; no batch disposition or live publication is approved.
 
 ### Definition of Done
 
