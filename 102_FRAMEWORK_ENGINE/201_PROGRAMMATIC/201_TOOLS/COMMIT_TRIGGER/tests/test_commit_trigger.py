@@ -28,6 +28,7 @@ commit_trigger = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = commit_trigger
 SPEC.loader.exec_module(commit_trigger)
 from framework_installation import install_release
+from work_journal import read_records
 
 
 class CommitTriggerTests(unittest.TestCase):
@@ -190,14 +191,14 @@ class CommitTriggerTests(unittest.TestCase):
         managed_change = self.repository / "managed-change.txt"
         managed_change.write_text("managed\n", encoding="utf-8")
         self._git("add", managed_change.name)
-        rejected = subprocess.run(
+        committed = subprocess.run(
             ["git", "-C", str(self.repository), "commit", "-qm", "ordinary managed commit"],
             check=False,
             capture_output=True,
             text=True,
         )
-        self.assertNotEqual(0, rejected.returncode)
-        self._git("reset", "-q", "--", managed_change.name)
+        self.assertEqual(0, committed.returncode, committed.stderr)
+        self.assertEqual([managed_change.name], self._git("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").splitlines())
         enabled = commit_trigger.emit_from_registered_adapter(
             [self._observation()], repository=self.repository, adapter_id=self.adapter.adapter_id, environment=self.environment
         )
@@ -666,10 +667,13 @@ class CommitTriggerTests(unittest.TestCase):
         self.assertEqual("committed", envelope["result"]["effect"], envelope)
         self.assertEqual(1, envelope["result"]["commit_count"])
         changed = self._git("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").splitlines()
-        self.assertIn(subject, changed)
-        journals = [path for path in changed if path.startswith(".caprmedio_caprmedio/_journal/")]
+        self.assertEqual([subject], changed)
+        journals = sorted((self.repository / ".caprmedio_caprmedio/_journal").glob("*.ndjson"))
         self.assertEqual(1, len(journals))
-        record = json.loads((self.repository / journals[0]).read_text(encoding="utf-8").splitlines()[-1])
+        self.assertEqual("", self._git("ls-files", ".caprmedio_caprmedio/_journal"))
+        records = read_records(self.repository)
+        self.assertEqual(1, len(records))
+        record = records[0]
         self.assertEqual(
             {"app": "codex", "uuid": self.environment["CODEX_THREAD_ID"]},
             record["llm_session"],
@@ -680,7 +684,10 @@ class CommitTriggerTests(unittest.TestCase):
         self.assertTrue(observed["governed"])
         self.assertTrue(observed["valid"])
         self.assertEqual(self._git("rev-parse", "HEAD").strip(), observed["commit"])
-        self.assertEqual("", self._git("status", "--porcelain=v1"))
+        self.assertEqual(
+            f"?? {journals[0].relative_to(self.repository).as_posix()}\n",
+            self._git("status", "--porcelain=v1", "--untracked-files=all"),
+        )
 
     def test_stop_reconciles_one_missed_change_and_rejects_ambiguous_session_ownership(self) -> None:
         (self.repository / ".gitignore").write_text(
@@ -707,7 +714,15 @@ class CommitTriggerTests(unittest.TestCase):
         stopped = commit_trigger.codex_hook(self.repository, "stop", self.adapter.adapter_id, payload)
         self.assertEqual("reconciled", stopped["effect"])
         self.assertEqual(1, stopped["commit_count"])
-        self.assertEqual("", self._git("status", "--porcelain=v1"))
+        self.assertEqual([subject], self._git("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").splitlines())
+        journals = sorted((self.repository / ".caprmedio_caprmedio/_journal").glob("*.ndjson"))
+        self.assertEqual(1, len(journals))
+        self.assertEqual("", self._git("ls-files", ".caprmedio_caprmedio/_journal"))
+        self.assertEqual(1, len(read_records(self.repository)))
+        self.assertEqual(
+            f"?? {journals[0].relative_to(self.repository).as_posix()}\n",
+            self._git("status", "--porcelain=v1", "--untracked-files=all"),
+        )
 
         second_payload = {"session_id": "019f5920-04f6-70f2-8de7-828b7cccc69d", "cwd": str(self.repository)}
         commit_trigger.codex_hook(self.repository, "start", self.adapter.adapter_id, payload)
