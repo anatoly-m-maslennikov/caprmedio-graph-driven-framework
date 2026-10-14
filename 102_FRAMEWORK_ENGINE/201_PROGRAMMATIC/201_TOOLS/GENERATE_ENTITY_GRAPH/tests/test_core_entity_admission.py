@@ -21,7 +21,7 @@ from historical_core_authority import historical_authority_bytes  # noqa: E402
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp/tests/test_core_entity_admission"
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-REAL_CORE = TOOL_DIRECTORY.parents[3] / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+REAL_CORE = TOOL_DIRECTORY.parents[3] / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"
 
 
 def operation_atom(atom_id: str, name: str, atom_type: str = "Action", *, operation: str | None = None) -> str:

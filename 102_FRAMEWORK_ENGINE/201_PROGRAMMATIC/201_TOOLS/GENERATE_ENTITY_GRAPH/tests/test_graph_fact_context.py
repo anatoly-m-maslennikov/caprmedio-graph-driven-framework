@@ -89,7 +89,7 @@ class GraphFactContextTests(unittest.TestCase):
 
     def details_authorities(self) -> list[object]:
         """Use the actual pinned assignment bytes, never a passed test flag."""
-        core = TOOL_DIRECTORY.parents[3] / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+        core = TOOL_DIRECTORY.parents[3] / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"
         destinations = self.repository / "authority"
         destinations.mkdir(exist_ok=True)
         sources = (

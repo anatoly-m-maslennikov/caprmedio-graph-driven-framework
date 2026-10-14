@@ -31,7 +31,7 @@ from historical_core_authority import historical_authority_bytes  # noqa: E402
 
 
 WORKSPACE = TOOL_DIRECTORY.parents[3]
-ACTUAL_CORE = WORKSPACE / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+ACTUAL_CORE = WORKSPACE / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"
 
 
 def requirement(atom_id: str, *, target: str = "Entity", scope: str | None = "Core declaration only.",
