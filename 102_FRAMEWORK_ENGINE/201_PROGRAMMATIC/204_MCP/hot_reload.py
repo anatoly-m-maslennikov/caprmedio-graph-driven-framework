@@ -74,6 +74,7 @@ _STARTUP_TELEMETRY_ENV = 'CAPRMEDIO_STARTUP_TELEMETRY'
 _STARTUP_PHASES = frozenset({
     'initial_fingerprint', 'reload_fingerprint', 'fingerprint_verify',
     'child_handshake', 'list_tools', 'generation_ready', 'schema_validation',
+    'implementation_import', 'selected_registration', 'catalog', 'catalog_registration',
 })
 _SINGLETON_LOCK_PARTS = ('.caprmedio_runtime', 'runtime', 'mcp_hot_reload')
 _INSTANCE_ID = re.compile(r'[0-9a-f]{64}\Z')
@@ -82,12 +83,12 @@ _PROCESS_QUERY_MAX_SECONDS = 2.0
 _GATEWAY_ENTRYPOINTS = frozenset(('server.py', 'http_server.py'))
 
 
-def _startup_telemetry_enabled():
+def _startup_telemetry_enabled() -> bool:
     """Keep bounded startup timing diagnostics opt-in and transport-safe."""
     return os.environ.get(_STARTUP_TELEMETRY_ENV) == '1'
 
 
-def _startup_timing(enabled, phase, started, outcome='completed'):
+def _startup_timing(enabled: bool, phase: str, started: float, outcome: str = 'completed') -> None:
     """Emit fixed phase timing only; never put diagnostic data on MCP stdout."""
     if enabled and phase in _STARTUP_PHASES:
         elapsed_ms = max(0, round((time.monotonic() - started) * 1000))
@@ -413,7 +414,8 @@ class Gateway:
     @staticmethod
     def child_environment():
         """Pass only runtime essentials; transport credentials never reach tools."""
-        allowed = {'PATH', 'TMPDIR', 'TEMP', 'TMP', 'LANG', 'TZ', 'CAPRMEDIO_RUNTIME_NAMESPACE'}
+        allowed = {'PATH', 'TMPDIR', 'TEMP', 'TMP', 'LANG', 'TZ',
+                   'CAPRMEDIO_RUNTIME_NAMESPACE', _STARTUP_TELEMETRY_ENV}
         return {key: value for key, value in os.environ.items()
                 if key in allowed or key.startswith('LC_')}
 

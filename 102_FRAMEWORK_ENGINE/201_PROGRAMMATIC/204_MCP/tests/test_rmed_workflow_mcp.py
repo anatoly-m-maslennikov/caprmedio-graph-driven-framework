@@ -63,7 +63,8 @@ HELPER_DECLARATION_PATHS = (
 GATEWAY_STARTUP_TIMEOUT_SECONDS = 30
 _STARTUP_TELEMETRY_LINE = re.compile(
     r'^caprmedio_mcp_startup phase=(?:initial_fingerprint|reload_fingerprint|fingerprint_verify|'
-    r'child_handshake|list_tools|generation_ready|schema_validation) '
+    r'child_handshake|list_tools|generation_ready|schema_validation|implementation_import|'
+    r'selected_registration|catalog|catalog_registration) '
     r'outcome=(?:completed|failed) elapsed_ms=[0-9]+$')
 
 
