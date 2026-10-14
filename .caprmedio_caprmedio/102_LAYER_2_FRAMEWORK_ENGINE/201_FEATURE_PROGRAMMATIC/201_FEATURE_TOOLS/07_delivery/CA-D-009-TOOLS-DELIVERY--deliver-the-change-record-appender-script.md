@@ -12,8 +12,8 @@ cce_form: serialization
 subjects:
   governs: "provenance"
   depends_on: [Journal, Journal/Record, Atom, Artifact/Carrier, Project, Applicable Methodology]
-version: 18
-updated_at: "2026-10-14 17:00:15 +0400"
+version: 19
+updated_at: "2026-10-14 17:57:07 +0400"
 relations:
   delivery_for: [CA-R-812, CA-R-1124, CA-R-1064]
 llm_session_ids:
@@ -38,6 +38,12 @@ APPEND_CHANGE_RECORDS **must** be delivered through the canonical source script 
 - keep mutable lease **and** append state under `.caprmedio_runtime`. the shared implementation remains a library, **not** an additional executable Tool.
 
 ## Details
+
+### First recorded Atom change
+
+the first recorded actual Atom `UPDATE`, `MOVE` **or** `MOVE+UPDATE` **may** be a schema-version-3 `completed` `governed_project_change` file event **without** `previous_result_event` **only** **when** no prior canonically confirmed result for that Atom identity exists. record **only** the actual change; do **not** automatically create a `recovered` baseline **or** invent an earlier event, Actor, time **or** outcome. this first record does **not** establish that the earlier state is replayable from the Journal.
+
+**if** a prior canonically confirmed result exists, retain the required exact immediate `previous_result_event` link. known unmatched, unresolved **or** unconfirmed predecessor evidence is **not** a first recorded change **and** **must** refuse **until** the chain integrity is resolved; do **not** omit the link **or** substitute a fabricated baseline. `REMOVE` retains its existing predecessor requirement. preserve event/digest, stale-reference, replay, idempotency **and** append-only integrity checks **and** all accepted historical bytes **and** legacy read compatibility. this exception adds no field, schema version, writer **or** permission to perform the source change.
 
 ### Carrier-only recovered baseline
 

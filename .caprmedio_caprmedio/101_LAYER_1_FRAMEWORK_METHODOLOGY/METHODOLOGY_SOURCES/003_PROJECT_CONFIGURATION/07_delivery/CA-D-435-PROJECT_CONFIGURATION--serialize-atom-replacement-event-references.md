@@ -6,8 +6,8 @@ subjects:
     - "Atom/Identifier"
     - "Atom/Revision"
     - "Carrier"
-version: 8
-updated_at: "2026-10-02 19:36:21 +0400"
+version: 9
+updated_at: "2026-10-14 17:57:07 +0400"
 relations: {}
 atom_id: "CA-D-435"
 content_role: "Delivery"
@@ -32,7 +32,7 @@ a schema-version `3` completed File Carrier `MOVE` **or** `MOVE+UPDATE` event re
 
 - `predecessor_atom_id` stores the observed identity as a string; `successor_atom_ids` stores the observed successor identities as an array of strings. preserve their values **and** array order exactly through safe encoding. array order does **not** establish priority **or** execution order.
 - the pair is optional on ordinary events; absence does **not** establish whether a move was a replacement. a partial pair, a null field, **or** a value with the wrong storage type fails this encoding.
-- both fields participate **in** the existing Event digest. the ordinary result **and** `previous_result_event` retain Carrier **and** Revision evidence **without** duplicating it **in** replacement fields.
+- both fields participate **in** the existing Event digest. the ordinary result **and**, **when** an actual prior canonically confirmed result exists, the required exact immediate `previous_result_event` retain Carrier **and** Revision evidence **without** duplicating it **in** replacement fields. a first recorded actual Atom `MOVE` **or** `MOVE+UPDATE` with no prior confirmed result for that identity **may** omit `previous_result_event` **without** an automatic baseline **or** earlier-state Journal-replay claim; the replacement-reference pair remains required. known unmatched, unresolved **or** unconfirmed predecessor evidence is **not** that exception. `UPDATE` first-record handling does not admit replacement fields; `REMOVE` retains its existing predecessor requirement. CA-R-807 **and** CA-E-462 replacement conformance remains independent **and** unchanged.
 - legacy **or** nonconforming IDs, an empty observed successor array, duplicate **or** self-referencing identities, a filename mismatch, **and** an invalid archive placement remain recordable payload. CA-E-462 evaluates the replacement independently; failed conformance **must not** become a Journal-admission gate under CA-R-1491.
 - ordinary **and** historical records **without** these fields retain their selected schema. preserved observations **must not** be rewritten **to** satisfy current Atom grammar, archive rules, **or** successor conditions. successful storage proves **only** event **and** storage integrity, **not** a valid replacement.
 
