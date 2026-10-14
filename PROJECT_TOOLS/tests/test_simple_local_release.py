@@ -36,9 +36,10 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             for status in ("Active", "Draft", "Archived"):
                 (unit / f"{status.lower()}.md").write_text(
                     f"---\natom_id: CA-R-{number}\nstatus: {status}\n---\n## Claim\n{status}\n", encoding="utf-8")
-            historical = unit / "archive/active.md"
-            historical.parent.mkdir()
-            historical.write_text("---\nstatus: Active\n---\nold\n", encoding="utf-8")
+            for directory in ("archive", "draft", "_projection"):
+                historical = unit / directory / "active.md"
+                historical.parent.mkdir()
+                historical.write_text("---\nstatus: Active\n---\nold\n", encoding="utf-8")
         (self.control / "project_structure.toml").write_text("\n".join(rows), encoding="utf-8")
         (self.control / "caprmedio_project_settings.toml").write_text(
             '[project]\nname = "caprmedio"\n[paths]\ncontrol_root = ".caprmedio_caprmedio"\n', encoding="utf-8")
@@ -133,6 +134,14 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual(retained, legacy.read_bytes())
 
     def test_active_sources_replace_product_and_installed_copy_preserves_config(self):
+        protected = ("settings.toml", "project_settings.toml", "caprmedio_framework_settings.toml",
+                     "operators_registry.toml", "operator_registry/entry.txt")
+        for target in (self.product, self.installed):
+            for relative in protected:
+                carrier = target / relative
+                carrier.parent.mkdir(parents=True, exist_ok=True)
+                carrier.write_text(f"preserve {relative}\n")
+        (self.sources / "001_CORE_META_MODEL/active.md").chmod(0o640)
         archived = self.sources / "001_CORE_META_MODEL/archived/active@1.md"
         archived.parent.mkdir()
         archived.write_bytes((archived.parent.parent / "active.md").read_bytes())
@@ -144,6 +153,9 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             self.assertFalse((target / "old.txt").exists())
             self.assertEqual("keep = true\n", (target / "config.toml").read_text())
             self.assertTrue((target / "applicable_methodology/compiled.md").is_file())
+            for relative in protected:
+                self.assertEqual(f"preserve {relative}\n", (target / relative).read_text())
+            self.assertEqual(0o640, stat.S_IMODE((target / "sources/001_CORE_META_MODEL/active.md").stat().st_mode))
             for unit in self.sources.iterdir():
                 released = target / "sources" / unit.name
                 self.assertEqual(["active.md"], sorted(path.name for path in released.rglob("*.md")))
@@ -173,18 +185,51 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         for target in (self.product, self.installed):
             self.assertEqual(source.read_bytes(), (target / "sources/001_CORE_META_MODEL/active.md").read_bytes())
 
-    def test_source_symlink_still_refuses_before_installed_replacement(self):
+    def _assert_input_refused(self, run_id):
+        runner, calls = self._runner()
+        result = run_local_release(self.root, run_id=run_id, runner=runner)
+        self.assertEqual("failed", result["outcome"])
+        self.assertEqual("validate_inputs", result["failed_step"])
+        for target in (self.product, self.installed):
+            self.assertEqual("obsolete", (target / "old.txt").read_text())
+        self.assertFalse(any(any(item.endswith("run_full_test_suite.py") for item in argv) for argv in calls))
+        self.assertFalse(any(argv[-1:] == ("project-mcp",) for argv in calls))
+        self.image_factory.assert_not_called()
+
+    def test_source_symlink_refuses_before_tests_version_or_product_replacement(self):
         outside = self.root / "outside.md"
         outside.write_bytes(b"untrusted payload")
         (self.sources / "001_CORE_META_MODEL/linked.md").symlink_to(outside)
-        runner, calls = self._runner()
-        result = run_local_release(self.root, run_id="unsafe-source", runner=runner)
-        self.assertEqual("failed", result["outcome"])
-        self.assertEqual("copy_active_sources", result["failed_step"])
-        self.assertEqual("obsolete", (self.installed / "old.txt").read_text())
-        self.image_factory.assert_not_called()
-        self.assertFalse(any(argv[-1:] == ("project-mcp",) for argv in calls))
+        self._assert_input_refused("unsafe-source")
+        self.assertIn('version = "0.4.1"', (self.root / "version.toml").read_text())
         self.assertEqual(b"untrusted payload", outside.read_bytes())
+
+    def test_missing_source_path_refuses_before_tests_or_replacement(self):
+        structure = self.control / "project_structure.toml"
+        structure.write_text(structure.read_text().replace("/001_CORE_META_MODEL\"", "/missing-core\""))
+        self._assert_input_refused("missing-source")
+
+    def test_empty_selected_core_refuses_before_tests_version_or_replacement(self):
+        (self.sources / "001_CORE_META_MODEL/active.md").unlink()
+        self._assert_input_refused("empty-core")
+        self.assertIn('version = "0.4.1"', (self.root / "version.toml").read_text())
+
+    def test_unsafe_product_descendant_refuses_before_any_clear(self):
+        (self.product / "linked.txt").symlink_to(self.installed / "old.txt")
+        self._assert_input_refused("unsafe-product")
+
+    def test_invalid_version_refuses_before_tests_or_replacement(self):
+        version = self.root / "version.toml"
+        version.write_text('[framework]\nversion = "invalid"\n')
+        self._assert_input_refused("invalid-version")
+        self.assertIn('version = "invalid"', version.read_text())
+
+    def test_unsafe_compiler_path_refuses_before_tests_or_replacement(self):
+        tools = self.root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"
+        moved = tools.with_name("saved_tools")
+        tools.rename(moved)
+        tools.symlink_to(moved, target_is_directory=True)
+        self._assert_input_refused("unsafe-compiler")
 
     def test_installer_refreshes_bootstrap_without_touching_runtime_config_or_state(self):
         runner, calls = self._runner()
@@ -216,9 +261,11 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertIn('version = "0.4.1.10"', (self.root / "version.toml").read_text())
 
     def test_preserved_ds_store_directories_do_not_block_replacement(self):
+        (self.sources / "002_INSTALLED_EXTENSIONS/active.md").unlink()
         retained = (
             self.product / "sources",
             self.product / "sources/001_CORE_META_MODEL",
+            self.installed / "obsolete",
             self.runtime / "simple_local_release/package/102_FRAMEWORK_ENGINE",
         )
         for directory in retained:
@@ -233,6 +280,8 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             self.assertEqual(b"ignored", (directory / ".DS_Store").read_bytes())
             self.assertFalse((directory / "obsolete.txt").exists())
         self.assertTrue((self.product / "sources/001_CORE_META_MODEL/active.md").is_file())
+        for target in (self.product, self.installed):
+            self.assertEqual([], list((target / "sources/002_INSTALLED_EXTENSIONS").rglob("*.md")))
 
     def test_compiler_failure_stops_before_install_or_docker_and_reports(self):
         runner, calls = self._runner()
@@ -268,7 +317,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         for target in (self.product, self.installed):
             self.assertEqual("obsolete", (target / "old.txt").read_text())
         self.assertEqual(1, sum(any(item.endswith("run_full_test_suite.py") for item in argv) for argv in calls))
-        self.assertEqual(1, sum(argv[:2] == ("git", "commit") for argv in calls))
+        self.assertEqual(2, sum(argv[:2] == ("git", "commit") for argv in calls))
         self.assertIn("test failure", (self.root / result["report_path"]).read_text())
 
     def test_git_stages_everything_and_commits_before_steps_and_at_end(self):
@@ -284,7 +333,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             self.assertEqual(add + 2, commit)
         self.assertEqual(len(calls) - 1, commits[-1])
         self.assertEqual([
-            "tests", "copy active sources", "compile product", "build package", "prepare candidate image",
+            "validate inputs", "tests", "copy active sources", "compile product", "build package", "prepare candidate image",
             "copy product to installed framework", "install project runtime", "start mcp", "final",
         ], [calls[index][-1].removeprefix("chore(release): simple local ") for index in commits])
 

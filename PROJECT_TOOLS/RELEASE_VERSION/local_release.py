@@ -149,6 +149,17 @@ def _active_atom(path: Path) -> bool:
     return bool(closing >= 0 and _ACTIVE_STATUS.search(payload[len("---\n"):closing]))
 
 
+def _release_sources(root: Path) -> list[tuple[str, Path, list[Path]]]:
+    selected = []
+    for name, source in _read_structure(root, {}):
+        files = [entry for entry in _walk_regular_files(source, excluded_directories=_NON_SOURCE_DIRECTORIES)
+                 if entry.suffix != ".md" or _active_atom(entry)]
+        if name == "CORE_META_MODEL" and not files:
+            raise LocalReleaseError("local-release-source-empty:CORE_META_MODEL")
+        selected.append((name, source, files))
+    return selected
+
+
 def _clear_target(target: Path, *, root: Path, preserve: frozenset[str], label: str) -> None:
     if target == root or target.parent == target:
         raise LocalReleaseError(f"local-release-{label}-unsafe")
@@ -349,6 +360,22 @@ def _launcher_image(selection) -> str | None:
     return None
 
 
+def _read_version(root: Path) -> tuple[Path, str]:
+    version_path = _project_path(root, Path("version.toml"), label="version-path", require_exists=True)
+    if not version_path.is_file():
+        raise LocalReleaseError("local-release-version-invalid")
+    try:
+        version_text = version_path.read_text(encoding="utf-8")
+        version = tomllib.loads(version_text)["framework"]["version"]
+    except (OSError, KeyError, TypeError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        raise LocalReleaseError("local-release-version-invalid") from error
+    match = re.fullmatch(r"([0-9]+)\.([0-9]+)\.([0-9]+)(?:\.([0-9]+))?", version) if isinstance(version, str) else None
+    if match is None:
+        raise LocalReleaseError("local-release-version-invalid")
+    next_version = ".".join((*match.groups()[:3], str(int(match.group(4) or "0") + 1)))
+    return version_path, version_text.replace(f'"{version}"', f'"{next_version}"', 1)
+
+
 def run_local_release(project_root: Path | str, *, run_id: str,
                       runner: Callable[[tuple[str, ...], Path], Any] | None = None) -> dict[str, object]:
     """Run the direct local release without candidate selection or recovery state."""
@@ -380,13 +407,13 @@ def run_local_release(project_root: Path | str, *, run_id: str,
     prior_image = _launcher_image(selection)
     prior_project = selection.instance_id if prior_image is not None else None
 
-    failed_step = "tests"
+    failed_step = "validate_inputs"
     mcp: Any = None
     receipt_path: str | None = None
     cleanup_note = "No proven superseded Project-owned image identity was available; none was removed."
     cleanup_pending = False
     phases = (
-        "tests", "copy active sources", "compile product", "build package", "prepare candidate image",
+        "validate inputs", "tests", "copy active sources", "compile product", "build package", "prepare candidate image",
         "copy product to installed framework", "install project runtime", "start mcp", "final",
     )
     try:
@@ -416,7 +443,29 @@ def run_local_release(project_root: Path | str, *, run_id: str,
 
             if phase == "final":
                 continue
-            if phase == "tests":
+            if phase == "validate inputs":
+                failed_step = "validate_inputs"
+                _release_sources(root)
+                ca = _target(root, Path(".agents/skills/ca"), label="project-ca")
+                for target in (product, installed, runtime, ca):
+                    if target.exists():
+                        _walk_regular_files(target)
+                _read_version(root)
+                tools_root = _project_path(
+                    root, Path("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"),
+                    label="compiler-path", require_exists=True,
+                )
+                if not tools_root.is_dir():
+                    raise LocalReleaseError("local-release-compiler-unavailable")
+                if str(tools_root) not in sys.path:
+                    sys.path.insert(0, str(tools_root))
+                try:
+                    from COMPILE_APPLICABLE_METHODOLOGY.compile_applicable_methodology import (
+                        CompileError, MethodologyPaths, compile_report, replace_outputs_atomically, stage_outputs,
+                    )
+                except ImportError as error:
+                    raise LocalReleaseError("local-release-compiler-unavailable") from error
+            elif phase == "tests":
                 failed_step = "tests"
                 try:
                     result = runner((
@@ -431,42 +480,22 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                     raise LocalReleaseError(f"local-release-command-failed: {detail}")
             elif phase == "copy active sources":
                 failed_step = "copy_active_sources"
-                version_path = root / "version.toml"
-                try:
-                    version_text = version_path.read_text(encoding="utf-8")
-                    version = tomllib.loads(version_text)["framework"]["version"]
-                except (OSError, KeyError, TypeError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
-                    raise LocalReleaseError("local-release-version-invalid") from error
-                match = re.fullmatch(r"([0-9]+)\.([0-9]+)\.([0-9]+)(?:\.([0-9]+))?", version) if isinstance(version, str) else None
-                if match is None:
-                    raise LocalReleaseError("local-release-version-invalid")
-                next_version = ".".join((*match.groups()[:3], str(int(match.group(4) or "0") + 1)))
-                version_path.write_text(version_text.replace(f'"{version}"', f'"{next_version}"', 1), encoding="utf-8")
+                sources = _release_sources(root)
+                version_path, next_version_text = _read_version(root)
+                version_path.write_text(next_version_text, encoding="utf-8")
                 _clear_target(product, root=root, preserve=_PRESERVED_NAMES, label="product-root")
                 product_sources = product / "sources"
                 product_sources.mkdir(parents=True, exist_ok=True)
-                for name, source in _read_structure(root, {}):
+                for _, source, files in sources:
                     target_root = product_sources / source.name
                     target_root.mkdir(parents=True, exist_ok=True)
-                    for entry in _walk_regular_files(source, excluded_directories=_NON_SOURCE_DIRECTORIES):
-                        if entry.suffix == ".md" and not _active_atom(entry):
-                            continue
+                    for entry in files:
                         target = target_root / entry.relative_to(source)
                         target.parent.mkdir(parents=True, exist_ok=True)
                         shutil.copy2(entry, target)
-                    if name == "CORE_META_MODEL" and not any(target_root.rglob("*")):
-                        raise LocalReleaseError("local-release-source-empty:CORE_META_MODEL")
             elif phase == "compile product":
                 failed_step = "compile_product"
-                tools_root = root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"
-                if tools_root.is_symlink() or not tools_root.is_dir():
-                    raise LocalReleaseError("local-release-compiler-unavailable")
-                if str(tools_root) not in sys.path:
-                    sys.path.insert(0, str(tools_root))
                 try:
-                    from COMPILE_APPLICABLE_METHODOLOGY.compile_applicable_methodology import (
-                        CompileError, MethodologyPaths, compile_report, replace_outputs_atomically, stage_outputs,
-                    )
                     places = MethodologyPaths(
                         source=Path("101_FRAMEWORK_METHODOLOGY/sources"),
                         output=Path("101_FRAMEWORK_METHODOLOGY/applicable_methodology"),
