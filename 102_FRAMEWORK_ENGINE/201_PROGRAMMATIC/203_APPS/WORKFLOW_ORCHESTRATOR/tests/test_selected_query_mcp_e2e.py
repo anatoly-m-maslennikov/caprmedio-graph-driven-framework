@@ -170,7 +170,8 @@ class QueryProjectionBoundarySourceTests(unittest.IsolatedAsyncioTestCase):
                 return {"disposition": "preview", "proposal_receipt": {}, "proposal_receipt_digest": "sealed"}
 
             harness_case.harness = SimpleNamespace(
-                _recording_snapshot=lambda _: {}, _call=silent_projection_write)
+                _recording_snapshot=lambda _: {}, _call=silent_projection_write,
+                _connect=lambda *_: asyncio.sleep(0))
             with self.assertRaisesRegex(AssertionError, "canonical Project _projection"):
                 await harness_case._preview("projection-write-source-check")
 
@@ -229,6 +230,7 @@ class SelectedQueryMcpEndToEnd(unittest.IsolatedAsyncioTestCase):
         fixture, runtime = self.fixture, self.runtime
         assert runtime is not None
         request = fixture.request(request_id=request_id)
+        await self.harness._connect(runtime, fixture.root)
         before = fixture.snapshot()
         projections = _projection_fingerprint(fixture.root)
         records = self.harness._recording_snapshot(fixture.root)

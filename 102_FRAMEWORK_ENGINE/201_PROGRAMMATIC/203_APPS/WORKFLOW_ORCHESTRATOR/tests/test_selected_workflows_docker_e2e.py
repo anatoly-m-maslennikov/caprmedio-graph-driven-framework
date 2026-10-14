@@ -112,8 +112,8 @@ async def _stdio_tool_call(parameters: Any, tool: str, request: dict[str, Any]) 
 class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
     """One runtime and one disposable Git Project per source-bound route."""
 
-    async def _call(self, runtime: Runtime, root: Path, tool: str, request: dict) -> dict:
-        """Reuse one fixture-bound client until an explicit reconnect boundary."""
+    async def _connect(self, runtime: Runtime, root: Path) -> None:
+        """Complete transport startup before observing any Tool effects."""
         try:
             from mcp import StdioServerParameters
         except ImportError as error:  # exact command must use the declared MCP group
@@ -129,6 +129,10 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             self._mcp_client = await self._mcp_context.__aenter__()
             self._mcp_root = runtime.root
         self.assertEqual(self._mcp_root, runtime.root, "MCP client must not cross fixture roots")
+
+    async def _call(self, runtime: Runtime, root: Path, tool: str, request: dict) -> dict:
+        """Reuse one fixture-bound client until an explicit reconnect boundary."""
+        await self._connect(runtime, root)
         response = await self._mcp_client.call_tool(tool, {"request": request})
         return _structured_tool_result(response)
 
@@ -169,6 +173,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         # Input preparation belongs to the disposable fixture, not the MCP
         # preview. Seal the complete request before observing that boundary.
         request = fixture.request(request_id=request_id)
+        await self._connect(runtime, root)
         before = fixture.snapshot()
         journal = root / ".caprmedio_caprmedio/_journal"
         self.assertTrue(journal.is_dir(), "preview requires the valid canonical Journal")
