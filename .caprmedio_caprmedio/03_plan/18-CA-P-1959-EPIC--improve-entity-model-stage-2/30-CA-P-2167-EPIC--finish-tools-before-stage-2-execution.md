@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 44
-updated_at: "2026-10-14 10:24:40 +0400"
+version: 45
+updated_at: "2026-10-14 10:34:40 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,12 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Direct preparation route approved — 2026-10-14 10:34 +0400
+
+The Operator answered Yes to separate direct MCP preview and staging calls. Reuse the existing Subjects-only preparation helpers: preview leaves source Atoms unchanged; staging writes reviewed candidates only under `.caprmedio_tmp`. This supersedes the unanswered route-choice checkpoint below. It does not approve live publication, waive current source checks, select a recording policy implicitly or authorize installed runtime replacement.
+
+Next, define and independently review the narrow preparation request/result and source packet, then implement the existing-helper adapter and actual MCP transport tests. Keep scratch effects distinct from an Atom update or lifecycle event. Resolve only concrete remaining contract decisions; do not reopen the approved direct route. In parallel, repair evidenced outdated discovery fixtures without changing production release behavior or weakening negative checks. Ordinary content migration remains separate.
 
 ### Direct Subject lookup locally complete — 2026-10-14 10:24 +0400
 
