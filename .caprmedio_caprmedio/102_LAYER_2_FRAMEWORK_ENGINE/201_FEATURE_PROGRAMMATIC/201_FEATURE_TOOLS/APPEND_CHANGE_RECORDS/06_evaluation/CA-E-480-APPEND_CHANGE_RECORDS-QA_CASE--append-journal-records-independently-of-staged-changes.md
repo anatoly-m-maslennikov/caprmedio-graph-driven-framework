@@ -9,8 +9,8 @@ subjects:
     - "Project"
     - "Git Index"
     - "Commit Context"
-version: 2
-updated_at: "2026-09-17 03:49:32 +0000"
+version: 3
+updated_at: "2026-10-14 18:37:38 +0400"
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {"evaluation_for":["CA-R-1491","CA-R-812","CA-R-802","CA-M-087"]}
@@ -19,21 +19,21 @@ relations: {"evaluation_for":["CA-R-1491","CA-R-812","CA-R-802","CA-M-087"]}
 
 ## Claim checked
 
-APPEND_CHANGE_RECORDS preserves **and** records an intact admitted historical event independently of unrelated staged Git changes, **without** mutating the index **or** authorizing a Git effect.
+APPEND_CHANGE_RECORDS appends **and** reads supplied actual observations independently of unrelated staged Git changes, **without** mutating the index **or** authorizing a Git effect.
 
 ## Test case
 
-1. prepare **`=1`** valid sealed `UPDATE` event with a known Event identity **and** observed payload. record the Journal before-state **and** stage an unrelated repository File.
-2. retain valid append access **and** event/storage integrity, **then** request APPEND_CHANGE_RECORDS apply. do **not** invoke COMMIT_CHANGE_SET **or** a Journal-only commit.
-3. repeat the same Event identity **and** exact payload under the same append authority.
+1. supply an actual change observation, retain existing Journal entries **and** stage an unrelated repository File.
+2. request plain append, **then** read the stored entries. do **not** invoke COMMIT_CHANGE_SET **or** a Journal-only commit.
+3. explicitly append the same supplied data again; separately read existing historical entries **without** migration.
 
 ## Acceptance criteria
 
-- the first request appends the original observation exactly once. unrelated staged changes are **not** a Journal-admission failure **or** a reason **to** discard the pending evidence.
-- the complete Git index **and** unrelated File bytes remain unchanged. the appender does **not** stage, unstage, absorb a staged change, acquire a Git-effect lease, **or** create a Commit.
-- replay remains idempotent **and** does **not** create another accepted event. any permitted storage lease is released **or** reconciled according **to** the storage outcome; it is **not** Git mutation authority.
-- successful append proves event **and** storage integrity **only**. separate Project **and** Git admission checks remain applicable **before** their respective effects.
+- each requested append retains its supplied observation; the second explicit append is **not** suppressed as a duplicate. no prior-history, chain, digest, canonical-receipt, retry **or** recovery condition is required.
+- existing Journal entries remain unchanged **and** readable as recorded. no synthetic baseline, prior event **or** source-state reconstruction is created.
+- the complete Git index **and** unrelated File bytes remain unchanged. append/read does **not** stage, unstage, acquire a Git-effect lease **or** create a Commit.
+- retain truthful I/O failure **and** actual partial observations **without** automatic retry **or** source-effect replay. an append result is **not** proof **or** permission for a source **or** Git effect.
 
 ## Failure disposition
 
-reject the appender Implementation **if** it blocks the intact event merely because the Git index has unrelated changes, mutates that index, loses **or** duplicates the event, changes the observed payload, **or** presents append success as permission **to** commit.
+reject an implementation that gates append/read on staged changes **or** previous records, modifies prior Journal entries **or** the Git index, changes supplied observations, introduces deduplication/retry/validation machinery **or** presents the log as effect permission **or** proof.

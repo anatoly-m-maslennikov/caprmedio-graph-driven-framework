@@ -40,7 +40,7 @@ Load only the additional rules applicable to the task:
 - Python implementation/checks: M110, M221, M281, M358; use the selected CPython 3.14 series, locked uv-managed isolation and canonical `pyproject.toml`/`uv.lock`. No naked/system-Python fallback. Prefer the standard library when comparably clear and reliable; new dependency selections need an accepted Method.
 - New or materially changed Python: M282/M283/M285 and E539/E540; pinned Ruff format, lint and C901 within its admitted maximum or accepted bounded exception; Mypy within its admitted target set, strict new targets, no regression from passing baselines and narrow explained suppressions. Test the declared failure modes, not just the happy path.
 - Files, subprocesses or temporary state: M161/M289; validate targets, bound subprocess time and results, use project-owned temporary paths, and verify same-filesystem requirements before atomic replacement.
-- Settings: M284. Untrusted structured input: M286. Diagnostics: M163. Performance claims: M165. Governed mutation, Git/Journal provenance or MCP Tool-frontier publication: M191/M192/M193 respectively. Read each applicable source; this list does not replace its conditions.
+- Settings: M284. Untrusted structured input: M286. Diagnostics: M163. Performance claims: M165. Governed mutation: M191. MCP Tool-frontier publication: M193. Read each applicable source; this list does not replace its conditions. M192 is archived; Journal append/read does not require provenance reconciliation.
 
 Method originals are in `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/`; Evaluation originals are in the adjacent `06_evaluation/`. Child-scope Methods are not included here.
 

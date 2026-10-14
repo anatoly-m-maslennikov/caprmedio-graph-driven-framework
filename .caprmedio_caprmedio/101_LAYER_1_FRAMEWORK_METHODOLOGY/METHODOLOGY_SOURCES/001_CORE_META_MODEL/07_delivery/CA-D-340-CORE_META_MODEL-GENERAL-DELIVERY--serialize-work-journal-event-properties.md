@@ -9,8 +9,8 @@ subjects:
     - "Artifact/Carrier"
     - "Project"
     - "Applicable Methodology"
-version: 11
-updated_at: "2026-09-29 22:34:46 +0000"
+version: 12
+updated_at: "2026-10-14 18:37:38 +0400"
 relations:
   relates_to:
     - CA-R-1491
@@ -27,13 +27,14 @@ global_tier: 10
 Serialize Work Journal Event Properties
 
 ## Scope
-serialization of Work Journal Event Carrier records.
+Serialization **and** reading of supplied Work Journal Event properties.
 
 ## Claim
-**every** Work Journal Event Carrier record **must** serialize its Event identity, Action identity, Type value, action Kind, Author, timezone-qualified Occurred At, session provenance, **and** Structural Scope **in** its registered schema.
+Work Journal Event serialization **must** preserve the properties actually supplied as observations through safe encoding; reading **must** return stored properties as recorded.
 
-- the Carrier **must** preserve recorded Project identifiers, filenames, paths, **and** other observed values exactly through safe encoding; those values **must not** be rewritten **to** satisfy current Atom naming **or** classification rules.
-- a recorded Atom ID, including a legacy **or** nonconforming ID, is payload data. its presence does **not** establish that the identified Atom conforms **to** Applicable Methodology.
-- event-format, required-field, event-identity, digest, **and** append-only integrity checks apply under `CA-R-1491-CORE_META_MODEL-CORE-REQUIREMENT--keep-project-validation-out-of-journal-admission`. current Project grammar **must not** become an additional payload-admission gate.
+- preserve supplied identities, Types, action Kinds, Authors, times, session provenance, Scope, identifiers, filenames, paths **and** other values **when** present. do **not** invent missing values **or** rewrite them **to** satisfy current naming **or** classification rules.
+- an Atom ID **or** other observed property is payload data, **not** a Project-conformance judgment, permission **or** proof of correct execution.
+- do **not** impose required-field, event-identity, schema, digest, prior-history, chain, receipt, deduplication, retry **or** recovery admission **to** append/read.
+- retain existing historical representations **and** bytes **without** migration, repair **or** synthetic baselines. ordinary serialization/read failure is reported truthfully, **not** converted into fabricated data.
 
 ## Details
