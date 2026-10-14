@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 39
-updated_at: "2026-10-14 02:36:49 +0400"
+version: 41
+updated_at: "2026-10-14 06:09:36 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -33,7 +33,7 @@ The Tools required before affected Stage-2 execution have updated, independently
 
 The Operator confirmed that the complete Subject map under CA-P-1959 comes first. This Epic's remaining MCP integration work follows mapping; it is not a prerequisite for preparing or resolving the map. This supersedes older tools-first sequencing for that read-only work. Completed local Tool Tasks remain Done; this Epic remains Active.
 
-After the map has an explicit disposition for every source/occurrence and no open mapping question, perform only these migration-readiness tasks:
+After the map has complete current source/occurrence coverage and no undisposed migration question, including explicitly approved whole-owner unchanged, deferred and retirement dispositions, perform only these migration-readiness tasks. Open meaning questions stay visible and their whole owners remain unchanged; they do not block supported owners:
 
 - Repair the relevant MCP discovery/bindings and expose the existing field-aware `governs`/`depends_on` lookup. Verify that an actual MCP request returns the expected source-pinned matches.
 - Expose the existing sealed Subjects-only preview and staging path. Verify staged output through MCP, with no authoritative source changes.
@@ -43,7 +43,25 @@ After the map has an explicit disposition for every source/occurrence and no ope
 
 Reuse existing implementation and existing child work where it fits; split remaining implementation into bounded leaves before execution. Do not reopen completed local Tasks merely because installed integration is missing. General connector rebuilding, configuration/type catalogs and content migration remain deferred. Passing this bounded readiness check does not complete the wider Epic or authorize live Core migration.
 
-The current MCP assessment verified status/discovery responses, not usable end-to-end migration. Relevant binding evidence is invalid; the trusted-host publication provider is not configured; duplicate resulting dependencies are currently refused. The approximate 2–4 engineering-day estimate is provisional, not an execution deadline or acceptance criterion.
+The current MCP assessment verified status/discovery responses, not usable end-to-end migration. Relevant binding evidence is invalid and the trusted-host publication provider is not configured. Explicit full-set dependency replacement is now locally verified; duplicate final values still correctly fail. The approximate 2–4 engineering-day estimate is provisional, not an execution deadline or acceptance criterion.
+
+### Verified local Tool increment — 2026-10-14 06:09 +0400
+
+P2367, P2368, P2370, P2371 and P2372 are Done with independent acceptance of their bounded outputs. D531 v5 now matches the accepted Subject patch shapes. Explicit depends_on complete-set replacement is implemented and sealed through the shared planner; same-membership requests preserve exact source bytes. Seven dedicated author tests, 49 prior local regressions, eight independent tests, 39 repaired selected apply/recovery tests and three actual isolated selected full-set publication tests passed. These prove Version/history/Journal effects and refusal for a changed intent or reviewed candidate, not installed MCP readiness.
+
+The reviewed temporary request packet contains 611 Atoms and 848 patches (346 governs; 502 complete dependency sets). It preserves the 266 unchanged and 29 excluded owners; six builder tests plus independent coverage/source/stale-state checks passed. Request SHA-256: `a4f6b8b6083e8c054837dc7b03b3ae2f1500f9c429cfaa50917ae48cdac6fade`. All 906 original Core source hashes remain unchanged. Request preparation is not candidate staging, application or approval.
+
+P2369 remains Active. Its narrow lookup-exposure proposal exists, but the Operator question is still open: direct read-only MCP lookup without Workflow Session/Journal records, or the current started-Session receiver requirement. Do not adopt either new policy silently. Other remaining installed gates are preview/staging exposure, truthful selected-manifest reconciliation, real host publication confirmation and an actual MCP round trip. Separately approved live Core migration and ordinary content work remain outside this increment. Keep both parent Epics Active.
+
+### Current mapping and MCP checkpoint — 2026-10-14
+
+The current map at `.caprmedio_tmp/stage2-migration-20261014/subject-map/subject-map.current.json`, SHA-256 `647f7a91ca166a9cfd08560f1303cfb2cc7d2724848dc50794cd1eee78e062f8`, covers all 906 current owners and 4,530 occurrences against Candidate #4 `a23019a1ee6cd3586640d6c3d9e211091f3683ac5f136058d745650570e78ca7`. Independent ledger verification passed: 611 change candidates, 266 unchanged, 17 deferred-model owners, 10 uncertain owners and 2 pending retirement. All 29 excluded owners stay wholly unchanged, including their otherwise supported changes. The 34 null mappings and 11 open meaning questions remain recorded; zero migration occurrences lack a disposition. This satisfies the mapping-disposition gate only. It neither resolves excluded meanings nor authorizes staging or live effects.
+
+MCP discovery and context reads respond, but relevant execution bindings remain unavailable. The selected-route manifest references removed Core source paths; do not repair it by blindly substituting paths or accepting changed bytes. ATOM_SEARCH and ATOM_UPDATE preview/staging are currently local-only contracts, with no MCP binding. Existing code is reusable but not installed readiness.
+
+Next, narrow the existing lookup and preview/staging contracts for the requested MCP exposure, then independently check the actual packet before implementation. Lookup must honor the selected PRMEDO frontier without requiring deferred C/A repair. Keep search and modification independent. Dependency convergence needs explicit narrow rules and tests because the current preview rejects duplicate results. Use bounded existing children or new leaves; keep live publication confirmation, source checks and the standalone apply guard unchanged. Do not use a local invocation as a substitute for the requested unavailable MCP operation.
+
+For convergence, first reuse the explicit complete-set replacement already required by R1934/D623/D425: the reviewed packet names the exact current dependencies and the explicit duplicate-free proposed set. Prefer implementing this missing shape over adding implicit Tool-side merging. Verify the combined current contract and byte-preservation tests before implementation; generic duplicate-result refusal stays intact.
 
 ### Current continuation checkpoint — 2026-10-14 00:22:57 +0400
 
