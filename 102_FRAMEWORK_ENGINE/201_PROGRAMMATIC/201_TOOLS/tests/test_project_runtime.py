@@ -4,6 +4,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from project_runtime import TemporaryBoundaryError, repository_root
@@ -18,6 +19,21 @@ class ProjectRuntimeBoundaryTests(unittest.TestCase):
         self.control.mkdir()
         self.reference = self.root / "delivered" / "nested"
         self.reference.mkdir(parents=True)
+        exists, glob = Path.exists, Path.glob
+
+        def local_exists(path, *args, **kwargs):
+            if path.name == ".git" and path.parent != self.root and self.root not in path.parent.parents:
+                return False
+            return exists(path, *args, **kwargs)
+
+        def local_glob(path, pattern, *args, **kwargs):
+            if pattern == ".caprmedio_*" and path != self.root and self.root not in path.parents:
+                return iter(())
+            return glob(path, pattern, *args, **kwargs)
+
+        # The suite's temporary root may belong to an unrelated enclosing checkout.
+        self.enterContext(patch.object(Path, "exists", local_exists))
+        self.enterContext(patch.object(Path, "glob", local_glob))
 
     def marker(self, name):
         path = self.control / name

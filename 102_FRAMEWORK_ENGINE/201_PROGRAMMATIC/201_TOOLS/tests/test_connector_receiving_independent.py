@@ -50,7 +50,7 @@ class ConnectorReceivingIndependentTests(unittest.TestCase):
         self.sources = {}
         for identifier in ("CA-D-625", "CA-D-527", "CA-D-441", "CA-D-442", "CA-O-212", "CA-O-218"):
             candidates = [path for path in (REPOSITORY / ".caprmedio_caprmedio").rglob(identifier + "-*.md")
-                          if "/archive/" not in path.as_posix() and "/_projection/" not in path.as_posix()
+                          if "archive" not in path.parts and "archived" not in path.parts and "_projection" not in path.parts
                           and "/000_CAPRMEDIO_framework/" not in path.as_posix()]
             self.assertEqual(len(candidates), 1, identifier)
             path = self.root / "definitions" / (identifier + ".md")

@@ -1,8 +1,14 @@
 """The connector's exact-state digest is not a general token exemption."""
 
+import sys
 import unittest
+from pathlib import Path
 
-from workflow_run_support import SelectedRunError, _reject_secrets
+TOOLS = Path(__file__).resolve().parents[1]
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+
+from workflow_run_support import SelectedRunError, _reject_secrets  # noqa: E402
 
 
 class SelectedRunSecretBoundaryTests(unittest.TestCase):

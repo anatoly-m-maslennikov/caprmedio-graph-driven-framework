@@ -1,12 +1,8 @@
 from __future__ import annotations
 
-import tempfile
 import unittest
 from pathlib import Path
 
-
-TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "epic-resume-create"
-TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 
 import sys
 
@@ -14,23 +10,20 @@ TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
 
 from lifecycle_intents import LifecycleError, create_atom_action  # noqa: E402
+from project_selection import bind_selection  # noqa: E402
+from VALIDATE_ATOMS.tests import test_proposed_carrier_admission_regressions as fixtures  # noqa: E402
 
 
 class CreateAtomConflictTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
-        self.addCleanup(self.temporary.cleanup)
-        self.root = Path(self.temporary.name)
-        control = self.root / ".caprmedio_caprmedio"
-        control.mkdir()
-        (control / "caprmedio_project_settings.toml").write_text(
-            "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n",
-            encoding="utf-8",
+        fixture = fixtures.ProposedCarrierAdmissionRegressions()
+        fixture.setUp()
+        self.addCleanup(fixture.doCleanups)
+        self.root = fixture.root
+        self.enterContext(
+            bind_selection(fixture.project(source_ids=("CA-R-1309", "CA-R-1397", "CA-R-1399")))
         )
-        self.destination = (
-            self.root
-            / ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/04_requirement/CA-R-901--occupied.md"
-        )
+        self.destination = self.root / ".caprmedio_selected/04_requirement/CA-R-901--occupied.md"
         self.destination.parent.mkdir(parents=True)
         self.destination.write_text(
             "---\n"
@@ -45,13 +38,24 @@ class CreateAtomConflictTests(unittest.TestCase):
             encoding="utf-8",
         )
 
+    def carrier(self, atom_id: str, path: Path, summary: str) -> dict[str, str]:
+        return {
+            "path": path.relative_to(self.root).as_posix(),
+            "frontmatter": (
+                f"atom_id: {atom_id}\ncontent_role: Requirement\ncurrent_scope_unit: amber\n"
+                "claim_target_scope_unit: amber\nlocal_tier: Standard\nglobal_tier: 2\n"
+                "author: Fixture Operator\nstatus: Active\nsubjects:\n"
+                "  governs: Atom/Test\n  depends_on: []\nrelations: {}"
+            ),
+            "content": (
+                f"# Summary\n\n{summary}\n\n## Scope\n\nFixture.\n\n"
+                "## Claim\n\nFixture claim.\n\n## Details\n\nFixture details.\n"
+            ),
+        }
+
     def test_occupied_destination_with_different_carrier_is_a_conflict_without_write(self) -> None:
         request = {
-            "carrier": {
-                "path": self.destination.relative_to(self.root).as_posix(),
-                "frontmatter": "atom_id: CA-R-901\ncontent_role: Requirement\nstatus: Active",
-                "content": "# Summary\n\nRequested new carrier\n",
-            }
+            "carrier": self.carrier("CA-R-901", self.destination, "Requested new carrier")
         }
         before = self.destination.read_bytes()
 
@@ -66,11 +70,7 @@ class CreateAtomConflictTests(unittest.TestCase):
         history.write_bytes(b"retained but malformed historical bytes")
         destination = self.destination.with_name("CA-R-902--new.md")
         request = {
-            "carrier": {
-                "path": destination.relative_to(self.root).as_posix(),
-                "frontmatter": "atom_id: CA-R-902\ncontent_role: Requirement\nstatus: Active",
-                "content": "# Summary\n\nNew carrier\n",
-            }
+            "carrier": self.carrier("CA-R-902", destination, "New carrier")
         }
 
         with self.assertRaisesRegex(LifecycleError, "atom-id-collision"):

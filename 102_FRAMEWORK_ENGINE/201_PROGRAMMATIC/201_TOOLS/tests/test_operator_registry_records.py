@@ -3,8 +3,12 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
+import sys
 
-from operator_registry import OperatorRegistryError, OperatorRegistryRecord, parse_operators_registry
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from operator_registry import OperatorRegistryError, OperatorRegistryRecord, parse_operators_registry  # noqa: E402
 
 
 REGISTRY = b'''[[operators]]
