@@ -131,6 +131,21 @@ def _contains_secret(value: object) -> bool:
     return False
 
 
+def _contains_execution_secret(execution: Mapping[str, Any]) -> bool:
+    from workflow_run_support import SelectedRunError, _reject_parameter_secrets
+
+    parameters = execution.get("parameters")
+    if not isinstance(parameters, Mapping):
+        return _contains_secret(execution)
+    try:
+        checked_parameters = _reject_parameter_secrets(
+            parameters, execution.get("operation_route"),
+        )
+    except SelectedRunError as error:
+        raise SelectedExecutionError("selected execution carries a secret field") from error
+    return _contains_secret({**execution, "parameters": checked_parameters})
+
+
 def _frontmatter(path: Path) -> dict[str, str]:
     text = path.read_text(encoding="utf-8")
     if not text.startswith("---\n"):
@@ -1428,7 +1443,7 @@ class SelectedExecution:
         return edges
 
     def _validate_graph(self, execution: Mapping[str, Any]) -> dict[str, Any]:
-        if _contains_secret(execution):
+        if _contains_execution_secret(execution):
             raise SelectedExecutionError("selected execution carries a secret field")
         if execution.get("mode") != "execute":
             raise SelectedExecutionError("enqueue_selected accepts only an execute request")

@@ -125,7 +125,7 @@ def _reject_secrets(value: object, location: str = "parameters", *, _expected_st
                             _expected_state=_expected_state and isinstance(item, Mapping))
 
 
-def _reject_parameter_secrets(parameters: Mapping[str, Any], route: str) -> None:
+def _reject_parameter_secrets(parameters: Mapping[str, Any], route: str) -> Mapping[str, Any]:
     query = parameters.get("query_request")
     snapshot = query.get("snapshot") if isinstance(query, Mapping) else None
     if (
@@ -135,7 +135,7 @@ def _reject_parameter_secrets(parameters: Mapping[str, Any], route: str) -> None
         or set(snapshot) != {"reference", "token", "digest"}
     ):
         _reject_secrets(parameters)
-        return
+        return parameters
     # This native continuation handle is not a credential; the Tool checks its retained binding.
     _require_string(snapshot, "token")
     inspected = dict(parameters)
@@ -144,6 +144,7 @@ def _reject_parameter_secrets(parameters: Mapping[str, Any], route: str) -> None
         "snapshot": {key: item for key, item in snapshot.items() if key != "token"},
     }
     _reject_secrets(inspected)
+    return inspected
 
 
 def _definition(value: object, *, location: str = "definition") -> dict[str, Any]:
