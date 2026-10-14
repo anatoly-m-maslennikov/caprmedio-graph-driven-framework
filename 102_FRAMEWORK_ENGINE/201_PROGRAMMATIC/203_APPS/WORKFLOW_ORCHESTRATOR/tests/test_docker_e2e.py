@@ -43,8 +43,10 @@ class DockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         control = self.root / ".caprmedio_caprmedio"
         control.mkdir()
         (control / "caprmedio_project_settings.toml").write_text(
+            '[project]\nname="Docker fixture"\n'
             '[paths]\ncontrol_root=".caprmedio_caprmedio"\njournal_root=".caprmedio_caprmedio/_journal"\n'
         )
+        (control / "project_structure.toml").write_text("schema_version = 1\n")
         (control / "operators_registry.toml").write_text(
             '[[operators]]\nname="mock-operator"\nrole="project owner"\n'
         )

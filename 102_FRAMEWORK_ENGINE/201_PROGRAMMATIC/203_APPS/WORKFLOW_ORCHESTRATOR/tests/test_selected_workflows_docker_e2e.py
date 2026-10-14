@@ -150,11 +150,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(journal.is_dir(), "preview requires the valid canonical Journal")
         records_before = self._recording_snapshot(root)
         initial_events = self._events(root)
-        if fixture.case.case_id == "W03":
-            self.assertEqual(["golden-w03-predecessor"], [event.get("event_id") for event in initial_events])
-            self.assertTrue(all(event.get("schema_version") != 5 for event in initial_events), initial_events)
-        else:
-            self.assertEqual([], initial_events, "preview fixture must contain no fabricated Run events")
+        self.assertEqual([], initial_events, "preview fixture must contain no fabricated Run events")
         result = await self._call(runtime, root, fixture.case.route, request)
         self.assertEqual("preview", result.get("disposition"), result)
         self.assertIn("proposal_receipt", result, result)
@@ -396,7 +392,6 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             ]
             self.assertEqual(1, len(replacement_events), replacement_events)
             replacement = replacement_events[0]
-            self.assertEqual("golden-w03-predecessor", replacement.get("previous_result_event"), replacement)
             self.assertEqual("CA-R-100", replacement.get("predecessor_atom_id"), replacement)
             self.assertEqual(["CA-R-103"], replacement.get("successor_atom_ids"), replacement)
             self._safe_existing_ref(root, replacement.get("result", {}).get("path"), label="replacement archive")

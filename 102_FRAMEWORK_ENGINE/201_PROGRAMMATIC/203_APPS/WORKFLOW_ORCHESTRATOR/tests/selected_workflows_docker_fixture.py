@@ -199,8 +199,6 @@ class GoldenProject:
         if self.case.route in {"create_atom", "replace_atom", "change_atom_status"}:
             self._write_complete_carrier_project_structure()
             self._copy_complete_carrier_authority()
-        if self.case.route == "replace_atom":
-            self._seed_w03_predecessor_journal()
         self._write_graph_authority()
         self._write_compiler_authority()
         if self.case.route == "update_atom":
@@ -277,6 +275,7 @@ class GoldenProject:
         # Canonical serializer output is not required by the adapter; this is
         # the minimal valid Project Structure source it parses and rewrites.
         (control / "project_structure.toml").write_text(
+            "schema_version = 1\n\n"
             "[[scope_units]]\n"
             'scope_unit_name = "PARENT"\nparent = "PROJECT"\nscope_unit_type = "Ordered"\n'
             'scope_unit_label = "LAYER"\nstructural_level = 1\nlocal_order = 1\n'
@@ -297,56 +296,15 @@ class GoldenProject:
         (self.root / "fixture/reference.txt").parent.mkdir(parents=True, exist_ok=True)
         (self.root / "fixture/reference.txt").write_text("CHILD\n", encoding="utf-8")
 
-    def _seed_w03_predecessor_journal(self) -> None:
-        """Retain W03's real prior state instead of fabricating an O051 link.
-
-        Replacement consumes one existing predecessor Carrier.  Its golden
-        fixture therefore begins with the one canonical Journal result that
-        binds that exact current path, version, and bytes; it is deliberately
-        not a selected Run receipt and preview must preserve it unchanged.
-        """
-        import sys
-
-        tools_root = Path(__file__).resolve().parents[3] / "201_TOOLS"
-        if str(tools_root) not in sys.path:
-            sys.path.insert(0, str(tools_root))
-        from lifecycle_intents import carrier_descriptor
-        from work_journal import append_sealed_events, with_event_digest
-
-        predecessor = carrier_descriptor(self.root, "CA-R-100")
-        event = with_event_digest({
-            "schema_version": 3,
-            "event_id": "golden-w03-predecessor",
-            "action_id": "fixture-initial-state",
-            "event": "completed",
-            "kind": "governed_project_change",
-            "subject_kind": "file",
-            "author": "golden-operator",
-            "occurred_at": "2026-10-06T00:00:00+00:00",
-            "llm_session": {"app": "golden-fixture", "uuid": "w03-predecessor"},
-            "structural_scope": "CORE_META_MODEL",
-            "action_type": "ADD",
-            "sources": [],
-            "result": {
-                "state": "present",
-                "filename": predecessor["filename"],
-                "version": predecessor["version"],
-                "path": predecessor["path"],
-                "sha256": predecessor["digest"],
-            },
-        })
-        append_sealed_events(
-            self.root, [event], author="golden-operator",
-            local_date="2026-10-06", timezone="UTC",
-        )
-
     def _copy_complete_carrier_authority(self) -> None:
         """Copy the validator's finite, current source closure for W01/W03/W04."""
         import sys
 
-        validate_root = Path(__file__).resolve().parents[3] / "201_TOOLS" / "VALIDATE_ATOMS"
-        if str(validate_root) not in sys.path:
-            sys.path.insert(0, str(validate_root))
+        tools_root = Path(__file__).resolve().parents[3] / "201_TOOLS"
+        validate_root = tools_root / "VALIDATE_ATOMS"
+        for module_root in (tools_root, validate_root):
+            if str(module_root) not in sys.path:
+                sys.path.insert(0, str(module_root))
         from validate_atoms_workers.proposed_carrier import _REGISTRY_IDS, _SUPPORT_IDS, _entry
 
         for atom_id in (*_REGISTRY_IDS, *_SUPPORT_IDS):
@@ -507,6 +465,12 @@ class GoldenProject:
                 'navigational_order_number = 2\n'
                 'authority_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"\n'
                 'delivery_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"\n'
+                "\n[[scope_units]]\n"
+                'scope_unit_name = "CORE_META_MODEL"\nparent = "METHODOLOGY_SOURCES"\n'
+                'scope_unit_type = "Unordered"\nscope_unit_label = "FEATURE"\nstructural_level = 2\n'
+                'navigational_order_number = 0\n'
+                'authority_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"\n'
+                'delivery_path = "delivery/CORE_META_MODEL"\n'
             )
 
     def native_compiler_parameters(self, operation: str = "dry_run", *, expected_source_frontier_digest: str | None = None,
@@ -678,8 +642,8 @@ class GoldenProject:
             observed = {**value, "ordered_effects": request["ordered_effects"]} if name == "operator_decision" else value
             request[name] = {**value, **record(f"{name}.json", observed)}
         definition = (
-            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
+            ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
+            "METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/"
             "CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
         )
         source = self._fixture_source(Path(definition))

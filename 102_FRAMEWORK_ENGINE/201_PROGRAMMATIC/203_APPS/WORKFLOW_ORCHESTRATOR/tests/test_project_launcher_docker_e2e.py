@@ -79,7 +79,8 @@ class ProjectFixture:
         )
         (authority / "project_structure.toml").write_text(
             'schema_version = 1\n[[scope_units]]\nscope_unit_name = "FIXTURE"\n'
-            f'authority_path = "{control}/09_operations"\n', encoding="utf-8",
+            f'authority_path = "{control}/09_operations"\n'
+            'delivery_path = "delivery/FIXTURE"\n', encoding="utf-8",
         )
         (root / "fixture_entrypoint.py").write_text('"""Read-only fixture source carrier."""\n', encoding="utf-8")
         atom_id = ATOM_IDS[name]
