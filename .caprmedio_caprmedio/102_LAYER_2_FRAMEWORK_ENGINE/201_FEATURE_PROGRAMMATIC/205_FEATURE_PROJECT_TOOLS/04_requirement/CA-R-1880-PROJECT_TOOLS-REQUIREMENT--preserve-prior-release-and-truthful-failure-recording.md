@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-11 17:34:07 +0000"
+version: 3
+updated_at: "2026-10-14 16:53:24 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Failure and recovery"
   depends_on: [Tool, Workflow Run, Action Run, Journal, Artifact, Image]
@@ -20,12 +20,16 @@ Preserve the prior release and truthful failure recording
 
 ## Scope
 
-Release failure, recording uncertainty, rollback, and delayed old-image retirement.
+Local/public release failure, uncertain effects and current-Project image cleanup.
 
 ## Claim
 
-On a failed, blocked, or uncertain release effect or recording before verified promotion, Release Version **must** preserve the prior selected N and actual effect evidence, report the shared Run/Action result truthfully, and never replay an uncertain effect; after successful N+1 installation, promotion and Project-MCP startup/smoke, it **must** retire all verified superseded CAPRMEDIO release-owned images for the current Project whose exact immutable identities and ownership are proven and which have no retaining container or required protected reference.
+Release Version **must** preserve the prior runtime until its prepared replacement is ready, report actual effects and failures truthfully, and never replay an uncertain effect automatically. After successful replacement and Project-MCP readiness, it **must** retire only verified superseded release-owned images for the current Project whose exact immutable identity and ownership are known and which have no retaining container or protected reference.
 
 ## Details
 
-Preserve the promoted candidate and unrelated, other-Project or otherwise protected images. Current-Project ownership is derived from retained actual release, build, launcher or start evidence containing exact immutable image identity and Project-root identity, checked against Docker inspection; a tag prefix alone is insufficient. Cleanup includes the exact prior image when eligible, records each removed, protected, in-use or unproven disposition, and reports image-in-use or unproven-ownership blockers without force-deleting containers or claiming all images were removed. This cleanup adds no automatic rollback or effect replay. Existing rollback handling restores only the retained prior selection and affected derived carriers. A request, dry run, candidate manifest, or queued Run is not success, and no failure path authorizes source mutation or broad image pruning.
+Preserve the current image and unrelated, other-Project or protected images. Establish current-Project ownership from actual build/launcher/start evidence containing immutable image identity and Project identity, checked against Docker inspection; a tag prefix alone is insufficient. Cleanup includes the exact prior image when eligible and reports removed, protected, in-use or unproven results. Do not force-remove containers or claim complete cleanup when ownership or use remains uncertain.
+
+A failure after a real effect reports that partial state and the failed step for manual handling. It does not claim automatic rollback, restore a retired runtime selector or replay an unknown effect. A request, test result or prepared package is not release success. Preserve source data and unrelated configuration; no failure permits broad image pruning.
+
+Journal records describe what happened. Earlier records, baseline rows, terminal-recording recovery and proof receipts are not prerequisites for a release or its first recorded change. A missing Journal record does not undo a real effect or turn it into a different outcome.
