@@ -8,6 +8,7 @@ The existing Base Revise Docker tests remain a separate regression suite.
 from __future__ import annotations
 
 import asyncio
+from contextlib import asynccontextmanager
 import hashlib
 import json
 import os
@@ -16,7 +17,7 @@ import sys
 import tempfile
 import time
 import unittest
-from typing import Any, Mapping
+from typing import Any, AsyncIterator, Mapping
 
 
 APP = Path(__file__).resolve().parents[1]
@@ -88,11 +89,18 @@ def _w09_admitted_source_edges(root: Path, route: Mapping[str, Any]) -> list[dic
     return edges
 
 
-async def _stdio_tool_call(parameters: Any, tool: str, request: dict[str, Any]) -> dict[str, Any]:
-    """One uncached MCP 2.3 stdio connection and handshake for one Tool call."""
+@asynccontextmanager
+async def _stdio_client(parameters: Any) -> AsyncIterator[Any]:
+    """One uncached MCP connection, scoped to its disposable Project."""
     from mcp import Client
 
     async with Client(parameters, cache=None, read_timeout_seconds=20) as client:
+        yield client
+
+
+async def _stdio_tool_call(parameters: Any, tool: str, request: dict[str, Any]) -> dict[str, Any]:
+    """A fresh connection for transport checks that explicitly prove reconnect."""
+    async with _stdio_client(parameters) as client:
         response = await client.call_tool(tool, {"request": request})
     return _structured_tool_result(response)
 
@@ -105,7 +113,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
     """One runtime and one disposable Git Project per source-bound route."""
 
     async def _call(self, runtime: Runtime, root: Path, tool: str, request: dict) -> dict:
-        """Use a new stdio MCP client per call to prove reconnect persistence."""
+        """Reuse one fixture-bound client until an explicit reconnect boundary."""
         try:
             from mcp import StdioServerParameters
         except ImportError as error:  # exact command must use the declared MCP group
@@ -116,7 +124,20 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                   E2E_CONTEXT.candidate_image_digest, "--mock", "mcp"],
         )
         self.assertEqual(runtime.root, root.resolve(strict=True), "MCP runtime must bind the same fixture")
-        return await _stdio_tool_call(parameters, tool, request)
+        if getattr(self, "_mcp_client", None) is None:
+            self._mcp_context = _stdio_client(parameters)
+            self._mcp_client = await self._mcp_context.__aenter__()
+            self._mcp_root = runtime.root
+        self.assertEqual(self._mcp_root, runtime.root, "MCP client must not cross fixture roots")
+        response = await self._mcp_client.call_tool(tool, {"request": request})
+        return _structured_tool_result(response)
+
+    async def _disconnect(self) -> None:
+        if getattr(self, "_mcp_client", None) is not None:
+            try:
+                await self._mcp_context.__aexit__(None, None, None)
+            finally:
+                self._mcp_client = None
 
     async def _start(self, runtime: Runtime) -> None:
         try:
@@ -127,7 +148,10 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.assertEqual("mock", started.get("agent_mode"), started)
 
     async def _stop(self, runtime: Runtime) -> None:
-        await asyncio.to_thread(runtime.call, "down", "--volumes", timeout=60)
+        try:
+            await self._disconnect()
+        finally:
+            await asyncio.to_thread(runtime.call, "down", "--volumes", timeout=60)
 
     def _new_fixture(self, case: GoldenCase) -> tuple[FixtureLease, Path, GoldenProject]:
         parent = Path(E2E_CONTEXT.scratch_root) / "selected-workflows-docker-e2e"
@@ -179,6 +203,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
 
     async def _terminal_status(self, runtime: Runtime, root: Path, run_id: str) -> dict:
         """Reconnect after enqueue; an acknowledgement is not terminal evidence."""
+        await self._disconnect()
         deadline = time.monotonic() + 75
         pending = {"queued", "admitted", "started", "running", "pending"}
         observed: dict = {}
@@ -592,26 +617,8 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         finally:
             temporary.cleanup()
 
-    async def test_all_fifteen_previews_are_read_only_and_survive_mcp_reconnect(self) -> None:
-        for case_id, route in ROUTE_CASES:
-            with self.subTest(case=case_id):
-                temporary, root, fixture = self._new_fixture(GoldenCase(case_id, route))
-                runtime = self._runtime(root)
-                launched = False
-                try:
-                    fixture.prepare()
-                    launched = True  # Runtime.start can create the Agent before readiness fails.
-                    await self._start(runtime)
-                    await self._preview(runtime, root, fixture, f"golden-{case_id.lower()}-preview")
-                except GoldenCorpusError as error:
-                    self.fail(str(error))
-                finally:
-                    if launched:
-                        await self._stop(runtime)
-                    temporary.cleanup()
-
     async def test_all_fifteen_execute_with_native_effects_and_clean_shared_run_lineage(self) -> None:
-        """A happy route is valid only after one reconnected clean terminal proof."""
+        """Read-only previews and native effects share only one route's fresh stack."""
         for case_id, route_name in ROUTE_CASES:
             with self.subTest(case=case_id):
                 case = GoldenCase(case_id, route_name)
@@ -624,6 +631,9 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                     await self._start(runtime)
                     request_id = f"golden-{case_id.lower()}-happy"
                     preview = await self._preview(runtime, root, fixture, request_id)
+                    await self._disconnect()
+                    reconnected = await self._preview(runtime, root, fixture, request_id)
+                    self.assertEqual(preview, reconnected, "preview must survive MCP reconnect unchanged")
                     before = fixture.snapshot()
                     execute = fixture.request(
                         request_id=request_id,
