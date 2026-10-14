@@ -37,7 +37,8 @@ class SubjectPreparationGatewayTests(unittest.IsolatedAsyncioTestCase):
             args=["-B", "-c", code, str(MCP_ROOT), str(self.root)],
             env={"PYTHONDONTWRITEBYTECODE": "1"},
         )
-        async with Client(parameters, cache=None, mode="legacy", read_timeout_seconds=120) as client:
+        async with Client(parameters, cache=None, mode="legacy",
+                          read_timeout_seconds=hot_reload.SUBJECT_STAGE_CALL_TIMEOUT_SECONDS + 30) as client:
             names = {tool.name for tool in (await client.list_tools()).tools}
             self.assertIn("atom_update", names)
             self.assertIn("get_mcp_reload_status", names)
@@ -90,7 +91,7 @@ class SubjectPreparationGatewayTests(unittest.IsolatedAsyncioTestCase):
             self.assertFalse(artifact.exists())
             self.assertFalse(tasks[0].done())
             self.assertEqual(
-                [("atom_update", arguments, hot_reload.IMPLEMENTATION_CALL_TIMEOUT_SECONDS)], calls
+                [("atom_update", arguments, hot_reload.SUBJECT_STAGE_CALL_TIMEOUT_SECONDS)], calls
             )
             release.set()
             await tasks[0]

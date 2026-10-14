@@ -68,6 +68,8 @@ GENERATION_READY_TIMEOUT_SECONDS = 20
 # Read-only catalog scans have their own sixty-second bound and watch calls may
 # wait thirty seconds.  The child's startup budget must not truncate either.
 IMPLEMENTATION_CALL_TIMEOUT_SECONDS = 90
+# Scratch staging repeats the sealed preview before returning completion.
+SUBJECT_STAGE_CALL_TIMEOUT_SECONDS = 180
 _STARTUP_TELEMETRY_ENV = 'CAPRMEDIO_STARTUP_TELEMETRY'
 _STARTUP_PHASES = frozenset({
     'initial_fingerprint', 'reload_fingerprint', 'fingerprint_verify',
@@ -552,8 +554,13 @@ class Gateway:
         try:
             if params.name not in {t.name for t in generation.tools}:
                 return result({'outcome': 'rejected', 'diagnostics': ['Unknown Tool']}, True)
+            request = params.arguments.get('request') if isinstance(params.arguments, dict) else None
+            timeout = IMPLEMENTATION_CALL_TIMEOUT_SECONDS
+            if (params.name == 'atom_update' and isinstance(request, dict)
+                    and request.get('operation') == 'stage_subjects'):
+                timeout = SUBJECT_STAGE_CALL_TIMEOUT_SECONDS
             response = await generation.client.call_tool(params.name, params.arguments,
-                read_timeout_seconds=IMPLEMENTATION_CALL_TIMEOUT_SECONDS)
+                read_timeout_seconds=timeout)
             from activation_refresh import activation_succeeded, attach_receipt, completion_marker
             try:
                 marker = completion_marker(response.structured_content)
