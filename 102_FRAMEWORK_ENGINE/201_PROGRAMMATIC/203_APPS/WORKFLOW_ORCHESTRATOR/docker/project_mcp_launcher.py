@@ -196,7 +196,7 @@ def _positive_timeout(value: object, *, ceiling: float, default: float) -> float
 
 
 def _requested_port(value: object) -> int | None:
-    """Admit the optional Docker-owned or caller-selected host port."""
+    """Admit an optional caller assertion of the selected host port."""
     if value is None:
         return None
     if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 65535:
@@ -204,6 +204,18 @@ def _requested_port(value: object) -> int | None:
         # programmatic seam is never reached by the CLI's argument validator.
         raise LaunchError("DOCKER_START_FAILED")
     return value
+
+
+def _configured_port(selection: object, requested_port: int | None) -> int:
+    """Read the sole Project-owned HTTP port and check an optional assertion."""
+    settings = getattr(selection, "settings", None)
+    project_mcp = settings.get("project_mcp") if isinstance(settings, Mapping) else None
+    port = project_mcp.get("http_port") if isinstance(project_mcp, Mapping) else None
+    if type(port) is not int or not 1 <= port <= 65535:
+        raise LaunchError("PROJECT_SELECTION_REFUSED")
+    if requested_port is not None and requested_port != port:
+        raise LaunchError("PROJECT_SELECTION_REFUSED")
+    return port
 
 
 def _labels(row: Mapping[str, Any]) -> Mapping[str, Any] | None:
@@ -344,7 +356,7 @@ def _record_safe_metadata(selection: object, result: Mapping[str, Any]) -> None:
 
 
 def _admit_runtime(rows: object, selection: object, image_id: str, fingerprint: str,
-                   requested_port: int | None = None):
+                   requested_port: int):
     """Return absent, a ready candidate, or its terminal safe condition."""
     if not isinstance(rows, list):
         return "DOCKER_PUBLICATION_FAILED"
@@ -373,7 +385,7 @@ def _admit_runtime(rows: object, selection: object, image_id: str, fingerprint: 
     publisher = _publisher(row)
     if publisher is None:
         return "DOCKER_PUBLICATION_FAILED"
-    if requested_port is not None and publisher[1] != requested_port:
+    if publisher[1] != requested_port:
         return "RUNTIME_MISMATCH"
     container = row.get("Id")
     if not isinstance(container, str) or not container:
@@ -502,7 +514,7 @@ class Launcher:
         return _InstalledSelection(selection, state), "sha256:" + image_digest, fingerprint, compose
 
     def _launch_runtime(self, selection: object, backend: object, image_id: str, fingerprint: str,
-                        startup_timeout: float, requested_port: int | None,
+                        startup_timeout: float, requested_port: int,
                         compose_file: Path | None = None, *, lock_held: bool = False) -> dict[str, Any]:
         """Inspect, start once, and health-check one already identified runtime."""
 
@@ -583,6 +595,7 @@ class Launcher:
                                                       default=_DEFAULT_BUILD_TIMEOUT)
             if type(build_if_missing) is not bool:
                 raise LaunchError("IMAGE_REFUSED")
+            configured_port = _configured_port(selection, requested_port)
             if source_root is None:
                 return self._failure("IMAGE_INPUT_UNAVAILABLE", selection)
             source = Path(source_root)
@@ -596,7 +609,7 @@ class Launcher:
                     _record_safe_metadata(selection, result)
                     return result
                 return self._launch_runtime(selection, backend, image_id, fingerprint, startup_timeout,
-                                            requested_port, lock_held=True)
+                                            configured_port, lock_held=True)
         except LaunchError as error:
             return self._failure(error.code, selection)
 
@@ -621,11 +634,12 @@ class Launcher:
         try:
             startup_timeout = _positive_timeout(timeout, ceiling=_DEFAULT_STARTUP_TIMEOUT,
                                                 default=_DEFAULT_STARTUP_TIMEOUT)
+            configured_port = _configured_port(selection, requested_port)
             selected, image_id, fingerprint, compose_file = self._installed_runtime(selection, binding)
             backend = self._backend(self.backend, build_if_missing=False,
                                     build_timeout=_DEFAULT_BUILD_TIMEOUT)
             return self._launch_runtime(selected, backend, image_id, fingerprint, startup_timeout,
-                                        requested_port, compose_file)
+                                        configured_port, compose_file)
         except LaunchError as error:
             return self._failure(error.code, selection)
 
@@ -657,7 +671,7 @@ class Launcher:
             binding,
             control_root=control_root,
             timeout=settings.startup_timeout_seconds,
-            port=settings.port if port is None else port,
+            port=port,
         )
 
 

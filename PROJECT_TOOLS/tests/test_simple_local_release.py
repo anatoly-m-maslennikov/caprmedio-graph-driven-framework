@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import subprocess
+import stat
 import sys
 import tempfile
 from types import ModuleType, SimpleNamespace
@@ -49,7 +50,21 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         (self.root / "pyproject.toml").write_text("[project]\nname = 'fixture'\n", encoding="utf-8")
         (self.root / "uv.lock").write_text("version = 1\n", encoding="utf-8")
         (self.root / "version.toml").write_text('[framework]\nversion = "0.4.1"\n', encoding="utf-8")
-        (self.root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS").mkdir(parents=True)
+        tools = self.root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"
+        tools.mkdir(parents=True)
+        bootstrap_helper = (
+            Path(__file__).resolve().parents[2]
+            / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_mcp_bootstrap.py"
+        )
+        (tools / "project_mcp_bootstrap.py").write_bytes(bootstrap_helper.read_bytes())
+        (tools / "project_mcp_bootstrap.py").chmod(0o644)
+        self.engine_bootstrap = (
+            self.root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/"
+            "WORKFLOW_ORCHESTRATOR/docker/start_mcp.py"
+        )
+        self.engine_bootstrap.parent.mkdir(parents=True)
+        self.engine_bootstrap.write_bytes(b"#!/usr/bin/env python3\n# package bootstrap fixture\n")
+        self.engine_bootstrap.chmod(0o755)
 
     def _runner(self):
         calls = []
@@ -79,7 +94,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         return patch.dict(sys.modules, {module.__name__: module})
 
     def test_active_sources_replace_product_and_installed_copy_preserves_config(self):
-        runner, _ = self._runner()
+        runner, calls = self._runner()
         with self._compiler():
             result = run_local_release(self.root, run_id="happy", runner=runner)
         self.assertEqual("completed", result["outcome"])
@@ -92,12 +107,37 @@ class SimpleLocalReleaseTests(unittest.TestCase):
                 self.assertEqual(["active.md"], sorted(path.name for path in released.rglob("*.md")))
         self.assertEqual("preserved = true\n", (self.installed / "project_structure.toml").read_text())
         self.assertEqual("keep = true\n", (self.runtime / "config.toml").read_text())
+        bootstrap = self.runtime / "start_mcp.py"
+        self.assertEqual(self.engine_bootstrap.read_bytes(), bootstrap.read_bytes())
+        self.assertEqual(0o755, stat.S_IMODE(bootstrap.stat().st_mode))
         for package in (self.root / ".caprmedio_install/simple_local_release/package", self.runtime / "simple_local_release/package"):
             self.assertEqual("ca skill", (package / "SKILLS/ca/SKILL.md").read_text())
             self.assertTrue((package / "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca/SKILL.md").is_file())
         self.assertEqual("ca skill", (self.root / ".agents/skills/ca/SKILL.md").read_text())
         self.assertIn('version = "0.4.1.1"', (self.root / "version.toml").read_text())
         self.assertIn('version = "0.4.1.1"', (self.runtime / "simple_local_release/package/version.toml").read_text())
+        self.assertEqual(1, sum(argv[-1:] == ("project-mcp",) for argv in calls))
+
+    def test_installer_refreshes_bootstrap_without_touching_runtime_config_or_state(self):
+        runner, calls = self._runner()
+        with self._compiler():
+            first = run_local_release(self.root, run_id="bootstrap-one", runner=runner)
+        self.assertEqual("completed", first["outcome"])
+        state = self.runtime / "project_mcp_state.json"
+        state.write_text("retain this runtime state\n", encoding="utf-8")
+        self.engine_bootstrap.write_bytes(b"#!/usr/bin/env python3\n# refreshed package bootstrap\n")
+        self.engine_bootstrap.chmod(0o755)
+
+        with self._compiler():
+            second = run_local_release(self.root, run_id="bootstrap-two", runner=runner)
+
+        self.assertEqual("completed", second["outcome"])
+        bootstrap = self.runtime / "start_mcp.py"
+        self.assertEqual(self.engine_bootstrap.read_bytes(), bootstrap.read_bytes())
+        self.assertEqual(0o755, stat.S_IMODE(bootstrap.stat().st_mode))
+        self.assertEqual("keep = true\n", (self.runtime / "config.toml").read_text())
+        self.assertEqual("retain this runtime state\n", state.read_text())
+        self.assertEqual(2, sum(argv[-1:] == ("project-mcp",) for argv in calls))
 
     def test_four_component_local_version_increments_without_rollover(self):
         (self.root / "version.toml").write_text('[framework]\nversion = "0.4.1.9"\n', encoding="utf-8")

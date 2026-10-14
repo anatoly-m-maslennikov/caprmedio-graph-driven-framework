@@ -7,11 +7,11 @@ local_tier: Standard
 global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 04:37:30 +0400"
+version: 3
+updated_at: "2026-10-13 22:13:09 +0400"
 subjects:
   governs: "Workflow Orchestrator/Project MCP runtime admission"
-  depends_on: [Project, MCP, Docker Runtime, Image, Gateway, Operator, Carrier]
+  depends_on: [Project, MCP, Docker Runtime, Image, Gateway, Operator, Carrier, Project Settings]
 relations:
   relates_to: [CA-R-1818, CA-R-1819, CA-R-1884, CA-R-1885]
 ---
@@ -25,7 +25,7 @@ image and lifecycle admission for the selected Project's direct localhost HTTP M
 
 ## Claim
 
-the launcher **must** start or reuse a Project MCP runtime only when its immutable image digest has the exact selected source fingerprint and its existing runtime is healthy and matches that selected Project identity.
+the launcher **must** start or reuse a Project MCP runtime only when its immutable image digest has the exact selected source fingerprint and its runtime is healthy and matches the selected Project identity and fixed MCP HTTP port from Project Settings.
 
 ## Details
 
@@ -34,4 +34,5 @@ the launcher **must** start or reuse a Project MCP runtime only when its immutab
 - an explicit image reference must resolve to an immutable digest and matching labels. A wrong, mutable, absent, ambiguous, or fingerprint-mismatched reference returns a truthful image refusal. The launcher neither retags it as compatible nor replaces a live runtime to make it match.
 - when no admitted image exists, the launcher invocation's `build_if_missing` field authorizes one build by default; `--no-build` makes that field false and returns an image refusal instead. A permitted build produces an immutable resolved image digest labelled with the computed fingerprint and does not overwrite, retag, retire, or recreate an existing image or runtime.
 - lifecycle serialization is one lock per selected Project identity. Under that lock, a running runtime may be reused only if its Project identity, immutable image digest/fingerprint, service identity, loopback publication, and Host/Origin-protected host readiness all match. A live unhealthy or mismatched runtime returns a refusal with no stop, restart, replacement, or forced recreation.
-- an absent runtime may start only the direct `mcp-http` service. Docker, not a host pre-bind probe, atomically owns a dynamic loopback port when no explicit port is requested. This admission does not start a queue, worker, Agent, Workflow, proxy, full Release, or a Release action.
+- Project Settings supplies the required `[project_mcp] http_port` integer in `1..65535`. The launcher uses that exact port for this Project. Missing, non-integer, zero or out-of-range values stop before Docker effects. Runtime configuration, CLI arguments and inspected runtime metadata do not choose a replacement port. If `--port` is supplied, it must equal the Project Settings value.
+- an absent runtime may start only the direct `mcp-http` service on `127.0.0.1:<http_port>:8092`. Docker atomically binds that configured port; an occupied port reports failure without random allocation, retry on another port or destructive replacement. Startup occurs only on an explicit invocation and starts no queue, worker, Agent, Workflow, proxy, full Release or Release action.

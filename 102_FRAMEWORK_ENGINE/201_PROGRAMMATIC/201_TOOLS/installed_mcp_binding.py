@@ -711,7 +711,7 @@ def _compose_contract(package_root: Path) -> None:
     if (service.get("pids_limit") != 128 or service.get("mem_limit") != "512m" or service.get("cpus") != 1
             or service.get("tmpfs") != ["/tmp:size=128m,mode=1777"]):
         _refuse("mcp-compose-invalid", "installed MCP resource bounds differ from the admitted profile")
-    if service.get("command") != [MCP_ROUTE] or service.get("ports") != ["127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:-}:8092"]:
+    if service.get("command") != [MCP_ROUTE] or service.get("ports") != ["127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:?Project Settings HTTP port is required}:8092"]:
         _refuse("mcp-compose-invalid", "installed MCP transport is not the anonymous loopback route")
     environment = service.get("environment")
     if environment != _COMPOSE_ENVIRONMENT:

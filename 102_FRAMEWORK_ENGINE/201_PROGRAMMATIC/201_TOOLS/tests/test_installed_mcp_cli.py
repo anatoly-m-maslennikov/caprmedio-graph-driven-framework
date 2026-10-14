@@ -76,7 +76,7 @@ def _compose() -> bytes:
       - type: bind
         source: ${CAPRMEDIO_PROJECT_ROOT}
         target: /project
-    ports: ["127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:-}:8092"]
+    ports: ["127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:?Project Settings HTTP port is required}:8092"]
     healthcheck:
       test: [CMD, python, -c, "import json,urllib.request; assert json.load(urllib.request.urlopen('http://127.0.0.1:8092/health',timeout=3))['ready'] is True"]
       interval: 2s
@@ -129,7 +129,8 @@ class InstalledMcpCliTests(unittest.TestCase):
         self.control = self.root / ".caprmedio_fixture"
         self.control.mkdir()
         (self.control / "caprmedio_project_settings.toml").write_text(
-            '[paths]\ncontrol_root = ".caprmedio_fixture"\n\n[project]\nname = "fixture-project"\n',
+            '[paths]\ncontrol_root = ".caprmedio_fixture"\n\n[project]\nname = "fixture-project"\n\n'
+            '[project_mcp]\nhttp_port = 8192\n',
             encoding="utf-8",
         )
         (self.control / "project_structure.toml").write_text(
@@ -163,8 +164,7 @@ class InstalledMcpCliTests(unittest.TestCase):
             "[project_mcp]\n"
             "startup_timeout_seconds = 7.0\n"
             "build_timeout_seconds = 600.0\n"
-            "build_if_missing = true\n"
-            "port = 8192\n",
+            "build_if_missing = true\n",
             encoding="utf-8",
         )
         self.config_bytes = self.config.read_bytes()
@@ -271,7 +271,7 @@ class InstalledMcpCliTests(unittest.TestCase):
         return ["--project-root", str(self.root), "--control-root", ".caprmedio_fixture", *extra]
 
     def test_http_cli_derives_canonical_package_and_reaches_real_admitted_adapter(self) -> None:
-        for extra, expected_port in (((), 8192), (("--port", "8123"), 8123)):
+        for extra in ((), ("--port", "8192")):
             with self.subTest(extra=extra):
                 backend = _Backend()
                 result = run_installed_mcp_cli(
@@ -285,7 +285,7 @@ class InstalledMcpCliTests(unittest.TestCase):
                 _selection, image, _fingerprint, compose, _timeout, port = backend.start_calls[0]
                 self.assertEqual("sha256:" + IMAGE, image)
                 self.assertEqual(self.package.root / MCP_FILES[-1], compose)
-                self.assertEqual(expected_port, port)
+                self.assertEqual(8192, port)
                 self.assertEqual(0, backend.resolve_image_calls)
                 self.assertEqual(self.config_bytes, self.config.read_bytes())
 

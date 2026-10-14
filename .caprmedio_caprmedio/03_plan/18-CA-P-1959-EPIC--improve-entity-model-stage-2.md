@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 69
-updated_at: "2026-10-14 15:28:37 +0400"
+version: 70
+updated_at: "2026-10-14 15:42:02 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,14 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Full shared registry repair selected — 2026-10-14 15:42 +0400
+
+The Operator chose to repair the complete shared registry, including release workflows. Do not replace whole-registry validation with per-workflow admission. This expands the prerequisite repair scope, not the Subjects-only migration's target set or the separate content Epic.
+
+Reconcile current ordinary and release definitions before rebinding: distinguish exact relocations, changed contracts and retired steps; do not restore obsolete definitions to satisfy stale pins. Align the required source contracts and receiving implementations, then verify complete workflows and preserved refusal/history/recording behavior. Reuse the existing sealed registry producer/publication lifecycle with a narrowly specified complete successor; retain full-registry and accepted query-frontier validation. An updated hash alone is not compatibility evidence.
+
+Current evidence is under `.caprmedio_tmp/stage2-migration-20261014/registry-repair/`: `current-source-inventory.json`, `ordinary-source-review.md`, `release-source-review.md` and `repair-proposal.md`. Reports/proposal may still be in preparation; they are not admission or acceptance receipts. Prepare the focused FPF design-challenge plan for the full repair and obtain approval before running that review. Actual registry publication, MCP activation, new scratch staging and live Atom migration remain separate approval gates. Existing uncertain staging batches and unrelated working-tree changes remain untouched.
 
 ### Accepted Codex confirmation trust model — 2026-10-14 15:28 +0400
 

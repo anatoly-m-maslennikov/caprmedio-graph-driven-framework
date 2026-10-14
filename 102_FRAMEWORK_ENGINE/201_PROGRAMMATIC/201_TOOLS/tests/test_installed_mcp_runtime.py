@@ -111,7 +111,8 @@ class InstalledMcpRuntimeTests(unittest.TestCase):
         self.control = self.root / ".caprmedio_fixture"
         self.control.mkdir()
         (self.control / "caprmedio_project_settings.toml").write_text(
-            '[paths]\ncontrol_root = ".caprmedio_fixture"\n\n[project]\nname = "fixture-project"\n',
+            '[paths]\ncontrol_root = ".caprmedio_fixture"\n\n[project]\nname = "fixture-project"\n\n'
+            '[project_mcp]\nhttp_port = 8192\n',
             encoding="utf-8",
         )
         (self.control / "project_structure.toml").write_text(
@@ -124,8 +125,7 @@ class InstalledMcpRuntimeTests(unittest.TestCase):
             "[project_mcp]\n"
             "startup_timeout_seconds = 7.0\n"
             "build_timeout_seconds = 600.0\n"
-            "build_if_missing = true\n"
-            "port = 8192\n",
+            "build_if_missing = true\n",
             encoding="utf-8",
         )
         self.config_bytes = self.config.read_bytes()
@@ -239,8 +239,8 @@ class InstalledMcpRuntimeTests(unittest.TestCase):
         self.assertEqual("sha256:" + IMAGE, launcher.calls[0]["image"])
         self.assertEqual(8123, launcher.calls[0]["port"])
 
-    def test_http_adapter_uses_real_config_aware_admitted_seam_for_default_and_override_port(self) -> None:
-        for requested, expected in ((None, 8192), (8123, 8123)):
+    def test_http_adapter_uses_project_settings_port_and_allows_only_a_matching_assertion(self) -> None:
+        for requested in (None, 8192):
             with self.subTest(port=requested):
                 backend = _AdmittedHttpBackend()
                 result = launch_installed_mcp_http(
@@ -259,9 +259,26 @@ class InstalledMcpRuntimeTests(unittest.TestCase):
                 _selection, image, _fingerprint, compose, _timeout, port = backend.start_calls[0]
                 self.assertEqual("sha256:" + IMAGE, image)
                 self.assertEqual(self.binding.compose_file, compose)
-                self.assertEqual(expected, port)
+                self.assertEqual(8192, port)
                 self.assertEqual(0, backend.resolve_image_calls)
                 self.assertEqual(self.config_bytes, self.config.read_bytes())
+
+    def test_http_adapter_refuses_a_port_assertion_that_differs_from_project_settings(self) -> None:
+        backend = _AdmittedHttpBackend()
+        result = launch_installed_mcp_http(
+            self.root,
+            ".caprmedio_fixture",
+            self.package,
+            target_context_sha256=CONTEXT,
+            binding_admitter=self.admitter,
+            launcher=Launcher(backend=backend),
+            port=8123,
+        )
+
+        self.assertEqual(("refused", "PROJECT_SELECTION_REFUSED"),
+                         (result["disposition"], result["condition"]))
+        self.assertEqual([], backend.start_calls)
+        self.assertEqual(0, backend.resolve_image_calls)
 
     def test_http_rejects_invalid_port_before_reopening_or_delegating(self) -> None:
         launcher = _HttpLauncher()

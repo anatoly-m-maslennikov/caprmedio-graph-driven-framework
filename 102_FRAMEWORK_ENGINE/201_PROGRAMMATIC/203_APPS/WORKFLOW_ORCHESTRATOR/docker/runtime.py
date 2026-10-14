@@ -233,7 +233,7 @@ def main():
     parser.add_argument("--build-timeout", type=float, default=600, help="Bound image build seconds (maximum 600)")
     parser.add_argument("--no-build", action="store_true", help="Refuse a missing compatible image instead of building")
     parser.add_argument("--port", type=_project_mcp_port,
-                        help="Optional loopback port for project-mcp (1..65535)")
+                        help="Assert the Project Settings HTTP port for project-mcp (1..65535)")
     parser.add_argument("--output", choices=["json", "url"], default="json", help="Project MCP result format")
     parser.add_argument(
         "operation", choices=["build", "start", "stop", "restart", "status", "logs", "mcp",

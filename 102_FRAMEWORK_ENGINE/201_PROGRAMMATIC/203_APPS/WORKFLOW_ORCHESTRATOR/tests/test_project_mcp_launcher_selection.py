@@ -28,12 +28,13 @@ class ProjectSelectionGoldenTests(unittest.TestCase):
         parent.mkdir(parents=True, exist_ok=True)
         self.fixture_root = Path(tempfile.mkdtemp(dir=parent))
 
-    def project(self, name: str, *, control: str = ".caprmedio_demo") -> Path:
+    def project(self, name: str, *, control: str = ".caprmedio_demo", port: int = 56317) -> Path:
         root = self.fixture_root / name
         carrier = root / control
         carrier.mkdir(parents=True)
         (carrier / "caprmedio_project_settings.toml").write_text(
-            f'[paths]\ncontrol_root = "{control}"\n[project]\nname = "{name}"\n',
+            f'[paths]\ncontrol_root = "{control}"\n[project]\nname = "{name}"\n'
+            f'[project_mcp]\nhttp_port = {port}\n',
             encoding="utf-8",
         )
         (carrier / "project_structure.toml").write_text("schema_version = 1\n", encoding="utf-8")
@@ -61,6 +62,7 @@ class ProjectSelectionGoldenTests(unittest.TestCase):
         self.assertEqual(beta.resolve(), selected_beta.root)
         self.assertEqual(Path(".caprmedio_demo"), selected_alpha.control_relative)
         self.assertNotEqual(selected_alpha.instance_id, selected_beta.instance_id)
+        self.assertEqual(56317, selected_alpha.settings["project_mcp"]["http_port"])
         self.assertEqual(
             hashlib.sha256(
                 f"{alpha.resolve()}\0.caprmedio_demo".encode("utf-8")
@@ -69,6 +71,13 @@ class ProjectSelectionGoldenTests(unittest.TestCase):
         )
         self.assertFalse((alpha / ".git").exists())
         self.assertFalse((beta / ".git").exists())
+
+    def test_sibling_projects_retain_distinct_configured_http_ports(self) -> None:
+        alpha = self.project("repository/projects/alpha", port=56317)
+        beta = self.project("repository/projects/beta", port=56318)
+
+        self.assertEqual(56317, resolve_project(alpha).settings["project_mcp"]["http_port"])
+        self.assertEqual(56318, resolve_project(beta).settings["project_mcp"]["http_port"])
 
     def test_explicit_direct_control_root_is_allowed_but_ambiguous_or_unsafe_selectors_refuse(self) -> None:
         project = self.project("one")

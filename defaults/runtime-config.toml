@@ -3,7 +3,6 @@
 schema_version = 1
 
 [project_mcp]
-# Omit port to let Docker allocate an available loopback port.
 startup_timeout_seconds = 60.0
 # Build settings apply only to development startup. Installed startup never builds.
 build_timeout_seconds = 600.0

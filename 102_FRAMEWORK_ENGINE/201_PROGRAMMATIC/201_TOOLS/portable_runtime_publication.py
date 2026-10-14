@@ -2622,6 +2622,20 @@ def _publish_prepared_native_runtime(
         old_package_selector=prepared.old_package_selector,
         old_execution_selector=prepared.old_execution_selector,
     )
+    try:
+        from project_mcp_bootstrap import deploy_project_mcp_bootstrap
+    except ImportError as error:
+        raise PortableRuntimePublicationError(
+            "portable-publication-bootstrap-install-failed",
+            "selected package bootstrap helper is unavailable",
+        ) from error
+    try:
+        deploy_project_mcp_bootstrap(concrete_lock.project_root, installed.root)
+    except RuntimeError as error:
+        raise PortableRuntimePublicationError(
+            "portable-publication-bootstrap-install-failed",
+            "selected package bootstrap could not be deployed",
+        ) from error
     package_digest, runtime_digest = publish_selectors(
         package_selector=prepared.prospective_package_selector,
         runtime_selector=prepared.prospective_runtime_selector,

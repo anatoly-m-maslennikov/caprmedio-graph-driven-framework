@@ -70,7 +70,7 @@ class Backend:
         if self.start_error is not None:
             raise self.start_error
         if self.publish_after_start:
-            self.rows = [healthy_row(host_port=str(port) if port is not None else "8099")]
+            self.rows = [healthy_row(host_port=str(port))]
 
     def health(self, url, timeout):
         self.health_calls.append((url, timeout))
@@ -78,7 +78,7 @@ class Backend:
 
 
 def healthy_row(*, project=INSTANCE_ID, image=IMAGE_ID, fingerprint=FINGERPRINT,
-                host_ip="127.0.0.1", host_port="8099", ports=None):
+                host_ip="127.0.0.1", host_port="56317", ports=None):
     return {
         "Id": "container-a",
         "Image": image,
@@ -113,7 +113,7 @@ class LauncherStartupContractTests(unittest.TestCase):
             control_relative=Path(".caprmedio_local"),
             control_relativePath=Path(".caprmedio_local"),
             instance_id=INSTANCE_ID,
-            settings={},
+            settings={"project_mcp": {"http_port": 56317}},
             structure={},
         )
         self.backend = Backend()
@@ -152,20 +152,20 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assertEqual(FINGERPRINT, result["fingerprint"])
         self.assertEqual("container-a", result["container_id"])
         self.assertEqual("mcp-http", result["service"])
-        self.assertEqual(8099, result["port"])
+        self.assertEqual(56317, result["port"])
         self.assertTrue(result["readiness"])
-        self.assertEqual("http://127.0.0.1:8099/mcp", result["url"])
+        self.assertEqual("http://127.0.0.1:56317/mcp", result["url"])
         self.assertEqual(1, len(self.backend.health_calls))
         url, remaining_timeout = self.backend.health_calls[0]
-        self.assertEqual("http://127.0.0.1:8099/mcp", url)
+        self.assertEqual("http://127.0.0.1:56317/mcp", url)
         self.assertGreater(remaining_timeout, 0)
         self.assertLessEqual(remaining_timeout, 7)
 
-    def test_omitted_port_leaves_dynamic_localhost_publication_to_the_backend(self):
+    def test_project_settings_port_is_forwarded_to_the_backend(self):
         result = self.launch()
         self.assertEqual("started", result["disposition"])
-        self.assertEqual([None], self.backend.start_ports)
-        self.assertEqual(8099, result["port"])
+        self.assertEqual([56317], self.backend.start_ports)
+        self.assertEqual(56317, result["port"])
 
     def test_invalid_port_values_refuse_before_selection_or_runtime_effects(self):
         for port in (True, False, "8099", 8099.0, 0, 65536):
@@ -177,34 +177,45 @@ class LauncherStartupContractTests(unittest.TestCase):
             self.assertEqual(0, self.backend.start_calls)
 
     def test_reuses_exact_healthy_runtime_without_starting(self):
-        self.backend.rows = [healthy_row()]
+        self.backend.rows = [healthy_row(host_port="56317")]
         result = self.launch()
         self.assertEqual("reused", result["disposition"])
         self.assertEqual("READY_REUSED", result["condition"])
         self.assertEqual(0, self.backend.start_calls)
-        self.assertEqual("http://127.0.0.1:8099/mcp", result["url"])
+        self.assertEqual("http://127.0.0.1:56317/mcp", result["url"])
 
-    def test_requested_port_reuses_only_the_exact_healthy_publication(self):
-        self.backend.rows = [healthy_row(host_port="8123")]
-        result = self.launch(port=8123)
+    def test_cli_port_is_an_equality_assertion_for_the_configured_publication(self):
+        self.backend.rows = [healthy_row(host_port="56317")]
+        result = self.launch(port=56317)
         self.assertEqual("reused", result["disposition"])
         self.assertEqual("READY_REUSED", result["condition"])
-        self.assertEqual(8123, result["port"])
+        self.assertEqual(56317, result["port"])
         self.assertEqual(0, self.backend.start_calls)
 
         original_rows = self.backend.rows.copy()
         mismatch = self.launch(port=8124)
-        self.assert_public_failure(mismatch, "refused", "RUNTIME_MISMATCH")
+        self.assert_public_failure(mismatch, "refused", "PROJECT_SELECTION_REFUSED")
         self.assertEqual(0, self.backend.start_calls)
         self.assertEqual(original_rows, self.backend.rows)
 
-    def test_requested_port_is_published_exactly_after_start(self):
-        result = self.launch(port=8123)
+    def test_configured_port_is_published_exactly_after_start(self):
+        result = self.launch(port=56317)
         self.assertEqual("started", result["disposition"])
         self.assertEqual("READY_STARTED", result["condition"])
-        self.assertEqual([8123], self.backend.start_ports)
-        self.assertEqual(8123, result["port"])
-        self.assertEqual("http://127.0.0.1:8123/mcp", result["url"])
+        self.assertEqual([56317], self.backend.start_ports)
+        self.assertEqual(56317, result["port"])
+        self.assertEqual("http://127.0.0.1:56317/mcp", result["url"])
+
+    def test_missing_or_invalid_project_settings_refuse_before_docker(self):
+        invalid = ({}, {"project_mcp": {}}, {"project_mcp": {"http_port": True}},
+                   {"project_mcp": {"http_port": 0}}, {"project_mcp": {"http_port": 65536}})
+        for settings in invalid:
+            with self.subTest(settings=settings):
+                self.selection.settings = settings
+                result = self.launch()
+                self.assert_public_failure(result, "refused", "PROJECT_SELECTION_REFUSED")
+                self.assertEqual(0, self.backend.resolve_image_calls)
+                self.assertEqual(0, self.backend.start_calls)
 
     def test_selection_refusal_precedes_runtime_effects_and_passwordless_launches(self):
         with patch("project_mcp_launcher.resolve_project", side_effect=ProjectSelectionError("PROJECT_SELECTION_REFUSED")):
@@ -250,9 +261,9 @@ class LauncherStartupContractTests(unittest.TestCase):
 
     def test_occupied_requested_port_reports_failure_without_resource_destruction(self):
         self.backend.start_error = LaunchError("DOCKER_START_FAILED")
-        result = self.launch(port=8123)
+        result = self.launch(port=56317)
         self.assert_public_failure(result, "failed", "DOCKER_START_FAILED")
-        self.assertEqual([8123], self.backend.start_ports)
+        self.assertEqual([56317], self.backend.start_ports)
         self.assertEqual([], self.backend.rows)
 
     def test_requested_port_without_post_start_publication_is_a_start_failure(self):
@@ -261,9 +272,9 @@ class LauncherStartupContractTests(unittest.TestCase):
         # a requested host listener is unavailable).  This is an attempted
         # start that failed to publish, not a malformed pre-existing runtime.
         self.backend.publish_after_start = False
-        result = self.launch(port=8123)
+        result = self.launch(port=56317)
         self.assert_public_failure(result, "failed", "DOCKER_START_FAILED")
-        self.assertEqual([8123], self.backend.start_ports)
+        self.assertEqual([56317], self.backend.start_ports)
         self.assertEqual([], self.backend.rows)
 
     def test_external_project_lock_contention_reports_busy_without_runtime_effects(self):

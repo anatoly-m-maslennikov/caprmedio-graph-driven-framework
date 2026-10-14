@@ -1440,6 +1440,7 @@ class FinalNativePublicationReopenTests(unittest.TestCase):
 
         class Package:
             manifest_digest = "a" * 64
+            root = Path("/fixture/package")
 
         class Context:
             sha256 = "b" * 64
@@ -1488,6 +1489,7 @@ class FinalNativePublicationReopenTests(unittest.TestCase):
                 patch.object(publication_module, "_revalidate_legacy_replacement"),
                 patch.object(publication_module, "_revalidate_ca_skill_publication"),
                 patch.object(publication_module, "publish_replacement_package", return_value=package),
+                patch("project_mcp_bootstrap.deploy_project_mcp_bootstrap") as deploy_bootstrap,
                 patch.object(publication_module, "publish_selectors", return_value=("d" * 64, "e" * 64)) as publish_selectors,
                 patch.object(installed_mcp_binding, "InstalledMcpBinding", Binding),
                 patch.object(installed_mcp_binding, "admit_candidate_mcp_binding", return_value=binding),
@@ -1505,6 +1507,7 @@ class FinalNativePublicationReopenTests(unittest.TestCase):
 
             self.assertEqual("portable-publication-final-invalid", refused.exception.code)
             publish_selectors.assert_called_once()
+            deploy_bootstrap.assert_called_once_with(lock.project_root, package.root)
             reopen.assert_called_once_with(
                 lock.project_root,
                 package,

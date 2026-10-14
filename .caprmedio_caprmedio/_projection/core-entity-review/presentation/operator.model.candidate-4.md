@@ -34,6 +34,7 @@ Entity — umbrella, not a fourth root
 
 ```text
 Occurrent
+  /Event
   /Execution
   /Session
 
@@ -95,6 +96,10 @@ by this project.
 - `.`: bearer qualification for a dependent entity or component. Source
   Properties are dependent Objects; Projection Properties belong to their
   Projection and remain derived.
+- A property Subject such as `Atom.Status` names the property definition; it
+  has no instance value. An instance-qualified expression such as
+  `Atom(...).Status` refers to a particular Atom's value. This distinction
+  does not introduce an executable selector or rename stored fields.
 - Preserve explicit property chains: `Project.Operator Registry` and
   `Framework Instance.Settings.Parameter Resolution`. Use
   `Framework Instance.Settings` consistently as the Settings bearer path.
@@ -314,6 +319,14 @@ Use shared D policies for YAML frontmatter in Markdown, not one storage rule
 for every Property, Content Role or Type. Consolidate redundant D content in
 the later content Epic; Subject mapping alone does not delete or rewrite it.
 
+M and E follow the same pattern: name the thing in the Subject; describe how
+to work on it or check it in the content. For example, a Method for resolving
+an Implementation Retry Limit uses Subject `Implementation Retry Limit`, not
+`Implementation Retry Limit/resolution`. Do not create a separate Validation
+Subject merely because an Evaluation checks something. A distinct Method or
+evaluation result can still have its own Subject. Explicitly approved Property
+paths remain unchanged; this is not a blanket suffix-removal rule.
+
 Content Role and Atom Type classify Atom subtypes, not `Atom.Content Role`
 or `Atom.Type` dependent entities in this graph. Stored `content_role` and `type`
 fields can represent these classifications; no storage field is renamed or removed.
@@ -328,8 +341,47 @@ or `Atom/Content Role: Implementation` subtype.
 
 #### Plan labels, containment and Carriers
 
+A **Container Atom** is an Atom whose Content Role and Type allow it to contain
+other Atoms. This capability applies to the whole classified kind, not an
+independent flag on each instance. Plan Atoms and Operations Atoms of Type
+Workflow have this capability; other kinds do not under the current decision.
+The Atom retains its own content and lifecycle. A contained Atom may itself
+contain Atoms only when its own Content Role and Type allow it.
+
+`contains` and `contained_by` connect actual Atom instances. Keep these
+containment relations distinct from parent/child; neither implies the other.
+Container does not introduce a new Content Role or Atom Type. An Epic containing
+Tasks or a Workflow containing Steps is a Container Atom.
+
+Ad Hoc Atom Collection is not needed. Do not retain it as a Container kind or
+replace it with a named Selection. Retire its defining rules and obsolete
+collection-Type declaration in the later content pass (CA-P-1970). During the
+Subjects-only migration, keep those source Atoms unchanged; do not delete their
+Subjects or migrate them to an invented replacement.
+
+Define `Atom.Enabled Relations.Contains` as a class-level Boolean capability, with
+default `false`. R Atoms define the capability and its values:
+
+| Subject | Substance |
+| --- | --- |
+| `Atom.Enabled Relations.Contains` | Class-level Boolean capability; default `false`. |
+| `Atom/Content Role: Plan.Enabled Relations.Contains` | `true` |
+| `Atom/Content Role: Operations/Type: Workflow.Enabled Relations.Contains` | `true` |
+
+The more specific value overrides the default, not an inherited prohibition.
+This does not permit overriding unrelated inherited rules. Individual Atoms
+need no stored capability flag. The value belongs in Substance, not an
+`= true` suffix on the Subject. This candidate does not yet create those R
+Atoms or change parsers, storage schemas or native relation admission.
+`Contained By` is separate: an Atom that cannot contain others can still be
+contained by another Atom. Disabling outgoing `contains` does not disable
+being its target or admitting the inverse view.
+
 There is one Plan Atom model. Task, Subtask, Epic, Superepic, Version and
-Version Group are examples of Labels, not separate Atom kinds. A Plan Atom can
+Version Group are examples of Labels, not separate Atom kinds. Plan has no
+separate authoring Subtypes: use Labels only. Map the legacy Plan Subtype Subject
+to the existing Plan Label Subject; correcting old authoring rules is later
+content work, not part of the Subjects-only migration. A Plan Atom can
 contain other Atoms, including other Plan Atoms. This can repeat at further levels.
 Do not add a separate Decomposition entity or dependent Property. Rules about
 this containment concern the Plan Atom; its old decomposition rules remain
@@ -359,19 +411,30 @@ Projection
 ```
 
 - History means preserved information, not the events themselves.
-- Revision is a preserved historical state, not the change that produced it.
+- For now, an Atom Revision is the archived Atom itself, not another object
+  alongside it. It preserves history; it is not the change that produced it.
+- Keep Revision limited to archived Atoms for now. Revisions of Settings,
+  Projections and other non-Atom Artifacts are deferred, not new model branches.
+- An exact-version reference still refers to the actual Atom. A Journal binding
+  does not turn that Atom into a Revision just by recording its version.
 - `Revision/Type: Atom` names an Atom's historical revision under History.
   Current source fields remain `Atom.Version Number`, `Atom.Updated At` and
   `Atom.Status`. Do not introduce `Atom.Revision` or `Atom/Revision` as a
   property or subtype. Old Subjects that mix current and historical states
   require separate mapping dispositions; this name does not merge them.
-- Journal contains records about actual happened changes, Executions, decisions
-  and outcomes. Executions themselves are never Journal contents.
+- Journal is a collection of event records, nothing else. An Event is an
+  Occurrent; its stored `Journal.Record` is a Continuant under History.
+  The record describes the Event; it is not the Event itself.
+- Use `Journal`, not `Work Journal`. No separate `Record/Type: Event` branch
+  is needed: every Journal Record is an event record.
+- Events can describe anything that happened or was done, not only Action
+  Runs or Workflow execution. A Journal Record does not require an Action Run.
+  Do not introduce an execution merely to account for a recorded event.
 - A Journal is a History lifecycle unit. Describing it as an Artifact does not
   classify it as an Object or create a copied Journal node.
-- Revision is not an Atom, a separately governed Artifact or an Artifact-borne
-  Property; no recursive Artifact.Revision or Revision-of-Revision rule is
-  introduced.
+- Revision does not require a separately governed Artifact or an Artifact-borne
+  Property; no duplicate archived object, recursive Artifact.Revision or
+  Revision-of-Revision rule is introduced.
 - A Journal Record is a dependent stored History record about an event. It is
   not the event it describes; the Journal remains History.
 - Git preserves Atom contents and versions. Journals register what happened.
@@ -536,7 +599,7 @@ Implementation Artifacts
   release and installation packages
 
 Project History
-  Project Work Journal
+  Journal
   preserved Artifact Revisions
 
 Project Carriers

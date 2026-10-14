@@ -73,7 +73,8 @@ class ProjectFixture:
         (authority / "caprmedio_project_settings.toml").write_text(
             f'[project]\nname = "{name}"\n[paths]\ncontrol_root = "{control}"\n'
             f'journal_root = "{control}/_journal"\nprojection_root = "{control}/_projection"\n'
-            'runtime_root = ".caprmedio_runtime"\ntemporary_root = ".caprmedio_tmp"\n',
+            'runtime_root = ".caprmedio_runtime"\ntemporary_root = ".caprmedio_tmp"\n'
+            f'[project_mcp]\nhttp_port = {56317 if name == "alpha" else 56318}\n',
             encoding="utf-8",
         )
         (authority / "project_structure.toml").write_text(
@@ -166,7 +167,8 @@ def _cleanup(fixtures, tokens, records):
                 assert identifiers == [record["container_id"]], "cleanup container identity changed"
             labels = rows[0]["Config"]["Labels"]
             environment = backend._environment(selection, rows[0]["Image"],
-                                               labels["org.caprmedio.runtime.fingerprint"])
+                                               labels["org.caprmedio.runtime.fingerprint"],
+                                               selection.settings["project_mcp"]["http_port"])
             command = ["docker", "compose", "--env-file", "/dev/null", "--project-name",
                        selection.compose_project, "-f", str(DOCKER / "project-mcp.compose.yaml"),
                        "down", "--timeout", "10"]
@@ -200,7 +202,10 @@ def _compose_services(selection, token, row):
     from project_mcp_backend import ProjectMcpBackend
     backend = ProjectMcpBackend(build_if_missing=False)
     labels = row["Config"]["Labels"]
-    environment = backend._environment(selection, row["Image"], labels["org.caprmedio.runtime.fingerprint"])
+    environment = backend._environment(
+        selection, row["Image"], labels["org.caprmedio.runtime.fingerprint"],
+        selection.settings["project_mcp"]["http_port"],
+    )
     command = ["docker", "compose", "--env-file", "/dev/null", "--project-name", selection.compose_project,
                "-f", str(DOCKER / "project-mcp.compose.yaml"), "ps", "--all", "--format", "json"]
     response = subprocess.run(command, env=environment, capture_output=True, text=True, timeout=45, check=False)

@@ -24,7 +24,6 @@ class ProjectMCPSettings:
     startup_timeout_seconds: float
     build_timeout_seconds: float
     build_if_missing: bool
-    port: int | None
 
 
 def _refuse(message: str) -> None:
@@ -47,16 +46,13 @@ def parse_project_mcp_settings(document: Mapping[str, Any]) -> ProjectMCPSetting
     if not isinstance(section, Mapping):
         _refuse("runtime configuration needs a project_mcp table")
     required = {"startup_timeout_seconds", "build_timeout_seconds", "build_if_missing"}
-    if not required <= section.keys() or set(section) - required - {"port"}:
+    if not required <= section.keys() or set(section) - required:
         _refuse("project_mcp settings have missing or unsupported keys")
     startup = _timeout(section["startup_timeout_seconds"], 60.0, "startup_timeout_seconds")
     build = _timeout(section["build_timeout_seconds"], 600.0, "build_timeout_seconds")
     if type(section["build_if_missing"]) is not bool:
         _refuse("build_if_missing must be a boolean")
-    port = section.get("port")
-    if "port" in section and (type(port) is not int or not 1 <= port <= 65535):
-        _refuse("port must be an integer from 1 to 65535 or omitted")
-    return ProjectMCPSettings(startup, build, section["build_if_missing"], port)
+    return ProjectMCPSettings(startup, build, section["build_if_missing"])
 
 
 def load_project_mcp_settings(project_root: Path | str) -> ProjectMCPSettings:

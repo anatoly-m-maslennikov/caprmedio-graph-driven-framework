@@ -80,7 +80,7 @@ def _compose() -> bytes:
       - type: bind
         source: ${CAPRMEDIO_PROJECT_ROOT}
         target: /project
-    ports: ["127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:-}:8092"]
+    ports: ["127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:?Project Settings HTTP port is required}:8092"]
     healthcheck:
       test: [CMD, python, -c, "import json,urllib.request; assert json.load(urllib.request.urlopen('http://127.0.0.1:8092/health',timeout=3))['ready'] is True"]
       interval: 2s
@@ -540,7 +540,7 @@ class InstalledMcpBindingTests(unittest.TestCase):
         self.assertEqual("mcp-route-undesignated", raised.exception.code)
 
         payload = _compose().replace(
-            b'"127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:-}:8092"', b'"0.0.0.0:8092:8092"'
+            b'"127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:?Project Settings HTTP port is required}:8092"', b'"0.0.0.0:8092:8092"'
         )
         self.verified = self._package(compose_payload=payload)
         self._bind_context(mode="adopt")

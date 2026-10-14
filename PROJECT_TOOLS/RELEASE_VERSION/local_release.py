@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import importlib.util
 import json
 import os
 import re
@@ -230,6 +231,23 @@ def _copy_tree(source: Path, destination: Path, *, preserve: frozenset[str]) -> 
             shutil.copy2(entry, target)
 
 
+def _deploy_bootstrap(root: Path, package: Path) -> None:
+    """Refresh only the copied package bootstrap; never execute it."""
+    source = package / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_mcp_bootstrap.py"
+    try:
+        mode = source.lstat().st_mode
+        if source.is_symlink() or not stat.S_ISREG(mode):
+            raise LocalReleaseError("local-release-bootstrap-unavailable")
+        spec = importlib.util.spec_from_file_location("release_project_mcp_bootstrap", source)
+        if spec is None or spec.loader is None:
+            raise LocalReleaseError("local-release-bootstrap-unavailable")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        module.deploy_project_mcp_bootstrap(root, package)
+    except (ImportError, OSError, RuntimeError) as error:
+        raise LocalReleaseError("local-release-bootstrap-unavailable") from error
+
+
 def run_local_release(project_root: Path | str, *, run_id: str,
                       runner: Callable[[tuple[str, ...], Path], Any] | None = None) -> dict[str, object]:
     """Run the direct local release without candidate selection or recovery state."""
@@ -410,6 +428,7 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 ca = _target(root, Path(".agents/skills/ca"), label="project-ca")
                 _clear_target(ca, root=root, preserve=frozenset(), label="project-ca")
                 _copy_tree(runtime / "SKILLS/ca", ca, preserve=frozenset())
+                _deploy_bootstrap(root, runtime)
             else:
                 failed_step = "start_mcp"
                 launcher = runtime / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py"

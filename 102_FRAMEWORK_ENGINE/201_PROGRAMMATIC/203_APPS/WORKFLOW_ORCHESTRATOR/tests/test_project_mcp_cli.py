@@ -56,7 +56,7 @@ class ProjectMcpCommandTests(unittest.TestCase):
         self.assertEqual(20, launch.call_args.kwargs['timeout'])
         self.assertEqual(120, launch.call_args.kwargs['build_timeout'])
 
-    def test_explicit_port_is_forwarded_to_the_project_launcher(self):
+    def test_explicit_port_is_forwarded_as_a_project_settings_equality_assertion(self):
         result = {'disposition': 'started', 'condition': 'READY_STARTED',
                   'readiness': True, 'url': 'http://127.0.0.1:8123/mcp'}
         code, output, launch = self.invoke(result, '--port', '8123')

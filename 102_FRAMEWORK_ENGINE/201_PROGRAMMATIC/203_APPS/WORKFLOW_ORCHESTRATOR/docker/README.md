@@ -143,12 +143,24 @@ This boundary is implementation capability, not evidence that an installed
 Project has passed Full Gate, native installation, public release, or a live
 endpoint proof.
 
-### Development source launcher
+### Project-local launcher
 
-For development from a Framework source checkout, run the standard-library
-bootstrap through its isolated uv shebang environment. It pins the child
-launcher to the selected Framework source's `.caprmedio_runtime/launcher-venv`
-and does not use a host Python environment:
+Run the standard-library bootstrap through its isolated uv environment. It
+keeps the child launcher's environment in the target Project's
+`.caprmedio_runtime/launcher-venv`, not in the installed package or system Python.
+
+The checked-in template is `docker/start_mcp.py` beside this README;
+installation copies it to `.caprmedio_runtime/start_mcp.py` and upgrades refresh
+that copy while preserving configuration and runtime state. Copying the script
+does not start MCP or execute a Workflow. When explicitly invoked, the installed
+copy uses the selected installed package without requiring a source checkout.
+
+```sh
+uv run --no-project --isolated --managed-python --python 3.14 --no-env-file python -I \
+  .caprmedio_runtime/start_mcp.py
+```
+
+For development, select the Framework source checkout explicitly:
 
 ```sh
 uv run --no-project --isolated --managed-python --python 3.14 --no-env-file python -I \
@@ -174,21 +186,21 @@ Projects nested in one repository use their separate Project folders as roots.
 The HTTP endpoint requires no local `.git`. `--control-root .caprmedio_<project>`
 can explicitly select a direct control folder when needed.
 
-The command admits a compatible immutable image, builds it when absent, and
-lets Docker allocate a loopback port. JSON is the default; successful output
-includes these fields, alongside Project, image, and container identities:
+The selected Project's `caprmedio_project_settings.toml` must carry
+`[project_mcp] http_port` as an integer from `1` through `65535`. The command
+admits a compatible immutable image, builds it when absent, and publishes only
+that exact loopback port. JSON is the default; successful output includes these
+fields, alongside Project, image, and container identities:
 
 ```json
-{"disposition":"started","condition":"READY_STARTED","readiness":true,"url":"http://127.0.0.1:49152/mcp","port":49152}
+{"disposition":"started","condition":"READY_STARTED","readiness":true,"url":"http://127.0.0.1:56317/mcp","port":56317}
 ```
 
-The illustrated port is not fixed. A healthy repeat returns `reused` and
+The port is fixed by Project Settings. A healthy repeat returns `reused` and
 `READY_REUSED` with the same container and URL. A mismatched or unhealthy runtime
-is retained and reported without replacement. Explicit recreation may change
-the URL, so reconnect using the newly returned endpoint.
+is retained and reported without replacement.
 
-To request one particular loopback port, pass `--port` with an integer from
-`1` through `65535`:
+`--port` is optional only as an equality assertion against that Settings value:
 
 ```sh
 UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
@@ -196,13 +208,12 @@ uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-e
   --group rmed-workflow-mcp python \
   102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
   --project-root /ABSOLUTE/PROJECT --source-root /ABSOLUTE/FRAMEWORK-SOURCE \
-  --port 18092 project-mcp
+  --port 56317 project-mcp
 ```
 
-The omitted default lets Docker allocate the port atomically. An existing
-healthy Project runtime must already use a requested port exactly; otherwise it
-is retained and reported as a mismatch. If a requested port is occupied, startup
-fails without stopping the other runtime or selecting a different port.
+An existing healthy Project runtime must already use the Settings port exactly;
+otherwise it is retained and reported as a mismatch. If that port is occupied,
+startup fails without stopping the other runtime or selecting a different port.
 
 Every invocation of this development `project-mcp` launcher requires
 `--source-root` to name a readable Framework source checkout for image identity

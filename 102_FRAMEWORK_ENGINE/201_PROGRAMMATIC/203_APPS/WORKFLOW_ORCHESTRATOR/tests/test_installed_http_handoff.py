@@ -85,7 +85,8 @@ class InstalledHttpHandoffTests(unittest.TestCase):
         self.control = self.root / ".caprmedio_fixture"
         self.control.mkdir()
         (self.control / "caprmedio_project_settings.toml").write_text(
-            '[paths]\ncontrol_root = ".caprmedio_fixture"\n\n[project]\nname = "fixture-project"\n',
+            '[paths]\ncontrol_root = ".caprmedio_fixture"\n\n[project]\nname = "fixture-project"\n\n'
+            '[project_mcp]\nhttp_port = 8192\n',
             encoding="utf-8",
         )
         (self.control / "project_structure.toml").write_text(
@@ -98,8 +99,7 @@ class InstalledHttpHandoffTests(unittest.TestCase):
             "[project_mcp]\n"
             "startup_timeout_seconds = 7.0\n"
             "build_timeout_seconds = 600.0\n"
-            "build_if_missing = true\n"
-            "port = 8192\n",
+            "build_if_missing = true\n",
             encoding="utf-8",
         )
         self.config_bytes = self.config.read_bytes()
@@ -162,7 +162,7 @@ class InstalledHttpHandoffTests(unittest.TestCase):
         self.assertEqual("sha256:" + IMAGE_DIGEST, image_id)
         self.assertEqual(RUNTIME_SELECTOR, fingerprint)
         self.assertEqual(self.binding.compose_file, compose_file)
-        self.assertIsNone(port)
+        self.assertEqual(8192, port)
 
         state = self.root / ".caprmedio_runtime" / "runtime" / "project_mcp" / self.selection.instance_id
         self.assertTrue((state / "last_launch.json").is_file())
@@ -181,7 +181,7 @@ class InstalledHttpHandoffTests(unittest.TestCase):
         self.assertEqual([], self.backend.start_calls)
         self.assertEqual(0, self.backend.resolve_image_calls)
 
-    def test_admitted_handoff_reads_config_port_but_never_uses_its_build_setting(self) -> None:
+    def test_admitted_handoff_uses_project_settings_port_but_never_uses_its_build_setting(self) -> None:
         result = self._launch_admitted()
 
         self.assertEqual(("started", "READY_STARTED"), (result["disposition"], result["condition"]))
@@ -189,12 +189,18 @@ class InstalledHttpHandoffTests(unittest.TestCase):
         self.assertEqual(0, self.backend.resolve_image_calls)
         self.assertEqual(self.config_bytes, self.config.read_bytes())
 
-    def test_explicit_admitted_port_overrides_the_configured_port(self) -> None:
-        result = self._launch_admitted(port=8123)
+    def test_explicit_admitted_port_must_equal_the_project_settings_port(self) -> None:
+        result = self._launch_admitted(port=8192)
 
         self.assertEqual(("started", "READY_STARTED"), (result["disposition"], result["condition"]))
-        self.assertEqual(8123, self.backend.start_calls[0][-1])
+        self.assertEqual(8192, self.backend.start_calls[0][-1])
         self.assertEqual(0, self.backend.resolve_image_calls)
+
+        self.backend.start_calls.clear()
+        mismatch = self._launch_admitted(port=8123)
+        self.assertEqual(("refused", "PROJECT_SELECTION_REFUSED"),
+                         (mismatch["disposition"], mismatch["condition"]))
+        self.assertEqual([], self.backend.start_calls)
 
     def test_refuses_untyped_or_other_project_binding_without_docker_effects(self) -> None:
         result = self._launch_installed(object())
