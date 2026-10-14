@@ -31,3 +31,15 @@ Full request/response/schema/source evidence: `activation/connected-d253-probe.j
 The permission reviewer denied the proposed one-Atom stage command before process or MCP invocation because explicit trusted approval for that scratch mutation was not established. No stage request ran and no staged candidate or manifest was produced. Do not retry or substitute another route without direct approval. CA-P-2382 remains Active; the batch disposition question remains unanswered.
 
 The 44-item structural ledger also passed independent bounded review: exact unique/disjoint IDs and one actual source per category were checked. All five reproduced pre-existing refusals with unchanged frozen/HEAD bytes. The other 39 were not independently rerun. Report: `tool-readiness/structural-preflight/independent-review.md`, SHA-256 `a48ae8e9b4893119ef6cd0d0d4a86b2db82120bb2e4cbb33a51f5c75e86eca32`.
+
+## Independent preview readback
+
+The saved actual CA-D-253 preview passed independent review. The reviewer recomputed both the preview and intent seals, checked strict request/result DTOs and text/structured parity, and constructed the expected proposed bytes independently. Complete equality confirms only the two approved Subject edits, Version 12 to 13 and illustrative Updated At changed; Summary, body, other metadata and all remaining bytes are preserved. The actual source remains at its frozen hash and mode 0644; all five grammar pins are current.
+
+Report: `activation/connected-preview-independent-review.md`, SHA-256 `f72f65bcca5aaeb53de36c9a3a2dd492cd5fa2dd1b1547fd44465c52a7549c45`. This verifies the preview, not staging, semantic adoption or publication permission. The separate staging and 44-owner disposition questions remain unanswered.
+
+## Actual stale-source refusal
+
+One further actual HTTP MCP call used only `preview_subjects` for CA-D-253, changing the expected source SHA-256 to an intentionally wrong all-zero value. Identity, Version, profile and patches were unchanged. MCP returned `subject-pin-stale`, with preview and staging null, no stage root and empty retained/unverified artifact lists. The real source bytes and mode stayed unchanged; the staging-prefix inventory remained absent. This read-only check did not retry the denied stage operation or use an alternate write route.
+
+Evidence: `activation/connected-stale-preview.json`, SHA-256 `f9087b9a6a35af7568dabaec748a8870f9aa9908dd17a08903ed307e3e484083`. Root inspected both the exact request and response. Successful and stale-source preview behavior is now verified against the connected endpoint. Scratch staging/readback, batch disposition and live migration remain unperformed and gated.
