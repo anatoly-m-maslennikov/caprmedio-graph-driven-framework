@@ -19,29 +19,6 @@ _DISCOVERY_TOOL_FIELDS = frozenset({
 })
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 _INSTALLED_FRAMEWORK_ROOT = '000_CAPRMEDIO_framework'
-_DIRECT_RELEASE_ROUTES = {
-    'release_version': {
-        'summary': 'Run the Project-owned local release directly.',
-        'input_schema': {'type': 'object', 'additionalProperties': False, 'required': ['request'],
-                         'properties': {'request': {'type': 'object', 'additionalProperties': False,
-                                                    'required': ['project_root', 'run_id'],
-                                                    'properties': {'project_root': {'type': 'string'},
-                                                                   'run_id': {'type': 'string'}}}}},
-    },
-    'public.release': {
-        'summary': 'Run the Project-owned public release directly.',
-        'input_schema': {'type': 'object', 'additionalProperties': False, 'required': ['request'],
-                         'properties': {'request': {'type': 'object', 'additionalProperties': False,
-                                                    'required': ['project_root', 'run_id'],
-                                                    'properties': {
-                                                        'project_root': {'type': 'string'}, 'run_id': {'type': 'string'},
-                                                        'content_draft': {'type': 'object', 'additionalProperties': False,
-                                                                          'required': ['description', 'summary'],
-                                                                          'properties': {'description': {'type': 'string'},
-                                                                                         'summary': {'type': 'array', 'items': {'type': 'string'}}}},
-                                                    }}}},
-    },
-}
 
 
 def _mcp_binding_candidate(binding):
@@ -189,20 +166,14 @@ class Service:
         Selected routes intentionally have no Atom ``tool_binding``: their public
         MCP names are registered from the fail-closed canonical manifest.  Keep
         that distinction in discovery rather than treating a source carrier as
-        executable. Direct local and public Release use their registered MCP
-        contracts; other selected routes retain the existing portfolio path.
+        executable. Every selected route uses the same admitted manifest and
+        shared selected Run request contract.
         """
         if not self.exposed:
             return []
-        rows = [{
-            'id': name, 'name': name, 'mcp_name': name, 'availability': 'mcp', 'direct_route': True,
-            'content_role': 'Operations', 'summary': definition['summary'],
-            'input_schema': definition['input_schema'], 'tools': [name],
-        } for name, definition in _DIRECT_RELEASE_ROUTES.items() if name in self.exposed]
-        manifests = []
         try:
             from selected_routes import load_selected_manifest
-            manifests.append((load_selected_manifest(self.root), False))
+            manifest = load_selected_manifest(self.root)
         except (ImportError, OSError):
             # The catalog is public discovery output: do not expose exception
             # details, paths, or evidence content while reporting recovery.
@@ -215,20 +186,16 @@ class Service:
                 issues.append('binding evidence stale: refresh source bindings, then re-preview selected routes')
             else:
                 issues.append('binding evidence invalid: correct bindings, then re-preview selected routes')
-        for manifest, release_snapshot in manifests:
-            rows.extend(self._selected_route_rows(manifest, release_snapshot))
-        return rows
+        else:
+            return self._selected_route_rows(manifest)
+        return []
 
-    def _selected_route_rows(self, manifest, release_snapshot):
+    def _selected_route_rows(self, manifest):
         rows = []
         for entry in manifest.get("routes", []):
             if not isinstance(entry, dict):
                 continue
             route = entry.get("route")
-            if isinstance(route, str) and route in _DIRECT_RELEASE_ROUTES:
-                continue
-            if route == 'release_version' and not release_snapshot:
-                continue
             workflow = entry.get("workflow")
             actions = entry.get("ordered_actions")
             native_actions = entry.get("native_action_calls", [])
@@ -565,12 +532,10 @@ class Service:
 
     def discover(self, request, operations=False):
         atoms, tools, issues = self.catalog()
-        rows = [*atoms.values(), *(item for item in tools if item.get('direct_route'))] if operations else tools
+        rows = list(atoms.values()) if operations else tools
         if operations:
             rows = [row for row in rows if row['content_role'] == 'Operations']
             for row in rows:
-                if row.get('direct_route'):
-                    continue
                 bindings = [tool for tool in tools if row['id'] in tool.get('action_ids', []) + tool.get('workflow_ids', [])]
                 mcp_candidates = [tool for tool in bindings if _mcp_binding_candidate(tool)]
                 selected_bindings = [tool for tool in bindings if tool.get('selected_route')]
@@ -612,10 +577,6 @@ class Service:
             if len(matches) != 1:
                 raise ValueError('Unknown or ambiguous capability')
             row = matches[0]
-        if row.get('direct_route'):
-            return {'definition': row, 'related_definitions': [], 'input_schema': row['input_schema'],
-                    'output_schema': None, 'tool_description': None,
-                    'context_complete': True, 'coverage_issues': issues}
         selected = [item for item in tools if item.get("selected_route") and request.id in {
             item["name"], item["source_atom"], *item["action_ids"]
         }]
