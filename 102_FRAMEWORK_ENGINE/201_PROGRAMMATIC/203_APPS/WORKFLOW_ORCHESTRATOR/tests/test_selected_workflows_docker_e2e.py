@@ -34,7 +34,6 @@ from selected_workflows_docker_fixture import (  # noqa: E402
     FixtureLease,
     JOURNAL_CASES,
     ROUTE_CASES,
-    STATUS_DOMAINS,
 )
 
 E2E_CONTEXT = load_test_context(os.environ, ROOT / ".caprmedio_tmp")
@@ -675,73 +674,49 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                         await self._stop(runtime)
                     temporary.cleanup()
 
-    async def test_w04_all_current_roles_and_admitted_statuses(self) -> None:
-        """CA-P-1616: exercise every source-admitted W04 status through Docker/MCP."""
-        for role, _letter, _folder, source_id, statuses in STATUS_DOMAINS:
-            with self.subTest(role=role):
-                temporary, root, fixture = self._new_fixture(GoldenCase("W04", "change_atom_status"))
-                runtime = self._runtime(root)
-                launched = False
-                try:
-                    fixture.prepare()
-                    launched = True
-                    await self._start(runtime)
-                    final_observed: Path | None = None
-                    final_status: str | None = None
-                    for offset, changed in enumerate(statuses):
-                        current = next(value for value in statuses
-                                       if value != changed and value.casefold() != "draft")
-                        path = fixture.status_atom(role, current, number=8000 + offset)
-                        native, _graph, _selected = await self._execute_status_case(
-                            runtime, root, fixture, path, changed,
-                            f"p1616-{role.lower()}-{changed.casefold()}-change",
-                        )
-                        self.assertEqual("applied", native.get("outcome"), native)
-                        model = native["status_model"]
-                        self.assertEqual(list(statuses), model["statuses"], native)
-                        model_pin = model["model_sources"][0]
-                        self.assertEqual(source_id, model_pin["atom_id"], native)
-                        self.assertEqual(
-                            hashlib.sha256((root / model_pin["path"]).read_bytes()).hexdigest(),
-                            model_pin["sha256"], native,
-                        )
-                        observed = root / native["observed"]["path"]
-                        self.assertTrue(observed.is_file(), native)
-                        self.assertEqual(changed, native["observed"]["status"], native)
-                        if role == "Requirement" and changed == "Draft":
-                            self.assertIsNone(native["observed"]["atom_id"], native)
-                            self.assertNotIn("atom_id:", observed.read_text(encoding="utf-8"), native)
-                            self.assertIn("history", native, native)
-                        final_observed, final_status = observed, changed
-
-                    assert final_observed is not None and final_status is not None
-                    noop, _graph, _selected = await self._execute_status_case(
-                        runtime, root, fixture, final_observed, final_status, f"p1616-{role.lower()}-noop",
-                        expected_outcome="no_op",
-                    )
-                    self.assertEqual("no-op", noop.get("outcome"), noop)
-                    self.assertTrue(all(effect.get("state") == "unchanged" for effect in noop.get("effects", [])), noop)
-
-                    before = fixture.snapshot()
-                    records_before = self._recording_snapshot(root)
-                    rejected = await self._call(
-                        runtime, root, fixture.case.route,
-                        fixture.request_for_status(
-                            final_observed, "NotAdmitted", request_id=f"p1616-{role.lower()}-rejected",
-                        ),
-                    )
-                    self._assert_status_admission_blocked(rejected)
-                    self.assertEqual(before, fixture.snapshot(), "rejected W04 request changed authority")
-                    self.assertEqual(
-                        records_before, self._recording_snapshot(root),
-                        "rejected W04 request wrote Journal or Run records",
-                    )
-                except GoldenCorpusError as error:
-                    self.fail(str(error))
-                finally:
-                    if launched:
-                        await self._stop(runtime)
-                    temporary.cleanup()
+    async def test_w04_draft_noop_and_refusal_through_docker(self) -> None:
+        """The complete role/status matrix lives in the real host selected runner."""
+        temporary, root, fixture = self._new_fixture(GoldenCase("W04", "change_atom_status"))
+        runtime = self._runtime(root)
+        launched = False
+        try:
+            fixture.prepare()
+            launched = True
+            await self._start(runtime)
+            path = fixture.status_atom("Requirement", "Active")
+            native, _graph, _selected = await self._execute_status_case(
+                runtime, root, fixture, path, "Draft", "p1616-requirement-draft-change",
+            )
+            self.assertEqual("applied", native.get("outcome"), native)
+            observed = root / native["observed"]["path"]
+            self.assertTrue(observed.is_file(), native)
+            self.assertEqual("Draft", native["observed"]["status"], native)
+            self.assertIsNone(native["observed"]["atom_id"], native)
+            self.assertNotIn("atom_id:", observed.read_text(encoding="utf-8"), native)
+            self.assertIn("history", native, native)
+            before_noop = fixture.snapshot()
+            noop, _graph, _selected = await self._execute_status_case(
+                runtime, root, fixture, observed, "Draft", "p1616-requirement-noop",
+                expected_outcome="no_op",
+            )
+            self.assertEqual("no-op", noop.get("outcome"), noop)
+            self.assertTrue(all(effect.get("state") == "unchanged" for effect in noop.get("effects", [])), noop)
+            self.assertEqual(before_noop, fixture.snapshot(), "no-op changed authority/history")
+            before = fixture.snapshot()
+            records_before = self._recording_snapshot(root)
+            rejected = await self._call(
+                runtime, root, fixture.case.route,
+                fixture.request_for_status(observed, "NotAdmitted", request_id="p1616-requirement-rejected"),
+            )
+            self._assert_status_admission_blocked(rejected)
+            self.assertEqual(before, fixture.snapshot(), "rejected W04 request changed authority")
+            self.assertEqual(records_before, self._recording_snapshot(root), "refusal wrote Journal or Run records")
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            if launched:
+                await self._stop(runtime)
+            temporary.cleanup()
 
     async def test_stale_source_rejects_without_workflow_or_journal_effect(self) -> None:
         case = GoldenCase("W13", "build_applicable_methodology")
