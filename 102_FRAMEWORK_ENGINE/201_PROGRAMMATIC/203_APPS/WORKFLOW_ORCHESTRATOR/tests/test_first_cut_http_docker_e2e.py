@@ -11,6 +11,7 @@ import json
 import os
 from dataclasses import dataclass
 import socket
+import sys
 import unittest
 from unittest import mock
 from typing import Mapping
@@ -21,6 +22,7 @@ from first_cut_http_security import (
 )
 import test_selected_workflows_docker_e2e as selected_harness
 from current_code_e2e_context import CurrentCodeE2EContext as FirstCutE2EContext, narrow_context
+from runtime import _startup_diagnostic
 
 
 FIRST_CUT_CASES = (
@@ -92,6 +94,30 @@ async def _cleanup_attempted_http_start(first_failure: BaseException | None, att
     if not attempted:
         return first_failure
     return await _attempt_cleanup(first_failure, stop)
+
+
+async def _start_http(runtime):
+    try:
+        return await asyncio.to_thread(runtime.mcp_http_start)
+    except RuntimeError:
+        if runtime.mock and not runtime.auth_file:
+            try:
+                logs = await asyncio.to_thread(
+                    runtime.call,
+                    "logs",
+                    "--no-color",
+                    "--tail",
+                    "80",
+                    "mcp-http",
+                    http=True,
+                    timeout=10,
+                )
+                print(
+                    f"Mock HTTP startup service logs:\n{_startup_diagnostic(logs)}", file=sys.stderr
+                )
+            except Exception:
+                pass  # Diagnostic failure must not replace the startup failure.
+        raise
 
 
 class FirstCutCorpusTests(unittest.TestCase):
@@ -559,7 +585,7 @@ class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                     token, port = self._http_environment()
                     os.environ["CAPRMEDIO_MCP_HTTP_PORT"] = str(port)
                     http_start_attempted = True
-                    http_startup_task = asyncio.create_task(asyncio.to_thread(runtime.mcp_http_start))
+                    http_startup_task = asyncio.create_task(_start_http(runtime))
                     started = await asyncio.shield(http_startup_task)
                     self.assertEqual(f"http://127.0.0.1:{port}/mcp", started["url"])
                     running_status = await asyncio.to_thread(runtime.mcp_http_status)
