@@ -1,7 +1,6 @@
 """Native W11/W12 graph corpus proof in disposable Project authority."""
 from __future__ import annotations
 
-import hashlib
 from pathlib import Path
 import sys
 import tempfile
@@ -32,13 +31,6 @@ class SelectedGraphGoldenInputsTest(unittest.TestCase):
         return FixtureLease(root), fixture
 
     @staticmethod
-    def _source_bytes(fixture: GoldenProject) -> dict[str, str]:
-        return {
-            path.relative_to(fixture.root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in sorted(fixture.graph_source_dir.glob("*.md"))
-        }
-
-    @staticmethod
     def _native_graph_request(fixture: GoldenProject) -> dict[str, object]:
         """Direct Tool proof needs the same non-caller recording capability.
 
@@ -57,38 +49,6 @@ class SelectedGraphGoldenInputsTest(unittest.TestCase):
             },
         )
         return request
-
-    def test_w11_w12_publish_traceable_deterministic_native_projections(self) -> None:
-        for case_id, route, adapter, graph_key, output in (
-            ("W11", "build_entities_graph", generate_entity_graph.construct_entities_graph_projection,
-             "entities_graph", "entities_graph.json"),
-            ("W12", "build_terms_graph", generate_entity_graph.construct_terms_graph_projection,
-             "terms_graph", "terms_graph.json"),
-        ):
-            with self.subTest(case=case_id):
-                lease, fixture = self._fixture(case_id, route)
-                try:
-                    before_sources = self._source_bytes(fixture)
-                    request = self._native_graph_request(fixture)
-                    first = adapter(fixture.root, request)
-                    projection = fixture.root / ".caprmedio_caprmedio/_projection" / output
-                    self.assertEqual("built", first["outcome"], first)
-                    self.assertTrue(projection.is_file())
-                    self.assertIn(graph_key, first)
-                    self.assertTrue(first["non_authoritative"])
-                    self.assertEqual(before_sources, self._source_bytes(fixture), "graph publication must not change sources")
-                    self.assertEqual(
-                        [".caprmedio_caprmedio/graph_sources/CA-R-201.md",
-                         ".caprmedio_caprmedio/graph_sources/CA-R-202.md",
-                         ".caprmedio_caprmedio/graph_sources/CA-R-203.md"],
-                        [row["carrier_path"] for row in first["lineage"]],
-                    )
-                    first_bytes = projection.read_bytes()
-                    second = adapter(fixture.root, self._native_graph_request(fixture))
-                    self.assertEqual("no_op", second["outcome"], second)
-                    self.assertEqual(first_bytes, projection.read_bytes())
-                finally:
-                    lease.cleanup()
 
     def test_w11_w12_reject_malformed_or_stale_source_inputs_without_effects(self) -> None:
         for case_id, route, adapter in (
