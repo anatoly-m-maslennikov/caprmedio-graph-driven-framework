@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Install selected Framework Methodology and refresh Project MCP"
   depends_on: [Action, Version, Methodology, Implementation, Skill, Test, Permission, Journal]
-version: 7
-updated_at: "2026-10-11 17:34:07 +0000"
+version: 8
+updated_at: "2026-10-14 12:27:02 +0000"
 relations:
   relates_to: [CA-O-164, CA-O-178, CA-R-1525]
 ---
@@ -25,7 +25,7 @@ Install selected Framework Methodology and refresh Project MCP **means** the fin
 
 ## Scope
 
-The Action requires CA-O-164's frozen inputs, passing full-test preflight, exact compiled product, and the exact staged package, runtime, `ca`, and candidate image prepared by the same Workflow. Under one installation lock it preserves protected settings and Project state, clears only replaceable installed Framework members, and copies `101_FRAMEWORK_METHODOLOGY` as-is into `.caprmedio_caprmedio/000_CAPRMEDIO_framework/`. It then installs that same package/runtime and bound `ca` payload, and restarts or reuses the current Project MCP for the declared smoke check. First installation has no required prior image or installed package; an existing installation is preserved until its replacement is ready.
+The Action requires CA-O-164's current validated active sources, passing intended local-release tool tests, exact compiled product, and the exact verified package, runtime, `ca`, and candidate image prepared by the same Workflow. Under one installation lock it preserves protected settings and Project state, clears only replaceable installed Framework members, and copies `101_FRAMEWORK_METHODOLOGY` as-is into `.caprmedio_caprmedio/000_CAPRMEDIO_framework/`. It then installs that same package/runtime and bound `ca` payload, and restarts or reuses the current Project MCP for the declared smoke check. First installation has no required prior image or installed package; an existing installation is preserved until its replacement is ready.
 
 ## Details
 

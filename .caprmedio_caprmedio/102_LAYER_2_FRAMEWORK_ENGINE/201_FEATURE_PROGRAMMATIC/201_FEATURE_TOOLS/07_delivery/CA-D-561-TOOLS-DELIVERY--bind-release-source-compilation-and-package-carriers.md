@@ -6,13 +6,13 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-10 10:17:20 +0400"
+version: 7
+updated_at: "2026-10-14 12:27:02 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Source and compilation carriers"
   depends_on: [Tool, Methodology, Projection, Manifest, Project Structure, Framework Settings, Framework Package, Installation, Journal, Source Carrier]
 relations:
-  delivery_for: [CA-R-1877, CA-R-1878, CA-M-331, CA-M-332, CA-M-362]
+  delivery_for: [CA-R-1878, CA-M-332, CA-M-362]
 ---
 # Summary
 
@@ -24,15 +24,15 @@ The source-bound Methodology delivery and package-owned Tool-binding projections
 
 ## Claim
 
-Release Version **must** bind its Methodology delivery and any package-owned Tool-binding projections to the explicitly admitted source snapshot and canonical compiler; the local root `methodology/` copy, binding projections and installed Applicable Methodology remain derived deliveries that preserve their original source relations, never replacement authoring authority or Action authorization.
+Release Version **must** bind its Methodology delivery and any package-owned Tool-binding projections to the exact explicitly admitted source inputs and canonical compiler; the direct local `101_FRAMEWORK_METHODOLOGY/` product, reusable package `methodology/` copies, binding projections and installed Applicable Methodology remain derived deliveries that preserve their original source relations, never replacement authoring authority or Action authorization.
 
 ## Details
 
 ### Candidate preparation
 
-1. Compiler input is the canonical source snapshot named by `candidateSnapshotManifest`. Reuse `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py`; do not implement another conflict policy.
-2. Candidate output occupies only `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/_release_materialized/<candidateSnapshotManifest.sha256>/` or the sealed private candidate's declared compiled child. Candidate preparation does not replace the currently installed projection.
-3. The manifest binds source references/digests, derived-copy digest, compiler frontier, compiled bytes and exact before/after recursive authoring-source digests. Those authoring digests must match. The former `101_LAYER_1_FRAMEWORK_METHODOLOGY/sources` copy is a derived delivery, not source authority; its delivery role is consolidated into root `methodology/`.
+1. For direct CA-O-164, compiler input is the exact current active source set admitted through declared Project paths and copied into `101_FRAMEWORK_METHODOLOGY/`. Reusable frozen export/package preparation instead consumes its independently sealed source snapshot under the export requirements below. Reuse `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py`; do not implement another conflict policy.
+2. Direct preparation writes the declared derived product; reusable candidate preparation writes only its sealed private candidate's declared compiled child. Neither preparation replaces the currently installed projection. Retained historical materialization paths remain historical evidence, not mandatory direct-release outputs.
+3. Bind the exact input source references/digests, actual copied-source digest, compiler frontier and compiled bytes to the executing Workflow/Run evidence; verify exact recursive authoring-source digests before and after remain equal. The direct derived product is `101_FRAMEWORK_METHODOLOGY/`; reusable package `methodology/` export, Project binding and Tool-binding frontier retain the requirements below.
 4. A new frozen export **must** retain an ordered `binding_atoms` frontier and `framework_engine_inventory_sha256`. Each member has exactly `atom_id`, positive integer `version`, safe Project-relative `source_path` and lowercase raw-source `sha256`. `framework_engine_inventory_sha256` is the lowercase SHA-256 of the sealed complete Framework Engine inventory against which entrypoints are admitted, or `null` only for a detached Core-only export, whose binding frontier is necessarily empty. Selection is explicit and source-bound; neither the exporter nor a consumer hardcodes particular Atom IDs, Tool names or cardinality. Its complete eligible set is every current Active Delivery Atom in the exact admitted Project/control snapshot whose one closed `tool_binding.entrypoint` names a regular member of that sealed complete Framework Engine inventory. The frontier may be empty only when that derived eligible set is empty. Every eligible declaration is required exactly once; missing, duplicate, ambiguous, inactive, stale or additionally discovered eligible binding sources refuse before export. Historical frozen schemas remain read-only evidence and cannot silently supply an empty frontier for a new package.
 5. Binding source bytes are private compiler input only. Reuse the canonical projection metadata formatter and source-preservation validator to emit one derived Carrier per pin under `methodology/bindings/`. Each projection preserves the exact source Atom ID, Version, raw SHA-256, original source path and original Relations digest, and its inverse after removal of the one canonical metadata insertion **must** equal the pinned raw bytes. The package never copies those active authority Carriers as authority and never obtains Action permission from a projection.
 
@@ -56,11 +56,11 @@ Release Version **must** bind its Methodology delivery and any package-owned Too
 1. Framework Instance Settings use the single canonical carrier declared by CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier. Reuse the canonical compiler's explicit enabled Extension identity/revision parser. A selected label revision must match exactly one admitted Extension root; its catalog revision and receipt still bind immutable content.
 2. The optional `[methodology.configuration]` table has exactly `identity` and `revision`. Both are strings and must match one admitted Configuration catalog descriptor, including its immutable catalog revision. Omission selects no package Project Configuration; it never selects the releasing Project's configuration by presence or catalog default. Binding projections are not selectable through this table. Malformed or unavailable selections refuse before command retention or installation effects. Alternative Configurations with colliding canonical destinations require an explicitly governed package layout, not implicit remapping.
 3. Direct CA-O-200 installation privately prepares this target's compilation from only the selected admitted package bytes, before any destructive effect. Bind Framework Instance Settings, catalog, chosen source identities and the exact delivery manifest into the context and release proof. No compiler runs after deletion begins.
-4. Selected CA-O-164/CA-O-169 promotion publishes the exact root `methodology/` export, binding projections and compiled output accepted by its Full Gate, without another compilation. Before publication, prove that its target selection equals that sealed candidate's source frontier. A different target selection uses a separately prepared direct installation, not a relabeled same-byte promotion.
+4. Direct CA-O-164/CA-O-169 publishes its exact verified compiled `101_FRAMEWORK_METHODOLOGY/` product after the required current-input validation and intended local-release tests. A separately gated reusable-package promotion publishes its exact accepted `methodology/` export, binding projections and compiled output without recompilation, and proves target selection equals that sealed package's source frontier. A different target selection uses separately prepared direct CA-O-200 installation under clauses 1–3; it is not relabeled same-byte promotion.
 
 ### Gated publication
 
 1. Resolve output from this Project's declared control child and Project Structure. The default exception is `<control_child>/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY`, not `_projection`.
-2. After the same-byte Full Gate and explicit installation command, the shared installation lock owns publication of staged compiler role folders and their delivery manifest. Existing role folders are replaceable only when every persistent member proves compiler-projection ownership. Preserve unrelated files, settings, source folders and authoring authority.
+2. After the applicable validation and explicit installation command, the shared installation lock owns publication of staged compiler role folders and their delivery manifest. Direct CA-O-164 requires its current validated inputs, passing intended local-release tests and exact verified prepared replacement; reusable-package CA-O-200 installation retains its same-byte Full Gate requirement. Existing role folders are replaceable only when every persistent member proves compiler-projection ownership. Preserve unrelated files, settings, source folders and authoring authority.
 3. Never replace the enclosing Framework directory or its `000_APPLICABLE_MTHD_sources` subtree. Require its authoring inventory to remain equal before and after. Delivery does not rewrite Project Structure.
 4. Publish only the staged verified compilation and binding projections with exact package/source/compiler bindings. The runtime selector remains the installer's final activation step, after this delivery and the other required carriers are reopened. Discovery of a binding projection grants no execution authority; the designated direct Action still requires its own current source, command, Operator authorization, Run and Journal evidence. Journal evidence records actual publication or an honest partial/failed result.
