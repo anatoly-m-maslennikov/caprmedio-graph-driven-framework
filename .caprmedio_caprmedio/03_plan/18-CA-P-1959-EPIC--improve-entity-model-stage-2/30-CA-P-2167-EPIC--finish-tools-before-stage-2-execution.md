@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 59
-updated_at: "2026-10-14 17:57:03 +0400"
+version: 60
+updated_at: "2026-10-14 18:27:53 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -29,13 +29,15 @@ The Tools required before affected Stage-2 execution have updated, independently
 
 ## Details
 
-### Shared Methods, registry repair and first-change recording — 2026-10-14
+### Shared Methods, registry repair and plain Journal — 2026-10-14
 
 Use the [compiled PROGRAMMATIC implementation prompt](../../_projection/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/mrt_programmatic_methods_compact.projection.md) in every implementation-worker brief, together with the task's applicable RMEDO. It is a selected derived view, not new authority: small single-purpose modules/functions, pure decisions, objects only for owned state/resources/lifecycle, composition, typed boundaries, and conditional Methods. Recheck its sources when they change. Behavioral test passes do not establish formatting, complexity, size, typing, environment or full Method conformance. The inherited-Method audit found missing evidence and concrete construction/temp-placement gaps; repair and evaluate those without silently waiving the rules or widening untouched legacy scope.
 
 Committed: `9cd9efff9` sets Journal segments to at most 1,000 rows (80 focused tests); `5aabd7a80` exposes the existing independent appender through MCP (17 new native/protocol tests); `aa0fa3e74` requires the complete registry before registration/freeze/new dispatch and removes direct/virtual Release bypasses (18 actual registry/query checks plus 12 isolated interpreter checks independently passed). The real complete fixture has fifteen routes, not seventeen. Known legacy full-suite failures and inherited-Method gaps remain explicit. No runtime activation is established by these commits.
 
-The Operator requires only local and public release. Keep D562's ID and Summary; revise it for installation within local release. Do not create D634 or a separate installer flow. D633 remains the proposed D563 replacement. Direct local recording is allowed for these two actual changes, but the proposed four-row append was rejected. The Operator then approved allowing a first recorded change without an earlier Journal entry: record only actual changes, no automatic baseline and no claim of earlier Journal-only replay. Align the rules, writer, affected producers/readers and tests before publishing D562/D563 or appending their events. Known prior records still require honest links; malformed or unmatched known history is not absence.
+The latest Operator decision supersedes the earlier first-change exception and Journal proof machinery: provide plain append and read only. Do not require previous records, baselines, chain validation, confirmed receipts, deduplication or Journal retry/recovery machinery. The Operator explicitly rejected retaining an extra corrupt-write or duplicate-retry validation layer. Append supplied records and read stored records; repeated appends are not silently deduplicated. Keep the 1,000-row batch limit. Preserve existing Journal files. Align the Journal rules, appender/readers and callers, and remove Journal-history prerequisites from unrelated operations. This does not remove source-change authorization, exact affected-target checks or source-effect no-replay state.
+
+The Operator requires only local and public release. Keep D562's ID and Summary; revise it for installation within local release. Do not create D634 or a separate installer flow. D633 remains the proposed D563 replacement. Direct local recording is allowed for these two actual changes; record those changes without synthetic baseline rows. No D562/D563 publication or Journal append is established by this checkpoint.
 
 Finish release discovery, local source admission and shared dispatch; derive and verify the full seventeen-route registry without restoring obsolete release phases. The approved connected-process exception applies only to confirmed Subject updates, using the actual Codex form and existing validation, locks, selected execution and Journal. Its source packet passed ordinary review; implementation and runtime acceptance remain open. Preserve both uncertain staging batches. Keep both Epics Active: no Core Subject publication, content migration, runtime restart, push or completed-Epic claim follows from this checkpoint.
 
