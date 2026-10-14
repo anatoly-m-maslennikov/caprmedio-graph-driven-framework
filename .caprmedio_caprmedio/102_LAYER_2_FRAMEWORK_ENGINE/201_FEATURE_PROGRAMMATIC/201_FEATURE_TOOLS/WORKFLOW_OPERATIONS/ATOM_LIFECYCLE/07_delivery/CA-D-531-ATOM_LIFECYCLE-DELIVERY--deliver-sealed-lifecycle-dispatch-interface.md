@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Workflow Operations/Atom Lifecycle/Dispatch Interface"
   depends_on: ["Tool", "Authorization", "Atom"]
-version: 4
-updated_at: "2026-10-12 04:20:25 +0400"
+version: 5
+updated_at: "2026-10-14 05:53:59 +0400"
 relations:
   delivery_for: [CA-R-1825, CA-R-1827]
 ---
@@ -33,7 +33,7 @@ The entrypoint returns CA-R-1828 only as the route-specific payload of CA-D-527'
 
 ### Subject-only Update variant
 
-The existing `update_atom` route's `request.parameters` additionally accepts exactly `{target, subject_patches, subject_intent_sha256, subject_profile?, semantic_assessment_report?}` for one Subject-only Update. `target` is exactly the existing complete descriptor with `atom_id`, `path`, `filename`, `version`, `digest`, `lifecycle`, `status`, `updated_at`, `content_role` and `type`, preserving actual absent-Type representation. It selects one complete eligible non-archived original, not a Draft, archive, delivered or projected copy; carried Status and placement remain exact preconditions. `subject_patches` is the closed ordered list in CA-R-866, with exact `field/old/new` and `index` only for `depends_on`; omission of `subject_profile` means `legacy`. `subject_intent_sha256` is CA-D-425's lowercase full intent hash.
+The existing `update_atom` route's `request.parameters` additionally accepts exactly `{target, subject_patches, subject_intent_sha256, subject_profile?, semantic_assessment_report?}` for one Subject-only Update. `target` is exactly the existing complete descriptor with `atom_id`, `path`, `filename`, `version`, `digest`, `lifecycle`, `status`, `updated_at`, `content_role` and `type`, preserving actual absent-Type representation. It selects one complete eligible non-archived original, not a Draft, archive, delivered or projected copy; carried Status and placement remain exact preconditions. `subject_patches` is the closed ordered Subject-only list under CA-R-866, CA-D-425 and CA-D-623. Scalar `governs` replacement or replacement of one `depends_on` entry uses exactly `{field, old, new}`; the dependency's exact current `old` value must identify one existing entry. A `depends_on` entry addition or removal uses exactly `{field, operation: "add"|"remove", value}`; removal's exact current `value` must identify one existing entry. Complete `depends_on` set replacement uses exactly `{field, operation: "replace_set", old, new}`, with `old` equal to the exact current collection and `new` the complete explicit proposed collection. Unknown fields, caller-supplied indexes, missing or ambiguous current values, a wrong complete-set precondition and duplicate proposed dependencies fail; no implicit entry merge or duplicate acceptance is introduced. These are required input shapes, not an implementation or admission claim. Omission of `subject_profile` means `legacy`. `subject_intent_sha256` is CA-D-425's lowercase full intent hash.
 
 This variant derives its complete intended proposal from the pinned source and explicit Subject spans; it accepts no complete `proposed` Carrier, `frontmatter`, `content`, caller class, successors, legacy identity proof/mapping, additional independent target, or other fields. `semantic_assessment_report` retains exactly CA-D-585's `{path, digest}`; it is required for a value-changing effect under CA-R-1892 and may be absent for pure preparation or truthful no-op. Report/assessment identifies the intended proposal before effect-time metadata materialization. A replacement-required or unresolved result remains a non-effect handoff/refusal.
 
