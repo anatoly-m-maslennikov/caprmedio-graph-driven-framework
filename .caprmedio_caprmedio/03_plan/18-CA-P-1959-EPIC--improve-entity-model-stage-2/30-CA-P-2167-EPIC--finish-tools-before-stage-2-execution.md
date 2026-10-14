@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 47
-updated_at: "2026-10-14 10:56:05 +0400"
+version: 48
+updated_at: "2026-10-14 11:12:08 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -29,6 +29,14 @@ The Tools required before affected Stage-2 execution have updated, independently
 
 ## Details
 
+### Direct preparation locally complete — 2026-10-14 11:12 +0400
+
+CA-P-2379 and CA-P-2380 are Done for implementation and local protocol acceptance, committed as 15f9ce76e. Independent review passed after correcting exact no-op timestamp equality and hidden live/dangling role-directory links. Final checks: 48 native guards/staging/identity, seven provider, sixteen existing preview, eight protocol cases (seven real transport plus one CLI), and 43 publication compatibility methods. The compatibility increment 7d015c24e changes only four source-pin pairs and one expected Version literal. Root reran the provider and existing preview checks together: 23 passed.
+
+[Direct preparation local completion](../../_projection/core-entity-review/stage2/tools-first/direct-preparation-local-completion.md) records the boundary and hashes. Connected MCP discovery sees D425 v16 but ATOM_UPDATE remains unresolved; the old running image has not loaded these providers. No Core staging, migration, source publication, Session, Journal or installed-package update occurred.
+
+The existing narrow activation route builds an image from a clean reviewed commit, replaces only this Project's precisely attributed MCP HTTP container, then reconnects. The Operator has been asked to approve that interruption using commit 15f9ce76e, excluding unrelated dirty work and other services. No answer or activation is inferred. Selected-package acceptance, live publication and the wider Epic remain open. Keep CA-P-2167 and CA-P-1959 Active.
+
 ### Direct preparation rules accepted — 2026-10-14 10:56 +0400
 
 CA-P-2378 is Done: six independently verified sources are committed as ef3bde3c6. The accepted contract exposes only preview_subjects and stage_subjects through the existing ATOM_UPDATE provider, not live update_atom. The native helper itself checks the reviewed preview seal before scratch creation. Existing publication and actual Step recording duties remain intact.
@@ -42,8 +50,8 @@ CA-P-2373 is Done. Fixture-only commit `dea79c410` restores the current selected
 Direct preparation proceeds through these bounded leaves:
 
 - [CA-P-2378 — Align direct Subject preparation rules](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/56-CA-P-2378-TASK--align-direct-subject-preparation-rules.md).
-- [CA-P-2379 — Expose direct Subject preparation](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/57-CA-P-2379-TASK--expose-direct-subject-preparation.md).
-- [CA-P-2380 — Verify direct preparation MCP](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/58-CA-P-2380-TASK--verify-direct-preparation-mcp.md).
+- [CA-P-2379 — Expose direct Subject preparation](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/57-CA-P-2379-TASK--expose-direct-subject-preparation.md).
+- [CA-P-2380 — Verify direct preparation MCP](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/58-CA-P-2380-TASK--verify-direct-preparation-mcp.md).
 
 Production adapter edits wait for independent source acceptance; transport test preparation can proceed separately. Keep the source map and prepared request unchanged. This closes neither the wider Epic nor live publication and installed-readiness gates.
 
