@@ -11,10 +11,7 @@ from contextlib import AsyncExitStack, asynccontextmanager
 import json
 import os
 from dataclasses import dataclass
-from pathlib import Path
-import re
 import socket
-import sys
 import unittest
 from unittest import mock
 from typing import Mapping
@@ -24,6 +21,7 @@ from first_cut_http_security import (
     probe_first_cut_http_security,
 )
 import test_selected_workflows_docker_e2e as selected_harness
+from current_code_e2e_context import CurrentCodeE2EContext as FirstCutE2EContext, narrow_context
 
 
 FIRST_CUT_CASES = (
@@ -34,16 +32,7 @@ FIRST_CUT_CASES = (
     ("W09", "run_implementation_workflow"),
     ("W13", "build_applicable_methodology"),
 )
-_IMMUTABLE_IMAGE = re.compile(r"sha256:[0-9a-f]{64}\Z")
 _REPOSITORY_TMP = selected_harness.ROOT / ".caprmedio_tmp"
-
-
-@dataclass(frozen=True)
-class FirstCutE2EContext:
-    """The two selected-harness values safe for this development-only cut."""
-
-    scratch_root: Path
-    candidate_image_digest: str
 
 
 @dataclass
@@ -60,26 +49,7 @@ class _HttpSessionMetadata:
 
 def _narrow_context(environ: Mapping[str, str]) -> FirstCutE2EContext:
     """Validate the explicit, disposable context without changing Release grammar."""
-    image = environ.get("CAPRMEDIO_FIRST_CUT_HTTP_IMAGE")
-    scratch_text = environ.get("CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH")
-    if not image or not scratch_text:
-        raise ValueError(
-            "CAPRMEDIO_FIRST_CUT_HTTP_IMAGE and CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH are both required"
-        )
-    if not _IMMUTABLE_IMAGE.fullmatch(image):
-        raise ValueError("CAPRMEDIO_FIRST_CUT_HTTP_IMAGE must be a lowercase sha256 immutable digest")
-    scratch = Path(scratch_text)
-    if not scratch.is_absolute() or scratch.is_symlink() or not scratch.is_dir():
-        raise ValueError("CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH must be an existing, non-symlink absolute directory")
-    try:
-        scratch_resolved = scratch.resolve(strict=True)
-        repository_tmp = _REPOSITORY_TMP.resolve(strict=True)
-        scratch_resolved.relative_to(repository_tmp)
-    except (OSError, ValueError) as error:
-        raise ValueError("CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH must be below repository .caprmedio_tmp") from error
-    if scratch_resolved == repository_tmp:
-        raise ValueError("CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH must be a child of repository .caprmedio_tmp")
-    return FirstCutE2EContext(scratch_root=scratch_resolved, candidate_image_digest=image)
+    return narrow_context(environ, _REPOSITORY_TMP)
 
 
 def _first_cut_context(environ: Mapping[str, str]) -> object:

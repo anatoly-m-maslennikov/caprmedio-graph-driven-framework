@@ -177,7 +177,7 @@ class QueryProjectionBoundarySourceTests(unittest.IsolatedAsyncioTestCase):
 
 @unittest.skipUnless(
     os.environ.get("CAPRMEDIO_DOCKER_QUERY_E2E") == "1" and strict.E2E_CONTEXT is not None,
-    "requires CAPRMEDIO_DOCKER_QUERY_E2E=1 and sealed Release E2E context",
+    "requires CAPRMEDIO_DOCKER_QUERY_E2E=1 and an explicit built image/scratch context",
 )
 class SelectedQueryMcpEndToEnd(unittest.IsolatedAsyncioTestCase):
     """Happy queries and deliberate refusals have separate test methods."""
@@ -190,7 +190,9 @@ class SelectedQueryMcpEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.launched = False
         self.context = strict.E2E_CONTEXT
         assert self.context is not None
-        self.query_image = self.context.candidate_image_digest
+        self.query_image = _required_query_image(os.environ)
+        self.assertEqual(self.context.candidate_image_digest, self.query_image,
+                         "query image must equal the exact supplied test context image")
         observed = await asyncio.to_thread(
             subprocess.run, ["docker", "image", "inspect", "--format", "{{.Id}}", self.query_image],
             capture_output=True, text=True, timeout=20, check=False,
@@ -209,7 +211,7 @@ class SelectedQueryMcpEndToEnd(unittest.IsolatedAsyncioTestCase):
             pass
 
     async def _start_fixture(self, case_id: str, route: str) -> QueryProject:
-        parent = self.context.scratch_root / "selected-query-mcp-e2e"
+        parent = Path(self.context.scratch_root) / "selected-query-mcp-e2e"
         parent.mkdir(parents=True, exist_ok=True)
         root = Path(tempfile.mkdtemp(dir=parent))
         self.lease = FixtureLease(root)

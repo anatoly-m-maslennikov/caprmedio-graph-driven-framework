@@ -60,6 +60,9 @@ def run_public_release(
         )
         returncode = getattr(result, "returncode", None)
         if not isinstance(returncode, int) or (returncode != 0 and not allow_dirty_status):
+            if argv[:2] == ("uv", "run"):
+                detail = "\n".join(f"{stream}:\n{str(getattr(result, stream, '') or '')[-4000:]}" for stream in ("stdout", "stderr"))
+                raise PublicReleaseError(f"public-release-command-failed: {' '.join(argv[:2])}: {detail}")
             raise PublicReleaseError(f"public-release-command-failed: {' '.join(argv[:2])}")
         return result
 
@@ -113,11 +116,9 @@ def run_public_release(
         step = "tests"
         git_all(step)
         command((
-            "uv", "run", "--locked", "--no-sync", "--no-env-file", "--group", "rmed-workflow-mcp",
-            "--group", "workflow-orchestrator", "python", "-B", "-m", "unittest",
-            "PROJECT_TOOLS/tests/test_simple_local_release.py",
-            "PROJECT_TOOLS/tests/test_simple_public_release.py",
-            "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_simple_local_release_route.py",
+            "uv", "run", "--project", str(root), "--locked", "--no-sync", "--python", "3.14",
+            "--managed-python", "--no-env-file", "--all-groups", "python", "-B",
+            str(Path(__file__).resolve().parents[1] / "run_full_test_suite.py"), "--project-root", str(root),
         ))
 
         step = "bump_version"

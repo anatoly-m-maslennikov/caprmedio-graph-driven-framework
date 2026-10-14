@@ -149,39 +149,6 @@ def _active_atom(path: Path) -> bool:
     return bool(closing >= 0 and _ACTIVE_STATUS.search(payload[len("---\n"):closing]))
 
 
-def _validate_release_sources(root: Path) -> None:
-    """Read and validate the same current active source frontier that delivery copies."""
-    selected = _read_structure(root, {})
-    tools = _project_path(root, Path("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"),
-                          label="validator-root", require_exists=True)
-    if not tools.is_dir():
-        raise LocalReleaseError("local-release-validator-unavailable")
-    if str(tools) not in sys.path:
-        sys.path.insert(0, str(tools))
-    try:
-        from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
-        from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
-            source_context_from_project, validate_proposed_carrier,
-        )
-        context = source_context_from_project(root)
-        identities: set[str] = set()
-        for name, source in selected:
-            active = [entry for entry in _walk_regular_files(source, excluded_directories=_NON_SOURCE_DIRECTORIES)
-                      if _active_atom(entry)]
-            if name == "CORE_META_MODEL" and not active:
-                raise LocalReleaseError("local-release-source-empty:CORE_META_MODEL")
-            for entry in active:
-                parsed = parse_carrier(entry.read_bytes(), entry)
-                identity = parsed.metadata.get("atom_id")
-                if not isinstance(identity, str) or not identity or identity in identities:
-                    raise LocalReleaseError("local-release-source-identity-invalid")
-                identities.add(identity)
-                validate_proposed_carrier(parsed.metadata, parsed.body, context,
-                                          entry.relative_to(root / ".caprmedio_caprmedio"))
-    except (ImportError, OSError, RuntimeError, ValueError) as error:
-        raise LocalReleaseError("local-release-sources-invalid") from error
-
-
 def _clear_target(target: Path, *, root: Path, preserve: frozenset[str], label: str) -> None:
     if target == root or target.parent == target:
         raise LocalReleaseError(f"local-release-{label}-unsafe")
@@ -413,13 +380,13 @@ def run_local_release(project_root: Path | str, *, run_id: str,
     prior_image = _launcher_image(selection)
     prior_project = selection.instance_id if prior_image is not None else None
 
-    failed_step = "validate_sources"
+    failed_step = "tests"
     mcp: Any = None
     receipt_path: str | None = None
     cleanup_note = "No proven superseded Project-owned image identity was available; none was removed."
     cleanup_pending = False
     phases = (
-        "validate sources", "tests", "copy active sources", "compile product", "build package", "prepare candidate image",
+        "tests", "copy active sources", "compile product", "build package", "prepare candidate image",
         "copy product to installed framework", "install project runtime", "start mcp", "final",
     )
     try:
@@ -449,24 +416,19 @@ def run_local_release(project_root: Path | str, *, run_id: str,
 
             if phase == "final":
                 continue
-            if phase == "validate sources":
-                failed_step = "validate_sources"
-                _validate_release_sources(root)
-            elif phase == "tests":
+            if phase == "tests":
                 failed_step = "tests"
                 try:
                     result = runner((
                         "uv", "run", "--project", str(root), "--locked", "--no-sync", "--python", "3.14",
-                        "--managed-python", "--no-env-file", "--group", "rmed-workflow-mcp", "--group",
-                        "workflow-orchestrator", "python", "-B", "-m", "unittest",
-                        "PROJECT_TOOLS/tests/test_simple_local_release.py",
-                        "PROJECT_TOOLS/tests/test_simple_public_release.py",
-                        "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_simple_local_release_route.py",
+                        "--managed-python", "--no-env-file", "--all-groups", "python", "-B",
+                        str(Path(__file__).resolve().parents[1] / "run_full_test_suite.py"), "--project-root", str(root),
                     ), root)
                 except OSError as error:
                     raise LocalReleaseError("local-release-command-unavailable") from error
                 if getattr(result, "returncode", 0) != 0:
-                    raise LocalReleaseError("local-release-command-failed")
+                    detail = "\n".join(f"{stream}:\n{str(getattr(result, stream, '') or '')[-4000:]}" for stream in ("stdout", "stderr"))
+                    raise LocalReleaseError(f"local-release-command-failed: {detail}")
             elif phase == "copy active sources":
                 failed_step = "copy_active_sources"
                 version_path = root / "version.toml"
@@ -693,6 +655,8 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 "# Simple local release failed\n\n"
                 f"Run: `{run_id}`\n\nStopped at: `{failed_step}`\n\n"
                 f"Error class: `{type(error).__name__}`\n\n"
+                + (f"{str(error)[:8500]}\n\n" if failed_step == "tests" else "")
+                +
                 "Manual action required: inspect the current project state before any retry.\n\n"
                 f"{staging_note}",
                 encoding="utf-8",

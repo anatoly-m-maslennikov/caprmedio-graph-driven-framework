@@ -27,7 +27,7 @@ RELEASE_ROOT = ROOT / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_V
 sys.path.insert(0, str(RELEASE_ROOT))
 
 from runtime import Runtime  # noqa: E402
-from release_e2e_context import load_release_e2e_context  # noqa: E402
+from current_code_e2e_context import load_test_context  # noqa: E402
 from selected_workflows_docker_fixture import (  # noqa: E402
     GoldenCase,
     GoldenCorpusError,
@@ -38,10 +38,7 @@ from selected_workflows_docker_fixture import (  # noqa: E402
     STATUS_DOMAINS,
 )
 
-try:
-    E2E_CONTEXT = load_release_e2e_context(os.environ)
-except Exception:
-    E2E_CONTEXT = None
+E2E_CONTEXT = load_test_context(os.environ, ROOT / ".caprmedio_tmp")
 
 
 def _structured_tool_result(response: Any) -> dict[str, Any]:
@@ -104,7 +101,7 @@ async def _stdio_tool_call(parameters: Any, tool: str, request: dict[str, Any]) 
 
 @unittest.skipUnless(
     os.environ.get("CAPRMEDIO_DOCKER_E2E") == "1" and E2E_CONTEXT is not None,
-    "requires CAPRMEDIO_DOCKER_E2E=1 and sealed Release E2E context",
+    "requires CAPRMEDIO_DOCKER_E2E=1 and an explicit built image/scratch context",
 )
 class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
     """One runtime and one disposable Git Project per source-bound route."""
@@ -135,7 +132,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         await asyncio.to_thread(runtime.call, "down", "--volumes", timeout=60)
 
     def _new_fixture(self, case: GoldenCase) -> tuple[FixtureLease, Path, GoldenProject]:
-        parent = E2E_CONTEXT.scratch_root / "selected-workflows-docker-e2e"
+        parent = Path(E2E_CONTEXT.scratch_root) / "selected-workflows-docker-e2e"
         parent.mkdir(parents=True, exist_ok=True)
         root = Path(tempfile.mkdtemp(dir=parent))
         fixture = GoldenProject(ROOT, root, case, execution_project_root="/project")
