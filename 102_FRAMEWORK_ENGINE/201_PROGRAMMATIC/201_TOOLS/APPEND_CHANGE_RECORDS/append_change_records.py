@@ -6,7 +6,7 @@ Usage:
     append_change_records.py run --input CONTEXT.json [--apply]
 
 ``run`` is mutation-free unless ``--apply`` is present.  Its input is the
-schema-v2 ``COMMIT_CONTEXT`` envelope.  In particular,
+schema-v3 ``COMMIT_CONTEXT`` envelope.  In particular,
 ``predictions.journal_records`` is already sealed by COMMIT_CONTEXT and is
 never regenerated, re-timestamped, or assigned another LLM session here.
 """
@@ -25,6 +25,8 @@ import uuid
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Callable, Iterator, Mapping
+
+from pydantic import BaseModel, ConfigDict, JsonValue, RootModel
 
 
 SCRIPT_PATH = Path(__file__).resolve()
@@ -46,6 +48,7 @@ for _path in (TOOLS_ROOT, CONTEXT_ROOT):
 
 from commit_context_logic import project_paths_eligible, repository_root  # noqa: E402
 from project_runtime import atomic_tempfile  # noqa: E402
+from tool_description import binding_matches, make_tool_description  # noqa: E402
 from work_journal import (  # noqa: E402
     WorkJournalError,
     canonical_json_bytes,
@@ -55,6 +58,10 @@ from work_journal import (  # noqa: E402
     validate_partition,
     validate_sealed_event,
     append_sealed_events,
+    seal_append_context,
+    store_pending_event,
+    _read_pending_event,
+    recover_pending_event,
 )
 
 
@@ -65,6 +72,127 @@ ACTIONS = {"ADD", "MOVE", "UPDATE", "MOVE+UPDATE", "REMOVE"}
 HEX40_RE = __import__("re").compile(r"^[0-9a-f]{40}$")
 HEX64_RE = __import__("re").compile(r"^[0-9a-f]{64}$")
 SAFE_ID_RE = __import__("re").compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$")
+MCP_ENTRYPOINT = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/APPEND_CHANGE_RECORDS/append_change_records.py"
+
+
+class _AppendChangeRecordsRequestBody(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+    context: dict[str, JsonValue]
+    apply: bool = False
+
+
+class AppendChangeRecordsRequest(RootModel[_AppendChangeRecordsRequestBody]):
+    """An existing sealed observation, not permission to replay its effect."""
+
+
+class AppendChangeRecordsResult(RootModel[dict[str, JsonValue]]):
+    """Preserve the canonical appender's structured result envelope."""
+
+
+class AppendChangeRecordsAdapter:
+    """Project-bound Journal writer; deliberately separate from the Git CLI."""
+
+    def __init__(self, root: str | Path) -> None:
+        self.root = Path(root).resolve()
+
+    def invoke(self, request: AppendChangeRecordsRequest | Mapping[str, Any]) -> dict[str, Any]:
+        if not isinstance(request, AppendChangeRecordsRequest):
+            request = AppendChangeRecordsRequest.model_validate(request)
+        context, events = validate_context(_normalise_context({"context": request.root.context}))
+        if Path(context["trigger"]["repository"]["root"]).resolve() != self.root:
+            raise ToolError("descriptor-root-mismatch", "The sealed context belongs to another Project")
+        partition = {name: context[name] for name in ("author", "local_date", "timezone")}
+        predictions = predict_sealed_event_receipts(self.root, events, **partition)
+        result = {
+            "resolved_targets": {"repository": str(self.root), "action_id": context["action_id"], "event_ids": [event["event_id"] for event in events]},
+            "planned_effects": {"journal_records": events, "receipts": predictions},
+            "validation_results": [{"name": "sealed-context", "ok": True}, {"name": "sealed-events", "ok": True}, {"name": "bound-project", "ok": True}],
+        }
+        # Check every retained identity before attempting any event. A historical
+        # observation is never reconstructed from today's source or Git index.
+        retained: dict[str, dict[str, Any]] = {}
+        for event in events:
+            try:
+                pending, sealed, append_context, _ = _read_pending_event(self.root, event["event_id"])
+            except WorkJournalError as error:
+                if error.code != "pending-not-found":
+                    raise
+                continue
+            if canonical_json_bytes(sealed) != canonical_json_bytes(event) or any(append_context[name] != partition[name] for name in partition):
+                raise WorkJournalError("identity-collision", "Retained pending evidence differs from the supplied sealed observation")
+            retained[event["event_id"]] = pending
+        if not request.root.apply:
+            return _json_result(ok=True, mode="dry-run", result={**result, "receipts": predictions}, diagnostics=[])
+
+        receipts: list[dict[str, Any]] = []
+        index = 0
+        try:
+            for index, event in enumerate(events):
+                if event["event_id"] not in retained:
+                    # Seal the native partition immediately before its append,
+                    # allowing the existing writer's normal part rollover.
+                    retained[event["event_id"]] = store_pending_event(
+                        self.root, event, seal_append_context(self.root, event, **partition),
+                        result_ref=None, effect_refs=[], diagnostic="Journal recording pending",
+                    )
+                receipts.append(recover_pending_event(self.root, event["event_id"]))
+                retained.pop(event["event_id"], None)
+        except (ToolError, WorkJournalError, OSError, RuntimeError) as error:
+            pending_errors: list[str] = []
+            # Keep the failed and not-yet-attempted original records in the
+            # existing retry-only format; never replay their source effects.
+            try:
+                remaining_predictions = predict_sealed_event_receipts(self.root, events[index:], **partition)
+                # A writer/receipt/cleanup exception can occur after the bytes
+                # reached the Journal. Report exact observed receipts as well.
+                receipts.extend({key: value for key, value in receipt.items() if key != "disposition"}
+                                for receipt in remaining_predictions if receipt.get("disposition") == "reused")
+            except (WorkJournalError, OSError, RuntimeError) as prediction_error:
+                remaining_predictions = []
+                pending_errors.append(str(prediction_error))
+            for offset, event in enumerate(events[index:]):
+                if event["event_id"] in retained:
+                    continue
+                try:
+                    append_context = seal_append_context(self.root, event, **partition)
+                    if remaining_predictions:
+                        # Include unattempted records' normal part rollover in
+                        # their original native retry partition bindings.
+                        append_context["partition_ref"] = remaining_predictions[offset]["carrier"]
+                        append_context.pop("append_context_digest")
+                        append_context["append_context_digest"] = canonical_json_digest(append_context)
+                    retained[event["event_id"]] = store_pending_event(
+                        self.root, event, append_context,
+                        result_ref=None, effect_refs=[], diagnostic=str(error),
+                    )
+                except (WorkJournalError, OSError, RuntimeError) as pending_error:
+                    pending_errors.append(str(pending_error))
+            return _json_result(
+                ok=False, mode="apply", result={**result, "state": "recording_pending", "receipts": receipts,
+                    "pending_events": list(retained.values()), "unattempted_event_ids": [event["event_id"] for event in events[index + 1:]],
+                    "inspection_required": bool(pending_errors), "pending_errors": pending_errors},
+                diagnostics=[{"code": getattr(error, "code", "journal-write-failed"), "message": str(error)}],
+            )
+        return _json_result(ok=True, mode="apply", result={**result, "state": "complete", "receipts": receipts}, diagnostics=[])
+
+
+def create_adapter(root: str | Path) -> AppendChangeRecordsAdapter:
+    return AppendChangeRecordsAdapter(root)
+
+
+def describe_tool() -> dict[str, Any]:
+    return make_tool_description(
+        entrypoint=MCP_ENTRYPOINT, name=TOOL_ID, delivery_atom_id="CA-D-009", action_ids=["CA-O-221"],
+        input_symbol="AppendChangeRecordsRequest", output_symbol="AppendChangeRecordsResult",
+        title="Append Change Records", description="Append an existing sealed historical observation to the Project Journal.",
+        purpose="Predict or append exact sealed records without replaying effects or entering the Git commit workflow.",
+        read_only=False, idempotent=True,
+    )
+
+
+def binding_is_admitted(binding: Mapping[str, object] | None) -> bool:
+    return binding_matches(binding, entrypoint=MCP_ENTRYPOINT, name=TOOL_ID, delivery_atom_id="CA-D-009", action_ids=["CA-O-221"])
 
 
 class ToolError(RuntimeError):
