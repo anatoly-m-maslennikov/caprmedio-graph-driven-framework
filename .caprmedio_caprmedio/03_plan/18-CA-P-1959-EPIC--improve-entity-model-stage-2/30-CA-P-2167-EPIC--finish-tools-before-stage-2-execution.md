@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 57
-updated_at: "2026-10-14 16:17:21 +0400"
+version: 58
+updated_at: "2026-10-14 16:55:16 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -29,13 +29,13 @@ The Tools required before affected Stage-2 execution have updated, independently
 
 ## Details
 
-### Reviewed registry-repair progress — 2026-10-14 16:17 +0400
+### Registry repair and staged replacements — 2026-10-14 16:55 +0400
 
-Reviewed commits: `04978a5c1` aligns D531's already-assigned same-ID legacy update with Version +1, exact no-op and exact prior history; `9730ca25a` preserves exact predecessor N and publishes the replacement predecessor's Archived N+1 through the existing native status writer; `fe72fde0f` refreshes the query admission paths and passes 17 focused tests; `14b4c0247` archives obsolete R1877/D566 under the Operator's explicit approval, retaining exact prior bytes rather than changing their primary Claims. The native lifecycle suite passed 35 tests and replacement Journal checks passed nine. The four selected replacement tests still stop before invocation at the obsolete O127 fixture pin; native passes do not establish selected-route acceptance.
+Committed repairs: `899186871` validates local release sources before tests and delivery (11 focused tests); `7d08e415e` fixes selected-Project query Settings binding (68 affected tests); `57f324144` excludes historical Atom carriers from current release-source discovery (15 tests). Independent reviews passed. Release source amendments and exact histories are in `856e93087`, `904ca7d08` and `fc903e1c9`. The full-registry FPF review passed, but source review and focused tests do not prove runtime readiness.
 
-The one full shared-registry FPF review completed with PASS. This supersedes the earlier pending-review checkpoint only; it is review evidence, not source/implementation acceptance, complete registry admission or runtime readiness. No retired Release contract is restored merely to satisfy an old pin.
+The Operator requires D562 and D563 replacements to stay staged until MCP supports recording. Both current sources remain unchanged. Reviewed D633 and D634 candidates are under `.caprmedio_tmp/stage2-migration-20261014/registry-repair/`; they are not active authority. Reuse the existing Journal writer through a minimal MCP connection, with truthful provenance and no invented Workflow Run. Do not substitute direct local recording. Commit `bdcc0f0a8` fixes producer/appender replacement-event identity compatibility; 60 affected tests pass. The MCP request path remains pending.
 
-Remaining blockers are the full Release source/consumer packet and complete shared seventeen-route registry, local validation order, production query Settings file binding, and actual Codex live confirmation, which has not been tested. Finish those bounded alignments, verify the complete registry and its accepted query frontiers, and retain exact refusal/history/recording checks. Keep both Epics Active and the uncertain staging batches unchanged. This checkpoint authorizes no migration, publication, runtime activation, push, new scratch staging or content-Epic execution; each applicable live gate remains separate.
+Commit `e0b3a46e0` aligns the public reader with D613 v8's four pairs and 24 source members; nine tests and independent review pass. Finish the local reader and shared dispatch, then verify the complete seventeen-route registry and accepted query frontiers. The dispatcher still names obsolete release phases. Actual Codex confirmation and connected migration remain unverified. Preserve both uncertain staging batches. Keep both Epics Active; Subjects-only migration, content work, runtime activation, live publication and push remain separate gates.
 
 ### Full shared registry repair selected — 2026-10-14 15:42 +0400
 
