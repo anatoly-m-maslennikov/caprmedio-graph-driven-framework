@@ -23,7 +23,6 @@ assert SPEC is not None and SPEC.loader is not None
 generate_project_graph_state = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = generate_project_graph_state
 SPEC.loader.exec_module(generate_project_graph_state)
-from work_journal import validate_sealed_event, with_event_digest
 
 
 class GenerateProjectGraphStateTests(unittest.TestCase):
@@ -549,11 +548,11 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
                     with self.assertRaisesRegex(SystemExit, "belongs only in Project Settings"):
                         generate_project_graph_state.configuration()
 
-    def test_receipts_bind_both_settings_separately_and_detect_drift_or_ambiguity(self) -> None:
+    def test_log_rows_bind_settings_separately_and_detect_drift_or_ambiguity(self) -> None:
         journal = self.control / "work_journal"
         journal.mkdir()
         records = [
-            validate_sealed_event(with_event_digest({
+            {
                 "schema_version": 3,
                 "kind": "governed_project_change", "event": "completed", "subject_kind": "file",
                 "occurred_at": "2026-09-11 00:00:00 +0400", "event_id": path.stem,
@@ -563,7 +562,7 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
                 "result": {"state": "present", "filename": path.name,
                            "path": path.relative_to(self.root).as_posix(),
                            "sha256": generate_project_graph_state.sha(path), "version": 1},
-            }))
+            }
             for path in (self.project_settings, self.framework_settings)
         ]
         receipt = journal / "settings.ndjson"
@@ -655,6 +654,43 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
             self.assertEqual(".caprmedio_caprmedio/project_structure.toml", structure_bindings[0]["source_carrier"])
             self.assertEqual(generate_project_graph_state.sha(self.control / "project_structure.toml"), structure_bindings[0]["source_sha256"])
             self.assertEqual("sha256:" + structure_bindings[0]["source_sha256"], structure_bindings[0]["source_revision"])
+
+    def test_main_generates_with_unknown_or_ambiguous_optional_history(self) -> None:
+        self.fixture_scope_units()
+        journal = generate_project_graph_state.JOURNAL
+        row = {"result": {"path": self.project_settings.relative_to(self.root).as_posix(),
+                          "sha256": generate_project_graph_state.sha(self.project_settings)}}
+        for history in ("missing", "ambiguous", "invalid_encoding", "unavailable"):
+            with self.subTest(history=history):
+                if history == "ambiguous":
+                    journal.mkdir()
+                    (journal / "settings.ndjson").write_text((json.dumps(row) + "\n") * 2)
+                elif history == "invalid_encoding":
+                    (journal / "settings.ndjson").write_bytes(b"\xff\n")
+                with mock.patch.object(generate_project_graph_state, "parse_args",
+                                       return_value=mock.Mock(describe=False, apply=True)), \
+                        mock.patch.object(generate_project_graph_state, "installed_generator"), \
+                        mock.patch.object(generate_project_graph_state, "write_output") as write, \
+                        mock.patch("builtins.print"):
+                    if history == "unavailable":
+                        with mock.patch.object(generate_project_graph_state, "journal_records",
+                                               side_effect=PermissionError("unavailable")):
+                            generate_project_graph_state.main()
+                    else:
+                        generate_project_graph_state.main()
+                self.assertEqual(2, write.call_count)
+                graph = tomllib.loads(write.call_args_list[0].args[1])
+                self.assertEqual("unknown", graph["projection"]["currentness"])
+                self.assertEqual("fixture_project", graph["project"]["name"])
+                for kind, carrier in (("project_settings", self.project_settings),
+                                      ("framework_settings", self.framework_settings)):
+                    binding = graph["settings"][kind]
+                    self.assertEqual("ambiguous" if history == "ambiguous" and kind == "project_settings"
+                                     else "unresolved", binding["status"])
+                    self.assertEqual("unknown", binding["revision"])
+                    self.assertEqual(carrier.stem, binding["identifier"])
+                    self.assertEqual(carrier.relative_to(self.root).as_posix(), binding["carrier"])
+                    self.assertEqual(generate_project_graph_state.sha(carrier), binding["sha256"])
 
     def test_canonical_projection_bytes_do_not_depend_on_executed_generator_carrier(self) -> None:
         config = generate_project_graph_state.configuration()

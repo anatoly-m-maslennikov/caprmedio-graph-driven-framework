@@ -1,4 +1,4 @@
-"""Independent regression: Settings identity and Journal receipt identity differ."""
+"""Settings identity stays independent from optional log locations."""
 
 from __future__ import annotations
 
@@ -17,7 +17,6 @@ assert SPEC is not None and SPEC.loader is not None
 graph = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = graph
 SPEC.loader.exec_module(graph)
-from work_journal import validate_sealed_event, with_event_digest
 SCRATCH = Path.cwd() / ".caprmedio_tmp" / "tests" / "settings-identity-independent"
 
 
@@ -45,7 +44,7 @@ class SettingsBindingIdentityIndependentTests(unittest.TestCase):
         self.assertEqual(graph.configuration()["project"]["name"], "caprmedio")
 
     def record(self, path, version, event_id):
-        return validate_sealed_event(with_event_digest({
+        return {
                 "schema_version": 3,
                 "kind": "governed_project_change", "event": "completed", "subject_kind": "file",
                 "occurred_at": "2026-10-13 05:00:00 +0400", "event_id": event_id,
@@ -54,7 +53,7 @@ class SettingsBindingIdentityIndependentTests(unittest.TestCase):
                 "structural_scope": "caprmedio", "action_type": "ADD", "sources": [],
                 "result": {"state": "present", "filename": path.name,
                            "path": path.relative_to(self.root).as_posix(), "sha256": graph.sha(path),
-                           "version": version}}))
+                           "version": version}}
 
     def write_journal(self, name, records):
         path = self.journal / name
@@ -92,10 +91,8 @@ class SettingsBindingIdentityIndependentTests(unittest.TestCase):
         wrong_path = self.record(self.project, 7, "unrelated-path")
         wrong_path["result"]["path"] = "some/other/settings.toml"
         wrong_path["result"]["filename"] = "settings.toml"
-        wrong_path = validate_sealed_event(with_event_digest(wrong_path))
         wrong_digest = self.record(self.framework, 8, "unrelated-digest")
         wrong_digest["result"]["sha256"] = "0" * 64
-        wrong_digest = validate_sealed_event(with_event_digest(wrong_digest))
         self.write_journal("zz-unrelated.ndjson", [None, [], wrong_path, wrong_digest])
         bindings = self.read_bindings()
         self.assert_identity(bindings["project_settings"], self.project, "unresolved")
@@ -138,9 +135,7 @@ class SettingsBindingIdentityIndependentTests(unittest.TestCase):
                     "observed_at": observed["occurred_at"],
                     "observer_run_id": observed["llm_session"]["uuid"],
                 }}
-                records[0 if observed_path == self.project else 1] = validate_sealed_event(
-                    with_event_digest(observed)
-                )
+                records[0 if observed_path == self.project else 1] = observed
                 receipt = self.write_journal("mixed-settings.ndjson", records)
                 bindings = self.read_bindings()
                 for kind, path, revision, line, event_id in (

@@ -24,7 +24,6 @@ from artifact_metadata import SETTINGS_PATH, atom_identifier, project_identity  
 from project_runtime import atomic_tempfile, repository_root  # noqa: E402
 from WORKFLOW_OPERATIONS.PROJECT_STRUCTURE import project_structure  # noqa: E402
 from project_selection import ProjectSelectionError, _DeclarationBoundaryProof, _declaration_boundary_proof, bound_selection  # noqa: E402
-from work_journal import WorkJournalError, validate_sealed_event  # noqa: E402
 
 
 ROOT = repository_root(SCRIPT)
@@ -160,7 +159,7 @@ def journal_records(journal: Path) -> list[tuple[Path, int, dict[str, object]]]:
 
 
 def configuration_binding(config_sha: str, carrier: Path | None = None) -> dict[str, str]:
-    """Resolve one sealed change or observed baseline for the native carrier."""
+    """Observe optional log metadata matching the current Settings bytes."""
 
     matches: list[dict[str, str]] = []
     carrier = CONFIG if carrier is None else carrier
@@ -169,59 +168,26 @@ def configuration_binding(config_sha: str, carrier: Path | None = None) -> dict[
         current_sha = sha(carrier)
     except OSError:
         current_sha = ""
-    project_name = project_identity(ROOT)["project"]["name"]
-    for journal_carrier in sorted(JOURNAL.glob("*.ndjson")):
-        for number, line in enumerate(journal_carrier.read_text(encoding="utf-8").splitlines(), 1):
-            try:
-                record = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            if not isinstance(record, dict):
-                continue
+    if current_sha and config_sha == current_sha:
+        try:
+            history = journal_records(JOURNAL)
+        except (OSError, UnicodeDecodeError):
+            history = []
+        for journal_carrier, number, record in history:
+            result = record.get("result")
             if (
-                record.get("schema_version") != 3
-                or (record.get("event"), record.get("kind")) not in (
-                    ("completed", "governed_project_change"),
-                    ("recovered", "governed_project_state"),
-                )
-                or record.get("subject_kind") != "file"
-            ):
-                continue
-            try:
-                record = validate_sealed_event(record)
-            except (WorkJournalError, TypeError, AttributeError):
-                continue
-            result = record["result"]
-            if (
-                record["structural_scope"] != project_name
-                or result["state"] != "present"
-                or result["filename"] != carrier.name
+                not isinstance(result, dict)
                 or result.get("path") != configuration_path
                 or result.get("sha256") != config_sha
-                or config_sha != current_sha
             ):
-                continue
-            if record["event"] == "recovered":
-                evidence = record["recovery_evidence"].get("carrier")
-                if (
-                    not isinstance(evidence, dict)
-                    or evidence.get("path") != configuration_path
-                    or evidence.get("sha256") != config_sha
-                    or evidence.get("observed_at") != record["occurred_at"]
-                    or not isinstance(evidence.get("observer_run_id"), str)
-                    or not evidence["observer_run_id"]
-                ):
-                    continue
-            updated_at = normalise_timestamp(record.get("occurred_at"))
-            if not updated_at:
                 continue
             matches.append(
                 {
-                    "revision": str(result["version"]),
+                    "revision": str(result.get("version", "unknown")),
                     "journal_carrier": project_relative(journal_carrier),
                     "journal_line": str(number),
                     "journal_event_id": str(record.get("event_id", "unknown")),
-                    "updated_at": updated_at,
+                    "updated_at": normalise_timestamp(record.get("occurred_at")),
                 }
             )
     if len(matches) == 1:
@@ -450,145 +416,6 @@ def directory_observations(
                     observation["mismatches"].append("numeric_prefix")
         observations.append(observation)
     return observations
-
-
-def current_directory_entries(directory: Path) -> list[dict[str, str]]:
-    """Return the exact Git-admitted current file frontier of one Directory Carrier."""
-
-    relative = project_relative(directory)
-    completed = subprocess.run(
-        ["git", "-C", str(ROOT), "ls-files", "--cached", "--others", "--exclude-standard", "--", relative],
-        check=False,
-        capture_output=True,
-        text=True,
-    )
-    if completed.returncode != 0:
-        raise SystemExit("cannot resolve the Git-admitted Scope Unit Directory Carrier frontier")
-    entries: list[dict[str, str]] = []
-    for value in completed.stdout.splitlines():
-        path = ROOT / value
-        if not path.is_file():
-            raise SystemExit(f"Scope Unit Directory Carrier contains an unresolved entry: {value}")
-        entries.append({"path": value, "sha256": sha(path)})
-    return sorted(entries, key=lambda entry: entry["path"])
-
-
-def directory_receipt(directory: Path) -> dict[str, str]:
-    """Resolve the one completed Work Journal receipt for a current Directory Carrier."""
-
-    relative = project_relative(directory)
-    current_entries = current_directory_entries(directory)
-    if not current_entries:
-        raise SystemExit(f"Scope Unit Directory Carrier is empty: {relative}")
-    relative_entries = [
-        {"path": Path(entry["path"]).relative_to(relative).as_posix(), "sha256": entry["sha256"]}
-        for entry in current_entries
-    ]
-    expected_digest = canonical_json_digest(relative_entries)
-    matches: list[dict[str, str]] = []
-    for carrier, number, record in journal_records(JOURNAL):
-        result = record.get("result")
-        if (
-            record.get("kind") != "governed_project_change"
-            or record.get("event") != "completed"
-            or record.get("subject_kind") != "folder"
-            or not isinstance(result, dict)
-            or result.get("path") != relative
-            or result.get("sha256") != expected_digest
-            or not isinstance(result.get("version"), int)
-            or result.get("entries") != current_entries
-        ):
-            continue
-        updated_at = normalise_timestamp(record.get("occurred_at"))
-        event_id = record.get("event_id")
-        if not updated_at or not isinstance(event_id, str) or not event_id:
-            continue
-        matches.append(
-            {
-                "carrier": relative,
-                "revision": str(result["version"]),
-                "sha256": expected_digest,
-                "journal_carrier": project_relative(carrier),
-                "journal_line": str(number),
-                "journal_event_id": event_id,
-                "updated_at": updated_at,
-            }
-        )
-    if len(matches) != 1:
-        state = "unresolved" if not matches else "ambiguous"
-        raise SystemExit(f"{state} exact Work Journal receipt for Scope Unit Directory Carrier: {relative}")
-    return matches[0]
-
-
-def atom_frontmatter(path: Path) -> tuple[str, str]:
-    """Return frontmatter and body from one governed Markdown Atom carrier."""
-
-    text = path.read_text(encoding="utf-8")
-    if not text.startswith("---\n"):
-        raise SystemExit(f"Delivery Atom lacks frontmatter: {project_relative(path)}")
-    boundary = text.find("\n---\n", 4)
-    if boundary < 0:
-        raise SystemExit(f"Delivery Atom has unterminated frontmatter: {project_relative(path)}")
-    return text[4:boundary], text[boundary + len("\n---\n") :]
-
-
-DELIVERY_BINDING = re.compile(
-    r"(?m)^[A-Z][A-Z0-9_]* uses authority path `(?P<authority_path>[^`]+)` "
-    r"and Delivery path `(?P<delivery_path>[^`]+)`\.$"
-)
-DELIVERY_ATOM_ID = re.compile(r"(?P<atom_id>CA-D-[0-9]+)-")
-
-
-def delivery_atom_binding(directory: Path, receipt: dict[str, str]) -> dict[str, str]:
-    """Resolve the sole active Delivery Atom which binds one Scope Unit's places."""
-
-    delivery_directory = directory / "07_delivery"
-    if not delivery_directory.is_dir():
-        raise SystemExit(f"Scope Unit lacks a Delivery directory: {project_relative(directory)}")
-    authority_path = project_relative(directory) + "/"
-    candidates: list[dict[str, str]] = []
-    receipt_entries = {
-        entry["path"]: entry["sha256"] for entry in current_directory_entries(directory)
-    }
-    for path in sorted(delivery_directory.glob("*.md")):
-        frontmatter, body = atom_frontmatter(path)
-        matches = list(DELIVERY_BINDING.finditer(body))
-        if len(matches) != 1 or matches[0]["authority_path"] != authority_path:
-            continue
-        versions = re.findall(r"(?m)^version:\s*([1-9][0-9]*)\s*$", frontmatter)
-        updated_ats = re.findall(r"(?m)^updated_at:\s*([^\n]+)\s*$", frontmatter)
-        atom_id_match = DELIVERY_ATOM_ID.match(path.name)
-        updated_at = normalise_timestamp(updated_ats[0]) if len(updated_ats) == 1 else ""
-        if len(versions) != 1 or not atom_id_match or not updated_at:
-            raise SystemExit(f"Delivery Atom lacks an exact revision: {project_relative(path)}")
-        digest = sha(path)
-        path_relative = project_relative(path)
-        if receipt_entries.get(path_relative) != digest:
-            raise SystemExit(
-                "Scope Unit Directory Carrier receipt does not bind its active Delivery Atom: "
-                f"{path_relative}"
-            )
-        candidates.append(
-            {
-                "atom_id": atom_id_match["atom_id"],
-                "carrier": path_relative,
-                "revision": versions[0],
-                "sha256": digest,
-                "authority_path": authority_path,
-                "delivery_path": matches[0]["delivery_path"],
-                "journal_carrier": receipt["journal_carrier"],
-                "journal_line": receipt["journal_line"],
-                "journal_event_id": receipt["journal_event_id"],
-                "updated_at": updated_at,
-            }
-        )
-    if len(candidates) != 1:
-        state = "missing" if not candidates else "ambiguous"
-        raise SystemExit(
-            f"{state} active Delivery Atom binding for Scope Unit Directory Carrier: "
-            f"{project_relative(directory)}"
-        )
-    return candidates[0]
 
 
 def _delivery_bindings(control: Path, root: Path) -> tuple[dict[str, dict[str, object]], str, _DeclarationBoundaryProof]:
@@ -960,8 +787,6 @@ def main() -> None:
         raise SystemExit("required control root or Project Configuration is missing")
     config = configuration()
     bindings = settings_bindings()
-    if any(item["status"] != "resolved" for item in bindings.values()):
-        raise SystemExit("Settings current revision binding is unresolved or ambiguous")
     source_atoms = active_source_atoms()
     modes = config["authority_modes"]
     assert isinstance(modes, dict)
