@@ -13,7 +13,9 @@ from pathlib import Path
 
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "RELEASE_VERSION"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"))
 from local_release import run_local_release  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import ProposedCarrierError  # noqa: E402
 
 
 class SimpleLocalReleaseTests(unittest.TestCase):
@@ -65,6 +67,15 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.engine_bootstrap.parent.mkdir(parents=True)
         self.engine_bootstrap.write_bytes(b"#!/usr/bin/env python3\n# package bootstrap fixture\n")
         self.engine_bootstrap.chmod(0o755)
+        # These transport/delivery fixtures deliberately omit full methodology authority.
+        context = patch("VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier.source_context_from_project",
+                        autospec=True, return_value=SimpleNamespace(root=self.root))
+        validation = patch("VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier.validate_proposed_carrier",
+                           autospec=True, return_value={})
+        self.context = context.start()
+        self.validation = validation.start()
+        self.addCleanup(context.stop)
+        self.addCleanup(validation.stop)
 
     def _runner(self):
         calls = []
@@ -94,6 +105,9 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         return patch.dict(sys.modules, {module.__name__: module})
 
     def test_active_sources_replace_product_and_installed_copy_preserves_config(self):
+        archived = self.sources / "001_CORE_META_MODEL/archived/active@1.md"
+        archived.parent.mkdir()
+        archived.write_bytes((archived.parent.parent / "active.md").read_bytes())
         runner, calls = self._runner()
         with self._compiler():
             result = run_local_release(self.root, run_id="happy", runner=runner)
@@ -117,6 +131,61 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertIn('version = "0.4.1.1"', (self.root / "version.toml").read_text())
         self.assertIn('version = "0.4.1.1"', (self.runtime / "simple_local_release/package/version.toml").read_text())
         self.assertEqual(1, sum(argv[-1:] == ("project-mcp",) for argv in calls))
+        self.context.assert_called_once_with(self.root)
+        self.assertEqual(3, self.validation.call_count)
+        self.assertEqual(
+            {path.relative_to(self.control) for path in self.sources.glob("*/active.md")},
+            {call.args[3] for call in self.validation.call_args_list})
+        for call in self.validation.call_args_list:
+            self.assertEqual("Active", call.args[0]["status"])
+            self.assertIs(self.context.return_value, call.args[2])
+
+    def test_invalid_active_source_stops_before_tests_and_delivery(self):
+        source = self.sources / "001_CORE_META_MODEL/active.md"
+        source.write_text("---\natom_id: CA-R-1\nstatus: Active\nstatus: Active\n---\nInvalid\n", encoding="utf-8")
+        runner, calls = self._runner()
+        version = (self.root / "version.toml").read_bytes()
+
+        result = run_local_release(self.root, run_id="invalid-source", runner=runner)
+
+        self.assertEqual("failed", result["outcome"])
+        self.assertEqual("validate_sources", result["failed_step"])
+        self.validation.assert_not_called()
+        self.assertFalse(any("unittest" in argv or argv[0] == "docker" for argv in calls))
+        self.assertEqual(version, (self.root / "version.toml").read_bytes())
+        for target in (self.product, self.installed):
+            self.assertEqual("obsolete", (target / "old.txt").read_text())
+
+    def test_unverified_complete_carrier_stops_before_tests_and_delivery(self):
+        self.validation.side_effect = ProposedCarrierError("invalid complete carrier")
+        runner, calls = self._runner()
+
+        result = run_local_release(self.root, run_id="invalid-carrier", runner=runner)
+
+        self.assertEqual("validate_sources", result["failed_step"])
+        self.assertEqual("failed", result["outcome"])
+        self.assertEqual(1, self.validation.call_count)
+        self.assertFalse(any("unittest" in argv or argv[0] == "docker" for argv in calls))
+        for target in (self.product, self.installed):
+            self.assertEqual("obsolete", (target / "old.txt").read_text())
+
+    def test_missing_or_duplicate_current_sources_stop_before_tests(self):
+        core = self.sources / "001_CORE_META_MODEL/active.md"
+        for case in ("missing", "duplicate"):
+            with self.subTest(case=case):
+                if case == "missing":
+                    core.write_text("---\natom_id: CA-R-1\nstatus: Draft\n---\nInactive\n", encoding="utf-8")
+                else:
+                    core.write_bytes((self.sources / "002_INSTALLED_EXTENSIONS/active.md").read_bytes())
+                runner, calls = self._runner()
+
+                result = run_local_release(self.root, run_id=case + "-source", runner=runner)
+
+                self.assertEqual("failed", result["outcome"])
+                self.assertEqual("validate_sources", result["failed_step"])
+                self.assertFalse(any("unittest" in argv for argv in calls))
+                for target in (self.product, self.installed):
+                    self.assertEqual("obsolete", (target / "old.txt").read_text())
 
     def test_installer_refreshes_bootstrap_without_touching_runtime_config_or_state(self):
         runner, calls = self._runner()
@@ -185,6 +254,10 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             calls.append(argv)
             if argv == ("git", "diff", "--cached", "--quiet"):
                 return subprocess.CompletedProcess(argv, 1, "", "")
+            if "unittest" in argv:
+                self.assertEqual(3, self.validation.call_count)
+                for target in (self.product, self.installed):
+                    self.assertEqual("obsolete", (target / "old.txt").read_text())
             return subprocess.CompletedProcess(argv, 2 if "unittest" in argv else 0, "", "test failure")
 
         result = run_local_release(self.root, run_id="tests-failed", runner=runner)
@@ -193,7 +266,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         for target in (self.product, self.installed):
             self.assertEqual("obsolete", (target / "old.txt").read_text())
         self.assertEqual(1, sum("unittest" in argv for argv in calls))
-        self.assertEqual(1, sum(argv[:2] == ("git", "commit") for argv in calls))
+        self.assertEqual(2, sum(argv[:2] == ("git", "commit") for argv in calls))
 
     def test_git_stages_everything_and_commits_before_steps_and_at_end(self):
         runner, calls = self._runner()
@@ -208,7 +281,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             self.assertEqual(add + 2, commit)
         self.assertEqual(len(calls) - 1, commits[-1])
         self.assertEqual([
-            "tests", "copy active sources", "compile product", "copy product to installed framework",
+            "validate sources", "tests", "copy active sources", "compile product", "copy product to installed framework",
             "build package", "install project runtime", "start mcp", "final",
         ], [calls[index][-1].removeprefix("chore(release): simple local ") for index in commits])
 

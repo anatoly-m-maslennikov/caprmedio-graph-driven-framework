@@ -37,7 +37,7 @@ _PRESERVED_NAMES = frozenset(
 )
 _RUN_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*\Z")
 _ACTIVE_STATUS = re.compile(r"^status:\s*[\"']?Active[\"']?\s*$", re.MULTILINE)
-_NON_SOURCE_DIRECTORIES = frozenset({"archive", "draft", "drafts", "journal", "projection", "_journal", "_projection", ".caprmedio_tmp", "__pycache__"})
+_NON_SOURCE_DIRECTORIES = frozenset({"archive", "archived", "draft", "drafts", "journal", "projection", "_journal", "_projection", ".caprmedio_tmp", "__pycache__"})
 def _relative(value: object, *, label: str) -> Path:
     if not isinstance(value, str) or not value or "\x00" in value:
         raise LocalReleaseError(f"local-release-{label}-invalid")
@@ -142,6 +142,39 @@ def _active_atom(path: Path) -> bool:
         return False
     closing = payload.find("\n---\n", len("---\n"))
     return bool(closing >= 0 and _ACTIVE_STATUS.search(payload[len("---\n"):closing]))
+
+
+def _validate_release_sources(root: Path) -> None:
+    """Read and validate the same current active source frontier that delivery copies."""
+    selected = _read_structure(root, {})
+    tools = _project_path(root, Path("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"),
+                          label="validator-root", require_exists=True)
+    if not tools.is_dir():
+        raise LocalReleaseError("local-release-validator-unavailable")
+    if str(tools) not in sys.path:
+        sys.path.insert(0, str(tools))
+    try:
+        from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
+        from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
+            source_context_from_project, validate_proposed_carrier,
+        )
+        context = source_context_from_project(root)
+        identities: set[str] = set()
+        for name, source in selected:
+            active = [entry for entry in _walk_regular_files(source, excluded_directories=_NON_SOURCE_DIRECTORIES)
+                      if _active_atom(entry)]
+            if name == "CORE_META_MODEL" and not active:
+                raise LocalReleaseError("local-release-source-empty:CORE_META_MODEL")
+            for entry in active:
+                parsed = parse_carrier(entry.read_bytes(), entry)
+                identity = parsed.metadata.get("atom_id")
+                if not isinstance(identity, str) or not identity or identity in identities:
+                    raise LocalReleaseError("local-release-source-identity-invalid")
+                identities.add(identity)
+                validate_proposed_carrier(parsed.metadata, parsed.body, context,
+                                          entry.relative_to(root / ".caprmedio_caprmedio"))
+    except (ImportError, OSError, RuntimeError, ValueError) as error:
+        raise LocalReleaseError("local-release-sources-invalid") from error
 
 
 def _clear_target(target: Path, *, root: Path, preserve: frozenset[str], label: str) -> None:
@@ -292,13 +325,13 @@ def run_local_release(project_root: Path | str, *, run_id: str,
     except (OSError, UnicodeDecodeError, json.JSONDecodeError):
         pass
 
-    failed_step = "tests"
+    failed_step = "validate_sources"
     mcp: Any = None
     receipt_path: str | None = None
     cleanup_note = "No proven superseded Project-owned image identity was available; none was removed."
     cleanup_pending = False
     phases = (
-        "tests", "copy active sources", "compile product", "copy product to installed framework",
+        "validate sources", "tests", "copy active sources", "compile product", "copy product to installed framework",
         "build package", "install project runtime", "start mcp", "final",
     )
     try:
@@ -328,7 +361,10 @@ def run_local_release(project_root: Path | str, *, run_id: str,
 
             if phase == "final":
                 continue
-            if phase == "tests":
+            if phase == "validate sources":
+                failed_step = "validate_sources"
+                _validate_release_sources(root)
+            elif phase == "tests":
                 failed_step = "tests"
                 try:
                     result = runner((
