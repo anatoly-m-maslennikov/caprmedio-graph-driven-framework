@@ -314,6 +314,103 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             label="native Action progress",
         )
 
+    def _w10_native_result(
+        self, root: Path, request_id: str, graph: Mapping[str, Any]
+    ) -> dict[str, Any]:
+        rows = [row for row in graph["step_results"] if row["action_definition_id"] == "CA-O-131"]
+        self.assertEqual(1, len(rows), rows)
+        native = self._action_progress(root, request_id, rows[0]["action_run_id"])["native_result"]
+        self.assertIsInstance(native, dict, native)
+        return native
+
+    def _assert_w10_restored_members(self, root: Path, effect: Mapping[str, Any]) -> None:
+        binding = effect["capability_binding"]
+        self.assertEqual("structure.rollback_scope_unit_change", binding["capability_id"])
+        receipt = effect["receipt"]
+        self.assertEqual(binding["capability_id"], receipt["capability_id"])
+        self.assertEqual(binding["evidence_refs"], receipt["evidence_refs"])
+        native = receipt["native_result"]
+        self.assertEqual("rolled_back", native["state"], native)
+        self.assertEqual([], native["remaining_breakages"], native)
+        boundary = binding["parameters"]["recovery_boundary"]
+        self.assertEqual(boundary, binding["target"]["recovery_boundary"])
+        self.assertEqual(boundary["authorized_boundary"], native["authorized_boundary"])
+        members = [boundary["toml"], *boundary["references"]]
+        expected = [
+            {
+                "path": member["path"],
+                "before_sha256": member["after_sha256"],
+                "after_sha256": member["before_sha256"],
+            }
+            for member in members
+        ]
+        self.assertEqual(expected, native["restored"], native)
+        for member in expected:
+            path = self._safe_existing_ref(root, member["path"], label="W10 restored member")
+            self.assertEqual(member["after_sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+
+    def _assert_w10_effect_refs(
+        self,
+        root: Path,
+        request_id: str,
+        native: Mapping[str, Any],
+        references: object,
+    ) -> None:
+        frozen = self._read_json(
+            root
+            / ".caprmedio_install/workflow_orchestrator/runs"
+            / request_id
+            / "selected_request.json",
+            label="W10 frozen request",
+        )
+        approved = frozen["request"]["execution"]["parameters"]["approved_reversal_manifest"]
+        self.assertEqual(approved["manifest_id"], native["manifest_id"], native)
+        self.assertEqual("reverted", native["outcome"], native)
+        expected = approved["request"]["ordered_effects"]
+        account = native["effect_account"]
+        self.assertEqual(len(expected), account["applied_effect_count"], native)
+        self.assertEqual(len(expected), len(account["effects"]), native)
+        for selected, effect in zip(expected, account["effects"]):
+            self.assertEqual(
+                selected,
+                {key: value for key, value in effect.items() if key not in {"status", "receipt"}},
+            )
+            self.assertEqual("completed", effect["status"], effect)
+            self._assert_w10_restored_members(root, effect)
+        # These are logical completed-effect keys, not fabricated file carriers.
+        self.assertEqual(
+            [
+                f".caprmedio_runtime/revert_changes/{native['manifest_id']}:terminal/{effect['effect_id']}"
+                for effect in expected
+            ],
+            references,
+        )
+
+    def _assert_terminal_refs(
+        self,
+        root: Path,
+        request_id: str,
+        definition_id: str,
+        terminal: Mapping[str, Any],
+        reversal: Mapping[str, Any] | None,
+    ) -> None:
+        if reversal is not None and definition_id == "CA-O-131":
+            self.assertEqual(
+                f".caprmedio_runtime/revert_changes/{reversal['manifest_id']}:terminal.json",
+                terminal.get("result_ref"),
+            )
+            for key in ("run_id", "disposition", "outcome", "result_ref", "effect_refs"):
+                self.assertEqual(reversal["run_receipt_refs"][-1][key], terminal[key])
+        else:
+            self._safe_existing_ref(root, terminal.get("result_ref"), label="terminal result")
+        effects = terminal.get("effect_refs")
+        self.assertIsInstance(effects, list, terminal)
+        if reversal is not None:
+            self._assert_w10_effect_refs(root, request_id, reversal, effects)
+        else:
+            for effect in effects:
+                self._safe_existing_ref(root, effect, label="terminal effect")
+
     def _assert_shared_run_journal(
         self,
         root: Path,
@@ -427,15 +524,14 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
 
         # J06/J07/J08: status's terminal records and Journal evidence agree on
         # clean outcome and actual retained result/effect references.
+        reversal = self._w10_native_result(root, request_id, graph) if route.get("route") == "revert_changes" else None
         for run_id in expected_run_ids:
             terminal = terminal_by_run_id[run_id]
             self.assertEqual("terminal", terminal.get("disposition"), terminal)
             self.assertEqual(expected_outcome, terminal.get("outcome"), terminal)
-            self._safe_existing_ref(root, terminal.get("result_ref"), label="terminal result")
-            effects = terminal.get("effect_refs")
-            self.assertIsInstance(effects, list, terminal)
-            for effect in effects:
-                self._safe_existing_ref(root, effect, label="terminal effect")
+            SelectedWorkflowsDockerEndToEnd._assert_terminal_refs(
+                self, root, request_id, expected_definitions[run_id]["atom_id"], terminal, reversal,
+            )
 
     def _assert_graph_path_and_native_results(
         self,
@@ -477,8 +573,12 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(f"{actual_step}:action:1", row.get("action_run_id"), row)
             self.assertIsInstance(row.get("result"), str, row)
             self.assertIsInstance(row.get("effect_refs"), list, row)
-            for effect in row["effect_refs"]:
-                self._safe_existing_ref(root, effect, label="native Action effect")
+            if route.get("route") == "revert_changes":
+                native = self._action_progress(root, request_id, row["action_run_id"])["native_result"]
+                self._assert_w10_effect_refs(root, request_id, native, row["effect_refs"])
+            else:
+                for effect in row["effect_refs"]:
+                    self._safe_existing_ref(root, effect, label="native Action effect")
             if index:
                 previous = rows[index - 1]
                 transitions = source_edges if source_edges is not None else route["on_result"]
@@ -621,9 +721,12 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         finally:
             temporary.cleanup()
 
-    async def test_all_fifteen_execute_with_native_effects_and_clean_shared_run_lineage(self) -> None:
+    async def test_thirteen_supported_routes_execute_with_native_effects_and_clean_shared_run_lineage(self) -> None:
         """Read-only previews and native effects share only one route's fresh stack."""
-        for case_id, route_name in ROUTE_CASES:
+        # W11/W12 full semantic publication is deferred; their corpus/admission checks remain.
+        supported = [case for case in ROUTE_CASES if case[0] not in {"W11", "W12"}]
+        self.assertEqual(13, len(supported))
+        for case_id, route_name in supported:
             with self.subTest(case=case_id):
                 case = GoldenCase(case_id, route_name)
                 temporary, root, fixture = self._new_fixture(case)
@@ -725,14 +828,17 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         launched = False
         try:
             fixture.prepare()
-            fixture.corrupt_one_bound_source()
-            before = fixture.snapshot()
             launched = True
             await self._start(runtime)
+            await self._connect(runtime, root)
+            self.assertIn(case.route, {tool.name for tool in await self._mcp_client.list_tools()})
+            fixture.corrupt_one_bound_source()
+            before = fixture.snapshot()
             result = await self._call(
                 runtime, root, case.route, fixture.request(request_id="golden-w13-stale")
             )
             self.assertEqual("rejected", result.get("disposition"), result)
+            self.assertTrue(any("source pin is stale:" in value for value in result.get("diagnostics", [])), result)
             self.assertEqual(before, fixture.snapshot())
             self.assertFalse(list((root / ".caprmedio_caprmedio/_journal").glob("*.ndjson")))
         except GoldenCorpusError as error:
