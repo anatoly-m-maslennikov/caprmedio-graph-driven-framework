@@ -94,7 +94,7 @@ async def _stdio_client(parameters: Any) -> AsyncIterator[Any]:
     """One uncached MCP connection, scoped to its disposable Project."""
     from mcp import Client
 
-    async with Client(parameters, cache=None, read_timeout_seconds=20) as client:
+    async with Client(parameters, cache=None, mode="legacy", read_timeout_seconds=20) as client:
         yield client
 
 
@@ -151,11 +151,11 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.assertEqual("ready", started.get("outcome"), started)
         self.assertEqual("mock", started.get("agent_mode"), started)
 
-    async def _stop(self, runtime: Runtime) -> None:
+    async def _stop(self, runtime: Runtime, *, http: bool = False) -> None:
         try:
             await self._disconnect()
         finally:
-            await asyncio.to_thread(runtime.call, "down", "--volumes", timeout=60)
+            await asyncio.to_thread(runtime.call, "down", "--volumes", http=http, timeout=60)
 
     def _new_fixture(self, case: GoldenCase) -> tuple[FixtureLease, Path, GoldenProject]:
         parent = Path(E2E_CONTEXT.scratch_root) / "selected-workflows-docker-e2e"

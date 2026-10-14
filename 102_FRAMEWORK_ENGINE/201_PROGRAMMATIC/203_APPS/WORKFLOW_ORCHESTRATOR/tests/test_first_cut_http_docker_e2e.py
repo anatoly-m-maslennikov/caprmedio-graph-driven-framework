@@ -284,7 +284,9 @@ class FirstCutCorpusTests(unittest.TestCase):
                 events.append("fixture-cleanup")
 
         class Assertions:
-            async def _stop(self, _runtime) -> None:
+            async def _stop(self, _runtime, *, http=False) -> None:
+                if not http:
+                    raise AssertionError("HTTP fixture cleanup must include its Compose file")
                 events.append("runtime-stop")
 
         async def startup() -> None:
@@ -309,6 +311,8 @@ class FirstCutCorpusTests(unittest.TestCase):
 
         asyncio.run(check())
         self.assertLess(events.index("http-startup-complete"), events.index("http-stop"), events)
+        self.assertEqual("fixture-cleanup", events[-1])
+        self.assertIn("runtime-stop", events)
 
     def test_loopback_client_ignores_inherited_socks_proxy(self) -> None:
         try:
@@ -326,6 +330,55 @@ class FirstCutCorpusTests(unittest.TestCase):
                     await client.aclose()
 
         asyncio.run(check_client())
+
+    def test_http_client_uses_sdk_stream_timeouts_and_keeps_response_hook(self) -> None:
+        from mcp.shared._httpx_utils import MCP_DEFAULT_TIMEOUT, MCP_DEFAULT_SSE_READ_TIMEOUT
+
+        hook = mock.AsyncMock()
+
+        async def check_client() -> None:
+            client = FirstCutHttpDockerEndToEnd._http_client(response_hook=hook)
+            try:
+                self.assertEqual(MCP_DEFAULT_SSE_READ_TIMEOUT, client.timeout.read)
+                for phase in ("connect", "write", "pool"):
+                    self.assertEqual(MCP_DEFAULT_TIMEOUT, getattr(client.timeout, phase))
+                self.assertEqual([hook], client.event_hooks["response"])
+                self.assertFalse(client.trust_env)
+            finally:
+                await client.aclose()
+
+        asyncio.run(check_client())
+
+    def test_shared_fixture_cleanup_selects_exact_compose_files_after_disconnect_failure(
+        self,
+    ) -> None:
+        async def check_cleanup() -> None:
+            for http in (False, True):
+                with self.subTest(http=http):
+                    harness = selected_harness.SelectedWorkflowsDockerEndToEnd("runTest")
+                    harness._disconnect = mock.AsyncMock(
+                        side_effect=RuntimeError("disconnect failed")
+                    )
+                    runtime = mock.Mock()
+                    with self.assertRaisesRegex(RuntimeError, "disconnect failed"):
+                        await harness._stop(runtime, http=http)
+                    harness._disconnect.assert_awaited_once_with()
+                    runtime.call.assert_called_once_with("down", "--volumes", http=http, timeout=60)
+
+        asyncio.run(check_cleanup())
+
+    def test_local_stdio_client_uses_legacy_handshake_without_widening_timeout(self) -> None:
+        async def connect() -> None:
+            context = mock.AsyncMock()
+            with mock.patch("mcp.Client", return_value=context) as factory:
+                async with selected_harness._stdio_client("fixture-parameters") as client:
+                    self.assertIs(context.__aenter__.return_value, client)
+                factory.assert_called_once_with(
+                    "fixture-parameters", cache=None, mode="legacy", read_timeout_seconds=20
+                )
+                context.__aexit__.assert_awaited_once()
+
+        asyncio.run(connect())
 
 
 class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
@@ -375,10 +428,12 @@ class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
     @staticmethod
     def _http_client(_token: str | None = None, *, response_hook=None):
         import httpx2
+        from mcp.shared._httpx_utils import MCP_DEFAULT_TIMEOUT, MCP_DEFAULT_SSE_READ_TIMEOUT
 
         # The admitted endpoint is explicit loopback and anonymous.
         return httpx2.AsyncClient(
             trust_env=False,
+            timeout=httpx2.Timeout(MCP_DEFAULT_TIMEOUT, read=MCP_DEFAULT_SSE_READ_TIMEOUT),
             event_hooks={"response": [] if response_hook is None else [response_hook]},
         )
 
@@ -456,7 +511,7 @@ class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             )
 
         async def stop_runtime() -> None:
-            await self._assertions._stop(runtime)
+            await self._assertions._stop(runtime, http=http_start_attempted)
 
         async def clean_fixture() -> None:
             temporary.cleanup()
@@ -471,7 +526,7 @@ class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                     failure = await _cleanup_attempted_http_start(failure, http_start_attempted, stop_http)
                 finally:
                     try:
-                        if startup_task is not None:
+                        if startup_task is not None or http_start_attempted:
                             failure = await _attempt_cleanup(failure, stop_runtime)
                     finally:
                         failure = await _attempt_cleanup(failure, clean_fixture)
