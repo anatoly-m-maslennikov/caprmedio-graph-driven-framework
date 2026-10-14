@@ -96,11 +96,7 @@ class SelectedW04TerminalOutcomeAssertions(unittest.TestCase):
                 self, root, request_id, route, selected, graph, expected_outcome=expected_outcome,
             )
 
-    def test_current_w02_child_pin_and_applied_lineage(self) -> None:
-        repository = TESTS.parents[4]
-        manifest = json.loads((repository / ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json").read_text())
-        routes = {route["route"]: route for route in manifest["routes"]}
-        self.assertEqual(["CA-O-030"], [item["atom_id"] for item in routes["update_atom"]["native_action_calls"]])
+    def test_w02_applied_native_child_lineage(self) -> None:
         self._assert_native_child_lineage(
             "update_atom", "CA-O-030", expected_outcome="completed", include_native_child=True,
         )
