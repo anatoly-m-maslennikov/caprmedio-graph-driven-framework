@@ -914,8 +914,9 @@ def preserve_atom_revision(root: Path, atom: Atom, *, allow_nonactive: bool = Fa
     return atom_from_path(root, target)
 
 
-def archive_atom_revision(root: Path, atom: Atom, frontmatter: str, content: str) -> Atom:
-    """Atomically move one validated active carrier into its versioned archive."""
+def archive_atom_revision(root: Path, atom: Atom, frontmatter: str, content: str, *,
+                         expected_bundle: Mapping | None = None) -> Atom:
+    """Archive the next Revision while retaining the exact current predecessor."""
 
     root = root.resolve()
     control = control_root(root)
@@ -924,19 +925,15 @@ def archive_atom_revision(root: Path, atom: Atom, frontmatter: str, content: str
     role_name = _role_directory(atom.path, control)
     if role_name is None:
         raise ToolError("archive-location-missing", f"Atom has no content-role archive location: {atom.relative}")
-    role = next(parent for parent in atom.path.parents if parent.name == role_name)
-    target = role / "archived" / f"{atom.path.stem}@{atom_version(atom)}{atom.path.suffix}"
-    target = target.resolve()
-    if target.exists():
-        raise ToolError("destination-collision", f"archive destination already exists: {target.relative_to(root)}")
-    snapshots = {atom.path: atom.path.read_bytes(), target: None}
-    try:
-        _atomic_write(target, render(frontmatter, content))
-        atom.path.unlink()
-    except BaseException:
-        _restore(snapshots)
-        raise
-    return atom_from_path(root, target)
+    local = atom.path.parent
+    if local.name in {"001_backlog", "done", "canceled", "archived", "resolved", "draft"}:
+        local = local.parent
+    stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
+    target = local / "archived" / f"{stem}@{atom_version(atom) + 1}{atom.path.suffix}"
+    archived, _history = publish_status_atom_revision(
+        root, atom, target.relative_to(root).as_posix(), frontmatter, content,
+        expected_bundle=status_bundle_snapshot(root, atom) if expected_bundle is None else expected_bundle)
+    return archived
 
 
 def demote_atom_to_draft(root: Path, atom: Atom, frontmatter: str, content: str) -> Atom:

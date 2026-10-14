@@ -104,6 +104,7 @@ class SelectedReplacementJournalTest(unittest.TestCase):
     def test_append_failure_preserves_pending_canonical_evidence(self) -> None:
         event = self.event()
         context = self.context(event)
+        before = self.result_path.read_bytes()
 
         with patch("selected_replacement_journal.append_sealed_events", side_effect=OSError("full")):
             recorded = record_selected_replacement(self.root, canonical_event=event, append_context=context)
@@ -111,6 +112,13 @@ class SelectedReplacementJournalTest(unittest.TestCase):
         self.assertEqual("recording_pending", recorded["state"])
         self.assertEqual(event["event_digest"], recorded["pending"]["event_digest"])
         self.assertEqual("archive/replacement.md", recorded["pending"]["effect_refs"][0])
+        with patch("lifecycle_intents.replace_atom_action", side_effect=AssertionError("replacement replayed")) as effect:
+            recovered = record_selected_replacement(self.root, canonical_event=event, append_context=context)
+        effect.assert_not_called()
+        self.assertEqual("completed", recovered["state"])
+        self.assertEqual(event["event_id"], recovered["receipt"]["event_id"])
+        self.assertEqual(event["event_digest"], recovered["receipt"]["event_digest"])
+        self.assertEqual(before, self.result_path.read_bytes())
 
     def test_invalid_append_context_is_refused_before_readback(self) -> None:
         with self.assertRaises(ReplacementJournalError):

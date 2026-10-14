@@ -106,6 +106,8 @@ class SelectedReplacementExecutionTests(unittest.TestCase):
 
     def test_predeclares_source_pinned_o051_child_and_records_its_parent_lineage(self) -> None:
         parameters = self.fixture.native_parameters()
+        predecessor_path = self.root / parameters["predecessor"]["path"]
+        before = predecessor_path.read_bytes()
         frozen, session = self._frozen(parameters)
         requested = frozen["request"]["execution"]["requested_runs"]
         parent_id = "w03-nested:step:1:action:1"
@@ -128,6 +130,16 @@ class SelectedReplacementExecutionTests(unittest.TestCase):
         self.assertEqual("golden-w03-predecessor", replacement["previous_result_event"])
         self.assertEqual("CA-R-100", replacement["predecessor_atom_id"])
         self.assertEqual(["CA-R-103"], replacement["successor_atom_ids"])
+        native = json.loads(child_result.read_text(encoding="utf-8"))["native_result"]
+        predecessor = native["predecessor"]
+        history = native["history"]["prior_revision"]
+        self.assertEqual(parameters["predecessor"]["version"] + 1, predecessor["version"])
+        self.assertEqual(predecessor_path.stem + f"@{predecessor['version']}.md", predecessor["filename"])
+        self.assertEqual(before, (self.root / history["path"]).read_bytes())
+        self.assertEqual(parameters["predecessor"]["version"], history["version"])
+        self.assertEqual([1], [row["version"] for row in native["successors"]])
+        self.assertEqual(predecessor["version"], replacement["result"]["version"])
+        self.assertIn(history["path"], session.terminal[child_id]["effect_refs"])
 
     def test_missing_prior_journal_state_blocks_before_native_replacement_effect(self) -> None:
         for path in (self.root / ".caprmedio_caprmedio/_journal").glob("*.ndjson"):
@@ -170,6 +182,12 @@ class SelectedReplacementExecutionTests(unittest.TestCase):
         self.assertFalse(any(event.get("event_id") == f"selected-replacement:{child_id}" for event in self._events(self.root)))
         pending = list((self.root / ".caprmedio_runtime/state/work_journal/pending").glob("*.json"))
         self.assertTrue(pending, "exact canonical replacement event must remain recoverable")
+        ledger = {ref: (self.root / ref).read_bytes() for ref in session.observed[child_id]["effect_refs"]}
+        with patch("lifecycle_intents.replace_atom_action", side_effect=AssertionError("replacement replayed")) as effect:
+            retained = self.selected._execute_graph(frozen, session)
+        effect.assert_not_called()
+        self.assertNotEqual("completed", retained["outcome"])
+        self.assertEqual(ledger, {ref: (self.root / ref).read_bytes() for ref in ledger})
 
 
 if __name__ == "__main__":

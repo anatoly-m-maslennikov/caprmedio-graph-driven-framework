@@ -1158,7 +1158,7 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
                 "assessment_evidence": admitted_evidence,
                 "effects": [_effect("unchanged", carrier=prior, reason="preview")], "history": {"prior": prior},
                 **assessment_evidence}
-    identified_current = (not legacy and target.atom_id is not None
+    identified_current = (not mapping and target.atom_id is not None
                           and target.lifecycle not in {"draft", "archived"})
     next_version = atom_version(target) + 1 if identified_current or change_class == "semantic_revision" else atom_version(target)
     prior_revision: Atom | None = None
@@ -1461,14 +1461,21 @@ def replace_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: b
     if not _execute_allowed(execute=execute, authorized=authorized):
         return {"operation": "replace", "outcome": "preview", "predecessor": prior, "successors": successors,
                 "effects": [_effect("unchanged", carrier=prior, reason="preview")], "history": {"predecessor": prior}}
+    try:
+        predecessor_bundle = status_bundle_snapshot(root, predecessor)
+        if hashlib.sha256(predecessor_bundle["markdown"][0]).hexdigest() != prior["digest"]:
+            raise AtomToolError("stale-carrier", "replacement predecessor changed before publication")
+    except AtomToolError as error:
+        raise _translate(error) from error
     published: list[dict[str, Any]] = []
     try:
         for successor in successors:
             created = create_atom_revision(root, successor["path"], successor["frontmatter"], successor["content"])
             published.append(carrier_descriptor(root, created))
         frontmatter = replace_frontmatter_scalar(predecessor.frontmatter, "status", archive_status)
-        frontmatter = _refresh_frontmatter(root, frontmatter)
-        archived = archive_atom_revision(root, predecessor, frontmatter, predecessor.content)
+        frontmatter = _refresh_frontmatter(root, frontmatter, version=atom_version(predecessor) + 1)
+        archived = archive_atom_revision(root, predecessor, frontmatter, predecessor.content,
+                                        expected_bundle=predecessor_bundle)
     except AtomToolError as error:
         if not published:
             raise _translate(error) from error
@@ -1485,6 +1492,10 @@ def replace_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: b
             "history": {"predecessor": prior, "successors": published},
         }
     observed = carrier_descriptor(root, archived)
+    history_path = archived.path.with_name(
+        re.sub(r"@[0-9]+$", "", predecessor.path.stem) + f"@{atom_version(predecessor)}.md")
+    prior_revision = {**prior, "path": history_path.relative_to(root).as_posix(),
+                      "filename": history_path.name, "lifecycle": "archived"}
     return {"operation": "replace", "outcome": "applied", "predecessor": observed, "successors": published,
-            "effects": [_effect("changed", carrier=carrier) for carrier in [*published, observed]],
-            "history": {"predecessor": prior, "successors": published}}
+            "effects": [_effect("changed", carrier=carrier) for carrier in [*published, observed, prior_revision]],
+            "history": {"predecessor": prior, "prior_revision": prior_revision, "successors": published}}
