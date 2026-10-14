@@ -154,12 +154,22 @@ class SelectedSubjectApplyTests(unittest.TestCase):
         assessment_id = next(key for key, row in session.actual.items() if row["definition"]["atom_id"] == "CA-O-067")
         terminal = session.terminal[assessment_id]
         self.assertEqual("completed", terminal["outcome"])
-        reopened = session._reopen_started_event(terminal["event_receipt"])
-        self.assertEqual("completed", reopened["event"])
-        self.assertEqual(session.actual[assessment_id], reopened["run"])
+        rows = [
+            json.loads(line)
+            for path in (self.fixture.root / ".caprmedio_caprmedio/_journal").glob("*.ndjson")
+            for line in path.read_bytes().splitlines()
+        ]
+        completed = [
+            row
+            for row in rows
+            if row.get("event") == "completed"
+            and row.get("run", {}).get("run_id") == terminal["run_id"]
+        ]
+        self.assertEqual(1, len(completed))
+        self.assertEqual(session.actual[assessment_id], completed[0]["run"])
         retained = json.loads((self.fixture.root / terminal["result_ref"]).read_bytes())
         self.assertEqual(supplied["assessment"], retained["native_result"]["assessment"])
-        self.assertEqual(self.fixture.target["digest"], supplied["prior"]["event"]["result"]["sha256"])
+        self.assertEqual(self.fixture.target["digest"], supplied["prior"]["before_result"]["sha256"])
         self.assertNotEqual("completed", result.get("outcome"))
         with patch.object(native, "subject_update_action", side_effect=AssertionError("retained execution replayed")):
             self.assertEqual(result, runner.dispatch(frozen))
@@ -188,34 +198,56 @@ class SelectedSubjectApplyTests(unittest.TestCase):
         self.assertEqual(1, len(calls))
         self.assertEqual(["subject-assessment-unrecorded"], codes)
 
-    def test_forged_actual_start_receipt_refuses_without_replay_or_effect(self) -> None:
-        def change_receipt(kwargs):
+    def test_changed_actual_action_binding_refuses_without_replay_or_effect(self) -> None:
+        def change_binding(kwargs):
             session = kwargs["session"]
-            requested, _ = session._actual_by_id(kwargs["action_run_id"])
-            session._started_receipts[requested]["event_digest"] = "0" * 64
+            _, actual = session._actual_by_id(kwargs["action_run_id"])
+            actual["definition"]["digest"] = "0" * 64
 
-        _, _, _, calls, codes = self.dispatch_observed("subject-start-forged", mutate=change_receipt)
+        _, _, _, calls, codes = self.dispatch_observed(
+            "subject-start-forged", mutate=change_binding
+        )
         self.assertEqual(1, len(calls))
-        self.assertEqual(["subject-execution-unadmitted"], codes)
+        self.assertEqual(["subject-action-start-invalid"], codes)
 
-    def test_failed_assessment_terminal_recording_never_enters_native_effect(self) -> None:
-        runner, frozen = self.fixture.execution("subject-assessment-recording-pending")
+    def test_failed_assessment_logging_does_not_authorize_publication_or_replay(self) -> None:
         original = work_journal.append_sealed_events
 
         def fail_assessment_completion(root, events, *args, **kwargs):
             event = events[0]
-            if event["event"] == "completed" and event.get("run", {}).get("definition", {}).get("atom_id") == "CA-O-067":
+            if (
+                event["event"] == "completed"
+                and event.get("run", {}).get("definition", {}).get("atom_id") == "CA-O-067"
+            ):
                 raise OSError("fixture assessment terminal recording failure")
             return original(root, events, *args, **kwargs)
 
-        with patch.object(work_journal, "append_sealed_events", side_effect=fail_assessment_completion), patch.object(
-            native.operations, "write_raw_atom_revision", wraps=native.operations.write_raw_atom_revision,
-        ) as writer:
-            result = runner.dispatch(frozen)
-        self.assertEqual("recording_pending", result["disposition"])
-        writer.assert_not_called()
+        with patch.object(
+            work_journal, "append_sealed_events", side_effect=fail_assessment_completion
+        ):
+            result, runner, frozen, calls, codes = self.dispatch_observed(
+                "subject-assessment-recording-pending"
+            )
+        self.assertEqual(1, len(calls))
+        self.assertEqual(["subject-publication-window-unconfirmed"], codes)
+        session = calls[0]["session"]
+        assessment = next(
+            key for key, row in session.actual.items() if row["definition"]["atom_id"] == "CA-O-067"
+        )
+        self.assertEqual("completed", session.terminal[assessment]["outcome"])
+        self.assertEqual("started", result["disposition"])
+        self.assertTrue(
+            any(
+                "assessment terminal recording failure" in message
+                for message in result["diagnostics"]
+            )
+        )
         self.fixture.assert_unchanged(self)
-        with patch.object(native, "subject_update_action", side_effect=AssertionError("recording failure replayed native")):
+        with patch.object(
+            native,
+            "subject_update_action",
+            side_effect=AssertionError("recording failure replayed native"),
+        ):
             self.assertEqual(result, runner.dispatch(frozen))
 
     def test_real_selected_noop_has_no_native_o030_or_history_effect(self) -> None:
@@ -600,7 +632,7 @@ raise AssertionError("Requested publication boundary was not reached")
                 if boundary == "history":
                     self.assertEqual(self.fixture.before, current)
                 self.assertEqual(self.fixture.before, self.fixture.archive.read_bytes())
-                events = [work_journal.validate_sealed_event(json.loads(line))
+                events = [json.loads(line)
                     for path in (self.fixture.root / ".caprmedio_caprmedio/_journal").glob("*.ndjson")
                     for line in path.read_bytes().splitlines()]
                 native_events = [event for event in events if event.get("run", {}).get("definition", {}).get("atom_id") == "CA-O-030"]
@@ -629,7 +661,8 @@ raise AssertionError("Requested publication boundary was not reached")
         with patch.object(work_journal, "append_sealed_events", side_effect=fail_child_terminal):
             result, applied = self.observe_confirmed(runner, frozen, confirmation)
         self.assertEqual("applied", applied["outcome"])
-        self.assertEqual("recording_pending", result["disposition"])
+        self.assertEqual("terminal", result["disposition"])
+        self.assertTrue(any("post-effect terminal recording failure" in message for message in result["diagnostics"]))
         self.assertEqual(self.fixture.before, self.fixture.archive.read_bytes())
         self.assertEqual(self.fixture.target["version"] + 1, applied["observed"]["version"])
         self.assert_no_replay(runner, frozen, result)

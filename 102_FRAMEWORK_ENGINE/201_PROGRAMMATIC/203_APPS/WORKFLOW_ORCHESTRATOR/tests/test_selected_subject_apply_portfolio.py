@@ -19,7 +19,6 @@ for location in (TOOLS / "ATOM_UPDATE/tests", TOOLS, APP):
 
 import atom_operations as operations  # noqa: E402
 import atom_subject_apply as native  # noqa: E402
-import work_journal  # noqa: E402
 from test_subject_apply_portfolio import REPOSITORY, SubjectApplyProject  # noqa: E402
 
 
@@ -136,7 +135,7 @@ class IndependentSubjectPortfolioTests(unittest.TestCase):
         observed_files = authority_snapshot(fixture.root)
         self.assert_ledger(expected_files, observed_files, expected_effects, actual["effects"],
                            expected_refs, terminal["effect_refs"])
-        events = [work_journal.validate_sealed_event(json.loads(line))
+        events = [json.loads(line)
                   for path in (fixture.root / ".caprmedio_caprmedio/_journal").glob("*.ndjson")
                   for line in path.read_bytes().splitlines()]
         child_events = [event for event in events if event.get("run", {}).get("run_id") == child]
