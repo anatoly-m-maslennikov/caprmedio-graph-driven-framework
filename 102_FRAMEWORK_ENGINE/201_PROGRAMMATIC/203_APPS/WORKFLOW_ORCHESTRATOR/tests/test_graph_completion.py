@@ -407,8 +407,7 @@ class GraphCompletionStatusTests(unittest.TestCase):
         handle.get_result.return_value = {"cached_dbos_result": True}
         transport = MagicMock()
         transport.retrieve_workflow.return_value = handle
-        with patch.object(backend, "release_host_runtime", return_value=False), \
-             patch.object(backend, "SelectedExecution", return_value=selected), \
+        with patch.object(backend, "SelectedExecution", return_value=selected), \
              patch.object(backend, "client", return_value=transport):
             observed = backend.status(self.root, {"operation": "status", "run_id": self.run_id})
         transport.destroy.assert_called_once()
