@@ -1559,6 +1559,8 @@ def describe(tool_id: str) -> dict[str, Any]:
             "item_fields": ["selector", "expected", "subject_patches"],
             "expected_fields": ["atom_id", "version", "sha256"],
             "patch_fields": ["field", "old", "new"],
+            "dependency_set_patch_fields": ["field", "operation", "old", "new"],
+            "dependency_set_semantics": "depends_on replace_set; unordered unique strings; equal membership preserves source bytes",
             "selector": "exact repository-relative file path", "apply_supported": False,
             "staging_option": "--stage-preview", "staging_only": True,
             "mcp_binding": None,

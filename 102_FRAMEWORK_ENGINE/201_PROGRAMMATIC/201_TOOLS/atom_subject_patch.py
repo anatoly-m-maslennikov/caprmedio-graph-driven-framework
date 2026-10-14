@@ -247,7 +247,7 @@ def _intent_from_plan(operations: Any, root: Path, plan: dict[str, Any], profile
         **{field: operations.frontmatter_scalar(plan["frontmatter"], field)
            for field in ("status", "updated_at", "content_role", "type")},
     }
-    patches = [{key: patch[key] for key in ("field", "old", "new")}
+    patches = [{key: patch[key] for key in ("field", "operation", "old", "new") if key in patch}
                for patch in plan["patches"]]
     predecessor = None
     if not plan["noop"]:
@@ -498,21 +498,27 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
     patches = item["subject_patches"]
     if not isinstance(patches, list):
         _fail(operations, "subject-patches-invalid", "subject_patches must be an ordered list")
+    dependency_patches = [patch for patch in patches if isinstance(patch, Mapping) and patch.get("field") == "depends_on"]
+    if len(dependency_patches) > 1 and any(patch.get("operation") == "replace_set" for patch in dependency_patches):
+        _fail(operations, "subject-occurrence-duplicate", "Complete dependency replacement cannot overlap another dependency patch")
     records: list[dict[str, Any]] = []
     subject_replacements: list[_Replacement] = []
     occurrences: set[tuple[str, int | None]] = set()
     resulting_dependencies = [node.value for node in dependencies]
     resulting_governs = governs_node.value
     for patch_ordinal, patch in enumerate(patches):
-        record, replacement = _plan_patch(
-            operations,
-            patch,
-            patch_ordinal,
-            governs_node,
-            dependencies,
-            occurrences,
-            resulting_dependencies,
-        )
+        if isinstance(patch, Mapping) and patch.get("operation") == "replace_set":
+            record, replacement = _plan_dependency_set(operations, patch, subjects, frontmatter, resulting_dependencies)
+        else:
+            record, replacement = _plan_patch(
+                operations,
+                patch,
+                patch_ordinal,
+                governs_node,
+                dependencies,
+                occurrences,
+                resulting_dependencies,
+            )
         records.append(record)
         if record["field"] == "governs":
             resulting_governs = record["new"]
@@ -765,6 +771,37 @@ def _snapshot_identity(
     if not isinstance(status, str) or status.casefold() in {"draft", "archived"}:
         _fail(operations, "atom-not-active", "Subject patch source must carry a non-Draft, non-archived Status", {"selector": selector})
     return atom_id, version
+
+
+def _plan_dependency_set(operations: Any, patch: Mapping[str, Any], subjects: MappingNode,
+                         frontmatter: str, resulting_dependencies: list[str]) -> tuple[dict[str, Any], _Replacement | None]:
+    if set(patch) != {"field", "operation", "old", "new"} or patch["field"] != "depends_on":
+        _fail(operations, "subject-patch-invalid", "replace_set has exactly depends_on field, operation, old, and new")
+    for name in ("old", "new"):
+        values = patch[name]
+        if not isinstance(values, list):
+            _fail(operations, "subject-set-invalid", "Complete dependency sets must be lists")
+        for value in values:
+            _valid_patch_value(operations, value, name)
+        if len(set(values)) != len(values):
+            _fail(operations, "subject-dependency-duplicate", "Complete dependency sets must contain unique values")
+    node = _mapping_entries(operations, subjects, "subjects").get("depends_on")
+    if not isinstance(node, SequenceNode):
+        _fail(operations, "subject-shape-invalid", "Complete dependency replacement requires an existing list")
+    if set(patch["old"]) != set(resulting_dependencies):
+        _fail(operations, "subject-old-stale", "Complete old dependency set differs from the pinned source")
+    changed = set(patch["new"]) != set(resulting_dependencies)
+    record = {"field": "depends_on", "operation": "replace_set", "old": patch["old"], "new": patch["new"],
+              "changed": changed, "span": {"start": node.start_mark.index, "end": node.end_mark.index}}
+    if not changed:
+        return record, None
+    from connector_property_carrier import _replace_value, _span_end
+
+    start, end = node.start_mark.index, _span_end(frontmatter, node)
+    transformed = _replace_value(frontmatter, node, patch["new"], "\r\n" if "\r\n" in frontmatter else "\n")
+    value = transformed[start:len(transformed) - len(frontmatter[end:])]
+    resulting_dependencies[:] = patch["new"]
+    return record, _Replacement(_Span(start, end), value)
 
 
 def _plan_patch(  # noqa: C901 - validates one closed public patch shape.
