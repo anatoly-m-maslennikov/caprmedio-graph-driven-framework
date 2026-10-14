@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Revision, Journal, Plan, Operator]
-version: 7
-updated_at: "2026-10-14 22:52:32 +0400"
+version: 8
+updated_at: "2026-10-15 00:32:03 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
 ---
@@ -31,7 +31,7 @@ Independently prove the actual remaining Tools satisfy the accepted contracts be
 
 ### Current publication decision
 
-CA-P-2179 records the Operator's selected staged-review plus exclusive-window model, with a shared lock for Engine writers and affected-file manual/Git/sync exclusion. This supersedes earlier statements in this Plan that the access/concurrency choice itself remains deferred. It does not waive source/FPF review, implementation, independent verification, actual route admission or separate live migration approval. The changed-Subject guard remains until those gates pass.
+CA-P-2179 records the accepted staged-review plus exclusive-window model. The Operator subsequently removed the project-wide Engine write lock without replacement, as recorded in CA-P-2167. Preserve affected-file manual/Git/sync exclusion and exact confirmation, but do not claim that other Engine writers are excluded. Existing resource-specific locks stay unchanged. This does not waive source/FPF review, implementation, independent verification, actual route admission or separate live migration approval. The changed-Subject guard remains until those gates pass.
 
 ### Prospective rebuilt-contract verification gate
 
@@ -41,7 +41,7 @@ Connector Core CA-R-1936/CA-M-376/CA-E-628/CA-D-625 must supply a coherent broad
 
 CA-P-2248's independent acceptance of the actual rebuilt RMEDO is additionally required before affected implementation or this Task's final verification. Historical CA-P-2171/2172 and isolated-test receipts stay unchanged; they do not prove the new logical connector/Workflow design or current revised source pins. Bind the actual accepted contracts, implemented interfaces and fresh independently authored expected bytes/effects for each affected scope.
 
-Consume CA-P-2167's prospective rebuild behavior rather than conflicting old executable assumptions below: value-selected or full-set property lists, shared section edits, independent connector Workflows, config-specific schema checks and per-Atom stop-first-failure with earlier successes retained and later targets untouched. One-Atom safety and truthful required recording remain mandatory. Resume/retry remains explicitly deferred. The staged-review/exclusive-window publication model and its bounded failure handling are accepted; retain the shared Engine lock and exact confirmation. Safe checks do not establish live publication authority, and no automatic replay is inferred.
+Consume CA-P-2167's prospective rebuild behavior rather than conflicting old executable assumptions below: value-selected or full-set property lists, shared section edits, independent connector Workflows, config-specific schema checks and per-Atom stop-first-failure with earlier successes retained and later targets untouched. One-Atom safety and truthful required recording remain mandatory. Resume/retry remains explicitly deferred. The staged-review/exclusive-window publication model and its bounded failure handling are accepted; retain exact confirmation without project-wide Engine serialization. Final revalidation does not guarantee safety against concurrent writers or crashes. Safe checks do not establish live publication authority, and no automatic replay is inferred.
 
 CA-P-2167 now provides actual bounded implementation/compatibility Tasks and this Task's six independent fixture children below. CA-P-2251's actual approved FPF review of all independently accepted required RMEDO gates affected implementation and final acceptance; validated review planning is not analytical completion. Existing CA-P-2173/2179–2182 retains the separate deferred publication portfolio and is not duplicated.
 
