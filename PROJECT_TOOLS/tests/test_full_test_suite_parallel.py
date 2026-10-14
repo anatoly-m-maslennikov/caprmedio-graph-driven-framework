@@ -21,8 +21,18 @@ class FullTestSuiteParallelTests(unittest.TestCase):
 
     def test_parallel_worker_bounds_and_serial_launcher_keep_one_image(self) -> None:
         modules = [
-            self.case.file(f"PROJECT_TOOLS/tests/test_unit_{number}.py") for number in range(8)
+            self.case.file(f"PROJECT_TOOLS/tests/test_unit_{number}.py") for number in range(5)
         ]
+        long_host = [
+            self.case.file(str(full.APP / "tests/test_selected_subject_apply.py")),
+            self.case.file(
+                str(full.APP.parents[1] / "204_MCP/tests/test_subject_publication_confirmation.py")
+            ),
+            self.case.file(
+                str(full.APP.parents[1] / "204_MCP/tests/test_subject_publication_gateway.py")
+            ),
+        ]
+        modules += long_host
         modules += [
             self.case.file(str(full.APP / f"tests/test_{number}_docker_e2e.py"))
             for number in range(3)
@@ -32,6 +42,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
         active = {"ordinary": 0, "docker": 0}
         peak = dict(active)
         docker_starts: list[Path] = []
+        ordinary_starts: list[Path] = []
         lock, ready, release = threading.Lock(), threading.Event(), threading.Event()
 
         def execute(root, module, environment):
@@ -39,6 +50,8 @@ class FullTestSuiteParallelTests(unittest.TestCase):
             with lock:
                 if lane == "docker":
                     docker_starts.append(module)
+                else:
+                    ordinary_starts.append(module)
                 active[lane] += 1
                 peak[lane] = max(peak[lane], active[lane])
                 if sum(active.values()) == 6:
@@ -68,6 +81,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
                 self.assertTrue(ready.wait(5))
                 self.assertEqual({"ordinary": 4, "docker": 2}, peak)
                 self.assertIn(selected, docker_starts[:2])
+                self.assertTrue(set(long_host) <= set(ordinary_starts[:4]), ordinary_starts)
             finally:
                 release.set()
             self.assertEqual(0, future.result(timeout=5))

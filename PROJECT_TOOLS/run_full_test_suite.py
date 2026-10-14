@@ -154,7 +154,15 @@ def _run_modules(root: Path, modules: list[Path], environment: dict, integration
             for module in sorted(
                 modules,
                 key=lambda module: (
-                    module != root / APP / "tests/test_selected_workflows_docker_e2e.py"
+                    module
+                    not in (
+                        root / APP / "tests/test_selected_workflows_docker_e2e.py",
+                        root / APP / "tests/test_selected_subject_apply.py",
+                        root
+                        / APP.parents[1]
+                        / "204_MCP/tests/test_subject_publication_confirmation.py",
+                        root / APP.parents[1] / "204_MCP/tests/test_subject_publication_gateway.py",
+                    )
                 ),
             )
         }
