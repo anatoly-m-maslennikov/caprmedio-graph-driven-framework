@@ -105,9 +105,7 @@ class SubjectReplaceSetSelectedTests(unittest.TestCase):
                 ], actual["effects"])
                 refs = sorted([fixture.target["path"], fixture.archive.relative_to(fixture.root).as_posix()])
                 self.assertEqual(refs, terminal["effect_refs"])
-                events = [work_journal.validate_sealed_event(json.loads(line))
-                          for path in (fixture.root / ".caprmedio_caprmedio/_journal").glob("*.ndjson")
-                          for line in path.read_bytes().splitlines()]
+                events = work_journal.read_records(fixture.root)
                 child_events = [event for event in events if event.get("run", {}).get("run_id") == child]
                 self.assertEqual(["started", "completed"], [event["event"] for event in child_events])
                 self.assertEqual(refs, child_events[-1]["effect_refs"])

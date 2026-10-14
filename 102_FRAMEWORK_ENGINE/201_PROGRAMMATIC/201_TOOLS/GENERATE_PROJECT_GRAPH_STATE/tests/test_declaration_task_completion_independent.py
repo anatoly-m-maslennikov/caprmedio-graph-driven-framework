@@ -23,34 +23,22 @@ class DeclarationTaskCompletionIndependentTests(unittest.TestCase):
         self.fixture.declarations[3]["authority_mode"] = "strict"
         self.fixture.write_structure()
         events = []
-        for name, carrier, revision, lifecycle in (
-            ("project", self.fixture.settings, 4, "recovered"),
-            ("framework", self.fixture.framework, 6, "completed"),
+        for name, carrier, revision in (
+            ("project", self.fixture.settings, 4),
+            ("framework", self.fixture.framework, 6),
         ):
             relative = carrier.relative_to(self.fixture.root).as_posix()
             event = {
-                "schema_version": 3, "event_id": f"declared-{name}", "action_id": "action-declaration-settings",
-                "event": lifecycle,
-                "kind": "governed_project_state" if lifecycle == "recovered" else "governed_project_change",
-                "subject_kind": "file", "author": "test-user", "occurred_at": "2026-10-13T18:04:05+04:00",
-                "llm_session": {"app": "codex", "uuid": "declaration-completion-fixture"},
-                "structural_scope": "independent",
+                "event_id": f"declared-{name}",
+                "author": "test-user", "occurred_at": "2026-10-13T18:04:05+04:00",
                 "result": {"state": "present", "filename": carrier.name, "version": revision,
                            "path": relative, "sha256": graph.sha(carrier)},
             }
-            if lifecycle == "recovered":
-                event["recovery_evidence"] = {"carrier": {
-                    "path": relative, "sha256": graph.sha(carrier), "observed_at": event["occurred_at"],
-                    "observer_run_id": "independent-declaration-observer",
-                }}
-            else:
-                event.update(action_type="UPDATE", sources=[], previous_result_event="prior-framework")
-            sealed = work_journal.with_event_digest(event)
-            self.assertEqual(sealed, work_journal.validate_sealed_event(sealed))
-            events.append(sealed)
-        self.receipts = work_journal.append_sealed_events(
+            events.append(event)
+        self.appended = work_journal.append_sealed_events(
             self.fixture.root, events, author="test-user", local_date="2026-10-13", timezone="Asia/Tbilisi",
         )
+        self.assertEqual(events, work_journal.read_records(self.fixture.root))
         self.bindings = graph.settings_bindings()
         self.assertEqual({"resolved"}, {binding["status"] for binding in self.bindings.values()})
         self.config = graph.configuration()
@@ -67,7 +55,7 @@ class DeclarationTaskCompletionIndependentTests(unittest.TestCase):
                                                    observations=observations),
         )
 
-    def test_complete_semantic_and_observation_attribution_uses_actual_settings_receipts(self):
+    def test_complete_semantic_and_observation_attribution_uses_optional_settings_log_metadata(self):
         before = self.snapshot()
         rows = self.fixture.rows()
         observations = graph.directory_observations(self.fixture.control, self.fixture.root, rows)
@@ -89,8 +77,8 @@ class DeclarationTaskCompletionIndependentTests(unittest.TestCase):
                         self.assertEqual("directory_observation", binding["source_kind"])
                     elif field == "authority_mode" and row["authority_mode_inherited"]:
                         self.assertEqual("framework_settings", binding["source_kind"])
-                        self.assertEqual(self.receipts[1]["carrier"], binding["journal_carrier"])
-                        self.assertEqual(self.receipts[1]["event_id"], binding["journal_event_id"])
+                        self.assertEqual(self.appended[1]["carrier"], binding["journal_carrier"])
+                        self.assertEqual(self.appended[1]["event_id"], binding["journal_event_id"])
                     else:
                         self.assertEqual("project_structure", binding["source_kind"])
                         self.assertEqual(".caprmedio_caprmedio/project_structure.toml", binding["source_carrier"])
