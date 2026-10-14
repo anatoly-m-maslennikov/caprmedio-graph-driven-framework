@@ -20,6 +20,25 @@ CA-P-2382, P2167 and P1959 remain Active. A fresh scratch-only stage needs separ
 
 Independent read-only publication-path inspection found no configured production human-confirmation provider. `subject_publication_authorization.py` explicitly defines an internal, process-bound one-use confirmation API; its issuer has fixture callers but no production caller. The private bridge in `selected_execution.py` consumes that confirmation in the same process. Normal selected `update_atom` requests enqueue work and cannot supply or mint it through their closed schema. The direct `atom_update` route used above supports preparation only, per D425. The current selected manifest also retains unavailable publication-route source paths, including O127/O067/O128/O030. These gaps do not invalidate the direct preview result, but must be resolved before publication; neither registration nor fixture success establishes production admission. No confirmation, route repair or live write was fabricated during this inspection.
 
+### Publication prerequisite audit — no admission or implementation
+
+The exact current selected manifest has raw SHA-256 `e73f5b9f7c712187c853eee5191f2689dc3deaec05462a740c7ae0545300ff8d`. Its `update_atom` route contains eight pin occurrences for six definitions. All six pinned paths are unavailable. The five changed definitions have exact-byte archived predecessors matching the manifest's hashes; O145 is a path-only move with unchanged bytes. The other replacements change meaning and must not be represented as a mechanical pin refresh.
+
+| Definition | Pinned → current Version | Current source SHA-256 | Admission difference |
+| --- | --- | --- | --- |
+| O127 | 3 → 4 | cb06d919ac51982a7eba820f62939cabefb7e7698de208345f46a97c5283f557 | Caller-composed cascades; one target per Run remains. |
+| O067 | 6 → 7 | 5c2098027094df1837b3b48b112a56866e3bee927699a58156e51b53925e998d | Every actual same-ID edit increments Version; exact no-ops remain unchanged. |
+| O128 | 4 → 6 | 48f0464400d198b0d914fbd2b76bd8d8ce616c94b41bd140ec5889ac6b9ac2e2 | Every actual same-ID edit increments Version by 1; exact no-ops preserve Version/time; exact predecessor history is retained. |
+| O030 | 7 → 16 | bf45abea494d78a59fa956fdccc5398408f4c4aaf114443cb92b0b510c22241f | Logical one-Atom/value-based changes replace indexed bulk all-or-nothing application; staged review and the trusted-host window are required. |
+| O145 | 2 → 2 | e1da6f807f965d94bb2f6b829767fb23d34ea6dc600408f78408378caf208f89 | Path only; exact bytes unchanged. |
+| O129 | 3 → 4 | fd95ab7ee49b96d9a33ceb951934e274e087ba47f349a0455b7654fc8ff546a1 | Caller-composed cascades retain the single-target boundary. |
+
+The retained order is O145/O067 assessment, then O129/O128 identity-preserving application, with reassessment returning to O145 and native O030 attached. Current definitions are mutually consistent in these respects, but unchanged order alone does not admit the revised meanings. A new admission packet must bind all eight occurrences, preserve this routing, and test current one-target assessment, actual-update/no-op history, publication and refusal behavior. Existing isolated Subject publication fixture success remains distinct from production-manifest admission.
+
+The existing producer `204_MCP/selected_source_refresh.py` is constrained by current D588 to one frozen O030 v6→v7 replacement against input `6d1e3aaacf33d4c3cb645f9ed46641dac38b6480773a080074bac51249c143f4`. That contract neither matches today's input nor authorizes these eight replacements. D592's three specific acceptance-carrier relocations are not general relocation authority. No generic `update_atom` rebuild command was found. Preserve the full-manifest validation gate; no route, binding, producer contract or unrelated portfolio was changed by this audit.
+
+For human confirmation, the existing private `204_MCP/selected_source_refresh_host.py` provides a reusable host-command pattern, but its execute flag, Operator lookup and session UUID do not establish actual human review. The installed MCP elicitation API permits agent-generated answers, and the gateway has no elicitation callback; an accept response alone is not trusted human evidence. The smallest proposed channel is a command personally operated by the Operator that reopens the exact reviewed packet, obtains direct review/pause confirmation, and invokes the existing confirmation issuer plus selected-execution bridge in one process. This is a proposal, not a selected or implemented channel. No model-written flag, file or request is substituted for human confirmation. Resolve that concrete choice before implementing the production connection.
+
 ## Activation
 
 The Operator approved replacing only this Project's MCP HTTP container from reviewed commit `15f9ce76e02b3e8cced1f2c41cc5b40c3a3c5a21`. The source was exported into an isolated scratch directory; unrelated working-tree edits were not included. Its committed ImageManager reproduced fingerprint `825fc6750665988b349347c827282c96f65ebdb48a8fdb72be545dc3bf23e1ab`.
