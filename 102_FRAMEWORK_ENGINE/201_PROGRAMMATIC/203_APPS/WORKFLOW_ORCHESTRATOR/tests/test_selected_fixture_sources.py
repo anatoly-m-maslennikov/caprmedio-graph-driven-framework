@@ -36,6 +36,47 @@ class SelectedFixtureSourcesTests(unittest.TestCase):
         self.root.mkdir()
         self.project = GoldenProject(self.source, self.root, GoldenCase("W02", "update_atom"))
 
+    def test_w02_prepared_parameters_are_deep_copied_without_a_descriptor_scan(self) -> None:
+        prepared = {"target": {"path": "prepared-subject.md"}}
+        self.project._semantic_update_parameters = prepared
+        with patch.object(
+            self.project, "_descriptor", side_effect=AssertionError("unused scan")
+        ) as descriptor:
+            first = self.project.native_parameters()
+            self.assertEqual(prepared, first)
+            first["target"]["path"] = "caller-change.md"
+            self.assertEqual(prepared, self.project.native_parameters())
+        self.assertEqual("prepared-subject.md", prepared["target"]["path"])
+        descriptor.assert_not_called()
+
+    def test_w02_missing_preparation_still_refuses_without_a_descriptor_scan(self) -> None:
+        with patch.object(
+            self.project, "_descriptor", side_effect=AssertionError("unused scan")
+        ) as descriptor:
+            with self.assertRaisesRegex(
+                GoldenCorpusError, "semantic assessment carrier was not prepared"
+            ):
+                self.project.native_parameters()
+        descriptor.assert_not_called()
+
+    def test_other_target_route_reopens_current_descriptor_and_propagates_failure(self) -> None:
+        project = GoldenProject(self.source, self.root, GoldenCase("W04", "change_atom_status"))
+        observations = [
+            {"path": "first.md"},
+            {"path": "changed.md"},
+            GoldenCorpusError("missing current target"),
+        ]
+        with patch.object(project, "_descriptor", side_effect=observations) as descriptor:
+            self.assertEqual(
+                {"target": observations[0], "status": "Archived"}, project.native_parameters()
+            )
+            self.assertEqual(
+                {"target": observations[1], "status": "Archived"}, project.native_parameters()
+            )
+            with self.assertRaisesRegex(GoldenCorpusError, "missing current target"):
+                project.native_parameters()
+        self.assertEqual([("CA-R-100",)] * 3, [call.args for call in descriptor.call_args_list])
+
     def test_relocated_source_keeps_exact_pin_and_historical_fixture_path(self) -> None:
         suffix = Path("001_CORE_META_MODEL/07_delivery/CA-D-276--fixture.md")
         relative = _HISTORICAL_METHODOLOGY_SOURCES / suffix

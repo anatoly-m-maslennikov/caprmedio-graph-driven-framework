@@ -827,13 +827,13 @@ class GoldenProject:
             return self.native_graph_parameters("entities")
         if route == "build_terms_graph":
             return self.native_graph_parameters("terms")
-        target = self._descriptor("CA-R-100")
-        if route == "create_atom":
-            return {"carrier": self._carrier("CA-R-102", "created", "Created summary")}
         if route == "update_atom":
             if self._semantic_update_parameters is None:
                 raise GoldenCorpusError("W02 semantic assessment carrier was not prepared")
             return copy.deepcopy(self._semantic_update_parameters)
+        target = self._descriptor("CA-R-100")
+        if route == "create_atom":
+            return {"carrier": self._carrier("CA-R-102", "created", "Created summary")}
         if route == "replace_atom":
             return {"predecessor": target, "successors": [self._carrier("CA-R-103", "replacement", "Replacement summary")],
                     "status_model": self._status_model()}
