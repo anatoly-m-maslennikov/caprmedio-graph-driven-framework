@@ -23,8 +23,6 @@ APP = Path(__file__).resolve().parents[1]
 ROOT = APP.parents[3]
 sys.path.insert(0, str(APP / "docker"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-RELEASE_ROOT = ROOT / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION"
-sys.path.insert(0, str(RELEASE_ROOT))
 
 from runtime import Runtime  # noqa: E402
 from current_code_e2e_context import load_test_context  # noqa: E402

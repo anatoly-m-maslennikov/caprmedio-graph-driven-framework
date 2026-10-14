@@ -1,23 +1,17 @@
-"""Plain Docker inputs and the retained sealed adapter, without Docker effects."""
+"""Actual image and private scratch inputs, without Docker effects."""
 
 import asyncio
 from dataclasses import fields
 import os
 from pathlib import Path
-import sys
 import tempfile
 import unittest
 from unittest import mock
 
 
 TESTS = Path(__file__).resolve().parent
-RELEASE = TESTS.parents[4] / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION"
-sys.path.insert(0, str(RELEASE))
-sys.path.insert(0, str(RELEASE / "tests"))
 
 from current_code_e2e_context import load_test_context, narrow_context  # noqa: E402
-from release_e2e_context import ReleaseE2EContextError  # noqa: E402
-import test_release_e2e_context as sealed_fixture  # noqa: E402
 import test_selected_query_mcp_e2e as query_harness  # noqa: E402
 
 
@@ -86,26 +80,6 @@ class CurrentCodeE2EContextTests(unittest.TestCase):
                 narrow_context(
                     dict(self.environment, CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH=str(scratch)), self.tmp
                 )
-
-    def test_explicit_sealed_context_keeps_real_loader_and_all_its_fields(self):
-        fixture = sealed_fixture.ReleaseE2EContextContractTests()
-        fixture.setUp()
-        path = fixture.write_context(fixture.golden())
-        environment = dict(self.environment, **fixture.environment(path))
-        context = load_test_context(environment, self.tmp)
-        self.assertEqual(sealed_fixture.MANIFEST, context.candidate_snapshot_manifest_sha256)
-        self.assertEqual(
-            sealed_fixture.HARNESS_SOURCES, tuple(row.source_path for row in context.harnesses)
-        )
-        self.assertEqual(str(fixture.scratch_root), context.scratch_root)
-
-    def test_invalid_explicit_sealed_context_cannot_fall_back_to_plain(self):
-        environment = dict(
-            self.environment, CAPRMEDIO_RELEASE_E2E_CONTEXT=str(self.scratch / "missing.json")
-        )
-        environment["CAPRMEDIO_CANDIDATE_IMAGE_DIGEST"] = self.image
-        with self.assertRaises(ReleaseE2EContextError):
-            load_test_context(environment, self.tmp)
 
     def test_query_image_mismatch_refuses_before_any_docker_call(self):
         context = narrow_context(self.environment, self.tmp)

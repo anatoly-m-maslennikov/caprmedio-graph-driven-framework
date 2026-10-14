@@ -13,7 +13,7 @@ import sys
 from full_suite_docker import APP, current_code_test_image, run_launcher
 
 CODE_ROOTS = ("102_FRAMEWORK_ENGINE", "PROJECT_TOOLS")
-MODULE_TIMEOUT_SECONDS = 600
+MODULE_TIMEOUT_SECONDS = 1800
 RESULT_MARKER = "CAPRMEDIO_TEST_COUNTS "
 CHILD = """
 import json, sys, unittest

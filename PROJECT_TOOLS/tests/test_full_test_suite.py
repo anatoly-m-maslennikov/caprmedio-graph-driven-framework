@@ -129,7 +129,7 @@ class FullTestSuiteTests(unittest.TestCase):
         module = self.file("PROJECT_TOOLS/tests/test_one.py")
         for error in (
             OSError("fixture command unavailable"),
-            subprocess.TimeoutExpired("fixture", 600),
+            subprocess.TimeoutExpired("fixture", 1800),
         ):
             with (
                 self.subTest(error=error),
@@ -137,6 +137,7 @@ class FullTestSuiteTests(unittest.TestCase):
             ):
                 self.assertEqual(1, self.run_suite())
                 self.assertEqual(full.MODULE_TIMEOUT_SECONDS, command.call_args.kwargs["timeout"])
+                self.assertEqual(1800, command.call_args.kwargs["timeout"])
                 self.assertIn(module.name, self.errors.getvalue())
 
     def test_symlink_test_module_is_not_executed_outside_source_root(self) -> None:

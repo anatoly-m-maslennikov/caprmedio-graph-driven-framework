@@ -5,13 +5,6 @@ from pathlib import Path
 import re
 from typing import Mapping
 
-from release_e2e_context import (
-    CONTEXT_ENVIRONMENT_VARIABLE,
-    ReleaseE2EContext,
-    load_release_e2e_context,
-)
-
-
 _IMMUTABLE_IMAGE = re.compile(r"sha256:[0-9a-f]{64}\Z")
 _IMAGE = "CAPRMEDIO_FIRST_CUT_HTTP_IMAGE"
 _SCRATCH = "CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH"
@@ -51,10 +44,8 @@ def narrow_context(environ: Mapping[str, str], repository_tmp: Path) -> CurrentC
 
 def load_test_context(
     environ: Mapping[str, str], repository_tmp: Path
-) -> CurrentCodeE2EContext | ReleaseE2EContext | None:
-    """Keep explicit sealed mode strict; otherwise use the existing plain inputs."""
-    if CONTEXT_ENVIRONMENT_VARIABLE in environ:
-        return load_release_e2e_context(environ)
+) -> CurrentCodeE2EContext | None:
+    """Use only the actual image and private scratch supplied by the test runner."""
     enabled = any(
         environ.get(flag) == "1"
         for flag in (

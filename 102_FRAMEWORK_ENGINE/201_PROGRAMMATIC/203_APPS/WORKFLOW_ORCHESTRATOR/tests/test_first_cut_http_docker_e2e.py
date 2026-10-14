@@ -1,7 +1,6 @@
 """Opt-in HTTP MCP proof for the approved six-Workflow first usable cut.
 
-Run only with a sealed immutable candidate image and either the established
-Release E2E context or an explicit first-cut scratch context.  This is
+Run only with the actual built immutable image and explicit private scratch. This is
 evidence for the bounded cut, not a Release/promotion or all-route suite.
 """
 from __future__ import annotations
@@ -48,12 +47,12 @@ class _HttpSessionMetadata:
 
 
 def _narrow_context(environ: Mapping[str, str]) -> FirstCutE2EContext:
-    """Validate the explicit, disposable context without changing Release grammar."""
+    """Validate the explicit, disposable image and scratch context."""
     return narrow_context(environ, _REPOSITORY_TMP)
 
 
 def _first_cut_context(environ: Mapping[str, str]) -> object:
-    """Prefer a valid formal context, otherwise require the narrow explicit one."""
+    """Reuse the current built-image context or require its explicit inputs."""
     if selected_harness.E2E_CONTEXT is not None:
         return selected_harness.E2E_CONTEXT
     return _narrow_context(environ)
