@@ -69,13 +69,14 @@ class DockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.started = self.http_started = False
 
     async def asyncTearDown(self):
-        if self.http_started:
-            await asyncio.to_thread(self.runtime.mcp_http_stop)
-        if self.started:
-            # Only this randomly named fixture's containers/volume are removed.
-            # Real runtime stop deliberately preserves its authentication volume.
-            await asyncio.to_thread(self.runtime.call, "down", "--volumes", timeout=60)
-        self.temporary.cleanup()
+        try:
+            if self.started or self.http_started:
+                # Only this randomly named fixture is removed; production stop retains state.
+                await asyncio.to_thread(
+                    self.runtime.call, "down", "--volumes", http=self.http_started, timeout=60
+                )
+        finally:
+            self.temporary.cleanup()
 
     def http_environment(self):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
