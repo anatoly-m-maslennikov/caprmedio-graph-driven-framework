@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 78
-updated_at: "2026-10-14 20:37:04 +0400"
+version: 79
+updated_at: "2026-10-14 20:51:07 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,12 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Retire the old release and installer path — 2026-10-14
+
+The Operator approved retiring the sealed-package release path and separate installer, including their dedicated tests. Keep the direct local/public release commands, normal MCP startup, shared helpers still used by current tools, and current integration tests. Remove obsolete callers and registrations with their implementations; do not retain compatibility wrappers or create another release admission layer.
+
+Preserve exact source histories for retired rules. Mixed rules retain their still-used obligations. The full diagnostic suite remains unaccepted; run a fresh full suite on the completed source, including required current-code Docker integrations. No runtime restart, release or live Subject migration is authorized by this retirement.
 
 ### Verified implementation and diagnostic suite — 2026-10-14 20:37 +0400
 

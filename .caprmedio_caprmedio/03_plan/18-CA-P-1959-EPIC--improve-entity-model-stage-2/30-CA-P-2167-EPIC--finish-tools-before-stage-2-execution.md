@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 64
-updated_at: "2026-10-14 20:37:04 +0400"
+version: 65
+updated_at: "2026-10-14 20:51:07 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,12 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Retire the old release and installer path — 2026-10-14
+
+The Operator approved retiring the sealed-package release path and separate installer, including their dedicated tests. Keep the direct local/public release commands, normal MCP startup, shared helpers still used by current tools, and current integration tests. Remove obsolete callers and registrations with their implementations; do not retain compatibility wrappers or create another release admission layer.
+
+Preserve exact source histories for retired rules. Mixed rules retain their still-used obligations. The full diagnostic suite remains unaccepted; run a fresh full suite on the completed source, including required current-code Docker integrations. No runtime restart, release or live Subject migration is authorized by this retirement.
 
 ### Verified implementation and diagnostic suite — 2026-10-14 20:37 +0400
 
