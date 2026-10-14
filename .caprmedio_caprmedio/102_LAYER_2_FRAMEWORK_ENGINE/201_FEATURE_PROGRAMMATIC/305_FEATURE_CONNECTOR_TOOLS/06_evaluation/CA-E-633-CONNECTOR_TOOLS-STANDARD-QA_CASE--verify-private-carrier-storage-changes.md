@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Artifact/Carrier","Action","Workflow","Atom","Operator"]
-version: 4
-updated_at: "2026-10-13 23:51:12 +0400"
+version: 5
+updated_at: "2026-10-14 23:49:48 +0400"
 relations:
   evaluation_for: [CA-R-1941, CA-D-630, CA-O-215, CA-O-216, CA-O-217]
 ---
@@ -40,9 +40,9 @@ Prepare a bounded temporary root with a file, empty folder, nested folder with a
 
 ### Exclusive-window fixtures
 
-supply the exact staged location/absence change, independently resolved private bindings, complete affected frontier **and** genuine recorded selected Session/Action. bind the Operator's reviewed change **and** recorded outside-edits-paused confirmation through the existing trusted authorization binding, **not** a caller flag, JSON/hash-derived approval **or** arbitrary approving callback. exercise the accepted cases above under the existing shared Engine lock, with independent **before**/**after** evidence; raw-helper successes **and** refusal-**only** admission tests do **not** establish positive receiving acceptance.
+supply the exact staged location/absence change, independently resolved private bindings, complete affected frontier **and** genuine recorded selected Session/Action. bind the Operator's reviewed change **and** recorded outside-edits-paused confirmation through the existing trusted authorization binding, **not** a caller flag, JSON/hash-derived approval **or** arbitrary approving callback. exercise the accepted cases above within the confirmed exclusive window, with independent **before**/**after** evidence; raw-helper successes **and** refusal-**only** admission tests do **not** establish positive receiving acceptance.
 
-require a cooperating Engine writer **in** another process **to** wait while final revalidation, the Carrier effect **and** readback hold the shared lock. change the bound evidence **before** acquisition **and** require refusal **after** acquisition **without** a Carrier effect. refuse missing, stale, mismatched **or** fabricated review/window confirmation **and** unavailable/invalid lock **before** effects. a writer ignoring the confirmed window **or** shared lock is outside this cooperative guarantee; do **not** claim that a last-moment check prevents that race.
+change the bound evidence **before** final revalidation **and** require refusal **without** a Carrier effect. refuse missing, stale, mismatched **or** fabricated review/window confirmation **before** effects. require no project-wide Engine write lock **or** replacement. other Engine writers are **not** excluded, **and** a writer ignoring the confirmed window is outside this model; do **not** claim that a last-moment check prevents that race.
 
 ### Refusal and uncertainty cases
 
@@ -56,4 +56,4 @@ require a cooperating Engine writer **in** another process **to** wait while fin
 
 ### Acceptance and disposition
 
-compare exact independent **before**/proposed/**after** ledgers, resolved bindings **and** actual effect/error evidence. **any** widened set, hidden reference/lifecycle decision, lost preservation evidence **or** false completion rejects the realization. retain unresolved evidence **and** known effects, including failed lock-exit verification **after** an effect; unknown effects require `effect_uncertain` **and** no automatic retry. reuse **only** the approved exclusive-window/shared-lock boundary; no automatic rollback, cleanup restoration promise, retry, resume, replay **or** stronger concurrent-publication guarantee is inferred. these are rules **and** isolated test-fixture requirements **only**; no live cleanup **or** production activation is established. this source specifies future functional checks, **not** packet acceptance.
+compare exact independent **before**/proposed/**after** ledgers, resolved bindings **and** actual effect/error evidence. **any** widened set, hidden reference/lifecycle decision, lost preservation evidence **or** false completion rejects the realization. retain unresolved evidence **and** known effects, including failed verification **after** an effect; unknown effects require `effect_uncertain` **and** no automatic retry. reuse **only** the approved exclusive-window boundary; no automatic rollback, cleanup restoration promise, retry, resume, replay **or** stronger concurrent-publication guarantee is inferred. these are rules **and** isolated test-fixture requirements **only**; no live cleanup **or** production activation is established. this source specifies future functional checks, **not** packet acceptance.

@@ -243,7 +243,7 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
             require_subject_publication_window(root, request, intent)
         except SubjectPublicationAuthorizationError as error:
             _fail(error.code, str(error))
-        # shortcut: cooperative lock/window excludes participants, not outside writers or abrupt interruption.
+        # shortcut: confirmed pauses do not prevent outside writes or interruption, reconsider if stronger isolation is required.
         actual_at = current_timestamp(root)
         materialized = materialize_subject_intent(root, prepared, actual_at)
         archive = intent["predecessorArchive"]

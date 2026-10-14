@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-from contextlib import contextmanager
 import hashlib
 import json
 from pathlib import Path
@@ -270,34 +269,16 @@ class SubjectPublicationConfirmationTests(unittest.IsolatedAsyncioTestCase):
         self.assertNotEqual(self.fixture.before, self.fixture.path.read_bytes())
         self.assertEqual(self.fixture.before, self.fixture.archive.read_bytes())
 
-    async def test_one_use_is_rechecked_after_waiting_for_publication_lock(self):
+    async def test_confirmation_is_consumed_after_failed_unchanged_attempt(self):
         confirmation = authorization.authorize_subject_publication(self.fixture.root,
             self.frozen["request"]["execution"], operator_name="golden-operator",
             llm_session={"app": "run-support", "uuid": self.frozen["request"]["execution"]["request_id"]},
             staged_manifest=self.manifest)
-        lock = threading.Lock()
-        second_waiting = threading.Event()
-        first_entered = threading.Event()
-        lock_count = 0
-        count_lock = threading.Lock()
         calls = []
-
-        @contextmanager
-        def contended_lock(_root):
-            nonlocal lock_count
-            with count_lock:
-                lock_count += 1
-                ordinal = lock_count
-            if ordinal == 2:
-                second_waiting.set()
-            with lock:
-                yield
 
         @authorization.with_subject_publication_window
         def failed_unchanged(_root, _parameters, **_kwargs):
             calls.append("attempt")
-            first_entered.set()
-            self.assertTrue(second_waiting.wait(10), "Second invocation did not reach lock")
             return {"outcome": "failed"}
 
         def attempt():
@@ -305,17 +286,50 @@ class SubjectPublicationConfirmationTests(unittest.IsolatedAsyncioTestCase):
                 return failed_unchanged(self.fixture.root, self.fixture.parameters, execute=True,
                     session=SimpleNamespace(request=self.frozen["request"]["execution"]))
 
-        with patch.object(authorization, "engine_publication_lock", contended_lock):
-            with ThreadPoolExecutor(max_workers=2) as pool:
-                first = pool.submit(attempt)
-                # The first action waits for the second at the lock, preserving unchanged source pins.
-                self.assertTrue(await asyncio.to_thread(first_entered.wait, 10))
-                second = pool.submit(attempt)
-                self.assertEqual({"outcome": "failed"}, first.result(timeout=15))
-                with self.assertRaises(LifecycleError) as refused:
-                    second.result(timeout=15)
+        self.assertEqual({"outcome": "failed"}, attempt())
+        with self.assertRaises(authorization.SubjectPublicationAuthorizationError) as refused:
+            attempt()
         self.assertIn("already been consumed", str(refused.exception))
         self.assertEqual(["attempt"], calls)
+        self.fixture.assert_unchanged(self)
+
+    async def test_confirmation_claim_refuses_overlap_without_excluding_distinct_confirmation(self):
+        def issue():
+            return authorization.authorize_subject_publication(self.fixture.root,
+                self.frozen["request"]["execution"], operator_name="golden-operator",
+                llm_session={"app": "run-support", "uuid": self.frozen["request"]["execution"]["request_id"]},
+                staged_manifest=self.manifest)
+
+        confirmation, distinct = issue(), issue()
+        entered, release = threading.Event(), threading.Event()
+        calls = []
+
+        @authorization.with_subject_publication_window
+        def failed_unchanged(_root, _parameters, **_kwargs):
+            calls.append("attempt")
+            if len(calls) == 1:
+                entered.set()
+                self.assertTrue(release.wait(30), "First action was not released")
+            return {"outcome": "failed"}
+
+        def attempt(confirmed):
+            with authorization.bind_subject_publication_confirmation(confirmed):
+                return failed_unchanged(self.fixture.root, self.fixture.parameters, execute=True,
+                    session=SimpleNamespace(request=self.frozen["request"]["execution"]))
+
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            first = pool.submit(attempt, confirmation)
+            try:
+                self.assertTrue(await asyncio.to_thread(entered.wait, 30), "First action did not enter")
+                with self.assertRaises(LifecycleError) as refused:
+                    pool.submit(attempt, confirmation).result(timeout=30)
+                self.assertIn("already been consumed", str(refused.exception))
+                self.assertEqual(["attempt"], calls)
+                self.assertEqual({"outcome": "failed"}, pool.submit(attempt, distinct).result(timeout=30))
+            finally:
+                release.set()
+            self.assertEqual({"outcome": "failed"}, first.result(timeout=30))
+        self.assertEqual(["attempt", "attempt"], calls)
         self.fixture.assert_unchanged(self)
 
 

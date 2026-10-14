@@ -27,7 +27,6 @@ import work_journal  # noqa: E402
 import atom_operations as operations  # noqa: E402
 from lifecycle_intents import LifecycleError  # noqa: E402
 from test_subject_apply_portfolio import REPOSITORY, SubjectApplyProject, PUBLICATION_PINS  # noqa: E402
-from test_engine_publication_lock import CONTENDER, BUSY, start_child, read_event, send_command  # noqa: E402
 from workflow_run_support import RunExecutionSession, SelectedRunError  # noqa: E402
 
 
@@ -539,52 +538,27 @@ class SelectedSubjectApplyTests(unittest.TestCase):
         self.assertEqual(self.fixture.before, self.fixture.archive.read_bytes())
         self.assert_no_replay(runner, frozen, result)
 
-    def test_contender_cannot_enter_validation_effects_readback_or_restoration(self):
-        runner, frozen, confirmation = self.confirmed_execution("subject-private-lock")
-        child = start_child(self, CONTENDER, self.fixture.root)
-        self.assertEqual("ready", read_event(self, child))
+    def test_caught_failure_restores_current_before_removing_owned_history(self):
+        runner, frozen, confirmation = self.confirmed_execution("subject-private-restoration-order")
         real_write = operations.write_raw_atom_revision
-        real_gate = native._gate
-        real_read = operations.read_raw_atom_revision
         phases = []
         failed = False
-        effect_started = False
 
-        def assert_busy():
-            send_command(child)
-            self.assertEqual(BUSY, read_event(self, child))
-
-        def locked_gate(*args, **kwargs):
-            assert_busy()
-            return real_gate(*args, **kwargs)
-
-        def locked_read(root, path):
-            if effect_started and Path(path) in (self.fixture.path, self.fixture.archive):
-                assert_busy()
-            return real_read(root, path)
-
-        def locked_write(root, path, raw, **kwargs):
-            nonlocal failed, effect_started
-            assert_busy()
-            effect_started = True
+        def observed_write(root, path, raw, **kwargs):
+            nonlocal failed
             owner = real_write(root, path, raw, **kwargs)
             phases.append((Path(path), raw is None))
-            assert_busy()
             if Path(path) == self.fixture.path and raw != self.fixture.before and not failed:
                 failed = True
-                raise operations.ToolError("fixture-held-failure", "restore under same owner",
+                raise operations.ToolError("fixture-post-current-failure", "restore attempt-owned effects",
                                            {"publication_fingerprint": owner})
             return owner
 
-        with patch.object(native, "_gate", side_effect=locked_gate), patch.object(
-            operations, "read_raw_atom_revision", side_effect=locked_read,
-        ), patch.object(operations, "write_raw_atom_revision", side_effect=locked_write):
+        with patch.object(operations, "write_raw_atom_revision", side_effect=observed_write):
             result, restored = self.observe_confirmed(runner, frozen, confirmation)
         self.assertEqual("failed", restored["outcome"])
         self.assertEqual([(self.fixture.archive, False), (self.fixture.path, False),
                          (self.fixture.path, False), (self.fixture.archive, True)], phases)
-        send_command(child)
-        self.assertEqual("acquired", read_event(self, child))
         self.fixture.assert_unchanged(self)
         self.assert_no_replay(runner, frozen, result)
 

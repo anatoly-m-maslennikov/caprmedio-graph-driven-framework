@@ -19,7 +19,6 @@ import weakref
 
 import atom_operations as operations
 from connector_bindings import ConnectorBindingError, FileSource, capture_source
-from engine_publication_lock import EnginePublicationLockError, engine_publication_lock
 from operator_registry import parse_operators_registry
 from workflow_run_support import _canonical_digest, _validate_common
 
@@ -193,7 +192,7 @@ def authorize_subject_publication(root, execution, *, operator_name, llm_session
     object.__setattr__(confirmation, "_record", record)
     identity = id(confirmation)
     _ISSUED[identity] = (weakref.ref(confirmation, lambda _: _ISSUED.pop(identity, None)), record, False,
-                         _snapshot(record))
+                         _snapshot(record), {"available": True})
     return confirmation
 
 
@@ -227,7 +226,7 @@ def revalidate_subject_publication_authority(root, request, intent):
 
 
 def with_subject_publication_window(action):
-    """Hold shared ownership through the complete action and caught restoration."""
+    """Bind exact host confirmation through the action and caught restoration."""
     @wraps(action)
     def admitted(root, parameters, **kwargs):
         if kwargs.get("execute") is not True:
@@ -240,7 +239,6 @@ def with_subject_publication_window(action):
         confirmation = _BOUND.get()
         if confirmation is None:
             return action(root, parameters, **kwargs)
-        result = None
         try:
             record = _record(confirmation)
             session = kwargs.get("session")
@@ -249,35 +247,25 @@ def with_subject_publication_window(action):
                     or record.authorization_digest != _canonical_digest(session.request["operator_authorization"])
                     or record.intent_digest != request["subject_intent_sha256"]):
                 _reject("Confirmation differs from this exact admitted Session/intent")
-            with engine_publication_lock(root):
-                _record(confirmation)
-                fresh = _prepare(Path(root).resolve(), request)
-                originals, _ = _frontier(record.root, fresh, session.request)
-                if originals != record.originals:
-                    _reject("The confirmed original-identity frontier changed")
-                for source in (*record.authorities, record.target, record.predecessor):
-                    source.revalidate()
-                _, target_fingerprint = operations.read_raw_atom_revision(root, root / record.target.relative_path)
-                if target_fingerprint != record.target_fingerprint:
-                    _reject("Reviewed current Carrier identity or mode changed")
-                token = _ACTIVE.set((record.root, _canonical_digest(request), fresh["subject_intent"]))
-                try:
-                    result = action(root, parameters, **kwargs)
-                finally:
-                    _ACTIVE.reset(token)
-                    issued = _ISSUED[id(confirmation)]
-                    _ISSUED[id(confirmation)] = (issued[0], record, True, issued[3])
-            return result
+            fresh = _prepare(Path(root).resolve(), request)
+            originals, _ = _frontier(record.root, fresh, session.request)
+            if originals != record.originals:
+                _reject("The confirmed original-identity frontier changed")
+            for source in (*record.authorities, record.target, record.predecessor):
+                source.revalidate()
+            _, target_fingerprint = operations.read_raw_atom_revision(root, root / record.target.relative_path)
+            if target_fingerprint != record.target_fingerprint:
+                _reject("Reviewed current Carrier identity or mode changed")
+            if not _ISSUED[id(confirmation)][4].pop("available", False):
+                _reject("Subject publication confirmation has already been consumed")
+            token = _ACTIVE.set((record.root, _canonical_digest(request), fresh["subject_intent"]))
+            try:
+                return action(root, parameters, **kwargs)
+            finally:
+                _ACTIVE.reset(token)
+                issued = _ISSUED[id(confirmation)]
+                _ISSUED[id(confirmation)] = (issued[0], record, True, issued[3], issued[4])
         except (SubjectPublicationAuthorizationError, ConnectorBindingError) as error:
             from lifecycle_intents import LifecycleError
             raise LifecycleError("subject-publication-window-unconfirmed", str(error)) from error
-        except EnginePublicationLockError as error:
-            if result is not None and result.get("outcome") in {"applied", "partial"}:
-                intent = prepared["subject_intent"]
-                return {**result, "outcome": "partial", "failure": {"code": error.code},
-                    "effects": [{**effect, "state": "unknown"} for effect in result.get("effects", [])],
-                    "recovery": {"automatic_retry": False, "inspection_required": True},
-                    "unknown_remainder": [intent["target"]["path"], intent["predecessorArchive"]["path"]]}
-            from lifecycle_intents import LifecycleError
-            raise LifecycleError(error.code, str(error)) from error
     return admitted

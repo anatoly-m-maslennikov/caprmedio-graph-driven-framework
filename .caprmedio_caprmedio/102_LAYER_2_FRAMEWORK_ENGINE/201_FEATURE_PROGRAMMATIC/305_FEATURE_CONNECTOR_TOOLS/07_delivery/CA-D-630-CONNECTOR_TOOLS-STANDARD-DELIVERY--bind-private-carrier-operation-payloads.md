@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Artifact/Carrier","Action","Workflow","Atom","Operator"]
-version: 4
-updated_at: "2026-10-13 23:51:12 +0400"
+version: 5
+updated_at: "2026-10-14 23:49:48 +0400"
 relations:
   delivery_for: [CA-R-1941]
   depends_on: [CA-D-625]
@@ -41,7 +41,7 @@ The connector's private bound plan identifies exactly:
 - `entry_inventory`: the complete finite approved inventory and expected states for a folder rename/move; empty-folder evidence for folder removal; null for a file;
 - `admission_evidence`: the existing bound permission/schema/currentness evidence, positive non-Atom cleanup eligibility for remove, or required lifecycle/history admission for an internal Atom carrier move.
 
-the existing `admission_evidence` role also resolves CA-R-1941's fresh purpose-specific trusted-host authorization record: the exact staged source-bound location/absence change **and** Operator review, logical request, private Action/variant, selected Session/Run, affected source/parent/destination/inventory/preservation/governing frontier, **and** recorded outside-edits-paused confirmation. the binding is private; caller-written data, hashes, approval flags **or** arbitrary callbacks cannot manufacture it. no public window flag, new request field **or** runtime provider is established. the existing shared Engine lock is held from final complete revalidation through effects **and** independent readback/verification; the confirmation **and** lock do **not** replace permission, cleanup eligibility **or** lifecycle/history admission.
+the existing `admission_evidence` role also resolves CA-R-1941's fresh purpose-specific trusted-host authorization record: the exact staged source-bound location/absence change **and** Operator review, logical request, private Action/variant, selected Session/Run, affected source/parent/destination/inventory/preservation/governing frontier, **and** recorded outside-edits-paused confirmation. the binding is private; caller-written data, hashes, approval flags **or** arbitrary callbacks cannot manufacture it. no public window flag, new request field **or** runtime provider is established. the confirmed exclusive window covers final complete revalidation, effects **and** independent readback/verification; confirmation does **not** replace permission, cleanup eligibility **or** lifecycle/history admission.
 
 These are internal binding roles, not a second caller envelope or a permission token. Missing, ambiguous, stale or unsupported bindings are rejected under CA-R-1941; the connector cannot fabricate admission. Private relative locators must remain within the supplied roots with no symlink traversal or root/ancestor effect. Rename keeps the same parent; Move uses only the supplied destination; Remove has no destination and never expands descendants. Destination collisions, overwrite and merging are not represented as accepted effects.
 

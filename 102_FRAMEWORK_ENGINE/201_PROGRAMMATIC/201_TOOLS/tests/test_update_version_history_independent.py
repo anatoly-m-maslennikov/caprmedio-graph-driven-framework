@@ -48,8 +48,7 @@ class UpdateVersionHistoryIndependentTests(unittest.TestCase):
         before = fixture.target.read_bytes()
         def snapshot():
             return {path.relative_to(fixture.root).as_posix(): (path.read_bytes(), path.stat().st_mode & 0o777)
-                    for path in fixture.root.rglob("*") if path.is_file()
-                    and path.relative_to(fixture.root).as_posix() != ".caprmedio_runtime/framework/selector-publication.lock"}
+                    for path in fixture.root.rglob("*") if path.is_file()}
         original_files = snapshot()
         prior = parameters["target"]
         start = datetime.now(timezone.utc).replace(microsecond=0)

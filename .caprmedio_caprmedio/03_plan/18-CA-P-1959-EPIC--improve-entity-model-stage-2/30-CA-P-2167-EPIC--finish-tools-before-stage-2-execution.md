@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 68
-updated_at: "2026-10-14 22:52:32 +0400"
+version: 69
+updated_at: "2026-10-14 23:49:48 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,12 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Remove the project-wide Engine write lock — 2026-10-14
+
+The Operator explicitly removed the project-wide Engine write lock without a replacement. Remove its acquisition, hold, contention and lock-error requirements from the affected Tool contracts and implementation; do not introduce another lock or serialization mechanism. Distinct existing resource-specific locks remain unchanged. Preserve path/ownership safety, stale-source and authority rechecks, exact approval and confirmation, the affected-file exclusive window, independent readback, existing Action-local restoration, truthful errors/partial effects and no automatic replay. The model no longer excludes other Engine writers; final revalidation is not a concurrent-writer or crash-atomicity guarantee.
+
+This decision supersedes only the shared Engine lock requirements and claims in earlier checkpoints and accepted-at-the-time receipts. Those historical records remain unchanged. Source alignment is not implementation, independent verification, runtime activation, fresh staging or live publication acceptance. Keep this Epic Active and the Subjects-only/content-migration boundary unchanged.
 
 ### Runtime-only tests and current migration preparation — 2026-10-14
 
@@ -201,7 +207,7 @@ After the map has complete current source/occurrence coverage and no undisposed 
 
 - Repair the relevant MCP discovery/bindings and expose the existing field-aware `governs`/`depends_on` lookup. Verify that an actual MCP request returns the expected source-pinned matches.
 - Expose the existing sealed Subjects-only preview and staging path. Verify staged output through MCP, with no authoritative source changes.
-- Connect the existing publication authorization to real Operator confirmation for the exact reviewed change and exclusive window. Preserve the shared Engine lock, stale-source checks and refusal without confirmation; request data must not manufacture permission.
+- Connect the existing publication authorization to real Operator confirmation for the exact reviewed change and exclusive window. Preserve stale-source checks and refusal without confirmation; request data must not manufacture permission.
 - Support mapped `depends_on` values that converge on one target. Preserve one resulting dependency, unrelated bytes and source pins; propagate the exact effect through preview, staging and apply checks. Check and narrowly align affected RMEDO before implementation.
 - Test the complete MCP path on isolated fixtures: lookup, preview, staging and approved apply, plus stale-source refusal, missing-confirmation refusal and converging dependencies. Verify Version/history/Journal effects and unchanged ordinary content.
 
@@ -482,4 +488,4 @@ CA-P-2192 is Done after [independent installed-copy identity acceptance](../../_
 
 ### Definition of Done
 
-The Plan is **not** Done if required work in “Current execution order — after Subject mapping” lacks updated independently verified governing RMEDO, bounded implementation, fresh independent positive/negative fixtures, affected current-source/binding compatibility or actual connected runtime evidence; the required current runtime suite is failed, skipped, stale or incomplete; preparation or a registry listing substitutes for actual capability; an existing safeguard is bypassed; or Tool readiness is treated as live migration approval. Preserve the accepted staged-review/exclusive-window model, shared Engine lock, exact confirmation, stale-source refusal, per-Atom failure handling and no automatic replay. General connector rebuilding, configuration/type catalogs, C/A work, deferred content work and unrelated unfinished children are not completion prerequisites for this Subjects-only slice. Existing historical receipts remain bounded to their inspected sources; no new FPF review or completion cascade is inferred.
+The Plan is **not** Done if required work in “Current execution order — after Subject mapping” lacks updated independently verified governing RMEDO, bounded implementation, fresh independent positive/negative fixtures, affected current-source/binding compatibility or actual connected runtime evidence; the required current runtime suite is failed, skipped, stale or incomplete; preparation or a registry listing substitutes for actual capability; an existing safeguard is bypassed; or Tool readiness is treated as live migration approval. Preserve the accepted staged-review/exclusive-window model, exact confirmation, stale-source refusal, per-Atom failure handling and no automatic replay. General connector rebuilding, configuration/type catalogs, C/A work, deferred content work and unrelated unfinished children are not completion prerequisites for this Subjects-only slice. Existing historical receipts remain bounded to their inspected sources; no new FPF review or completion cascade is inferred.

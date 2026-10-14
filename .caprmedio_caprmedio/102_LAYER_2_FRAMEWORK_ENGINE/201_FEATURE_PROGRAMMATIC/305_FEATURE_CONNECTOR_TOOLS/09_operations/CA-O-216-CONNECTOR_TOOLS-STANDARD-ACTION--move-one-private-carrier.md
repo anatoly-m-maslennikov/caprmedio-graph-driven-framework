@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Artifact/Carrier","Action","Workflow","Atom","Operator"]
-version: 4
-updated_at: "2026-10-13 23:51:12 +0400"
+version: 5
+updated_at: "2026-10-14 23:49:48 +0400"
 relations:
   depends_on: [CA-R-1941, CA-M-381, CA-D-630, CA-D-625]
 ---
@@ -30,7 +30,7 @@ require CA-D-630's private move binding, approved source/destination roots **and
 
 ### Action **and** result
 
-require CA-R-1941's exact staged-change review **and** fresh trusted authorization/window record, including recorded outside-edits-paused confirmation. within that confirmed window, acquire the existing shared Engine lock, apply CA-R-1941/CA-M-381 safety checks **and** recheck the complete bound source, destination, parents, inventory, preservation, authority **and** permission frontier **before** the effect; retain the lock through independent readback **and** verification. perform **only** the explicitly bound location change. reject root/ancestor effects, escapes, symlinks/substitution, stale state, collisions, overwrite, merging **and** unlisted entries. verify destination contents/modes/inventory, source absence **and** unchanged unrelated frontier independently.
+require CA-R-1941's exact staged-change review **and** fresh trusted authorization/window record, including recorded outside-edits-paused confirmation. within that confirmed window, apply CA-R-1941/CA-M-381 safety checks **and** recheck the complete bound source, destination, parents, inventory, preservation, authority **and** permission frontier **before** the effect. retain independent readback **and** verification. perform **only** the explicitly bound location change. reject root/ancestor effects, escapes, symlinks/substitution, stale state, collisions, overwrite, merging **and** unlisted entries. verify destination contents/modes/inventory, source absence **and** unchanged unrelated frontier independently.
 
 return CA-D-625's actual data/state/effects/errors. a same-binding no-op needs verified unchanged requested state; missing expected-present source does **not** prove an earlier move. retain known partial effects **and** mark uncertainty with `effect_uncertain`; errors are **not** success. no new transaction, retry, resume **or** concurrent-publication guarantee is implied.
 

@@ -108,8 +108,6 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             shutil.copyfile(source, destination)
             self.assertEqual(source.read_bytes(), destination.read_bytes())
             self.sources[atom_id] = destination
-        with lifecycle_intents.engine_publication_lock(self.root, timeout_seconds=0):
-            pass
 
     def tearDown(self) -> None:
         self.temporary.cleanup()

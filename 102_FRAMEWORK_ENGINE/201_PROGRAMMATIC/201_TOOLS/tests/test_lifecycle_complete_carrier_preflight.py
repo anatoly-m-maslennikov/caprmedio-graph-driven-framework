@@ -5,7 +5,6 @@ import unittest
 from unittest.mock import patch
 
 import test_selected_atom_lifecycle as lifecycle_fixture
-from engine_publication_lock import engine_publication_lock
 from lifecycle_intents import (
     LifecycleError,
     carrier_descriptor,
@@ -24,8 +23,6 @@ class CompleteCarrierPreflightTest(unittest.TestCase):
         )
         self.fixture.setUp()
         self.addCleanup(self.fixture.tearDown)
-        with engine_publication_lock(self.fixture.root):
-            pass
 
     def _snapshot(self) -> dict[str, tuple[bytes, int]]:
         return {

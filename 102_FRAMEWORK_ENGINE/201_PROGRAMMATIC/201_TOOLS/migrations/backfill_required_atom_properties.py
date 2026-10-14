@@ -108,18 +108,10 @@ def build_plan(report: dict[str, Any], root: Path, report_raw: bytes,
 
 
 def apply_plan(plan: dict[str, Any], root: Path) -> dict[str, Any]:
-    result = None
     try:
-        with safe._publication_lock(root):
-            result = _apply_plan(plan, root)
-    except safe.EnginePublicationLockError as error:
-        if result is None:
-            raise
-        raise safe._lock_exit_failure(error, result) from error
-    return result
-
-
-def _apply_plan(plan: dict[str, Any], root: Path) -> dict[str, Any]:
+        safe.repository_root(root)
+    except safe.TemporaryBoundaryError as error:
+        raise safe.MigrationError(str(error)) from error
     if (plan.get("kind") != KIND or plan.get("schema_version") != 1 or plan.get("blockers")
             or plan.get("source_root") != str(root)):
         raise safe.MigrationError("Unsupported, mismatched, or blocked plan.")

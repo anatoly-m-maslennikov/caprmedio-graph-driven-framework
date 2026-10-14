@@ -9,13 +9,11 @@ import re
 import subprocess
 import sys
 from collections.abc import Callable, Mapping
-from functools import wraps
 from pathlib import Path
 from typing import Any
 
 from authoritative_status_models import StatusModelError, resolve_status_model
 from artifact_metadata import current_timestamp
-from engine_publication_lock import EnginePublicationLockError, engine_publication_lock
 from atom_operations import (
     Atom,
     _atomic_write,
@@ -67,33 +65,6 @@ class LifecycleError(IntentError):
 
     def __init__(self, code: str, message: str) -> None:
         super().__init__(code, f"{code}: {message}")
-
-
-def _locked_action(action):
-    @wraps(action)
-    def call(root, parameters, **kwargs):
-        if not kwargs.get("execute", False):
-            return action(root, parameters, **kwargs)
-        entered = False
-        result = None
-        try:
-            with engine_publication_lock(root):
-                entered = True
-                result = action(root, parameters, **kwargs)
-        except EnginePublicationLockError as error:
-            if not entered:
-                raise LifecycleError(error.code, str(error)) from error
-            if result is None:
-                raise
-            observed = result.get("observed")
-            return {**result, "outcome": "partial",
-                    "observed": {"path": observed["path"], "verification": "unknown"}
-                                if isinstance(observed, Mapping) and "path" in observed else None,
-                    "effects": [{**effect, "state": "unknown"} for effect in result.get("effects", [])],
-                    "failure": {"code": error.code, "phase": "lock-exit", "observed_result": result},
-                    "recovery": {**result.get("recovery", {}), "automatic_retry": False}}
-        return result
-    return call
 
 
 def load_payload(source: str) -> dict[str, Any]:
@@ -986,7 +957,6 @@ def _broken_references(root: Path, atom: Atom) -> list[dict[str, Any]]:
     return result
 
 
-@_locked_action
 def create_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool = False, authorized: bool = False) -> dict[str, Any]:
     """Apply or preview one complete Create carrier, without any outer Run policy."""
 
@@ -1021,7 +991,6 @@ def create_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
             "effects": [_effect("changed", carrier=observed)], "history": {"prior": None}}
 
 
-@_locked_action
 def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool = False, authorized: bool = False,
                        assessment: Mapping[str, Any] | None = None, session: object | None = None,
                        action_run_id: str | None = None, prior: Mapping[str, Any] | None = None) -> dict[str, Any]:
@@ -1294,7 +1263,6 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
             **assessment_evidence}
 
 
-@_locked_action
 def change_status_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool = False, authorized: bool = False) -> dict[str, Any]:
     """Apply one source-model-derived status change; callers cannot supply a model."""
 
@@ -1428,7 +1396,6 @@ def change_status_atom_action(root: Path, parameters: Mapping[str, Any], *, exec
     return result
 
 
-@_locked_action
 def replace_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool = False, authorized: bool = False) -> dict[str, Any]:
     """Publish supplied successors before archiving one predecessor."""
 
