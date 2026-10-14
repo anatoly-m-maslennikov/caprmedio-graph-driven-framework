@@ -7,13 +7,13 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 18:30:17 +0000"
+version: 2
+updated_at: "2026-10-14 20:12:21 +0400"
 subjects:
   governs: "Tool/WORKFLOW_OPERATIONS/REVERT_CHANGES/Delivery"
   depends_on: [Tool, Workflow, Action, Journal, Implementation]
 relations:
-  delivery_for: [CA-R-1834, CA-E-553, CA-E-554]
+  delivery_for: [CA-R-1834, CA-E-553, CA-E-636]
 ---
 # Summary
 
@@ -29,6 +29,6 @@ REVERT_CHANGES **must** deliver manifest validation, currentness guards, ordered
 
 ## Details
 
-Implementation belongs at the CA-D-536 entrypoint with functional mocks under the same Tool package. It calls supported governed effect capabilities only after admission/currentness checks; it never replaces CA-O-131's semantics, deletes history, performs a Git reset, or implements an internal failure rollback. It passes exact Run/Step/Action identity and evidence references to the accepted shared J01–J08 support and consumes its durable/pending receipts; it must not fork a second Journal schema or claim an unconfirmed append as durable.
+Implementation belongs at the CA-D-536 entrypoint with functional mocks under the same Tool package. It calls supported governed effect capabilities only after admission/currentness checks; it never replaces CA-O-131's semantics, deletes history, performs a Git reset, or implements an internal failure rollback. It passes exact Run/Step/Action identity and evidence references to existing shared Run support and retains actual Run observations and logging diagnostics. Plain Journal append/read is independent observation, not a permission or source-effect completion gate; no durable/pending receipt, logging retry or recovery channel is required or exposed. Actual Run-start failure blocks before effects, and actual Run-terminal failure preserves observed effects and reports its error without claiming terminal persistence. Logging failure does not downgrade an independently completed reversal or authorize effect replay.
 
-Delivery is incomplete until CA-E-553 and CA-E-554 run through the real MCP boundary in the required Docker image. This RMED carrier authorizes no code before independent RMED review and no runtime-success claim.
+Delivery is incomplete until CA-E-553 and CA-E-636 run through the real MCP boundary in the required Docker image. This RMED carrier authorizes no code before independent RMED review and no runtime-success claim.

@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 18:30:17 +0000"
+version: 2
+updated_at: "2026-10-14 20:05:43 +0400"
 subjects:
   governs: "Tool/WORKFLOW_OPERATIONS/REVERT_CHANGES"
   depends_on: [Tool, Workflow, Action, Operator, Artifact, Journal, Workflow Run, Step Run]
@@ -29,11 +29,11 @@ REVERT_CHANGES **must** revalidate current target, hash, affected-reference, aut
 
 ## Details
 
-Before dispatch and on recovery, revalidate the manifest's exact bindings. A changed or unresolved binding blocks further effects and names the completed, failed, unattempted, and uncertain effects. Current complete satisfaction of the exact result plus required history/reference conditions returns `no_op` with zero applied effects. Otherwise apply only the ordered approved effects through governed capabilities, preserving before/after/result evidence, prior Revisions, archives, accepted Events, referenced identities, and the exact safe boundary.
+Before dispatch, including any separately approved later attempt, revalidate the manifest's exact bindings. A changed or unresolved binding blocks further effects and names the completed, failed, unattempted, and uncertain effects. Current complete satisfaction of the exact result plus required history/reference conditions returns `no_op` with zero applied effects. Otherwise apply only the ordered approved effects through governed capabilities, preserving before/after/result evidence, prior Revisions, archives, accepted Events, referenced identities, and the exact safe boundary.
 
-The output is `{ outcome, manifest_id, selection_and_currentness_bindings, expected_result, observed_result, effect_account, history_reference_disposition, evidence_refs, run_receipt_refs }`. `effect_account` contains each ordered effect as `completed`, `failed`, `unattempted`, or `uncertain`; `applied_effect_count` is established completed effects only. The only successful outcomes are `reverted` and `no_op`. `failed` requires confirmed zero applied effects and zero uncertain completion. Any established applied effect **or any uncertain completion**, including with zero confirmed applied effects, is `partial_failure`. Revalidation/approval/currentness/permission/capability/reference failure before a further effect is `blocked`; admitted cancellation is `canceled`; unconfirmed required recording is `recording_blocked` with known effects and pending-recording evidence.
+The output is `{ outcome, manifest_id, selection_and_currentness_bindings, expected_result, observed_result, effect_account, history_reference_disposition, evidence_refs, run_receipt_refs }`. `effect_account` contains each ordered effect as `completed`, `failed`, `unattempted`, or `uncertain`; `applied_effect_count` is established completed effects only. The only successful outcomes are `reverted` and `no_op`. `failed` requires confirmed zero applied effects and zero uncertain completion. Any established applied effect **or any uncertain completion**, including with zero confirmed applied effects, is `partial_failure`. Revalidation/approval/currentness/permission/capability/reference failure before a further effect is `blocked`; admitted cancellation is `canceled`. Actual Run-start failure blocks before target effects. Actual Run-terminal failure preserves the independently observed target outcome and exact effect account and reports `run_error`, without claiming terminal Run persistence.
 
-The Tool uses the accepted shared CA-P-1443/CA-P-1451 J01–J08 Run/Journal contract rather than redefining its schema: confirmed start precedes target effects; actual Workflow/Step/Action lineage and exact revisions are referenced; identical pending-recording retry reconciles the same event identity/payload and never replays an effect; conflicting retry is rejected. A returned receipt reference is not a claim that the Tool independently owns Journal serialization. No outcome authorizes an automatic inverse, blind retry, substitute source Revision, or broader repair.
+The Tool uses existing shared Run support: actual Run start precedes target effects, and actual Workflow/Step/Action lineage and exact revisions are retained. Plain Journal append/read records supplied observations without a prior-history, chain, confirmed-receipt, deduplication, logging retry or recovery prerequisite. Logging I/O failure is an ordinary diagnostic and does not downgrade an independently observed reversal outcome. Existing `run_receipt_refs` carry actual Run observations and diagnostics, not Journal durability or completion proof. No outcome or log entry authorizes an automatic inverse, effect replay, blind retry, substitute source Revision or broader repair.
 
 ### Sources
 
