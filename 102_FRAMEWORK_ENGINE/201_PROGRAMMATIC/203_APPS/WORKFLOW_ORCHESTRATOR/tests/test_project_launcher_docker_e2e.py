@@ -8,7 +8,8 @@ from __future__ import annotations
 
 import argparse
 import asyncio
-from contextlib import AsyncExitStack
+from collections.abc import Iterator
+from contextlib import AsyncExitStack, contextmanager
 from dataclasses import dataclass
 import hashlib
 import json
@@ -64,7 +65,7 @@ class ProjectFixture:
     atom_id: str
 
     @classmethod
-    def create(cls, root: Path, name: str, marker: str):
+    def create(cls, root: Path, name: str, marker: str, http_port: int):
         root.mkdir(parents=True)
         control = ".caprmedio_" + name
         authority = root / control
@@ -74,7 +75,7 @@ class ProjectFixture:
             f'[project]\nname = "{name}"\n[paths]\ncontrol_root = "{control}"\n'
             f'journal_root = "{control}/_journal"\nprojection_root = "{control}/_projection"\n'
             'runtime_root = ".caprmedio_runtime"\ntemporary_root = ".caprmedio_tmp"\n'
-            f'[project_mcp]\nhttp_port = {56317 if name == "alpha" else 56318}\n',
+            f'[project_mcp]\nhttp_port = {http_port}\n',
             encoding="utf-8",
         )
         (authority / "project_structure.toml").write_text(
@@ -108,8 +109,10 @@ def _fixtures(parent: Path, group: str) -> list[ProjectFixture]:
         repository = parent / "repo-multi"
         (repository / ".git").mkdir(parents=True)
         roots = [repository / "projects" / "alpha", repository / "projects" / "beta"]
-    return [ProjectFixture.create(root, name, f"{group}: {name} authority")
-            for root, name in zip(roots, ("alpha", "beta"), strict=True)]
+    ports = [_available_port()]
+    ports.append(_available_port(excluded=tuple(ports)))
+    return [ProjectFixture.create(root, name, f"{group}: {name} authority", port)
+            for root, name, port in zip(roots, ("alpha", "beta"), ports, strict=True)]
 
 
 def _launch(fixture, token, source_root, image, *, deadline, port=None, command_receipt=None):
@@ -192,10 +195,29 @@ def _cleanup(fixtures, tokens, records):
     return receipts, failures
 
 
-def _available_port() -> int:
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
-        probe.bind(("127.0.0.1", 0))
-        return int(probe.getsockname()[1])
+def _available_port(*, excluded: tuple[int, ...] = ()) -> int:
+    for _ in range(8):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = int(probe.getsockname()[1])
+            if port not in excluded:
+                return port
+    raise AssertionError("could not select a distinct ephemeral fixture port")
+
+
+@contextmanager
+def _fixture_settings_port(fixture: ProjectFixture, port: int) -> Iterator[None]:
+    """Change only owned test Settings and restore their exact bytes on any outcome."""
+    path = fixture.root / fixture.control / "caprmedio_project_settings.toml"
+    before = path.read_bytes()
+    current = resolve_project(fixture.root, fixture.control).settings["project_mcp"]["http_port"]
+    marker = f"http_port = {current}\n".encode()
+    assert before.count(marker) == 1, "fixture Settings port is ambiguous"
+    try:
+        path.write_bytes(before.replace(marker, f"http_port = {port}\n".encode()))
+        yield
+    finally:
+        path.write_bytes(before)
 
 
 def _compose_services(selection, token, row):
@@ -307,7 +329,7 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
                                             deadline=deadline)
             records.append(alpha)
         assert alpha["condition"] == "READY_STARTED", alpha
-        beta_port = _available_port()
+        beta_port = resolve_project(fixtures[1].root, fixtures[1].control).settings["project_mcp"]["http_port"]
         assert beta_port != alpha["port"], "ephemeral selection collided with the live dynamic publication"
         beta = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
                                        deadline=deadline, port=beta_port)
@@ -330,9 +352,13 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
                               *((row, launches[0]) for row in concurrent)]:
             assert row["condition"] == "READY_REUSED", row
             assert all(row[key] == original[key] for key in ("container_id", "port", "project_id")), row
-        mismatch = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
-                                           deadline=deadline, port=alpha["port"])
-        assert mismatch["condition"] == "RUNTIME_MISMATCH", mismatch
+        wrong_flag = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
+                                             deadline=deadline, port=alpha["port"])
+        assert wrong_flag["condition"] == "PROJECT_SELECTION_REFUSED", wrong_flag
+        with _fixture_settings_port(fixtures[1], alpha["port"]):
+            mismatch = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
+                                               deadline=deadline, port=alpha["port"])
+            assert mismatch["condition"] == "RUNTIME_MISMATCH", mismatch
         evidence.update(repeated=repeat, concurrent=concurrent)
         async with AsyncExitStack() as stack:
             sessions = [await stack.enter_async_context(harness._http_session(row["url"], None))
@@ -371,23 +397,25 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
         historical_beta_id = beta["container_id"]
         beta_selection = resolve_project(fixtures[1].root, fixtures[1].control)
         records[:] = [row for row in records if row.get("project_id") != beta_selection.instance_id]
-        occupied = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
-                                           deadline=deadline, port=alpha["port"])
-        alpha_rows = await asyncio.to_thread(backend.inspect, resolve_project(fixtures[0].root, fixtures[0].control))
-        assert len(alpha_rows) == 1 and alpha_rows[0]["Id"] == alpha["container_id"], alpha_rows
-        alpha_publishers = alpha_rows[0]["NetworkSettings"]["Ports"]["8092/tcp"]
-        assert alpha_publishers == [{"HostIp": "127.0.0.1", "HostPort": str(alpha["port"])}], alpha_rows
-        failed_beta_rows = await asyncio.to_thread(backend.inspect, beta_selection)
-        evidence["collision_observed"] = _bounded_collision_observed(failed_beta_rows)
-        evidence["occupied_result"] = occupied
-        expected_collision, _collision_shape = _collision_diagnostic(failed_beta_rows)
-        _assert_collision_refusal(occupied, expected_collision)
-        failed_cleanup, failed_cleanup_failures = await asyncio.to_thread(
-            _cleanup, [fixtures[1]], [tokens[1]], records)
-        assert not failed_cleanup_failures, {"cleanup_failures": failed_cleanup_failures}
-        assert not await asyncio.to_thread(backend.inspect, beta_selection)
+        with _fixture_settings_port(fixtures[1], alpha["port"]):
+            occupied = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
+                                               deadline=deadline, port=alpha["port"])
+            alpha_rows = await asyncio.to_thread(backend.inspect, resolve_project(fixtures[0].root, fixtures[0].control))
+            assert len(alpha_rows) == 1 and alpha_rows[0]["Id"] == alpha["container_id"], alpha_rows
+            alpha_publishers = alpha_rows[0]["NetworkSettings"]["Ports"]["8092/tcp"]
+            assert alpha_publishers == [{"HostIp": "127.0.0.1", "HostPort": str(alpha["port"])}], alpha_rows
+            failed_beta_rows = await asyncio.to_thread(backend.inspect, beta_selection)
+            evidence["collision_observed"] = _bounded_collision_observed(failed_beta_rows)
+            evidence["occupied_result"] = occupied
+            expected_collision, _collision_shape = _collision_diagnostic(failed_beta_rows)
+            _assert_collision_refusal(occupied, expected_collision)
+            failed_cleanup, failed_cleanup_failures = await asyncio.to_thread(
+                _cleanup, [fixtures[1]], [tokens[1]], records)
+            assert not failed_cleanup_failures, {"cleanup_failures": failed_cleanup_failures}
+            assert not await asyncio.to_thread(backend.inspect, beta_selection)
         evidence["port_cases"] = {"dynamic_started": alpha["port"], "explicit_started": beta_port,
-                                  "explicit_reused": repeat[1]["port"], "mismatch": mismatch,
+                                  "explicit_reused": repeat[1]["port"], "wrong_explicit_flag": wrong_flag,
+                                  "mismatch": mismatch,
                                   "occupied_refusal": occupied, "historical_beta_container_id": historical_beta_id,
                                   "pre_occupied_cleanup": beta_cleanup,
                                   "failed_resource_cleanup": failed_cleanup}
@@ -411,6 +439,11 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
 
 
 class ProjectLauncherFixtureTests(unittest.TestCase):
+    def setUp(self) -> None:
+        ports = patch.object(sys.modules[__name__], "_available_port", side_effect=(45121, 45122))
+        ports.start()
+        self.addCleanup(ports.stop)
+
     def test_nested_projects_have_valid_distinct_selected_authority(self):
         from capability_discovery.service import Service, Context
         parent = ROOT / ".caprmedio_tmp" / "launcher-epic-1829" / "fixture-checks"
@@ -439,6 +472,7 @@ class ProjectLauncherFixtureTests(unittest.TestCase):
         self.assertEqual("BUILD_FAILED", result["condition"])
         self.assertNotIn("--image", receipt["argv"])
         self.assertNotIn("--no-build", receipt["argv"])
+        self.assertNotIn("--port", receipt["argv"])
         self.assertGreater(run.call_args.kwargs["timeout"], 600)
         self.assertLessEqual(run.call_args.kwargs["timeout"], 690)
 
