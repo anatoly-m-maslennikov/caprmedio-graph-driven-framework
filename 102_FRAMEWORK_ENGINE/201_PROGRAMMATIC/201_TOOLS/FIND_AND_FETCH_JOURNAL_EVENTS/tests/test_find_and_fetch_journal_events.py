@@ -23,14 +23,19 @@ from query_filter import QueryFilterError, parse_filter_with_stats  # noqa: E402
 class JournalQueryGoldenTest(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         self.control = self.root / ".caprmedio_fixture"
         journal = self.control / "_journal"
         journal.mkdir(parents=True)
         (self.control / "caprmedio_project_settings.toml").write_text(
-            "[paths]\ncontrol_root = \".caprmedio_fixture\"\n", encoding="utf-8"
+            "[project]\nname = \"fixture\"\n[paths]\ncontrol_root = \".caprmedio_fixture\"\n", encoding="utf-8"
         )
-        defaults = self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+        (self.control / "project_structure.toml").write_text(
+            'schema_version = 1\n[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
+            'authority_path = ".caprmedio_fixture/core"\ndelivery_path = ".caprmedio_fixture/core"\n',
+            encoding="utf-8",
+        )
+        defaults = self.control / "core"
         defaults.mkdir(parents=True)
         (defaults / "caprmedio_framework_default_settings.toml").write_text(
             "[query]\n"
@@ -227,15 +232,21 @@ class JournalQueryGoldenTest(unittest.TestCase):
         snapshot = capture_snapshot(self.root)
         other = self.root / ".caprmedio_other"
         (other / "_journal").mkdir(parents=True)
-        defaults = other / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+        defaults = other / "core"
         defaults.mkdir(parents=True)
         (defaults / "caprmedio_framework_default_settings.toml").write_text(
-            (self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml").read_text(encoding="utf-8"),
+            (self.control / "core/caprmedio_framework_default_settings.toml").read_text(encoding="utf-8"),
             encoding="utf-8",
         )
         (self.control / "caprmedio_project_settings.toml").unlink()
+        (self.control / "project_structure.toml").unlink()
         (other / "caprmedio_project_settings.toml").write_text(
-            "[paths]\ncontrol_root = \".caprmedio_other\"\n", encoding="utf-8"
+            '[project]\nname = "other"\n[paths]\ncontrol_root = ".caprmedio_other"\n', encoding="utf-8"
+        )
+        (other / "project_structure.toml").write_text(
+            'schema_version = 1\n[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
+            'authority_path = ".caprmedio_other/core"\ndelivery_path = ".caprmedio_other/core"\n',
+            encoding="utf-8",
         )
         outcome = query(snapshot, {})
         self.assertEqual(outcome["status"], "blocked")

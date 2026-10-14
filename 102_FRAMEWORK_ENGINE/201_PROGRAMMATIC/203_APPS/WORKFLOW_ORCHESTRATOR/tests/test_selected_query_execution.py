@@ -29,16 +29,20 @@ class SelectedQueryExecutionTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
-        self.root = Path(self.temporary.name)
+        self.root = Path(self.temporary.name).resolve()
         (self.root / ".git").mkdir()
         self.control = self.root / ".caprmedio_caprmedio"
         self.journal = self.control / "_journal"
         self.journal.mkdir(parents=True)
         (self.control / "caprmedio_project_settings.toml").write_text(
-            '[paths]\ncontrol_root = ".caprmedio_caprmedio"\njournal_root = ".caprmedio_caprmedio/_journal"\nruntime_root = ".caprmedio_runtime"\n',
+            '[project]\nname = "caprmedio"\n[paths]\ncontrol_root = ".caprmedio_caprmedio"\njournal_root = ".caprmedio_caprmedio/_journal"\nruntime_root = ".caprmedio_runtime"\n',
             encoding="utf-8",
         )
-        defaults = self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+        (self.control / "project_structure.toml").write_text(
+            'schema_version = 1\n[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\nauthority_path = ".caprmedio_caprmedio/core"\ndelivery_path = ".caprmedio_caprmedio/output"\n',
+            encoding="utf-8",
+        )
+        defaults = self.control / "core"
         defaults.mkdir(parents=True)
         (defaults / "caprmedio_framework_default_settings.toml").write_text(
             "[query]\nmax_request_bytes = 4096\nmax_grammar_depth = 16\n"
@@ -234,12 +238,7 @@ class SelectedQueryExecutionTests(unittest.TestCase):
         selected, frozen = self._execution(
             "find_and_fetch_artifacts", {"query_request": {"filter": '"fm:/state" = "open"', "select": ["fm:/title"]}}, "artifact-query",
         )
-        tool = importlib.import_module("FIND_AND_FETCH_ARTIFACTS.find_and_fetch_artifacts")
-        # Bind real fixture budgets, not the Tool module's host-repository settings files.
-        defaults = self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
-        with patch.multiple(tool, _DEFAULT_SETTINGS=defaults,
-                            _INSTANCE_SETTINGS=self.control / "caprmedio_project_settings.toml"):
-            self.assertEqual("terminal", selected.dispatch(frozen)["disposition"])
+        self.assertEqual("terminal", selected.dispatch(frozen)["disposition"])
         native = self._progress(frozen)["native_result"]
         self.assertEqual([{"artifact_id": "A-1", "fm:/title": "Example"}], native["results"])
         self.assertIn("snapshot", native)

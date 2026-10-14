@@ -53,6 +53,12 @@ def _canonical_sibling(path: Path, stem: str) -> Any:
 
 _TOOL_ROOT = Path(__file__).resolve().parent
 _TOOLS_ROOT = _TOOL_ROOT.parent
+if str(_TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(_TOOLS_ROOT))
+from project_selection import active_selection
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
+from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
+
 _description = _canonical_sibling(_TOOLS_ROOT / "tool_description.py", "tool_description")
 binding_matches = _description.binding_matches
 make_tool_description = _description.make_tool_description
@@ -75,9 +81,6 @@ _QUERY_KEYS = frozenset({
 })
 _SECRET = re.compile(r"(?:secret|password|token|credential|api[_-]?key)", re.I)
 _FENCE = re.compile(r"^\s*(`{3,}|~{3,})")
-_REPOSITORY_ROOT = Path(__file__).resolve().parents[4]
-_DEFAULT_SETTINGS = _REPOSITORY_ROOT / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
-_INSTANCE_SETTINGS = _REPOSITORY_ROOT / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
 _SNAPSHOT_SIGNING_KEY = secrets.token_bytes(32)
 
 
@@ -155,6 +158,8 @@ class ArtifactQueryResult(_ClosedModel):
     examined_count: int = Field(ge=0)
     matched_count: int = Field(ge=0)
     returned_count: int = Field(ge=0)
+    complete: bool
+    incomplete: bool
     coverage: ArtifactQueryCoverage
     has_more: bool
     next_cursor: str | None = None
@@ -351,13 +356,32 @@ def _resolve_root(root: str | Path) -> Path:
     return resolved
 
 
-def _load_budgets(instance_settings: dict[str, int] | None, request_settings: Any) -> dict[str, int]:
+def _load_budgets(root: str | Path, instance_settings: dict[str, int] | None, request_settings: Any) -> dict[str, int]:
     try:
-        with _DEFAULT_SETTINGS.open("rb") as handle:
-            defaults = tomllib.load(handle).get("query")
-        with _INSTANCE_SETTINGS.open("rb") as handle:
-            instance = tomllib.load(handle).get("query", {})
-    except (OSError, tomllib.TOMLDecodeError) as error:
+        selection = active_selection(root)
+        reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
+        for path in (selection.settings_path, selection.structure_path):
+            raw = reader.read(path)
+            pin = selection.provenance.get(path.relative_to(selection.root).as_posix(), {})
+            if hashlib.sha256(raw).hexdigest() != pin.get("sha256"):
+                raise ValueError("selected Project settings or structure changed")
+        selection._revalidate_boundary(reader=reader)
+        cores = [row for row in selection.structure.get("scope_units", ())
+                 if row.get("scope_unit_name") == "CORE_META_MODEL"]
+        if len(cores) != 1 or not isinstance(cores[0].get("authority_path"), str):
+            raise ValueError("exactly one declared Core default-settings authority is required")
+        core = selection.root / cores[0]["authority_path"]
+        defaults = tomllib.loads(reader.read(core / "caprmedio_framework_default_settings.toml").decode("utf-8")).get("query")
+        instance_path = selection.control_root / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
+        reader.allowed(instance_path)
+        if os.path.lexists(instance_path.parent) and not instance_path.parent.is_dir():
+            raise ValueError("Framework Instance Settings parent is not a directory")
+        instance_present = os.path.lexists(instance_path)
+        instance = tomllib.loads(reader.read(instance_path).decode("utf-8")).get("query", {}) if instance_present else {}
+        selection._revalidate_boundary(reader=reader)
+        if reader.currentness()["state"] != "unchanged" or os.path.lexists(instance_path) != instance_present:
+            raise ValueError("query settings changed during resolution")
+    except (OSError, RuntimeError, UnicodeError, ValueError) as error:
         raise ArtifactQueryError("unable to resolve query settings") from error
     if not isinstance(defaults, dict) or not isinstance(instance, dict):
         raise ArtifactQueryError("invalid query settings")
@@ -581,7 +605,8 @@ def query_artifacts(root: str | Path, request: dict[str, Any], *, settings: dict
         raise ArtifactQueryError("request must be an object")
     if set(request) - {"filter", "select", "limit", "cursor", "snapshot", "settings"}:
         raise ArtifactQueryError("unsupported query request field")
-    budgets = _load_budgets(settings, request.get("settings"))
+    resolved_root = _resolve_root(root)
+    budgets = _load_budgets(resolved_root, settings, request.get("settings"))
     if len(_canonical_bytes(request)) > budgets["max_request_bytes"]:
         raise ArtifactQueryError("request budget exceeded")
     selection = request.get("select", [])
@@ -595,7 +620,6 @@ def query_artifacts(root: str | Path, request: dict[str, Any], *, settings: dict
     expression = request.get("filter")
     if expression is not None and not isinstance(expression, str):
         raise QueryFilterError("expression must be a string")
-    resolved_root = _resolve_root(root)
     binding = _request_binding(request, selection, budgets)
     retained = request.get("snapshot")
     cursor = request.get("cursor")

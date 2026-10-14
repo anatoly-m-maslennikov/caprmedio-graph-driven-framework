@@ -24,8 +24,9 @@ _TOOLS = Path(__file__).resolve().parents[1]
 if str(_TOOLS) not in sys.path:
     sys.path.insert(0, str(_TOOLS))
 
-from work_journal import resolve_settings_path
-from VALIDATE_ATOMS.validate_atoms_workers.read_io import open_regular
+from project_selection import ProjectSelectionError, active_selection
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regular
+from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 from tool_description import binding_matches, make_tool_description
 
 try:
@@ -149,11 +150,7 @@ class JournalQueryResult(_ClosedModel):
     findings: list[JournalQueryFinding]
 
 
-_DEFAULT_SETTINGS = Path(
-    "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
-    "caprmedio_framework_default_settings.toml"
-)
+_DEFAULT_SETTINGS_FILENAME = "caprmedio_framework_default_settings.toml"
 _INSTANCE_SETTINGS = Path(
     "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
 )
@@ -218,16 +215,13 @@ def _safe_regular_file(path: Path, code: str) -> None:
         raise JournalQueryError(code)
 
 
-def _read_toml(path: Path, code: str) -> dict[str, Any]:
+def _read_toml(path: Path, code: str, reader: ReadContext) -> dict[str, Any]:
     _safe_regular_file(path, code)
     try:
         if path.resolve() != path:
             raise JournalQueryError(code)
-        with os.fdopen(open_regular(path), "rb") as handle:
-            if not stat.S_ISREG(os.fstat(handle.fileno()).st_mode):
-                raise JournalQueryError(code)
-            value = tomllib.loads(handle.read().decode("utf-8"))
-    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        value = tomllib.loads(reader.read(path).decode("utf-8"))
+    except (OSError, RuntimeError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
         raise JournalQueryError(code) from error
     if not isinstance(value, dict):
         raise JournalQueryError(code)
@@ -238,12 +232,37 @@ def _control_and_settings(root: Path) -> tuple[Path, dict[str, Any], dict[str, A
     if root.is_symlink() or not root.is_dir():
         raise JournalQueryError("invalid-project-root")
     try:
-        control = resolve_settings_path(root).parent
-    except (OSError, RuntimeError) as error:
+        selection = active_selection(root)
+        reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
+        for path in (selection.settings_path, selection.structure_path):
+            pin = selection.provenance[path.relative_to(selection.root).as_posix()]
+            if _sha256(reader.read(path)) != pin["sha256"]:
+                raise ProjectSelectionError("Selected Project carriers changed")
+        selection._revalidate_boundary(reader=reader)
+    except (ProjectSelectionError, OSError, RuntimeError, KeyError) as error:
         raise JournalQueryError("project-settings-unavailable") from error
-    defaults = _read_toml(control / _DEFAULT_SETTINGS, "default-settings-unavailable")
+    control = selection.control_root
+    core = [row for row in selection.structure.get("scope_units", ())
+            if row.get("scope_unit_name") == "CORE_META_MODEL"]
+    if len(core) != 1 or not isinstance(core[0].get("authority_path"), str):
+        raise JournalQueryError("default-settings-unavailable")
+    defaults = _read_toml(selection.root / core[0]["authority_path"] / _DEFAULT_SETTINGS_FILENAME,
+                          "default-settings-unavailable", reader)
     instance_path = control / _INSTANCE_SETTINGS
-    instance = _read_toml(instance_path, "instance-settings-unavailable") if os.path.lexists(instance_path) else {}
+    try:
+        reader.allowed(instance_path)
+        if os.path.lexists(instance_path.parent) and not instance_path.parent.is_dir():
+            raise JournalQueryError("instance-settings-unavailable")
+    except (OSError, RuntimeError) as error:
+        raise JournalQueryError("instance-settings-unavailable") from error
+    instance_present = os.path.lexists(instance_path)
+    instance = _read_toml(instance_path, "instance-settings-unavailable", reader) if instance_present else {}
+    try:
+        selection._revalidate_boundary(reader=reader)
+        if reader.currentness()["state"] != "unchanged" or os.path.lexists(instance_path) != instance_present:
+            raise JournalQueryError("query-settings-changed")
+    except (ProjectSelectionError, OSError, RuntimeError) as error:
+        raise JournalQueryError("project-settings-unavailable") from error
     return control, defaults, instance
 
 

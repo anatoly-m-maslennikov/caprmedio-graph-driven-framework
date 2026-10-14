@@ -86,6 +86,8 @@ class QueryToolDescriptorTests(unittest.TestCase):
             "examined_count": 1,
             "matched_count": 1,
             "returned_count": 1,
+            "complete": True,
+            "incomplete": False,
             "coverage": {"examined_count": 1, "matched_count": 1, "returned_count": 1, "complete": True, "incomplete": False},
             "has_more": False,
             "next_cursor": None,
@@ -114,6 +116,25 @@ class QueryToolDescriptorTests(unittest.TestCase):
                 with self.assertRaises(self.artifacts.ArtifactQueryError):
                     adapter.invoke({"root": "outside", "limit": 1})
         query.assert_not_called()
+
+    def test_artifact_adapter_reads_its_projects_declared_settings(self) -> None:
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True) as temporary:
+            root = Path(temporary).resolve()
+            control = root / ".caprmedio_fixture"
+            core = control / "core"
+            core.mkdir(parents=True)
+            (control / "caprmedio_project_settings.toml").write_text(
+                '[project]\nname = "fixture"\n[paths]\ncontrol_root = ".caprmedio_fixture"\n', encoding="utf-8")
+            (control / "project_structure.toml").write_text(
+                'schema_version = 1\n[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\nauthority_path = ".caprmedio_fixture/core"\ndelivery_path = ".caprmedio_fixture/output"\n', encoding="utf-8")
+            defaults = TOOLS_ROOT.parents[2] / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
+            (core / defaults.name).write_bytes(defaults.read_bytes())
+            (root / "artifact.md").write_text('---\nartifact_id: A\ntitle: One\n---\n', encoding="utf-8")
+            result = self.artifacts.create_adapter(root).invoke({"select": ["fm:/title"]})
+            self.assertEqual([{"artifact_id": "A", "fm:/title": "One"}], result.results)
+            self.assertTrue(result.coverage.complete)
+            self.assertTrue(result.complete)
+            self.assertFalse(result.incomplete)
 
     def test_journal_adapter_preserves_frozen_filter_and_pagination(self) -> None:
         snapshot = {
