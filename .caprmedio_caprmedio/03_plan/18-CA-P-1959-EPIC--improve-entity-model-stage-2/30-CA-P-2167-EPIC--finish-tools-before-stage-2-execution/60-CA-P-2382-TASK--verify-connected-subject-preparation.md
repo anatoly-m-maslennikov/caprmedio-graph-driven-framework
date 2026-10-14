@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan]
-version: 3
-updated_at: "2026-10-14 12:51:10 +0400"
+version: 4
+updated_at: "2026-10-14 13:15:25 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
 ---
@@ -42,5 +42,7 @@ Scratch staging was denied by the permission reviewer before process/MCP invocat
 The Operator subsequently explicitly approved this one-Atom staging check. One real MCP stage request ran, but returned an uncertain error after about90seconds; the manifest appeared about11seconds later. Independent readback verifies the exact candidate and canonical manifest in .caprmedio_tmp/subject-preview/e7e1dc30c56941b19c1e8ba0843daae4, with all original source pins unchanged. The connected-preparation activation receipt records hashes and timing. Preserve the batch and do not replay. The permission gate for the attempted check is resolved, but successful Tool completion remains unproven pending gateway/implementation reconciliation. This Task remains Active; no batch disposition or live publication is approved.
 
 ### Definition of Done
+
+Local follow-up is complete: CA-P-2383 in commit 63536837f reduces repeated identity parsing without removing checks. Real gateway fixture tests are in d2740da53; 55 affected tests and independent review passed on the fixed code. Same-input host profiling improved by 33.17%, but does not prove connected Docker performance. The running image is still based on 15f9ce76e. Next, obtain approval to activate only the reviewed fix and verify a fresh read-only preview; do not infer permission to repeat the uncertain stage. Keep the original batch and separate 44-owner decision intact.
 
 Actual lookup, preview and stage succeed without source changes; independent readback confirms the exact sealed scratch result. Save truthful requests, responses and source evidence, including failures or partial artifacts. A registry listing or local fixture alone is insufficient. This Task does not complete the parent Epic or approve the migration packet.

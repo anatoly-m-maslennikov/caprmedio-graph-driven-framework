@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 50
-updated_at: "2026-10-14 13:07:36 +0400"
+version: 51
+updated_at: "2026-10-14 13:15:25 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -33,7 +33,7 @@ The Tools required before affected Stage-2 execution have updated, independently
 
 CA-P-2382's one approved scratch-stage request returned uncertain after about 90 seconds, with matching artifacts written before and after that response. Preserve them; do not replay. Local real-gateway tests now cover successful fixture staging and late effects after an uncertain response (d2740da53; two tests independently passed). No Core source changed and connected success is still unproven.
 
-[CA-P-2383 — Avoid repeated identity parsing in Subject preparation](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/61-CA-P-2383-TASK--avoid-repeated-identity-parsing-in-subject-preparation.md) addresses the measured bottleneck under existing rules: invocation-local exact-byte parse reuse only, retaining fresh inventory/currentness and all validation. No timeout increase, live replay, broad tool rebuild or content migration. The 44-owner disposition and publication remain separately gated.
+[CA-P-2383 — Avoid repeated identity parsing in Subject preparation](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/61-CA-P-2383-TASK--avoid-repeated-identity-parsing-in-subject-preparation.md) is Done locally in 63536837f: invocation-local exact-byte parse reuse retains fresh inventory/currentness and all validation. Fifty-five affected tests and independent code review passed. On identical frozen input, profiled host preview time fell from 77.301 to 51.661 seconds with the same seal and fresh-read counts. The fix is not activated; CA-P-2382 remains Active for connected verification. No timeout increase, live replay, broad tool rebuild or content migration. The 44-owner disposition and publication remain separately gated.
 
 ### Connected activation and request readiness — 2026-10-14
 
