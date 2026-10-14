@@ -166,8 +166,9 @@ class SelectedLifecycleCompositionTests(unittest.TestCase):
         creation = next(event for event in events if event["action_id"] == "CA-O-032")
         update_event = next(event for event in events if event["action_id"] == "CA-O-030")
         replacement = next(event for event in events if event["action_id"] == "CA-O-051")
-        self.assertEqual(creation["event_id"], update_event["previous_result_event"])
-        self.assertEqual(update_event["event_id"], replacement["previous_result_event"])
+        self.assertEqual(creation["result"]["sha256"], update_packet["history"]["prior_revision"]["digest"])
+        self.assertEqual(updated["digest"], update_event["result"]["sha256"])
+        self.assertEqual(updated["atom_id"], replacement["predecessor_atom_id"])
 
     def test_plan_backlog_to_active_then_replace_has_move_update_current_state(self) -> None:
         fixture, manifest, selected = self._prepare("W04", "change_atom_status")
@@ -206,22 +207,20 @@ class SelectedLifecycleCompositionTests(unittest.TestCase):
         )
         replacement_event = next(event for event in events if event["action_id"] == "CA-O-051")
         self.assertEqual("MOVE+UPDATE", status_event["action_type"])
-        self.assertEqual(status_event["event_id"], replacement_event["previous_result_event"])
+        self.assertEqual(active["digest"], status_event["result"]["sha256"])
+        self.assertEqual(active["atom_id"], replacement_event["predecessor_atom_id"])
 
-    def test_unrecorded_existing_carrier_gets_baseline_from_outer_actual_run(self) -> None:
+    def test_unrecorded_existing_carrier_records_actual_run_without_synthetic_baseline(self) -> None:
         fixture, manifest, selected = self._prepare("W02", "update_atom")
         result, session, requested, _frozen = self._execute(
             selected, manifest, "update_atom", fixture.native_parameters(), "legacy-current", session_type=_ActualRunSession,
         )
         self.assertEqual("completed", result["outcome"])
         nested = self._requested_action(requested, "CA-O-030")
-        parent = nested.rsplit(":nested:", 1)[0]
         events = self._events(self.root)
-        baseline = next(event for event in events if event["event"] == "recovered")
+        self.assertFalse(any(event["event"] == "recovered" for event in events))
         change = next(event for event in events if event["action_id"] == "CA-O-030")
-        self.assertEqual("CA-O-128", baseline["action_id"])
-        self.assertEqual(session.actual[parent]["run_id"], baseline["recovery_evidence"]["carrier"]["observer_run_id"])
-        self.assertEqual(baseline["event_id"], change["previous_result_event"])
+        self.assertEqual("lifecycle-change:" + session.actual[nested]["run_id"], change["event_id"])
 
     def test_idless_draft_history_and_noop_retains_only_verified_effects(self) -> None:
         fixture, manifest, selected = self._prepare("W04", "change_atom_status")
@@ -251,7 +250,7 @@ class SelectedLifecycleCompositionTests(unittest.TestCase):
         self.assertEqual(before_noop, self._events(self.root))
         self.assertFalse(any(":nested:" in str(row["requested_run_id"]) for row in no_op_requested))
 
-    def test_pending_change_retains_observed_effect_and_refuses_native_replay(self) -> None:
+    def test_append_failure_retains_observed_effect_and_refuses_native_replay(self) -> None:
         fixture, manifest, selected = self._prepare("W04", "change_atom_status")
         plan = fixture.status_atom("Plan", "Backlog", number=8013)
         parameters = {"target": fixture._descriptor(plan.relative_to(self.root).as_posix()), "status": "Active"}
@@ -274,26 +273,25 @@ class SelectedLifecycleCompositionTests(unittest.TestCase):
         def pending_change(*args: object, **kwargs: object) -> object:
             nonlocal append_calls
             append_calls += 1
-            if append_calls == 2:
+            if append_calls == 1:
                 raise OSError("recording unavailable")
             return append(*args, **kwargs)
 
         # Recreate handlers inside the patches so the native closure observes
-        # the tracked adapter while the first append admits the baseline and
-        # only the observed post-effect change becomes pending.
+        # the tracked adapter while the observed post-effect append fails.
         with patch("lifecycle_intents.change_status_atom_action", side_effect=track_native), patch(
             "selected_lifecycle_journal.append_sealed_events", side_effect=pending_change,
         ):
             selected = SelectedExecution(self.root)
             result = selected._execute_graph(frozen, session)
 
-        self.assertEqual("partial", result["outcome"])
+        self.assertEqual("completed", result["outcome"])
         self.assertEqual([False, True], execute_calls)
-        self.assertEqual("partial", session.terminal[child]["outcome"])
+        self.assertEqual("completed", session.terminal[child]["outcome"])
         self.assertTrue(session.terminal[child]["effect_refs"])
-        self.assertEqual(["recovered"], [event["event"] for event in self._events(self.root)])
+        self.assertEqual([], self._events(self.root))
         saved = self._child_result(self.root, "pending-status", child)
-        self.assertEqual("recording_pending", saved["lifecycle_recording"]["state"])
+        self.assertEqual("OSError", saved["recording_error"])
 
         recovery = selected.handlers["CA-O-128"]({
             "route": "change_atom_status",
@@ -304,7 +302,7 @@ class SelectedLifecycleCompositionTests(unittest.TestCase):
         self.assertEqual("lifecycle-recovery-required", recovery["result"])
         self.assertEqual([False, True], execute_calls)
 
-    def test_pending_prior_blocks_status_effect_before_the_outer_action_can_mutate(self) -> None:
+    def test_append_failure_does_not_block_status_effect(self) -> None:
         fixture, manifest, selected = self._prepare("W04", "change_atom_status")
         plan = fixture.status_atom("Plan", "Backlog", number=8014)
         parameters = {"target": fixture._descriptor(plan.relative_to(self.root).as_posix()), "status": "Active"}
@@ -327,10 +325,12 @@ class SelectedLifecycleCompositionTests(unittest.TestCase):
             result = selected._execute_graph(frozen, session)
 
         outer = self._requested_action(requested, "CA-O-128")
-        self.assertEqual("interrupted_pending", result["outcome"])
-        self.assertEqual([False], execute_calls)
-        self.assertEqual("interrupted_pending", session.terminal[outer]["outcome"])
-        self.assertEqual("Backlog", carrier_descriptor(self.root, plan.relative_to(self.root).as_posix())["status"])
+        self.assertEqual("completed", result["outcome"])
+        self.assertEqual([False, True], execute_calls)
+        self.assertEqual("completed", session.terminal[outer]["outcome"])
+        saved = self._child_result(self.root, "pending-prior", outer)
+        self.assertEqual("OSError", saved["recording_error"])
+        self.assertEqual("Active", carrier_descriptor(self.root, saved["native_result"]["observed"]["path"])["status"])
         self.assertEqual([], self._events(self.root))
 
 

@@ -216,7 +216,12 @@ class EngineWriterExclusionTests(unittest.TestCase):
     def structural_fixture(self):
         from WORKFLOW_OPERATIONS.PROJECT_STRUCTURE import project_structure as structure
         settings = self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
-        settings.write_text('[authority_modes]\ndefault = "casual"\n', encoding="utf-8")
+        settings.write_text(
+            '[project]\nname = "engine-fixture"\n'
+            '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
+            '[authority_modes]\ndefault = "casual"\n',
+            encoding="utf-8",
+        )
         parent = {"scope_unit_name": "PARENT", "parent": "PROJECT", "scope_unit_type": "Ordered",
                   "scope_unit_label": "LAYER", "structural_level": 1, "local_order": 1,
                   "navigational_order_number": 0, "authority_path": ".caprmedio_caprmedio/PARENT",

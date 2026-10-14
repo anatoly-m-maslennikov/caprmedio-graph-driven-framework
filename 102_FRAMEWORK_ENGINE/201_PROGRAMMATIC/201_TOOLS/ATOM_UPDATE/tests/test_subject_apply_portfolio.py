@@ -90,13 +90,6 @@ class SubjectApplyProject:
         self.root = root
         self.golden = CurrentSubjectGoldenProject(REPOSITORY, root, GoldenCase("W02", "update_atom"))
         self.manifest = self.golden.prepare()
-        settings = root / operations.SETTINGS_PATH
-        settings.write_text(
-            '[project]\nkey = "subject-apply-fixture"\nname = "subject-apply-fixture"\n'
-            'repository_slug = "subject-apply-fixture"\n'
-            '[artifacts.identity]\nproject_prefix = "CA"\n\n' + settings.read_text(encoding="utf-8"),
-            encoding="utf-8",
-        )
         self.golden._write_complete_carrier_project_structure()
         self.golden._copy_complete_carrier_authority()
         for grammar_pin in get_profile(subject_profile).grammar_pins:
