@@ -1,21 +1,168 @@
-"""Direct Project-owned public release.
-
-The selected MCP route supplies a bound Project root, run id, and one complete
-content draft. This module deliberately has no selector, admission, or recovery API.
-"""
+"""Direct Project-owned public release, without selector or admission gates."""
 
 from __future__ import annotations
 
-import json
+from collections.abc import Mapping
+from functools import partial
 from pathlib import Path
 import re
-import subprocess
+import sys
 import tomllib
-from typing import Any, Callable, Mapping
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from public_release_materials import (
+    PublicReleaseError,
+    finalize_history,
+    matching_pr,
+    next_public_version,
+    prepare_documents,
+    validate_draft,
+)
+
+from public_release_git import Command, Runner, _checkpoint, _command, _repository, _upsert_pr
 
 
-class PublicReleaseError(ValueError):
-    """A direct public release input or command could not continue."""
+def _prepare_materials(root: Path, run_id: str, summary: list[str], pr_url: str | None) -> str:
+    version_path, readme, history = (
+        root / name for name in ("version.toml", "README.md", "VERSION_HISTORY.md")
+    )
+    if any(path.is_symlink() or not path.is_file() for path in (version_path, readme, history)):
+        raise PublicReleaseError("public-release-documents-missing-or-unsafe")
+    version_text = version_path.read_text(encoding="utf-8")
+    try:
+        old_version = tomllib.loads(version_text)["framework"]["version"]
+    except (KeyError, TypeError, tomllib.TOMLDecodeError) as error:
+        raise PublicReleaseError("version.toml must declare [framework].version") from error
+    version = next_public_version(old_version)
+    readme_text, history_text = prepare_documents(
+        readme.read_text(encoding="utf-8"),
+        history.read_text(encoding="utf-8"),
+        version,
+        run_id,
+        summary,
+        pr_url,
+    )
+    version_path.write_text(
+        version_text.replace(f'"{old_version}"', f'"{version}"', 1), encoding="utf-8"
+    )
+    readme.write_text(readme_text, encoding="utf-8")
+    history.write_text(history_text, encoding="utf-8")
+    return version
+
+
+def _test_materials(root: Path, command: Command) -> None:
+    observations = (
+        ("git", "rev-parse", "HEAD"),
+        ("git", "status", "--porcelain", "--untracked-files=all"),
+    )
+    before = tuple(command(argv).stdout for argv in observations)
+    command(
+        (
+            "uv",
+            "run",
+            "--project",
+            str(root),
+            "--locked",
+            "--no-sync",
+            "--python",
+            "3.14",
+            "--managed-python",
+            "--no-env-file",
+            "--all-groups",
+            "python",
+            "-B",
+            str(Path(__file__).resolve().parents[1] / "run_full_test_suite.py"),
+            "--project-root",
+            str(root),
+        )
+    )
+    if tuple(command(argv).stdout for argv in observations) != before:
+        raise PublicReleaseError("public-release-tested-source-changed")
+
+
+def _finalize_history(root: Path, command: Command, version: str, run_id: str, pr_url: str) -> None:
+    path = root / "VERSION_HISTORY.md"
+    history = path.read_text(encoding="utf-8")
+    linked = finalize_history(history, version, run_id, pr_url)
+    if linked != history:
+        path.write_text(linked, encoding="utf-8")
+        _checkpoint(command, "final_commit_push")
+        command(("git", "push", "origin", "amm/dev"))
+    else:
+        _checkpoint(command, "completion")
+
+
+def _release(
+    root: Path, run_id: str, draft: Mapping[str, object], command: Command
+) -> dict[str, object]:
+    step = "content_draft"
+    try:
+        description, summary = validate_draft(draft)
+        repository = _repository(root, command)
+        step = "discover_pr"
+        _checkpoint(command, step)
+        discovered = command(
+            (
+                "gh",
+                "pr",
+                "list",
+                "--repo",
+                repository,
+                "--head",
+                "amm/dev",
+                "--base",
+                "main",
+                "--state",
+                "open",
+                "--json",
+                "url,state,headRefName,baseRefName",
+                "--limit",
+                "2",
+            )
+        )
+        pr_url = matching_pr(discovered.stdout, repository)
+        _checkpoint(command, "content_draft")
+        step = "write_docs"
+        _checkpoint(command, step)
+        version = _prepare_materials(root, run_id, summary, pr_url)
+        step = "tests"
+        _checkpoint(command, step)
+        _test_materials(root, command)
+        step = "push"
+        command(("git", "push", "origin", "amm/dev"))
+        step = "upsert_pr"
+        pr_url = _upsert_pr(command, repository, version, description, pr_url)
+        step = "link_history"
+        _checkpoint(command, step)
+        _finalize_history(root, command, version, run_id, pr_url)
+    except Exception as error:
+        return _report_failure(root, run_id, step, error)
+    return {
+        "outcome": "completed",
+        "run_id": run_id,
+        "project_root": str(root),
+        "version": version,
+        "pr_url": pr_url,
+        "failed_step": None,
+        "report_path": None,
+    }
+
+
+def _report_failure(root: Path, run_id: str, step: str, error: Exception) -> dict[str, object]:
+    report = root / ".caprmedio_tmp" / "public_release" / run_id / "issue.md"
+    report.parent.mkdir(parents=True, exist_ok=True)
+    report.write_text(
+        f"# Public release issue\n\n- Run: `{run_id}`\n- Step: `{step}`\n- Error: {error}\n",
+        encoding="utf-8",
+    )
+    return {
+        "outcome": "failed",
+        "run_id": run_id,
+        "project_root": str(root),
+        "failed_step": step,
+        "report_path": report.relative_to(root).as_posix(),
+        "error": str(error),
+    }
 
 
 def run_public_release(
@@ -23,21 +170,15 @@ def run_public_release(
     *,
     run_id: str,
     content_draft: Mapping[str, object] | None = None,
-    runner: Callable[[tuple[str, ...], Path], Any] | None = None,
+    runner: Runner | None = None,
 ) -> dict[str, object]:
-    """Test, bump, document, push, upsert the PR, and link its real URL."""
-
-    prompt = (
-        "Provide content_draft as one object with exactly description and summary. "
-        "description is the full Markdown PR body with non-empty ## New and ## Fixed sections; "
-        "summary is a non-empty list of concise Version History bullets."
-    )
+    """Discover the selected PR, prepare and test materials, then publish Draft."""
     if content_draft is None:
         return {
             "outcome": "input_required",
             "run_id": run_id,
             "project_root": str(Path(project_root)),
-            "prompt": prompt,
+            "prompt": "Provide content_draft as one object with exactly description and summary. description is the full Markdown PR body with non-empty ## New and ## Fixed sections; summary is a non-empty list of concise Version History bullets.",
             "content_draft_schema": {
                 "description": "Markdown with ## New and ## Fixed",
                 "summary": ["concise Version History bullet"],
@@ -51,158 +192,4 @@ def run_public_release(
         raise PublicReleaseError("public-release-project-root-invalid") from error
     if not root.is_dir() or root == Path(root.anchor):
         raise PublicReleaseError("public-release-project-root-invalid")
-
-    step = "content_draft"
-
-    def command(argv: tuple[str, ...], *, allow_dirty_status: bool = False) -> Any:
-        result = runner(argv, root) if runner is not None else subprocess.run(
-            argv, cwd=root, text=True, capture_output=True, check=False,
-        )
-        returncode = getattr(result, "returncode", None)
-        if not isinstance(returncode, int) or (returncode != 0 and not allow_dirty_status):
-            if argv[:2] == ("uv", "run"):
-                detail = "\n".join(f"{stream}:\n{str(getattr(result, stream, '') or '')[-4000:]}" for stream in ("stdout", "stderr"))
-                raise PublicReleaseError(f"public-release-command-failed: {' '.join(argv[:2])}: {detail}")
-            raise PublicReleaseError(f"public-release-command-failed: {' '.join(argv[:2])}")
-        return result
-
-    def git_all(before: str) -> None:
-        command((
-            "git", "add", "-A", "--", ".", ":(exclude,glob)**/.env", ":(exclude,glob)**/.env*",
-            ":(exclude,glob)**/*.env",
-        ))
-        staged = command(("git", "diff", "--cached", "--quiet"), allow_dirty_status=True)
-        if staged.returncode == 1:
-            command(("git", "commit", "-m", f"chore(release): checkpoint before public {before}"))
-        elif staged.returncode != 0:
-            raise PublicReleaseError("public-release-git-status-failed")
-
-    try:
-        if not isinstance(content_draft, Mapping) or set(content_draft) != {"description", "summary"}:
-            raise PublicReleaseError("content_draft must contain exactly description and summary")
-        description = content_draft["description"]
-        summary = content_draft["summary"]
-        if not isinstance(description, str) or not description.strip():
-            raise PublicReleaseError("content_draft.description must be non-empty Markdown")
-        description = description.strip() + "\n"
-        _, new_heading, after_new = description.partition("## New\n")
-        new_section, fixed_heading, fixed_section = after_new.partition("\n## Fixed\n")
-        if (not new_heading or not fixed_heading
-                or not any(line.startswith("- ") and line[2:].strip() for line in new_section.splitlines())
-                or not any(line.startswith("- ") and line[2:].strip() for line in fixed_section.splitlines())):
-            raise PublicReleaseError("content_draft.description needs non-empty ## New and ## Fixed sections")
-        if not isinstance(summary, list) or not summary or any(
-            not isinstance(item, str) or not item.strip() or "\n" in item or len(item) > 240 for item in summary
-        ):
-            raise PublicReleaseError("content_draft.summary must be concise non-empty bullets")
-
-        version_path = root / "version.toml"
-        try:
-            version_text = version_path.read_text(encoding="utf-8")
-            old_version = tomllib.loads(version_text)["framework"]["version"]
-        except (FileNotFoundError, KeyError, TypeError, tomllib.TOMLDecodeError) as error:
-            raise PublicReleaseError("version.toml must declare [framework].version") from error
-        match = re.fullmatch(
-            r"(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:\.(0|[1-9][0-9]*))?",
-            old_version,
-        ) if isinstance(old_version, str) else None
-        if match is None:
-            raise PublicReleaseError("public release requires a numeric framework version")
-        version = f"{match.group(1)}.{match.group(2)}.{int(match.group(3)) + 1}"
-        branch = command(("git", "branch", "--show-current"))
-        if getattr(branch, "stdout", "").strip() != "amm/dev":
-            raise PublicReleaseError("public-release-requires-amm-dev")
-
-        step = "tests"
-        git_all(step)
-        command((
-            "uv", "run", "--project", str(root), "--locked", "--no-sync", "--python", "3.14",
-            "--managed-python", "--no-env-file", "--all-groups", "python", "-B",
-            str(Path(__file__).resolve().parents[1] / "run_full_test_suite.py"), "--project-root", str(root),
-        ))
-
-        step = "bump_version"
-        git_all(step)
-        version_path.write_text(version_text.replace(f'"{old_version}"', f'"{version}"', 1), encoding="utf-8")
-
-        step = "write_docs"
-        git_all(step)
-        readme = root / "README.md"
-        history = root / "VERSION_HISTORY.md"
-        marker = f"<!-- public-release:{run_id} -->"
-        latest_marker = "<!-- latest-public-release -->"
-        if not readme.is_file() or not history.is_file():
-            raise PublicReleaseError("public-release-documents-missing")
-        if marker in history.read_text(encoding="utf-8"):
-            raise PublicReleaseError("public-release-run-id-already-recorded")
-        latest = f"{latest_marker}\nLatest public release: **{version}**. See [Version History](VERSION_HISTORY.md)."
-        readme_text = readme.read_text(encoding="utf-8")
-        if latest_marker in readme_text:
-            readme_text, changed = re.subn(
-                r"(?m)^<!-- latest-public-release -->\nLatest public release: \*\*[^*\n]+\*\*\. See \[Version History\]\(VERSION_HISTORY\.md\)\.$",
-                latest, readme_text,
-            )
-            if changed != 1:
-                raise PublicReleaseError("public-release-readme-block-invalid")
-        else:
-            readme_text = readme_text.rstrip() + f"\n\n{latest}\n"
-        readme.write_text(readme_text, encoding="utf-8")
-        history.write_text(
-            history.read_text(encoding="utf-8").rstrip()
-            + f"\n\n{marker}\n## {version}\n"
-            + "\n".join(f"- {item.strip()}" for item in summary)
-            + "\n",
-            encoding="utf-8",
-        )
-
-        step = "push"
-        git_all(step)
-        command(("git", "push", "origin", "amm/dev"))
-
-        step = "upsert_pr"
-        git_all(step)
-        discovered = command((
-            "gh", "pr", "list", "--head", "amm/dev", "--base", "main", "--state", "open", "--json", "url", "--limit", "2",
-        ))
-        try:
-            matches = json.loads(getattr(discovered, "stdout", ""))
-        except (TypeError, json.JSONDecodeError) as error:
-            raise PublicReleaseError("public-release-pr-discovery-invalid") from error
-        title = f"CAPRMEDIO {version} public release"
-        if not isinstance(matches, list) or len(matches) > 1:
-            raise PublicReleaseError("public-release-pr-discovery-invalid")
-        if matches:
-            pr_url = matches[0].get("url") if isinstance(matches[0], Mapping) else None
-            if not isinstance(pr_url, str) or re.fullmatch(r"https://github\.com/[^/\s]+/[^/\s]+/pull/[1-9][0-9]*", pr_url) is None:
-                raise PublicReleaseError("public-release-pr-discovery-invalid")
-            command(("gh", "pr", "ready", pr_url, "--undo"))
-            command(("gh", "pr", "edit", pr_url, "--title", title, "--body", description))
-        else:
-            created = command(("gh", "pr", "create", "--draft", "--head", "amm/dev", "--base", "main", "--title", title, "--body", description))
-            pr_url = getattr(created, "stdout", "").strip()
-            if not isinstance(pr_url, str) or re.fullmatch(r"https://github\.com/[^/\s]+/[^/\s]+/pull/[1-9][0-9]*", pr_url) is None:
-                raise PublicReleaseError("public-release-pr-create-invalid")
-
-        step = "link_history"
-        git_all(step)
-        entry = f"{marker}\n## {version}"
-        history_text = history.read_text(encoding="utf-8")
-        if history_text.count(entry) != 1:
-            raise PublicReleaseError("public-release-history-entry-missing")
-        history.write_text(history_text.replace(entry, f"{entry} [PR]({pr_url})", 1), encoding="utf-8")
-
-        step = "final_commit_push"
-        git_all(step)
-        command(("git", "push", "origin", "amm/dev"))
-    except Exception as error:
-        report = root / ".caprmedio_tmp" / "public_release" / run_id / "issue.md"
-        report.parent.mkdir(parents=True, exist_ok=True)
-        report.write_text(f"# Public release issue\n\n- Run: `{run_id}`\n- Step: `{step}`\n- Error: {error}\n", encoding="utf-8")
-        return {
-            "outcome": "failed", "run_id": run_id, "project_root": str(root), "failed_step": step,
-            "report_path": report.relative_to(root).as_posix(), "error": str(error),
-        }
-    return {
-        "outcome": "completed", "run_id": run_id, "project_root": str(root), "version": version,
-        "pr_url": pr_url, "failed_step": None, "report_path": None,
-    }
+    return _release(root, run_id, content_draft, partial(_command, root, runner))
