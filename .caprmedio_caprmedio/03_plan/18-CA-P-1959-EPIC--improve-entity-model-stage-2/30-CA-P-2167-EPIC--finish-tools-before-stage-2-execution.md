@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 51
-updated_at: "2026-10-14 13:15:25 +0400"
+version: 52
+updated_at: "2026-10-14 13:43:20 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,12 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Structural repair before migration — 2026-10-14
+
+The Operator chose to fix all 44 structurally refused Atoms first, rather than exclude them, and explicitly approved direct repository authoring because the connected MCP only supports Subjects preparation. CA-P-2384 owns this bounded repair: headers, section containers and evidenced carrier placement, exact predecessor history, reviewed affected current references, and validation. Preserve Subjects, Summary wording and content meaning. This narrow authorization supersedes earlier staged-only restrictions for these structural repairs, not for Subject or content migration.
+
+After repairs, prepare fresh pinned migration inputs; keep old requests, seals and the uncertain D253 staging evidence unchanged. Do not activate a runtime, replay staging, or publish Subjects under this authorization. Both parent Epics remain Active; broad content work stays in CA-P-1970.
 
 ### Connected staging timeout follow-up — 2026-10-14
 

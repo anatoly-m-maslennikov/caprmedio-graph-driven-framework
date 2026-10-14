@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 65
-updated_at: "2026-10-14 02:36:49 +0400"
+version: 66
+updated_at: "2026-10-14 13:43:20 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,12 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Structural repair before migration — 2026-10-14
+
+The Operator chose to fix all 44 structurally refused Atoms first, rather than exclude them, and explicitly approved direct repository authoring because the connected MCP only supports Subjects preparation. CA-P-2384 owns this bounded repair: headers, section containers and evidenced carrier placement, exact predecessor history, reviewed affected current references, and validation. Preserve Subjects, Summary wording and content meaning. This narrow authorization supersedes earlier staged-only restrictions for these structural repairs, not for Subject or content migration.
+
+After repairs, prepare fresh pinned migration inputs; keep old requests, seals and the uncertain D253 staging evidence unchanged. Do not activate a runtime, replay staging, or publish Subjects under this authorization. Both parent Epics remain Active; broad content work stays in CA-P-1970.
 
 ### Current execution order — mapping before MCP readiness
 

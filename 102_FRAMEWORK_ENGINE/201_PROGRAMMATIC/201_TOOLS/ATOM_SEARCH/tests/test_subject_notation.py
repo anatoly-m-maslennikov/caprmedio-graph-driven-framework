@@ -99,7 +99,7 @@ class SubjectNotationTest(unittest.TestCase):
                 ("CA-R-1321", 14, "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df"),
                 ("CA-R-1324", 12, "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3"),
                 ("CA-M-228", 16, "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d"),
-                ("CA-E-383", 15, "6baca162365f248e08fc8d8a29b27e350149ff478290553b3cd6ee0441b4a6a6"),
+                ("CA-E-383", 16, "a356617c341cd1d3c723e3e3ddbf9852c720781c8f22dd31f07cf33dfa4ec512"),
             ],
             [(pin.atom_id, pin.version, pin.sha256) for pin in get_profile("approved").grammar_pins],
         )

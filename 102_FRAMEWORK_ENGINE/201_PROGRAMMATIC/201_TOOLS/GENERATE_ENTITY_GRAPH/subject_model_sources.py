@@ -67,9 +67,9 @@ _APPROVED_CORE_GRAMMAR_PINS = (
     },
     {
         "atom_id": "CA-E-383",
-        "version": 15,
+        "version": 16,
         "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
-        "sha256": "6baca162365f248e08fc8d8a29b27e350149ff478290553b3cd6ee0441b4a6a6",
+        "sha256": "a356617c341cd1d3c723e3e3ddbf9852c720781c8f22dd31f07cf33dfa4ec512",
     },
 )
 

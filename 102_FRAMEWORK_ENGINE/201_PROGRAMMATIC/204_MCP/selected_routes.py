@@ -91,9 +91,9 @@ _QUERY_SOURCE_ADMISSION_SPECS = (
         },
         "ordered_steps": [{
             "step": {
-                "atom_id": "CA-O-163", "version": 2,
-                "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/FIND_AND_FETCH_JOURNAL_EVENTS/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md",
-                "digest": "8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c",
+                "atom_id": "CA-O-163", "version": 3,
+                "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-161-CORE_META_MODEL-WORKFLOW--find-and-fetch-journal-events/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md",
+                "digest": "0090078ce32293b84a1233ecc33d2fafc1b9541e7821ecc2388e8137b009b86a",
             },
             "action": {
                 "atom_id": "CA-O-162", "version": 2,

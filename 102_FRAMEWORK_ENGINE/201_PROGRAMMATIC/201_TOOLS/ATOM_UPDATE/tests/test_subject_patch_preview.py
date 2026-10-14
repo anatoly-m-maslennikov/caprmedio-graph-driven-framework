@@ -210,7 +210,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
         self.assertIn("The exact body mentions Atom/Status and must not be changed.", change["proposed_carrier"])
         self.assertEqual(
             [("CA-R-1931", 1), ("CA-R-1321", 14), ("CA-R-1324", 12),
-             ("CA-M-228", 16), ("CA-E-383", 15)],
+             ("CA-M-228", 16), ("CA-E-383", 16)],
             [(pin["atom_id"], pin["version"])
              for pin in preview["subject_profile_evidence"]["grammar_pins"]],
         )
