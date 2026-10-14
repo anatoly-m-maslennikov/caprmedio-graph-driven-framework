@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 46
-updated_at: "2026-10-14 10:38:15 +0400"
+version: 47
+updated_at: "2026-10-14 10:56:05 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -29,13 +29,19 @@ The Tools required before affected Stage-2 execution have updated, independently
 
 ## Details
 
+### Direct preparation rules accepted — 2026-10-14 10:56 +0400
+
+CA-P-2378 is Done: six independently verified sources are committed as ef3bde3c6. The accepted contract exposes only preview_subjects and stage_subjects through the existing ATOM_UPDATE provider, not live update_atom. The native helper itself checks the reviewed preview seal before scratch creation. Existing publication and actual Step recording duties remain intact.
+
+CA-P-2379 implementation and CA-P-2380 protocol verification now proceed in parallel with isolated fixture-pin compatibility. Prepared tests are not passing evidence. No installed runtime activation, live source migration or Core/content change is claimed. Both parent Epics remain Active.
+
 ### Discovery accepted; direct preparation next — 2026-10-14 10:38 +0400
 
 CA-P-2373 is Done. Fixture-only commit `dea79c410` restores the current selected-route and retired-source checks without changing production behavior. All 68 affected checks pass; Root independently reviewed the diffs and reran 63 checks. The earlier baseline failures are superseded for those suites. Installed runtime activation is still unverified.
 
 Direct preparation proceeds through these bounded leaves:
 
-- [CA-P-2378 — Align direct Subject preparation rules](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/56-CA-P-2378-TASK--align-direct-subject-preparation-rules.md).
+- [CA-P-2378 — Align direct Subject preparation rules](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/56-CA-P-2378-TASK--align-direct-subject-preparation-rules.md).
 - [CA-P-2379 — Expose direct Subject preparation](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/57-CA-P-2379-TASK--expose-direct-subject-preparation.md).
 - [CA-P-2380 — Verify direct preparation MCP](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/58-CA-P-2380-TASK--verify-direct-preparation-mcp.md).
 
