@@ -19,6 +19,34 @@ _DISCOVERY_TOOL_FIELDS = frozenset({
 })
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 _INSTALLED_FRAMEWORK_ROOT = '000_CAPRMEDIO_framework'
+_DIRECT_RELEASE_ROUTES = ("release_version", "public.release")
+
+
+def _direct_release_schema(route):
+    properties = {"project_root": {"type": "string"}, "run_id": {"type": "string"}}
+    if route == "public.release":
+        properties["content_draft"] = {
+            "type": "object",
+            "additionalProperties": False,
+            "required": ["description", "summary"],
+            "properties": {
+                "description": {"type": "string"},
+                "summary": {"type": "array", "items": {"type": "string"}},
+            },
+        }
+    return {
+        "type": "object",
+        "additionalProperties": False,
+        "required": ["request"],
+        "properties": {
+            "request": {
+                "type": "object",
+                "additionalProperties": False,
+                "required": ["project_root", "run_id"],
+                "properties": properties,
+            }
+        },
+    }
 
 
 def _mcp_binding_candidate(binding):
@@ -166,11 +194,16 @@ class Service:
         Selected routes intentionally have no Atom ``tool_binding``: their public
         MCP names are registered from the fail-closed canonical manifest.  Keep
         that distinction in discovery rather than treating a source carrier as
-        executable. Every selected route uses the same admitted manifest and
-        shared selected Run request contract.
+        executable. Direct Release commands use their registered runner contract;
+        ordinary selected routes keep the admitted shared Run request contract.
         """
         if not self.exposed:
             return []
+        rows = [{'id': route, 'name': route, 'mcp_name': route, 'availability': 'mcp',
+                 'direct_route': True, 'content_role': 'Operations', 'tools': [route],
+                 'summary': f'Run the Project-owned {"local" if route == "release_version" else "public"} release directly.',
+                 'input_schema': _direct_release_schema(route)}
+                for route in _DIRECT_RELEASE_ROUTES if route in self.exposed]
         try:
             from selected_routes import load_selected_manifest
             manifest = load_selected_manifest(self.root)
@@ -187,8 +220,8 @@ class Service:
             else:
                 issues.append('binding evidence invalid: correct bindings, then re-preview selected routes')
         else:
-            return self._selected_route_rows(manifest)
-        return []
+            rows.extend(self._selected_route_rows(manifest))
+        return rows
 
     def _selected_route_rows(self, manifest):
         rows = []
@@ -196,6 +229,8 @@ class Service:
             if not isinstance(entry, dict):
                 continue
             route = entry.get("route")
+            if route in _DIRECT_RELEASE_ROUTES:
+                continue
             workflow = entry.get("workflow")
             actions = entry.get("ordered_actions")
             native_actions = entry.get("native_action_calls", [])
@@ -548,6 +583,7 @@ class Service:
                     row['availability'] = 'source' if bindings else 'unresolved'
                 row['tools'] = [tool['name'] for tool in bindings]
                 row['summary'] = row['content'].split('##', 1)[0].replace('# Summary', '').strip()
+            rows.extend(tool for tool in tools if tool.get('direct_route'))
         words = request.query.lower().split()
         rows = [row for row in rows if all(word in json.dumps(row).lower() for word in words)]
         if request.scope_unit:
@@ -569,14 +605,11 @@ class Service:
                 if request.offset + request.limit < len(rows) else None,
                 'coverage_issues': issues}
 
-    def context(self, request):
-        atoms, tools, issues = self.catalog()
-        row = atoms.get(request.id)
-        if row is None:
-            matches = [tool for tool in tools if tool['name'] == request.id]
-            if len(matches) != 1:
-                raise ValueError('Unknown or ambiguous capability')
-            row = matches[0]
+    def _route_context(self, request, row, tools, issues):
+        if row.get('direct_route'):
+            return {'definition': row, 'related_definitions': [], 'input_schema': row['input_schema'],
+                    'output_schema': None, 'tool_description': None,
+                    'context_complete': True, 'coverage_issues': issues}
         selected = [item for item in tools if item.get("selected_route") and request.id in {
             item["name"], item["source_atom"], *item["action_ids"]
         }]
@@ -590,6 +623,19 @@ class Service:
                     "input_schema": (self._selected_route_input_schema(routes[0])
                                      if len(routes) == 1 else None),
                     "context_complete": True, "coverage_issues": issues}
+        return None
+
+    def context(self, request):
+        atoms, tools, issues = self.catalog()
+        row = atoms.get(request.id)
+        if row is None:
+            matches = [tool for tool in tools if tool['name'] == request.id]
+            if len(matches) != 1:
+                raise ValueError('Unknown or ambiguous capability')
+            row = matches[0]
+        route_context = self._route_context(request, row, tools, issues)
+        if route_context is not None:
+            return route_context
         identities = set(row.get('action_ids', []) + row.get('workflow_ids', []))
         if 'source_atom' in row:
             identities.add(row['source_atom'])

@@ -63,14 +63,16 @@ class TrackerDouble:
     def __init__(self):
         self.events = []
         self.pending = False
+        self.logging_errors = []
 
     def _lazy_journal_event(self, request, record, event, outcome, result, effects, report, bindings):
         return {"event_id": str(len(self.events)), "run": record, "event": event,
                 "outcome": outcome, "result_ref": result, "effect_refs": effects}
 
-    def _append_one(self, event, result, effects):
+    def _append_one(self, event):
         if self.pending:
-            raise OSError("explicit recording failure double")
+            self.logging_errors.append("explicit recording failure double")
+            return
         self.events.append(event)
         return {"event_id": event["event_id"]}
 
@@ -140,11 +142,11 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
         self.execute = self.enterContext(patch.object(release_actions, "execute_release_action", return_value=PhaseResult()))
         self.dump_checkpoint = self.enterContext(patch(
             "release_checkpoint.dump_release_checkpoint",
-            side_effect=lambda run, *, shared_recordings, pending_recordings: {
+            side_effect=lambda run, *, shared_recordings, pending_recordings=None: {
                 "schema": "fixture-release-checkpoint",
                 "phase_count": len(run.contexts),
                 "shared_recording_count": len(shared_recordings),
-                "pending_recording_count": len(pending_recordings),
+                "pending_recording_count": len(pending_recordings or {}),
             },
         ))
         self.enterContext(patch.object(selected_routes, "load_release_execution_manifest", return_value=self.admitted))
@@ -351,16 +353,17 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
         self.assertEqual(result["terminal_outcome"], "interrupted_pending")
         self.assertEqual(self.execute.call_count, 1)
 
-    def test_pending_previous_recording_blocks_and_does_not_replay(self):
+    def test_log_failure_does_not_block_next_actual_phase(self):
         handler = self.providers().handlers["CA-O-165"]
         first = self.context()
         handler(first)
         self.tracker.pending = True
         recorded = self.session.finish_run(first["action_run_id"], outcome="completed", result_ref="fixture.json", effect_refs=[])
-        self.assertEqual(recorded["disposition"], "recording_pending")
+        self.assertEqual(recorded["disposition"], "terminal")
+        self.assertTrue(self.tracker.logging_errors)
         self.tracker.pending = False
-        self.assertEqual(handler(self.context(1))["result"], "blocked")
-        self.assertEqual(self.execute.call_count, 1)
+        self.assertEqual(handler(self.context(1))["terminal_outcome"], "completed")
+        self.assertEqual(self.execute.call_count, 2)
 
     def test_restored_cached_result_uses_validated_action_identity_and_canonical_proof(self):
         context = self.context()
@@ -379,8 +382,7 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
             in_progress=None,
             candidate=None,
         )
-        recordings = {0: {"terminal_outcome": "completed",
-                          "receipt_refs": (terminal["event_receipt"]["event_id"],)}}
+        recordings = {0: {"terminal_outcome": "completed"}}
         context.update({
             "restored_action": True,
             "checkpoint_reader": lambda: {"schema": "fixture-release-checkpoint"},
@@ -391,7 +393,6 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
         })
         events_before = list(self.tracker.events)
         with patch("release_checkpoint.load_release_checkpoint", return_value=(retained, recordings)), \
-             patch("release_checkpoint.extract_pending_recordings", return_value={}), \
              patch.object(SelectedNativeProviders, "_restored_completed_result_is_proven",
                           wraps=SelectedNativeProviders._restored_completed_result_is_proven) as proof:
             result = self.providers().handlers["CA-O-165"](context)

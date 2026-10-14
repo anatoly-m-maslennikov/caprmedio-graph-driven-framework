@@ -375,16 +375,10 @@ def publish_release_manifest(
                 "pending_event_id": pending_event_id, "readback_requirement": str(error), **plan}
     evidence = {"mode": "execute", "published": True, "published_route_names": names, **plan}
     try:
-        receipt = lifecycle.record_release_manifest_publication(dict(evidence))
+        recording = lifecycle.record_release_manifest_publication(dict(evidence))
     except (OSError, RuntimeError, TypeError, ValueError) as error:
-        return {**evidence, "disposition": "recording_required", "pending_event_id": pending_event_id,
-                "recording_requirement": str(error)}
-    if (not isinstance(receipt, Mapping) or set(receipt) != {"recording_ref", "candidate_canonical_manifest_sha256"}
-            or not isinstance(receipt["recording_ref"], str) or not receipt["recording_ref"]
-            or receipt["candidate_canonical_manifest_sha256"] != plan["candidate_canonical_manifest_sha256"]):
-        return {**evidence, "disposition": "recording_required", "pending_event_id": pending_event_id,
-                "recording_requirement": "trusted internal lifecycle recording is incomplete"}
-    return {**evidence, "disposition": "published", "recording_ref": receipt["recording_ref"]}
+        recording = {"recording_error": str(error)}
+    return {**evidence, "disposition": "published", **recording}
 
 
 def refresh_release_manifest(
@@ -461,42 +455,15 @@ def refresh_release_manifest(
                 "pending_event_id": pending_event_id, "readback_requirement": str(error), **plan}
     evidence = {"mode": "execute", "published": True, "published_route_names": names, **plan}
     try:
-        receipt = lifecycle.record_release_manifest_publication(dict(evidence))
+        recording = lifecycle.record_release_manifest_publication(dict(evidence))
     except (OSError, RuntimeError, TypeError, ValueError) as error:
-        return {**evidence, "disposition": "recording_required", "pending_event_id": pending_event_id,
-                "recording_requirement": str(error)}
-    if (not isinstance(receipt, Mapping) or set(receipt) != {"recording_ref", "candidate_canonical_manifest_sha256"}
-            or not isinstance(receipt["recording_ref"], str) or not receipt["recording_ref"]
-            or receipt["candidate_canonical_manifest_sha256"] != plan["candidate_canonical_manifest_sha256"]):
-        return {**evidence, "disposition": "recording_required", "pending_event_id": pending_event_id,
-                "recording_requirement": "trusted internal lifecycle recording is incomplete"}
-    return {**evidence, "disposition": "published", "recording_ref": receipt["recording_ref"]}
+        recording = {"recording_error": str(error)}
+    return {**evidence, "disposition": "published", **recording}
 
 
-def recover_release_manifest_publish(
-    project_root: str | Path, *, pending_event_id: str, authorization: Any,
-) -> dict[str, Any]:
-    """Finalize one host-authorized, already-published sealed intent; never write bytes."""
-    root = _root(project_root)
-    if not isinstance(pending_event_id, str) or not pending_event_id:
-        raise ReleaseManifestPublishError("recovery requires one sealed pending event identity")
-    try:
-        from release_manifest_authorization import PublicationAuthorizationContext
-        from release_manifest_lifecycle import ReleaseManifestLifecycle
-    except ImportError as error:
-        raise ReleaseManifestPublishError("trusted Release manifest lifecycle is unavailable") from error
-    if not isinstance(authorization, PublicationAuthorizationContext):
-        raise ReleaseManifestPublishError("recovery requires a trusted host-created publication context")
-    try:
-        recovered = ReleaseManifestLifecycle(root, authorization).recover_release_manifest_publication(pending_event_id)
-    except (OSError, RuntimeError, TypeError, ValueError) as error:
-        return {"mode": "recover", "disposition": "recording_required", "pending_event_id": pending_event_id,
-                "recording_requirement": str(error)}
-    return {"mode": "recover", "pending_event_id": pending_event_id, **dict(recovered)}
 
 
 __all__ = [
     "ReleaseManifestPublishError", "plan_release_manifest_publish", "publish_release_manifest",
     "plan_release_manifest_refresh", "refresh_release_manifest",
-    "recover_release_manifest_publish",
 ]

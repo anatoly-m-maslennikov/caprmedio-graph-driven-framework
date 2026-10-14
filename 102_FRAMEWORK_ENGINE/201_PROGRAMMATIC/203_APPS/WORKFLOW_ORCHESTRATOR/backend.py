@@ -332,15 +332,14 @@ def recover_selected_release(root, request):
     else:
         recovery_transport_status = enqueue_recovery()
     canonical_state = status(root, Status(run_id=request.run_id))
-    journal_refs, pending_reason = _canonical_recovery_observation(canonical_state)
+    pending_reason = _canonical_recovery_reason(canonical_state)
     response = {'operation': request.operation, 'workflow_run_id': request.run_id,
-                'canonical_run': canonical_state, 'canonical_journal_refs': journal_refs,
+                'canonical_run': canonical_state,
                 'recovery_transport_handle': transport_id,
                 'recovery_transport_status': recovery_transport_status}
     # This describes only the newly created scheduler delivery.  In particular,
     # a successful delivery is not evidence that the canonical Release Run is
-    # complete; callers must use ``canonical_run`` and its Journal references
-    # for that conclusion.
+    # complete; callers must use the actual ``canonical_run`` outcome.
     response['disposition'] = {
         'ENQUEUED': 'queued',
         'PENDING': 'queued',
@@ -405,27 +404,13 @@ def _observe_recovery_transport(transport, transport_id, run_id, request_identit
     return result
 
 
-def _canonical_recovery_observation(canonical_state):
-    """Expose only sealed shared receipts, never an inferred Journal reference."""
+def _canonical_recovery_reason(canonical_state):
+    """Retain an observed canonical reason without deriving one from logging."""
     selected_result = canonical_state.get('selected_result') if isinstance(canonical_state, dict) else None
-    receipts = selected_result.get('event_receipts', []) if isinstance(selected_result, dict) else []
-    if not isinstance(receipts, list):
-        refs = []
-    else:
-        refs = [receipt.get('event_id') for receipt in receipts if isinstance(receipt, dict)
-                and isinstance(receipt.get('event_id'), str) and receipt['event_id']]
-        if len(refs) != len(receipts) or len(set(refs)) != len(refs):
-            refs = []
     reason = canonical_state.get('reason') if isinstance(canonical_state, dict) else None
     if not isinstance(reason, str) or not reason:
         reason = selected_result.get('reason') if isinstance(selected_result, dict) else None
-    if not isinstance(reason, str) or not reason:
-        pending_ids = selected_result.get('pending_event_ids') if isinstance(selected_result, dict) else None
-        if (selected_result.get('disposition') == 'recording_pending' if isinstance(selected_result, dict) else False) and (
-                isinstance(pending_ids, list) and pending_ids
-                and all(isinstance(event_id, str) and event_id for event_id in pending_ids)):
-            reason = 'canonical selected Run has pending sealed event recording'
-    return refs, reason if isinstance(reason, str) and reason else None
+    return reason if isinstance(reason, str) and reason else None
 
 
 def _selected_public_outcome(frozen, result, run_id):
@@ -439,8 +424,6 @@ def _selected_public_outcome(frozen, result, run_id):
     if not isinstance(result, dict):
         return None, None, "selected result is not a mapping"
     if "terminal_runs" not in result:
-        return result.get("outcome"), result.get("disposition"), None
-    if result.get("disposition") == "recording_pending":
         return result.get("outcome"), result.get("disposition"), None
     terminal_runs = result.get("terminal_runs")
     request = frozen.get("request") if isinstance(frozen, dict) else None
@@ -488,10 +471,10 @@ def recover_selected_release_status(root, request):
     finally:
         transport.destroy()
     canonical_state = status(root, Status(run_id=request.run_id))
-    journal_refs, pending_reason = _canonical_recovery_observation(canonical_state)
+    pending_reason = _canonical_recovery_reason(canonical_state)
     return {'operation': request.operation, 'workflow_run_id': request.run_id,
             'canonical_run': canonical_state, 'recovery_transport_handle': request.recovery_transport_handle,
-            'recovery_transport_status': transport_status, 'canonical_journal_refs': journal_refs,
+            'recovery_transport_status': transport_status,
             'blocked_or_pending_reason': pending_reason}
 
 

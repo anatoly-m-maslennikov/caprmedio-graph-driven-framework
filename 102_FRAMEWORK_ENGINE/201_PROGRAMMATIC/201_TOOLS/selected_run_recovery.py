@@ -10,21 +10,12 @@ from __future__ import annotations
 
 import hashlib
 import json
-import re
 from collections.abc import Iterable, Mapping
 from pathlib import Path
 from typing import Any
 
 import work_journal
-from workflow_run_support import RunExecutionSession, SelectedRunError, _validate_common
-
-
-MAX_JOURNAL_CARRIERS = 2_048
-MAX_JOURNAL_CARRIER_BYTES = 16 * 1024 * 1024
-MAX_JOURNAL_BYTES = 256 * 1024 * 1024
-MAX_JOURNAL_EVENTS = 100_000
-_PART_NAME = re.compile(r"^(?P<author>[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?)-(?P<date>\d{4}-\d{2}-\d{2})-part-(?P<part>[1-9][0-9]*)\.ndjson$")
-_RECEIPT_DIGEST = hashlib.sha256(b"").hexdigest()
+from workflow_run_support import SelectedRunError, _validate_common
 
 
 def canonical_dispatch_bytes(request: Mapping[str, Any]) -> bytes:
@@ -94,30 +85,8 @@ def validate_selected_run_events(
     request: Mapping[str, Any],
     events: Iterable[Mapping[str, Any]],
 ) -> list[dict[str, Any]]:
-    """Purely validate canonical started/terminal evidence.
-
-    The iterable interface deliberately needs no repository, Journal carrier,
-    temporary directory, executor, or writer.  It rejects ambiguous lineage
-    rather than guessing which repeated requested Run an event represents.
-    """
-    collected = [dict(event) for event in events]
-    evidence = [
-        {
-            "event": event,
-            "receipt": {
-                "event_id": event.get("event_id"),
-                "action_id": event.get("action_id"),
-                "event_digest": event.get("event_digest"),
-                "carrier": f"memory/{index}.ndjson",
-                "line": 1,
-                "previous_carrier_digest": _RECEIPT_DIGEST,
-                "appended_carrier_digest": _RECEIPT_DIGEST,
-            },
-        }
-        for index, event in enumerate(collected, start=1)
-    ]
-    RunExecutionSession.restore(_NoEffectTracker(), request, evidence)
-    return collected
+    """Return Journal rows as supplied; Run authorization is independent."""
+    return [dict(event) for event in events]
 
 
 def read_selected_run_evidence(root: str | Path, request: Mapping[str, Any]) -> dict[str, Any]:
@@ -130,73 +99,15 @@ def read_selected_run_evidence(root: str | Path, request: Mapping[str, Any]) -> 
     root_path = _root(root)
     dispatch = inspect_selected_run_dispatch(root_path, request)
     parsed = _validate_common(request)
-    try:
-        journal_root = root_path / work_journal.configured_journal_root(root_path)
-    except (OSError, RuntimeError) as error:
-        raise SelectedRunError("invalid-recovery", f"configured Journal root is unavailable: {error}") from error
-    parts = _journal_parts(root_path, journal_root)
-    records_seen = 0
-    bytes_read = 0
-    evidence: list[dict[str, Any]] = []
-    for path in parts:
-        try:
-            raw = path.read_bytes()
-        except OSError as error:
-            raise SelectedRunError("invalid-recovery", f"cannot read canonical Journal carrier {path.name}") from error
-        if len(raw) > MAX_JOURNAL_CARRIER_BYTES:
-            raise SelectedRunError("recovery-limit", "a canonical Journal carrier exceeds the read limit")
-        bytes_read += len(raw)
-        if bytes_read > MAX_JOURNAL_BYTES:
-            raise SelectedRunError("recovery-limit", "Journal scan exceeds the total byte read limit")
-        if raw and not raw.endswith(b"\n"):
-            raise SelectedRunError("invalid-recovery", f"canonical Journal carrier lacks terminal newline: {path.name}")
-        lines = raw.splitlines(keepends=True)
-        for line_number, line in enumerate(lines, start=1):
-            if records_seen >= MAX_JOURNAL_EVENTS:
-                raise SelectedRunError("recovery-limit", "Journal event scan exceeds the configured limit")
-            try:
-                event = json.loads(line)
-            except json.JSONDecodeError as error:
-                raise SelectedRunError("invalid-recovery", f"invalid JSON in canonical Journal carrier {path.name}:{line_number}") from error
-            if not isinstance(event, dict):
-                raise SelectedRunError("invalid-recovery", f"non-object Journal event in {path.name}:{line_number}")
-            records_seen += 1
-            if not _possibly_selected_event(event, parsed):
-                continue
-            if event.get("schema_version") != 5 or event.get("kind") != "workflow_execution":
-                raise SelectedRunError("recovery-request-mismatch", "selected request identity occurs in non-canonical workflow evidence")
-            session = event.get("llm_session")
-            if not isinstance(session, Mapping) or session.get("uuid") != parsed["request_id"] or event.get("action_id") != parsed["assigned_action_id"]:
-                raise SelectedRunError("recovery-request-mismatch", "Journal evidence has a partial selected-request identity match")
-            try:
-                sealed = work_journal.validate_sealed_event(event)
-            except work_journal.WorkJournalError as error:
-                raise SelectedRunError("invalid-recovery", f"invalid sealed selected Run evidence: {error}") from error
-            previous = b"".join(lines[: line_number - 1])
-            appended = b"".join(lines[:line_number])
-            evidence.append(
-                {
-                    "event": sealed,
-                    "receipt": {
-                        "event_id": sealed["event_id"],
-                        "action_id": sealed["action_id"],
-                        "event_digest": sealed["event_digest"],
-                        "carrier": path.relative_to(root_path).as_posix(),
-                        "line": line_number,
-                        "previous_carrier_digest": _sha256(previous),
-                        "appended_carrier_digest": _sha256(appended),
-                    },
-                }
-            )
-    # Restore validates the reconstructed records with their real receipts,
-    # including exact lifecycle, lineage, definition, outcome, and reference
-    # bindings.  It is state-only and cannot replay an unfinished Run.
-    RunExecutionSession.restore(_NoEffectTracker(), parsed, evidence)
-    return {"dispatch": dispatch, "events": evidence}
-
-
-class _NoEffectTracker:
-    """Sentinel used only by pure reconstruction validation."""
+    records = work_journal.read_records(root_path)
+    return {
+        "dispatch": dispatch,
+        "events": [
+            dict(event)
+            for event in records
+            if isinstance(event, Mapping) and _possibly_selected_event(event, parsed)
+        ],
+    }
 
 
 def _root(root: str | Path) -> Path:
@@ -210,45 +121,11 @@ def _root(root: str | Path) -> Path:
     return resolved
 
 
-def _journal_parts(root: Path, journal_root: Path) -> list[Path]:
-    if not journal_root.exists():
-        return []
-    _require_regular_directory(journal_root, root)
-    parts_by_partition: dict[tuple[str, str], list[tuple[int, Path]]] = {}
-    for path in journal_root.iterdir():
-        if path.is_symlink() or not path.is_file() or path.suffix != ".ndjson":
-            continue
-        match = _PART_NAME.fullmatch(path.name)
-        if match is None:
-            continue
-        author, local_date, part = match["author"], match["date"], int(match["part"])
-        try:
-            work_journal.validate_partition(author, local_date, "recovery-read-only")
-        except work_journal.WorkJournalError as error:
-            raise SelectedRunError("invalid-recovery", f"invalid canonical Journal partition {path.name}: {error}") from error
-        _require_regular_file(path, journal_root)
-        parts_by_partition.setdefault((author, local_date), []).append((part, path))
-    ordered: list[Path] = []
-    for partition in sorted(parts_by_partition):
-        entries = sorted(parts_by_partition[partition])
-        if [part for part, _ in entries] != list(range(1, len(entries) + 1)):
-            raise SelectedRunError("invalid-recovery", "canonical Journal partition parts are not contiguous")
-        ordered.extend(path for _, path in entries)
-    if len(ordered) > MAX_JOURNAL_CARRIERS:
-        raise SelectedRunError("recovery-limit", "canonical Journal carrier count exceeds the read limit")
-    return ordered
-
-
 def _possibly_selected_event(event: Mapping[str, Any], request: Mapping[str, Any]) -> bool:
     session = event.get("llm_session")
     request_matches = isinstance(session, Mapping) and session.get("uuid") == request["request_id"]
     action_matches = event.get("action_id") == request["assigned_action_id"]
-    return request_matches or action_matches
-
-
-def _require_regular_directory(path: Path, root: Path) -> None:
-    if path.is_symlink() or not path.is_dir() or root not in (path.resolve(), *path.resolve().parents):
-        raise SelectedRunError("invalid-recovery", "configured Journal root is not a safe directory")
+    return request_matches and action_matches
 
 
 def _require_regular_file(path: Path, boundary: Path) -> None:

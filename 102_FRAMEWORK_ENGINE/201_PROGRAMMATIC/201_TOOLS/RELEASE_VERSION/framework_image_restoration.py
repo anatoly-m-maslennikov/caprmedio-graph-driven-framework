@@ -20,7 +20,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-import bootstrap_image as _bootstrap_image
 from bootstrap_image import (
     BootstrapImageError,
     BootstrapImageEvidence,
@@ -77,10 +76,9 @@ class _FrozenRestoration:
 
 @dataclass(frozen=True)
 class _Terminalization:
-    """The Journal's observable terminal state, never a synthetic receipt."""
+    """The actual terminal Run observation, independent of log append success."""
 
     terminal: Mapping[str, Any] | None
-    pending_event_id: str | None
     error_code: str | None
 
 
@@ -135,110 +133,7 @@ def _direct_action_module() -> Any:
     return direct_action_session
 
 
-def validate_framework_image_recording_command(
-    root: Path,
-    *,
-    result_ref: str,
-    authorization_ref: str,
-    operator: str,
-    journal_author: str,
-    operators_registry_ref: str | Path,
-) -> str:
-    """Reopen the exact D591 recording command at the native recovery boundary."""
-    if not isinstance(authorization_ref, str):
-        raise _error("framework-image-restoration-recording-authorization-invalid", "recording authorization reference is invalid")
-    command_path = _regular_file(
-        root,
-        Path(authorization_ref),
-        code="framework-image-restoration-recording-authorization-invalid",
-    )
-    try:
-        if command_path.stat().st_size > _MAX_COMMAND_BYTES:
-            raise _error("framework-image-restoration-recording-authorization-invalid", "recording command is oversized")
-        raw = command_path.read_bytes()
-        value = json.loads(raw.decode("utf-8"))
-        canonical = canonical_json(value)
-    except FrameworkImageRestorationError:
-        raise
-    except (OSError, UnicodeDecodeError, ValueError, TypeError) as error:
-        raise _error("framework-image-restoration-recording-authorization-invalid", "recording command is unreadable") from error
-    digest = hashlib.sha256(raw).hexdigest()
-    module = _direct_action_module()
-    try:
-        binding = module._source_binding(root, RESTORATION_ACTION_ID)
-        registry_path = _regular_file(
-            root,
-            Path(operators_registry_ref),
-            code="framework-image-restoration-recording-authorization-invalid",
-        )
-        registry_sha256 = hashlib.sha256(registry_path.read_bytes()).hexdigest()
-    except (AttributeError, OSError, module.DirectActionJournalError) as error:
-        raise _error("framework-image-restoration-recording-authorization-invalid", "recording authority cannot be reopened") from error
-    expected_source = {
-        "atom_id": binding["atom_id"],
-        "version": binding["version"],
-        "path": binding["path"],
-        "sha256": binding["digest"],
-    }
-    expected_keys = {
-        "schema_version", "operation", "command_id", "operator", "journal_author",
-        "operators_registry_sha256", "action_source", "input",
-    }
-    if (
-        not isinstance(value, dict)
-        or set(value) != expected_keys
-        or raw != canonical
-        or value.get("schema_version") != 1
-        or type(value.get("schema_version")) is not int
-        or value.get("operation") != "record_terminal"
-        or not isinstance(value.get("command_id"), str)
-        or not value["command_id"].strip()
-        or any(char in value["command_id"] for char in "\r\n")
-        or value.get("operator") != operator
-        or value.get("journal_author") != journal_author
-        or value.get("operators_registry_sha256") != registry_sha256
-        or value.get("action_source") != expected_source
-        or value.get("input") != {"result_ref": result_ref}
-        or command_path.name != f"{digest}.json"
-    ):
-        raise _error("framework-image-restoration-recording-authorization-invalid", "recording command does not bind this recovery")
-    return digest
 
-
-def _validate_recording_authorization(
-    root: Path,
-    journal: Any,
-    *,
-    result_ref: str,
-    authorization_ref: str,
-) -> None:
-    authorization = getattr(journal, "authorization", None)
-    if (
-        not isinstance(authorization, Mapping)
-        or authorization.get("authorization_ref") != authorization_ref
-        or not isinstance(authorization.get("operator"), str)
-        or not isinstance(getattr(journal, "author", None), str)
-    ):
-        raise _error("framework-image-restoration-recording-authorization-invalid", "recording command is not owned by this Session")
-    validate_framework_image_recording_command(
-        root,
-        result_ref=result_ref,
-        authorization_ref=authorization_ref,
-        operator=authorization["operator"],
-        journal_author=journal.author,
-        operators_registry_ref=journal.operators_registry_ref,
-    )
-
-
-def _work_journal_module() -> Any:
-    import sys
-
-    tools_root = str(Path(__file__).resolve().parent.parent)
-    if tools_root not in sys.path:
-        sys.path.insert(0, tools_root)
-    import work_journal
-
-    return work_journal
 
 
 def _error(code: str, message: str) -> FrameworkImageRestorationError:
@@ -350,8 +245,7 @@ def _private_directory(root: Path, intent_sha256: str) -> Path:
 
 def _retry_attempt_directory(frozen: _FrozenRestoration, *, requested_run_id: str,
                              retry_of_terminal_event_id: str,
-                             prior_result_ref: str,
-                             prior_terminal_event_digest: str) -> Path:
+                             prior_result_ref: str) -> Path:
     """Open one immutable, per-request retry carrier below the sealed intent.
 
     The parent intent carrier is historical evidence.  A retry may read it but
@@ -362,8 +256,6 @@ def _retry_attempt_directory(frozen: _FrozenRestoration, *, requested_run_id: st
         raise _error("framework-image-restoration-run-invalid", "requested Action Run ID is required")
     if not isinstance(retry_of_terminal_event_id, str) or not retry_of_terminal_event_id:
         raise _error("framework-image-restoration-retry-invalid", "retry requires one exact terminal event ID")
-    if _SHA256.fullmatch(prior_terminal_event_digest) is None:
-        raise _error("framework-image-restoration-retry-invalid", "retry terminal evidence digest is invalid")
     run_digest = _digest(requested_run_id.encode("utf-8"))
     attempts_root = frozen.private_root / "attempts"
     attempt_root = attempts_root / run_digest
@@ -387,7 +279,6 @@ def _retry_attempt_directory(frozen: _FrozenRestoration, *, requested_run_id: st
             "intent_sha256": frozen.intent_sha256,
             "requested_run_id": requested_run_id,
             "retry_of_terminal_event_id": retry_of_terminal_event_id,
-            "retry_of_terminal_event_digest": prior_terminal_event_digest,
             "retry_of_result_ref": prior_result_ref,
         }),
     )
@@ -641,27 +532,6 @@ def _write_result(frozen: _FrozenRestoration, payload: Mapping[str, Any], *, res
     return _result_ref(frozen.root, root)
 
 
-def _pending_event_id_from_session(journal: DirectActionJournal, *, run_id: str,
-                                   result_ref: str) -> str | None:
-    """Extract the exact event retained by DirectActionSession after append loss."""
-    pending = getattr(journal, "pending", None)
-    if not isinstance(pending, Mapping):
-        return None
-    matches: list[str] = []
-    for event_id, observed in pending.items():
-        if not isinstance(event_id, str) or not isinstance(observed, Mapping):
-            continue
-        event = observed.get("event")
-        if not isinstance(event, Mapping):
-            continue
-        if (event.get("action_id") == RESTORATION_ACTION_ID
-                and event.get("result_ref") == result_ref
-                and event.get("run", {}).get("run_id") == run_id):
-            matches.append(event_id)
-    if len(matches) == 1:
-        return matches[0]
-    return None
-
 
 def _terminalize(journal: DirectActionJournal, run_id: str, *, outcome: str, result_ref: str,
                  effect_refs: list[str], report_ref: str | None = None) -> _Terminalization:
@@ -673,56 +543,12 @@ def _terminalize(journal: DirectActionJournal, run_id: str, *, outcome: str, res
             report_ref=report_ref,
         )
     except Exception as error:
-        return _Terminalization(
-            None,
-            _pending_event_id_from_session(journal, run_id=run_id, result_ref=result_ref),
-            getattr(error, "code", "framework-image-restoration-journal-terminal-unavailable"),
-        )
+        return _Terminalization(None, getattr(error, "code", "framework-image-restoration-terminal-unavailable"))
     if not isinstance(terminal, Mapping):
-        return _Terminalization(None, None, "framework-image-restoration-journal-terminal-invalid")
-    pending_event_id = terminal.get("pending_event_id")
-    if not isinstance(pending_event_id, str):
-        pending_event_id = terminal.get("event_id") if terminal.get("disposition") == "pending" else None
-    return _Terminalization(dict(terminal), pending_event_id, None)
+        return _Terminalization(None, "framework-image-restoration-terminal-invalid")
+    return _Terminalization(dict(terminal), None)
 
 
-def _store_pending_reference(result_root: Path, *, event_id: str, result_ref: str,
-                             run_id: str) -> None:
-    if not event_id.startswith("direct-action:"):
-        raise _error("framework-image-restoration-pending-invalid", "pending Journal event ID is not a direct Action event")
-    _write_once(
-        result_root / "pending-terminal.json",
-        canonical_json({"event_id": event_id, "result_ref": result_ref, "run_id": run_id}),
-    )
-
-
-def _pending_reply(result_root: Path, settlement: _Terminalization, *, result_ref: str,
-                   run_id: str) -> dict[str, Any]:
-    """Expose actual terminal-recording loss and its sole recovery identity."""
-    response: dict[str, Any] = {
-        "state": "recording_pending",
-        "reason": settlement.error_code or "framework-image-restoration-journal-terminal-unavailable",
-        "result_ref": result_ref,
-        "run_id": run_id,
-        "terminal": dict(settlement.terminal) if settlement.terminal is not None else None,
-    }
-    if settlement.pending_event_id is not None:
-        try:
-            _store_pending_reference(result_root, event_id=settlement.pending_event_id,
-                                     result_ref=result_ref, run_id=run_id)
-        except FrameworkImageRestorationError as error:
-            response["reason"] = error.code
-        else:
-            response["pending_event_id"] = settlement.pending_event_id
-    return response
-
-
-def _terminal_confirmed(settlement: _Terminalization, outcome: str) -> bool:
-    return (
-        settlement.terminal is not None
-        and settlement.terminal.get("disposition") == "terminal"
-        and settlement.terminal.get("outcome") == outcome
-    )
 
 
 def _proof_fields(evidence: BootstrapImageEvidence,
@@ -814,11 +640,7 @@ def _return_recorded(root: Path, private_root: Path, intent: Mapping[str, str], 
         "reason": "framework-image-restoration-existing-result",
         "prior_result": dict(result),
     }
-    pending_event_id = _pending_id_for_result(root, private_root, result)
-    if pending_event_id is not None:
-        response["pending_event_id"] = pending_event_id
     return response
-
 
 def _result_roots(root: Path, result_ref: str, *, code: str) -> tuple[Path, Path]:
     """Resolve either the legacy result or one immutable retry-run result."""
@@ -898,7 +720,7 @@ def _terminal_effect_refs_for_result(root: Path, result_root: Path, result: Mapp
 
 
 def _owned_result_event(root: Path, event: Mapping[str, Any], *, code: str) -> tuple[Path, Path, dict[str, str], dict[str, Any]]:
-    """Bind one sealed Journal terminal to its immutable restoration result."""
+    """Bind an actual terminal observation to its immutable restoration result."""
     result_ref = event.get("result_ref")
     if not isinstance(result_ref, str):
         raise _error(code, "terminal event has no restoration result")
@@ -944,43 +766,23 @@ def _owned_result_event(root: Path, event: Mapping[str, Any], *, code: str) -> t
         if (
             retry_path.is_symlink()
             or not isinstance(retry, dict)
-            or set(retry) != {
+            or set(retry) - {"retry_of_terminal_event_digest"} != {
                 "schema", "intent_sha256", "requested_run_id", "retry_of_terminal_event_id",
-                "retry_of_terminal_event_digest", "retry_of_result_ref",
+                "retry_of_result_ref",
             }
             or retry.get("schema") != "caprmedio.framework_image_restoration.retry.v1"
             or retry.get("intent_sha256") != intent_sha256
             or retry.get("requested_run_id") != result.get("requested_run_id")
             or retry.get("retry_of_terminal_event_id") != result.get("retry_of_terminal_event_id")
-            or not isinstance(retry.get("retry_of_terminal_event_digest"), str)
-            or _SHA256.fullmatch(retry["retry_of_terminal_event_digest"]) is None
             or canonical_json(retry) != retry_path.read_bytes()
         ):
             raise _error(code, "retry-run evidence does not bind the retained result")
     return intent_root, result_root, intent, result
 
 
-def _owned_pending_event(root: Path, event_id: str) -> tuple[Path, Path, dict[str, str], dict[str, Any]]:
-    """Reopen one pending terminal event and prove it belongs to this Action result."""
-    work_journal = _work_journal_module()
 
-    if not isinstance(event_id, str) or not event_id.startswith("direct-action:"):
-        raise _error("framework-image-restoration-pending-invalid", "pending event ID is not a direct Action event")
-    try:
-        pending, event, _context, _path = work_journal._read_pending_event(root, event_id)
-    except work_journal.WorkJournalError as error:
-        raise _error("framework-image-restoration-pending-invalid", str(error)) from error
-    if (event.get("event_id") != event_id or event.get("action_id") != RESTORATION_ACTION_ID
-            or event.get("event") not in {"completed", "failed", "abandoned"}
-            or not isinstance(event.get("result_ref"), str)
-            or pending.get("result_ref") != event.get("result_ref")
-            or pending.get("effect_refs") != event.get("effect_refs")):
-        raise _error("framework-image-restoration-pending-invalid", "pending event is not a restoration terminal record")
-    return _owned_result_event(root, event, code="framework-image-restoration-pending-invalid")
-
-
-def _owned_canonical_terminal(root: Path, event_id: str) -> tuple[Path, Path, dict[str, str], dict[str, Any], dict[str, Any], dict[str, Any]]:
-    """Reopen one appended terminal event; pending or started records never retry."""
+def _owned_canonical_terminal(root: Path, event_id: str) -> tuple[Path, Path, dict[str, str], dict[str, Any], dict[str, Any]]:
+    """Reopen an actual retained terminal observation for a source-effect retry."""
     if not isinstance(event_id, str) or not event_id.startswith("direct-action:"):
         raise _error("framework-image-restoration-retry-invalid", "retry terminal event ID is not a direct Action event")
     direct_action = _direct_action_module()
@@ -989,8 +791,8 @@ def _owned_canonical_terminal(root: Path, event_id: str) -> tuple[Path, Path, di
     except direct_action.DirectActionJournalError as error:
         raise _error("framework-image-restoration-retry-invalid", str(error)) from error
     if reopened is None:
-        raise _error("framework-image-restoration-retry-invalid", "retry terminal event is not canonically appended")
-    event, receipt = reopened
+        raise _error("framework-image-restoration-retry-invalid", "retry terminal observation is unavailable")
+    event, _location = reopened
     session = event.get("llm_session")
     run = event.get("run")
     if (
@@ -1007,34 +809,14 @@ def _owned_canonical_terminal(root: Path, event_id: str) -> tuple[Path, Path, di
     intent_root, result_root, intent, result = _owned_result_event(
         root, event, code="framework-image-restoration-retry-invalid",
     )
-    return intent_root, result_root, intent, result, dict(event), dict(receipt)
+    return intent_root, result_root, intent, result, dict(event)
 
-
-def _pending_id_for_result(root: Path, result_root: Path, result: Mapping[str, Any]) -> str | None:
-    """Reopen the retained terminal reference, never infer an event ID."""
-    reference = result_root / "pending-terminal.json"
-    if not reference.exists() and not reference.is_symlink():
-        return None
-    if reference.is_symlink() or not reference.is_file():
-        raise _error("framework-image-restoration-evidence-unsafe", "pending terminal reference is unsafe")
-    try:
-        value = json.loads(reference.read_bytes())
-    except (OSError, UnicodeDecodeError, ValueError) as error:
-        raise _error("framework-image-restoration-evidence-invalid", "pending terminal reference is unreadable") from error
-    if (not isinstance(value, dict) or set(value) != {"event_id", "result_ref", "run_id"}
-            or value.get("result_ref") != _result_ref(root, result_root)
-            or value.get("run_id") != result.get("run_id")
-            or not isinstance(value.get("event_id"), str)
-            or canonical_json(value) != reference.read_bytes()):
-        raise _error("framework-image-restoration-evidence-invalid", "pending terminal reference is not canonical")
-    _owned_pending_event(root, value["event_id"])
-    return value["event_id"]
 
 
 def _retry_attempt_for_terminal(frozen: _FrozenRestoration, *, requested_run_id: str,
                                 retry_of_terminal_event_id: str) -> Path:
     """Admit a deliberate retry of one completed-but-partial restoration only."""
-    intent_root, _prior_result_root, prior_intent, prior_result, event, _receipt = _owned_canonical_terminal(
+    intent_root, _prior_result_root, prior_intent, prior_result, event = _owned_canonical_terminal(
         frozen.root, retry_of_terminal_event_id,
     )
     del intent_root
@@ -1052,9 +834,6 @@ def _retry_attempt_for_terminal(frozen: _FrozenRestoration, *, requested_run_id:
             "framework-image-restoration-retry-ineligible",
             "retry requires a different requested Run and one unpublished or unchanged-selector canonical partial result",
         )
-    event_digest = event.get("event_digest")
-    if not isinstance(event_digest, str) or _SHA256.fullmatch(event_digest) is None:
-        raise _error("framework-image-restoration-retry-invalid", "retry terminal event digest is invalid")
     attempts_root = frozen.private_root / "attempts"
     if attempts_root.exists() or attempts_root.is_symlink():
         if attempts_root.is_symlink() or not attempts_root.is_dir():
@@ -1086,333 +865,12 @@ def _retry_attempt_for_terminal(frozen: _FrozenRestoration, *, requested_run_id:
         requested_run_id=requested_run_id,
         retry_of_terminal_event_id=retry_of_terminal_event_id,
         prior_result_ref=str(event["result_ref"]),
-        prior_terminal_event_digest=event_digest,
     )
 
 
-def recover_framework_image_journal(
-    project_root: Path | str,
-    *,
-    journal: DirectActionJournal,
-    pending_event_id: str,
-) -> dict[str, Any]:
-    """Append only one already-sealed pending terminal restoration event.
-
-    This is intentionally not a retry of :func:`restore_framework_image`:
-    it opens no Docker transport, does not read the selector for publication,
-    and cannot create a new Action event or replacement result.
-    """
-    try:
-        root = _root(project_root)
-        _intent_root, result_root, _intent, result = _owned_pending_event(root, pending_event_id)
-    except FrameworkImageRestorationError as error:
-        return {"state": "recovery_required", "reason": error.code}
-    DirectActionSession, DirectActionJournalError = _direct_action_types()
-
-    if not isinstance(journal, DirectActionSession):
-        return {"state": "recovery_required", "reason": "framework-image-restoration-recovery-session-required",
-                "pending_event_id": pending_event_id}
-    try:
-        recovered = journal.recover_pending(pending_event_id)
-    except DirectActionJournalError as error:
-        return {"state": "recovery_required", "reason": error.code, "pending_event_id": pending_event_id}
-    if (not isinstance(recovered, Mapping) or recovered.get("disposition") != "recovered"
-            or recovered.get("event_id") != pending_event_id):
-        return {"state": "recovery_required", "reason": "framework-image-restoration-recovery-unconfirmed",
-                "pending_event_id": pending_event_id}
-    return {
-        "state": "recovered",
-        "pending_event_id": pending_event_id,
-        "result_ref": _result_ref(root, result_root),
-        "prior_result": result,
-        "recovery": dict(recovered),
-    }
 
 
-def _observe_retained_result_image(executor: DockerSubprocessExecutor, root: Path, *, image_digest: str,
-                                   manifest_sha256: str, source_context_sha256: str) -> None:
-    """Reinspect a retained result's selected image without building or running it."""
-    try:
-        observed = executor.run(("docker", "image", "inspect", image_digest), cwd=root, timeout_seconds=60)
-    except OSError as error:
-        raise _error("framework-image-restoration-terminal-image-unavailable", "Docker image inspection is unavailable") from error
-    if (not isinstance(observed, DockerCommandResult) or not isinstance(observed.stdout, bytes)
-            or not isinstance(observed.stderr, bytes) or len(observed.stdout) > _MAX_DOCKER_OUTPUT_BYTES
-            or len(observed.stderr) > _MAX_DOCKER_OUTPUT_BYTES or observed.timed_out or observed.exit_code != 0):
-        raise _error("framework-image-restoration-terminal-image-invalid", "selected image could not be freshly authenticated")
-    try:
-        values = json.loads(observed.stdout)
-        image = values[0]
-        labels = image["Config"]["Labels"]
-        valid = (
-            len(values) == 1
-            and image.get("Id") == image_digest
-            and isinstance(labels, dict)
-            and labels.get(PACKAGE_IMAGE_LABEL) == manifest_sha256
-            and labels.get(SOURCE_CONTEXT_IMAGE_LABEL) == source_context_sha256
-        )
-    except (IndexError, KeyError, TypeError, ValueError):
-        valid = False
-    if not valid:
-        raise _error("framework-image-restoration-terminal-image-invalid", "selected image differs from retained proof bindings")
 
-
-def _authenticate_result_attempt(root: Path, result: Mapping[str, Any], proof: BootstrapImageEvidence) -> None:
-    """Authenticate the result's attempt reference before it becomes an effect ref."""
-    attempt_ref = result.get("attempt_evidence_root")
-    if not isinstance(attempt_ref, str) or not attempt_ref:
-        raise _error("framework-image-restoration-terminal-proof-invalid", "successful result has no retained attempt evidence")
-    if attempt_ref == proof.evidence_root:
-        if (
-            result.get("attempt_commands_sha256") != proof.commands_sha256
-            or result.get("attempt_receipt_sha256") != proof.receipt_sha256
-            or result.get("attempt_execution_kind") != "docker-subprocess"
-        ):
-            raise _error("framework-image-restoration-terminal-proof-invalid", "successful result attempt fields differ from canonical proof")
-        return
-    relative = Path(attempt_ref)
-    proof_parent = Path(proof.evidence_root).parent
-    if (
-        relative.is_absolute() or ".." in relative.parts or relative.as_posix() != attempt_ref
-        or tuple(relative.parts[:-1]) != proof_parent.parts or not relative.name.startswith("attempt-")
-    ):
-        raise _error("framework-image-restoration-terminal-proof-invalid", "successful result attempt reference is not retained bootstrap evidence")
-    attempt = root / relative
-    cursor = root
-    for part in relative.parts:
-        cursor = cursor / part
-        if cursor.is_symlink() or not cursor.is_dir():
-            raise _error("framework-image-restoration-terminal-proof-invalid", "successful result attempt evidence path is unsafe")
-    evidence_path = attempt / "evidence.toml"
-    if evidence_path.is_symlink() or not evidence_path.is_file():
-        raise _error("framework-image-restoration-terminal-proof-invalid", "successful result attempt evidence is absent")
-    try:
-        payload = evidence_path.read_bytes()
-        parsed = tomllib.loads(payload.decode("utf-8"))
-        expected = {
-            "schema_version", "manifest_sha256", "source_context_sha256", "outcome", "reason", "image_digest",
-            "context_sha256", "evidence_root", "commands_sha256", "execution_kind", "started_at", "finished_at",
-            "bootstrap_proof_key", "proof_root", "context_root",
-        }
-        if set(parsed) != expected or parsed.get("schema_version") != 1:
-            raise ValueError("attempt evidence schema")
-        evidence = BootstrapImageEvidence(**{key: parsed[key] for key in expected if key != "schema_version"})
-        if payload != _bootstrap_image._toml(evidence):
-            raise ValueError("attempt evidence canonical bytes")
-        receipt_sha256 = _digest(payload)
-        _bootstrap_image._verify_retained_commands(attempt, evidence)
-        context = attempt / "context"
-        if _bootstrap_image._tree_digest(context) != evidence.context_sha256:
-            raise ValueError("attempt context digest")
-    except (OSError, UnicodeDecodeError, ValueError, tomllib.TOMLDecodeError, BootstrapImageError) as error:
-        raise _error("framework-image-restoration-terminal-proof-invalid", "successful result attempt evidence is not authentic") from error
-    if (
-        evidence.outcome != "verified"
-        or evidence.execution_kind != "docker-subprocess"
-        or evidence.manifest_sha256 != proof.manifest_sha256
-        or evidence.source_context_sha256 != proof.source_context_sha256
-        or evidence.image_digest != proof.image_digest
-        or evidence.context_sha256 != proof.context_sha256
-        or evidence.evidence_root != attempt_ref
-        or evidence.bootstrap_proof_key != proof.bootstrap_proof_key
-        or evidence.proof_root != proof.proof_root
-        or evidence.context_root != proof.context_root
-        or result.get("attempt_commands_sha256") != evidence.commands_sha256
-        or result.get("attempt_receipt_sha256") != receipt_sha256
-        or result.get("attempt_execution_kind") != evidence.execution_kind
-    ):
-        raise _error("framework-image-restoration-terminal-proof-invalid", "successful result attempt evidence does not bind the canonical proof")
-
-
-def _retained_result_for_terminal(root: Path, result_ref: str,
-                                  executor: DockerSubprocessExecutor) -> tuple[Path, Path, dict[str, str], dict[str, Any], list[str]]:
-    """Authenticate an already-observed successful result for Journal-only repair."""
-    intent_root, result_root = _result_roots(root, result_ref, code="framework-image-restoration-terminal-invalid")
-    result = _existing_result(root, result_root)
-    if result is None:
-        raise _error("framework-image-restoration-terminal-invalid", "retained restoration result is absent")
-    intent_path = intent_root / "intent.json"
-    if intent_path.is_symlink() or not intent_path.is_file():
-        raise _error("framework-image-restoration-terminal-invalid", "retained restoration intent is absent")
-    intent = _intent_from_bytes(intent_path.read_bytes())
-    intent_sha256 = _digest(canonical_json(intent))
-    requested_run_id = result.get("requested_run_id")
-    run_id = result.get("run_id")
-    observed_image_digest = result.get("observed_image_digest")
-    observed_selector_sha256 = result.get("observed_selector_sha256")
-    if (
-        intent_root.name != intent_sha256
-        or result.get("intent_sha256") != intent_sha256
-        or result.get("state") != "restored"
-        or not isinstance(requested_run_id, str)
-        or not isinstance(run_id, str)
-        or not isinstance(observed_image_digest, str)
-        or IMAGE_ID.fullmatch(observed_image_digest) is None
-        or not isinstance(observed_selector_sha256, str)
-        or _SHA256.fullmatch(observed_selector_sha256) is None
-        or result.get("old_image_digest") != intent["old_image_digest"]
-        or result.get("prior_selector_sha256") != intent["selected_selector_sha256"]
-    ):
-        raise _error("framework-image-restoration-terminal-invalid", "retained restoration result is not a closed successful Action result")
-    prior_selector_path = intent_root / "prior-selector.toml"
-    if prior_selector_path.is_symlink() or not prior_selector_path.is_file():
-        raise _error("framework-image-restoration-terminal-invalid", "sealed prior selector is absent")
-    prior_selector = prior_selector_path.read_bytes()
-    prior = _closed_bootstrap_selector(prior_selector)
-    if (
-        _digest(prior_selector) != intent["selected_selector_sha256"]
-        or prior["release"] != intent["manifest_sha256"]
-        or prior["image_digest"] != intent["old_image_digest"]
-    ):
-        raise _error("framework-image-restoration-terminal-invalid", "sealed prior selector does not bind the closed restoration intent")
-    try:
-        old_proof = read_retained_initial_framework_image(
-            root, intent["manifest_sha256"], intent["old_image_digest"],
-        )
-    except BootstrapImageError as error:
-        raise _error(error.code, str(error)) from error
-    if (
-        old_proof.manifest_sha256 != intent["manifest_sha256"]
-        or old_proof.source_context_sha256 != intent["source_context_sha256"]
-        or old_proof.receipt_sha256 != intent["retained_proof_receipt_sha256"]
-        or old_proof.context_sha256 != intent["retained_context_sha256"]
-    ):
-        raise _error("framework-image-restoration-terminal-proof-invalid", "sealed original proof no longer binds the closed restoration intent")
-    selector = _regular_file(root, Path(CURRENT_SELECTOR_RELATIVE), code="framework-image-restoration-selector-missing").read_bytes()
-    selector_sha256 = _digest(selector)
-    parsed = _closed_bootstrap_selector(selector)
-    if (selector_sha256 != observed_selector_sha256
-            or parsed["release"] != intent["manifest_sha256"]
-            or parsed["image_digest"] != observed_image_digest):
-        raise _error("framework-image-restoration-terminal-input-stale", "current selector differs from the retained successful result")
-    if observed_image_digest == intent["old_image_digest"]:
-        expected_selector = prior_selector
-    else:
-        old_image = intent["old_image_digest"].encode("ascii")
-        if prior_selector.count(old_image) != 1:
-            raise _error("framework-image-restoration-terminal-invalid", "sealed prior selector has no exact image binding")
-        expected_selector = prior_selector.replace(old_image, observed_image_digest.encode("ascii"), 1)
-    if selector != expected_selector:
-        raise _error("framework-image-restoration-terminal-input-stale", "current selector is not the exact sealed image-only replacement")
-    publication = result.get("publication")
-    expected_publication = "unchanged" if observed_selector_sha256 == intent["selected_selector_sha256"] else "replaced"
-    if publication != expected_publication:
-        raise _error("framework-image-restoration-terminal-invalid", "retained restoration publication result is inconsistent")
-    package = root / ".caprmedio_runtime/framework/releases" / intent["manifest_sha256"]
-    package_skill = package / "SKILLS/ca"
-    package_records, _package_digest = _inventory(package, code="framework-image-restoration-terminal-package-invalid")
-    package_skill_records, _package_skill_digest = _inventory(
-        package_skill, code="framework-image-restoration-terminal-package-invalid"
-    )
-    public_skill_records, _public_skill_digest = _inventory(
-        root / PROJECT_SKILL_TARGET, code="framework-image-restoration-terminal-skill-invalid"
-    )
-    try:
-        proof = read_retained_initial_framework_image(root, intent["manifest_sha256"], observed_image_digest)
-    except BootstrapImageError as error:
-        raise _error(error.code, str(error)) from error
-    if (
-        proof.outcome != "verified"
-        or proof.execution_kind != "docker-subprocess"
-        or proof.manifest_sha256 != intent["manifest_sha256"]
-        or proof.source_context_sha256 != intent["source_context_sha256"]
-        or proof.image_digest != observed_image_digest
-        or proof.receipt_sha256 is None
-        or result.get("canonical_proof_key") != proof.bootstrap_proof_key
-        or result.get("canonical_proof_root") != proof.proof_root
-        or result.get("canonical_context_root") != proof.context_root
-        or result.get("canonical_proof_receipt_sha256") != proof.receipt_sha256
-    ):
-        raise _error("framework-image-restoration-terminal-proof-invalid", "retained successful result proof is not current and authentic")
-    proof_package_records, _proof_package_digest = _inventory(
-        root / proof.context_root / "PACKAGE", code="framework-image-restoration-terminal-proof-invalid"
-    )
-    proof_skill_records, _proof_skill_digest = _inventory(
-        root / proof.context_root / "PACKAGE/SKILLS/ca", code="framework-image-restoration-terminal-proof-invalid"
-    )
-    if _package_context_records(package_records) != _package_context_records(proof_package_records):
-        raise _error("framework-image-restoration-terminal-package-stale", "selected retained package differs from authenticated proof context")
-    if package_skill_records != proof_skill_records or public_skill_records != proof_skill_records:
-        raise _error("framework-image-restoration-terminal-skill-stale", "public ca Skill differs from authenticated retained proof context")
-    if publication == "replaced":
-        replacement = _regular_file(
-            root, Path(_relative(root, result_root / "replacement-selector.toml")),
-            code="framework-image-restoration-terminal-invalid",
-        ).read_bytes()
-        if replacement != selector:
-            raise _error("framework-image-restoration-terminal-input-stale", "retained replacement selector differs from current selection")
-    _authenticate_result_attempt(root, result, proof)
-    effect_refs = _terminal_effect_refs_for_result(
-        root, result_root, result, code="framework-image-restoration-terminal-invalid",
-    )
-    _observe_retained_result_image(
-        executor, root, image_digest=observed_image_digest,
-        manifest_sha256=intent["manifest_sha256"], source_context_sha256=intent["source_context_sha256"],
-    )
-    return intent_root, result_root, intent, result, effect_refs
-
-
-def recover_framework_image_terminal(
-    project_root: Path | str,
-    *,
-    journal: DirectActionJournal,
-    result_ref: str,
-    image_executor: DockerExecutor,
-    recording_authorization_ref: str | None = None,
-) -> dict[str, Any]:
-    """Record one already-observed successful restoration; never rebuild or publish.
-
-    The result's bytes and original started Run are immutable.  This recovery
-    only authenticates present state, reopens that exact started Run through
-    the direct-Action Session, and writes its one missing terminal event.
-    """
-    try:
-        root = _root(project_root)
-        executor = _validate_executor(image_executor)
-        with selector_publication_lock(root):
-            _intent_root, result_root, intent, result, effect_refs = _retained_result_for_terminal(
-                root, result_ref, executor,
-            )
-            DirectActionSession, DirectActionJournalError = _direct_action_types()
-            if not isinstance(journal, DirectActionSession):
-                return {"state": "recovery_required", "reason": "framework-image-restoration-recovery-session-required"}
-            if recording_authorization_ref is not None:
-                _validate_recording_authorization(
-                    root,
-                    journal,
-                    result_ref=result_ref,
-                    authorization_ref=recording_authorization_ref,
-                )
-            reopen = getattr(journal, "reopen_restoration_for_recording", None)
-            if not callable(reopen):
-                return {"state": "recovery_required", "reason": "framework-image-restoration-recovery-admission-unavailable"}
-            try:
-                reopened = reopen(
-                    requested_run_id=result["requested_run_id"],
-                    intent=intent,
-                    recording_authorization_ref=recording_authorization_ref,
-                )
-            except DirectActionJournalError as error:
-                return {"state": "recovery_required", "reason": error.code}
-            run_id = reopened.get("run_id") if isinstance(reopened, Mapping) else None
-            if (not isinstance(run_id, str) or run_id != result["run_id"]
-                    or reopened.get("disposition") != "recording_only"):
-                return {"state": "recovery_required", "reason": "framework-image-restoration-recovery-unconfirmed"}
-            terminal = _terminalize(
-                journal, run_id, outcome="completed", result_ref=_result_ref(root, result_root),
-                effect_refs=effect_refs, report_ref=recording_authorization_ref,
-            )
-            if not _terminal_confirmed(terminal, "completed"):
-                return _pending_reply(result_root, terminal, result_ref=_result_ref(root, result_root), run_id=run_id)
-            return {
-                "state": "restored",
-                "result_ref": _result_ref(root, result_root),
-                "run_id": run_id,
-                "terminal": dict(terminal.terminal),
-                "recording_recovered": True,
-            }
-    except (FrameworkImageRestorationError, SelectorPublicationLockError) as error:
-        return {"state": "recovery_required", "reason": getattr(error, "code", "framework-image-restoration-publication-lock-unavailable")}
 
 
 def preview_framework_image_restoration(project_root: Path | str) -> dict[str, Any]:
@@ -1522,9 +980,7 @@ def restore_framework_image(
         except FrameworkImageRestorationError as error:
             return {"state": "partial", "reason": error.code, "run_id": run_id}
         terminal = _terminalize(journal, run_id, outcome="no_op", result_ref=result_ref, effect_refs=[])
-        if not _terminal_confirmed(terminal, "no_op"):
-            return _pending_reply(result_root, terminal, result_ref=result_ref, run_id=run_id)
-        return {"state": "no_op", "result_ref": result_ref, "run_id": run_id, "terminal": dict(terminal.terminal)}
+        return {"state": "no_op", "result_ref": result_ref, "run_id": run_id, "terminal": dict(terminal.terminal) if terminal.terminal is not None else None, "recording_error": terminal.error_code}
 
     try:
         evidence = produce_retained_framework_image(
@@ -1541,9 +997,7 @@ def restore_framework_image(
         except FrameworkImageRestorationError as recording_error:
             return {"state": "recording_pending", "reason": recording_error.code, "run_id": run_id}
         terminal = _terminalize(journal, run_id, outcome="partial", result_ref=result_ref, effect_refs=[result_ref])
-        if not _terminal_confirmed(terminal, "partial"):
-            return _pending_reply(result_root, terminal, result_ref=result_ref, run_id=run_id)
-        return {"state": "partial", "reason": error.code, "result_ref": result_ref, "run_id": run_id, "terminal": dict(terminal.terminal)}
+        return {"state": "partial", "reason": error.code, "result_ref": result_ref, "run_id": run_id, "terminal": dict(terminal.terminal) if terminal.terminal is not None else None, "recording_error": terminal.error_code}
     if evidence.outcome == "effect_uncertain":
         payload = restoration_payload(
             state="effect_uncertain", reason=evidence.reason, requested_run_id=requested_run_id,
@@ -1570,9 +1024,7 @@ def restore_framework_image(
             return {"state": state, "reason": evidence.reason, "result_ref": result_ref, "run_id": run_id}
         terminal = _terminalize(journal, run_id, outcome="partial", result_ref=result_ref,
                                 effect_refs=[evidence.evidence_root, result_ref])
-        if not _terminal_confirmed(terminal, "partial"):
-            return _pending_reply(result_root, terminal, result_ref=result_ref, run_id=run_id)
-        return {"state": "partial", "reason": evidence.reason, "result_ref": result_ref, "run_id": run_id, "terminal": dict(terminal.terminal)}
+        return {"state": "partial", "reason": evidence.reason, "result_ref": result_ref, "run_id": run_id, "terminal": dict(terminal.terminal) if terminal.terminal is not None else None, "recording_error": terminal.error_code}
 
     try:
         applicable = _verified_produced_evidence(frozen, evidence)
@@ -1612,9 +1064,7 @@ def restore_framework_image(
             return {"state": "recording_pending", "reason": recording_error.code, "run_id": run_id}
         terminal = _terminalize(journal, run_id, outcome="partial", result_ref=result_ref,
                                 effect_refs=[*effect_refs, result_ref])
-        if not _terminal_confirmed(terminal, "partial"):
-            return _pending_reply(result_root, terminal, result_ref=result_ref, run_id=run_id)
-        return {"state": "partial", "reason": code, "result_ref": result_ref, "run_id": run_id, "terminal": dict(terminal.terminal)}
+        return {"state": "partial", "reason": code, "result_ref": result_ref, "run_id": run_id, "terminal": dict(terminal.terminal) if terminal.terminal is not None else None, "recording_error": terminal.error_code}
 
     observed_selector = replacement
     publication = "unchanged" if replacement == frozen.selector else "replaced"
@@ -1633,11 +1083,9 @@ def restore_framework_image(
         return {"state": "recording_pending", "reason": error.code, "run_id": run_id}
     terminal = _terminalize(journal, run_id, outcome="completed", result_ref=result_ref,
                             effect_refs=[*effect_refs, result_ref])
-    if not _terminal_confirmed(terminal, "completed"):
-        return _pending_reply(result_root, terminal, result_ref=result_ref, run_id=run_id)
     return {
         "state": "restored", "image_digest": evidence.image_digest, "result_ref": result_ref,
-        "run_id": run_id, "terminal": dict(terminal.terminal),
+        "run_id": run_id, "terminal": dict(terminal.terminal) if terminal.terminal is not None else None, "recording_error": terminal.error_code,
     }
 
 
@@ -1651,49 +1099,13 @@ def _main(argv: list[str] | None = None) -> int:
     parser.add_argument("--expected-selector-sha256")
     parser.add_argument("--author", default="anatoly-m")
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--recover-pending-event")
-    parser.add_argument("--record-retained-result")
     parser.add_argument("--retry-of-terminal-event")
     args = parser.parse_args(argv)
     if not args.execute:
-        print(json.dumps({"state": "preview", "reason": "pass --execute with explicit restoration inputs, or one exact pending event ID for recovery"}, sort_keys=True))
+        print(json.dumps({"state": "preview", "reason": "pass --execute with explicit restoration inputs"}, sort_keys=True))
         return 0
     DirectActionSession, _DirectActionJournalError = _direct_action_types()
 
-    if args.recover_pending_event is not None:
-        if not all((args.operator, args.authorization_ref)):
-            parser.error("--execute --recover-pending-event requires --operator and --authorization-ref")
-        if any((args.requested_run_id, args.expected_selector_sha256, args.retry_of_terminal_event,
-                args.record_retained_result)):
-            parser.error("--recover-pending-event is recovery-only and cannot include restoration execution inputs")
-        root = _root(args.project_root)
-        with DirectActionSession(
-            root, author=args.author,
-            operator_authorization={"operator": args.operator, "authorization_ref": args.authorization_ref},
-            action_id=RESTORATION_ACTION_ID,
-        ) as journal:
-            result = recover_framework_image_journal(
-                root, journal=journal, pending_event_id=args.recover_pending_event,
-            )
-        print(json.dumps(result, sort_keys=True))
-        return 0 if result.get("state") == "recovered" else 1
-    if args.record_retained_result is not None:
-        if not all((args.operator, args.authorization_ref)):
-            parser.error("--execute --record-retained-result requires --operator and --authorization-ref")
-        if any((args.requested_run_id, args.expected_selector_sha256, args.retry_of_terminal_event)):
-            parser.error("--record-retained-result is terminal-recording-only and cannot include restoration execution inputs")
-        root = _root(args.project_root)
-        with DirectActionSession(
-            root, author=args.author,
-            operator_authorization={"operator": args.operator, "authorization_ref": args.authorization_ref},
-            action_id=RESTORATION_ACTION_ID,
-        ) as journal:
-            result = recover_framework_image_terminal(
-                root, journal=journal, result_ref=args.record_retained_result,
-                image_executor=DockerSubprocessExecutor(),
-            )
-        print(json.dumps(result, sort_keys=True))
-        return 0 if result.get("state") == "restored" else 1
     if not all((args.requested_run_id, args.operator, args.authorization_ref, args.expected_selector_sha256)):
         parser.error("--execute requires --run, --operator, --authorization-ref, and --expected-selector-sha256")
 
@@ -1718,7 +1130,5 @@ if __name__ == "__main__":
 
 __all__ = [
     "FrameworkImageRestorationError", "RESTORATION_ACTION_ID",
-    "preview_framework_image_restoration", "recover_framework_image_journal",
-    "recover_framework_image_terminal", "restore_framework_image",
-    "validate_framework_image_recording_command",
+    "preview_framework_image_restoration", "restore_framework_image",
 ]

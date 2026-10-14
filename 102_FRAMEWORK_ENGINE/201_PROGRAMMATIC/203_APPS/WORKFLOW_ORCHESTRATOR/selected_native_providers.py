@@ -4,27 +4,13 @@ from __future__ import annotations
 from collections.abc import Callable, Mapping
 from dataclasses import fields, is_dataclass
 import hashlib
-import importlib.util
 import json
 from pathlib import Path
-import subprocess
 import sys
-import tempfile
 from typing import Any
 
 from implementation_agent import ImplementationAgent
 from selected_execution import SelectedExecution, SelectedExecutionError, canonical_json, make_revert_action_handler
-
-
-class _SelectedPublicReleaseExecution(SelectedExecution):
-    """Use only the program-owned public executor for the D613-admitted route."""
-
-    def __init__(self, root: Path, provider: "SelectedNativeProviders", **kwargs: Any) -> None:
-        super().__init__(root, **kwargs)
-        self._provider = provider
-
-    def _execute_admitted_session(self, frozen: Mapping[str, Any], session: Any) -> Any:
-        return self._provider._dispatch_selected_public_release(self, frozen, session)
 
 
 class SelectedNativeProviders:
@@ -78,87 +64,9 @@ class SelectedNativeProviders:
         route = execution.get("operation_route")
         if route == "release_version":
             handlers.update(self._release_handlers(frozen, parameters))
-        execution_class: type[SelectedExecution] = (
-            _SelectedPublicReleaseExecution if route == "public.release" else SelectedExecution
-        )
-        if execution_class is _SelectedPublicReleaseExecution:
-            return _SelectedPublicReleaseExecution(
-                self.root, self, handlers=handlers, implementation_agent=self.implementation_agent,
-            )
+        if route == "public.release":
+            raise SelectedExecutionError("public Release selected-session provider is disabled; use direct public.release")
         return SelectedExecution(self.root, handlers=handlers, implementation_agent=self.implementation_agent)
-
-    @staticmethod
-    def _public_graph_is_exact(graph: Mapping[str, Any]) -> bool:
-        expected = (
-            ("CA-O-189", "CA-O-190"), ("CA-O-191", "CA-O-192"),
-            ("CA-O-193", "CA-O-194"), ("CA-O-195", "CA-O-196"),
-            ("CA-O-197", "CA-O-198"),
-        )
-        workflow = graph.get("workflow")
-        steps = graph.get("steps")
-        if (graph.get("route") != "public.release" or graph.get("entry_step") != expected[0][0]
-                or not isinstance(workflow, Mapping) or workflow.get("atom_id") != "CA-O-188"
-                or graph.get("native_action_calls") != [] or not isinstance(steps, list)):
-            return False
-        pairs: list[tuple[object, object]] = []
-        for step in steps:
-            actions = step.get("actions") if isinstance(step, Mapping) else None
-            if not isinstance(actions, list) or len(actions) != 1 or not isinstance(actions[0], Mapping):
-                return False
-            pairs.append((step.get("atom_id"), actions[0].get("atom_id")))
-        return tuple(pairs) == expected
-
-    def _dispatch_selected_public_release(
-        self, selected: SelectedExecution, frozen: Mapping[str, Any], session: Any,
-    ) -> None:
-        """Refuse the retired selected-session path; use the direct MCP tool."""
-        raise SelectedExecutionError("public Release selected-session provider is disabled; use direct public.release")
-
-    def _project_release_module(self, kind: str) -> Any:
-        """Load this Project's helper without shadowing reusable proof modules."""
-        path = self.root / "PROJECT_TOOLS" / kind / "native_hooks.py"
-        if path.is_symlink() or not path.is_file() or path.resolve().parent != path.parent:
-            raise SelectedExecutionError("Project release helper is unavailable")
-        name = "_caprmedio_project_hooks_" + hashlib.sha256(str(path).encode()).hexdigest()
-        spec = importlib.util.spec_from_file_location(name, path)
-        if spec is None or spec.loader is None:
-            raise SelectedExecutionError("Project release helper cannot be loaded")
-        module = importlib.util.module_from_spec(spec)
-        sys.modules[name] = module
-        spec.loader.exec_module(module)
-        return module
-
-    def _public_release_changes(self) -> list[str]:
-        """Give the one text prompt current local release evidence, without fetch."""
-        changes: list[str] = []
-        commands = (
-            ("log", "--format=%h %s", "main..HEAD"),
-            ("diff", "--name-status", "main", "--", ".", ":(exclude)**/.env*", ":(exclude)**/*.env"),
-        )
-        for arguments in commands:
-            observed = subprocess.run(["git", "-C", str(self.root), *arguments],
-                                      capture_output=True, text=True, timeout=30, check=False)
-            if observed.returncode != 0 or len(observed.stdout.encode()) > 1024 * 1024:
-                raise SelectedExecutionError("public Release change list cannot be gathered completely")
-            changes.extend(line for line in observed.stdout.splitlines() if line)
-        if not changes:
-            raise SelectedExecutionError("public Release has no selected changes to describe")
-        return changes
-
-    def _public_release_prompt(self, root: Path, version: str, changes: Any) -> Mapping[str, Any]:
-        prompt_path = root / "PROJECT_TOOLS/PUBLIC_RELEASE/pr_description_prompt.md"
-        if prompt_path.is_symlink() or not prompt_path.is_file():
-            raise SelectedExecutionError("public Release prompt is unavailable")
-        # Text generation gets an empty read-only workspace, not write access
-        # to the Project or a snapshot of every unrelated artifact.
-        with tempfile.TemporaryDirectory(prefix="caprmedio-public-prompt-", ignore_cleanup_errors=True) as workspace:
-            response = self.implementation_agent(prompt_path.read_text(encoding="utf-8") +
-                "\nUse the transport envelope: result=complete, outputs contains exactly the three arrays, evidence=[], blockers=[].",
-                {"workspace": workspace, "version": version, "changes": changes})
-        if (not isinstance(response, Mapping) or response.get("result") != "complete"
-                or response.get("blockers") or not isinstance(response.get("outputs"), Mapping)):
-            raise SelectedExecutionError("public Release text prompt did not complete")
-        return response["outputs"]
 
     @staticmethod
     def _json_value(value: Any) -> Any:
@@ -234,41 +142,19 @@ class SelectedNativeProviders:
         return DockerSubprocessExecutor()
 
     @staticmethod
-    def _canonical_terminal_receipt_ref(terminal_receipt: Mapping[str, Any]) -> str:
-        """Return the sole sealed Journal event that closed one Action Run."""
-        event_receipt = terminal_receipt.get("event_receipt")
-        if not isinstance(event_receipt, Mapping):
-            raise SelectedExecutionError("Release Action terminal receipt lacks its sealed Journal event identity")
-        event_id = event_receipt.get("event_id")
-        if not isinstance(event_id, str) or not event_id or event_id != event_id.strip():
-            raise SelectedExecutionError("Release Action terminal receipt lacks a valid sealed Journal event identity")
-        return event_id
-
-    @staticmethod
     def _restored_completed_result_is_proven(
         session: Any, *, index: int, run: Any, shared_recordings: Mapping[int, Mapping[str, Any]],
         requested_action: str, action_run_id: str, expected_result: str,
         progress_reader: Callable[[str], Mapping[str, Any]],
         allowed_private_outcomes: frozenset[str] = frozenset({"completed"}),
     ) -> bool:
-        """Require this Session's canonical terminal evidence before cached reuse.
-
-        A checkpoint's ``shared_recordings`` entry is an untrusted recovery
-        hint.  It cannot replace the exact Session terminal fact or its
-        receipts and therefore can never by itself advance a Release phase.
-        """
+        """Bind cached source effects to this Session's actual terminal and progress."""
         if not callable(progress_reader):
             return False
         result = getattr(run, "results", {}).get(index)
-        recording = shared_recordings.get(index)
         context = getattr(run, "contexts", {}).get(index)
         if (result is None or getattr(result, "outcome", None) not in allowed_private_outcomes or context is None
-                or getattr(context, "action_run_id", None) != action_run_id
-                or not isinstance(recording, Mapping)
-                or recording.get("terminal_outcome") != "completed"):
-            return False
-        refs = recording.get("receipt_refs")
-        if not isinstance(refs, tuple) or not refs or any(not isinstance(item, str) for item in refs):
+                or getattr(context, "action_run_id", None) != action_run_id):
             return False
         terminal = getattr(session, "terminal", {}).get(requested_action)
         if not isinstance(terminal, Mapping):
@@ -279,12 +165,6 @@ class SelectedNativeProviders:
                 or terminal.get("effect_refs") != list(getattr(result, "effect_evidence_refs", ()))
                 or not isinstance(terminal.get("result_ref"), str)
                 or not terminal.get("result_ref")):
-            return False
-        try:
-            terminal_event_id = SelectedNativeProviders._canonical_terminal_receipt_ref(terminal)
-        except SelectedExecutionError:
-            return False
-        if refs != (terminal_event_id,):
             return False
         try:
             progress = progress_reader(requested_action)
@@ -301,74 +181,7 @@ class SelectedNativeProviders:
             or progress.get("effect_refs") != list(getattr(result, "effect_evidence_refs", ()))
         ):
             return False
-        seen: set[str] = set()
-        for receipt in getattr(session, "receipts", []):
-            if not isinstance(receipt, Mapping):
-                return False
-            event_id = receipt.get("event_id")
-            if not isinstance(event_id, str) or not event_id or event_id in seen:
-                return False
-            seen.add(event_id)
-        return set(refs).issubset(seen)
-
-    @staticmethod
-    def _pending_recording_is_reconciled(
-        session: Any, *, result: Any, pending_recording: Mapping[str, Any],
-        requested_action: str, action_run_id: str, expected_result: str,
-        progress_reader: Callable[[str], Mapping[str, Any]],
-        allowed_private_outcomes: frozenset[str],
-    ) -> bool:
-        """Require current canonical evidence before clearing one pending hint.
-
-        The checkpoint's pending identity describes a failed append, not a
-        result.  Clearing it is safe only once the exact event identity,
-        terminal result, and saved progress all agree in the reconstructed
-        Session.  This function cannot append or replay anything.
-        """
-        if not callable(progress_reader) or not isinstance(pending_recording, Mapping):
-            return False
-        if set(pending_recording) != {"event_id", "event_outcome"}:
-            return False
-        event_id = pending_recording.get("event_id")
-        event_outcome = pending_recording.get("event_outcome")
-        if (
-            not isinstance(event_id, str) or not event_id
-            or event_outcome not in {"completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending"}
-            or result is None or getattr(result, "outcome", None) not in allowed_private_outcomes
-        ):
-            return False
-        terminal = getattr(session, "terminal", {}).get(requested_action)
-        if (
-            not isinstance(terminal, Mapping)
-            or terminal.get("disposition") != "terminal"
-            or terminal.get("outcome") != event_outcome
-            or terminal.get("run_id") != action_run_id
-            or terminal.get("effect_refs") != list(getattr(result, "effect_evidence_refs", ()))
-        ):
-            return False
-        try:
-            terminal_event_id = SelectedNativeProviders._canonical_terminal_receipt_ref(terminal)
-        except SelectedExecutionError:
-            return False
-        if terminal_event_id != event_id:
-            return False
-        matching = 0
-        for receipt in getattr(session, "receipts", []):
-            if not isinstance(receipt, Mapping):
-                return False
-            matching += receipt.get("event_id") == event_id
-        if matching != 1:
-            return False
-        try:
-            progress = progress_reader(requested_action)
-        except Exception:
-            return False
-        return (
-            isinstance(progress, Mapping)
-            and progress.get("action_run_id") == action_run_id
-            and progress.get("result") == expected_result
-            and progress.get("effect_refs") == list(getattr(result, "effect_evidence_refs", ()))
-        )
+        return True
 
     @staticmethod
     def _restored_action_without_typed_result_is_blocked(
@@ -398,7 +211,6 @@ class SelectedNativeProviders:
                                      begin_release_action_run, execute_release_action)
         from release_checkpoint import (
             dump_release_checkpoint,
-            extract_pending_recordings,
             load_release_checkpoint,
         )
         from selected_routes import load_release_execution_manifest
@@ -457,73 +269,11 @@ class SelectedNativeProviders:
                 raise SelectedExecutionError("Release phase has an invalid frozen result mapping")
             return expected
 
-        def reconcile_pending_recordings(
-            session: RunExecutionSession,
-            run: Any,
-            checkpoint: Callable[[Any], None],
-            progress_reader: Any,
-            pending_recordings: dict[int, dict[str, str]],
-            shared_recordings: dict[int, dict[str, Any]],
-        ) -> str | None:
-            """Replace only canonically reconciled pending hints with receipts.
-
-            A pending identity stays in the sealed checkpoint until the exact
-            Journal event is visible in the restored Session and its saved
-            progress still agrees.  Nothing here invokes a Release phase.
-            """
-            if not pending_recordings:
-                return None
-            if not callable(progress_reader):
-                return "Release pending Journal recovery lacks the trusted progress reader"
-            resolved: list[tuple[int, dict[str, str], str]] = []
-            requested_workflow = frozen["request"]["run_id"]
-            for saved_index, record in sorted(pending_recordings.items()):
-                context = getattr(run, "contexts", {}).get(saved_index)
-                result = getattr(run, "results", {}).get(saved_index)
-                if context is None or result is None:
-                    return "Release pending Journal recovery lacks the exact private phase context"
-                requested_step = SelectedExecution._requested_step_id(requested_workflow, saved_index + 1, 1)
-                requested_action = f"{requested_step}:action:1"
-                allowed = frozenset({"completed"})
-                if saved_index == len(PHASES) - 1 and getattr(result, "outcome", None) == "pending":
-                    if not isinstance(getattr(result, "shared_action_recording", None), Mapping):
-                        return "Release pending retirement recovery lacks its closed handoff"
-                    allowed = frozenset({"pending"})
-                if not self._pending_recording_is_reconciled(
-                    session,
-                    result=result,
-                    pending_recording=record,
-                    requested_action=requested_action,
-                    action_run_id=context.action_run_id,
-                    expected_result=expected_result_for(saved_index),
-                    progress_reader=progress_reader,
-                    allowed_private_outcomes=allowed,
-                ):
-                    return "Release pending Journal recovery has no exact canonical receipt and matching progress"
-                terminal = session.terminal[requested_action]
-                try:
-                    terminal_event_id = self._canonical_terminal_receipt_ref(terminal)
-                except SelectedExecutionError:
-                    return "Release pending Journal recovery lacks the sealed terminal event identity"
-                resolved.append((saved_index, record, terminal_event_id))
-            for saved_index, record, terminal_event_id in resolved:
-                shared_recordings[saved_index] = {
-                    "terminal_outcome": record["event_outcome"],
-                    "receipt_refs": (terminal_event_id,),
-                }
-            pending_recordings.clear()
-            try:
-                checkpoint(run)
-            except Exception as error:
-                return f"Release pending Journal recovery checkpoint could not be saved: {error}"
-            return None
-
         private_run, private_session = None, None
         shared_recordings: dict[int, dict[str, Any]] = {}
-        pending_recordings: dict[int, dict[str, str]] = {}
 
         def release(context: dict[str, Any]) -> Mapping[str, Any]:
-            nonlocal private_run, private_session, shared_recordings, pending_recordings
+            nonlocal private_run, private_session, shared_recordings
             session = context.get("session")
             if (not isinstance(session, RunExecutionSession) or context.get("sealed_outer_admission") is not True
                     or Path(context.get("project_root", "")).resolve() != self.root
@@ -577,7 +327,6 @@ class SelectedNativeProviders:
                     checkpoint_writer(dump_release_checkpoint(
                         run,
                         shared_recordings=shared_recordings,
-                        pending_recordings=pending_recordings,
                     ))
 
                 if persisted is None:
@@ -605,22 +354,7 @@ class SelectedNativeProviders:
                         return self._blocked("Release checkpoint contexts differ from the exact current source-admitted graph")
                     private_run = restored
                     shared_recordings = dict(restored_recordings)
-                    try:
-                        pending_recordings = {
-                            index: dict(record)
-                            for index, record in extract_pending_recordings(persisted).items()
-                        }
-                    except Exception as error:
-                        return self._blocked(f"Release checkpoint pending recording identity is invalid: {error}")
                     private_run.checkpoint_callback = checkpoint
-                    if pending_recordings:
-                        blocker = reconcile_pending_recordings(
-                            session, private_run, checkpoint,
-                            context.get("checkpoint_progress_reader"),
-                            pending_recordings, shared_recordings,
-                        )
-                        if blocker is not None:
-                            return self._blocked(blocker)
                     # A persisted pre-effect frontier means a process stopped
                     # between checkpoint and helper invocation.  There is no
                     # recovery entry here, so replay is intentionally blocked.
@@ -658,7 +392,7 @@ class SelectedNativeProviders:
                 cached_result
                 and index == len(PHASES) - 1
                 and getattr(private_run.results[index], "outcome", None) == "pending"
-                and isinstance(getattr(private_run.results[index], "shared_action_recording", None), Mapping)
+                and getattr(private_run.results[index], "effect_outcome", None) == "retired"
             )
             if cached_result:
                 expected_result = expected_result_for(index)
@@ -717,54 +451,22 @@ class SelectedNativeProviders:
             output = {"result": label, "terminal_outcome": outcome, "effect_refs": refs,
                       "native_result": self._json_value(result)}
 
-            # The current shared Session already proves this reconstructed
-            # Action terminal result.  Do not ask the generic executor to
-            # append a duplicate event, and do not re-offer the retirement
-            # handoff that the canonical receipt has already closed.
+            # Cached source results reuse their actual completed Action.
             if cached_result:
                 output["action_terminal_recorded"] = True
                 recording = None
 
             def record_shared_receipt(
-                terminal_receipt: Any, pending_event_ids: Any, canonical_receipts: Any,
+                terminal_receipt: Any,
             ) -> None:
-                """Persist the private frontier only after the sole Session terminal write.
-
-                No caller flag or private effect upgrades a Release result.  A
-                terminal receipt with pending Journal evidence remains merely a
-                checkpointed private observation, so the generic executor will
-                stop at ``recording_pending`` rather than take an On Result edge.
-                """
+                """Persist the actual phase outcome independently of Journal logging."""
                 writer = context.get("checkpoint_writer")
                 if not callable(writer):
                     raise SelectedExecutionError("Release checkpoint writer disappeared before shared receipt recording")
-                if not isinstance(pending_event_ids, list) or any(not isinstance(item, str) or not item for item in pending_event_ids):
-                    raise SelectedExecutionError("Release shared receipt recorder received invalid pending event identities")
-                # A failed Journal append has already been retained by the
-                # Session as recording_pending.  Persist the private frontier
-                # without a shared-recording hint and let the generic executor
-                # stop; do not turn a recorder outage into a second effect or
-                # an exception that obscures that truthful pending result.
                 if not isinstance(terminal_receipt, Mapping) or terminal_receipt.get("disposition") != "terminal":
-                    if isinstance(terminal_receipt, Mapping) and terminal_receipt.get("disposition") == "recording_pending":
-                        if (
-                            len(pending_event_ids) != 1
-                            or not isinstance(terminal_receipt.get("outcome"), str)
-                            or terminal_receipt["outcome"] not in {
-                                "completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending",
-                            }
-                        ):
-                            raise SelectedExecutionError(
-                                "Release pending Journal recording lacks one exact original event identity"
-                            )
-                        pending_recordings[index] = {
-                            "event_id": pending_event_ids[0],
-                            "event_outcome": terminal_receipt["outcome"],
-                        }
                     writer(dump_release_checkpoint(
                         private_run,
                         shared_recordings=shared_recordings,
-                        pending_recordings=pending_recordings,
                     ))
                     return
                 if (terminal_receipt.get("outcome") != outcome
@@ -773,16 +475,10 @@ class SelectedNativeProviders:
                         or not isinstance(terminal_receipt.get("result_ref"), str)
                         or not terminal_receipt.get("result_ref")):
                     raise SelectedExecutionError("Release shared receipt differs from the exact Action result")
-                receipt_ref = self._canonical_terminal_receipt_ref(terminal_receipt)
-                if not pending_event_ids:
-                    shared_recordings[index] = {
-                        "terminal_outcome": outcome,
-                        "receipt_refs": (receipt_ref,),
-                    }
+                shared_recordings[index] = {"terminal_outcome": outcome}
                 writer(dump_release_checkpoint(
                     private_run,
                     shared_recordings=shared_recordings,
-                    pending_recordings=pending_recordings,
                 ))
 
             if not cached_result:

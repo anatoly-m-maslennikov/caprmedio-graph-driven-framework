@@ -371,69 +371,24 @@ def _published_ref(root: Path, value: object, *, label: str) -> str:
     return reference
 
 
-def _terminal_transport(
-    root: Path,
-    value: object,
-    *,
-    command_receipt_ref: str,
-    admission_receipt_ref: str,
-    catalog_ref: str,
-    action_run_id: str,
-) -> dict[str, object]:
-    """Expose one real terminal Journal fact without fabricating its outcome."""
-
-    if not isinstance(value, Mapping):
-        _refuse("source-admission-mcp-execute-invalid", "source-admission command has no terminal Journal result")
-    expected = {
-        "event_id", "run_id", "disposition", "outcome", "result_ref", "effect_refs", "report_ref", "event_receipt",
-    }
-    if set(value) != expected or value.get("disposition") != "terminal" or value.get("run_id") != action_run_id:
-        _refuse("source-admission-mcp-execute-invalid", "source-admission terminal result is invalid")
+def _terminal_transport(root: Path, value: object, *, command_receipt_ref: str,
+                        admission_receipt_ref: str, catalog_ref: str, action_run_id: str) -> dict[str, object]:
+    """Expose actual command completion, independently of plain log append."""
+    del root
+    if not isinstance(value, Mapping) or value.get("disposition") != "terminal" or value.get("run_id") != action_run_id:
+        _refuse("source-admission-mcp-execute-invalid", "source-admission command has no actual terminal result")
     outcome = value.get("outcome")
-    if not isinstance(outcome, str) or outcome not in {"completed", "no_op", "failed", "partial", "cancelled"}:
+    if outcome not in {"completed", "no_op", "failed", "partial", "cancelled"}:
         _refuse("source-admission-mcp-execute-invalid", "source-admission terminal outcome is invalid")
-    result_ref, _result_path = _relative(value.get("result_ref"), field="terminal result_ref")
-    effect_refs = value.get("effect_refs")
-    if not isinstance(effect_refs, list):
+    result_ref = _relative(value.get("result_ref"), field="terminal result_ref")[0]
+    effects = value.get("effect_refs")
+    if not isinstance(effects, list):
         _refuse("source-admission-mcp-execute-invalid", "source-admission terminal effects are invalid")
-    safe_effect_refs = [_relative(item, field="terminal effect_ref")[0] for item in effect_refs]
-    if result_ref != admission_receipt_ref or safe_effect_refs != [command_receipt_ref, admission_receipt_ref, catalog_ref]:
-        _refuse("source-admission-mcp-execute-invalid", "source-admission terminal references differ from published results")
-    receipt = value.get("event_receipt")
-    expected_receipt = {
-        "event_id", "action_id", "event_digest", "carrier", "line", "previous_carrier_digest", "appended_carrier_digest",
-    }
-    if not isinstance(receipt, Mapping) or set(receipt) != expected_receipt:
-        _refuse("source-admission-mcp-execute-invalid", "source-admission terminal receipt is invalid")
-    event_id = value.get("event_id")
-    event_digest = receipt.get("event_digest")
-    if (
-        not isinstance(event_id, str)
-        or not event_id
-        or receipt.get("event_id") != event_id
-        or receipt.get("action_id") != ACTION_ID
-        or not isinstance(event_digest, str)
-        or _SHA256.fullmatch(event_digest) is None
-        or type(receipt.get("line")) is not int
-        or receipt["line"] < 1
-        or not isinstance(receipt.get("previous_carrier_digest"), str)
-        or _SHA256.fullmatch(receipt["previous_carrier_digest"]) is None
-        or not isinstance(receipt.get("appended_carrier_digest"), str)
-        or _SHA256.fullmatch(receipt["appended_carrier_digest"]) is None
-    ):
-        _refuse("source-admission-mcp-execute-invalid", "source-admission terminal receipt is invalid")
-    carrier_ref, _carrier_path = _relative(receipt.get("carrier"), field="terminal Journal carrier")
-    return {
-        "outcome": outcome,
-        "event_id": event_id,
-        "event_sha256": event_digest,
-        "carrier_ref": carrier_ref,
-        "carrier_line": receipt["line"],
-        "previous_carrier_sha256": receipt["previous_carrier_digest"],
-        "raw_sha256": receipt["appended_carrier_digest"],
-        "result_ref": result_ref,
-        "effect_refs": safe_effect_refs,
-    }
+    safe_effects = [_relative(item, field="terminal effect_ref")[0] for item in effects]
+    if result_ref != admission_receipt_ref or safe_effects != [command_receipt_ref, admission_receipt_ref, catalog_ref]:
+        _refuse("source-admission-mcp-execute-invalid", "source-admission completion differs from actual published results")
+    return {"outcome": outcome, "run_id": action_run_id, "result_ref": result_ref,
+            "effect_refs": safe_effects, "recording_errors": value.get("recording_errors", [])}
 
 
 def _default_executor(root: Path, **kwargs: Any) -> Mapping[str, Any]:

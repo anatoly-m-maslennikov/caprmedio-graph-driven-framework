@@ -1,8 +1,8 @@
 """Retain and bind one direct CA-O-200 installation command.
 
 This boundary prepares no package copy, selector, runtime process, or target
-configuration.  It retains D604's closed command input, records/reopens the
-actual direct Action start, and returns that still-open Run to the later
+configuration.  It retains D604's closed command input, starts the actual
+direct Action Session, and returns that still-open Run to the later
 publisher.  A caller-provided boolean, selected-workflow envelope, or current
 checkout Action source is deliberately not an authorization substitute.
 """
@@ -19,7 +19,6 @@ import re
 import stat
 import sys
 import tempfile
-from typing import Any
 
 
 _TOOLS_ROOT = Path(__file__).resolve().parents[1]
@@ -444,52 +443,73 @@ def reopen_framework_installation_command_start(
     *,
     action_package: VerifiedFrameworkPackage,
     operators_registry_ref: str | Path,
-) -> Mapping[str, object]:
-    """Reopen the exact historical direct O200 start named by ``receipt``.
+) -> str:
+    """Validate retained O200 command facts and return their Run locator.
 
-    This is a reader only.  It deliberately rebuilds the deterministic direct
-    Action identity from the immutable command, rereads the selected registry
-    and package-owned Methodology source, then validates the canonical Journal
-    event through the existing direct-Action validator.  It does not recreate
-    a Session run, append Journal evidence, or grant execution authority.
+    The deterministic locator is not an event or evidence that the Run started.
+    Live callers retain their actual Session checks; historical result readers
+    reopen their separate result carriers. This grants no execution authority.
     """
 
     if type(receipt) is not FrameworkInstallationCommandReceipt:
-        _refuse("installation-command-untrusted", "installation command must be closed typed evidence")
+        _refuse(
+            "installation-command-untrusted", "installation command must be closed typed evidence"
+        )
     if not isinstance(action_package, VerifiedFrameworkPackage):
-        _refuse("installation-command-package-invalid", "installation command needs a typed selected Framework package")
+        _refuse(
+            "installation-command-package-invalid",
+            "installation command needs a typed selected Framework package",
+        )
     if action_package.manifest_digest != receipt.package_manifest_sha256:
-        _refuse("installation-command-package-mismatch", "selected package differs from retained command package")
+        _refuse(
+            "installation-command-package-mismatch",
+            "selected package differs from retained command package",
+        )
     root = _root(project_root)
     registry_ref = _relative(str(operators_registry_ref), field="operators_registry_ref")
     canonical = COMMAND_DIRECTORY / f"{receipt.sha256}.json"
-    if read_framework_installation_command_receipt(
-        _regular_bytes(root, PurePosixPath(canonical.as_posix()), code="installation-command-receipt-invalid", label="command receipt"),
-        expected_sha256=receipt.sha256,
-    ) != receipt:
-        _refuse("installation-command-stale", "installation command differs from its retained carrier")
+    if (
+        read_framework_installation_command_receipt(
+            _regular_bytes(
+                root,
+                PurePosixPath(canonical.as_posix()),
+                code="installation-command-receipt-invalid",
+                label="command receipt",
+            ),
+            expected_sha256=receipt.sha256,
+        )
+        != receipt
+    ):
+        _refuse(
+            "installation-command-stale", "installation command differs from its retained carrier"
+        )
     record, registry, author = _operator_record(root, registry_ref, receipt.operator)
     if author != receipt.journal_author or _sha256(registry) != receipt.operators_registry_sha256:
-        _refuse("installation-command-operator-invalid", "installation command differs from exact registered Operator attribution")
+        _refuse(
+            "installation-command-operator-invalid",
+            "installation command differs from exact registered Operator attribution",
+        )
 
     # Keep the historic source policy in direct_action_session: the private
     # helper physically rereads the package-owned O200 carrier, verifies it
     # against the package inventory, and returns the one canonical binding.
     from direct_action_session import (
         DirectActionJournalError,
-        DirectActionSession,
         INSTALLATION_ACTION_ID,
         STRUCTURAL_SCOPE,
+        _authorization,
         _source_binding,
     )
+
     try:
-        session = DirectActionSession(
+        _authorization(
             root,
-            author=receipt.journal_author,
-            operator_authorization={"operator": record.name, "authorization_ref": "installation-command/" + receipt.command_id},
-            action_id=INSTALLATION_ACTION_ID,
-            action_package=action_package,
-            operators_registry_ref=registry_ref.as_posix(),
+            {
+                "operator": record.name,
+                "authorization_ref": "installation-command/" + receipt.command_id,
+            },
+            journal_author=receipt.journal_author,
+            operators_registry_ref=Path(registry_ref),
         )
         binding = _source_binding(root, INSTALLATION_ACTION_ID, action_package=action_package)
         source = {
@@ -499,52 +519,46 @@ def reopen_framework_installation_command_start(
             "sha256": binding["digest"],
         }
         if source != dict(receipt.action_source):
-            _refuse("installation-command-source-mismatch", "direct O200 source differs from retained command source")
+            _refuse(
+                "installation-command-source-mismatch",
+                "direct O200 source differs from retained command source",
+            )
         requested_run_id = "installation-command:" + _sha256(receipt.command_id.encode("utf-8"))
-        identity = work_journal.canonical_json_digest({
-            "action_id": INSTALLATION_ACTION_ID,
-            "requested_run_id": requested_run_id,
-            "binding": dict(binding),
-            "project_root": str(root),
-            "structural_scope": STRUCTURAL_SCOPE,
-        })
-        action_run_id = "direct-action:" + identity
-        from direct_action_session import _reopen_event
-
-        reopened = _reopen_event(root, action_run_id + ":started")
-        if reopened is None:
-            _refuse("installation-command-start-invalid", "canonical direct O200 start cannot be reopened")
-        event, _event_receipt = reopened
-        intent = {
-            "action_id": INSTALLATION_ACTION_ID,
-            "kind": "install_one_admitted_project_runtime",
-            "installation_command_sha256": receipt.sha256,
-            "target_project_context_sha256": receipt.target_project_context_sha256,
-            "package_manifest_sha256": receipt.package_manifest_sha256,
-            "full_gate_receipt_sha256": receipt.full_gate_receipt_sha256,
-            "prior_runtime_selector_sha256": receipt.prior_runtime_selector_sha256,
-            "operators_registry_sha256": receipt.operators_registry_sha256,
-        }
-        session._validate_started(event, requested_run_id, intent, binding, action_run_id)
-        return event
+        identity = work_journal.canonical_json_digest(
+            {
+                "action_id": INSTALLATION_ACTION_ID,
+                "requested_run_id": requested_run_id,
+                "binding": dict(binding),
+                "project_root": str(root),
+                "structural_scope": STRUCTURAL_SCOPE,
+            }
+        )
+        return "direct-action:" + identity
     except FrameworkInstallationCommandError:
         raise
     except DirectActionJournalError as error:
-        raise FrameworkInstallationCommandError("installation-command-start-invalid", str(error)) from error
-    finally:
-        if "session" in locals():
-            session.close()
+        raise FrameworkInstallationCommandError(
+            "installation-command-start-invalid", str(error)
+        ) from error
 
 
 def _direct_result_context(result: object) -> tuple[FrameworkInstallationCommandResult, Path, str]:
     """Reopen the one direct command/start that may own a result carrier."""
 
     if type(result) is not FrameworkInstallationCommandResult:
-        _refuse("installation-command-result-invalid", "direct result requires a closed O200 command result")
+        _refuse(
+            "installation-command-result-invalid",
+            "direct result requires a closed O200 command result",
+        )
     if type(result.action_session) is not DirectActionSession:
-        _refuse("installation-command-result-invalid", "direct result requires the original open O200 Session")
+        _refuse(
+            "installation-command-result-invalid",
+            "direct result requires the original open O200 Session",
+        )
     root = _root(result.action_session.root)
-    action_run_id = result.action_start.get("run_id") if isinstance(result.action_start, Mapping) else None
+    action_run_id = (
+        result.action_start.get("run_id") if isinstance(result.action_start, Mapping) else None
+    )
     if (
         not isinstance(action_run_id, str)
         or not action_run_id
@@ -552,33 +566,54 @@ def _direct_result_context(result: object) -> tuple[FrameworkInstallationCommand
         or "\\" in action_run_id
         or action_run_id in {".", ".."}
     ):
-        _refuse("installation-command-result-invalid", "direct result has no safe actual O200 Run identity")
+        _refuse(
+            "installation-command-result-invalid",
+            "direct result has no safe actual O200 Run identity",
+        )
     if result.command_receipt.package_manifest_sha256 != result.package.manifest_digest:
-        _refuse("installation-command-result-invalid", "direct result command names another Framework package")
+        _refuse(
+            "installation-command-result-invalid",
+            "direct result command names another Framework package",
+        )
     if result.command_receipt.target_project_context_sha256 != result.target_context.sha256:
-        _refuse("installation-command-result-invalid", "direct result command names another target context")
-    if result.command_receipt_path != root / COMMAND_DIRECTORY / f"{result.command_receipt.sha256}.json":
-        _refuse("installation-command-result-invalid", "direct result command is not at its canonical digest path")
+        _refuse(
+            "installation-command-result-invalid",
+            "direct result command names another target context",
+        )
+    if (
+        result.command_receipt_path
+        != root / COMMAND_DIRECTORY / f"{result.command_receipt.sha256}.json"
+    ):
+        _refuse(
+            "installation-command-result-invalid",
+            "direct result command is not at its canonical digest path",
+        )
     try:
         if verify_framework_package(result.package.root) != result.package:
             _refuse("installation-command-result-invalid", "direct result package bytes changed")
         registry_ref = Path(result.target_context.control_child_relpath) / REGISTRY_FILENAME
-        reopened_start = reopen_framework_installation_command_start(
+        reopened_run_id = reopen_framework_installation_command_start(
             root,
             result.command_receipt,
             action_package=result.package,
             operators_registry_ref=registry_ref,
         )
-        reopened_run = reopened_start.get("run")
-        if not isinstance(reopened_run, Mapping) or reopened_run.get("run_id") != action_run_id:
-            _refuse("installation-command-result-invalid", "reopened O200 start names another Action Run")
-        if result.action_session.read_recorded_action_start(action_run_id) != result.action_provenance:
+        if reopened_run_id != action_run_id:
+            _refuse(
+                "installation-command-result-invalid",
+                "retained O200 command names another Action Run",
+            )
+        if (
+            result.action_session.read_recorded_action_start(action_run_id)
+            != result.action_provenance
+        ):
             _refuse("installation-command-result-invalid", "direct O200 start provenance changed")
     except FrameworkInstallationCommandError:
         raise
     except (FrameworkPackageError, RuntimeError, OSError, TypeError, ValueError) as error:
         raise FrameworkInstallationCommandError(
-            "installation-command-result-invalid", "direct O200 result inputs cannot be physically reopened"
+            "installation-command-result-invalid",
+            "direct O200 result inputs cannot be physically reopened",
         ) from error
     return result, root, action_run_id
 

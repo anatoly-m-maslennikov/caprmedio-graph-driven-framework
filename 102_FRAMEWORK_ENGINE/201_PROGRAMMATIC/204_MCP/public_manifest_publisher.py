@@ -241,51 +241,14 @@ def publish_public_manifest(
         }
     evidence = {"mode": "execute", "published": True, "published_route_names": names, **plan}
     try:
-        receipt = lifecycle.record_release_manifest_publication(dict(evidence))
+        recording = lifecycle.record_release_manifest_publication(dict(evidence))
     except (OSError, RuntimeError, TypeError, ValueError) as error:
-        return {
-            **evidence, "disposition": "recording_required", "pending_event_id": pending_event_id,
-            "recording_requirement": str(error),
-        }
-    if (not isinstance(receipt, Mapping) or set(receipt) != {"recording_ref", "candidate_canonical_manifest_sha256"}
-            or not isinstance(receipt["recording_ref"], str) or not receipt["recording_ref"]
-            or receipt["candidate_canonical_manifest_sha256"] != plan["candidate_canonical_manifest_sha256"]):
-        return {
-            **evidence, "disposition": "recording_required", "pending_event_id": pending_event_id,
-            "recording_requirement": "trusted internal lifecycle recording is incomplete",
-        }
-    return {**evidence, "disposition": "published", "recording_ref": receipt["recording_ref"]}
+        recording = {"recording_error": str(error)}
+    return {**evidence, "disposition": "published", **recording}
 
 
-def recover_public_manifest_publish(
-    project_root: str | Path, *, pending_event_id: str, authorization: Any,
-) -> dict[str, Any]:
-    """Finalize one already-written D613 successor; never rewrite its carrier."""
-    root = _root(project_root)
-    if not isinstance(pending_event_id, str) or not pending_event_id:
-        raise PublicManifestPublishError("recovery requires one sealed pending event identity")
-    try:
-        from release_manifest_authorization import (
-            PublicationAuthorizationContext,
-            validate_public_manifest_recovery_context,
-        )
-        from release_manifest_lifecycle import ReleaseManifestLifecycle
-    except ImportError as error:
-        raise PublicManifestPublishError("trusted public manifest lifecycle is unavailable") from error
-    if not isinstance(authorization, PublicationAuthorizationContext):
-        raise PublicManifestPublishError("recovery requires a trusted host-created public publication context")
-    try:
-        validate_public_manifest_recovery_context(authorization, root, pending_event_id)
-        recovered = ReleaseManifestLifecycle(root, authorization).recover_release_manifest_publication(pending_event_id)
-    except (OSError, RuntimeError, TypeError, ValueError) as error:
-        return {
-            "mode": "recover", "disposition": "recording_required", "pending_event_id": pending_event_id,
-            "recording_requirement": str(error),
-        }
-    return {"mode": "recover", "pending_event_id": pending_event_id, **dict(recovered)}
 
 
 __all__ = [
     "PublicManifestPublishError", "plan_public_manifest_publish", "publish_public_manifest",
-    "recover_public_manifest_publish",
 ]

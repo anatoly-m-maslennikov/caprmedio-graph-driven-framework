@@ -1294,7 +1294,6 @@ def _reopen_direct_native_predecessor_binding(
     from installed_mcp_binding import admit_installed_mcp_binding
     from release_checkpoint import read_direct_native_result_effects, read_direct_native_result_packet
     from release_handoff import bind_native_installed_n
-    from release_promotion import _reopen_completed_direct_native_result
 
     command = read_framework_installation_command_receipt(
         command_payload,
@@ -1314,14 +1313,12 @@ def _reopen_direct_native_predecessor_binding(
         package,
         target_context_sha256=context_sha256,
     )
-    started = reopen_framework_installation_command_start(
+    action_run_id = reopen_framework_installation_command_start(
         root,
         command,
         action_package=package,
         operators_registry_ref=Path(installed_binding.target_context.control_child_relpath) / "operators_registry.toml",
     )
-    run = started.get("run") if isinstance(started, Mapping) else None
-    action_run_id = run.get("run_id") if isinstance(run, Mapping) else None
     if (
         not isinstance(action_run_id, str)
         or not action_run_id
@@ -1341,13 +1338,12 @@ def _reopen_direct_native_predecessor_binding(
         code="portable-publication-native-prior-invalid",
         mode=None,
     )
-    effects = read_direct_native_result_effects(
+    read_direct_native_result_effects(
         result_payload,
         command=command,
         action_run_id=action_run_id,
         state_generation=generation,
     )
-    _reopen_completed_direct_native_result(root, started, result_ref, effects)
     packet = read_direct_native_result_packet(
         result_payload,
         project_root=str(root),

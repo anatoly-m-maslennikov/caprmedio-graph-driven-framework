@@ -119,7 +119,7 @@ class SelectedPublicStatusTests(unittest.TestCase):
                 self.assertEqual(("terminal", "failed"), (observed["disposition"], observed["outcome"]))
                 self.assertIn("canonical Workflow terminal evidence", observed["reason"])
 
-    def test_legacy_direct_outcome_and_recording_pending_envelopes_remain_unchanged(self):
+    def test_actual_workflow_terminal_is_not_overridden_by_old_log_pending(self):
         legacy = self.status({"disposition": "terminal", "outcome": "completed"})
         pending = self.status({
             "disposition": "recording_pending",
@@ -128,7 +128,7 @@ class SelectedPublicStatusTests(unittest.TestCase):
         })
 
         self.assertEqual(("terminal", "completed"), (legacy["disposition"], legacy["outcome"]))
-        self.assertEqual(("recording_pending", "interrupted_pending"),
+        self.assertEqual(("terminal", "completed"),
                          (pending["disposition"], pending["outcome"]))
 
 

@@ -349,13 +349,13 @@ class WholeRegistryGuardTest(unittest.TestCase):
         before = self.snapshot()
         server = _GuardServer()
         adapter = selected_routes.register_selected_routes(server, self.root)
-        self.assertEqual(frozenset(SELECTED_ROUTE_NAMES), adapter.public_route_names)
-        self.assertEqual(set(SELECTED_ROUTE_NAMES) | {"get_selected_workflow_run", "get_selected_action_run"}, set(server.tools))
+        self.assertEqual(frozenset((*SELECTED_ROUTE_NAMES, "release_version", "public.release")), adapter.public_route_names)
+        self.assertEqual(set(SELECTED_ROUTE_NAMES) | {"release_version", "public.release", "get_selected_workflow_run", "get_selected_action_run"}, set(server.tools))
         self.assertNotIn("recover_selected_run_recording", server.tools)
         self.assertFalse(hasattr(adapter, "recover_recording"))
         self.assertFalse(hasattr(selected_routes._QueueBackedSelectedSupport, "recover_selected_run_recording"))
-        self.assertNotIn("release_version", server.tools)
-        self.assertNotIn("public.release", server.tools)
+        self.assertIn("release_version", server.tools)
+        self.assertIn("public.release", server.tools)
         adapter.service = self.support
         result = server.tools["create_atom"](self.request("create_atom"))
         self.assertEqual("preview", result["disposition"])
@@ -365,15 +365,15 @@ class WholeRegistryGuardTest(unittest.TestCase):
         self.assertEqual(1, len(self.support.calls))
         self.assertEqual(before, self.snapshot())
 
-    def test_unselected_source_drift_blocks_registration_before_any_route(self):
+    def test_unselected_source_drift_withholds_ordinary_routes_only(self):
         self.corrupt_unselected_route()
         server = _GuardServer()
         sentinel = object()
         server.tools["existing_helper"] = sentinel
         before = self.snapshot()
-        with self.assertRaisesRegex(SelectedRouteError, "source pin is stale"):
-            selected_routes.register_selected_routes(server, self.root)
-        self.assertEqual({"existing_helper": sentinel}, server.tools)
+        selected_routes.register_selected_routes(server, self.root)
+        self.assertEqual({"existing_helper", "release_version", "public.release", "get_selected_workflow_run", "get_selected_action_run"}, set(server.tools))
+        self.assertIs(sentinel, server.tools["existing_helper"])
         self.assertEqual(before, self.snapshot())
 
     def test_unselected_route_drift_blocks_invocation_before_shared_support(self):
@@ -386,15 +386,15 @@ class WholeRegistryGuardTest(unittest.TestCase):
         self.assertEqual([], self.support.calls)
         self.assertEqual(before, self.snapshot())
 
-    def test_release_request_cannot_use_virtual_manifest_to_evade_whole_guard(self):
+    def test_direct_release_refuses_selected_envelope_without_virtual_manifest(self):
         adapter = SelectedRouteAdapter(self.root, service=self.support)
         self.corrupt_unselected_route()
         before = self.snapshot()
         with patch.object(selected_routes, "load_release_execution_manifest",
                           side_effect=AssertionError("virtual admission bypass")):
             result = adapter.invoke("release_version", self.request("release_version"))
-        self.assertEqual("rejected", result["disposition"])
-        self.assertIn("source pin is stale", result["diagnostics"][0])
+        self.assertEqual("failed", result["outcome"])
+        self.assertIn("only project_root and run_id", result["diagnostics"][0])
         self.assertEqual([], self.support.calls)
         self.assertEqual(before, self.snapshot())
 
@@ -403,12 +403,11 @@ class WholeRegistryGuardTest(unittest.TestCase):
         self.corrupt_unselected_route(malformed=True)
         server = _GuardServer()
         before = self.snapshot()
-        with self.assertRaisesRegex(SelectedRouteError, "incomplete or unknown schema"):
-            selected_routes.register_selected_routes(server, self.root)
+        selected_routes.register_selected_routes(server, self.root)
         result = adapter.invoke("create_atom", self.request("create_atom"))
         self.assertEqual("rejected", result["disposition"])
         self.assertIn("incomplete or unknown schema", result["diagnostics"][0])
-        self.assertEqual({}, server.tools)
+        self.assertEqual({"release_version", "public.release", "get_selected_workflow_run", "get_selected_action_run"}, set(server.tools))
         self.assertEqual([], self.support.calls)
         self.assertEqual(before, self.snapshot())
 

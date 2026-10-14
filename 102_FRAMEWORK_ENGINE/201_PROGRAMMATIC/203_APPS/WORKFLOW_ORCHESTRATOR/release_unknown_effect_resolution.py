@@ -33,15 +33,21 @@ for _location in (_TOOLS_ROOT, _RELEASE_TOOLS, _MCP_ROOT):
 import work_journal  # noqa: E402
 from release_checkpoint import derive_unknown_effect_terminal_checkpoint, load_release_checkpoint  # noqa: E402
 from selected_execution import SelectedExecution, SelectedExecutionError, canonical_json  # noqa: E402
-import selected_run_recovery as _selected_run_recovery  # noqa: E402
-from workflow_run_support import LazyRunTracker, RunExecutionSession, _canonical_digest, _validate_common  # noqa: E402
+from workflow_run_support import (  # noqa: E402
+    LazyRunTracker,
+    RunExecutionSession,
+    _canonical_digest,
+    _validate_common,
+)
 
 
 _OPERATION = "resolve_release_unknown_effect"
 _RUN_ID = "release-epic-resume-20261006-N15"
 _REQUEST_IDENTITY = "5228bc2214ef3868794ae48f12c435c266587fd856fcefdd4598612b3ba80ec4"
 _SNAPSHOT_SHA256 = "3bfdd04e1b9901c97a6af49c59e01731c456ea5313816db657457e94bd35a9f7"
-_AUTHORIZATION_REF = ".caprmedio_caprmedio/01_concern/CA-C-517-QUESTION--resolve-the-unknown-n15-unit-outcome.md"
+_AUTHORIZATION_REF = (
+    ".caprmedio_caprmedio/01_concern/CA-C-517-QUESTION--resolve-the-unknown-n15-unit-outcome.md"
+)
 _AUTHORIZATION_SHA256 = "1d3d7c3c1d10827362952d684193fe844e634d18dfa5098a32f54af4863974d4"
 _CHECKPOINT_SHA256 = "71d93f97c0f07b84e94d49d5bd18a4ab83d86e3e52d00e39368ce881153a4344"
 _RESOLUTION_FILENAME = "release_unknown_effect_resolution.json"
@@ -49,15 +55,32 @@ _TERMINAL_CHECKPOINT_FILENAME = "release_unknown_effect_terminal_checkpoint.json
 _UNKNOWN_REASON = "unknown_effect"
 _PIN_IDS = ("CA-R-1895", "CA-M-351", "CA-E-594", "CA-D-589")
 _PIN_FIELDS = frozenset({"atom_id", "version", "source_path", "digest"})
-_REQUEST_FIELDS = frozenset({
-    "operation", "run_id", "request_identity", "authorization_ref", "authorization_sha256",
-    "expected_checkpoint_sha256",
-})
-_RESOLUTION_FIELDS = frozenset({
-    "schema", "resolution_kind", "run_id", "workflow_run_id", "step_run_id", "action_run_id",
-    "old_checkpoint_sha256", "authorization_ref", "authorization_sha256", "approved_authority_pins",
-    "event_refs", "unknown_reason",
-})
+_REQUEST_FIELDS = frozenset(
+    {
+        "operation",
+        "run_id",
+        "request_identity",
+        "authorization_ref",
+        "authorization_sha256",
+        "expected_checkpoint_sha256",
+    }
+)
+_RESOLUTION_FIELDS = frozenset(
+    {
+        "schema",
+        "resolution_kind",
+        "run_id",
+        "workflow_run_id",
+        "step_run_id",
+        "action_run_id",
+        "old_checkpoint_sha256",
+        "authorization_ref",
+        "authorization_sha256",
+        "approved_authority_pins",
+        "event_refs",
+        "unknown_reason",
+    }
+)
 _DIGEST = re.compile(r"^[0-9a-f]{64}$")
 
 
@@ -166,11 +189,19 @@ def _pin_shape(value: Any) -> dict[str, Any]:
     if not isinstance(value, Mapping) or set(value) != _PIN_FIELDS:
         raise _Blocked("resolver authority pin has an invalid shape")
     atom_id, version, source_path, digest = (
-        value.get("atom_id"), value.get("version"), value.get("source_path"), value.get("digest"),
+        value.get("atom_id"),
+        value.get("version"),
+        value.get("source_path"),
+        value.get("digest"),
     )
-    if (not isinstance(atom_id, str) or type(version) is not int or version < 1
-            or not isinstance(source_path, str) or not isinstance(digest, str)
-            or _DIGEST.fullmatch(digest) is None):
+    if (
+        not isinstance(atom_id, str)
+        or type(version) is not int
+        or version < 1
+        or not isinstance(source_path, str)
+        or not isinstance(digest, str)
+        or _DIGEST.fullmatch(digest) is None
+    ):
         raise _Blocked("resolver authority pin has an invalid identity")
     return {"atom_id": atom_id, "version": version, "source_path": source_path, "digest": digest}
 
@@ -187,9 +218,12 @@ def _pin(root: Path, value: Any) -> dict[str, Any]:
         raise _Blocked("resolver authority source is not UTF-8") from error
     atom_match = re.search(r"(?m)^atom_id:\s*[\"']?([^\n\"']+)", text)
     version_match = re.search(r"(?m)^version:\s*[\"']?([^\n\"']+)", text)
-    if (atom_match is None or version_match is None
-            or atom_match.group(1).strip() != pin["atom_id"]
-            or version_match.group(1).strip() != str(pin["version"])):
+    if (
+        atom_match is None
+        or version_match is None
+        or atom_match.group(1).strip() != pin["atom_id"]
+        or version_match.group(1).strip() != str(pin["version"])
+    ):
         raise _Blocked("resolver authority source metadata differs from its pin")
     return pin
 
@@ -203,6 +237,7 @@ def _current_resolver_authority(root: Path) -> list[dict[str, Any]]:
     """
     try:
         from release_source_admission import derive_unknown_effect_resolver_authority
+
         selected = derive_unknown_effect_resolver_authority(root)
     except Exception as error:
         raise _Blocked("D572 unknown-effect resolver authority is unavailable") from error
@@ -210,7 +245,9 @@ def _current_resolver_authority(root: Path) -> list[dict[str, Any]]:
         raise _Blocked("D572 unknown-effect resolver authority has an invalid shape")
     pins = [_pin(root, item) for item in selected]
     if [pin["atom_id"] for pin in pins] != list(_PIN_IDS):
-        raise _Blocked("D572 unknown-effect resolver authority pins are missing, repeated, or out of order")
+        raise _Blocked(
+            "D572 unknown-effect resolver authority pins are missing, repeated, or out of order"
+        )
     return pins
 
 
@@ -232,6 +269,7 @@ def _cancel_scheduler(root: Path, request: Mapping[str, str]) -> None:
 
     try:
         from backend import cancel_release_unknown_effect_scheduler
+
         observed = cancel_release_unknown_effect_scheduler(root, dict(request))
     except Exception as error:
         raise _Blocked(f"old N15 scheduler workflow was not cancelled: {error}") from error
@@ -244,36 +282,6 @@ def _cancel_scheduler(root: Path, request: Mapping[str, str]) -> None:
         raise _Blocked("old N15 scheduler workflow lacks confirmed cancellation")
 
 
-def _pending_original_event(root: Path, execution: Mapping[str, Any]) -> bool:
-    """Reject any sealed pending event that belongs to the frozen N15 request."""
-    try:
-        runtime = work_journal.configured_runtime_root(root)
-    except (OSError, RuntimeError) as error:
-        raise _Blocked("configured runtime root is unavailable") from error
-    pending = root / runtime / "state" / "work_journal" / "pending"
-    if not pending.exists():
-        return False
-    if pending.is_symlink() or not pending.is_dir():
-        raise _Blocked("pending Journal carrier is unsafe")
-    request_id, action_id = execution.get("request_id"), execution.get("assigned_action_id")
-    for carrier in pending.iterdir():
-        if carrier.is_symlink() or not carrier.is_file():
-            raise _Blocked("pending Journal carrier is unsafe")
-        if carrier.name == ".DS_Store":
-            continue
-        if carrier.suffix != ".json":
-            raise _Blocked("pending Journal carrier is unsafe")
-        try:
-            payload = json.loads(carrier.read_text(encoding="utf-8"))
-            event = json.loads(payload["event_bytes"])
-        except (OSError, TypeError, KeyError, json.JSONDecodeError) as error:
-            raise _Blocked("pending Journal carrier is invalid") from error
-        session = event.get("llm_session") if isinstance(event, Mapping) else None
-        if (isinstance(session, Mapping) and session.get("uuid") == request_id) or event.get("action_id") == action_id:
-            return True
-    return False
-
-
 def _historical_tracker(root: Path) -> LazyRunTracker:
     """Provide the existing Journal writer without re-admitting an old effect."""
     return LazyRunTracker(
@@ -283,85 +291,23 @@ def _historical_tracker(root: Path) -> LazyRunTracker:
     )
 
 
-def _read_exact_n15_evidence(root: Path, execution: Mapping[str, Any]) -> dict[str, Any]:
-    """Read only N15's exact UUID-and-action Journal intersection.
-
-    Normal selected-Run recovery deliberately treats a match on either field
-    as a collision, because most selected Action identities are unique.  The
-    frozen Release history instead reuses CA-O-165 across different Release
-    runs.  This narrow reader leaves that generic guard untouched: it ignores
-    another Run's action-only events, but fails closed if the frozen N15 UUID
-    appears with any other Action identity.  All accepted events still pass
-    the existing dispatch, bounded-carrier, sealed-event, receipt, and later
-    ``RunExecutionSession.restore`` validation.
-    """
+def _journal_identity_rows(root: Path, execution: Mapping[str, Any]) -> list[dict[str, Any]]:
+    """Read ordinary Journal rows for this historical request and action."""
 
     parsed = _validate_common(execution)
-    dispatch = _selected_run_recovery.inspect_selected_run_dispatch(root, parsed)
-    try:
-        journal_root = root / work_journal.configured_journal_root(root)
-        parts = _selected_run_recovery._journal_parts(root, journal_root)
-    except (OSError, RuntimeError) as error:
-        raise _Blocked("configured N15 Journal root is unavailable") from error
-    records_seen = 0
-    bytes_read = 0
-    evidence: list[dict[str, Any]] = []
-    for path in parts:
-        try:
-            raw = path.read_bytes()
-        except OSError as error:
-            raise _Blocked(f"canonical N15 Journal carrier is unreadable: {path.name}") from error
-        if len(raw) > _selected_run_recovery.MAX_JOURNAL_CARRIER_BYTES:
-            raise _Blocked("canonical N15 Journal carrier exceeds the read limit")
-        bytes_read += len(raw)
-        if bytes_read > _selected_run_recovery.MAX_JOURNAL_BYTES:
-            raise _Blocked("N15 Journal scan exceeds the total byte read limit")
-        if raw and not raw.endswith(b"\n"):
-            raise _Blocked(f"canonical N15 Journal carrier lacks terminal newline: {path.name}")
-        lines = raw.splitlines(keepends=True)
-        for line_number, line in enumerate(lines, start=1):
-            if records_seen >= _selected_run_recovery.MAX_JOURNAL_EVENTS:
-                raise _Blocked("N15 Journal event scan exceeds the configured limit")
-            try:
-                event = json.loads(line)
-            except json.JSONDecodeError as error:
-                raise _Blocked(f"invalid JSON in canonical N15 Journal carrier {path.name}:{line_number}") from error
-            if not isinstance(event, dict):
-                raise _Blocked(f"non-object N15 Journal event in {path.name}:{line_number}")
-            records_seen += 1
-            session = event.get("llm_session")
-            request_matches = isinstance(session, Mapping) and session.get("uuid") == parsed["request_id"]
-            action_matches = event.get("action_id") == parsed["assigned_action_id"]
-            if request_matches and not action_matches:
-                raise _Blocked("N15 Journal evidence has a UUID-only identity match")
-            if not request_matches:
-                # CA-O-165 is intentionally shared among historical Release
-                # runs.  An action-only match cannot identify N15.
-                continue
-            if event.get("schema_version") != 5 or event.get("kind") != "workflow_execution":
-                raise _Blocked("N15 identity occurs in non-canonical workflow evidence")
-            try:
-                sealed = work_journal.validate_sealed_event(event)
-            except work_journal.WorkJournalError as error:
-                raise _Blocked("N15 Journal event is not canonically sealed") from error
-            previous = b"".join(lines[: line_number - 1])
-            appended = b"".join(lines[:line_number])
-            evidence.append({
-                "event": sealed,
-                "receipt": {
-                    "event_id": sealed["event_id"],
-                    "action_id": sealed["action_id"],
-                    "event_digest": sealed["event_digest"],
-                    "carrier": path.relative_to(root).as_posix(),
-                    "line": line_number,
-                    "previous_carrier_digest": hashlib.sha256(previous).hexdigest(),
-                    "appended_carrier_digest": hashlib.sha256(appended).hexdigest(),
-                },
-            })
-    return {"dispatch": dispatch, "events": evidence}
+    return [
+        row
+        for row in work_journal.read_records(root)
+        if isinstance(row, dict)
+        and isinstance(row.get("llm_session"), Mapping)
+        and row["llm_session"].get("uuid") == parsed["request_id"]
+        and row.get("action_id") == parsed["assigned_action_id"]
+    ]
 
 
-def _interruption_prefix(session: RunExecutionSession, *, terminal_checkpoint_ref: str, resolution_ref: str) -> list[str]:
+def _interruption_prefix(
+    session: RunExecutionSession, *, terminal_checkpoint_ref: str, resolution_ref: str
+) -> list[str]:
     """Return the only resumable prefix of the three N15 interruption facts."""
 
     prefix: list[str] = []
@@ -374,7 +320,9 @@ def _interruption_prefix(session: RunExecutionSession, *, terminal_checkpoint_re
             missing = True
             continue
         if missing:
-            raise _Blocked("N15 interruption facts are not one canonical Action-Step-Workflow prefix")
+            raise _Blocked(
+                "N15 interruption facts are not one canonical Action-Step-Workflow prefix"
+            )
         if (
             interruption.get("outcome") != "interrupted_pending"
             or interruption.get("result_ref") != terminal_checkpoint_ref
@@ -382,14 +330,20 @@ def _interruption_prefix(session: RunExecutionSession, *, terminal_checkpoint_re
             or not isinstance(interruption.get("event_id"), str)
             or not interruption["event_id"]
         ):
-            raise _Blocked("N15 interruption facts differ from the admitted unknown-effect resolution")
+            raise _Blocked(
+                "N15 interruption facts differ from the admitted unknown-effect resolution"
+            )
         prefix.append(interruption["event_id"])
     return prefix
 
 
 def _require_historical_frontier(
-    execution: Mapping[str, Any], private_run: Any, session: RunExecutionSession, *,
-    terminal_checkpoint_ref: str, resolution_ref: str,
+    execution: Mapping[str, Any],
+    private_run: Any,
+    session: RunExecutionSession,
+    *,
+    terminal_checkpoint_ref: str,
+    resolution_ref: str,
 ) -> list[str]:
     if (
         private_run.workflow_run_id != _RUN_ID
@@ -399,7 +353,9 @@ def _require_historical_frontier(
         or set(private_run.results) != {0, 1, 2, 3}
         or any(private_run.results[index].outcome != "completed" for index in range(4))
     ):
-        raise _Blocked("Release checkpoint does not retain the admitted N15 unknown-effect frontier")
+        raise _Blocked(
+            "Release checkpoint does not retain the admitted N15 unknown-effect frontier"
+        )
     context = private_run.in_progress
     if (
         context.step_run_id != f"{_RUN_ID}:step:5"
@@ -422,7 +378,9 @@ def _require_historical_frontier(
     ):
         raise _Blocked("N15 Unit occurrence start evidence differs from the frozen occurrence")
     return _interruption_prefix(
-        session, terminal_checkpoint_ref=terminal_checkpoint_ref, resolution_ref=resolution_ref,
+        session,
+        terminal_checkpoint_ref=terminal_checkpoint_ref,
+        resolution_ref=resolution_ref,
     )
 
 
@@ -435,13 +393,21 @@ def _load_admitted_state(root: Path, request: Mapping[str, str]) -> _ResolutionS
         raise _Blocked("frozen N15 Release request is unavailable") from error
     saved = frozen.get("request") if isinstance(frozen, Mapping) else None
     execution_raw = saved.get("execution") if isinstance(saved, Mapping) else None
-    if not isinstance(saved, Mapping) or saved.get("run_id") != _RUN_ID or not isinstance(execution_raw, Mapping):
+    if (
+        not isinstance(saved, Mapping)
+        or saved.get("run_id") != _RUN_ID
+        or not isinstance(execution_raw, Mapping)
+    ):
         raise _Blocked("frozen N15 Release request has an invalid shape")
     try:
         execution = _validate_common(execution_raw)
     except Exception as error:
         raise _Blocked("frozen N15 Release request is invalid") from error
-    snapshot = execution.get("parameters", {}).get("candidateSnapshotManifest") if isinstance(execution.get("parameters"), Mapping) else None
+    snapshot = (
+        execution.get("parameters", {}).get("candidateSnapshotManifest")
+        if isinstance(execution.get("parameters"), Mapping)
+        else None
+    )
     if (
         execution.get("mode") != "execute"
         or execution.get("operation_route") != "release_version"
@@ -454,7 +420,9 @@ def _load_admitted_state(root: Path, request: Mapping[str, str]) -> _ResolutionS
     folder = selected.run_directory(_RUN_ID)
     checkpoint_ref = (folder / "release_action_run.json").relative_to(root).as_posix()
     _checkpoint_path, checkpoint, raw_checkpoint = _read_json(
-        root, checkpoint_ref, label="historical N15 checkpoint",
+        root,
+        checkpoint_ref,
+        label="historical N15 checkpoint",
     )
     if hashlib.sha256(raw_checkpoint).hexdigest() != request["expected_checkpoint_sha256"]:
         raise _Blocked("historical N15 checkpoint bytes differ from the approved digest")
@@ -465,17 +433,20 @@ def _load_admitted_state(root: Path, request: Mapping[str, str]) -> _ResolutionS
             expected_workflow_run_id=_RUN_ID,
         )
         terminal_checkpoint = derive_unknown_effect_terminal_checkpoint(checkpoint)
-        evidence = _read_exact_n15_evidence(root, execution)
-        session = RunExecutionSession.restore(_historical_tracker(root), execution, evidence["events"])
+        rows = _journal_identity_rows(root, execution)
+        session = RunExecutionSession.restore(_historical_tracker(root), execution, rows)
     except Exception as error:
         raise _Blocked("historical N15 checkpoint or Journal evidence is not admitted") from error
-    if set(recordings) != {0, 1, 2, 3} or _pending_original_event(root, execution):
-        raise _Blocked("N15 retains a pending or non-canonical original event carrier")
+    if set(recordings) != {0, 1, 2, 3}:
+        raise _Blocked("N15 checkpoint lacks its original actual phase outcomes")
     terminal_checkpoint_ref = (folder / _TERMINAL_CHECKPOINT_FILENAME).relative_to(root).as_posix()
     resolution_ref = (folder / _RESOLUTION_FILENAME).relative_to(root).as_posix()
     _require_historical_frontier(
-        execution, private_run, session,
-        terminal_checkpoint_ref=terminal_checkpoint_ref, resolution_ref=resolution_ref,
+        execution,
+        private_run,
+        session,
+        terminal_checkpoint_ref=terminal_checkpoint_ref,
+        resolution_ref=resolution_ref,
     )
     return _ResolutionState(
         root=root,
@@ -520,12 +491,18 @@ def _require_terminal_checkpoint(state: _ResolutionState) -> None:
     path = state.root / state.terminal_checkpoint_ref
     expected = canonical_json(state.terminal_checkpoint)
     if not path.exists() or path.is_symlink():
-        raise _Blocked("unknown-effect resolution companion lacks its terminal checkpoint companion")
+        raise _Blocked(
+            "unknown-effect resolution companion lacks its terminal checkpoint companion"
+        )
     _path, _payload, raw = _read_json(
-        state.root, state.terminal_checkpoint_ref, label="unknown-effect terminal checkpoint companion",
+        state.root,
+        state.terminal_checkpoint_ref,
+        label="unknown-effect terminal checkpoint companion",
     )
     if raw != expected:
-        raise _Blocked("unknown-effect terminal checkpoint companion differs from the admitted stop frontier")
+        raise _Blocked(
+            "unknown-effect terminal checkpoint companion differs from the admitted stop frontier"
+        )
 
 
 def _ensure_terminal_checkpoint(state: _ResolutionState) -> None:
@@ -543,7 +520,13 @@ def _ensure_terminal_checkpoint(state: _ResolutionState) -> None:
 
 
 def _read_existing_resolution(root: Path, *, state: _ResolutionState) -> dict[str, Any] | None:
-    relative = (Path(".caprmedio_install") / "workflow_orchestrator" / "runs" / _RUN_ID / _RESOLUTION_FILENAME).as_posix()
+    relative = (
+        Path(".caprmedio_install")
+        / "workflow_orchestrator"
+        / "runs"
+        / _RUN_ID
+        / _RESOLUTION_FILENAME
+    ).as_posix()
     path = root / relative
     if not path.exists():
         return None
@@ -556,10 +539,16 @@ def _read_existing_resolution(root: Path, *, state: _ResolutionState) -> dict[st
         if key == "event_refs":
             continue
         if record.get(key) != value:
-            raise _Blocked("unknown-effect resolution companion differs from the admitted N15 resolution")
+            raise _Blocked(
+                "unknown-effect resolution companion differs from the admitted N15 resolution"
+            )
     refs = record.get("event_refs")
-    if (not isinstance(refs, list) or len(refs) != 3 or len(set(refs)) != 3
-            or any(not isinstance(item, str) or not item for item in refs)):
+    if (
+        not isinstance(refs, list)
+        or len(refs) != 3
+        or len(set(refs)) != 3
+        or any(not isinstance(item, str) or not item for item in refs)
+    ):
         raise _Blocked("unknown-effect resolution companion has invalid canonical event references")
     _require_terminal_checkpoint(state)
     prefix = _interruption_prefix(
@@ -568,7 +557,9 @@ def _read_existing_resolution(root: Path, *, state: _ResolutionState) -> dict[st
         resolution_ref=state.resolution_ref,
     )
     if prefix != refs:
-        raise _Blocked("unknown-effect resolution companion does not bind the canonical Journal facts")
+        raise _Blocked(
+            "unknown-effect resolution companion does not bind the canonical Journal facts"
+        )
     return record
 
 
@@ -577,7 +568,13 @@ def _already_resolved(record: Mapping[str, Any]) -> dict[str, Any]:
         "operation": _OPERATION,
         "run_id": _RUN_ID,
         "disposition": "already_resolved",
-        "resolution_ref": (Path(".caprmedio_install") / "workflow_orchestrator" / "runs" / _RUN_ID / _RESOLUTION_FILENAME).as_posix(),
+        "resolution_ref": (
+            Path(".caprmedio_install")
+            / "workflow_orchestrator"
+            / "runs"
+            / _RUN_ID
+            / _RESOLUTION_FILENAME
+        ).as_posix(),
         "event_refs": list(record["event_refs"]),
         "unknown_reason": _UNKNOWN_REASON,
     }
@@ -649,9 +646,11 @@ def resolve_release_unknown_effect(root: Path, request: Mapping[str, Any]) -> di
                 resolution_ref=state.resolution_ref,
             )
             ordered_runs = (
-                f"{_RUN_ID}:step:5:action:1", f"{_RUN_ID}:step:5", _RUN_ID,
+                f"{_RUN_ID}:step:5:action:1",
+                f"{_RUN_ID}:step:5",
+                _RUN_ID,
             )
-            for actual_run_id in ordered_runs[len(event_refs):]:
+            for actual_run_id in ordered_runs[len(event_refs) :]:
                 receipt = state.session.finish_run(
                     actual_run_id,
                     outcome="interrupted_pending",
@@ -659,8 +658,12 @@ def resolve_release_unknown_effect(root: Path, request: Mapping[str, Any]) -> di
                     effect_refs=[],
                     report_ref=state.resolution_ref,
                 )
-                if receipt.get("disposition") != "interrupted" or not isinstance(receipt.get("event_id"), str):
-                    raise _Blocked("canonical Journal could not record the unknown-effect interruption")
+                if receipt.get("disposition") != "interrupted" or not isinstance(
+                    receipt.get("event_id"), str
+                ):
+                    raise _Blocked(
+                        "canonical Journal could not record the unknown-effect interruption"
+                    )
                 event_refs.append(receipt["event_id"])
             if len(event_refs) != 3:
                 raise _Blocked("canonical Journal did not retain all N15 interruption facts")

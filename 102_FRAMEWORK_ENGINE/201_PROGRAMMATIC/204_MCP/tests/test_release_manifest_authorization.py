@@ -28,7 +28,6 @@ from release_manifest_authorization import (  # noqa: E402
     ReleaseManifestAuthorizationError,
     _normalize_refresh_plan,
     authorize_operator_publication,
-    authorize_operator_publication_recovery,
     authorize_operator_refresh,
     validate_candidate_payload,
     validate_publication_context,
@@ -213,63 +212,6 @@ class ReleaseManifestAuthorizationTest(unittest.TestCase):
             validate_candidate_payload(context, self.root, self.plan, payload + b"\n")
         self.assertEqual(self.before, self.path.read_bytes())
 
-    def _seal_existing_candidate(self) -> tuple[str, bytes]:
-        context = self.authorize()
-        lifecycle = ReleaseManifestLifecycle(self.root, context)
-        _, _, payload, _ = _candidate(self.root)
-        lifecycle_plan = {key: value for key, value in self.plan.items() if key != "mode"}
-        with patch("release_manifest_lifecycle.subprocess.run") as git:
-            git.return_value.returncode, git.return_value.stdout = 0, "a" * 40 + "\n"
-            event_id = lifecycle.prepare_release_manifest_publication(lifecycle_plan, payload)
-        self.path.write_bytes(payload)
-        return event_id, payload
-
-    def test_cold_restart_reissues_finalization_only_context_from_sealed_pending_evidence(self) -> None:
-        event_id, payload = self._seal_existing_candidate()
-        import release_manifest_authorization as authorization
-        authorization._issued.clear()
-        recovery = authorize_operator_publication_recovery(
-            self.root, event_id, operator_name="Anatoly Maslennikov", journal_author="anatoly-m",
-            llm_session={"app": "codex", "uuid": "fixture-release-manifest"},
-            authorization_ref="operator_authorization/release_manifest_recovery_fixture",
-        )
-        self.assertEqual(
-            recovery,
-            validate_publication_context(recovery, self.root, self.plan, manifest_state="candidate"),
-        )
-        with self.assertRaises(ReleaseManifestAuthorizationError):
-            validate_publication_context(recovery, self.root, self.plan)
-        with self.assertRaises(ReleaseManifestAuthorizationError):
-            validate_candidate_payload(recovery, self.root, self.plan, payload)
-        recovered = ReleaseManifestLifecycle(self.root, recovery).recover_release_manifest_publication(event_id)
-        self.assertEqual("recovered", recovered["disposition"])
-        self.assertEqual(payload, self.path.read_bytes())
-
-    def test_recovery_refuses_changed_target_source_or_actor_binding(self) -> None:
-        event_id, payload = self._seal_existing_candidate()
-        self.path.write_bytes(payload + b"\n")
-        with self.assertRaises(ReleaseManifestAuthorizationError):
-            authorize_operator_publication_recovery(
-                self.root, event_id, operator_name="Anatoly Maslennikov", journal_author="anatoly-m",
-                llm_session={"app": "codex", "uuid": "fixture-release-manifest"},
-                authorization_ref="operator_authorization/release_manifest_recovery_fixture",
-            )
-        self.path.write_bytes(payload)
-        with self.assertRaises(ReleaseManifestAuthorizationError):
-            authorize_operator_publication_recovery(
-                self.root, event_id, operator_name="Anatoly Maslennikov", journal_author="other-author",
-                llm_session={"app": "codex", "uuid": "fixture-release-manifest"},
-                authorization_ref="operator_authorization/release_manifest_recovery_fixture",
-            )
-        _, admission = derive_release_graph_admission(self.root)
-        source = self.root / admission["workflow"]["source_path"]
-        source.write_bytes(source.read_bytes() + b"\nstale\n")
-        with self.assertRaises(ReleaseManifestAuthorizationError):
-            authorize_operator_publication_recovery(
-                self.root, event_id, operator_name="Anatoly Maslennikov", journal_author="anatoly-m",
-                llm_session={"app": "codex", "uuid": "fixture-release-manifest"},
-                authorization_ref="operator_authorization/release_manifest_recovery_fixture",
-            )
 
     def test_plan_or_context_from_another_source_frontier_refuses(self) -> None:
         context = self.authorize()
@@ -461,12 +403,6 @@ class _O030TrustedRefreshFixture:
             authorization_ref=self.registration["authorization_ref"],
         )
 
-    @staticmethod
-    def _git_evidence() -> object:
-        return patch(
-            "release_manifest_lifecycle.subprocess.run",
-            return_value=type("GitEvidence", (), {"returncode": 0, "stdout": "a" * 40 + "\n"})(),
-        )
 
     def _assert_unchanged(self, expected: bytes) -> None:
         self.assertEqual(expected, self.path.read_bytes())
@@ -515,8 +451,7 @@ class _O030TrustedRefreshFixture:
         self._assert_unchanged(input_drift)
         self.path.write_bytes(self.before)
 
-        with self._git_evidence():
-            result = refresh_release_manifest(self.root, execute=True, authorization=context)
+        result = refresh_release_manifest(self.root, execute=True, authorization=context)
         self.assertEqual("published", result["disposition"], result)
         self.assertTrue(result["recording_ref"].startswith("journal:release-manifest:"))
         self.assertEqual(expected_payload, self.path.read_bytes())
@@ -537,29 +472,19 @@ class _O030TrustedRefreshFixture:
             refresh_release_manifest(self.root, execute=True, authorization=context)
         self._assert_unchanged(published)
 
-    def test_recording_failure_finalizes_the_same_event_without_replay(self) -> None:
+    def test_logging_failure_does_not_change_published_result_or_replay(self) -> None:
         plan = plan_release_manifest_refresh(self.root)
         context = self._authorize(plan)
-        with self._git_evidence(), patch.object(
-            ReleaseManifestLifecycle,
-            "record_release_manifest_publication",
-            side_effect=RuntimeError("injected final recording failure"),
-        ):
+        with patch.object(ReleaseManifestLifecycle, "record_release_manifest_publication",
+                          side_effect=OSError("injected logging failure")):
             result = refresh_release_manifest(self.root, execute=True, authorization=context)
-        self.assertEqual("recording_required", result["disposition"], result)
-        pending_root = self.root / ".caprmedio_runtime/state/work_journal/pending"
-        pending = sorted(path.stem for path in pending_root.glob("release-manifest:*.json"))
-        self.assertEqual(1, len(pending))
+        self.assertEqual("published", result["disposition"], result)
+        self.assertIn("injected logging failure", result["recording_error"])
         published = self.path.read_bytes()
-        with patch(
-            "release_manifest_publisher._atomic_write",
-            side_effect=AssertionError("recording finalization rewrote the manifest"),
-        ):
-            recovered = ReleaseManifestLifecycle(self.root, context).recover_release_manifest_publication(pending[0])
-        self.assertEqual("recovered", recovered["disposition"])
-        self.assertEqual(pending[0], recovered["event_id"])
+        with patch("release_manifest_publisher._atomic_write", side_effect=AssertionError("must not replay")):
+            with self.assertRaises(ReleaseManifestPublishError):
+                refresh_release_manifest(self.root, execute=True, authorization=context)
         self.assertEqual(published, self.path.read_bytes())
-        self.assertEqual([], list(pending_root.glob("release-manifest:*.json")))
 
 
 class O030Schema4TrustedRefreshEndToEndTest(_O030TrustedRefreshFixture, unittest.TestCase):
@@ -591,8 +516,7 @@ class O030Schema5TrustedRefreshEndToEndTest(_O030TrustedRefreshFixture, unittest
         current, expected_candidate, expected_payload, _ = derive_registered_source_refresh(self.root)
         plan = plan_release_manifest_refresh(self.root)
         context = self._authorize(plan)
-        with self._git_evidence():
-            result = refresh_release_manifest(self.root, execute=True, authorization=context)
+        result = refresh_release_manifest(self.root, execute=True, authorization=context)
         self.assertEqual("published", result["disposition"], result)
         self.assertEqual(expected_payload, self.path.read_bytes())
         loaded = load_selected_manifest(self.root)

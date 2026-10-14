@@ -1,4 +1,4 @@
-"""Trusted, Journal-backed lifecycle for one Release manifest publication.
+"""Trusted source publication with independent plain Journal logging.
 
 This module owns neither a Workflow Run nor a private lifecycle ledger.  It
 adapts the publisher to the existing generic Work Journal and to the opaque,
@@ -12,7 +12,6 @@ import datetime as dt
 import hashlib
 import json
 from pathlib import Path
-import subprocess
 import sys
 from typing import Any, Mapping
 
@@ -29,17 +28,15 @@ from release_manifest_authorization import (  # noqa: E402
     validate_public_manifest_candidate_payload,
     validate_refresh_candidate_payload,
     validate_public_manifest_context,
-    validate_public_manifest_recovery_context,
     validate_publication_context,
     validate_refresh_context,
 )
-from selected_routes import SELECTED_ROUTE_NAMES, SelectedRouteError, load_selected_manifest  # noqa: E402
+from selected_routes import SELECTED_ROUTE_NAMES  # noqa: E402
+from engine_publication_lock import engine_publication_lock  # noqa: E402
 
 
 ACTION_ID = "MCP_RELEASE_MANIFEST_PUBLICATION"
 STRUCTURAL_SCOPE = "MCP"
-_INTENT_PREFIX = "release-manifest-publication:"
-_GIT_COMMIT = re.compile(r"[0-9a-f]{40,64}")
 _REFRESH_ROUTE_NAMES = (*SELECTED_ROUTE_NAMES, "release_version")
 _O030_REFRESH_ROUTE_NAMES = (*_REFRESH_ROUTE_NAMES, "public.release")
 _O030_REFRESH_PLAN_FIELDS = frozenset({
@@ -76,7 +73,7 @@ def _safe_ref(value: object, label: str) -> str:
 
 
 def _digest(value: object, label: str) -> str:
-    if not isinstance(value, str) or work_journal.SHA256_RE.fullmatch(value) is None:
+    if not isinstance(value, str) or re.fullmatch(r"[0-9a-f]{64}", value) is None:
         raise ReleaseManifestLifecycleError(f"{label} must be a lowercase SHA-256 digest")
     return value
 
@@ -212,36 +209,13 @@ def _canonical_intent(plan: Mapping[str, Any], context: PublicationAuthorization
     return {**_intent_base(plan, context), "candidate_payload_sha256": _sha256(payload)}
 
 
-def _pending_diagnostic(intent: Mapping[str, Any]) -> str:
-    return _INTENT_PREFIX + work_journal.canonical_json_bytes(dict(intent)).decode("utf-8")
 
 
-def _read_intent(value: Mapping[str, Any]) -> dict[str, Any]:
-    diagnostic = value.get("diagnostic")
-    if not isinstance(diagnostic, str) or not diagnostic.startswith(_INTENT_PREFIX):
-        raise ReleaseManifestLifecycleError("pending publication intent is not owned by this lifecycle")
-    try:
-        decoded = json.loads(diagnostic.removeprefix(_INTENT_PREFIX))
-    except json.JSONDecodeError as error:
-        raise ReleaseManifestLifecycleError("pending publication intent is invalid") from error
-    if not isinstance(decoded, dict) or set(decoded) != {
-        "plan", "source_frontier_digest", "authority_digest", "candidate_payload_sha256",
-    }:
-        raise ReleaseManifestLifecycleError("pending publication intent has unsupported fields")
-    return {
-        "plan": _normalized_any_plan(decoded["plan"]),
-        "source_frontier_digest": _digest(decoded["source_frontier_digest"], "pending.source_frontier_digest"),
-        "authority_digest": _digest(decoded["authority_digest"], "pending.authority_digest"),
-        "candidate_payload_sha256": _digest(
-            decoded["candidate_payload_sha256"], "pending.candidate_payload_sha256"
-        ),
-    }
 
 
-def _event_id(root: Path, intent: Mapping[str, Any], previous_event: str) -> str:
+def _event_id(root: Path, intent: Mapping[str, Any]) -> str:
     return "release-manifest:" + work_journal.canonical_json_digest(
-        {"action_id": ACTION_ID, "root": str(root), "intent": dict(intent), "previous_result_event": previous_event}
-    )
+        {"action_id": ACTION_ID, "root": str(root), "intent": dict(intent)})
 
 
 def _now() -> dt.datetime:
@@ -275,106 +249,42 @@ class ReleaseManifestLifecycle:
 
     @contextmanager
     def release_manifest_publication_lock(self, plan: Mapping[str, Any]):
-        """Hold the one generic Journal carrier lock for a publisher attempt.
-
-        The scope is lifecycle-owned: callers cannot assert that a lock is
-        held.  It may span prepare, final freshness checks, and the publisher's
-        atomic replacement without creating a second lock or state carrier.
-        """
+        """Serialize the actual manifest effect independently of plain logging."""
         manifest_ref = _normalized_any_plan(plan)["manifest_ref"]
-        lock_id = "release-manifest-carrier:" + manifest_ref
         if self._held_carrier_lock is not None:
             raise ReleaseManifestLifecycleError("a Release manifest publication lock is already held")
-        entered = False
-        try:
-            with work_journal._event_lock(self.root, lock_id):
-                entered = True
-                self._held_carrier_lock = lock_id
-                try:
-                    yield
-                finally:
-                    self._held_carrier_lock = None
-        except (OSError, RuntimeError, work_journal.WorkJournalError) as error:
-            # Do not recast a publisher failure from inside the protected
-            # scope as a lock-acquisition failure.  The caller needs that
-            # original failure to report an honest pre-effect result.
-            if entered:
-                raise
-            raise ReleaseManifestLifecycleError("cannot acquire Release manifest publication lock") from error
+        with engine_publication_lock(self.root):
+            self._held_carrier_lock = manifest_ref
+            try:
+                yield
+            finally:
+                self._held_carrier_lock = None
 
     def prepare_release_manifest_publication(self, plan: Mapping[str, Any], payload: bytes) -> str:
-        """Persist the exact successor event before the publisher replaces bytes.
-
-        A publisher can use :meth:`release_manifest_publication_lock` to span
-        prepare through its atomic write.  Callers without that lifecycle-owned
-        scope retain the self-locking default.
-        """
+        """Revalidate the exact authorized source effect without a log prerequisite."""
         self._validate_payload(plan, payload)
-        intent = _canonical_intent(plan, self.context, payload)
-        sealed_plan = intent["plan"]
-        path = self.root / sealed_plan["manifest_ref"]
-        lock_id = "release-manifest-carrier:" + sealed_plan["manifest_ref"]
-        if self._held_carrier_lock == lock_id:
-            return self._prepare_release_manifest_publication_locked(plan, payload, intent, path)
-        if self._held_carrier_lock is not None:
-            raise ReleaseManifestLifecycleError("a different Release manifest publication lock is held")
-        try:
-            # Reuse the Journal's existing cross-process event lock.  A
-            # carrier-wide lock prevents two trusted contexts from producing
-            # unequal timestamped pending bytes for one manifest binding.
-            with work_journal._event_lock(self.root, lock_id):
-                return self._prepare_release_manifest_publication_locked(plan, payload, intent, path)
-        except ReleaseManifestLifecycleError:
-            # A verified lifecycle refusal (for example, malformed history
-            # for this exact carrier) is not a Journal persistence failure.
-            raise
-        except (OSError, RuntimeError, work_journal.WorkJournalError) as error:
-            raise ReleaseManifestLifecycleError("cannot persist sealed publication intent") from error
-
-    def _prepare_release_manifest_publication_locked(
-        self,
-        plan: Mapping[str, Any],
-        payload: bytes,
-        intent: Mapping[str, Any],
-        path: Path,
-    ) -> str:
-        """Prepare one intent while the caller owns the carrier serialization lock."""
-        sealed_plan = intent["plan"]
-        # Validation must be fresh after waiting for another publisher.
         self._validate_candidate_payload(plan, payload)
-        if _sha256(path.read_bytes()) != sealed_plan["observed_input_sha256"]:
-            raise ReleaseManifestLifecycleError("selected manifest input changed before publication intent")
-        existing = self._pending_for_binding(intent)
-        if existing is not None:
-            return existing
-        previous_event, prior_version = self._prior_history(path)
-        if previous_event is None:
-            previous_event, prior_version = self._record_recovered_prior(path)
-        event = self._successor_event(intent, payload, previous_event, prior_version + 1)
-        context = self._append_context(event)
-        try:
-            work_journal.store_pending_event(
-                self.root,
-                event,
-                context,
-                result_ref=sealed_plan["manifest_ref"],
-                effect_refs=[sealed_plan["manifest_ref"]],
-                diagnostic=_pending_diagnostic(intent),
-                retry_linkage=work_journal.canonical_json_digest(intent),
-            )
-        except (OSError, RuntimeError, work_journal.WorkJournalError) as error:
-            raise ReleaseManifestLifecycleError("cannot persist sealed publication intent") from error
-        return str(event["event_id"])
+        intent = _canonical_intent(plan, self.context, payload)
+        path = self.root / intent["plan"]["manifest_ref"]
+        if _sha256(path.read_bytes()) != intent["plan"]["observed_input_sha256"]:
+            raise ReleaseManifestLifecycleError("selected manifest input changed before publication")
+        return _event_id(self.root, intent)
+
 
     def record_release_manifest_publication(self, result: Mapping[str, Any]) -> dict[str, str]:
-        """Finalize only the pre-effect event after exact published-byte proof."""
+        """Append the actual published observation; never gate its operation status."""
         plan = self._plan_from_result(result)
-        event_id, intent = self._event_id_for_plan(plan)
-        receipt = self._recover_if_exact(event_id, plan, intent)
-        return {
-            "recording_ref": "journal:" + str(receipt["event_id"]),
-            "candidate_canonical_manifest_sha256": intent["plan"]["candidate_canonical_manifest_sha256"],
-        }
+        payload = (self.root / plan["manifest_ref"]).read_bytes()
+        intent = _canonical_intent(plan, self.context, payload)
+        event = self._successor_event(intent, payload)
+        occurred = dt.datetime.fromisoformat(event["occurred_at"])
+        value = {"candidate_canonical_manifest_sha256": plan["candidate_canonical_manifest_sha256"]}
+        try:
+            work_journal.append_sealed_events(self.root, [event], author=self.context.journal_author,
+                                             local_date=occurred.date().isoformat(), timezone=occurred.tzname())
+        except (OSError, RuntimeError, TypeError, ValueError) as error:
+            return {**value, "recording_error": str(error)}
+        return {**value, "recording_ref": "journal:" + event["event_id"]}
 
     def _plan_from_result(self, result: Mapping[str, Any]) -> dict[str, Any]:
         if not isinstance(result, Mapping) or result.get("mode") != "execute" or result.get("published") is not True:
@@ -390,42 +300,6 @@ class ReleaseManifestLifecycle:
                 plan[field] = result[field]
         return _normalized_any_plan(plan)
 
-    def recover_release_manifest_publication(self, event_id: str) -> dict[str, Any]:
-        """Recover only exact pending evidence; never replay a manifest replacement."""
-        try:
-            pending, event, _, _ = work_journal._read_pending_event(self.root, event_id)
-        except work_journal.WorkJournalError as error:
-            raise ReleaseManifestLifecycleError("pending publication intent is unavailable") from error
-        intent = _read_intent(pending)
-        plan = dict(intent["plan"])
-        if _normalized_any_plan(plan).get("publication_operation") == "public":
-            validate_public_manifest_recovery_context(self.context, self.root, event_id)
-        expected_id = _event_id(self.root, intent, str(event["previous_result_event"]))
-        if event_id != expected_id:
-            raise ReleaseManifestLifecycleError("pending publication event identity is not canonical")
-        receipt = self._recover_if_exact(event_id, plan, intent)
-        return {"event_id": event_id, "disposition": "recovered", "event_receipt": dict(receipt)}
-
-    def _validate_context(self, plan: Mapping[str, Any], *, manifest_state: str = "input") -> None:
-        try:
-            normalized = _normalized_any_plan(plan)
-            operation = normalized.get("publication_operation")
-            validator = (
-                validate_refresh_context if operation == "refresh"
-                else validate_public_manifest_context if operation == "public"
-                else validate_publication_context
-            )
-            validated = validator(
-                self.context, self.root, dict(normalized), manifest_state=manifest_state,
-            )
-        except (ReleaseManifestAuthorizationError, OSError, TypeError, ValueError) as error:
-            if manifest_state == "candidate":
-                raise ReleaseManifestLifecycleError(
-                    "published selected manifest is ambiguous; mutation will not be replayed"
-                ) from error
-            raise ReleaseManifestLifecycleError("trusted publication authority is unavailable or stale") from error
-        if validated is not self.context:
-            raise ReleaseManifestLifecycleError("trusted publication authority changed unexpectedly")
 
     def _validate_payload(self, plan: Mapping[str, Any], payload: bytes) -> None:
         if not isinstance(payload, bytes) or not payload:
@@ -452,255 +326,23 @@ class ReleaseManifestLifecycle:
         except (ReleaseManifestAuthorizationError, OSError, TypeError, ValueError) as error:
             raise ReleaseManifestLifecycleError("candidate publication payload is not bound to trusted authority") from error
 
-    def _prior_history(self, path: Path) -> tuple[str | None, int]:
-        try:
-            journal_root = self.root / work_journal.configured_journal_root(self.root)
-        except (OSError, RuntimeError) as error:
-            raise ReleaseManifestLifecycleError("canonical Work Journal is unavailable") from error
-        reference = path.relative_to(self.root).as_posix()
-        found: tuple[str, int, str] | None = None
-        for carrier in sorted(journal_root.glob("*.ndjson")) if journal_root.exists() else []:
-            if carrier.is_symlink() or not carrier.is_file():
-                continue
-            try:
-                records = carrier.read_text(encoding="utf-8").splitlines()
-            except OSError as error:
-                raise ReleaseManifestLifecycleError("cannot read canonical Work Journal history") from error
-            for line in records:
-                try:
-                    raw = json.loads(line)
-                except json.JSONDecodeError as error:
-                    raise ReleaseManifestLifecycleError("canonical Work Journal history is invalid") from error
-                # The Journal contains more than generic governed-project
-                # state: legacy and Workflow execution events carry their
-                # own schemas.  Only a schema-3 generic record that claims
-                # this exact carrier can establish its carrier history.  An
-                # unrelated record is not evidence about this target and is
-                # intentionally not parsed by the generic-state validator.
-                raw_result = raw.get("result") if isinstance(raw, dict) else None
-                if not isinstance(raw_result, dict) or raw_result.get("path") != reference:
-                    continue
-                if (
-                    raw.get("schema_version") != 3
-                    or raw.get("kind") not in {"governed_project_state", "governed_project_change"}
-                ):
-                    # A record that asserts this exact carrier is potential
-                    # lineage evidence.  It must not disappear merely by
-                    # naming an unsupported schema or kind.
-                    raise ReleaseManifestLifecycleError(
-                        "canonical Work Journal history has unsupported target carrier evidence"
-                    )
-                try:
-                    record = work_journal.validate_sealed_event(raw)
-                except work_journal.WorkJournalError as error:
-                    raise ReleaseManifestLifecycleError("canonical Work Journal history is invalid") from error
-                result = record["result"]
-                if result.get("state") != "present":
-                    continue
-                version = result.get("version")
-                if type(version) is not int or version < 1:
-                    raise ReleaseManifestLifecycleError("canonical Work Journal history has invalid carrier version")
-                candidate = (str(record["event_id"]), version, str(result.get("sha256")))
-                if found is None or candidate[1] > found[1]:
-                    found = candidate
-                elif candidate[1] == found[1] and candidate != found:
-                    raise ReleaseManifestLifecycleError("canonical Work Journal history has conflicting carrier revisions")
-        if found is None:
-            return None, 0
-        if _sha256(path.read_bytes()) != found[2]:
-            raise ReleaseManifestLifecycleError("canonical Work Journal history does not match selected manifest bytes")
-        return found[0], found[1]
 
-    def _record_recovered_prior(self, path: Path) -> tuple[str, int]:
-        payload = path.read_bytes()
-        result = {
-            "state": "present",
-            "filename": path.name,
-            "version": 1,
-            "path": path.relative_to(self.root).as_posix(),
-            "sha256": _sha256(payload),
-        }
-        evidence = {
-            "carrier": {"identity": "selected_workflow_bindings", "kind": "file", "filename": path.name,
-                        "version": 1, "sha256": result["sha256"]},
-            **self._working_tree_or_git_evidence(path, payload),
-        }
-        core = {
-            "schema_version": 3,
-            "action_id": ACTION_ID,
-            "event": "recovered",
-            "kind": "governed_project_state",
-            "subject_kind": "file",
-            "author": self.context.journal_author,
-            "occurred_at": self._occurred_at(),
-            "llm_session": dict(self.context.llm_session),
-            "structural_scope": STRUCTURAL_SCOPE,
-            "result": result,
-            "recovery_evidence": evidence,
-        }
-        event = {"event_id": "release-manifest-state:" + work_journal.canonical_json_digest(evidence), **core}
-        event = work_journal.with_event_digest(event)
-        context = self._append_context(event)
-        try:
-            work_journal.append_sealed_events(
-                self.root, [event], author=context["author"], local_date=context["local_date"],
-                timezone=context["timezone"], append_context=context,
-            )
-        except (OSError, RuntimeError, work_journal.WorkJournalError) as error:
-            raise ReleaseManifestLifecycleError("cannot record recovered prior selected manifest state") from error
-        return str(event["event_id"]), 1
 
-    def _successor_event(self, intent: Mapping[str, Any], payload: bytes, previous_event: str, version: int) -> dict[str, Any]:
-        core = {
-            "schema_version": 3,
-            "action_id": ACTION_ID,
-            "event": "completed",
-            "kind": "governed_project_change",
-            "subject_kind": "file",
-            "author": self.context.journal_author,
-            "occurred_at": self._occurred_at(),
-            "llm_session": dict(self.context.llm_session),
-            "structural_scope": STRUCTURAL_SCOPE,
-            "action_type": "UPDATE",
-            "sources": [],
-            "result": {
-                "state": "present", "filename": Path(intent["plan"]["manifest_ref"]).name, "version": version,
-                "path": intent["plan"]["manifest_ref"], "sha256": _sha256(payload),
-            },
-            "previous_result_event": previous_event,
-        }
-        event = {"event_id": _event_id(self.root, intent, previous_event), **core}
-        return work_journal.with_event_digest(event)
+    def _successor_event(self, intent: Mapping[str, Any], payload: bytes) -> dict[str, Any]:
+        return {"event_id": _event_id(self.root, intent), "action_id": ACTION_ID,
+                "event": "completed", "author": self.context.journal_author,
+                "occurred_at": self._occurred_at(), "llm_session": dict(self.context.llm_session),
+                "structural_scope": STRUCTURAL_SCOPE, "action_type": "UPDATE",
+                "result": {"path": intent["plan"]["manifest_ref"], "sha256": _sha256(payload)}}
 
-    def _pending_for_binding(self, intent: Mapping[str, Any]) -> str | None:
-        """Return one exact pre-effect retry, or reject another live binding."""
-        pending_root = self.root / work_journal.configured_runtime_root(self.root) / "state" / "work_journal" / "pending"
-        matches: list[str] = []
-        competing: list[str] = []
-        for candidate in sorted(pending_root.glob("release-manifest:*.json")) if pending_root.exists() else []:
-            try:
-                pending, event, _, _ = work_journal._read_pending_event(self.root, candidate.stem)
-                pending_intent = _read_intent(pending)
-                if pending_intent == dict(intent):
-                    expected_id = _event_id(self.root, pending_intent, str(event["previous_result_event"]))
-                    if candidate.stem != expected_id or event["result"].get("sha256") != pending_intent["candidate_payload_sha256"]:
-                        raise ReleaseManifestLifecycleError("pending publication intent has inconsistent sealed binding")
-                    matches.append(candidate.stem)
-                elif pending_intent["plan"]["manifest_ref"] == intent["plan"]["manifest_ref"]:
-                    competing.append(candidate.stem)
-            except work_journal.WorkJournalError:
-                raise ReleaseManifestLifecycleError("pending publication intent is invalid") from None
-        if competing:
-            raise ReleaseManifestLifecycleError("a different sealed publication intent is already pending")
-        if len(matches) != 1:
-            if len(matches) > 1:
-                raise ReleaseManifestLifecycleError("multiple identical pending publication intents are unavailable")
-            return None
-        return matches[0]
 
-    def _event_id_for_plan(self, plan: Mapping[str, Any]) -> tuple[str, dict[str, Any]]:
-        """Find the sole immutable pending binding for a publisher result."""
-        base = _intent_base(plan, self.context)
-        pending_root = self.root / work_journal.configured_runtime_root(self.root) / "state" / "work_journal" / "pending"
-        matches: list[tuple[str, dict[str, Any]]] = []
-        for candidate in sorted(pending_root.glob("release-manifest:*.json")) if pending_root.exists() else []:
-            try:
-                pending, event, _, _ = work_journal._read_pending_event(self.root, candidate.stem)
-                intent = _read_intent(pending)
-            except work_journal.WorkJournalError:
-                raise ReleaseManifestLifecycleError("pending publication intent is invalid") from None
-            if {key: intent[key] for key in base} != base:
-                continue
-            expected_id = _event_id(self.root, intent, str(event["previous_result_event"]))
-            if candidate.stem != expected_id or event["result"].get("sha256") != intent["candidate_payload_sha256"]:
-                raise ReleaseManifestLifecycleError("pending publication intent has inconsistent sealed binding")
-            matches.append((candidate.stem, intent))
-        if len(matches) != 1:
-            raise ReleaseManifestLifecycleError("exact pending publication intent is unavailable")
-        return matches[0]
 
-    def _recover_if_exact(self, event_id: str, plan: Mapping[str, Any], intent: Mapping[str, Any]) -> dict[str, Any]:
-        try:
-            _, pending_event, _, _ = work_journal._read_pending_event(self.root, event_id)
-        except work_journal.WorkJournalError as error:
-            raise ReleaseManifestLifecycleError("sealed publication intent is unavailable") from error
-        path = self.root / intent["plan"]["manifest_ref"]
-        try:
-            payload = path.read_bytes()
-        except OSError as error:
-            raise ReleaseManifestLifecycleError("published selected manifest is unavailable") from error
-        try:
-            document = json.loads(payload)
-        except (UnicodeDecodeError, json.JSONDecodeError, OSError, ValueError) as error:
-            raise ReleaseManifestLifecycleError("published selected manifest cannot be reopened") from error
-        if (
-            not isinstance(document, dict)
-            or _sha256(payload) != pending_event.get("result", {}).get("sha256")
-            or document.get("canonical_manifest_sha256") != intent["plan"]["candidate_canonical_manifest_sha256"]
-        ):
-            raise ReleaseManifestLifecycleError("published selected manifest is ambiguous; mutation will not be replayed")
-        self._validate_context(plan, manifest_state="candidate")
-        try:
-            loaded = load_selected_manifest(self.root)
-        except (OSError, ValueError, SelectedRouteError) as error:
-            raise ReleaseManifestLifecycleError("published selected manifest cannot be reopened") from error
-        if [row.get("route") for row in loaded.get("routes", [])] != list(
-            _normalized_any_plan(plan)["candidate_route_names"]
-        ):
-            raise ReleaseManifestLifecycleError("published selected manifest is ambiguous; mutation will not be replayed")
-        try:
-            return work_journal.recover_pending_event(self.root, event_id)
-        except work_journal.WorkJournalError as error:
-            raise ReleaseManifestLifecycleError("cannot finalize sealed publication evidence") from error
 
     def _occurred_at(self) -> str:
         moment = _now()
-        if moment.tzinfo is None or moment.utcoffset() is None:
-            raise ReleaseManifestLifecycleError("Journal clock must be timezone-aware")
         return moment.isoformat(timespec="seconds")
 
-    def _append_context(self, event: Mapping[str, Any]) -> dict[str, Any]:
-        occurred = dt.datetime.fromisoformat(str(event["occurred_at"]))
-        timezone = occurred.tzname() or occurred.strftime("%z")
-        try:
-            return work_journal.seal_append_context(
-                self.root, event, author=self.context.journal_author,
-                local_date=occurred.date().isoformat(), timezone=timezone,
-            )
-        except (OSError, RuntimeError, work_journal.WorkJournalError) as error:
-            raise ReleaseManifestLifecycleError("cannot seal canonical Journal append context") from error
 
-    def _working_tree_or_git_evidence(self, path: Path, payload: bytes) -> dict[str, Any]:
-        """Never attribute dirty observed bytes to the current Git commit."""
-        relative = path.relative_to(self.root).as_posix()
-        # Schema 3 requires a non-empty ``git`` evidence mapping for a
-        # recovered state.  Its metadata is deliberately explicit when Git
-        # cannot prove these exact observed bytes: no commit is claimed.
-        working = {
-            "git": {
-                "provenance": "working_tree_only",
-                "path": relative,
-                "sha256": _sha256(payload),
-            }
-        }
-        try:
-            head = subprocess.run(
-                ["git", "-C", str(self.root), "rev-parse", "HEAD"], text=True,
-                stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, check=False,
-            )
-            commit = head.stdout.strip()
-            if head.returncode != 0 or _GIT_COMMIT.fullmatch(commit) is None:
-                return working
-            show = subprocess.run(
-                ["git", "-C", str(self.root), "show", f"HEAD:{relative}"], text=False,
-                stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, check=False,
-            )
-        except OSError:
-            return working
-        committed = show.stdout.encode("utf-8") if isinstance(show.stdout, str) else show.stdout
-        if show.returncode == 0 and isinstance(committed, bytes) and committed == payload:
-            return {"git": {"commit": commit, "path": relative, "sha256": _sha256(payload)}}
-        return working
 
 
 __all__ = ["ReleaseManifestLifecycle", "ReleaseManifestLifecycleError"]

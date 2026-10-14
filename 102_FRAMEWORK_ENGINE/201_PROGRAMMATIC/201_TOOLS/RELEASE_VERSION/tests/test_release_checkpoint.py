@@ -32,7 +32,6 @@ from release_checkpoint import (  # noqa: E402
     RELEASE_ACTION_CHECKPOINT_SCHEMA,
     dump_release_checkpoint,
     encode_release_action_checkpoint,
-    extract_pending_recordings,
     load_release_checkpoint,
     release_action_checkpoint_sha256,
     restore_release_action_checkpoint,
@@ -439,72 +438,22 @@ class ReleaseCheckpointTests(unittest.TestCase):
                 expected_workflow_run_id="workflow-1",
             )
 
-    def test_pending_recording_event_identity_is_separate_from_terminal_receipts(self) -> None:
-        payload = dump_release_checkpoint(
-            self.run,
-            pending_recordings={
-                0: {"event_id": "pending-journal-event-1", "event_outcome": "completed"},
-            },
-        )
+    def test_historical_log_pending_metadata_is_not_a_phase_prerequisite(self) -> None:
+        payload = dump_release_checkpoint(self.run)
+        payload["pending_recordings"] = [{"event_id": "old-log", "event_outcome": "unknown"}]
+        payload["sha256"] = release_action_checkpoint_sha256(payload)
         restored, recordings = load_release_checkpoint(
-            payload,
-            expected_request=self.request,
-            expected_workflow_run_id="workflow-1",
+            payload, expected_request=self.request, expected_workflow_run_id="workflow-1",
         )
         self.assertEqual(restored.results, self.run.results)
-        self.assertEqual(recordings, {})
-        pending = extract_pending_recordings(payload)
-        self.assertEqual(
-            dict(pending),
-            {0: {"event_id": "pending-journal-event-1", "event_outcome": "completed"}},
+        self.assertEqual({}, recordings)
+    def test_actual_phase_completion_does_not_require_receipt_refs(self) -> None:
+        payload = dump_release_checkpoint(self.run, shared_recordings={0: {"terminal_outcome": "completed"}})
+        restored, recordings = load_release_checkpoint(
+            payload, expected_request=self.request, expected_workflow_run_id="workflow-1",
         )
-        with self.assertRaises(TypeError):
-            pending[0] = {"event_id": "other", "event_outcome": "completed"}
-        with self.assertRaises(TypeError):
-            pending[0]["event_id"] = "other"
-
-    def test_rejects_pending_recording_that_claims_a_receipt_or_invalid_original_outcome(self) -> None:
-        with self.assertRaises(Exception):
-            dump_release_checkpoint(
-                self.run,
-                shared_recordings={
-                    0: {"terminal_outcome": "completed", "receipt_refs": ("journal-event-1",)},
-                },
-                pending_recordings={
-                    0: {"event_id": "pending-journal-event-1", "event_outcome": "completed"},
-                },
-            )
-        payload = dump_release_checkpoint(
-            self.run,
-            pending_recordings={
-                0: {"event_id": "pending-journal-event-1", "event_outcome": "completed"},
-            },
-        )
-        payload["pending_recordings"][0]["event_outcome"] = "invented-success"
-        payload["sha256"] = release_action_checkpoint_sha256(payload)
-        with self.assertRaises(Exception):
-            extract_pending_recordings(payload)
-
-    def test_rejects_reused_pending_event_identity_across_two_phases(self) -> None:
-        second_context = SelectedReleaseActionContext(
-            PROJECT_ROOT, "workflow-1", "step-1", "action-1", "workflow-1", "step-1",
-            *PHASES[1][:2], self.run.frozen_parameters_sha256,
-        )
-        self.run.contexts[1] = second_context
-        self.run.results[1] = ReleasePhaseResult(
-            "workflow-1", "step-1", "action-1", *PHASES[1], "completed", "validated",
-            self.candidate.manifest.sha256, (), (), ("journal-event-2",), output=self.candidate,
-        )
-        self.run.next_phase = 2
-        with self.assertRaises(Exception):
-            dump_release_checkpoint(
-                self.run,
-                pending_recordings={
-                    0: {"event_id": "pending-journal-event-1", "event_outcome": "completed"},
-                    1: {"event_id": "pending-journal-event-1", "event_outcome": "completed"},
-                },
-            )
-
+        self.assertEqual(restored.results, self.run.results)
+        self.assertEqual({0: {"terminal_outcome": "completed", "receipt_refs": ()}}, recordings)
 
 if __name__ == "__main__":
     unittest.main()

@@ -20,7 +20,7 @@ import sys
 import tomllib
 from dataclasses import dataclass, field
 from pathlib import Path, PurePosixPath
-from typing import Any, Callable, Mapping, Protocol
+from typing import Any, Callable, Mapping, Protocol, Sequence
 from urllib.parse import urlparse
 
 
@@ -166,16 +166,9 @@ class DetachedNativeFullGateBinding:
 
 
 @dataclass(frozen=True)
-class FreshPublicNativeFullGateBinding:
-    """Actual fresh public producer result, physically reopened before push."""
-
-    result: object
-
-
-@dataclass(frozen=True)
 class GateResult:
     call: ToolCallEvidence
-    binding: FullGateBinding | DetachedNativeFullGateBinding | FreshPublicNativeFullGateBinding
+    binding: FullGateBinding | DetachedNativeFullGateBinding
 
 
 @dataclass(frozen=True)
@@ -633,16 +626,9 @@ def _reopen_detached_native_full_gate(binding: DetachedNativeFullGateBinding) ->
     return packet.evidence, _native_packet_receipt_ref(packet)
 
 
-def _full_gate_receipt_ref(binding: FullGateBinding | DetachedNativeFullGateBinding | FreshPublicNativeFullGateBinding) -> str:
+def _full_gate_receipt_ref(binding: FullGateBinding | DetachedNativeFullGateBinding) -> str:
     """Obtain the aggregate receipt ref only after its binding has been reopened."""
 
-    if isinstance(binding, FreshPublicNativeFullGateBinding):
-        from release_public_producer import verify_public_native_full_gate_result
-
-        evidence = verify_public_native_full_gate_result(binding.result)
-        ref = f"{evidence.evidence_root}/receipt.json"
-        _safe_ref(ref, "fresh public Full Gate receipt")
-        return ref
     if isinstance(binding, DetachedNativeFullGateBinding):
         return _native_packet_receipt_ref(binding.packet)
     if isinstance(binding, FullGateBinding):
@@ -660,29 +646,6 @@ def _gate(value: object, label: str, source: SourceProof, *, project_root: Path,
     if not isinstance(value, GateResult):
         raise PublicReleaseError("invalid-full-gate", f"{label} must return GateResult")
     _call(value.call, f"{label}.call")
-    if isinstance(value.binding, FreshPublicNativeFullGateBinding):
-        from release_public_producer import PublicNativeFullGateResult, verify_public_native_full_gate_result
-
-        result = value.binding.result
-        if not isinstance(result, PublicNativeFullGateResult):
-            raise PublicReleaseError("invalid-full-gate", "fresh public gate requires its typed producer result")
-        try:
-            evidence = verify_public_native_full_gate_result(result)
-        except Exception as error:
-            raise PublicReleaseError("full-gate-unproven", "fresh public producer result cannot be physically reopened") from error
-        inputs = result.inputs
-        expected_phase = "history_link" if label == "renewed full gate" else "initial"
-        if (inputs.project_root.resolve() != Path(project_root).resolve()
-                or inputs.source != source
-                or inputs.public_document_closure_sha256 != document_closure_digest(source)
-                or inputs.phase != expected_phase
-                or evidence.candidate_snapshot_manifest_sha256 != source.candidate_snapshot_manifest_sha256):
-            raise PublicReleaseError("stale-full-gate", "fresh gate does not bind this Project, phase and public source closure")
-        if (evidence.framework_version != selected_version
-                or evidence.framework_version != source.framework_version
-                or evidence.version_toml_sha256 != source.version_toml_sha256):
-            raise PublicReleaseError("new-local-cycle-required", "fresh public gate version binding changed")
-        return value
     if isinstance(value.binding, DetachedNativeFullGateBinding):
         evidence, _receipt_ref = _reopen_detached_native_full_gate(value.binding)
         if not getattr(evidence, "passed", False):

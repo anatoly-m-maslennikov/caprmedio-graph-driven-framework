@@ -28,6 +28,8 @@ class DirectReleaseConsumerIndependentTests(unittest.TestCase):
             '[project]\nkey = "CA"\nname = "fixture"\n'
             '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
             '[artifact_timestamps]\ntimezone = "UTC"\n', encoding="utf-8")
+        (control / "project_structure.toml").write_text(
+            'schema_version = 1\nscope_units = []\n', encoding="utf-8")
         self.entrypoint = self.root / "PROJECT_TOOLS/RELEASE_VERSION/local_release.py"
         self.entrypoint.parent.mkdir(parents=True)
         shutil.copyfile(route_fixture.PROJECT / "PROJECT_TOOLS/RELEASE_VERSION/local_release.py", self.entrypoint)
@@ -87,13 +89,17 @@ class DirectReleaseConsumerIndependentTests(unittest.TestCase):
         self.assertEqual(events[1]["details"], {"outcome": "failed"})
         self.assertEqual([event["operation"] for event in events], ["release_version", "release_version"])
 
-    def test_start_recording_refusal_prevents_actual_entrypoint_loading(self):
-        before = self.files()
+    def test_start_recording_failure_does_not_gate_actual_entrypoint(self):
+        before = self.sentinel.read_bytes()
         with patch.object(work_journal, "append_record", side_effect=OSError("Journal unavailable")), \
-                patch.object(selected_routes.importlib.util, "spec_from_file_location", side_effect=AssertionError("Unexpected loader")):
+                patch.object(subprocess, "run", side_effect=self.fail_first_command) as command:
             result = self.release(self.request)
-        self.assertEqual(result["outcome"], "recording_failed")
-        self.assertEqual(self.files(), before)
+        self.assertEqual(command.call_count, 1)
+        self.assertEqual(result["outcome"], "failed")
+        self.assertEqual(result["failed_step"], "git_before_tests")
+        self.assertTrue((self.root / result["report_path"]).is_file())
+        self.assertIn("Journal unavailable", result["recording_error"])
+        self.assertEqual(self.sentinel.read_bytes(), before)
         self.assertEqual(self.events(), [])
 
     def test_symlinked_entrypoint_refuses_with_actual_failed_terminal_event(self):
@@ -104,7 +110,7 @@ class DirectReleaseConsumerIndependentTests(unittest.TestCase):
         with patch.object(subprocess, "run", side_effect=AssertionError("Unexpected dispatch")):
             result = self.release(self.request)
         self.assertEqual(result["outcome"], "failed")
-        self.assertEqual(result["diagnostics"], ["local Release implementation is unavailable"])
+        self.assertEqual(result["diagnostics"], ["Release implementation path is a symlink"])
         self.assertEqual(self.sentinel.read_bytes(), before)
         self.assertEqual([event["event"] for event in self.events()], ["started", "failed"])
 
@@ -117,8 +123,9 @@ class DirectReleaseConsumerIndependentTests(unittest.TestCase):
         with patch.object(subprocess, "run", side_effect=self.fail_first_command), \
                 patch.object(work_journal, "append_record", side_effect=refuse_terminal):
             result = self.release(self.request)
-        self.assertEqual(result["outcome"], "recording_failed")
-        self.assertEqual(result["actual_outcome"], "failed")
+        self.assertEqual(result["outcome"], "failed")
+        self.assertEqual(result["failed_step"], "git_before_tests")
+        self.assertIn("Terminal Journal unavailable", result["recording_error"])
         self.assertEqual([event["event"] for event in self.events()], ["started"])
         self.assertEqual(self.sentinel.read_bytes(), b"No release step reached this product.\n")
 

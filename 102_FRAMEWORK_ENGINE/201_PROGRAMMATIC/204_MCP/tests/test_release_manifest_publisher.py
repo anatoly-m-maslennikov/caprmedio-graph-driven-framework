@@ -20,19 +20,17 @@ for location in (MCP, MCP / "tests", APP_TESTS):
         sys.path.insert(0, str(location))
 
 from release_manifest_authorization import (  # noqa: E402
-    PublicationAuthorizationContext, authorize_operator_publication, authorize_operator_publication_recovery,
+    PublicationAuthorizationContext, authorize_operator_publication,
 )
 from release_manifest_lifecycle import ReleaseManifestLifecycle  # noqa: E402
 from release_manifest_publisher import (  # noqa: E402
     ReleaseManifestPublishError, plan_release_manifest_publish, publish_release_manifest,
-    recover_release_manifest_publish,
 )
 from release_source_admission import derive_release_graph_admission  # noqa: E402
 import release_source_admission  # noqa: E402
 from selected_routes import (  # noqa: E402
     SELECTED_ROUTE_NAMES, SelectedRouteError, load_selected_manifest, register_selected_routes, selected_manifest_ref,
 )
-import work_journal  # noqa: E402
 
 
 class _Server:
@@ -92,24 +90,6 @@ class ReleaseManifestPublisherTest(unittest.TestCase):
             authorization_ref="authorization/release-manifest-publisher.md",
         )
 
-    def recovery_authorization(self, pending_event_id: str) -> PublicationAuthorizationContext:
-        return authorize_operator_publication_recovery(
-            self.root, pending_event_id, operator_name="Anatoly Maslennikov",
-            journal_author="anatoly-m-maslennikov",
-            llm_session={"app": "test", "uuid": "release-manifest-publisher"},
-            authorization_ref="authorization/release-manifest-publisher-recovery.md",
-        )
-
-    def git_evidence(self, digest: str = "a"):
-        return patch(
-            "release_manifest_lifecycle.subprocess.run",
-            return_value=types.SimpleNamespace(returncode=0, stdout=digest * 40 + "\n"),
-        )
-
-    def pending_ids(self, root: Path | None = None) -> list[str]:
-        pending = (self.root if root is None else root) / ".caprmedio_runtime/state/work_journal/pending"
-        return sorted(path.stem for path in pending.glob("release-manifest:*.json")) if pending.exists() else []
-
     def test_plan_is_byte_preserving_and_exactly_additive(self) -> None:
         plan = self.plan()
         self.assertEqual("plan", plan["mode"])
@@ -123,8 +103,7 @@ class ReleaseManifestPublisherTest(unittest.TestCase):
         with self.assertRaises(ReleaseManifestPublishError):
             publish_release_manifest(self.root, execute=True, authorization={"authorized": True})
         self.assertEqual(self.before, self.path.read_bytes())
-        with self.git_evidence():
-            result = publish_release_manifest(self.root, execute=True, authorization=self.authorization())
+        result = publish_release_manifest(self.root, execute=True, authorization=self.authorization())
         loaded = load_selected_manifest(self.root)
         self.assertEqual("published", result["disposition"])
         self.assertEqual(self.original["routes"], loaded["routes"][:-1])
@@ -159,14 +138,14 @@ class ReleaseManifestPublisherTest(unittest.TestCase):
             source.write_bytes(source.read_bytes() + b"\nsource drift after sealed intent\n")
             return event_id
 
-        with self.git_evidence(), patch.object(
+        with patch.object(
             ReleaseManifestLifecycle, "prepare_release_manifest_publication", new=seal_then_drift,
         ):
             result = publish_release_manifest(self.root, execute=True, authorization=context)
         self.assertEqual("pending_publication", result["disposition"])
         self.assertTrue(result["pending_event_id"])
         self.assertEqual(self.before, self.path.read_bytes())
-        self.assertEqual(1, len(self.pending_ids()))
+        self.assertFalse((self.root / '.caprmedio_runtime/state/work_journal/pending').exists())
 
     def test_manifest_drift_after_real_prepare_keeps_sealed_pending_intent_and_skips_write(self) -> None:
         root, path, before, _ = self._fresh_project()
@@ -185,19 +164,19 @@ class ReleaseManifestPublisherTest(unittest.TestCase):
             path.write_bytes(path.read_bytes() + b"\nmanifest drift after sealed intent\n")
             return event_id
 
-        with self.git_evidence(), patch.object(
+        with patch.object(
             ReleaseManifestLifecycle, "prepare_release_manifest_publication", new=seal_then_drift,
         ):
             result = publish_release_manifest(root, execute=True, authorization=context)
         self.assertEqual("pending_publication", result["disposition"])
         self.assertTrue(result["pending_event_id"])
         self.assertEqual(before + b"\nmanifest drift after sealed intent\n", path.read_bytes())
-        self.assertEqual(1, len(self.pending_ids(root)))
+        self.assertFalse((root / '.caprmedio_runtime/state/work_journal/pending').exists())
 
     def test_preseal_lifecycle_runtime_failure_is_blocked_without_an_invented_pending_id(self) -> None:
         context = self.authorization()
-        with self.git_evidence(), patch.object(
-            ReleaseManifestLifecycle, "_prior_history",
+        with patch.object(
+            ReleaseManifestLifecycle, "prepare_release_manifest_publication",
             side_effect=RuntimeError("injected preseal lifecycle failure"),
         ):
             result = publish_release_manifest(self.root, execute=True, authorization=context)
@@ -206,37 +185,20 @@ class ReleaseManifestPublisherTest(unittest.TestCase):
         self.assertEqual("injected preseal lifecycle failure", result["publication_requirement"])
         self.assertNotIn("pending_event_id", result)
         self.assertEqual(self.before, self.path.read_bytes())
-        self.assertEqual([], self.pending_ids())
+        self.assertFalse((self.root / '.caprmedio_runtime/state/work_journal/pending').exists())
 
-    def test_append_failure_leaves_sealed_pending_evidence_and_recovery_never_replays_write(self) -> None:
+    def test_append_failure_does_not_gate_publication_or_create_retry_state(self) -> None:
         context = self.authorization()
-        original_append = work_journal.append_sealed_events
-        calls = 0
-
-        def fail_final_append(*args: object, **kwargs: object):
-            nonlocal calls
-            calls += 1
-            if calls == 2:
-                raise work_journal.WorkJournalError("injected", "final append failure")
-            return original_append(*args, **kwargs)
-
-        with self.git_evidence(), patch("release_manifest_lifecycle.work_journal.append_sealed_events", side_effect=fail_final_append):
+        with patch("release_manifest_lifecycle.work_journal.append_sealed_events", side_effect=OSError("append failed")):
             result = publish_release_manifest(self.root, execute=True, authorization=context)
-        self.assertEqual("recording_required", result["disposition"], result)
+        self.assertEqual("published", result["disposition"], result)
+        self.assertIn("append failed", result["recording_error"])
         self.assertEqual(16, len(load_selected_manifest(self.root)["routes"]))
-        pending = self.pending_ids()
-        self.assertEqual(1, len(pending))
-        before_recovery = self.path.read_bytes()
-        recovered = recover_release_manifest_publish(
-            self.root, pending_event_id=pending[0], authorization=self.recovery_authorization(pending[0]),
-        )
-        self.assertEqual("recovered", recovered["disposition"])
-        self.assertEqual(before_recovery, self.path.read_bytes())
-        self.assertEqual([], self.pending_ids())
+        self.assertFalse((self.root / ".caprmedio_runtime/state/work_journal/pending").exists())
 
     def test_atomic_prewrite_failure_and_postwrite_readback_failure_are_truthful(self) -> None:
         context = self.authorization()
-        with self.git_evidence(), patch("release_manifest_publisher._atomic_write", side_effect=ReleaseManifestPublishError("injected")):
+        with patch("release_manifest_publisher._atomic_write", side_effect=ReleaseManifestPublishError("injected")):
             result = publish_release_manifest(self.root, execute=True, authorization=context)
         self.assertEqual("pending_publication", result["disposition"])
         self.assertEqual(self.before, self.path.read_bytes())
@@ -253,7 +215,7 @@ class ReleaseManifestPublisherTest(unittest.TestCase):
                 raise SelectedRouteError("readback injected")
             return load_selected_manifest(project_root)
 
-        with self.git_evidence(), patch("release_manifest_publisher.load_selected_manifest", side_effect=reject_candidate_readback):
+        with patch("release_manifest_publisher.load_selected_manifest", side_effect=reject_candidate_readback):
             result = publish_release_manifest(root, execute=True, authorization=context)
         self.assertEqual("readback_required", result["disposition"])
         self.assertTrue(result["published"])
@@ -269,15 +231,13 @@ class ReleaseManifestPublisherTest(unittest.TestCase):
                 loaded["routes"] = list(loaded["routes"][:-1])
             return loaded
 
-        with self.git_evidence(), patch(
+        with patch(
             "release_manifest_publisher.load_selected_manifest", side_effect=mismatched_route_readback,
         ):
             result = publish_release_manifest(self.root, execute=True, authorization=context)
-        pending = self.pending_ids()
         self.assertEqual("readback_required", result["disposition"])
         self.assertTrue(result["published"])
-        self.assertEqual(1, len(pending))
-        self.assertEqual(pending[0], result["pending_event_id"])
+        self.assertTrue(result["pending_event_id"])
 
     def test_final_carrier_check_and_atomic_replace_share_one_carrier_lock(self) -> None:
         context = self.authorization()
@@ -299,7 +259,7 @@ class ReleaseManifestPublisherTest(unittest.TestCase):
             self.assertGreater(held, 0, "carrier lock must cover final check through replace")
             original_atomic_write(path, payload)
 
-        with self.git_evidence(), patch.object(
+        with patch.object(
             ReleaseManifestLifecycle, "release_manifest_publication_lock", new=observed_carrier_lock,
         ), patch(
             "release_manifest_publisher._atomic_write", new=assert_locked_atomic_write,
@@ -308,8 +268,7 @@ class ReleaseManifestPublisherTest(unittest.TestCase):
         self.assertEqual("published", result["disposition"])
 
     def test_real_sixteen_registration_gate_after_journal_backed_publication(self) -> None:
-        with self.git_evidence("b"):
-            publish_release_manifest(self.root, execute=True, authorization=self.authorization())
+        publish_release_manifest(self.root, execute=True, authorization=self.authorization())
         server, mcp, typed = _Server(), types.ModuleType("mcp"), types.ModuleType("mcp.types")
         typed.ToolAnnotations = _Annotations
         mcp.types = typed

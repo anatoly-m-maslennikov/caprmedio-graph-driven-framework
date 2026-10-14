@@ -12,6 +12,8 @@ import tomllib
 import copy
 from pathlib import Path
 from typing import Any, Callable, Mapping
+from pydantic import ConfigDict
+from typing_extensions import NotRequired, TypedDict
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / '201_TOOLS'))
 from project_selection import bound_selection
@@ -30,6 +32,24 @@ QUERY_ROUTE_NAMES = ("find_and_fetch_artifacts", "find_and_fetch_journal_events"
 SELECTED_ROUTE_NAMES = (*ORIGINAL_SELECTED_ROUTE_NAMES, *QUERY_ROUTE_NAMES)
 _OPTIONAL_RELEASE_ROUTE_NAME = "release_version"
 _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME = "public.release"
+
+
+class DirectLocalReleaseRequest(TypedDict):
+    __pydantic_config__ = ConfigDict(extra="forbid", strict=True)
+    project_root: str
+    run_id: str
+
+
+class DirectReleaseDraft(TypedDict):
+    __pydantic_config__ = ConfigDict(extra="forbid", strict=True)
+    description: str
+    summary: list[str]
+
+
+class DirectPublicReleaseRequest(DirectLocalReleaseRequest):
+    content_draft: NotRequired[DirectReleaseDraft]
+
+
 _DIGEST = re.compile(r"^[0-9a-f]{64}$")
 _ATOM_ID = re.compile(r"^CA-[A-Z]+-[0-9]+$")
 _REQUEST_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$")
@@ -1019,6 +1039,141 @@ def _require_digest(value: Any, message: str) -> str:
     return value
 
 
+def _direct_release_request(root: Path, route: str, request: Any) -> dict[str, Any]:
+    required = {"project_root", "run_id"}
+    allowed = required | (
+        {"content_draft"} if route == _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME else set()
+    )
+    if not isinstance(request, Mapping) or not required <= set(request) <= allowed:
+        raise SelectedRouteError(
+            "request requires only project_root and run_id, plus optional public content_draft"
+        )
+    run_id = request["run_id"]
+    pattern = (
+        _REQUEST_ID
+        if route == _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME
+        else re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*\Z")
+    )
+    if not isinstance(run_id, str) or not pattern.fullmatch(run_id):
+        raise SelectedRouteError("run_id is invalid")
+    selection = bound_selection(root)
+    expected = (
+        selection.host_root if selection is not None and selection.host_root is not None else root
+    )
+    if request["project_root"] != str(expected):
+        raise SelectedRouteError("project_root does not match the bound Project root")
+    if "content_draft" in request:
+        draft = request["content_draft"]
+        if (
+            not isinstance(draft, Mapping)
+            or set(draft) != {"description", "summary"}
+            or not isinstance(draft["description"], str)
+            or not isinstance(draft["summary"], list)
+            or not all(isinstance(item, str) for item in draft["summary"])
+        ):
+            raise SelectedRouteError("content_draft is invalid")
+    return dict(request)
+
+
+def _direct_release_call(root: Path, route: str, request: Mapping[str, Any]) -> dict[str, Any]:
+    public = route == _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME
+    relative = Path(
+        "PROJECT_TOOLS/PUBLIC_RELEASE/public_release.py"
+        if public
+        else "PROJECT_TOOLS/RELEASE_VERSION/local_release.py"
+    )
+    current = root
+    for part in relative.parts:
+        current /= part
+        if current.is_symlink():
+            raise SelectedRouteError("Release implementation path is a symlink")
+    if not current.is_file():
+        raise SelectedRouteError("Release implementation is unavailable")
+    spec = importlib.util.spec_from_file_location(
+        "_caprmedio_direct_public_release" if public else "_caprmedio_direct_local_release", current
+    )
+    if spec is None or spec.loader is None:
+        raise SelectedRouteError("Release implementation is unavailable")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    try:
+        spec.loader.exec_module(module)
+        kwargs = {"run_id": request["run_id"]}
+        if public:
+            kwargs["content_draft"] = request["content_draft"]
+        result = getattr(module, "run_public_release" if public else "run_local_release")(
+            root, **kwargs
+        )
+    finally:
+        sys.modules.pop(spec.name, None)
+    if not isinstance(result, Mapping):
+        raise SelectedRouteError("Release returned an invalid result")
+    return dict(result)
+
+
+def _direct_release_record(
+    root: Path,
+    route: str,
+    request: Mapping[str, Any],
+    event: str,
+    preceding: str | None,
+    outcome: str | None = None,
+) -> tuple[str | None, str | None]:
+    try:
+        from work_journal import append_record, event_record
+
+        record = event_record(
+            root=root,
+            event=event,
+            action_id=request["run_id"],
+            kind="workflow",
+            scope="project",
+            operation=route,
+            session_id=request["run_id"],
+            subjects=[],
+            outputs=[],
+            preceding_event=preceding,
+            details={"outcome": outcome} if outcome is not None else {},
+        )
+        append_record(root, record)
+        return record.get("event_id"), None
+    except (ImportError, OSError, RuntimeError, TypeError, ValueError) as error:
+        return None, f"Release {event} recording failed: {error}"
+
+
+def _invoke_direct_release(root: Path, route: str, request: Any) -> dict[str, Any]:
+    try:
+        normalized = _direct_release_request(root, route, request)
+    except (TypeError, ValueError, OSError) as error:
+        return {"outcome": "failed", "diagnostics": [str(error)]}
+    if route == _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME and "content_draft" not in normalized:
+        return {
+            "outcome": "input_required",
+            "run_id": normalized["run_id"],
+            "project_root": str(root),
+            "prompt": "Provide content_draft with description and summary.",
+        }
+    started, start_error = _direct_release_record(root, route, normalized, "started", None)
+    try:
+        result = _direct_release_call(root, route, normalized)
+    except (AttributeError, ImportError, OSError, RuntimeError, TypeError, ValueError) as error:
+        result = {"outcome": "failed", "diagnostics": [str(error)]}
+    outcome = result.get("outcome", "failed")
+    _, terminal_error = _direct_release_record(
+        root,
+        route,
+        normalized,
+        "completed" if outcome == "completed" else "failed",
+        started,
+        outcome,
+    )
+    result.update(run_id=normalized["run_id"], project_root=str(root))
+    errors = [error for error in (start_error, terminal_error) if error is not None]
+    if errors:
+        result["recording_error"] = "; ".join(errors)
+    return result
+
+
 class _SelectedRouteAdapterBase:
     """Validates the closed projection then calls the shared selected-run service once."""
 
@@ -1303,45 +1458,9 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
             return "Operator authorization contains unknown or incomplete bindings"
         return None
 
-    @staticmethod
-    def _release_request_module() -> Any:
-        # Load the implementation from the MCP image, never caller Project code.
-        release_tools = Path(__file__).resolve().parents[1] / "201_TOOLS/RELEASE_VERSION"
-        if str(release_tools) not in sys.path:
-            sys.path.insert(0, str(release_tools))
-        return importlib.import_module("release_version")
-
-    def _prepare_release_parameters(self, request: Mapping[str, Any]) -> dict[str, Any]:
-        """Resolve intent before preview sealing, or validate frozen native inputs.
-
-        The caller's original parameter digest has already been checked.  A
-        preparation produces a new digest and never carries an old authorization
-        over to the expanded candidate boundary.  Execution only validates the
-        supplied frozen boundary; it cannot prepare replacement parameters.
-        """
-        normalized = dict(request)
-        parameters = normalized["parameters"]
-        selection = bound_selection(self.root)
-        # Container startup admits the host identity separately from the local
-        # mount.  Never resolve or read a caller-supplied external path here.
-        worker_root = str(selection.host_root) if selection is not None and selection.host_root is not None else str(self.root)
-        if parameters.get("project_root") != worker_root:
-            raise SelectedRouteError("Release parameters must identify the selected Project host root")
-        observed_parameters = dict(parameters)
-        observed_parameters["project_root"] = str(self.root)
-        native = self._release_request_module()
-        if "candidateSnapshotManifest" not in parameters:
-            if normalized["mode"] != "preview":
-                raise SelectedRouteError("Release execution requires resolved parameters from the exact preview")
-            prepared = dict(native.prepare_release_request(self.root, observed_parameters))
-            prepared["project_root"] = worker_root
-            normalized["parameters"] = prepared
-            normalized["parameters_digest"] = canonical_digest(normalized["parameters"])
-        else:
-            native.validate_prepared_release_request(self.root, observed_parameters)
-        return normalized
-
     def invoke(self, route: str, request: Any) -> dict[str, Any]:
+        if route in {_OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME}:
+            return _invoke_direct_release(self.root, route, request)
         try:
             self.manifest = load_selected_manifest(self.root)
             self.routes = {entry["route"]: entry for entry in self.manifest["routes"]}
@@ -1349,16 +1468,9 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
         except SelectedRouteError as error:
             return self._result(request, "rejected", "rejected", str(error))
         if normalized["mode"] == "execute":
-            if route == _OPTIONAL_RELEASE_ROUTE_NAME and "candidateSnapshotManifest" not in normalized["parameters"]:
-                return self._result(normalized, "blocked", "blocked", "Release execution requires resolved parameters from the exact preview")
             blocked = self._validate_execute(normalized)
             if blocked:
                 return self._result(normalized, "blocked", "blocked", blocked)
-        if route == _OPTIONAL_RELEASE_ROUTE_NAME:
-            try:
-                normalized = self._prepare_release_parameters(normalized)
-            except (ImportError, AttributeError, TypeError, ValueError, RuntimeError, OSError) as error:
-                return self._result(normalized, "blocked", "blocked", f"Release preparation refused the current source boundary: {error}")
         lifecycle_refusal = self._preflight_lifecycle(normalized)
         if lifecycle_refusal is not None:
             return lifecycle_refusal
@@ -1369,9 +1481,6 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
         try:
             handler: Callable[[dict[str, Any]], dict[str, Any]] = getattr(support, "run_selected_operation")
             result = handler(normalized)
-            if route == _OPTIONAL_RELEASE_ROUTE_NAME and normalized["mode"] == "preview" and result.get("disposition") == "preview":
-                result = {**result, "resolved_parameters": copy.deepcopy(normalized["parameters"]),
-                          "resolved_parameters_digest": normalized["parameters_digest"]}
             return result
         except (AttributeError, TypeError, ValueError, RuntimeError) as error:
             return self._result(normalized, "blocked", "blocked", f"shared support rejected request: {error}")
@@ -1458,28 +1567,44 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
 
 
 def register_selected_routes(server: Any, root: str | Path) -> SelectedRouteAdapter:
-    """Register only routes admitted by the complete canonical manifest."""
+    """Register direct Release commands and only fully admitted ordinary routes."""
     from mcp.types import ToolAnnotations
 
-    adapter = SelectedRouteAdapter(root)
+    adapter = SelectedRouteAdapter(root, strict_manifest=False)
+    try:
+        adapter.manifest = load_selected_manifest(adapter.root)
+        adapter.routes = {entry["route"]: entry for entry in adapter.manifest["routes"]
+                          if entry["route"] in SELECTED_ROUTE_NAMES}
+    except (OSError, ValueError):
+        pass
     selected_annotations = ToolAnnotations(read_only_hint=False, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
     query_annotations = ToolAnnotations(read_only_hint=True, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
     observation_annotations = ToolAnnotations(read_only_hint=True, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
     release_annotations = ToolAnnotations(read_only_hint=False, destructive_hint=True, idempotent_hint=False, open_world_hint=False)
 
-    public_route_names = tuple(adapter.routes)
+    public_route_names = (*adapter.routes, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME)
     adapter.public_route_names = frozenset(public_route_names)
 
-    for route_name in public_route_names:
+    for route_name in adapter.routes:
         def add_route(route: str) -> None:
             @server.tool(name=route, structured_output=True,
                          annotations=(query_annotations if route in QUERY_ROUTE_NAMES else release_annotations
                                       if route in {_OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME}
                                       else selected_annotations))
             def selected_route(request: dict[str, Any]) -> dict[str, Any]:
-                """Preview by default; execute requires exact sealed Operator authorization and never starts a worker."""
+                """Preview ordinary routes before their explicit authorized execute."""
                 return adapter.invoke(route, request)
         add_route(route_name)
+
+    @server.tool(name=_OPTIONAL_RELEASE_ROUTE_NAME, structured_output=True, annotations=release_annotations)
+    def release_version(request: DirectLocalReleaseRequest) -> dict[str, Any]:
+        """Run only the connected Project's direct local release."""
+        return adapter.invoke(_OPTIONAL_RELEASE_ROUTE_NAME, request)
+
+    @server.tool(name=_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME, structured_output=True, annotations=release_annotations)
+    def public_release(request: DirectPublicReleaseRequest) -> dict[str, Any]:
+        """Run only the connected Project's public release with its supplied draft."""
+        return adapter.invoke(_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME, request)
 
     @server.tool(name="get_selected_workflow_run", structured_output=True, annotations=observation_annotations)
     def get_selected_workflow_run(request: dict[str, Any]) -> dict[str, Any]:

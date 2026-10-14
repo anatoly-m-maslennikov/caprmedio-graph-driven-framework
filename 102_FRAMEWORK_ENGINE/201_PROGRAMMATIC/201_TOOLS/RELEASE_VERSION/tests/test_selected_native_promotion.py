@@ -10,7 +10,6 @@ import sys
 import tempfile
 from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
 
 RELEASE_ROOT = Path(__file__).resolve().parents[1]
 if str(RELEASE_ROOT) not in sys.path:
@@ -20,7 +19,6 @@ from release_checkpoint import (  # noqa: E402
     _load_e2e, _validate_native_evidence_bindings, _native_packet_value, _load_native_packet,
     _native_document_value, _load_native_document, _native_result_value, _load_native_result,
     _NATIVE_STATE_NAMES, _candidate_value, _fingerprint, release_action_checkpoint_sha256,
-    NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA,
     LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, read_native_checkpoint_packet,
     read_direct_native_result_effects, read_direct_native_result_packet,
     _tag, _load_tag, _shared_recording,
@@ -161,116 +159,6 @@ class DirectNativeResultFormatTests(unittest.TestCase):
                 read_direct_native_result_packet(canonical_json(payload), project_root=str(root), command=command,
                     action_run_id="direct-action:documentary", state_generation=1)
             self.assertEqual(rejected.exception.code, "release-native-n-direct-carrier-invalid")
-
-    def test_associated_file_alias_is_refused_even_with_same_bytes(self) -> None:
-        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as directory:
-            root = Path(directory).resolve(strict=True)
-            payload, command = self.documentary_carriers(root)
-            carrier = root / payload["effects"][0]["reference"]
-            actual = root / "documentary-original.toml"
-            actual.write_bytes(carrier.read_bytes())
-            carrier.unlink()
-            carrier.symlink_to(actual)
-            with self.assertRaises(ReleaseContractError):
-                read_direct_native_result_packet(canonical_json(payload), project_root=str(root), command=command,
-                    action_run_id="direct-action:documentary", state_generation=1)
-
-
-class DirectNativeTerminalReaderTests(unittest.TestCase):
-    """Real bounded carrier reads of documentary events, not an executor fixture."""
-
-    def setUp(self) -> None:
-        DirectNativeResultFormatTests.setUp(self)
-        import work_journal
-
-        self.temp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
-        self.root = Path(self.temp.name)
-        control = self.root / ".caprmedio_documentary"
-        self.journal = control / "_journal"
-        self.journal.mkdir(parents=True)
-        (control / "caprmedio_project_settings.toml").write_text(
-            '[paths]\ncontrol_root = ".caprmedio_documentary"\n', encoding="utf-8")
-        defaults = control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
-        defaults.mkdir(parents=True)
-        (defaults / "caprmedio_framework_default_settings.toml").write_text(
-            "[query]\nmax_request_bytes=4096\nmax_grammar_depth=16\nmax_filter_tokens=128\n"
-            "max_in_members=16\nmax_selected_fields=8\nmax_page_size=3\nmax_snapshot_members=8\n"
-            "max_file_bytes=32768\nmax_total_read_bytes=65536\ntimeout_seconds=10\nmax_findings=8\n",
-            encoding="utf-8")
-        definition = {"atom_id": "CA-O-200", "version": 1, "path": "owned/action.md", "digest": "a" * 64}
-        self.started = work_journal.with_event_digest({
-            "schema_version": 5, "kind": "workflow_execution", "event_id": "direct-action:documentary:started",
-            "action_id": "CA-O-200", "event": "started", "author": "documentary-author",
-            "occurred_at": "2026-10-10T00:00:00+00:00", "llm_session": {"app": "documentary", "uuid": "a" * 64},
-            "structural_scope": "documentary", "initiative": {"initiative_id": "CA-O-200", "instruction_summary": "documentary-only"},
-            "run": {"run_id": "direct-action:documentary", "kind": "action", "definition": definition},
-            "definition_bindings": [{"kind": "action", **definition}], "input_ref": "documentary/input.json",
-            "outcome": None, "result_ref": None, "effect_refs": [], "report_ref": None,
-            "redaction": {"redacted": False, "fields": []},
-        })
-        self.result_ref = ".caprmedio_tmp/installation/results/direct-action:documentary/result.json"
-        self.effects = DirectNativeResultFormatTests.read(self)
-        refs = [row["reference"] for row in self.effects.values()] + [self.result_ref]
-        digest = work_journal.canonical_json_digest({"intent_sha256": self.started["llm_session"]["uuid"],
-            "outcome": "completed", "result_ref": self.result_ref, "effect_refs": refs, "report_ref": None})
-        terminal = dict(self.started)
-        terminal.update(event_id=f"direct-action:documentary:terminal:{digest}", event="completed", outcome="completed",
-                        result_ref=self.result_ref, effect_refs=refs)
-        self.terminal = work_journal.with_event_digest(terminal)
-
-    def tearDown(self) -> None:
-        self.temp.cleanup()
-
-    def write_events(self, *events) -> None:
-        (self.journal / "documentary.ndjson").write_bytes(b"".join(canonical_json(event) + b"\n" for event in events))
-
-    def reopen(self) -> None:
-        from release_promotion import _reopen_completed_direct_native_result
-        _reopen_completed_direct_native_result(self.root, self.started, self.result_ref, self.effects)
-
-    def test_reader_accepts_exact_documentary_start_terminal_pair_without_writes(self) -> None:
-        from FIND_AND_FETCH_JOURNAL_EVENTS import find_and_fetch_journal_events as reader
-
-        self.write_events(self.started, self.terminal)
-        before = (self.journal / "documentary.ndjson").read_bytes()
-        with patch.object(reader, "query", wraps=reader.query) as query_call:
-            self.reopen()
-        self.assertEqual(query_call.call_args.args[1]["filter"], '"event:/run/run_id" = "direct-action:documentary"')
-        self.assertEqual(query_call.call_args.args[1]["limit"], 3)
-        self.assertEqual((self.journal / "documentary.ndjson").read_bytes(), before)
-
-    def test_missing_terminal_and_duplicate_start_are_refused(self) -> None:
-        for events in ((self.started,), (self.started, self.started, self.terminal)):
-            self.write_events(*events)
-            with self.assertRaises(ReleaseContractError):
-                self.reopen()
-
-    def test_other_terminal_digest_for_same_original_run_cannot_hide(self) -> None:
-        import work_journal
-
-        other = dict(self.terminal)
-        other["event_id"] = "direct-action:documentary:terminal:" + "9" * 64
-        other["result_ref"] = "other/result.json"
-        self.write_events(self.started, self.terminal, work_journal.with_event_digest(other))
-        with self.assertRaises(ReleaseContractError):
-            self.reopen()
-
-    def test_resealed_changed_author_or_ordered_effects_cannot_account_for_result(self) -> None:
-        import work_journal
-
-        for key, changed in (("author", "other-author"), ("effect_refs", list(reversed(self.terminal["effect_refs"])))):
-            terminal = dict(self.terminal)
-            terminal[key] = changed
-            self.write_events(self.started, work_journal.with_event_digest(terminal))
-            with self.assertRaises(ReleaseContractError):
-                self.reopen()
-
-    def test_parented_selected_run_cannot_be_relabelled_direct(self) -> None:
-        self.started["run"]["parent_run_id"] = "selected-step"
-        with self.assertRaises(ReleaseContractError) as rejected:
-            self.reopen()
-        self.assertEqual(rejected.exception.code, "release-native-n-direct-start-invalid")
-
 
 class SelectedNativePromotionCodecTests(unittest.TestCase):
     def evidence(self) -> PortableCandidateE2EGateEvidence:
@@ -558,18 +446,21 @@ class SelectedNativePacketCodecPhysicalTests(unittest.TestCase):
             read_native_checkpoint_packet(changed, project_root=str(self.root), expected_request=request,
                                           expected_workflow_run_id="original-workflow")
 
-    def test_historical_packet_refuses_missing_pending_tampered_result_or_wrong_start(self) -> None:
-        import work_journal
+    def test_historical_packet_ignores_journal_rows_and_pending_logging(self) -> None:
+        checkpoint, request, publication = self.historical_checkpoint()
+        self._historical_journal_path.write_text('null\nnot-json\n{"unrelated":true}\n', encoding="utf-8")
+        checkpoint["pending_recordings"] = [{"index": 10, "event_id": "unobserved", "event_outcome": "completed"}]
+        checkpoint["sha256"] = release_action_checkpoint_sha256(checkpoint)
+        packet, observed = read_native_checkpoint_packet(
+            checkpoint, project_root=str(self.root), expected_request=request,
+            expected_workflow_run_id="original-workflow",
+        )
+        self.assertEqual(self.packet, packet)
+        self.assertEqual(publication, observed)
 
+    def test_historical_packet_refuses_wrong_actual_result_and_retained_identity(self) -> None:
         checkpoint, request, _publication = self.historical_checkpoint()
         cases = []
-        cases.append(("missing-terminal", lambda payload: self._historical_journal_path.write_bytes(canonical_json(self._historical_started) + b"\n")))
-
-        def pending(payload):
-            payload["pending_recordings"] = [{"index": 10, "event_id": "actual-terminal", "event_outcome": "completed"}]
-            payload["sha256"] = release_action_checkpoint_sha256(payload)
-
-        cases.append(("pending", pending))
 
         def other_publication_action(payload):
             payload["state"]["promotion"]["action_run_id"] = "other-action"
@@ -598,26 +489,6 @@ class SelectedNativePacketCodecPhysicalTests(unittest.TestCase):
             "native_result": {}, "compiler_publication_recording": None,
         }))))
 
-        def tampered_terminal(payload):
-            terminal = dict(self._historical_terminal)
-            terminal["author"] = "other-author"
-            terminal = work_journal.with_event_digest(terminal)
-            self._historical_journal_path.write_bytes(
-                canonical_json(self._historical_started) + b"\n" + canonical_json(terminal) + b"\n"
-            )
-
-        cases.append(("tampered-terminal", tampered_terminal))
-
-        def wrong_start(payload):
-            started = dict(self._historical_started)
-            terminal = dict(self._historical_terminal)
-            started["run"] = {**started["run"], "parent_run_id": "other-step"}
-            terminal["run"] = dict(started["run"])
-            started = work_journal.with_event_digest(started)
-            terminal = work_journal.with_event_digest(terminal)
-            self._historical_journal_path.write_bytes(canonical_json(started) + b"\n" + canonical_json(terminal) + b"\n")
-
-        cases.append(("wrong-start", wrong_start))
         for name, mutate in cases:
             with self.subTest(name=name):
                 checkpoint, request, _publication = self.historical_checkpoint()

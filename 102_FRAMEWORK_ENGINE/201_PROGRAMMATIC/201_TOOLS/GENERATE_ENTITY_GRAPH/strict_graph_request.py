@@ -140,7 +140,7 @@ def build_graph(repository: Path, request, api):
         if "run_recording_context" in request and not api.is_actual_recording_context(recording):
             raise api.EntityGraphError("recording-context-untrusted", "Caller JSON cannot provide actual recording evidence")
         expected_action = "CA-O-134" if graph_kind == "entities" else "CA-O-137"
-        if recording is not None and recording.start_event_receipt["action_id"] != expected_action:
+        if recording is not None and recording.action_run["definition"]["atom_id"] != expected_action:
             raise api.EntityGraphError("recording-action-mismatch", "Actual start context belongs to a different Action")
         configuration = api._mapping(request["representation_configuration"], "representation_configuration")
         if dict(configuration) != {"format": "canonical-json"}:
@@ -214,8 +214,7 @@ def build_graph(repository: Path, request, api):
                               "admission_decisions": data["admission_decisions"], "derivations": data["derivations"]},
                   "quality_dispositions": quality, "diagnostics": diagnostics, "non_authoritative": True,
                   "output_effects": _effects("unchanged", before=before, after=before) if before else _effects(),
-                  "completion": {"state": "construction_only" if destination is None else "awaiting_terminal_recording"},
-                  "run_receipt_refs": [recording.start_event_receipt["event_id"]] if recording is not None else []}
+                  "completion": {"state": "construction_only" if destination is None else "awaiting_terminal_recording"}}
         final_frontier = api.source_frontier_for(repository, folder)
         if canonical_bytes(final_frontier) != canonical_bytes(frontier):
             result["outcome"] = "stale"

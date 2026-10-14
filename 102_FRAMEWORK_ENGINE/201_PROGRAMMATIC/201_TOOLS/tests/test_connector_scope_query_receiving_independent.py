@@ -213,16 +213,16 @@ class ScopeQueryReceivingIndependentTests(unittest.TestCase):
             session.request["parameters"]["query"]["filters"]["frontier"]["identity"] = "BETA"
         self.assert_error(self.invoke(mutate=replace), "permission_denied")
 
-    def test_stale_authorization_terminal_and_absent_start_refuse(self):
+    def test_mutated_authorization_and_terminal_refuse_but_missing_log_is_optional(self):
         def stale(session, _run):
             session.request["operator_authorization"]["authorization_freshness"]["state"] = "stale"
-        self.assert_error(self.invoke(mutate=stale), "stale_state")
+        self.assert_error(self.invoke(mutate=stale), "permission_denied")
         def terminal(session, run):
             session.finish_run(run, outcome="no_op", result_ref="results/already.json", effect_refs=[])
         self.assert_error(self.invoke(mutate=terminal), "permission_denied")
-        def missing(session, _run):
-            (self.root / session._started_receipts["query"]["carrier"]).unlink()
-        self.assert_error(self.invoke(mutate=missing), "permission_denied")
+        def missing(_session, _run):
+            next(self.root.rglob("*.ndjson")).unlink()
+        self.assertEqual(self.invoke(mutate=missing)["errors"], [])
 
     def test_another_session_root_cannot_supply_query_admission(self):
         def wrong_root(session, _run):

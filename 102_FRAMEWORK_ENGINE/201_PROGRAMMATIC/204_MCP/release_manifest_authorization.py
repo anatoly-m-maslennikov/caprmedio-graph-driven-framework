@@ -431,17 +431,6 @@ def _operator_row(root: Path, operator_name: object) -> Mapping[str, Any]:
 def _journal_context(operator: Mapping[str, Any], journal_author: object, llm_session: object) -> tuple[str, tuple[str, str]]:
     if not isinstance(journal_author, str):
         _reject("publication-journal-context-invalid", "Journal author must be a Git username")
-    try:
-        import sys
-        tools = Path(__file__).resolve().parents[1] / "201_TOOLS"
-        if str(tools) not in sys.path:
-            sys.path.insert(0, str(tools))
-        import work_journal
-        work_journal.validate_partition(journal_author, "2000-01-01", "UTC")
-    except (ImportError, RuntimeError, ValueError) as error:
-        raise ReleaseManifestAuthorizationError(
-            "publication-journal-context-invalid", "Journal author is not valid for Work Journal schema 3"
-        ) from error
     if not isinstance(llm_session, Mapping) or set(llm_session) != {"app", "uuid"}:
         _reject("publication-journal-context-invalid", "llm_session must contain only app and uuid")
     app, identifier = llm_session.get("app"), llm_session.get("uuid")
@@ -582,186 +571,14 @@ def authorize_operator_public_manifest_publication(
     )
 
 
-def _pending_recovery_evidence(
-    root: Path, pending_event_id: object,
-) -> tuple[dict[str, Any], bytes, dict[str, Any], Mapping[str, Any]]:
-    """Open the one existing sealed Release intent; never accept caller history."""
-    if not isinstance(pending_event_id, str) or not pending_event_id:
-        _reject("publication-recovery-invalid", "pending event id must be a non-empty string")
-    try:
-        import sys
-        tools = Path(__file__).resolve().parents[1] / "201_TOOLS"
-        if str(tools) not in sys.path:
-            sys.path.insert(0, str(tools))
-        import work_journal
-        from release_manifest_lifecycle import ACTION_ID, _event_id, _read_intent
-
-        pending, event, _, _ = work_journal._read_pending_event(root, pending_event_id)
-        intent = _read_intent(pending)
-    except Exception as error:
-        raise ReleaseManifestAuthorizationError(
-            "publication-recovery-invalid", "sealed Release publication evidence is unavailable or invalid"
-        ) from error
-    plan = _normalize_any_plan(intent["plan"], root)
-    result = event.get("result")
-    if (
-        event.get("action_id") != ACTION_ID
-        or event.get("event") != "completed"
-        or not isinstance(result, Mapping)
-        or result.get("path") != plan["manifest_ref"]
-        or result.get("sha256") is None
-        or pending.get("result_ref") != plan["manifest_ref"]
-        or pending.get("effect_refs") != [plan["manifest_ref"]]
-        or _event_id(root, intent, str(event.get("previous_result_event"))) != pending_event_id
-    ):
-        _reject("publication-recovery-invalid", "pending evidence is not the exact sealed Release successor")
-    sealed_result_sha = _sha256(result.get("sha256"), "pending.result.sha256")
-    payload = _read_regular(root, PurePosixPath(plan["manifest_ref"]), label="published selected manifest")
-    if hashlib.sha256(payload).hexdigest() != sealed_result_sha:
-        _reject("publication-recovery-ambiguous", "published manifest bytes differ from the sealed pending result")
-    try:
-        loaded = load_selected_manifest(root)
-    except (OSError, ValueError, SelectedRouteError) as error:
-        raise ReleaseManifestAuthorizationError(
-            "publication-recovery-ambiguous", "published manifest cannot be reopened as the admitted successor"
-        ) from error
-    if (
-        [row.get("route") for row in loaded.get("routes", [])] != [*SELECTED_ROUTE_NAMES, "release_version"]
-        or loaded.get("canonical_manifest_sha256") != plan["candidate_canonical_manifest_sha256"]
-    ):
-        _reject("publication-recovery-ambiguous", "published manifest is not the sealed Release successor")
-    try:
-        _, admission = derive_release_graph_admission(root)
-    except (OSError, ValueError, TypeError, ReleaseSourceAdmissionError) as error:
-        raise ReleaseManifestAuthorizationError(
-            "publication-source-stale", "Release source admission is not current"
-        ) from error
-    frontier = _source_frontier_digest(admission)
-    if (
-        intent["source_frontier_digest"] != frontier
-        or intent["authority_digest"] != AUTHORITY_PIN["digest"]
-    ):
-        _reject("publication-source-stale", "sealed pending intent has a stale Release source frontier")
-    return plan, payload, dict(event), admission
 
 
-def _pending_public_recovery_evidence(
-    root: Path, pending_event_id: object,
-) -> tuple[dict[str, Any], bytes, dict[str, Any], Mapping[str, Any]]:
-    """Open one D613 sealed intent without accepting caller history or bytes."""
-    if not isinstance(pending_event_id, str) or not pending_event_id:
-        _reject("publication-recovery-invalid", "pending event id must be a non-empty string")
-    try:
-        tools = Path(__file__).resolve().parents[1] / "201_TOOLS"
-        if str(tools) not in sys.path:
-            sys.path.insert(0, str(tools))
-        import work_journal
-        from release_manifest_lifecycle import ACTION_ID, _event_id, _read_intent
-
-        pending, event, _, _ = work_journal._read_pending_event(root, pending_event_id)
-        intent = _read_intent(pending)
-    except Exception as error:
-        raise ReleaseManifestAuthorizationError(
-            "publication-recovery-invalid", "sealed public publication evidence is unavailable or invalid"
-        ) from error
-    plan = _normalize_public_plan(intent["plan"], root)
-    result = event.get("result")
-    if (
-        event.get("action_id") != ACTION_ID
-        or event.get("event") != "completed"
-        or not isinstance(result, Mapping)
-        or result.get("path") != plan["manifest_ref"]
-        or result.get("sha256") is None
-        or pending.get("result_ref") != plan["manifest_ref"]
-        or pending.get("effect_refs") != [plan["manifest_ref"]]
-        or _event_id(root, intent, str(event.get("previous_result_event"))) != pending_event_id
-    ):
-        _reject("publication-recovery-invalid", "pending evidence is not the exact sealed public successor")
-    sealed_result_sha = _sha256(result.get("sha256"), "pending.result.sha256")
-    payload = _read_regular(root, PurePosixPath(plan["manifest_ref"]), label="published selected manifest")
-    if hashlib.sha256(payload).hexdigest() != sealed_result_sha:
-        _reject("publication-recovery-ambiguous", "published public manifest bytes differ from the sealed pending result")
-    try:
-        loaded = load_selected_manifest(root)
-    except (OSError, ValueError, SelectedRouteError) as error:
-        raise ReleaseManifestAuthorizationError(
-            "publication-recovery-ambiguous", "published public manifest cannot be reopened as the admitted successor"
-        ) from error
-    expected_names = [*SELECTED_ROUTE_NAMES, "release_version", "public.release"]
-    if (
-        [row.get("route") for row in loaded.get("routes", [])] != expected_names
-        or loaded.get("canonical_manifest_sha256") != plan["candidate_canonical_manifest_sha256"]
-    ):
-        _reject("publication-recovery-ambiguous", "published manifest is not the sealed public successor")
-    admission = _derive_current_public_admission(root)
-    frontier, authority_digest = _public_source_frontier_digest(admission)
-    if (
-        loaded.get("public_release_source_admissions") != [admission]
-        or intent["source_frontier_digest"] != frontier
-        or intent["authority_digest"] != authority_digest
-    ):
-        _reject("publication-source-stale", "sealed pending intent has a stale public Release source frontier")
-    return plan, payload, dict(event), admission
 
 
-def _validate_recovery_actor(
-    event: Mapping[str, Any], *, journal_author: str, session: tuple[str, str],
-) -> None:
-    if event.get("author") != journal_author or event.get("llm_session") != {"app": session[0], "uuid": session[1]}:
-        _reject("publication-recovery-invalid", "trusted recovery actor does not match sealed pending evidence")
 
 
-def authorize_operator_publication_recovery(
-    project_root: str | Path,
-    pending_event_id: str,
-    *,
-    operator_name: str,
-    journal_author: str,
-    llm_session: Mapping[str, str],
-    authorization_ref: str,
-) -> PublicationAuthorizationContext:
-    """Issue a finalization-only context from one existing sealed pending intent.
-
-    It accepts no historical Plan or candidate bytes from a caller.  The
-    physical selected-manifest carrier must already equal the pending exact
-    successor, so this context cannot authorize an initial publication or any
-    replacement.
-    """
-    root = _root(project_root)
-    plan, payload, event, admission = _pending_recovery_evidence(root, pending_event_id)
-    operator = _operator_row(root, operator_name)
-    author, session = _journal_context(operator, journal_author, llm_session)
-    _validate_recovery_actor(event, journal_author=author, session=session)
-    return _issue(
-        root, plan, candidate_payload=payload, source_frontier_digest=_source_frontier_digest(admission),
-        operator_name=operator_name, journal_author=author, llm_session=session,
-        authorization_ref=_safe_ref(authorization_ref, "authorization_ref"),
-        purpose="recovery", pending_event_id=pending_event_id,
-    )
 
 
-def authorize_operator_public_manifest_recovery(
-    project_root: str | Path,
-    pending_event_id: str,
-    *,
-    operator_name: str,
-    journal_author: str,
-    llm_session: Mapping[str, str],
-    authorization_ref: str,
-) -> PublicationAuthorizationContext:
-    """Issue finalization-only authority for one already-written D613 successor."""
-    root = _root(project_root)
-    plan, payload, event, admission = _pending_public_recovery_evidence(root, pending_event_id)
-    operator = _operator_row(root, operator_name)
-    author, session = _journal_context(operator, journal_author, llm_session)
-    _validate_recovery_actor(event, journal_author=author, session=session)
-    frontier, authority_digest = _public_source_frontier_digest(admission)
-    return _issue(
-        root, plan, candidate_payload=payload, source_frontier_digest=frontier,
-        operator_name=operator_name, journal_author=author, llm_session=session,
-        authorization_ref=_safe_ref(authorization_ref, "authorization_ref"),
-        purpose="public-recovery", pending_event_id=pending_event_id, authority_digest=authority_digest,
-    )
 
 
 def validate_publication_context(
@@ -820,13 +637,8 @@ def validate_publication_context(
         if ([row.get("route") for row in loaded.get("routes", [])] != [*SELECTED_ROUTE_NAMES, "release_version"]
                 or loaded.get("canonical_manifest_sha256") != supplied["candidate_canonical_manifest_sha256"]):
             _reject("publication-candidate-stale", "published manifest is not the issued Release successor")
-        if purpose == "recovery":
-            evidence_plan, evidence_payload, evidence_event, _ = _pending_recovery_evidence(root, pending_event_id)
-            if evidence_plan != supplied or evidence_payload != current_bytes:
-                _reject("publication-recovery-ambiguous", "sealed recovery evidence differs from the issued context")
-            _validate_recovery_actor(evidence_event, journal_author=journal_author, session=session)
-        elif purpose != "publication":
-            _reject("publication-context-forged", "publication context has an unsupported authority purpose")
+        if purpose != "publication":
+            _reject("publication-context-forged", "unsupported publication authority purpose")
     else:
         _reject("publication-context-invalid", "manifest_state must be input or candidate")
     return context
@@ -907,44 +719,13 @@ def validate_public_manifest_context(
                 or loaded.get("canonical_manifest_sha256") != supplied["candidate_canonical_manifest_sha256"]
                 or loaded.get("public_release_source_admissions") != [admission]):
             _reject("publication-candidate-stale", "published manifest is not the issued public successor")
-        if purpose == "public-recovery":
-            evidence_plan, evidence_payload, evidence_event, _ = _pending_public_recovery_evidence(root, pending_event_id)
-            if evidence_plan != supplied or evidence_payload != current_bytes:
-                _reject("publication-recovery-ambiguous", "sealed recovery evidence differs from the issued public context")
-            _validate_recovery_actor(evidence_event, journal_author=journal_author, session=session)
+        if purpose != "public":
+            _reject("publication-context-forged", "unsupported publication authority purpose")
     else:
         _reject("publication-context-invalid", "manifest_state must be input or candidate")
     return context
 
 
-def validate_public_manifest_recovery_context(
-    context: PublicationAuthorizationContext,
-    project_root: str | Path,
-    pending_event_id: str,
-) -> PublicationAuthorizationContext:
-    """Admit only the finalization capability issued for this sealed event."""
-    root = _root(project_root)
-    if not isinstance(pending_event_id, str) or not pending_event_id:
-        _reject("publication-recovery-invalid", "pending event id must be a non-empty string")
-    snapshot = _snapshot(context)
-    (
-        stored_root, stored_plan_items, payload_sha, frontier_sha, operator_name, journal_author,
-        session, _, purpose, stored_pending_event_id, authority_digest,
-    ) = snapshot
-    if root.as_posix() != stored_root:
-        _reject("publication-context-stale", "public recovery context belongs to another Project root")
-    if purpose != "public-recovery" or stored_pending_event_id != pending_event_id:
-        _reject("publication-recovery-finalization-only", "public recovery requires its exact finalization-only context")
-    plan, payload, event, admission = _pending_public_recovery_evidence(root, pending_event_id)
-    if plan != dict(stored_plan_items) or hashlib.sha256(payload).hexdigest() != payload_sha:
-        _reject("publication-recovery-ambiguous", "sealed public recovery evidence differs from the issued context")
-    frontier, current_authority_digest = _public_source_frontier_digest(admission)
-    if frontier_sha != frontier or authority_digest != current_authority_digest:
-        _reject("publication-source-stale", "public recovery source frontier differs from the issued context")
-    operator = _operator_row(root, operator_name)
-    _journal_context(operator, journal_author, {"app": session[0], "uuid": session[1]})
-    _validate_recovery_actor(event, journal_author=journal_author, session=session)
-    return context
 
 
 def validate_refresh_context(
@@ -1018,13 +799,8 @@ def validate_refresh_context(
                 or hashlib.sha256(expected_payload).hexdigest() != payload_sha
                 or expected_payload != current_bytes):
             _reject("publication-candidate-stale", "published manifest differs from the issued refresh candidate")
-        if purpose == "recovery":
-            evidence_plan, evidence_payload, evidence_event, _ = _pending_recovery_evidence(root, pending_event_id)
-            if evidence_plan != supplied or evidence_payload != current_bytes:
-                _reject("publication-recovery-ambiguous", "sealed recovery evidence differs from the refresh context")
-            _validate_recovery_actor(evidence_event, journal_author=journal_author, session=session)
-        elif purpose != "refresh":
-            _reject("publication-context-forged", "refresh context has an unsupported authority purpose")
+        if purpose != "refresh":
+            _reject("publication-context-forged", "unsupported publication authority purpose")
     else:
         _reject("publication-context-invalid", "manifest_state must be input or candidate")
     return context
@@ -1086,14 +862,11 @@ __all__ = [
     "ReleaseManifestAuthorizationError",
     "authorize_operator_publication",
     "authorize_operator_public_manifest_publication",
-    "authorize_operator_public_manifest_recovery",
     "authorize_operator_refresh",
-    "authorize_operator_publication_recovery",
     "validate_candidate_payload",
     "validate_public_manifest_candidate_payload",
     "validate_refresh_candidate_payload",
     "validate_publication_context",
     "validate_public_manifest_context",
-    "validate_public_manifest_recovery_context",
     "validate_refresh_context",
 ]

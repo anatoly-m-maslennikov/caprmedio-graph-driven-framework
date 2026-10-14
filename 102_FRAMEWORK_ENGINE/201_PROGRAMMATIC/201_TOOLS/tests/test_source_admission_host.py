@@ -232,22 +232,46 @@ class SourceAdmissionHostTests(unittest.TestCase):
         self.assertEqual("source-admission-host-command-rejected", refusal.exception.code)
         self._assert_no_publication()
 
-    def test_changed_retained_start_evidence_after_binder_refuses_without_publication(self) -> None:
+    def test_changed_actual_start_context_after_binder_refuses_without_publication(self) -> None:
         session, action_run_id = self._session()
 
         def binder(_request, _provenance):
-            changed = dict(session._started_receipts["action"])
-            changed["event_id"] = "event-forged-after-binding"
-            session._started_receipts["action"] = changed
+            session.start_event_ids["action"] = "event-forged-after-binding"
             return self.operator, "commands/o199/fixture"
 
         admitter = make_source_admission_invocation_admitter(
-            self.root, selected_context=self._context(session, action_run_id),
-            operators_registry_ref=self.registry_ref, command_binder=binder,
+            self.root,
+            selected_context=self._context(session, action_run_id),
+            operators_registry_ref=self.registry_ref,
+            command_binder=binder,
         )
         with self.assertRaises(SourceAdmissionHostError) as refused:
             admitter(self._request())
-        self.assertEqual("source-admission-host-start-invalid", refused.exception.code)
+        self.assertEqual("source-admission-host-start-stale", refused.exception.code)
+        self._assert_no_publication()
+
+    def test_host_command_binding_does_not_require_a_persisted_start_log(self) -> None:
+        session, action_run_id = self._session()
+        session.start_event_ids.clear()
+        provenance = session.read_recorded_action_start(action_run_id)
+        self.assertIsNone(provenance.event_id)
+
+        def binder(_request, actual):
+            self.assertEqual(provenance, actual)
+            for carrier in self.root.rglob("*.ndjson"):
+                carrier.unlink()
+            return self.operator, "commands/o199/fixture"
+
+        admitter = make_source_admission_invocation_admitter(
+            self.root,
+            selected_context=self._context(session, action_run_id),
+            operators_registry_ref=self.registry_ref,
+            command_binder=binder,
+        )
+        invocation = admitter(self._request())
+        self.assertEqual(action_run_id, invocation.action_run_id)
+        self.assertEqual(provenance, session.read_recorded_action_start(action_run_id))
+        self.assertEqual([], list(self.root.rglob("*.ndjson")))
         self._assert_no_publication()
 
     def test_actual_run_binding_mutation_after_binder_refuses_without_publication(self) -> None:

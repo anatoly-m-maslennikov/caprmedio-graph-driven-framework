@@ -156,17 +156,17 @@ class ActualRunRecordingContext:
     workflow_run_id: str
     step_run_id: str
     action_run_id: str
-    start_event_receipt: Mapping[str, object]
+    action_run: Mapping[str, object]
     execution_authorization_bytes: bytes | None = None
     _factory_token: object = None
 
-    def __init__(self, workflow_run_id, step_run_id, action_run_id, start_event_receipt,
+    def __init__(self, workflow_run_id, step_run_id, action_run_id, action_run,
                  *, execution_authorization_bytes=None, _token=None):
         if _token is not _RECORDING_FACTORY_TOKEN:
             raise EntityGraphError("recording-context-untrusted", "Actual context must come from the executor-bound factory")
         for key, value in (
             ("workflow_run_id", workflow_run_id), ("step_run_id", step_run_id),
-            ("action_run_id", action_run_id), ("start_event_receipt", start_event_receipt),
+            ("action_run_id", action_run_id), ("action_run", action_run),
             ("execution_authorization_bytes", execution_authorization_bytes), ("_factory_token", _token),
         ):
             object.__setattr__(self, key, value)
@@ -186,7 +186,7 @@ def actual_run_recording_context(
     workflow_run_id: str,
     step_run_id: str,
     action_run_id: str,
-    start_event_receipt: Mapping[str, object],
+    action_run: Mapping[str, object],
     *,
     execution_authorization: Mapping[str, object] | None = None,
 ) -> ActualRunRecordingContext:
@@ -198,25 +198,11 @@ def actual_run_recording_context(
 
     if not all(isinstance(value, str) and value for value in (workflow_run_id, step_run_id, action_run_id)):
         raise EntityGraphError("recording-context-invalid", "Actual Run recording context is incomplete")
-    if not isinstance(start_event_receipt, Mapping):
-        raise EntityGraphError("recording-context-invalid", "Actual Action start receipt is unavailable")
-    required = {
-        "event_id", "action_id", "event_digest", "carrier", "line",
-        "previous_carrier_digest", "appended_carrier_digest",
-    }
-    if set(start_event_receipt) != required:
-        raise EntityGraphError("recording-context-invalid", "Actual Action start receipt is invalid")
-    if (
-        not isinstance(start_event_receipt["event_id"], str)
-        or not isinstance(start_event_receipt["action_id"], str)
-        or not isinstance(start_event_receipt["carrier"], str)
-        or type(start_event_receipt["line"]) is not int
-        or start_event_receipt["line"] < 1
-        or any(not isinstance(start_event_receipt[key], str) for key in (
-            "event_digest", "previous_carrier_digest", "appended_carrier_digest",
-        ))
-    ):
-        raise EntityGraphError("recording-context-invalid", "Actual Action start receipt is invalid")
+    if (not isinstance(action_run, Mapping) or action_run.get("run_id") != action_run_id
+            or action_run.get("kind") != "action" or action_run.get("parent_run_id") != step_run_id
+            or not isinstance(action_run.get("definition"), Mapping)
+            or not isinstance(action_run["definition"].get("atom_id"), str)):
+        raise EntityGraphError("recording-context-invalid", "Actual Action Run is invalid")
     authorization_bytes = None
     if execution_authorization is not None:
         required_authorization = {
@@ -245,7 +231,8 @@ def actual_run_recording_context(
         workflow_run_id=workflow_run_id,
         step_run_id=step_run_id,
         action_run_id=action_run_id,
-        start_event_receipt=MappingProxyType(dict(start_event_receipt)),
+        action_run=MappingProxyType({**dict(action_run),
+                                   "definition": MappingProxyType(dict(action_run["definition"]))}),
         execution_authorization_bytes=authorization_bytes,
         _token=_RECORDING_FACTORY_TOKEN,
     )

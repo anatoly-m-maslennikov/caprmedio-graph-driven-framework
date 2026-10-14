@@ -291,6 +291,47 @@ class DirectActionSessionTests(unittest.TestCase):
         self.addCleanup(session.close)
         return session
 
+    def test_log_failure_is_diagnostic_not_source_effect_permission(self) -> None:
+        with patch.object(work_journal, "append_sealed_events", side_effect=OSError("log unavailable")):
+            started = self.session.begin_action(action_id=INITIALIZATION_ACTION_ID,
+                                                requested_run_id="log-failure", intent=INTENT)
+            provenance = self.session.read_recorded_action_start(started["run_id"])
+            self.assertEqual(started["run_id"], provenance.action_run_id)
+            self.session.record_effects(started["run_id"], result_ref="actual/result.json", effect_refs=[])
+            terminal = self.session.finish_action(started["run_id"], outcome="completed",
+                                                  result_ref="actual/result.json", effect_refs=[])
+        self.assertEqual("terminal", terminal["disposition"])
+        self.assertEqual("completed", terminal["outcome"])
+        self.assertEqual(["log unavailable", "log unavailable"], terminal["recording_errors"])
+        self.assertNotIn("event_receipt", terminal)
+        self.assertEqual([], self._events())
+
+    def test_terminal_only_retained_observation_prevents_source_effect_replay(self) -> None:
+        append = work_journal.append_sealed_events
+        calls = 0
+
+        def fail_start_only(*args, **kwargs):
+            nonlocal calls
+            calls += 1
+            if calls == 1:
+                raise OSError("start log unavailable")
+            return append(*args, **kwargs)
+
+        with patch.object(work_journal, "append_sealed_events", side_effect=fail_start_only):
+            started = self.session.begin_action(action_id=INITIALIZATION_ACTION_ID,
+                                                requested_run_id="terminal-only", intent=INTENT)
+            self.session.record_effects(started["run_id"], result_ref="actual/result.json", effect_refs=[])
+            self.session.finish_action(started["run_id"], outcome="completed",
+                                       result_ref="actual/result.json", effect_refs=[])
+        self.assertEqual(["completed"], [row["event"] for row in self._events()])
+        with DirectActionSession(self.root, author="anatoly-m-maslennikov",
+                                 operator_authorization=AUTHORIZATION) as restarted:
+            with self.assertRaises(DirectActionJournalError) as refused:
+                restarted.begin_action(action_id=INITIALIZATION_ACTION_ID,
+                                       requested_run_id="terminal-only", intent=INTENT)
+        self.assertEqual("direct-action-already-terminal", refused.exception.code)
+        self.assertEqual(["completed"], [row["event"] for row in self._events()])
+
     def test_restoration_records_exact_o187_start_and_observed_terminal(self) -> None:
         session = self._restoration_session()
         started = session.begin_action(action_id=RESTORATION_ACTION_ID,
@@ -386,31 +427,6 @@ class DirectActionSessionTests(unittest.TestCase):
         self.assertEqual("direct-action-intent-conflict", conflict.exception.code)
         self.assertEqual(["started"], [event["event"] for event in self._events()])
 
-    def test_restoration_pending_recording_is_exact_and_recovers_after_source_change(self) -> None:
-        session = self._restoration_session()
-        started = session.begin_action(action_id=RESTORATION_ACTION_ID,
-                                       requested_run_id="restore-pending", intent=RESTORATION_INTENT)
-        result_ref = "tmp/restoration/result.json"
-        effects = [".caprmedio_runtime/framework/current.toml"]
-        session.record_effects(started["run_id"], result_ref=result_ref, effect_refs=effects)
-        with patch.object(work_journal, "append_sealed_events", side_effect=OSError("fixture append denied")):
-            with self.assertRaises(DirectActionJournalError) as pending:
-                session.finish_action(started["run_id"], outcome="completed",
-                                      result_ref=result_ref, effect_refs=effects)
-        self.assertEqual("direct-action-recording-pending", pending.exception.code)
-        pending_id = next(iter(session.pending))
-        with self.assertRaises(DirectActionJournalError):
-            self.session.recover_pending(pending_id)
-        (self.root / RESTORATION_ATOM_RELATIVE).write_bytes(b"O187 changed after observation")
-        fresh = self._restoration_session()
-        with self.assertRaises(DirectActionJournalError) as stale:
-            fresh.begin_action(action_id=RESTORATION_ACTION_ID,
-                               requested_run_id="restore-new", intent=RESTORATION_INTENT)
-        self.assertEqual("direct-action-source-stale", stale.exception.code)
-        receipt = fresh.recover_pending(pending_id)
-        self.assertEqual(pending_id, receipt["event_id"])
-        self.assertEqual(["started", "completed"], [event["event"] for event in self._events()])
-
     def test_restoration_boundary_is_distinct_from_initialization_and_exclusive(self) -> None:
         held: set[str] = set()
         with patch.object(work_journal, "_event_lock",
@@ -428,214 +444,6 @@ class DirectActionSessionTests(unittest.TestCase):
             session.close()
             self.session.close()
             self.assertEqual(set(), held)
-
-    def test_restoration_recording_reopens_original_start_without_append_and_finishes_once(self) -> None:
-        original = self._restoration_session()
-        started = original.begin_action(action_id=RESTORATION_ACTION_ID,
-                                        requested_run_id="restore-recording", intent=RESTORATION_INTENT)
-        original.close()
-        resumed = self._restoration_session()
-        with patch.object(resumed, "begin_action", side_effect=AssertionError("recording cannot start an Action")), \
-                patch.object(work_journal, "append_sealed_events") as append:
-            reopened = resumed.reopen_restoration_for_recording("restore-recording", RESTORATION_INTENT)
-        append.assert_not_called()
-        self.assertEqual("recording_only", reopened["disposition"])
-        self.assertEqual(started["run_id"], reopened["run_id"])
-        self.assertEqual(started["event_receipt"], reopened["event_receipt"])
-        self.assertEqual(original.actual[started["run_id"]], resumed.actual[started["run_id"]])
-        self.assertEqual(["started"], [event["event"] for event in self._events()])
-        result_ref = "tmp/restoration/result.json"
-        effects = [".caprmedio_runtime/framework/current.toml", "tmp/restoration/proof.json"]
-        resumed.record_effects(started["run_id"], result_ref=result_ref, effect_refs=effects)
-        terminal = resumed.finish_action(started["run_id"], outcome="completed",
-                                          result_ref=result_ref, effect_refs=effects)
-        self.assertEqual("terminal", terminal["disposition"])
-        with self.assertRaises(DirectActionJournalError):
-            resumed.finish_action(started["run_id"], outcome="completed",
-                                  result_ref=result_ref, effect_refs=effects)
-        inspector = self._restoration_session()
-        with self.assertRaises(DirectActionJournalError) as terminal_exists:
-            inspector.reopen_restoration_for_recording("restore-recording", RESTORATION_INTENT)
-        self.assertEqual("direct-action-already-terminal", terminal_exists.exception.code)
-        self.assertEqual(["started", "completed"], [event["event"] for event in self._events()])
-
-    def test_restoration_recording_uses_distinct_command_as_terminal_report_only(self) -> None:
-        original = self._restoration_session()
-        started = original.begin_action(
-            action_id=RESTORATION_ACTION_ID,
-            requested_run_id="restore-recording-command",
-            intent=RESTORATION_INTENT,
-        )
-        original.close()
-        result_ref = "tmp/restoration/result.json"
-        recording_ref = self._recording_command(result_ref, command_id="record-terminal-positive")
-        resumed = self._restoration_session(
-            authorization=dict(AUTHORIZATION, authorization_ref=recording_ref),
-        )
-        result_path = self._write(result_ref, b"{}")
-        retained = (
-            self.root / "tmp/restoration/intent",
-            result_path.parent,
-            RESTORATION_INTENT,
-            {"requested_run_id": "restore-recording-command", "run_id": started["run_id"]},
-            [result_ref],
-        )
-        with patch.object(image_restoration, "_retained_result_for_terminal", return_value=retained):
-            recovered = image_restoration.recover_framework_image_terminal(
-                self.root,
-                journal=resumed,
-                result_ref=result_ref,
-                image_executor=DockerSubprocessExecutor(),
-                recording_authorization_ref=recording_ref,
-            )
-        self.assertEqual("restored", recovered["state"], recovered)
-        event = next(item for item in self._events() if item["event_id"] == recovered["terminal"]["event_id"])
-        self.assertEqual(AUTHORIZATION["authorization_ref"], event["input_ref"])
-        self.assertEqual(AUTHORIZATION["authorization_ref"], event["initiative"]["initiative_ref"])
-        self.assertEqual(recording_ref, event["report_ref"])
-
-    def test_restoration_recording_refuses_unowned_recording_command(self) -> None:
-        original = self._restoration_session()
-        original.begin_action(
-            action_id=RESTORATION_ACTION_ID,
-            requested_run_id="restore-recording-command-refused",
-            intent=RESTORATION_INTENT,
-        )
-        original.close()
-        result_ref = "tmp/restoration/refused-result.json"
-        recording_ref = self._recording_command(result_ref, command_id="record-terminal-owned")
-        other_ref = self._recording_command(result_ref, command_id="record-terminal-other")
-        resumed = self._restoration_session(
-            authorization=dict(AUTHORIZATION, authorization_ref=recording_ref),
-        )
-        result_path = self._write(result_ref, b"{}")
-        started = next(iter(original.actual))
-        retained = (
-            self.root / "tmp/restoration/refused-intent",
-            result_path.parent,
-            RESTORATION_INTENT,
-            {"requested_run_id": "restore-recording-command-refused", "run_id": started},
-            [result_ref],
-        )
-        with patch.object(image_restoration, "_retained_result_for_terminal", return_value=retained):
-            refused = image_restoration.recover_framework_image_terminal(
-                self.root,
-                journal=resumed,
-                result_ref=result_ref,
-                image_executor=DockerSubprocessExecutor(),
-                recording_authorization_ref=other_ref,
-            )
-        self.assertEqual("recovery_required", refused["state"], refused)
-        self.assertEqual("framework-image-restoration-recording-authorization-invalid", refused["reason"])
-
-    def test_restoration_recording_refuses_wrong_run_intent_authorization_and_current_source(self) -> None:
-        original = self._restoration_session()
-        original.begin_action(action_id=RESTORATION_ACTION_ID,
-                              requested_run_id="restore-recording-identity", intent=RESTORATION_INTENT)
-        original.close()
-        for requested, intent, authorization, expected in (
-            ("not-the-original-run", RESTORATION_INTENT, AUTHORIZATION, "direct-action-recording-unavailable"),
-            ("restore-recording-identity", dict(RESTORATION_INTENT, retained_context_sha256="0" * 64),
-             AUTHORIZATION, "direct-action-intent-conflict"),
-            ("restore-recording-identity", RESTORATION_INTENT,
-             dict(AUTHORIZATION, authorization_ref="tmp/operator-authorizations/different.md"),
-             "direct-action-recording-authorization-required"),
-        ):
-            with self.subTest(expected=expected, requested=requested):
-                resumed = DirectActionSession(self.root, author="anatoly-m-maslennikov", operator_authorization=authorization,
-                                               action_id=RESTORATION_ACTION_ID)
-                with resumed, patch.object(work_journal, "append_sealed_events") as append:
-                    with self.assertRaises(DirectActionJournalError) as refused:
-                        resumed.reopen_restoration_for_recording(requested, intent)
-                self.assertEqual(expected, refused.exception.code)
-                self.assertEqual({}, resumed.actual)
-                append.assert_not_called()
-        source = self.root / RESTORATION_ATOM_RELATIVE
-        source.write_bytes(b"changed O187 source cannot authorize recording reopen")
-        resumed = self._restoration_session()
-        with self.assertRaises(DirectActionJournalError) as stale:
-            resumed.reopen_restoration_for_recording("restore-recording-identity", RESTORATION_INTENT)
-        self.assertEqual("direct-action-source-stale", stale.exception.code)
-        self.assertEqual(["started"], [event["event"] for event in self._events()])
-
-    def test_restoration_recording_refuses_unresolved_pending_start_or_terminal(self) -> None:
-        for phase in ("start", "terminal"):
-            with self.subTest(phase=phase):
-                requested = "restore-recording-pending-" + phase
-                original = self._restoration_session()
-                result_ref = "tmp/restoration/result.json"
-                effects = [".caprmedio_runtime/framework/current.toml"]
-                if phase == "start":
-                    with patch.object(work_journal, "append_sealed_events", side_effect=OSError("fixture append denied")):
-                        with self.assertRaises(DirectActionJournalError):
-                            original.begin_action(action_id=RESTORATION_ACTION_ID,
-                                                  requested_run_id=requested, intent=RESTORATION_INTENT)
-                else:
-                    started = original.begin_action(action_id=RESTORATION_ACTION_ID,
-                                                    requested_run_id=requested, intent=RESTORATION_INTENT)
-                    original.record_effects(started["run_id"], result_ref=result_ref, effect_refs=effects)
-                    with patch.object(work_journal, "append_sealed_events", side_effect=OSError("fixture append denied")):
-                        with self.assertRaises(DirectActionJournalError):
-                            original.finish_action(started["run_id"], outcome="completed",
-                                                   result_ref=result_ref, effect_refs=effects)
-                original.close()
-                pending_id = next(iter(original.pending))
-                pending_before = work_journal._pending_path(self.root, pending_id).read_bytes()
-                resumed = self._restoration_session()
-                with patch.object(work_journal, "append_sealed_events") as append:
-                    with self.assertRaises(DirectActionJournalError) as pending:
-                        resumed.reopen_restoration_for_recording(requested, RESTORATION_INTENT)
-                self.assertEqual("direct-action-recording-pending", pending.exception.code)
-                self.assertEqual({}, resumed.actual)
-                self.assertEqual(pending_before, work_journal._pending_path(self.root, pending_id).read_bytes())
-                append.assert_not_called()
-
-    def test_restoration_recording_is_exclusive_revalidates_authorization_and_cannot_widen_o180(self) -> None:
-        with self.assertRaises(DirectActionJournalError) as unadmitted:
-            self.session.reopen_restoration_for_recording("bootstrap-recording", INTENT)
-        self.assertEqual("direct-action-unadmitted", unadmitted.exception.code)
-        held: set[str] = set()
-        with patch.object(work_journal, "_event_lock",
-                          side_effect=lambda root, key: _ExclusiveFixtureLock(held, key)):
-            original = self._restoration_session()
-            original.begin_action(action_id=RESTORATION_ACTION_ID,
-                                  requested_run_id="restore-recording-lock", intent=RESTORATION_INTENT)
-            competing = self._restoration_session()
-            with self.assertRaises(DirectActionJournalError) as busy:
-                competing.reopen_restoration_for_recording("restore-recording-lock", RESTORATION_INTENT)
-            self.assertEqual("direct-action-lock-unavailable", busy.exception.code)
-            original.close()
-            resumed = self._restoration_session()
-            resumed.reopen_restoration_for_recording("restore-recording-lock", RESTORATION_INTENT)
-            self.assertEqual(2, len(held))
-            with self.assertRaises(DirectActionJournalError):
-                competing.reopen_restoration_for_recording("restore-recording-lock", RESTORATION_INTENT)
-            resumed.close()
-            self.assertEqual(set(), held)
-        authorization_changed = self._restoration_session()
-        self._write(".caprmedio_caprmedio/operators_registry.toml", b"operators = []\n")
-        with self.assertRaises(DirectActionJournalError) as authorization:
-            authorization_changed.reopen_restoration_for_recording("restore-recording-lock", RESTORATION_INTENT)
-        self.assertEqual("direct-action-authorization-required", authorization.exception.code)
-        self.assertEqual(["started"], [event["event"] for event in self._events()])
-
-    def test_restoration_recording_refuses_malformed_original_pending_without_replacing_it(self) -> None:
-        original = self._restoration_session()
-        started = original.begin_action(action_id=RESTORATION_ACTION_ID,
-                                        requested_run_id="restore-recording-malformed", intent=RESTORATION_INTENT)
-        original.close()
-        pending = work_journal._pending_path(self.root, started["run_id"] + ":terminal:unknown")
-        pending.parent.mkdir(parents=True, exist_ok=True)
-        pending.write_bytes(b"{}")
-        resumed = self._restoration_session()
-        with patch.object(work_journal, "append_sealed_events") as append:
-            with self.assertRaises(DirectActionJournalError) as invalid:
-                resumed.reopen_restoration_for_recording("restore-recording-malformed", RESTORATION_INTENT)
-        self.assertEqual("direct-action-pending-invalid", invalid.exception.code)
-        self.assertEqual(b"{}", pending.read_bytes())
-        self.assertEqual({}, resumed.actual)
-        self.assertEqual(["started"], [event["event"] for event in self._events()])
-        append.assert_not_called()
 
     def test_starts_one_deterministic_direct_action_and_reopens_before_effects(self) -> None:
         started = self.session.begin_action(
@@ -667,7 +475,7 @@ class DirectActionSessionTests(unittest.TestCase):
         self.assertEqual(repeated.exception.code, "direct-action-invocation-active")
         self.assertEqual(len(self._events()), 1)
 
-    def test_finishes_only_after_observed_effects_with_one_terminal_receipt(self) -> None:
+    def test_finishes_only_after_actual_observed_effects(self) -> None:
         started = self.session.begin_action(
             action_id=INITIALIZATION_ACTION_ID,
             requested_run_id="bootstrap-002",
@@ -730,68 +538,6 @@ class DirectActionSessionTests(unittest.TestCase):
         self.assertEqual(raised.exception.code, "direct-action-recovery-required")
         self.assertEqual([event["event"] for event in self._events()], ["started"])
 
-    def test_recovers_only_the_original_pending_started_event(self) -> None:
-        with patch.object(work_journal, "append_sealed_events", side_effect=OSError("fixture append denied")):
-            with self.assertRaises(DirectActionJournalError) as raised:
-                self.session.begin_action(
-                    action_id=INITIALIZATION_ACTION_ID,
-                    requested_run_id="bootstrap-005",
-                    intent=INTENT,
-                )
-        self.assertEqual(raised.exception.code, "direct-action-recording-pending")
-        event_id = next(iter(self.session.pending))
-        self.assertEqual(self._events(), [])
-
-        recovered = self.session.recover_pending(event_id)
-        self.assertEqual(recovered["disposition"], "recovered")
-        self.assertEqual([event["event_id"] for event in self._events()], [event_id])
-        with self.assertRaises(DirectActionJournalError):
-            self.session.recover_pending("event-not-a-direct-action")
-
-    def test_recovers_sealed_pending_completion_after_o180_source_changes(self) -> None:
-        started = self.session.begin_action(
-            action_id=INITIALIZATION_ACTION_ID,
-            requested_run_id="bootstrap-005-terminal",
-            intent=INTENT,
-        )
-        result_ref = "tmp/bootstrap/result.json"
-        effects = [".caprmedio_runtime/framework/current.toml"]
-        self.session.record_effects(started["run_id"], result_ref=result_ref, effect_refs=effects)
-        with patch.object(work_journal, "append_sealed_events", side_effect=OSError("fixture append denied")):
-            with self.assertRaises(DirectActionJournalError) as raised:
-                self.session.finish_action(
-                    started["run_id"], outcome="completed", result_ref=result_ref, effect_refs=effects
-                )
-        self.assertEqual(raised.exception.code, "direct-action-recording-pending")
-        self.assertEqual(self.session._observed[started["run_id"]], {"result_ref": result_ref, "effect_refs": effects})
-        pending_id = next(iter(self.session.pending))
-        # A later call cannot append a new terminal event.  The immutable
-        # pending one is the sole permitted recovery path.
-        with self.assertRaises(DirectActionJournalError) as repeat:
-            self.session.finish_action(
-                started["run_id"], outcome="completed", result_ref=result_ref, effect_refs=effects
-            )
-        self.assertEqual(repeat.exception.code, "direct-action-invocation-closed")
-        # The original event is already sealed into pending evidence.  A later
-        # O-180 edit cannot authorize a new Action, but it must not prevent
-        # appending this exact completed Journal fact.
-        (self.root / ACTION_ATOM_RELATIVE).write_text("O-180 changed after the pending completion", encoding="utf-8")
-        inspector = DirectActionSession(
-            self.root,
-            author="anatoly-m-maslennikov",
-            operator_authorization=AUTHORIZATION,
-            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
-        )
-        with self.assertRaises(DirectActionJournalError) as new_execution:
-            inspector.begin_action(
-                action_id=INITIALIZATION_ACTION_ID,
-                requested_run_id="bootstrap-005-terminal-new",
-                intent=INTENT,
-            )
-        self.assertEqual(new_execution.exception.code, "direct-action-source-stale")
-        self.session.recover_pending(pending_id)
-        self.assertEqual([event["event"] for event in self._events()], ["started", "completed"])
-
     def test_exact_source_pin_and_explicit_operator_authorization_are_required(self) -> None:
         source = self.root / ACTION_ATOM_RELATIVE
         source.write_text("changed", encoding="utf-8")
@@ -845,7 +591,7 @@ class DirectActionSessionTests(unittest.TestCase):
         self.assertEqual(raised.exception.code, "direct-action-intent-conflict")
         self.assertEqual([event["event"] for event in self._events()], ["started"])
 
-    def test_reopen_refuses_a_duplicate_event_id_across_journal_parts(self) -> None:
+    def test_duplicate_log_rows_do_not_permit_source_invocation_replay(self) -> None:
         self.session.begin_action(
             action_id=INITIALIZATION_ACTION_ID,
             requested_run_id="bootstrap-duplicate-across-parts",
@@ -867,120 +613,7 @@ class DirectActionSessionTests(unittest.TestCase):
                 requested_run_id="bootstrap-duplicate-across-parts",
                 intent=INTENT,
             )
-        self.assertEqual("direct-action-journal-unavailable", refused.exception.code)
-
-    def test_reopen_refuses_a_symlinked_journal_member(self) -> None:
-        self.session.begin_action(
-            action_id=INITIALIZATION_ACTION_ID,
-            requested_run_id="bootstrap-symlink-member",
-            intent=INTENT,
-        )
-        self.session.close()
-        journal = self.root / ".caprmedio_caprmedio/_journal"
-        original = next(journal.glob("*.ndjson"))
-        (journal / "unsafe-member.ndjson").symlink_to(original)
-        resumed = DirectActionSession(
-            self.root,
-            author="anatoly-m-maslennikov",
-            operator_authorization=AUTHORIZATION,
-            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
-        )
-        with self.assertRaises(DirectActionJournalError) as refused:
-            resumed.begin_action(
-                action_id=INITIALIZATION_ACTION_ID,
-                requested_run_id="bootstrap-symlink-member",
-                intent=INTENT,
-            )
-        self.assertEqual("direct-action-journal-unavailable", refused.exception.code)
-
-    def test_reopen_refuses_configured_bounded_member_limit(self) -> None:
-        self.session.begin_action(
-            action_id=INITIALIZATION_ACTION_ID,
-            requested_run_id="bootstrap-member-limit",
-            intent=INTENT,
-        )
-        self.session.close()
-        self._write(
-            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
-            "caprmedio_framework_default_settings.toml",
-            QUERY_DEFAULTS.replace(b"max_snapshot_members = 8", b"max_snapshot_members = 1"),
-        )
-        (self.root / ".caprmedio_caprmedio/_journal/unrelated.ndjson").write_text(
-            '{"event_id":"unrelated"}\n', encoding="utf-8"
-        )
-        resumed = DirectActionSession(
-            self.root,
-            author="anatoly-m-maslennikov",
-            operator_authorization=AUTHORIZATION,
-            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
-        )
-        with self.assertRaises(DirectActionJournalError) as refused:
-            resumed.begin_action(
-                action_id=INITIALIZATION_ACTION_ID,
-                requested_run_id="bootstrap-member-limit",
-                intent=INTENT,
-            )
-        self.assertEqual("direct-action-journal-unavailable", refused.exception.code)
-
-    def test_reopen_refuses_incomplete_bounded_coverage(self) -> None:
-        self.session.begin_action(
-            action_id=INITIALIZATION_ACTION_ID,
-            requested_run_id="bootstrap-incomplete-coverage",
-            intent=INTENT,
-        )
-        self.session.close()
-        resumed = DirectActionSession(
-            self.root,
-            author="anatoly-m-maslennikov",
-            operator_authorization=AUTHORIZATION,
-            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
-        )
-        with patch.object(
-            direct_action,
-            "query",
-            return_value={"status": "incomplete", "coverage": {"complete": False}, "results": []},
-        ):
-            with self.assertRaises(DirectActionJournalError) as refused:
-                resumed.begin_action(
-                    action_id=INITIALIZATION_ACTION_ID,
-                    requested_run_id="bootstrap-incomplete-coverage",
-                    intent=INTENT,
-                )
-        self.assertEqual("direct-action-journal-incomplete", refused.exception.code)
-
-    def test_reopen_refuses_a_sidecar_without_exact_bounded_carrier_provenance(self) -> None:
-        started = self.session.begin_action(
-            action_id=INITIALIZATION_ACTION_ID,
-            requested_run_id="bootstrap-tampered-sidecar",
-            intent=INTENT,
-        )
-        self.session.close()
-        receipt_path = self.root / ".caprmedio_runtime/state/work_journal/receipts" / f"{started['event_id']}.json"
-        original = receipt_path.read_bytes()
-        for field, value in (
-            ("line", 2),
-            ("carrier", ".caprmedio_caprmedio/_journal/other.ndjson"),
-            ("previous_carrier_digest", "0" * 64),
-        ):
-            with self.subTest(field=field):
-                receipt = json.loads(original)
-                receipt[field] = value
-                receipt_path.write_text(json.dumps(receipt, sort_keys=True), encoding="utf-8")
-                resumed = DirectActionSession(
-                    self.root,
-                    author="anatoly-m-maslennikov",
-                    operator_authorization=AUTHORIZATION,
-                    now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
-                )
-                with self.assertRaises(DirectActionJournalError) as refused:
-                    resumed.begin_action(
-                        action_id=INITIALIZATION_ACTION_ID,
-                        requested_run_id="bootstrap-tampered-sidecar",
-                        intent=INTENT,
-                    )
-                self.assertEqual("direct-action-journal-invalid", refused.exception.code)
-        receipt_path.write_bytes(original)
+        self.assertEqual("direct-action-recovery-required", refused.exception.code)
 
     def test_another_session_cannot_start_same_or_distinct_run_while_first_install_is_owned(self) -> None:
         held: set[str] = set()

@@ -20,7 +20,7 @@ from typing import Literal
 
 from release_contract import PROJECT_SKILL_TARGET, REQUIRED_ENGINE_SOURCE_PREFIXES, VERSION_TOML_RELATIVE, ReleaseContractError, ValidatedCandidate, canonical_json
 from release_handoff import (
-    CANONICAL_SOURCE_RELATIVE, CURRENT_SELECTOR_RELATIVE, PackageRow, SealedCandidateCompilation,
+    CURRENT_SELECTOR_RELATIVE, PackageRow, SealedCandidateCompilation,
     _file, build_validated_candidate, tree_sha256,
 )
 from release_image import (
@@ -29,7 +29,7 @@ from release_image import (
 )
 from release_e2e_gate import CandidateE2EGateEvidence
 from release_full_gate import FullGateEvidence, verify_bound_full_gate_evidence
-from release_inventory import persistent_regular_files, refuse_secret_path
+from release_inventory import persistent_regular_files
 from selector_publication_lock import selector_publication_lock
 from release_packaging import RUNTIME_ROOT, _read_row, _render_manifest, _verify_release
 from release_suite import (
@@ -96,15 +96,13 @@ def bind_selected_native_n_from_checkpoint(project_root):
             if (command.package_manifest_sha256 != package_sha or command.target_project_context_sha256 != context_sha
                     or command.full_gate_receipt_sha256 != proof["full_gate_receipt_sha256"]):
                 raise ValueError("direct command differs from current native proof")
-            started = reopen_framework_installation_command_start(root, command, action_package=package,
+            action_run_id = reopen_framework_installation_command_start(root, command, action_package=package,
                 operators_registry_ref=f"{target_context.control_child_relpath}/operators_registry.toml")
-            action_run_id = started["run"]["run_id"]
             if not isinstance(action_run_id, str) or not action_run_id or "/" in action_run_id or "\\" in action_run_id:
                 raise ValueError("actual direct Action identity is not one safe path component")
             result_ref = f".caprmedio_tmp/installation/results/{action_run_id}/result.json"
             raw_result = retained_bytes(result_ref)
-            effects = read_direct_native_result_effects(raw_result, command=command, action_run_id=action_run_id, state_generation=generation)
-            _reopen_completed_direct_native_result(root, started, result_ref, effects)
+            read_direct_native_result_effects(raw_result, command=command, action_run_id=action_run_id, state_generation=generation)
             packet = read_direct_native_result_packet(raw_result, project_root=str(root), command=command,
                 action_run_id=action_run_id, state_generation=generation)
             binding = bind_native_installed_n(root, package, packet, target_context_sha256=context_sha)
@@ -145,52 +143,22 @@ def bind_selected_native_n_from_checkpoint(project_root):
         raise ReleaseContractError("release-native-n-checkpoint-unavailable", "current native N requires its exact retained original publication packet") from error
 
 
-def _reopen_completed_direct_native_result(root: Path, started, result_ref: str, effects) -> None:
-    """Require original canonical O200 completion for subsequent N discovery.
 
-    Final self-validation during publication intentionally does not call this
-    reader: the publisher has its actual packet but has not terminalized yet.
-    """
 
-    import work_journal
-    from FIND_AND_FETCH_JOURNAL_EVENTS.find_and_fetch_journal_events import JournalQueryError, capture_snapshot, query
+def _revalidate_selected_sources(session, actual_pairs) -> None:
+    """Use the existing selected observer to reopen the admitted registry."""
+    from workflow_run_support import SelectedRunError
 
-    effect_refs = [effect["reference"] for effect in effects.values()] + [result_ref]
-    run = started.get("run", {})
-    run_id = run.get("run_id")
-    if (started.get("action_id") != "CA-O-200" or started.get("event") != "started" or run.get("kind") != "action"
-            or "parent_run_id" in run or run.get("definition", {}).get("atom_id") != "CA-O-200"):
-        raise ReleaseContractError("release-native-n-direct-start-invalid", "direct association is not an actual unparented O200 start")
-    intent_sha = started.get("llm_session", {}).get("uuid")
-    terminal_sha = work_journal.canonical_json_digest({"intent_sha256": intent_sha, "outcome": "completed",
-        "result_ref": result_ref, "effect_refs": effect_refs, "report_ref": None})
-    terminal_id = f"{run_id}:terminal:{terminal_sha}"
-    identities = (started["event_id"], terminal_id)
-    try:
-        snapshot = capture_snapshot(root)
-        if snapshot.get("source_root") != work_journal.configured_journal_root(root).as_posix():
-            raise ReleaseContractError("release-native-n-direct-terminal-unavailable", "direct canonical Journal root differs")
-        observed = query(snapshot, {"mode": "full_events", "filter": '"event:/run/run_id" = '
-            + json.dumps(run_id), "limit": 3})
-    except JournalQueryError as error:
-        raise ReleaseContractError("release-native-n-direct-terminal-unavailable", "direct canonical Journal coverage is unavailable or ambiguous") from error
-    if (observed.get("status") != "complete" or observed.get("coverage", {}).get("complete") is not True
-            or len(observed.get("results", [])) != 2):
-        raise ReleaseContractError("release-native-n-direct-terminal-unavailable", "direct canonical start/completion coverage is absent or ambiguous")
-    events = {}
-    for row in observed["results"]:
-        event = work_journal.validate_sealed_event(row["event"])
-        if event["event_id"] not in identities or event["event_id"] in events:
-            raise ReleaseContractError("release-native-n-direct-terminal-unavailable", "direct canonical Action events are ambiguous")
-        events[event["event_id"]] = event
-    terminal = events[terminal_id]
-    preserved = ("schema_version", "kind", "action_id", "author", "llm_session", "structural_scope",
-                 "initiative", "run", "definition_bindings", "input_ref", "redaction")
-    if (events[started["event_id"]] != dict(started) or any(terminal.get(key) != started.get(key) for key in preserved)
-            or terminal.get("event") != "completed" or terminal.get("outcome") != "completed"
-            or terminal.get("result_ref") != result_ref or terminal.get("effect_refs") != effect_refs
-            or terminal.get("report_ref") is not None):
-        raise ReleaseContractError("release-native-n-direct-terminal-unavailable", "direct completion differs from the actual original result and start")
+    observation = session.tracker._observe(session.request)
+    if not observation["selected"] or not observation["current"]:
+        raise SelectedRunError("source-stale", "current selected source registry is not admitted")
+    requested = {
+        item["requested_run_id"]: item["definition"] for item in session.request["requested_runs"]
+    }
+    if any(record["definition"] != requested[identity] for identity, record in actual_pairs):
+        raise SelectedRunError(
+            "source-mismatch", "actual source differs from its admitted selected definition"
+        )
 
 
 def admit_selected_native_promotion_start(run, context):
@@ -238,13 +206,13 @@ def admit_selected_native_promotion_start(run, context):
             or action.get("parent_run_id") != context.step_run_id
             or step.get("parent_run_id") != context.workflow_run_id
             or action.get("definition", {}).get("atom_id") != "CA-O-169"
-            or action.get("definition", {}).get("version") != 6
             or step.get("definition", {}).get("atom_id") != context.step_atom_id
             or workflow.get("definition", {}).get("atom_id") != context.workflow_atom_id
             or workflow.get("definition", {}).get("version") != context.workflow_version
             or action_id in session.terminal or action_id in session.interrupted):
         raise ReleaseContractError("release-native-promotion-start-mismatch", "selected publication Action is not the exact running O169 occurrence")
     try:
+        _revalidate_selected_sources(session, (action_pair, step_pair, workflow_pair))
         provenance = session.read_recorded_action_start(context.action_run_id)
         # The authorization is already sealed by the shared admission.  Reopen
         # its exact route/input/source relationships instead of interpreting a
@@ -253,7 +221,7 @@ def admit_selected_native_promotion_start(run, context):
             session.request, session.request["proposal_receipt"], session.request["proposal_receipt_digest"],
         )
     except (KeyError, TypeError, ValueError, SelectedRunError) as error:
-        raise ReleaseContractError("release-native-promotion-start-untrusted", "canonical selected start or sealed authorization cannot be reopened") from error
+        raise ReleaseContractError("release-native-promotion-start-untrusted", "actual selected source or authorization cannot be reopened") from error
     if provenance.parent_lineage != (context.step_run_id, context.workflow_run_id):
         raise ReleaseContractError("release-native-promotion-start-mismatch", "canonical selected start has another parent lineage")
     root = Path(run.project_root)
@@ -291,8 +259,7 @@ class NativePromotionEvidence:
     """Observed selected O169 publication, separate from legacy promotion.
 
     Nullable final identities preserve an unavailable/partial cut-over without
-    inventing completion.  This private result never substitutes for the
-    shared Action's canonical terminal Journal receipt.
+    inventing completion. These observations do not grant execution authority.
     """
 
     candidate_snapshot_manifest_sha256: str
@@ -306,7 +273,7 @@ class NativePromotionEvidence:
     framework_version: str
     version_toml_sha256: str
     action_run_id: str
-    action_start_event_id: str
+    action_start_event_id: str | None
     installation_command_sha256: str
     target_project_context_sha256: str
     state_generation: int
@@ -601,8 +568,8 @@ def verify_native_promotion_evidence(candidate, compilation, suite, build, verif
         _file(root, f".caprmedio_runtime/installation/commands/{evidence.installation_command_sha256}.json").read_bytes(),
         expected_sha256=evidence.installation_command_sha256,
     )
-    event = reopen_selected_installation_command_start(root, command)
-    if (command.command_id != evidence.action_run_id or event["event_id"] != evidence.action_start_event_id
+    reopen_selected_installation_command_start(root, command)
+    if (command.command_id != evidence.action_run_id
             or command.prior_runtime_selector_sha256 != _digest(prior)
             or command.package_manifest_sha256 != evidence.package_manifest_sha256
             or command.full_gate_receipt_sha256 != evidence.full_gate_receipt_sha256
@@ -650,7 +617,6 @@ def publish_selected_native_runtime(run, context, command_result, prepared, *, l
     expected_command = root / ".caprmedio_runtime/installation/commands" / f"{command.sha256}.json"
     if (command_result.receipt_path != expected_command or command_result.action_provenance != provenance
             or command.command_id != context.action_run_id
-            or command.selected_start_receipt != run.selected_action_session.read_recorded_action_start_receipt(context.action_run_id)
             or lock.project_root != root or lock.owner_run_id != context.action_run_id
             or lock.operation != "promote_selected_runtime" or lock.command_sha256 != command.sha256
             or lock.target_context_sha256 != prepared.target_context.sha256

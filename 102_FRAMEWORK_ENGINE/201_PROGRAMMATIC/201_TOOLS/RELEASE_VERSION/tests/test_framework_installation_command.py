@@ -50,8 +50,8 @@ def _repository_root() -> Path:
     for candidate in RELEASE_ROOT.parents:
         source = (
             candidate
-            / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
-            / "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
+            / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+            / "001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
         )
         if source.is_file():
             return candidate
@@ -61,8 +61,8 @@ def _repository_root() -> Path:
 REPOSITORY_ROOT = _repository_root()
 DEFAULT_SETTINGS_SOURCE = (
     REPOSITORY_ROOT
-    / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
-    / "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
+    / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+    / "001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
 )
 
 

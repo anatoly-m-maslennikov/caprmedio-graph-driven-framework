@@ -3,21 +3,16 @@
 from __future__ import annotations
 
 import json
-import os
-import stat
 import sys
 import tempfile
 import unittest
-from contextlib import nullcontext
 from pathlib import Path
-from unittest import mock
 
 
 TOOLS = Path(__file__).resolve().parents[1]
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
-import work_journal  # noqa: E402
 from workflow_run_support import (  # noqa: E402
     RunExecutionSession,
     RunTracker,
@@ -107,55 +102,73 @@ class RecordedActionStartProvenanceTests(unittest.TestCase):
         self.assertEqual(["started", "started", "started", "completed"], [
             json.loads(line)["event"] for line in before.decode("utf-8").splitlines()
         ])
+        session.start_event_ids.clear()
+        self.assertIsNone(session.read_recorded_action_start(action_run_id).event_id)
+        self.assertEqual(before, carrier.read_bytes())
 
-    def test_symlinked_journal_root_or_carrier_ancestor_refuses_before_carrier_read(self) -> None:
-        for case in ("root", "ancestor"):
-            with self.subTest(case=case):
-                session, action_run_id = self._session()
-                carrier = self._carrier()
-                if case == "root":
-                    journal = carrier.parent.resolve()
-                    original_lstat = os.lstat
-
-                    def swapped_journal_root(path, *args, **kwargs):
-                        if Path(path) == journal:
-                            return mock.Mock(st_mode=stat.S_IFLNK | 0o777)
-                        return original_lstat(path, *args, **kwargs)
-
-                    lstat_guard = mock.patch("workflow_run_support.os.lstat", side_effect=swapped_journal_root)
-                else:
-                    alias = carrier.parent / "carrier-alias"
-                    alias.symlink_to(carrier.parent, target_is_directory=True)
-                    session._started_receipts["action"]["carrier"] = (
-                        f".caprmedio_caprmedio/_journal/carrier-alias/{carrier.name}"
-                    )
-                    lstat_guard = nullcontext()
-                with lstat_guard, mock.patch("workflow_run_support.work_journal._carrier_records", side_effect=AssertionError("reader invoked")):
-                    with self.assertRaises(SelectedRunError) as refused:
-                        session.read_recorded_action_start(action_run_id)
-                self.assertEqual("action-start-evidence-invalid", refused.exception.code)
-
-    def test_missing_tampered_wrong_parent_and_wrong_run_refuse_without_replay(self) -> None:
-        cases = (
-            ("missing", self._remove_started_event, "action-start-evidence-missing"),
-            ("tampered", self._tamper_event_bytes, "action-start-evidence-invalid"),
-            ("wrong-parent", self._rewrite_parent, "action-start-evidence-mismatch"),
-            ("wrong-run", self._rewrite_run, "action-start-evidence-mismatch"),
+    def test_provenance_does_not_follow_a_replaced_journal_root(self) -> None:
+        session, action_run_id = self._session()
+        expected = session.read_recorded_action_start(action_run_id)
+        journal = self._carrier().parent
+        retained = journal.with_name("retained-journal")
+        journal.rename(retained)
+        journal.symlink_to(retained, target_is_directory=True)
+        before = {path.name: path.read_bytes() for path in retained.glob("*.ndjson")}
+        self.assertEqual(expected, session.read_recorded_action_start(action_run_id))
+        self.assertEqual(
+            before, {path.name: path.read_bytes() for path in retained.glob("*.ndjson")}
         )
-        for _name, mutate, code in cases:
+
+    def test_missing_or_changed_log_does_not_replace_actual_provenance_or_replay(self) -> None:
+        cases = (
+            ("missing", self._remove_started_event),
+            ("tampered", self._tamper_event_bytes),
+            ("wrong-parent", self._rewrite_parent),
+            ("wrong-run", self._rewrite_run),
+        )
+        for _name, mutate in cases:
             with self.subTest(case=_name):
                 session, action_run_id = self._session()
+                expected = session.read_recorded_action_start(action_run_id)
+                actual = json.dumps(session.actual, sort_keys=True)
                 carrier = self._carrier()
                 mutate(carrier)
                 before = carrier.read_bytes() if carrier.exists() else b""
-                before_parts = tuple(sorted(carrier.parent.glob("*.ndjson"))) if carrier.parent.exists() else ()
+                before_parts = (
+                    tuple(sorted(carrier.parent.glob("*.ndjson")))
+                    if carrier.parent.exists()
+                    else ()
+                )
 
-                with self.assertRaises(SelectedRunError) as refused:
-                    session.read_recorded_action_start(action_run_id)
-
-                self.assertEqual(code, refused.exception.code)
+                self.assertEqual(expected, session.read_recorded_action_start(action_run_id))
+                self.assertEqual(actual, json.dumps(session.actual, sort_keys=True))
                 self.assertEqual(before, carrier.read_bytes() if carrier.exists() else b"")
-                self.assertEqual(before_parts, tuple(sorted(carrier.parent.glob("*.ndjson"))) if carrier.parent.exists() else ())
+                self.assertEqual(
+                    before_parts,
+                    tuple(sorted(carrier.parent.glob("*.ndjson")))
+                    if carrier.parent.exists()
+                    else (),
+                )
+
+    def test_only_actual_action_runs_with_complete_acyclic_lineage_are_read(self) -> None:
+        for case in ("unknown", "non-action", "missing-parent", "cycle"):
+            with self.subTest(case=case):
+                session, run = self._session()
+                expected = "action-start-lineage-invalid"
+                if case == "unknown":
+                    run, expected = "never-started", "unknown-run"
+                elif case == "non-action":
+                    session.actual["action"]["kind"] = "workflow"
+                    expected = "action-start-run-invalid"
+                elif case == "missing-parent":
+                    session.actual.pop("step")
+                else:
+                    session.actual["action"]["parent_run_id"] = run
+                before = self._carrier().read_bytes()
+                with self.assertRaises(SelectedRunError) as refused:
+                    session.read_recorded_action_start(run)
+                self.assertEqual(expected, refused.exception.code)
+                self.assertEqual(before, self._carrier().read_bytes())
 
     @staticmethod
     def _remove_started_event(carrier: Path) -> None:
@@ -171,14 +184,12 @@ class RecordedActionStartProvenanceTests(unittest.TestCase):
     def _rewrite_parent(carrier: Path) -> None:
         events = [json.loads(line) for line in carrier.read_text(encoding="utf-8").splitlines()]
         events[-1]["run"]["parent_run_id"] = "different-parent"
-        events[-1] = work_journal.with_event_digest(events[-1])
         carrier.write_text("\n".join(json.dumps(event, sort_keys=True) for event in events) + "\n", encoding="utf-8")
 
     @staticmethod
     def _rewrite_run(carrier: Path) -> None:
         events = [json.loads(line) for line in carrier.read_text(encoding="utf-8").splitlines()]
         events[-1]["run"]["run_id"] = "different-action-run"
-        events[-1] = work_journal.with_event_digest(events[-1])
         carrier.write_text("\n".join(json.dumps(event, sort_keys=True) for event in events) + "\n", encoding="utf-8")
 
 

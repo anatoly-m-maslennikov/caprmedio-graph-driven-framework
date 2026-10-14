@@ -19,6 +19,9 @@ for directory in (MCP_ROOT, TOOLS_ROOT, TOOLS_ROOT / "VALIDATE_ATOMS", TOOLS_ROO
     if str(directory) not in sys.path:
         sys.path.insert(0, str(directory))
 
+sys.path.insert(0, str(TOOLS_ROOT / "RELEASE_VERSION/tests"))
+from direct_action_golden_fixture import action_fixture
+
 from capability_discovery.service import Context, Query, Service  # noqa: E402
 from direct_action_session import (  # noqa: E402
     RESTORATION_ATOM_ID,
@@ -104,7 +107,7 @@ class FrameworkImageRestorationMcpTests(unittest.TestCase):
         )
         (control / "operators_registry.toml").write_bytes(registry)
         self.registry_sha256 = hashlib.sha256(registry).hexdigest()
-        self._copy(REPOSITORY_ROOT / RESTORATION_ATOM_RELATIVE, RESTORATION_ATOM_RELATIVE)
+        self._copy(action_fixture(RESTORATION_ATOM_RELATIVE), RESTORATION_ATOM_RELATIVE)
         self._copy(REPOSITORY_ROOT / D591_RELATIVE, D591_RELATIVE)
         self.assertEqual(
             RESTORATION_ATOM_SHA256,
@@ -251,34 +254,11 @@ class FrameworkImageRestorationMcpTests(unittest.TestCase):
         with self.assertRaisesRegex(FrameworkImageRestorationMcpError, "command-invalid"):
             adapter.invoke(request)
 
-    def test_record_terminal_uses_only_the_exact_recovery_api(self):
-        request = {
-            "operation": "record_terminal",
-            "result_ref": ".caprmedio_runtime/framework_image_restoration/" + "b" * 64 + "/result.json",
-            "operator": "Fixture Operator",
-        }
-        request["authorization_ref"] = self._write_command(request)
-        calls = []
-
-        def recorder(root, *, journal, result_ref, image_executor, recording_authorization_ref):
-            calls.append((root, result_ref, image_executor, recording_authorization_ref))
-            journal.reopen_restoration_for_recording("fixture", {})
-            return {"state": "recovery_required", "reason": "fixture-only-no-live-recovery"}
-
-        executor = object()
-        adapter = FrameworkImageRestorationAdapter(
-            self.root,
-            session_factory=_Session,
-            executor_factory=lambda: executor,
-            terminal_recoverer=recorder,
-        )
-        self.assertEqual("recovery_required", adapter.invoke(request)["state"])
-        self.assertEqual(
-            [(self.root.resolve(), request["result_ref"], executor, request["authorization_ref"])],
-            calls,
-        )
-        self.assertIn("operator_command", _Session.instances[0].actual["direct-action:fixture"])
-
+    def test_record_terminal_is_not_an_admitted_operation(self):
+        adapter = FrameworkImageRestorationAdapter(self.root)
+        with self.assertRaisesRegex(FrameworkImageRestorationMcpError, "request-invalid"):
+            adapter.invoke({"operation": "record_terminal", "result_ref": "result.json",
+                            "operator": "Fixture Operator", "authorization_ref": "command.json"})
     def test_registration_and_discovery_are_source_bound_and_schema_exact(self):
         service = Service(self.root, exposed=(MCP_NAME,))
         tools = service.catalog()[1]

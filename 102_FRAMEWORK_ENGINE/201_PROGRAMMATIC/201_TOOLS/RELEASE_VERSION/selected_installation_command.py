@@ -25,7 +25,6 @@ from operator_registry import parse_operators_registry
 from release_contract import ReleaseContractError
 from release_promotion import admit_selected_native_promotion_start
 from retained_full_gate_packet import RetainedNativeFullGatePacket
-from workflow_run_support import RunExecutionSession
 import work_journal
 
 
@@ -34,7 +33,7 @@ _KEYS = frozenset({
     "schema_version", "operation", "command_id", "operator", "journal_author",
     "operators_registry_sha256", "action_source", "target_project_context_sha256",
     "package_manifest_sha256", "full_gate_receipt_sha256", "prior_runtime_selector_sha256",
-    "selected_start_receipt", "parent_lineage",
+    "parent_lineage",
 })
 
 
@@ -66,7 +65,6 @@ class SelectedInstallationCommandReceipt:
     package_manifest_sha256: str
     full_gate_receipt_sha256: str
     prior_runtime_selector_sha256: str | None
-    selected_start_receipt: Mapping[str, object]
     parent_lineage: tuple[str, ...]
     sha256: str
     payload: bytes
@@ -92,24 +90,19 @@ def read_selected_installation_command_receipt(
         value = json.loads(payload.decode("utf-8"), object_pairs_hook=_duplicate_pairs, parse_constant=_reject_constant)
     except (UnicodeDecodeError, ValueError, FrameworkInstallationCommandError) as error:
         raise SelectedInstallationCommandError("selected-installation-command-invalid", "selected command is not canonical JSON") from error
-    if (not isinstance(value, dict) or set(value) != _KEYS or value.get("operation") != OPERATION
+    if (not isinstance(value, dict) or set(value) not in (_KEYS, _KEYS | {"selected_start_receipt"}) or value.get("operation") != OPERATION
             or type(value.get("schema_version")) is not int or value["schema_version"] != 1
             or _canonical_json(value) != payload):
         _refuse("selected-installation-command-invalid", "selected command violates its closed schema")
     source = value["action_source"]
     if (not isinstance(source, dict) or set(source) != {"atom_id", "version", "path", "sha256"}
-            or source.get("atom_id") != "CA-O-169" or type(source.get("version")) is not int or source["version"] != 5):
-        _refuse("selected-installation-command-invalid", "selected command requires the admitted O169 source")
+            or source.get("atom_id") != "CA-O-169" or type(source.get("version")) is not int or source["version"] < 1):
+        _refuse("selected-installation-command-invalid", "selected command requires an exact O169 source identity")
     _relative(source.get("path"), field="action_source.path")
     _digest(source.get("sha256"), field="action_source.sha256")
     author = _text(value["journal_author"], field="journal_author")
     if work_journal.AUTHOR_RE.fullmatch(author) is None:
         _refuse("selected-installation-command-invalid", "selected command author is not a registered Journal account")
-    receipt = value["selected_start_receipt"]
-    try:
-        RunExecutionSession._validated_started_receipt(receipt)
-    except (TypeError, ValueError) as error:
-        raise SelectedInstallationCommandError("selected-installation-command-invalid", "selected start receipt is not canonical") from error
     lineage = value["parent_lineage"]
     if (not isinstance(lineage, list) or len(lineage) != 2
             or any(not isinstance(item, str) or not item or item != item.strip() or "\n" in item or "\r" in item for item in lineage)
@@ -126,7 +119,7 @@ def read_selected_installation_command_receipt(
         target_project_context_sha256=_digest(value["target_project_context_sha256"], field="target_project_context_sha256"),
         package_manifest_sha256=_digest(value["package_manifest_sha256"], field="package_manifest_sha256"),
         full_gate_receipt_sha256=_digest(value["full_gate_receipt_sha256"], field="full_gate_receipt_sha256"),
-        prior_runtime_selector_sha256=prior, selected_start_receipt=dict(receipt),
+        prior_runtime_selector_sha256=prior,
         parent_lineage=tuple(lineage), sha256=_sha256(payload), payload=payload,
     )
 
@@ -178,7 +171,6 @@ def retain_selected_installation_command(
         "package_manifest_sha256": package.manifest_digest,
         "full_gate_receipt_sha256": full_gate_packet.evidence.receipt_sha256,
         "prior_runtime_selector_sha256": _prior_runtime_selector_sha256(root),
-        "selected_start_receipt": session.read_recorded_action_start_receipt(context.action_run_id),
         "parent_lineage": list(provenance.parent_lineage),
     })
     receipt = read_selected_installation_command_receipt(payload)
@@ -196,10 +188,10 @@ def retain_selected_installation_command(
 
 def reopen_selected_installation_command_start(
     project_root: Path | str, receipt: SelectedInstallationCommandReceipt,
-) -> Mapping[str, object]:
-    """Reopen the canonical Action start addressed by the selected command.
+) -> None:
+    """Reopen exact retained command bytes and registered attribution.
 
-    This proves historical final-generation provenance and grants no new
+    This reads historical command facts and grants no new
     execution, authorization, retry or publication authority.
     """
 
@@ -220,64 +212,6 @@ def reopen_selected_installation_command_start(
                and _registered_journal_author(record) == receipt.journal_author]
     if len(matches) != 1 or _sha256(registry) != receipt.operators_registry_sha256:
         _refuse("selected-installation-command-operator-invalid", "selected command differs from exact registered Operator attribution")
-    RunExecutionSession._assert_regular_journal_control(root)
-    journal_root = root / work_journal.configured_journal_root(root)
-    carrier, line = RunExecutionSession._validated_started_receipt(receipt.selected_start_receipt)
-    path = root / carrier
-    try:
-        path.relative_to(journal_root)
-    except ValueError as error:
-        raise SelectedInstallationCommandError("selected-installation-command-start-invalid", "start receipt escapes the canonical Journal") from error
-    RunExecutionSession._assert_regular_receipt_carrier(root, journal_root, path)
-    event = RunExecutionSession._read_receipted_event(root, path, line, receipt.selected_start_receipt)
-    actual = event.get("run", {})
-    source = actual.get("definition", {})
-    if (event.get("schema_version") != 5 or event.get("kind") != "workflow_execution"
-            or event.get("event") != "started" or event.get("author") != receipt.journal_author
-            or actual.get("kind") != "action" or actual.get("run_id") != receipt.command_id
-            or actual.get("parent_run_id") != receipt.parent_lineage[0]
-            or {"atom_id": source.get("atom_id"), "version": source.get("version"),
-                "path": source.get("path"), "sha256": source.get("digest")} != dict(receipt.action_source)):
-        _refuse("selected-installation-command-start-mismatch", "selected command does not bind its canonical O169 start")
-    from FIND_AND_FETCH_JOURNAL_EVENTS.find_and_fetch_journal_events import capture_snapshot, query
-
-    snapshot = capture_snapshot(root)
-    if snapshot.get("source_root") != journal_root.relative_to(root).as_posix():
-        _refuse("selected-installation-command-start-invalid", "bounded Journal reader has a different canonical root")
-    parent_filter = (
-        '"event:/event" = "started" AND "event:/run/run_id" IN ('
-        + ", ".join(json.dumps(identity) for identity in receipt.parent_lineage) + ")"
-    )
-    parents = query(snapshot, {"mode": "full_events", "filter": parent_filter, "limit": 3})
-    if parents.get("status") != "complete" or parents.get("coverage", {}).get("complete") is not True:
-        _refuse("selected-installation-command-start-invalid", "bounded parent Journal coverage is incomplete")
-    matches = parents.get("results", [])
-    if len(matches) != 2:
-        _refuse("selected-installation-command-start-ambiguous", "selected parent start records are absent or ambiguous")
-    parent_events: dict[str, Mapping[str, Any]] = {}
-    for match in matches:
-        sealed = work_journal.validate_sealed_event(match["event"])
-        record = sealed.get("run", {})
-        identity = record.get("run_id")
-        if (identity not in receipt.parent_lineage or identity in parent_events
-                or sealed.get("schema_version") != 5 or sealed.get("kind") != "workflow_execution"
-                or sealed.get("event") != "started" or sealed.get("author") != receipt.journal_author
-                or sealed.get("llm_session") != event.get("llm_session")
-                or sealed.get("action_id") != event.get("action_id")):
-            _refuse("selected-installation-command-start-mismatch", "selected parent Journal records have another source or identity")
-        parent_events[identity] = sealed
-    step_event, workflow_event = (parent_events[identity] for identity in receipt.parent_lineage)
-    step, workflow = step_event["run"], workflow_event["run"]
-    if (step.get("kind") != "step" or step.get("parent_run_id") != workflow["run_id"]
-            or step.get("definition", {}).get("atom_id") != "CA-O-178"
-            or workflow.get("kind") != "workflow" or "parent_run_id" in workflow
-            or workflow.get("definition", {}).get("atom_id") != "CA-O-164"
-            or workflow.get("definition", {}).get("version") != 9
-            or event.get("definition_bindings") != [{"kind": "action", **source}]
-            or step_event.get("definition_bindings") != [{"kind": "step", **step["definition"]}]
-            or {"kind": "action", **source} not in workflow_event.get("definition_bindings", [])):
-        _refuse("selected-installation-command-start-mismatch", "selected command has an invalid canonical Step/Workflow chain")
-    return event
 
 
 __all__ = [

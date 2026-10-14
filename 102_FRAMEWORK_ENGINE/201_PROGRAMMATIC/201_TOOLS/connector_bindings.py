@@ -171,24 +171,44 @@ class _StartedActionAdmission(SelectedOperationAdmission):
 
     def _check_started_action(self) -> None:
         session = self._session
-        if Path(session.tracker.root).resolve() != self._root or self._definition_source.root != self._root:
-            raise ConnectorBindingError("permission_denied", "Action Session belongs to a different Project.", "context")
+        session._check_request_unchanged()
+        if (
+            Path(session.tracker.root).resolve() != self._root
+            or self._definition_source.root != self._root
+        ):
+            raise ConnectorBindingError(
+                "permission_denied", "Action Session belongs to a different Project.", "context"
+            )
         if _canonical_digest(session.request) != _canonical_digest(self._outer_request):
-            raise ConnectorBindingError("permission_denied", "Session request changed after binding.", "context")
+            raise ConnectorBindingError(
+                "permission_denied", "Session request changed after binding.", "context"
+            )
         requested_id, actual = session._actual_by_id(self._action_run_id)
-        declared = next((item for item in self._outer_request.get("requested_runs", [])
-                         if item.get("requested_run_id") == requested_id), None)
-        if (actual.get("kind") != "action" or actual.get("definition") != self._definition
-                or declared is None or declared.get("kind") != "action" or declared.get("definition") != self._definition
-                or requested_id in session.terminal or requested_id in session.interrupted or session.pending):
-            raise ConnectorBindingError("permission_denied", "Required Action is not an actual nonterminal started Run.", "context")
+        declared = next(
+            (
+                item
+                for item in self._outer_request.get("requested_runs", [])
+                if item.get("requested_run_id") == requested_id
+            ),
+            None,
+        )
+        if (
+            actual.get("kind") != "action"
+            or actual.get("definition") != self._definition
+            or {"kind": "action", **self._definition} not in session.workflow_definition_bindings
+            or declared is None
+            or declared.get("kind") != "action"
+            or declared.get("definition") != self._definition
+            or requested_id in session.terminal
+            or requested_id in session.interrupted
+        ):
+            raise ConnectorBindingError(
+                "permission_denied",
+                "Required Action is not an actual nonterminal started Run.",
+                "context",
+            )
         self._definition_source.revalidate()
         session.read_recorded_action_start(self._action_run_id)
-        event = session._reopen_started_event(session._started_receipts[requested_id])
-        if (event.get("action_id") != self._outer_request.get("assigned_action_id")
-                or event.get("llm_session", {}).get("uuid") != self._outer_request.get("request_id")
-                or event.get("initiative") != self._outer_request.get("initiative")):
-            raise ConnectorBindingError("permission_denied", "Action start belongs to another selected request.", "context")
 
     def check(self, request: dict) -> None:
         try:

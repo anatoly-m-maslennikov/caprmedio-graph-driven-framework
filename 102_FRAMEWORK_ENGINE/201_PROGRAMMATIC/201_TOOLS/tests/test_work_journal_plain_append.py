@@ -8,6 +8,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 TOOLS = Path(__file__).resolve().parents[1]
 PROJECT = Path(__file__).resolve().parents[4]
@@ -109,6 +110,21 @@ class PlainJournalTests(unittest.TestCase):
             [{"part": number} for number in range(1, 13)], journal.read_records(self.root)
         )
 
+    def test_legacy_append_caps_new_parts_and_preserves_old_date_carrier(self) -> None:
+        self.directory.mkdir()
+        old = self.directory / "src-work-journal-2026-10-14.ndjson"
+        original = b'{"retained": "old date carrier"}\n'
+        old.write_bytes(original)
+        rows = [{"occurred_at": "2026-10-14 01:02:03 +0000", "row": number,
+                 "custom": ["unchanged", number]} for number in range(1001)]
+        locations = [journal.append_record(self.root, row) for row in rows]
+        parts = sorted(self.directory.glob("src-work-journal-2026-10-14-part-*.ndjson"))
+        self.assertEqual([1000, 1], [len(path.read_bytes().splitlines()) for path in parts])
+        self.assertEqual(parts[0], locations[999])
+        self.assertEqual(parts[1], locations[1000])
+        self.assertEqual(original, old.read_bytes())
+        self.assertEqual([{"retained": "old date carrier"}, *rows], journal.read_records(self.root))
+
     def test_leaf_symlink_cannot_read_or_append_outside_journal(self) -> None:
         self.directory.mkdir()
         outside = self.root / "outside.ndjson"
@@ -129,9 +145,19 @@ class PlainJournalTests(unittest.TestCase):
             self.append([{"value": "not appended"}])
         self.assertEqual("occupied by a file", self.directory.read_text(encoding="utf-8"))
 
+    def test_legacy_append_reports_fsync_failure_after_writing_unchanged_row(self) -> None:
+        row = {"occurred_at": "2026-10-14 01:02:03 +0000", "unchanged": True}
+        with patch.object(journal.os, "fsync", side_effect=OSError("sync unavailable")):
+            with self.assertRaisesRegex(OSError, "sync unavailable"):
+                journal.append_record(self.root, row)
+        self.assertEqual([row], journal.read_records(self.root))
+
     def test_actual_dispatch_does_not_require_available_journal(self) -> None:
         self.directory.write_text("not a Journal directory", encoding="utf-8")
-        arguments = {"request_id": "actual-request", "canonical_request_bytes": b'{"input":"exact"}'}
+        arguments = {
+            "request_id": "actual-request",
+            "canonical_request_bytes": b'{"input":"exact"}',
+        }
         observed, accepted = journal.register_selected_run_dispatch(self.root, **arguments)
         self.assertTrue(accepted)
         self.assertEqual("accepted", observed["state"])
@@ -139,8 +165,16 @@ class PlainJournalTests(unittest.TestCase):
         self.assertFalse(accepted)
         self.assertEqual(observed, repeated)
         with self.assertRaises(journal.WorkJournalError):
-            journal.register_selected_run_dispatch(self.root, **{**arguments, "canonical_request_bytes": b'{"input":"other"}'})
-        self.assertTrue(list((self.root / ".caprmedio_runtime/state/work_journal/selected_runs/requests").glob("*.json")))
+            journal.register_selected_run_dispatch(
+                self.root, **{**arguments, "canonical_request_bytes": b'{"input":"other"}'}
+            )
+        self.assertTrue(
+            list(
+                (self.root / ".caprmedio_runtime/state/work_journal/selected_runs/requests").glob(
+                    "*.json"
+                )
+            )
+        )
         self.assertEqual("not a Journal directory", self.directory.read_text(encoding="utf-8"))
 
 

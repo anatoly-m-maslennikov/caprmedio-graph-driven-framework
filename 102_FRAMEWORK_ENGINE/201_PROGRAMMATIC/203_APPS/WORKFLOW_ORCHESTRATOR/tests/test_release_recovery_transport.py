@@ -129,7 +129,7 @@ class ReleaseRecoveryTransportTests(unittest.TestCase):
             })
         self.assertEqual(prior, result["canonical_run"])
         self.assertEqual("ENQUEUED", result["recovery_transport_status"]["scheduler_status"])
-        self.assertEqual(["sealed-event-1"], result["canonical_journal_refs"])
+        self.assertNotIn("canonical_journal_refs", result)
         self.assertIsNone(result["blocked_or_pending_reason"])
         self.assertNotIn("result", result["recovery_transport_status"])
         self.assertNotIn("outcome", result)
@@ -172,21 +172,17 @@ class ReleaseRecoveryTransportTests(unittest.TestCase):
             self.assertEqual(expected, observed.get("result"))
             transport.retrieve_workflow.assert_called_once_with("b" * 32)
 
-    def test_canonical_receipts_are_exact_or_empty_with_truthful_pending_reason(self):
-        refs, reason = backend._canonical_recovery_observation({
-            "reason": "recording pending", "selected_result": {"event_receipts": [{"event_id": "sealed-1"}]},
-        })
-        self.assertEqual(["sealed-1"], refs)
-        self.assertEqual("recording pending", reason)
-        refs, reason = backend._canonical_recovery_observation({"selected_result": {"event_receipts": [{"bad": "x"}]}})
-        self.assertEqual([], refs)
-        self.assertIsNone(reason)
-        refs, reason = backend._canonical_recovery_observation({"selected_result": {
+    def test_recovery_reason_retains_actual_state_not_journal_pending(self):
+        self.assertEqual("source effect unknown", backend._canonical_recovery_reason({
+            "reason": "source effect unknown", "selected_result": {"event_receipts": [{"event_id": "old-event"}]},
+        }))
+        self.assertEqual("source currentness changed", backend._canonical_recovery_reason({
+            "selected_result": {"reason": "source currentness changed"},
+        }))
+        self.assertIsNone(backend._canonical_recovery_reason({"selected_result": {
             "disposition": "recording_pending", "pending_event_ids": ["pending-sealed-event"],
             "event_receipts": [],
-        }})
-        self.assertEqual([], refs)
-        self.assertEqual("canonical selected Run has pending sealed event recording", reason)
+        }}))
 
     def test_backend_rejects_non_release_or_changed_seal_before_queue(self):
         frozen = {"request": {"run_id": RUN_ID, "execution": {"operation_route": "create_atom"}}}

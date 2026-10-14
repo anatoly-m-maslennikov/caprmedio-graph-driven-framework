@@ -267,7 +267,7 @@ class AtomReceivingIndependentTests(unittest.TestCase):
     def test_session_parameter_and_authorization_drift_refuse(self):
         def stale_authorization(session):
             session.request["operator_authorization"]["authorization_freshness"]["state"] = "stale"
-        self.assert_refused(self.invoke(self.receiver(), mutate=stale_authorization), "stale_state")
+        self.assert_refused(self.invoke(self.receiver(), mutate=stale_authorization), "permission_denied")
         def mismatch(session):
             session.request["parameters"]["target"]["identity"] = "CA-R-2"
         self.assert_refused(self.invoke(self.receiver(), mutate=mismatch))
@@ -279,9 +279,9 @@ class AtomReceivingIndependentTests(unittest.TestCase):
                 original = path.read_bytes()
                 self.assert_refused(self.invoke(self.receiver(), mutate=lambda _, path=path: path.write_bytes(original + b"\n# drift\n")), "stale_state")
                 path.write_bytes(original)
-        def remove_start(session):
-            (self.root / session._started_receipts["atom-action"]["carrier"]).unlink()
-        self.assert_refused(self.invoke(self.receiver(), mutate=remove_start), "permission_denied")
+        def remove_start(_session):
+            next(self.root.rglob("*.ndjson")).unlink()
+        self.assertEqual(self.invoke(self.receiver(), mutate=remove_start)["errors"], [])
 
     def test_incomplete_and_late_changed_source_frontiers_refuse_instead_of_complete_results(self):
         self.assert_refused(self.invoke(self.receiver(), frontier_refs=["unrelated-scope-reference"]), "permission_denied")

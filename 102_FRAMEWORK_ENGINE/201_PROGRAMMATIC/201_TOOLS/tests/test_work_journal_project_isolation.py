@@ -88,10 +88,12 @@ class WorkJournalProjectIsolationTest(unittest.TestCase):
             self.assertEqual(f".caprmedio_{name}/_journal/test-user-2026-10-10-part-1.ndjson", receipts[0]["carrier"])
             carrier = root / str(receipts[0]["carrier"])
             self.assertEqual([event], [json.loads(line) for line in carrier.read_text(encoding="utf-8").splitlines()])
-            self.assertEqual(receipts, work_journal.append_sealed_events(
+            repeated = work_journal.append_sealed_events(
                 root, [event], author="test-user", local_date="2026-10-10", timezone="UTC",
-            ))
-            self.assertTrue((root / ".caprmedio_runtime/state/work_journal").is_dir())
+            )
+            self.assertEqual({**receipts[0], "line": 2}, repeated[0])
+            self.assertEqual([event, event], work_journal.read_records(root))
+            self.assertFalse((root / ".caprmedio_runtime").exists())
             self.assertFalse((root / ".caprmedio_caprmedio").exists())
         self.assertNotEqual(self._event("alpha")["event_digest"], self._event("beta")["event_digest"])
         self.assertFalse((self.repository / ".caprmedio_runtime").exists())

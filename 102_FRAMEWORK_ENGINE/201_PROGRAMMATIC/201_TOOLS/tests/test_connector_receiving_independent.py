@@ -183,10 +183,10 @@ class ConnectorReceivingIndependentTests(unittest.TestCase):
             session.finish_run(run_id, outcome="no_op", result_ref="results/earlier.json", effect_refs=[])
         self.assert_refused(self.invoke(self.handler(), mutate=terminal), "permission_denied")
 
-    def test_stale_authorization_is_refused(self):
+    def test_mutated_execute_authorization_is_refused(self):
         def stale(session, _run_id):
             session.request["operator_authorization"]["authorization_freshness"]["state"] = "stale"
-        self.assert_refused(self.invoke(self.handler(), mutate=stale), "stale_state")
+        self.assert_refused(self.invoke(self.handler(), mutate=stale), "permission_denied")
 
     def test_source_change_after_selection_cannot_be_recaptured_as_current(self):
         self.structure.write_bytes(self.structure.read_bytes() + b"\n# changed after selection\n")
@@ -198,11 +198,10 @@ class ConnectorReceivingIndependentTests(unittest.TestCase):
             path.write_bytes(path.read_bytes() + b"\nchanged\n")
         self.assert_refused(self.invoke(self.handler(), mutate=stale), "stale_state")
 
-    def test_missing_recorded_start_is_refused(self):
-        def remove(session, _run_id):
-            path = self.root / session._started_receipts["read"]["carrier"]
-            path.unlink()
-        self.assert_refused(self.invoke(self.handler(), mutate=remove), "permission_denied")
+    def test_missing_start_log_does_not_prevent_actual_read(self):
+        def remove(_session, _run_id):
+            next(self.root.rglob("*.ndjson")).unlink()
+        self.assertEqual(self.invoke(self.handler(), mutate=remove)["errors"], [])
 
     def test_other_project_session_root_is_refused(self):
         def wrong_root(session, _run_id):

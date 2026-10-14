@@ -158,11 +158,12 @@ class ConnectorSessionAdmissionTests(unittest.TestCase):
             self.assert_code("stale_state", lambda: admission.check(request))
         self.invoke(check)
 
-    def test_actual_start_receipt_is_reopened(self):
+    def test_actual_run_remains_admitted_without_a_start_log(self):
         def check(session, run):
             admission, request = self.admission(session, run)
             next(self.root.rglob("*.ndjson")).unlink()
-            self.assert_code("permission_denied", lambda: admission.check(request))
+            admission.check(request)
+            self.assertEqual(session.read_recorded_action_start(run).action_run_id, run)
         self.invoke(check)
 
     def test_native_source_and_permission_currentness_are_rechecked(self):

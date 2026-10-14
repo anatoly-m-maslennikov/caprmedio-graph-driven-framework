@@ -10,7 +10,7 @@ from pathlib import Path
 
 PACKAGE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PACKAGE))
-from revert_changes import RevertChangesService  # noqa: E402
+from revert_changes import RevertChangesError, RevertChangesRequest, RevertChangesService  # noqa: E402
 
 TOOLS = PACKAGE.parents[1]
 sys.path.insert(0, str(TOOLS))
@@ -75,18 +75,14 @@ class FakeRuns:
     def start(self, payload: dict) -> dict:
         self.starts.append(payload)
         if self.fail_start:
-            raise OSError("journal unavailable")
+            raise OSError("Run state unavailable")
         return {"event_id": payload["event_id"], "durable": True}
 
     def finish(self, payload: dict) -> dict:
         self.finishes.append(payload)
         if self.fail_finish:
-            raise OSError("journal unavailable")
+            raise OSError("Run state unavailable")
         return {"event_id": payload["event_id"], "durable": True}
-
-    def recover(self, event: dict) -> dict:
-        return {"event_id": event["event_id"], "durable": True}
-
 
 def complete_request(effects: MemoryEffects) -> dict:
     ordered = [
@@ -245,7 +241,7 @@ class RevertChangesTests(unittest.TestCase):
             journal = next((root / ".caprmedio_caprmedio/_journal").glob("*.ndjson"))
             self.assertEqual(4, len(journal.read_text(encoding="utf-8").splitlines()))
 
-    def test_shared_session_recovers_canonical_pending_terminal_without_replay(self) -> None:
+    def test_shared_session_logging_failure_is_nongating_without_retry(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary); (root / ".git").mkdir(); control = root / ".caprmedio_caprmedio"; control.mkdir()
             (control / "caprmedio_project_settings.toml").write_text('[paths]\ncontrol_root = ".caprmedio_caprmedio"\njournal_root = ".caprmedio_caprmedio/_journal"\nruntime_root = ".caprmedio_runtime"\n', encoding="utf-8")
@@ -270,21 +266,49 @@ class RevertChangesTests(unittest.TestCase):
                 return original(*args, **kwargs)
             with mock.patch.object(workflow_run_support.work_journal, "append_sealed_events", side_effect=fail_one):
                 tracker.run_selected_operation({**request, "mode": "execute", "proposal_receipt": preview["proposal_receipt"], "proposal_receipt_digest": preview["proposal_receipt_digest"], "assigned_action_id": "CA-O-131", "operator_authorization": auth})
-            self.assertEqual("recording_blocked", blocked["outcome"])
-            recovered = service.recover_recording_with_session(blocked["pending_recording_event"], sessions[0])
-            self.assertEqual("reverted", recovered["outcome"])
+            self.assertEqual("reverted", blocked["outcome"])
+            self.assertNotIn("pending_recording_event", blocked)
+            self.assertNotIn("run_error", blocked)
+            self.assertTrue(all("durable" not in ref for ref in blocked["run_receipt_refs"]))
+            self.assertEqual("terminal append unavailable", blocked["run_receipt_refs"][-1]["recording_error"])
+            self.assertFalse(hasattr(service, "recover_recording_with_session"))
+            self.assertEqual(4, calls[0], "Each real Run event is attempted once")
             self.assertEqual(["first", "second"], effects.calls)
 
-    def test_recording_retry_never_replays_effect(self) -> None:
+    def test_terminal_run_failure_preserves_actual_effects_without_retry_channel(self) -> None:
         effects, runs = MemoryEffects(), FakeRuns(fail_finish=True)
         service = RevertChangesService(effects.observe, effects.apply, runs)
         admitted = service.handle({"operation": "admit", "reversal_request": complete_request(effects)})
-        blocked = service.handle({"operation": "execute", "approved_reversal_manifest": admitted["approved_reversal_manifest"]})
-        self.assertEqual("recording_blocked", blocked["outcome"])
-        calls = list(effects.calls)
-        recovered = service.handle({"operation": "recover_recording", "pending_recording_event": blocked["pending_recording_event"]})
-        self.assertEqual("reverted", recovered["outcome"])
-        self.assertEqual(calls, effects.calls)
+        result = service.handle({"operation": "execute", "approved_reversal_manifest": admitted["approved_reversal_manifest"]})
+        self.assertEqual("reverted", result["outcome"])
+        self.assertEqual("Run state unavailable", result["run_error"])
+        self.assertEqual(2, result["effect_account"]["applied_effect_count"])
+        self.assertEqual(["first", "second"], effects.calls)
+        self.assertEqual(1, len(result["run_receipt_refs"]), "No terminal persistence is claimed")
+        self.assertNotIn("pending_recording_event", result)
+
+    def test_actual_run_start_failure_blocks_before_effects(self) -> None:
+        effects, runs = MemoryEffects(), FakeRuns(fail_start=True)
+        service = RevertChangesService(effects.observe, effects.apply, runs)
+        admitted = service.admit(complete_request(effects))
+        result = service.execute(admitted["approved_reversal_manifest"])
+        self.assertEqual("blocked", result["outcome"])
+        self.assertEqual(["run_start_failed"], result["missing_or_mismatched_bindings"])
+        self.assertEqual("Run state unavailable", result["run_error"])
+        self.assertEqual([], effects.calls)
+        self.assertEqual([], runs.finishes)
+        self.assertNotIn("pending_recording_event", result)
+
+    def test_logging_only_recovery_operation_is_not_exposed(self) -> None:
+        effects = MemoryEffects()
+        service = RevertChangesService(effects.observe, effects.apply, FakeRuns())
+        request = {"operation": "recover_recording", "pending_recording_event": {}}
+        with self.assertRaises(RevertChangesError):
+            service.handle(request)
+        with self.assertRaises(ValueError):
+            RevertChangesRequest.model_validate(request)
+        self.assertFalse(hasattr(service, "recover_recording"))
+        self.assertEqual([], effects.calls)
 
     def test_cancel_at_admitted_boundary_preserves_completed_and_unattempted(self) -> None:
         effects, runs = MemoryEffects(), FakeRuns()

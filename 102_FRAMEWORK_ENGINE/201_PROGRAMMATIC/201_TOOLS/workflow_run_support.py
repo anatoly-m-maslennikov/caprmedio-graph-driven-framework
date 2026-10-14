@@ -7,10 +7,8 @@ provenance, and records it through :mod:`work_journal`.
 
 from __future__ import annotations
 
+import copy
 import datetime as dt
-import hashlib
-import os
-import stat
 import uuid
 from collections.abc import Callable, Iterable, Mapping
 from dataclasses import dataclass
@@ -81,7 +79,7 @@ class RecordedActionStartProvenance:
     """
 
     author: str
-    event_id: str
+    event_id: str | None
     action_run_id: str
     parent_lineage: tuple[str, ...]
 
@@ -344,37 +342,25 @@ class RunTracker:
             return self._nonstart(parsed, observation, "blocked", "revalidation-required")
         self._validate_execute(parsed, proposal, proposal_digest)
         actual_runs = self._actual_runs(parsed["requested_runs"])
-        try:
-            start_receipts = self._append_events(parsed, actual_runs, "started", None, None, [], None)
-        except OSError as error:
-            return self._recording_pending(parsed, actual_runs, None, [], f"start evidence append failed: {error}")
+        self._append_events(parsed, actual_runs, "started", None, None, [], None)
         execution = self.executor(parsed, actual_runs)
         terminal = self._validate_execution(execution, actual_runs)
         event_name = {"completed": "completed", "no_op": "completed", "failed": "failed", "partial": "failed", "cancelled": "abandoned", "interrupted_pending": "interrupted"}[terminal["outcome"]]
-        try:
-            terminal_receipts = self._append_events(
-                parsed, actual_runs, event_name, terminal["outcome"], terminal["result_ref"], terminal["effect_refs"], terminal.get("report_ref")
-            )
-        except OSError as error:
-            return self._recording_pending(parsed, actual_runs, terminal["outcome"], terminal["effect_refs"], f"terminal evidence append failed: {error}", terminal.get("result_ref"))
+        self._append_events(
+            parsed, actual_runs, event_name, terminal["outcome"], terminal["result_ref"], terminal["effect_refs"], terminal.get("report_ref")
+        )
         disposition = "terminal" if terminal["outcome"] != "interrupted_pending" else "started"
         return {
             "request_id": request_id,
             "disposition": disposition,
             "source_freshness": proposal["source_freshness"],
-            "retry_disposition": "none",
             "run_ids": [run["run_id"] for run in actual_runs],
             "definition_bindings": [run["definition"] | {"kind": run["kind"]} for run in actual_runs],
             "outcome": terminal["outcome"],
             "result_ref": terminal["result_ref"],
             "effect_refs": terminal["effect_refs"],
             "report_ref": terminal.get("report_ref"),
-            "event_receipts": [*start_receipts, *terminal_receipts],
         }
-
-    def recover_recording(self, event_id: str) -> dict[str, Any]:
-        """Retry only the stored Journal bytes; this never invokes ``executor``."""
-        return work_journal.recover_pending_event(self.root, event_id)
 
     def _observe(self, request: dict[str, Any]) -> dict[str, Any]:
         observed = self.source_observer(request)
@@ -462,37 +448,21 @@ class RunTracker:
             raise SelectedRunError("invalid-executor-result", "route executor must retain generated actual Run provenance")
         return {"outcome": outcome, "result_ref": result_ref, "effect_refs": list(effects), **({"report_ref": report} if report else {})}
 
-    def _append_events(self, request: Mapping[str, Any], runs: list[dict[str, Any]], event: str, outcome: str | None, result_ref: str | None, effect_refs: list[str], report_ref: str | None) -> list[dict[str, Any]]:
-        receipts: list[dict[str, Any]] = []
+    def _append_events(self, request: Mapping[str, Any], runs: list[dict[str, Any]], event: str, outcome: str | None, result_ref: str | None, effect_refs: list[str], report_ref: str | None) -> None:
         for run in runs:
             journal_event = self._journal_event(request, run, event, outcome, result_ref, effect_refs, report_ref)
             context = self._context(journal_event)
             try:
-                receipts.extend(work_journal.append_sealed_events(self.root, [journal_event], append_context=context, **self._partition_kwargs(context)))
+                work_journal.append_sealed_events(self.root, [journal_event], append_context=context, **self._partition_kwargs(context))
             except OSError:
-                work_journal.store_pending_event(self.root, journal_event, context, result_ref=result_ref, effect_refs=effect_refs, diagnostic="append failure")
-                raise
-        return receipts
-
-    def _recording_pending(self, request: Mapping[str, Any], runs: list[dict[str, Any]], outcome: str | None, effects: list[str], diagnostic: str, result_ref: str | None = None) -> dict[str, Any]:
-        return {
-            "request_id": request["request_id"],
-            "disposition": "recording_pending",
-            "source_freshness": {"declared": request["source_freshness"]},
-            "retry_disposition": "retry-recording-only",
-            "run_ids": [run["run_id"] for run in runs],
-            "outcome": outcome,
-            "result_ref": result_ref,
-            "effect_refs": effects,
-            "recording_blocker": diagnostic,
-        }
+                continue
 
     def _context(self, event: Mapping[str, Any]) -> dict[str, Any]:
         author = self.journal_context.get("author", "run-support")
         timezone = self.journal_context.get("timezone", "UTC")
         occurred = dt.datetime.fromisoformat(str(event["occurred_at"]))
         local_date = occurred.date().isoformat()
-        return work_journal.seal_append_context(self.root, event, author=author, local_date=local_date, timezone=timezone)
+        return {"author": author, "local_date": local_date, "timezone": timezone}
 
     @staticmethod
     def _partition_kwargs(context: Mapping[str, Any]) -> dict[str, str]:
@@ -535,8 +505,11 @@ class RunExecutionSession:
 
     def __init__(self, tracker: "LazyRunTracker", request: dict[str, Any]) -> None:
         self.tracker = tracker
+        self._execution_request_bytes = LazyRunTracker._dispatch_bytes(request)
         self.request = request
-        self.requested = {item["requested_run_id"]: item for item in request["requested_runs"]}
+        self.requested = {
+            item["requested_run_id"]: copy.deepcopy(item) for item in request["requested_runs"]
+        }
         self.workflow_definition_bindings = self.canonical_requested_definition_bindings(
             request["requested_runs"],
         )
@@ -544,9 +517,14 @@ class RunExecutionSession:
         self.terminal: dict[str, dict[str, Any]] = {}
         self.interrupted: dict[str, dict[str, Any]] = {}
         self.observed_effects: dict[str, dict[str, Any]] = {}
-        self.receipts: list[dict[str, Any]] = []
-        self._started_receipts: dict[str, dict[str, Any]] = {}
-        self.pending: list[str] = []
+        self.start_event_ids: dict[str, str] = {}
+        self.recording_errors: list[str] = []
+
+    def _check_request_unchanged(self) -> None:
+        if LazyRunTracker._dispatch_bytes(self.request) != self._execution_request_bytes:
+            raise SelectedRunError(
+                "request-id-conflict", "accepted execute request changed after Session creation"
+            )
 
     @classmethod
     def restore(
@@ -567,247 +545,65 @@ class RunExecutionSession:
         if parsed["mode"] != "execute":
             raise SelectedRunError("invalid-recovery", "only an execute request can restore selected Run evidence")
         session = cls(tracker, parsed)
-        expected_receipt = {
-            "event_id", "action_id", "event_digest", "carrier", "line",
-            "previous_carrier_digest", "appended_carrier_digest",
-        }
-        sealed_items: list[tuple[dict[str, Any], dict[str, Any]]] = []
-        seen_event_ids: set[str] = set()
         for item in evidence:
-            if not isinstance(item, Mapping) or set(item) != {"event", "receipt"}:
-                raise SelectedRunError("invalid-recovery", "recovery evidence must contain exactly event and receipt")
-            try:
-                event = work_journal.validate_sealed_event(item["event"])
-            except work_journal.WorkJournalError as error:
-                raise SelectedRunError("invalid-recovery", f"invalid sealed Journal event: {error}") from error
-            receipt = item["receipt"]
-            if not isinstance(receipt, Mapping) or set(receipt) != expected_receipt:
-                raise SelectedRunError("invalid-recovery", "recovery receipt has invalid fields")
-            if (
-                receipt["event_id"] != event["event_id"]
-                or receipt["action_id"] != event["action_id"]
-                or receipt["event_digest"] != event["event_digest"]
-            ):
-                raise SelectedRunError("invalid-recovery", "recovery receipt does not bind its sealed event")
-            if (
-                not isinstance(receipt["carrier"], str)
-                or not receipt["carrier"]
-                or Path(receipt["carrier"]).is_absolute()
-                or ".." in Path(receipt["carrier"]).parts
-                or type(receipt["line"]) is not int
-                or receipt["line"] < 1
-                or any(not isinstance(receipt[key], str) or len(receipt[key]) != 64 for key in (
-                    "event_digest", "previous_carrier_digest", "appended_carrier_digest",
-                ))
-            ):
-                raise SelectedRunError("invalid-recovery", "recovery receipt has invalid carrier evidence")
-            if event["event_id"] in seen_event_ids:
-                raise SelectedRunError("duplicate-recovery-evidence", "one Journal event appears more than once")
-            seen_event_ids.add(event["event_id"])
-            if event["schema_version"] != 5 or event["kind"] != "workflow_execution":
-                raise SelectedRunError("invalid-recovery", "recovery accepts only schema-v5 workflow execution evidence")
-            if event["action_id"] != parsed["assigned_action_id"] or event["llm_session"]["uuid"] != parsed["request_id"]:
-                raise SelectedRunError("recovery-request-mismatch", "Journal evidence belongs to a different selected request")
-            if event["initiative"] != parsed["initiative"]:
-                raise SelectedRunError("recovery-request-mismatch", "Journal evidence has different initiative binding")
-            expected_input_ref = parsed["initiative"].get("initiative_ref", "selected-run-input")
-            if (
-                event["llm_session"]["app"] != "run-support"
-                or event["structural_scope"] != "TOOLS"
-                or event["input_ref"] != expected_input_ref
-            ):
-                raise SelectedRunError("recovery-request-mismatch", "Journal evidence has different selected Run source bindings")
-            if event["event"] not in {"started", "completed", "failed", "abandoned", "interrupted", "recovered"}:
-                raise SelectedRunError("invalid-recovery", "recovery accepts only canonical started or terminal Run evidence")
-            sealed_items.append((dict(event), dict(receipt)))
-
-        starts = [(event, receipt) for event, receipt in sealed_items if event["event"] == "started"]
-        nonstarts = [(event, receipt) for event, receipt in sealed_items if event["event"] != "started"]
-        start_by_run_id: dict[str, tuple[dict[str, Any], dict[str, Any]]] = {}
-        for event, receipt in starts:
-            run_id = event["run"]["run_id"]
-            if run_id in start_by_run_id:
-                raise SelectedRunError("duplicate-recovery-evidence", "one actual Run has multiple start events")
-            start_by_run_id[run_id] = (event, receipt)
-
-        assigned: dict[str, str] = {}
-        unassigned = set(session.requested)
-        while len(assigned) < len(starts):
-            progress = False
-            for event, _ in starts:
-                run = event["run"]
-                actual_id = run["run_id"]
-                if actual_id in assigned:
-                    continue
-                candidates: list[str] = []
-                for requested_id in unassigned:
-                    requested = session.requested[requested_id]
-                    if run["kind"] != requested["kind"] or run["definition"] != requested["definition"]:
-                        continue
-                    parent_requested = requested.get("parent_requested_run_id")
-                    predecessor_requested = requested.get("predecessor_requested_run_id")
-                    if ("parent_run_id" in run) != (parent_requested is not None):
-                        continue
-                    if ("predecessor_run_id" in run) != (predecessor_requested is not None):
-                        continue
-                    if parent_requested is not None:
-                        parent_actual = assigned.get(run["parent_run_id"])
-                        if parent_actual != parent_requested:
-                            continue
-                    if predecessor_requested is not None:
-                        predecessor_actual = assigned.get(run["predecessor_run_id"])
-                        if predecessor_actual != predecessor_requested:
-                            continue
-                    candidates.append(requested_id)
-                if len(candidates) > 1:
-                    raise SelectedRunError("ambiguous-recovery-evidence", "Journal evidence cannot identify one requested Run")
-                if len(candidates) == 1:
-                    requested_id = candidates[0]
-                    assigned[actual_id] = requested_id
-                    unassigned.remove(requested_id)
-                    progress = True
-            if not progress:
-                unresolved = [event["run"]["run_id"] for event, _ in starts if event["run"]["run_id"] not in assigned]
-                if unresolved:
-                    raise SelectedRunError("invalid-recovery-lineage", "Journal starts do not match declared requested Run lineage")
-                break
-
-        for actual_id, requested_id in assigned.items():
-            event, receipt = start_by_run_id[actual_id]
+            event = item.get("event") if isinstance(item, Mapping) and isinstance(item.get("event"), Mapping) else item
+            if not isinstance(event, Mapping) or not isinstance(event.get("run"), Mapping):
+                continue
             run = dict(event["run"])
-            if "successor_run_ids" in run:
-                raise SelectedRunError("invalid-recovery-lineage", "selected Run recovery does not admit derived successor evidence")
-            expected_bindings = session._bindings_for(run)
-            if event["definition_bindings"] != expected_bindings:
-                raise SelectedRunError("recovery-definition-mismatch", "Journal start has mismatched definition bindings")
-            session.actual[requested_id] = run
-            session._started_receipts[requested_id] = dict(receipt)
-
-        # Preserve Journal order.  Separating interruptions from finals first
-        # would make a later ``interrupted`` fact appear to precede an earlier
-        # ``recovered`` fact, inventing a legal recovery history.  One Run may
-        # therefore move only through this small state machine:
-        #
-        #   unseen -> running -> interrupted -> terminal
-        #                              ^
-        #                    recovered/interrupted_pending
-        #
-        # A recovered pending observation is deliberately still resumable.  A
-        # recovered final observation is immutable like every other terminal
-        # fact.  The state machine also prevents a second started event from
-        # being mistaken for a restart of the same actual Run.
-        lifecycle: dict[str, str] = {requested_id: "unseen" for requested_id in session.requested}
-        expected_terminal_events = {
-            "completed": {"completed", "no_op"},
-            "failed": {"failed", "partial"},
-            "abandoned": {"cancelled"},
-        }
-
-        def _record_interruption(
-            requested_id: str,
-            event: Mapping[str, Any],
-            receipt: Mapping[str, Any],
-            *,
-            recovered: bool,
-        ) -> None:
-            session.interrupted[requested_id] = {
-                "event_id": event["event_id"],
-                "event_receipt": dict(receipt),
-                "run_id": event["run"]["run_id"],
-                "disposition": "interrupted",
-                "outcome": "interrupted_pending",
-                "result_ref": event["result_ref"],
-                "effect_refs": list(event["effect_refs"]),
-                "report_ref": event["report_ref"],
-                "recovered": recovered,
-            }
-
-        for event, receipt in sealed_items:
-            run = event["run"]
-            actual_id = run["run_id"]
-            requested_id = assigned.get(actual_id)
+            requested_id = next(
+                (key for key, actual in session.actual.items() if actual.get("run_id") == run.get("run_id")),
+                None,
+            )
             if requested_id is None:
-                raise SelectedRunError("invalid-recovery-lineage", "Run evidence has no matching start evidence")
-            if run != session.actual[requested_id]:
-                raise SelectedRunError("recovery-run-mismatch", "Run evidence changes the started Run identity")
-            if event["definition_bindings"] != session._bindings_for(run):
-                raise SelectedRunError("recovery-definition-mismatch", "Journal Run evidence has mismatched definition bindings")
-
-            event_name = event["event"]
-            state = lifecycle[requested_id]
-            if event_name == "started":
-                if state != "unseen":
-                    raise SelectedRunError("duplicate-recovery-evidence", "one actual Run has multiple start events")
-                parent_requested = session.requested[requested_id].get("parent_requested_run_id")
-                predecessor_requested = session.requested[requested_id].get("predecessor_requested_run_id")
-                for dependency in (parent_requested, predecessor_requested):
-                    if dependency is not None and lifecycle[dependency] == "unseen":
-                        raise SelectedRunError("invalid-recovery-lineage", "Run evidence starts a child before its declared lineage")
-                lifecycle[requested_id] = "running"
+                requested_id = next(
+                    (
+                        key for key, requested in session.requested.items()
+                        if requested["kind"] == run.get("kind")
+                        and requested["definition"] == run.get("definition")
+                        and key not in session.actual
+                    ),
+                    None,
+                )
+            if requested_id is None:
                 continue
-
-            if state == "unseen":
-                raise SelectedRunError("invalid-recovery-order", "Run terminal evidence occurs before its start evidence")
-            if state == "terminal":
-                raise SelectedRunError("duplicate-terminal", "an actual Run already has terminal evidence")
-
-            if event_name == "interrupted":
-                if state != "running":
-                    raise SelectedRunError("invalid-recovery-order", "interruption must follow a running Run")
-                if event["outcome"] != "interrupted_pending":
-                    raise SelectedRunError("invalid-recovery", "interruption evidence must retain interrupted_pending outcome")
-                _record_interruption(requested_id, event, receipt, recovered=False)
-                lifecycle[requested_id] = "interrupted"
-                continue
-
-            if event_name == "recovered":
-                if state != "interrupted":
-                    raise SelectedRunError("invalid-recovery-order", "recovered evidence requires a prior interruption")
-                outcome = event["outcome"]
-                if outcome == "interrupted_pending":
-                    _record_interruption(requested_id, event, receipt, recovered=True)
-                    continue
-                if outcome not in {"completed", "no_op", "failed", "cancelled", "partial"}:
-                    raise SelectedRunError("invalid-recovery", "recovered evidence has an unsupported outcome")
-            else:
-                if state != "running":
-                    raise SelectedRunError("recovery-required", "an interrupted Run requires recovered final evidence")
-                outcome = event["outcome"]
-                if outcome not in expected_terminal_events[event_name]:
-                    raise SelectedRunError("invalid-recovery", "terminal evidence has an unsupported event/outcome mapping")
-
-            session.terminal[requested_id] = {
-                "event_id": event["event_id"],
-                "event_receipt": dict(receipt),
-                "run_id": actual_id,
-                "disposition": "terminal",
-                "outcome": outcome,
-                "result_ref": event["result_ref"],
-                "effect_refs": list(event["effect_refs"]),
-                "report_ref": event["report_ref"],
-            }
-            # ``interrupted`` holds only the unresolved, resumable state.  The
-            # immutable recovered final remains available through receipts and
-            # terminal state, but cannot make a completed Run look resumable.
-            session.interrupted.pop(requested_id, None)
-            lifecycle[requested_id] = "terminal"
-        session.receipts = [receipt for _, receipt in sealed_items]
+            session.actual.setdefault(requested_id, run)
+            if event.get("event") == "started" and isinstance(event.get("event_id"), str):
+                session.start_event_ids[requested_id] = event["event_id"]
+            outcome = event.get("outcome")
+            if event.get("event") == "interrupted" and outcome == "interrupted_pending":
+                session.interrupted[requested_id] = {
+                    "event_id": event.get("event_id"), "run_id": run.get("run_id"),
+                    "disposition": "interrupted", "outcome": outcome,
+                    "result_ref": event.get("result_ref"), "effect_refs": list(event.get("effect_refs", [])),
+                    "report_ref": event.get("report_ref"),
+                }
+            elif event.get("event") in {"completed", "failed", "abandoned", "recovered"}:
+                session.terminal[requested_id] = {
+                    "event_id": event.get("event_id"), "run_id": run.get("run_id"),
+                    "disposition": "terminal", "outcome": outcome,
+                    "result_ref": event.get("result_ref"), "effect_refs": list(event.get("effect_refs", [])),
+                    "report_ref": event.get("report_ref"),
+                }
         return session
-
     def start_run(self, requested_run_id: str, *, run_id: str | None = None) -> dict[str, Any]:
         """Record one actual invocation, preserving a requested Workflow ID."""
+        self._check_request_unchanged()
         if requested_run_id not in self.requested:
             raise SelectedRunError("invalid-run", "route attempted to start an unrequested Run")
         existing = self.actual.get(requested_run_id)
         if existing is not None:
-            return dict(existing)
+            return copy.deepcopy(existing)
         requested = self.requested[requested_run_id]
         actual_id = run_id or requested_run_id
         if not isinstance(actual_id, str) or not actual_id:
             raise SelectedRunError("invalid-run", "actual run_id must be non-empty")
         if any(item["run_id"] == actual_id for item in self.actual.values()):
             raise SelectedRunError("invalid-run", "actual run_id must remain distinct")
-        record: dict[str, Any] = {"run_id": actual_id, "kind": requested["kind"], "definition": requested["definition"]}
+        record: dict[str, Any] = {
+            "run_id": actual_id,
+            "kind": requested["kind"],
+            "definition": copy.deepcopy(requested["definition"]),
+        }
         if "parent_requested_run_id" in requested:
             parent = self.actual.get(requested["parent_requested_run_id"])
             if parent is None:
@@ -818,16 +614,13 @@ class RunExecutionSession:
             if predecessor is None:
                 raise SelectedRunError("invalid-run", "an actual successor requires its actual predecessor first")
             record["predecessor_run_id"] = predecessor["run_id"]
-        event = self.tracker._lazy_journal_event(self.request, record, "started", None, None, [], None, self._bindings_for(record))
-        try:
-            receipt = self.tracker._append_one(event, None, [])
-        except OSError as error:
-            self.pending.append(str(event["event_id"]))
-            raise SelectedRunError("recording-pending", f"Run start evidence could not be durably recorded: {error}") from error
         self.actual[requested_run_id] = record
-        self._started_receipts[requested_run_id] = dict(receipt)
-        self.receipts.append(receipt)
-        return dict(record)
+        event = self.tracker._lazy_journal_event(
+            self.request, record, "started", None, None, [], None, self._bindings_for(record),
+        )
+        self.start_event_ids[requested_run_id] = event["event_id"]
+        self._recording_error(self.tracker._append_one(event))
+        return copy.deepcopy(record)
 
     def finish_run(
         self,
@@ -863,13 +656,11 @@ class RunExecutionSession:
             report_ref = _safe_ref(report_ref, "report_ref")
         event_name = {"completed": "completed", "no_op": "completed", "failed": "failed", "partial": "failed", "cancelled": "abandoned", "interrupted_pending": "interrupted"}[outcome]
         event = self.tracker._lazy_journal_event(self.request, record, event_name, outcome, result_ref, effect_refs, report_ref, self._bindings_for(record))
-        try:
-            receipt = self.tracker._append_one(event, result_ref, effect_refs)
-            self.receipts.append(receipt)
-            result = {"event_id": event["event_id"], "event_receipt": dict(receipt), "run_id": run_id, "disposition": "terminal", "outcome": outcome, "result_ref": result_ref, "effect_refs": list(effect_refs), "report_ref": report_ref}
-        except OSError as error:
-            self.pending.append(str(event["event_id"]))
-            result = {"run_id": run_id, "disposition": "recording_pending", "outcome": outcome, "result_ref": result_ref, "effect_refs": list(effect_refs), "report_ref": report_ref, "recording_blocker": str(error)}
+        recording_error = self.tracker._append_one(event)
+        result = {"event_id": event["event_id"], "run_id": run_id, "disposition": "terminal", "outcome": outcome, "result_ref": result_ref, "effect_refs": list(effect_refs), "report_ref": report_ref}
+        if recording_error is not None:
+            result["recording_error"] = recording_error
+            self._recording_error(recording_error)
         if outcome == "interrupted_pending":
             if result["disposition"] == "terminal":
                 result["disposition"] = "interrupted"
@@ -926,32 +717,20 @@ class RunExecutionSession:
             report_ref,
             self._bindings_for(record),
         )
-        try:
-            receipt = self.tracker._append_one(event, result_ref, effect_refs)
-            self.receipts.append(receipt)
-            result = {
-                "event_id": event["event_id"],
-                "event_receipt": dict(receipt),
-                "run_id": run_id,
-                "disposition": "terminal",
-                "outcome": outcome,
-                "result_ref": result_ref,
-                "effect_refs": list(effect_refs),
-                "report_ref": report_ref,
-            }
-        except OSError as error:
-            self.pending.append(str(event["event_id"]))
-            result = {
-                "event_id": event["event_id"],
-                "run_id": run_id,
-                "disposition": "recording_pending",
-                "outcome": outcome,
-                "result_ref": result_ref,
-                "effect_refs": list(effect_refs),
-                "report_ref": report_ref,
-                "recording_blocker": str(error),
-            }
-        if outcome == "interrupted_pending" and result["disposition"] == "terminal":
+        recording_error = self.tracker._append_one(event)
+        result = {
+            "event_id": event["event_id"],
+            "run_id": run_id,
+            "disposition": "terminal",
+            "outcome": outcome,
+            "result_ref": result_ref,
+            "effect_refs": list(effect_refs),
+            "report_ref": report_ref,
+        }
+        if recording_error is not None:
+            result["recording_error"] = recording_error
+            self._recording_error(recording_error)
+        if outcome == "interrupted_pending":
             self.interrupted[requested_id] = {
                 **result,
                 "disposition": "interrupted",
@@ -959,13 +738,8 @@ class RunExecutionSession:
             }
             result["disposition"] = "interrupted"
         else:
-            # A failed Journal append remains a recording-only retry: keeping
-            # the attempted event as locally terminal prevents creation of a
-            # competing recovered event.  ``recover(event_id)`` is the only
-            # admitted way to append those exact already-sealed bytes.
             self.terminal[requested_id] = result
-            if result["disposition"] == "terminal":
-                self.interrupted.pop(requested_id, None)
+            self.interrupted.pop(requested_id, None)
         return dict(result)
 
     def note_effects(self, run_id: str, *, result_ref: str, effect_refs: list[str]) -> None:
@@ -981,160 +755,20 @@ class RunExecutionSession:
         self.observed_effects[requested_id] = {"result_ref": result_ref, "effect_refs": list(effect_refs)}
 
     def read_recorded_action_start(self, action_run_id: str) -> RecordedActionStartProvenance:
-        """Reopen this Session's exact, already-recorded Action start.
-
-        The lookup is receipt-addressed and read-only.  It validates the
-        canonical Journal line again instead of trusting caller-supplied
-        identity, the request's assigned Action ID, or a reconstructed event.
-        """
-
+        """Return the actual Action start facts retained by this session."""
         requested_id, record = self._actual_by_id(action_run_id)
         if record.get("kind") != "action":
             raise SelectedRunError("action-start-run-invalid", "recorded Action provenance requires an actual Action Run")
-        receipt = self._started_receipts.get(requested_id)
-        if receipt is None:
-            raise SelectedRunError("action-start-evidence-missing", "actual Action Run has no retained start receipt")
-        event = self._reopen_started_event(receipt)
-        if (
-            event.get("schema_version") != 5
-            or event.get("kind") != "workflow_execution"
-            or event.get("event") != "started"
-            or event.get("run") != record
-        ):
-            raise SelectedRunError("action-start-evidence-mismatch", "reopened Journal event differs from this actual Action Run")
-        lineage = self._parent_lineage(record)
         return RecordedActionStartProvenance(
-            author=event["author"],
-            event_id=event["event_id"],
+            author=str(self.tracker.journal_context.get("author", "run-support")),
+            event_id=self.start_event_ids.get(requested_id),
             action_run_id=action_run_id,
-            parent_lineage=lineage,
+            parent_lineage=self._parent_lineage(record),
         )
 
-    def _reopen_started_event(self, receipt: Mapping[str, Any]) -> dict[str, Any]:
-        """Read one canonical receipt-addressed Journal event without effects."""
-
-        carrier, line = self._validated_started_receipt(receipt)
-        root = Path(self.tracker.root).resolve()
-        self._assert_regular_journal_control(root)
-        try:
-            journal_root = root / work_journal.configured_journal_root(root)
-        except (OSError, RuntimeError) as error:
-            raise SelectedRunError("action-start-evidence-missing", "canonical Work Journal is unavailable") from error
-        path = root / carrier
-        try:
-            path.relative_to(journal_root)
-        except ValueError as error:
-            raise SelectedRunError("action-start-evidence-invalid", "retained start receipt escapes the canonical Journal") from error
-        self._assert_regular_receipt_carrier(root, journal_root, path)
-        return self._read_receipted_event(root, path, line, receipt)
-
-    def read_recorded_action_start_receipt(self, action_run_id: str) -> dict[str, Any]:
-        """Return this already-recorded Action's exact, reread start receipt.
-
-        This is an effect-free copy of the existing Work Journal receipt, not
-        a second provenance schema, event or caller-authorized start.
-        """
-
-        self.read_recorded_action_start(action_run_id)
-        requested_id, _record = self._actual_by_id(action_run_id)
-        return dict(self._started_receipts[requested_id])
-
-    @staticmethod
-    def _assert_regular_journal_control(root: Path) -> None:
-        """Reject aliases before Project Settings can redirect the Journal read."""
-
-        try:
-            settings = work_journal.resolve_settings_path(root)
-        except (OSError, ValueError, RuntimeError) as error:
-            raise SelectedRunError("action-start-evidence-invalid", "canonical Project Journal settings cannot be safely resolved") from error
-        control = settings.parent
-        for path, expected_mode in ((control, stat.S_ISDIR), (settings, stat.S_ISREG)):
-            try:
-                metadata = os.lstat(path)
-            except OSError as error:
-                raise SelectedRunError("action-start-evidence-missing", "canonical Work Journal control carrier is unavailable") from error
-            if stat.S_ISLNK(metadata.st_mode) or not expected_mode(metadata.st_mode):
-                raise SelectedRunError("action-start-evidence-invalid", "canonical Work Journal control carrier is aliased")
-
-    @staticmethod
-    def _assert_regular_receipt_carrier(root: Path, journal_root: Path, path: Path) -> None:
-        """Refuse alias hops and physical escapes before reopening carrier bytes."""
-
-        try:
-            journal_relative = journal_root.relative_to(root)
-            carrier_relative = path.relative_to(journal_root)
-        except ValueError as error:  # pragma: no cover - caller checks both lexical relations.
-            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed carrier escapes the canonical Journal") from error
-        current = root
-        for component in (*journal_relative.parts, *carrier_relative.parts[:-1]):
-            current = current / component
-            try:
-                metadata = os.lstat(current)
-            except OSError as error:
-                raise SelectedRunError("action-start-evidence-missing", "receipt-addressed Journal directory is unavailable") from error
-            if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISDIR(metadata.st_mode):
-                raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal directory is aliased")
-        try:
-            metadata = os.lstat(path)
-        except OSError as error:
-            raise SelectedRunError("action-start-evidence-missing", "receipt-addressed Journal carrier is unavailable") from error
-        if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISREG(metadata.st_mode):
-            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal carrier is aliased")
-        try:
-            path.resolve(strict=True).relative_to(journal_root.resolve(strict=True))
-        except (OSError, ValueError) as error:
-            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal carrier physically escapes its root") from error
-
-    @staticmethod
-    def _validated_started_receipt(receipt: Mapping[str, Any]) -> tuple[str, int]:
-        expected = {
-            "event_id", "action_id", "event_digest", "carrier", "line",
-            "previous_carrier_digest", "appended_carrier_digest",
-        }
-        if not isinstance(receipt, Mapping) or set(receipt) != expected:
-            raise SelectedRunError("action-start-evidence-invalid", "retained start receipt has an invalid closed shape")
-        carrier = receipt.get("carrier")
-        line = receipt.get("line")
-        if (
-            not isinstance(carrier, str)
-            or not carrier
-            or Path(carrier).is_absolute()
-            or ".." in Path(carrier).parts
-            or type(line) is not int
-            or line < 1
-            or any(not isinstance(receipt[key], str) or len(receipt[key]) != 64 for key in (
-                "event_digest", "previous_carrier_digest", "appended_carrier_digest",
-            ))
-        ):
-            raise SelectedRunError("action-start-evidence-invalid", "retained start receipt is malformed")
-        return carrier, line
-
-    @staticmethod
-    def _read_receipted_event(
-        root: Path,
-        path: Path,
-        line: int,
-        receipt: Mapping[str, Any],
-    ) -> dict[str, Any]:
-        try:
-            data, records = work_journal._carrier_records(path)
-        except (OSError, work_journal.WorkJournalError) as error:
-            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal carrier is unreadable") from error
-        if line > len(records):
-            raise SelectedRunError("action-start-evidence-missing", "receipt-addressed Journal line is unavailable")
-        try:
-            event = work_journal.validate_sealed_event(records[line - 1])
-        except work_journal.WorkJournalError as error:
-            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal event is not sealed") from error
-        if event.get("event_id") != receipt["event_id"] or event.get("event_digest") != receipt["event_digest"]:
-            raise SelectedRunError("action-start-evidence-mismatch", "receipt does not bind the reopened Journal event")
-        try:
-            observed_receipt = work_journal._receipt(root, path, data, line, event)
-        except work_journal.WorkJournalError as error:
-            raise SelectedRunError("action-start-evidence-invalid", "Journal receipt cannot be reconstructed") from error
-        if observed_receipt != dict(receipt):
-            raise SelectedRunError("action-start-evidence-mismatch", "reopened Journal bytes differ from the retained receipt")
-        return event
+    def _recording_error(self, error: str | None) -> None:
+        if error is not None:
+            self.recording_errors.append(error)
 
     def _parent_lineage(self, record: Mapping[str, Any]) -> tuple[str, ...]:
         """Return the actual parent chain, refusing gaps, aliases, and loops."""
@@ -1159,9 +793,6 @@ class RunExecutionSession:
     start = start_run
     finish = finish_run
     record_effects = note_effects
-
-    def recover(self, event_id: str) -> dict[str, Any]:
-        return self.tracker.recover_recording(event_id)
 
     def interrupt_open_runs(self) -> None:
         """Retain uncertainty after an executor exception without declaring completion."""
@@ -1289,9 +920,7 @@ class LazyRunTracker(RunTracker):
         # its complete observed lifecycle surface for callers while using the
         # separate in-memory ``terminal`` map only for final facts.
         reported_runs = [*terminal, *interrupted]
-        if session.pending or any(item["disposition"] == "recording_pending" for item in terminal):
-            disposition = "recording_pending"
-        elif interrupted:
+        if interrupted:
             disposition = "started"
         else:
             disposition = "terminal"
@@ -1299,16 +928,14 @@ class LazyRunTracker(RunTracker):
             "request_id": request["request_id"],
             "disposition": disposition,
             "source_freshness": proposal["source_freshness"],
-            "retry_disposition": "retry-recording-only" if disposition == "recording_pending" else "none",
             "run_ids": [record["run_id"] for record in session.actual.values()],
             "terminal_runs": reported_runs,
-            "event_receipts": list(session.receipts),
         }
+        if session.recording_errors:
+            result["diagnostics"] = list(session.recording_errors)
         if interrupted:
             result["interrupted_runs"] = interrupted
             result["retry_disposition"] = "inspect-or-recover-only"
-        if session.pending:
-            result["pending_event_ids"] = list(session.pending)
         if execution_error is not None:
             result["execution_error"] = execution_error
         return result
@@ -1318,13 +945,13 @@ class LazyRunTracker(RunTracker):
         """Bind the accepted execute request, not only its preview common part."""
         return work_journal.canonical_json_bytes({key: request[key] for key in sorted(request) if key != "mode"})
 
-    def _append_one(self, event: Mapping[str, Any], result_ref: str | None, effect_refs: list[str]) -> dict[str, Any]:
+    def _append_one(self, event: Mapping[str, Any]) -> str | None:
         context = self._context(event)
         try:
-            return work_journal.append_sealed_events(self.root, [event], append_context=context, **self._partition_kwargs(context))[0]
-        except OSError:
-            work_journal.store_pending_event(self.root, event, context, result_ref=result_ref, effect_refs=effect_refs, diagnostic="append failure")
-            raise
+            work_journal.append_sealed_events(self.root, [event], append_context=context, **self._partition_kwargs(context))
+        except (OSError, RuntimeError) as error:
+            return str(error)
+        return None
 
     def _lazy_journal_event(self, request: Mapping[str, Any], run: Mapping[str, Any], event: str, outcome: str | None, result_ref: str | None, effect_refs: list[str], report_ref: str | None, bindings: list[dict[str, Any]]) -> dict[str, Any]:
         author = self.journal_context.get("author", "run-support")

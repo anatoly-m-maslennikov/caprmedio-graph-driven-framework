@@ -36,9 +36,7 @@ from direct_action_session import (  # noqa: E402
 from framework_image_restoration import (  # noqa: E402
     FrameworkImageRestorationError,
     preview_framework_image_restoration,
-    recover_framework_image_terminal,
     restore_framework_image,
-    validate_framework_image_recording_command,
 )
 from operator_registry import OperatorRegistryError, parse_operators_registry  # noqa: E402
 from release_image import DockerSubprocessExecutor  # noqa: E402
@@ -80,15 +78,9 @@ class ExecuteRequest(_ClosedRequest):
     retry_of_terminal_event_id: str | None = Field(default=None, min_length=1, max_length=1024)
 
 
-class RecordTerminalRequest(_ClosedRequest):
-    operation: Literal["record_terminal"]
-    result_ref: str = Field(min_length=1, max_length=1024)
-    operator: str = Field(min_length=1, max_length=512)
-    authorization_ref: str = Field(min_length=1, max_length=1024)
-
 
 RestorationRequest = Annotated[
-    PreviewRequest | ExecuteRequest | RecordTerminalRequest,
+    PreviewRequest | ExecuteRequest,
     Field(discriminator="operation"),
 ]
 _REQUESTS = TypeAdapter(RestorationRequest)
@@ -226,37 +218,17 @@ def _action_source(root: Path) -> dict[str, object]:
     }
 
 
-def _request_input(request: ExecuteRequest | RecordTerminalRequest) -> dict[str, str]:
-    if isinstance(request, ExecuteRequest):
-        value = {
-            "requested_run_id": request.requested_run_id,
-            "expected_selector_sha256": request.expected_selector_sha256,
-        }
-        if request.retry_of_terminal_event_id is not None:
-            value["retry_of_terminal_event_id"] = request.retry_of_terminal_event_id
-        return value
-    return {"result_ref": request.result_ref}
+def _request_input(request: ExecuteRequest) -> dict[str, str]:
+    value = {
+        "requested_run_id": request.requested_run_id,
+        "expected_selector_sha256": request.expected_selector_sha256,
+    }
+    if request.retry_of_terminal_event_id is not None:
+        value["retry_of_terminal_event_id"] = request.retry_of_terminal_event_id
+    return value
 
-
-def _read_command(root: Path, request: ExecuteRequest | RecordTerminalRequest) -> _OperatorCommand:
+def _read_command(root: Path, request: ExecuteRequest) -> _OperatorCommand:
     reference, relative = _relative(request.authorization_ref, field="authorization_ref")
-    if isinstance(request, RecordTerminalRequest):
-        author, _registry_sha256 = _registered_author(root, request.operator)
-        try:
-            command_sha256 = validate_framework_image_recording_command(
-                root,
-                result_ref=request.result_ref,
-                authorization_ref=reference,
-                operator=request.operator,
-                journal_author=author,
-                operators_registry_ref=OPERATORS_REGISTRY_REF,
-            )
-        except FrameworkImageRestorationError as error:
-            raise FrameworkImageRestorationMcpError(
-                "framework-image-restoration-mcp-command-invalid",
-                "recording command failed native validation",
-            ) from error
-        return _OperatorCommand(reference, command_sha256, request.operator, author)
     raw = _read_regular(root, relative, label="Operator command carrier")
     try:
         value = json.loads(raw.decode("utf-8"))
@@ -312,9 +284,6 @@ class _CommandBoundJournal:
     def begin_action(self, **kwargs: Any) -> Mapping[str, Any]:
         return self._record(self._session.begin_action(**kwargs))
 
-    def reopen_restoration_for_recording(self, *args: Any, **kwargs: Any) -> Mapping[str, Any]:
-        return self._record(self._session.reopen_restoration_for_recording(*args, **kwargs))
-
     def __getattr__(self, name: str) -> Any:
         return getattr(self._session, name)
 
@@ -330,18 +299,16 @@ class FrameworkImageRestorationAdapter:
         executor_factory: Callable[[], Any] = DockerSubprocessExecutor,
         previewer: Callable[[Path], dict[str, Any]] = preview_framework_image_restoration,
         restorer: Callable[..., dict[str, Any]] = restore_framework_image,
-        terminal_recoverer: Callable[..., dict[str, Any]] = recover_framework_image_terminal,
     ) -> None:
         self.root = _root(root)
         self._session_factory = session_factory
         self._executor_factory = executor_factory
         self._previewer = previewer
         self._restorer = restorer
-        self._terminal_recoverer = terminal_recoverer
 
     def invoke(self, request: Mapping[str, Any] | RestorationRequest) -> dict[str, Any]:
         try:
-            parsed = request if isinstance(request, (PreviewRequest, ExecuteRequest, RecordTerminalRequest)) else _REQUESTS.validate_python(request)
+            parsed = request if isinstance(request, (PreviewRequest, ExecuteRequest)) else _REQUESTS.validate_python(request)
         except ValidationError as error:
             raise FrameworkImageRestorationMcpError("framework-image-restoration-mcp-request-invalid", "request has an invalid closed schema") from error
         if isinstance(parsed, PreviewRequest):
@@ -358,23 +325,14 @@ class FrameworkImageRestorationAdapter:
         )
         with session:
             journal = session if isinstance(session, DirectActionSession) else _CommandBoundJournal(session, command)
-            if isinstance(parsed, ExecuteRequest):
-                return self._restorer(
-                    self.root,
-                    journal=journal,
-                    requested_run_id=parsed.requested_run_id,
-                    expected_selector_sha256=parsed.expected_selector_sha256,
-                    image_executor=self._executor_factory(),
-                    retry_of_terminal_event_id=parsed.retry_of_terminal_event_id,
-                )
-            return self._terminal_recoverer(
+            return self._restorer(
                 self.root,
                 journal=journal,
-                result_ref=parsed.result_ref,
+                requested_run_id=parsed.requested_run_id,
+                expected_selector_sha256=parsed.expected_selector_sha256,
                 image_executor=self._executor_factory(),
-                recording_authorization_ref=command.reference,
+                retry_of_terminal_event_id=parsed.retry_of_terminal_event_id,
             )
-
 
 def create_adapter(root: str | Path) -> _DescriptorAdapter:
     """Create the sole root-bound adapter used by descriptor-driven providers."""

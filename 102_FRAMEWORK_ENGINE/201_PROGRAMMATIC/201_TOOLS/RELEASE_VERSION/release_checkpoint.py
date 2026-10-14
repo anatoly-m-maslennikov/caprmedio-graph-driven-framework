@@ -585,16 +585,14 @@ def _reopen_selected_native_promotion_completion(
     source: Mapping[str, Any], *, root: str, workflow_run_id: str, fingerprint: str,
     candidate: ValidatedCandidate, publication: NativePromotionEvidence,
 ) -> None:
-    """Require the original selected O169 result and terminal Journal fact.
+    """Require the original selected O169 result and actual publication effects.
 
     This is deliberately limited to the completed promotion Action.  Native
     N discovery must not infer a future retirement terminal receipt merely to
     reopen an already-published predecessor.
     """
 
-    import work_journal
     from release_handoff import _file
-    from FIND_AND_FETCH_JOURNAL_EVENTS.find_and_fetch_journal_events import JournalQueryError, capture_snapshot, query
 
     # O164@9 had twelve phases, with O178/O169 promotion at index ten.
     # This documentary reader must not bind retained records to today's graph.
@@ -606,9 +604,7 @@ def _reopen_selected_native_promotion_completion(
         return value
     context_rows = source.get("contexts")
     result_rows = source.get("results")
-    recording_rows = source.get("shared_recordings")
-    pending_rows = source.get("pending_recordings")
-    if not all(isinstance(rows, list) for rows in (context_rows, result_rows, recording_rows, pending_rows)):
+    if not all(isinstance(rows, list) for rows in (context_rows, result_rows)):
         raise _error("release-checkpoint-phase-mismatch", "historical native publication lacks selected Action records")
 
     def row_at(rows: list[Any], *, label: str, fields: set[str]) -> Mapping[str, Any]:
@@ -659,18 +655,6 @@ def _reopen_selected_native_promotion_completion(
         or result.outcome != "completed" or result.output != publication
     ):
         raise _error("release-checkpoint-phase-mismatch", "historical native publication lacks its completed O169 observation")
-    recording = row_at(recording_rows, label="shared recording", fields={"terminal_outcome", "receipt_refs"})
-    if recording["terminal_outcome"] != "completed":
-        raise _error("release-checkpoint-phase-mismatch", "historical native publication has no completed shared Action receipt")
-    refs = recording.get("receipt_refs")
-    if not isinstance(refs, list) or len(refs) != 1:
-        raise _error("release-checkpoint-phase-mismatch", "historical native publication has an ambiguous shared Action receipt")
-    terminal_event_id = _text(refs[0], "historical native promotion terminal receipt")
-    for raw in pending_rows:
-        pending = _mapping(raw, {"index", "event_id", "event_outcome"}, "historical native pending recording")
-        if historical_index(pending["index"], "historical native pending index") == promote_index:
-            raise _error("release-checkpoint-phase-mismatch", "historical native publication has pending terminal evidence")
-
     expected_requested_action = f"{workflow_run_id}:step:{promote_index + 1}:action:1"
     expected_result_ref = (
         f".caprmedio_install/workflow_orchestrator/runs/{workflow_run_id}/{expected_requested_action}.json"
@@ -684,61 +668,13 @@ def _reopen_selected_native_promotion_completion(
     if (
         not isinstance(progress, dict)
         or progress_raw != canonical_json(progress)
-        or set(progress) != {"result", "action_run_id", "effect_refs", "native_result", "compiler_publication_recording"}
+        or set(progress) - {"compiler_publication_recording"} != {"result", "action_run_id", "effect_refs", "native_result"}
         or not isinstance(progress["result"], str) or not progress["result"]
         or progress["action_run_id"] != context.action_run_id
         or progress["effect_refs"] != list(result.effect_evidence_refs)
         or progress["native_result"] != json.loads(canonical_json(asdict(result)))
     ):
         raise _error("release-checkpoint-binding-mismatch", "historical native publication result differs from the retained O169 observation")
-
-    try:
-        snapshot = capture_snapshot(project)
-        if snapshot.get("source_root") != work_journal.configured_journal_root(project).as_posix():
-            raise _error("release-checkpoint-binding-mismatch", "historical native publication has another canonical Journal root")
-        observed = query(snapshot, {
-            "mode": "full_events",
-            "filter": '"event:/run/run_id" = ' + json.dumps(context.action_run_id),
-            "limit": 3,
-        })
-    except JournalQueryError as error:
-        raise _error("release-checkpoint-binding-mismatch", "historical native publication Journal coverage is unavailable") from error
-    if (observed.get("status") != "complete" or observed.get("coverage", {}).get("complete") is not True
-            or len(observed.get("results", [])) != 2):
-        raise _error("release-checkpoint-binding-mismatch", "historical native publication Journal pair is absent or ambiguous")
-    events: dict[str, dict[str, Any]] = {}
-    for row in observed["results"]:
-        event = work_journal.validate_sealed_event(row["event"])
-        event_id = event.get("event_id")
-        if not isinstance(event_id, str) or event_id in events:
-            raise _error("release-checkpoint-binding-mismatch", "historical native publication Journal pair is ambiguous")
-        events[event_id] = event
-    if set(events) != {publication.action_start_event_id, terminal_event_id}:
-        raise _error("release-checkpoint-binding-mismatch", "historical native publication has another Action start or terminal receipt")
-    started, terminal = events[publication.action_start_event_id], events[terminal_event_id]
-    run = started.get("run")
-    definition = run.get("definition") if isinstance(run, Mapping) else None
-    if (
-        started.get("event") != "started" or started.get("outcome") is not None
-        or started.get("action_id") != "CA-O-169" or not isinstance(run, Mapping)
-        or run.get("run_id") != context.action_run_id or run.get("kind") != "action"
-        or run.get("parent_run_id") != context.step_run_id or not isinstance(definition, Mapping)
-        or definition.get("atom_id") != "CA-O-169" or definition.get("version") != 5
-        or {"kind": "action", **definition} not in started.get("definition_bindings", [])
-    ):
-        raise _error("release-checkpoint-binding-mismatch", "historical native publication start differs from selected O169")
-    preserved = (
-        "schema_version", "kind", "action_id", "author", "llm_session", "structural_scope", "initiative",
-        "run", "definition_bindings", "input_ref", "redaction",
-    )
-    if (
-        any(terminal.get(key) != started.get(key) for key in preserved)
-        or terminal.get("event") != "completed" or terminal.get("outcome") != "completed"
-        or terminal.get("result_ref") != expected_result_ref
-        or terminal.get("effect_refs") != list(result.effect_evidence_refs)
-        or terminal.get("report_ref") is not None
-    ):
-        raise _error("release-checkpoint-binding-mismatch", "historical native publication terminal differs from its selected O169 result")
 
 
 def read_native_checkpoint_packet(payload: Mapping[str, Any], *, project_root: str,
@@ -1313,142 +1249,46 @@ def _validate_result_outputs(results: dict[int, ReleasePhaseResult], state: dict
             raise _error("release-checkpoint-phase-mismatch", "completed phase lacks its typed observation")
 
 
-def _shared_recordings_value(
-    shared_recordings: Mapping[int, Mapping[str, Any]] | None,
-    results: Mapping[int, ReleasePhaseResult],
-) -> list[dict[str, Any]]:
-    """Encode only durable shared Action-terminal receipt references.
-
-    These entries are not another Journal.  They are the exact receipt
-    references already issued by the shared dispatcher, retained beside the
-    private frontier so recovery can distinguish a recorded terminal Action
-    from an uncertain effect.
-    """
-
-    if shared_recordings is None:
-        return []
-    if not isinstance(shared_recordings, Mapping):
-        raise _error("release-checkpoint-invalid", "shared recordings must be indexed typed state")
-    indexed: list[tuple[int, Mapping[str, Any]]] = []
-    for raw_index, source in shared_recordings.items():
+def _shared_recordings_value(shared_recordings: Mapping[int, Mapping[str, Any]] | None,
+                             results: Mapping[int, ReleasePhaseResult]) -> list[dict[str, Any]]:
+    """Retain actual phase terminal outcomes, not Journal completion proof."""
+    records = []
+    for raw_index, packet in sorted((shared_recordings or {}).items()):
         index = _index(raw_index, "shared_recordings.index")
-        indexed.append((index, source))
-    records: list[dict[str, Any]] = []
-    for index, source in sorted(indexed):
         if index not in results:
-            raise _error("release-checkpoint-phase-mismatch", "shared recording has no retained phase result")
-        packet = _mapping(source, {"terminal_outcome", "receipt_refs"}, "shared_recording")
-        terminal_outcome = _text(packet["terminal_outcome"], "shared_recording.terminal_outcome")
-        if terminal_outcome not in {"completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending"}:
-            raise _error("release-checkpoint-invalid", "shared recording has an unsupported terminal outcome")
-        refs = packet["receipt_refs"]
-        if not isinstance(refs, (list, tuple)) or not refs:
-            raise _error("release-checkpoint-invalid", "shared recording requires canonical receipt references")
-        receipt_refs = [_text(reference, "shared_recording.receipt_refs") for reference in refs]
-        if len(set(receipt_refs)) != len(receipt_refs):
-            raise _error("release-checkpoint-invalid", "shared recording repeats one canonical receipt reference")
-        records.append({"index": index, "terminal_outcome": terminal_outcome, "receipt_refs": receipt_refs})
-    if len({record["index"] for record in records}) != len(records):
-        raise _error("release-checkpoint-invalid", "shared recordings repeat one selected phase")
+            raise _error("release-checkpoint-phase-mismatch", "terminal outcome has no actual phase result")
+        outcome = _text(packet["terminal_outcome"], "shared_recording.terminal_outcome")
+        if outcome not in {"completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending"}:
+            raise _error("release-checkpoint-invalid", "unsupported actual terminal outcome")
+        records.append({"index": index, "terminal_outcome": outcome,
+                        "receipt_refs": list(packet.get("receipt_refs", ()))})
     return records
 
 
 def _load_shared_recordings(value: Any, results: Mapping[int, ReleasePhaseResult]) -> dict[int, dict[str, Any]]:
     if not isinstance(value, list):
-        raise _error("release-checkpoint-invalid", "shared recordings must be a canonical list")
-    restored: dict[int, dict[str, Any]] = {}
-    prior = -1
-    for source in value:
-        packet = _mapping(source, {"index", "terminal_outcome", "receipt_refs"}, "shared_recording")
+        raise _error("release-checkpoint-invalid", "phase terminal outcomes must be a list")
+    restored = {}
+    for packet in value:
         index = _index(packet["index"], "shared_recording.index")
-        if index <= prior or index not in results:
-            raise _error("release-checkpoint-phase-mismatch", "shared recording is unordered, repeated, or has no phase result")
-        prior = index
-        terminal_outcome = _text(packet["terminal_outcome"], "shared_recording.terminal_outcome")
-        if terminal_outcome not in {"completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending"}:
-            raise _error("release-checkpoint-invalid", "shared recording has an unsupported terminal outcome")
-        refs = packet["receipt_refs"]
-        if not isinstance(refs, list) or not refs:
-            raise _error("release-checkpoint-invalid", "shared recording requires canonical receipt references")
-        receipt_refs = [_text(reference, "shared_recording.receipt_refs") for reference in refs]
-        if len(set(receipt_refs)) != len(receipt_refs):
-            raise _error("release-checkpoint-invalid", "shared recording repeats one canonical receipt reference")
-        restored[index] = {"terminal_outcome": terminal_outcome, "receipt_refs": tuple(receipt_refs)}
+        if index in restored or index not in results:
+            raise _error("release-checkpoint-phase-mismatch", "terminal outcome has no unique actual phase")
+        outcome = _text(packet["terminal_outcome"], "shared_recording.terminal_outcome")
+        if outcome not in {"completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending"}:
+            raise _error("release-checkpoint-invalid", "unsupported actual terminal outcome")
+        restored[index] = {"terminal_outcome": outcome, "receipt_refs": tuple(packet.get("receipt_refs", ()))}
     return restored
 
 
-def _pending_recordings_value(
-    pending_recordings: Mapping[int, Mapping[str, Any]] | None,
-    results: Mapping[int, ReleasePhaseResult],
-    shared_recordings: Mapping[int, Mapping[str, Any]],
-) -> list[dict[str, Any]]:
-    """Encode unresolved shared-recorder identities without treating them as proof.
-
-    A pending entry names the single sealed Journal event whose original bytes
-    the shared recorder must reconcile.  It is deliberately not a receipt,
-    terminal result, or authority to advance a Release phase.  Its
-    ``event_outcome`` is the original outcome sealed in the failed Journal
-    append; it is not a claim that a durable terminal receipt exists.
-    """
-
-    if pending_recordings is None:
-        return []
-    if not isinstance(pending_recordings, Mapping):
-        raise _error("release-checkpoint-invalid", "pending recordings must be indexed typed state")
-    indexed: list[tuple[int, Mapping[str, Any]]] = []
-    for raw_index, source in pending_recordings.items():
-        index = _index(raw_index, "pending_recordings.index")
-        if not isinstance(source, Mapping):
-            raise _error("release-checkpoint-invalid", "pending recording must be one closed object")
-        indexed.append((index, source))
-    records: list[dict[str, Any]] = []
-    seen_event_ids: set[str] = set()
-    for index, source in sorted(indexed):
-        if index not in results:
-            raise _error("release-checkpoint-phase-mismatch", "pending recording has no retained phase result")
-        if index in shared_recordings:
-            raise _error("release-checkpoint-phase-mismatch", "one phase cannot be both pending and durably recorded")
-        packet = _mapping(dict(source), {"event_id", "event_outcome"}, "pending_recording")
-        event_id = _text(packet["event_id"], "pending_recording.event_id")
-        event_outcome = _text(packet["event_outcome"], "pending_recording.event_outcome")
-        if event_outcome not in _PENDING_EVENT_OUTCOMES:
-            raise _error("release-checkpoint-invalid", "pending recording has an unsupported original event outcome")
-        if event_id in seen_event_ids:
-            raise _error("release-checkpoint-invalid", "pending recordings repeat one event identity")
-        seen_event_ids.add(event_id)
-        records.append({"index": index, "event_id": event_id, "event_outcome": event_outcome})
-    if len({record["index"] for record in records}) != len(records):
-        raise _error("release-checkpoint-invalid", "pending recordings repeat one selected phase")
-    return records
+def _pending_recordings_value(pending_recordings, results, shared_recordings) -> list[dict[str, Any]]:
+    """Recording retry is absent; actual uncertain effects remain in phase results."""
+    del pending_recordings, results, shared_recordings
+    return []
 
 
-def _load_pending_recordings(
-    value: Any,
-    results: Mapping[int, ReleasePhaseResult],
-    shared_recordings: Mapping[int, Mapping[str, Any]],
-) -> dict[int, dict[str, str]]:
-    if not isinstance(value, list):
-        raise _error("release-checkpoint-invalid", "pending recordings must be a canonical list")
-    restored: dict[int, dict[str, str]] = {}
-    prior = -1
-    seen_event_ids: set[str] = set()
-    for source in value:
-        packet = _mapping(source, {"index", "event_id", "event_outcome"}, "pending_recording")
-        index = _index(packet["index"], "pending_recording.index")
-        if index <= prior or index not in results:
-            raise _error("release-checkpoint-phase-mismatch", "pending recording is unordered, repeated, or has no phase result")
-        if index in shared_recordings:
-            raise _error("release-checkpoint-phase-mismatch", "one phase cannot be both pending and durably recorded")
-        prior = index
-        event_id = _text(packet["event_id"], "pending_recording.event_id")
-        event_outcome = _text(packet["event_outcome"], "pending_recording.event_outcome")
-        if event_outcome not in _PENDING_EVENT_OUTCOMES:
-            raise _error("release-checkpoint-invalid", "pending recording has an unsupported original event outcome")
-        if event_id in seen_event_ids:
-            raise _error("release-checkpoint-invalid", "pending recordings repeat one event identity")
-        seen_event_ids.add(event_id)
-        restored[index] = {"event_id": event_id, "event_outcome": event_outcome}
-    return restored
+def _load_pending_recordings(value, results, shared_recordings) -> dict[int, dict[str, str]]:
+    del value, results, shared_recordings
+    return {}
 
 
 def _native_portable_run(run: ReleaseActionRun) -> bool:
@@ -1958,9 +1798,9 @@ def _verify_native_publication_documentary_state(state: Mapping[str, Any], root:
         _file(Path(root), f".caprmedio_runtime/installation/commands/{publication.installation_command_sha256}.json").read_bytes(),
         expected_sha256=publication.installation_command_sha256,
     )
-    event = reopen_selected_installation_command_start(Path(root), command)
+    reopen_selected_installation_command_start(Path(root), command)
     prior = _file(Path(root), publication.retained_prior_selector_ref).read_bytes()
-    if (command.command_id != publication.action_run_id or event["event_id"] != publication.action_start_event_id
+    if (command.command_id != publication.action_run_id
             or command.prior_runtime_selector_sha256 != hashlib.sha256(prior).hexdigest()
             or command.target_project_context_sha256 != publication.target_project_context_sha256
             or command.package_manifest_sha256 != publication.package_manifest_sha256
@@ -2139,83 +1979,12 @@ def _native_partial_publication_hint(source: Mapping[str, Any]) -> bool:
 
 def _reopen_native_partial_frontier_start(root: str, context: SelectedReleaseActionContext,
                                          pending: Mapping[str, str] | None = None) -> None:
-    """Read bounded canonical start/pending records, without an executor grant."""
-
-    import json
-    import work_journal
-    from operator_registry import parse_operators_registry
-    from selected_installation_command import _registered_journal_author
-    from release_handoff import _file
-    from native_selected_installation import _read as raw_physical_native_carrier
-    from FIND_AND_FETCH_JOURNAL_EVENTS.find_and_fetch_journal_events import capture_snapshot, query
-
-    def read_physical_native_carrier(path, *, code, mode=None):
-        try:
-            return raw_physical_native_carrier(path, code=code, mode=mode)
-        except (ValueError, OSError) as error:
-            raise _error(code, "partial documentary carrier is absent, aliased or changed") from error
-
-    project = Path(root)
+    """Check the retained source occurrence, not log rows or pending recording."""
+    del root, pending
     if context.workflow_version != 9 or context.step_atom_id not in {"CA-O-178", "CA-O-179"} or context.action_atom_id != "CA-O-169":
-        raise _error("release-checkpoint-phase-mismatch", "documentary partial frontier is not selected native publication")
-    identities = (context.action_run_id, context.step_run_id, context.workflow_run_id)
-    if len(set(identities)) != 3:
+        raise _error("release-checkpoint-phase-mismatch", "partial frontier is not selected native publication")
+    if len({context.action_run_id, context.step_run_id, context.workflow_run_id}) != 3:
         raise _error("release-checkpoint-binding-mismatch", "partial publication Run identities are ambiguous")
-    snapshot = capture_snapshot(project)
-    if snapshot.get("source_root") != work_journal.configured_journal_root(project).as_posix():
-        raise _error("release-checkpoint-binding-mismatch", "partial frontier reader has another canonical Journal root")
-    result = query(snapshot, {"mode": "full_events", "filter": '"event:/event" = "started" AND "event:/run/run_id" IN ('
-                             + ", ".join(json.dumps(identity) for identity in identities) + ")", "limit": 4})
-    if result.get("status") != "complete" or result.get("coverage", {}).get("complete") is not True or len(result.get("results", [])) != 3:
-        raise _error("release-checkpoint-binding-mismatch", "partial frontier canonical starts are absent, ambiguous or incompletely covered")
-    events = {}
-    for match in result["results"]:
-        event = work_journal.validate_sealed_event(match["event"])
-        run = event.get("run", {})
-        identity = run.get("run_id")
-        if identity not in identities or identity in events or event.get("schema_version") != 5 or event.get("kind") != "workflow_execution":
-            raise _error("release-checkpoint-binding-mismatch", "partial frontier has conflicting canonical Run starts")
-        events[identity] = event
-    action, step, workflow = (events[identity] for identity in identities)
-    for event, kind, atom_id, version in ((action, "action", "CA-O-169", 5), (step, "step", context.step_atom_id, None), (workflow, "workflow", "CA-O-164", 9)):
-        record = event["run"]
-        source = record.get("definition", {})
-        if (event.get("event") != "started" or record.get("kind") != kind or source.get("atom_id") != atom_id
-                or (version is not None and source.get("version") != version)
-                or event.get("author") != action.get("author") or event.get("action_id") != action.get("action_id")
-                or event.get("llm_session") != action.get("llm_session")
-                or hashlib.sha256(read_physical_native_carrier(
-                    _file(project, _safe_path(source.get("path"), "canonical start source")),
-                    code="release-checkpoint-binding-mismatch", mode=None)).hexdigest() != source.get("digest")
-                or {"kind": kind, **source} not in event.get("definition_bindings", [])):
-            raise _error("release-checkpoint-binding-mismatch", "partial frontier canonical source or attribution changed")
-    if (action["run"].get("parent_run_id") != context.step_run_id or step["run"].get("parent_run_id") != context.workflow_run_id
-            or "parent_run_id" in workflow["run"] or {"kind": "action", **action["run"]["definition"]} not in workflow.get("definition_bindings", [])):
-        raise _error("release-checkpoint-binding-mismatch", "partial frontier canonical parent chain changed")
-    settings = work_journal.resolve_settings_path(project)
-    registry = read_physical_native_carrier(_file(project, (settings.parent / "operators_registry.toml").relative_to(project).as_posix()),
-                                           code="release-checkpoint-binding-mismatch", mode=None)
-    if sum(_registered_journal_author(record) == action.get("author") for record in parse_operators_registry(registry)) != 1:
-        raise _error("release-checkpoint-binding-mismatch", "partial frontier canonical author is not an actual registered account")
-    if pending is not None:
-        event_id = _safe_path(pending["event_id"], "pending canonical event id")
-        if "/" in event_id:
-            raise _error("release-checkpoint-binding-mismatch", "pending canonical event id is not one identity")
-        carrier = project / work_journal.configured_runtime_root(project) / "state/work_journal/pending" / f"{event_id}.json"
-        pending_bytes = read_physical_native_carrier(_file(project, carrier.relative_to(project).as_posix()),
-                                                    code="release-checkpoint-binding-mismatch", mode=None)
-        _payload, event, _append_context, observed = work_journal._read_pending_event(project, event_id)
-        if (json.loads(pending_bytes) != _payload or read_physical_native_carrier(carrier, code="release-checkpoint-binding-mismatch", mode=None) != pending_bytes
-                or observed != carrier or event.get("run") != action["run"] or event.get("event") == "started"
-                or event.get("outcome") != pending["event_outcome"] or event.get("author") != action["author"]
-                or event.get("action_id") != action["action_id"] or event.get("llm_session") != action["llm_session"]
-                or event.get("definition_bindings") != action.get("definition_bindings")):
-            raise _error("release-checkpoint-binding-mismatch", "pending canonical recording differs from the exact partial publication occurrence")
-        recorded = query(snapshot, {"mode": "full_events", "filter": '"event:/event_id" = ' + json.dumps(event_id), "limit": 2})
-        if (recorded.get("status") != "complete" or recorded.get("coverage", {}).get("complete") is not True
-                or len(recorded.get("results", [])) > 1
-                or any(work_journal.validate_sealed_event(row["event"]) != event for row in recorded.get("results", []))):
-            raise _error("release-checkpoint-binding-mismatch", "pending recording has ambiguous or changed canonical Journal evidence")
 
 
 def _validate_native_partial_frontier(root: str, *, state: Mapping[str, Any],
@@ -2408,17 +2177,8 @@ def derive_unknown_effect_terminal_checkpoint(payload: Mapping[str, Any]) -> dic
         or set(run.contexts) != {0, 1, 2, 3, 4}
         or set(run.results) != {0, 1, 2, 3}
         or any(run.results[index].outcome != "completed" for index in range(4))
-        or set(shared_recordings) != {0, 1, 2, 3}
-        or pending_recordings
     ):
         raise _error("release-checkpoint-unknown-effect-mismatch", "checkpoint is not the admitted N15 unknown-effect frontier")
-    if any(
-        record.get("terminal_outcome") != "completed"
-        or not isinstance(record.get("receipt_refs"), tuple)
-        or len(record["receipt_refs"]) != 1
-        for record in shared_recordings.values()
-    ):
-        raise _error("release-checkpoint-unknown-effect-mismatch", "checkpoint predecessor receipts are not exact completed records")
     step, action, phase = PHASES[4]
     if (
         context != run.contexts[4]
@@ -2659,22 +2419,6 @@ def load_release_checkpoint(
     return run, recordings
 
 
-def extract_pending_recordings(payload: Mapping[str, Any]) -> Mapping[int, Mapping[str, str]]:
-    """Return immutable pending-recorder identities from one sealed checkpoint.
-
-    The returned values are recovery hints only.  A caller must still reopen
-    the exact pending Journal Event through the canonical shared recorder and
-    obtain a durable receipt before it may regard a phase as terminal.
-    """
-
-    if not isinstance(payload, Mapping):
-        raise _error("release-checkpoint-invalid", "checkpoint envelope must be one object")
-    _run, _recordings, pending_recordings = _restore_release_action_checkpoint(canonical_json(dict(payload)))
-    return MappingProxyType({
-        index: MappingProxyType(dict(record))
-        for index, record in pending_recordings.items()
-    })
-
 
 __all__ = [
     "RELEASE_ACTION_CHECKPOINT_SCHEMA",
@@ -2684,6 +2428,5 @@ __all__ = [
     "dump_release_checkpoint",
     "encode_release_action_checkpoint",
     "load_release_checkpoint",
-    "extract_pending_recordings",
     "restore_release_action_checkpoint",
 ]

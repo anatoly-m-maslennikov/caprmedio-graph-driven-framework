@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import json
 import re
-import sys
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
@@ -184,98 +183,6 @@ def _bound_request(
     }
 
 
-def _journal_module() -> Any:
-    tools_root = Path(__file__).resolve().parents[2] / "201_TOOLS"
-    if str(tools_root) not in sys.path:
-        sys.path.insert(0, str(tools_root))
-    import work_journal
-    return work_journal
-
-
-def _read_receipt_event(root: Path, receipt: Any, journal_root: Path, journal: Any) -> dict[str, Any] | None:
-    """Validate one receipt-addressed Journal line without scanning any carrier."""
-    if not isinstance(receipt, Mapping):
-        return None
-    carrier, line, event_id, digest = (receipt.get("carrier"), receipt.get("line"),
-                                       receipt.get("event_id"), receipt.get("event_digest"))
-    if (not isinstance(carrier, str) or not isinstance(line, int) or isinstance(line, bool)
-            or line < 1 or line > _MAX_JOURNAL_LINES or not isinstance(event_id, str)
-            or not event_id or not isinstance(digest, str) or not _DIGEST.fullmatch(digest)):
-        return None
-    carrier_path = _safe_relative_path(root, carrier)
-    if carrier_path is None or not carrier_path.is_file() or carrier_path.stat().st_size > _MAX_JOURNAL_BYTES:
-        return None
-    try:
-        carrier_path.relative_to(journal_root)
-    except ValueError:
-        return None
-    try:
-        with carrier_path.open("r", encoding="utf-8") as handle:
-            for ordinal, raw in enumerate(handle, start=1):
-                if ordinal == line:
-                    event = json.loads(raw)
-                    break
-            else:
-                return None
-    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
-        return None
-    if not isinstance(event, Mapping):
-        return None
-    try:
-        sealed = journal.validate_sealed_event(event)
-    except (ValueError, RuntimeError):
-        return None
-    if sealed.get("event_id") != event_id or sealed.get("event_digest") != digest:
-        return None
-    return {**sealed, "_observation_receipt": {"carrier": carrier, "line": line}}
-
-
-def _matches_action_event(event: Mapping[str, Any], bound: Mapping[str, Any], request_id: str, assigned_action_id: str) -> bool:
-    run = event.get("run")
-    session = event.get("llm_session")
-    return (
-        event.get("schema_version") == 5
-        and event.get("kind") == "workflow_execution"
-        and event.get("action_id") == assigned_action_id
-        and isinstance(session, Mapping) and session.get("uuid") == request_id
-        and isinstance(run, Mapping)
-        and run.get("run_id") == bound["action_run_id"]
-        and run.get("kind") == "action"
-        and run.get("parent_run_id") == bound["step_run_id"]
-        and run.get("definition") == bound["action_definition"]
-    )
-
-
-def _accepted_events(root: Path, run_directory: Path, bound: Mapping[str, Any]) -> list[dict[str, Any]]:
-    accepted = _safe_json(run_directory / "accepted.json")
-    if accepted is None or not isinstance(accepted.get("result"), Mapping):
-        return []
-    saved_request = _safe_json(run_directory / "selected_request.json")
-    if saved_request is None:
-        return []
-    execution = saved_request.get("request", {}).get("execution") if isinstance(saved_request.get("request"), Mapping) else None
-    if not isinstance(execution, Mapping):
-        return []
-    request_id, assigned_action_id = execution.get("request_id"), execution.get("assigned_action_id")
-    receipts = accepted["result"].get("event_receipts")
-    if not isinstance(request_id, str) or not isinstance(assigned_action_id, str) or not isinstance(receipts, list):
-        return []
-    try:
-        journal = _journal_module()
-        journal_relative = journal.configured_journal_root(root)
-        journal_root = _safe_relative_path(root, journal_relative.as_posix())
-    except (ImportError, OSError, RuntimeError, ValueError):
-        return []
-    if journal_root is None or not journal_root.is_dir():
-        return []
-    events: list[dict[str, Any]] = []
-    for receipt in receipts:
-        event = _read_receipt_event(root, receipt, journal_root, journal)
-        if event is not None and _matches_action_event(event, bound, request_id, assigned_action_id):
-            events.append(event)
-    return events
-
-
 def _base(bound: Mapping[str, Any], disposition: str, outcome: str, diagnostic: str | None = None) -> dict[str, Any]:
     value = {**bound, "disposition": disposition, "outcome": outcome}
     if diagnostic is not None:
@@ -284,12 +191,11 @@ def _base(bound: Mapping[str, Any], disposition: str, outcome: str, diagnostic: 
 
 
 def observe_selected_action(root: str | Path, action_run_id: object, manifest: Mapping[str, Any]) -> dict[str, Any]:
-    """Return one bounded, Journal-confirmed selected Action observation.
+    """Return one bounded selected Action observation from source progress.
 
     This deliberately consults only the Action's deterministic run directory,
-    frozen request, optional progress carrier, accepted receipt list, and the
-    exact receipt-addressed Journal lines.  It never queues, replays, or
-    writes anything.
+    frozen request, and optional progress carrier. It never queues, replays,
+    or writes anything.
     """
     if not isinstance(action_run_id, str) or not _ACTION_ID.fullmatch(action_run_id):
         return {"disposition": "rejected", "outcome": "rejected",
@@ -320,38 +226,10 @@ def observe_selected_action(root: str | Path, action_run_id: object, manifest: M
     progress = _safe_json(run_directory / f"{action_run_id}.json")
     progress_is_bound = bool(progress and progress.get("action_run_id") == action_run_id
                              and isinstance(progress.get("result"), str))
-    events = _accepted_events(project_root, run_directory, bound)
-    terminal = [event for event in events if event.get("event") in {
-        "completed", "failed", "abandoned", "interrupted", "recovered"
-    } and isinstance(event.get("outcome"), str)]
-    if terminal:
-        event = terminal[-1]
-        outcome = str(event["outcome"])
-        if outcome == "interrupted_pending":
-            result = _base(bound, "recording_pending", outcome,
-                           "sealed Action interruption has no completed result")
-            if progress_is_bound:
-                result["progress_ref"] = progress_relative
-            return result
-        if event.get("result_ref") != progress_relative or not progress_is_bound:
-            return _base(bound, "recording_pending", outcome,
-                         "sealed Action result reference is not durably available")
-        result = _base(bound, "terminal", outcome)
-        result.update({"result_ref": progress_relative, "effect_refs": list(event.get("effect_refs", [])),
-                       "report_ref": event.get("report_ref"),
-                       "journal_confirmation": {
-                           "event_id": event["event_id"], "event": event["event"],
-                           "event_digest": event["event_digest"],
-                           "carrier": event["_observation_receipt"]["carrier"],
-                           "line": event["_observation_receipt"]["line"],
-                       }})
+    if progress_is_bound:
+        result = _base(bound, "terminal", str(progress["result"]))
+        result["result_ref"] = progress_relative
         return result
     if progress is not None:
-        result = _base(bound, "recording_pending", "pending",
-                       "Action progress is present without sealed terminal Journal confirmation")
-        if progress_is_bound:
-            result["progress_ref"] = progress_relative
-        return result
-    if any(event.get("event") == "started" for event in events):
-        return _base(bound, "started", "started", "sealed Action start has no terminal confirmation")
+        return _base(bound, "pending", "pending", "Action progress is not bound to this Action")
     return _base(bound, "unstarted", "unstarted", "no Action progress or sealed Journal fact is recorded")
