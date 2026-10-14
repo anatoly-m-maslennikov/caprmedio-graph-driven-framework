@@ -30,6 +30,14 @@ The narrow stage-specific timeout correction is committed as `b44377464`: the ga
 
 P2382, P2167 and P1959 remain Active. Any further actual scratch request or runtime replacement needs its own approval. Successful connected completion and live publication remain gated. This receipt and local code work do not approve source Subject migration, the deferred content Epic, 611-owner execution, or installed-package release.
 
+### Local Codex form probe — not registered or activated
+
+Commit `bd794d98c` adds only `204_MCP/confirmation_probe.py` and its tests. The probe accepts an empty request, uses that exact outer request's SDK session and request ID, and waits at most 60 seconds for a fixed form. Every returned result explicitly has `authorization: false` and `effects: []`. It never invokes the publication issuer, selected dispatch, Subject preview/staging, or file operations. Neither a client name nor an accepted form is treated as authenticated human evidence.
+
+Eight tests passed independently and in Root's run, including actual in-memory SDK accept/decline/cancel exchanges, malformed input/response refusal, absent capabilities/back-channel, disconnect, timeout, cancellation and forbidden-effect traps. Independent review found no actionable issue. The module SHA-256 is `a5c48eaebb6cf9e57ac3926fe1e2f241834a2c9ab85c4980793f268b9aea9535`; the test SHA-256 is `3b411dcad11c08ee32c71d446b22cb5c35207afce2641fb32040762449f9f899`.
+
+Default Tool registration, the running image and publication authorization are unchanged. Actual Codex UI display and direct human interaction remain unverified. The Operator was asked whether the eventual publication host may trust the exact-change confirmation returned through the connected Codex session without separate identity proof. That policy choice is unanswered; no approval is inferred. Live diagnostic exposure, runtime replacement and any further staging/publication effects remain separately gated.
+
 ## Current checkpoint — repaired sources and fresh connected preview, 2026-10-14
 
 This checkpoint supersedes earlier pending-activation and structural-disposition statements; those records below remain history. The Operator explicitly approved a clean rebuild/restart from `92086402569e95a8a28bf7c30e070029e65d7af2` and a fresh read-only preview, excluding uncommitted changes, new staging and live Atom writes.
