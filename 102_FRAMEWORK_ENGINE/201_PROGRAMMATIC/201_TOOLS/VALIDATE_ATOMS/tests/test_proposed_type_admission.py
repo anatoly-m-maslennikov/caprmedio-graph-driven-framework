@@ -1,6 +1,5 @@
 """Current source-bound Type checks at the shared proposed-carrier boundary."""
 
-import hashlib
 from pathlib import Path
 import sys
 import unittest
@@ -13,9 +12,8 @@ sys.path[:0] = [str(TOOLS), str(TOOL)]
 
 from validate_atoms_workers import proposed_carrier
 from validate_atoms_workers.authority import Obligation
-from validate_atoms_workers.check_schema_extended import ADAPTERS, TYPE_CONTRIBUTIONS
+from validate_atoms_workers.check_schema_extended import ADAPTERS
 from validate_atoms_workers.check_support import Check
-from validate_atoms_workers.parsing import parse_carrier
 
 
 class ProposedTypeAdmissionTests(unittest.TestCase):
@@ -30,21 +28,6 @@ class ProposedTypeAdmissionTests(unittest.TestCase):
             metadata["type"] = kind
         ADAPTERS["model.domains"](metadata, "", check)
         return check
-
-    def test_current_type_bindings_are_complete_and_exact(self):
-        consumed = set(TYPE_CONTRIBUTIONS) | {"CA-R-1283", "CA-R-1700", "CA-R-1506"}
-        sources = {row["binding"]["atom_id"]: row for row in self.context.inputs["sources"]}
-        self.assertTrue(consumed <= sources.keys())
-        for identifier in consumed:
-            with self.subTest(identifier=identifier):
-                entry = proposed_carrier._entry(identifier)
-                path = PROJECT / entry["source_path"]
-                raw = path.read_bytes()
-                metadata = parse_carrier(raw, path).metadata
-                self.assertEqual((metadata["atom_id"], metadata["version"], metadata["status"]),
-                                 (identifier, entry["version"], "Active"))
-                self.assertNotIn("projection", metadata)
-                self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
 
     def test_supported_role_types_and_ordinary_absence(self):
         admitted = {

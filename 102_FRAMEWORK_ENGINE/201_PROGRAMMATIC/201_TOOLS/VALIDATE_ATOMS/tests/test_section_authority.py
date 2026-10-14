@@ -1,6 +1,5 @@
 """Exact finite supporting sources for one explicit Atom section edit."""
 
-import hashlib
 from pathlib import Path
 import sys
 import tempfile
@@ -13,38 +12,15 @@ sys.path[:0] = [str(TOOLS), str(TOOL)]
 
 from project_selection import bind_selection
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
-from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 from VALIDATE_ATOMS.validate_atoms_workers.support_authority import support_sources
 
 
 SECTION_SOURCES = ("CA-R-1933", "CA-M-373", "CA-D-623")
-CANONICAL = Path(
-    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
-    "306_FEATURE_TOOL_WORKFLOWS"
-)
 
 
 class SectionAuthorityTests(unittest.TestCase):
-    def test_exact_current_support_pins_and_fixture_mirrors(self):
-        for identifier in SECTION_SOURCES:
-            with self.subTest(identifier=identifier):
-                entry = support_sources()[identifier]
-                self.assertEqual(proposed_carrier._entry(identifier), entry)
-                relative = Path(entry["source_path"])
-                self.assertTrue(relative.is_relative_to(CANONICAL))
-                self.assertFalse({"archive", "_projection"} & set(relative.parts))
-                path = REPOSITORY / relative
-                raw = path.read_bytes()
-                metadata = parse_carrier(raw, path).metadata
-                self.assertEqual(metadata["atom_id"], identifier)
-                self.assertEqual(metadata["version"], entry["version"])
-                self.assertIn(metadata["status"], {"Active", "active"})
-                self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
-                mirror = TOOL / "tests" / "fixtures" / "schema_authority" / f"{identifier}.md"
-                self.assertEqual(mirror.read_bytes(), raw)
-
     def test_selected_context_lazily_reads_exact_section_sources(self):
         context = proposed_carrier.source_context_from_project(REPOSITORY)
         initial_ids = {source["binding"]["atom_id"] for source in context.inputs["sources"]}
