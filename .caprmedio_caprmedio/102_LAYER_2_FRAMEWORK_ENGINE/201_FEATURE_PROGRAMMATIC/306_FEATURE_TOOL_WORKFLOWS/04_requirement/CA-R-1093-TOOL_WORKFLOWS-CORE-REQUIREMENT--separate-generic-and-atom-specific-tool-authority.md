@@ -1,4 +1,5 @@
 ---
+atom_id: CA-R-1093
 subjects:
   governs: "tool-authority"
   depends_on:
@@ -6,8 +7,8 @@ subjects:
     - "mcp"
 cce_version: cce_1
 cce_form: obligation
-version: 11
-updated_at: "2026-10-13 00:03:39 +0400"
+version: 12
+updated_at: "2026-10-14 10:47:40 +0400"
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 content_role: Requirement
@@ -39,3 +40,9 @@ Every actual changed same-ID Atom update, including Status-only and carrier-only
 `ATOM_ARCHIVE`, `ATOM_PROMOTE`, **and** `ATOM_UPGRADE` are distinct transitions. archive preserves the assigned Atom ID **and** historical carrier. promotion assigns an operator-supplied role-matching Atom ID **to** a draft **and** makes it active. upgrade preserves an active Atom ID, requires an explicit enabled target Tier of `core` **or** `standard` that is higher than the source Tier, **and** **may** move the Atom **only** **to** an explicitly named ancestor Scope Unit.
 
 ## Details
+
+### Named direct Subject preparation boundary
+
+ATOM_UPDATE's direct preview_subjects and stage_subjects operations under CA-R-866, CA-M-371, CA-D-425 and CA-O-030 may run without an enclosing lifecycle Workflow. Their existing Workflow semantic policy owner is unchanged. They are preparation Tool calls, not executions of an Atom-update Action: preview is zero-write; an explicit stage request permits only fresh derived candidates and a manifest in the fixed Project scratch location. They create no Session, Action Run, authoritative Artifact change or canonical Journal record. Actual enclosing-Step Tool-call recording remains required.
+
+This named boundary preserves the existing local scratch policy, not a general exemption for Artifact changes or Action recording. It admits no connector Modify, source/history writes, generic direct Doer application, promotion or publication. Existing selected update_atom and every publication/recording safeguard remain unchanged; descriptors and prepared artifacts do not grant effect permission.

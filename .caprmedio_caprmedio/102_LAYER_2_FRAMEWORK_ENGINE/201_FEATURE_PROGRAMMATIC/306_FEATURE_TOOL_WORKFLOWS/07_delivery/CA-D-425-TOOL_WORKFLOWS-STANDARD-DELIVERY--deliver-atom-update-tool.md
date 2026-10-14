@@ -13,8 +13,8 @@ subjects:
   governs: "Tool/ATOM_UPDATE/Carrier"
   depends_on:
     - "Tool/ATOM_UPDATE"
-version: 15
-updated_at: "2026-10-12 23:59:39 +0400"
+version: 16
+updated_at: "2026-10-14 10:47:40 +0400"
 relations: {"delivery_for":["CA-R-866"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -75,3 +75,27 @@ Pure preparation for that one-target route **must** expose `subject_intent` and 
 `subject_intent_sha256` is lowercase SHA-256 of canonical UTF-8 JSON of this whole object, with keys sorted, no extra whitespace, unescaped Unicode and no non-finite values. It is outside the object and excludes separate illustrative preview bytes/time and future actual-effect receipts. Thus unchanged source/patch/profile/history/metadata-rule evidence yields the same intended hash independently of illustrative time. Unknown intent fields or a mismatched freshly derived hash fail.
 
 The admitted result **must** retain the intended hash and actual `materialization = {version, updated_at, after_sha256}`, observed current/history descriptors and the existing shared result/effect/recording evidence. Changed materialization uses actual Project time and verified final Carrier hash; no-op retains old Version/time/hash and has no history effect. No other generated Carrier slot is admitted as an effect; local derived staging candidates are not authoritative effect slots. CA-R-866 and CA-O-030 govern the effect; CA-M-371 remains pure preparation and CA-D-585 binds assessment proposal pins.
+
+### Direct Subject preparation MCP contract
+
+Expose the existing Tool through its root-bound descriptor/provider, separately from selected publication route update_atom. Do not advertise a broader Workflow under this preparation-only schema.
+
+```toml
+[tool_binding]
+name = "ATOM_UPDATE"
+entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/atom_update.py"
+action_ids = ["CA-O-030"]
+mcp_name = "atom_update"
+```
+
+The closed direct request requires operation, subject_profile and a nonempty ordered atoms array. Operation is preview_subjects or stage_subjects; profile is explicitly legacy/approved without a public default. Every item is exactly {atom_id, version, sha256, subject_patches}: unique complete logical ID, positive strict integer Version and lowercase 64-hex full-source hash. Patch shapes are exactly {field: governs|depends_on, old: string, new: string} or {field: depends_on, operation: replace_set, old: string[], new: string[]}, retaining existing current-value, set and uniqueness rules. Empty patches retain truthful no-op behavior. Reject add/remove, indexes, mixed generic edits and unknown fields; broader future operations are not delivered by this subset.
+
+Stage additionally requires exactly preview_sha256 and illustrative_updated_at from the previous successful preview; time is null only for an all-no-op preview. Pass them to native stage_subject_preview as expected_preview_sha256 and its existing timestamp argument. Immediately after computing its own preview, that helper must compare the expected hash BEFORE _raw_revision_parent(..., create=True) or any scratch directory/file creation. Mismatch creates no artifacts. An adapter pre-preview cannot substitute for this admission check. Preserve the final same-time preview equality check. Existing CLI callers may omit the optional native argument with unchanged behavior.
+
+The canonical provider binds and verifies the Project root, current definition/grammar/validation authority and selected settings/structure evidence, privately resolves logical IDs to existing pinned preview items, and rechecks boundary/source evidence after the helper. No public root, selector, path, filename, destination, context/authorization reference, approval Boolean, Session ID or apply option is accepted. Reject ambiguous originals and silent successor substitution; retain complete-carrier validation and existing private/CLI bindings.
+
+The closed result is exactly {operation, preview, staging, errors}. Preview success retains the complete existing sealed native preview unchanged, with staging null and errors empty. Stage success retains that same preview; staging is exactly {staging_only:true, illustrative:true, sources_unchanged:true, stage_root, manifest_path, manifest_sha256}, with actual native evidence and errors empty. Preserve existing closed preview count/atoms/noop/illustrative_updated_at/subject_profile/subject_profile_evidence/preview_sha256, materialized Atom/patch/span and deterministic-intent shapes so the hash remains independently reconstructible. Returned paths/indexes are read-only attribution, never accepted public update selectors.
+
+On failure preview/staging are null and errors is nonempty. Every error is exactly {code, message, stage_root, retained_artifacts, unverified_artifacts}, retaining the native Tool code; stage_root is null when unknown. Retained references are exactly {path, sha256?}; unverified references are exactly {path, state:unverified}. Missing evidence uses empty arrays, but known scratch writes must never disappear. A final provider failure after helper creation retains actual artifact evidence and refuses success. Do not add cleanup or replay. All nested models reject unknown fields and coercion.
+
+The combined provider advertises read_only=false and idempotent=false because stage creates fresh scratch batches; preview itself is zero-write. These are non-Action preparation Tool calls preserving the existing no-Session/no-Journal scratch policy. No authoritative/history write, actual Version/time change, assessment, update receipt, promotion or effect approval is implied. Actual enclosing-Step recording remains required. Local no-MCP clauses above apply to CLI use; this direct delivery changes neither CLI behavior nor selected update_atom/publication safeguards. Installed binding/code refresh and actual registered/connected-MCP acceptance remain separate from this declaration.

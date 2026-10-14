@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Atom/Revision/Updated At", "Update Sealed Atom Carriers", "Artifact/Carrier", "Journal/Record"]
-version: 21
-updated_at: "2026-10-13 14:31:30 +0400"
+version: 22
+updated_at: "2026-10-14 10:47:40 +0400"
 relations:
   evaluation_for: [CA-R-866, CA-O-030, CA-R-1464, CA-R-1415, CA-R-1371]
   relates_to: [CA-O-067, CA-R-1432, CA-R-1788, CA-R-1662]
@@ -106,3 +106,13 @@ Reject symlinked/escaping staging ancestors, destination substitution, reused or
 ### Failure disposition
 
 reject a realization that violates **any** required case. preserve sealed preconditions, authority **and** classification result, exact previews, rejection evidence, prior **and** final Carriers, fault position, **and** actual recovery result.
+
+### Direct MCP Subject preparation acceptance
+
+Verify CA-D-425's closed preview_subjects/stage_subjects contract through production registered MCP with actual source/binding validation. Discovery exposes ATOM_UPDATE as atom_update, not selected update_atom or a broader Workflow under this preparation-only schema. Exercise explicit profile and logical ID/Version/SHA-256, unique ordered targets, scalar/by-current-value and complete-set patches, changed/no-op results. Reject unknown fields, add/remove, indexes, physical selectors, mixed generic edits and publication options before scratch work.
+
+Test the native expected_preview_sha256 check against the preview actually used: mismatch refuses immediately after native preview and before even scratch-base creation. Direct stage must pass the reviewed seal and same illustrative time; an adapter-only earlier check is insufficient. Existing CLI omission remains compatible. Retain final same-time preview equality and test source, grammar, definition and Project-boundary drift.
+
+Compare independent expected preview/intent seals and LF/CRLF bytes. Test cross-owner identity ambiguity, delivered/history/Draft exclusion, selected unsafe/malformed sources and unrelated malformed excluded C/A. The latter must not become global current-schema admission; possible selected-ID claims still refuse. Preview changes no bytes/membership. Stage creates only a fresh scratch batch, validates reopened exact bytes at original source context and writes/readbacks the success manifest last; originals/history/Journal remain unchanged.
+
+Inject write/readback/validation/final-currentness and post-helper provider failures. Preserve actual retained/unverified artifact references without a success seal, false zero-effect report, unsafe cleanup or replay. Neither operation creates Session/Action Run/Journal receipts or claims an Atom update; actual enclosing-Step recording remains caller-owned. Existing publication tests/guards are separate. Source authoring and direct-helper fixtures alone do not prove connected-MCP readiness.

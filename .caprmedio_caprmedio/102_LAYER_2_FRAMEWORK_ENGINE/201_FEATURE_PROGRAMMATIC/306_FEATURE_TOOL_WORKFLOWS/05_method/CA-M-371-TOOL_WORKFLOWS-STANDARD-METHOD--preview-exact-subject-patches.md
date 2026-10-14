@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: [Atom, Subject, Artifact/Carrier, Atom/Revision]
-version: 10
-updated_at: "2026-10-13 14:31:30 +0400"
+version: 11
+updated_at: "2026-10-14 10:47:40 +0400"
 relations:
   relates_to: [CA-R-866, CA-O-030, CA-E-304, CA-D-425]
 ---
@@ -73,3 +73,11 @@ For `run --stage-preview`, first obtain the existing complete Subject-only previ
 Read back every candidate and compare exact bytes and measured SHA-256 with the original preview. Run the real complete-carrier validator using the original logical source path, identity, placement and applicable Status model, not the temporary candidate's placement. Re-run the same pinned preview with the initial illustrative time and require the same `preview_sha256`, target pins and intent hashes after checking source identity/currentness and grammar. Any mismatch refuses success; do not silently refresh sources or candidates.
 
 Only after all checks produce the separate closed manifest and enclosing staging-only result defined by CA-D-425. Return actual partial artifact references on write/readback/validation/currentness failure, without a success seal, authoritative/history/Journal writes, promotion or unverified cleanup. This is a point-in-time check; later use must recheck candidate hashes rather than treat the manifest as approval.
+
+### Direct MCP preparation procedure
+
+For CA-D-425's closed direct input, privately resolve each explicit logical Atom ID uniquely, preserve payload order and bind the supplied Version/SHA-256 before forming the existing private preview item. Reject ambiguous, delivered/projected, Draft/history or unsupported selections and mixed generic edits. Keep full selected-source/result validation and all existing eligibility and byte-preservation checks; do not infer targets or repair unrelated carriers.
+
+preview_subjects returns the pure planner's complete sealed preview unchanged. Direct stage_subjects passes the prior preview_sha256 to the native stage_subject_preview helper's optional expected_preview_sha256 argument and passes the same illustrative_updated_at as timestamp. Immediately after computing its own preview and before any scratch directory/file creation, the helper must compare that preview's hash with the expected seal; mismatch refuses with no artifact. Direct stage requires this check; CLI callers may omit the argument with unchanged behavior. An adapter-only prior preview cannot bind the later preview actually staged. Preserve same-time final preview equality, independent candidate readback/validation and manifest-last writing.
+
+Recheck actual definition/grammar and selected Project settings/structure provenance before and after the helper, even without a release-layout exemption. Scope malformed excluded-source identity refusal to possible selected-ID claims from filename, literal header or decoded ID; retain cross-owner collisions, bounded no-follow checks and currentness without full admission of unrelated C/A. If a final provider check fails after scratch writes, retain actual retained/unverified artifact evidence and refuse success. No Session, Action Run or canonical Journal is created; actual enclosing-Step recording and publication rules remain unchanged.

@@ -19,8 +19,8 @@ subjects:
     - "Atom/Revision/Updated At"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 15
-updated_at: "2026-10-13 14:31:30 +0400"
+version: 16
+updated_at: "2026-10-14 10:47:40 +0400"
 relations: {}
 ---
 # Summary
@@ -88,3 +88,9 @@ Live changed-Subject publication remains blocked under its existing explicit gua
 ### Run recording
 
 Bind each actual standalone **or** nested Action Run **to** the shared every-Run contract in CA-P-1117 v3, Done CA-P-1443 J01–J08, independently reviewed by CA-P-1451: exact admitted definition Revision, actual Run identity/lineage, safe input/result/effect references, start, truthful terminal **or** still-pending interruption, **and** durable canonical Journal receipts under CA-R-1720. Workflow-contained bindings also follow CA-R-1525; standalone coverage is the selected Epic obligation, **not** a broadened applicability claim for that Requirement. Reuse the shared recording capability **without** owning another Journal implementation. Preserve accepted events **and** pending evidence; retry failed recording with the same Event identity/payload, **not** the performed Action. No receipt, intake acknowledgment, **or** Git Commit alone proves successful effects **or** complete Run recording.
+
+### Direct Subject preparation Tool calls
+
+CA-D-425's atom_update MCP provider admits only preview_subjects and stage_subjects, separately from selected update_atom. They reuse this definition's preparation policy but are not actual Atom-update Action Runs. They require no selected Session, completed O067/O145 assessment or fabricated authorization/context reference. Preview writes nothing. Explicit stage permits only the fixed generated scratch candidates/manifest after the native helper checks its own preview against the requested seal before any scratch creation, preserving exact source pins and illustrative time.
+
+These direct calls preserve the existing no-Journal local preparation policy: no Session/Run/event receipt, source Version/time change, archive, promotion or publication is claimed. Actual enclosing-Step Tool-call recording remains required. Local no-MCP statements above describe the CLI, not this separately declared direct binding. Existing update_atom assessment, actual Action-Run recording, trusted-host confirmation, exclusive window/lock, restoration and live-publication guard remain unchanged. Scratch failure retains truthful artifact evidence; a preview hash or candidate never grants effect permission.

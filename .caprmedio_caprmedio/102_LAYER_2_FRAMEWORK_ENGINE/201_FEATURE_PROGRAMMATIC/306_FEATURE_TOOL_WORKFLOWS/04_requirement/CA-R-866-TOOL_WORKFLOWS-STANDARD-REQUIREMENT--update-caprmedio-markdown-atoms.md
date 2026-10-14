@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Artifact/Carrier", "Atom Change Classification", "Atom/Revision/Updated At"]
-version: 22
-updated_at: "2026-10-13 14:31:30 +0400"
+version: 23
+updated_at: "2026-10-14 10:47:40 +0400"
 relations:
   relates_to: [CA-O-030, CA-E-304, CA-O-067, CA-R-1432, CA-R-1788, CA-R-1464, CA-R-1415, CA-R-1371]
 ---
@@ -101,3 +101,9 @@ During that window, no manual editing, maintenance/script write, Git operation o
 This access model cannot protect against writers ignoring the exclusive window or shared lock and does not itself establish crash-atomic multi-Carrier publication or a stronger guarantee. It does not waive an existing safety requirement, add effect permission or introduce retry/recovery policy. Live changed-Subject publication remains blocked until the selected model's actual binding and combined checks are independently accepted; choosing this model or revising sources does not remove the existing guard.
 
 The by-current-value, Property and section contracts state required behavior; previous scalar-index fixtures are historical evidence and do not establish acceptance of this behavior. This source revision is neither implementation nor an execution receipt. Resume and retry policy for independent multi-Atom Actions remains deferred.
+
+### Direct Subject preparation
+
+ATOM_UPDATE also admits CA-D-425's direct MCP preview_subjects and stage_subjects operations. They are preparation Tool calls, not actual Atom-update Action Runs: preview writes nothing; explicit stage writes only fresh derived candidates and their manifest in the fixed Project scratch layout. They create no Session, Action Run, canonical Journal, authoritative Carrier or history effect. Actual enclosing-Step Tool-call recording and the existing Workflow semantic policy owner remain unchanged.
+
+Direct input uses explicit logical Atom ID, Version, SHA-256 and selected profile. Support only implemented scalar/by-current-value replacement and complete dependency-set replacement; reject add/remove, generic edits, indexes and physical selectors. Preserve full selected-source/result validation, eligibility, identity/grammar/currentness and byte-preservation safeguards. Preparation supplies review evidence for later assessment without requiring or claiming completed O067/O145 assessment. Native staging must compare its own preview with the requested reviewed seal before any scratch creation, retaining same-time final revalidation. No supplied hash, candidate or manifest grants source-effect permission. Actual publication and its recording/admission guards remain unchanged.
