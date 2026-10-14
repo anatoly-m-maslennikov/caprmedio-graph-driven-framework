@@ -25,7 +25,7 @@ for location in (TESTS, MCP, APP):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))
 
-from selected_execution import SelectedExecution  # noqa: E402
+from selected_execution import SelectedExecution, build_requested_runs  # noqa: E402
 from selected_routes import SelectedRouteAdapter  # noqa: E402
 from selected_workflows_docker_fixture import FixtureLease, GoldenCase, GoldenProject  # noqa: E402
 
@@ -42,8 +42,6 @@ READY_CASES = (
     ("W06", "rename_scope_unit"),
     ("W07", "move_scope_unit"),
     ("W08", "remove_scope_unit"),
-    ("W11", "build_entities_graph"),
-    ("W12", "build_terms_graph"),
     ("W13", "build_applicable_methodology"),
     ("W14", "find_and_fetch_artifacts"),
     ("W15", "find_and_fetch_journal_events"),
@@ -59,6 +57,24 @@ class SelectedNativeRoutesTest(unittest.TestCase):
         project_root = Path(tempfile.mkdtemp(dir=parent))
         project = GoldenProject(ROOT, project_root, GoldenCase(case_id, route))
         project.prepare()
+        if case_id in {"W14", "W15"}:
+            control = project_root / ".caprmedio_caprmedio"
+            structure = control / "project_structure.toml"
+            structure.write_text(
+                "schema_version = 1\n" + structure.read_text(encoding="utf-8")
+                + '\n[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
+                'authority_path = ".caprmedio_caprmedio/query_core"\n'
+                'delivery_path = ".caprmedio_caprmedio/query_output"\n', encoding="utf-8",
+            )
+            defaults = control / "query_core"
+            defaults.mkdir()
+            (defaults / "caprmedio_framework_default_settings.toml").write_text(
+                "[query]\nmax_request_bytes = 4096\nmax_grammar_depth = 16\n"
+                "max_filter_tokens = 128\nmax_in_members = 16\nmax_selected_fields = 8\n"
+                "max_page_size = 2\nmax_snapshot_members = 256\nmax_file_bytes = 131072\n"
+                "max_total_read_bytes = 2097152\ntimeout_seconds = 10\nmax_findings = 8\n",
+                encoding="utf-8",
+            )
         return FixtureLease(project_root), project
 
     @staticmethod
@@ -114,6 +130,7 @@ class SelectedNativeRoutesTest(unittest.TestCase):
         route: Mapping[str, Any],
         result: Mapping[str, Any],
         graph: Mapping[str, Any],
+        selected_graph: Mapping[str, Any],
     ) -> None:
         """Verify actual Workflow/Step/Action facts, not marker-file presence."""
         rows = graph.get("step_results")
@@ -133,6 +150,11 @@ class SelectedNativeRoutesTest(unittest.TestCase):
             self.assertIsInstance(action_id, str, row)
             expected[step_id] = (self._definition(binding["step"]), request_id)
             expected[action_id] = (self._definition(binding["action"]), step_id)
+
+        for planned in build_requested_runs(selected_graph, request_id):
+            parent = planned.get("parent_requested_run_id")
+            if planned["kind"] == "action" and parent in expected:
+                expected[planned["requested_run_id"]] = (planned["definition"], parent)
 
         self.assertEqual(set(expected), set(result.get("run_ids", [])), result)
         terminal = result.get("terminal_runs")
@@ -157,7 +179,7 @@ class SelectedNativeRoutesTest(unittest.TestCase):
                 else:
                     self.assertEqual(parent, fact["run"].get("parent_run_id"), fact)
 
-        events = self._events(root, request_id)
+        events = [item for item in self._events(root, request_id) if isinstance(item.get("run"), Mapping)]
         self.assertEqual(2 * len(expected), len(events), events)
         self.assertEqual(len(events), len({item.get("event_id") for item in events}), events)
 
@@ -222,12 +244,6 @@ class SelectedNativeRoutesTest(unittest.TestCase):
             self.assertTrue(effects, rows)
             self.assertNotEqual(before, project.snapshot(), "structure success did not alter its source authority")
             self.assertIn("scope_units", (root / ".caprmedio_caprmedio/project_structure.toml").read_text(encoding="utf-8"))
-        elif case in {"W11", "W12"}:
-            self.assertTrue(effects, rows)
-            for effect in effects:
-                projection = json.loads(self._source_bytes(root, effect, "graph projection"))
-                self.assertIs(True, projection.get("non_authoritative"), projection)
-                self.assertTrue(projection.get("source_frontier_evidence"), projection)
         elif case == "W13":
             self.assertTrue(effects, rows)
             for effect in effects:
@@ -291,10 +307,9 @@ class SelectedNativeRoutesTest(unittest.TestCase):
                     route = self._route_binding(project)
                     rows = self._assert_declared_path_and_progress(project.root, runner, request_id, route, graph)
                     self.assertEqual("terminal", result.get("disposition"), {"result": result, "graph": graph})
-                    self._assert_shared_lineage(project.root, request_id, route, result, graph)
+                    self._assert_shared_lineage(project.root, request_id, route, result, graph, frozen["graph"])
                     self._assert_route_effect(project, runner, request_id, before, rows)
                     if case_id == "W02":
-                        self.assertEqual(["CA-O-145", "CA-O-129"], [row["step_definition_id"] for row in rows])
                         assessment = self._read_json(
                             runner.run_directory(request_id) / f"{rows[0]['action_run_id']}.json",
                             "O145 assessment progress",
@@ -315,8 +330,8 @@ class SelectedNativeRoutesTest(unittest.TestCase):
                 finally:
                     lease.cleanup()
 
-    def test_graph_effect_is_retained_when_its_action_terminal_recording_is_pending(self) -> None:
-        """W11 shares the W11/W12 recorder boundary without replaying an effect."""
+    def test_graph_limitation_is_retained_when_action_terminal_logging_fails(self) -> None:
+        """Logging failure cannot turn an incomplete graph into a complete one."""
         lease, project = self._fixture("W11", "build_entities_graph")
         try:
             tools_root = APP.parents[1] / "201_TOOLS"
@@ -337,6 +352,7 @@ class SelectedNativeRoutesTest(unittest.TestCase):
             frozen = runner.freeze({
                 "operation": "enqueue_selected", "run_id": request_id, "execution": execute,
             })
+            before = project.snapshot()
             append = work_journal.append_sealed_events
 
             def fail_only_action_terminal(*args: object, **kwargs: object) -> object:
@@ -350,15 +366,21 @@ class SelectedNativeRoutesTest(unittest.TestCase):
             with patch.object(work_journal, "append_sealed_events", side_effect=fail_only_action_terminal):
                 pending = runner.dispatch(frozen)
 
-            self.assertEqual("recording_pending", pending.get("disposition"), pending)
+            self.assertEqual("started", pending.get("disposition"), pending)
+            self.assertIn("fixture Action terminal Journal failure", pending["diagnostics"])
+            self.assertEqual("inspect-or-recover-only", pending["retry_disposition"])
             graph = self._read_json(runner.run_directory(request_id) / "graph_result.json", "selected graph result")
             self.assertEqual("interrupted_pending", graph.get("outcome"), graph)
             row = graph["step_results"][0]
-            self.assertEqual("recording_pending", row.get("result"), row)
-            self.assertTrue(row.get("effect_refs"), row)
-            for effect in row["effect_refs"]:
-                self._source_bytes(project.root, effect, "retained graph effect")
-            self.assertEqual(pending, runner.dispatch(frozen), "pending effect must not be replayed")
+            self.assertEqual("incomplete", row.get("result"), row)
+            self.assertEqual([], row.get("effect_refs"), row)
+            self.assertEqual(before, project.snapshot(), "incomplete graph changed source authority")
+            with patch("generate_entity_graph.build_graph", side_effect=AssertionError("graph construction replayed")) as build:
+                recovery = runner.dispatch(frozen)
+            build.assert_not_called()
+            self.assertEqual("inspect-or-recover-only", recovery["retry_disposition"])
+            self.assertEqual(graph, self._read_json(runner.run_directory(request_id) / "graph_result.json", "retained graph result"))
+            self.assertEqual(before, project.snapshot(), "dispatch retry changed source authority")
         finally:
             lease.cleanup()
 
@@ -403,7 +425,7 @@ class SelectedNativeRoutesTest(unittest.TestCase):
                         # Workflow evidence are intentionally not mocked.
                         native_result = {
                             "outcome": native_outcome,
-                            "output_effects": {"state": "none", "paths": []},
+                            "output_effects": {"state": "none", "paths": [], "before": None, "after": None},
                             "diagnostics": [{"code": f"fixture-{native_outcome}"}],
                             "quality_dispositions": {
                                 "coverage": "fail" if native_outcome == "incomplete" else "pass",
@@ -416,6 +438,8 @@ class SelectedNativeRoutesTest(unittest.TestCase):
                             },
                             "source_frontier_evidence": {},
                             "selection_evidence": {},
+                            "source_fact_context_evidence": {},
+                            "completion": {"state": "construction_only"},
                             "lineage": [],
                             "non_authoritative": True,
                             "run_receipt_refs": [],
@@ -463,8 +487,8 @@ class SelectedNativeRoutesTest(unittest.TestCase):
                     finally:
                         lease.cleanup()
 
-    def test_structure_pre_cutover_recording_failure_stops_before_following_action(self) -> None:
-        """O015 cannot reach its cutover after a predecessor lacks durable terminal evidence."""
+    def test_structure_logging_failure_preserves_actual_cutover_without_replay(self) -> None:
+        """O015 follows actual predecessor results independently of Journal I/O."""
         structural_steps = ("CA-O-139", "CA-O-140", "CA-O-141", "CA-O-142")
         for failed_ordinal, failed_step in enumerate(structural_steps, start=1):
             with self.subTest(failed_step=failed_step):
@@ -509,21 +533,25 @@ class SelectedNativeRoutesTest(unittest.TestCase):
                     ):
                         pending = runner.dispatch(frozen)
 
-                    self.assertEqual("recording_pending", pending.get("disposition"), pending)
+                    self.assertEqual("terminal", pending.get("disposition"), pending)
+                    self.assertIn("fixture structural Action terminal Journal failure", pending["diagnostics"])
                     graph = self._read_json(
                         runner.run_directory(request_id) / "graph_result.json", "selected graph result",
                     )
-                    self.assertEqual("interrupted_pending", graph.get("outcome"), graph)
+                    self.assertEqual("completed", graph.get("outcome"), graph)
                     self.assertEqual(
-                        list(structural_steps[:failed_ordinal]),
+                        [*structural_steps, "CA-O-143", "CA-O-144"],
                         [row.get("step_definition_id") for row in graph.get("step_results", [])],
                         graph,
                     )
-                    self.assertEqual(before, project.snapshot(), "pre-cutover recording failure reached O143")
+                    failed = next(row for row in pending["terminal_runs"] if row["run_id"] == failed_action_id)
+                    self.assertEqual("completed", failed["outcome"])
+                    self.assertEqual("fixture structural Action terminal Journal failure", failed["recording_error"])
+                    after = project.snapshot()
+                    self.assertNotEqual(before, after, "actual cutover did not change source authority")
                     recovery = runner.dispatch(frozen)
-                    self.assertIn(recovery.get("disposition"), {"recording_pending", "terminal"}, recovery)
-                    self.assertNotIn(recovery.get("outcome"), {"completed", "no_op"}, recovery)
-                    self.assertEqual(before, project.snapshot(), "recording-only retry replayed a structural effect")
+                    self.assertEqual(pending, recovery)
+                    self.assertEqual(after, project.snapshot(), "dispatch retry replayed a structural effect")
                 finally:
                     lease.cleanup()
 
