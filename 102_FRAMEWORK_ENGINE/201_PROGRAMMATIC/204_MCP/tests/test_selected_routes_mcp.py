@@ -136,22 +136,37 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
                 self.assertNotIn("000_CAPRMEDIO_framework", pin["source_path"])
                 self.assertIn("METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/", pin["source_path"])
 
-    def test_o163_bridge_preserves_accepted_v2_and_only_changes_version_and_time(self) -> None:
+    def test_o163_historical_bridge_and_explicit_plain_row_revision_are_pinned(self) -> None:
         proof = self.admissions[1]["acceptance_frontier"]
         self.assertIn("- CA-O-163@2;", (self.root / proof["source_path"]).read_text())
         step = self.admissions[1]["ordered_steps"][0]["step"]
-        self.assertEqual((3, "0090078ce32293b84a1233ecc33d2fafc1b9541e7821ecc2388e8137b009b86a"),
-                         (step["version"], step["digest"]))
+        self.assertEqual(
+            (4, "1e47a2e59581a18cc0869efedfeefb6474a404ce5f761123a1c65718726f3727"),
+            (step["version"], step["digest"]),
+        )
         current = ROOT / step["source_path"]
         previous = current.parent / "archived" / (current.stem + "@2.md")
-        old_bytes, new_bytes = previous.read_bytes(), current.read_bytes()
-        self.assertEqual("8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c",
-                         hashlib.sha256(old_bytes).hexdigest())
+        bridge = current.parent / "archived" / (current.stem + "@3.md")
+        old_bytes, bridge_bytes, new_bytes = (
+            previous.read_bytes(),
+            bridge.read_bytes(),
+            current.read_bytes(),
+        )
+        self.assertEqual(
+            "8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c",
+            hashlib.sha256(old_bytes).hexdigest(),
+        )
         self.assertEqual(step["digest"], hashlib.sha256(new_bytes).hexdigest())
+        self.assertEqual(
+            "0090078ce32293b84a1233ecc33d2fafc1b9541e7821ecc2388e8137b009b86a",
+            hashlib.sha256(bridge_bytes).hexdigest(),
+        )
         metadata = rb"(?m)^(?:version|updated_at):[^\n]*\n"
-        self.assertEqual(re.sub(metadata, b"", old_bytes), re.sub(metadata, b"", new_bytes))
+        self.assertEqual(re.sub(metadata, b"", old_bytes), re.sub(metadata, b"", bridge_bytes))
         self.assertIn(b"\nversion: 2\n", old_bytes)
-        self.assertIn(b"\nversion: 3\n", new_bytes)
+        self.assertIn(b"\nversion: 3\n", bridge_bytes)
+        self.assertIn(b"\nversion: 4\n", new_bytes)
+        self.assertIn(b"without deduplication or a unique-ID requirement", new_bytes)
 
     def test_missing_third_reordered_or_shadow_proofs_reject(self) -> None:
         for mutation in ("missing", "third", "reordered", "shadow", "route-mismatch", "stale-digest"):
@@ -173,25 +188,33 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
                     selected_routes._validate_query_source_admissions(self.root, admissions, routes)
 
     def test_physically_valid_old_proof_and_unadmitted_step_revisions_reject(self) -> None:
-        for mutation in ("old-proof", "predecessor", "newer-step", "changed-body"):
+        for mutation in ("old-proof", "predecessor", "superseded-step", "newer-step", "changed-body"):
             with self.subTest(mutation=mutation):
                 admissions = copy.deepcopy(self.admissions)
-                pin = (admissions[0]["acceptance_frontier"] if mutation == "old-proof"
-                       else admissions[1]["ordered_steps"][0]["step"])
+                pin = (
+                    admissions[0]["acceptance_frontier"]
+                    if mutation == "old-proof"
+                    else admissions[1]["ordered_steps"][0]["step"]
+                )
                 path = self.root / pin["source_path"]
                 original_contents = path.read_bytes()
-                if mutation == "predecessor":
+                if mutation in {"predecessor", "superseded-step"}:
                     current = ROOT / pin["source_path"]
-                    contents = (current.parent / "archived" / (current.stem + "@2.md")).read_bytes()
-                    pin["version"] = 2
+                    version = 2 if mutation == "predecessor" else 3
+                    contents = (
+                        current.parent / "archived" / (current.stem + f"@{version}.md")
+                    ).read_bytes()
+                    pin["version"] = version
                 else:
                     contents = original_contents
                     if mutation == "old-proof":
-                        contents = contents.replace(b"CA-P-1618", b"CA-P-1532").replace(b"version: 1", b"version: 2")
+                        contents = contents.replace(b"CA-P-1618", b"CA-P-1532").replace(
+                            b"version: 1", b"version: 2"
+                        )
                         pin.update(atom_id="CA-P-1532", version=2)
                     elif mutation == "newer-step":
-                        contents = contents.replace(b"version: 3", b"version: 4")
-                        pin["version"] = 4
+                        contents = contents.replace(b"version: 4", b"version: 5")
+                        pin["version"] = 5
                     else:
                         contents += b"\nUnadmitted changed query body.\n"
                 pin["digest"] = hashlib.sha256(contents).hexdigest()
@@ -200,7 +223,9 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
                 try:
                     self.assertEqual(pin, selected_routes._validate_pin(self.root, pin))
                     with self.assertRaisesRegex(SelectedRouteError, "accepted source frontier"):
-                        selected_routes._validate_query_source_admissions(self.root, admissions, self.routes)
+                        selected_routes._validate_query_source_admissions(
+                            self.root, admissions, self.routes
+                        )
                 finally:
                     path.write_bytes(original_contents)
 

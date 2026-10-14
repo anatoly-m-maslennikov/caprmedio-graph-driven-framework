@@ -90,9 +90,9 @@ _QUERY_SOURCE_ADMISSION_SPECS = (
         },
         "ordered_steps": [{
             "step": {
-                "atom_id": "CA-O-163", "version": 3,
+                "atom_id": "CA-O-163", "version": 4,
                 "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-161-CORE_META_MODEL-WORKFLOW--find-and-fetch-journal-events/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md",
-                "digest": "0090078ce32293b84a1233ecc33d2fafc1b9541e7821ecc2388e8137b009b86a",
+                "digest": "1e47a2e59581a18cc0869efedfeefb6474a404ce5f761123a1c65718726f3727",
             },
             "action": {
                 "atom_id": "CA-O-162", "version": 2,

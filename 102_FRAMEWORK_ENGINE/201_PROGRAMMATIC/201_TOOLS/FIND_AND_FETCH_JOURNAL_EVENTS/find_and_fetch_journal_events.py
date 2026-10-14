@@ -308,27 +308,6 @@ def _resolve_limits(
     return values, sources
 
 
-def _decode_event(raw: bytes) -> dict[str, Any]:
-    def duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
-        output: dict[str, Any] = {}
-        for key, value in pairs:
-            if key in output:
-                raise JournalQueryError("duplicate-json-key")
-            output[key] = value
-        return output
-
-    try:
-        value = json.loads(raw.decode("utf-8"), object_pairs_hook=duplicate_keys)
-    except JournalQueryError:
-        raise
-    except (UnicodeDecodeError, json.JSONDecodeError) as error:
-        raise JournalQueryError("malformed-event") from error
-    if not isinstance(value, dict):
-        raise JournalQueryError("malformed-event")
-    event_id = value.get("event_id")
-    if not isinstance(event_id, str) or not event_id:
-        raise JournalQueryError("missing-event-id")
-    return value
 
 
 def _read_member(path: Path, *, max_file_bytes: int, total_read: int, max_total_read: int) -> tuple[bytes, int]:
@@ -355,12 +334,14 @@ def _member_events(relative: str, content: bytes) -> list[dict[str, Any]]:
     offset = 0
     for line_number, line in enumerate(content.splitlines(keepends=True), start=1):
         raw = line.rstrip(b"\r\n")
-        if not raw:
-            raise JournalQueryError("malformed-event")
-        event = _decode_event(raw)
+        if not raw.strip():
+            offset += len(line)
+            continue
+        event = json.loads(raw)
+        observed_id = event.get("event_id") if isinstance(event, Mapping) else None
         entries.append(
             {
-                "event_id": event["event_id"],
+                "event_id": observed_id if isinstance(observed_id, str) else None,
                 "event": event,
                 "member": relative,
                 "line": line_number,
@@ -369,9 +350,17 @@ def _member_events(relative: str, content: bytes) -> list[dict[str, Any]]:
             }
         )
         offset += len(line)
-    if content and not entries:
-        raise JournalQueryError("malformed-event")
     return entries
+
+
+def _record_order(record: Mapping[str, Any]) -> tuple[int, str, str, int]:
+    event_id = record["event_id"]
+    return (
+        0 if isinstance(event_id, str) else 1,
+        event_id if isinstance(event_id, str) else "",
+        record["member"],
+        record["line"],
+    )
 
 
 def _snapshot_core(snapshot: Mapping[str, Any]) -> dict[str, Any]:
@@ -395,7 +384,7 @@ def _snapshot_public(snapshot: Mapping[str, Any], handle: str) -> dict[str, Any]
         "source_root": snapshot["source_root"],
         "prefix_bytes": snapshot["prefix_bytes"],
         "prefix_digest": snapshot["prefix_digest"],
-        "event_ids": [record["event_id"] for record in snapshot["records"]],
+        "event_ids": [record["event_id"] for record in snapshot["records"] if isinstance(record["event_id"], str)],
     }
 
 
@@ -457,7 +446,6 @@ def capture_snapshot(
     total_read = 0
     members: list[dict[str, Any]] = []
     records: list[dict[str, Any]] = []
-    seen_ids: set[str] = set()
     try:
         paths = sorted(journal.iterdir(), key=lambda path: path.name.encode("utf-8"))
     except OSError as error:
@@ -482,12 +470,8 @@ def capture_snapshot(
         member = {"ref": relative, "prefix_bytes": len(content), "prefix_digest": _sha256(content)}
         members.append(member)
         for record in _member_events(relative, content):
-            event_id = record["event_id"]
-            if event_id in seen_ids:
-                raise JournalQueryError("duplicate-event-id")
-            seen_ids.add(event_id)
             records.append(record)
-    records.sort(key=lambda record: record["event_id"].encode("utf-8"))
+    records.sort(key=_record_order)
     # The prefix was already bounded and read above.  For a single carrier its
     # digest is exactly the retained carrier-prefix digest; otherwise retain a
     # deterministic digest of the ordered carrier-prefix evidence.
@@ -596,7 +580,7 @@ def _revalidate_members(
     expected_records = snapshot.get("records")
     if not isinstance(expected_records, list):
         raise JournalQueryError("invalid-retained-provenance")
-    derived_records.sort(key=lambda record: record["event_id"].encode("utf-8"))
+    derived_records.sort(key=_record_order)
     if _json_bytes(derived_records) != _json_bytes(expected_records):
         raise JournalQueryError("invalid-retained-provenance")
     return total

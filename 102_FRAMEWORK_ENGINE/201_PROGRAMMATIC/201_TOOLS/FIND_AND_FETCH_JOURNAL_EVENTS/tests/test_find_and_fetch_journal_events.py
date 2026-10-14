@@ -252,14 +252,18 @@ class JournalQueryGoldenTest(unittest.TestCase):
         self.assertEqual(outcome["status"], "blocked")
         self.assertEqual(outcome["findings"][0]["code"], "changed-source")
 
-    def test_malformed_missing_id_unreadable_and_secret_sentinel_are_bounded(self):
+    def test_json_decoding_missing_id_unreadable_and_secret_sentinel(self):
         path = self.write_events("events.ndjson", {"event_id": "E-1"})
         path.write_bytes(b"not-json\n")
-        with self.assertRaisesRegex(JournalQueryError, "malformed-event"):
+        with self.assertRaises(json.JSONDecodeError):
             capture_snapshot(self.root)
         path.write_bytes(b'{"name":"no-id"}\n')
-        with self.assertRaisesRegex(JournalQueryError, "missing-event-id"):
-            capture_snapshot(self.root)
+        snapshot = capture_snapshot(self.root)
+        self.assertEqual([], snapshot["event_ids"])
+        self.assertEqual(
+            [{"event_id": None, "event": {"name": "no-id"}}],
+            query(snapshot, {"mode": "full_events"})["results"],
+        )
         path.write_bytes(b'{"event_id":"E-1"}\n')
         with patch.object(Path, "read_bytes", side_effect=PermissionError):
             with self.assertRaisesRegex(JournalQueryError, "unreadable-member"):
@@ -396,16 +400,16 @@ class JournalQueryGoldenTest(unittest.TestCase):
         self.assertEqual(2, result["limits"]["max_page_size"]["configured"])
         self.assertNotEqual("instance", result["limits"]["max_page_size"]["source"])
 
-    def test_malformed_duplicate_ids_duplicate_keys_and_limits_fail_closed(self):
+    def test_duplicate_rows_and_normal_json_keys_preserve_query_limits(self):
         self.write_events("duplicate-keys.ndjson", {"event_id": "E-1"})
         (self.journal / "duplicate-keys.ndjson").write_bytes(b'{"event_id":"E-1","event_id":"E-2"}\n')
-        with self.assertRaisesRegex(JournalQueryError, "duplicate-json-key"):
-            capture_snapshot(self.root)
+        snapshot = capture_snapshot(self.root)
+        self.assertEqual(["E-2"], query(snapshot, {})["results"])
         (self.journal / "duplicate-keys.ndjson").unlink()
         self.write_events("one.ndjson", {"event_id": "E-1"})
         self.write_events("two.ndjson", {"event_id": "E-1"})
-        with self.assertRaisesRegex(JournalQueryError, "duplicate-event-id"):
-            capture_snapshot(self.root)
+        snapshot = capture_snapshot(self.root)
+        self.assertEqual(["E-1", "E-1"], query(snapshot, {})["results"])
         (self.journal / "two.ndjson").unlink()
         snapshot = capture_snapshot(self.root)
         outcome = query(snapshot, {"limit": 3})
