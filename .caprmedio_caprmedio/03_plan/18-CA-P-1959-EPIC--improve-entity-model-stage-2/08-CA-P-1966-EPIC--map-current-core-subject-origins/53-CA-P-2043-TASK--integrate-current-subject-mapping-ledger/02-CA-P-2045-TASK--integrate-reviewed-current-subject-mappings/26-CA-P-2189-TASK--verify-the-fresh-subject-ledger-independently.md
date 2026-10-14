@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Subject
   depends_on: [Atom, Entity, Projection, Plan, Tool, Operator]
-version: 7
-updated_at: "2026-10-14 00:51:17 +0400"
+version: 8
+updated_at: "2026-10-14 15:18:49 +0400"
 relations:
   is_decomposition_of: [CA-P-2045]
   blocks: [CA-P-2190]
@@ -29,6 +29,20 @@ Verify the fresh Subject ledger independently
 Independently accept the persisted fresh ledger and its current-source/model bindings.
 
 ## Details
+
+### Current mapping-disposition checkpoint — 2026-10-14 15:18 +0400
+
+The mapping-disposition gate is complete under CA-P-1959's latest map-first, Subjects-only override. Earlier requirements below for all 48 deep per-owner reviews, separate per-packet semantic receipts, completion of their descendants and the old domain partitions are not prerequisites to this migration slice. Preserve those Plans and reports as historical evidence without claiming them Done or creating a completion cascade. This checkpoint supplies the current process, output and pin binding where older text conflicts; it does not rewrite old receipts or reopen the superseded deep-review gates.
+
+The integrated occurrence map is `.caprmedio_tmp/stage2-migration-20261014/subject-map/subject-map.current.json`, SHA-256 `647f7a91ca166a9cfd08560f1303cfb2cc7d2724848dc50794cd1eee78e062f8`. Its current Candidate #4 pin is `.caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.model.candidate-4.md`, SHA-256 `a23019a1ee6cd3586640d6c3d9e211091f3683ac5f136058d745650570e78ca7`, verified equal to live candidate bytes. All 906 owners and 4,530 occurrences have migration dispositions: 611 mapped-change candidates, 266 unchanged, 17 unchanged deferred-model owners, 10 unchanged uncertain owners and two unchanged pending retirement. Zero occurrences lack a disposition. All 29 excluded owners retain all 155 occurrences, including 44 otherwise-changeable mappings; no supported subset of an excluded owner enters the request. The 34 null targets and 11 open meaning questions remain visible and unadopted. An approved unchanged disposition is not a guessed meaning or completion of the deferred non-Atom revision model.
+
+Independent mapping-disposition check: `.caprmedio_tmp/stage2-migration-20261014/subject-map/mcp-readiness-checkpoint.md`, SHA-256 `83105d77652a6e6735a79496669e8c72ff231b143d4c40cb8606dafe719f7635`, identifies the exact current map and verifies complete owner/occurrence coverage, whole-owner exclusions and zero undisposed occurrences. Its earlier MCP baseline observations remain historical; use P1959/P2167's latest connected checkpoint for Tool/runtime state. For this Subjects-only slice, P2188's persisted integration and P2189's independent migration-disposition verification are satisfied by these current outputs and checks, not by unfinished old deep-review children. No full Atom-content semantic review or new FPF acceptance is claimed.
+
+Keep the captured inventory/map provenance unchanged: `.caprmedio_tmp/stage2-migration-20261014/inventory/current-subjects.inventory.json`, SHA-256 `9226df3fcc8b57ca4c15908ed08e61899ea41c6aa32e1bd24c5ff4658efc2344`. The separate structural repair changed 44 source pins without changing approved Subject intent; do not silently present their older captured paths/Versions/hashes as current. The refreshed current-source binding is `.caprmedio_tmp/stage2-migration-20261014/structural-repair/request-generation/manifest.json`, SHA-256 `4347f853b7f7c88f3b89759621a3aa1cb0fa2f3dd25152f17b23ef7f3dbb67f5`. All its 906 source hashes were rechecked against live files; all 611 public expected ID/Version/hash tuples agree with it. The repaired-source validation receipt is `.caprmedio_tmp/stage2-migration-20261014/structural-repair/repaired-full-validation.json`, SHA-256 `9e981c76434bbce68d7c539ba569093bd3ac6af649c605f11f4473ab346468fe`.
+
+Prepared public request: `.caprmedio_tmp/stage2-migration-20261014/structural-repair/request-generation/preview-subjects.request.json`, SHA-256 `3b931baa1c07fc50fb42668c63407543632c50b05c69540815bd794f54ebdc5c`, containing exactly 611 owners and 848 ordered Subject patches. Metadata/provenance remains outside the closed payload. The captured original conversion's independent receipt, `.caprmedio_tmp/stage2-migration-20261014/public-request/independent-review.md`, SHA-256 `a08be8e25dfeb01e97ce1d800622bded1eb8778482092597b286609521aac481`, stays historical to its exact original pins; the structural-repair generation explicitly records the 44 rebindings and preserved mapping intent, order and exclusions. Request preparation is complete and explicitly non-executable; it is not candidate Atom bytes, whole-request MCP acceptance or staging/publication approval.
+
+Status remains Active in this checkpoint-only packet by explicit instruction, not because superseded deep-review prerequisites still bind. Remaining migration gates concern actual admitted Tool/runtime completion, an explicitly assigned and approved scratch tranche with exact staged-diff/preservation proof, the selected Codex human-confirmation trust decision, current selected-source admission and separate exact live-packet approval. Those responsibilities remain with the applicable preparation/staging/application Plans; they do not keep the completed mapping-disposition gate open. Preserve original sources, ordinary content, history, Journal and both uncertain D253 batches. No new stage, replay, migration, publication, broad connector/catalog/C+A work or content-epic execution is authorized here.
 
 ### Current frontier and output binding — 2026-10-14
 
