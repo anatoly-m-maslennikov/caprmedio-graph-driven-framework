@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan]
-version: 5
-updated_at: "2026-10-14 14:35:01 +0400"
+version: 6
+updated_at: "2026-10-14 15:01:31 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
 ---
@@ -28,6 +28,16 @@ Verify connected Subject preparation
 Verify the activated, reviewed MCP image through actual discovery, lookup, sealed preview and scratch-only staging for one supported pinned Core Atom.
 
 ## Details
+
+### Fresh scratch-stage uncertainty and next local lanes — 2026-10-14 15:01 +0400
+
+The Operator explicitly approved one new scratch-only CA-D-253 stage from the fresh preview, not a replay of the older uncertain attempt. Exactly one actual MCP request ran with preview seal ea23ecb10f6fbc1f791502b5b5ce7575e35c811febd157850dd5ea88ffcc71ae and its illustrative timestamp. It returned an uncertain error, not a successful staging receipt: Implementation call failed; no automatic replay. Independent readback passed for the exact persisted candidate, canonical manifest, seals and current source/grammar pins. Artifact fidelity is not Tool completion; neither manifest existence nor zero in-flight bookkeeping proves child termination.
+
+Preserve both scratch batches unchanged: the fresh da3108347b2742a0bcdaee211cd184f3 and older e7e1dc30c56941b19c1e8ba0843daae4. All 906 current source pins remain unchanged. A separate read-only post-stage verification lane also confirmed all 12,203 Core Markdown paths/bytes unchanged and all 44 predecessor archives exact; its transcript evidence is identified in tools-first connected-preparation-activation.md, not represented as a filesystem receipt. Exact response, artifact and independent review hashes are recorded there. No automatic replay, cleanup, 611-owner connected acceptance, migration or publication is established.
+
+The Operator requires actual human confirmation in the Codex UI and rejected the proposed terminal confirmation channel. This selects the required interface, not publication authorization. Next independent local lanes are a bounded stage-specific timeout correction with preserved uncertain/no-replay behavior; a no-effect Codex confirmation-form probe that cannot mint publication authority; and investigation of current selected-source readmission without silently refreshing changed meanings or weakening full-manifest validation. These lanes are pending work, not passed implementation, runtime activation or admitted publication.
+
+CA-P-2382, P2167 and P1959 remain Active. Successful connected stage completion, any further scratch effect, runtime replacement and live publication remain separately gated; the new one-attempt approval does not authorize another request. The deferred content Epic remains separate. This checkpoint supersedes earlier unanswered fresh-stage and confirmation-channel statements only; keep their evidence as history.
 
 ### Current connected verification — 2026-10-14 14:35 +0400
 
