@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 76
-updated_at: "2026-10-14 19:12:41 +0400"
+version: 77
+updated_at: "2026-10-14 19:58:02 +0400"
 relations: {}
 ---
 # Summary
@@ -29,7 +29,7 @@ Build and resolve the current Core Meta-model RMEDO Subject map, then carry out 
 
 ### Simplify release verification — 2026-10-14
 
-The Operator rejected an extra registry-validation gate for release: use the full test suite. Keep simple local/public release commands; do not add whole-registry or release-only dependency admission as another release prerequisite. Repair broken Workflow definitions and their tests, but do not build a closed seventeen-route successor solely to enable release. This supersedes the release-gate requirements in earlier checkpoints, not normal input, permission, target, or file-safety checks. Full-suite success is not yet established.
+The Operator chose simple local/public release commands verified by the full test suite, including required integration tests. Missing Docker or another required test environment, skipped required tests, failed tests or unknown completion stops release. Docker integration tests build a disposable image from current code; they do not use an old installed image or restart the running Project MCP. Add no whole-registry, dependency-admission or separate Active Atom metadata, placement or relation validation gate. Repair broken definitions and tests, not a closed seventeen-route successor solely for release. Normal input, permission, target and file/path safety remain. This supersedes earlier release-gate checkpoints; full-suite success is not yet established.
 
 Remove proven-unused Journal validation/recovery helpers and obsolete sealed-release machinery, including their callers, exports and obsolete tests. Do not keep compatibility wrappers or new proof layers without a current caller or requirement. Ask the Operator before removal changes required behavior or risks existing data. Preserve actual source-effect safety, existing files, the uncertain staging batches and the Subjects-only/content-migration boundary.
 
@@ -41,7 +41,7 @@ Use the [compiled PROGRAMMATIC implementation prompt](../_projection/102_LAYER_2
 
 Committed: `9cd9efff9` sets Journal segments to at most 1,000 rows (80 focused tests); `5aabd7a80` exposes the existing independent appender through MCP (17 new native/protocol tests); `aa0fa3e74` requires the complete registry before registration/freeze/new dispatch and removes direct/virtual Release bypasses (18 actual registry/query checks plus 12 isolated interpreter checks independently passed). The real complete fixture has fifteen routes, not seventeen. Known legacy full-suite failures and inherited-Method gaps remain explicit. No runtime activation is established by these commits.
 
-The latest Operator decision supersedes the earlier first-change exception and Journal proof machinery: provide plain append and read only. Do not require previous records, baselines, chain validation, confirmed receipts, deduplication or Journal retry/recovery machinery. The Operator explicitly rejected retaining an extra corrupt-write or duplicate-retry validation layer. Append supplied records and read stored records; repeated appends are not silently deduplicated. Keep the 1,000-row batch limit. Preserve existing Journal files. Align the Journal rules, appender/readers and callers, and remove Journal-history prerequisites from unrelated operations. This does not remove source-change authorization, exact affected-target checks or source-effect no-replay state.
+The latest Operator decision supersedes the earlier first-change exception and Journal proof machinery: provide plain append and read only. Do not require previous records, baselines, chain validation, confirmed receipts, deduplication or Journal retry/recovery machinery. The Operator explicitly rejected retaining an extra corrupt-write or duplicate-retry validation layer. Append supplied records and read stored records; repeated appends are not silently deduplicated. Keep the 1,000-row batch limit as approximate under concurrent writes; no append lock is required. Preserve existing Journal files. Align the Journal rules, appender/readers and callers, and remove Journal-history prerequisites from unrelated operations. This does not remove source-change authorization, exact affected-target checks or source-effect no-replay state.
 
 The Operator requires only local and public release. Keep D562's ID and Summary; revise it for installation within local release. Do not create D634 or a separate installer flow. D633 remains the proposed D563 replacement. Direct local recording is allowed for these two actual changes; record those changes without synthetic baseline rows. No D562/D563 publication or Journal append is established by this checkpoint.
 
