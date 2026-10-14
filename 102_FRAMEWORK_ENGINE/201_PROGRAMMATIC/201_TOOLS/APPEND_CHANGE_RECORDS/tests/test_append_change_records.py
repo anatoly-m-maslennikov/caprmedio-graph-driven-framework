@@ -38,11 +38,13 @@ from append_change_records import (  # noqa: E402
     validate_context as validate_append_context,
 )
 from work_journal import (  # noqa: E402
+    MAX_EVENTS_PER_PART,
     WorkJournalError,
     append_sealed_events,
     canonical_json_bytes,
     canonical_json_digest,
     event_digest,
+    predict_sealed_event_receipts,
     validate_sealed_event,
     with_event_digest,
 )
@@ -222,29 +224,49 @@ class AppendChangeRecordsTest(unittest.TestCase):
             run(self.root, {"context": context}, apply=True, wait_seconds=0)
         self.assertFalse((self.root / ".caprmedio_caprmedio/_journal").exists())
 
-    def test_rolls_to_second_part_after_one_hundred_records(self) -> None:
+    def test_rolls_to_second_part_after_one_thousand_records(self) -> None:
+        self.assertEqual(1000, MAX_EVENTS_PER_PART)
         event_template = self.context()["predictions"]["journal_records"][0]
         assert isinstance(event_template, dict)
         events: list[dict[str, object]] = []
-        for number in range(101):
+        for number in range(1001):
             event = copy.deepcopy(event_template)
             event["event_id"] = f"event-{number:03d}"
             event["action_id"] = "one-action"
             event = with_event_digest(event)
             events.append(event)
+        first = self.root / ".caprmedio_caprmedio/_journal/test-user-2026-08-20-part-1.ndjson"
+        second = self.root / ".caprmedio_caprmedio/_journal/test-user-2026-08-20-part-2.ndjson"
+        first.parent.mkdir()
+        prior = b"".join(canonical_json_bytes(event) + b"\n" for event in events[:999])
+        first.write_bytes(prior)
+        predictions = predict_sealed_event_receipts(
+            self.root, events[999:], author="test-user", local_date="2026-08-20", timezone="Asia/Tbilisi"
+        )
+        self.assertEqual([(first.relative_to(self.root).as_posix(), 1000),
+                          (second.relative_to(self.root).as_posix(), 1)],
+                         [(row["carrier"], row["line"]) for row in predictions])
+        self.assertEqual(prior, first.read_bytes())
+        self.assertFalse(second.exists())
         receipts = append_sealed_events(
             self.root,
-            events,
+            events[999:1000],
             author="test-user",
             local_date="2026-08-20",
             timezone="Asia/Tbilisi",
         )
-        first = self.root / ".caprmedio_caprmedio/_journal/test-user-2026-08-20-part-1.ndjson"
-        second = self.root / ".caprmedio_caprmedio/_journal/test-user-2026-08-20-part-2.ndjson"
-        self.assertEqual(100, len(first.read_text(encoding="utf-8").splitlines()))
+        self.assertEqual(1000, len(first.read_text(encoding="utf-8").splitlines()))
+        self.assertFalse(second.exists())
+        first_full = first.read_bytes()
+        self.assertTrue(first_full.startswith(prior))
+        receipts += append_sealed_events(
+            self.root, events[1000:], author="test-user", local_date="2026-08-20", timezone="Asia/Tbilisi"
+        )
+        self.assertEqual(first_full, first.read_bytes())
         self.assertEqual(1, len(second.read_text(encoding="utf-8").splitlines()))
-        self.assertEqual(100, receipts[99]["line"])
-        self.assertEqual(1, receipts[100]["line"])
+        self.assertEqual(1000, receipts[0]["line"])
+        self.assertEqual(1, receipts[1]["line"])
+        self.assertEqual(predictions, [{**row, "disposition": "predicted"} for row in receipts])
 
     def test_appends_recovery_then_change_from_exact_sealed_evidence(self) -> None:
         context = self.context(action="UPDATE")

@@ -27,6 +27,7 @@ MODULE_PATH = Path(__file__).resolve()
 PACKAGE_ROOT = MODULE_PATH.parents[1]
 sys.path.insert(0, str(PACKAGE_ROOT))
 from artifact_metadata import atom_identifier
+from work_journal import MAX_EVENTS_PER_PART
 
 for _parent in MODULE_PATH.parents:
     if _parent.name == ".caprmedio_runtime":
@@ -1131,7 +1132,7 @@ def predicted_partitions(root: Path, journal_relative: Path, author: str, local_
         counts[part] = 0
     result: list[dict[str, Any]] = []
     for _ in range(count):
-        if counts[part] >= 100:
+        if counts[part] >= MAX_EVENTS_PER_PART:
             part += 1
             counts.setdefault(part, 0)
         counts[part] += 1

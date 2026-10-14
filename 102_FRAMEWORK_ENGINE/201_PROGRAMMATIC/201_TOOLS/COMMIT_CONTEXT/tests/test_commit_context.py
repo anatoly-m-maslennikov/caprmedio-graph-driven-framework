@@ -124,6 +124,21 @@ class CommitContextTests(unittest.TestCase):
         with self.assertRaisesRegex(ContextError, "exactly control_root/_journal"):
             configured_repository_paths(self.root)
 
+    def test_partition_predictions_share_the_thousand_row_boundary_without_rewriting_history(self) -> None:
+        self.assertEqual(1000, commit_context_logic.MAX_EVENTS_PER_PART)
+        relative = Path(".caprmedio_caprmedio/_journal")
+        first = self.root / relative / "test-user-2026-08-20-part-1.ndjson"
+        first.parent.mkdir()
+        for count in (100, 999, 1000):
+            with self.subTest(existing_rows=count):
+                original = b"{}\n" * count
+                first.write_bytes(original)
+                predictions = commit_context_logic.predicted_partitions(self.root, relative, "test-user", "2026-08-20", 2)
+                expected = {100: [(1, 101), (1, 102)], 999: [(1, 1000), (2, 1)], 1000: [(2, 1), (2, 2)]}[count]
+                self.assertEqual(expected, [(row["part"], row["predicted_line"]) for row in predictions])
+                self.assertEqual(original, first.read_bytes())
+                self.assertEqual([first], list(first.parent.iterdir()))
+
     def test_configured_paths_derives_journal_from_custom_control_root(self) -> None:
         control = Path(".caprmedio_fixture")
         settings_path = control / "caprmedio_project_settings.toml"

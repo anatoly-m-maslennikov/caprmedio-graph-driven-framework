@@ -50,7 +50,7 @@ EVENTS = (
     "recovered",
 )
 SEALED_SCHEMA_VERSION = 3
-MAX_EVENTS_PER_PART = 100
+MAX_EVENTS_PER_PART = 1000
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 AUTHOR_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$")
