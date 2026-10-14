@@ -37,28 +37,28 @@ STAGE_PREFIX = Path(".caprmedio_tmp/subject-preview")
 TOOL_WORKFLOWS = (
     ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/"
 )
-# Current preparation sources include the reviewed Codex confirmation contract in 9523cfd0d.
+# Current preparation sources retain plain logging and the host-owned Subject dispatch contract.
 PREPARATION_PINS = tuple({"atom_id": atom_id, "version": version,
                           "path": TOOL_WORKFLOWS + relative, "sha256": digest}
                          for atom_id, version, relative, digest in (
-    ("CA-R-866", 24,
+    ("CA-R-866", 25,
      "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
-     "9044fd001f9124092de899e1cdbd6929b60aa993b079dfc4ed31fa2baedcec8b"),
+     "8530bda5df82fb9395ccdf4e8ad4c9b496cd864f5a395f8d6a1af77dac00d187"),
     ("CA-R-1093", 12,
      "04_requirement/CA-R-1093-TOOL_WORKFLOWS-CORE-REQUIREMENT--separate-generic-and-atom-specific-tool-authority.md",
      "089aef0c7af39cd3135b411b5629ee32e350f35beae53a5dbd85754cb50f53e4"),
-    ("CA-O-030", 17,
+    ("CA-O-030", 18,
      "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md",
-     "196becd0fa476e1c2663f8f925a1fd5d97ff902781966580230a2878fdd4def8"),
+     "05916641aa04549840d329385e75f2f083f8cd3556bb2912eea06929bb93b6dc"),
     ("CA-M-371", 11,
      "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md",
      "5f775dcbbd365378731b7039b47c78d4c4eebaeb0991ed7850c0c44638d63d79"),
     ("CA-D-425", 16,
      "07_delivery/CA-D-425-TOOL_WORKFLOWS-STANDARD-DELIVERY--deliver-atom-update-tool.md",
      "208431f44e901ed023f45c80536a92ab63e7c046ff45f56dede0f091c8bc7023"),
-    ("CA-E-304", 23,
+    ("CA-E-304", 24,
      "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
-     "8b42e677503e38f737d5473ae78d2c37d69bbec1ad29475b1e62ce21cf310fba"),
+     "8a2464133f75760fa7fe78f399a860d1f3766807db7816423cf9ce109b5ce21a"),
 ))
 
 
