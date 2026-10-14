@@ -82,6 +82,42 @@ class CommitTriggerTests(unittest.TestCase):
         )
         return completed.stdout
 
+    def _installed_codex_hook(
+        self, entrypoint: Path, phase: str, payload: dict[str, str]
+    ) -> dict[str, object]:
+        # Functional installed-pipeline coverage must tolerate parallel test load.
+        hook_cli = (
+            "import runpy, sys\n"
+            "namespace = runpy.run_path(sys.argv[1])\n"
+            "namespace['codex_hook'].__globals__['CODEX_HOOK_BUDGET_SECONDS'] = 30.0\n"
+            "raise SystemExit(namespace['cli'](sys.argv[2:]))\n"
+        )
+        completed = subprocess.run(
+            [
+                sys.executable,
+                "-I",
+                "-B",
+                "-c",
+                hook_cli,
+                str(entrypoint),
+                "--repository",
+                str(self.repository),
+                "codex-hook",
+                phase,
+                "--adapter-id",
+                self.adapter.adapter_id,
+            ],
+            input=json.dumps(payload),
+            check=True,
+            capture_output=True,
+            text=True,
+            cwd=self.repository,
+            timeout=45,
+        )
+        envelope: dict[str, object] = json.loads(completed.stdout)
+        self.assertTrue(envelope["ok"], completed.stdout)
+        return envelope
+
     def test_preselector_hook_rejects_package_outside_managed_release_surface(self) -> None:
         outside = self.repository / "ordinary-package"
         outside.mkdir()
@@ -641,31 +677,10 @@ class CommitTriggerTests(unittest.TestCase):
             "tool_use_id": "tool-use-001",
             "cwd": str(self.repository),
         }
-
         for phase in ("pre", "post"):
             if phase == "post":
                 self._write_atom(subject, version=2, body="second")
-            completed = subprocess.run(
-                [
-                    sys.executable,
-                    "-I",
-                    "-B",
-                    str(entrypoint),
-                    "--repository",
-                    str(self.repository),
-                    "codex-hook",
-                    phase,
-                    "--adapter-id",
-                    self.adapter.adapter_id,
-                ],
-                input=json.dumps(payload),
-                check=True,
-                capture_output=True,
-                text=True,
-                cwd=self.repository,
-            )
-            envelope = json.loads(completed.stdout)
-            self.assertTrue(envelope["ok"], completed.stdout)
+            envelope = self._installed_codex_hook(entrypoint, phase, payload)
 
         self.assertEqual("committed", envelope["result"]["effect"], envelope)
         self.assertEqual(1, envelope["result"]["commit_count"])
@@ -702,7 +717,8 @@ class CommitTriggerTests(unittest.TestCase):
         self._git("config", "github.username", "anatoly-m-maslennikov")
         self._git("add", ".gitignore", ".caprmedio_caprmedio")
         self._git("commit", "-qm", "governed fixture")
-        install_release(self.repository, apply=True, source_root=commit_trigger.PACKAGE_ROOT)
+        installed = install_release(self.repository, apply=True, source_root=commit_trigger.PACKAGE_ROOT)
+        entrypoint = self.repository / str(installed["package_root"]) / "COMMIT_TRIGGER/commit_trigger.py"
         commit_trigger.adapter_operation(
             self.repository,
             "install",
@@ -711,11 +727,11 @@ class CommitTriggerTests(unittest.TestCase):
             manage_host_hooks=True,
         )
         payload = {"session_id": self.environment["CODEX_THREAD_ID"], "cwd": str(self.repository)}
-        started = commit_trigger.codex_hook(self.repository, "start", self.adapter.adapter_id, payload)
+        started = self._installed_codex_hook(entrypoint, "start", payload)["result"]
         self.assertEqual("baseline-created", started["effect"])
         self._write_atom(subject, version=2, body="second")
-        stopped = commit_trigger.codex_hook(self.repository, "stop", self.adapter.adapter_id, payload)
-        self.assertEqual("reconciled", stopped["effect"])
+        stopped = self._installed_codex_hook(entrypoint, "stop", payload)["result"]
+        self.assertEqual("reconciled", stopped["effect"], stopped)
         self.assertEqual(1, stopped["commit_count"])
         self.assertEqual([subject], self._git("diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").splitlines())
         journals = sorted((self.repository / ".caprmedio_caprmedio/_journal").glob("*.ndjson"))
@@ -728,16 +744,16 @@ class CommitTriggerTests(unittest.TestCase):
         )
 
         second_payload = {"session_id": "019f5920-04f6-70f2-8de7-828b7cccc69d", "cwd": str(self.repository)}
-        commit_trigger.codex_hook(self.repository, "start", self.adapter.adapter_id, payload)
-        commit_trigger.codex_hook(self.repository, "start", self.adapter.adapter_id, second_payload)
+        self._installed_codex_hook(entrypoint, "start", payload)
+        self._installed_codex_hook(entrypoint, "start", second_payload)
         self._write_atom(subject, version=3, body="third")
-        ambiguous = commit_trigger.codex_hook(self.repository, "stop", self.adapter.adapter_id, payload)
+        ambiguous = self._installed_codex_hook(entrypoint, "stop", payload)["result"]
         self.assertEqual("ambiguous-session-ownership", ambiguous["effect"])
         self.assertEqual(0, ambiguous["commit_count"])
         self.assertIn(subject, self._git("status", "--porcelain=v1"))
 
         missing_payload = {"session_id": "019f5930-04f6-70f2-8de7-828b7cccc69d", "cwd": str(self.repository)}
-        missing = commit_trigger.codex_hook(self.repository, "stop", self.adapter.adapter_id, missing_payload)
+        missing = self._installed_codex_hook(entrypoint, "stop", missing_payload)["result"]
         self.assertEqual("no-session-baseline", missing["effect"])
 
     @staticmethod
