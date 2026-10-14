@@ -124,32 +124,10 @@ def _frontier(root, prepared, execution):
     return originals, tuple(capture_source(root, path) for path in sorted(paths - {target}))
 
 
-def authorize_subject_publication(root, execution, *, operator_name, llm_session, staged_manifest):
-    """Record an actual human confirmation at the existing trusted-host boundary.
-
-    Calling this internal issuer is the host's confirmation act, not evidence
-    extracted from untrusted input. Do not expose it through a serializable route.
-    """
-    from atom_subject_apply import _parameters, _prepare
+def _reviewed_subject_candidate(root, request, prepared, staged_manifest):
+    """Reopen the exact staged candidate without issuing confirmation."""
     from atom_subject_patch import preview_subject_patches
-
-    root = Path(root).resolve(strict=True)
-    execution = copy.deepcopy(_validate_common(execution))
-    if execution["mode"] != "execute" or execution["operation_route"] != "update_atom":
-        _reject("Confirmation applies only to the exact selected Subject update")
-    if (not isinstance(llm_session, dict) or llm_session.keys() != {"app", "uuid"}
-            or not all(isinstance(value, str) and value for value in llm_session.values())
-            or llm_session["uuid"] != execution["request_id"]):
-        _reject("Trusted host session differs from the selected request")
-    registry = capture_source(root, operations.control_root(root).relative_to(root) / "operators_registry.toml")
-    operators = [item for item in parse_operators_registry(registry.read_bytes()) if item.name == operator_name]
-    if len(operators) != 1:
-        _reject("Confirming Operator is not uniquely registered")
-    request = _parameters(execution["parameters"])
-    prepared = _prepare(root, request)
     intent = prepared["subject_intent"]
-    if intent["noop"]:
-        _reject("An unchanged no-op needs no publication window")
     if not isinstance(staged_manifest, dict) or staged_manifest.keys() != {"path", "digest"}:
         _reject("Reviewed staging requires its exact existing manifest pin")
     staged = FileSource(root, Path(staged_manifest["path"]), staged_manifest["digest"])
@@ -171,6 +149,35 @@ def authorize_subject_publication(root, execution, *, operator_name, llm_session
         timestamp=illustrative_at, subject_profile=request.get("subject_profile", "legacy"))
     if candidate_raw != expected["atoms"][0]["proposed_carrier"].encode("utf-8") or manifest["preview_sha256"] != expected["preview_sha256"]:
         _reject("Reviewed candidate differs from the independently reopened preview")
+    return staged, candidate, candidate_raw
+
+
+def authorize_subject_publication(root, execution, *, operator_name, llm_session, staged_manifest):
+    """Record an actual human confirmation at the existing trusted-host boundary.
+
+    Calling this internal issuer is the host's confirmation act, not evidence
+    extracted from untrusted input. Do not expose it through a serializable route.
+    """
+    from atom_subject_apply import _parameters, _prepare
+
+    root = Path(root).resolve(strict=True)
+    execution = copy.deepcopy(_validate_common(execution))
+    if execution["mode"] != "execute" or execution["operation_route"] != "update_atom":
+        _reject("Confirmation applies only to the exact selected Subject update")
+    if (not isinstance(llm_session, dict) or llm_session.keys() != {"app", "uuid"}
+            or not all(isinstance(value, str) and value for value in llm_session.values())
+            or llm_session["uuid"] != execution["request_id"]):
+        _reject("Trusted host session differs from the selected request")
+    registry = capture_source(root, operations.control_root(root).relative_to(root) / "operators_registry.toml")
+    operators = [item for item in parse_operators_registry(registry.read_bytes()) if item.name == operator_name]
+    if len(operators) != 1:
+        _reject("Confirming Operator is not uniquely registered")
+    request = _parameters(execution["parameters"])
+    prepared = _prepare(root, request)
+    intent = prepared["subject_intent"]
+    if intent["noop"]:
+        _reject("An unchanged no-op needs no publication window")
+    staged, candidate, _ = _reviewed_subject_candidate(root, request, prepared, staged_manifest)
     originals, authorities = _frontier(root, prepared, execution)
     archive = capture_source(root, intent["predecessorArchive"]["path"])
     if archive.sha256 is not None:
@@ -243,6 +250,7 @@ def with_subject_publication_window(action):
                     or record.intent_digest != request["subject_intent_sha256"]):
                 _reject("Confirmation differs from this exact admitted Session/intent")
             with engine_publication_lock(root):
+                _record(confirmation)
                 fresh = _prepare(Path(root).resolve(), request)
                 originals, _ = _frontier(record.root, fresh, session.request)
                 if originals != record.originals:

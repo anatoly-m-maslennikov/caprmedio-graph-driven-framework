@@ -37,28 +37,28 @@ STAGE_PREFIX = Path(".caprmedio_tmp/subject-preview")
 TOOL_WORKFLOWS = (
     ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/"
 )
-# Independently reviewed preparation-source-pins.json, SHA 3cc31e539c9716dff7c52d2140e39ced82625d91755da6f4a66c22b215c54efb.
+# Current preparation sources include the reviewed Codex confirmation contract in 9523cfd0d.
 PREPARATION_PINS = tuple({"atom_id": atom_id, "version": version,
                           "path": TOOL_WORKFLOWS + relative, "sha256": digest}
                          for atom_id, version, relative, digest in (
-    ("CA-R-866", 23,
+    ("CA-R-866", 24,
      "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
-     "98e303d6e0c09510d6dde40c10dc3d8ffa73e05296240bea6f238e480a30904a"),
+     "9044fd001f9124092de899e1cdbd6929b60aa993b079dfc4ed31fa2baedcec8b"),
     ("CA-R-1093", 12,
      "04_requirement/CA-R-1093-TOOL_WORKFLOWS-CORE-REQUIREMENT--separate-generic-and-atom-specific-tool-authority.md",
      "089aef0c7af39cd3135b411b5629ee32e350f35beae53a5dbd85754cb50f53e4"),
-    ("CA-O-030", 16,
+    ("CA-O-030", 17,
      "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md",
-     "bf45abea494d78a59fa956fdccc5398408f4c4aaf114443cb92b0b510c22241f"),
+     "196becd0fa476e1c2663f8f925a1fd5d97ff902781966580230a2878fdd4def8"),
     ("CA-M-371", 11,
      "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md",
      "5f775dcbbd365378731b7039b47c78d4c4eebaeb0991ed7850c0c44638d63d79"),
     ("CA-D-425", 16,
      "07_delivery/CA-D-425-TOOL_WORKFLOWS-STANDARD-DELIVERY--deliver-atom-update-tool.md",
      "208431f44e901ed023f45c80536a92ab63e7c046ff45f56dede0f091c8bc7023"),
-    ("CA-E-304", 22,
+    ("CA-E-304", 23,
      "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
-     "8f72d065cf1a96791817bc412051cb5e14504c3462a08e4a0211c528fa1e854b"),
+     "8b42e677503e38f737d5473ae78d2c37d69bbec1ad29475b1e62ce21cf310fba"),
 ))
 
 

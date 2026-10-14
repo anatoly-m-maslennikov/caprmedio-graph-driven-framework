@@ -44,14 +44,14 @@ CURRENT_W02_PINS = {
                  "e1da6f807f965d94bb2f6b829767fb23d34ea6dc600408f78408378caf208f89"),
 }
 PUBLICATION_PINS = {
-    "CA-R-866": (TOOL_WORKFLOWS + "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md", 23,
-                 "98e303d6e0c09510d6dde40c10dc3d8ffa73e05296240bea6f238e480a30904a"),
+    "CA-R-866": (TOOL_WORKFLOWS + "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md", 24,
+                 "9044fd001f9124092de899e1cdbd6929b60aa993b079dfc4ed31fa2baedcec8b"),
     "CA-M-371": (TOOL_WORKFLOWS + "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md", 11,
                  "5f775dcbbd365378731b7039b47c78d4c4eebaeb0991ed7850c0c44638d63d79"),
-    "CA-E-304": (TOOL_WORKFLOWS + "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md", 22,
-                 "8f72d065cf1a96791817bc412051cb5e14504c3462a08e4a0211c528fa1e854b"),
-    "CA-O-030": (TOOL_WORKFLOWS + "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md", 16,
-                 "bf45abea494d78a59fa956fdccc5398408f4c4aaf114443cb92b0b510c22241f"),
+    "CA-E-304": (TOOL_WORKFLOWS + "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md", 23,
+                 "8b42e677503e38f737d5473ae78d2c37d69bbec1ad29475b1e62ce21cf310fba"),
+    "CA-O-030": (TOOL_WORKFLOWS + "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md", 17,
+                 "196becd0fa476e1c2663f8f925a1fd5d97ff902781966580230a2878fdd4def8"),
     "CA-E-626": (TOOL_WORKFLOWS + "06_evaluation/CA-E-626-TOOL_WORKFLOWS-CORE-QA_CASE--verify-independent-atom-workflow-effects.md", 3,
                  "8cd555ffefdc8f59b80a5120b6b5e4fbe90fb9ea46396bea6d0bcbd1e7d081c5"),
 }

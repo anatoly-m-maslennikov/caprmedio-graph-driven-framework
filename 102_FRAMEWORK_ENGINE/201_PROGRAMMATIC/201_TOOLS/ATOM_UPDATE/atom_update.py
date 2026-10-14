@@ -33,9 +33,9 @@ ENTRYPOINT = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/atom_u
 SOURCE_PINS = tuple([
     {
         "atom_id": "CA-R-866",
-        "version": 23,
+        "version": 24,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
-        "sha256": "98e303d6e0c09510d6dde40c10dc3d8ffa73e05296240bea6f238e480a30904a"
+        "sha256": "9044fd001f9124092de899e1cdbd6929b60aa993b079dfc4ed31fa2baedcec8b"
     },
     {
         "atom_id": "CA-R-1093",
@@ -45,9 +45,9 @@ SOURCE_PINS = tuple([
     },
     {
         "atom_id": "CA-O-030",
-        "version": 16,
+        "version": 17,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md",
-        "sha256": "bf45abea494d78a59fa956fdccc5398408f4c4aaf114443cb92b0b510c22241f"
+        "sha256": "196becd0fa476e1c2663f8f925a1fd5d97ff902781966580230a2878fdd4def8"
     },
     {
         "atom_id": "CA-M-371",
@@ -63,9 +63,9 @@ SOURCE_PINS = tuple([
     },
     {
         "atom_id": "CA-E-304",
-        "version": 22,
+        "version": 23,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
-        "sha256": "8f72d065cf1a96791817bc412051cb5e14504c3462a08e4a0211c528fa1e854b"
+        "sha256": "8b42e677503e38f737d5473ae78d2c37d69bbec1ad29475b1e62ce21cf310fba"
     }
 ])
 
