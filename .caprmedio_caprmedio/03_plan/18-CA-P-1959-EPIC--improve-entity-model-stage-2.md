@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 75
-updated_at: "2026-10-14 18:58:25 +0400"
+version: 76
+updated_at: "2026-10-14 19:12:41 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,12 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Simplify release verification — 2026-10-14
+
+The Operator rejected an extra registry-validation gate for release: use the full test suite. Keep simple local/public release commands; do not add whole-registry or release-only dependency admission as another release prerequisite. Repair broken Workflow definitions and their tests, but do not build a closed seventeen-route successor solely to enable release. This supersedes the release-gate requirements in earlier checkpoints, not normal input, permission, target, or file-safety checks. Full-suite success is not yet established.
+
+Remove proven-unused Journal validation/recovery helpers and obsolete sealed-release machinery, including their callers, exports and obsolete tests. Do not keep compatibility wrappers or new proof layers without a current caller or requirement. Ask the Operator before removal changes required behavior or risks existing data. Preserve actual source-effect safety, existing files, the uncertain staging batches and the Subjects-only/content-migration boundary.
 
 Local implementation checkpoint: `ed9d4eaba` commits the plain Journal rules and exact predecessor histories; `4af84e77d` removes Journal proofs from installation-command rules. `caa4e05a0` implements plain append/read and Journal-independent Context/commit behavior (12 append/read, 23 Context, 23 disposable-Git, 15 native/adapter and 5 actual MCP protocol checks passed). `99a69741a` removes history prerequisites from graph generation and review recording (50 graph and 13 review checks passed). `9b1b11cc8` prepares the complete local-release payload and candidate image before replacing installed files; independent focused review passed, not full release acceptance. Caller closure, obsolete helper removal, full registry repair and installed acceptance remain open. No live Journal append, Subject publication, runtime restart or push occurred. Existing legacy formatting/size/complexity gaps remain explicit; the focused checks do not waive them.
 
