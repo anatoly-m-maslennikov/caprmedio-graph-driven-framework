@@ -146,7 +146,7 @@ def _output_text(output: str | bytes | None) -> str:
 def _run_modules(root: Path, modules: list[Path], environment: dict, integration: bool) -> int:
     failed = []
     tests = skipped = 0
-    with ThreadPoolExecutor(max_workers=4) as ordinary, ThreadPoolExecutor(max_workers=2) as docker:
+    with ThreadPoolExecutor(max_workers=2) as ordinary, ThreadPoolExecutor(max_workers=2) as docker:
         pending = {
             (docker if _docker_module(root, module) else ordinary).submit(
                 run_module, root, module, environment

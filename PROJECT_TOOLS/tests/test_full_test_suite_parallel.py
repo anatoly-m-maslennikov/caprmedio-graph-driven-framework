@@ -54,7 +54,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
                     ordinary_starts.append(module)
                 active[lane] += 1
                 peak[lane] = max(peak[lane], active[lane])
-                if sum(active.values()) == 6:
+                if sum(active.values()) == 4:
                     ready.set()
             self.assertTrue(release.wait(5))
             with lock:
@@ -79,9 +79,9 @@ class FullTestSuiteParallelTests(unittest.TestCase):
             future = driver.submit(self.case.run_suite)
             try:
                 self.assertTrue(ready.wait(5))
-                self.assertEqual({"ordinary": 4, "docker": 2}, peak)
+                self.assertEqual({"ordinary": 2, "docker": 2}, peak)
                 self.assertIn(selected, docker_starts[:2])
-                self.assertTrue(set(long_host) <= set(ordinary_starts[:4]), ordinary_starts)
+                self.assertEqual(set(long_host[:2]), set(ordinary_starts[:2]))
             finally:
                 release.set()
             self.assertEqual(0, future.result(timeout=5))
