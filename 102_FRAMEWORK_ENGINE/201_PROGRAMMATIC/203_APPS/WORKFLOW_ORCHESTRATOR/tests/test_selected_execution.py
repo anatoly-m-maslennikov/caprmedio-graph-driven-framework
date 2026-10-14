@@ -53,7 +53,11 @@ def digest(value: object) -> str:
 
 
 class SelectedExecutionTests(unittest.TestCase):
-    """The queue interprets frozen source graphs; it does not author policies."""
+    """Interpreter units isolate registry admission; they do not prove it.
+
+    Actual whole-document admission is covered without mocks in
+    test_selected_full_registry_guard.py, not by this minimal graph fixture.
+    """
 
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
@@ -68,6 +72,25 @@ class SelectedExecutionTests(unittest.TestCase):
         self.manifest_path = control / "_projection/selected_workflow_bindings.json"
         self._write_definitions()
         self._write_manifest()
+        if getattr(self, "isolate_registry_admission", True):
+            actual_loader = SelectedExecution._load_manifest
+
+            def unit_manifest_loader(queue, execution):
+                if queue.root != self.root.resolve():
+                    return actual_loader(queue, execution)
+                reference = execution["definition_manifest"]["manifest_ref"]
+                path = queue._safe_path(reference)
+                if path.relative_to(queue.root).as_posix() != manifest_relative_path(queue.root):
+                    raise SelectedExecutionError("selected definition manifest location is not admitted")
+                manifest = json.loads(path.read_text())
+                observed = digest(queue._manifest_without_digest(manifest))
+                if manifest.get("canonical_manifest_sha256") != observed or execution["definition_manifest"]["manifest_digest"] != observed:
+                    raise SelectedExecutionError("selected definition manifest digest is stale or invalid")
+                return manifest, reference, observed
+
+            isolation = patch.object(SelectedExecution, "_load_manifest", autospec=True, side_effect=unit_manifest_loader)
+            isolation.start()
+            self.addCleanup(isolation.stop)
 
     def _write_definitions(self) -> None:
         for name, atom_id in (("workflow.md", "CA-O-127"), ("step-one.md", "CA-O-129"),

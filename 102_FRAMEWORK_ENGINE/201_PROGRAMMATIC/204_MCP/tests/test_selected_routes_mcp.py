@@ -225,6 +225,169 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
         self.assertEqual([], support.calls)
 
 
+def copy_complete_selected_guard_fixture(project: Path) -> dict:
+    """Current-source fifteen-route fixture; not a seventeen-route repair receipt."""
+    tools = MCP.parent / "201_TOOLS"
+    sys.path.insert(0, str(tools / "VALIDATE_ATOMS"))
+    from capability_discovery.service import Service
+
+    atoms, _bindings, _issues = Service(ROOT).catalog()
+    manifest = json.loads((ROOT / selected_manifest_ref(ROOT)).read_text())
+    manifest["routes"] = manifest["routes"][:len(SELECTED_ROUTE_NAMES)]
+    manifest.pop("release_source_admissions", None)
+    manifest.pop("public_release_source_admissions", None)
+    manifest["query_source_admissions"] = copy.deepcopy(list(selected_routes._query_admission_specs(ROOT)))
+    query = {row["route"]: row for row in manifest["query_source_admissions"]}
+
+    def current_pin(pin):
+        source = atoms[pin["atom_id"]]
+        return {"atom_id": source["id"], "version": source["properties"]["version"],
+                "source_path": source["source_path"], "digest": source["sha256"]}
+
+    for route in manifest["routes"]:
+        if route["route"] in query:
+            for field in ("workflow", "ordered_steps", "ordered_actions"):
+                route[field] = copy.deepcopy(query[route["route"]][field])
+        else:
+            route["workflow"] = current_pin(route["workflow"])
+            route["ordered_steps"] = [{key: current_pin(pin) for key, pin in row.items()}
+                                      for row in route["ordered_steps"]]
+            route["ordered_actions"] = [current_pin(pin) for pin in route["ordered_actions"]]
+        route["native_action_calls"] = [current_pin(pin) for pin in route["native_action_calls"]]
+    freshness = manifest["source_freshness"]
+    registry = atoms["CA-A-1142"]
+    freshness["selected_source_registry_ref"] = registry["source_path"]
+    freshness["selected_source_registry_digest"] = registry["sha256"]
+    freshness["selected_binding_digest"] = canonical_digest(manifest["routes"])
+    manifest["canonical_manifest_sha256"] = canonical_digest(
+        {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"})
+    pins = {registry["source_path"]}
+    for route in manifest["routes"]:
+        pins.update(pin["source_path"] for pin in selected_routes._definition_sequence(route))
+        pins.update(pin["source_path"] for pin in route["native_action_calls"])
+    for admission in manifest["query_source_admissions"]:
+        pins.add(admission["acceptance_frontier"]["source_path"])
+    for relative in pins:
+        destination = project / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / relative, destination)
+    settings = project / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
+    shutil.copyfile(ROOT / settings.relative_to(project), settings)
+    path = project / selected_manifest_ref(project)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(manifest))
+    return load_selected_manifest(project)
+
+
+class _GuardServer:
+    def __init__(self):
+        self.tools = {}
+
+    def tool(self, *, name, **metadata):
+        def register(function):
+            self.tools[name] = function
+            return function
+        return register
+
+
+class WholeRegistryGuardTest(unittest.TestCase):
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        self.manifest = copy_complete_selected_guard_fixture(self.root)
+        self.support = FakeRunSupport()
+
+    def snapshot(self):
+        return {path.relative_to(self.root).as_posix(): path.read_bytes()
+                for path in self.root.rglob("*") if path.is_file()}
+
+    def request(self, route):
+        parameters, frontier, effects = {}, ["target:fixture"], []
+        return {"operation_route": route, "request_id": "guard-request", "parameters": parameters,
+                "parameters_digest": canonical_digest(parameters), "target_frontier": frontier,
+                "target_frontier_digest": canonical_digest(frontier), "effects": effects,
+                "effects_digest": canonical_digest(effects), "source_freshness": self.manifest["source_freshness"],
+                "definition_manifest": {"manifest_ref": self.manifest["manifest_ref"],
+                                        "manifest_digest": self.manifest["canonical_manifest_sha256"]},
+                "initiative": {"initiative_id": "fixture", "instruction_summary": "guard"}}
+
+    def corrupt_unselected_route(self, *, malformed=False):
+        path = self.root / self.manifest["manifest_ref"]
+        document = json.loads(path.read_text())
+        self.assertNotEqual("create_atom", document["routes"][1]["route"])
+        if malformed:
+            document["routes"][1]["unknown_route_field"] = True
+        else:
+            document["routes"][1]["workflow"]["digest"] = "0" * 64
+        document["source_freshness"]["selected_binding_digest"] = canonical_digest(document["routes"])
+        document["canonical_manifest_sha256"] = canonical_digest(
+            {key: value for key, value in document.items() if key != "canonical_manifest_sha256"})
+        path.write_text(json.dumps(document))
+
+    def test_complete_physical_fixture_registers_only_admitted_routes_and_previews(self):
+        before = self.snapshot()
+        server = _GuardServer()
+        adapter = selected_routes.register_selected_routes(server, self.root)
+        self.assertEqual(frozenset(SELECTED_ROUTE_NAMES), adapter.public_route_names)
+        self.assertEqual(set(SELECTED_ROUTE_NAMES) | {"get_selected_workflow_run", "get_selected_action_run",
+                                                   "recover_selected_run_recording"}, set(server.tools))
+        self.assertNotIn("release_version", server.tools)
+        self.assertNotIn("public.release", server.tools)
+        adapter.service = self.support
+        result = server.tools["create_atom"](self.request("create_atom"))
+        self.assertEqual("preview", result["disposition"])
+        self.assertEqual(1, len(self.support.calls))
+        self.assertEqual(before, self.snapshot())
+
+    def test_unselected_source_drift_blocks_registration_before_any_route(self):
+        self.corrupt_unselected_route()
+        server = _GuardServer()
+        sentinel = object()
+        server.tools["existing_helper"] = sentinel
+        before = self.snapshot()
+        with self.assertRaisesRegex(SelectedRouteError, "source pin is stale"):
+            selected_routes.register_selected_routes(server, self.root)
+        self.assertEqual({"existing_helper": sentinel}, server.tools)
+        self.assertEqual(before, self.snapshot())
+
+    def test_unselected_route_drift_blocks_invocation_before_shared_support(self):
+        adapter = SelectedRouteAdapter(self.root, service=self.support)
+        self.corrupt_unselected_route()
+        before = self.snapshot()
+        result = adapter.invoke("create_atom", self.request("create_atom"))
+        self.assertEqual("rejected", result["disposition"])
+        self.assertIn("source pin is stale", result["diagnostics"][0])
+        self.assertEqual([], self.support.calls)
+        self.assertEqual(before, self.snapshot())
+
+    def test_release_request_cannot_use_virtual_manifest_to_evade_whole_guard(self):
+        adapter = SelectedRouteAdapter(self.root, service=self.support)
+        self.corrupt_unselected_route()
+        before = self.snapshot()
+        with patch.object(selected_routes, "load_release_execution_manifest",
+                          side_effect=AssertionError("virtual admission bypass")):
+            result = adapter.invoke("release_version", self.request("release_version"))
+        self.assertEqual("rejected", result["disposition"])
+        self.assertIn("source pin is stale", result["diagnostics"][0])
+        self.assertEqual([], self.support.calls)
+        self.assertEqual(before, self.snapshot())
+
+    def test_malformed_unselected_route_blocks_registration_and_invocation(self):
+        adapter = SelectedRouteAdapter(self.root, service=self.support)
+        self.corrupt_unselected_route(malformed=True)
+        server = _GuardServer()
+        before = self.snapshot()
+        with self.assertRaisesRegex(SelectedRouteError, "incomplete or unknown schema"):
+            selected_routes.register_selected_routes(server, self.root)
+        result = adapter.invoke("create_atom", self.request("create_atom"))
+        self.assertEqual("rejected", result["disposition"])
+        self.assertIn("incomplete or unknown schema", result["diagnostics"][0])
+        self.assertEqual({}, server.tools)
+        self.assertEqual([], self.support.calls)
+        self.assertEqual(before, self.snapshot())
+
+
 class SelectedRoutesMCPTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
