@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 65
-updated_at: "2026-10-14 20:51:07 +0400"
+version: 66
+updated_at: "2026-10-14 21:24:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -31,9 +31,11 @@ The Tools required before affected Stage-2 execution have updated, independently
 
 ### Retire the old release and installer path — 2026-10-14
 
-The Operator approved retiring the sealed-package release path and separate installer, including their dedicated tests. Keep the direct local/public release commands, normal MCP startup, shared helpers still used by current tools, and current integration tests. Remove obsolete callers and registrations with their implementations; do not retain compatibility wrappers or create another release admission layer.
+The approved sealed-package release and separate installer source paths, obsolete callers and dedicated tests are retired. `01b82682c` commits the main code/test retirement; `a686fa779` removes orphaned host helpers and rejects the retired host namespace. Normal MCP startup, direct local/public release, ordinary Tool installation, shared current helpers and current integration tests remain. Removed code is recoverable through Git; installed runtime data and prior staging evidence were not removed.
 
-Preserve exact source histories for retired rules. Mixed rules retain their still-used obligations. The full diagnostic suite remains unaccepted; run a fresh full suite on the completed source, including required current-code Docker integrations. No runtime restart, release or live Subject migration is authorized by this retirement.
+`0ba4e520b` archives 65 obsolete contracts with exact predecessors; `8a8a711d0` and `90b56babe` preserve still-used obligations in mixed rules. `07bbaa9cd` removes the old test harness while retaining required integrations. Independently reviewed focused evidence includes 106 startup/discovery/registry/export/image checks, 51 ordinary installer/shared-helper checks and 17 host-namespace/graph-status checks. The derived ordinary registry validates 15 routes; effect-free source server creation lists 31 tools, including both direct Releases. These are source checks, not installed-runtime acceptance.
+
+The first full-suite run was stopped after its source changed and remains diagnostic only. Current native graph semantic-publication coverage is still incomplete, and previously identified native-watch and fixture failures are not waived. Keep positive current tests; do not delete them merely to obtain a green suite. A fresh frozen-source full suite, including required current-code Docker integrations, must pass before release. Both Epics remain Active. No live Subject/content migration, runtime restart, release or push occurred.
 
 ### Verified implementation and diagnostic suite — 2026-10-14 20:37 +0400
 
