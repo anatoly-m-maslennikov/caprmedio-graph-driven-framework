@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 49
-updated_at: "2026-10-14 11:28:57 +0400"
+version: 50
+updated_at: "2026-10-14 13:07:36 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,12 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Connected staging timeout follow-up — 2026-10-14
+
+CA-P-2382's one approved scratch-stage request returned uncertain after about 90 seconds, with matching artifacts written before and after that response. Preserve them; do not replay. Local real-gateway tests now cover successful fixture staging and late effects after an uncertain response (d2740da53; two tests independently passed). No Core source changed and connected success is still unproven.
+
+[CA-P-2383 — Avoid repeated identity parsing in Subject preparation](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/61-CA-P-2383-TASK--avoid-repeated-identity-parsing-in-subject-preparation.md) addresses the measured bottleneck under existing rules: invocation-local exact-byte parse reuse only, retaining fresh inventory/currentness and all validation. No timeout increase, live replay, broad tool rebuild or content migration. The 44-owner disposition and publication remain separately gated.
 
 ### Connected activation and request readiness — 2026-10-14
 
