@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 67
-updated_at: "2026-10-14 21:48:00 +0400"
+version: 68
+updated_at: "2026-10-14 22:52:32 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -205,7 +205,7 @@ After the map has complete current source/occurrence coverage and no undisposed 
 - Support mapped `depends_on` values that converge on one target. Preserve one resulting dependency, unrelated bytes and source pins; propagate the exact effect through preview, staging and apply checks. Check and narrowly align affected RMEDO before implementation.
 - Test the complete MCP path on isolated fixtures: lookup, preview, staging and approved apply, plus stale-source refusal, missing-confirmation refusal and converging dependencies. Verify Version/history/Journal effects and unchanged ordinary content.
 
-Reuse existing implementation and existing child work where it fits; split remaining implementation into bounded leaves before execution. Do not reopen completed local Tasks merely because installed integration is missing. General connector rebuilding, configuration/type catalogs and content migration remain deferred. Passing this bounded readiness check does not complete the wider Epic or authorize live Core migration.
+Reuse existing implementation and existing child work where it fits; split remaining implementation into bounded leaves before execution. Do not reopen completed local Tasks merely because installed integration is missing. General connector rebuilding, configuration/type catalogs and content migration remain deferred. Completion is evaluated against this bounded migration-readiness scope; unrelated deferred children do not block this slice. Passing its checks does not authorize live Core migration or complete CA-P-1959's application/reproduction gates.
 
 The current MCP assessment verified status/discovery responses, not usable end-to-end migration. Relevant binding evidence is invalid and the trusted-host publication provider is not configured. Explicit full-set dependency replacement is now locally verified; duplicate final values still correctly fail. The approximate 2–4 engineering-day estimate is provisional, not an execution deadline or acceptance criterion.
 
@@ -482,4 +482,4 @@ CA-P-2192 is Done after [independent installed-copy identity acceptance](../../_
 
 ### Definition of Done
 
-The Plan is **not** Done if a direct child is not Done; complete required RMEDO or actual explicitly approved FPF review/dispositions are incomplete; independent fixture children or compatibility Tasks are incomplete; rebuilt FEATURE ownership, shared Core policies or common connector API lack fresh independent source acceptance; hardcoded-path, release/admission, selected-pin, graph-delivery-binding, legacy Core/content or runtime-readiness gaps are treated as satisfied; rebuilt contracts or their actual source pins lack fresh independent acceptance; additional connector/configuration/section implementation lacks bounded actual implementation leaves and fresh independent fixtures; deferred resume/retry is inferred or cross-Atom all-or-nothing behavior is admitted; actual contracts lack independent current verification; a remaining implementation is represented by preparation only; concurrent-publication design remains deferred or successful publication/full portfolio is unaccepted; required isolated positive/negative checks are missing; the producer verifies its own output; an existing guard is bypassed; live source effects are inferred from safe preview/integration or Tool readiness; full source implementation/use begins before the complete Tool receipt; or read-only staged preparation begins before CA-P-2183's independent receipt.
+The Plan is **not** Done if required work in “Current execution order — after Subject mapping” lacks updated independently verified governing RMEDO, bounded implementation, fresh independent positive/negative fixtures, affected current-source/binding compatibility or actual connected runtime evidence; the required current runtime suite is failed, skipped, stale or incomplete; preparation or a registry listing substitutes for actual capability; an existing safeguard is bypassed; or Tool readiness is treated as live migration approval. Preserve the accepted staged-review/exclusive-window model, shared Engine lock, exact confirmation, stale-source refusal, per-Atom failure handling and no automatic replay. General connector rebuilding, configuration/type catalogs, C/A work, deferred content work and unrelated unfinished children are not completion prerequisites for this Subjects-only slice. Existing historical receipts remain bounded to their inspected sources; no new FPF review or completion cascade is inferred.

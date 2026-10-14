@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 7
-updated_at: "2026-10-12 21:18:53 +0400"
+version: 8
+updated_at: "2026-10-14 22:52:56 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1970, CA-P-1974]
@@ -30,9 +30,9 @@ Prove Step 1 is complete before allowing any ordinary Atom content rewrite.
 
 ## Details
 
-Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisites: CA-P-2167's complete independent Tool receipt, completed independently verified CA-P-1966 re-review/adaptation/re-pin, CA-P-1968 and the actual CA-P-1911/1912 completion evidence. CA-P-1912 owns the sole migrated-graph verification receipt; consume and check that receipt here, do not create a competing migration acceptance. Fixture Tool verification does not replace actual migration reproduction.
+Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisites: CA-P-2167's complete independent Tool receipt, CA-P-1966's completed current mapping-disposition and independent current-source-rebinding evidence, CA-P-1968 and the actual CA-P-1911/1912 completion evidence. CA-P-1912 owns the sole migrated-graph verification receipt; consume and check that receipt here, do not create a competing migration acceptance. Fixture Tool verification does not replace actual migration reproduction.
 
-Independently inventory the migrated current authoring Core and compare every changed and unchanged source against the approved packet. Verify the re-reviewed current source hashes and [Candidate #4](../../_projection/core-entity-review/presentation/operator.model.candidate-4.md), SHA-256 `6e63d7362514ef20c2551366777073c22300b35a9cef5ad79531ad56b770763d` version/reference, Subject grammar, field direction, unique current identities, ordinary Version increments, preserved intended status, actual history/Journal effects and preservation of ordinary bodies. A type-change discovery must be reported/routed to Step 2, not treated as an ordinary same-ID effect. Before execution, inherit CA-P-1959's Candidate #4 review and repair gate, including the completed historical review, Operator dispositions and bounded independent consistency verification of the authorized repairs against the revised target. Affected work waits for that parent check; revised bytes do not inherit the historical analytical PASS. The unchanged full FPF review is not rerun, and no Core adoption or migration is implied.
+Independently inventory the migrated current authoring Core and compare every changed and unchanged source against the approved packet. Verify the independently rebound current source hashes and [Candidate #4](../../_projection/core-entity-review/presentation/operator.model.candidate-4.md), SHA-256 `a23019a1ee6cd3586640d6c3d9e211091f3683ac5f136058d745650570e78ca7` version/reference, Subject grammar, field direction, unique current identities, ordinary Version increments, preserved intended status, actual history/Journal effects and preservation of ordinary bodies. A type-change discovery must be reported/routed to Step 2, not treated as an ordinary same-ID effect. Consume CA-P-1966's completed current mapping-disposition and independent current-source-rebinding evidence under CA-P-1959's latest Subjects-only override. Its current checkpoint supersedes old deep re-review/adaptation/re-pin prerequisites for this slice. Historical analytical PASS remains bound to its original bytes; no full FPF rerun, Core adoption or migration is implied.
 
 Rebuild the subject-driven entity graph with the pinned implementation. Verify expected qualified nodes and typed relation direction, all occurrence evidence, preserved distinctions and unresolved/excluded cases. Reuse CA-P-1912's verification responsibilities and record one receipt, not a competing success claim.
 
