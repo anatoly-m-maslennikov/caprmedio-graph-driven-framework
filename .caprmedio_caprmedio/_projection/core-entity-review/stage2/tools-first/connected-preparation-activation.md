@@ -21,3 +21,13 @@ Current-carrier structural preflight passed 567 of 611 targets. Forty-four faile
 The Operator has been asked whether to hold these 44 unchanged and stage only targets that pass actual MCP preview. No answer is inferred. Content and structural repair remain separate; actual preview, staging and live publication are not established by this receipt.
 
 Evidence lives under `.caprmedio_tmp/stage2-migration-20261014/`: `tool-readiness/committed-activation-preflight.md`, `tool-readiness/structural-preflight/report.md`, `tool-readiness/structural-preflight/machine-failures.json`, and `public-request/independent-review.md`.
+
+## Actual connected lookup and preview — 2026-10-14 11:39 +0400
+
+The actual HTTP MCP client listed 35 Tools, including atom_search and atom_update. Both discover/context calls succeeded. One exact legacy lookup returned CA-D-253 v12 under CORE_META_MODEL with complete true and no errors. The approved-profile preview returned one changed Atom, no staging and no errors; its original bytes and mode remained unchanged. Preview seal: `ba718c8d430ccb7a88c141705019762aa24aa28257171fb37520bcf28e437d06`. Illustrative timestamp: `2026-10-14 07:33:11 +0000`. The proposed delta contains only Subjects and illustrative Version/time; the candidate is not a source update.
+
+Full request/response/schema/source evidence: `activation/connected-d253-probe.json`, SHA-256 `8ef8bdce97ef8b9e9bea9998c49c222eeec60e2c4a8f42a396cfe21d848505b6`. Root independently inspected the actual responses. A fresh no-write request check again verified all 906 source pins and reproduced the same 611-owner/848-patch request and provenance hashes.
+
+The permission reviewer denied the proposed one-Atom stage command before process or MCP invocation because explicit trusted approval for that scratch mutation was not established. No stage request ran and no staged candidate or manifest was produced. Do not retry or substitute another route without direct approval. CA-P-2382 remains Active; the batch disposition question remains unanswered.
+
+The 44-item structural ledger also passed independent bounded review: exact unique/disjoint IDs and one actual source per category were checked. All five reproduced pre-existing refusals with unchanged frozen/HEAD bytes. The other 39 were not independently rerun. Report: `tool-readiness/structural-preflight/independent-review.md`, SHA-256 `a48ae8e9b4893119ef6cd0d0d4a86b2db82120bb2e4cbb33a51f5c75e86eca32`.
