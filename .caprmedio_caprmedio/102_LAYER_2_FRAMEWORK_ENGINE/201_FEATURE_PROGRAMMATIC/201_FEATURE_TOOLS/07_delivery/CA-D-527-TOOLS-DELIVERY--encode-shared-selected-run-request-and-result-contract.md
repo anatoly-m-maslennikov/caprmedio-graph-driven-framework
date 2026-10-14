@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-04 23:19:29 +0400"
+version: 4
+updated_at: "2026-10-14 21:05:33 +0400"
 subjects:
   governs: "WORKFLOW_OPERATIONS/RUN_SUPPORT/caller contract"
   depends_on: [Workflow, Action, Operator, Initiative, Journal, Implementation]
@@ -71,13 +71,18 @@ the following exact bounded request and result representations.
   missing/stale preview/authorization, or reuse of a `request_id` with changed
   canonical bytes are rejected before effect or Run creation.
 - `result` always contains `request_id`, `disposition` (`preview`, `declined`,
-  `blocked`, `started`, `terminal`, or `recording_pending`), the proposal
-  receipt for preview, `source_freshness` comparison/currentness result, and
-  retry disposition. Only a started/terminal/recording-pending result contains
-  actual Run IDs and admitted definition bindings; terminal or
-  recording-pending results additionally contain truthful outcome/result/effect/
-  report refs and canonical Event IDs/receipts or recording blocker. Preview
-  and every unstarted disposition have no Run/Event identity.
+  `blocked`, `started`, or `terminal`), the proposal receipt for preview, and
+  the `source_freshness` comparison/currentness result. Only a started/terminal
+  result contains actual Run IDs and admitted definition bindings; a terminal
+  result additionally contains truthful operation outcome/result/effect/report
+  refs. Preview and every unstarted disposition have no Run/Event identity.
+  Plain Journal append/read records supplied observations independently:
+  canonical Event IDs/receipts, prior history and successful logging are not
+  dispatch or completion prerequisites. An append failure is reported through
+  existing diagnostics without changing the independently observed operation
+  outcome. No recording-pending or Journal retry/recovery disposition is
+  required; any existing replay disposition describes actual dispatch/effect
+  state, never permission to repeat an uncertain effect.
 - The service neither decides route-specific domain semantics nor creates a
   second workflow executor. Callers supply their selected route implementation;
   MCP and other adapters reuse this contract and default mutations to preview.
