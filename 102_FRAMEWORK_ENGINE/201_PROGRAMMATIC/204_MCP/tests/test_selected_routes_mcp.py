@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import copy
 import hashlib
+import json
+import re
 import shutil
 import sys
 import tempfile
@@ -31,6 +33,7 @@ from selected_routes import (  # noqa: E402
     selected_manifest_ref,
 )
 import test_model_driven_status_lifecycle as status_goldens  # noqa: E402
+import selected_routes  # noqa: E402
 
 
 class FakeRunSupport:
@@ -93,6 +96,133 @@ class SelectedManifestRefResolverTest(unittest.TestCase):
                 ".caprmedio_fixture/_projection/selected_workflow_bindings.json",
                 selected_manifest_ref(project),
             )
+
+
+class QueryAdmissionPhysicalProofTest(unittest.TestCase):
+    """Reopen the two proofs without depending on the unrepaired portfolio."""
+
+    def setUp(self) -> None:
+        temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        self.admissions = list(selected_routes._query_admission_specs(ROOT))
+        manifest = json.loads((ROOT / selected_manifest_ref(ROOT)).read_text())
+        self.routes = [copy.deepcopy(route) for route in manifest["routes"]
+                       if route["route"] in QUERY_ROUTE_NAMES]
+        for admission, route in zip(self.admissions, self.routes, strict=True):
+            for field in ("workflow", "ordered_steps", "ordered_actions"):
+                route[field] = copy.deepcopy(admission[field])
+            pins = [admission["acceptance_frontier"], admission["workflow"],
+                    *admission["ordered_actions"],
+                    *[pin for step in admission["ordered_steps"] for pin in step.values()]]
+            for pin in pins:
+                destination = self.root / pin["source_path"]
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(ROOT / pin["source_path"], destination)
+
+    def test_exact_current_paths_retain_two_historical_proofs_and_read_only_routes(self) -> None:
+        self.assertEqual(
+            [("CA-P-1618", 1, "bdf10c928c10c102dc489c8e3e526ffe73e8a33d492f4dabc8b5d0129c453b1f"),
+             ("CA-P-1535", 2, "6246b46d2961d795e29eeb224f01b14979434d4ad24cf3f4913c490268cf52dc")],
+            [(row["acceptance_frontier"]["atom_id"], row["acceptance_frontier"]["version"],
+              row["acceptance_frontier"]["digest"]) for row in self.admissions],
+        )
+        self.assertEqual(self.admissions, selected_routes._validate_query_source_admissions(
+            self.root, self.admissions, self.routes))
+        for route in self.routes:
+            self.assertFalse(route["mutation_capable"])
+            selected_routes._validate_route(self.root, route, allowed_routes=SELECTED_ROUTE_NAMES)
+            for pin in selected_routes._definition_sequence(route):
+                self.assertNotIn("000_CAPRMEDIO_framework", pin["source_path"])
+                self.assertIn("METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/", pin["source_path"])
+
+    def test_o163_bridge_preserves_accepted_v2_and_only_changes_version_and_time(self) -> None:
+        proof = self.admissions[1]["acceptance_frontier"]
+        self.assertIn("- CA-O-163@2;", (self.root / proof["source_path"]).read_text())
+        step = self.admissions[1]["ordered_steps"][0]["step"]
+        self.assertEqual((3, "0090078ce32293b84a1233ecc33d2fafc1b9541e7821ecc2388e8137b009b86a"),
+                         (step["version"], step["digest"]))
+        current = ROOT / step["source_path"]
+        previous = current.parent / "archived" / (current.stem + "@2.md")
+        old_bytes, new_bytes = previous.read_bytes(), current.read_bytes()
+        self.assertEqual("8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c",
+                         hashlib.sha256(old_bytes).hexdigest())
+        self.assertEqual(step["digest"], hashlib.sha256(new_bytes).hexdigest())
+        metadata = rb"(?m)^(?:version|updated_at):[^\n]*\n"
+        self.assertEqual(re.sub(metadata, b"", old_bytes), re.sub(metadata, b"", new_bytes))
+        self.assertIn(b"\nversion: 2\n", old_bytes)
+        self.assertIn(b"\nversion: 3\n", new_bytes)
+
+    def test_missing_third_reordered_or_shadow_proofs_reject(self) -> None:
+        for mutation in ("missing", "third", "reordered", "shadow", "route-mismatch", "stale-digest"):
+            with self.subTest(mutation=mutation):
+                admissions, routes = copy.deepcopy(self.admissions), copy.deepcopy(self.routes)
+                if mutation == "missing":
+                    admissions.pop()
+                elif mutation == "third":
+                    admissions.append(copy.deepcopy(admissions[0]))
+                elif mutation == "reordered":
+                    admissions.reverse()
+                elif mutation == "shadow":
+                    admissions[1]["structural_successor_bridge"] = {"accepted": True}
+                elif mutation == "route-mismatch":
+                    routes[1]["workflow"] = copy.deepcopy(routes[0]["workflow"])
+                else:
+                    admissions[0]["workflow"]["digest"] = "0" * 64
+                with self.assertRaises(SelectedRouteError):
+                    selected_routes._validate_query_source_admissions(self.root, admissions, routes)
+
+    def test_physically_valid_old_proof_and_unadmitted_step_revisions_reject(self) -> None:
+        for mutation in ("old-proof", "predecessor", "newer-step", "changed-body"):
+            with self.subTest(mutation=mutation):
+                admissions = copy.deepcopy(self.admissions)
+                pin = (admissions[0]["acceptance_frontier"] if mutation == "old-proof"
+                       else admissions[1]["ordered_steps"][0]["step"])
+                path = self.root / pin["source_path"]
+                original_contents = path.read_bytes()
+                if mutation == "predecessor":
+                    current = ROOT / pin["source_path"]
+                    contents = (current.parent / "archived" / (current.stem + "@2.md")).read_bytes()
+                    pin["version"] = 2
+                else:
+                    contents = original_contents
+                    if mutation == "old-proof":
+                        contents = contents.replace(b"CA-P-1618", b"CA-P-1532").replace(b"version: 1", b"version: 2")
+                        pin.update(atom_id="CA-P-1532", version=2)
+                    elif mutation == "newer-step":
+                        contents = contents.replace(b"version: 3", b"version: 4")
+                        pin["version"] = 4
+                    else:
+                        contents += b"\nUnadmitted changed query body.\n"
+                pin["digest"] = hashlib.sha256(contents).hexdigest()
+                path.write_bytes(contents)
+                # The pin is physically valid; rejection must be the fixed admission boundary.
+                try:
+                    self.assertEqual(pin, selected_routes._validate_pin(self.root, pin))
+                    with self.assertRaisesRegex(SelectedRouteError, "accepted source frontier"):
+                        selected_routes._validate_query_source_admissions(self.root, admissions, self.routes)
+                finally:
+                    path.write_bytes(original_contents)
+
+    def test_query_only_manifest_still_rejects_before_shared_support(self) -> None:
+        manifest = json.loads((ROOT / selected_manifest_ref(ROOT)).read_text())
+        registry_ref = manifest["source_freshness"]["selected_source_registry_ref"]
+        destination = self.root / registry_ref
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / registry_ref, destination)
+        manifest["routes"], manifest["query_source_admissions"] = self.routes, self.admissions
+        manifest["source_freshness"]["selected_binding_digest"] = canonical_digest(self.routes)
+        manifest["canonical_manifest_sha256"] = canonical_digest(
+            {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"})
+        path = self.root / selected_manifest_ref(self.root)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(manifest))
+        support = FakeRunSupport()
+        adapter = SelectedRouteAdapter(self.root, service=support, strict_manifest=False)
+        result = adapter.invoke(QUERY_ROUTE_NAMES[0], {"request_id": "query-only"})
+        self.assertEqual("rejected", result["disposition"])
+        self.assertIn("must contain fifteen routes", result["diagnostics"][0])
+        self.assertEqual([], support.calls)
 
 
 class SelectedRoutesMCPTest(unittest.TestCase):

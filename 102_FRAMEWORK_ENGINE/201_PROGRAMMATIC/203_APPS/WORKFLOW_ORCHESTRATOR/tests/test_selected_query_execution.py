@@ -228,14 +228,23 @@ class SelectedQueryExecutionTests(unittest.TestCase):
         self.assertEqual("unknown-snapshot", self._progress(unknown)["native_result"]["findings"][0]["code"])
 
     def test_artifact_query_uses_the_native_tool_result(self) -> None:
-        (self.root / "artifact.md").write_text("---\nartifact_id: A-1\ntitle: Example\nstate: open\n---\n# Body\n", encoding="utf-8")
+        artifact = self.root / "artifact.md"
+        artifact.write_text("---\nartifact_id: A-1\ntitle: Example\nstate: open\n---\n# Body\n", encoding="utf-8")
+        before = artifact.read_bytes()
         selected, frozen = self._execution(
             "find_and_fetch_artifacts", {"query_request": {"filter": '"fm:/state" = "open"', "select": ["fm:/title"]}}, "artifact-query",
         )
-        self.assertEqual("terminal", selected.dispatch(frozen)["disposition"])
+        tool = importlib.import_module("FIND_AND_FETCH_ARTIFACTS.find_and_fetch_artifacts")
+        # Bind real fixture budgets, not the Tool module's host-repository settings files.
+        defaults = self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
+        with patch.multiple(tool, _DEFAULT_SETTINGS=defaults,
+                            _INSTANCE_SETTINGS=self.control / "caprmedio_project_settings.toml"):
+            self.assertEqual("terminal", selected.dispatch(frozen)["disposition"])
         native = self._progress(frozen)["native_result"]
         self.assertEqual([{"artifact_id": "A-1", "fm:/title": "Example"}], native["results"])
         self.assertIn("snapshot", native)
+        self.assertEqual({"complete": True, "incomplete": False, "findings": []}, native["diagnostics"])
+        self.assertEqual(before, artifact.read_bytes())
 
     def test_denied_query_shape_creates_no_run_or_event(self) -> None:
         with self.assertRaisesRegex(SelectedExecutionError, "query request is not admitted"):

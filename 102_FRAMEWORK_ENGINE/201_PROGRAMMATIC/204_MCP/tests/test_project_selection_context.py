@@ -3,6 +3,7 @@ import asyncio
 import hashlib
 import json
 import os
+import shutil
 from pathlib import Path
 import sys
 import tempfile
@@ -11,6 +12,7 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 MCP = Path(__file__).resolve().parents[1]
+ROOT = MCP.parents[2]
 TOOLS = MCP.parent / "201_TOOLS"
 sys.path[:0] = [str(MCP), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS")]
 
@@ -94,12 +96,25 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
         selection = self.selections[0]
         with bind_selection(selection):
             admitted = selected_routes._query_admission_specs(selection.root)
-            self.assertEqual(selected_routes._QUERY_SOURCE_ADMISSION_SPECS[0]["workflow"]["digest"], admitted[0]["workflow"]["digest"])
+            for original, bound in zip(selected_routes._QUERY_SOURCE_ADMISSION_SPECS, admitted, strict=True):
+                original_pins = [original["acceptance_frontier"], original["workflow"],
+                                 *original["ordered_actions"],
+                                 *[pin for step in original["ordered_steps"] for pin in step.values()]]
+                bound_pins = [bound["acceptance_frontier"], bound["workflow"],
+                              *bound["ordered_actions"],
+                              *[pin for step in bound["ordered_steps"] for pin in step.values()]]
+                for source, target in zip(original_pins, bound_pins, strict=True):
+                    for field in ("atom_id", "version", "digest"):
+                        self.assertEqual(source[field], target[field])
+                    destination = selection.root / target["source_path"]
+                    destination.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(ROOT / source["source_path"], destination)
             routes = [{**row, "mutation_capable": False} for row in admitted]
-            with patch.object(selected_routes, "_validate_pin", side_effect=lambda root, pin: dict(pin)):
-                self.assertEqual(list(admitted), selected_routes._validate_query_source_admissions(selection.root, list(admitted), routes))
-                with self.assertRaisesRegex(selected_routes.SelectedRouteError, "accepted source frontier"):
-                    selected_routes._validate_query_source_admissions(selection.root, list(selected_routes._QUERY_SOURCE_ADMISSION_SPECS), routes)
+            self.assertEqual(list(admitted), selected_routes._validate_query_source_admissions(
+                selection.root, list(admitted), routes))
+            with self.assertRaisesRegex(selected_routes.SelectedRouteError, "another Project authority"):
+                selected_routes._validate_query_source_admissions(
+                    selection.root, list(selected_routes._QUERY_SOURCE_ADMISSION_SPECS), routes)
 
     def test_typed_source_admission_uses_selected_carriers_and_keeps_byte_pin(self):
         selection = self.selections[0]
