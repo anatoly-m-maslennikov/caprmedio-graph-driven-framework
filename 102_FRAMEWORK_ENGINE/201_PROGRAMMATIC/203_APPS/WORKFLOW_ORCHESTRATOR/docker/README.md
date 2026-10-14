@@ -124,24 +124,9 @@ connection. MCP shutdown does not stop the worker or its queue.
 
 ## Launch a selected Project MCP endpoint
 
-Choose one route below. The development source launcher and selected-installed
-package runtime boundary have different evidence and image-input boundaries.
-
-### Selected installed package runtime boundary
-
-After installation has selected matching package and runtime selectors, its
-reopened generation carries the exact package-owned locked UV argv, environment,
-and wrapper. They bind the selected package and target context, but remain
-prospective command data: actual invocation requires a separately authorized
-installation-specific Operator command bound to that exact command digest and
-context. Do not reconstruct the command by directly invoking
-`installed_mcp_cli.py`, or substitute a source-checkout command; neither is an
-installation or activation authority. Missing or mismatched selectors,
-configuration, command carriers, or invocation authority are refused.
-
-This boundary is implementation capability, not evidence that an installed
-Project has passed Full Gate, native installation, public release, or a live
-endpoint proof.
+The Project-local bootstrap uses the selected installed package by default;
+for development, explicitly select a Framework source checkout. Invoke either
+only on Operator instruction; startup does not authorize a Workflow or release.
 
 ### Project-local launcher
 
@@ -215,12 +200,12 @@ An existing healthy Project runtime must already use the Settings port exactly;
 otherwise it is retained and reported as a mismatch. If that port is occupied,
 startup fails without stopping the other runtime or selecting a different port.
 
-Every invocation of this development `project-mcp` launcher requires
-`--source-root` to name a readable Framework source checkout for image identity
-and build inputs. Omitting it returns JSON with
-`condition: IMAGE_INPUT_UNAVAILABLE`; no repository or ancestor is inferred.
-Do not substitute a package path into this source-development route; installed
-runtime invocation uses its separately authorized command boundary.
+Every direct invocation of `project-mcp` requires `--source-root` to name the
+readable Framework code used for image identity and build inputs. Omitting it
+returns JSON with `condition: IMAGE_INPUT_UNAVAILABLE`; no repository or ancestor
+is inferred.
+The Project-local bootstrap supplies that path from the selected installed
+package or the explicitly selected development checkout.
 
 `--output url` prints only the URL on success. Failures still return JSON with
 `disposition` and `condition`, exit nonzero, and contain no success URL. Use

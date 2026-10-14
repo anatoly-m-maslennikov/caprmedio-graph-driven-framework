@@ -31,30 +31,17 @@ The detached worker does not depend on the MCP or main session process lifetime.
 Stop the particular PID returned by startup with SIGTERM. The foreground worker
 also handles Ctrl-C. This is a trusted local service, not a multi-user RPC boundary.
 
-## Release host worker
+## Project releases run directly on the host
 
-The isolated Docker worker deliberately has no host Docker client or socket.
-For a source-admitted `release_version` selected Run that needs the host Release
-gates, start the distinct host worker explicitly:
+`release_version` and `public.release` invoke Project-owned helpers directly,
+not this worker or a separate release queue. There is no `start-release-worker`
+command, sealed release proposal or release-host transport.
 
-```sh
-.caprmedio_runtime/host-tests/bin/python 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/orchestrator.py --project-root "$PWD" start-release-worker
-```
-
-`start-release-worker` creates no Workflow Run. It starts only the dedicated
-`release-host` DBOS application and publishes
-`.caprmedio_install/workflow_orchestrator/release-host/transport.json`.
-The host bridge requires that marker, its separate database, and matching
-`worker.ready`; until all are present, selected Release admission fails closed.
-It uses its own lock, log, queue, and per-Run immutable binding under
-`.caprmedio_install/workflow_orchestrator/release-host/`; it neither imports nor
-consumes native or Docker queue entries.
-
-Only `enqueue_selected` requests whose sealed route is `release_version` can
-select this transport. A bound Release Run's status and recovery remain on that
-transport; a prior native or Docker Run is never adopted. Missing readiness or
-binding does not fall back to either existing executor. The fixed host subprocess
-sets its namespace only for itself and does not change the MCP process environment.
+Release requests bind `project_root` and an Operator-selected `run_id`; Public
+release additionally needs the full PR description and concise history bullets
+in `content_draft`. The host supplies Git, GitHub and Docker access. The isolated
+Docker worker has no host Docker client or socket. Run only on Operator
+instruction; see [Project release tools](../../../../PROJECT_TOOLS/README.md).
 
 ## Enqueue through MCP
 
@@ -63,20 +50,9 @@ Release numbering uses non-rolling counters:
 - Internal release: increment the fourth component (`0.4.2` → `0.4.2.1`,
   `0.4.2.9` → `0.4.2.10`). An omitted fourth component means zero.
 - Public release: increment the third component and remove the internal suffix
-  (`0.4.2.10` → `0.4.3`, `0.4.9` → `0.4.10`). Freeze the selected version before
-  candidate preparation and retain the full test gates for that exact version.
-
-For the local `release_version` route, preview accepts native parameters with
-only `operation` (`prepare` or `apply`) and `project_root`. An optional
-`candidate_version` must match root `version.toml`. The existing selected-route
-envelope and source bindings remain required.
-
-Preview derives the complete candidate boundary from current active sources and
-returns `resolved_parameters` and `resolved_parameters_digest`. Use those exact
-values with its sealed proposal for execution. Do not construct a candidate
-manifest or invent Run receipts: pre-Run `run_receipt_refs` is empty, while actual
-execution receipts are recorded and returned by the shared Run recorder. Source
-changes after preview block execution and require a fresh preview.
+  (`0.4.2.10` → `0.4.3`, `0.4.9` → `0.4.10`). Prepare that version and its
+  documentation, then pass the complete suite before pushing `amm/dev` and
+  creating/updating its Draft `main` PR. Never merge the PR.
 
 Restart the MCP connection after updating the server. `workflow_orchestrator`
 accepts this request shape:
