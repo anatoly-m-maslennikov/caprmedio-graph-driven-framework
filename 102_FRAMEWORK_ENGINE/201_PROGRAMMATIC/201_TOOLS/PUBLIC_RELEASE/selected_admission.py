@@ -61,7 +61,9 @@ def _current_source_resolver(project: Path):
                  (selection.control_root / "09_operations", selection.settings["project"]["name"]))
         for source_root, scope in roots:
             for path in reader.inventory(source_root):
-                if {"archive", "draft", "drafts", "done", "canceled"}.intersection(path.relative_to(source_root).parts):
+                if ({"archive", "archived", "draft", "drafts", "done", "canceled"}.intersection(
+                        path.relative_to(source_root).parts)
+                        or re.search(r"@[1-9][0-9]*$", path.stem)):
                     continue
                 raw = reader.read(path)
                 metadata = parse_carrier(raw, path).metadata

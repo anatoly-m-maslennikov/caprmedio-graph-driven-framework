@@ -298,7 +298,8 @@ def _scan_current_source_root(
     rows: list[tuple[Path, bytes, dict[str, str]]] = []
     for path in sorted(base.rglob("*.md")):
         relative = path.relative_to(root)
-        if "archive" in relative.parts:
+        if ({"archive", "archived"}.intersection(path.relative_to(base).parts)
+                or re.search(r"@[1-9][0-9]*$", path.stem)):
             continue
         cursor = root
         for part in relative.parts:

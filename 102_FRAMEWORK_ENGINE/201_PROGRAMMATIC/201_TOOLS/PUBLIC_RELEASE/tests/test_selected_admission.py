@@ -8,6 +8,7 @@ from pathlib import Path
 import shutil
 import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
@@ -131,6 +132,63 @@ class SelectedPublicReleaseAdmissionTests(unittest.TestCase):
                 forged[field] = value
                 with self.assertRaises(PublicReleaseSourceAdmissionError):
                     validate_public_release_source_admission(self.root, forged)
+
+
+class CurrentPublicReleaseSourceHistoryTests(unittest.TestCase):
+    """Exercise current discovery without obsolete live D613 graph fixtures."""
+
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory(prefix="public-release-source-history-")
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name).resolve()
+        control = self.root / ".caprmedio_caprmedio"
+        self.authority = control / "project_tools"
+        self.source = self.authority / "07_delivery/CA-D-999--source.md"
+        self.source.parent.mkdir(parents=True)
+        (control / "09_operations").mkdir()
+        self.original = (b"---\natom_id: CA-D-999\nversion: 2\ncontent_role: Delivery\n"
+                         b"current_scope_unit: PROJECT_TOOLS\nstatus: Active\n---\n"
+                         b"# Summary\n\nCurrent source fixture\n")
+        self.source.write_bytes(self.original)
+        selection = SimpleNamespace(
+            control_root=control,
+            structure={"scope_units": [{"scope_unit_name": "PROJECT_TOOLS",
+                                        "authority_path": ".caprmedio_caprmedio/project_tools"}]},
+            settings={"project": {"name": "fixture"}},
+        )
+        selector = patch("project_selection.resolve_project", return_value=selection)
+        selector.start()
+        self.addCleanup(selector.stop)
+
+    def resolve(self):
+        return selected_admission._current_source_resolver(self.root)("CA-D-999", "Delivery", None)
+
+    def test_exact_active_history_never_becomes_current(self):
+        current_bytes = self.original.replace(b"version: 2", b"version: 3", 1)
+        self.source.write_bytes(current_bytes)
+        expected = self.resolve()
+        for relative in ("archive/prior@2.md", "archived/prior@2.md", "prior@2.md", "archived/prior.md"):
+            with self.subTest(relative=relative):
+                historical = self.source.parent / relative
+                historical.parent.mkdir(exist_ok=True)
+                historical.write_bytes(self.original)
+                self.assertEqual(expected, self.resolve())
+                self.assertEqual(self.original, historical.read_bytes())
+                self.source.unlink()
+                with self.assertRaisesRegex(PublicReleaseSourceAdmissionError, "resolve exactly once"):
+                    self.resolve()
+                self.source.write_bytes(current_bytes)
+                historical.unlink()
+
+    def test_history_does_not_hide_actual_current_duplicates(self):
+        self.source.with_name("prior@2.md").write_bytes(self.original)
+        for name in ("duplicate.md", "duplicate@preview.md", "duplicate@0.md", "duplicate@01.md"):
+            with self.subTest(name=name):
+                duplicate = self.source.with_name(name)
+                duplicate.write_bytes(self.original)
+                with self.assertRaisesRegex(PublicReleaseSourceAdmissionError, "resolve exactly once"):
+                    self.resolve()
+                duplicate.unlink()
 
 
 if __name__ == "__main__":

@@ -212,6 +212,9 @@ class RegisteredSourceOwnerTest(unittest.TestCase):
             for folder in ("04_requirement", "05_method", "06_evaluation", "07_delivery", "09_operations"):
                 (self.root / owner / folder).mkdir(parents=True)
         (self.root / ".caprmedio_caprmedio/09_operations").mkdir()
+        (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
+            '[project]\nname = "fixture"\n[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
+        )
         settings = self.root / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
         settings.parent.mkdir()
         settings.write_text("[authority_modes]\ndefault = 'casual'\n")
@@ -263,6 +266,37 @@ class RegisteredSourceOwnerTest(unittest.TestCase):
         shutil.copyfile(source, old)
         pin = resolve_current_source_pin(self.root, "CA-D-999", role="Delivery")
         self.assertEqual(source.relative_to(self.root).as_posix(), pin["source_path"])
+
+    def test_exact_active_history_never_becomes_current(self) -> None:
+        source = self.source("CONNECTOR_TOOLS", "CA-D-625")
+        historical_bytes = source.read_bytes()
+        original = historical_bytes.replace(b"version: 2", b"version: 3", 1)
+        source.write_bytes(original)
+        expected = resolve_current_source_pin(self.root, "CA-D-625", role="Delivery")
+        for relative in ("archive/prior@2.md", "archived/prior@2.md", "prior@2.md", "archived/prior.md"):
+            with self.subTest(relative=relative):
+                historical = source.parent / relative
+                historical.parent.mkdir(exist_ok=True)
+                historical.write_bytes(historical_bytes)
+                self.assertEqual(expected, resolve_current_source_pin(self.root, "CA-D-625", role="Delivery"))
+                self.assertEqual(historical_bytes, historical.read_bytes())
+                source.unlink()
+                with self.assertRaisesRegex(ReleaseSourceAdmissionError, "missing or ambiguous"):
+                    resolve_current_source_pin(self.root, "CA-D-625", role="Delivery")
+                source.write_bytes(original)
+                historical.unlink()
+
+    def test_history_does_not_hide_actual_current_duplicates(self) -> None:
+        source = self.source("CONNECTOR_TOOLS", "CA-D-625")
+        original = source.read_bytes()
+        source.with_name("prior@2.md").write_bytes(original)
+        for name in ("duplicate.md", "duplicate@preview.md", "duplicate@0.md", "duplicate@01.md"):
+            with self.subTest(name=name):
+                duplicate = source.with_name(name)
+                duplicate.write_bytes(original)
+                with self.assertRaisesRegex(ReleaseSourceAdmissionError, "missing or ambiguous"):
+                    resolve_current_source_pin(self.root, "CA-D-625", role="Delivery")
+                duplicate.unlink()
 
     def test_invalid_project_structure_schema_refuses_without_source_changes(self) -> None:
         source = self.source("CONNECTOR_TOOLS", "CA-D-625")
