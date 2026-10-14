@@ -19,6 +19,7 @@ import uuid
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Iterator, Mapping, Sequence
+from urllib.parse import quote
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from project_runtime import atomic_tempfile
@@ -237,11 +238,6 @@ def configured_journal_root(root: Path) -> Path:
     if path != canonical:
         raise RuntimeError("paths.journal_root must be exactly paths.control_root/_journal")
     _assert_project_relative_path(root, canonical, "paths.journal_root")
-    legacy = control / "work_journal"
-    if (root / legacy).exists() and not (root / canonical).exists():
-        raise RuntimeError(
-            "migration-pending: move paths.control_root/work_journal to paths.control_root/_journal before Journal admission"
-        )
     return canonical
 
 
@@ -762,39 +758,39 @@ def validate_partition(author: object, local_date: object, timezone: object) -> 
 
 
 def _part_path(root: Path, author: str, local_date: str, part: int) -> Path:
-    return root / configured_journal_root(root) / f"{author}-{local_date}-part-{part}.ndjson"
+    return root / configured_journal_root(root) / f"{quote(author, safe='')}-{quote(local_date, safe='')}-part-{part}.ndjson"
 
 
 def _part_paths(root: Path, author: str, local_date: str) -> list[tuple[int, Path]]:
     directory = root / configured_journal_root(root)
     if not directory.exists():
         return []
-    pattern = re.compile(rf"^{re.escape(author)}-{re.escape(local_date)}-part-([1-9][0-9]*)\.ndjson$")
+    pattern = re.compile(rf"^{re.escape(quote(author, safe=''))}-{re.escape(quote(local_date, safe=''))}-part-([1-9][0-9]*)\.ndjson$")
     paths: list[tuple[int, Path]] = []
     for path in directory.iterdir():
         if path.is_file() and (match := pattern.fullmatch(path.name)):
             paths.append((int(match.group(1)), path))
     paths.sort()
-    for expected, (part, _) in enumerate(paths, start=1):
-        if part != expected:
-            raise WorkJournalError("journal-part-gap", f"Journal parts for {author} {local_date} are not contiguous")
     return paths
 
 
-def _carrier_records(path: Path) -> tuple[bytes, list[dict[str, Any]]]:
-    data = path.read_bytes() if path.exists() else b""
-    if data and not data.endswith(b"\n"):
-        raise WorkJournalError("invalid-carrier", f"Journal carrier lacks terminal newline: {path}")
-    records: list[dict[str, Any]] = []
-    for line_number, line in enumerate(data.splitlines(), start=1):
-        try:
-            record = json.loads(line)
-        except json.JSONDecodeError as error:
-            raise WorkJournalError("invalid-carrier", f"Journal JSON invalid at {path}:{line_number}") from error
-        if not isinstance(record, dict):
-            raise WorkJournalError("invalid-carrier", f"Journal record is not an object at {path}:{line_number}")
-        records.append(record)
-    return data, records
+def _carrier_records(path: Path) -> tuple[bytes, list[Any]]:
+    data = _read_part_bytes(path) if path.exists() else b""
+    return data, [json.loads(line) for line in data.splitlines()]
+
+
+def _read_part_bytes(path: Path) -> bytes:
+    with os.fdopen(open_regular(path.absolute()), "rb") as stream:
+        return stream.read()
+
+
+def read_records(root: Path) -> list[Any]:
+    """Read stored JSON rows without interpreting their metadata."""
+    return [
+        record
+        for path in _all_journal_parts(root)
+        for record in _carrier_records(path)[1]
+    ]
 
 
 def _receipt(root: Path, path: Path, data: bytes, line: int, event: Mapping[str, Any]) -> dict[str, Any]:
@@ -820,7 +816,12 @@ def _all_journal_parts(root: Path) -> list[Path]:
     directory = root / configured_journal_root(root)
     if not directory.exists():
         return []
-    return sorted(path for path in directory.glob("*.ndjson") if path.is_file())
+    return sorted((path for path in directory.glob("*.ndjson") if path.is_file()), key=_part_order)
+
+
+def _part_order(path: Path) -> tuple[str, int]:
+    partition, _, batch = path.stem.rpartition("-part-")
+    return (partition, int(batch)) if partition and batch.isdecimal() else (path.stem, 0)
 
 
 def _existing_receipt(root: Path, event: Mapping[str, Any]) -> dict[str, Any] | None:
@@ -853,39 +854,6 @@ def _existing_receipt(root: Path, event: Mapping[str, Any]) -> dict[str, Any] | 
     return None
 
 
-@contextmanager
-def _partition_lock(root: Path, author: str, local_date: str) -> Iterator[None]:
-    locks = root / configured_runtime_root(root) / "state" / "work_journal" / "locks"
-    locks.mkdir(parents=True, exist_ok=True)
-    path = locks / f"{author}-{local_date}.lock"
-    token = str(uuid.uuid4())
-    deadline = time.monotonic() + 30.0
-    descriptor: int | None = None
-    while descriptor is None:
-        try:
-            descriptor = os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
-        except FileExistsError:
-            if time.monotonic() >= deadline:
-                raise WorkJournalError("journal-lock-unavailable", f"Journal partition lock remains held: {path}")
-            time.sleep(0.05)
-    try:
-        try:
-            _write_all(descriptor, canonical_json_bytes({"token": token, "pid": os.getpid()}) + b"\n")
-            os.fsync(descriptor)
-        finally:
-            os.close(descriptor)
-    except BaseException:
-        path.unlink(missing_ok=True)
-        raise
-    try:
-        yield
-    finally:
-        try:
-            value = json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError):
-            value = {}
-        if value.get("token") == token:
-            path.unlink(missing_ok=True)
 
 
 @contextmanager
@@ -920,97 +888,55 @@ def _event_lock(root: Path, event_id: str) -> Iterator[None]:
             path.unlink(missing_ok=True)
 
 
-def _open_part(root: Path, author: str, local_date: str) -> tuple[Path, bytes, list[dict[str, Any]]]:
+def _open_part(root: Path, author: str, local_date: str) -> tuple[Path, bytes, int]:
     paths = _part_paths(root, author, local_date)
     if not paths:
-        return _part_path(root, author, local_date, 1), b"", []
+        return _part_path(root, author, local_date, 1), b"", 0
     part, path = paths[-1]
-    data, records = _carrier_records(path)
-    if len(records) < MAX_EVENTS_PER_PART:
-        return path, data, records
-    return _part_path(root, author, local_date, part + 1), b"", []
+    data = _read_part_bytes(path)
+    count = len(data.splitlines())
+    if count < MAX_EVENTS_PER_PART:
+        return path, data, count
+    return _part_path(root, author, local_date, part + 1), b"", 0
 
 
-def _append_locked(root: Path, event: Mapping[str, Any], author: str, local_date: str, *, partition_ref: str | None = None) -> dict[str, Any]:
-    existing = _existing_receipt(root, event)
-    if existing is not None:
-        return existing
-    if partition_ref is None:
-        path, before, records = _open_part(root, author, local_date)
-    else:
-        path = _physical_journal_path(root, partition_ref)
-        before, records = _carrier_records(path)
-    if len(records) >= MAX_EVENTS_PER_PART:
-        raise WorkJournalError("journal-part-full", "sealed original Journal partition is full")
+def _append_event(root: Path, event: Any, author: str, local_date: str) -> dict[str, Any]:
+    path, _, count = _open_part(root, author, local_date)
     path.parent.mkdir(parents=True, exist_ok=True)
-    payload = canonical_json_bytes(event) + b"\n"
-    descriptor = os.open(path, os.O_APPEND | os.O_CREAT | os.O_WRONLY, 0o644)
+    parent = open_regular(path.parent.absolute(), directory=True)
     try:
-        _write_all(descriptor, payload)
-        os.fsync(descriptor)
+        descriptor = os.open(path.name, os.O_APPEND | os.O_CREAT | os.O_WRONLY | os.O_NOFOLLOW, 0o644, dir_fd=parent)
     finally:
-        os.close(descriptor)
-    receipt = {
-        "event_id": event["event_id"],
-        "action_id": event["action_id"],
-        "event_digest": event["event_digest"],
-        "carrier": _safe_relative(path, root),
-        "line": len(records) + 1,
-        "previous_carrier_digest": _sha256(before),
-        "appended_carrier_digest": _sha256(before + payload),
+        os.close(parent)
+    with os.fdopen(descriptor, "ab") as stream:
+        stream.write(canonical_json_bytes(event) + b"\n")
+    references = event if isinstance(event, Mapping) else {}
+    return {
+        "event_id": references.get("event_id"),
+        "action_id": references.get("action_id"),
+        "event_digest": references.get("event_digest"),
+        "carrier": path.relative_to(root).as_posix(),
+        "line": count + 1,
     }
-    receipt_path = _receipt_path(root, str(event["event_id"]))
-    _atomic_json(receipt_path, receipt)
-    return receipt
 
 
-def _validate_event_set(events: Sequence[Mapping[str, Any]], author: str) -> list[dict[str, Any]]:
-    if not events:
-        raise WorkJournalError("invalid-event-set", "at least one sealed event is required")
-    sealed = [validate_sealed_event(event) for event in events]
-    action_ids = {str(event["action_id"]) for event in sealed}
-    if len(action_ids) != 1:
-        raise WorkJournalError("invalid-event-set", "related events must share one action_id")
-    if any(event["author"] != author for event in sealed):
-        raise WorkJournalError("invalid-event-set", "related events must use the context author")
-    event_ids = [str(event["event_id"]) for event in sealed]
-    if len(set(event_ids)) != len(event_ids):
-        raise WorkJournalError("invalid-event-set", "event set contains duplicate event_id values")
-    return sealed
 
 
 def append_sealed_events(
     root: Path,
-    events: Sequence[Mapping[str, Any]],
+    events: Sequence[Any],
     *,
     author: object,
     local_date: object,
     timezone: object,
     append_context: Mapping[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
-    """Append an ordered v2 event set with fsync and idempotent receipts.
+    """Append caller-supplied rows in order, including repeated rows.
 
-    ``author``, ``local_date``, and ``timezone`` are sealed COMMIT_CONTEXT
-    values.  They are validated and used as supplied; this library does not
-    resolve a clock, user, or timezone.
+    The existing signature is retained for callers; timezone and append_context
+    do not impose storage prerequisites.
     """
-    sealed_author, sealed_date, sealed_timezone = validate_partition(author, local_date, timezone)
-    sealed = _validate_event_set(events, sealed_author)
-    configured_journal_root(root)
-    partition_ref: str | None = None
-    if append_context is not None:
-        if len(sealed) != 1:
-            raise WorkJournalError("invalid-context", "sealed append context supports exactly one event")
-        context = validate_append_context(root, append_context)
-        if (context["author"], context["local_date"], context["timezone"]) != (sealed_author, sealed_date, sealed_timezone):
-            raise WorkJournalError("invalid-context", "append context must match supplied partition context")
-        partition_ref = context["partition_ref"]
-    receipts: list[dict[str, Any]] = []
-    for event in sealed:
-        with _event_lock(root, str(event["event_id"])):
-            with _partition_lock(root, sealed_author, sealed_date):
-                receipts.append(_append_locked(root, event, sealed_author, sealed_date, partition_ref=partition_ref))
-    return receipts
+    return [_append_event(root, event, str(author), str(local_date)) for event in events]
 
 
 def seal_append_context(
@@ -1021,18 +947,14 @@ def seal_append_context(
     local_date: object,
     timezone: object,
 ) -> dict[str, Any]:
-    """Seal the original append partition before a selected-run append attempt."""
-    sealed_author, sealed_date, sealed_timezone = validate_partition(author, local_date, timezone)
-    validate_sealed_event(event)
-    path, _, _ = _open_part(root, sealed_author, sealed_date)
-    context: dict[str, Any] = {
-        "author": sealed_author,
-        "local_date": sealed_date,
-        "timezone": sealed_timezone,
-        "partition_ref": _safe_relative(path, root),
+    """Describe the selected partition for callers still carrying this data."""
+    path, _, _ = _open_part(root, str(author), str(local_date))
+    return {
+        "author": author,
+        "local_date": local_date,
+        "timezone": timezone,
+        "partition_ref": path.relative_to(root).as_posix(),
     }
-    context["append_context_digest"] = canonical_json_digest(context)
-    return context
 
 
 def validate_append_context(root: Path, context: Mapping[str, Any]) -> dict[str, Any]:
@@ -1186,7 +1108,6 @@ def register_selected_run_dispatch(
         raise WorkJournalError("invalid-dispatch", "canonical request bytes must be JSON") from error
     if canonical_json_bytes(parsed) != canonical_request_bytes:
         raise WorkJournalError("invalid-dispatch", "request dispatch bytes must be canonical JSON")
-    configured_journal_root(root)
     digest = _sha256(canonical_request_bytes)
     path = (
         root
@@ -1224,48 +1145,28 @@ def register_selected_run_dispatch(
 
 def predict_sealed_event_receipts(
     root: Path,
-    events: Sequence[Mapping[str, Any]],
+    events: Sequence[Any],
     *,
     author: object,
     local_date: object,
     timezone: object,
 ) -> list[dict[str, Any]]:
-    """Return complete side-effect-free carrier and receipt predictions."""
-    sealed_author, sealed_date, _ = validate_partition(author, local_date, timezone)
-    sealed = _validate_event_set(events, sealed_author)
-    parts = _part_paths(root, sealed_author, sealed_date)
-    simulated: dict[Path, tuple[bytes, list[dict[str, Any]]]] = {
-        path: _carrier_records(path) for _, path in parts
-    }
-    output: list[dict[str, Any]] = []
-    for event in sealed:
-        existing = _existing_receipt(root, event)
-        if existing is not None:
-            output.append({**existing, "disposition": "reused"})
-            continue
-        if not parts:
-            part, path = 1, _part_path(root, sealed_author, sealed_date, 1)
-            parts.append((part, path))
-        else:
-            part, path = parts[-1]
-        before, records = simulated.get(path, (b"", []))
-        if len(records) >= MAX_EVENTS_PER_PART:
-            part += 1
-            path = _part_path(root, sealed_author, sealed_date, part)
-            parts.append((part, path))
-            before, records = simulated.get(path, (b"", []))
-        payload = canonical_json_bytes(event) + b"\n"
-        simulated[path] = (before + payload, [*records, dict(event)])
-        output.append(
-            {
-                "event_id": event["event_id"],
-                "action_id": event["action_id"],
-                "event_digest": event["event_digest"],
-                "carrier": _safe_relative(path, root),
-                "line": len(records) + 1,
-                "previous_carrier_digest": _sha256(before),
-                "appended_carrier_digest": _sha256(before + payload),
-                "disposition": "predicted",
-            }
-        )
+    """Describe append locations without writing or deduplicating rows."""
+    path, _, count = _open_part(root, str(author), str(local_date))
+    output = []
+    for event in events:
+        if count >= MAX_EVENTS_PER_PART:
+            part = int(path.stem.rsplit("-", 1)[1]) + 1
+            path = _part_path(root, str(author), str(local_date), part)
+            count = 0
+        count += 1
+        references = event if isinstance(event, Mapping) else {}
+        output.append({
+            "event_id": references.get("event_id"),
+            "action_id": references.get("action_id"),
+            "event_digest": references.get("event_digest"),
+            "carrier": path.relative_to(root).as_posix(),
+            "line": count,
+            "disposition": "predicted",
+        })
     return output

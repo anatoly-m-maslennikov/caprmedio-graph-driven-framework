@@ -27,7 +27,6 @@ MODULE_PATH = Path(__file__).resolve()
 PACKAGE_ROOT = MODULE_PATH.parents[1]
 sys.path.insert(0, str(PACKAGE_ROOT))
 from artifact_metadata import atom_identifier
-from work_journal import MAX_EVENTS_PER_PART
 
 for _parent in MODULE_PATH.parents:
     if _parent.name == ".caprmedio_runtime":
@@ -940,102 +939,10 @@ def resolve_relations(
     return detailed, sources, diagnostics
 
 
-def scan_prior_events(root: Path, journal_relative: Path, before: Carrier | None) -> tuple[dict[str, Any] | None, dict[str, Any] | None]:
-    if before is None:
-        return None, None
-    payload = git(root, ["ls-tree", "-r", "-z", "--name-only", "HEAD", "--", journal_relative.as_posix()]) or b""
-    carrier_paths = [value.decode("utf-8") for value in payload.split(b"\0") if value and value.endswith(b".ndjson")]
-    candidates: list[tuple[str, int, dict[str, Any]]] = []
-    for carrier_relative in sorted(carrier_paths):
-        carrier_data = state_blob(root, carrier_relative, "committed")
-        if carrier_data is None:
-            continue
-        for line_number, line in enumerate(carrier_data.decode("utf-8").splitlines(), 1):
-            if not line:
-                continue
-            try:
-                record = json.loads(line)
-            except json.JSONDecodeError as error:
-                raise ContextError("journal_syntax_invalid", "Journal contains invalid JSON while resolving prior state", path=carrier_relative, line=line_number) from error
-            if record.get("schema_version") not in {2, JOURNAL_EVENT_SCHEMA_VERSION}:
-                continue
-            if record.get("event") not in {"completed", "recovered"}:
-                continue
-            sealed_digest = record.get("event_digest")
-            unsigned = dict(record)
-            unsigned.pop("event_digest", None)
-            if not isinstance(sealed_digest, str) or not SHA256.fullmatch(sealed_digest) or digest(unsigned) != sealed_digest:
-                raise ContextError(
-                    "journal_event_digest_invalid",
-                    "Journal event digest is invalid while resolving prior state",
-                    path=carrier_relative,
-                    line=line_number,
-                )
-            result = record.get("result")
-            observed = present_result(before)
-            if not isinstance(result, Mapping) or any(result.get(key) != value for key, value in observed.items() if key != "version"):
-                continue
-            event_id = record.get("event_id")
-            if not isinstance(event_id, str):
-                continue
-            candidates.append((str(record.get("occurred_at", "")), line_number, record))
-    if not candidates:
-        return None, None
-    candidates.sort(key=lambda item: (item[0], item[1], str(item[2].get("event_id"))))
-    record = candidates[-1][2]
-    result = record["result"]
-    assert isinstance(result, Mapping)
-    return record, dict(result)
 
 
-def recovery_candidate(
-    *,
-    action_id: str,
-    before: Carrier | None,
-    git_base: Mapping[str, str],
-    author: str,
-    occurred_at: str,
-    llm_session: Mapping[str, str],
-    structural_scope: str,
-) -> tuple[dict[str, Any], dict[str, Any]]:
-    if before is None:
-        raise ContextError("recovery_insufficient", "a non-ADD change has no recoverable preceding carrier")
-    result = present_result(before)
-    evidence = {
-        "git": {"base_commit": git_base["commit"], "path": before.path, "sha256": before.sha256},
-        "carrier": {
-            "identity": before.identity,
-            "kind": before.kind,
-            "filename": before.filename,
-            "version": before.version,
-            "sha256": before.sha256,
-        },
-    }
-    evidence_digest = digest(evidence)
-    event_id = digest({"schema_version": JOURNAL_EVENT_SCHEMA_VERSION, "action_id": action_id, "event": "recovered", "kind": "governed_project_state", "subject_kind": before.kind, "result": result, "evidence_digest": evidence_digest})
-    recovery = {
-        "event_id": event_id,
-        "result": result,
-        "evidence": evidence,
-        "evidence_digest": evidence_digest,
-        "contradictions": [],
-    }
-    record_unsigned = {
-        "schema_version": JOURNAL_EVENT_SCHEMA_VERSION,
-        "event_id": event_id,
-        "action_id": action_id,
-        "event": "recovered",
-        "kind": "governed_project_state",
-        "subject_kind": before.kind,
-        "author": author,
-        "occurred_at": occurred_at,
-        "llm_session": dict(llm_session),
-        "structural_scope": structural_scope,
-        "result": result,
-        "recovery_evidence": evidence,
-    }
-    record = {**record_unsigned, "event_digest": digest(record_unsigned)}
-    return recovery, record
+
+
 
 
 def present_result(carrier: Carrier) -> dict[str, Any]:
@@ -1103,9 +1010,7 @@ def event_message(event: Mapping[str, Any], previous_result: Mapping[str, Any] |
     if not isinstance(filename, str) or not isinstance(version, int):
         raise ContextError("event_projection_invalid", "event result requires filename and version")
     current = f"{filename}@{version}"
-    if action in {"MOVE", "MOVE+UPDATE"}:
-        if previous_result is None:
-            raise ContextError("previous_result_missing", "move projection requires the preceding result")
+    if action in {"MOVE", "MOVE+UPDATE"} and previous_result is not None:
         prior_path = previous_result.get("path")
         current_path = result.get("path")
         if not isinstance(prior_path, str) or not isinstance(current_path, str):
@@ -1118,48 +1023,8 @@ def event_message(event: Mapping[str, Any], previous_result: Mapping[str, Any] |
     return f"{upstream} | {action} | {affected}"
 
 
-def predicted_partitions(root: Path, journal_relative: Path, author: str, local_date: str, count: int) -> list[dict[str, Any]]:
-    directory = root / journal_relative
-    pattern = re.compile(re.escape(f"{author}-{local_date}-part-") + r"([1-9][0-9]*)\.ndjson$")
-    counts: dict[int, int] = {}
-    if directory.is_dir():
-        for path in directory.iterdir():
-            match = pattern.fullmatch(path.name)
-            if match and path.is_file():
-                counts[int(match.group(1))] = len([line for line in path.read_text(encoding="utf-8").splitlines() if line])
-    part = max(counts, default=1)
-    if part not in counts:
-        counts[part] = 0
-    result: list[dict[str, Any]] = []
-    for _ in range(count):
-        if counts[part] >= MAX_EVENTS_PER_PART:
-            part += 1
-            counts.setdefault(part, 0)
-        counts[part] += 1
-        result.append(
-            {
-                "author": author,
-                "local_date": local_date,
-                "part": part,
-                "path": (journal_relative / f"{author}-{local_date}-part-{part}.ndjson").as_posix(),
-                "predicted_line": counts[part],
-            }
-        )
-    return result
 
 
-def lease_prediction(root: Path, runtime_relative: Path) -> dict[str, Any]:
-    path = root / runtime_relative / "commit_change_set" / "lease.json"
-    if not path.exists():
-        return {"available": True, "path": path.relative_to(root).as_posix(), "holder_action_id": None}
-    try:
-        value = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as error:
-        raise ContextError("apply_lease_invalid", "repository apply lease state is unreadable", path=path.relative_to(root).as_posix()) from error
-    holder = value.get("action_id") if isinstance(value, Mapping) else None
-    if not isinstance(holder, str) or not holder:
-        raise ContextError("apply_lease_invalid", "repository apply lease state has no action_id", path=path.relative_to(root).as_posix())
-    return {"available": False, "path": path.relative_to(root).as_posix(), "holder_action_id": holder}
 
 
 def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mapping[str, str] | None = None) -> dict[str, Any]:
@@ -1240,7 +1105,6 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
     occurred = parse_instant(normalized["observed_at"], name="observed_at")
     occurred_at = format_instant(occurred)
     local_date = occurred.astimezone(timezone).date().isoformat()
-    journal_relative, runtime_relative = configured_paths(root)
 
     if change == "REMOVE" and subject.kind == "file" and subject.declared_version:
         graph = committed_graph(root)
@@ -1266,36 +1130,8 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
     current_result = removed_result(before) if change == "REMOVE" else present_result(result)  # type: ignore[arg-type]
 
     action_id = digest({"schema_version": CONTEXT_SCHEMA_VERSION, "trigger_id": normalized["trigger_id"], "identity": subject.identity})
-    prior_record, prior_result = scan_prior_events(root, journal_relative, before)
-    if prior_result is not None and before is not None and not before.declared_version:
-        prior_version = prior_result.get("version")
-        if isinstance(prior_version, int) and prior_version >= 1:
-            before = replace(before, version=prior_version)
-            if result is not None and not result.declared_version:
-                result = replace(result, version=prior_version + 1)
-            subject = result or before
-            current_result = removed_result(before) if change == "REMOVE" else present_result(result)  # type: ignore[arg-type]
-    recovery: dict[str, Any] | None = None
+    previous_result = present_result(before) if before is not None else None
     predicted_records: list[dict[str, Any]] = []
-    if change == "ADD":
-        previous_event_id = None
-        prior_result = None
-    elif prior_record is not None:
-        previous_event_id = prior_record["event_id"]
-    else:
-        recovery, recovery_record = recovery_candidate(
-            action_id=action_id,
-            before=before,
-            git_base={"commit": git_base, "tree": tree},
-            author=author,
-            occurred_at=occurred_at,
-            llm_session=normalized["llm_session"],
-            structural_scope=subject.structural_scope,
-        )
-        previous_event_id = recovery["event_id"]
-        prior_result = recovery["result"]
-        predicted_records.append(recovery_record)
-
     event_core: dict[str, Any] = {
         "schema_version": JOURNAL_EVENT_SCHEMA_VERSION,
         "action_id": action_id,
@@ -1310,8 +1146,6 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
         "sources": sources,
         "result": current_result,
     }
-    if previous_event_id is not None:
-        event_core["previous_result_event"] = previous_event_id
     event_unsigned = {"event_id": digest(event_core), **event_core}
     event = {**event_unsigned, "event_digest": digest(event_unsigned)}
     predicted_records.append(event)
@@ -1357,8 +1191,6 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
             "relations_sha256": digest(relation_frontier),
         },
     }
-    if previous_event_id is not None:
-        context_core["previous_result_event"] = previous_event_id
     context = {
         "context_id": digest(context_core),
         **context_core,
@@ -1371,17 +1203,11 @@ def gather_context(root: Path, trigger: Mapping[str, Any], *, environment: Mappi
         "validation": {"valid": True, "diagnostics": relation_diagnostics},
         "predictions": {
             "journal_records": predicted_records,
-            "journal_partitions": predicted_partitions(root, journal_relative, author, local_date, len(predicted_records)),
-            "lease": lease_prediction(root, runtime_relative),
-            "git_message": event_message(event, prior_result),
+            "git_message": event_message(event, previous_result),
         },
     }
-    if recovery is not None:
-        context["recovery"] = recovery
-    if prior_result is not None:
-        # Ephemeral context only: this is needed to project move/rename syntax and
-        # is deliberately not copied into the current Work Journal event.
-        context["previous_result"] = prior_result
+    if previous_result is not None:
+        context["previous_result"] = previous_result
     return context
 
 
@@ -1470,8 +1296,6 @@ def validate_context(context: Mapping[str, Any]) -> None:
         "frontier",
     )
     context_core = {field: context[field] for field in core_fields}
-    if "previous_result_event" in context:
-        context_core["previous_result_event"] = context["previous_result_event"]
     if context["context_id"] != digest(context_core):
         raise ContextError("context_identity_mismatch", "context_id does not match its sealed authoritative fields")
 
@@ -1510,41 +1334,3 @@ def validate_context(context: Mapping[str, Any]) -> None:
         source_frontier.update({"path": committed.get("path"), "sha256": committed.get("sha256")})
     if frontier.get("source_sha256") != digest(source_frontier):
         raise ContextError("context_source_frontier_mismatch", "source frontier digest does not match selected carrier")
-
-    predictions = required_mapping(context.get("predictions"), name="context.predictions")
-    records = predictions.get("journal_records")
-    if not isinstance(records, list) or not records:
-        raise ContextError("context_events_invalid", "predicted Journal records must be a non-empty array")
-    completed_records: list[Mapping[str, Any]] = []
-    for raw_record in records:
-        record = required_mapping(raw_record, name="context Journal record")
-        event_digest = record.get("event_digest")
-        unsigned = dict(record)
-        unsigned.pop("event_digest", None)
-        if not isinstance(event_digest, str) or not SHA256.fullmatch(event_digest) or digest(unsigned) != event_digest:
-            raise ContextError("context_event_digest_mismatch", "predicted Journal record digest is invalid")
-        if record.get("action_id") != context["action_id"]:
-            raise ContextError("context_event_action_mismatch", "predicted Journal record action differs from context")
-        if record.get("author") != context["author"] or record.get("occurred_at") != context["occurred_at"]:
-            raise ContextError("context_event_provenance_mismatch", "predicted Journal record provenance differs from context")
-        if record.get("llm_session") != context["llm_session"] or record.get("structural_scope") != context["structural_scope"]:
-            # A recovered baseline uses the preceding carrier's Structural
-            # scope, so only current change events must equal the current scope.
-            if record.get("event") != "recovered" or record.get("llm_session") != context["llm_session"]:
-                raise ContextError("context_event_provenance_mismatch", "predicted Journal record scope or session differs")
-        if record.get("event") == "completed" and record.get("kind") == "governed_project_change":
-            event_core = dict(unsigned)
-            event_id = event_core.pop("event_id", None)
-            if not isinstance(event_id, str) or event_id != digest(event_core):
-                raise ContextError("context_event_identity_mismatch", "completed event_id does not match its structured event")
-            completed_records.append(record)
-    if len(completed_records) != 1:
-        raise ContextError("context_events_invalid", "context must predict exactly one completed governed_project_change")
-    completed = completed_records[0]
-    if completed.get("subject_kind") != subject_kind:
-        raise ContextError("context_event_projection_mismatch", "completed event subject kind differs from context")
-    for field in ("action_type", "sources", "result"):
-        if completed.get(field) != context.get(field):
-            raise ContextError("context_event_projection_mismatch", f"completed event {field} differs from context")
-    if completed.get("previous_result_event") != context.get("previous_result_event"):
-        raise ContextError("context_event_projection_mismatch", "completed event predecessor differs from context")
