@@ -555,6 +555,7 @@ class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                         definition = stdio_context.get("definition")
                         self.assertIsInstance(definition, dict, stdio_context)
                         self.assertEqual("create_atom", definition.get("name"), stdio_context)
+                        await self._assertions._disconnect()
                     token, port = self._http_environment()
                     os.environ["CAPRMEDIO_MCP_HTTP_PORT"] = str(port)
                     http_start_attempted = True
