@@ -10,7 +10,6 @@ import stat
 import subprocess
 import sys
 import tempfile
-import threading
 import time
 import unittest
 from pathlib import Path
@@ -263,23 +262,27 @@ class CommitTriggerTests(unittest.TestCase):
         control_root.mkdir(exist_ok=True)
         atom = control_root / "04_requirement" / "CA-R-001.md"
 
-        def write_atom() -> None:
-            time.sleep(0.04)
-            atom.parent.mkdir(parents=True)
-            atom.write_text("first revision\n", encoding="utf-8")
+        scan = commit_trigger.scan_governed_files
 
-        writer = threading.Thread(target=write_atom)
-        writer.start()
-        batches = list(
-            commit_trigger.watch_triggers(
-                repository=self.repository,
-                adapter=self.adapter,
-                environment=self.environment,
-                poll_interval=0.01,
-                maximum_polls=12,
+        def scan_then_write_atom(repository: Path) -> dict[str, commit_trigger.FileState]:
+            snapshot = scan(repository)
+            if not atom.exists():
+                atom.parent.mkdir(parents=True)
+                atom.write_text("first revision\n", encoding="utf-8")
+            return snapshot
+
+        with mock.patch.object(
+            commit_trigger, "scan_governed_files", side_effect=scan_then_write_atom
+        ):
+            batches = list(
+                commit_trigger.watch_triggers(
+                    repository=self.repository,
+                    adapter=self.adapter,
+                    environment=self.environment,
+                    poll_interval=0.01,
+                    maximum_polls=1,
+                )
             )
-        )
-        writer.join()
         triggers = [trigger for batch in batches for trigger in batch]
         self.assertEqual(len(triggers), 1)
         self.assertEqual(triggers[0]["before_path"], None)
