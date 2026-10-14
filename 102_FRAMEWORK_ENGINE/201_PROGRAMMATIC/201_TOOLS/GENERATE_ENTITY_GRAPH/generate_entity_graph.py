@@ -439,7 +439,7 @@ def _is_excluded(path: Path, selected_folder: Path, repository: Path) -> bool:
 def discover_atoms(repository: Path, selected_folder: Path) -> tuple[list[AtomCarrier], list[dict[str, object]]]:
     carriers: list[AtomCarrier] = []
     diagnostics: list[dict[str, object]] = []
-    for path in sorted(selected_folder.rglob("*.md")):
+    for path in sorted(selected_folder.rglob("*.md"), key=lambda item: _display_path(item, repository)):
         if _is_excluded(path, selected_folder, repository):
             continue
         display_path = _display_path(path, repository)
