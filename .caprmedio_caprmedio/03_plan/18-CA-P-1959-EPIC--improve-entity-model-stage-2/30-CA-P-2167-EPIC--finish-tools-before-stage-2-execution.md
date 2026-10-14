@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 41
-updated_at: "2026-10-14 06:09:36 +0400"
+version: 42
+updated_at: "2026-10-14 06:26:16 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,21 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Installed readiness checkpoint — 2026-10-14 06:26 +0400
+
+Actual MCP discovery still returns zero Subject Tools; CA-O-030 context has no input/output schema or Tool description. A serving generation with zero in-flight calls was observed; no reload or execution was requested. A responding MCP is not usable Subject migration.
+
+CA-P-2373 implements the independently reviewed native-Action discovery correction in commit `0a853fe5a`. The shared catalog associates source-admitted native_action_calls with the existing exposed route, without a standalone Action endpoint or weaker source checks. Four new regression tests pass. Nearby suites retain ten unrelated failures/errors reproduced with the pre-change method; P2373 remains Active rather than claiming its full existing-suite condition passed. No installed activation is claimed.
+
+Three bounded read-only checks identified the remaining delivery decisions:
+
+- The selected loader validates the whole 15/16/17-route portfolio before route selection. All six direct update_atom source paths are obsolete; five sources also changed, while O145 is an exact-byte relocation. Existing D588/D592 repair registrations do not authorize current reconciliation. Fixing only update_atom cannot satisfy the current full-portfolio contract. Do not refresh hashes blindly or silently broaden this Subject-only work to all routes.
+- Existing update_atom enters completed O145/O067 assessment and lifecycle recording before its native update. Scratch staging cannot use that unchanged execution path or be hidden inside read-only preview. Direct preparation exposure needs explicit shared admission/recording policy; retaining the selected route needs a genuine preparation branch. No speculative contract or adapter was adopted.
+- The private publication confirmation issuer has no production human-confirmation provider. The installed MCP SDK supports elicitation, but the current gateway does not forward it and an elicitation acceptance alone may be agent-generated. Do not manufacture consent from request JSON, test fixtures or a generic acceptance token.
+
+The read-only lookup Session question remains first and unanswered. Resolve subsequent delivery choices one at a time. Evidence reports are temporary under `.caprmedio_tmp/stage2-migration-20261014/tool-readiness/` (manifest-reconciliation, preview-staging-exposure, host-confirmation-readiness and mcp-current-observation). These observations do not authorize publication, source migration or broad legacy repair. Parent Epics stay Active; the prepared Subject request and unchanged-owner exclusions remain intact.
+
 
 ### Current execution order — after Subject mapping
 
