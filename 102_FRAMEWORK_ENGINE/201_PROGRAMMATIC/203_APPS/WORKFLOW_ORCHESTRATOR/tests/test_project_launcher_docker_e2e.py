@@ -33,10 +33,25 @@ sys.path[:0] = [str(DOCKER), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS"), str(Path
 from project_selection import bind_selection, resolve_project  # noqa: E402
 from runtime_images import FINGERPRINT_LABEL, ImageManager, SCHEMA, SCHEMA_LABEL  # noqa: E402
 from first_cut_http_security import probe_first_cut_http_security  # noqa: E402
+from selected_workflows_docker_fixture import (  # noqa: E402
+    _CONTEXT_DECLARATION_DIGEST, _CONTEXT_DECLARATION_PATH,
+)
 import test_first_cut_http_docker_e2e as first_cut_http  # noqa: E402
 from test_selected_workflows_docker_e2e import _structured_tool_result  # noqa: E402
 
 ATOM_IDS = {"alpha": "CA-O-999991", "beta": "CA-O-999992"}
+LAUNCHER_REQUIRED_TOOLS = frozenset({
+    "workflow_orchestrator", "get_execution_context", "reload_mcp_implementation", "get_mcp_reload_status",
+})
+
+
+def _write_context_declaration(authority: Path) -> None:
+    source = ROOT / _CONTEXT_DECLARATION_PATH
+    raw = source.read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == _CONTEXT_DECLARATION_DIGEST, "context declaration pin changed"
+    destination = authority / "GET_EXECUTION_CONTEXT" / "07_delivery" / source.name
+    destination.parent.mkdir(parents=True)
+    destination.write_bytes(raw)
 
 
 def _snapshot(root: Path, names) -> dict[str, str]:
@@ -81,8 +96,13 @@ class ProjectFixture:
         (authority / "project_structure.toml").write_text(
             'schema_version = 1\n[[scope_units]]\nscope_unit_name = "FIXTURE"\n'
             f'authority_path = "{control}/09_operations"\n'
-            'delivery_path = "delivery/FIXTURE"\n', encoding="utf-8",
+            'delivery_path = "delivery/FIXTURE"\n'
+            '[[scope_units]]\nscope_unit_name = "GET_EXECUTION_CONTEXT"\n'
+            f'authority_path = "{control}/GET_EXECUTION_CONTEXT"\n'
+            'delivery_path = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GET_EXECUTION_CONTEXT"\n',
+            encoding="utf-8",
         )
+        _write_context_declaration(authority)
         (root / "fixture_entrypoint.py").write_text('"""Read-only fixture source carrier."""\n', encoding="utf-8")
         atom_id = ATOM_IDS[name]
         source_ref = f"{control}/09_operations/{atom_id}--launcher-fixture.md"
@@ -240,7 +260,7 @@ def _compose_services(selection, token, row):
 
 
 def _collision_diagnostic(rows):
-    """Classify a failed explicit-port start without accepting a host remap."""
+    """Classify backend-verified selected rows without accepting a host remap."""
     assert isinstance(rows, list)
     if not rows:
         return "DOCKER_START_FAILED", []
@@ -250,17 +270,23 @@ def _collision_diagnostic(rows):
         assert isinstance(row, dict)
         state = row.get("State")
         assert isinstance(state, dict)
-        health = state.get("Health")
+        health = state.get("Health", {})
         assert isinstance(health, dict)
         network = row.get("NetworkSettings")
         assert isinstance(network, dict)
         ports = network.get("Ports")
-        assert isinstance(ports, dict) and set(ports) == {"8092/tcp"}
-        assert ports["8092/tcp"] == [], "collision created a host publisher"
-        assert state.get("Status") == "running" and health.get("Status") == "healthy"
+        assert isinstance(ports, dict)
+        status = state.get("Status")
+        if status in {"created", "exited"}:
+            assert ports in ({}, {"8092/tcp": []}, {"8092/tcp": None}), "collision created a host publisher"
+        else:
+            assert set(ports) == {"8092/tcp"}
+            assert ports["8092/tcp"] == [], "collision created a host publisher"
+            assert status == "running" and health.get("Status") == "healthy"
         observed.append({"container_id": row.get("Id"), "state": state.get("Status"),
-                         "health": health.get("Status"), "ports": {"8092/tcp": ports["8092/tcp"]}})
-    return "DOCKER_PUBLICATION_FAILED", observed
+                         "health": health.get("Status"), "ports": ports})
+    return ("DOCKER_START_FAILED" if status in {"created", "exited"}
+            else "DOCKER_PUBLICATION_FAILED"), observed
 
 
 def _bounded_collision_observed(rows):
@@ -369,6 +395,7 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
                 names = {tool.name for tool in (await session.list_tools()).tools}
                 security.append(await asyncio.to_thread(probe_first_cut_http_security, row["url"], None,
                     list_tools=lambda _url, _token: names,
+                    required_tools=LAUNCHER_REQUIRED_TOOLS,
                     recording_boundary=lambda: [item.snapshot() for item in fixtures]))
                 read = _structured_tool_result(await session.call_tool("get_execution_context", {"request": {"id": fixture.atom_id}}))
                 definition = read["definition"]
@@ -378,8 +405,11 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
                     "request": {"id": fixtures[1 - index].atom_id}})
                 assert foreign.is_error, foreign
                 reads.append(read)
-                refused = _structured_tool_result(await session.call_tool("create_atom", {"request": {"operation_route": "create_atom", "request_id": "unconfigured"}}))
-                assert refused.get("disposition") in {"blocked", "rejected"}, refused
+                assert "create_atom" not in names, "unconfigured selected route was unexpectedly admitted"
+                refusal_before = [item.snapshot() for item in fixtures]
+                refused = await session.call_tool("create_atom", {"request": {"operation_route": "create_atom", "request_id": "unconfigured"}})
+                assert refused.is_error, refused
+                assert [item.snapshot() for item in fixtures] == refusal_before, "unconfigured route changed authority or Journal"
             request_id = str(uuid.uuid4())
             receipt_paths = [resolve_project(item.root, item.control).reload_state / f"{request_id}.json" for item in fixtures]
             assert receipt_paths[0] != receipt_paths[1] and not any(path.exists() for path in receipt_paths)
@@ -523,21 +553,32 @@ class ProjectLauncherFixtureTests(unittest.TestCase):
 
     def test_collision_diagnostics_distinguish_start_and_publication_failures(self):
         self.assertEqual("DOCKER_START_FAILED", _collision_diagnostic([])[0])
-        stopped = [{"Id": "beta-stopped", "State": {"Status": "exited"},
-                    "NetworkSettings": {"Ports": {"8092/tcp": []}}}]
-        with self.assertRaises(AssertionError):
-            _collision_diagnostic(stopped)
+        for state in ("created", "exited"):
+            for ports in ({}, {"8092/tcp": []}, {"8092/tcp": None}):
+                with self.subTest(state=state, ports=ports):
+                    stopped = [{"Id": "beta-stopped", "State": {"Status": state},
+                                "NetworkSettings": {"Ports": ports}}]
+                    self.assertEqual("DOCKER_START_FAILED", _collision_diagnostic(stopped)[0])
         unpublished = [{"Id": "beta-unpublished", "State": {"Status": "running", "Health": {"Status": "healthy"}},
                         "NetworkSettings": {"Ports": {"8092/tcp": []}}}]
         code, observed = _collision_diagnostic(unpublished)
         self.assertEqual("DOCKER_PUBLICATION_FAILED", code)
         self.assertEqual([], observed[0]["ports"]["8092/tcp"])
 
+    def test_collision_diagnostics_reject_unknown_or_unhealthy_states(self):
+        for state in ({"Status": "unknown"}, {"Status": "running"},
+                      {"Status": "running", "Health": {"Status": "unhealthy"}}):
+            with self.subTest(state=state), self.assertRaises(AssertionError):
+                _collision_diagnostic([{"Id": "beta", "State": state,
+                                        "NetworkSettings": {"Ports": {"8092/tcp": []}}}])
+
     def test_collision_diagnostic_rejects_a_silent_host_remap(self):
         remapped = [{"Id": "beta-remapped", "State": {"Status": "running", "Health": {"Status": "healthy"}},
                      "NetworkSettings": {"Ports": {"8092/tcp": [{"HostIp": "127.0.0.1", "HostPort": "54321"}]}}}]
-        with self.assertRaisesRegex(AssertionError, "host publisher"):
-            _collision_diagnostic(remapped)
+        for state in ("created", "exited", "running"):
+            remapped[0]["State"]["Status"] = state
+            with self.subTest(state=state), self.assertRaisesRegex(AssertionError, "host publisher"):
+                _collision_diagnostic(remapped)
 
     def test_collision_diagnostic_rejects_multiple_or_other_target_publications(self):
         healthy = {"State": {"Status": "running", "Health": {"Status": "healthy"}},

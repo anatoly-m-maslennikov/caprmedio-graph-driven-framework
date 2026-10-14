@@ -14,7 +14,7 @@ TEST_ROOT = Path(__file__).resolve().parent
 if str(TEST_ROOT) not in sys.path:
     sys.path.insert(0, str(TEST_ROOT))
 
-from first_cut_http_security import (
+from first_cut_http_security import (  # noqa: E402
     FirstCutHttpSecurityError,
     REQUIRED_TOOLS,
     _RejectRedirects,
@@ -74,7 +74,7 @@ class FirstCutHttpSecurityTests(unittest.TestCase):
             observed[0] += 1
             return observed[0]
 
-        with self.assertRaises(FirstCutHttpSecurityError) as raised:
+        with self.assertRaises(FirstCutHttpSecurityError):
             probe_first_cut_http_security(
                 self.url,
                 health_request=self._health(calls),
@@ -84,13 +84,13 @@ class FirstCutHttpSecurityTests(unittest.TestCase):
         self.assertEqual(2, len(calls))
 
     def test_incomplete_mcp_list_and_invalid_url_refuse_without_token_disclosure(self):
-        with self.assertRaises(FirstCutHttpSecurityError) as incomplete:
+        with self.assertRaises(FirstCutHttpSecurityError):
             probe_first_cut_http_security(
                 self.url,
                 health_request=self._health([]),
                 list_tools=lambda _url, _token: {"workflow_orchestrator"},
             )
-        with self.assertRaises(FirstCutHttpSecurityError) as invalid_url:
+        with self.assertRaises(FirstCutHttpSecurityError):
             probe_first_cut_http_security(
                 "http://127.0.0.1:18092/not-mcp",
                 health_request=self._health([]),
@@ -99,7 +99,7 @@ class FirstCutHttpSecurityTests(unittest.TestCase):
 
     def test_omitted_retained_route_and_nonloopback_url_refuse_before_callbacks(self):
         omitted = REQUIRED_TOOLS - {"replace_atom"}
-        with self.assertRaises(FirstCutHttpSecurityError) as incomplete:
+        with self.assertRaises(FirstCutHttpSecurityError):
             probe_first_cut_http_security(
                 self.url,
                 health_request=self._health([]),
@@ -109,12 +109,42 @@ class FirstCutHttpSecurityTests(unittest.TestCase):
         def must_not_run(*_args, **_kwargs):
             raise AssertionError("nonloopback URL reached a probe callback")
 
-        with self.assertRaises(FirstCutHttpSecurityError) as remote:
+        with self.assertRaises(FirstCutHttpSecurityError):
             probe_first_cut_http_security(
                 "http://attacker.invalid:18092/mcp",
                 health_request=must_not_run,
                 list_tools=must_not_run,
             )
+
+    def test_explicit_minimal_tools_keep_denials_health_and_missing_tool_refusal(self):
+        required = frozenset({"workflow_orchestrator", "get_execution_context"})
+        health, mcp, boundary = [], [], ["unchanged"]
+        result = probe_first_cut_http_security(
+            self.url, required_tools=required, list_tools=lambda *_args: required,
+            health_request=self._health(health), mcp_request=self._mcp(mcp),
+            recording_boundary=lambda: tuple(boundary),
+        )
+        self.assertEqual((421, 403), result["denied_statuses"])
+        self.assertEqual((421, 403), result["mcp_denied_statuses"])
+        self.assertEqual(200, result["health_status"])
+        self.assertEqual(["unchanged"], boundary)
+        with self.assertRaisesRegex(FirstCutHttpSecurityError, "incomplete"):
+            probe_first_cut_http_security(
+                self.url, required_tools=required, list_tools=lambda *_args: {"workflow_orchestrator"},
+                health_request=self._health([]), mcp_request=self._mcp([]),
+            )
+
+    def test_empty_or_malformed_required_tools_refuse_before_callbacks(self):
+        def must_not_run(*_args, **_kwargs):
+            raise AssertionError("invalid required set reached a callback")
+
+        for required in (frozenset(), set(REQUIRED_TOOLS), frozenset({""}), frozenset({None})):
+            with self.subTest(required=required), self.assertRaises(FirstCutHttpSecurityError):
+                probe_first_cut_http_security(
+                    self.url, required_tools=required, list_tools=must_not_run,
+                    health_request=must_not_run, mcp_request=must_not_run,
+                )
+
     def test_anonymous_health_request_disables_proxies_and_rejects_redirects(self):
         source_requests: list[tuple[str, dict[str, str]]] = []
         remote_requests: list[str] = []
