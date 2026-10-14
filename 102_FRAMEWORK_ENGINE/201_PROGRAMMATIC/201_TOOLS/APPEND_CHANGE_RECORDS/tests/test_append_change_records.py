@@ -35,6 +35,7 @@ from append_change_records import (  # noqa: E402
     _expected_event_id,
     release_verified_lease,
     run,
+    validate_context as validate_append_context,
 )
 from work_journal import (  # noqa: E402
     WorkJournalError,
@@ -46,7 +47,7 @@ from work_journal import (  # noqa: E402
     with_event_digest,
 )
 sys.path.insert(0, str(CONTEXT_TOOL))
-from commit_context_logic import gather_context  # noqa: E402
+from commit_context_logic import gather_context, validate_context as validate_producer_context  # noqa: E402
 
 
 def sha(value: bytes | str) -> str:
@@ -326,6 +327,59 @@ class AppendChangeRecordsTest(unittest.TestCase):
         output = run(self.root, {"context": context}, apply=False, wait_seconds=0)
         self.assertTrue(output["ok"])
         self.assertEqual("dry-run", output["mode"])
+
+    def test_replacement_context_roundtrip_binds_both_identity_fields(self) -> None:
+        predecessor = self.root / ".caprmedio_caprmedio/07_delivery/CA-D-562-TOOLS-DELIVERY--prior.md"
+        predecessor.parent.mkdir(parents=True)
+        predecessor.write_text("---\natom_id: CA-D-562\nversion: 6\nstatus: Active\nrelations: {}\n---\n# Summary\n\nPrior carrier\n")
+        self.run_git("add", predecessor.relative_to(self.root).as_posix())
+        self.run_git("commit", "-qm", "predecessor")
+        archived = predecessor.parent / "archived" / f"{predecessor.stem}@7.md"
+        archived.parent.mkdir()
+        archived.write_text(predecessor.read_text().replace("version: 6", "version: 7").replace("status: Active", "status: Archived"))
+        predecessor.unlink()
+        self.run_git("config", "github.username", "test-user")
+        repository_id = self.repository_identity()
+        trigger = {
+            "schema_version": 1,
+            "trigger_id": canonical_json_digest({"schema_version": 1, "adapter_id": "test", "source_event_id": "replacement", "repository_id": repository_id}),
+            "adapter": {"id": "test"},
+            "source_event_id": "replacement",
+            "repository": {"root": str(self.root.resolve()), "identity": repository_id},
+            "observed_at": "2026-08-20T23:59:59+04:00",
+            "before_path": predecessor.relative_to(self.root).as_posix(),
+            "after_path": archived.relative_to(self.root).as_posix(),
+            "llm_session": {"app": "codex", "uuid": "019f591f-04f6-70f2-8de7-828b7cccc69d"},
+        }
+        ordinary = gather_context(self.root, trigger)
+        self.assertEqual("MOVE+UPDATE", ordinary["action_type"])
+        validate_producer_context(ordinary)
+        validate_append_context(ordinary)
+        ordinary_event = ordinary["predictions"]["journal_records"][-1]
+        self.assertEqual(ordinary_event["event_id"], _expected_event_id(ordinary_event))
+
+        replacement = copy.deepcopy(ordinary)
+        event = replacement["predictions"]["journal_records"][-1]
+        event.update(predecessor_atom_id="CA-D-562", successor_atom_ids=["CA-D-634", "CA-D-635"])
+        core = {key: value for key, value in event.items() if key not in {"event_id", "event_digest"}}
+        event["event_id"] = canonical_json_digest(core)
+        replacement["predictions"]["journal_records"][-1] = with_event_digest(event)
+        validate_producer_context(replacement)
+        _, events = validate_append_context(replacement)
+        self.assertEqual(["CA-D-634", "CA-D-635"], events[-1]["successor_atom_ids"])
+        self.assertNotEqual(ordinary_event["event_id"], events[-1]["event_id"])
+
+        for field, changed in (("predecessor_atom_id", "CA-D-563"), ("successor_atom_ids", ["CA-D-635", "CA-D-634"])):
+            with self.subTest(tampered=field):
+                tampered = copy.deepcopy(replacement)
+                event = tampered["predictions"]["journal_records"][-1]
+                event[field] = changed
+                tampered["predictions"]["journal_records"][-1] = with_event_digest(event)
+                with self.assertRaises(ToolError) as refused:
+                    validate_append_context(tampered)
+                self.assertEqual("event-identity-mismatch", refused.exception.code)
+        self.assertFalse((self.root / ".caprmedio_caprmedio/_journal").exists())
+        self.assertFalse((self.root / ".caprmedio_runtime").exists())
 
 
 class ReplacementPayloadTest(unittest.TestCase):

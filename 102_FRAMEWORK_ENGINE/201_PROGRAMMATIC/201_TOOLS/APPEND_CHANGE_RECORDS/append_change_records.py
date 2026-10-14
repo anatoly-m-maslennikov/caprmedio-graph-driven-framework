@@ -303,6 +303,9 @@ def _expected_event_id(event: Mapping[str, Any]) -> str:
     core = {field: event[field] for field in fields}
     if "previous_result_event" in event:
         core["previous_result_event"] = event["previous_result_event"]
+    for field in ("predecessor_atom_id", "successor_atom_ids"):
+        if field in event:
+            core[field] = event[field]
     return canonical_json_digest(core)
 
 
