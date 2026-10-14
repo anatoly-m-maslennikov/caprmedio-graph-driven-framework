@@ -132,7 +132,7 @@ class ConnectorReceivingIndependentTests(unittest.TestCase):
             "target_frontier": [self.structure.relative_to(self.root).as_posix()],
             "target_frontier_digest": _canonical_digest([self.structure.relative_to(self.root).as_posix()]),
             "effects": effects or [], "effects_digest": _canonical_digest(effects or []), "definition_manifest": manifest,
-            "source_freshness": {"selected_source_registry_ref": "definitions/CA-D-625.md", "selected_source_registry_version": 2,
+            "source_freshness": {"selected_source_registry_ref": "definitions/CA-D-625.md", "selected_source_registry_version": 3,
                                  "selected_source_registry_digest": self.sources["CA-D-625"].sha256,
                                  "selected_binding_ref": action_source.relative_path.as_posix(), "selected_binding_digest": action_source.sha256},
             "initiative": {"initiative_id": "independent-read", "instruction_summary": "read one exact selected fixture"},

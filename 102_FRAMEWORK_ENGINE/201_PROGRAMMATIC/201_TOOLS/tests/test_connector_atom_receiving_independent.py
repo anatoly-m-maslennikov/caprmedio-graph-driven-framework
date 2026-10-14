@@ -130,7 +130,7 @@ class AtomReceivingIndependentTests(unittest.TestCase):
                frontier_refs=None, expected_factory_refusal=None):
         request = copy.deepcopy(self.inner() if inner is None else inner)
         atom_id = action or ("CA-O-046" if request["operation"] == "query" else "CA-O-047")
-        version = 8 if atom_id == "CA-O-046" else 4
+        version = 9 if atom_id == "CA-O-046" else 4
         definition = self.definitions[atom_id]
         self.sequence += 1
         frontier = [source.relative_path.as_posix() for source in self.frontier] if frontier_refs is None else frontier_refs
@@ -141,7 +141,7 @@ class AtomReceivingIndependentTests(unittest.TestCase):
             "target_frontier": frontier, "target_frontier_digest": _canonical_digest(frontier),
             "effects": effects, "effects_digest": _canonical_digest(effects), "definition_manifest": self.manifest,
             "source_freshness": {"selected_source_registry_ref": self.schemas[0].relative_path.as_posix(),
-                                 "selected_source_registry_version": 2, "selected_source_registry_digest": self.schemas[0].sha256,
+                                 "selected_source_registry_version": 3, "selected_source_registry_digest": self.schemas[0].sha256,
                                  "selected_binding_ref": definition.relative_path.as_posix(), "selected_binding_digest": definition.sha256},
             "initiative": {"initiative_id": "independent-atoms", "instruction_summary": "Observe exact supplied Atom criteria"},
             "requested_runs": [{"requested_run_id": "atom-action", "kind": "action", "definition": {

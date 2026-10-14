@@ -127,7 +127,7 @@ class AtomReceiverTests(unittest.TestCase):
                  "target_frontier_digest": _canonical_digest(frontier), "effects": effects,
                  "effects_digest": _canonical_digest(effects), "definition_manifest": self.context,
                  "source_freshness": {"selected_source_registry_ref": self.schemas[0].relative_path.as_posix(),
-                    "selected_source_registry_version": 2, "selected_source_registry_digest": self.schemas[0].sha256,
+                    "selected_source_registry_version": 3, "selected_source_registry_digest": self.schemas[0].sha256,
                     "selected_binding_ref": "manifest.json", "selected_binding_digest": self.context["manifest_digest"]},
                  "initiative": {"initiative_id": "fixture", "instruction_summary": "Read or Query the explicit accepted Atom view"}}
         receiver = self.receiver(operation) if receiver is None else receiver
@@ -156,7 +156,7 @@ class AtomReceiverTests(unittest.TestCase):
                      proposal_receipt_digest=preview["proposal_receipt_digest"], assigned_action_id="assigned-reader",
                      requested_runs=[{"requested_run_id": "action", "kind": "action", "definition": {
                          "atom_id": definition_identity or ("CA-O-047" if operation == "read" else "CA-O-046"),
-                         "version": 4 if operation == "read" else 8,
+                         "version": 4 if operation == "read" else 9,
                          "path": source.relative_path.as_posix(), "digest": source.sha256}}])
         fields = ("request_id", "operation_route", "proposal_receipt_digest", "parameters_digest",
                   "target_frontier_digest", "effects_digest", "definition_manifest", "source_freshness")

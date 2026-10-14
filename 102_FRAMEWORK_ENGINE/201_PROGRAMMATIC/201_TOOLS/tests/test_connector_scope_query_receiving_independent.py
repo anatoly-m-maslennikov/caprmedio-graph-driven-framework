@@ -115,7 +115,7 @@ class ScopeQueryReceivingIndependentTests(unittest.TestCase):
                  "target_frontier": frontier, "target_frontier_digest": _canonical_digest(frontier),
                  "effects": list(effects), "effects_digest": _canonical_digest(list(effects)),
                  "definition_manifest": manifest,
-                 "source_freshness": {"selected_source_registry_ref": manifest["manifest_ref"], "selected_source_registry_version": 2,
+                 "source_freshness": {"selected_source_registry_ref": manifest["manifest_ref"], "selected_source_registry_version": 3,
                                       "selected_source_registry_digest": manifest["manifest_digest"],
                                       "selected_binding_ref": action_source.relative_path.as_posix(),
                                       "selected_binding_digest": action_source.sha256},

@@ -17,13 +17,13 @@ from project_settings_reader import SCHEMA_PINS, read_project_settings
 
 
 SCOPE_QUERY_PINS = MappingProxyType({
-    "CA-R-1936": (1, "f37226d0ade90e8637b0b5dc4805ad256eeeeb555714d68024178a4a7db0f999"),
+    "CA-R-1936": (2, "dbb7471c477adf1474db73624e066d3fff202a61d975729d8d4ea4cbf95b040a"),
     "CA-R-1937": (4, "740a4f6df454347f30f31e6fa96a08c51c92336deb39728d5b274d00d0d082ad"),
-    "CA-M-376": (1, "ed9ad36cd345878e8ee507a42f3713fecd68ffdda7a97e5578844b48bd6e6043"),
+    "CA-M-376": (2, "5ccecc40357c7819b2dbed8855748a1ef1ac06f05bfd1581792806206ea6810a"),
     "CA-M-377": (4, "2eecb1099bc75319b8af2ea7dc6b5210197aaa2bd9951e4fd11165b03d5b2973"),
     "CA-E-628": (1, "b7a79e9e68b4a79463d718016739c4ffee6cb98535045dc95c0713745531e458"),
     "CA-E-629": (3, "24cbac92dbd73c61fdfb2182c27c8acc0f67d7860a485f31859ccd996b8e445a"),
-    "CA-D-625": (2, "e93771b7615b4c4ac74b36927196dc4f532ef8e598b7dbdf0ad23cc89e0fff38"),
+    "CA-D-625": (3, "708d39bbb841ece46a30d330c3768fbede6373ae00d30aacb5cdde3c18c24fcc"),
     "CA-D-626": (3, "d11441faffe55da24cf641369b4ab67ab83fad2b537a0bc176407f3dd2e562f8"),
     "CA-D-441": (5, "30042a747a31e13c2618a7111a884c5af1ed2175c687645f9eaae9f6d5d10e81"),
     "CA-D-442": (6, "caa3df94215a7ae1e3e516c0bf94cae1295c79270f0f521e6f75a1eb51d70a2f"),
