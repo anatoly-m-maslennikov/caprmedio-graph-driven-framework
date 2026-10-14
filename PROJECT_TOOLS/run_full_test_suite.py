@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from contextlib import nullcontext
 import json
 import os
 from pathlib import Path
 import subprocess
 import sys
+import time
 
 from full_suite_docker import APP, current_code_test_image, run_launcher
 
@@ -70,33 +72,51 @@ def discover_test_modules(root: Path) -> list[Path]:
     return sorted(modules)
 
 
-def run_module(root: Path, module: Path, environment=None) -> tuple[bool, int, int]:
-    """Execute one unittest module without sharing imported sibling modules."""
+def run_module(
+    root: Path, module: Path, environment=None
+) -> tuple[bool, int, int, str, str, float, str | None]:
+    """Return one isolated module's result and output for coherent reporting."""
+    started = time.monotonic()
     environment = {
         **(os.environ if environment is None else environment),
         "CAPRMEDIO_DOCKER_E2E": "1",
         "CAPRMEDIO_DOCKER_QUERY_E2E": "1",
     }
-    result = subprocess.run(
-        (sys.executable, "-B", "-c", CHILD, str(module.parent), module.stem),
-        cwd=root,
-        capture_output=True,
-        text=True,
-        check=False,
-        timeout=MODULE_TIMEOUT_SECONDS,
-        env=environment,
+    try:
+        result = subprocess.run(
+            (sys.executable, "-B", "-c", CHILD, str(module.parent), module.stem),
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=MODULE_TIMEOUT_SECONDS,
+            env=environment,
+        )
+        counts = [
+            line[len(RESULT_MARKER) :]
+            for line in result.stdout.splitlines()
+            if line.startswith(RESULT_MARKER)
+        ]
+        observed = json.loads(counts[-1]) if counts else {"tests": 0, "skipped": 0}
+        return (
+            result.returncode == 0 and bool(counts),
+            observed["tests"],
+            observed["skipped"],
+            result.stdout,
+            result.stderr,
+            time.monotonic() - started,
+            None,
+        )
+    except (OSError, subprocess.TimeoutExpired, ValueError) as error:
+        stdout = _output_text(error.stdout) if isinstance(error, subprocess.TimeoutExpired) else ""
+        stderr = _output_text(error.stderr) if isinstance(error, subprocess.TimeoutExpired) else ""
+        return False, 0, 0, stdout, stderr, time.monotonic() - started, str(error)
+
+
+def _docker_module(root: Path, module: Path) -> bool:
+    return module.parent == root / APP / "tests" and (
+        module.stem.endswith("_docker_e2e") or module.stem == "test_selected_query_mcp_e2e"
     )
-    print(result.stdout, end="", flush=True)
-    print(result.stderr, end="", file=sys.stderr, flush=True)
-    counts = [
-        line[len(RESULT_MARKER) :]
-        for line in result.stdout.splitlines()
-        if line.startswith(RESULT_MARKER)
-    ]
-    if not counts:
-        return False, 0, 0
-    observed = json.loads(counts[-1])
-    return result.returncode == 0, observed["tests"], observed["skipped"]
 
 
 def run_full_suite(root: Path) -> int:
@@ -105,11 +125,7 @@ def run_full_suite(root: Path) -> int:
     if not modules:
         print("No source test modules found", file=sys.stderr)
         return 1
-    integration = any(
-        module.parent == root / APP / "tests"
-        and (module.stem.endswith("_docker_e2e") or module.stem == "test_selected_query_mcp_e2e")
-        for module in modules
-    )
+    integration = any(_docker_module(root, module) for module in modules)
     context = current_code_test_image(root) if integration else nullcontext({})
     try:
         with context as additions:
@@ -123,20 +139,35 @@ def run_full_suite(root: Path) -> int:
         return 1
 
 
+def _output_text(output: str | bytes | None) -> str:
+    return output.decode("utf-8", errors="replace") if isinstance(output, bytes) else output or ""
+
+
 def _run_modules(root: Path, modules: list[Path], environment: dict, integration: bool) -> int:
     failed = []
     tests = skipped = 0
-    for module in modules:
-        print(f"Test module: {module.relative_to(root)}", flush=True)
-        try:
-            successful, count, skips = run_module(root, module, environment)
+    with ThreadPoolExecutor(max_workers=4) as ordinary, ThreadPoolExecutor(max_workers=2) as docker:
+        pending = {
+            (docker if _docker_module(root, module) else ordinary).submit(
+                run_module, root, module, environment
+            ): module
+            for module in modules
+        }
+        for future in as_completed(pending):
+            module = pending.pop(future)
+            successful, count, skips, stdout, stderr, elapsed, diagnostic = future.result()
+            print(f"Test module: {module.relative_to(root)}", flush=True)
+            print(stdout, end="", flush=True)
+            print(stderr, end="", file=sys.stderr, flush=True)
+            if diagnostic is not None:
+                print(
+                    f"Test module failed: {module.relative_to(root)}: {diagnostic}", file=sys.stderr
+                )
+            print(f"Module time: {module.relative_to(root)}: {elapsed:.3f}s", flush=True)
             tests += count
             skipped += skips
             if not successful:
                 failed.append(module.relative_to(root).as_posix())
-        except (OSError, subprocess.TimeoutExpired, ValueError) as error:
-            print(f"Test module failed: {module.relative_to(root)}: {error}", file=sys.stderr)
-            failed.append(module.relative_to(root).as_posix())
     if integration:
         try:
             if not run_launcher(root, environment):

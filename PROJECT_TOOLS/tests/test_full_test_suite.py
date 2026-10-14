@@ -18,6 +18,7 @@ import run_full_test_suite as full  # noqa: E402
 PASSING = (
     "import unittest\nclass Test(unittest.TestCase):\n def test_one(self): self.assertTrue(True)\n"
 )
+PASSED_COUNT = full.RESULT_MARKER + '{"tests":1,"skipped":0}\n'
 
 
 class FullTestSuiteTests(unittest.TestCase):
@@ -105,15 +106,17 @@ class FullTestSuiteTests(unittest.TestCase):
 
     def test_existing_optins_are_forwarded_without_inventing_image_inputs(self) -> None:
         module = self.file("PROJECT_TOOLS/tests/test_one.py")
-        result = subprocess.CompletedProcess(
-            [], 0, full.RESULT_MARKER + '{"tests":1,"skipped":0}\n', ""
-        )
+        result = subprocess.CompletedProcess([], 0, PASSED_COUNT, "")
         with (
             patch.dict(full.os.environ, {"CAPRMEDIO_DOCKER_QUERY_IMAGE": "actual-image"}),
             patch.object(full.subprocess, "run", return_value=result) as command,
         ):
             with redirect_stdout(self.output), redirect_stderr(self.errors):
-                self.assertEqual((True, 1, 0), full.run_module(self.root, module))
+                observed = full.run_module(self.root, module)
+            self.assertEqual((True, 1, 0), observed[:3])
+            self.assertEqual((PASSED_COUNT, ""), observed[3:5])
+            self.assertGreaterEqual(observed[5], 0)
+            self.assertIsNone(observed[6])
             environment = command.call_args.kwargs["env"]
             self.assertEqual("1", environment["CAPRMEDIO_DOCKER_E2E"])
             self.assertEqual("1", environment["CAPRMEDIO_DOCKER_QUERY_E2E"])
@@ -127,18 +130,44 @@ class FullTestSuiteTests(unittest.TestCase):
 
     def test_module_timeout_and_command_errors_are_truthful_failures(self) -> None:
         module = self.file("PROJECT_TOOLS/tests/test_one.py")
+        later = self.file("PROJECT_TOOLS/tests/test_two.py")
+        passing = subprocess.CompletedProcess([], 0, PASSED_COUNT, "")
         for error in (
             OSError("fixture command unavailable"),
             subprocess.TimeoutExpired("fixture", 1800),
+            subprocess.TimeoutExpired(
+                "fixture", 1800, output=b"partial output \xff\n", stderr=b"partial errors \xfe\n"
+            ),
+            subprocess.TimeoutExpired(
+                "fixture", 1800, output="partial output\n", stderr="partial errors\n"
+            ),
         ):
+            self.output, self.errors = io.StringIO(), io.StringIO()
+
+            def execute(argv, **_options):
+                if argv[-1] == "test_one":
+                    raise error
+                return passing
+
             with (
                 self.subTest(error=error),
-                patch.object(full.subprocess, "run", side_effect=error) as command,
+                patch.object(full.subprocess, "run", side_effect=execute) as command,
             ):
                 self.assertEqual(1, self.run_suite())
-                self.assertEqual(full.MODULE_TIMEOUT_SECONDS, command.call_args.kwargs["timeout"])
-                self.assertEqual(1800, command.call_args.kwargs["timeout"])
+                self.assertEqual(2, command.call_count)
+                self.assertEqual(
+                    {1800}, {call.kwargs["timeout"] for call in command.call_args_list}
+                )
+                self.assertEqual(1800, full.MODULE_TIMEOUT_SECONDS)
                 self.assertIn(module.name, self.errors.getvalue())
+                self.assertIn(later.name, self.output.getvalue())
+                self.assertIn("tests run: 1; skipped: 0; failed modules: 1", self.output.getvalue())
+                if isinstance(error, subprocess.TimeoutExpired) and error.stdout is not None:
+                    self.assertIn("partial output", self.output.getvalue())
+                    self.assertIn("partial errors", self.errors.getvalue())
+                    if isinstance(error.stdout, bytes):
+                        self.assertIn("partial output �", self.output.getvalue())
+                        self.assertIn("partial errors �", self.errors.getvalue())
 
     def test_symlink_test_module_is_not_executed_outside_source_root(self) -> None:
         original = self.file("outside.py")

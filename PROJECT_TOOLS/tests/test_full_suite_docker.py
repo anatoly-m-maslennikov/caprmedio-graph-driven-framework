@@ -145,7 +145,7 @@ class FullSuiteDockerTests(unittest.TestCase):
             ),
             patch.object(full, "discover_test_modules", return_value=[module]),
             patch.object(full, "current_code_test_image", return_value=lifecycle) as build,
-            patch.object(full, "run_module", return_value=(True, 2, 0)) as run,
+            patch.object(full, "run_module", return_value=(True, 2, 0, "", "", 0.0, None)) as run,
             patch.object(full, "run_launcher", return_value=False) as launcher,
             redirect_stdout(self.output),
             redirect_stderr(self.errors),
