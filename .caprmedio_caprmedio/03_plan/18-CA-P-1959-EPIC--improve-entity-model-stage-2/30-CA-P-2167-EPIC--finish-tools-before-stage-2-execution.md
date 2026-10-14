@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 63
-updated_at: "2026-10-14 19:58:02 +0400"
+version: 64
+updated_at: "2026-10-14 20:37:04 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,18 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Verified implementation and diagnostic suite — 2026-10-14 20:37 +0400
+
+This checkpoint supersedes earlier pending-implementation statements, not migration safeguards. The Journal batch limit is approximate under concurrent writes; no append lock is required.
+
+Committed: `fc7378cf8` closes plain Journal callers and the direct release routes; `79d243b73` refreshes approved Subject preparation bindings; `e57745578` requires the full suite and disposable current-code Docker integrations. `5beb029ab` connects exact one-Atom staged Subject publication to the actual connected Codex confirmation form, preserving source checks, the exclusive window and no replay. Independent gateway tests passed, including both Operator-registry drift cases and the existing helper/forwarding paths. `2ca429dbd` aligns reversal rules with plain logging and preserves their exact predecessors.
+
+The two authorized D562/D563 changes are recorded in `.caprmedio_caprmedio/_journal/Codex-2026-10-14-part-1.ndjson`, without baseline rows or an invented Workflow run. Earlier statements that these events were not recorded are historical.
+
+The first full-suite run is diagnostic, not acceptance: it found stale Journal fixtures, old Core source paths, graph discovery/order defects, legacy sealed-release tests and hook-budget failures. `debbf866e` excludes archived predecessors from current graph sources; `d52b4137c` aligns producer/verifier carrier ordering. The actual current Core relation-registry tests passed independently without changing authority pins. `f420fa541` updates two reviewed Journal fixtures. Remaining fixture verification and the generated-bootstrap package-priority fix are in progress. Retirement of old release/installer APIs and dedicated tests awaits the Operator's answer; normal MCP startup must remain supported.
+
+The diagnostic run began before subsequent fixes and newly added tests. A new frozen-source full-suite run, including required integrations, is mandatory before release acceptance. Focused passes do not waive existing Method-conformance gaps or establish installed/runtime acceptance. Keep both Epics Active. No live Subject migration, content migration, runtime activation/restart or push is established by these commits.
 
 ### Simplify release verification — 2026-10-14
 

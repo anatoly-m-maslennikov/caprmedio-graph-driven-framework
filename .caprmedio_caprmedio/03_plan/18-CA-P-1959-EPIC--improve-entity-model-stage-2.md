@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 77
-updated_at: "2026-10-14 19:58:02 +0400"
+version: 78
+updated_at: "2026-10-14 20:37:04 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,18 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Verified implementation and diagnostic suite — 2026-10-14 20:37 +0400
+
+This checkpoint supersedes earlier pending-implementation statements, not migration safeguards. The Journal batch limit is approximate under concurrent writes; no append lock is required.
+
+Committed: `fc7378cf8` closes plain Journal callers and the direct release routes; `79d243b73` refreshes approved Subject preparation bindings; `e57745578` requires the full suite and disposable current-code Docker integrations. `5beb029ab` connects exact one-Atom staged Subject publication to the actual connected Codex confirmation form, preserving source checks, the exclusive window and no replay. Independent gateway tests passed, including both Operator-registry drift cases and the existing helper/forwarding paths. `2ca429dbd` aligns reversal rules with plain logging and preserves their exact predecessors.
+
+The two authorized D562/D563 changes are recorded in `.caprmedio_caprmedio/_journal/Codex-2026-10-14-part-1.ndjson`, without baseline rows or an invented Workflow run. Earlier statements that these events were not recorded are historical.
+
+The first full-suite run is diagnostic, not acceptance: it found stale Journal fixtures, old Core source paths, graph discovery/order defects, legacy sealed-release tests and hook-budget failures. `debbf866e` excludes archived predecessors from current graph sources; `d52b4137c` aligns producer/verifier carrier ordering. The actual current Core relation-registry tests passed independently without changing authority pins. `f420fa541` updates two reviewed Journal fixtures. Remaining fixture verification and the generated-bootstrap package-priority fix are in progress. Retirement of old release/installer APIs and dedicated tests awaits the Operator's answer; normal MCP startup must remain supported.
+
+The diagnostic run began before subsequent fixes and newly added tests. A new frozen-source full-suite run, including required integrations, is mandatory before release acceptance. Focused passes do not waive existing Method-conformance gaps or establish installed/runtime acceptance. Keep both Epics Active. No live Subject migration, content migration, runtime activation/restart or push is established by these commits.
 
 ### Simplify release verification — 2026-10-14
 
