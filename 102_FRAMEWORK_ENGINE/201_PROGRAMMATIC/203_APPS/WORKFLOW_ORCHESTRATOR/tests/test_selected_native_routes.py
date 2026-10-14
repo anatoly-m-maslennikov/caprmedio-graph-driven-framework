@@ -57,24 +57,6 @@ class SelectedNativeRoutesTest(unittest.TestCase):
         project_root = Path(tempfile.mkdtemp(dir=parent))
         project = GoldenProject(ROOT, project_root, GoldenCase(case_id, route))
         project.prepare()
-        if case_id in {"W14", "W15"}:
-            control = project_root / ".caprmedio_caprmedio"
-            structure = control / "project_structure.toml"
-            structure.write_text(
-                "schema_version = 1\n" + structure.read_text(encoding="utf-8")
-                + '\n[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
-                'authority_path = ".caprmedio_caprmedio/query_core"\n'
-                'delivery_path = ".caprmedio_caprmedio/query_output"\n', encoding="utf-8",
-            )
-            defaults = control / "query_core"
-            defaults.mkdir()
-            (defaults / "caprmedio_framework_default_settings.toml").write_text(
-                "[query]\nmax_request_bytes = 4096\nmax_grammar_depth = 16\n"
-                "max_filter_tokens = 128\nmax_in_members = 16\nmax_selected_fields = 8\n"
-                "max_page_size = 2\nmax_snapshot_members = 256\nmax_file_bytes = 131072\n"
-                "max_total_read_bytes = 2097152\ntimeout_seconds = 10\nmax_findings = 8\n",
-                encoding="utf-8",
-            )
         return FixtureLease(project_root), project
 
     @staticmethod
