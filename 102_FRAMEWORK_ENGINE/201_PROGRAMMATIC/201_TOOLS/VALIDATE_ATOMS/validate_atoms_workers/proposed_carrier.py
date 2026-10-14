@@ -180,7 +180,7 @@ def _assigned_identity(context: VerifiedSourceContext, metadata: Record) -> None
 
 def _operations_placement(
     context: VerifiedSourceContext, metadata: Record, path: Path, role_root: Path,
-    owner: str, rows: list[Record],
+    owner: str, rows: list[Record], owner_authority: Path,
 ) -> None:
     """Authenticate only the Workflow/Step ancestors named by this carrier path."""
     report: Record = {"bindings": {}, "coverage": {"gaps": []}}
@@ -223,7 +223,9 @@ def _operations_placement(
                 _source(context.root, "CA-D-289", context._reader, report)
             if not path.stem.endswith(f"@{metadata['version']}"):
                 raise ProposedCarrierError("Archived Operations carrier lacks its carried Version suffix")
-        if any(row.get("scope_unit_name") != owner and path.is_relative_to(Path(row["authority_path"]))
+        if any(row.get("scope_unit_name") != owner
+               and Path(row["authority_path"]).is_relative_to(owner_authority)
+               and path.is_relative_to(Path(row["authority_path"]))
                for row in rows):
             raise ProposedCarrierError("Operations container crosses a declared Scope Unit authority")
     except (OSError, RuntimeError, CarrierError, ValueError) as error:
@@ -426,7 +428,8 @@ def validate_proposed_carrier(
     tail = relative_path.parts[role_index + 1 : -1]
     if role == "Operations" and len(tail) > (0 if status == "Active" else 1):
         role_root = control / Path(*relative_path.parts[:role_index + 1])
-        _operations_placement(verified_source_context, metadata, project_relative_path, role_root, owner, rows)
+        _operations_placement(verified_source_context, metadata, project_relative_path, role_root, owner, rows,
+                              authority_path)
         _current(verified_source_context._reader, verified_source_context._selection)
         if inventory is not None:
             try:
