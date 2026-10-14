@@ -33,9 +33,9 @@ ENTRYPOINT = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/atom_u
 SOURCE_PINS = tuple([
     {
         "atom_id": "CA-R-866",
-        "version": 25,
+        "version": 26,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
-        "sha256": "8530bda5df82fb9395ccdf4e8ad4c9b496cd864f5a395f8d6a1af77dac00d187"
+        "sha256": "ef34d271cdf1fac68cec3ee5df48937396f3485cadf107ca46b9b1c32e883146"
     },
     {
         "atom_id": "CA-R-1093",
@@ -45,15 +45,15 @@ SOURCE_PINS = tuple([
     },
     {
         "atom_id": "CA-O-030",
-        "version": 18,
+        "version": 19,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md",
-        "sha256": "05916641aa04549840d329385e75f2f083f8cd3556bb2912eea06929bb93b6dc"
+        "sha256": "14b8423f542af6d12a2f40a7ca4cdf3a343c7ea14ebc6bdecc16c01a69a28453"
     },
     {
         "atom_id": "CA-M-371",
-        "version": 11,
+        "version": 12,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md",
-        "sha256": "5f775dcbbd365378731b7039b47c78d4c4eebaeb0991ed7850c0c44638d63d79"
+        "sha256": "f0f4a2aa25de2d6b04061a65b7606101410cd9f56ccfe81567f323c6dc99b04d"
     },
     {
         "atom_id": "CA-D-425",
@@ -63,9 +63,9 @@ SOURCE_PINS = tuple([
     },
     {
         "atom_id": "CA-E-304",
-        "version": 24,
+        "version": 25,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
-        "sha256": "8a2464133f75760fa7fe78f399a860d1f3766807db7816423cf9ce109b5ce21a"
+        "sha256": "79f5eb5b9e73fe1907a8b923c1ea9443a11def5f1d21eaea0e0393644bd0b2c3"
     }
 ])
 

@@ -41,24 +41,24 @@ TOOL_WORKFLOWS = (
 PREPARATION_PINS = tuple({"atom_id": atom_id, "version": version,
                           "path": TOOL_WORKFLOWS + relative, "sha256": digest}
                          for atom_id, version, relative, digest in (
-    ("CA-R-866", 25,
+    ("CA-R-866", 26,
      "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
-     "8530bda5df82fb9395ccdf4e8ad4c9b496cd864f5a395f8d6a1af77dac00d187"),
+     "ef34d271cdf1fac68cec3ee5df48937396f3485cadf107ca46b9b1c32e883146"),
     ("CA-R-1093", 12,
      "04_requirement/CA-R-1093-TOOL_WORKFLOWS-CORE-REQUIREMENT--separate-generic-and-atom-specific-tool-authority.md",
      "089aef0c7af39cd3135b411b5629ee32e350f35beae53a5dbd85754cb50f53e4"),
-    ("CA-O-030", 18,
+    ("CA-O-030", 19,
      "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md",
-     "05916641aa04549840d329385e75f2f083f8cd3556bb2912eea06929bb93b6dc"),
-    ("CA-M-371", 11,
+     "14b8423f542af6d12a2f40a7ca4cdf3a343c7ea14ebc6bdecc16c01a69a28453"),
+    ("CA-M-371", 12,
      "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md",
-     "5f775dcbbd365378731b7039b47c78d4c4eebaeb0991ed7850c0c44638d63d79"),
+     "f0f4a2aa25de2d6b04061a65b7606101410cd9f56ccfe81567f323c6dc99b04d"),
     ("CA-D-425", 16,
      "07_delivery/CA-D-425-TOOL_WORKFLOWS-STANDARD-DELIVERY--deliver-atom-update-tool.md",
      "208431f44e901ed023f45c80536a92ab63e7c046ff45f56dede0f091c8bc7023"),
-    ("CA-E-304", 24,
+    ("CA-E-304", 25,
      "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
-     "8a2464133f75760fa7fe78f399a860d1f3766807db7816423cf9ce109b5ce21a"),
+     "79f5eb5b9e73fe1907a8b923c1ea9443a11def5f1d21eaea0e0393644bd0b2c3"),
 ))
 
 
