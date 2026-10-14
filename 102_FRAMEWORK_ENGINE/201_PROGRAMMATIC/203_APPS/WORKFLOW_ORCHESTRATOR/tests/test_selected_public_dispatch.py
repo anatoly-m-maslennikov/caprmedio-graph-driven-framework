@@ -29,7 +29,10 @@ class SelectedPublicDispatchTests(unittest.TestCase):
 
     def test_retired_selected_session_provider_refuses_without_starting_a_run(self) -> None:
         with patch("selected_native_providers.SelectedExecution", side_effect=AssertionError("generic start")) as generic:
-            with self.assertRaisesRegex(SelectedExecutionError, "selected-session provider is disabled"):
+            with self.assertRaisesRegex(
+                SelectedExecutionError,
+                "Release selected-session providers are disabled; use direct Release commands",
+            ):
                 self.providers.execution(self.frozen)
         generic.assert_not_called()
         self.assertEqual([], list(self.root.iterdir()))
