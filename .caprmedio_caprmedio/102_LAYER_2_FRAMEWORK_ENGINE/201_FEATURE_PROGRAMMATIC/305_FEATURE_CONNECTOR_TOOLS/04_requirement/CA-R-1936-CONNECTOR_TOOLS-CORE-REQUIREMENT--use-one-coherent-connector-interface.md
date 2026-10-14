@@ -8,8 +8,8 @@ local_tier: Core
 global_tier: 9
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-12 23:58:28 +0400"
+version: 2
+updated_at: "2026-10-14 10:04:27 +0400"
 subjects:
   governs: "Tool"
   depends_on: ["Workflow", "Atom", "Scope Unit", "Property"]
@@ -37,5 +37,9 @@ Backend locations, filenames, database tables, serialization, query languages an
 The result roles are `data`, `current_state`, `effects` and `errors`. Return actual observed data and source-state evidence and truthful known or unknown effect evidence. Errors are structured by code, message and affected field. Unknown effects **must** include `effect_uncertain`; nonempty errors **must not** be reported as success even if some effects are known. Empty errors require independent verification of the operation's declared result, not merely absence of an exception. A true no-op requires verification that the requested state is already satisfied and unchanged; it creates no fictitious write, history, Version or timestamp. Preserve applicable per-operation storage safeguards and any known partial effects without claiming a cross-Atom transaction or automatic recovery.
 
 ## Details
+
+### Direct Subject lookup exception
+
+Only the direct read-only ATOM_SEARCH Subject lookup declared by CA-D-424 may receive its closed explicit logical criteria without the seven-member request envelope or caller-supplied authorization/context references. Its canonical provider is bound to the admitted Project root and must validate the exact applicable definition, grammar, Project boundary and selected-source evidence itself. This named exception introduces no approval flag, fabricated reference, permission system or implicit target-selection policy. It creates no Session, Action Run or Journal record and grants no mutation permission. When used within an actual Workflow, the caller retains its applicable Tool-call recording responsibility. All other connector operations and the existing Session-based realization retain their request, admission and recording rules unchanged.
 
 CA-M-376-CONNECTOR_TOOLS-CORE-METHOD--execute-one-explicit-connector-operation defines the minimal adapter procedure; CA-E-628 defines conformance and CA-D-625 owns exact representation. CA-D-527 remains the existing outer selected-operation service envelope where used; this contract adds no transport, database implementation, whole-Project default query, retry or resume protocol. Workflow semantic ownership remains under CA-R-1093-TOOL_WORKFLOWS-CORE-REQUIREMENT--separate-generic-and-atom-specific-tool-authority. Source authoring is not runtime implementation, connected-MCP acceptance or admission of deferred Subject publication.

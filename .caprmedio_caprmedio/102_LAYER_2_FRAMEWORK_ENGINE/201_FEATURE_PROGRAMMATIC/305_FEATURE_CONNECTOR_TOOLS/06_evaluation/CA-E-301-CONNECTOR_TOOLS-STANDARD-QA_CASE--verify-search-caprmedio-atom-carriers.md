@@ -16,8 +16,8 @@ subjects:
     - "Artifact/Carrier"
     - "Scope Unit"
     - "Search Atom Carriers"
-version: 18
-updated_at: "2026-10-12 23:54:41 +0400"
+version: 19
+updated_at: "2026-10-14 10:04:27 +0400"
 relations: {"evaluation_for":["CA-R-863","CA-O-046","CA-O-201"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -37,6 +37,16 @@ apply **to** **any** realization of CA-O-046 **before** it is relied on for read
 CA-O-046 returns every and only matching logical Atom descriptor in the requested scope, without invoking Read or Modify or changing project truth.
 
 ## Details
+
+### Direct registered Subject lookup acceptance
+
+Independently verify the exact bounded direct request/result in CA-D-424 through the production registered MCP transport, with the actual current Delivery/Action binding and source-pin checks enabled. Discovery exposes ATOM_SEARCH as atom_search with non-null closed input/output schemas. A direct request supplies every required logical criterion without Session, authorization/context reference, root or path; unknown fields and broader unsupported Type/target Scope/projection filters fail before traversal. This subset does not establish conformance of the broader generic Find cases above.
+
+Cover governs, depends_on and both with exact/prefix/suffix/contains; include literal fragments, case distinctions, profile delimiter boundaries, body-only false positives and complete empty/singular/multiple results. Compare independently authored expected field/value matches and exact Atom ID, Version and full-byte SHA-256 evidence. Preserve separate fields and historical Versions without public dependency indexes or physical selectors.
+
+Cover valid selected R/M/D carriers with absent Type; excluded malformed C/A; selected malformed/unreadable data; symlinks and owner/path disagreement; competing selected current IDs across owners and excluded-role headers. Include both an unrelated malformed atom_id YAML/header outside selected identities and its possible-selected-ID counterpart: the former does not trigger full schema admission, the latter refuses ambiguous identity. Read-budget or currentness failure remains refusal. Change source bytes, source membership, settings/structure, grammar or applicable definition pins during observation and require refusal, never a partial complete result.
+
+Record before/after bytes and artifact membership, including scratch and Journal locations. A real registered MCP lookup without Session creates no Session, Run, Journal or staging artifact and invokes no Read/Modify. Retain enclosing-Workflow Tool-call recording responsibility when applicable. Fixture-only direct Python calls or mocked freshness do not prove registered or connected-MCP acceptance. Source authoring alone records no observed pass.
 
 ### Logical Find contract
 

@@ -8,8 +8,8 @@ local_tier: Core
 global_tier: 9
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-12 23:58:28 +0400"
+version: 2
+updated_at: "2026-10-14 10:04:27 +0400"
 subjects:
   governs: "Tool"
   depends_on: ["Workflow", "Atom", "Scope Unit", "Property"]
@@ -37,5 +37,9 @@ One explicit admitted storage operation through the coherent connector interface
 Do not turn these mechanics into a cross-Atom all-or-nothing promise, hidden lifecycle Action or automatic retry, resume or recovery policy. A storage-backend swap replaces this connector's implementation or binding without changing Workflow meaning or sequencing.
 
 ## Details
+
+### Direct Subject lookup procedure
+
+For only the direct read-only ATOM_SEARCH Subject subset declared by CA-D-424, validate its closed explicit criteria instead of demanding caller authorization/context references or the seven-member envelope. Bind the Project root through the registered canonical provider; verify current definition, grammar, settings/structure and selected-source evidence before returning. Do not manufacture execution references or start a Session, Action Run or Journal event. Return the same four result roles with no effects; refuse incomplete, ambiguous or stale observation. Applicable recording remains with an actual enclosing Workflow caller. The existing Session-based realization and every other connector's admission and recording are unchanged.
 
 The exact request and result representation belongs to CA-D-625. Existing CA-D-527 outer service transport remains unchanged where applicable. This Method introduces no database implementation or new transport and does not prove current code conformance, connected-MCP execution or deferred Subject publication readiness.

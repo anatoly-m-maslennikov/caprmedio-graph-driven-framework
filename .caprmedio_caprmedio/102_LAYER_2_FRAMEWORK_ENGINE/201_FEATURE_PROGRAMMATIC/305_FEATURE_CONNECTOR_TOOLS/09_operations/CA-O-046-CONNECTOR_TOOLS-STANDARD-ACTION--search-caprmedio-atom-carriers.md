@@ -18,8 +18,8 @@ subjects:
     - "Atom"
     - "Artifact/Carrier"
     - "Scope Unit"
-version: 8
-updated_at: "2026-10-12 23:49:24 +0400"
+version: 9
+updated_at: "2026-10-14 10:04:27 +0400"
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
@@ -45,6 +45,12 @@ Use D625's closed inner request keys `operation`, `target`, `query`, `delta`, `e
 
 ## Details
 
+### Direct read-only Subject realization
+
+CA-D-424 declares the closed direct Subject lookup realization of this definition. For that subset only, use the named CA-R-1936/CA-D-625/CA-M-376 exception: the canonical provider binds the Project root and validates explicit logical criteria and current source/schema evidence without caller execution-context references or D527's outer envelope. This direct observation does not start a Session or Action Run, create a Journal record or claim an execution receipt. If called within an actual Workflow, the caller retains applicable Tool-call recording. Existing Session-based admission and recording remain unchanged.
+
+Support only the explicit fields, four literal modes, owning Scope Unit, Content Roles, lifecycle, profile and optional full Atom IDs in D424. Reject physical selectors, unknown fields and broader unsupported filters. Suffix/contains accept nonempty literal fragments; complete selected source Subjects remain profile-validated. Return the four common result roles, exact logical matching facts and observed complete-byte source tokens. Refuse selected malformed, ambiguous, incomplete or stale sources without reporting partial success. This realization admits no Read/Modify, staging, migration or publication.
+
 Find Workflow O201 owns caller-level defaults, semantic criteria and result use. A Find-reference receiving request supplies explicit reference criteria; this connector only returns matching owners and never modifies references, substitutes successors, reads complete Atoms implicitly or invokes Modify.
 
-D625 is the shared logical inner contract, not a new transport; D527's outer envelope remains unchanged. A current independently verified realization, exact definition/source pins and applicable Run recording remain prerequisites to an actual Run. No new MCP binding, runtime admission, Core adoption, retry/resume or Subject migration/publication is asserted.
+D625 is the shared logical inner contract, not a new transport; D527's outer envelope remains unchanged. A current independently verified realization, exact definition/source pins and applicable Run recording remain prerequisites to an actual Run. The direct binding declared by CA-D-424 does not itself prove runtime implementation or acceptance; no Core adoption, retry/resume or Subject migration/publication is asserted.

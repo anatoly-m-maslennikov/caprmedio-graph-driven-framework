@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Atom","Scope Unit","Workflow","Project Configuration"]
-version: 2
-updated_at: "2026-10-13 02:45:51 +0400"
+version: 3
+updated_at: "2026-10-14 10:04:27 +0400"
 relations:
   delivery_for: ["CA-R-1936"]
   relates_to: ["CA-M-376","CA-D-527","CA-O-046","CA-O-047","CA-O-204","CA-O-218","CA-D-631"]
@@ -30,6 +30,10 @@ The concrete logical API representation required by CA-R-1936 and CA-M-376 for e
 Connectors use the same request/result roles for explicit query, read, create and modify operations. Each connector declares only its supported subset and target kinds; the common vocabulary does not require every connector to implement all four operations.
 
 ## Details
+
+### Named direct Subject lookup exception
+
+Only CA-D-424's direct read-only ATOM_SEARCH Subject lookup uses its separately closed public criteria instead of the seven-member inner request. It accepts no caller root, physical selector, authorization/context reference, approval flag or Session ID. The canonical root-bound provider validates the actual definition, grammar, Project boundary and selected-source evidence; no synthetic references or new authorization protocol substitute for those checks. It returns the same four logical result roles with no effects. This direct observation creates no Session, Action Run or Journal record and is not a recorded Action execution; an actual enclosing Workflow retains applicable Tool-call recording. This exception does not change the existing Session-based realization, D527's envelope within the selected service, any other connector operation, or staging/publication admission and recording.
 
 ### Logical request
 
