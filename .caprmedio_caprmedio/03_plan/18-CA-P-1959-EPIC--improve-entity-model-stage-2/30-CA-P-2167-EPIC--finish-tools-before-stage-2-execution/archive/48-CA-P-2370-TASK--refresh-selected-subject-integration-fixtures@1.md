@@ -34,3 +34,4 @@ Estimated own work: up to 15 minutes; split before exceeding this bound. Root ow
 ### Definition of Done
 
 Relevant isolated selected Subject apply, effect-portfolio and recording-recovery tests run against the intentionally current source packet with preserved safety assertions. Record exact sources and remaining independent manifest failures. Test fixture success is not production MCP or live migration acceptance.
+

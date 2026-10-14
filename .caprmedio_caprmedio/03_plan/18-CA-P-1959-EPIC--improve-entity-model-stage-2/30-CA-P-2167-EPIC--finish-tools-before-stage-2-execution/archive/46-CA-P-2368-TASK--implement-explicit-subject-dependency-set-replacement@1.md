@@ -34,3 +34,4 @@ Estimated own work: up to 15 minutes; split before exceeding this bound. Root ow
 ### Definition of Done
 
 Focused tests prove complete-set replacement, no-op, stale/duplicate/invalid-input refusal, LF/CRLF and unrelated-byte preservation, and consistent preview/intent/staging results. Independent code/tests verify the actual implementation. Existing selected apply integration is a separate gate, not waived.
+
