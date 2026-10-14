@@ -38,6 +38,18 @@ Eight tests passed independently and in Root's run, including actual in-memory S
 
 Default Tool registration, the running image and publication authorization are unchanged. Actual Codex UI display and direct human interaction remain unverified. The Operator was asked whether the eventual publication host may trust the exact-change confirmation returned through the connected Codex session without separate identity proof. That policy choice is unanswered; no approval is inferred. Live diagnostic exposure, runtime replacement and any further staging/publication effects remain separately gated.
 
+### Selected-source dependency closure — no admission change
+
+The read-only report `activation/selected-readmission-next.md`, SHA-256 `b7dc0f652d9c8b61b1dd0998cd5aaf1def218f9b5281a7b5d7ddc9ebd5fbe7cc`, accounts for 162 unique definition pins and 329 occurrences in the canonical selected manifest: 66 exact-current pins, 39 byte-identical relocations, 25 changed-version successors and 32 archive-only definitions. No ambiguous current original was found. The canonical manifest remains at SHA-256 `e73f5b9f7c712187c853eee5191f2689dc3deaec05462a740c7ae0545300ff8d`.
+
+The six current `update_atom` definitions pass individual route validation after in-memory substitution. Extending that read-only substitution to the complete available closure makes all fifteen ordinary routes pass individual validation, but the normal whole-manifest validator still rejects archive-only O186. Query admission independently rejects its changed source frontier. Individual route success does not admit a replacement manifest or establish semantic compatibility.
+
+All 32 archive-only pins belong to the two optional-but-present Release routes and their admission records. Current Release definitions removed some old Steps; restoring their archived predecessors or refreshing hashes cannot resolve that change correctly. O016, previously reported as another blocker, is only a byte-identical relocation. Existing D588/D592 authorizations cover specific older repair packets, not this closure.
+
+The remaining scope decision is whether to review admission for the requested Workflow and its complete dependencies, or reconcile the full shared portfolio including the unrelated Release contracts. Neither option is selected or implemented. Keep the existing full-manifest gate, sources, runtime and both uncertain scratch batches unchanged. This finding does not expand the Subjects-only Epic into Release repair.
+
+Independent read-only verification reproduced all 162-pin/329-occurrence counts and all four categories, checked 2,369 current canonical carriers by carried Atom ID, and found no ambiguous original. It reproduced the six-definition route pass, first-fifteen individual route passes, whole-manifest O186 refusal and separate query-frontier refusal using the activated export's validator. Canonical manifest bytes remained unchanged. This validates the reported structural/currentness blocker, not the proposed admission policies or the meaning of unrelated source changes.
+
 ## Current checkpoint — repaired sources and fresh connected preview, 2026-10-14
 
 This checkpoint supersedes earlier pending-activation and structural-disposition statements; those records below remain history. The Operator explicitly approved a clean rebuild/restart from `92086402569e95a8a28bf7c30e070029e65d7af2` and a fresh read-only preview, excluding uncommitted changes, new staging and live Atom writes.
