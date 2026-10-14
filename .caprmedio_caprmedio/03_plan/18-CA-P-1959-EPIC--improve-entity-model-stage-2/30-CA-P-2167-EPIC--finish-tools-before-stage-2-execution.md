@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 70
-updated_at: "2026-10-15 01:20:36 +0400"
+version: 71
+updated_at: "2026-10-14 22:34:51 +0000"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,14 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Frozen-suite checkpoints and remaining runtime work — 2026-10-14 22:34:51 +0000
+
+Run 8 reported 350 modules, 3,221 tests, zero skips and two failed entries: the selected-workflow Docker module and real launcher CLI. Run 9 reported 352 modules, 3,232 tests, zero skips and three failed entries: query Docker initialization, the supported-route Docker module and the real launcher CLI. Both HTTP first-cut modules passed. Logs: .caprmedio_tmp/verification/full-suite-20261015-run8-parallel.log and .caprmedio_tmp/verification/full-suite-20261015-run9-parallel.log. Neither run passed the full suite or demonstrated a ten-minute result.
+
+Bounded test/fixture fixes are committed as 358574e29, ef3f091be, 81a882af4 and 360c16cfd. SDK startup/list-shape handling and the launcher's minimal capability probe remain in progress. The remaining thirteen Docker execution routes are not accepted until they pass; retain the partial/mechanical graph coverage. Full semantic W11/W12 completion is deferred by the Operator, not silently counted as complete.
+
+Keep this Epic Active. The live MCP and Core Subjects remain untouched. No full-suite pass, runtime cutover, fresh connected staging, live apply or publication approval follows from these checkpoints; the existing Subjects-only/content-migration boundary and outstanding approval conditions remain.
 
 ### Current runtime verification and suite reduction — 2026-10-15
 
