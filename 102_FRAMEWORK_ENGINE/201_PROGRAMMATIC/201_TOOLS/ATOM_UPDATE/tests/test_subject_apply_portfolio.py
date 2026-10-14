@@ -34,12 +34,12 @@ TOOL_WORKFLOWS = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_
 CURRENT_W02_PINS = {
     "CA-O-067": (CORE_OPERATIONS + "CA-O-067-CORE_META_MODEL-ACTION--assess-atom-update-identity.md", 7,
                  "5c2098027094df1837b3b48b112a56866e3bee927699a58156e51b53925e998d"),
-    "CA-O-127": (CORE_OPERATIONS + "CA-O-127-CORE_META_MODEL-WORKFLOW--manage-atom-lifecycle.md", 3,
-                 "6daf77356ac8bac44e252a546aa1e34a7c02558dc1aa4e6b428cb0b15283fd67"),
-    "CA-O-128": (CORE_OPERATIONS + "CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom-lifecycle-changes.md", 5,
-                 "bb7973711e651b21805b47148078c77329789cbe0651ccd7f396c5cfaa3516c4"),
-    "CA-O-129": (CORE_OPERATIONS + "CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-lifecycle-change.md", 3,
-                 "e3e7917b1b7f76b60f87259ab1e6d6e6270fd3d31985a873d65b0d2b76501758"),
+    "CA-O-127": (CORE_OPERATIONS + "CA-O-127-CORE_META_MODEL-WORKFLOW--manage-atom-lifecycle.md", 4,
+                 "cb06d919ac51982a7eba820f62939cabefb7e7698de208345f46a97c5283f557"),
+    "CA-O-128": (CORE_OPERATIONS + "CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom-lifecycle-changes.md", 6,
+                 "48f0464400d198b0d914fbd2b76bd8d8ce616c94b41bd140ec5889ac6b9ac2e2"),
+    "CA-O-129": (CORE_OPERATIONS + "CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-lifecycle-change.md", 4,
+                 "fd95ab7ee49b96d9a33ceb951934e274e087ba47f349a0455b7654fc8ff546a1"),
     "CA-O-145": (CORE_OPERATIONS + "CA-O-145-CORE_META_MODEL-STEP--assess-update-identity-for-atom-lifecycle.md", 2,
                  "e1da6f807f965d94bb2f6b829767fb23d34ea6dc600408f78408378caf208f89"),
 }
@@ -96,6 +96,13 @@ class SubjectApplyProject:
         self.root = root
         self.golden = CurrentSubjectGoldenProject(REPOSITORY, root, GoldenCase("W02", "update_atom"))
         self.manifest = self.golden.prepare()
+        settings = root / operations.SETTINGS_PATH
+        settings.write_text(
+            '[project]\nkey = "subject-apply-fixture"\nname = "subject-apply-fixture"\n'
+            'repository_slug = "subject-apply-fixture"\n'
+            '[artifacts.identity]\nproject_prefix = "CA"\n\n' + settings.read_text(encoding="utf-8"),
+            encoding="utf-8",
+        )
         self.golden._write_complete_carrier_project_structure()
         self.golden._copy_complete_carrier_authority()
         for grammar_pin in get_profile(subject_profile).grammar_pins:
