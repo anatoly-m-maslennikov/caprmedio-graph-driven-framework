@@ -20,8 +20,8 @@ AUTHORITY_REF = (
     "205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-613-PROJECT_TOOLS-DELIVERY--serialize-public-release-workflow-bindings.md"
 )
 AUTHORITY_PIN = {
-    "atom_id": "CA-D-613", "version": 7, "source_path": AUTHORITY_REF,
-    "digest": "6895cd222da54d0c6bf73482eebf6eb39c9aa5f821b6dc65d47482c9d632e962",
+    "atom_id": "CA-D-613", "version": 8, "source_path": AUTHORITY_REF,
+    "digest": "fc110734da278d5d7bed95698742d12e8480b4e3b534ae8ee9b4c25d85531128",
 }
 _PIN_FIELDS = frozenset({"atom_id", "version", "source_path", "digest"})
 _RECORD_FIELDS = frozenset({
@@ -29,7 +29,7 @@ _RECORD_FIELDS = frozenset({
     "rmed_frontier", "mutation_capable", "native_action_calls",
 })
 _RMED_COLLECTIONS = ("requirements", "methods", "evaluations", "deliveries")
-_RMED_CARDINALITIES = (("requirements", 10), ("methods", 5), ("evaluations", 10), ("deliveries", 9))
+_RMED_CARDINALITIES = (("requirements", 7), ("methods", 3), ("evaluations", 8), ("deliveries", 6))
 _ATOM = re.compile(r"CA-[A-Z]+-[0-9]+")
 _DIGEST = re.compile(r"[0-9a-f]{64}")
 _MAX_SOURCE_BYTES = 1024 * 1024
@@ -233,11 +233,12 @@ def _single_pin(table: list[list[str]], resolve) -> dict[str, Any]:
 
 def _paired_pins(table: list[list[str]], resolve) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     rows = table[2:]
-    if len(rows) != 5:
-        _reject("D613 ordered Step/Action table must have exactly five rows", code="public-release-authority-invalid")
+    if len(rows) != 4:
+        _reject("D613 ordered Step/Action table must have exactly four rows", code="public-release-authority-invalid")
     steps, actions = [], []
     for position, row in enumerate(rows, 1):
-        if (len(row) != 3 or row != [str(position), f"CA-O-{187 + position * 2}", f"CA-O-{188 + position * 2}"]):
+        if (len(row) != 3 or row[0] != str(position)
+                or any(_ATOM.fullmatch(identity) is None for identity in row[1:])):
             _reject("D613 Step/Action positions are incomplete or reordered", code="public-release-authority-invalid")
         steps.append(resolve(row[1], "Operations", "Step"))
         actions.append(resolve(row[2], "Operations", "Action"))
@@ -258,14 +259,10 @@ def _rmed_pins(table: list[list[str]], resolve) -> dict[str, list[dict[str, Any]
     for row, (collection, position) in zip(rows, expected_occurrences, strict=True):
         if (len(row) != 3 or row[0] != collection or row[1] != str(position)):
             _reject("D613 RMED row is malformed", code="public-release-authority-invalid")
-        first, role = {"requirements": (1920, "Requirement"), "methods": (365, "Method"),
-                       "evaluations": (610, "Evaluation"), "deliveries": (610, "Delivery")}[collection]
-        number = first + position - 1
-        if collection == "deliveries" and number >= 613:
-            number += 1
-        prefix = {"requirements": "R", "methods": "M", "evaluations": "E", "deliveries": "D"}[collection]
-        if row[2] != f"CA-{prefix}-{number}":
-            _reject("D613 RMED membership is reordered or unsupported", code="public-release-authority-invalid")
+        role = {"requirements": "Requirement", "methods": "Method",
+                "evaluations": "Evaluation", "deliveries": "Delivery"}[collection]
+        if _ATOM.fullmatch(row[2]) is None:
+            _reject("D613 RMED identity is invalid", code="public-release-authority-invalid")
         result[collection].append(resolve(row[2], role, None))
     _unique_pins([pin for collection in _RMED_COLLECTIONS for pin in result[collection]])
     return result
@@ -289,7 +286,7 @@ def _workflow_order(raw: bytes) -> list[tuple[str, str]]:
     if current:
         tables.append(current)
     matches = [table for table in tables if table and table[0] == ["Step", "Action", "Result boundary"]]
-    if len(matches) != 1 or len(matches[0]) != 7:
+    if len(matches) != 1 or len(matches[0]) != 6:
         _reject("public workflow Step/Action declaration is invalid", code="public-release-authority-invalid")
     rows = matches[0][2:]
     if any(len(row) != 3 or _ATOM.fullmatch(row[0]) is None or _ATOM.fullmatch(row[1]) is None for row in rows):
@@ -322,7 +319,7 @@ def _record_shape(record: Any) -> dict[str, Any]:
 
 
 def derive_public_release_source_admission(root: str | Path) -> dict[str, Any]:
-    """Reopen D613 and its 45 active registered definitions, without a Task gate."""
+    """Reopen D613 and its 33 active registered definitions, without a Task gate."""
     project = _project_root(root)
     authority_raw, _ = _read_pin(project, AUTHORITY_PIN)
     workflow_table, pairs_table, rmed_table = _tables(authority_raw.decode("utf-8"))

@@ -26,7 +26,9 @@ from selected_admission import (AUTHORITY_PIN, AUTHORITY_REF, PublicReleaseSourc
 
 class SelectedPublicReleaseAdmissionTests(unittest.TestCase):
     def setUp(self):
-        self.root = Path(tempfile.mkdtemp(prefix="public-release-admission-", dir=tempfile.gettempdir()))
+        temporary = tempfile.TemporaryDirectory(prefix="public-release-admission-")
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name).resolve()
         self.authority = self.root / AUTHORITY_REF
         self.authority_text = (REPOSITORY / AUTHORITY_REF).read_text(encoding="utf-8")
         control = Path(".caprmedio_caprmedio")
@@ -35,7 +37,7 @@ class SelectedPublicReleaseAdmissionTests(unittest.TestCase):
         project_tools = Path(AUTHORITY_REF).parents[1]
         for source_root in (REPOSITORY / project_tools, REPOSITORY / control / "09_operations"):
             for source in source_root.rglob("*.md"):
-                if not {"archive", "draft", "drafts", "done", "canceled"}.intersection(source.relative_to(source_root).parts):
+                if not {"archive", "archived", "draft", "drafts", "done", "canceled"}.intersection(source.relative_to(source_root).parts):
                     self.copy(source.relative_to(REPOSITORY))
         self.projection = REPOSITORY / control / "_projection/selected_workflow_bindings.json"
         self.projection_before = self.projection.read_bytes()
@@ -63,9 +65,22 @@ class SelectedPublicReleaseAdmissionTests(unittest.TestCase):
                           "mutation_capable", "native_action_calls"}, set(record))
         self.assertEqual("public.release", record["route"])
         self.assertTrue(record["workflow"]["source_path"].startswith(".caprmedio_caprmedio/09_operations/"))
-        self.assertEqual(5, len(record["ordered_steps"]))
-        self.assertEqual(5, len(record["ordered_actions"]))
-        self.assertEqual(34, sum(map(len, record["rmed_frontier"].values())))
+        self.assertEqual(["CA-O-189", "CA-O-191", "CA-O-195", "CA-O-197"],
+                         [pin["atom_id"] for pin in record["ordered_steps"]])
+        self.assertEqual(["CA-O-190", "CA-O-192", "CA-O-196", "CA-O-198"],
+                         [pin["atom_id"] for pin in record["ordered_actions"]])
+        self.assertEqual({"requirements": 7, "methods": 3, "evaluations": 8, "deliveries": 6},
+                         {key: len(pins) for key, pins in record["rmed_frontier"].items()})
+        self.assertEqual(24, sum(map(len, record["rmed_frontier"].values())))
+        expected_members = {
+            "requirements": ["CA-R-1920", "CA-R-1921", "CA-R-1923", "CA-R-1925", "CA-R-1926", "CA-R-1927", "CA-R-1928"],
+            "methods": ["CA-M-365", "CA-M-366", "CA-M-368"],
+            "evaluations": ["CA-E-610", "CA-E-611", "CA-E-612", "CA-E-613", "CA-E-615", "CA-E-616", "CA-E-617", "CA-E-618"],
+            "deliveries": ["CA-D-610", "CA-D-611", "CA-D-612", "CA-D-616", "CA-D-617", "CA-D-618"],
+        }
+        self.assertEqual(expected_members,
+                         {key: [pin["atom_id"] for pin in pins] for key, pins in record["rmed_frontier"].items()})
+        self.assertNotIn("CA-D-613", [pin["atom_id"] for pins in record["rmed_frontier"].values() for pin in pins])
         self.assertEqual(before, self.snapshot())
         self.assertEqual(self.projection_before, self.projection.read_bytes())
 
@@ -112,16 +127,34 @@ class SelectedPublicReleaseAdmissionTests(unittest.TestCase):
         mutations = (
             self.authority_text.replace(second, "| 2 | CA-O-189 | CA-O-190 |", 1),
             self.authority_text.replace(first, "TEMP_ROW", 1).replace(second, first, 1).replace("TEMP_ROW", second, 1),
-            self.authority_text.replace("| 5 | CA-O-197 | CA-O-198 |\n", "", 1),
-            self.authority_text.replace("| deliveries | 9 | CA-D-619 |\n", "", 1),
+            self.authority_text.replace(first, "| 1 | CA-O-191 | CA-O-192 |", 1).replace(second, "| 2 | CA-O-189 | CA-O-190 |", 1),
+            self.authority_text.replace("| 4 | CA-O-197 | CA-O-198 |\n", "", 1),
+            self.authority_text.replace("| deliveries | 6 | CA-D-618 |\n", "", 1),
             self.authority_text.replace("| requirements | 1 | CA-R-1920 |", "| requirements | 1 | CA-R-1920 |\n| requirements | 1 | CA-R-1920 |", 1),
+            self.authority_text.replace("| requirements | 2 | CA-R-1921 |", "| requirements | 2 | CA-R-1920 |", 1),
+            self.authority_text.replace("| requirements | 2 | CA-R-1921 |", "| requirements | 2 | CA-R-999999 |", 1),
+            self.authority_text.replace("| requirements | 2 | CA-R-1921 |", "| requirements | 2 | CA-M-365 |", 1),
+            self.authority_text.replace("| deliveries | 6 | CA-D-618 |", "| deliveries | 6 | CA-D-613 |", 1),
         )
         for text in mutations:
+            self.assertNotEqual(self.authority_text, text, "mutation must actually alter the current fixture")
             with self.subTest(text=text[-100:]):
                 self.authority.write_text(text, encoding="utf-8")
                 with self.trusted_fixture_authority(), self.assertRaises(PublicReleaseSourceAdmissionError):
                     derive_public_release_source_admission(self.root)
         self.authority.write_text(self.authority_text, encoding="utf-8")
+
+    def test_authority_drift_and_reordered_record_refuse_without_writes(self):
+        record = derive_public_release_source_admission(self.root)
+        reordered = copy.deepcopy(record)
+        reordered["rmed_frontier"]["requirements"].reverse()
+        with self.assertRaises(PublicReleaseSourceAdmissionError):
+            validate_public_release_source_admission(self.root, reordered)
+        self.authority.write_bytes(self.authority.read_bytes() + b"\nchanged authority\n")
+        before = self.snapshot()
+        with self.assertRaisesRegex(PublicReleaseSourceAdmissionError, "source pin is stale"):
+            derive_public_release_source_admission(self.root)
+        self.assertEqual(before, self.snapshot())
 
     def test_obsolete_acceptance_caller_pass_or_shadow_field_refuses(self):
         record = derive_public_release_source_admission(self.root)
