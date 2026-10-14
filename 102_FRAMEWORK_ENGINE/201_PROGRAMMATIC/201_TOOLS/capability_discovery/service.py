@@ -3,7 +3,6 @@ import asyncio
 import base64
 import hashlib
 import json
-import re
 import time
 import tomllib
 from pathlib import Path
@@ -17,7 +16,6 @@ from project_selection import bound_selection
 _DISCOVERY_TOOL_FIELDS = frozenset({
     'source_atom', 'source_path', 'sha256', 'scope_unit', 'summary', 'availability',
 })
-_SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 _INSTALLED_FRAMEWORK_ROOT = '000_CAPRMEDIO_framework'
 _DIRECT_RELEASE_ROUTES = ("release_version", "public.release")
 
@@ -68,13 +66,7 @@ def _mcp_binding_candidate(binding):
 
 
 def _source_tool_declaration(body):
-    """Return one source declaration solely for package-conflict detection.
-
-    The source tree is never an installed binding provider.  It remains useful
-    evidence, however: if a current declaration for a package-projected Atom
-    has drifted, the consumer must report ambiguity instead of choosing either
-    presentation by traversal order.
-    """
+    """Read one current source binding; invalid or ambiguous blocks refuse."""
 
     declarations = []
     for block in body.split('```toml')[1:]:
@@ -253,146 +245,8 @@ class Service:
             })
         return rows
 
-    def _current_verified_package(self, issues):
-        """Reopen the one selected package without deriving it from checkout.
 
-        A missing selector retains the legacy source-only discovery surface for
-        an uninstalled Project.  Once a selector exists, even an invalid one
-        is a fail-closed package-discovery boundary: callers do not fall back
-        to source declarations.
-        """
 
-        selector_path = self.root / '.caprmedio_install' / 'current.toml'
-        try:
-            selector_path.lstat()
-        except FileNotFoundError:
-            return False, None
-        except OSError:
-            issues.append('installed package binding unavailable')
-            return True, None
-        try:
-            from framework_package import (
-                FrameworkPackageError,
-                verify_current_package_selector,
-                verify_framework_package,
-            )
-
-            payload = self.read(selector_path)
-            selector = tomllib.loads(payload.decode('utf-8'))
-            manifest = selector.get('package_manifest_sha256') if isinstance(selector, dict) else None
-            if not isinstance(manifest, str) or _SHA256.fullmatch(manifest) is None:
-                raise ValueError('package selector manifest is invalid')
-            if selector.get('release_relpath') != f'releases/{manifest}':
-                raise ValueError('package selector release is not canonical')
-            package = verify_framework_package(
-                self.root / '.caprmedio_install' / 'releases' / manifest,
-            )
-            verify_current_package_selector(payload, package)
-            return True, package
-        except (FrameworkPackageError, OSError, UnicodeDecodeError, tomllib.TOMLDecodeError, ValueError):
-            issues.append('installed package binding unavailable')
-            return True, None
-
-    @staticmethod
-    def _package_binding_conflicts(projection, current_sources):
-        """Whether an active source declaration conflicts with package identity.
-
-        A same-byte declaration of the same projected Atom is a second
-        presentation of one verified identity.  Every other source declaration
-        sharing its Atom, source path, Tool name, MCP name, or Action claim is
-        ambiguous.  Package discovery must not choose a duplicate claimant by
-        traversal order after replacing the source-tool rows.
-        """
-
-        expected_binding = dict(projection.tool_binding)
-        expected_actions = expected_binding.get('action_ids')
-        expected_action_ids = set(expected_actions) if isinstance(expected_actions, list) else set()
-        expected_name = expected_binding.get('name')
-        expected_name = expected_name if isinstance(expected_name, str) and expected_name else None
-        expected_mcp_name = expected_binding.get('mcp_name')
-        expected_mcp_name = (
-            expected_mcp_name
-            if isinstance(expected_mcp_name, str) and expected_mcp_name
-            else None
-        )
-        for candidates in current_sources.values():
-            for candidate in candidates:
-                if (
-                    candidate['atom_id'] == projection.atom_id
-                    and candidate['source_path'] == projection.source_path
-                    and candidate['sha256'] == projection.source_sha256
-                    and candidate['tool_binding'] == expected_binding
-                ):
-                    continue
-                binding = candidate['tool_binding']
-                if candidate['atom_id'] == projection.atom_id or candidate['source_path'] == projection.source_path:
-                    return True
-                if not isinstance(binding, dict):
-                    continue
-                candidate_actions = binding.get('action_ids')
-                if (
-                    (expected_name is not None and binding.get('name') == expected_name)
-                    or (expected_mcp_name is not None and binding.get('mcp_name') == expected_mcp_name)
-                    or (
-                        isinstance(candidate_actions, list)
-                        and bool(expected_action_ids.intersection(candidate_actions))
-                    )
-                ):
-                    return True
-        return False
-
-    def _selected_package_tools(self, current_sources, issues):
-        """Expose only projections physically reopened from selected package bytes."""
-
-        package_selected, package = self._current_verified_package(issues)
-        if not package_selected:
-            return False, []
-        if package is None:
-            return True, []
-        try:
-            from framework_package import FrameworkPackageError, read_verified_binding_projections
-
-            projections = read_verified_binding_projections(package)
-        except (FrameworkPackageError, OSError, ValueError):
-            issues.append('installed package binding unavailable')
-            return True, []
-
-        # The projection reader reopens package bytes; also ensure selection
-        # did not move to a different package between selector admission and
-        # that physical read.  A raced selector never falls back to checkout.
-        selected_after, package_after = self._current_verified_package([])
-        if not selected_after or package_after != package:
-            issues.append('installed package binding changed during discovery')
-            return True, []
-
-        tools = []
-        for projection in projections:
-            if self._package_binding_conflicts(projection, current_sources):
-                issues.append(f'ambiguous package binding: {projection.atom_id}')
-                continue
-            try:
-                parsed = parse_carrier(projection.source_payload, Path(projection.source_path))
-            except (ValueError, TypeError):
-                issues.append(f'installed package binding invalid: {projection.atom_id}')
-                continue
-            metadata = parsed.metadata
-            body = parsed.body
-            tool = {
-                **dict(projection.tool_binding),
-                'source_atom': projection.atom_id,
-                'source_path': projection.source_path,
-                'sha256': projection.source_sha256,
-                'scope_unit': metadata.get('current_scope_unit'),
-                'summary': body.split('##', 1)[0].replace('# Summary', '').strip(),
-            }
-            # The package reader has already established the entrypoint is an
-            # Engine member.  Never consult a root-checkout fallback here.
-            if _mcp_binding_candidate(tool):
-                tool['availability'] = 'mcp' if tool.get('mcp_name') in self.exposed else 'unresolved'
-            else:
-                tool['availability'] = 'source'
-            tools.append(tool)
-        return True, tools
 
     @staticmethod
     def _selected_route_input_schema(route: str):
@@ -450,7 +304,7 @@ class Service:
 
     def catalog(self):
         control = self._control_root()
-        atoms, source_tools, current_sources, issues = {}, [], {}, []
+        atoms, source_tools, issues = {}, [], []
         started, total = time.monotonic(), 0
         excluded = {'archive', 'archived', 'draft', 'done', 'resolved', 'canceled',
                     'cancelled', '_journal', '_projection'}
@@ -512,12 +366,6 @@ class Service:
                 else:
                     atoms[identity] = row
                 binding = _source_tool_declaration(parsed.body)
-                current_sources.setdefault(identity, []).append({
-                    'atom_id': identity,
-                    'source_path': row['source_path'],
-                    'sha256': row['sha256'],
-                    'tool_binding': binding,
-                })
                 if binding is not None:
                     entry = self.root / binding.get('entrypoint', '')
                     tool = {**binding, 'source_atom': identity,
@@ -533,16 +381,14 @@ class Service:
             except (ValueError, OSError, KeyError, TypeError) as error:
                 issues.append(f'{path.relative_to(self.root)}: {type(error).__name__}')
         valid = {key: value for key, value in atoms.items() if value}
-        package_selected, tools = self._selected_package_tools(current_sources, issues)
-        if not package_selected:
-            tools = source_tools
+        tools = source_tools
         counts = {}
         for tool in tools:
             counts[tool['name']] = counts.get(tool['name'], 0) + 1
         tools = [
             tool for tool in tools
             if counts[tool['name']] == 1
-            and (package_selected or tool['source_atom'] in valid)
+            and tool['source_atom'] in valid
         ]
         tools.extend(self._admitted_selected_route_tools(issues))
         for unavailable in self.registry_quarantined:

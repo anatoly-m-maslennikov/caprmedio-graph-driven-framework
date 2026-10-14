@@ -141,6 +141,11 @@ class LauncherStartupContractTests(unittest.TestCase):
             "READINESS_FAILED",
         }, {case["condition"] for case in cases})
 
+    def test_ordinary_launcher_has_no_retired_installed_handoffs(self):
+        self.assertTrue(callable(self.launcher.launch))
+        self.assertFalse(hasattr(self.launcher, "launch_installed"))
+        self.assertFalse(hasattr(self.launcher, "launch_admitted"))
+
     def test_started_result_is_passwordless_and_contains_only_ready_url(self):
         result = self.launch(source_root=APP.parents[3], timeout=7)
         self.assertEqual("started", result["disposition"])

@@ -371,43 +371,35 @@ class MethodologyExportTest(unittest.TestCase):
         self.assertEqual("binding-source-identity-invalid", raised.exception.code)
 
     def test_declared_control_frontier_contains_required_tool_bindings_without_using_methodology_source_layout(self) -> None:
-        # These exact inert carriers travel in the sealed Engine test inventory;
-        # the release-only workspace need not carry their live authoring roots.
-        fixtures = Path(__file__).resolve().parent / "tool_control_golden"
-        project = Path(__file__).resolve().parents[5]
-        for filename, expected_digest, relative, entrypoint in (
-            ("CA-D-591-v5.md", "38bdc56511a802cfb3b2b8c2f228438b79a68936465944815036672625f96160",
-             "201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-591-TOOLS-DELIVERY--bind-same-package-bootstrap-image-restoration-carriers.md",
-             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/framework_image_restoration_mcp.py"),
-            ("CA-D-620-v1.md", "e83b38d0154c9ad8f5b02a537f23dde047b4789a0633b2f4377d51e9f8119fa0",
-             "201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/CA-D-620-MCP-DELIVERY--expose-direct-framework-runtime-installation.md",
-             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/framework_runtime_installation_mcp.py"),
+        expected = {}
+        for atom_id, relative, entrypoint in (
+            ("CA-D-013", "201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/FIXTURE_TOOL/07_delivery/CA-D-013--fixture.md",
+             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/FIXTURE_TOOL/fixture.py"),
+            ("CA-D-014", "201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/CA-D-014--fixture.md",
+             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/fixture.py"),
         ):
-            fixture = fixtures / filename
-            self.assertFalse(fixture.is_symlink())
-            raw = fixture.read_bytes()
-            self.assertEqual(expected_digest, digest(raw))
-            self.write_engine_delivery(relative, raw)
+            raw = carrier(atom_id, content_role="Delivery",
+                          body=f"```toml\n[tool_binding]\nentrypoint = \"{entrypoint}\"\n```\n")
+            source = self.write_engine_delivery(relative, raw)
+            expected[atom_id] = (source.relative_to(self.root).as_posix(), digest(raw))
             target = self.root / entrypoint
             target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(project / entrypoint, target)
+            target.write_bytes(b"VALUE = 1\n")
         self.write_engine_delivery(
-            "201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-602--non-binding-fixture.md",
-            carrier("CA-D-602", content_role="Delivery"),
+            "201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-015--non-binding-fixture.md",
+            carrier("CA-D-015", content_role="Delivery"),
         )
         binding = exporter.reopen_project_export_binding(self.root, self.source)
 
         frontier = exporter._binding_frontier(binding)
 
         by_id = {item.atom_id: item for item in frontier}
-        self.assertTrue({"CA-D-591", "CA-D-620"}.issubset(by_id))
-        self.assertNotIn("CA-D-602", by_id)  # Source validation is internal Local preparation, not a Tool binding.
-        d620 = by_id["CA-D-620"]
-        self.assertEqual(
-            ".control/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/CA-D-620-MCP-DELIVERY--expose-direct-framework-runtime-installation.md",
-            d620.source_path,
-        )
-        self.assertEqual(1, d620.version)
+        self.assertTrue(set(expected).issubset(by_id))
+        self.assertNotIn("CA-D-015", by_id)
+        for atom_id, (source_path, sha256) in expected.items():
+            self.assertEqual(source_path, by_id[atom_id].source_path)
+            self.assertEqual(sha256, by_id[atom_id].sha256)
+            self.assertEqual(1, by_id[atom_id].version)
 
     def test_configured_extension_revision_is_frozen_and_unselected_revision_is_excluded(self) -> None:
         self.write_instance(b'[extensions.demo]\nenabled = true\nrevision = "v2"\n')

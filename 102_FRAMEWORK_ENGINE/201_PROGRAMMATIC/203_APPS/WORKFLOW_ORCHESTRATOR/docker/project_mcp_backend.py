@@ -294,10 +294,6 @@ class ProjectMcpBackend:
         """Start development mode from its checked-in Compose carrier."""
         self._start(selection, image_id, fingerprint, _COMPOSE, timeout, port)
 
-    def start_installed(self, selection, image_id, fingerprint, compose_file, timeout, port):
-        """Start an admitted installation with its selected package Compose file."""
-        self._start(selection, image_id, fingerprint, compose_file, timeout, port)
-
     @staticmethod
     async def _initialize(url: str, timeout: float) -> None:
         import httpx2

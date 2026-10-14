@@ -69,7 +69,7 @@ def bind_actual_evidence(root: Path, request: dict[str, object]) -> dict[str, ob
         value = {key: item for key, item in request[name].items() if key not in {"evidence_ref", "evidence_hash"}}
         observed = {**value, "ordered_effects": request["ordered_effects"]} if name == "operator_decision" else value
         request[name] = {**value, **record(name + ".json", observed)}
-    relative = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
+    relative = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
     source = PACKAGE.parents[4] / relative
     path = root / relative
     path.parent.mkdir(parents=True, exist_ok=True)

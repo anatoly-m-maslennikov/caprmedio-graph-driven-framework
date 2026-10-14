@@ -55,24 +55,11 @@ class _ProviderSpec:
         return binding
 
 
-_MCP_DELIVERIES = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery"
 _TOOLS_DELIVERIES = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery"
 _WORKFLOW_TOOLS = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS"
 
 
 PROVIDERS = (
-    _ProviderSpec(
-        "ADMIT_PACKAGE_SOURCES", "admit_package_sources",
-        "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/source_admission_mcp.py",
-        "CA-D-602", ("CA-O-199",),
-        f"{_TOOLS_DELIVERIES}/CA-D-602-TOOLS-DELIVERY--encode-admitted-package-source-catalog.md",
-    ),
-    _ProviderSpec(
-        "INSTALL_FRAMEWORK_RUNTIME", "install_framework_runtime",
-        "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/framework_runtime_installation_mcp.py",
-        "CA-D-620", ("CA-O-200",),
-        f"{_MCP_DELIVERIES}/CA-D-620-MCP-DELIVERY--expose-direct-framework-runtime-installation.md",
-    ),
     _ProviderSpec(
         "DISCOVER_TOOLS", "discover_tools",
         "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/DISCOVER_TOOLS/discover_tools.py",
