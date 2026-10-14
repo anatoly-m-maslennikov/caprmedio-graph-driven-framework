@@ -41,7 +41,6 @@ class FakeRunSupport:
 
     def __init__(self) -> None:
         self.calls: list[dict] = []
-        self.recovery_calls: list[dict] = []
 
     def run_selected_operation(self, request: dict) -> dict:
         self.calls.append(copy.deepcopy(request))
@@ -71,10 +70,6 @@ class FakeRunSupport:
 
     def get_selected_action_run(self, request: dict) -> dict:
         return {"action_run_id": request["action_run_id"], "status": "completed", "lineage": {"workflow_run_id": "run:fixture"}}
-
-    def recover_selected_run_recording(self, request: dict) -> dict:
-        self.recovery_calls.append(copy.deepcopy(request))
-        return {"event_ref": request["pending_event_ref"], "receipt_ref": "receipt:fixture"}
 
 
 class SelectedManifestRefResolverTest(unittest.TestCase):
@@ -355,13 +350,18 @@ class WholeRegistryGuardTest(unittest.TestCase):
         server = _GuardServer()
         adapter = selected_routes.register_selected_routes(server, self.root)
         self.assertEqual(frozenset(SELECTED_ROUTE_NAMES), adapter.public_route_names)
-        self.assertEqual(set(SELECTED_ROUTE_NAMES) | {"get_selected_workflow_run", "get_selected_action_run",
-                                                   "recover_selected_run_recording"}, set(server.tools))
+        self.assertEqual(set(SELECTED_ROUTE_NAMES) | {"get_selected_workflow_run", "get_selected_action_run"}, set(server.tools))
+        self.assertNotIn("recover_selected_run_recording", server.tools)
+        self.assertFalse(hasattr(adapter, "recover_recording"))
+        self.assertFalse(hasattr(selected_routes._QueueBackedSelectedSupport, "recover_selected_run_recording"))
         self.assertNotIn("release_version", server.tools)
         self.assertNotIn("public.release", server.tools)
         adapter.service = self.support
         result = server.tools["create_atom"](self.request("create_atom"))
         self.assertEqual("preview", result["disposition"])
+        self.assertEqual(1, len(self.support.calls))
+        self.assertEqual("run:fixture", server.tools["get_selected_workflow_run"]({"run_id": "run:fixture"})["run_id"])
+        self.assertEqual("action:fixture", server.tools["get_selected_action_run"]({"action_run_id": "action:fixture"})["action_run_id"])
         self.assertEqual(1, len(self.support.calls))
         self.assertEqual(before, self.snapshot())
 
@@ -816,16 +816,11 @@ class SelectedRoutesMCPTest(unittest.TestCase):
             self.assertEqual("rejected", result["disposition"])
         self.assertEqual([], self.support.calls)
 
-    def test_apply_unknown_route_bad_lineage_and_recording_recovery_are_strict(self) -> None:
+    def test_apply_unknown_route_and_bad_lineage_are_strict(self) -> None:
         apply = self.request("create_atom", mode="apply")
         self.assertEqual("rejected", self.adapter.invoke("create_atom", apply)["disposition"])
         malformed = self.request("create_atom")
         malformed["lineage"] = {"parent_workflow_run_id": "not-a-real-lineage", "unexpected": True}
         self.assertEqual("rejected", self.adapter.invoke("create_atom", malformed)["disposition"])
-        recovered = self.adapter.recover_recording({"pending_event_ref": "event:pending", "request_id": "recovery-1"})
-        self.assertEqual("receipt:fixture", recovered["receipt_ref"])
-        self.assertEqual([{"pending_event_ref": "event:pending", "request_id": "recovery-1"}], self.support.recovery_calls)
-        self.assertEqual("rejected", self.adapter.recover_recording({"pending_event_ref": "event:pending", "payload": {}})["disposition"])
-
 if __name__ == "__main__":
     unittest.main()

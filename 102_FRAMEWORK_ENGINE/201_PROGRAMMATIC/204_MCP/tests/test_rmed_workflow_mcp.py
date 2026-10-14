@@ -42,7 +42,6 @@ D547_ADMITTED_SELECTED_ROUTES = (
 )
 D547_SELECTED_CONTROL_TOOLS = frozenset({
     'get_selected_workflow_run', 'get_selected_action_run',
-    'recover_selected_run_recording',
 })
 
 # The stable gateway first boots an isolated implementation generation.  The

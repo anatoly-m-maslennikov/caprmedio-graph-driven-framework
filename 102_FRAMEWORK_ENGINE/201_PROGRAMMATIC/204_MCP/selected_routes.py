@@ -1145,12 +1145,6 @@ class _QueueBackedSelectedSupport:
             return {"action_run_id": request["action_run_id"], "disposition": "blocked", "outcome": "blocked",
                     "diagnostics": [f"selected Action observation is unavailable: {error}"]}
 
-    def recover_selected_run_recording(self, request: dict[str, Any]) -> dict[str, Any]:
-        try:
-            return self._tracker().recover_recording(request["pending_event_ref"])
-        except (ImportError, ValueError, RuntimeError, OSError) as error:
-            return {"disposition": "blocked", "outcome": "blocked", "diagnostics": [f"shared recording recovery failed: {error}"]}
-
     def recover_selected_release(self, request: dict[str, Any]) -> dict[str, Any]:
         """Forward a closed recovery carrier to the orchestrator transport."""
         try:
@@ -1399,17 +1393,6 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
     def get_action_run(self, request: Any) -> dict[str, Any]:
         return self._observe("get_selected_action_run", request, "action_run_id")
 
-    def recover_recording(self, request: Any) -> dict[str, Any]:
-        if not isinstance(request, Mapping) or not set(request) <= {"pending_event_ref", "request_id"} or "pending_event_ref" not in request or not isinstance(request["pending_event_ref"], str) or not request["pending_event_ref"] or ("request_id" in request and (not isinstance(request["request_id"], str) or not _REQUEST_ID.fullmatch(request["request_id"]))):
-            return self._result(request, "rejected", "rejected", "recovery requires one exact pending event reference and optional request_id")
-        support = self._support()
-        if support is None or not hasattr(support, "recover_selected_run_recording"):
-            return self._result(request, "blocked", "implementation_gap", "shared implement_run_support recording recovery is unavailable")
-        try:
-            return support.recover_selected_run_recording(dict(request))
-        except (TypeError, ValueError, RuntimeError) as error:
-            return self._result(request, "blocked", "blocked", f"shared support rejected recording recovery: {error}")
-
     def recover_release(self, request: Any) -> dict[str, Any]:
         recovery_keys = {"operation", "run_id", "request_identity"}
         resolution_keys = {
@@ -1507,10 +1490,5 @@ def register_selected_routes(server: Any, root: str | Path) -> SelectedRouteAdap
     def get_selected_action_run(request: dict[str, Any]) -> dict[str, Any]:
         """Read one saved selected Action Run without dispatch."""
         return adapter.get_action_run(request)
-
-    @server.tool(name="recover_selected_run_recording", structured_output=True, annotations=selected_annotations)
-    def recover_selected_run_recording(request: dict[str, Any]) -> dict[str, Any]:
-        """Retry one pending shared event append; never replay an Action or Workflow."""
-        return adapter.recover_recording(request)
 
     return adapter
