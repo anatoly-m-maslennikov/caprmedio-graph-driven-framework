@@ -44,14 +44,14 @@ CURRENT_W02_PINS = {
                  "e1da6f807f965d94bb2f6b829767fb23d34ea6dc600408f78408378caf208f89"),
 }
 PUBLICATION_PINS = {
-    "CA-R-866": (TOOL_WORKFLOWS + "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md", 22,
-                 "23389a042e3b5553f73d806ab0455ab38c930f74fca32ba41c34efcf9f47d0f9"),
-    "CA-M-371": (TOOL_WORKFLOWS + "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md", 10,
-                 "b102780741f9701d7095f1adeb2368b05eb6230eb20b1316829613cbcbef6774"),
-    "CA-E-304": (TOOL_WORKFLOWS + "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md", 21,
-                 "f77b56c343e7ad2f6d6e1b765da10ce5a0c92ff7436487aba766f841ce07b2de"),
-    "CA-O-030": (TOOL_WORKFLOWS + "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md", 15,
-                 "a53bf60a93f9afff6da80f9d657009bb294420d8b2bf98eb6ab36c6895fb0dd1"),
+    "CA-R-866": (TOOL_WORKFLOWS + "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md", 23,
+                 "98e303d6e0c09510d6dde40c10dc3d8ffa73e05296240bea6f238e480a30904a"),
+    "CA-M-371": (TOOL_WORKFLOWS + "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md", 11,
+                 "5f775dcbbd365378731b7039b47c78d4c4eebaeb0991ed7850c0c44638d63d79"),
+    "CA-E-304": (TOOL_WORKFLOWS + "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md", 22,
+                 "8f72d065cf1a96791817bc412051cb5e14504c3462a08e4a0211c528fa1e854b"),
+    "CA-O-030": (TOOL_WORKFLOWS + "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md", 16,
+                 "bf45abea494d78a59fa956fdccc5398408f4c4aaf114443cb92b0b510c22241f"),
     "CA-E-626": (TOOL_WORKFLOWS + "06_evaluation/CA-E-626-TOOL_WORKFLOWS-CORE-QA_CASE--verify-independent-atom-workflow-effects.md", 3,
                  "8cd555ffefdc8f59b80a5120b6b5e4fbe90fb9ea46396bea6d0bcbd1e7d081c5"),
 }

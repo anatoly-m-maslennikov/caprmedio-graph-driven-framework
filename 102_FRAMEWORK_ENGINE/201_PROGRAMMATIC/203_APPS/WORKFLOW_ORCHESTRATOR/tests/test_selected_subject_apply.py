@@ -605,7 +605,7 @@ raise AssertionError("Requested publication boundary was not reached")
                     for line in path.read_bytes().splitlines()]
                 native_events = [event for event in events if event.get("run", {}).get("definition", {}).get("atom_id") == "CA-O-030"]
                 self.assertEqual(["started"], [event["event"] for event in native_events])
-                self.assertEqual(15, native_events[0]["run"]["definition"]["version"])
+                self.assertEqual(16, native_events[0]["run"]["definition"]["version"])
                 self.assertTrue((runner.run_directory(run_id) / "dispatch-intent.json").is_file())
                 self.assertFalse((runner.run_directory(run_id) / "accepted.json").exists())
                 with patch.object(native, "subject_update_action", side_effect=AssertionError("interrupted effect replayed")):
