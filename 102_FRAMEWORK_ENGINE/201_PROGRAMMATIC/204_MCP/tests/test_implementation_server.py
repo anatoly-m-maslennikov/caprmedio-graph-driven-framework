@@ -49,9 +49,9 @@ O199_RELATIVE = Path(
     "CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md"
 )
 O199_SOURCE = Path(
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/"
-    "CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md"
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/"
+    "003_PROJECT_CONFIGURATION/09_operations/archive/"
+    "CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources@3.md"
 )
 RUNTIME_INSTALLATION_DELIVERY = Path(
     ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
@@ -186,11 +186,9 @@ class ImplementationServerTests(unittest.TestCase):
         self.assertNotIn(MCP_NAME, discovery.exposed)
         self.assertIsNone(discovery.context(Context(id="CA-O-199"))["input_schema"])
 
-    def test_o199_mismatched_delivery_binding_is_not_registered_or_exposed(self):
-        delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes().replace(
-            b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/source_admission_mcp.py"',
-            b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/other.py"',
-        )
+    def test_o199_internal_delivery_declares_no_tool_binding_or_public_adapter(self):
+        delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes()
+        self.assertNotIn(b'[tool_binding]', delivery)
         self._seed_o199_source(delivery)
 
         server, discovery = self._create_server()
@@ -199,7 +197,7 @@ class ImplementationServerTests(unittest.TestCase):
         self.assertNotIn(MCP_NAME, discovery.exposed)
         self.assertIsNone(discovery.context(Context(id="CA-O-199"))["input_schema"])
 
-    def test_o199_ambiguous_delivery_bindings_are_not_registered_or_exposed(self):
+    def test_o199_duplicate_internal_deliveries_are_not_registered_or_exposed(self):
         delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes()
         canonical = self._seed_o199_source(delivery)
         duplicate = canonical.with_name("CA-D-603-TOOLS-DELIVERY--ambiguous-source-admission.md")

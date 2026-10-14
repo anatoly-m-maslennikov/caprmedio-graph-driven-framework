@@ -35,9 +35,9 @@ O199_RELATIVE = Path(
     'CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md'
 )
 O199_SOURCE = Path(
-    '.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/'
-    '000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/'
-    'CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md'
+    '.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/'
+    '003_PROJECT_CONFIGURATION/09_operations/archive/'
+    'CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources@3.md'
 )
 SOURCE_ADMISSION_ENTRYPOINT = Path(
     '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/source_admission_mcp.py'
@@ -191,7 +191,7 @@ class ServiceTests(unittest.TestCase):
         self.temp.cleanup()
 
     def _seed_source_admission_binding(self, *, delivery_payload: bytes | None = None) -> Path:
-        """Install the actual D602/O199 source pair without an executable adapter."""
+        """Seed the retired O199 Action and current internal D602 Delivery."""
 
         for relative in (O199_RELATIVE,):
             destination = self.root / relative
@@ -431,11 +431,9 @@ class ServiceTests(unittest.TestCase):
         self.assertIsNone(context['input_schema'])
         self.assertEqual(before, self._files(self.root))
 
-    def test_malformed_source_admission_binding_is_unresolved_without_effects(self):
-        delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes().replace(
-            b'entrypoint = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/source_admission_mcp.py"',
-            b'entrypoint = "other.py"',
-        )
+    def test_internal_source_validation_declares_no_tool_binding_or_effects(self):
+        delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes()
+        self.assertNotIn(b'[tool_binding]', delivery)
         self._seed_source_admission_binding(delivery_payload=delivery)
         service = Service(self.root, exposed=('admit_package_sources',))
         before = self._files(self.root)
@@ -444,7 +442,7 @@ class ServiceTests(unittest.TestCase):
         self.assertIsNone(self._context(service)['input_schema'])
         self.assertEqual(before, self._files(self.root))
 
-    def test_ambiguous_source_admission_binding_is_unresolved_without_effects(self):
+    def test_duplicate_internal_delivery_keeps_source_admission_unresolved_without_effects(self):
         delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes()
         canonical = self._seed_source_admission_binding(delivery_payload=delivery)
         duplicate = canonical.with_name('CA-D-603-TOOLS-DELIVERY--ambiguous-source-admission.md')
@@ -641,32 +639,32 @@ class ServiceTests(unittest.TestCase):
         self.assertIn('installed package binding unavailable', discovered['coverage_issues'])
         self.assertEqual(before, self._files(self.root))
 
-    def test_admitted_release_route_is_discoverable_and_has_compact_context(self):
+    def test_admitted_selected_route_is_discoverable_and_has_compact_context(self):
         control = self.root / '.caprmedio_caprmedio'
-        operation = control / 'release.md'
+        operation = control / 'create.md'
         operation.write_text(
-            '---\natom_id: CA-O-164\nstatus: Active\ncontent_role: Operations\ntype: Workflow\n---\n'
-            '# Summary\nRelease selected Framework Version\n'
+            '---\natom_id: CA-O-127\nstatus: Active\ncontent_role: Operations\ntype: Workflow\n---\n'
+            '# Summary\nCreate selected Atom\n'
         )
         manifest = {
             'manifest_ref': '.caprmedio_caprmedio/_projection/selected_workflow_bindings.json',
             'canonical_manifest_sha256': 'a' * 64,
             'source_freshness': {'selected_binding_digest': 'b' * 64},
-            'routes': [{'route': 'release_version', 'workflow': {'atom_id': 'CA-O-164'},
-                        'ordered_actions': [{'atom_id': 'CA-O-165'}]}],
+            'routes': [{'route': 'create_atom', 'workflow': {'atom_id': 'CA-O-127'},
+                        'ordered_actions': [{'atom_id': 'CA-O-128'}]}],
         }
-        self.service.exposed.add('release_version')
+        self.service.exposed.add('create_atom')
         with patch('selected_routes.load_selected_manifest', return_value=manifest):
-            tools = self.service.discover(Query(query='release_version'))
-            operations = self.service.discover(Query(query='CA-O-164'), operations=True)
-            context = self.service.context(type('Request', (), {'id': 'CA-O-164'})())
+            tools = self.service.discover(Query(query='create_atom'))
+            operations = self.service.discover(Query(query='CA-O-127'), operations=True)
+            context = self.service.context(type('Request', (), {'id': 'CA-O-127'})())
 
-        self.assertEqual(['release_version'], [row['name'] for row in tools['matches']])
+        self.assertEqual(['create_atom'], [row['name'] for row in tools['matches']])
         self.assertEqual('mcp', operations['matches'][0]['availability'])
-        self.assertEqual(['release_version'], operations['matches'][0]['tools'])
+        self.assertEqual(['create_atom'], operations['matches'][0]['tools'])
         self.assertEqual([], context['related_definitions'])
         self.assertTrue(context['context_complete'])
-        self.assertEqual('release_version', context['input_schema']['properties']['operation_route']['const'])
+        self.assertEqual('create_atom', context['input_schema']['properties']['operation_route']['const'])
 
     def test_admitted_selected_routes_keep_route_and_workflow_context_exact(self):
         control = self.root / '.caprmedio_caprmedio'
@@ -702,15 +700,15 @@ class ServiceTests(unittest.TestCase):
         self.assertEqual(['create_atom', 'update_atom'], action['definition']['tools'])
         self.assertIsNone(action['input_schema'])
 
-    def test_unadmitted_release_route_is_not_synthesized(self):
+    def test_unadmitted_selected_route_is_not_synthesized(self):
         manifest = {
             'manifest_ref': '.caprmedio_caprmedio/_projection/selected_workflow_bindings.json',
             'canonical_manifest_sha256': 'a' * 64,
             'source_freshness': {}, 'routes': [],
         }
-        self.service.exposed.add('release_version')
+        self.service.exposed.add('create_atom')
         with patch('selected_routes.load_selected_manifest', return_value=manifest):
-            self.assertEqual([], self.service.discover(Query(query='release_version'))['matches'])
+            self.assertEqual([], self.service.discover(Query(query='create_atom'))['matches'])
 
     def test_source_operation_is_not_executable_when_selected_manifest_admission_fails(self):
         manifest = {
@@ -782,10 +780,10 @@ class ServiceTests(unittest.TestCase):
         self.assertNotIn('tools', context['definition'])
         self.assertIsNone(context['input_schema'])
 
-    def test_stale_release_manifest_is_not_synthesized_even_when_exposed(self):
-        self.service.exposed.add('release_version')
+    def test_stale_selected_manifest_is_not_synthesized_even_when_exposed(self):
+        self.service.exposed.add('create_atom')
         with patch('selected_routes.load_selected_manifest', side_effect=ValueError('source pin is stale')):
-            self.assertEqual([], self.service.discover(Query(query='release_version'))['matches'])
+            self.assertEqual([], self.service.discover(Query(query='create_atom'))['matches'])
 
     def test_selected_source_registry_pin_stale_reports_sanitized_recovery(self):
         self.service.exposed.add('create_atom')
@@ -804,16 +802,16 @@ class ServiceTests(unittest.TestCase):
         )
         self.assertNotIn(secret, json.dumps(result['coverage_issues']))
 
-    def test_admitted_release_route_is_not_advertised_when_unexposed(self):
+    def test_admitted_selected_route_is_not_advertised_when_unexposed(self):
         manifest = {
             'manifest_ref': '.caprmedio_caprmedio/_projection/selected_workflow_bindings.json',
             'canonical_manifest_sha256': 'a' * 64,
             'source_freshness': {'selected_binding_digest': 'b' * 64},
-            'routes': [{'route': 'release_version', 'workflow': {'atom_id': 'CA-O-164'},
-                        'ordered_actions': [{'atom_id': 'CA-O-165'}]}],
+            'routes': [{'route': 'create_atom', 'workflow': {'atom_id': 'CA-O-127'},
+                        'ordered_actions': [{'atom_id': 'CA-O-128'}]}],
         }
         with patch('selected_routes.load_selected_manifest', return_value=manifest):
-            self.assertEqual([], self.service.discover(Query(query='release_version'))['matches'])
+            self.assertEqual([], self.service.discover(Query(query='create_atom'))['matches'])
 
     def test_unknown_properties_rejected(self):
         with self.assertRaises(ValueError):

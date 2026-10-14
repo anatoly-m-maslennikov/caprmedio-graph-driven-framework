@@ -54,8 +54,8 @@ class DiscoveryServerFrontierTests(unittest.TestCase):
         self.manifest = {
             "manifest_ref": "bindings.json", "canonical_manifest_sha256": "a" * 64,
             "source_freshness": {"state": "current", "digest": "b" * 64},
-            "routes": [{"route": "release_version", "workflow": {"atom_id": "CA-O-164"},
-                        "ordered_actions": [{"atom_id": "CA-O-176"}]}],
+            "routes": [{"route": "create_atom", "workflow": {"atom_id": "CA-O-127"},
+                        "ordered_actions": [{"atom_id": "CA-O-128"}]}],
         }
         self.bindings = [self.binding(provider) for provider in
                          (context_provider, tools_provider, operations_provider)]
@@ -88,15 +88,15 @@ class DiscoveryServerFrontierTests(unittest.TestCase):
             # the real selected-route discovery projection below.
             rows = [{**copy.deepcopy(row), "availability": "unresolved"} for row in self.bindings]
             rows.extend(service._admitted_selected_route_tools(issues))
-            atoms = {"CA-O-164": {"id": "CA-O-164", "content_role": "Operations",
+            atoms = {"CA-O-127": {"id": "CA-O-127", "content_role": "Operations",
                                   "scope_unit": "fixture", "content": "fixture operation"}}
             return atoms, rows, issues
 
         def register_routes(server, root):
-            @server.tool(name="release_version")
-            def release_version(request):
+            @server.tool(name="create_atom")
+            def create_atom(request):
                 return {"outcome": "fixture only"}
-            return SimpleNamespace(public_route_names=frozenset({"release_version"}))
+            return SimpleNamespace(public_route_names=frozenset({"create_atom"}))
 
         with patch.object(implementation_server, "MCPServer", _Server), \
              patch.object(implementation_server, "register_selected_routes", side_effect=register_routes), \
@@ -107,7 +107,7 @@ class DiscoveryServerFrontierTests(unittest.TestCase):
             server = implementation_server.create_server(self.root)
             context_fn = server.tools["get_execution_context"]
             context_model = inspect.signature(context_fn).parameters["request"].annotation
-            context = asyncio.run(context_fn(context_model(id="CA-O-164"))).root
+            context = asyncio.run(context_fn(context_model(id="CA-O-127"))).root
             tools_fn = server.tools["discover_tools"]
             query_model = inspect.signature(tools_fn).parameters["request"].annotation
             tools = asyncio.run(tools_fn(query_model(query="", availability="mcp"))).root
@@ -115,13 +115,13 @@ class DiscoveryServerFrontierTests(unittest.TestCase):
                 operations_fn = server.tools["discover_operations"]
                 operations_model = inspect.signature(operations_fn).parameters["request"].annotation
                 operations = asyncio.run(operations_fn(operations_model(query="", availability="mcp"))).root
-                self.assertEqual([row["id"] for row in operations["matches"]], ["CA-O-164"])
-                self.assertEqual(operations["matches"][0]["tools"], ["release_version"])
+                self.assertEqual([row["id"] for row in operations["matches"]], ["CA-O-127"])
+                self.assertEqual(operations["matches"][0]["tools"], ["create_atom"])
         return server, context, tools
 
     def test_create_server_passes_actual_selected_names_to_canonical_context_and_discovery(self):
         server, context, tools = self.create_server()
-        expected = {"workflow_orchestrator", "release_version", "get_execution_context",
+        expected = {"workflow_orchestrator", "create_atom", "get_execution_context",
                     "discover_tools", "discover_operations"}
         self.assertEqual(set(server.tools), expected)
         self.assertEqual(len(self.frontiers), 3)
@@ -129,9 +129,9 @@ class DiscoveryServerFrontierTests(unittest.TestCase):
             self.assertEqual(service.root, self.root)
             self.assertEqual(service.exposed, expected)
         self.assertEqual(context["definition"]["availability"], "mcp")
-        self.assertEqual(context["definition"]["tools"], ["release_version"])
+        self.assertEqual(context["definition"]["tools"], ["create_atom"])
         self.assertIsNotNone(context["input_schema"])
-        self.assertEqual([row["name"] for row in tools["matches"]], ["release_version"])
+        self.assertEqual([row["name"] for row in tools["matches"]], ["create_atom"])
 
     def test_failed_and_source_only_registrations_never_enter_canonical_exposed_frontier(self):
         server, context, tools = self.create_server(fail_name="discover_operations")
@@ -151,7 +151,7 @@ class DiscoveryServerFrontierTests(unittest.TestCase):
             self.assertTrue(any(row["source"].get("name") == "WATCH_EXECUTION"
                                 and row["reason"] == "source_only" for row in service.registry_withheld))
         self.assertEqual(context["definition"]["availability"], "mcp")
-        self.assertEqual([row["name"] for row in tools["matches"]], ["release_version"])
+        self.assertEqual([row["name"] for row in tools["matches"]], ["create_atom"])
 
 
 if __name__ == "__main__":
