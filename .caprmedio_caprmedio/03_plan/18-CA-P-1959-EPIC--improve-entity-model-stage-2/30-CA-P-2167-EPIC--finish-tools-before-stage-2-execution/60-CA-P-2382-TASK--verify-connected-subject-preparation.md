@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan]
-version: 4
-updated_at: "2026-10-14 13:15:25 +0400"
+version: 5
+updated_at: "2026-10-14 14:35:01 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
 ---
@@ -28,6 +28,14 @@ Verify connected Subject preparation
 Verify the activated, reviewed MCP image through actual discovery, lookup, sealed preview and scratch-only staging for one supported pinned Core Atom.
 
 ## Details
+
+### Current connected verification — 2026-10-14 14:35 +0400
+
+The Operator approved activating only reviewed commit 920864025 and running a fresh read-only Subject preview. The clean committed image now serves this Project on the same port, 56317; unrelated dirty work was excluded. Actual MCP discovery/context, exact CA-D-253 lookup and its approved-profile preview succeeded. The new seal is ea23ecb10f6fbc1f791502b5b5ce7575e35c811febd157850dd5ea88ffcc71ae; staging is null and no source Atom changed. This is one representative preview, not a 611-owner MCP acceptance result.
+
+CA-P-2384's 44 structural repairs and the fresh 611-owner/848-patch request are complete. Post-preview verification confirms all 906 source pins and the 12,203-file Core frontier still match the verified repair generation. Earlier statements about pending repair disposition and the old running image are superseded by this checkpoint. Exact activation, request/response and review evidence is in the tools-first connected-preparation-activation.md projection.
+
+CA-P-2382 and both Epics remain Active. Preserve the earlier uncertain D253 batch unchanged; neither its replay nor a new stage nor live publication is authorized by the read-only approval. Fresh scratch staging requires separate approval and successful connected/readback proof. Live publication and the separate content Epic remain gated.
 
 Use the actual advertised logical request schemas and MCP transport. Reuse the prepared CA-D-253 request; bind staging to the exact returned preview seal and illustrative timestamp. Do not silently refresh a rejected seal. Preserve the original source bytes and all other Atoms. Reopen the returned scratch manifest and candidate, verify hashes and the permitted Subjects/Version/time delta. Root independently checks the outputs. Estimated work: up to 15 minutes.
 

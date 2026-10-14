@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 52
-updated_at: "2026-10-14 13:43:20 +0400"
+version: 53
+updated_at: "2026-10-14 14:35:01 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,14 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Current connected verification — 2026-10-14 14:35 +0400
+
+The Operator approved activating only reviewed commit 920864025 and running a fresh read-only Subject preview. The clean committed image now serves this Project on the same port, 56317; unrelated dirty work was excluded. Actual MCP discovery/context, exact CA-D-253 lookup and its approved-profile preview succeeded. The new seal is ea23ecb10f6fbc1f791502b5b5ce7575e35c811febd157850dd5ea88ffcc71ae; staging is null and no source Atom changed. This is one representative preview, not a 611-owner MCP acceptance result.
+
+CA-P-2384's 44 structural repairs and the fresh 611-owner/848-patch request are complete. Post-preview verification confirms all 906 source pins and the 12,203-file Core frontier still match the verified repair generation. Earlier statements about pending repair disposition and the old running image are superseded by this checkpoint. Exact activation, request/response and review evidence is in the tools-first connected-preparation-activation.md projection.
+
+CA-P-2382 and both Epics remain Active. Preserve the earlier uncertain D253 batch unchanged; neither its replay nor a new stage nor live publication is authorized by the read-only approval. Fresh scratch staging requires separate approval and successful connected/readback proof. Live publication and the separate content Epic remain gated.
 
 ### Structural repair before migration — 2026-10-14
 
