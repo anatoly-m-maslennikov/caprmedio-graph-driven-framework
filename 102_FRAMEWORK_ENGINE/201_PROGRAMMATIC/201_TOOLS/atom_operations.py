@@ -1543,7 +1543,7 @@ def describe(tool_id: str) -> dict[str, Any]:
     if tool_id == "ATOM_SEARCH":
         result["subject_lookup"] = {
             "criterion": "--subject VALUE", "fields": ["governs", "depends_on", "both"],
-            "matches": ["exact", "prefix"], "prefix_boundaries": ["/", ":"],
+            "matches": ["exact", "prefix", "suffix", "contains"], "prefix_boundaries": ["/", ":"],
             "profile_option": "--subject-profile", "profiles": ["legacy", "approved"],
             "default_profile": "legacy",
             "profile_prefix_boundaries": {"legacy": ["/", ":"], "approved": ["/", ".", ":"]},
@@ -1583,7 +1583,7 @@ def parser(tool_id: str) -> argparse.ArgumentParser:
         run.add_argument("--view", choices=("metadata", "content", "both"), default="metadata")
         run.add_argument("--subject")
         run.add_argument("--subject-field", choices=("governs", "depends_on", "both"))
-        run.add_argument("--subject-match", choices=("exact", "prefix"))
+        run.add_argument("--subject-match", choices=("exact", "prefix", "suffix", "contains"))
         run.add_argument("--subject-profile", choices=("legacy", "approved"))
         run.add_argument("--content-role", action="append")
         run.add_argument("--scope-unit")

@@ -11,7 +11,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(TOOLS))
 
-from atom_operations import ToolError  # noqa: E402
+from atom_operations import ToolError, describe, parser  # noqa: E402
 from atom_subject_lookup import run_subject_search  # noqa: E402
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
@@ -107,6 +107,20 @@ class SubjectLookupTest(unittest.TestCase):
         prefix = run_subject_search(self.root, self._args(subject_match="prefix"))
         self.assertEqual(prefix["count"], 2)
         self.assertEqual([item["index"] for item in prefix["occurrences"]], [None, 1])
+
+    def test_literal_suffix_and_contains_accept_fragments_without_case_folding(self) -> None:
+        suffix = run_subject_search(self.root, self._args(subject="/child", subject_match="suffix"))
+        self.assertEqual(["Core/Atom/child"], [row["value"] for row in suffix["occurrences"]])
+        contains = run_subject_search(self.root, self._args(subject="/Atom", subject_match="contains"))
+        self.assertEqual(3, contains["count"])
+        lower = run_subject_search(self.root, self._args(subject="/atom", subject_match="contains"))
+        self.assertEqual(0, lower["count"])
+
+    def test_cli_and_description_advertise_the_same_four_modes(self) -> None:
+        modes = ["exact", "prefix", "suffix", "contains"]
+        self.assertEqual(modes, describe("ATOM_SEARCH")["subject_lookup"]["matches"])
+        for mode in modes:
+            self.assertEqual(mode, parser("ATOM_SEARCH").parse_args(["run", "--subject", "Core/Atom", "--subject-match", mode]).subject_match)
 
     def test_profiles_select_lexical_boundaries_and_exact_evidence(self) -> None:
         self._write("CA-R-3", "Core.Atom.child", [])
