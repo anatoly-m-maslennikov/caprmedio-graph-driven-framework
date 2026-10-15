@@ -1,0 +1,34 @@
+---
+subjects:
+  governs: "Owned Atoms"
+  depends_on:
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Scope Unit", "Entity/Carrier"]
+version: 10
+updated_at: "2026-10-15 18:15:08 +0000"
+relations: {}
+atom_id: "CA-R-1447@draft"
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "General"
+status: "Draft"
+author: "Anatoly Maslennikov"
+global_tier: 10
+---
+# Summary
+
+Define Owned Atoms
+
+## Scope
+
+the ownership of Atoms by Scope Units.
+
+## Claim
+
+Owned Atoms **means** the set of **all** Atoms whose internally carried current Scope Unit **`=`** the selected Scope Unit.
+
+- a grouping Carrier, Plan decomposition, **or** physical placement does **not** replace that ownership value.
+- a missing, invalid, **or** ambiguous ownership value leaves membership unresolved; do **not** derive it from the filename **or** containing folders.
+- evaluate placement consistency separately **without** changing the selected Atom's declared ownership.
+
+## Details

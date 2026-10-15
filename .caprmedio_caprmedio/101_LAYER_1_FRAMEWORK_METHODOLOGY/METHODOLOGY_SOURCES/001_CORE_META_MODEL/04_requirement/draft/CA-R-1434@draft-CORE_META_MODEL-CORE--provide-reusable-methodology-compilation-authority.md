@@ -1,0 +1,30 @@
+---
+subjects:
+  governs: "Core Meta-Model"
+  depends_on:
+    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Atom/Content Role", "Entity/Continuant/Object/Project"]
+version: 10
+updated_at: "2026-10-15 18:14:57 +0000"
+relations: {}
+atom_id: "CA-R-1434@draft"
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "Core"
+status: "Draft"
+author: "Anatoly Maslennikov"
+global_tier: 9
+---
+# Summary
+
+Provide reusable methodology compilation authority
+
+## Scope
+
+reusable methodology compilation authority of the Core Meta-Model.
+
+## Claim
+
+the Core Meta-Model **must** provide reusable Requirement, Method, Evaluation, **and** Delivery authority for compiling Applicable Methodology from **any** Extensions **and** Project Configuration that conform **to** its declared expansion boundaries, **without** depending on particular installed Extension names **or** Project-specific Project Configuration contents. Core admission, compilation, **and** validation rules **must** operate on declared source structure **and** conformance, **not** a hard-coded list of those names **or** contents.
+
+## Details
