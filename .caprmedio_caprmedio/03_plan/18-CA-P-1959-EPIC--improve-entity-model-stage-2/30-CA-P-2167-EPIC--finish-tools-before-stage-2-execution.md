@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 79
-updated_at: "2026-10-15 11:24:25 +0000"
+version: 80
+updated_at: "2026-10-15 12:26:16 +0000"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,16 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Actual Subjects-only migration and graph result — 2026-10-15
+
+Local release `local-20261015-subject-batch-004` completed; its actual receipt is `.caprmedio_runtime/simple_local_release/reports/local-20261015-subject-batch-004.md`. The authorized sequence used pre-migration Git checkpoint `4fa3c461b` and committed all 611 edit drafts as `1d55642ea` before promotion.
+
+One operation, `subjects-candidate4-20261015-001`, reached scheduler SUCCESS and a terminal completed batch: 611 completed, zero remaining, automatic retry false. Actual accepted/result evidence is `.caprmedio_install/workflow_orchestrator/runs/subjects-candidate4-20261015-001/accepted.json` and `subject_batch_progress.json` in that directory. No second confirmation, extra review/validation round, replay or batch rollback is claimed or required by this result checkpoint.
+
+The actual migrated-source entity graph was rebuilt into `.caprmedio_caprmedio/_projection/core-subject-notation/after-current/`: `graph.json`, `indented.txt`, `provenance.json` and `manifest.json`. Its manifest records 906 owners, 4,491 occurrences, 782 nodes and 259 edges. Comparing its source hashes to `.caprmedio_tmp/stage2-migration-20261015/instructed-batch-source-refresh/source-pins.json` gives 611 changed and 295 unchanged owners (266 unchanged plus all 29 holds). The graph is the actual current mechanical Subjects projection, not full semantic/native graph admission. Ordinary content migration remains separate and unperformed.
+
+Migration, required Journal effects and the actual graph output are committed as `6512a2e71`; these Plan result checkpoints are a separate change. This records successful authorized operation and actual graph output, not completion of unrelated deferred work. Keep this Plan Active while the Operator decides whether to move deferred branches to a Backlog Epic or retain them Active; no descendant is relocated or marked Done here, and no parent-status cascade is authorized.
 
 ### Operator-authorized minimum Subjects-only sequence — 2026-10-15
 
