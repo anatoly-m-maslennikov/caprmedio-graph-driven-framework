@@ -204,14 +204,16 @@ class PlanBlockingReferenceAdmissionIndependentTests(unittest.TestCase):
         with self.assertRaises(scoped.admission.ProposedCarrierError):
             self.validate()
 
-    def test_stale_blocking_storage_and_status_authority_refuse(self):
+    def test_invalid_blocking_storage_and_captured_status_authority_refuse(self):
         self.target("Backlog")
         for identifier in ("CA-R-1580", "CA-D-471", "CA-R-1539"):
             with self.subTest(identifier=identifier):
                 entry = scoped.admission._entry(identifier, graph=identifier in scoped.admission._GRAPH_IDS)
                 path = self.fixture.root / self.fixture.control.joinpath(*Path(entry["source_path"]).parts[1:])
                 raw = path.read_bytes()
-                path.write_bytes(raw + b"\n# changed authority\n")
+                # The status source is already captured; the other rules are first read below.
+                path.write_bytes(raw + b"\n# changed captured authority\n" if identifier == "CA-R-1539" else
+                                 raw.replace(b"atom_id:", b"invalid_atom_id:", 1))
                 with self.assertRaises(scoped.admission.ProposedCarrierError):
                     self.validate()
                 path.write_bytes(raw)

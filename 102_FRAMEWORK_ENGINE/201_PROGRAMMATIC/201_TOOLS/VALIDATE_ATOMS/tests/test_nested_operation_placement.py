@@ -4,6 +4,7 @@ from copy import deepcopy
 import hashlib
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 import yaml
 
@@ -83,9 +84,30 @@ class NestedOperationsPlacementTests(unittest.TestCase):
         self.put("09_operations/workflow.md", atom_id="CA-O-731", type="Workflow")
         pin = proposed_carrier._entry("CA-D-289")
         path = self.fixture.root / self.fixture.control.joinpath(*Path(pin["source_path"]).parts[1:])
-        path.write_bytes(path.read_bytes() + b"\nChanged authority.\n")
+        path.write_bytes(path.read_bytes().replace(b"atom_id:", b"invalid_atom_id:", 1))
         with self.assertRaises(proposed_carrier.ProposedCarrierError):
             self.validate("09_operations/workflow/archived/step@4.md", status="Archived", version=4)
+
+    def test_naming_authority_drift_after_capture_refuses(self):
+        self.put("09_operations/workflow.md", atom_id="CA-O-731", type="Workflow")
+        pin = proposed_carrier._entry("CA-D-289")
+        path = self.fixture.root / self.fixture.control.joinpath(*Path(pin["source_path"]).parts[1:])
+        original = path.read_bytes()
+        place = proposed_carrier._operations_placement
+        observed = []
+
+        def place_then_drift(*args, **kwargs):
+            place(*args, **kwargs)
+            path.write_bytes(original + b"\nChanged after naming authority capture.\n")
+            observed.append(True)
+
+        try:
+            with patch.object(proposed_carrier, "_operations_placement", place_then_drift):
+                with self.assertRaises(proposed_carrier.ProposedCarrierError):
+                    self.validate("09_operations/workflow/archived/step@4.md", status="Archived", version=4)
+            self.assertTrue(observed)
+        finally:
+            path.write_bytes(original)
 
     def test_active_chain_does_not_require_archive_naming_authority(self):
         self.put("09_operations/workflow.md", atom_id="CA-O-731", type="Workflow")

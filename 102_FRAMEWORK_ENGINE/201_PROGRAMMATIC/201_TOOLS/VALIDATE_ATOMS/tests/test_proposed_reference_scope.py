@@ -4,12 +4,14 @@ import hashlib
 from pathlib import Path
 import sys
 import unittest
+from unittest.mock import patch
 
 HERE = Path(__file__).resolve().parent
 sys.path[:0] = [str(HERE), str(HERE.parents[1])]
 
 import test_proposed_carrier_admission_regressions as fixtures
 from project_selection import bind_selection
+from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier  # noqa: E402 - fixture path bootstrap
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
     ProposedCarrierError, _entry, _FRONTIER_IDS, _GRAPH_IDS,
     source_context_from_project, validate_proposed_carrier,
@@ -115,12 +117,35 @@ class ProposedReferenceScopeTests(unittest.TestCase):
             entry = _entry(identifier, graph=graph)
             path = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
             original = path.read_bytes()
-            path.write_bytes(original + b"\n# stale source\n")
+            # D324 is already captured; graph rules are first read during admission.
+            path.write_bytes(original.replace(b"atom_id:", b"invalid_atom_id:", 1) if graph else
+                             original + b"\n# stale captured source\n")
             try:
                 with self.subTest(identifier=identifier), self.assertRaises(ProposedCarrierError):
                     self.validate(reference_roles=PRMEDO)
             finally:
                 path.write_bytes(original)
+
+    def test_graph_authority_drift_after_capture_refuses(self):
+        entry = _entry("CA-R-1018", graph=True)
+        path = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
+        original = path.read_bytes()
+        resolve = proposed_carrier.relations_resolution
+        observed = []
+
+        def resolve_then_drift(*args, **kwargs):
+            resolve(*args, **kwargs)
+            path.write_bytes(original + b"\n# changed after graph authority capture\n")
+            observed.append(True)
+
+        try:
+            with patch.object(proposed_carrier, "relations_resolution", resolve_then_drift):
+                with self.assertRaises(ProposedCarrierError):
+                    self.validate(reference_roles=PRMEDO)
+            self.assertTrue(observed)
+            self.assertEqual(TARGET, self.target.read_bytes())
+        finally:
+            path.write_bytes(original)
 
 
 if __name__ == "__main__":
