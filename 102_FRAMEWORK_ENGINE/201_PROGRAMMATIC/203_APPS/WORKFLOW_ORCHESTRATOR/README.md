@@ -33,15 +33,12 @@ also handles Ctrl-C. This is a trusted local service, not a multi-user RPC bound
 
 ## Project releases run directly on the host
 
-`release_version` and `public.release` invoke Project-owned helpers directly,
-not this worker or a separate release queue. There is no `start-release-worker`
-command, sealed release proposal or release-host transport.
-
-Release requests bind `project_root` and an Operator-selected `run_id`; Public
-release additionally needs the full PR description and concise history bullets
-in `content_draft`. The host supplies Git, GitHub and Docker access. The isolated
-Docker worker has no host Docker client or socket. Run only on Operator
-instruction; see [Project release tools](../../../../PROJECT_TOOLS/README.md).
+`PROJECT_TOOLS/release.py local` and `public` are repository commands run on the
+host, separately from this worker and MCP. The host supplies Git, GitHub and
+Docker access; the isolated Docker worker has no host Docker client or socket.
+Run only on Operator instruction, with an Operator-selected run ID and a Public
+content draft. See [Project release tools](../../../../PROJECT_TOOLS/README.md)
+for locked invocations and input format.
 
 ## Enqueue through MCP
 

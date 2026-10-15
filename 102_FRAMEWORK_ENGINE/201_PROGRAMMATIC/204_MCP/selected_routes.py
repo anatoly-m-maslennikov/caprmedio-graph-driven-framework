@@ -906,7 +906,9 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
     def get_action_run(self, request: Any) -> dict[str, Any]:
         return self._observe("get_selected_action_run", request, "action_run_id")
 
-def register_selected_routes(server: Any, root: str | Path) -> SelectedRouteAdapter:
+def register_selected_routes(
+    server: Any, root: str | Path, *, tool_blacklist: frozenset[str] = frozenset(),
+) -> SelectedRouteAdapter:
     """Register direct Release commands and only fully admitted ordinary routes."""
     from mcp.types import ToolAnnotations
 
@@ -923,37 +925,40 @@ def register_selected_routes(server: Any, root: str | Path) -> SelectedRouteAdap
     release_annotations = ToolAnnotations(read_only_hint=False, destructive_hint=True, idempotent_hint=False, open_world_hint=False)
 
     public_route_names = (*adapter.routes, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME)
-    adapter.public_route_names = frozenset(public_route_names)
+    adapter.public_route_names = frozenset(public_route_names) - tool_blacklist
 
-    for route_name in adapter.routes:
+    for route_name in sorted(adapter.routes.keys() - tool_blacklist):
         def add_route(route: str) -> None:
             @server.tool(name=route, structured_output=True,
-                         annotations=(query_annotations if route in QUERY_ROUTE_NAMES else release_annotations
-                                      if route in {_OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME}
-                                      else selected_annotations))
+                         annotations=(query_annotations if route in QUERY_ROUTE_NAMES else selected_annotations))
             def selected_route(request: dict[str, Any]) -> dict[str, Any]:
                 """Preview ordinary routes before their explicit authorized execute."""
                 return adapter.invoke(route, request)
         add_route(route_name)
 
-    @server.tool(name=_OPTIONAL_RELEASE_ROUTE_NAME, structured_output=True, annotations=release_annotations)
     def release_version(request: DirectLocalReleaseRequest) -> dict[str, Any]:
         """Run only the connected Project's direct local release."""
         return adapter.invoke(_OPTIONAL_RELEASE_ROUTE_NAME, request)
 
-    @server.tool(name=_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME, structured_output=True, annotations=release_annotations)
     def public_release(request: DirectPublicReleaseRequest) -> dict[str, Any]:
         """Run only the connected Project's public release with its supplied draft."""
         return adapter.invoke(_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME, request)
 
-    @server.tool(name="get_selected_workflow_run", structured_output=True, annotations=observation_annotations)
     def get_selected_workflow_run(request: dict[str, Any]) -> dict[str, Any]:
         """Read one saved selected Workflow Run without dispatch."""
         return adapter.get_workflow_run(request)
 
-    @server.tool(name="get_selected_action_run", structured_output=True, annotations=observation_annotations)
     def get_selected_action_run(request: dict[str, Any]) -> dict[str, Any]:
         """Read one saved selected Action Run without dispatch."""
         return adapter.get_action_run(request)
 
+    controls = {
+        _OPTIONAL_RELEASE_ROUTE_NAME: (release_version, release_annotations),
+        _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME: (public_release, release_annotations),
+        "get_selected_workflow_run": (get_selected_workflow_run, observation_annotations),
+        "get_selected_action_run": (get_selected_action_run, observation_annotations),
+    }
+    for name in sorted(controls.keys() - tool_blacklist):
+        handler, tool_annotations = controls[name]
+        server.tool(name=name, structured_output=True, annotations=tool_annotations)(handler)
     return adapter

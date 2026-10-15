@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-14 19:54:14 +0400"
+version: 7
+updated_at: "2026-10-15 00:35:00 +0000"
 subjects:
   governs: "MCP/selected Workflow adapter Carrier"
   depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal, Projection, Project]
@@ -28,6 +28,8 @@ The declared delivery location and public request contract for selected MCP adap
 The adapter surface **must** be implemented in one Project-local MCP binding. Non-Release selected routes delegate to shared Run support; the two direct Release commands invoke their existing local **or** public runner under the boundary below.
 
 ## Details
+
+`project_mcp.tool_blacklist` is an optional list of exact MCP tool names; an absent list means no names are blocked. A listed name is omitted from tool discovery and refused at invocation before its handler runs, including cached or direct calls. This Project lists `release_version` and `public.release`: their existing adapters, runner bindings and request contracts remain available in source for later reuse, but neither tool is exposed or callable through MCP. The route declarations and direct requests below retain their implementation bindings; exposure always obeys the Project blacklist. Current release invocation uses repository-host `PROJECT_TOOLS/release.py local|public`, with `--project-root`, required `--run-id`, and optional public `--content-draft` JSON containing exactly `description` and `summary`. Missing public content returns `input_required` without publication. Existing plain Journal logging reports actual observations; `recording_error` is independent of the release outcome and never requests replay.
 
 ```toml
 [selected_workflow_mcp]
@@ -92,7 +94,7 @@ Only the two declared read-only Run observation routes remain; the obsolete
 not admitted. This is a delivery declaration, not implementation acceptance:
 this source-contract alignment does not by itself claim current route registration, query execution, functional verification, or immutable-image acceptance. The complete shared-registry gate remains mandatory only for non-Release selected routes; neither direct Release command depends on that gate.
 
-### Direct local and public Release commands
+### Retained direct local and public Release bindings
 
 `release_version` invokes the existing `PROJECT_TOOLS/RELEASE_VERSION/local_release.py:run_local_release` with the closed request `{project_root, run_id}`. `public.release` invokes the existing public runner with `{project_root, run_id, content_draft?}`; the draft contains exactly `description` and `summary`. A missing public draft requests that input rather than executing publication. Resolve only the connected selected Project; reject foreign roots, unknown fields and a request for the other release's effects.
 
@@ -106,5 +108,5 @@ These direct commands do not weaken the complete manifest/source/currentness/per
 
 ### Sources
 
-- CA-R-1847 v9; CA-R-1848 v5; CA-E-567 v4; CA-E-568 v5.
+- CA-R-1847 v10; CA-R-1848 v6; CA-E-567 v4; CA-E-568 v6.
 - CA-A-1142 v2; CA-P-1618 v1; CA-P-1535 v2; CA-D-527 v3; CA-D-521 v7; CA-D-548 v2; CA-D-523 v2.

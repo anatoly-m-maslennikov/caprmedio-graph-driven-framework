@@ -24,6 +24,7 @@ from pydantic import BaseModel, ConfigDict
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / '201_TOOLS'))
 from project_selection import ProjectSelection, bind_selection, resolve_project, rebind_selection
+from project_settings_schema import mcp_tool_blacklist
 
 
 def startup_selection(root, control_root=None, instance_id=None, host_root=None):
@@ -311,6 +312,7 @@ class Gateway:
         self.selection = selection
         if selection is not None and (not isinstance(selection, ProjectSelection) or selection.root != self.root):
             raise ValueError('Gateway selection belongs to another Project')
+        self.tool_blacklist = mcp_tool_blacklist(selection.settings) if selection is not None else frozenset()
         self.implementation = Path(implementation or Path(__file__).with_name('implementation_server.py'))
         self.active, self.generations = None, []
         self.subject_stages = {}
@@ -543,6 +545,8 @@ class Gateway:
             return result({'outcome': 'rejected', 'diagnostics': [str(error)]}, True)
 
     async def call(self, context, params):
+        if params.name in self.tool_blacklist:
+            return result({'outcome': 'rejected', 'diagnostics': ['Unknown Tool']}, True)
         with bind_selection(self.selection) if self.selection is not None else nullcontext():
             return await self._call(context, params)
 
@@ -677,6 +681,10 @@ class Gateway:
             await self.close()
 
     async def initialize(self):
+        if self.selection is None:
+            sys.path.insert(0, str(Path(__file__).resolve().parents[1] / '201_TOOLS/VALIDATE_ATOMS'))
+            from capability_discovery.service import Service
+            self.tool_blacklist = Service(self.root).tool_blacklist()
         if not self.generation_fence.acquire(blocking=False):
             raise RuntimeError('MCP generation writer fence is busy')
         acquired = False
@@ -715,7 +723,10 @@ class Gateway:
     def build_server(self):
 
         async def list_tools(context, params):
-            return types.ListToolsResult(tools=[CONTROL, STATUS, *self.active.tools])
+            return types.ListToolsResult(tools=[
+                tool for tool in (CONTROL, STATUS, *self.active.tools)
+                if tool.name not in self.tool_blacklist
+            ])
 
         server = Server('CAPRMEDIO', version='0.2.0', on_list_tools=list_tools,
                         on_call_tool=self.call)

@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-14 19:54:14 +0400"
+version: 6
+updated_at: "2026-10-15 00:35:00 +0000"
 subjects:
   governs: "MCP/selected Workflow dispatch truth"
   depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal]
@@ -27,6 +27,8 @@ Authorization, currentness, result truth, and defer/handoff behavior at the sele
 MCP **must not** invent dispatch, completion, effects or logging success. Each reported fact must retain the actual shared-service **or** direct-runner result and its truthful diagnostics; a Journal entry is not permission or proof of source-effect completion.
 
 ## Details
+
+`project_mcp.tool_blacklist` is an optional list of exact MCP tool names; an absent list means no names are blocked. A listed name is omitted from tool discovery and refused at invocation before its handler runs, including cached or direct calls. This Project lists `release_version` and `public.release`: their existing adapters, runner bindings and request contracts remain available in source for later reuse, but neither tool is exposed or callable through MCP. A blacklist refusal creates no release Run, delivery, publication or logging effect. The direct-runner contract below remains preserved for reuse and repository-host invocation; it grants no MCP exposure exception.
 
 The complete manifest/source/permission gate remains required for non-Release selected routes and their query admissions. The two direct local/public Release commands instead use CA-D-547's simple connected-Project runner interface and full test suite, without an additional whole-catalog, dependency-registry, Release-source-admission, D527 selected-envelope or DBOS gate. Normal explicit inputs, existing Operator/client permissions, current source/file safety, actual Run outcomes, installation lock/readback and public Git/PR boundaries remain required. Full-suite verification includes required integration tests; missing Docker or another required test environment, or skipping required tests, cannot pass release. Release verification adds no separate Active Atom metadata, placement or relation validation; the full test suite and normal input, permission and file/path safety checks remain. Required Docker integration tests build a disposable image from the current code; an old installed or running image is not a substitute, and test execution does not restart the running Project MCP. A source-defined condition or a log entry does not prove tests or effects ran. This clause supplies no new execution, confirmation, retry or publication authority.
 

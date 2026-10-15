@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 73
-updated_at: "2026-10-14 23:38:44 +0000"
+version: 74
+updated_at: "2026-10-15 00:35:00 +0000"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,16 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Repository-host release and disabled MCP exposure — 2026-10-15
+
+The Operator selected plain repository-host local/public release commands and then clarified that MCP release exposure must be disabled through a tool blacklist while preserving the adapters for later reuse. Use `PROJECT_TOOLS/release.py local|public` with optional `--project-root` (repository root by default), required `--run-id`, and optional public `--content-draft` UTF-8 JSON containing exactly `description` and `summary`; absent public content returns `input_required` without publication. `project_mcp.tool_blacklist` is the optional exact-name setting, with missing/empty meaning no blocked names. This Project blocks `release_version` and `public.release` in discovery and invocation. Preserve full-suite verification including required integrations, Draft public PRs, no merge, plain Journal observations and independent logging failures. Add no registry, Active Atom or prior-history gate.
+
+Public Version `0.4.4` was released to `amm/dev` at `d83dc184d` with Draft PR [#30](https://github.com/anatoly-m-maslennikov/caprmedio-graph-driven-framework/pull/30) targeting `main`; it was not merged. The preceding frozen full suite passed 354 modules and 3,244 tests with zero skips. These observations do not establish acceptance of the subsequent host-entrypoint/blacklist change, which requires its own focused verification and fresh full release suite before another release.
+
+Next, implement and verify this narrow host/blacklist alignment, then resume Subjects-only migration preparation with fresh connected preview, successful fresh staging/readback, current source/grammar pins, final graph/candidate packet checks and exact live publication approval. Preserve both uncertain staging batches; no replay or live Subject/content write is established. This Epic remains Active, and the separate content migration remains deferred. This checkpoint supersedes the earlier pending-public-release status and historical statements that release tools must be exposed through MCP.
+
+The MCP host/gateway reads the blacklist at start or recreation; implementation-only reload does not refresh that Settings snapshot. This source alignment does not itself apply the blacklist to the running gateway or erase retained source contracts, implementations or read-only analysis.
 
 ### Green suite, connected refresh and next release gate — 2026-10-14 23:38:44 +0000
 

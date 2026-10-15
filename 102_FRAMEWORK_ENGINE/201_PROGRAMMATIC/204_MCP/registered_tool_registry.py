@@ -5,7 +5,7 @@ provider descriptions and canonical model symbols; it never invokes a Tool.
 """
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping, Sequence
+from collections.abc import Callable, Collection, Mapping, Sequence
 from dataclasses import dataclass
 import hashlib
 import importlib.util
@@ -481,6 +481,7 @@ def register_catalog_tools(
     *,
     occupied_public_names: Sequence[str] = (),
     registered_public_names: Sequence[str] = (),
+    tool_blacklist: Collection[str] = (),
 ) -> RegistrySnapshot:
     """Compile all valid descriptors and register only unoccupied public names.
 
@@ -496,12 +497,19 @@ def register_catalog_tools(
     withheld: list[Mapping[str, object]] = []
     frontier_binders: list[Callable[..., None]] = []
     occupied = frozenset(name for name in occupied_public_names if isinstance(name, str) and name)
+    excluded = frozenset(tool_blacklist)
     for record in snapshot.tools:
         mcp_name = record.get("mcp_name")
         if not isinstance(mcp_name, str) or not mcp_name:
             withheld.append({
                 "source": {**dict(record["source"]), "name": record["name"], "mcp_name": None},
                 "reason": "source_only",
+            })
+            continue
+        if mcp_name in excluded:
+            withheld.append({
+                "source": {**dict(record["source"]), "name": record["name"], "mcp_name": mcp_name},
+                "reason": "tool_blacklisted",
             })
             continue
         if mcp_name in occupied:
@@ -550,7 +558,7 @@ def register_catalog_tools(
     result = _snapshot(snapshot.tools, quarantined, registered=registered, withheld=withheld)
     # Names reserved by a caller are not proof of registration.  Only completed
     # add_tool calls and the server's explicit bootstrap result enter discovery.
-    names = frozenset(registered_public_names) | result.registered_names
+    names = (frozenset(registered_public_names) | result.registered_names) - excluded
     for bind_frontier in frontier_binders:
         bind_frontier(registered_names=names, quarantined=result.quarantined, withheld=result.withheld)
     return result

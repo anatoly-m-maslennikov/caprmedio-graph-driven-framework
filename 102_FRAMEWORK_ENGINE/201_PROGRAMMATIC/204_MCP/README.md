@@ -52,28 +52,25 @@ Scope mutations, Revert, graph builders, standalone advanced Artifact/Journal
 queries, and formal Release/promotion remain outside this first cut. A transport,
 manifest route, or completed scheduler call is not execution authority.
 
-## Direct Project release commands
+## Project releases run outside MCP
 
-`release_version` and `public.release` call the connected Project's helpers in
-`PROJECT_TOOLS`, separately from selected Workflow sessions. Their requests
-contain `project_root` matching the bound Project and an Operator-selected
-`run_id`. Public release also accepts `content_draft` with exactly `description`
-and `summary`; without it, the command returns `input_required` without effects.
-The full Markdown description needs nonempty `## New` and `## Fixed` bullet
-sections; the summary is a nonempty list of concise, single-line history bullets.
+Local and Public releases use `PROJECT_TOOLS/release.py local` and `public` on
+the host. They are repository commands, separate from MCP and selected Workflow
+sessions. Use the locked invocations and draft format in
+[Project release tools](../../../PROJECT_TOOLS/README.md).
 
-These commands require the host's Git, GitHub and Docker tools, not the ordinary
-MCP container. Run only on Operator instruction. They use the complete executable
-suite, including required current-code Docker integrations; unavailable, skipped
-required or failed checks stop release. Public release tests its prepared version
-and documentation before pushing `amm/dev` and creating/updating a Draft PR to
-`main`; it never merges. No sealed Session, restoration/admission Action or
-Journal receipt gate is required. See [Project release tools](../../../PROJECT_TOOLS/README.md).
+The reusable `release_version` and `public.release` MCP bindings remain in code.
+This Project disables them with `project_mcp.tool_blacklist`; blacklisted names
+are absent from discovery and cannot be called through MCP. An omitted list
+disables no tools. Restart/recreate the gateway to apply settings changes;
+implementation-only reload keeps the gateway's selected settings. See the
+Project release documentation for the settings snippet.
 
-An older gateway may not expose the current direct commands. Hot reload reads
-that gateway's own code tree, not an unrelated checkout. Discover actual callable
-bindings after an authorized refresh; their source definitions alone do not prove
-activation.
+Run only on Operator instruction. The complete suite, including required
+current-code Docker integrations, must pass before release effects. Public
+release tests its prepared version and documentation before pushing `amm/dev`
+and creating/updating a Draft PR to `main`; it never merges. These source changes
+do not establish that an installed MCP has been refreshed.
 
 ## Hot reload
 

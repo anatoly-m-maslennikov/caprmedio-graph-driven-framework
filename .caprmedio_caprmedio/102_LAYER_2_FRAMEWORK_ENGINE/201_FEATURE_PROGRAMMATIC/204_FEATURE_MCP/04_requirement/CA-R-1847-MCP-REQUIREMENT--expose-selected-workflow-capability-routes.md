@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: "2026-10-14 19:54:14 +0400"
+version: 10
+updated_at: "2026-10-15 00:35:00 +0000"
 subjects:
   governs: "MCP/selected Workflow capability routes"
   depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal]
@@ -24,11 +24,15 @@ The Project-local MCP adapter surface for the original thirteen Operator-selecte
 P1117 capabilities, two explicitly admitted read-only P1520 query Workflows,
 and separately admitted Release Version and PUBLIC_RELEASE Workflows.
 
+Exposure uses the Project Settings snapshot loaded when the MCP host/gateway starts or is recreated; implementation-only reload does not refresh the blacklist. This policy removes callable admission only: source Atoms, retained implementations and read-only analysis remain available.
+
 ## Claim
 
 MCP **must** expose only the capability adapters admitted below through the existing reloadable Project-local server. Non-Release selected routes delegate execution and actual Run observations to shared `WORKFLOW_OPERATIONS/RUN_SUPPORT`; local **and** public Release use their existing direct runners.
 
 ## Details
+
+`project_mcp.tool_blacklist` is an optional list of exact MCP tool names; an absent list means no names are blocked. A listed name is omitted from tool discovery and refused at invocation before its handler runs, including cached or direct calls. This Project lists `release_version` and `public.release`: their existing adapters, runner bindings and request contracts remain available in source for later reuse, but neither tool is exposed or callable through MCP. The admitted bindings below describe retained capability contracts, not an override of that exposure policy. Use the repository-host `PROJECT_TOOLS/release.py local|public` commands for releases.
 
 The admitted route-name set is `create_atom`, `update_atom`, `replace_atom`,
 `change_atom_status`, `create_scope_unit`, `rename_scope_unit`,

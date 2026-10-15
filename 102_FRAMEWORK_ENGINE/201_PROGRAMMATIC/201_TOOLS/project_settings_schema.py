@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
 from types import MappingProxyType
@@ -10,7 +11,7 @@ from types import MappingProxyType
 # Reviewed byte closure; carried named authority must also be admitted.
 SCHEMA_PINS = MappingProxyType({
     "CA-D-364": (10, "4f7513eb67fe6075f58c29d06accc4fd16c9dca7e823d794c7a4dc90cd9668c9"),
-    "CA-D-366": (10, "93c8eddc61260a52f2b6c708f4e6809a5b1a8a4d12e37dd82b5afe0568b531d2"),
+    "CA-D-366": (11, "403fe1b43a9ae7eb8a7976d126c0796bb7bd545ac6febd7eb1f696ecefbd134f"),
     "CA-D-375": (10, "d32280d1b04a033a9398745c8471e731bbca293ffcfe4260d9136c06951c950b"),
     "CA-D-376": (9, "f03248c4d66a550d2c2ad6018b1a42a5cf2ac6aba0488e1d3c38c388ecedb321"),
     "CA-D-378": (10, "9435f3abb5a56f46c37c43c3e758afa1e288a0af259f39a34237495d8fcf255f"),
@@ -52,6 +53,7 @@ class ProjectSettingsSnapshot:
     source: SourcePin
     schema_sources: tuple[SchemaPin, ...]
     project_mcp_http_port: int | None
+    project_mcp_tool_blacklist: tuple[str, ...] | None = None
 
     def to_document(self) -> dict:
         """Return a fresh complete value copy, retaining optional-field absence."""
@@ -63,6 +65,8 @@ class ProjectSettingsSnapshot:
                     "paths": {"control_root": self.control_root}}
         if self.project_mcp_http_port is not None:
             document["project_mcp"] = {"http_port": self.project_mcp_http_port}
+            if self.project_mcp_tool_blacklist is not None:
+                document["project_mcp"]["tool_blacklist"] = list(self.project_mcp_tool_blacklist)
         return document
 
 
@@ -90,7 +94,33 @@ def _string(value, field: str) -> str:
     return value
 
 
-def _parse_settings(document: dict) -> tuple[str, str, str, tuple[str, ...] | None, int | None]:
+def mcp_tool_blacklist(settings: Mapping[str, object]) -> frozenset[str]:
+    """Read exact disabled MCP names from validated or frozen Settings values."""
+    mcp = settings.get("project_mcp", {})
+    if not isinstance(mcp, Mapping):
+        raise _SchemaError("project_mcp", "A Settings table is required.")
+    names = mcp.get("tool_blacklist", ())
+    if type(names) not in (list, tuple):
+        raise _SchemaError("project_mcp.tool_blacklist", "An array of exact nonempty strings is required.")
+    return frozenset(_string(name, "project_mcp.tool_blacklist") for name in names)
+
+
+def _parse_mcp_settings(document: dict) -> tuple[int | None, tuple[str, ...] | None]:
+    if "project_mcp" not in document:
+        return None, None
+    mcp = _table(document["project_mcp"], {"http_port"}, {"tool_blacklist"}, "project_mcp")
+    port = mcp["http_port"]
+    if type(port) is not int or not 1 <= port <= 65535:
+        raise _SchemaError("project_mcp.http_port", "An exact integer in 1..65535 is required.")
+    if "tool_blacklist" not in mcp:
+        return port, None
+    if type(mcp["tool_blacklist"]) is not list:
+        raise _SchemaError("project_mcp.tool_blacklist", "An array of exact nonempty strings is required.")
+    mcp_tool_blacklist(document)
+    return port, tuple(mcp["tool_blacklist"])
+
+
+def _parse_settings(document: dict) -> tuple[str, str, str, tuple[str, ...] | None, int | None, tuple[str, ...] | None]:
     """Pure complete-schema validation; no identity-only subset or normalization."""
     _table(document, {"schema_version", "project", "artifacts", "paths"}, {"project_mcp"}, "settings")
     if type(document["schema_version"]) is not str or document["schema_version"] != "2.0":
@@ -115,10 +145,5 @@ def _parse_settings(document: dict) -> tuple[str, str, str, tuple[str, ...] | No
         for value in obsolete:
             _string(value, "project.obsolete_names")
         obsolete = tuple(obsolete)
-    port = None
-    if "project_mcp" in document:
-        mcp = _table(document["project_mcp"], {"http_port"}, set(), "project_mcp")
-        port = mcp["http_port"]
-        if type(port) is not int or not 1 <= port <= 65535:
-            raise _SchemaError("project_mcp.http_port", "An exact integer in 1..65535 is required.")
-    return name, prefix, control, obsolete, port
+    port, blacklist = _parse_mcp_settings(document)
+    return name, prefix, control, obsolete, port, blacklist

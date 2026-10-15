@@ -8,8 +8,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-14 19:54:14 +0400"
+version: 6
+updated_at: "2026-10-15 00:35:00 +0000"
 subjects:
   governs: "MCP/selected Workflow non-happy truth"
   depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal]
@@ -24,11 +24,15 @@ Verify selected MCP non-happy, handoff, and recording truth
 
 Functional MCP failures for unauthorized execute, incomplete or stale binding manifests, deferred/handoff, cancellation, partial/unknown effects, and truthful plain-Journal logging failure.
 
+Verify that host/gateway start or recreation reads the changed blacklist and that implementation-only reload retains the existing Settings snapshot. Refusal disables callable admission without erasing source Atoms, retained code or read-only analysis.
+
 ## Claim
 
 Every realization **must** preserve the shared service's actual non-happy evidence and must never replay work because logging fails or recorded rows repeat.
 
 ## Details
+
+Verify `project_mcp.tool_blacklist` with an absent/empty list and exact listed tool names. A blocked tool is absent from discovery and direct or cached invocation refuses before any handler call or effect. This Project blocks `release_version` and `public.release`; retain their implementation and binding contracts for later reuse, with normal selected capabilities unaffected. Verify release runner behavior through repository-host invocation, without using the blacklist as an exception to release verification or permission checks.
 
 For non-Release selected routes, using a functional fixture, submit unauthorized mutation `execute`, unsupported
 `apply`, unsealed/unknown route, missing route binding, altered manifest digest,
@@ -65,4 +69,4 @@ Acceptance retains request traces, target mutation traces, service invocation co
 
 ### Sources
 
-- CA-R-1847 v9; CA-R-1848 v5; CA-D-547 v6; CA-A-1142 v2; CA-P-1618 v1; CA-P-1535 v2; CA-D-527 v3; CA-R-1850 v2; CA-R-1866 v3; CA-R-1867 v1.
+- CA-R-1847 v10; CA-R-1848 v6; CA-D-547 v7; CA-A-1142 v2; CA-P-1618 v1; CA-P-1535 v2; CA-D-527 v3; CA-R-1850 v2; CA-R-1866 v3; CA-R-1867 v1.

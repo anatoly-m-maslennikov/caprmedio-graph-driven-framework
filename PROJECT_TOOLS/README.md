@@ -17,11 +17,55 @@ package. Shared compiler, installer and test-gate helpers remain in the Engine.
   when newly known. That URL-only follow-up does not repeat the suite. Never merge.
 
 The implementation cores are `RELEASE_VERSION/local_release.py` and
-`PUBLIC_RELEASE/public_release.py`. Direct MCP requests bind the connected
-Project through `project_root` and an Operator-selected `run_id`; Public release
-also needs `content_draft` with exactly `description` and `summary`. No selected
-Session, sealed proposal or Journal receipt gates the release. Journal recording
-errors are reported separately from the actual release outcome.
+`PUBLIC_RELEASE/public_release.py`. Run them through `release.py` on the host,
+with an Operator-selected `--run-id`. No selected Session, sealed proposal or
+Journal receipt gates the release. The host command records linked start and
+completed/failed Journal events; a recording failure appears as `recording_error`
+without changing the release outcome. Missing content or invalid CLI/draft inputs
+record no events.
+
+The MCP bindings remain implemented for reuse. This Project disables their
+exposure through its settings:
+
+```toml
+[project_mcp]
+tool_blacklist = ["release_version", "public.release"]
+```
+
+Blacklisted names are absent from discovery and cannot be called through MCP.
+Omitting `tool_blacklist` means an empty list. Restart/recreate the MCP gateway
+after changing this setting; an implementation-only reload does not refresh it.
+The host commands below are the release entry point for this Project.
+
+## Host commands
+
+From the repository root, use the project-local locked uv environment:
+
+```sh
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --all-groups python -B PROJECT_TOOLS/release.py local --run-id local-001
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --all-groups python -B PROJECT_TOOLS/release.py public --run-id public-001 --content-draft /absolute/path/release-draft.json
+```
+
+`--project-root PATH` is optional; the default is this repository's root, derived
+from the script location. Choose a new run ID for each new release; simple IDs
+such as `local-001` and `public-001` work for both commands.
+
+The Public draft is a UTF-8 JSON file with exactly `description` and `summary`:
+
+```json
+{"description":"## New\n- Describe the additions.\n\n## Fixed\n- Describe the fixes.\n","summary":["Concise Version History bullet."]}
+```
+
+The full Markdown description needs nonempty `## New` and `## Fixed` bullet
+sections. Summary entries must be nonempty single-line strings of at most 240
+characters. The draft must be a regular file, not a symlink, and at most 1 MiB.
+Without `--content-draft`, Public returns `input_required` with the content prompt
+and schema, without release effects. Supply the draft and rerun with the same
+run ID. Results are JSON on stdout; exit status is zero only for `completed`.
 
 Release effects run on the host, with its Git, GitHub and Docker tools; the
 ordinary MCP container has none of those host privileges. Both commands start
@@ -32,8 +76,8 @@ suite. Focused tests do not establish an actual release or runtime installation.
 
 ## Kept small
 
-MCP remains the command surface. Automatic recovery/resume, legacy-layout
-compatibility and extra release CLI/configuration wrappers are deferred.
+These repository commands are separate from MCP and the Workflow worker.
+Automatic recovery/resume and legacy-layout compatibility are deferred.
 Failures stop and report the actual failed step for manual handling.
 
 ## Focused tests

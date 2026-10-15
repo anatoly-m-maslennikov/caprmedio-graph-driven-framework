@@ -49,12 +49,12 @@ class ProjectSettingsSchemaIndependentTests(unittest.TestCase):
                 if prior is not None:
                     document["project"]["obsolete_names"] = prior
                 self.assertEqual(("independent", "TEST", ".caprmedio_independent",
-                                  None if prior is None else tuple(prior), None), self.parse(document))
+                                  None if prior is None else tuple(prior), None, None), self.parse(document))
         document = copy.deepcopy(self.document)
         document["project"]["name"] = "indépendant"
         document["artifacts"]["identity"]["project_prefix"] = "ÄΩ_7"
         document["paths"]["control_root"] = ".caprmedio_indépendant"
-        self.assertEqual(("indépendant", "ÄΩ_7", ".caprmedio_indépendant", None, None), self.parse(document))
+        self.assertEqual(("indépendant", "ÄΩ_7", ".caprmedio_indépendant", None, None, None), self.parse(document))
 
     def test_optional_port_presence_and_exact_integer_boundaries(self):
         self.assertIsNone(self.parse(self.document)[4])

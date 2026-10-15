@@ -36,7 +36,11 @@ class ImplementationStartupTelemetryTests(unittest.TestCase):
 
     def _create(self, failure: str | None = None) -> tuple[str, list[str]]:
         calls: list[str] = []
-        service = SimpleNamespace(exposed=set(), catalog=Mock(return_value=([], [], [])))
+        service = SimpleNamespace(
+            exposed=set(),
+            catalog=Mock(return_value=([], [], [])),
+            tool_blacklist=Mock(return_value=frozenset()),
+        )
         selected = SimpleNamespace(public_route_names=("fixture_route",))
         registry = SimpleNamespace(quarantined=[], withheld=[], registered_names=("helper",))
         stderr = io.StringIO()

@@ -281,17 +281,17 @@ Their existing authorization boundaries remain. Discovery reports what is
 actually callable; a source definition alone does not prove execution support.
 Implementation has golden mock-Agent evidence, not a live-LLM claim.
 
-Two Project-owned release commands use a simpler, direct path through MCP:
+Two Project-owned release commands run directly from the repository on the host:
 
-- **Local release (`release_version`):** test the intended tools; copy active
+- **Local release (`PROJECT_TOOLS/release.py local`):** run the complete suite; copy active
   Methodology Sources into `101_FRAMEWORK_METHODOLOGY`; compile Applicable
   Methodology; replace the installed Methodology; build and install the Engine
   package and project-local `ca`; start Docker MCP; remove only proven
   superseded Project-owned images.
-- **Public release (`public.release`):** test the intended tools; use one content
+- **Public release (`PROJECT_TOOLS/release.py public`):** run the complete suite; use one content
   prompt for the full PR description and its concise Version History bullets;
   update the version and README; push `amm/dev`; create or update the PR to
-  `main`; insert its actual link into Version History. It does not merge the PR.
+  `main` as a Draft; insert its actual link into Version History. It does not merge the PR.
 
 Both start only on an Operator command. They commit all safe, nonignored changes
 before each step and at the end. Failures stop for manual handling: no automatic
@@ -302,10 +302,13 @@ its installed Project copy is in `.caprmedio_runtime/simple_local_release/packag
 Configuration and existing Project records remain outside the replacement
 boundary. Python runs through locked `uv` environments, not system libraries.
 
-Regular Project MCP runs in Docker on localhost without a password. The release
-commands use host-side stdio MCP so they can use Docker and the Operator's Git
-and GitHub tools without forwarding credentials or a Docker socket into the
-regular MCP container. The [launcher documentation](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md)
+Use the locked host commands in [Project release tools](PROJECT_TOOLS/README.md),
+with an Operator-selected run ID and a JSON content draft for Public release.
+They use the host's Git, GitHub and Docker tools independently of MCP. The
+release MCP bindings remain available for reuse in code, but this Project
+disables them through `project_mcp.tool_blacklist`. Regular
+Project MCP runs in Docker on localhost without a password; the
+[launcher documentation](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md)
 describes Project selection and endpoint startup.
 
 Local numbering adds or increments the fourth component (`0.4.2.1` →

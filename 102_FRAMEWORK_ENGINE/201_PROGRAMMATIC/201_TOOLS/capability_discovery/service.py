@@ -148,6 +148,20 @@ class Service:
                 raise ValueError('Carrier exceeds read limit')
             return raw
 
+    def tool_blacklist(self):
+        """Read the selected Project's MCP exclusions without replacing its settings."""
+        from project_settings_schema import mcp_tool_blacklist
+
+        selection = bound_selection(self.root)
+        if selection is None and not any(
+            self.root.glob('.caprmedio_*/caprmedio_project_settings.toml')
+        ):
+            return frozenset()
+        settings = (selection.settings if selection is not None else tomllib.loads(
+            self.read(self._control_root() / 'caprmedio_project_settings.toml').decode()
+        ))
+        return mcp_tool_blacklist(settings)
+
     def _control_root(self):
         """Resolve the Project's declared control root from its one settings Carrier."""
         selection = bound_selection(self.root)

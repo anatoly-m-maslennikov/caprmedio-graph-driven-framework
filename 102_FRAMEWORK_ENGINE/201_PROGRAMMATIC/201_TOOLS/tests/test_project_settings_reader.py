@@ -15,7 +15,7 @@ sys.path.insert(0, str(TOOLS))
 from connector_bindings import FileSource, capture_source
 from connector_toml_parse import render_document
 from project_settings_reader import SCHEMA_PINS, read_project_settings
-from project_settings_schema import _SchemaError, _parse_settings
+from project_settings_schema import _SchemaError, _parse_settings, mcp_tool_blacklist
 
 
 REPOSITORY = TOOLS.parents[2]
@@ -61,7 +61,7 @@ class ProjectSettingsReaderTests(unittest.TestCase):
         return result
 
     def test_complete_schema_optional_absence_and_exact_value_copy(self):
-        self.assertEqual(("reader", "READ", ".caprmedio_reader", None, None), _parse_settings(copy.deepcopy(DOCUMENT)))
+        self.assertEqual(("reader", "READ", ".caprmedio_reader", None, None, None), _parse_settings(copy.deepcopy(DOCUMENT)))
         document = copy.deepcopy(DOCUMENT)
         document["project"]["obsolete_names"] = [" reader ", "reader", "reader"]
         self.assertEqual(tuple(document["project"]["obsolete_names"]), _parse_settings(document)[3])
@@ -137,6 +137,48 @@ class ProjectSettingsReaderTests(unittest.TestCase):
                 document["project_mcp"] = value
                 with self.assertRaises(_SchemaError):
                     _parse_settings(document)
+
+    def test_mcp_blacklist_absence_empty_and_exact_names_roundtrip(self):
+        for names in (None, [], ["release_version", "public.release", " Release ", "public.release"]):
+            with self.subTest(names=names):
+                document = copy.deepcopy(DOCUMENT)
+                document["project_mcp"] = {"http_port": 56317}
+                if names is not None:
+                    document["project_mcp"]["tool_blacklist"] = names
+                self.path.write_bytes(render_document(document))
+                self.source = capture_source(self.root, self.path.relative_to(self.root))
+                result = self.read()
+                self.assertEqual((), result.errors)
+                snapshot = result.snapshot
+                self.assertEqual(56317, snapshot.project_mcp_http_port)
+                self.assertEqual(None if names is None else tuple(names), snapshot.project_mcp_tool_blacklist)
+                self.assertEqual(document, snapshot.to_document())
+                self.assertEqual(frozenset(names or ()), mcp_tool_blacklist(snapshot.to_document()))
+                exported = snapshot.to_document()
+                exported["project_mcp"]["tool_blacklist"] = ["changed"]
+                self.assertEqual(document, snapshot.to_document())
+        self.assertEqual(frozenset(), mcp_tool_blacklist(DOCUMENT))
+
+    def test_mcp_blacklist_rejects_wrong_types_and_empty_names_without_coercion(self):
+        for names in (None, False, 1, "release_version", {}, (), [""], [1], [False], [[]]):
+            with self.subTest(names=names):
+                document = copy.deepcopy(DOCUMENT)
+                document["project_mcp"] = {"http_port": 56317, "tool_blacklist": names}
+                with self.assertRaises(_SchemaError) as raised:
+                    _parse_settings(document)
+                self.assertEqual("project_mcp.tool_blacklist", raised.exception.field)
+        with self.assertRaises(_SchemaError):
+            _parse_settings({**DOCUMENT, "project_mcp": {"tool_blacklist": []}})
+
+    def test_mcp_blacklist_consumes_frozen_values_without_normalization(self):
+        from types import MappingProxyType
+
+        settings = MappingProxyType({"project_mcp": MappingProxyType({"tool_blacklist": ("Public.Release", " public.release ")})})
+        self.assertEqual(frozenset({"Public.Release", " public.release "}), mcp_tool_blacklist(settings))
+        for settings in ({"project_mcp": False}, {"project_mcp": {"tool_blacklist": "public.release"}},
+                         {"project_mcp": {"tool_blacklist": ("",)}}, {"project_mcp": {"tool_blacklist": (False,)}}):
+            with self.subTest(settings=settings), self.assertRaises(_SchemaError):
+                mcp_tool_blacklist(settings)
 
     def test_journal_is_never_enumerated_or_read_even_when_malformed(self):
         journal = self.control / "_journal"

@@ -45,7 +45,7 @@ def read_project_settings(source: FileSource, *, schema_sources: Collection[File
         schema_pins = _schema_bindings(source, schemas)
         payload = source.read_bytes()
         _, document = parse_source(payload)
-        name, prefix, control, obsolete, port = _parse_settings(document)
+        name, prefix, control, obsolete, port, blacklist = _parse_settings(document)
         if source.relative_path != Path(control) / "caprmedio_project_settings.toml":
             raise _SchemaError("source", "Settings must occupy their selected canonical authoritative Carrier.")
         source.revalidate()
@@ -53,7 +53,7 @@ def read_project_settings(source: FileSource, *, schema_sources: Collection[File
             authority.revalidate()
         snapshot = ProjectSettingsSnapshot("2.0", name, prefix, control, obsolete,
                                            SourcePin(source.relative_path.as_posix(), hashlib.sha256(payload).hexdigest()),
-                                           schema_pins, port)
+                                           schema_pins, port, blacklist)
         return ProjectSettingsReadResult(snapshot)
     except ConnectorBindingError as error:
         return ProjectSettingsReadResult(None, (Diagnostic(error.code, str(error), error.field),))

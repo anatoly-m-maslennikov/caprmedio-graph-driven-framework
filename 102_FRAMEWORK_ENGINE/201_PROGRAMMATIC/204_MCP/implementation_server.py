@@ -56,17 +56,20 @@ def register_orchestrator(server, root):
 def create_server(root):
     root = Path(root).resolve(strict=True)
     discovery = Service(root, exposed=('workflow_orchestrator',))
+    blacklist = discovery.tool_blacklist()
+    discovery.exposed.difference_update(blacklist)
     server = MCPServer('CAPRMEDIO', version='0.1.0', instructions=
         'Discovery and read-only Run observation; Operator-authorized, caller-coordinated '
         'gather/check/fix. workflow_orchestrator enqueues explicitly authorized Runs '
         'for a separately started worker. No recheck or automatically started Runs.')
-    register_orchestrator(server, root)
+    if 'workflow_orchestrator' not in blacklist:
+        register_orchestrator(server, root)
 
     # Selected Workflow routes own their already-admitted public request
     # protocols.  Generic Tool descriptors may still compile for the same
     # capability, but never overwrite one of those public endpoints.
     with _startup_phase("selected_registration"):
-        selected_routes = register_selected_routes(server, root)
+        selected_routes = register_selected_routes(server, root, tool_blacklist=blacklist)
         discovery.exposed.update(selected_routes.public_route_names)
 
     # Compile one effect-free descriptor frontier.  Registration is generic:
@@ -80,6 +83,7 @@ def create_server(root):
             [tool for tool in catalog_tools if not tool.get('selected_route')],
             occupied_public_names=selected_routes.public_route_names,
             registered_public_names=('workflow_orchestrator', *selected_routes.public_route_names),
+            tool_blacklist=blacklist,
         )
         discovery.registry_quarantined = registry.quarantined
         discovery.registry_withheld = registry.withheld

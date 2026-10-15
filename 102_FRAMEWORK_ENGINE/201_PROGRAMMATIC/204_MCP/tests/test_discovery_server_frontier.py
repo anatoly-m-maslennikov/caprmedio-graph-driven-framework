@@ -92,7 +92,7 @@ class DiscoveryServerFrontierTests(unittest.TestCase):
                                   "scope_unit": "fixture", "content": "fixture operation"}}
             return atoms, rows, issues
 
-        def register_routes(server, root):
+        def register_routes(server, root, *, tool_blacklist=frozenset()):
             @server.tool(name="create_atom")
             def create_atom(request):
                 return {"outcome": "fixture only"}

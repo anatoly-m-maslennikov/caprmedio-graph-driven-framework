@@ -137,3 +137,4 @@ repository_slug = "caprmedio-graph-driven-framework"
 
 [project_mcp]
 http_port = 56317
+tool_blacklist = ["release_version", "public.release"]

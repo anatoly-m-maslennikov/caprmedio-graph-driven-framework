@@ -10,8 +10,8 @@ author: "Anatoly Maslennikov"
 subjects:
   governs: "Release a selected public Version"
   depends_on: [Operator, Version, README, Pull Request, Version History, Tool]
-version: 6
-updated_at: "2026-10-14 12:27:48 +0000"
+version: 7
+updated_at: "2026-10-15 00:35:00 +0000"
 relations:
   invokes: [CA-O-189, CA-O-191, CA-O-195, CA-O-197]
 ---
@@ -47,6 +47,8 @@ One selected Version, one personal remote identity, `amm/dev`, `main`, the selec
 | failed or unsafe result | stop and report it for manual handling; do not merge |
 
 ## Details
+
+Invoke this Workflow from the repository host through `PROJECT_TOOLS/release.py public --project-root <project-root> --run-id <run-id> [--content-draft <json-path>]` in the governed uv environment; `--project-root` defaults to the repository root. The optional UTF-8 JSON file contains exactly `description` and `summary`. Without it, the runner returns `input_required` and its content prompt without publication. The Project's MCP blacklist disables `public.release` exposure and invocation while preserving its adapter for later reuse. Full-suite verification, Draft PR behavior, actual-link follow-up and no merge remain required.
 
 This Workflow starts only on the Operator's command for the selected public-release Run. It runs Git before every listed Step and after final completion. Public release increments the third numeric Version component and drops the fourth/internal suffix, producing exactly three numeric components: `0.4.1.xxx` becomes `0.4.2`. There is no rollover: `0.4.9.x` becomes `0.4.10`. CA-O-192 is its sole content prompt; README, Version History, Git, and PR mechanics are programmatic. Adding only the actual PR URL after the PR exists requires its mechanical follow-up commit and push. It never merges.
 
