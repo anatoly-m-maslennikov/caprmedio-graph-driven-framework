@@ -3,22 +3,23 @@ atom_id: CA-O-120
 content_role: Operations
 type: Step
 current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 01:12:38 +0400"
+version: 2
+updated_at: "2026-10-14 13:44:47 +0400"
 subjects:
   governs: "RMED Atom Review Workflow/coverage/Step: 120"
   depends_on: [Workflow, Step, Action, Atom, Operator, Journal]
 relations:
   relates_to: [CA-O-104, CA-O-118]
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-120-CORE_META_MODEL-STEP--gate-check-result-coverage.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch/CA-O-120-CORE_META_MODEL-STEP--gate-check-result-coverage.md
   source_atom_id: CA-O-120
-  source_atom_revision: 1
-  source_sha256: f89bc7ec47a3fed5e52daf011167e6244693f3cb5df47b11943fabcbcd3a4a40
+  source_atom_revision: 2
+  source_sha256: df731bee1f144dee794b9f0c4c6efe9f7c9002235b5d40848308f0532f65b2aa
   original_relations_sha256: bf71386ada6c23487fc05e9498120de59784b00f41060c7bbc43ad9070f682e0
 ---
 # Summary

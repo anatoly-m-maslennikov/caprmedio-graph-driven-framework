@@ -17,8 +17,8 @@ subjects:
     - "Atom/Content Role: Plan/Type: Plan"
     - "Workflow Run"
     - "Step Run"
-version: 3
-updated_at: "2026-10-04 16:53:23 +0000"
+version: 4
+updated_at: "2026-10-14 13:43:13 +0400"
 relations:
   relates_to:
     - CA-O-089
@@ -26,10 +26,10 @@ relations:
     - CA-R-1525
 global_tier: 11
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-095-CORE_META_MODEL-STEP--diagnose-failures-in-the-assigned-subagent.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-095-CORE_META_MODEL-STEP--diagnose-failures-in-the-assigned-subagent.md
   source_atom_id: CA-O-095
-  source_atom_revision: 3
-  source_sha256: 49d06e90f7939527a66d51ffe06084f157bdab9de138255d4dea7edc114d3fa8
+  source_atom_revision: 4
+  source_sha256: 3e1f7a5b3d9f06e002c8e23f5d5b2719a42886e62310012e74caa27e2b0e9c5c
   original_relations_sha256: f44c9db520af7268fea8076f22c861ee76b9cf12ee645e58fa3317547c9eaf52
 ---
 # Summary

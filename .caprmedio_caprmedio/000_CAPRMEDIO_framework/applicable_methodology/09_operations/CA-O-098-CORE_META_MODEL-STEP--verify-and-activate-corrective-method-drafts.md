@@ -17,8 +17,8 @@ subjects:
     - "Atom/Content Role: Plan/Type: Plan"
     - "Workflow Run"
     - "Step Run"
-version: 4
-updated_at: "2026-10-04 15:14:54 +0000"
+version: 5
+updated_at: "2026-10-14 13:43:13 +0400"
 relations:
   relates_to:
     - CA-O-090
@@ -26,10 +26,10 @@ relations:
     - CA-R-1525
 global_tier: 11
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-098-CORE_META_MODEL-STEP--verify-and-activate-corrective-method-drafts.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-102-CORE_META_MODEL-WORKFLOW--learn-methods-from-verified-implementation-issues/CA-O-098-CORE_META_MODEL-STEP--verify-and-activate-corrective-method-drafts.md
   source_atom_id: CA-O-098
-  source_atom_revision: 4
-  source_sha256: 84e6ff7d80bba36a66916c778ba008a93e2ac125059127629a36076860e5ceb0
+  source_atom_revision: 5
+  source_sha256: f8fd8abc902f2c2160d2518566aa5157a807af930083fed6d61eb42c3ee96af6
   original_relations_sha256: 6c05b0491f90ce42dacccbc1fe094328e13701a15a3952f2aa74e7b0c7afb7cd
 ---
 # Summary

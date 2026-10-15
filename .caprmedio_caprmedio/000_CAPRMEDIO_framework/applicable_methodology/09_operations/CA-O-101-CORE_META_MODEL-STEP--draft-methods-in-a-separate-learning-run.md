@@ -16,8 +16,8 @@ subjects:
     - "AI Agent"
     - "Workflow Run"
     - "Step Run"
-version: 2
-updated_at: "2026-10-04 15:15:47 +0000"
+version: 3
+updated_at: "2026-10-14 13:43:13 +0400"
 relations:
   relates_to:
     - CA-O-100
@@ -25,10 +25,10 @@ relations:
     - CA-R-1525
 global_tier: 11
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/METHOD_LEARNING_WORKFLOW/CA-O-101-CORE_META_MODEL-STEP--draft-methods-in-a-separate-learning-run.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-102-CORE_META_MODEL-WORKFLOW--learn-methods-from-verified-implementation-issues/CA-O-101-CORE_META_MODEL-STEP--draft-methods-in-a-separate-learning-run.md
   source_atom_id: CA-O-101
-  source_atom_revision: 2
-  source_sha256: ecbca9fd8aa16cdc5cb9d527b59835039ae0bb329c42ab9af9696f4bae95c989
+  source_atom_revision: 3
+  source_sha256: 4031288d0ffdf62f6b9747204f8235745ee4c150359b3c8aac89acb9f9c30bf2
   original_relations_sha256: a0977c00fef855cb75511ef588cc370e664b81c980df0701e9805008dbd3288c
 ---
 # Summary

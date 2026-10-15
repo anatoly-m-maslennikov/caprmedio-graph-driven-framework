@@ -8,8 +8,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 17:42:12 +0000"
+version: 3
+updated_at: "2026-10-14 13:44:47 +0400"
 subjects:
   governs: "Applicable Methodology Compilation/Step: assess"
   depends_on:
@@ -27,10 +27,10 @@ subjects:
 relations:
   relates_to: [CA-O-011, CA-O-005]
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md
   source_atom_id: CA-O-153
-  source_atom_revision: 2
-  source_sha256: 7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87
+  source_atom_revision: 3
+  source_sha256: daab4626602f7c28938e937badc433d826d8a6f311c3093045a2849a4228fc0c
   original_relations_sha256: 9e53cce5969842350ce25539597bb1bfbc787ff9378d7f40487b722802818257
 ---
 # Summary

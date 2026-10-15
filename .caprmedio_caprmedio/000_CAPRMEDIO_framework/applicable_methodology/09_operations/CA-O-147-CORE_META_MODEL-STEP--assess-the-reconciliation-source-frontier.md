@@ -16,8 +16,8 @@ subjects:
     - "Step/Agentic Execution Context"
     - "Workflow Run"
     - "Step Run"
-version: 2
-updated_at: "2026-10-04 17:42:12 +0000"
+version: 3
+updated_at: "2026-10-14 13:44:47 +0400"
 relations:
   relates_to:
     - CA-O-010
@@ -27,10 +27,10 @@ relations:
     - CA-R-1527
 global_tier: 11
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-147-CORE_META_MODEL-STEP--assess-the-reconciliation-source-frontier.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources/CA-O-147-CORE_META_MODEL-STEP--assess-the-reconciliation-source-frontier.md
   source_atom_id: CA-O-147
-  source_atom_revision: 2
-  source_sha256: e01f9c528f0f1626c9e229c3cc2f4c0fd0ba5cc22d97d330599e271cc07d6335
+  source_atom_revision: 3
+  source_sha256: 70819bfe63a1cf0d5a6e9ea30bfd3f52463a30898f2322f34142c069231efc3f
   original_relations_sha256: f478176d8bd72d7a6bf44b10c21b9db6ed4f997897c6e33e4ee733d7183c131d
 ---
 # Summary

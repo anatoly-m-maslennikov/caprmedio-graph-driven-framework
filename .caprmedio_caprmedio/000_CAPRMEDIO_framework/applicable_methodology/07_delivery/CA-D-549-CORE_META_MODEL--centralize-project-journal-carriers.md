@@ -2,6 +2,7 @@
 atom_id: CA-D-549
 content_role: Delivery
 current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: Standard
 global_tier: 11
 status: Active
@@ -9,14 +10,14 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Journal/Carrier Root"
   depends_on: ["Project","Journal","Carrier","Projection","Workflow"]
-version: 2
-updated_at: "2026-10-04 21:55:27 +0000"
+version: 3
+updated_at: "2026-10-14 13:43:03 +0400"
 relations: {}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-549-CORE_META_MODEL--centralize-project-journal-carriers.md
   source_atom_id: CA-D-549
-  source_atom_revision: 2
-  source_sha256: 27fc7b533f6ad42b288d5d39d7c19ccef96591b32098ec50188dbb6d8e0a3ea4
+  source_atom_revision: 3
+  source_sha256: c642c70fa55eb6774ed7d49ee3663ea27f439593afb6a7b0398c5ac5f8038a59
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

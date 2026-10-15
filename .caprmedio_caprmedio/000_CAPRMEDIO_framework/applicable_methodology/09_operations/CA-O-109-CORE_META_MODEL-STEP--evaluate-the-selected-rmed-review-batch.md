@@ -8,8 +8,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-03 16:23:03 +0400"
+version: 7
+updated_at: "2026-10-14 13:44:47 +0400"
 subjects:
   governs: "RMED Review Evaluation Step"
   depends_on:
@@ -22,10 +22,10 @@ subjects:
     - "Evaluation/Report"
 relations: {"relates_to":["CA-O-106"]}
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch.md
   source_atom_id: CA-O-109
-  source_atom_revision: 6
-  source_sha256: d6c0a6493598c54aa9aca3407301c85a91d0d6cd2129d13a51e1b32f12ec01b8
+  source_atom_revision: 7
+  source_sha256: 6a099bf156baeda2532a22dd09f7c6128177b1b9304ed9cf9ecf1264d780c189
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

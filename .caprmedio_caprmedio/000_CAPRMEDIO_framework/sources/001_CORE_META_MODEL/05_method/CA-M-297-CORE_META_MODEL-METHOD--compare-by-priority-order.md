@@ -1,6 +1,6 @@
 ---
-version: 4
-updated_at: "2026-10-01 21:40:53 +0400"
+version: 5
+updated_at: "2026-10-14 13:43:24 +0400"
 relations:
   child_of:
     - CA-R-1487
@@ -21,7 +21,9 @@ status: "Active"
 author: "Anatoly Maslennikov"
 global_tier: 11
 ---
-# Compare by priority order
+# Summary
+
+Compare by priority order
 
 ## Scope
 

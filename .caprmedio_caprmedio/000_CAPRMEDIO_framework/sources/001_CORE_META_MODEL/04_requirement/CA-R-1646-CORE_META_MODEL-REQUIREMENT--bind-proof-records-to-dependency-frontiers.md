@@ -6,8 +6,8 @@ subjects:
     - "Atom/Content Role: Implementation"
     - "Projection"
     - "Carrier"
-version: 18
-updated_at: "2026-10-03 01:31:08 +0400"
+version: 19
+updated_at: "2026-10-14 13:43:24 +0400"
 relations:
   resolution_of:
     - "CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented"
@@ -22,7 +22,9 @@ status: "Active"
 author: "Anatoly Maslennikov"
 global_tier: 11
 ---
-# Bind proof records to dependency frontiers
+# Summary
+
+Bind proof records to dependency frontiers
 
 ## Scope
 

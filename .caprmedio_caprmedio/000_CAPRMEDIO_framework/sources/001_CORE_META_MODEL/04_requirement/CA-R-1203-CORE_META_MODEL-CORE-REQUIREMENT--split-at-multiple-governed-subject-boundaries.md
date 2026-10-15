@@ -5,8 +5,8 @@ subjects:
     - "GOVERNS"
     - "Subject"
     - "Entity"
-version: 14
-updated_at: "2026-10-02 21:30:43 +0400"
+version: 15
+updated_at: "2026-10-14 13:43:24 +0400"
 relations: {}
 atom_id: "CA-R-1203"
 content_role: "Requirement"
@@ -17,7 +17,9 @@ status: "Active"
 author: "Anatoly Maslennikov"
 global_tier: 9
 ---
-# Split at Multiple Governed Subject Boundaries
+# Summary
+
+Split at Multiple Governed Subject Boundaries
 
 ## Scope
 

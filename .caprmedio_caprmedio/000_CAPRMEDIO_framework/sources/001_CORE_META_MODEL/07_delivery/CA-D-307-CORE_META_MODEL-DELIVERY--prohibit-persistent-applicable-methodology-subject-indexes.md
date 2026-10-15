@@ -4,8 +4,8 @@ subjects:
   depends_on:
     - "GOVERNS"
     - "DEPENDS_ON"
-version: 11
-updated_at: "2026-10-01 21:24:59 +0400"
+version: 12
+updated_at: "2026-10-14 13:43:03 +0400"
 relations: {}
 atom_id: "CA-D-307"
 content_role: "Delivery"
@@ -14,7 +14,6 @@ claim_target_scope_unit: "CORE_META_MODEL"
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"
-type: "Delivery"
 global_tier: 11
 ---
 # Summary

@@ -4,8 +4,8 @@ subjects:
   depends_on:
     - "File Carrier"
     - "File Carrier/Format"
-version: 10
-updated_at: "2026-10-01 21:24:59 +0400"
+version: 11
+updated_at: "2026-10-13 18:56:47 +0400"
 relations:
   child_of:
     - CA-D-362
@@ -20,8 +20,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md
   source_atom_id: CA-D-363
-  source_atom_revision: 10
-  source_sha256: 6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0
+  source_atom_revision: 11
+  source_sha256: 2488b8ff53c86944cf65d02cbf8d5c67a9c51b9db695f4e2eaa614dbaf998080
   original_relations_sha256: 54a2edf9fc1d64b26afac509b3e23297ead79b4c694a94c64ad9bc2583853638
 ---
 # Summary
@@ -34,6 +34,6 @@ authoritative Project Settings TOML File Carrier filenames.
 
 ## Claim
 
-the authoritative Project Settings TOML File Carrier filename **must** match `caprmedio_<project_name>_settings.toml`, **where** `<project_name>` is the exact lowercase Project name.
+the authoritative Project Settings TOML File Carrier filename **must** be exactly `caprmedio_project_settings.toml`.
 
 ## Details

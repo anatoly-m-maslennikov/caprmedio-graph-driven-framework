@@ -17,8 +17,8 @@ subjects:
     - "Atom/Content Role: Plan/Type: Plan"
     - "Workflow Run"
     - "Step Run"
-version: 4
-updated_at: "2026-10-04 16:53:23 +0000"
+version: 5
+updated_at: "2026-10-14 13:43:13 +0400"
 relations:
   relates_to:
     - CA-O-017
@@ -26,10 +26,10 @@ relations:
     - CA-R-1525
 global_tier: 11
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-091-CORE_META_MODEL-STEP--prepare-delegated-implementation-work.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-091-CORE_META_MODEL-STEP--prepare-delegated-implementation-work.md
   source_atom_id: CA-O-091
-  source_atom_revision: 4
-  source_sha256: 8581f4a6fa4c805eaa08b845b46bd4ceda4880f611c8cc6538d0c382e3999b8b
+  source_atom_revision: 5
+  source_sha256: 4d1096291c5c783f867988fa2056551e925eae83a868f6cebb0396e5eb348cab
   original_relations_sha256: 8cbf084aa689e9d8440dbe92835bfd968046bbcaca8ef0b90054af291cae77df
 ---
 # Summary

@@ -6,8 +6,8 @@ subjects:
     - "Default Settings"
     - "Framework Instance Settings/Authoritative Carrier"
     - "Framework Instance Settings/Revision Binding"
-version: 16
-updated_at: "2026-10-01 21:31:46 +0400"
+version: 17
+updated_at: "2026-10-13 21:22:41 +0400"
 relations:
   evaluation_for:
     - CA-R-1402
@@ -32,8 +32,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-framework-settings-artifact.md
   source_atom_id: CA-E-458
-  source_atom_revision: 16
-  source_sha256: b66034350426c662eb4f4de967ed29a5ee4c905f2383b530e6336b95c6b1cc4c
+  source_atom_revision: 17
+  source_sha256: 37e183dac3858e4cc53e995d734534a8d29354d807d201dbad12f6d14cc5f4ca
   original_relations_sha256: c43710a24ba9609df14ffa1948ef1b7800e193bfc80ab2f310b1715a02cb8616
 ---
 # Summary
@@ -55,6 +55,8 @@ the Evaluation **must** reject Framework Instance Settings **if**
 - has other than **`=1`** authoritative TOML Carrier,
 - **contains** Project initialization inputs **or** independently editable Project Structure,
 - violates its Core content boundary, applicable General settings specifications, **or** applicable Standard field specifications **after** parameter resolution governed by CA-M-279,
-- **or** lacks an exact current Revision, SHA-256 Digest, **and** governed-change Work Journal receipt.
+- **or** lacks an exact current Revision, SHA-256 Digest, **and** Work Journal receipt admitted by CA-D-360.
 
 ## Details
+
+for recovered baseline registration, the Evaluation **must** check the exact selected Project, Carrier path, lineage-derived logical Revision, **and** Digest binding required by CA-D-360. verify that registration leaves Settings bytes unchanged **and** records the actual observation time **and** evidence-backed observer Run **or** session. reject an absent **or** ambiguous binding, a stale Carrier Digest, a path-based Revision reset **or** guessed allocation, **or** a fabricated Settings write, past mutation, author, **or** history. an admitted baseline receipt **must not** replace any Settings schema **or** ownership check above **or** authorize another operation.

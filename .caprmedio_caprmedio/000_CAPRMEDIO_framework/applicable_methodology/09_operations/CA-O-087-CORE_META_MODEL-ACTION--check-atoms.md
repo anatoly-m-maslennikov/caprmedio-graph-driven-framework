@@ -29,8 +29,8 @@ subjects:
     - "Evaluation"
     - "Operator"
     - "Journal"
-version: 5
-updated_at: "2026-10-04 15:16:04 +0000"
+version: 6
+updated_at: "2026-10-14 13:43:13 +0400"
 relations:
   relates_to:
     - CA-R-1598
@@ -47,10 +47,10 @@ relations:
     - CA-E-506
 global_tier: 11
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md
   source_atom_id: CA-O-087
-  source_atom_revision: 5
-  source_sha256: 1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d
+  source_atom_revision: 6
+  source_sha256: 5c1af47364de5f266b48bd1aaed03cf4bc08f855ad934702628c5eae9d950efb
   original_relations_sha256: 2dc986c40a8906cb9501be88b2d0cee5617d887bd2450c8e21e2652ae24615d2
 ---
 # Summary

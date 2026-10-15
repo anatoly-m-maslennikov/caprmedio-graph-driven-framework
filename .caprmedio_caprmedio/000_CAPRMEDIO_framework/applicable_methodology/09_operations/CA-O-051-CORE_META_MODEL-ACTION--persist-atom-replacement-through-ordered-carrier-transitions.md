@@ -8,8 +8,8 @@ subjects:
     - "Atom/Carrier"
     - "Journal"
     - "Artifact/Revision/Archive Carrier Basename"
-version: 6
-updated_at: "2026-10-04 15:07:08 +0000"
+version: 7
+updated_at: "2026-10-13 04:46:56 +0400"
 relations: {relates_to: [CA-R-1432, CA-R-807]}
 atom_id: "CA-O-051"
 content_role: "Operations"
@@ -23,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md
   source_atom_id: CA-O-051
-  source_atom_revision: 6
-  source_sha256: a5fc844d29549361d9a835786324956ef6040a2dc9ab88c3a884aeac103850ff
+  source_atom_revision: 7
+  source_sha256: 1499a694baed52fd6e2b032179de8fc3009ede795947e6efea382e77a0068023
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
@@ -37,7 +37,7 @@ Persist Atom Replacement **means** the reusable Action that persists **`=1`** ac
 
 1. persist the successor as Active **before** archiving the predecessor.
 2. archive the predecessor as one whole Carrier under CA-D-303 **and** record the corresponding replacement **in** the authoritative Journal with explicit predecessor **and** successor Atom IDs under CA-R-807.
-3. preserve the predecessor's body, Summary, identity, Version, **and** every frontmatter value except its lifecycle `status` **and** `updated_at`; serialize `status: Archived` **and** refresh `updated_at` to the actual archive time. change its basename **only** by adding the canonical `@<version>` Archive suffix under CA-D-289.
+3. retain the predecessor's exact prior Revision bytes as history, including its prior Version, Status **and** Updated At, **without** another metadata edit to them. preserve the current predecessor's body, Summary, identity **and** every frontmatter value except Version, lifecycle `status` **and** `updated_at`; increment Version by exactly **`1`**, serialize `status: Archived` **and** refresh `updated_at` to the actual archive time. change its basename **only** by adding the canonical `@<version>` Archive suffix for that resulting Version under CA-D-289.
 4. keep replacement history out of predecessor **and** successor Atom frontmatter; formal replacement relations **and** inverse navigation remain deferred under CA-R-807.
 
 ## Details

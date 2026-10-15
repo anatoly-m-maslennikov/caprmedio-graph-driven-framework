@@ -14,8 +14,8 @@ subjects:
     - "Step"
     - "Workflow/Relation Kind: On Result"
     - "Check Atoms Step"
-version: 4
-updated_at: "2026-10-04 15:14:54 +0000"
+version: 5
+updated_at: "2026-10-14 13:43:13 +0400"
 relations:
   relates_to:
     - CA-O-088
@@ -24,10 +24,10 @@ relations:
     - CA-R-1570
 global_tier: 11
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-080-CORE_META_MODEL-WORKFLOW--validate-atom-carriers.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-080-CORE_META_MODEL-WORKFLOW--validate-atom-carriers.md
   source_atom_id: CA-O-080
-  source_atom_revision: 4
-  source_sha256: 73f287cd0b7f0788e44970ff24b785193861c59bbab010bb57056b4d9d8f5974
+  source_atom_revision: 5
+  source_sha256: 1f7e7017d62e6d68ba01f1e37fec90d246a6e65f30e3c9b00c067e9085ab2f90
   original_relations_sha256: f59b0957a2d6f670bd211e54ae86aee3b30520244c95f04e6fd1545abae07fe7
 ---
 # Summary

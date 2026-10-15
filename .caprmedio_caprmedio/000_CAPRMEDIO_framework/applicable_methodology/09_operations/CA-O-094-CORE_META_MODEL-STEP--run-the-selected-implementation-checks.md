@@ -17,8 +17,8 @@ subjects:
     - "Atom/Content Role: Plan/Type: Plan"
     - "Workflow Run"
     - "Step Run"
-version: 4
-updated_at: "2026-10-04 16:53:23 +0000"
+version: 5
+updated_at: "2026-10-14 13:43:13 +0400"
 relations:
   relates_to:
     - CA-O-020
@@ -26,10 +26,10 @@ relations:
     - CA-R-1525
 global_tier: 11
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-094-CORE_META_MODEL-STEP--run-the-selected-implementation-checks.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-094-CORE_META_MODEL-STEP--run-the-selected-implementation-checks.md
   source_atom_id: CA-O-094
-  source_atom_revision: 4
-  source_sha256: 0bbf1604864cb9697f7efe32314f2dce193826597278d58f5ab31aca54d9d9ec
+  source_atom_revision: 5
+  source_sha256: 0466dc2064d536b6edb0006b1018d8c580dc29442aa0c30a07578cf51824f494
   original_relations_sha256: cd052311878518f500a8ccd80afc312a57fa48a2982146a8df18aedb7d1cbc92
 ---
 # Summary

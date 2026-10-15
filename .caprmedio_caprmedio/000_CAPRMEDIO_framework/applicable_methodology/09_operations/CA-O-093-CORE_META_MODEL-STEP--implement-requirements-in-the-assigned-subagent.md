@@ -17,8 +17,8 @@ subjects:
     - "Atom/Content Role: Plan/Type: Plan"
     - "Workflow Run"
     - "Step Run"
-version: 3
-updated_at: "2026-10-04 16:53:23 +0000"
+version: 4
+updated_at: "2026-10-14 13:43:13 +0400"
 relations:
   relates_to:
     - CA-O-019
@@ -26,10 +26,10 @@ relations:
     - CA-R-1525
 global_tier: 11
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-093-CORE_META_MODEL-STEP--implement-requirements-in-the-assigned-subagent.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-093-CORE_META_MODEL-STEP--implement-requirements-in-the-assigned-subagent.md
   source_atom_id: CA-O-093
-  source_atom_revision: 3
-  source_sha256: bda6055ba9ea55de409a1a4f3e89ad7ae8346140e7e2e7bb4dc1eaa931a2b522
+  source_atom_revision: 4
+  source_sha256: a83edac4fb71f30162aa25cab9c76516b9febd917c4e032ece81089a257b301a
   original_relations_sha256: b3d2f873746220ae988ed15cfa2e21ae9d85f8447183565fc5bf5be6dcd64c7a
 ---
 # Summary

@@ -8,8 +8,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 17:42:12 +0000"
+version: 3
+updated_at: "2026-10-14 13:44:47 +0400"
 subjects:
   governs: "Applicable Methodology Compilation/Step: propose"
   depends_on:
@@ -28,10 +28,10 @@ subjects:
 relations:
   relates_to: [CA-O-011, CA-O-006]
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md
   source_atom_id: CA-O-154
-  source_atom_revision: 2
-  source_sha256: d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad
+  source_atom_revision: 3
+  source_sha256: 77829c9a4b71cea40e931d5a4430db064bd792066d84eaace1104fbe24821aee
   original_relations_sha256: e461ce9c32c592c86076b731943e0b9b8cd2bacf10bc9c4c9ba0b53088f9841c
 ---
 # Summary

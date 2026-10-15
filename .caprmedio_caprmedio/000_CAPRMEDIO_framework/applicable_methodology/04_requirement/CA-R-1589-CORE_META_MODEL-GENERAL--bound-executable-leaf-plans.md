@@ -7,8 +7,8 @@ subjects:
     - "Operator"
     - "Atom/Content Role: Plan/Type: Plan/Decomposition"
     - "Atom/Content Role: Plan/Type: Plan/Label"
-version: 4
-updated_at: "2026-10-03 00:40:46 +0400"
+version: 5
+updated_at: "2026-10-14 13:43:24 +0400"
 relations: {"relates_to": ["CA-R-1575", "CA-R-1584"]}
 atom_id: "CA-R-1589"
 content_role: "Requirement"
@@ -21,11 +21,13 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1589-CORE_META_MODEL-GENERAL--bound-executable-leaf-plans.md
   source_atom_id: CA-R-1589
-  source_atom_revision: 4
-  source_sha256: 8181b2296267fc0e2e9ae8bca19afeb66f8d20045e940ba812b8bd84e9b86419
+  source_atom_revision: 5
+  source_sha256: b3f5897a6b42f288685fef0b7db79534b58deaeaaeef228a9f6d8e28259637fb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
-# Bound executable leaf Plans
+# Summary
+
+Bound executable leaf Plans
 
 ## Scope
 

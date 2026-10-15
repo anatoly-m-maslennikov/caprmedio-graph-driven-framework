@@ -14,8 +14,8 @@ subjects:
     - "Scope Unit/Name"
     - "Subject"
     - "Subject Path"
-version: 15
-updated_at: "2026-10-11 18:04:47 +0400"
+version: 16
+updated_at: "2026-10-14 13:43:24 +0400"
 relations:
   evaluation_for:
     - CA-R-1194
@@ -40,11 +40,13 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md
   source_atom_id: CA-E-383
-  source_atom_revision: 15
-  source_sha256: 6baca162365f248e08fc8d8a29b27e350149ff478290553b3cd6ee0441b4a6a6
+  source_atom_revision: 16
+  source_sha256: a356617c341cd1d3c723e3e3ddbf9852c720781c8f22dd31f07cf33dfa4ec512
   original_relations_sha256: 5dcebe2528d98c527a3c9c7a2a2d6a914f6023c06cffde0da4b4eccb8a1d8728
 ---
-# Reject Invalid Subject Expressions
+# Summary
+
+Reject Invalid Subject Expressions
 
 ## Scope
 

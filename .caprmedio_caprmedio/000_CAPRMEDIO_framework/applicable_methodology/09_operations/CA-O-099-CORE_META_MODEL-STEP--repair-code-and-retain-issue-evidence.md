@@ -17,8 +17,8 @@ subjects:
     - "Atom/Content Role: Plan/Type: Plan"
     - "Workflow Run"
     - "Step Run"
-version: 2
-updated_at: "2026-10-04 16:53:23 +0000"
+version: 3
+updated_at: "2026-10-14 13:43:13 +0400"
 relations:
   relates_to:
     - CA-O-021
@@ -26,10 +26,10 @@ relations:
     - CA-R-1525
 global_tier: 11
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-099-CORE_META_MODEL-STEP--repair-code-and-retain-issue-evidence.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-099-CORE_META_MODEL-STEP--repair-code-and-retain-issue-evidence.md
   source_atom_id: CA-O-099
-  source_atom_revision: 2
-  source_sha256: cb41a0ac54a473f106cfd02efcdfc6b75f5d592eecdc7f5c3c3906aceb925617
+  source_atom_revision: 3
+  source_sha256: c36568a6db7e2e6049059f1f7d5097b79a182258936c0ad9f0eb7a22351f0051
   original_relations_sha256: 1ea5c7fc0c690b75607075f32f2d9552decfced01b385e0f28a6205f30651f72
 ---
 # Summary

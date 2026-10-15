@@ -10,13 +10,12 @@ subjects:
     - "Atom/Summary"
     - "Atom/Identifier"
     - "Entity"
-version: 1
-updated_at: "2026-10-02 20:25:13 +0400"
+version: 2
+updated_at: "2026-10-13 04:51:40 +0400"
 relations:
   evaluation_for:
     - CA-D-270
     - CA-R-1432
-    - CA-R-1433
     - CA-R-1788
     - CA-O-051
 atom_id: "CA-E-521"
@@ -31,9 +30,9 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md
   source_atom_id: CA-E-521
-  source_atom_revision: 1
-  source_sha256: 70f17039419cd20eee9a38c3d106b9d75b7bf4b563b732b3632b9c5115f601a0
-  original_relations_sha256: 3613760d9aa45673b33f65d52a06059c99c261f4ec76cefd5d7a9c847840020d
+  source_atom_revision: 2
+  source_sha256: 9f332f19fdd1bfb4e06b8997fe4832c27d9f2007429e0f658f9d32f1a344d003
+  original_relations_sha256: 264f25fd52bd494a4589532f3cc24beb82059d3ef7473c786f4815229ef0cb68
 ---
 # Summary
 
@@ -45,20 +44,21 @@ accepted Markdown Atom Carrier edits classified by governed meaning.
 
 ## Claim
 
-the Evaluation **must** accept **only** an edit that refreshes `updated_at` **and** changes Version exactly **when** governed meaning changes.
+the Evaluation **must** accept **only** an actual same-ID edit that refreshes `updated_at` **and** increments Version by exactly **`1`**, regardless of semantic change class. an exact no-op retains Version **and** Updated At; required predecessor history retains its exact prior bytes.
 
 ## Details
 
 ### Test case
 
-- apply a formatting-only edit, a lossless Entity-name edit, **and** an equivalent refinement; verify an actual refreshed timestamp **and** an unchanged Version for **every** edit.
+- apply a formatting-only edit, a lossless Entity-name edit, **and** an equivalent refinement; verify an actual refreshed timestamp **and** Version incremented by exactly **`1`** for **every** edit.
 - apply a semantic revision; verify an actual refreshed timestamp **and** the next Version.
-- archive a predecessor; verify `status: Archived`, archive-time `updated_at`, preserved Version, **and** preservation of body, Summary, identity, **and** **all** other metadata.
+- archive a current predecessor; verify `status: Archived`, archive-time `updated_at`, Version incremented by exactly **`1`**, **and** preservation of body, Summary, identity, **and** **all** other metadata. verify that its prior Revision is retained as exact bytes, including its prior Version, Status **and** Updated At.
+- apply an exact no-op; verify unchanged bytes, Version **and** Updated At.
 
 ### Acceptance criteria
 
-- reject an accepted edit with an unchanged `updated_at`.
-- reject a nonsemantic edit that increments Version.
-- reject a meaning-changing edit that retains Version.
+- reject an actual accepted edit whose `updated_at` does **not** identify its actual Project-time edit instant **or** whose Version increment is other than exactly **`1`**.
+- reject a no-op that changes Version **or** Updated At.
+- reject retained predecessor history whose bytes, Version, Status **or** Updated At differ from its exact prior Revision.
 
-the checked rules are `CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter`, `CA-R-1432-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-admitted-atom-changes-by-semantic-effect`, `CA-R-1433-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-version-preservation-for-carrier-only-relocation`, `CA-R-1788-CORE_META_MODEL--refresh-updated-at-whenever-an-atom-changes`, and `CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions`.
+the checked rules are `CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter`, `CA-R-1432-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-admitted-atom-changes-by-semantic-effect`, `CA-R-1788-CORE_META_MODEL--refresh-updated-at-whenever-an-atom-changes`, and `CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions`. CA-R-1433 is retained only as retired historical evidence, not a current Version exception.

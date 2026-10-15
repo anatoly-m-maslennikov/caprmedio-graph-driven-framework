@@ -8,8 +8,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 17:42:12 +0000"
+version: 3
+updated_at: "2026-10-14 13:44:47 +0400"
 subjects:
   governs: "Applicable Methodology Compilation/Step: decide"
   depends_on:
@@ -29,10 +29,10 @@ subjects:
 relations:
   relates_to: [CA-O-011, CA-O-007]
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md
   source_atom_id: CA-O-155
-  source_atom_revision: 2
-  source_sha256: 895f31fddd18894449f73321bf1fe3a26e4686a2a474a87ad0c2475812fadc12
+  source_atom_revision: 3
+  source_sha256: ff550ed228c4dc06d4cd76235bb91ee8d58d588beb4ac56cc974ad0ecaef6693
   original_relations_sha256: 0327527080511193852b3621512152c3c6601254c66c43323355c91d8fe7ea35
 ---
 # Summary
