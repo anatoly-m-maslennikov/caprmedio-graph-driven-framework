@@ -2,13 +2,9 @@
 subjects:
   governs: "Subject Path"
   depends_on:
-    - "Subject Expression"
-    - "Entity"
-    - "Relation"
-    - "Subject"
-    - "Term"
-version: 14
-updated_at: "2026-10-02 21:29:19 +0400"
+    ["Subject Expression", "Entity", "Entity/Continuant/Object/Relation", "Subject", "Entity/Continuant/Term"]
+version: 15
+updated_at: "2026-10-15 18:41:07 +0000"
 relations: {}
 atom_id: "CA-R-1194"
 content_role: "Requirement"

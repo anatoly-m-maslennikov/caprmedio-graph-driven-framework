@@ -2,12 +2,9 @@
 subjects:
   governs: "Relation Kind Metadata"
   depends_on:
-    - "Relation Kind"
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Atom"
-version: 22
-updated_at: "2026-10-15 12:23:30 +0000"
+    ["Relation Kind", "CAPRMEDIO Graph", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom"]
+version: 23
+updated_at: "2026-10-15 18:46:36 +0000"
 relations: {}
 atom_id: "CA-R-806"
 content_role: "Requirement"

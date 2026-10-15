@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Demand"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand"
   depends_on:
     ["Implementation"]
-version: 17
-updated_at: "2026-10-15 12:23:42 +0000"
+version: 18
+updated_at: "2026-10-15 18:47:23 +0000"
 relations:
   child_of:
     - CA-R-933

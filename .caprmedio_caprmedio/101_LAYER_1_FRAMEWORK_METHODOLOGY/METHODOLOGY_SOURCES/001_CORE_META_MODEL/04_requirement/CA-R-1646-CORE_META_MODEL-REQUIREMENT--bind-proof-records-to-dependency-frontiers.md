@@ -2,9 +2,9 @@
 subjects:
   governs: "Evidence"
   depends_on:
-    ["Artifact", "Implementation", "Projection", "Carrier"]
-version: 20
-updated_at: "2026-10-15 12:23:02 +0000"
+    ["Artifact", "Implementation", "Entity/Continuant/Projection", "Entity/Carrier"]
+version: 21
+updated_at: "2026-10-15 18:45:14 +0000"
 relations:
   resolution_of:
     - "CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented"

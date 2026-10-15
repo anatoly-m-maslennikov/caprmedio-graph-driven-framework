@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Failure Diagnosis Step"
   depends_on:
-    ["Step", "Action", "Agentic Step Execution Context", "AI Agent", "Atom/Content Role: Plan/Type: Plan", "Execution/Workflow Run", "Execution/Step Run"]
-version: 5
-updated_at: "2026-10-15 12:20:34 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
+version: 6
+updated_at: "2026-10-15 18:53:59 +0000"
 relations:
   relates_to:
     - CA-O-089

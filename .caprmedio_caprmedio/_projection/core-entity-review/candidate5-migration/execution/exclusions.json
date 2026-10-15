@@ -1,0 +1,1223 @@
+{
+  "state": "prepared_pending_git_checkpoint",
+  "source_root": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+  "subject_map_sha256": "222a691cea29aa303300d91909245cad64a85fd91cfd94f93469bf335939d356",
+  "scope": "Current Core originals only; exact mapped strings; unsupported Subjects retained; collisions hold whole Atom",
+  "counts": {
+    "observed_source_atoms": 983,
+    "selected_atoms": 750,
+    "no_supported_change": 228,
+    "held_atoms": 5
+  },
+  "selected_statuses": {
+    "active": 43,
+    "resolved": 27,
+    "Active": 680
+  },
+  "selected_lifecycles": {
+    "active": 723,
+    "resolved": 27
+  },
+  "held": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-290-CORE_META_MODEL-CONFLICT--reconcile-supporting-detail-placement-in-plan-carriers.md",
+      "atom_id": "CA-C-290",
+      "reason": "source_or_subject_not_admitted",
+      "error_type": "ValueError",
+      "code": null,
+      "detail": "subjects is not a mapping"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1563-CORE_META_MODEL-CORE-REQUIREMENT--define-the-workflow-operations-atom-type.md",
+      "atom_id": "CA-R-1563",
+      "reason": "mapped_dependency_collision",
+      "collisions": {
+        "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step": [
+          "Step",
+          "Atom/Content Role: Operations/Type: Step"
+        ]
+      }
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-workflow-graphs-separate-from-step-bindings.md",
+      "atom_id": "CA-R-1570",
+      "reason": "mapped_dependency_collision",
+      "collisions": {
+        "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step": [
+          "Step",
+          "Atom/Content Role: Operations/Type: Step"
+        ]
+      }
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-305-CORE_META_MODEL--write-workflow-schemes-using-step-references.md",
+      "atom_id": "CA-M-305",
+      "reason": "mapped_dependency_collision",
+      "collisions": {
+        "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step": [
+          "Step",
+          "Atom/Content Role: Operations/Type: Step"
+        ]
+      }
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-256-CORE_META_MODEL-CORE-DELIVERY--define-carries.md",
+      "atom_id": "CA-D-256",
+      "reason": "mapped_dependency_collision",
+      "collisions": {
+        "Entity/Carrier": [
+          "Carrier",
+          "Entity/Carrier"
+        ]
+      }
+    }
+  ],
+  "unchanged": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-350-PROBLEM--source-reconciliation-workflows-lack-registered-body-headings.md",
+      "atom_id": "CA-C-350",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-427-CORE_META_MODEL-PROBLEM--correct-current-epic-archive-status-carriers.md",
+      "atom_id": "CA-C-427",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+      "atom_id": "CA-R-1016",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+      "atom_id": "CA-R-1017",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+      "atom_id": "CA-R-1019",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+      "atom_id": "CA-R-1020",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+      "atom_id": "CA-R-1021",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+      "atom_id": "CA-R-1022",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md",
+      "atom_id": "CA-R-1023",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md",
+      "atom_id": "CA-R-1024",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md",
+      "atom_id": "CA-R-1025",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+      "atom_id": "CA-R-1026",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+      "atom_id": "CA-R-1027",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md",
+      "atom_id": "CA-R-1029",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md",
+      "atom_id": "CA-R-1030",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+      "atom_id": "CA-R-1032",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+      "atom_id": "CA-R-1033",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+      "atom_id": "CA-R-1034",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+      "atom_id": "CA-R-1035",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+      "atom_id": "CA-R-1036",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+      "atom_id": "CA-R-1037",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL--permit-multiple-child-rows-in-one-lineage-impact-analysis.md",
+      "atom_id": "CA-R-1038",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-CORE--preserve-authority-outside-lineage-impact-analysis.md",
+      "atom_id": "CA-R-1039",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md",
+      "atom_id": "CA-R-1040",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+      "atom_id": "CA-R-1044",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-GENERAL-REQUIREMENT--restrict-autonomous-confidence-threshold-values.md",
+      "atom_id": "CA-R-1045",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1051-CORE_META_MODEL-CORE-REQUIREMENT--separate-active-authority-from-preserved-history.md",
+      "atom_id": "CA-R-1051",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md",
+      "atom_id": "CA-R-117",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md",
+      "atom_id": "CA-R-118",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+      "atom_id": "CA-R-1191",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity.md",
+      "atom_id": "CA-R-1192",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+      "atom_id": "CA-R-1193",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1206-CORE_META_MODEL-CORE-REQUIREMENT--separate-extension-installation-from-activation.md",
+      "atom_id": "CA-R-1206",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-121-CORE_META_MODEL-CORE--store-only-direct-semantic-relations.md",
+      "atom_id": "CA-R-121",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1217-CORE_META_MODEL-CORE-REQUIREMENT--define-extension.md",
+      "atom_id": "CA-R-1217",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1220-CORE_META_MODEL-REQUIREMENT--require-immutable-installed-extension-candidate-provenance.md",
+      "atom_id": "CA-R-1220",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1245-CORE_META_MODEL-REQUIREMENT--qualify-allowed-values-with-colon.md",
+      "atom_id": "CA-R-1245",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-CORE-REQUIREMENT--identify-dependent-entity-occurrences-by-complete-subject-path.md",
+      "atom_id": "CA-R-1247",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+      "atom_id": "CA-R-1248",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md",
+      "atom_id": "CA-R-1249",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1251-CORE_META_MODEL-CORE-REQUIREMENT--classify-property-as-a-dependent-entity.md",
+      "atom_id": "CA-R-1251",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1259-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-zero-or-more-properties-on-every-entity.md",
+      "atom_id": "CA-R-1259",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-126-CORE_META_MODEL-CORE--give-each-governed-term-one-definition-atom.md",
+      "atom_id": "CA-R-126",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+      "atom_id": "CA-R-1261",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1262-CORE_META_MODEL-CORE-REQUIREMENT--keep-entity-and-artifact-distinct.md",
+      "atom_id": "CA-R-1262",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md",
+      "atom_id": "CA-R-1266",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1267-CORE_META_MODEL-CORE-REQUIREMENT--classify-dependent-entity-as-an-entity.md",
+      "atom_id": "CA-R-1267",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+      "atom_id": "CA-R-1268",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-CORE-REQUIREMENT--permit-one-composite-claim-as-one-authority-unit.md",
+      "atom_id": "CA-R-1270",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+      "atom_id": "CA-R-1283",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+      "atom_id": "CA-R-1284",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1285-CORE_META_MODEL-CORE-REQUIREMENT--give-every-borne-type-property-one-value.md",
+      "atom_id": "CA-R-1285",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1286-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-type-domains-open.md",
+      "atom_id": "CA-R-1286",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+      "atom_id": "CA-R-1306",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models.md",
+      "atom_id": "CA-R-1307",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md",
+      "atom_id": "CA-R-1308",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
+      "atom_id": "CA-R-1313",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+      "atom_id": "CA-R-1315",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "atom_id": "CA-R-1324",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1343-CORE_META_MODEL-CORE-REQUIREMENT--define-implementation-content-role.md",
+      "atom_id": "CA-R-1343",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1349-CORE_META_MODEL-CORE-REQUIREMENT--identify-one-type-property-slot.md",
+      "atom_id": "CA-R-1349",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1350-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-the-most-specific-type-domain.md",
+      "atom_id": "CA-R-1350",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL-CORE--give-primary-entity-occurrences-no-bearer.md",
+      "atom_id": "CA-R-1351",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1352-CORE_META_MODEL-CORE--classify-type-as-a-property.md",
+      "atom_id": "CA-R-1352",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1368-CORE_META_MODEL-CORE--define-containment-relation-pair.md",
+      "atom_id": "CA-R-1368",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md",
+      "atom_id": "CA-R-1371",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+      "atom_id": "CA-R-1376",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+      "atom_id": "CA-R-1379",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md",
+      "atom_id": "CA-R-1381",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+      "atom_id": "CA-R-1383",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+      "atom_id": "CA-R-1394",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md",
+      "atom_id": "CA-R-1395",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md",
+      "atom_id": "CA-R-1396",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+      "atom_id": "CA-R-1405",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+      "atom_id": "CA-R-1410",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1419-CORE_META_MODEL-CORE--restrict-archived-status-to-non-current-revisions.md",
+      "atom_id": "CA-R-1419",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1427-CORE_META_MODEL-CORE--define-confidence-threshold.md",
+      "atom_id": "CA-R-1427",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-CORE-REQUIREMENT--derive-recursive-containment-from-direct-containment.md",
+      "atom_id": "CA-R-1498",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1499-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact-authority.md",
+      "atom_id": "CA-R-1499",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1500-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact-applicability.md",
+      "atom_id": "CA-R-1500",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1501-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact-currentness.md",
+      "atom_id": "CA-R-1501",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-151-CORE_META_MODEL-CORE--admit-only-necessary-metamodel-constructs.md",
+      "atom_id": "CA-R-151",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1536-CORE_META_MODEL-GENERAL-REQUIREMENT--restrict-direct-plan-decomposition.md",
+      "atom_id": "CA-R-1536",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1538-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-plan-decomposition-cycles.md",
+      "atom_id": "CA-R-1538",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1546-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-atom-collection-type-values.md",
+      "atom_id": "CA-R-1546",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1586-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-details.md",
+      "atom_id": "CA-R-1586",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1590-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-standalone-plans.md",
+      "atom_id": "CA-R-1590",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-REQUIREMENT--requirement-exclude-secrets-from-caprmedio.md",
+      "atom_id": "CA-R-1627",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md",
+      "atom_id": "CA-R-1632",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md",
+      "atom_id": "CA-R-1639",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1647-CORE_META_MODEL-REQUIREMENT--generate-the-proof-currentness-catalog.md",
+      "atom_id": "CA-R-1647",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1648-CORE_META_MODEL-REQUIREMENT--use-external-analysis-atoms-as-review-envelopes.md",
+      "atom_id": "CA-R-1648",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-GENERAL-REQUIREMENT--define-the-bounded-session-state-envelope.md",
+      "atom_id": "CA-R-1650",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md",
+      "atom_id": "CA-R-1653",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-REQUIREMENT--register-feature-realization-relation-kind.md",
+      "atom_id": "CA-R-1654",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1656-CORE_META_MODEL-CORE-REQUIREMENT--require-one-parent-scope-unit.md",
+      "atom_id": "CA-R-1656",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-CORE-REQUIREMENT--require-acyclic-structural-ownership.md",
+      "atom_id": "CA-R-1657",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+      "atom_id": "CA-R-1658",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-REQUIREMENT--derive-inverse-structural-ownership.md",
+      "atom_id": "CA-R-1659",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL-GENERAL--classify-implementation-methods-by-their-claims.md",
+      "atom_id": "CA-R-1669",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1670-CORE_META_MODEL-GENERAL--restrict-implementation-decisions-to-standard-tier.md",
+      "atom_id": "CA-R-1670",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-REQUIREMENT--permit-orphan-implementation-decisions.md",
+      "atom_id": "CA-R-1671",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-REQUIREMENT--permit-terminal-implementation-methods.md",
+      "atom_id": "CA-R-1672",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md",
+      "atom_id": "CA-R-1676",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+      "atom_id": "CA-R-1677",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1678-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-scale-operational-mechanisms-to-risk.md",
+      "atom_id": "CA-R-1678",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1679-CORE_META_MODEL-CORE--requirement-bound-effect-guarantees.md",
+      "atom_id": "CA-R-1679",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1680-CORE_META_MODEL--requirement-bound-recursive-self-hosting.md",
+      "atom_id": "CA-R-1680",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md",
+      "atom_id": "CA-R-1681",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL-CORE--separate-analysis-from-factual-execution-records.md",
+      "atom_id": "CA-R-1684",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1685-CORE_META_MODEL-GENERAL--requirement-keep-product-framing-optional.md",
+      "atom_id": "CA-R-1685",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1686-CORE_META_MODEL-REQUIREMENT--propagate-caprmedio-change-forward.md",
+      "atom_id": "CA-R-1686",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1687-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-provenance-separate-from-evidence.md",
+      "atom_id": "CA-R-1687",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-REQUIREMENT--scope-path-does-not-change-semantic-coordinates.md",
+      "atom_id": "CA-R-1688",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL--requirement-close-every-constitutional-amendment.md",
+      "atom_id": "CA-R-1689",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-CORE-REQUIREMENT--preserve-external-boundary-obligations.md",
+      "atom_id": "CA-R-1690",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-REQUIREMENT--requirement-promote-active-backlog-candidates-into-atoms.md",
+      "atom_id": "CA-R-1691",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md",
+      "atom_id": "CA-R-1696",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1697-CORE_META_MODEL-CORE-REQUIREMENT--bind-traceability-to-exact-claims-and-revisions.md",
+      "atom_id": "CA-R-1697",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1698-CORE_META_MODEL-CORE-REQUIREMENT--evolve-authority-through-governed-history.md",
+      "atom_id": "CA-R-1698",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1699-CORE_META_MODEL-CORE-REQUIREMENT--bind-governed-transactions-to-stable-artifact-revisions.md",
+      "atom_id": "CA-R-1699",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-CORE-REQUIREMENT--admit-atoms-only-where-a-role-has-an-atomic-unit.md",
+      "atom_id": "CA-R-1700",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+      "atom_id": "CA-R-1701",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-REQUIREMENT--require-stable-noun-content-role-names.md",
+      "atom_id": "CA-R-1704",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-create-rationale-after-its-subject.md",
+      "atom_id": "CA-R-1705",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1706-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-provide-lineage-impact-projections.md",
+      "atom_id": "CA-R-1706",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1707-CORE_META_MODEL-CORE-REQUIREMENT--make-requirement-the-only-universally-mandatory-atom.md",
+      "atom_id": "CA-R-1707",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+      "atom_id": "CA-R-1708",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+      "atom_id": "CA-R-1709",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-CORE-REQUIREMENT--route-priority-and-tier-by-content-role.md",
+      "atom_id": "CA-R-1710",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1712-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-enacted-release-and-runtime-facts-from-operations-authority.md",
+      "atom_id": "CA-R-1712",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-CORE-REQUIREMENT--keep-confidence-subordinate-to-authority.md",
+      "atom_id": "CA-R-1713",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md",
+      "atom_id": "CA-R-1714",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1715-CORE_META_MODEL-CORE-REQUIREMENT--preserve-unfinished-operative-work-as-plan.md",
+      "atom_id": "CA-R-1715",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-CORE-REQUIREMENT--allow-proposal-of-prmedo-change-from-active-content-roles.md",
+      "atom_id": "CA-R-1716",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1717-CORE_META_MODEL-CORE-REQUIREMENT--keep-data-stages-orthogonal-to-artifact-semantics.md",
+      "atom_id": "CA-R-1717",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1718-CORE_META_MODEL-CORE-REQUIREMENT--preserve-strict-semantic-distinctions.md",
+      "atom_id": "CA-R-1718",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1719-CORE_META_MODEL-CORE-REQUIREMENT--preserve-bounded-meaning-across-structural-scales.md",
+      "atom_id": "CA-R-1719",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1721-CORE_META_MODEL-CORE-REQUIREMENT--allow-scope-sets-to-vary-by-structural-owner.md",
+      "atom_id": "CA-R-1721",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "atom_id": "CA-R-1722",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL-GENERAL--define-extension-identity-and-compatibility.md",
+      "atom_id": "CA-R-1723",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL-GENERAL--review-external-analysis-before-project-adoption.md",
+      "atom_id": "CA-R-1725",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1726-CORE_META_MODEL-CORE--concerns-have-active-and-solved-states.md",
+      "atom_id": "CA-R-1726",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+      "atom_id": "CA-R-1727",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL-CORE--record-every-projection-rebuild-in-a-journal.md",
+      "atom_id": "CA-R-1728",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+      "atom_id": "CA-R-1729",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1732-CORE_META_MODEL-GENERAL--target-the-narrowest-capable-improvement-owner.md",
+      "atom_id": "CA-R-1732",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md",
+      "atom_id": "CA-R-1734",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-GENERAL--relate-self-improvement-stages-explicitly.md",
+      "atom_id": "CA-R-1735",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+      "atom_id": "CA-R-1736",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+      "atom_id": "CA-R-1741",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1742-CORE_META_MODEL-GENERAL-REQUIREMENT--realize-recurrence-evaluation-through-implementation.md",
+      "atom_id": "CA-R-1742",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL-CORE--record-recurrence-check-outcomes-in-the-journal.md",
+      "atom_id": "CA-R-1743",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1744-CORE_META_MODEL-CORE--keep-project-specific-substrates-out-of-the-reusable-core.md",
+      "atom_id": "CA-R-1744",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md",
+      "atom_id": "CA-R-1747",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL-CORE--preserve-source-scope-in-derived-views.md",
+      "atom_id": "CA-R-1749",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1751-CORE_META_MODEL-CORE--define-structural-level.md",
+      "atom_id": "CA-R-1751",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1752-CORE_META_MODEL-CORE--govern-project-adaptation-semantics.md",
+      "atom_id": "CA-R-1752",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1753-CORE_META_MODEL-CORE--keep-project-adaptation-authority-out-of-settings.md",
+      "atom_id": "CA-R-1753",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1754-CORE_META_MODEL-GENERAL--promote-project-adaptation-authority-to-an-extension.md",
+      "atom_id": "CA-R-1754",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL-CORE--bound-extension-applicability.md",
+      "atom_id": "CA-R-1755",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+      "atom_id": "CA-R-1756",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+      "atom_id": "CA-R-1765",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1766-CORE_META_MODEL-CORE--make-the-type-value-of-an-atom-identity-bearing.md",
+      "atom_id": "CA-R-1766",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1770-CORE_META_MODEL-GENERAL-REQUIREMENT--place-concerns-at-the-narrowest-owning-scope.md",
+      "atom_id": "CA-R-1770",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1771-CORE_META_MODEL-CORE-REQUIREMENT--permit-mixed-child-composition.md",
+      "atom_id": "CA-R-1771",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1778-CORE_META_MODEL-REQUIREMENT--name-the-framework-caprmedio.md",
+      "atom_id": "CA-R-1778",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "atom_id": "CA-R-1931",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1932-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+      "atom_id": "CA-R-1932",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-728-CORE_META_MODEL-REQUIREMENT--define-project-atom-id.md",
+      "atom_id": "CA-R-728",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-740-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-one-content-role.md",
+      "atom_id": "CA-R-740",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-807-CORE_META_MODEL-CORE-REQUIREMENT--record-replacement-transitions-in-the-journal.md",
+      "atom_id": "CA-R-807",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-808-CORE_META_MODEL-CORE-REQUIREMENT--apply-relation-direction-within-its-ordering-domain.md",
+      "atom_id": "CA-R-808",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-829-CORE_META_MODEL-CORE-REQUIREMENT--keep-same-tier-requirements-as-authority-peers.md",
+      "atom_id": "CA-R-829",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-834-CORE_META_MODEL-CORE-REQUIREMENT--partition-project-graph-nodes.md",
+      "atom_id": "CA-R-834",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-836-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-project-graph-node-partitions.md",
+      "atom_id": "CA-R-836",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-853-CORE_META_MODEL-CORE-REQUIREMENT--attribute-each-governed-action-to-its-actor.md",
+      "atom_id": "CA-R-853",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-CORE-REQUIREMENT--register-child-of-and-parent-of-relation-pair.md",
+      "atom_id": "CA-R-879",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md",
+      "atom_id": "CA-R-886",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-913-CORE_META_MODEL-CORE-REQUIREMENT--define-previous-unit.md",
+      "atom_id": "CA-R-913",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-915-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-order-derived-dependencies.md",
+      "atom_id": "CA-R-915",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md",
+      "atom_id": "CA-R-934",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+      "atom_id": "CA-R-941",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+      "atom_id": "CA-R-960",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md",
+      "atom_id": "CA-R-961",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+      "atom_id": "CA-R-964",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+      "atom_id": "CA-R-976",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-979-CORE_META_MODEL-GENERAL-REQUIREMENT--default-scope-units-to-unordered.md",
+      "atom_id": "CA-R-979",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md",
+      "atom_id": "CA-R-999",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+      "atom_id": "CA-M-112",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-121-CORE_META_MODEL-METHOD--evaluate-scope-expressions.md",
+      "atom_id": "CA-M-121",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+      "atom_id": "CA-M-122",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-METHOD--write-definitions-of-done.md",
+      "atom_id": "CA-M-123",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-127-CORE_META_MODEL-METHOD--evaluate-set-valued-property-membership.md",
+      "atom_id": "CA-M-127",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-135-CORE_META_MODEL-METHOD--exclude-generated-only-implementation-edges.md",
+      "atom_id": "CA-M-135",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-230-CORE_META_MODEL-METHOD--define-registered-cce-operators-through-cce-methods.md",
+      "atom_id": "CA-M-230",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md",
+      "atom_id": "CA-M-234",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-235-CORE_META_MODEL--express-cardinality-with-comparison-operators-and-integer-literals.md",
+      "atom_id": "CA-M-235",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md",
+      "atom_id": "CA-M-236",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+      "atom_id": "CA-M-239",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-287-CORE_META_MODEL-METHOD--exclude-activity-labels-from-content-role-names.md",
+      "atom_id": "CA-M-287",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-298-CORE_META_MODEL-GENERAL-METHOD--describe-methodology-expansion-mappings.md",
+      "atom_id": "CA-M-298",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-387-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--reject-invalid-type-assignments.md",
+      "atom_id": "CA-E-387",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-dependency-order-derivations.md",
+      "atom_id": "CA-E-404",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-620-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md",
+      "atom_id": "CA-E-620",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-623-CORE_META_MODEL-QA_CASE--effective-priority-selection.md",
+      "atom_id": "CA-E-623",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "atom_id": "CA-D-264",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md",
+      "atom_id": "CA-D-266",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "atom_id": "CA-D-268",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-277-CORE_META_MODEL-DELIVERY--serialize-safe-frontmatter-scalars.md",
+      "atom_id": "CA-D-277",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-279-CORE_META_MODEL-DELIVERY--serialize-markdown-paragraphs-as-unwrapped-lines.md",
+      "atom_id": "CA-D-279",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-280-CORE_META_MODEL-DELIVERY--serialize-cce-operators-in-bold.md",
+      "atom_id": "CA-D-280",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-284-CORE_META_MODEL-DELIVERY--serialize-filename-token-case.md",
+      "atom_id": "CA-D-284",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-287-CORE_META_MODEL-DELIVERY--serialize-demand-type-and-producer-scope.md",
+      "atom_id": "CA-D-287",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL--serialize-archive-revision-version-suffixes.md",
+      "atom_id": "CA-D-289",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-290-CORE_META_MODEL-DELIVERY--omit-version-suffixes-from-active-carriers.md",
+      "atom_id": "CA-D-290",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md",
+      "atom_id": "CA-D-309",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md",
+      "atom_id": "CA-D-317",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-318-CORE_META_MODEL--place-project-owned-persistent-carriers.md",
+      "atom_id": "CA-D-318",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-329-CORE_META_MODEL--serialize-proof-frontier-references.md",
+      "atom_id": "CA-D-329",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-331-CORE_META_MODEL--keep-durable-hub-navigation-at-folder-level.md",
+      "atom_id": "CA-D-331",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-342-CORE_META_MODEL--serialize-external-project-goal-references.md",
+      "atom_id": "CA-D-342",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+      "atom_id": "CA-D-356",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+      "atom_id": "CA-D-357",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+      "atom_id": "CA-D-360",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md",
+      "atom_id": "CA-D-365",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-386-CORE_META_MODEL-DELIVERY--serialize-concern-priority.md",
+      "atom_id": "CA-D-386",
+      "reason": "no_supported_subject_changes"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+      "atom_id": "CA-D-568",
+      "reason": "no_supported_subject_changes"
+    }
+  ],
+  "notes": [
+    "git_checkpoint is null until root owner commits exact selected source paths.",
+    "Read-only preparation; no source/draft/Git mutation.",
+    "Validated metadata, identity, Subject syntax and exact mapping. Native staging performs complete source/admission checks.",
+    "Empty missing-R review drafts are separate from this packet and are not definitions."
+  ]
+}

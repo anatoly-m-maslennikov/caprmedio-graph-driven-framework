@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Goal"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    ["Scope Unit", "Project Structure", "Atom.Substance", "Structural Parent Relation"]
-version: 19
-updated_at: "2026-10-15 12:23:36 +0000"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Atom.Substance", "Structural Parent Relation"]
+version: 20
+updated_at: "2026-10-15 18:46:56 +0000"
 relations:
   child_of:
     - CA-R-925

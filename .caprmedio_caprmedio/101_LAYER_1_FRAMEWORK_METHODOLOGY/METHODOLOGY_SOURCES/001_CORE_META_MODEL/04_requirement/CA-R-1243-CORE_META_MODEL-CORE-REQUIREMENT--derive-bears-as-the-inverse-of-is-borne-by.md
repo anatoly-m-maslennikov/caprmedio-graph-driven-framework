@@ -2,11 +2,9 @@
 subjects:
   governs: "BEARS"
   depends_on:
-    - "IS_BORNE_BY"
-    - "Entities Graph"
-    - "Relation Kind"
-version: 11
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["IS_BORNE_BY", "Entity/Continuant/Projection/Type: Entities Graph", "Relation Kind"]
+version: 12
+updated_at: "2026-10-15 18:41:21 +0000"
 relations: {}
 atom_id: "CA-R-1243"
 content_role: "Requirement"

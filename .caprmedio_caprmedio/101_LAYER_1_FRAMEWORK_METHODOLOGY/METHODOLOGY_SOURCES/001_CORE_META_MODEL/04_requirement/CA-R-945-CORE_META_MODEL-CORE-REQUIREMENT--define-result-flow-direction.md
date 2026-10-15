@@ -2,9 +2,9 @@
 subjects:
   governs: "Producer Result.Flow Direction"
   depends_on:
-    ["Producer", "Consumer", "Atom Scope", "Atom.Target Scope Unit"]
-version: 19
-updated_at: "2026-10-15 12:23:40 +0000"
+    ["Producer", "Consumer", "Atom Scope", "Entity/Continuant/Object/Atom.Target Scope Unit"]
+version: 20
+updated_at: "2026-10-15 18:47:17 +0000"
 relations:
   child_of:
     - CA-R-933

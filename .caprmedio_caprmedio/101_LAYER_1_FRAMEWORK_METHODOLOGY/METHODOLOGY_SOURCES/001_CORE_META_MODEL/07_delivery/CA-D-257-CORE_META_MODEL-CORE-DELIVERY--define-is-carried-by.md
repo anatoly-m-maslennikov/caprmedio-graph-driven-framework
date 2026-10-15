@@ -2,9 +2,9 @@
 subjects:
   governs: "IS_CARRIED_BY"
   depends_on:
-    ["CARRIES", "Entity", "Entity Carrier Binding", "Carrier"]
-version: 14
-updated_at: "2026-10-15 12:17:52 +0000"
+    ["CARRIES", "Entity", "Entity Carrier Binding", "Entity/Carrier"]
+version: 15
+updated_at: "2026-10-15 18:50:39 +0000"
 relations: {}
 atom_id: "CA-D-257"
 content_role: "Delivery"

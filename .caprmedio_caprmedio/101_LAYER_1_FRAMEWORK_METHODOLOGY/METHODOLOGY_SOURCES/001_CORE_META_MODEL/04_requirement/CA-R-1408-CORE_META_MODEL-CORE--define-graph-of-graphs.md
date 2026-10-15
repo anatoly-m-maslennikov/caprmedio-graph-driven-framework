@@ -2,13 +2,9 @@
 subjects:
   governs: "Graph of Graphs"
   depends_on:
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Relation"
-    - "Relation Kind"
-    - "Single Source of Truth"
-version: 7
-updated_at: "2026-10-02 22:41:14 +0400"
+    ["CAPRMEDIO Graph", "Entity/Continuant/Projection", "Entity/Continuant/Object/Relation", "Relation Kind", "Single Source of Truth"]
+version: 8
+updated_at: "2026-10-15 18:42:44 +0000"
 relations: {}
 atom_id: "CA-R-1408"
 content_role: "Requirement"

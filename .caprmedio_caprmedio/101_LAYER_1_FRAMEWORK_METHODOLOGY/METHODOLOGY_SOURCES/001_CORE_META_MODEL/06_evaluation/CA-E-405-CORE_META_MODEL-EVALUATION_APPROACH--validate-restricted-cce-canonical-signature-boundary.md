@@ -2,9 +2,9 @@
 subjects:
   governs: "Canonical Signature Derivation Validation"
   depends_on:
-    ["Atom.Substance", "Atom Claim Canonical Signature", "CCE Operator"]
-version: 11
-updated_at: "2026-10-15 12:19:10 +0000"
+    ["Entity/Continuant/Object/Atom.Substance", "Atom Claim Canonical Signature", "CCE Operator"]
+version: 12
+updated_at: "2026-10-15 18:49:12 +0000"
 relations:
   evaluation_for:
     - CA-R-1360

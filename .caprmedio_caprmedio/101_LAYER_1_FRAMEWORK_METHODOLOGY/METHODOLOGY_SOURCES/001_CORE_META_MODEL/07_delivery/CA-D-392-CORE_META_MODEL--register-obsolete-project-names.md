@@ -2,11 +2,9 @@
 subjects:
   governs: "Project Scope Unit Graph Projection"
   depends_on:
-    - "Project Settings"
-    - "Project Name"
-    - "Obsolete Project Name"
-version: 8
-updated_at: "2026-10-02 19:36:21 +0400"
+    ["Entity/Continuant/Object/Project.Settings", "Project Name", "Obsolete Project Name"]
+version: 9
+updated_at: "2026-10-15 18:51:49 +0000"
 relations:
   child_of:
     - "CA-R-1052"

@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom.ID"
+  governs: "Entity/Continuant/Object/Atom.ID"
   depends_on:
-    - "Atom"
-    - "Project"
-    - "Atom/Content Role"
-version: 2
-updated_at: "2026-10-15 12:18:56 +0000"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Project", "Atom/Content Role"]
+version: 3
+updated_at: "2026-10-15 18:52:29 +0000"
 relations: {}
 atom_id: "CA-D-508"
 content_role: "Delivery"

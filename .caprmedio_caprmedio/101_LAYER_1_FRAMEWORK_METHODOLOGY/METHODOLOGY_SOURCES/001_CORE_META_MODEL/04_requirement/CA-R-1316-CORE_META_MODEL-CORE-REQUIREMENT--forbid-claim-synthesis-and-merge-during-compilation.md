@@ -2,9 +2,9 @@
 subjects:
   governs: "Applicable Methodology Compilation"
   depends_on:
-    ["Atom.Substance"]
-version: 12
-updated_at: "2026-10-15 12:21:28 +0000"
+    ["Entity/Continuant/Object/Atom.Substance"]
+version: 13
+updated_at: "2026-10-15 18:41:48 +0000"
 relations: {}
 atom_id: "CA-R-1316"
 content_role: "Requirement"

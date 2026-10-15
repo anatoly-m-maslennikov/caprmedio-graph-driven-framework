@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Projection"
+  governs: "Entity/Continuant/Projection"
   depends_on:
-    ["Carrier", "Type", "Atom.Substance"]
-version: 6
-updated_at: "2026-10-15 12:22:04 +0000"
+    ["Entity/Carrier", "Type", "Entity/Continuant/Object/Atom.Substance"]
+version: 7
+updated_at: "2026-10-15 18:43:18 +0000"
 relations: {}
 atom_id: "CA-R-1460"
 content_role: "Requirement"

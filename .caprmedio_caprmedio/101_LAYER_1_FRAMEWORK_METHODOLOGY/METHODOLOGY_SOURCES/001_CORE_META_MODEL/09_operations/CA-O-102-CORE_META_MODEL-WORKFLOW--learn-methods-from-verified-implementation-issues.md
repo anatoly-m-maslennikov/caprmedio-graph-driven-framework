@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Method Learning Workflow"
   depends_on:
-    ["Workflow", "Step", "Relation/Type: On Result", "Execution/Workflow Run", "Atom/Content Role: Method", "Implementation Workflow"]
-version: 3
-updated_at: "2026-10-15 12:20:37 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Method", "Implementation Workflow"]
+version: 4
+updated_at: "2026-10-15 18:53:10 +0000"
 relations:
   relates_to:
     - CA-O-101

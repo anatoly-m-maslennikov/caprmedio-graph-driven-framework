@@ -9,10 +9,10 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Workflow"
-  depends_on: ["Step", "Execution/Workflow Run", "Relation/Type: On Result", "Operator", "Journal"]
-version: 7
-updated_at: "2026-10-15 12:20:47 +0000"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Workflow Run", "Relation/Type: On Result", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
+version: 8
+updated_at: "2026-10-15 18:53:20 +0000"
 relations:
   relates_to: [CA-O-129, CA-O-145, CA-M-303, CA-R-1508, CA-R-1513, CA-R-1520, CA-R-1525, CA-R-1720]
 ---

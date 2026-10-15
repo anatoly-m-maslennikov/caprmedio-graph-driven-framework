@@ -2,9 +2,9 @@
 subjects:
   governs: "Lineage Impact Analysis"
   depends_on:
-    ["Atom/Content Role: Analysis", "Journal.Record", "Evidence"]
-version: 6
-updated_at: "2026-10-15 12:22:11 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Analysis", "Entity/Continuant/History/Journal.Record", "Evidence"]
+version: 7
+updated_at: "2026-10-15 18:43:43 +0000"
 relations: {}
 atom_id: "CA-R-1497"
 content_role: "Requirement"

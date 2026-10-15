@@ -2,15 +2,9 @@
 subjects:
   governs: "Subject"
   depends_on:
-    - "Atom"
-    - "Entity"
-    - "Term"
-    - "Relation"
-    - "GOVERNS"
-    - "DEPENDS_ON"
-    - "Subject Path"
-version: 14
-updated_at: "2026-10-01 21:41:08 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity", "Entity/Continuant/Term", "Entity/Continuant/Object/Relation", "GOVERNS", "DEPENDS_ON", "Subject Path"]
+version: 15
+updated_at: "2026-10-15 18:41:32 +0000"
 relations: {}
 atom_id: "CA-R-1275"
 content_role: "Requirement"

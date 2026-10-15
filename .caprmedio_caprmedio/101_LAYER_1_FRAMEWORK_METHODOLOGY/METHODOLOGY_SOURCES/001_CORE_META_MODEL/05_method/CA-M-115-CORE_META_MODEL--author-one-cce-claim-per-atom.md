@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Claim Boundary Authoring"
   depends_on:
-    ["Atom", "Claim", "Atom.Substance", "CCE", "Author", "Scope Unit", "Atom.Target Scope Unit", "Relational Atom"]
-version: 24
-updated_at: "2026-10-15 12:19:43 +0000"
+    ["Entity/Continuant/Object/Atom", "Claim", "Entity/Continuant/Object/Atom.Substance", "CCE", "Author", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit", "Relational Atom"]
+version: 25
+updated_at: "2026-10-15 18:47:48 +0000"
 relations: {}
 atom_id: "CA-M-115"
 content_role: "Method"

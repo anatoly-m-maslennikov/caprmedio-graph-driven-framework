@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Claim Authoring"
   depends_on:
-    ["Atom.Substance", "CCE", "Atom.Summary"]
-version: 26
-updated_at: "2026-10-15 12:19:42 +0000"
+    ["Entity/Continuant/Object/Atom.Substance", "CCE", "Entity/Continuant/Object/Atom.Summary"]
+version: 27
+updated_at: "2026-10-15 18:47:42 +0000"
 relations: {"relates_to": ["CA-R-1624", "CA-O-103", "CA-D-479", "CA-R-1465"]}
 atom_id: "CA-M-111"
 content_role: "Method"

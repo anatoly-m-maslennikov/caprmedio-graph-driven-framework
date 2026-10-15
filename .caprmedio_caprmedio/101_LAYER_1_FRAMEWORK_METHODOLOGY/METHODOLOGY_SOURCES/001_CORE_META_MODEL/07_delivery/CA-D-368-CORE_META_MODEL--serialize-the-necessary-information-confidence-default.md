@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance.Settings.Confidence.Necessary Information Threshold"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Confidence.Necessary Information Threshold"
   depends_on:
-    ["Framework Instance.Settings", "Confidence Threshold", "Carrier"]
-version: 10
-updated_at: "2026-10-15 12:18:22 +0000"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Confidence Threshold", "Entity/Carrier"]
+version: 11
+updated_at: "2026-10-15 18:51:35 +0000"
 relations:
   child_of:
     - "CA-D-361"

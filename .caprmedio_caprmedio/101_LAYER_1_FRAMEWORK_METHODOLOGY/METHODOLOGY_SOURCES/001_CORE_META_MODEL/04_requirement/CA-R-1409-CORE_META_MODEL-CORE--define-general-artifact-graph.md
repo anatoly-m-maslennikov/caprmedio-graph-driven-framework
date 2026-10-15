@@ -2,9 +2,9 @@
 subjects:
   governs: "General Artifact Graph"
   depends_on:
-    ["Artifact", "Structural Entity", "Scope Unit", "Container Atom", "Carrier", "CAPRMEDIO Graph", "Structural Entity Direct Containment", "Atom", "Journal", "Projection"]
-version: 9
-updated_at: "2026-10-15 12:21:47 +0000"
+    ["Artifact", "Structural Entity", "Entity/Continuant/Object/Scope Unit", "Container Atom", "Entity/Carrier", "CAPRMEDIO Graph", "Structural Entity Direct Containment", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Journal", "Entity/Continuant/Projection"]
+version: 10
+updated_at: "2026-10-15 18:42:45 +0000"
 relations: {}
 atom_id: "CA-R-1409"
 content_role: "Requirement"

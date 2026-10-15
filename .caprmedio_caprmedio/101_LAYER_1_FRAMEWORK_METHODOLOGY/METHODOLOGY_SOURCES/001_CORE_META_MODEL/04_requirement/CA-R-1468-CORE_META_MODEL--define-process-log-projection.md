@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Process Log"
+  governs: "Entity/Continuant/Projection/Type: Process Log"
   depends_on:
-    ["Execution/Step Run", "Execution/Workflow Run", "Projection", "Journal", "Journal.Record", "Action", "Workflow"]
-version: 7
-updated_at: "2026-10-15 12:22:07 +0000"
+    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
+version: 8
+updated_at: "2026-10-15 18:43:26 +0000"
 relations: {}
 atom_id: "CA-R-1468"
 content_role: "Requirement"

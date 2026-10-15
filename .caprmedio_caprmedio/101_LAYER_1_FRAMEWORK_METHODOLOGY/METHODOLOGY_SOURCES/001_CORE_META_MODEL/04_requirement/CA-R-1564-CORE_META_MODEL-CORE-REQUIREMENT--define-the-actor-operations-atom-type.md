@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Operations/Type: Actor"
   depends_on:
-    ["Atom/Content Role: Operations", "Type", "Atom.Substance", "Actor"]
-version: 5
-updated_at: "2026-10-15 12:22:37 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations", "Type", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Actor"]
+version: 6
+updated_at: "2026-10-15 18:44:26 +0000"
 relations: {"relates_to": ["CA-R-1530", "CA-R-1565"]}
 atom_id: "CA-R-1564"
 content_role: "Requirement"

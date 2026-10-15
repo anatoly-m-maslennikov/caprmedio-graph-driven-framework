@@ -2,12 +2,9 @@
 subjects:
   governs: "Structural Entity"
   depends_on:
-    - "Structural Entity"
-    - "Directory Carrier"
-    - "Scope Unit"
-    - "Project Structure"
-version: 5
-updated_at: "2026-10-15 12:18:43 +0000"
+    ["Structural Entity", "Entity/Carrier/Directory Carrier", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure"]
+version: 6
+updated_at: "2026-10-15 18:52:08 +0000"
 relations: {"relates_to": ["CA-D-259", "CA-D-312", "CA-R-1484"]}
 atom_id: "CA-D-465"
 content_role: "Delivery"

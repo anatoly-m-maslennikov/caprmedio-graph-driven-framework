@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Direct Relation Registry"
+  governs: "Entity/Continuant/Projection/Type: Direct Relation Registry"
   depends_on:
-    ["Relation Kind", "Relation Kind Metadata", "CAPRMEDIO Graph", "Applicable Methodology", "Relation.Authority", "Atom/Content Role: Requirement", "Projection", "Generator", "Relation", "Single Source of Truth"]
-version: 15
-updated_at: "2026-10-15 12:19:44 +0000"
+    ["Relation Kind", "Relation Kind Metadata", "CAPRMEDIO Graph", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Object/Relation.Authority", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Projection", "Generator", "Entity/Continuant/Object/Relation", "Single Source of Truth"]
+version: 16
+updated_at: "2026-10-15 18:47:52 +0000"
 relations:
   child_of:
     - CA-R-295

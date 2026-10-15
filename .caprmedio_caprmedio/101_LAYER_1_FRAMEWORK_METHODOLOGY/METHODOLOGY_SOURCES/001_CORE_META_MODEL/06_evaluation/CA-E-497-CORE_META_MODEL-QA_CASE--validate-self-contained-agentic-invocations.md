@@ -2,9 +2,9 @@
 subjects:
   governs: "Agentic Step Invocation Context"
   depends_on:
-    ["Execution/Step Run", "Execution/Workflow Run", "Step", "Action", "Operator", "Atom"]
-version: 5
-updated_at: "2026-10-15 12:19:30 +0000"
+    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom"]
+version: 6
+updated_at: "2026-10-15 18:49:58 +0000"
 relations: {"evaluation_for": ["CA-M-304", "CA-R-1789", "CA-R-1790", "CA-R-1791", "CA-R-1792", "CA-R-1793"]}
 atom_id: "CA-E-497"
 content_role: "Evaluation"

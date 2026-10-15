@@ -2,9 +2,9 @@
 subjects:
   governs: "Event/Type"
   depends_on:
-    ["Journal.Record"]
-version: 23
-updated_at: "2026-10-15 12:23:01 +0000"
+    ["Entity/Continuant/History/Journal.Record"]
+version: 24
+updated_at: "2026-10-15 18:45:12 +0000"
 relations: {}
 atom_id: "CA-R-1643"
 content_role: "Requirement"

@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Change Classification"
   depends_on:
-    ["Atom", "Atom.Substance", "Atom.Summary", "Revision/Type: Atom", "Carrier-Only Recoding", "Lineage Impact Analysis", "Tool"]
-version: 12
-updated_at: "2026-10-15 12:21:54 +0000"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/History/Revision/Type: Atom", "Carrier-Only Recoding", "Lineage Impact Analysis", "Tool"]
+version: 13
+updated_at: "2026-10-15 18:42:57 +0000"
 relations: {}
 atom_id: "CA-R-1432"
 content_role: "Requirement"

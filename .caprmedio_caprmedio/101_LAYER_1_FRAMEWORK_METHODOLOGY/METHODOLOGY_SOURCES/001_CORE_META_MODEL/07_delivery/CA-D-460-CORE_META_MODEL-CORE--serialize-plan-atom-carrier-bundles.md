@@ -2,9 +2,9 @@
 subjects:
   governs: "Plan Atom Carrier Bundle"
   depends_on:
-    ["Plan Atom Carrier.Stem", "File Carrier", "Directory Carrier"]
-version: 7
-updated_at: "2026-10-15 12:18:41 +0000"
+    ["Plan Atom Carrier.Stem", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier"]
+version: 8
+updated_at: "2026-10-15 18:52:05 +0000"
 relations: {"relates_to": ["CA-R-1578", "CA-D-469"]}
 atom_id: "CA-D-460"
 content_role: "Delivery"

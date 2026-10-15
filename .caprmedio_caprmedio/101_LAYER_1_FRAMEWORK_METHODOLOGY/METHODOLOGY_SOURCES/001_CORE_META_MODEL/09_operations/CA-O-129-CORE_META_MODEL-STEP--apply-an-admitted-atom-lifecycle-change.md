@@ -9,10 +9,10 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Step"
-  depends_on: ["Action", "Execution/Step Run", "Execution/Workflow Run", "Agentic Step Execution Context"]
-version: 7
-updated_at: "2026-10-15 12:20:47 +0000"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Agentic Step Execution Context"]
+version: 8
+updated_at: "2026-10-15 18:53:22 +0000"
 relations:
   relates_to: [CA-O-128, CA-O-145, CA-R-1509, CA-R-1511, CA-R-1527]
 ---

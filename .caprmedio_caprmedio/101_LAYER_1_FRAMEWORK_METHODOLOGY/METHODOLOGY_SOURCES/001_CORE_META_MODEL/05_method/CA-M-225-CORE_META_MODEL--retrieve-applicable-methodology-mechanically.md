@@ -2,9 +2,9 @@
 subjects:
   governs: "Applicable Methodology Retrieval"
   depends_on:
-    ["Applicable Methodology", "Atom.Subjects"]
-version: 16
-updated_at: "2026-10-15 12:19:45 +0000"
+    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Object/Atom.Subjects"]
+version: 17
+updated_at: "2026-10-15 18:47:54 +0000"
 relations: {}
 atom_id: "CA-M-225"
 content_role: "Method"

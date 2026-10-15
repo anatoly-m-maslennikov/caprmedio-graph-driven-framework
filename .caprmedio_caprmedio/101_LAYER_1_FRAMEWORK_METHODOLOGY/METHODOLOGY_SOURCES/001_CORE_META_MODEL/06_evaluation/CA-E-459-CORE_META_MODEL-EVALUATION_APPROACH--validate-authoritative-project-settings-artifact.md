@@ -2,9 +2,9 @@
 subjects:
   governs: "Project Settings Validation"
   depends_on:
-    ["Project Settings", "Project Settings.Revision Binding", "Project Name", "Project Settings.Atom Prefix", "Framework Instance.Settings", "CORE_META_MODEL"]
-version: 20
-updated_at: "2026-10-15 12:19:19 +0000"
+    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Settings.Revision Binding", "Project Name", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Project.Framework Settings", "CORE_META_MODEL"]
+version: 21
+updated_at: "2026-10-15 18:49:28 +0000"
 relations:
   evaluation_for:
     - CA-R-1738

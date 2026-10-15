@@ -2,9 +2,9 @@
 subjects:
   governs: "Project Scope Unit Graph Projection"
   depends_on:
-    ["Project Structure", "Framework Instance.Settings", "Project Settings", "Carrier"]
-version: 13
-updated_at: "2026-10-15 12:18:12 +0000"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project.Settings", "Entity/Carrier"]
+version: 14
+updated_at: "2026-10-15 18:51:16 +0000"
 relations: {}
 atom_id: "CA-D-333"
 content_role: "Delivery"

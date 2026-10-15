@@ -2,9 +2,9 @@
 subjects:
   governs: "DEPENDS_ON"
   depends_on:
-    ["Relation Kind", "Atom", "Subject", "Atom/Content Role: Plan/Type: Plan", "Entity", "Atom.Substance", "Workflow"]
-version: 17
-updated_at: "2026-10-15 12:21:08 +0000"
+    ["Relation Kind", "Entity/Continuant/Object/Atom", "Subject", "Atom/Content Role: Plan/Type: Plan", "Entity", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
+version: 18
+updated_at: "2026-10-15 18:41:10 +0000"
 relations: {}
 atom_id: "CA-R-1200"
 content_role: "Requirement"

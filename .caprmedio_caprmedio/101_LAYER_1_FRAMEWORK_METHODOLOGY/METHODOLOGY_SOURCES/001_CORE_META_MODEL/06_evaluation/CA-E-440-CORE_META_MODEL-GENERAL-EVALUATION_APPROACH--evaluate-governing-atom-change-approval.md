@@ -1,11 +1,11 @@
 ---
-version: 15
-updated_at: "2026-10-15 12:19:12 +0000"
+version: 16
+updated_at: "2026-10-15 18:49:15 +0000"
 relations: {"child_of":["CA-E-001"],"evaluation_for":["CA-R-1559","CA-R-1591","CA-R-1552","CA-R-1080"]}
 subjects:
-  governs: "Actor/Type: AI Agent"
+  governs: "Entity/Continuant/Actor/Type: AI Agent"
   depends_on:
-    ["Atom.Author", "Operator", "AI Agent", "AI Agent Confidence", "Atom/Content Role: Plan/Type: Plan.Autonomous Confidence Threshold", "Spec", "Atom", "Atom/Content Role: Evaluation", "Atom/Content Role: Plan/Type: Plan", "Atom/Content Role: Requirement", "Atom/Content Role: Method", "Atom/Content Role: Delivery", "Project"]
+    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "AI Agent Confidence", "Entity/Continuant/Object/Atom/Content Role: Plan.Autonomous Confidence Threshold", "Spec", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Project"]
 atom_id: "CA-E-440"
 content_role: "Evaluation"
 current_scope_unit: "CORE_META_MODEL"

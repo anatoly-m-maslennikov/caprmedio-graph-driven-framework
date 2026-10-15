@@ -2,9 +2,9 @@
 subjects:
   governs: "Method CCE Role Profile"
   depends_on:
-    ["Atom/Content Role: Method", "CCE Operator", "Atom.Substance"]
-version: 6
-updated_at: "2026-10-15 12:20:07 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Method", "CCE Operator", "Entity/Continuant/Object/Atom.Substance"]
+version: 7
+updated_at: "2026-10-15 18:48:40 +0000"
 relations:
   child_of:
     - CA-M-307

@@ -8,11 +8,11 @@ global_tier: 11
 status: "Active"
 author: "Anatoly Maslennikov"
 type: "Workflow"
-version: 4
-updated_at: "2026-10-05 05:14:43 +0400"
+version: 5
+updated_at: "2026-10-15 18:53:37 +0000"
 subjects:
   governs: "Find and Fetch Artifacts"
-  depends_on: [Workflow, Step, Action, Artifact, Markdown, Journal, Tool]
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Artifact", "Markdown", "Entity/Continuant/History/Journal", "Tool"]
 relations: {}
 ---
 # Summary

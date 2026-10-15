@@ -2,9 +2,9 @@
 subjects:
   governs: "Methodology Source.Expansion Boundary"
   depends_on:
-    ["Core Meta-Model", "Extension", "Project Configuration", "Atom.Substance", "Framework Instance.Settings"]
-version: 14
-updated_at: "2026-10-15 12:21:35 +0000"
+    ["Core Meta-Model", "Extension", "Project Configuration", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Project.Framework Settings"]
+version: 15
+updated_at: "2026-10-15 18:42:20 +0000"
 relations: {}
 atom_id: "CA-R-1375"
 content_role: "Requirement"

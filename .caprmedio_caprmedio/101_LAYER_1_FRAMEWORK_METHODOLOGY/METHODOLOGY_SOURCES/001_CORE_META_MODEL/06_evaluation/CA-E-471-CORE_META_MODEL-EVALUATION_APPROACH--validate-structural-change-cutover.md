@@ -2,16 +2,9 @@
 subjects:
   governs: "Project Structure Maintenance"
   depends_on:
-    - "Project Structure"
-    - "Carrier"
-    - "Operator"
-    - "Autonomous Confidence Threshold"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Project"
-    - "Projection"
-    - "Atom/Content Role: Evaluation"
-version: 7
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Carrier", "Entity/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
+version: 8
+updated_at: "2026-10-15 18:49:38 +0000"
 relations:
   evaluation_for:
     - "CA-O-012"

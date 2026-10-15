@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Terms Graph"
+  governs: "Entity/Continuant/Projection/Type: Terms Graph"
   depends_on:
-    ["Term", "Root Term", "NARROWER_THAN", "Relation", "Relation Kind", "CAPRMEDIO Graph", "Governed Term", "Definition Atom", "Atom.Substance", "Entity", "Action", "Workflow", "Projection", "Atom"]
-version: 22
-updated_at: "2026-10-15 12:19:07 +0000"
+    ["Entity/Continuant/Term", "Root Term", "NARROWER_THAN", "Entity/Continuant/Object/Relation", "Relation Kind", "CAPRMEDIO Graph", "Governed Term", "Definition Atom", "Entity/Continuant/Object/Atom.Substance", "Entity", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom"]
+version: 23
+updated_at: "2026-10-15 18:49:02 +0000"
 relations:
   evaluation_for:
     - CA-R-1335

@@ -2,12 +2,9 @@
 subjects:
   governs: "Artifact Carrier Placement"
   depends_on:
-    - "Atom/Content Role"
-    - "Scope Unit"
-    - "Artifact"
-    - "Directory Carrier"
-version: 14
-updated_at: "2026-10-15 12:18:03 +0000"
+    ["Atom/Content Role", "Entity/Continuant/Object/Scope Unit", "Artifact", "Entity/Carrier/Directory Carrier"]
+version: 15
+updated_at: "2026-10-15 18:50:56 +0000"
 relations: {}
 atom_id: "CA-D-296"
 content_role: "Delivery"

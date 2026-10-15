@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance.Settings"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    - "Project Structure"
-    - "Authority Mode"
-    - "Project"
-    - "Scope Unit"
-version: 8
-updated_at: "2026-10-15 12:18:29 +0000"
+    ["Entity/Continuant/Object/Project.Structure", "Authority Mode", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit"]
+version: 9
+updated_at: "2026-10-15 18:51:39 +0000"
 relations:
   child_of:
     - "CA-D-361"

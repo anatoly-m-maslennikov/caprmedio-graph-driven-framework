@@ -2,9 +2,9 @@
 subjects:
   governs: "Assess Source Conflicts"
   depends_on:
-    ["Action", "Atom", "Atom.Substance", "Atom.Global Tier", "Atom.Updated At", "Atom.Local Tier: Principle", "Operator"]
-version: 9
-updated_at: "2026-10-15 12:20:11 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Atom.Updated At", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Actor/Type: Operator"]
+version: 10
+updated_at: "2026-10-15 18:52:40 +0000"
 relations: {}
 atom_id: "CA-O-005"
 content_role: "Operations"

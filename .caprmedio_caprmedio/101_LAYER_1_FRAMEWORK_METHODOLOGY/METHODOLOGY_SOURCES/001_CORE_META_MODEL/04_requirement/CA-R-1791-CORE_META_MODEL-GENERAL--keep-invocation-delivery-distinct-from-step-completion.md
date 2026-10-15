@@ -2,17 +2,9 @@
 subjects:
   governs: "Step Run/Invocation"
   depends_on:
-    - "Step Run"
-    - "Workflow Run"
-    - "Step"
-    - "Action"
-    - "Action/Execution Kind"
-    - "Step/Agentic Execution Context"
-    - "Artifact/Revision"
-    - "Operator"
-    - "Journal"
-version: 1
-updated_at: "2026-09-30 14:53:54 +0400"
+    ["Step Run", "Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Action/Execution Kind", "Step/Agentic Execution Context", "Artifact/Revision", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
+version: 2
+updated_at: "2026-10-15 18:46:07 +0000"
 relations: {"relates_to": ["CA-R-1519", "CA-R-1520", "CA-R-1525", "CA-R-1527"]}
 atom_id: "CA-R-1791"
 content_role: "Requirement"

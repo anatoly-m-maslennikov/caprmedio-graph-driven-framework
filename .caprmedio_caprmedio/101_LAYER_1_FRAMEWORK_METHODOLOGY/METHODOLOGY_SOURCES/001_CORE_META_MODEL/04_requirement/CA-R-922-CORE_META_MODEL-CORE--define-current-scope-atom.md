@@ -2,9 +2,9 @@
 subjects:
   governs: "Current-scope Atom"
   depends_on:
-    ["Atom.Target Scope Unit", "Scope Unit", "Atom"]
-version: 22
-updated_at: "2026-10-15 12:23:34 +0000"
+    ["Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom"]
+version: 23
+updated_at: "2026-10-15 18:46:50 +0000"
 relations:
   child_of:
     - CA-R-1596

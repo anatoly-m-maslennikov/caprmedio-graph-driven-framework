@@ -2,10 +2,9 @@
 subjects:
   governs: "Navigational Order Number"
   depends_on:
-    - "Operator"
-    - "Scope Unit"
-version: 17
-updated_at: "2026-10-02 21:09:50 +0400"
+    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Scope Unit"]
+version: 18
+updated_at: "2026-10-15 18:47:32 +0000"
 relations:
   child_of:
     - CA-R-1757

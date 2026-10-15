@@ -2,9 +2,9 @@
 subjects:
   governs: "Project Structure Maintenance"
   depends_on:
-    ["Relation/Type: On Result", "Execution/Step Run", "Execution/Workflow Run", "Action", "Step", "Workflow", "Project Structure", "Select Reconciliation Sources", "Prepare Structural Change", "Assess Source Conflicts", "Authorize Structural Change", "Apply Structural Change"]
-version: 9
-updated_at: "2026-10-15 12:20:16 +0000"
+    ["Relation/Type: On Result", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Project.Structure", "Select Reconciliation Sources", "Prepare Structural Change", "Assess Source Conflicts", "Authorize Structural Change", "Apply Structural Change"]
+version: 10
+updated_at: "2026-10-15 18:52:49 +0000"
 relations:
   relates_to:
     - "CA-R-1483"

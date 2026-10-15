@@ -2,10 +2,9 @@
 subjects:
   governs: "Structural Level"
   depends_on:
-    - "Scope Unit"
-    - "Structural Parent Relation"
-version: 17
-updated_at: "2026-10-03 02:39:08 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Structural Parent Relation"]
+version: 18
+updated_at: "2026-10-15 18:45:35 +0000"
 relations:
   child_of:
     - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary

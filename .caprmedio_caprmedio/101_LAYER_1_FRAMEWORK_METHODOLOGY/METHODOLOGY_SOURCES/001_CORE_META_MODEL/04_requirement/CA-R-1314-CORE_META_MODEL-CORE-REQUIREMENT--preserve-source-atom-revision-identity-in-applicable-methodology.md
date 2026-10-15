@@ -2,9 +2,9 @@
 subjects:
   governs: "Applicable Methodology.Member"
   depends_on:
-    ["Atom", "DERIVED_FROM"]
-version: 14
-updated_at: "2026-10-15 12:21:27 +0000"
+    ["Entity/Continuant/Object/Atom", "DERIVED_FROM"]
+version: 15
+updated_at: "2026-10-15 18:41:47 +0000"
 relations: {}
 atom_id: "CA-R-1314"
 content_role: "Requirement"

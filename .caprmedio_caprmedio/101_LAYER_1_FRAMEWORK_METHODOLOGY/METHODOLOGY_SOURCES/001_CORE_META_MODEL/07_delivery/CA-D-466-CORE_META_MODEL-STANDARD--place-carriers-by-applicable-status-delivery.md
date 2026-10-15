@@ -2,9 +2,9 @@
 subjects:
   governs: "Artifact Carrier Placement"
   depends_on:
-    ["Artifact.Activity", "Artifact.Status", "Atom/Content Role: Delivery"]
-version: 5
-updated_at: "2026-10-15 12:18:43 +0000"
+    ["Artifact.Activity", "Artifact.Status", "Entity/Continuant/Object/Atom/Content Role: Delivery"]
+version: 6
+updated_at: "2026-10-15 18:52:09 +0000"
 relations: {"relates_to": ["CA-D-461"]}
 atom_id: "CA-D-466"
 content_role: "Delivery"

@@ -2,9 +2,9 @@
 subjects:
   governs: "Governed Term Rendering"
   depends_on:
-    ["CCE Operator", "General Term", "Governed Term", "Scope Unit.Name", "Author", "Markdown Atom Carrier.Main Content.CCE Operator"]
-version: 13
-updated_at: "2026-10-15 12:19:46 +0000"
+    ["CCE Operator", "General Term", "Governed Term", "Entity/Continuant/Object/Scope Unit.Name", "Author", "Markdown Atom Carrier.Main Content.CCE Operator"]
+version: 14
+updated_at: "2026-10-15 18:47:57 +0000"
 relations:
   relates_to:
     - CA-D-280

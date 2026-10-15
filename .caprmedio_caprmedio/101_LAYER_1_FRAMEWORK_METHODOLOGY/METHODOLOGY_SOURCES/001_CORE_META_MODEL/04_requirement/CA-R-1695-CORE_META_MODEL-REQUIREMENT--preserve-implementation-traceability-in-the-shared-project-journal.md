@@ -2,9 +2,9 @@
 subjects:
   governs: "Implementation Binding"
   depends_on:
-    ["Journal", "Scope Unit", "Atom", "Implementation", "Projection", "Verification"]
-version: 20
-updated_at: "2026-10-15 12:23:06 +0000"
+    ["Entity/Continuant/History/Journal", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom", "Implementation", "Entity/Continuant/Projection", "Verification"]
+version: 21
+updated_at: "2026-10-15 18:45:26 +0000"
 relations:
   child_of:
     - "CA-R-1682"

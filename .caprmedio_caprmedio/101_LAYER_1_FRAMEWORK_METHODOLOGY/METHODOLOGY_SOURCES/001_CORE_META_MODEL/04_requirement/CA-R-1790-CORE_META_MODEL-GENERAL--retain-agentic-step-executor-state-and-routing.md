@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Execution/Step Run"
+  governs: "Entity/Occurrent/Execution/Step Run"
   depends_on:
-    ["Execution/Step Run", "Execution/Workflow Run", "Step", "Action", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Agentic Step Execution Context", "Atom", "Operator", "Journal"]
-version: 2
-updated_at: "2026-10-15 12:23:20 +0000"
+    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Agentic Step Execution Context", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
+version: 3
+updated_at: "2026-10-15 18:46:06 +0000"
 relations: {"relates_to": ["CA-R-1519", "CA-R-1520", "CA-R-1525", "CA-R-1527"]}
 atom_id: "CA-R-1790"
 content_role: "Requirement"

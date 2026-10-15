@@ -9,9 +9,9 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Projection Carrier Root"
-  depends_on: ["Project","Projection","Carrier","Applicable Methodology","Journal","Atom","Methodology Source","Project Settings","Project Structure"]
-version: 5
-updated_at: "2026-10-15 12:18:57 +0000"
+  depends_on: ["Entity/Continuant/Object/Project", "Entity/Continuant/Projection", "Entity/Carrier", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/History/Journal", "Entity/Continuant/Object/Atom", "Methodology Source", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Structure"]
+version: 6
+updated_at: "2026-10-15 18:52:31 +0000"
 relations: {}
 ---
 # Summary

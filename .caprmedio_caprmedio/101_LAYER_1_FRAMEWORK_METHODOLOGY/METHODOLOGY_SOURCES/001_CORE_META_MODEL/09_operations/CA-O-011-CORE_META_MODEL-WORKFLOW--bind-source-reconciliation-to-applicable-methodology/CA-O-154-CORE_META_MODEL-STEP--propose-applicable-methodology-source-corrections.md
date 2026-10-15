@@ -8,12 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-15 12:21:00 +0000"
+version: 5
+updated_at: "2026-10-15 18:53:51 +0000"
 subjects:
   governs: "Applicable Methodology Compilation Propose Step"
   depends_on:
-    ["Workflow", "Step", "Action", "Execution/Workflow Run", "Applicable Methodology", "Propose Source Corrections", "Methodology Source", "Atom.Substance", "Extension", "Project Configuration", "Core Meta-Model", "Methodology Source.Expansion Boundary"]
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Propose Source Corrections", "Methodology Source", "Entity/Continuant/Object/Atom.Substance", "Extension", "Project Configuration", "Core Meta-Model", "Methodology Source.Expansion Boundary"]
 relations:
   relates_to: [CA-O-011, CA-O-006]
 ---

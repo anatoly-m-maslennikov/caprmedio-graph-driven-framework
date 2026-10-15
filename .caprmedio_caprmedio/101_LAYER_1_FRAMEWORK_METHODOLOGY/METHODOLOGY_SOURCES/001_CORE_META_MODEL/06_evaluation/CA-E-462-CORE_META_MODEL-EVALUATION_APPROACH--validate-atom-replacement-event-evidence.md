@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Journal.Record"
+  governs: "Entity/Continuant/History/Journal.Record"
   depends_on:
-    ["Journal.Record", "Atom.ID", "Revision/Type: Atom", "Carrier", "Atom/Content Role: Operations", "Journal", "Atom", "Artifact Carrier", "Project", "Applicable Methodology"]
-version: 14
-updated_at: "2026-10-15 12:19:20 +0000"
+    ["Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Operations", "Entity/Continuant/History/Journal", "Entity/Continuant/Object/Atom", "Artifact Carrier", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection/Type: Applicable Methodology"]
+version: 15
+updated_at: "2026-10-15 18:49:32 +0000"
 relations:
   evaluation_for:
     - CA-R-1491

@@ -8,11 +8,11 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-15 12:20:46 +0000"
+version: 3
+updated_at: "2026-10-15 18:53:19 +0000"
 subjects:
   governs: "Assess Prepared Result Conformance"
-  depends_on: ["Action", "Artifact", "Atom.Substance", "Evaluation", "Operator", "AI Agent"]
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Artifact", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent"]
 relations:
   relates_to: [CA-O-005, CA-O-104, CA-O-106, CA-O-111, CA-O-118]
 ---

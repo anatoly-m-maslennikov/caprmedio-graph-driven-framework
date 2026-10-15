@@ -2,9 +2,9 @@
 subjects:
   governs: "Root Term"
   depends_on:
-    - "Term"
-version: 10
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Entity/Continuant/Term"]
+version: 11
+updated_at: "2026-10-15 18:42:07 +0000"
 relations: {}
 atom_id: "CA-R-1353"
 content_role: "Requirement"

@@ -8,10 +8,10 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Projection
-  depends_on: ["Projection.ID", "Projection/Type", Selection, "Scope Unit"]
-version: 1
-updated_at: "2026-10-15 20:51:41 +0400"
+  governs: "Entity/Continuant/Projection"
+  depends_on: ["Entity/Continuant/Projection.ID", "Projection/Type", "Entity/Continuant/Selection", "Entity/Continuant/Object/Scope Unit"]
+version: 2
+updated_at: "2026-10-15 18:52:38 +0000"
 relations:
   depends_on: [CA-R-1943, CA-D-310, CA-D-550]
 ---

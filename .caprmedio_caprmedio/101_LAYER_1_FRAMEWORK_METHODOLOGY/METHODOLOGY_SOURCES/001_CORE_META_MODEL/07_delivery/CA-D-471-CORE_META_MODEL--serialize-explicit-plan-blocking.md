@@ -2,9 +2,9 @@
 subjects:
   governs: "Plan Blocking Relations"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Plan Blocking Relations", "Atom.ID", "Atom.Subjects", "Relation"]
-version: 6
-updated_at: "2026-10-15 12:18:46 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Plan Blocking Relations", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Subjects", "Entity/Continuant/Object/Relation"]
+version: 7
+updated_at: "2026-10-15 18:52:13 +0000"
 relations: {"delivery_for": ["CA-R-1580"]}
 atom_id: "CA-D-471"
 content_role: "Delivery"

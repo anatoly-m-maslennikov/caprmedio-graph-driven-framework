@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance.Settings.Extension Selections"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Extension Selections"
   depends_on:
-    ["Framework Instance.Settings", "Extension"]
-version: 8
-updated_at: "2026-10-15 12:18:27 +0000"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Extension"]
+version: 9
+updated_at: "2026-10-15 18:51:39 +0000"
 relations:
   child_of:
     - "CA-D-361"

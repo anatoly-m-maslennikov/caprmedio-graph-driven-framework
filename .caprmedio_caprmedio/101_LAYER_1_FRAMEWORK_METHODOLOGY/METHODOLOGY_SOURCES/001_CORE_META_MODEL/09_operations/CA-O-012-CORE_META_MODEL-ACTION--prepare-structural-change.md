@@ -2,9 +2,9 @@
 subjects:
   governs: "Prepare Structural Change"
   depends_on:
-    ["Action", "Project Structure", "Scope Unit", "Goal", "Carrier"]
-version: 6
-updated_at: "2026-10-15 12:20:16 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier"]
+version: 7
+updated_at: "2026-10-15 18:52:46 +0000"
 relations:
   relates_to:
     - "CA-M-291"

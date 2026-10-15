@@ -2,11 +2,9 @@
 subjects:
   governs: "Markdown Atom Carrier"
   depends_on:
-    - "File Carrier"
-    - "Term"
-    - "NARROWER_THAN"
-version: 11
-updated_at: "2026-09-29 06:39:18 +0000"
+    ["Entity/Carrier/File Carrier", "Entity/Continuant/Term", "NARROWER_THAN"]
+version: 12
+updated_at: "2026-10-15 18:51:55 +0000"
 relations: {}
 atom_id: "CA-D-416"
 content_role: "Delivery"

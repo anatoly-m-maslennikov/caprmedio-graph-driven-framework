@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Execution/Workflow Run"
+  governs: "Entity/Occurrent/Execution/Workflow Run"
   depends_on:
-    ["Workflow", "Execution/Step Run", "Journal.Record"]
-version: 5
-updated_at: "2026-10-15 12:22:18 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/History/Journal.Record"]
+version: 6
+updated_at: "2026-10-15 18:43:52 +0000"
 relations: {}
 atom_id: "CA-R-1510"
 content_role: "Requirement"

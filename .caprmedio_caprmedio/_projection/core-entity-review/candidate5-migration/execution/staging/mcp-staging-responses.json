@@ -1,0 +1,1736 @@
+{
+  "packet": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/execution/prepared-targets.json",
+    "digest": "772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5"
+  },
+  "calls": [
+    {
+      "call": 1,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 10,
+          "remaining": 740,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 2,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 20,
+          "remaining": 730,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 3,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 30,
+          "remaining": 720,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 4,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 40,
+          "remaining": 710,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 5,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 50,
+          "remaining": 700,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 6,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 60,
+          "remaining": 690,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 7,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 70,
+          "remaining": 680,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 8,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 80,
+          "remaining": 670,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 9,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 90,
+          "remaining": 660,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 10,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 100,
+          "remaining": 650,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 11,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 110,
+          "remaining": 640,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 12,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 120,
+          "remaining": 630,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 13,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 130,
+          "remaining": 620,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 14,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 140,
+          "remaining": 610,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 15,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 150,
+          "remaining": 600,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 16,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 160,
+          "remaining": 590,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 17,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 170,
+          "remaining": 580,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 18,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 180,
+          "remaining": 570,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 19,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 190,
+          "remaining": 560,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 20,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 200,
+          "remaining": 550,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 21,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 210,
+          "remaining": 540,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 22,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 220,
+          "remaining": 530,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 23,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 230,
+          "remaining": 520,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 24,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 240,
+          "remaining": 510,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 25,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 250,
+          "remaining": 500,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 26,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 260,
+          "remaining": 490,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 27,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 270,
+          "remaining": 480,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 28,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 280,
+          "remaining": 470,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 29,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 290,
+          "remaining": 460,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 30,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 300,
+          "remaining": 450,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 31,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 310,
+          "remaining": 440,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 32,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 320,
+          "remaining": 430,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 33,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 330,
+          "remaining": 420,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 34,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 340,
+          "remaining": 410,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 35,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 350,
+          "remaining": 400,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 36,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 360,
+          "remaining": 390,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 37,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 370,
+          "remaining": 380,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 38,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 380,
+          "remaining": 370,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 39,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 390,
+          "remaining": 360,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 40,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 400,
+          "remaining": 350,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 41,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 410,
+          "remaining": 340,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 42,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 420,
+          "remaining": 330,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 43,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 430,
+          "remaining": 320,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 44,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 440,
+          "remaining": 310,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 45,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 450,
+          "remaining": 300,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 46,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 460,
+          "remaining": 290,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 47,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 470,
+          "remaining": 280,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 48,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 480,
+          "remaining": 270,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 49,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 490,
+          "remaining": 260,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 50,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 500,
+          "remaining": 250,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 51,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 510,
+          "remaining": 240,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 52,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 520,
+          "remaining": 230,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 53,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 530,
+          "remaining": 220,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 54,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 540,
+          "remaining": 210,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 55,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 550,
+          "remaining": 200,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 56,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 560,
+          "remaining": 190,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 57,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 570,
+          "remaining": 180,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 58,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 580,
+          "remaining": 170,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 59,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 590,
+          "remaining": 160,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 60,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 600,
+          "remaining": 150,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 61,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 610,
+          "remaining": 140,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 62,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 620,
+          "remaining": 130,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 63,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 630,
+          "remaining": 120,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 64,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 640,
+          "remaining": 110,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 65,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 650,
+          "remaining": 100,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 66,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 660,
+          "remaining": 90,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 67,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 670,
+          "remaining": 80,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 68,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 680,
+          "remaining": 70,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 69,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 690,
+          "remaining": 60,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 70,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 700,
+          "remaining": 50,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 71,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 710,
+          "remaining": 40,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 72,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 720,
+          "remaining": 30,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 73,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 730,
+          "remaining": 20,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 74,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staging",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 740,
+          "remaining": 10,
+          "reviewed_packet": null,
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    },
+    {
+      "call": 75,
+      "isError": false,
+      "result": {
+        "operation": "stage_subject_batch",
+        "preview": null,
+        "staging": null,
+        "errors": [],
+        "batch": {
+          "operation": "stage_subject_batch",
+          "state": "staged",
+          "stage_run_id": "subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+          "count": 750,
+          "completed": 750,
+          "remaining": 0,
+          "reviewed_packet": {
+            "path": ".caprmedio_install/workflow_orchestrator/runs/subject-stage-772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5/reviewed_subject_packet.json",
+            "digest": "c22b39c3df92423b75e5bed691702fe7e1f015c385972c1c6085a10a6ac2c277"
+          },
+          "automatic_retry": false,
+          "in_flight": null,
+          "inspection_required": false,
+          "diagnostic": null
+        }
+      }
+    }
+  ]
+}

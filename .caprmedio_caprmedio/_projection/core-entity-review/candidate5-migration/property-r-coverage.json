@@ -1,0 +1,1476 @@
+{
+  "candidate": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/CA-PROJ-001-CORE_META_MODEL--Entities-Graph-Candidate--Primary-Entities-Candidate-5.md",
+  "scope": "Section 3 own property declarations and own explicit allowed values only; inherited copies excluded; unplaced-property appendix excluded; current non-draft/non-archived Core R sources only.",
+  "interpretation": "Covered means at least one current R defines or requires the property/value in content, not necessarily that its existing governs is the candidate name. Missing is a missing R definition in the scanned scope, not proof of absence of M/D rules. Uncertain items require meaning clarification; do not create adopted semantics from this report. A supporting R may cover multiple properties in its content; lack of exact governs is not permission to retarget that R to every covered field. Map its actual governed meaning once.",
+  "counts": {
+    "total": 101,
+    "covered": 59,
+    "missing": 34,
+    "uncertain": 6,
+    "conflict": 2
+  },
+  "content_conflicts": [
+    {
+      "subjects": [
+        "Atom.Status: Draft",
+        "Atom.Status: Active",
+        "Atom.Status: Archived"
+      ],
+      "source_ids": [
+        "CA-R-1412"
+      ],
+      "issue": "Current base Status rule requires one Status but declares no universal allowed set. Role-specific lists cannot be broadened to Atom merely by changing Subjects."
+    },
+    {
+      "subjects": [
+        "Atom/Content Role: Plan.Status"
+      ],
+      "source_ids": [
+        "CA-R-1539"
+      ],
+      "issue": "Exact source domain excludes inherited Draft. Existing role additions Backlog/Canceled/Done are covered separately."
+    },
+    {
+      "subjects": [
+        "Atom/Content Role: Analysis.Status"
+      ],
+      "source_ids": [
+        "CA-R-1875"
+      ],
+      "issue": "Exact source domain excludes inherited Active; Done itself is covered."
+    },
+    {
+      "subjects": [
+        "Atom/Content Role: Concern.Status"
+      ],
+      "source_ids": [
+        "CA-R-1608"
+      ],
+      "issue": "Exact source domain uses lowercase draft/active/resolved/canceled and excludes inherited Archived."
+    },
+    {
+      "subjects": [
+        "Atom.Status"
+      ],
+      "source_ids": [
+        "CA-R-1308",
+        "CA-R-1313"
+      ],
+      "issue": "Current qualified domain rules prohibit a global override and qualify extensions. Candidate universal additive inheritance requires content alignment."
+    },
+    {
+      "subjects": [
+        "Atom.Enabled Relations.Contains"
+      ],
+      "source_ids": [
+        "CA-R-1378",
+        "CA-R-1379",
+        "CA-R-1265"
+      ],
+      "issue": "Container-related R text still describes non-Atom collections despite Container Atom Subjects; no current R declares proposed Boolean capability/default. Subject-only rename cannot make non-Atoms into Atoms."
+    },
+    {
+      "subjects": [
+        "Atom/Content Role: Plan.Label"
+      ],
+      "source_ids": [
+        "CA-R-1577"
+      ],
+      "issue": "R1576 covers Labels, but R1577 still defines separate Plan authoring Subtypes although its Subject is Label. Later content pass must resolve; no duplicate Label definition needed."
+    },
+    {
+      "subjects": [
+        "Carrier.Canonical Address",
+        "Carrier.Format",
+        "Carrier.ID",
+        "Carrier.Ownership Class",
+        "Carrier.Storage Boundary",
+        "File Carrier.Extension",
+        "File Carrier.Filename",
+        "File Carrier.Path",
+        "Directory Carrier.Name",
+        "Directory Carrier.Numeric Prefix",
+        "Directory Carrier.Path"
+      ],
+      "source_ids": [
+        "CA-R-1342"
+      ],
+      "issue": "R1342 currently places Carrier definitions/classification in D even without concrete format/location. New demand for R for every entity conflicts with that rule; report missing R without reclassifying D by Subject rename."
+    }
+  ],
+  "entries": [
+    {
+      "subject": "Entity.Identity",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1406",
+          "version": 10,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL-CORE--keep-entity-identity-independent-of-graph-materialization.md",
+          "governs": "Entity.Identity"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Execution.Execution ID",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Author",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1078",
+          "version": 16,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md",
+          "governs": "Atom.Author"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Content",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1417",
+          "version": 10,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1417-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-content.md",
+          "governs": "Atom.Content"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Details",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1624",
+          "version": 3,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1624-CORE_META_MODEL-CORE-REQUIREMENT--keep-details-within-the-primary-contribution.md",
+          "governs": "Atom.Details"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Enabled Relations.Contains",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Enabled Relations.Contains: False",
+      "kind": "allowed_value",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Enabled Relations.Contains: True",
+      "kind": "allowed_value",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Global Tier",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1444",
+          "version": 10,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1444-CORE_META_MODEL-CORE--define-global-tier.md",
+          "governs": "Atom.Global Tier"
+        },
+        {
+          "atom_id": "CA-R-1413",
+          "version": 10,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1413-CORE_META_MODEL-CORE--give-every-atom-one-global-tier.md",
+          "governs": "Atom.Global Tier"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Governance Locus",
+      "kind": "property",
+      "status": "uncertain",
+      "note": "Only coordinate invariance mention found; no R meaning/domain for this property.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1688",
+          "version": 24,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-REQUIREMENT--scope-path-does-not-change-semantic-coordinates.md",
+          "governs": "scope-topology"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Governed Subject",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1363",
+          "version": 13,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md",
+          "governs": "Atom.Governed Subject"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.ID",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-728",
+          "version": 23,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-728-CORE_META_MODEL-REQUIREMENT--define-project-atom-id.md",
+          "governs": "Project Atom ID"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Local Tier",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1287",
+          "version": 13,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "governs": "Atom.Local Tier"
+        },
+        {
+          "atom_id": "CA-R-155",
+          "version": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-155-CORE_META_MODEL-CORE--give-every-non-project-goal-atom-one-local-tier.md",
+          "governs": "Atom.Local Tier"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Local Tier: Core",
+      "kind": "allowed_value",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-659",
+          "version": 20,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-659-CORE_META_MODEL-CORE-REQUIREMENT--define-core-local-tier.md",
+          "governs": "Atom.Local Tier: Core"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Local Tier: General",
+      "kind": "allowed_value",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1431",
+          "version": 11,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1431-CORE_META_MODEL-CORE--define-general-local-tier.md",
+          "governs": "Atom.Local Tier: General"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Local Tier: Principle",
+      "kind": "allowed_value",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-658",
+          "version": 18,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-658-CORE_META_MODEL-CORE--define-principle-local-tier.md",
+          "governs": "Atom.Local Tier: Principle"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Local Tier: Standard",
+      "kind": "allowed_value",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-660",
+          "version": 16,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-660-CORE_META_MODEL-CORE--define-standard-local-tier.md",
+          "governs": "Atom.Local Tier: Standard"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Owning Scope Unit",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-837",
+          "version": 20,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-837-CORE_META_MODEL-REQUIREMENT--derive-artifact-scope-inclusion.md",
+          "governs": "scope-topology"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Property",
+      "kind": "property",
+      "status": "uncertain",
+      "note": "R1193 defines Property generically and R1598 requires Atom's applicable Properties; no distinct named Atom.Property definition. Decide whether this is merely a selection of properties.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1193",
+          "version": 11,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "governs": "Property"
+        },
+        {
+          "atom_id": "CA-R-1598",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1598-CORE_META_MODEL-CORE-REQUIREMENT--keep-every-atom-self-sufficient.md",
+          "governs": "Atom"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Semantics",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Status",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1412",
+          "version": 10,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1412-CORE_META_MODEL-CORE--give-every-atom-revision-one-status.md",
+          "governs": "Atom.Status"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Status: Draft",
+      "kind": "allowed_value",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Status: Active",
+      "kind": "allowed_value",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Status: Archived",
+      "kind": "allowed_value",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Subjects",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1198",
+          "version": 14,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+          "governs": "Atom.Subjects"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Substance",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-918",
+          "version": 16,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-918-CORE_META_MODEL-CORE--give-every-atom-one-claim.md",
+          "governs": "Atom.Substance"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Substance Scope",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1271",
+          "version": 14,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md",
+          "governs": "Atom.Substance"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom.Summary",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1465",
+          "version": 9,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1465-CORE_META_MODEL-CORE--define-summary-as-an-atom-property.md",
+          "governs": "Atom.Summary"
+        },
+        {
+          "atom_id": "CA-R-1418",
+          "version": 13,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1418-CORE_META_MODEL-GENERAL--give-every-atom-one-summary.md",
+          "governs": "Atom.Summary"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Target Scope Unit",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1595",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1595-CORE_META_MODEL-CORE-REQUIREMENT--define-claim-target-scope-unit.md",
+          "governs": "Atom.Target Scope Unit"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Updated At",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1416",
+          "version": 11,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md",
+          "governs": "Atom.Updated At"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom.Version Number",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1415",
+          "version": 11,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md",
+          "governs": "Atom.Version Number"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom/Content Role: Analysis.Status: Done",
+      "kind": "allowed_value",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1875",
+          "version": 2,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+          "governs": "Atom/Content Role: Analysis.Status"
+        },
+        {
+          "atom_id": "CA-R-1727",
+          "version": 16,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+          "governs": "lifecycle-traceability"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom/Content Role: Concern.Status: Canceled",
+      "kind": "allowed_value",
+      "status": "conflict",
+      "note": "Current exact domain uses lowercase canceled; candidate title case and inherited Archived require content repair, not merely Subjects.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1608",
+          "version": 4,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
+          "governs": "Atom/Content Role: Concern.Status"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom/Content Role: Concern.Status: Resolved",
+      "kind": "allowed_value",
+      "status": "conflict",
+      "note": "Current exact domain uses lowercase resolved; candidate title case and inherited Archived require content repair, not merely Subjects.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1608",
+          "version": 4,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
+          "governs": "Atom/Content Role: Concern.Status"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Assignee",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1584",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1584-CORE_META_MODEL-CORE-REQUIREMENT--require-an-effective-assignee-for-plan-work.md",
+          "governs": "Atom/Content Role: Plan/Type: Plan.Assignee"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Autonomous Confidence Threshold",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1591",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1591-CORE_META_MODEL-GENERAL-REQUIREMENT--apply-autonomous-confidence-thresholds-to-plan-execution.md",
+          "governs": "Atom/Content Role: Plan/Type: Plan.Autonomous Confidence Threshold"
+        },
+        {
+          "atom_id": "CA-R-1044",
+          "version": 16,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md",
+          "governs": "Autonomous Confidence Threshold"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Definition of Done",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1581",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1581-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-definition-of-done.md",
+          "governs": "Atom/Content Role: Plan/Type: Plan.Definition of Done"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Label",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1576",
+          "version": 6,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1576-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-labels.md",
+          "governs": "Atom/Content Role: Plan/Type: Plan.Label"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Status: Backlog",
+      "kind": "allowed_value",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1539",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
+          "governs": "Atom/Content Role: Plan.Status"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Status: Canceled",
+      "kind": "allowed_value",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1539",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
+          "governs": "Atom/Content Role: Plan.Status"
+        },
+        {
+          "atom_id": "CA-R-1545",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1545-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-canceled.md",
+          "governs": "Atom/Content Role: Plan.Status: Canceled"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Status: Done",
+      "kind": "allowed_value",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1539",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
+          "governs": "Atom/Content Role: Plan.Status"
+        },
+        {
+          "atom_id": "CA-R-1583",
+          "version": 6,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1583-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-completion.md",
+          "governs": "Atom/Content Role: Plan/Type: Plan.Status: Done"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Work Sequence Number",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-991",
+          "version": 18,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+          "governs": "Atom/Content Role: Plan/Type: Plan.Work Sequence Number"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1402",
+          "version": 11,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "governs": "Framework Instance.Settings"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Artifact Timestamp Timezone",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Authority Modes",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1430",
+          "version": 9,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+          "governs": "Framework Instance.Settings.Authority Modes"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Code-Root Locators",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Confidence",
+      "kind": "property",
+      "status": "uncertain",
+      "note": "Two child thresholds have R rules; no distinct definition of intermediate Confidence grouping.",
+      "sources": [
+        {
+          "atom_id": "CA-R-380",
+          "version": 25,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md",
+          "governs": "Framework Instance.Settings.Confidence.Semantic Resolution Threshold"
+        },
+        {
+          "atom_id": "CA-R-1652",
+          "version": 23,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+          "governs": "Framework Instance.Settings.Confidence.Necessary Information Threshold"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Confidence.Necessary Information Threshold",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1652",
+          "version": 23,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+          "governs": "Framework Instance.Settings.Confidence.Necessary Information Threshold"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Confidence.Semantic Resolution Threshold",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-380",
+          "version": 25,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md",
+          "governs": "Framework Instance.Settings.Confidence.Semantic Resolution Threshold"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Extension Selections",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Framework Control-Root Locator",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Identifier",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Interaction",
+      "kind": "property",
+      "status": "uncertain",
+      "note": "Child Reporting Mode has R rule; no distinct definition of intermediate Interaction grouping.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1628",
+          "version": 26,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1628-CORE_META_MODEL-REQUIREMENT--allow-silent-and-verbose-reporting-modes.md",
+          "governs": "Framework Instance.Settings.Interaction.Reporting Mode"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Interaction.Reporting Mode",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1628",
+          "version": 26,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1628-CORE_META_MODEL-REQUIREMENT--allow-silent-and-verbose-reporting-modes.md",
+          "governs": "Framework Instance.Settings.Interaction.Reporting Mode"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Interaction.Reporting Mode: silent",
+      "kind": "allowed_value",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1628",
+          "version": 26,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1628-CORE_META_MODEL-REQUIREMENT--allow-silent-and-verbose-reporting-modes.md",
+          "governs": "Framework Instance.Settings.Interaction.Reporting Mode"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Interaction.Reporting Mode: verbose",
+      "kind": "allowed_value",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1628",
+          "version": 26,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1628-CORE_META_MODEL-REQUIREMENT--allow-silent-and-verbose-reporting-modes.md",
+          "governs": "Framework Instance.Settings.Interaction.Reporting Mode"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Interaction.Reporting Mode.Effects",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1439",
+          "version": 8,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1439-CORE_META_MODEL-GENERAL--limit-reporting-mode-effects-to-presentation.md",
+          "governs": "Framework Instance.Settings.Interaction.Reporting Mode.Effects"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1440",
+          "version": 8,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL-GENERAL--preserve-mandatory-information-in-every-reporting-mode.md",
+          "governs": "Framework Instance.Settings.Interaction.Reporting Mode.Mandatory Information"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Parameter Resolution",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Parameter Resolution Validation",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Revision Binding",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Framework Settings.Tool Selections",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Graph Dimensions",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1776",
+          "version": 20,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1776-CORE_META_MODEL-CORE-REQUIREMENT--separate-graph-dimensions.md",
+          "governs": "Project.Graph Dimensions"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Project.Minimum Model",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1772",
+          "version": 15,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1772-CORE_META_MODEL-CORE-REQUIREMENT--minimal-default-project-model.md",
+          "governs": "Project.Minimum Model"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Project.Operator Registry",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Settings",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1738",
+          "version": 22,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "governs": "Project Settings"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Settings.Atom Prefix",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1738",
+          "version": 22,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "governs": "Project Settings"
+        },
+        {
+          "atom_id": "CA-R-1750",
+          "version": 22,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "governs": "Framework Instance.Settings"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Settings.Identifier",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Settings.Project Name",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1738",
+          "version": 22,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "governs": "Project Settings"
+        },
+        {
+          "atom_id": "CA-R-1750",
+          "version": 22,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "governs": "Framework Instance.Settings"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Settings.Revision Binding",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Project.Structure",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1483",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "governs": "Project Structure"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Scope Unit.ID",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Scope Unit.Label",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-972",
+          "version": 19,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+          "governs": "Scope Unit.Label"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Scope Unit.Local Order",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1763",
+          "version": 18,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+          "governs": "Local Order"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Scope Unit.Name",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-962",
+          "version": 15,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+          "governs": "Scope Unit.Name"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Scope Unit.Navigational Order Number",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-983",
+          "version": 15,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+          "governs": "Scope Unit.Navigational Order Number"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Scope Unit.Structural Level",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1751",
+          "version": 21,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1751-CORE_META_MODEL-CORE--define-structural-level.md",
+          "governs": "Structural Level"
+        },
+        {
+          "atom_id": "CA-R-1485",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1485-CORE_META_MODEL-GENERAL-REQUIREMENT--preserve-consistent-structural-readability-fields.md",
+          "governs": "Project Structure"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Relation.Authority",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1437",
+          "version": 7,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+          "governs": "Relation.Authority"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Relation.Source Reference",
+      "kind": "property",
+      "status": "uncertain",
+      "note": "Relation-kind metadata defines source class, not necessarily this individual Relation source-reference property.",
+      "sources": [
+        {
+          "atom_id": "CA-R-806",
+          "version": 22,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+          "governs": "Relation Kind Metadata"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Relation.Target Reference",
+      "kind": "property",
+      "status": "uncertain",
+      "note": "Relation-kind metadata defines target class, not necessarily this individual Relation target-reference property.",
+      "sources": [
+        {
+          "atom_id": "CA-R-806",
+          "version": 22,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+          "governs": "Relation Kind Metadata"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Actor.Name",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Journal.Record",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1745",
+          "version": 18,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "governs": "Journal"
+        },
+        {
+          "atom_id": "CA-R-1720",
+          "version": 20,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "governs": "Journal"
+        },
+        {
+          "atom_id": "CA-R-1644",
+          "version": 18,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+          "governs": "Journal.Record"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Projection.Authority",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1746",
+          "version": 21,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "governs": "Projection"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Projection.ID",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1943",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-REQUIREMENT--give-each-projection-a-stable-id.md",
+          "governs": "Projection.ID"
+        }
+      ],
+      "exact_governs_present": true
+    },
+    {
+      "subject": "Projection.Named Selection",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1943",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-REQUIREMENT--give-each-projection-a-stable-id.md",
+          "governs": "Projection.ID"
+        },
+        {
+          "atom_id": "CA-R-1746",
+          "version": 21,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "governs": "Projection"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Projection.Source of Truth",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1943",
+          "version": 1,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-REQUIREMENT--give-each-projection-a-stable-id.md",
+          "governs": "Projection.ID"
+        },
+        {
+          "atom_id": "CA-R-1746",
+          "version": 21,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "governs": "Projection"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Projection.Source References",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1746",
+          "version": 21,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "governs": "Projection"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Projection.Updated At",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1495",
+          "version": 6,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1495-CORE_META_MODEL-REQUIREMENT--projections-have-updated-at.md",
+          "governs": "Projection/Revision"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Projection/Type: Applicable Methodology.Member",
+      "kind": "property",
+      "status": "covered",
+      "note": "Existing R meaning or required property/value; subject aliases may need migration.",
+      "sources": [
+        {
+          "atom_id": "CA-R-1314",
+          "version": 14,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "governs": "Applicable Methodology.Member"
+        }
+      ],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Carrier.Canonical Address",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Carrier.Canonical Address.Segment",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Carrier.Format",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Carrier.ID",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Carrier.Ownership Class",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Carrier.Storage Boundary",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "File Carrier.Extension",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "File Carrier.Filename",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "File Carrier.Path",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Directory Carrier.Name",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Directory Carrier.Numeric Prefix",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    },
+    {
+      "subject": "Directory Carrier.Path",
+      "kind": "property",
+      "status": "missing",
+      "note": "No active Core R definition identified for this declaration.",
+      "sources": [],
+      "exact_governs_present": false
+    }
+  ]
+}

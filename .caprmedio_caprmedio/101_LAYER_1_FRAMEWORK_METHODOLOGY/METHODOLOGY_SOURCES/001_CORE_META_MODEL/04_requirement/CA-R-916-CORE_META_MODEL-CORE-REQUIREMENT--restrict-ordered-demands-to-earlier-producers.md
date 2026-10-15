@@ -2,9 +2,9 @@
 subjects:
   governs: "relation-model"
   depends_on:
-    ["Atom Scope", "Atom.Target Scope Unit"]
-version: 20
-updated_at: "2026-10-15 12:23:32 +0000"
+    ["Atom Scope", "Entity/Continuant/Object/Atom.Target Scope Unit"]
+version: 21
+updated_at: "2026-10-15 18:46:43 +0000"
 relations:
   child_of:
     - CA-R-932

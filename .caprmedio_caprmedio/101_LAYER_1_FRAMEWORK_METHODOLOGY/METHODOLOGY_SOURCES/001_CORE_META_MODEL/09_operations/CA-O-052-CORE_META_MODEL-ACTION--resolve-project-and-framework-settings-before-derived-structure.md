@@ -2,9 +2,9 @@
 subjects:
   governs: "Resolve Project Initialization Inputs"
   depends_on:
-    ["Action", "Project", "Project Settings", "Framework Instance.Settings", "Default Settings", "Project Structure", "Projection", "Artifact Carrier"]
-version: 5
-updated_at: "2026-10-15 12:20:24 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Projection", "Artifact Carrier"]
+version: 6
+updated_at: "2026-10-15 18:52:59 +0000"
 relations:
   child_of:
     - CA-R-1052

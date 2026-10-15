@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Journal.Record"
+  governs: "Entity/Continuant/History/Journal.Record"
   depends_on:
-    ["Execution/Step Run", "Execution/Workflow Run", "Step", "Action", "Tool", "Journal", "Projection"]
-version: 5
-updated_at: "2026-10-15 12:19:29 +0000"
+    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Tool", "Entity/Continuant/History/Journal", "Entity/Continuant/Projection"]
+version: 6
+updated_at: "2026-10-15 18:49:56 +0000"
 relations: {"evaluation_for": ["CA-R-1528", "CA-R-1511"]}
 atom_id: "CA-E-496"
 content_role: "Evaluation"

@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "File Carrier"
+  governs: "Entity/Carrier/File Carrier"
   depends_on:
     - "Markdown"
     - "TOML"
     - "YAML"
-version: 12
-updated_at: "2026-10-15 12:18:11 +0000"
+version: 13
+updated_at: "2026-10-15 18:51:16 +0000"
 relations: {}
 atom_id: "CA-D-330"
 content_role: "Delivery"

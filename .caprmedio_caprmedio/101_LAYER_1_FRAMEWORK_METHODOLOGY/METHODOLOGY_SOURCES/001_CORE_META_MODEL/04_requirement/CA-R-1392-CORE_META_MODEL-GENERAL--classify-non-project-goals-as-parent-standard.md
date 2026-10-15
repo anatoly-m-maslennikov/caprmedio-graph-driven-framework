@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Goal"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    ["Atom.Local Tier: Standard", "Structural Parent Relation"]
-version: 10
-updated_at: "2026-10-15 12:21:41 +0000"
+    ["Entity/Continuant/Object/Atom.Local Tier: Standard", "Structural Parent Relation"]
+version: 11
+updated_at: "2026-10-15 18:42:30 +0000"
 relations: {}
 atom_id: "CA-R-1392"
 content_role: "Requirement"

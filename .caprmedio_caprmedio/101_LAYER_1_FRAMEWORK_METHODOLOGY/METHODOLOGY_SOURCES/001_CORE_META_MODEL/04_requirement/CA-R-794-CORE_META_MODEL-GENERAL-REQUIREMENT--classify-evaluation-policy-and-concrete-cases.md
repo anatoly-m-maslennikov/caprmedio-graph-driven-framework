@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Evaluation.Local Tier"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Evaluation.Local Tier"
   depends_on:
-    ["Atom.Local Tier", "Atom/Content Role: Evaluation", "Atom Scope", "Scope Unit"]
-version: 22
-updated_at: "2026-10-15 12:23:29 +0000"
+    ["Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Atom Scope", "Entity/Continuant/Object/Scope Unit"]
+version: 23
+updated_at: "2026-10-15 18:46:33 +0000"
 relations:
   child_of:
     - "CA-R-659"

@@ -1,0 +1,283 @@
+{
+  "state": "candidate_preparation",
+  "updated_at": "2026-10-15 21:48:31 +0400",
+  "root": "Entity",
+  "paths": [
+    {
+      "short": "Entity",
+      "full": "Entity"
+    },
+    {
+      "short": "Occurrent",
+      "full": "Entity/Occurrent"
+    },
+    {
+      "short": "Event",
+      "full": "Entity/Occurrent/Event"
+    },
+    {
+      "short": "Execution",
+      "full": "Entity/Occurrent/Execution"
+    },
+    {
+      "short": "Execution/Action Run",
+      "full": "Entity/Occurrent/Execution/Action Run"
+    },
+    {
+      "short": "Execution/Step Run",
+      "full": "Entity/Occurrent/Execution/Step Run"
+    },
+    {
+      "short": "Execution/Workflow Run",
+      "full": "Entity/Occurrent/Execution/Workflow Run"
+    },
+    {
+      "short": "Session",
+      "full": "Entity/Occurrent/Session"
+    },
+    {
+      "short": "Continuant",
+      "full": "Entity/Continuant"
+    },
+    {
+      "short": "Object",
+      "full": "Entity/Continuant/Object"
+    },
+    {
+      "short": "Atom",
+      "full": "Entity/Continuant/Object/Atom"
+    },
+    {
+      "short": "Atom/Content Role: Analysis",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Analysis"
+    },
+    {
+      "short": "Atom/Content Role: Analysis/Type: Analysis Report",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Analysis/Type: Analysis Report"
+    },
+    {
+      "short": "Atom/Content Role: Analysis/Type: Rationale",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Analysis/Type: Rationale"
+    },
+    {
+      "short": "Atom/Content Role: Concern",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Concern"
+    },
+    {
+      "short": "Atom/Content Role: Delivery",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Delivery"
+    },
+    {
+      "short": "Atom/Content Role: Evaluation",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Evaluation"
+    },
+    {
+      "short": "Atom/Content Role: Method",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Method"
+    },
+    {
+      "short": "Atom/Content Role: Operations",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Operations"
+    },
+    {
+      "short": "Atom/Content Role: Operations/Type: Action",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action"
+    },
+    {
+      "short": "Atom/Content Role: Operations/Type: Step",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"
+    },
+    {
+      "short": "Atom/Content Role: Operations/Type: Workflow",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
+    },
+    {
+      "short": "Atom/Content Role: Plan",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Plan"
+    },
+    {
+      "short": "Atom/Content Role: Requirement",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Requirement"
+    },
+    {
+      "short": "Atom/Content Role: Requirement/Type: Demand",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand"
+    },
+    {
+      "short": "Atom/Content Role: Requirement/Type: Goal",
+      "full": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal"
+    },
+    {
+      "short": "Governing Configuration",
+      "full": "Entity/Continuant/Object/Governing Configuration"
+    },
+    {
+      "short": "Project",
+      "full": "Entity/Continuant/Object/Project"
+    },
+    {
+      "short": "Scope Unit",
+      "full": "Entity/Continuant/Object/Scope Unit"
+    },
+    {
+      "short": "Scope Unit/Type: Ordered",
+      "full": "Entity/Continuant/Object/Scope Unit/Type: Ordered"
+    },
+    {
+      "short": "Scope Unit/Type: Unordered",
+      "full": "Entity/Continuant/Object/Scope Unit/Type: Unordered"
+    },
+    {
+      "short": "Relation",
+      "full": "Entity/Continuant/Object/Relation"
+    },
+    {
+      "short": "Actor",
+      "full": "Entity/Continuant/Actor"
+    },
+    {
+      "short": "Actor/Type: AI Agent",
+      "full": "Entity/Continuant/Actor/Type: AI Agent"
+    },
+    {
+      "short": "Actor/Type: Operator",
+      "full": "Entity/Continuant/Actor/Type: Operator"
+    },
+    {
+      "short": "History",
+      "full": "Entity/Continuant/History"
+    },
+    {
+      "short": "Revision",
+      "full": "Entity/Continuant/History/Revision"
+    },
+    {
+      "short": "Revision/Type: Atom",
+      "full": "Entity/Continuant/History/Revision/Type: Atom"
+    },
+    {
+      "short": "Journal",
+      "full": "Entity/Continuant/History/Journal"
+    },
+    {
+      "short": "Projection",
+      "full": "Entity/Continuant/Projection"
+    },
+    {
+      "short": "Projection/Type: Applicable Methodology",
+      "full": "Entity/Continuant/Projection/Type: Applicable Methodology"
+    },
+    {
+      "short": "Projection/Type: Artifact Change Log",
+      "full": "Entity/Continuant/Projection/Type: Artifact Change Log"
+    },
+    {
+      "short": "Projection/Type: Atom Subjects Graph",
+      "full": "Entity/Continuant/Projection/Type: Atom Subjects Graph"
+    },
+    {
+      "short": "Projection/Type: Canonical Scope Signature",
+      "full": "Entity/Continuant/Projection/Type: Canonical Scope Signature"
+    },
+    {
+      "short": "Projection/Type: Canonical Signature",
+      "full": "Entity/Continuant/Projection/Type: Canonical Signature"
+    },
+    {
+      "short": "Projection/Type: Catalog",
+      "full": "Entity/Continuant/Projection/Type: Catalog"
+    },
+    {
+      "short": "Projection/Type: Direct Relation Registry",
+      "full": "Entity/Continuant/Projection/Type: Direct Relation Registry"
+    },
+    {
+      "short": "Projection/Type: Entities Graph",
+      "full": "Entity/Continuant/Projection/Type: Entities Graph"
+    },
+    {
+      "short": "Projection/Type: Extended Entities Graph",
+      "full": "Entity/Continuant/Projection/Type: Extended Entities Graph"
+    },
+    {
+      "short": "Projection/Type: Hub",
+      "full": "Entity/Continuant/Projection/Type: Hub"
+    },
+    {
+      "short": "Projection/Type: Implementation Overview",
+      "full": "Entity/Continuant/Projection/Type: Implementation Overview"
+    },
+    {
+      "short": "Projection/Type: Map",
+      "full": "Entity/Continuant/Projection/Type: Map"
+    },
+    {
+      "short": "Projection/Type: Process Log",
+      "full": "Entity/Continuant/Projection/Type: Process Log"
+    },
+    {
+      "short": "Projection/Type: Reconciled Projection",
+      "full": "Entity/Continuant/Projection/Type: Reconciled Projection"
+    },
+    {
+      "short": "Projection/Type: Scope Unit Graph",
+      "full": "Entity/Continuant/Projection/Type: Scope Unit Graph"
+    },
+    {
+      "short": "Projection/Type: Terms Graph",
+      "full": "Entity/Continuant/Projection/Type: Terms Graph"
+    },
+    {
+      "short": "Selection",
+      "full": "Entity/Continuant/Selection"
+    },
+    {
+      "short": "Selection/Applicable Methodology Membership Selection",
+      "full": "Entity/Continuant/Selection/Applicable Methodology Membership Selection"
+    },
+    {
+      "short": "Selection/Applicable Methodology Source Set",
+      "full": "Entity/Continuant/Selection/Applicable Methodology Source Set"
+    },
+    {
+      "short": "Selection/Atom Scope",
+      "full": "Entity/Continuant/Selection/Atom Scope"
+    },
+    {
+      "short": "Selection/Owned Atoms",
+      "full": "Entity/Continuant/Selection/Owned Atoms"
+    },
+    {
+      "short": "Selection/Subtree-owned Atoms",
+      "full": "Entity/Continuant/Selection/Subtree-owned Atoms"
+    },
+    {
+      "short": "Selection/Subtree-targeting Atoms",
+      "full": "Entity/Continuant/Selection/Subtree-targeting Atoms"
+    },
+    {
+      "short": "Selection/Targeting Atoms",
+      "full": "Entity/Continuant/Selection/Targeting Atoms"
+    },
+    {
+      "short": "Term",
+      "full": "Entity/Continuant/Term"
+    },
+    {
+      "short": "Carrier",
+      "full": "Entity/Carrier"
+    },
+    {
+      "short": "File Carrier",
+      "full": "Entity/Carrier/File Carrier"
+    },
+    {
+      "short": "Directory Carrier",
+      "full": "Entity/Carrier/Directory Carrier"
+    },
+    {
+      "short": "Database Carrier",
+      "full": "Entity/Carrier/Database Carrier"
+    }
+  ]
+}

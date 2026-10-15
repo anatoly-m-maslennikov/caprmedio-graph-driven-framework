@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Journal"
+  governs: "Entity/Continuant/History/Journal"
   depends_on:
-    ["Journal.Record", "Artifact Carrier", "Atom", "Project", "Applicable Methodology"]
-version: 6
-updated_at: "2026-10-15 12:19:24 +0000"
+    ["Entity/Continuant/History/Journal.Record", "Artifact Carrier", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection/Type: Applicable Methodology"]
+version: 7
+updated_at: "2026-10-15 18:49:41 +0000"
 relations:
   evaluation_for:
     - CA-R-1491

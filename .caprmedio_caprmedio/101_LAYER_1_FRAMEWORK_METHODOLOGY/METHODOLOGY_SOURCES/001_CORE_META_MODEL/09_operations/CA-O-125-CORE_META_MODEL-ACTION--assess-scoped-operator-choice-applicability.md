@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Scoped Operator-choice Applicability"
-  depends_on: ["Action", "Operator", "AI Agent", "Atom", "Artifact", "Journal"]
-version: 2
-updated_at: "2026-10-15 12:20:45 +0000"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Object/Atom", "Artifact", "Entity/Continuant/History/Journal"]
+version: 3
+updated_at: "2026-10-15 18:53:18 +0000"
 relations:
   relates_to: [CA-O-007, CA-O-008, CA-O-013, CA-O-022, CA-O-023, CA-O-065, CA-O-078, CA-O-118]
 ---

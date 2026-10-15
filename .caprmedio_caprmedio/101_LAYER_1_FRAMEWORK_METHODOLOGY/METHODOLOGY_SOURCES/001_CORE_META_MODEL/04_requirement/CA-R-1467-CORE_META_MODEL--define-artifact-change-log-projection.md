@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Artifact Change Log"
+  governs: "Entity/Continuant/Projection/Type: Artifact Change Log"
   depends_on:
-    ["Projection", "Journal", "Journal.Record", "Artifact"]
-version: 6
-updated_at: "2026-10-15 12:22:07 +0000"
+    ["Entity/Continuant/Projection", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Artifact"]
+version: 7
+updated_at: "2026-10-15 18:43:25 +0000"
 relations: {}
 atom_id: "CA-R-1467"
 content_role: "Requirement"

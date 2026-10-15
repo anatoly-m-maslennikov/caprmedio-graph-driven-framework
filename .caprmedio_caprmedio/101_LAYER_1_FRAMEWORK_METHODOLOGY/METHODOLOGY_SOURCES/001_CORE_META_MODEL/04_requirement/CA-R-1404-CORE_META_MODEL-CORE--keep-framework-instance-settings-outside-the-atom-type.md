@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance.Settings"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    - "Atom"
-version: 11
-updated_at: "2026-10-15 12:21:46 +0000"
+    ["Entity/Continuant/Object/Atom"]
+version: 12
+updated_at: "2026-10-15 18:42:41 +0000"
 relations:
   child_of:
     - CA-R-1405

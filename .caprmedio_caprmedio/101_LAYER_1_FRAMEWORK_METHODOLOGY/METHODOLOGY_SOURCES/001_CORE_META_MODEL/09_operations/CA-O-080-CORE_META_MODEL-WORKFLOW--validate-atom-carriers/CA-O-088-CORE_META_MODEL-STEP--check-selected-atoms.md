@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Check Atoms Step"
   depends_on:
-    ["Step", "Action", "Check Atoms", "Execution/Workflow Run"]
-version: 5
-updated_at: "2026-10-15 12:20:30 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Check Atoms", "Entity/Occurrent/Execution/Workflow Run"]
+version: 6
+updated_at: "2026-10-15 18:54:01 +0000"
 relations:
   relates_to:
     - CA-O-087

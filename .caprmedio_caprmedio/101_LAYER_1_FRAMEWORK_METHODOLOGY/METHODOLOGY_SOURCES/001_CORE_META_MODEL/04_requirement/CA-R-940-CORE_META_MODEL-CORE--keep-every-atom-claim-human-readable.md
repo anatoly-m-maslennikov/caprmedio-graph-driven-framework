@@ -2,9 +2,9 @@
 subjects:
   governs: "language"
   depends_on:
-    ["Atom.Substance"]
-version: 16
-updated_at: "2026-10-15 12:23:39 +0000"
+    ["Entity/Continuant/Object/Atom.Substance"]
+version: 17
+updated_at: "2026-10-15 18:47:08 +0000"
 relations:
   child_of:
     - CA-R-918

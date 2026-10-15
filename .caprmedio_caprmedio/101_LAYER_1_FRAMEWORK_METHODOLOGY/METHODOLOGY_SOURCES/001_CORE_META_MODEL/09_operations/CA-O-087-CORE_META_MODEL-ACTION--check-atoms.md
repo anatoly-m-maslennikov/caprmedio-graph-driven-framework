@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Check Atoms"
   depends_on:
-    ["Action", "Atom", "Atom.Property", "Markdown Atom Carrier.YAML Frontmatter", "Atom.Substance", "Atom.Summary", "Revision/Type: Atom", "Owned Atoms", "Subtree-owned Atoms", "Scope Unit", "Project Structure", "Global Tier", "Local Tier", "Applicable Methodology", "Projection", "Relation", "Evaluation", "Operator", "Journal"]
-version: 7
-updated_at: "2026-10-15 12:20:30 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Property", "Markdown Atom Carrier.YAML Frontmatter", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/History/Revision/Type: Atom", "Owned Atoms", "Subtree-owned Atoms", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Global Tier", "Local Tier", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Projection", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
+version: 8
+updated_at: "2026-10-15 18:53:08 +0000"
 relations:
   relates_to:
     - CA-R-1598

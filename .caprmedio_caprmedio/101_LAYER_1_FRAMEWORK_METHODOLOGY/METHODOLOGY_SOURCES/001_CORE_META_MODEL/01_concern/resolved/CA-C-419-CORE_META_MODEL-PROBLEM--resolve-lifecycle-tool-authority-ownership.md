@@ -8,11 +8,11 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: resolved
-version: 2
-updated_at: "2026-10-04 18:15:44 +0000"
+version: 3
+updated_at: "2026-10-15 18:40:56 +0000"
 subjects:
   governs: "Lifecycle Tool authority/Scope Unit"
-  depends_on: [Operations, Implementation, Plan, Artifact/Carrier]
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Plan", "Artifact/Carrier"]
 relations:
   concern_about: [CA-P-1444]
 ---

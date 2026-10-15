@@ -1,14 +1,11 @@
 ---
 subjects:
-  governs: "Atom"
+  governs: "Entity/Continuant/Object/Atom"
   depends_on:
-    - "Atom/Claim"
-    - "Artifact/Revision"
-    - "Project"
-    - "Operator"
+    ["Atom/Claim", "Artifact/Revision", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator"]
 priority: medium
-version: 6
-updated_at: "2026-09-23 15:59:19 +0000"
+version: 7
+updated_at: "2026-10-15 18:40:18 +0000"
 relations: {"relates_to": ["CA-E-510"]}
 atom_id: "CA-C-263"
 content_role: "Concern"

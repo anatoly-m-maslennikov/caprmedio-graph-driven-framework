@@ -2,9 +2,9 @@
 subjects:
   governs: "Admit Methodology Expansion Mapping"
   depends_on:
-    ["Action", "Methodology Source.Expansion Mapping", "Methodology Source", "Extension", "Project Configuration", "Core Meta-Model", "Operator"]
-version: 6
-updated_at: "2026-10-15 12:20:26 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Methodology Source.Expansion Mapping", "Methodology Source", "Extension", "Project Configuration", "Core Meta-Model", "Entity/Continuant/Actor/Type: Operator"]
+version: 7
+updated_at: "2026-10-15 18:53:01 +0000"
 relations: {relates_to: [CA-M-298, CA-E-249, CA-R-1375, CA-R-1207]}
 atom_id: "CA-O-054"
 content_role: "Operations"

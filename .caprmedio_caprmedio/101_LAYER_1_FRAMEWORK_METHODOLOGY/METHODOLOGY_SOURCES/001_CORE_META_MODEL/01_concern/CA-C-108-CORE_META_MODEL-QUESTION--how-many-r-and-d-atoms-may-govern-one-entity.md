@@ -4,15 +4,9 @@ priority: low
 subjects:
   governs: "Entity"
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Delivery"
-    - "Scope Unit"
-    - "Atom/Tier/Local Tier"
-version: 4
-updated_at: "2026-09-14 19:40:02 +0400"
+    ["Entity/Continuant/Object/Atom", "Atom/Claim", "Atom/Subjects", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Scope Unit", "Atom/Tier/Local Tier"]
+version: 5
+updated_at: "2026-10-15 18:39:33 +0000"
 relations: {}
 content_role: "Concern"
 current_scope_unit: "CORE_META_MODEL"

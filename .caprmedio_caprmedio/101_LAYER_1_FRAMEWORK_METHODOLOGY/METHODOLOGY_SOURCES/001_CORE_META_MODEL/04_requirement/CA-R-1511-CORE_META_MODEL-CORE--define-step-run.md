@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Execution/Step Run"
+  governs: "Entity/Occurrent/Execution/Step Run"
   depends_on:
-    ["Step", "Execution/Workflow Run", "Action", "Journal.Record", "Agentic Step Execution Context", "Tool", "Tool Call"]
-version: 6
-updated_at: "2026-10-15 12:22:18 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/History/Journal.Record", "Agentic Step Execution Context", "Tool", "Tool Call"]
+version: 7
+updated_at: "2026-10-15 18:43:52 +0000"
 relations: {}
 atom_id: "CA-R-1511"
 content_role: "Requirement"

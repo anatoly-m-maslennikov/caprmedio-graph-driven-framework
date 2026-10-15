@@ -2,9 +2,9 @@
 subjects:
   governs: "Default Settings"
   depends_on:
-    ["Artifact", "Framework Instance.Settings", "Project", "Operator"]
-version: 9
-updated_at: "2026-10-15 12:21:56 +0000"
+    ["Artifact", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator"]
+version: 10
+updated_at: "2026-10-15 18:43:05 +0000"
 relations:
   relates_to:
     - "CA-R-1402"

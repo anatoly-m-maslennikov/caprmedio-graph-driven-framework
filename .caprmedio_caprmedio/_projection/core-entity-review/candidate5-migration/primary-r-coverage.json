@@ -1,0 +1,1014 @@
+{
+  "candidate": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/CA-PROJ-001-CORE_META_MODEL--Entities-Graph-Candidate--Primary-Entities-Candidate-5.md",
+  "scope": "69 primary kinds in section 1; current Core Requirements excluding archive/archived/draft/drafts; properties and project-specific instances excluded",
+  "requirement_files_scanned": 524,
+  "method": "Read matching governed definitions/Claims and classification registrations; supporting mentions, depends_on references and generic parent inheritance do not count alone. Covered means primary meaning/classification evidence exists, not that the new backbone parentage is already authoritative.",
+  "global_conflicts": [
+    {
+      "version": 20,
+      "governs": "Artifact/Type",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+      "id": "CA-R-1765",
+      "reason": "Artifact Type admission through NARROWER_THAN is explicitly prohibited; candidate narrower type trees need alignment or clarified classification semantics."
+    },
+    {
+      "version": 5,
+      "governs": "Atom/Content Role",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+      "id": "CA-R-1531",
+      "reason": "Content Role is defined as Atom Property, while candidate uses role-qualified subtype branches."
+    },
+    {
+      "version": 12,
+      "governs": "Atom/Content Role: Delivery",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md",
+      "id": "CA-R-1342",
+      "reason": "Carrier definitions and classification explicitly D-only; conflicts with requested defining-R coverage for every primary entity."
+    }
+  ],
+  "coverage": [
+    {
+      "node": "Entity",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1248",
+          "version": 12,
+          "governs": "Entity",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit definition of Entity; placement below the new backbone is not yet adopted."
+    },
+    {
+      "node": "Entity/Occurrent",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [],
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom."
+    },
+    {
+      "node": "Entity/Occurrent/Event",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-1643",
+          "version": 23,
+          "governs": "Event/Type",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md"
+        }
+      ],
+      "reason": "R1643 only enumerates old Work Journal/Event/Type values, not an actual Event as Occurrent."
+    },
+    {
+      "node": "Entity/Occurrent/Execution",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [],
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom."
+    },
+    {
+      "node": "Entity/Occurrent/Execution/Action Run",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-1874",
+          "version": 2,
+          "governs": "Atom/Content Role: Operations.Status",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-operations-status-values.md"
+        },
+        {
+          "id": "CA-R-1875",
+          "version": 2,
+          "governs": "Atom/Content Role: Analysis.Status",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md"
+        }
+      ],
+      "reason": "Action Run is mentioned in status exclusions; no definition of the actual Action execution found."
+    },
+    {
+      "node": "Entity/Occurrent/Execution/Step Run",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1511",
+          "version": 6,
+          "governs": "Execution/Step Run",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1511-CORE_META_MODEL-CORE--define-step-run.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit definition of an actual Step execution, distinct from its definition and Journal Records."
+    },
+    {
+      "node": "Entity/Occurrent/Execution/Workflow Run",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1510",
+          "version": 5,
+          "governs": "Execution/Workflow Run",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1510-CORE_META_MODEL-CORE-REQUIREMENT--define-workflow-run.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit definition of an actual Workflow execution."
+    },
+    {
+      "node": "Entity/Occurrent/Session",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [],
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom."
+    },
+    {
+      "node": "Entity/Continuant",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [],
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom."
+    },
+    {
+      "node": "Entity/Continuant/Object",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [],
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-655",
+          "version": 23,
+          "governs": "Atom",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-CORE--define-atom-artifact-form.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit smallest independently governed Artifact definition; Object parent remains candidate."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Analysis",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1337",
+          "version": 11,
+          "governs": "Atom/Content Role: Analysis",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Analysis content-role meaning."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Analysis/Type: Analysis Report",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1232",
+          "version": 14,
+          "governs": "Atom/Content Role: Analysis/Type",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1232-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-analysis-atoms.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit registration of Analysis Report as an Analysis Type; no standalone detailed Analysis Report definition found. Classification evidence meets subtype criterion."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Analysis/Type: Rationale",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1664",
+          "version": 22,
+          "governs": "Atom/Content Role: Analysis/Type: Rationale",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Rationale Analysis Type and explanatory contribution."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Concern",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1336",
+          "version": 10,
+          "governs": "Atom/Content Role: Concern",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Concern content-role meaning."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Delivery",
+      "status": "conflicting",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1342",
+          "version": 12,
+          "governs": "Atom/Content Role: Delivery",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Defines Delivery but explicitly assigns Carrier definitions/classification to D even abstractly; conflicts with demand for defining R for every Carrier entity."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Evaluation",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1341",
+          "version": 10,
+          "governs": "Atom/Content Role: Evaluation",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Evaluation content-role meaning."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Method",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1340",
+          "version": 14,
+          "governs": "Atom/Content Role: Method",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Method content-role meaning."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Operations",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1530",
+          "version": 7,
+          "governs": "Atom/Content Role: Operations",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-CORE-REQUIREMENT--define-the-operations-content-role.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Operations content-role meaning. Additional old Actor Operations Type exists outside candidate; not an automatic addition."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1562",
+          "version": 6,
+          "governs": "Atom/Content Role: Operations/Type: Action",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1562-CORE_META_MODEL-CORE-REQUIREMENT--define-the-action-operations-atom-type.md"
+        },
+        {
+          "id": "CA-R-1452",
+          "version": 11,
+          "governs": "Action",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Operations/Action Type plus Action definition; R1452 governs old short alias Action."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1569",
+          "version": 5,
+          "governs": "Atom/Content Role: Operations/Type: Step",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1569-CORE_META_MODEL-CORE-REQUIREMENT--define-the-step-operations-atom-type.md"
+        },
+        {
+          "id": "CA-R-1509",
+          "version": 7,
+          "governs": "Step",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1509-CORE_META_MODEL-CORE-REQUIREMENT--define-step.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Operations/Step Type plus invocation binding definition; R1509 governs old short alias Step."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1563",
+          "version": 7,
+          "governs": "Atom/Content Role: Operations/Type: Workflow",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1563-CORE_META_MODEL-CORE-REQUIREMENT--define-the-workflow-operations-atom-type.md"
+        },
+        {
+          "id": "CA-R-1508",
+          "version": 8,
+          "governs": "Workflow",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1508-CORE_META_MODEL-CORE-REQUIREMENT--define-workflow.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Operations/Workflow Type plus graph definition; R1508 governs old short alias Workflow."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Plan",
+      "status": "conflicting",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1338",
+          "version": 12,
+          "governs": "Atom/Content Role: Plan",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md"
+        },
+        {
+          "id": "CA-R-1574",
+          "version": 5,
+          "governs": "Atom/Content Role: Plan/Type: Plan",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1574-CORE_META_MODEL-CORE-REQUIREMENT--define-the-common-plan-atom.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Plan role is defined, but common Plan R1574 still requires redundant Type Plan; candidate removed this subtype."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1339",
+          "version": 12,
+          "governs": "Atom/Content Role: Requirement",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Requirement content-role meaning."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-932",
+          "version": 22,
+          "governs": "Atom/Content Role: Requirement/Type: Demand",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Requirement/Demand Atom definition."
+    },
+    {
+      "node": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-925",
+          "version": 20,
+          "governs": "Atom/Content Role: Requirement/Type: Goal",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-925-CORE_META_MODEL-CORE-REQUIREMENT--define-goal-atom.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Requirement/Goal Atom definition."
+    },
+    {
+      "node": "Entity/Continuant/Object/Governing Configuration",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-1483",
+          "version": 5,
+          "governs": "Project Structure",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md"
+        },
+        {
+          "id": "CA-R-1738",
+          "version": 22,
+          "governs": "Project Settings",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md"
+        },
+        {
+          "id": "CA-R-1402",
+          "version": 11,
+          "governs": "Framework Instance.Settings",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md"
+        }
+      ],
+      "reason": "Specific non-Atom configuration artifacts exist, but no generic Governing Configuration definition/classification."
+    },
+    {
+      "node": "Entity/Continuant/Object/Project",
+      "status": "conflicting",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-1759",
+          "version": 21,
+          "governs": "Project",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md"
+        }
+      ],
+      "reason": "R1759 governs Project but prescribes a Project Scope Unit, not a definition of new sibling Object/Project. Must clarify/adopt separation."
+    },
+    {
+      "node": "Entity/Continuant/Object/Scope Unit",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1757",
+          "version": 17,
+          "governs": "Scope Unit",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit ownership boundary for Atoms with possible child Scope Units."
+    },
+    {
+      "node": "Entity/Continuant/Object/Scope Unit/Type: Ordered",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1760",
+          "version": 20,
+          "governs": "Scope Unit/Type: Ordered",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Ordered Scope Unit Type definition."
+    },
+    {
+      "node": "Entity/Continuant/Object/Scope Unit/Type: Unordered",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1761",
+          "version": 20,
+          "governs": "Scope Unit/Type: Unordered",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Unordered Scope Unit Type definition."
+    },
+    {
+      "node": "Entity/Continuant/Object/Relation",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-806",
+          "version": 22,
+          "governs": "Relation Kind Metadata",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md"
+        },
+        {
+          "id": "CA-R-1437",
+          "version": 7,
+          "governs": "Relation.Authority",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md"
+        }
+      ],
+      "reason": "Typed relation kinds and facts are governed, but no generic Relation entity definition found."
+    },
+    {
+      "node": "Entity/Continuant/Actor",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1250",
+          "version": 12,
+          "governs": "Actor",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit NARROWER_THAN Primary Entity classification; concrete who meaning and Continuant parent are candidate, not in this Claim."
+    },
+    {
+      "node": "Entity/Continuant/Actor/Type: AI Agent",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-1552",
+          "version": 5,
+          "governs": "Actor/Type: AI Agent",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md"
+        },
+        {
+          "id": "CA-R-1554",
+          "version": 5,
+          "governs": "Actor/Type: AI Agent",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md"
+        }
+      ],
+      "reason": "Many AI Agent participation/delegation rules; none found defining/classifying AI Agent as Actor subtype. A matching Subject alone is insufficient."
+    },
+    {
+      "node": "Entity/Continuant/Actor/Type: Operator",
+      "status": "rename_required",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1422",
+          "version": 8,
+          "governs": "Operator",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Operator is explicitly collective human Actor; governs Operator alias maps to Actor/Type: Operator."
+    },
+    {
+      "node": "Entity/Continuant/History",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [],
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom."
+    },
+    {
+      "node": "Entity/Continuant/History/Revision",
+      "status": "conflicting",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1371",
+          "version": 10,
+          "governs": "Artifact/Revision",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Old Artifact/Revision means immutable governed-meaning state while Status/Updated At may change without semantic Revision. Candidate means archived Atom/history and every update versions."
+    },
+    {
+      "node": "Entity/Continuant/History/Revision/Type: Atom",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-1371",
+          "version": 10,
+          "governs": "Artifact/Revision",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md"
+        },
+        {
+          "id": "CA-R-1788",
+          "version": 4,
+          "governs": "Atom.Updated At",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL--refresh-updated-at-whenever-an-atom-changes.md"
+        }
+      ],
+      "reason": "No defining R for Revision/Type: Atom as archived Atom itself; generic old Artifact/Revision is not sufficient."
+    },
+    {
+      "node": "Entity/Continuant/History/Journal",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1745",
+          "version": 18,
+          "governs": "Journal",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Journal/Event Log definition: ordered event records, record not Event."
+    },
+    {
+      "node": "Entity/Continuant/Projection",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1746",
+          "version": 21,
+          "governs": "Projection",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit non-authoritative generated view definition."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Applicable Methodology",
+      "status": "rename_required",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1213",
+          "version": 18,
+          "governs": "Applicable Methodology",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1213-CORE_META_MODEL-CORE-REQUIREMENT--define-applicable-methodology-as-a-compiled-projection.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Applicable Methodology as non-authoritative Reconciled Projection; old short Subject maps to Projection/Type: Applicable Methodology. Active-only membership remains separate content conflict."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Artifact Change Log",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1467",
+          "version": 6,
+          "governs": "Projection/Type: Artifact Change Log",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1467-CORE_META_MODEL--define-artifact-change-log-projection.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Artifact Change Log Projection definition."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Atom Subjects Graph",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1281",
+          "version": 13,
+          "governs": "Projection/Type: Atom Subjects Graph",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1281-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects-graph.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Atom Subjects Graph Projection Type definition."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Canonical Scope Signature",
+      "status": "conflicting",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1361",
+          "version": 14,
+          "governs": "Canonical Scope Signature",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1361-CORE_META_MODEL--define-canonical-scope-signature.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Defines derived comparison value for Scope expression, not an independent Projection Artifact Type; do not silently equate value and report carrying it."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Canonical Signature",
+      "status": "conflicting",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1360",
+          "version": 10,
+          "governs": "Atom Claim Canonical Signature",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1360-CORE_META_MODEL--define-restricted-cce-canonical-signature.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Defines derived comparison value for Claim expression, not an independent Projection Artifact Type; do not silently equate value and report carrying it."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Catalog",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1634",
+          "version": 27,
+          "governs": "Projection/Type",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Catalog registration as distinct Projection Type; classification evidence."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Direct Relation Registry",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-806",
+          "version": 22,
+          "governs": "Relation Kind Metadata",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md"
+        }
+      ],
+      "reason": "No defining R found for Direct Relation Registry as Projection Type; relation-kind metadata requirements are not this definition."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Entities Graph",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1438",
+          "version": 8,
+          "governs": "Projection/Type: Entities Graph",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1438-CORE_META_MODEL-CORE--define-entities-graph.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Entities Graph Projection Type definition."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Extended Entities Graph",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1459",
+          "version": 6,
+          "governs": "Projection/Type: Extended Entities Graph",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1459-CORE_META_MODEL-CORE--define-extended-entities-graph.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Extended Entities Graph Projection Type definition."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Hub",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1634",
+          "version": 27,
+          "governs": "Projection/Type",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Hub registration as distinct Projection Type; do not substitute unrelated Hub Atom R1578."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Implementation Overview",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1638",
+          "version": 28,
+          "governs": "Projection/Type: Implementation Overview",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md"
+        },
+        {
+          "id": "CA-R-1703",
+          "version": 19,
+          "governs": "Projection/Type: Implementation Overview",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Implementation Overview Projection definition."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Map",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1634",
+          "version": 27,
+          "governs": "Projection/Type",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Map registration as distinct Projection Type."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Process Log",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1468",
+          "version": 7,
+          "governs": "Projection/Type: Process Log",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1468-CORE_META_MODEL--define-process-log-projection.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Process Log Projection definition."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Reconciled Projection",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1461",
+          "version": 6,
+          "governs": "Projection/Type: Reconciled Projection",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1461-CORE_META_MODEL-CORE-REQUIREMENT--define-reconciled-projection.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Reconciled Projection Type definition."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Scope Unit Graph",
+      "status": "rename_required",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1739",
+          "version": 22,
+          "governs": "Project Scope Unit Graph Projection",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Project Scope Unit Graph Projection explicitly defined as derived read-only view; map to Scope Unit Graph Type, not source Project.Structure."
+    },
+    {
+      "node": "Entity/Continuant/Projection/Type: Terms Graph",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1335",
+          "version": 13,
+          "governs": "Projection/Type: Terms Graph",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Terms Graph Projection Type definition; no Term-branch expansion required."
+    },
+    {
+      "node": "Entity/Continuant/Selection",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [],
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom."
+    },
+    {
+      "node": "Entity/Continuant/Selection/Applicable Methodology Membership Selection",
+      "status": "conflicting",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1315",
+          "version": 17,
+          "governs": "Applicable Methodology Membership Selection",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Defines active RMEDO membership restriction, not general selection kind; candidate requires current eligible versions and local active/archived placement. Subject rename alone does not resolve this."
+    },
+    {
+      "node": "Entity/Continuant/Selection/Applicable Methodology Source Set",
+      "status": "rename_required",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1228",
+          "version": 17,
+          "governs": "Applicable Methodology Source Set",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1228-CORE_META_MODEL-GENERAL-REQUIREMENT--include-all-applicable-methodology-sources.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Defines required source-set membership; mapping to named Selection is supported but declaring Selection parent still needs general authority."
+    },
+    {
+      "node": "Entity/Continuant/Selection/Atom Scope",
+      "status": "rename_required",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1014",
+          "version": 19,
+          "governs": "Atom Scope",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Defines combined lookup Scope Unit context, governed Subject and Claim constraints; user retained as named Selection distinct from three Atom scope fields."
+    },
+    {
+      "node": "Entity/Continuant/Selection/Owned Atoms",
+      "status": "rename_required",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1447",
+          "version": 9,
+          "governs": "Owned Atoms",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1447-CORE_META_MODEL-GENERAL--define-owned-atoms.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit owned-by-current-Scope-Unit membership definition; named Selection mapping."
+    },
+    {
+      "node": "Entity/Continuant/Selection/Subtree-owned Atoms",
+      "status": "rename_required",
+      "defining_requirements": [
+        {
+          "id": "CA-R-942",
+          "version": 17,
+          "governs": "Subtree-owned Atoms",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit union of Owned Atoms for Scope Unit subtree; named Selection mapping."
+    },
+    {
+      "node": "Entity/Continuant/Selection/Subtree-targeting Atoms",
+      "status": "rename_required",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1449",
+          "version": 7,
+          "governs": "Subtree-targeting Atoms",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1449-CORE_META_MODEL-GENERAL--define-subtree-targeting-atoms.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit union of Targeting Atoms for Scope Unit subtree; named Selection mapping."
+    },
+    {
+      "node": "Entity/Continuant/Selection/Targeting Atoms",
+      "status": "rename_required",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1448",
+          "version": 10,
+          "governs": "Targeting Atoms",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1448-CORE_META_MODEL-GENERAL--define-targeting-atoms.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit target-Scope-Unit membership definition; named Selection mapping."
+    },
+    {
+      "node": "Entity/Continuant/Term",
+      "status": "covered",
+      "defining_requirements": [
+        {
+          "id": "CA-R-1318",
+          "version": 11,
+          "governs": "Term",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md"
+        }
+      ],
+      "related_nondefining_requirements": [],
+      "reason": "Explicit Term definition; branch intentionally unexpanded. Candidate/source disagreement about globally consistent versus scope-sensitive meaning is outside this primary coverage check."
+    },
+    {
+      "node": "Entity/Carrier",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-1342",
+          "version": 12,
+          "governs": "Atom/Content Role: Delivery",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md"
+        }
+      ],
+      "reason": "No defining Core R found. R1342 explicitly locates Carrier definitions/classification in D; align authority boundary before adding R coverage."
+    },
+    {
+      "node": "Entity/Carrier/File Carrier",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-1342",
+          "version": 12,
+          "governs": "Atom/Content Role: Delivery",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md"
+        }
+      ],
+      "reason": "No defining Core R found. R1342 explicitly locates Carrier definitions/classification in D; align authority boundary before adding R coverage."
+    },
+    {
+      "node": "Entity/Carrier/Directory Carrier",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-1342",
+          "version": 12,
+          "governs": "Atom/Content Role: Delivery",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md"
+        }
+      ],
+      "reason": "No defining Core R found. R1342 explicitly locates Carrier definitions/classification in D; align authority boundary before adding R coverage."
+    },
+    {
+      "node": "Entity/Carrier/Database Carrier",
+      "status": "missing_or_uncertain",
+      "defining_requirements": [],
+      "related_nondefining_requirements": [
+        {
+          "id": "CA-R-1342",
+          "version": 12,
+          "governs": "Atom/Content Role: Delivery",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md"
+        }
+      ],
+      "reason": "No defining Core R found. R1342 explicitly locates Carrier definitions/classification in D; align authority boundary before adding R coverage."
+    }
+  ]
+}

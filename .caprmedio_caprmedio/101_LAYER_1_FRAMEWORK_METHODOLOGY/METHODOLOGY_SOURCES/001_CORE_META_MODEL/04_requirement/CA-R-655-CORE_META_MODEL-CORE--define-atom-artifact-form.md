@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom"
+  governs: "Entity/Continuant/Object/Atom"
   depends_on:
     - "Artifact"
-version: 23
-updated_at: "2026-09-29 04:01:16 +0000"
+version: 24
+updated_at: "2026-10-15 18:46:26 +0000"
 relations: {}
 atom_id: "CA-R-655"
 content_role: "Requirement"

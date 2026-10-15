@@ -2,12 +2,9 @@
 subjects:
   governs: "Local Order"
   depends_on:
-    - "Scope Unit"
-    - "Scope Unit/Type"
-    - "Structural Parent Relation"
-    - "Relation"
-version: 18
-updated_at: "2026-10-03 03:35:10 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Scope Unit/Type", "Structural Parent Relation", "Entity/Continuant/Object/Relation"]
+version: 19
+updated_at: "2026-10-15 18:45:53 +0000"
 relations: {}
 atom_id: "CA-R-1763"
 content_role: "Requirement"

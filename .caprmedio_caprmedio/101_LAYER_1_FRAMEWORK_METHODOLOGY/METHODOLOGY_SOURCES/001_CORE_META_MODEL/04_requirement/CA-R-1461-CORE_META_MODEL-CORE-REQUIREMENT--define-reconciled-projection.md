@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Reconciled Projection"
+  governs: "Entity/Continuant/Projection/Type: Reconciled Projection"
   depends_on:
-    ["Projection", "Type", "Artifact", "Atom.Substance", "Carrier", "Operator"]
-version: 6
-updated_at: "2026-10-15 12:22:04 +0000"
+    ["Entity/Continuant/Projection", "Type", "Artifact", "Entity/Continuant/Object/Atom.Substance", "Entity/Carrier", "Entity/Continuant/Actor/Type: Operator"]
+version: 7
+updated_at: "2026-10-15 18:43:19 +0000"
 relations: {}
 atom_id: "CA-R-1461"
 content_role: "Requirement"

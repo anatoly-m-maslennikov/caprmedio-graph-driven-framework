@@ -2,9 +2,9 @@
 subjects:
   governs: "Subject Assignment"
   depends_on:
-    ["Atom.Substance", "Atom.Summary", "Atom.Subjects", "Subject Path", "Author", "Subject", "Term", "Atom/Content Role: Evaluation", "Evaluation For Relation", "Entity", "Dependent Entity"]
-version: 26
-updated_at: "2026-10-15 12:19:45 +0000"
+    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Subjects", "Subject Path", "Author", "Subject", "Entity/Continuant/Term", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Evaluation For Relation", "Entity", "Dependent Entity"]
+version: 27
+updated_at: "2026-10-15 18:47:53 +0000"
 relations: {}
 atom_id: "CA-M-125"
 content_role: "Method"

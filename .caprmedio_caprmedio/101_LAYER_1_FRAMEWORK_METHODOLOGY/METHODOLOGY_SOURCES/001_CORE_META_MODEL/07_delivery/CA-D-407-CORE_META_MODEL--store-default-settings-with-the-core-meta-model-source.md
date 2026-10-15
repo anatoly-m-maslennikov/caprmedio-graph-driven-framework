@@ -2,12 +2,9 @@
 subjects:
   governs: "Default Settings"
   depends_on:
-    - "Default Settings"
-    - "File Carrier"
-    - "Scope Unit"
-    - "Methodology Source"
-version: 8
-updated_at: "2026-10-15 12:18:37 +0000"
+    ["Default Settings", "Entity/Carrier/File Carrier", "Entity/Continuant/Object/Scope Unit", "Methodology Source"]
+version: 9
+updated_at: "2026-10-15 18:51:53 +0000"
 relations:
   child_of:
     - "CA-R-1441"

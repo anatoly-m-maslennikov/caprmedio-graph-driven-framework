@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Preparation"
   depends_on:
-    ["Action", "Spec", "Projection", "Atom", "Atom/Content Role: Method", "Atom/Content Role: Requirement", "Atom/Content Role: Evaluation", "Atom/Content Role: Delivery", "Atom/Content Role: Plan/Type: Plan", "Atom/Content Role: Plan/Type: Plan.Definition of Done", "AI Agent", "Operator", "Dependency Order Derivation", "Scope Unit"]
-version: 7
-updated_at: "2026-10-15 12:20:18 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Spec", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Dependency Order Derivation", "Entity/Continuant/Object/Scope Unit"]
+version: 8
+updated_at: "2026-10-15 18:52:51 +0000"
 relations:
   relates_to:
     - CA-M-239

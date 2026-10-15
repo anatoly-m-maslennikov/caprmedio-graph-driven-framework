@@ -1,0 +1,834 @@
+{
+  "candidate": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/CA-PROJ-001-CORE_META_MODEL--Entities-Graph-Candidate--Primary-Entities-Candidate-5.md",
+  "state": "blocked_missing_r_definitions",
+  "updated_at": "2026-10-15 21:48:31 +0400",
+  "scope": "Subjects only; content deferred",
+  "drafts": [
+    {
+      "target": "Entity/Occurrent",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom.",
+      "evidence": [],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent.md",
+      "original_target": "Entity/Occurrent",
+      "governs": "Entity/Occurrent"
+    },
+    {
+      "target": "Entity/Occurrent/Event",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "R1643 only enumerates old Work Journal/Event/Type values, not an actual Event as Occurrent.",
+      "evidence": [
+        {
+          "id": "CA-R-1643",
+          "version": 23,
+          "governs": "Event/Type",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md"
+        }
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-event.md",
+      "original_target": "Entity/Occurrent/Event",
+      "governs": "Entity/Occurrent/Event"
+    },
+    {
+      "target": "Entity/Occurrent/Execution",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom.",
+      "evidence": [],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-execution.md",
+      "original_target": "Entity/Occurrent/Execution",
+      "governs": "Entity/Occurrent/Execution"
+    },
+    {
+      "target": "Entity/Occurrent/Execution/Action Run",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "Action Run is mentioned in status exclusions; no definition of the actual Action execution found.",
+      "evidence": [
+        {
+          "id": "CA-R-1874",
+          "version": 2,
+          "governs": "Atom/Content Role: Operations.Status",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-operations-status-values.md"
+        },
+        {
+          "id": "CA-R-1875",
+          "version": 2,
+          "governs": "Atom/Content Role: Analysis.Status",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md"
+        }
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-execution-action-run.md",
+      "original_target": "Entity/Occurrent/Execution/Action Run",
+      "governs": "Entity/Occurrent/Execution/Action Run"
+    },
+    {
+      "target": "Entity/Occurrent/Session",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom.",
+      "evidence": [],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-session.md",
+      "original_target": "Entity/Occurrent/Session",
+      "governs": "Entity/Occurrent/Session"
+    },
+    {
+      "target": "Entity/Continuant",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom.",
+      "evidence": [],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant.md",
+      "original_target": "Entity/Continuant",
+      "governs": "Entity/Continuant"
+    },
+    {
+      "target": "Entity/Continuant/Object",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom.",
+      "evidence": [],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-object.md",
+      "original_target": "Entity/Continuant/Object",
+      "governs": "Entity/Continuant/Object"
+    },
+    {
+      "target": "Entity/Continuant/Object/Governing Configuration",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "Specific non-Atom configuration artifacts exist, but no generic Governing Configuration definition/classification.",
+      "evidence": [
+        {
+          "id": "CA-R-1483",
+          "version": 5,
+          "governs": "Project Structure",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md"
+        },
+        {
+          "id": "CA-R-1738",
+          "version": 22,
+          "governs": "Project Settings",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md"
+        },
+        {
+          "id": "CA-R-1402",
+          "version": 11,
+          "governs": "Framework Instance.Settings",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md"
+        }
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-object-governing-configuration.md",
+      "original_target": "Entity/Continuant/Object/Governing Configuration",
+      "governs": "Entity/Continuant/Object/Governing Configuration"
+    },
+    {
+      "target": "Entity/Continuant/Object/Relation",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "Typed relation kinds and facts are governed, but no generic Relation entity definition found.",
+      "evidence": [
+        {
+          "id": "CA-R-806",
+          "version": 22,
+          "governs": "Relation Kind Metadata",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md"
+        },
+        {
+          "id": "CA-R-1437",
+          "version": 7,
+          "governs": "Relation.Authority",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md"
+        }
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-object-relation.md",
+      "original_target": "Entity/Continuant/Object/Relation",
+      "governs": "Entity/Continuant/Object/Relation"
+    },
+    {
+      "target": "Entity/Continuant/Actor/Type: AI Agent",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "Many AI Agent participation/delegation rules; none found defining/classifying AI Agent as Actor subtype. A matching Subject alone is insufficient.",
+      "evidence": [
+        {
+          "id": "CA-R-1552",
+          "version": 5,
+          "governs": "Actor/Type: AI Agent",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md"
+        },
+        {
+          "id": "CA-R-1554",
+          "version": 5,
+          "governs": "Actor/Type: AI Agent",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md"
+        }
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-actor-type-ai-agent.md",
+      "original_target": "Entity/Continuant/Actor/Type: AI Agent",
+      "governs": "Entity/Continuant/Actor/Type: AI Agent"
+    },
+    {
+      "target": "Entity/Continuant/History",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom.",
+      "evidence": [],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-history.md",
+      "original_target": "Entity/Continuant/History",
+      "governs": "Entity/Continuant/History"
+    },
+    {
+      "target": "Entity/Continuant/History/Revision/Type: Atom",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining R for Revision/Type: Atom as archived Atom itself; generic old Artifact/Revision is not sufficient.",
+      "evidence": [
+        {
+          "id": "CA-R-1371",
+          "version": 10,
+          "governs": "Artifact/Revision",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md"
+        },
+        {
+          "id": "CA-R-1788",
+          "version": 4,
+          "governs": "Atom.Updated At",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL--refresh-updated-at-whenever-an-atom-changes.md"
+        }
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-history-revision-type-atom.md",
+      "original_target": "Entity/Continuant/History/Revision/Type: Atom",
+      "governs": "Entity/Continuant/History/Revision/Type: Atom"
+    },
+    {
+      "target": "Entity/Continuant/Projection/Type: Direct Relation Registry",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining R found for Direct Relation Registry as Projection Type; relation-kind metadata requirements are not this definition.",
+      "evidence": [
+        {
+          "id": "CA-R-806",
+          "version": 22,
+          "governs": "Relation Kind Metadata",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md"
+        }
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-projection-type-direct-relation-registry.md",
+      "original_target": "Entity/Continuant/Projection/Type: Direct Relation Registry",
+      "governs": "Entity/Continuant/Projection/Type: Direct Relation Registry"
+    },
+    {
+      "target": "Entity/Continuant/Selection",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining current Core Requirement found; candidate/operator decision alone is not an R Atom.",
+      "evidence": [],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-selection.md",
+      "original_target": "Entity/Continuant/Selection",
+      "governs": "Entity/Continuant/Selection"
+    },
+    {
+      "target": "Entity/Carrier",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining Core R found. R1342 explicitly locates Carrier definitions/classification in D; align authority boundary before adding R coverage.",
+      "evidence": [
+        {
+          "id": "CA-R-1342",
+          "version": 12,
+          "governs": "Atom/Content Role: Delivery",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md"
+        }
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier.md",
+      "original_target": "Entity/Carrier",
+      "governs": "Entity/Carrier"
+    },
+    {
+      "target": "Entity/Carrier/File Carrier",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining Core R found. R1342 explicitly locates Carrier definitions/classification in D; align authority boundary before adding R coverage.",
+      "evidence": [
+        {
+          "id": "CA-R-1342",
+          "version": 12,
+          "governs": "Atom/Content Role: Delivery",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md"
+        }
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier-file-carrier.md",
+      "original_target": "Entity/Carrier/File Carrier",
+      "governs": "Entity/Carrier/File Carrier"
+    },
+    {
+      "target": "Entity/Carrier/Directory Carrier",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining Core R found. R1342 explicitly locates Carrier definitions/classification in D; align authority boundary before adding R coverage.",
+      "evidence": [
+        {
+          "id": "CA-R-1342",
+          "version": 12,
+          "governs": "Atom/Content Role: Delivery",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md"
+        }
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier-directory-carrier.md",
+      "original_target": "Entity/Carrier/Directory Carrier",
+      "governs": "Entity/Carrier/Directory Carrier"
+    },
+    {
+      "target": "Entity/Carrier/Database Carrier",
+      "status": "missing_or_uncertain",
+      "kind": "primary",
+      "reason": "No defining Core R found. R1342 explicitly locates Carrier definitions/classification in D; align authority boundary before adding R coverage.",
+      "evidence": [
+        {
+          "id": "CA-R-1342",
+          "version": 12,
+          "governs": "Atom/Content Role: Delivery",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md"
+        }
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier-database-carrier.md",
+      "original_target": "Entity/Carrier/Database Carrier",
+      "governs": "Entity/Carrier/Database Carrier"
+    },
+    {
+      "target": "Entity/Occurrent/Execution.Execution ID",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Occurrent/Execution.Execution ID"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-execution-execution-id.md",
+      "original_target": "Execution.Execution ID",
+      "governs": "Entity/Occurrent/Execution.Execution ID"
+    },
+    {
+      "target": "Entity/Continuant/Object/Atom.Enabled Relations.Contains",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Atom.Enabled Relations.Contains",
+        "Entity/Continuant/Object/Atom.Enabled Relations.Contains: False",
+        "Entity/Continuant/Object/Atom.Enabled Relations.Contains: True"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-atom-enabled-relations-contains.md",
+      "original_target": "Atom.Enabled Relations.Contains",
+      "governs": "Entity/Continuant/Object/Atom.Enabled Relations.Contains"
+    },
+    {
+      "target": "Entity/Continuant/Object/Atom.Governance Locus",
+      "status": "uncertain",
+      "kind": "property",
+      "reason": "Only coordinate invariance mention found; no R meaning/domain for this property.",
+      "evidence": [
+        {
+          "atom_id": "CA-R-1688",
+          "version": 24,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-REQUIREMENT--scope-path-does-not-change-semantic-coordinates.md",
+          "governs": "scope-topology"
+        }
+      ],
+      "members": [
+        "Entity/Continuant/Object/Atom.Governance Locus"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-atom-governance-locus.md",
+      "original_target": "Atom.Governance Locus",
+      "governs": "Entity/Continuant/Object/Atom.Governance Locus"
+    },
+    {
+      "target": "Entity/Continuant/Object/Atom.Property",
+      "status": "uncertain",
+      "kind": "property",
+      "reason": "R1193 defines Property generically and R1598 requires Atom's applicable Properties; no distinct named Atom.Property definition. Decide whether this is merely a selection of properties.",
+      "evidence": [
+        {
+          "atom_id": "CA-R-1193",
+          "version": 11,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "governs": "Property"
+        },
+        {
+          "atom_id": "CA-R-1598",
+          "version": 5,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1598-CORE_META_MODEL-CORE-REQUIREMENT--keep-every-atom-self-sufficient.md",
+          "governs": "Atom"
+        }
+      ],
+      "members": [
+        "Entity/Continuant/Object/Atom.Property"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-atom-property.md",
+      "original_target": "Atom.Property",
+      "governs": "Entity/Continuant/Object/Atom.Property"
+    },
+    {
+      "target": "Entity/Continuant/Object/Atom.Semantics",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Atom.Semantics"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-atom-semantics.md",
+      "original_target": "Atom.Semantics",
+      "governs": "Entity/Continuant/Object/Atom.Semantics"
+    },
+    {
+      "target": "Entity/Continuant/Object/Atom.Status",
+      "status": "missing",
+      "kind": "allowed_value",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Atom.Status: Draft",
+        "Entity/Continuant/Object/Atom.Status: Active",
+        "Entity/Continuant/Object/Atom.Status: Archived"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-atom-status-allowed-values.md",
+      "original_target": "Atom.Status allowed values",
+      "governs": "Entity/Continuant/Object/Atom.Status"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Artifact Timestamp Timezone",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Framework Settings.Artifact Timestamp Timezone"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-artifact-timestamp-timezone.md",
+      "original_target": "Project.Framework Settings.Artifact Timestamp Timezone",
+      "governs": "Entity/Continuant/Object/Project.Framework Settings.Artifact Timestamp Timezone"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Code-Root Locators",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Framework Settings.Code-Root Locators"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-code-root-locators.md",
+      "original_target": "Project.Framework Settings.Code-Root Locators",
+      "governs": "Entity/Continuant/Object/Project.Framework Settings.Code-Root Locators"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Confidence",
+      "status": "uncertain",
+      "kind": "property",
+      "reason": "Two child thresholds have R rules; no distinct definition of intermediate Confidence grouping.",
+      "evidence": [
+        {
+          "atom_id": "CA-R-380",
+          "version": 25,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md",
+          "governs": "Framework Instance.Settings.Confidence.Semantic Resolution Threshold"
+        },
+        {
+          "atom_id": "CA-R-1652",
+          "version": 23,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+          "governs": "Framework Instance.Settings.Confidence.Necessary Information Threshold"
+        }
+      ],
+      "members": [
+        "Entity/Continuant/Object/Project.Framework Settings.Confidence"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-confidence.md",
+      "original_target": "Project.Framework Settings.Confidence",
+      "governs": "Entity/Continuant/Object/Project.Framework Settings.Confidence"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Extension Selections",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Framework Settings.Extension Selections"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-extension-selections.md",
+      "original_target": "Project.Framework Settings.Extension Selections",
+      "governs": "Entity/Continuant/Object/Project.Framework Settings.Extension Selections"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Framework Control-Root Locator",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Framework Settings.Framework Control-Root Locator"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-framework-control-root-locator.md",
+      "original_target": "Project.Framework Settings.Framework Control-Root Locator",
+      "governs": "Entity/Continuant/Object/Project.Framework Settings.Framework Control-Root Locator"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Identifier",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Framework Settings.Identifier"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-identifier.md",
+      "original_target": "Project.Framework Settings.Identifier",
+      "governs": "Entity/Continuant/Object/Project.Framework Settings.Identifier"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Interaction",
+      "status": "uncertain",
+      "kind": "property",
+      "reason": "Child Reporting Mode has R rule; no distinct definition of intermediate Interaction grouping.",
+      "evidence": [
+        {
+          "atom_id": "CA-R-1628",
+          "version": 26,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1628-CORE_META_MODEL-REQUIREMENT--allow-silent-and-verbose-reporting-modes.md",
+          "governs": "Framework Instance.Settings.Interaction.Reporting Mode"
+        }
+      ],
+      "members": [
+        "Entity/Continuant/Object/Project.Framework Settings.Interaction"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-interaction.md",
+      "original_target": "Project.Framework Settings.Interaction",
+      "governs": "Entity/Continuant/Object/Project.Framework Settings.Interaction"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-parameter-resolution.md",
+      "original_target": "Project.Framework Settings.Parameter Resolution",
+      "governs": "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution Validation",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution Validation"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-parameter-resolution-validation.md",
+      "original_target": "Project.Framework Settings.Parameter Resolution Validation",
+      "governs": "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution Validation"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Revision Binding",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Framework Settings.Revision Binding"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-revision-binding.md",
+      "original_target": "Project.Framework Settings.Revision Binding",
+      "governs": "Entity/Continuant/Object/Project.Framework Settings.Revision Binding"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Tool Selections",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Framework Settings.Tool Selections"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-tool-selections.md",
+      "original_target": "Project.Framework Settings.Tool Selections",
+      "governs": "Entity/Continuant/Object/Project.Framework Settings.Tool Selections"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Operator Registry",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Operator Registry"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-operator-registry.md",
+      "original_target": "Project.Operator Registry",
+      "governs": "Entity/Continuant/Object/Project.Operator Registry"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Settings.Identifier",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Settings.Identifier"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-settings-identifier.md",
+      "original_target": "Project.Settings.Identifier",
+      "governs": "Entity/Continuant/Object/Project.Settings.Identifier"
+    },
+    {
+      "target": "Entity/Continuant/Object/Project.Settings.Revision Binding",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Project.Settings.Revision Binding"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-project-settings-revision-binding.md",
+      "original_target": "Project.Settings.Revision Binding",
+      "governs": "Entity/Continuant/Object/Project.Settings.Revision Binding"
+    },
+    {
+      "target": "Entity/Continuant/Object/Scope Unit.ID",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Object/Scope Unit.ID"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-scope-unit-id.md",
+      "original_target": "Scope Unit.ID",
+      "governs": "Entity/Continuant/Object/Scope Unit.ID"
+    },
+    {
+      "target": "Entity/Continuant/Object/Relation.Source Reference",
+      "status": "uncertain",
+      "kind": "property",
+      "reason": "Relation-kind metadata defines source class, not necessarily this individual Relation source-reference property.",
+      "evidence": [
+        {
+          "atom_id": "CA-R-806",
+          "version": 22,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+          "governs": "Relation Kind Metadata"
+        }
+      ],
+      "members": [
+        "Entity/Continuant/Object/Relation.Source Reference"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-relation-source-reference.md",
+      "original_target": "Relation.Source Reference",
+      "governs": "Entity/Continuant/Object/Relation.Source Reference"
+    },
+    {
+      "target": "Entity/Continuant/Object/Relation.Target Reference",
+      "status": "uncertain",
+      "kind": "property",
+      "reason": "Relation-kind metadata defines target class, not necessarily this individual Relation target-reference property.",
+      "evidence": [
+        {
+          "atom_id": "CA-R-806",
+          "version": 22,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+          "governs": "Relation Kind Metadata"
+        }
+      ],
+      "members": [
+        "Entity/Continuant/Object/Relation.Target Reference"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-relation-target-reference.md",
+      "original_target": "Relation.Target Reference",
+      "governs": "Entity/Continuant/Object/Relation.Target Reference"
+    },
+    {
+      "target": "Entity/Continuant/Actor.Name",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Continuant/Actor.Name"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-actor-name.md",
+      "original_target": "Actor.Name",
+      "governs": "Entity/Continuant/Actor.Name"
+    },
+    {
+      "target": "Entity/Carrier.Canonical Address",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier.Canonical Address"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-canonical-address.md",
+      "original_target": "Carrier.Canonical Address",
+      "governs": "Entity/Carrier.Canonical Address"
+    },
+    {
+      "target": "Entity/Carrier.Canonical Address.Segment",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier.Canonical Address.Segment"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-canonical-address-segment.md",
+      "original_target": "Carrier.Canonical Address.Segment",
+      "governs": "Entity/Carrier.Canonical Address.Segment"
+    },
+    {
+      "target": "Entity/Carrier.Format",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier.Format"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-format.md",
+      "original_target": "Carrier.Format",
+      "governs": "Entity/Carrier.Format"
+    },
+    {
+      "target": "Entity/Carrier.ID",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier.ID"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-id.md",
+      "original_target": "Carrier.ID",
+      "governs": "Entity/Carrier.ID"
+    },
+    {
+      "target": "Entity/Carrier.Ownership Class",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier.Ownership Class"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-ownership-class.md",
+      "original_target": "Carrier.Ownership Class",
+      "governs": "Entity/Carrier.Ownership Class"
+    },
+    {
+      "target": "Entity/Carrier.Storage Boundary",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier.Storage Boundary"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-storage-boundary.md",
+      "original_target": "Carrier.Storage Boundary",
+      "governs": "Entity/Carrier.Storage Boundary"
+    },
+    {
+      "target": "Entity/Carrier/File Carrier.Extension",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier/File Carrier.Extension"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-file-carrier-extension.md",
+      "original_target": "File Carrier.Extension",
+      "governs": "Entity/Carrier/File Carrier.Extension"
+    },
+    {
+      "target": "Entity/Carrier/File Carrier.Filename",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier/File Carrier.Filename"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-file-carrier-filename.md",
+      "original_target": "File Carrier.Filename",
+      "governs": "Entity/Carrier/File Carrier.Filename"
+    },
+    {
+      "target": "Entity/Carrier/File Carrier.Path",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier/File Carrier.Path"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-file-carrier-path.md",
+      "original_target": "File Carrier.Path",
+      "governs": "Entity/Carrier/File Carrier.Path"
+    },
+    {
+      "target": "Entity/Carrier/Directory Carrier.Name",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier/Directory Carrier.Name"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-directory-carrier-name.md",
+      "original_target": "Directory Carrier.Name",
+      "governs": "Entity/Carrier/Directory Carrier.Name"
+    },
+    {
+      "target": "Entity/Carrier/Directory Carrier.Numeric Prefix",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier/Directory Carrier.Numeric Prefix"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-directory-carrier-numeric-prefix.md",
+      "original_target": "Directory Carrier.Numeric Prefix",
+      "governs": "Entity/Carrier/Directory Carrier.Numeric Prefix"
+    },
+    {
+      "target": "Entity/Carrier/Directory Carrier.Path",
+      "status": "missing",
+      "kind": "property",
+      "reason": "No active Core R definition identified for this declaration.",
+      "evidence": [],
+      "members": [
+        "Entity/Carrier/Directory Carrier.Path"
+      ],
+      "draft": "empty-r-drafts/CA-R--CORE_META_MODEL--define-directory-carrier-path.md",
+      "original_target": "Directory Carrier.Path",
+      "governs": "Entity/Carrier/Directory Carrier.Path"
+    }
+  ],
+  "subject_notation": "full_rooted_paths",
+  "live_migration_allowed": false,
+  "decisions": {
+    "subject_scope": "Subjects only; existing Atom content remains separate",
+    "subjects": "Full paths rooted at Entity",
+    "publication": "Wait for real defining R Atoms; empty drafts do not count"
+  }
+}

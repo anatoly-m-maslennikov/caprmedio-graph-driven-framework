@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Carrier.Canonical Address"
+  governs: "Entity/Carrier.Canonical Address"
   depends_on:
     ["Artifact.Property", "Markdown Atom Carrier.YAML Frontmatter"]
-version: 13
-updated_at: "2026-10-15 12:17:54 +0000"
+version: 14
+updated_at: "2026-10-15 18:50:43 +0000"
 relations: {}
 atom_id: "CA-D-267"
 content_role: "Delivery"

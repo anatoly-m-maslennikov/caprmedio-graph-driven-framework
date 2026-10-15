@@ -1,0 +1,4192 @@
+{
+  "state": "blocked_missing_r_definitions",
+  "executable": false,
+  "prepared_at": "2026-10-15 21:48:31 +0400",
+  "subject_profile": "approved",
+  "scope": "Current Core source Subjects only",
+  "source_root": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+  "source_inventory_sha256": "b088b5330e05c9f892393935d722092002c636d68645361abcc3bddd7aab34a5",
+  "candidate": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/CA-PROJ-001-CORE_META_MODEL--Entities-Graph-Candidate--Primary-Entities-Candidate-5.md",
+  "source_count": 983,
+  "counts": {
+    "distinct_subjects": 660,
+    "mapped_but_blocked": 155,
+    "unchanged": 2,
+    "unplaced_hold": 503
+  },
+  "publication_gate": "Do not apply until real defining R coverage is complete. Re-read source state and resolve held names before building an executable packet.",
+  "diagnostics": [
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-290-CORE_META_MODEL-CONFLICT--reconcile-supporting-detail-placement-in-plan-carriers.md: Subjects mapping is unavailable."
+  ],
+  "mappings": [
+    {
+      "subject": "AI Agent",
+      "occurrences": 43,
+      "target": "Entity/Continuant/Actor/Type: AI Agent",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Actor/Type: AI Agent",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "AI Agent Confidence",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "AI Agent Delegation",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Action",
+      "occurrences": 145,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Atom/Content Role: Operations/Type: Action",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Action/Execution Kind",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Active Artifact Carrier Basename",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Active Atom Carrier Discovery",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Actor",
+      "occurrences": 16,
+      "target": "Entity/Continuant/Actor",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Actor/Type: AI Agent",
+      "occurrences": 9,
+      "target": "Entity/Continuant/Actor/Type: AI Agent",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Admit Methodology Expansion Mapping",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Agentic Action Instruction",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Agentic Step Execution Context",
+      "occurrences": 35,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Agentic Step Invocation Context",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Analysis",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Analysis",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Atom/Content Role: Analysis",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Applicable Methodology",
+      "occurrences": 30,
+      "target": "Entity/Continuant/Projection/Type: Applicable Methodology",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Projection/Type: Applicable Methodology",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Applicable Methodology Compilation",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Compilation Assess Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Compilation Correct Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Compilation Decide Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Compilation Propose Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Compilation Publish Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Compilation Select Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Conflict",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Membership Selection",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Projected Atom Members",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Retrieval",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Revision",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Source Frontier Digest",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology Source Set",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Applicable Methodology.Member",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Apply Approved Source Corrections",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Apply Structural Change",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Approved Change Reversal",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Approved Change Reversal Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Approved Change Reversal/Outcomes",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact",
+      "occurrences": 68,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact Archive Carrier Basename",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact Carrier",
+      "occurrences": 13,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact Carrier Placement",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact Carrier Status Subdirectory",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact Classification Resolution",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact query and fetch execution",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact query and selected fetch",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact.Activity",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact.Activity: Active",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact.Activity: Inactive",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact.Applicability",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact.Authority",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact.Currentness",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact.Identity",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact.Local Tier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact.Property",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact.Status",
+      "occurrences": 11,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact/Activity",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact/Applicability",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact/Authority",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact/Carrier",
+      "occurrences": 8,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact/Currentness",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact/Revision",
+      "occurrences": 74,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact/Revision/Archive Carrier Basename",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact/Revision/Status: Archived",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact/Revision/Version",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Artifact/Type",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Assess Atom Update Identity",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Assess Lineage Impact",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Assess Prepared Result Conformance",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Assess Source Conflicts",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom",
+      "occurrences": 226,
+      "target": "Entity/Continuant/Object/Atom",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom Archive Carrier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Carrier",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Carrier Binding",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Carrier Replacement",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Carrier Validation",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Carrier.Filename.Local Tier",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Carrier.Filename.Owning Scope Unit",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Carrier.Filename.Scope Unit Token",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Carrier.Filename.Summary Slug",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Carrier.Filename.Token Case",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Change Classification",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Claim Authoring",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Claim Boundary Authoring",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Claim Canonical Signature",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Claim Projection",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Collection",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Collection/Local Tier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Collection/Type",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Collection/Type: Ad Hoc",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Content Authoring",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Direct Relation",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom History",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Property Default",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Relation Owner",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Scope",
+      "occurrences": 31,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom State Identifier",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Tier Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom Tier Validation.Concrete Cases",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom lifecycle conformance",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom lifecycle/Assessment scope",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom selection",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom.Author",
+      "occurrences": 19,
+      "target": "Entity/Continuant/Object/Atom.Author",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Content",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom.Content",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Details",
+      "occurrences": 4,
+      "target": "Entity/Continuant/Object/Atom.Details",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Global Tier",
+      "occurrences": 19,
+      "target": "Entity/Continuant/Object/Atom.Global Tier",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Governed Subject",
+      "occurrences": 3,
+      "target": "Entity/Continuant/Object/Atom.Governed Subject",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.ID",
+      "occurrences": 25,
+      "target": "Entity/Continuant/Object/Atom.ID",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Local Tier",
+      "occurrences": 24,
+      "target": "Entity/Continuant/Object/Atom.Local Tier",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Local Tier: Core",
+      "occurrences": 5,
+      "target": "Entity/Continuant/Object/Atom.Local Tier: Core",
+      "basis": "Candidate #5 allowed value",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Local Tier: General",
+      "occurrences": 4,
+      "target": "Entity/Continuant/Object/Atom.Local Tier: General",
+      "basis": "Candidate #5 allowed value",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Local Tier: Principle",
+      "occurrences": 12,
+      "target": "Entity/Continuant/Object/Atom.Local Tier: Principle",
+      "basis": "Candidate #5 allowed value",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Local Tier: Standard",
+      "occurrences": 11,
+      "target": "Entity/Continuant/Object/Atom.Local Tier: Standard",
+      "basis": "Candidate #5 allowed value",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Property",
+      "occurrences": 10,
+      "target": "Entity/Continuant/Object/Atom.Property",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Status",
+      "occurrences": 19,
+      "target": "Entity/Continuant/Object/Atom.Status",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Subjects",
+      "occurrences": 26,
+      "target": "Entity/Continuant/Object/Atom.Subjects",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Substance",
+      "occurrences": 142,
+      "target": "Entity/Continuant/Object/Atom.Substance",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Summary",
+      "occurrences": 41,
+      "target": "Entity/Continuant/Object/Atom.Summary",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Target Scope Unit",
+      "occurrences": 32,
+      "target": "Entity/Continuant/Object/Atom.Target Scope Unit",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Updated At",
+      "occurrences": 9,
+      "target": "Entity/Continuant/Object/Atom.Updated At",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom.Version Number",
+      "occurrences": 6,
+      "target": "Entity/Continuant/Object/Atom.Version Number",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Carrier",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Claim",
+      "occurrences": 60,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role",
+      "occurrences": 63,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Analysis",
+      "occurrences": 5,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Analysis",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Analysis.Status",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Analysis.Status",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Analysis/Type",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Analysis/Type: Analysis Report",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Analysis/Type: Analysis Report",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Analysis/Type: Rationale",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Analysis/Type: Rationale",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Concern",
+      "occurrences": 7,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Concern",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Concern.Status",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Concern.Status",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Concern/Type",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Delivery",
+      "occurrences": 20,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Delivery",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Delivery.Status",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Delivery.Status",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Evaluation",
+      "occurrences": 40,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Evaluation",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Evaluation.Local Tier",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Evaluation.Local Tier",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Evaluation.Status",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Evaluation.Status",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Evaluation/Type",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Implementation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Method",
+      "occurrences": 25,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Method",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Method.Status",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Method.Status",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Operations",
+      "occurrences": 17,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Operations",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Operations.Status",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Operations.Status",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type: Action",
+      "occurrences": 5,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type: Action/Execution Kind",
+      "occurrences": 7,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type: Actor",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type: Step",
+      "occurrences": 9,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type: Workflow",
+      "occurrences": 7,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan",
+      "occurrences": 10,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Status",
+      "occurrences": 4,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Status",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Status: Active",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Active",
+      "basis": "Candidate #5 allowed value",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Status: Backlog",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Backlog",
+      "basis": "Candidate #5 allowed value",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan.Status: Canceled",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Canceled",
+      "basis": "Candidate #5 allowed value",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan",
+      "occurrences": 92,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan.Assignee",
+      "occurrences": 6,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Assignee",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Atom/Content Role: Plan.Assignee",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan.Autonomous Confidence Threshold",
+      "occurrences": 6,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Autonomous Confidence Threshold",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Atom/Content Role: Plan.Autonomous Confidence Threshold",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan.Definition of Done",
+      "occurrences": 12,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Atom/Content Role: Plan.Definition of Done",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan.Details",
+      "occurrences": 2,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Details",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Atom/Content Role: Plan.Details",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan.ID",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.ID",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Atom/Content Role: Plan.ID",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan.Label",
+      "occurrences": 18,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Label",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Atom/Content Role: Plan.Label",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan.Status",
+      "occurrences": 5,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Status",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Atom/Content Role: Plan.Status",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan.Status: Done",
+      "occurrences": 4,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Done",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Atom/Content Role: Plan.Status: Done",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan.Target Scope Unit",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Target Scope Unit",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Atom/Content Role: Plan.Target Scope Unit",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan.Work Sequence Number",
+      "occurrences": 6,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Atom/Content Role: Plan.Work Sequence Number",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan/Details",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan/Label",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Content Role: Requirement",
+      "occurrences": 17,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Requirement.Status",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Requirement.Status",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Requirement/Type: Demand",
+      "occurrences": 7,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Requirement/Type: Goal",
+      "occurrences": 19,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Atom/Content Role: Requirement/Type: Goal/Filename",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Identifier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Identity",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Local Tier: Standard",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Revision",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Revision/History",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Revision/Identifier",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Revision/Status",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Revision/Status: Draft",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Revision/Status: Draft/Identity Continuity",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Revision/Status: Draft/Identity Continuity Evidence",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Revision/Updated At",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Revision/Version",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Subjects",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Tier/Local Tier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Type",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Atom/Type.Status",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Author",
+      "occurrences": 12,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Authoritative Atom Carrier Bundle",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Authority",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Authority Mode",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Authorize Structural Change",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Autonomous Confidence Threshold",
+      "occurrences": 22,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "BEARS",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Build Entities Graph",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Build Terms Graph",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CAPRMEDIO Expansion",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CAPRMEDIO Framework Identity",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CAPRMEDIO Framework Instance",
+      "occurrences": 10,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CAPRMEDIO Framework Instance Carrier Root",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CAPRMEDIO Graph",
+      "occurrences": 16,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CAPRMEDIO Graph.Connectivity",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CAPRMEDIO Metamodel.Fractality",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CARRIES",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CCE",
+      "occurrences": 15,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CCE Claim and Projection Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CCE Condition Expression",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CCE Condition Expression Evaluation",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CCE Method",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CCE Operator",
+      "occurrences": 22,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CCE Operator Expression",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CCE Operator Expression Normalization",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CCE Operator Registry",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CCE Role Profile",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "CORE_META_MODEL",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Canonical Scope Signature",
+      "occurrences": 4,
+      "target": "Entity/Continuant/Projection/Type: Canonical Scope Signature",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Projection/Type: Canonical Scope Signature",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Canonical Scope Signature Derivation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Canonical Scope Signature Derivation Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Canonical Signature Derivation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Canonical Signature Derivation Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Cardinality Constraint",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Cardinality Constraint Authoring",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Carrier",
+      "occurrences": 75,
+      "target": "Entity/Carrier",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Carrier-Only Recoding",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Carrier.Canonical Address",
+      "occurrences": 4,
+      "target": "Entity/Carrier.Canonical Address",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Carrier.Canonical Address.Segment",
+      "occurrences": 1,
+      "target": "Entity/Carrier.Canonical Address.Segment",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Carrier.Format",
+      "occurrences": 1,
+      "target": "Entity/Carrier.Format",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Carrier.Ownership Class",
+      "occurrences": 1,
+      "target": "Entity/Carrier.Ownership Class",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Carrier.Storage Boundary",
+      "occurrences": 1,
+      "target": "Entity/Carrier.Storage Boundary",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Change Content Roles",
+      "occurrences": 11,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Check Atoms",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Check Atoms Step",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Child Composition",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Claim",
+      "occurrences": 10,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Claim Value Set",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Claim Value Set Authoring",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Claim Value Set Consolidation Candidate Evaluation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Claim Value Set Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Compatible Lineage Impact Disposition",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Composite Claim",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Concern",
+      "occurrences": 5,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Concern",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Atom/Content Role: Concern",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Concern About Relation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Condition Expression",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Confidence Threshold",
+      "occurrences": 14,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Confidence Threshold.Resolution",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Confidence Threshold.Resolution Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Confidence Threshold.Source",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Configuration Selection and Precedence",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Construct Entities Graph Projection",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Construct Terms Graph Projection",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Consumer",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Consumer Goal",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Container Atom",
+      "occurrences": 9,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Containment Relation Pair",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Content Role Naming",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Core Meta-Model",
+      "occurrences": 14,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Core Meta-model",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Corrective Method Acceptance",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Corrective Method Acceptance Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Current Plan Scope",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Current-scope Atom",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "DEPENDS_ON",
+      "occurrences": 16,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "DERIVED_FROM",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Default Settings",
+      "occurrences": 18,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Definition Atom",
+      "occurrences": 10,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Delivery",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Delivery",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Atom/Content Role: Delivery",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Delivery CCE Role Profile",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Delivery For Relation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Demand Atom File Carrier.Filename",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Demand Direction",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Dependency Order Derivation",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Dependency Order Derivation Evaluation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Dependency Relation Pair",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Dependent Entity",
+      "occurrences": 9,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Dependent Entity Occurrence",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Directory Carrier",
+      "occurrences": 15,
+      "target": "Entity/Carrier/Directory Carrier",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Directory Carrier Nesting",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Directory Carrier.Name",
+      "occurrences": 3,
+      "target": "Entity/Carrier/Directory Carrier.Name",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Directory Carrier.Numeric Prefix",
+      "occurrences": 3,
+      "target": "Entity/Carrier/Directory Carrier.Numeric Prefix",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Draft Atom",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Draft Atom Carrier.Filename",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Draft Atom.Revision Lineage",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Entities Graph",
+      "occurrences": 3,
+      "target": "Entity/Continuant/Projection/Type: Entities Graph",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Projection/Type: Entities Graph",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Entities Graph Construction Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Entity",
+      "occurrences": 59,
+      "target": "Entity",
+      "basis": "Candidate #5 primary tree",
+      "state": "unchanged"
+    },
+    {
+      "subject": "Entity Carrier Binding",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Entity Identity",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Entity Taxonomy",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Entity.Identity",
+      "occurrences": 2,
+      "target": "Entity.Identity",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "unchanged"
+    },
+    {
+      "subject": "Entity/Carrier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Entity/Type",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Evaluate RMED Review Batch",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Evaluation",
+      "occurrences": 11,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Evaluation",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Atom/Content Role: Evaluation",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Evaluation CCE Role Profile",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Evaluation For Relation",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Evaluation Implementation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Evaluation Implementation Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Evaluation Report",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Evaluator Evidence Calibration",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Event",
+      "occurrences": 2,
+      "target": "Entity/Occurrent/Event",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Event/Type",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Evidence",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Evidence For Relation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Exact Atom Reference",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Execution/Action Run",
+      "occurrences": 3,
+      "target": "Entity/Occurrent/Execution/Action Run",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Execution/Step Run",
+      "occurrences": 54,
+      "target": "Entity/Occurrent/Execution/Step Run",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Execution/Workflow Run",
+      "occurrences": 76,
+      "target": "Entity/Occurrent/Execution/Workflow Run",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Exploration Mode",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Extension",
+      "occurrences": 29,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Extension Installation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "External Project Goal File Carrier.Filename",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "External Project Goal Reference",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Feature Realization Relation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "File Carrier",
+      "occurrences": 16,
+      "target": "Entity/Carrier/File Carrier",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "File Carrier.Extension",
+      "occurrences": 1,
+      "target": "Entity/Carrier/File Carrier.Extension",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "File Carrier.Format",
+      "occurrences": 3,
+      "target": "Entity/Carrier/File Carrier.Format",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Find and Fetch Artifacts",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Find and Fetch Journal Events",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Find and Fetch Journal Events Query Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Framework Instance Settings",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Project.Framework Settings",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance Settings Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Framework Instance Settings/Carrier/Atom metadata exclusion",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Framework Instance Settings/Revision Binding",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Framework Instance.Settings",
+      "occurrences": 69,
+      "target": "Entity/Continuant/Object/Project.Framework Settings",
+      "basis": "Operator: Framework Settings is a Project property",
+      "candidate_expression": "Project.Framework Settings",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Artifact Timestamp Timezone",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Artifact Timestamp Timezone",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Artifact Timestamp Timezone",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Authority Modes",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Authority Modes",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Authority Modes",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Code-Root Locators",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Code-Root Locators",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Code-Root Locators",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Confidence.Necessary Information Threshold",
+      "occurrences": 2,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Confidence.Necessary Information Threshold",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Confidence.Necessary Information Threshold",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Confidence.Semantic Resolution Threshold",
+      "occurrences": 2,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Confidence.Semantic Resolution Threshold",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Confidence.Semantic Resolution Threshold",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Extension Selections",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Extension Selections",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Extension Selections",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Framework Control-Root Locator",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Framework Control-Root Locator",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Framework Control-Root Locator",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Identifier",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Identifier",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Identifier",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Interaction.Reporting Mode",
+      "occurrences": 6,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Interaction.Reporting Mode",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Interaction.Reporting Mode.Effects",
+      "occurrences": 3,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Effects",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Interaction.Reporting Mode.Effects",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Interaction.Reporting Mode.Mandatory Information",
+      "occurrences": 3,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Interaction.Reporting Mode: silent",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode: silent",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Interaction.Reporting Mode: silent",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Interaction.Reporting Mode: verbose",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode: verbose",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Interaction.Reporting Mode: verbose",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Parameter Resolution",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Parameter Resolution",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Parameter Resolution Validation",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution Validation",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Parameter Resolution Validation",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Revision Binding",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Revision Binding",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Revision Binding",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework Instance.Settings.Tool Selections",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Framework Settings.Tool Selections",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Framework Settings.Tool Selections",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Framework-Owned Carrier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "GOVERNS",
+      "occurrences": 16,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "General Artifact Graph",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "General Term",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Generated-Only Provenance Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Generator",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Global Tier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Goal",
+      "occurrences": 5,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Atom/Content Role: Requirement/Type: Goal",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Governance Origin",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Governed Entity",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Governed Term",
+      "occurrences": 12,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Governed Term Rendering",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Graph Projection construction/Completion",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Graph of Graphs",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "History",
+      "occurrences": 1,
+      "target": "Entity/Continuant/History",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Hub Atom",
+      "occurrences": 21,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Hub Carrier.Navigation Entry",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "IS_ALLOWED_VALUE_OF",
+      "occurrences": 12,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "IS_BORNE_BY",
+      "occurrences": 7,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "IS_CARRIED_BY",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation",
+      "occurrences": 52,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Binding",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Evaluation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Evaluation Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Failure Diagnosis",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Failure Diagnosis Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Folder",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Of Relation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Preparation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Preparation Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Relation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Relation Pair",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Repair",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Repair Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Retry Control",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Retry Control Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Retry Limit",
+      "occurrences": 13,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Workflow",
+      "occurrences": 7,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Implementation Workflow/Carrier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Installed Extensions Catalog Entry",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Journal",
+      "occurrences": 83,
+      "target": "Entity/Continuant/History/Journal",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Journal Carrier Root",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Journal Event query",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Journal.Record",
+      "occurrences": 40,
+      "target": "Entity/Continuant/History/Journal.Record",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Journal/Revision",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Label",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Legacy Evidence and Provisional RMED Preparation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Lifecycle Tool authority/Scope Unit",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Lineage Impact Analysis",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Lineage Impact Analysis Content",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Local Order",
+      "occurrences": 8,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Local Tier",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Markdown",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Markdown Atom Carrier",
+      "occurrences": 11,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Markdown Atom Carrier Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Markdown Atom Carrier.Main Content",
+      "occurrences": 8,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Markdown Atom Carrier.Main Content.CCE Operator",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Markdown Atom Carrier.Main Content.Paragraph",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Markdown Atom Carrier.YAML Frontmatter",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Markdown Atom Carrier.YAML Frontmatter.Scalar",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Materialized Representation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Method CCE Role Profile",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Method For Relation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Method Learning Workflow",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Method Lesson Drafting",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Method Lesson Drafting Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Methodology",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Methodology Source",
+      "occurrences": 19,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Methodology Source File Carrier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Methodology Source.Expansion Boundary",
+      "occurrences": 10,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Methodology Source.Expansion Mapping",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Migrate Atom CCE Representation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "NARROWER_THAN",
+      "occurrences": 7,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Navigation Projection Derivation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Navigational Order Number",
+      "occurrences": 8,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "New Archived Revision Markdown Carrier Binding",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Non-ephemeral Entity",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Nonnegative Integer Literal",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Normative Atom Prose Authoring",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Normative Authority Relation Pair",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Obsolete Project Name",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Obtain Source Correction Decision",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Operations",
+      "occurrences": 4,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Operations",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Atom/Content Role: Operations",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Operations Type-specific CCE Profiles",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Operator",
+      "occurrences": 186,
+      "target": "Entity/Continuant/Actor/Type: Operator",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Actor/Type: Operator",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Owned Atoms",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Persist Atom Replacement",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Plan",
+      "occurrences": 6,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Plan",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Atom/Content Role: Plan",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Plan Atom Carrier",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Plan Atom Carrier Bundle",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Plan Atom Carrier Bundle.Location",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Plan Atom Carrier.Stem",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Plan Atom File Carrier.Content",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Plan Atom File Carrier.Filename",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Plan Backlog",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Plan Backlog Directory Carrier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Plan Blocking Relations",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Plan CCE Role Profile",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Plan Graph",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Prepare Structural Change",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Previous Unit",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Primary Entity",
+      "occurrences": 12,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Priority",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Producer",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Producer Result",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Producer Result.Flow Direction",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Producer Scope Unit",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project",
+      "occurrences": 129,
+      "target": "Entity/Continuant/Object/Project",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Project Atom ID",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Boundary Position",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Configuration",
+      "occurrences": 25,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Lexicographic Selection",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Name",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Normative Authority Graph",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Principle Universe",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Priority Model Application",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Scope Unit Graph Projection",
+      "occurrences": 8,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Settings",
+      "occurrences": 23,
+      "target": "Entity/Continuant/Object/Project.Settings",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Project.Settings",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Project Settings Authoritative TOML File Carrier.Filename",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Settings Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Settings.Atom Prefix",
+      "occurrences": 5,
+      "target": "Entity/Continuant/Object/Project.Settings.Atom Prefix",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Settings.Atom Prefix",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Project Settings.Identifier",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Settings.Identifier",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Settings.Identifier",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Project Settings.Project Name",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Settings.Project Name",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Settings.Project Name",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Project Settings.Revision Binding",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Settings.Revision Binding",
+      "basis": "Candidate #5 explicit bearer relocation",
+      "candidate_expression": "Project.Settings.Revision Binding",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Project Settings/Revision Binding",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Structure",
+      "occurrences": 47,
+      "target": "Entity/Continuant/Object/Project.Structure",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Project.Structure",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Project Structure Maintenance",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Structure Maintenance Application Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Structure Maintenance Authorization Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Structure Maintenance Candidate Assessment Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Structure Maintenance Preparation Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Structure Maintenance Result Assessment Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Structure Maintenance Selection Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project Structure Maintenance/Step bindings",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project-Owned Carrier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project-Owned Carrier Root",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project-Owned Markdown Atom Carrier.Filename",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Project.Graph Dimensions",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Graph Dimensions",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Project.Minimum Model",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Object/Project.Minimum Model",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Project.Operator Registry",
+      "occurrences": 2,
+      "target": "Entity/Continuant/Object/Project.Operator Registry",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Project/Scope Unit",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Projection",
+      "occurrences": 77,
+      "target": "Entity/Continuant/Projection",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection Carrier Root",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Projection Rebuild",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Projection.Authority",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Projection.Authority",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection.ID",
+      "occurrences": 2,
+      "target": "Entity/Continuant/Projection.ID",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection.Updated At",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Projection.Updated At",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Revision",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Projection/Type",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Projection/Type: Artifact Change Log",
+      "occurrences": 3,
+      "target": "Entity/Continuant/Projection/Type: Artifact Change Log",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Atom Subjects Graph",
+      "occurrences": 3,
+      "target": "Entity/Continuant/Projection/Type: Atom Subjects Graph",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Canonical Scope Signature",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Projection/Type: Canonical Scope Signature",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Canonical Signature",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Projection/Type: Canonical Signature",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Catalog",
+      "occurrences": 5,
+      "target": "Entity/Continuant/Projection/Type: Catalog",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Direct Relation Registry",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Projection/Type: Direct Relation Registry",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Entities Graph",
+      "occurrences": 9,
+      "target": "Entity/Continuant/Projection/Type: Entities Graph",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Extended Entities Graph",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Projection/Type: Extended Entities Graph",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Hub",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Projection/Type: Hub",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Implementation Overview",
+      "occurrences": 2,
+      "target": "Entity/Continuant/Projection/Type: Implementation Overview",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Map",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Projection/Type: Map",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Process Log",
+      "occurrences": 3,
+      "target": "Entity/Continuant/Projection/Type: Process Log",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Reconciled Projection",
+      "occurrences": 6,
+      "target": "Entity/Continuant/Projection/Type: Reconciled Projection",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Projection/Type: Terms Graph",
+      "occurrences": 8,
+      "target": "Entity/Continuant/Projection/Type: Terms Graph",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Proof Dependency Frontier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Property",
+      "occurrences": 37,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Propose Source Corrections",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Provenance",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Publish Reconciled Projection",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "RMED Atom Review Check Coverage Gate Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "RMED Atom Review Coverage Gate Action",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "RMED Atom Review Fix Coverage Gate Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "RMED Atom Review Gather Coverage Gate Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "RMED Atom Review Workflow",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "RMED Review Evaluation Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "RMED Review Repair Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "RMED Review Selection Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "RMEDO Conflict Resolution",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Rationale For Relation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Reconcile Atom Properties and Addresses",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Reconcile Navigation Numbers",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Reconcile Unfinished Work",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Recurrence Protection",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Related To Relation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Relation",
+      "occurrences": 42,
+      "target": "Entity/Continuant/Object/Relation",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Relation Kind",
+      "occurrences": 29,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Relation Kind Metadata",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Relation Type",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Relation.Authority",
+      "occurrences": 3,
+      "target": "Entity/Continuant/Object/Relation.Authority",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Relation/Type: On Result",
+      "occurrences": 19,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Relational Atom",
+      "occurrences": 7,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Relational Atom Classification Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Relational Atom/Type",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Repair RMED Review Batch",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Replacement-Required Lineage Impact Disposition",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Requirement CCE Role Profile",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Requirement Implementation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Requirement Implementation Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Resolve Operator Priorities",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Resolve Project Initialization Inputs",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Revert Changes Workflow",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Revision/Type: Atom",
+      "occurrences": 17,
+      "target": "Entity/Continuant/History/Revision/Type: Atom",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Root Term",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Runtime State",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Runtime State Carrier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Scope",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Scope Expression",
+      "occurrences": 7,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Scope Expression Evaluation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Scope Reference Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Scope Unit",
+      "occurrences": 119,
+      "target": "Entity/Continuant/Object/Scope Unit",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Scope Unit Carrier Binding",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Scope Unit Graph",
+      "occurrences": 1,
+      "target": "Entity/Continuant/Projection/Type: Scope Unit Graph",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Projection/Type: Scope Unit Graph",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Scope Unit Scope",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Scope Unit.Label",
+      "occurrences": 13,
+      "target": "Entity/Continuant/Object/Scope Unit.Label",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Scope Unit.Local Order",
+      "occurrences": 4,
+      "target": "Entity/Continuant/Object/Scope Unit.Local Order",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Scope Unit.Name",
+      "occurrences": 14,
+      "target": "Entity/Continuant/Object/Scope Unit.Name",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Scope Unit.Navigational Order Number",
+      "occurrences": 4,
+      "target": "Entity/Continuant/Object/Scope Unit.Navigational Order Number",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Scope Unit.Structural Level",
+      "occurrences": 2,
+      "target": "Entity/Continuant/Object/Scope Unit.Structural Level",
+      "basis": "Candidate #5 property (including inherited declarations)",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Scope Unit/Type",
+      "occurrences": 12,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Scope Unit/Type: Ordered",
+      "occurrences": 4,
+      "target": "Entity/Continuant/Object/Scope Unit/Type: Ordered",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Scope Unit/Type: Unordered",
+      "occurrences": 3,
+      "target": "Entity/Continuant/Object/Scope Unit/Type: Unordered",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Scoped Operator-choice Applicability",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Screen Short Names",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Scripted Migration",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Select Priority-Governed Alternative",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Select RMED Review Batch",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Select Reconciliation Sources",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Selected Operations/Carrier",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Selected Workflow Step/Agentic invocation context binding",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Selection",
+      "occurrences": 2,
+      "target": "Entity/Continuant/Selection",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Session-State Envelope",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Set-valued Property",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Set-valued Property Membership Evaluation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Single Source of Truth",
+      "occurrences": 12,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Skill",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Source Reconciliation",
+      "occurrences": 8,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Source Reconciliation Assessment Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Source Reconciliation Correction Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Source Reconciliation Decision Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Source Reconciliation Proposal Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Source Reconciliation Publication Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Source Reconciliation Selection Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Source Reconciliation Workflow Carrier layout",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Source Reconciliation/Step bindings",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Source verification evidence",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Spec",
+      "occurrences": 10,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Spec Content Roles",
+      "occurrences": 10,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Status",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Step",
+      "occurrences": 98,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Atom/Content Role: Operations/Type: Step",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Step Run",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Step Run/Invocation",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Step/Agentic Execution Context",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Structural Coordinate",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Structural Entity",
+      "occurrences": 22,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Structural Entity Containment Relations",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Structural Entity Direct Containment",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Structural Entity Recursive Containment",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Structural Level",
+      "occurrences": 11,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Structural Parent Relation",
+      "occurrences": 12,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Structural Path",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Subject",
+      "occurrences": 22,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Subject Assignment",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Subject Expression",
+      "occurrences": 12,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Subject Expression Evaluation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Subject Expression Writing",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Subject Path",
+      "occurrences": 20,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Subject Projection Derivation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Subject Relation Kind: DEPENDS_ON",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Subtree-owned Atoms",
+      "occurrences": 4,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Subtree-targeting Atoms",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "TOML",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Target Set",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Targeting Atoms",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Term",
+      "occurrences": 29,
+      "target": "Entity/Continuant/Term",
+      "basis": "Candidate #5 primary tree",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Term.Name",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Terminology Projection Derivation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Terms Graph",
+      "occurrences": 4,
+      "target": "Entity/Continuant/Projection/Type: Terms Graph",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Projection/Type: Terms Graph",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Terms Graph Construction Step",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Tool",
+      "occurrences": 14,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Tool Call",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Tool/Workflow Operations/Atom Lifecycle/Request Parameters",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Translation",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Type",
+      "occurrences": 35,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Type-Qualified Status Validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Uncertain Lineage Impact Disposition",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Unit",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Update-Required Lineage Impact Disposition",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Verification",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Work Journal/Record",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Work Sequence Number",
+      "occurrences": 3,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Workflow",
+      "occurrences": 86,
+      "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+      "basis": "Candidate #5 explicit alias",
+      "candidate_expression": "Atom/Content Role: Operations/Type: Workflow",
+      "state": "mapped_but_blocked"
+    },
+    {
+      "subject": "Workflow Run",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "Workflow/Step binding ownership",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "YAML",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "applicability",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "artifact-catalog",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "artifact-model",
+      "occurrences": 12,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "atom-boundary",
+      "occurrences": 39,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "authority",
+      "occurrences": 12,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "classification",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "continuous-improvement",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "development-flow",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "evaluation",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "extension-model",
+      "occurrences": 5,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "external-boundary",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "framework-boundary",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "interaction",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "language",
+      "occurrences": 6,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "lifecycle",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "lifecycle-traceability",
+      "occurrences": 10,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "principles",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "project-containment graph",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "provenance",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "relation validation",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "relation-model",
+      "occurrences": 41,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "requirement-topology",
+      "occurrences": 2,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "runtime",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "scope-topology",
+      "occurrences": 23,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "semantics",
+      "occurrences": 11,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "settings specification",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    },
+    {
+      "subject": "subject",
+      "occurrences": 1,
+      "state": "unplaced_hold",
+      "reason": "No explicit Candidate #5 placement; do not infer or delete."
+    }
+  ]
+}

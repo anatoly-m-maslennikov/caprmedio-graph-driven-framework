@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Workflow"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity", "Atom", "Atom/Content Role", "Type", "Status", "Scope Unit", "Container Atom", "Carrier"]
-version: 5
-updated_at: "2026-10-15 12:19:27 +0000"
+    ["Entity", "Entity/Continuant/Object/Atom", "Atom/Content Role", "Type", "Status", "Entity/Continuant/Object/Scope Unit", "Container Atom", "Entity/Carrier"]
+version: 6
+updated_at: "2026-10-15 18:49:49 +0000"
 relations: {"evaluation_for": ["CA-R-1521"]}
 atom_id: "CA-E-490"
 content_role: "Evaluation"

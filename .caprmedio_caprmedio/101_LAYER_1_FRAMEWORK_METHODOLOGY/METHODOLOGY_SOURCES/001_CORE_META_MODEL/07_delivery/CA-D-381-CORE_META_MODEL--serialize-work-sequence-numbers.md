@@ -2,9 +2,9 @@
 subjects:
   governs: "Work Sequence Number"
   depends_on:
-    - "Carrier"
-version: 7
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Carrier"]
+version: 8
+updated_at: "2026-10-15 18:51:44 +0000"
 relations: {}
 atom_id: "CA-D-381"
 content_role: "Delivery"

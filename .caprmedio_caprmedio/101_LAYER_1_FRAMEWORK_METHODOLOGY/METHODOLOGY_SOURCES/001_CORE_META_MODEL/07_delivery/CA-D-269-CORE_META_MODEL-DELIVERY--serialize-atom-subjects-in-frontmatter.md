@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom.Subjects"
+  governs: "Entity/Continuant/Object/Atom.Subjects"
   depends_on:
-    ["Atom.Subjects", "GOVERNS", "DEPENDS_ON", "Subject Path", "Subject", "Relation Kind"]
-version: 13
-updated_at: "2026-10-15 12:17:55 +0000"
+    ["Entity/Continuant/Object/Atom.Subjects", "GOVERNS", "DEPENDS_ON", "Subject Path", "Subject", "Relation Kind"]
+version: 14
+updated_at: "2026-10-15 18:50:44 +0000"
 relations: {}
 atom_id: "CA-D-269"
 content_role: "Delivery"

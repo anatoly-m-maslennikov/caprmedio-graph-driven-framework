@@ -2,9 +2,9 @@
 subjects:
   governs: "Demand Direction"
   depends_on:
-    ["Atom Scope", "Atom.Target Scope Unit"]
-version: 20
-updated_at: "2026-10-15 12:23:40 +0000"
+    ["Atom Scope", "Entity/Continuant/Object/Atom.Target Scope Unit"]
+version: 21
+updated_at: "2026-10-15 18:47:15 +0000"
 relations:
   child_of:
     - CA-R-932

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings"
+  governs: "Entity/Continuant/Object/Project.Settings"
   depends_on:
-    ["Project Structure", "Framework Instance.Settings", "Project Scope Unit Graph Projection", "Projection"]
-version: 22
-updated_at: "2026-10-15 12:21:06 +0000"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Framework Settings", "Project Scope Unit Graph Projection", "Entity/Continuant/Projection"]
+version: 23
+updated_at: "2026-10-15 18:41:05 +0000"
 relations:
   child_of:
     - CA-R-832-CORE-REQUIREMENT--select-optional-capabilities-through-configuration

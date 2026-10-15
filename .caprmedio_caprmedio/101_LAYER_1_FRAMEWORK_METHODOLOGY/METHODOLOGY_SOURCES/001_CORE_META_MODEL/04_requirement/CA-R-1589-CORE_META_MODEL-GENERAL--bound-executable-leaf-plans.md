@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Plan/Type: Plan"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "AI Agent", "Operator", "Atom/Content Role: Plan/Type: Plan.Label"]
-version: 6
-updated_at: "2026-10-15 12:22:49 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom/Content Role: Plan.Label"]
+version: 7
+updated_at: "2026-10-15 18:44:50 +0000"
 relations: {"relates_to": ["CA-R-1575", "CA-R-1584"]}
 atom_id: "CA-R-1589"
 content_role: "Requirement"

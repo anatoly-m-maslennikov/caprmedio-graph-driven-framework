@@ -2,9 +2,9 @@
 subjects:
   governs: "Container Atom"
   depends_on:
-    - "Atom"
-version: 13
-updated_at: "2026-10-15 12:21:15 +0000"
+    ["Entity/Continuant/Object/Atom"]
+version: 14
+updated_at: "2026-10-15 18:41:28 +0000"
 relations: {}
 atom_id: "CA-R-1265"
 content_role: "Requirement"

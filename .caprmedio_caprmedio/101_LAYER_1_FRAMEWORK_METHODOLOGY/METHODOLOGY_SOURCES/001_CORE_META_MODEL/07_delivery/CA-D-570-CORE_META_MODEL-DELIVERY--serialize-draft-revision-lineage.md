@@ -2,9 +2,9 @@
 subjects:
   governs: "Draft Atom.Revision Lineage"
   depends_on:
-    ["Atom.ID", "Atom State Identifier", "Draft Atom", "Atom History", "Atom.Version Number", "Atom/Content Role"]
-version: 6
-updated_at: "2026-10-15 12:19:03 +0000"
+    ["Entity/Continuant/Object/Atom.ID", "Atom State Identifier", "Draft Atom", "Atom History", "Entity/Continuant/Object/Atom.Version Number", "Atom/Content Role"]
+version: 7
+updated_at: "2026-10-15 18:52:35 +0000"
 relations:
   relates_to:
     - CA-D-288

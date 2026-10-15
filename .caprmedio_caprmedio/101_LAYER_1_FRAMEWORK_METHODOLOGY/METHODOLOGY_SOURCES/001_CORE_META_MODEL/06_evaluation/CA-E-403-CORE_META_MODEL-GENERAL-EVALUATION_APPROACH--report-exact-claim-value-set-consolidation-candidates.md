@@ -2,9 +2,9 @@
 subjects:
   governs: "Claim Value Set Consolidation Candidate Evaluation"
   depends_on:
-    ["Atom.Substance", "Atom Scope", "Atom.Governed Subject", "Claim Value Set", "Property", "IS_ALLOWED_VALUE_OF"]
-version: 13
-updated_at: "2026-10-15 12:19:09 +0000"
+    ["Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Entity/Continuant/Object/Atom.Governed Subject", "Claim Value Set", "Property", "IS_ALLOWED_VALUE_OF"]
+version: 14
+updated_at: "2026-10-15 18:49:10 +0000"
 relations:
   evaluation_for:
     - CA-R-1358

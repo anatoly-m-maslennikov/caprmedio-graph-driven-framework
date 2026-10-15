@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Journal.Record"
+  governs: "Entity/Continuant/History/Journal.Record"
   depends_on: []
-version: 13
-updated_at: "2026-10-15 12:18:13 +0000"
+version: 14
+updated_at: "2026-10-15 18:51:18 +0000"
 relations: {}
 atom_id: "CA-D-338"
 content_role: "Delivery"

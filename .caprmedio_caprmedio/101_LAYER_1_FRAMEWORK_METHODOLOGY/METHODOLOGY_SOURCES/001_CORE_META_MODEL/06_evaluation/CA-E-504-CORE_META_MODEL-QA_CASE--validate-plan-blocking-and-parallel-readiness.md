@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Plan/Type: Plan"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Atom/Content Role: Plan/Type: Plan.Status: Done", "Atom/Content Role: Plan/Type: Plan.Work Sequence Number", "Hub Atom"]
-version: 6
-updated_at: "2026-10-15 12:19:33 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Done", "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number", "Hub Atom"]
+version: 7
+updated_at: "2026-10-15 18:50:10 +0000"
 relations: {"evaluation_for": ["CA-R-1580", "CA-R-1583", "CA-R-1592", "CA-D-471", "CA-D-481"]}
 atom_id: "CA-E-504"
 content_role: "Evaluation"

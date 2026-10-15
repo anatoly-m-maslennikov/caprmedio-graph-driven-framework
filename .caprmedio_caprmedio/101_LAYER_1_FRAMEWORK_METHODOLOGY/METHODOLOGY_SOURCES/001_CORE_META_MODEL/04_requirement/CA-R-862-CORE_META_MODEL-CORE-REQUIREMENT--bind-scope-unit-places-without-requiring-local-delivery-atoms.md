@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit"
+  governs: "Entity/Continuant/Object/Scope Unit"
   depends_on:
-    - "Project Structure"
-    - "Implementation Folder"
-    - "Carrier"
-    - "Atom/Content Role: Delivery"
-version: 16
-updated_at: "2026-10-02 20:52:00 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Implementation Folder", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Delivery"]
+version: 17
+updated_at: "2026-10-15 18:46:41 +0000"
 relations:
   child_of:
     - CA-R-1484

@@ -2,9 +2,9 @@
 subjects:
   governs: "Projection/Revision"
   depends_on:
-    - "Projection"
-version: 6
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Entity/Continuant/Projection"]
+version: 7
+updated_at: "2026-10-15 18:43:42 +0000"
 relations:
   child_of:
     - "CA-R-1708"

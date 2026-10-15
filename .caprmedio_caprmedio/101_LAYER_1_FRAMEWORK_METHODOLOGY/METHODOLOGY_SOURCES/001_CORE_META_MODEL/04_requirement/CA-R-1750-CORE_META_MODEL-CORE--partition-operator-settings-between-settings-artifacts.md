@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance.Settings"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    ["Operator", "Project Settings", "Project Structure", "Default Settings", "Project Name", "Project Settings.Atom Prefix", "Atom"]
-version: 22
-updated_at: "2026-10-15 12:23:15 +0000"
+    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Structure", "Default Settings", "Project Name", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Atom"]
+version: 23
+updated_at: "2026-10-15 18:45:44 +0000"
 relations:
   relates_to:
     - "CA-R-1740"

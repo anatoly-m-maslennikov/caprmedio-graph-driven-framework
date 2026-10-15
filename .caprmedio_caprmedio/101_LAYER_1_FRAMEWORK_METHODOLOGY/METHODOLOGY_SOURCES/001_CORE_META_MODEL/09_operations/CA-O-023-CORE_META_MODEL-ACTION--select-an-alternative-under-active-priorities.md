@@ -1,6 +1,6 @@
 ---
-version: 7
-updated_at: "2026-10-15 12:20:22 +0000"
+version: 8
+updated_at: "2026-10-15 18:52:56 +0000"
 relations:
   child_of:
     - CA-R-1487
@@ -10,7 +10,7 @@ relations:
 subjects:
   governs: "Select Priority-Governed Alternative"
   depends_on:
-    ["Action", "Operator", "Resolve Operator Priorities", "Project Priority Model Application", "Project Lexicographic Selection"]
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Resolve Operator Priorities", "Project Priority Model Application", "Project Lexicographic Selection"]
 atom_id: "CA-O-023"
 content_role: "Operations"
 current_scope_unit: "CORE_META_MODEL"

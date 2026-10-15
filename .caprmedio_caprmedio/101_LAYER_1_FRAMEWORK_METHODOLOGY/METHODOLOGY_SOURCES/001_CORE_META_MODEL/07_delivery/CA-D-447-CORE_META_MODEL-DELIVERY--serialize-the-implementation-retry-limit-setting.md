@@ -1,11 +1,11 @@
 ---
-version: 9
-updated_at: "2026-10-15 12:18:39 +0000"
+version: 10
+updated_at: "2026-10-15 18:52:02 +0000"
 relations: {"relates_to": ["CA-D-361", "CA-R-1488", "CA-R-1489", "CA-D-408", "CA-D-460", "CA-D-470", "CA-M-295"]}
 subjects:
   governs: "Implementation Retry Limit"
   depends_on:
-    ["Framework Instance.Settings", "Default Settings", "Implementation Retry Limit", "Atom/Content Role: Plan/Type: Plan", "Carrier"]
+    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Implementation Retry Limit", "Atom/Content Role: Plan/Type: Plan", "Entity/Carrier"]
 atom_id: "CA-D-447"
 content_role: "Delivery"
 current_scope_unit: "CORE_META_MODEL"

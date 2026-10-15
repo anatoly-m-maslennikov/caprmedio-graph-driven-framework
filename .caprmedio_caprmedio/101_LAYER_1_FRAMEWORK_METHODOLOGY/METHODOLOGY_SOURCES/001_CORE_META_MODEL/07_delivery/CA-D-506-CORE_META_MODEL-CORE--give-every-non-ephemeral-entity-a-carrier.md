@@ -6,15 +6,13 @@ claim_target_scope_unit: "CORE_META_MODEL"
 local_tier: "Core"
 global_tier: 9
 status: "Active"
-version: 2
-updated_at: "2026-10-15 12:18:55 +0000"
+version: 3
+updated_at: "2026-10-15 18:52:27 +0000"
 author: "Anatoly Maslennikov"
 subjects:
   governs: "Non-ephemeral Entity"
   depends_on:
-    - "Entity"
-    - "Carrier"
-    - "Property"
+    ["Entity", "Entity/Carrier", "Property"]
 relations: {}
 ---
 # Summary

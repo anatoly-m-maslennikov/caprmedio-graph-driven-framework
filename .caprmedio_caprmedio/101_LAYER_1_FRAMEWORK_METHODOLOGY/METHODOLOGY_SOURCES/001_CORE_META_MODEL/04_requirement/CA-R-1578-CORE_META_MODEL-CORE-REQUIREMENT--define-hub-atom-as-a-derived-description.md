@@ -2,9 +2,9 @@
 subjects:
   governs: "Hub Atom"
   depends_on:
-    ["Atom", "Atom.Substance", "Atom/Content Role: Plan/Type: Plan", "Type", "Atom/Content Role: Plan/Type: Plan.Label", "Atom.Global Tier"]
-version: 5
-updated_at: "2026-10-15 12:22:43 +0000"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Atom/Content Role: Plan/Type: Plan", "Type", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Object/Atom.Global Tier"]
+version: 6
+updated_at: "2026-10-15 18:44:39 +0000"
 relations: {"relates_to": ["CA-R-1534", "CA-R-1579"]}
 atom_id: "CA-R-1578"
 content_role: "Requirement"

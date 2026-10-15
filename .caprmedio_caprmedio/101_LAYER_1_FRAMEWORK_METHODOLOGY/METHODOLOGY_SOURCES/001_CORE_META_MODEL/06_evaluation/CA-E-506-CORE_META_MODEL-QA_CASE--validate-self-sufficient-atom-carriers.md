@@ -2,9 +2,9 @@
 subjects:
   governs: "Markdown Atom Carrier"
   depends_on:
-    ["Atom.Author", "Atom", "Atom.Property", "Atom.Substance", "Atom.Summary", "Atom.Status", "Relation", "Markdown Atom Carrier"]
-version: 8
-updated_at: "2026-10-15 12:19:34 +0000"
+    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Property", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Relation", "Markdown Atom Carrier"]
+version: 9
+updated_at: "2026-10-15 18:50:15 +0000"
 relations: {"evaluation_for": ["CA-R-1598", "CA-R-1599", "CA-D-478", "CA-D-479", "CA-D-480", "CA-D-481", "CA-D-482", "CA-D-483", "CA-D-485", "CA-D-460", "CA-D-470"]}
 atom_id: "CA-E-506"
 content_role: "Evaluation"

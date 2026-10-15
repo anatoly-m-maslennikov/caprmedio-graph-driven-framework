@@ -2,13 +2,10 @@
 subjects:
   governs: "Atom/Revision/Status: Draft/Identity Continuity"
   depends_on:
-    - "Atom/Identity"
-    - "Atom/Revision/Identifier"
-    - "Atom/Revision/Status: Draft"
-    - "Operator"
+    ["Atom/Identity", "Atom/Revision/Identifier", "Atom/Revision/Status: Draft", "Entity/Continuant/Actor/Type: Operator"]
 priority: high
-version: 3
-updated_at: "2026-10-05 07:51:22 +0400"
+version: 4
+updated_at: "2026-10-15 18:40:20 +0000"
 relations:
   relates_to:
     - CA-D-288

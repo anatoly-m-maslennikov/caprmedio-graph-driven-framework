@@ -7,12 +7,12 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: Active
-version: 4
-updated_at: "2026-10-15 12:18:53 +0000"
+version: 5
+updated_at: "2026-10-15 18:52:22 +0000"
 subjects:
-  governs: "Project.Operator Registry"
+  governs: "Entity/Continuant/Object/Project.Operator Registry"
   depends_on:
-    ["Project", "Operator", "Atom.Author", "Journal"]
+    ["Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom.Author", "Entity/Continuant/History/Journal"]
 relations:
   relates_to:
     - CA-D-274

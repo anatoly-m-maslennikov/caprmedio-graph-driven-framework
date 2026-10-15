@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Type: Ordered"
+  governs: "Entity/Continuant/Object/Scope Unit/Type: Ordered"
   depends_on:
     - "Local Order"
-version: 20
-updated_at: "2026-10-03 03:35:10 +0400"
+version: 21
+updated_at: "2026-10-15 18:45:49 +0000"
 relations: {}
 atom_id: "CA-R-1760"
 content_role: "Requirement"

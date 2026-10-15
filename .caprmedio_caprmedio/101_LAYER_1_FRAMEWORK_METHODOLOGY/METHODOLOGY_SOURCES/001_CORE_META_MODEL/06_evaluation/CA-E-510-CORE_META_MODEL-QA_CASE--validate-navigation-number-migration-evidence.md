@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Reconcile Navigation Numbers"
   depends_on:
-    ["Project Structure", "Scope Unit", "Scope Unit.Navigational Order Number", "Scope Unit.Local Order", "Scope Unit.Structural Level", "Scope Unit/Type", "Scope Unit.Label", "Carrier", "Directory Carrier.Numeric Prefix", "Implementation Folder", "Operator", "Atom", "Action", "Evaluation", "Concern"]
-version: 4
-updated_at: "2026-10-15 12:19:35 +0000"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Continuant/Object/Scope Unit.Local Order", "Entity/Continuant/Object/Scope Unit.Structural Level", "Scope Unit/Type", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Carrier", "Entity/Carrier/Directory Carrier.Numeric Prefix", "Implementation Folder", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Concern"]
+version: 5
+updated_at: "2026-10-15 18:50:19 +0000"
 relations: {"evaluation_for": ["CA-O-078", "CA-R-1483", "CA-R-976", "CA-R-981", "CA-R-983", "CA-D-300", "CA-D-380", "CA-D-442", "CA-D-444", "CA-D-445"], "relates_to": ["CA-E-469"]}
 global_tier: 11
 ---

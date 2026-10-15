@@ -1,0 +1,24 @@
+{
+  "state": "passed",
+  "checkpoint": "9ef71f469b6d8b9d8dbc9a96661a9e11d7eb8152",
+  "packet_sha256": "772835c86dc8683c7de4150bc902abfdf4a462f30c7f003e7d7d4c45ae3c74c5",
+  "reviewed_packet_sha256": "c22b39c3df92423b75e5bed691702fe7e1f015c385972c1c6085a10a6ac2c277",
+  "progress": {
+    "state": "completed",
+    "completed": 750,
+    "count": 750,
+    "remaining": 0
+  },
+  "counts": {
+    "outcome_applied": 750,
+    "exact_archives": 750,
+    "removed_edit_drafts": 750,
+    "subjects_body_metadata_checks_passed": 750,
+    "held_preserved": 5,
+    "unchanged_preserved": 228,
+    "empty_definition_drafts": 54
+  },
+  "empty_drafts_sha256": "9d94d237b3836e5cc9bc94d1f6812fe550f97bd0336fa3e82c8e1f1149d69106",
+  "failures": [],
+  "scope": "Read-only exact checkpoint/archive/current comparison; mapped Subjects only plus version/updated_at; all other raw header bytes/body/metadata unchanged; 5 held +228 unchanged;54 placeholders unchanged."
+}

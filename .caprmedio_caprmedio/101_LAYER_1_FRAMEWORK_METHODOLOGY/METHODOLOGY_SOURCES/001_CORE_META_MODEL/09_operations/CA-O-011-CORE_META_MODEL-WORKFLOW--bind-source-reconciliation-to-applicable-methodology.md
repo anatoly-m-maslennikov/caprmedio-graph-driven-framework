@@ -2,9 +2,9 @@
 subjects:
   governs: "Applicable Methodology Compilation"
   depends_on:
-    ["Relation/Type: On Result", "Execution/Step Run", "Execution/Workflow Run", "Action", "Step", "Workflow", "Source Reconciliation", "Applicable Methodology", "Methodology Source", "Scope Unit", "Framework Instance.Settings", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Atom", "Atom.Substance", "Operator", "Applicable Methodology Source Frontier Digest", "Journal.Record"]
-version: 13
-updated_at: "2026-10-15 12:20:15 +0000"
+    ["Relation/Type: On Result", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Source Reconciliation", "Entity/Continuant/Projection/Type: Applicable Methodology", "Methodology Source", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Framework Settings", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Actor/Type: Operator", "Applicable Methodology Source Frontier Digest", "Entity/Continuant/History/Journal.Record"]
+version: 14
+updated_at: "2026-10-15 18:52:45 +0000"
 relations: {}
 atom_id: "CA-O-011"
 content_role: "Operations"

@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: resolved
 subjects:
   governs: "Implementation Workflow/Carrier"
-  depends_on: [Workflow, Artifact/Carrier]
-version: 2
-updated_at: "2026-10-04 16:53:27 +0000"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Artifact/Carrier"]
+version: 3
+updated_at: "2026-10-15 18:40:50 +0000"
 relations:
   concern_about: [CA-O-016]
 ---

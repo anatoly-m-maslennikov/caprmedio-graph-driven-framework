@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Method"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Method"
   depends_on: []
-version: 18
-updated_at: "2026-10-03 03:35:10 +0400"
+version: 19
+updated_at: "2026-10-15 18:45:56 +0000"
 relations:
   child_of:
     - CA-M-001

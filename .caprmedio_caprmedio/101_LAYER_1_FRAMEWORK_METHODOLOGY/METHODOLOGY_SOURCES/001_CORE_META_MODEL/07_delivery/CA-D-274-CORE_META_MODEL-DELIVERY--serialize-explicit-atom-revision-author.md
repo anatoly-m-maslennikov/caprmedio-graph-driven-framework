@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom.Author"
+  governs: "Entity/Continuant/Object/Atom.Author"
   depends_on:
-    ["Operator", "Project.Operator Registry"]
-version: 18
-updated_at: "2026-10-15 12:17:56 +0000"
+    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Operator Registry"]
+version: 19
+updated_at: "2026-10-15 18:50:47 +0000"
 relations: {}
 atom_id: "CA-D-274"
 content_role: "Delivery"

@@ -1,11 +1,11 @@
 ---
-version: 7
-updated_at: "2026-10-15 12:22:10 +0000"
+version: 8
+updated_at: "2026-10-15 18:43:37 +0000"
 relations: {}
 subjects:
   governs: "Implementation Retry Limit"
   depends_on:
-    ["Execution/Workflow Run", "Implementation Workflow", "Implementation Retry Control", "Atom/Content Role: Evaluation"]
+    ["Entity/Occurrent/Execution/Workflow Run", "Implementation Workflow", "Implementation Retry Control", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
 atom_id: "CA-R-1488"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"

@@ -2,9 +2,9 @@
 subjects:
   governs: "NARROWER_THAN"
   depends_on:
-    - "Terms Graph"
-version: 11
-updated_at: "2026-10-02 22:05:04 +0400"
+    ["Entity/Continuant/Projection/Type: Terms Graph"]
+version: 12
+updated_at: "2026-10-15 18:42:03 +0000"
 relations: {}
 atom_id: "CA-R-1345"
 content_role: "Requirement"

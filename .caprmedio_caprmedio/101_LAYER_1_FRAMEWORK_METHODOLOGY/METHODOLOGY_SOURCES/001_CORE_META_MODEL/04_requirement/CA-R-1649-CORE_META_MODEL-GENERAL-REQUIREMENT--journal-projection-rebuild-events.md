@@ -2,9 +2,9 @@
 subjects:
   governs: "Projection Rebuild"
   depends_on:
-    ["Journal.Record", "Projection"]
-version: 20
-updated_at: "2026-10-15 12:23:03 +0000"
+    ["Entity/Continuant/History/Journal.Record", "Entity/Continuant/Projection"]
+version: 21
+updated_at: "2026-10-15 18:45:15 +0000"
 relations: {}
 atom_id: "CA-R-1649"
 content_role: "Requirement"

@@ -1,6 +1,6 @@
 ---
-version: 14
-updated_at: "2026-10-15 12:19:03 +0000"
+version: 15
+updated_at: "2026-10-15 18:48:50 +0000"
 relations:
   child_of:
     - CA-R-815
@@ -12,7 +12,7 @@ relations:
 subjects:
   governs: "Project Priority Model Application"
   depends_on:
-    ["Operator", "Scope", "Project", "CAPRMEDIO Framework Instance", "Resolve Operator Priorities", "Select Priority-Governed Alternative", "Project Lexicographic Selection"]
+    ["Entity/Continuant/Actor/Type: Operator", "Scope", "Entity/Continuant/Object/Project", "CAPRMEDIO Framework Instance", "Resolve Operator Priorities", "Select Priority-Governed Alternative", "Project Lexicographic Selection"]
 atom_id: "CA-E-207"
 content_role: "Evaluation"
 current_scope_unit: "CORE_META_MODEL"

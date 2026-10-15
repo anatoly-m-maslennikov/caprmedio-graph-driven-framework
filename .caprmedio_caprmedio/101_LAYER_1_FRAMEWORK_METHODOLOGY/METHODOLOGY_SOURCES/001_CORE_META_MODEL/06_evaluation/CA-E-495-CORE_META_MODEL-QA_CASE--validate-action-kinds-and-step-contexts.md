@@ -2,9 +2,9 @@
 subjects:
   governs: "Agentic Step Execution Context"
   depends_on:
-    ["Atom/Content Role: Operations/Type: Action/Execution Kind", "Action", "Step", "Workflow", "Execution/Step Run", "Operator"]
-version: 5
-updated_at: "2026-10-15 12:19:28 +0000"
+    ["Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Actor/Type: Operator"]
+version: 6
+updated_at: "2026-10-15 18:49:55 +0000"
 relations: {"evaluation_for": ["CA-R-1526", "CA-R-1527", "CA-R-1509"]}
 atom_id: "CA-E-495"
 content_role: "Evaluation"

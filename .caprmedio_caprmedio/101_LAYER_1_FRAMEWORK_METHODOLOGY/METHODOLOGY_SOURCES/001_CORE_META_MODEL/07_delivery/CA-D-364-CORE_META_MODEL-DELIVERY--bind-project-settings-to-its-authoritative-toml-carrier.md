@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings"
+  governs: "Entity/Continuant/Object/Project.Settings"
   depends_on:
     ["Project Settings Authoritative TOML File Carrier.Filename"]
-version: 11
-updated_at: "2026-10-15 12:18:20 +0000"
+version: 12
+updated_at: "2026-10-15 18:51:33 +0000"
 relations:
   child_of:
     - CA-D-363

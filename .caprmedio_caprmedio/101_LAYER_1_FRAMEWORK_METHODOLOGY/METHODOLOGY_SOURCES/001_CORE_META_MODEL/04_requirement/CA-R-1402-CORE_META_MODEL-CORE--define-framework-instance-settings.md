@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance.Settings"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    - "Artifact"
-    - "Project"
-    - "Operator"
-version: 11
-updated_at: "2026-10-15 12:21:45 +0000"
+    ["Artifact", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator"]
+version: 12
+updated_at: "2026-10-15 18:42:40 +0000"
 relations: {}
 atom_id: "CA-R-1402"
 content_role: "Requirement"

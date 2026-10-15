@@ -2,9 +2,9 @@
 subjects:
   governs: "Assess Lineage Impact"
   depends_on:
-    ["Action", "Atom", "Revision/Type: Atom", "Relation", "Lineage Impact Analysis", "Operator", "AI Agent"]
-version: 7
-updated_at: "2026-10-15 12:20:26 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Continuant/Object/Relation", "Lineage Impact Analysis", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent"]
+version: 8
+updated_at: "2026-10-15 18:53:02 +0000"
 relations: {"child_of":["CA-E-002"]}
 atom_id: "CA-O-058"
 content_role: "Operations"

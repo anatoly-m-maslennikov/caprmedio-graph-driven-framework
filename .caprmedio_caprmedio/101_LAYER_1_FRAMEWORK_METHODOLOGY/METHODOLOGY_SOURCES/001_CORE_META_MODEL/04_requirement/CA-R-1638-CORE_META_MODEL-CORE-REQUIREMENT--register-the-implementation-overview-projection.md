@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Implementation Overview"
+  governs: "Entity/Continuant/Projection/Type: Implementation Overview"
   depends_on:
-    ["Projection", "Atom", "Artifact", "Implementation Binding", "Journal", "Implementation", "Verification"]
-version: 28
-updated_at: "2026-10-15 12:23:00 +0000"
+    ["Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Artifact", "Implementation Binding", "Entity/Continuant/History/Journal", "Implementation", "Verification"]
+version: 29
+updated_at: "2026-10-15 18:45:11 +0000"
 relations:
   relates_to:
     - CA-R-1634

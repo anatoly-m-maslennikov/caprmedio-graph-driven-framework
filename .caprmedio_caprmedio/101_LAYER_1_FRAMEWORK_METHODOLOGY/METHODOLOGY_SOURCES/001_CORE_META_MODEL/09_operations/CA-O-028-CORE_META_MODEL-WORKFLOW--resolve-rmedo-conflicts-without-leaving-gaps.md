@@ -2,9 +2,9 @@
 subjects:
   governs: "RMEDO Conflict Resolution"
   depends_on:
-    ["Relation/Type: On Result", "Execution/Step Run", "Execution/Workflow Run", "Action", "Step", "Workflow", "Select Reconciliation Sources", "Assess Source Conflicts", "Propose Source Corrections", "Obtain Source Correction Decision", "Apply Approved Source Corrections", "Atom", "Atom.Substance", "Atom.Global Tier", "Atom.Updated At", "Atom.Local Tier: Principle", "Relation", "Operator", "AI Agent", "Autonomous Confidence Threshold", "Journal"]
-version: 9
-updated_at: "2026-10-15 12:20:23 +0000"
+    ["Relation/Type: On Result", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Select Reconciliation Sources", "Assess Source Conflicts", "Propose Source Corrections", "Obtain Source Correction Decision", "Apply Approved Source Corrections", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Atom.Updated At", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Relation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Autonomous Confidence Threshold", "Entity/Continuant/History/Journal"]
+version: 10
+updated_at: "2026-10-15 18:52:58 +0000"
 relations: {"relates_to":["CA-O-004","CA-O-005","CA-O-006","CA-O-007","CA-O-008","CA-R-1551","CA-R-807"]}
 atom_id: "CA-O-028"
 content_role: "Operations"

@@ -2,9 +2,9 @@
 subjects:
   governs: "Confidence Threshold.Source"
   depends_on:
-    ["Confidence Threshold", "Operator", "Atom/Content Role: Plan/Type: Plan", "Hub Atom", "Property", "Framework Instance.Settings"]
-version: 10
-updated_at: "2026-10-15 12:21:51 +0000"
+    ["Confidence Threshold", "Entity/Continuant/Actor/Type: Operator", "Atom/Content Role: Plan/Type: Plan", "Hub Atom", "Property", "Entity/Continuant/Object/Project.Framework Settings"]
+version: 11
+updated_at: "2026-10-15 18:42:52 +0000"
 relations:
   child_of:
     - "CA-R-1427"

@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Journal"
+  governs: "Entity/Continuant/History/Journal"
   depends_on:
-    - "Core Meta-Model"
-    - "Extension"
-    - "Projection/Type: Artifact Change Log"
-    - "Projection/Type: Process Log"
-version: 7
-updated_at: "2026-10-02 20:09:13 +0400"
+    ["Core Meta-Model", "Extension", "Entity/Continuant/Projection/Type: Artifact Change Log", "Entity/Continuant/Projection/Type: Process Log"]
+version: 8
+updated_at: "2026-10-15 18:49:34 +0000"
 relations:
   evaluation_for:
     - CA-R-1466

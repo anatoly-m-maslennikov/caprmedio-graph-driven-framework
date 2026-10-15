@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "File Carrier"
+  governs: "Entity/Carrier/File Carrier"
   depends_on:
-    - "Carrier"
-version: 11
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Entity/Carrier"]
+version: 12
+updated_at: "2026-10-15 18:50:41 +0000"
 relations: {}
 atom_id: "CA-D-258"
 content_role: "Delivery"

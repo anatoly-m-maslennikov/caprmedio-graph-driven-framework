@@ -2,9 +2,9 @@
 subjects:
   governs: "Source Reconciliation"
   depends_on:
-    ["Relation/Type: On Result", "Execution/Step Run", "Execution/Workflow Run", "Action", "Step", "Workflow", "Select Reconciliation Sources", "Assess Source Conflicts", "Propose Source Corrections", "Obtain Source Correction Decision", "Apply Approved Source Corrections", "Publish Reconciled Projection", "Operator", "AI Agent", "Autonomous Confidence Threshold", "Projection/Type: Reconciled Projection"]
-version: 10
-updated_at: "2026-10-15 12:20:14 +0000"
+    ["Relation/Type: On Result", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Select Reconciliation Sources", "Assess Source Conflicts", "Propose Source Corrections", "Obtain Source Correction Decision", "Apply Approved Source Corrections", "Publish Reconciled Projection", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Autonomous Confidence Threshold", "Entity/Continuant/Projection/Type: Reconciled Projection"]
+version: 11
+updated_at: "2026-10-15 18:52:44 +0000"
 relations: {}
 atom_id: "CA-O-010"
 content_role: "Operations"

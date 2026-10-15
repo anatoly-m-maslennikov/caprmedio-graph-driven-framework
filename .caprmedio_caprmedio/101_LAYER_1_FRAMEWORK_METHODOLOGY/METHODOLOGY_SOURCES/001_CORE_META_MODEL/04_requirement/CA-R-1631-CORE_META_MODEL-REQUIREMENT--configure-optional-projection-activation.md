@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance.Settings"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    ["Framework Instance.Settings", "Projection"]
-version: 21
-updated_at: "2026-10-15 12:22:58 +0000"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Projection"]
+version: 22
+updated_at: "2026-10-15 18:45:08 +0000"
 relations: {}
 atom_id: "CA-R-1631"
 content_role: "Requirement"

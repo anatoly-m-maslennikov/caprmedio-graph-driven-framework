@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Scope"
   depends_on:
-    ["Atom.Author", "Scope Unit Scope", "Operator", "Atom.Governed Subject", "Atom.Substance"]
-version: 19
-updated_at: "2026-10-15 12:21:04 +0000"
+    ["Entity/Continuant/Object/Atom.Author", "Scope Unit Scope", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom.Governed Subject", "Entity/Continuant/Object/Atom.Substance"]
+version: 20
+updated_at: "2026-10-15 18:41:02 +0000"
 relations:
   child_of:
     - CA-R-1596

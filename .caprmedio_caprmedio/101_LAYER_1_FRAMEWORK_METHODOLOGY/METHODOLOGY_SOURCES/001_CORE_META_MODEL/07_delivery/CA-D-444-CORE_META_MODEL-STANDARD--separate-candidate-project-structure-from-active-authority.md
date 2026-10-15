@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Project Structure"
+  governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    - "Carrier"
-    - "Project Structure Maintenance"
-    - "Operator"
-version: 6
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Entity/Carrier", "Project Structure Maintenance", "Entity/Continuant/Actor/Type: Operator"]
+version: 7
+updated_at: "2026-10-15 18:52:00 +0000"
 relations:
   child_of:
     - "CA-D-440"

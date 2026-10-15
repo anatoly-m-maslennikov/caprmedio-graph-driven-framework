@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Actor/Type: AI Agent"
+  governs: "Entity/Continuant/Actor/Type: AI Agent"
   depends_on:
-    - "AI Agent"
-    - "Operator"
-    - "Exploration Mode"
-    - "Atom/Content Role: Concern"
-version: 6
-updated_at: "2026-10-15 12:22:33 +0000"
+    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Exploration Mode", "Entity/Continuant/Object/Atom/Content Role: Concern"]
+version: 7
+updated_at: "2026-10-15 18:44:22 +0000"
 relations: {"child_of":["CA-R-1702"]}
 atom_id: "CA-R-1557"
 content_role: "Requirement"

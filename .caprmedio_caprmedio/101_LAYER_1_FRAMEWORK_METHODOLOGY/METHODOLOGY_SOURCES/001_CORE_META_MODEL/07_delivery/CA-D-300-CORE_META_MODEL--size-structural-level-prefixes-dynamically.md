@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Directory Carrier.Numeric Prefix"
+  governs: "Entity/Carrier/Directory Carrier.Numeric Prefix"
   depends_on:
-    - "Scope Unit"
-    - "Structural Level"
-    - "Navigational Order Number"
-version: 15
-updated_at: "2026-10-15 12:18:04 +0000"
+    ["Entity/Continuant/Object/Scope Unit", "Structural Level", "Navigational Order Number"]
+version: 16
+updated_at: "2026-10-15 18:51:03 +0000"
 relations: {}
 atom_id: "CA-D-300"
 content_role: "Delivery"

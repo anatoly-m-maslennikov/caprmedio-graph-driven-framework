@@ -7,11 +7,11 @@ local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Atom.Status"
+  governs: "Entity/Continuant/Object/Atom.Status"
   depends_on:
-    ["Atom.Substance", "Implementation", "Projection", "Single Source of Truth", "Spec Content Roles"]
-version: 5
-updated_at: "2026-10-15 12:22:54 +0000"
+    ["Entity/Continuant/Object/Atom.Substance", "Implementation", "Entity/Continuant/Projection", "Single Source of Truth", "Spec Content Roles"]
+version: 6
+updated_at: "2026-10-15 18:45:02 +0000"
 relations:
   relates_to:
     - CA-R-1470

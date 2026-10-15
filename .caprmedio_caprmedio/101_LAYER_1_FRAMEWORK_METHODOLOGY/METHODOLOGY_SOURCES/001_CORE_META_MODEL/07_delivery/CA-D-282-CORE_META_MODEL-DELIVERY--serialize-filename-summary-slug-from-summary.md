@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Carrier.Filename.Summary Slug"
   depends_on:
-    ["Atom.Summary"]
-version: 12
-updated_at: "2026-10-15 12:17:58 +0000"
+    ["Entity/Continuant/Object/Atom.Summary"]
+version: 13
+updated_at: "2026-10-15 18:50:49 +0000"
 relations: {}
 atom_id: "CA-D-282"
 content_role: "Delivery"

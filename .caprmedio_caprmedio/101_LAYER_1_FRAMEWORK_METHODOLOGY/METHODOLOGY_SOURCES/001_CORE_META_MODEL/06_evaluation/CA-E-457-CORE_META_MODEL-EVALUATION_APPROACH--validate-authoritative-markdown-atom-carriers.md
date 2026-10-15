@@ -2,9 +2,9 @@
 subjects:
   governs: "Markdown Atom Carrier Validation"
   depends_on:
-    ["Atom", "Markdown Atom Carrier", "Project"]
-version: 16
-updated_at: "2026-10-15 12:19:17 +0000"
+    ["Entity/Continuant/Object/Atom", "Markdown Atom Carrier", "Entity/Continuant/Object/Project"]
+version: 17
+updated_at: "2026-10-15 18:49:26 +0000"
 relations:
   evaluation_for:
     - CA-D-463

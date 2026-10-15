@@ -2,9 +2,9 @@
 subjects:
   governs: "Targeting Atoms"
   depends_on:
-    ["Atom", "Atom.Target Scope Unit", "Scope Unit"]
-version: 10
-updated_at: "2026-10-15 12:22:00 +0000"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Scope Unit"]
+version: 11
+updated_at: "2026-10-15 18:43:11 +0000"
 relations: {}
 atom_id: "CA-R-1448"
 content_role: "Requirement"

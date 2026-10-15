@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom.Property"
+  governs: "Entity/Continuant/Object/Atom.Property"
   depends_on:
-    ["Atom.Property", "Atom.Summary", "Atom.ID", "Atom.Status", "Markdown Atom Carrier"]
-version: 5
-updated_at: "2026-10-15 12:18:49 +0000"
+    ["Entity/Continuant/Object/Atom.Property", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Status", "Markdown Atom Carrier"]
+version: 6
+updated_at: "2026-10-15 18:52:18 +0000"
 relations: {"relates_to": ["CA-D-478", "CA-D-282", "CA-D-466"]}
 atom_id: "CA-D-480"
 content_role: "Delivery"

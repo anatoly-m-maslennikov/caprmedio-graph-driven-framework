@@ -1,13 +1,13 @@
 ---
-version: 13
-updated_at: "2026-10-15 12:23:30 +0000"
+version: 14
+updated_at: "2026-10-15 18:46:36 +0000"
 relations:
   child_of:
     - "CA-R-1407"
 subjects:
   governs: "Project Normative Authority Graph"
   depends_on:
-    - "Project"
+    ["Entity/Continuant/Object/Project"]
 atom_id: "CA-R-833"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"

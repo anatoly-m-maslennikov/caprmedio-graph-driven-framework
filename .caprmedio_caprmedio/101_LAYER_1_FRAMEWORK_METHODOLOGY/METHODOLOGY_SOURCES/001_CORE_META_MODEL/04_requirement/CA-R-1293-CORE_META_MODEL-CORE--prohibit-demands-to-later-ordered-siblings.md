@@ -2,10 +2,9 @@
 subjects:
   governs: "Demand Direction"
   depends_on:
-    - "Local Order"
-    - "Scope Unit/Type: Ordered"
-version: 13
-updated_at: "2026-10-15 12:21:21 +0000"
+    ["Local Order", "Entity/Continuant/Object/Scope Unit/Type: Ordered"]
+version: 14
+updated_at: "2026-10-15 18:41:42 +0000"
 relations: {}
 atom_id: "CA-R-1293"
 content_role: "Requirement"

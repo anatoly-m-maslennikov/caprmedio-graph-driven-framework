@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Method.Status"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Method.Status"
   depends_on:
-    - "Atom/Content Role: Method"
-version: 10
-updated_at: "2026-10-15 12:21:43 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Method"]
+version: 11
+updated_at: "2026-10-15 18:42:35 +0000"
 relations: {}
 atom_id: "CA-R-1397"
 content_role: "Requirement"

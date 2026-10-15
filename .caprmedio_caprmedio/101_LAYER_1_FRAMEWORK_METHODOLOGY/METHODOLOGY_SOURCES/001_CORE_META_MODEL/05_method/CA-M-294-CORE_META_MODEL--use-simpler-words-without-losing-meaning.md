@@ -1,6 +1,6 @@
 ---
-version: 5
-updated_at: "2026-10-15 12:19:58 +0000"
+version: 6
+updated_at: "2026-10-15 18:48:22 +0000"
 relations:
   child_of:
     - CA-R-940
@@ -14,7 +14,7 @@ relations:
 subjects:
   governs: "language"
   depends_on:
-    ["Author", "Atom.Substance", "Atom.Summary", "CCE", "Governed Term", "CCE Operator"]
+    ["Author", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "CCE", "Governed Term", "CCE Operator"]
 atom_id: "CA-M-294"
 content_role: "Method"
 current_scope_unit: "CORE_META_MODEL"

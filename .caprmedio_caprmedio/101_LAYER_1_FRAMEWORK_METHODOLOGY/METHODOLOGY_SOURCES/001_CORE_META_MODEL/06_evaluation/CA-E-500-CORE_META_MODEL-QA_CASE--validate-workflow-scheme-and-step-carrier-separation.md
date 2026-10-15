@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Workflow"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Workflow", "Step", "Action", "Directory Carrier", "Relation/Type: On Result"]
-version: 7
-updated_at: "2026-10-15 12:19:31 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Carrier/Directory Carrier", "Relation/Type: On Result"]
+version: 8
+updated_at: "2026-10-15 18:50:03 +0000"
 relations: {"evaluation_for": ["CA-R-1570", "CA-R-1569", "CA-M-305", "CA-D-467"]}
 atom_id: "CA-E-500"
 content_role: "Evaluation"

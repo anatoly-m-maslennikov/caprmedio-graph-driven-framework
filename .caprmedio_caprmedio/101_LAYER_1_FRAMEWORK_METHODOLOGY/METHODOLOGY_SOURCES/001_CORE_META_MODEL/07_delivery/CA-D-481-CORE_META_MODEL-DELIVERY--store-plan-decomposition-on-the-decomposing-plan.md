@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Plan/Type: Plan"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Atom.ID", "Directory Carrier"]
-version: 5
-updated_at: "2026-10-15 12:18:49 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom.ID", "Entity/Carrier/Directory Carrier"]
+version: 6
+updated_at: "2026-10-15 18:52:18 +0000"
 relations: {"relates_to": ["CA-R-1579", "CA-R-117", "CA-R-118", "CA-D-268", "CA-D-460", "CA-D-475"]}
 atom_id: "CA-D-481"
 content_role: "Delivery"

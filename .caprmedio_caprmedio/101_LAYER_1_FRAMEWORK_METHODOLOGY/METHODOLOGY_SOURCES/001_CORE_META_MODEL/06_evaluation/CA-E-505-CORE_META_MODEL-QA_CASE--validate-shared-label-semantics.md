@@ -2,9 +2,9 @@
 subjects:
   governs: "Label"
   depends_on:
-    ["Scope Unit.Label", "Scope Unit/Type", "Atom/Content Role: Plan/Type: Plan.Label", "Plan Blocking Relations", "Atom/Content Role: Plan/Type: Plan", "Entity", "Property", "Operator"]
-version: 5
-updated_at: "2026-10-15 12:19:33 +0000"
+    ["Entity/Continuant/Object/Scope Unit.Label", "Scope Unit/Type", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Plan Blocking Relations", "Atom/Content Role: Plan/Type: Plan", "Entity", "Property", "Entity/Continuant/Actor/Type: Operator"]
+version: 6
+updated_at: "2026-10-15 18:50:14 +0000"
 relations: {"evaluation_for": ["CA-R-1594", "CA-R-972", "CA-R-1576", "CA-R-1577", "CA-R-982"]}
 atom_id: "CA-E-505"
 content_role: "Evaluation"

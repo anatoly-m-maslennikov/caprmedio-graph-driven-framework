@@ -9,9 +9,9 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Journal Carrier Root"
-  depends_on: ["Project","Journal","Carrier","Projection","Workflow"]
-version: 4
-updated_at: "2026-10-15 12:18:57 +0000"
+  depends_on: ["Entity/Continuant/Object/Project", "Entity/Continuant/History/Journal", "Entity/Carrier", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
+version: 5
+updated_at: "2026-10-15 18:52:30 +0000"
 relations: {}
 ---
 # Summary

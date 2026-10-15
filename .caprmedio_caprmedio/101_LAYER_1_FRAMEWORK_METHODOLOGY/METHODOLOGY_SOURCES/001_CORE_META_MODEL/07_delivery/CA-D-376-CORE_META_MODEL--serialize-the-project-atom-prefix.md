@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings.Atom Prefix"
+  governs: "Entity/Continuant/Object/Project.Settings.Atom Prefix"
   depends_on:
-    - "Project Settings"
-    - "Atom"
-    - "Operator"
-version: 10
-updated_at: "2026-10-15 12:18:31 +0000"
+    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator"]
+version: 11
+updated_at: "2026-10-15 18:51:41 +0000"
 relations:
   child_of:
     - "CA-D-366"
