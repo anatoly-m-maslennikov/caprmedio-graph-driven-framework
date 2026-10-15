@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import re
 from dataclasses import FrozenInstanceError
 from pathlib import Path
 import sys
@@ -14,7 +15,7 @@ TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
 from connector_bindings import FileSource, capture_source
 from connector_toml_parse import render_document
-from project_settings_reader import SCHEMA_PINS, read_project_settings
+from project_settings_reader import SCHEMA_IDS, read_project_settings
 from project_settings_schema import _SchemaError, _parse_settings, mcp_tool_blacklist
 
 
@@ -41,7 +42,7 @@ class ProjectSettingsReaderTests(unittest.TestCase):
         self.schemas = []
         authority = self.root / "authority"
         authority.mkdir()
-        for identity in SCHEMA_PINS:
+        for identity in SCHEMA_IDS:
             base = ENGINE if identity in {"CA-M-284", "CA-D-520"} else CORE
             candidates = [path for path in base.rglob(identity + "-*.md") if "archive" not in path.parts]
             self.assertEqual(1, len(candidates), identity)
@@ -216,6 +217,35 @@ class ProjectSettingsReaderTests(unittest.TestCase):
         authority = self.root / self.schemas[0].relative_path
         authority.write_bytes(authority.read_bytes() + b"\n# changed\n")
         self.assertEqual("stale_state", self.read().errors[0].code)
+
+    def test_current_rule_revision_is_accepted_with_actual_version_and_digest(self):
+        source = self.schemas[0]
+        path = self.root / source.relative_path
+        path.write_text(re.sub(r"(?m)^version: .*", "version: 123", path.read_text()) + "\n# Updated rule\n")
+        self.assertEqual("stale_state", self.read().errors[0].code)
+        self.schemas[0] = capture_source(self.root, source.relative_path)
+        result = self.read()
+        self.assertEqual((), result.errors)
+        pin = next(pin for pin in result.snapshot.schema_sources if pin.path == source.relative_path.as_posix())
+        self.assertEqual((123, self.schemas[0].sha256), (pin.version, pin.sha256))
+
+    def test_invalid_current_rule_metadata_refuses(self):
+        source = self.schemas[0]
+        path = self.root / source.relative_path
+        original = path.read_text()
+        for field, value in (("atom_id", "UNKNOWN"), ("status", "Archived"),
+                             ("content_role", "Plan"), ("version", "0"),
+                             ("version", "true"), ("version", "'1'")):
+            with self.subTest(field=field, value=value):
+                path.write_text(re.sub(rf"(?m)^{field}: .*", f"{field}: {value}", original))
+                self.schemas[0] = capture_source(self.root, source.relative_path)
+                result = self.read()
+                self.assertIsNone(result.snapshot)
+                self.assertEqual("schema_sources", result.errors[0].field)
+        for suffix in ("\ninvalid: [\n", "\nversion: 1\n"):
+            path.write_text(original.replace("\n---\n", suffix + "---\n", 1))
+            self.schemas[0] = capture_source(self.root, source.relative_path)
+            self.assertIsNone(self.read().snapshot)
 
 
 if __name__ == "__main__":

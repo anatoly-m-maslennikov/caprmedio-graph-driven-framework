@@ -279,7 +279,9 @@ class ProjectSettingsReaderIndependentTests(unittest.TestCase):
         path.write_bytes(original + b"\n# authority drift\n")
         self.assert_refused(self.read())
         changed = capture_source(self.root, authority.relative_path)
-        self.assert_refused(self.read(authorities=[changed, *self.authorities[1:]]))
+        current = self.assert_read(self.read(authorities=[changed, *self.authorities[1:]]))
+        observed = next(pin for pin in current.schema_sources if pin.atom_id == "CA-D-366")
+        self.assertEqual(changed.sha256, observed.sha256)
         path.write_bytes(original)
         self.settings.write_bytes(self.settings.read_bytes() + b"\n# changed after selection\n")
         self.assert_refused(self.read())
@@ -287,8 +289,7 @@ class ProjectSettingsReaderIndependentTests(unittest.TestCase):
     def test_metadata_only_schema_substitution_cannot_supply_authority(self):
         authority = self.authorities[0]
         path = self.root / authority.relative_path
-        version = schema.SCHEMA_PINS["CA-D-366"][0]
-        path.write_text(f"---\natom_id: CA-D-366\nversion: {version}\n---\n# Fabricated policy\n")
+        path.write_text("---\natom_id: CA-D-366\nversion: 1\n---\n# Incomplete policy metadata\n")
         self.assert_refused(self.read(authorities=[capture_source(self.root, authority.relative_path), *self.authorities[1:]]))
 
     def test_snapshot_provenance_and_exported_documents_are_immutable(self):

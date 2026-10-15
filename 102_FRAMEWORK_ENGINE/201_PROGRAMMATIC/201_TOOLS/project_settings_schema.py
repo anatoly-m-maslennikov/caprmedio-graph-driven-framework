@@ -5,20 +5,11 @@ from __future__ import annotations
 from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
-from types import MappingProxyType
 
 
-# Reviewed byte closure; carried named authority must also be admitted.
-SCHEMA_PINS = MappingProxyType({
-    "CA-D-364": (10, "4f7513eb67fe6075f58c29d06accc4fd16c9dca7e823d794c7a4dc90cd9668c9"),
-    "CA-D-366": (11, "403fe1b43a9ae7eb8a7976d126c0796bb7bd545ac6febd7eb1f696ecefbd134f"),
-    "CA-D-375": (10, "d32280d1b04a033a9398745c8471e731bbca293ffcfe4260d9136c06951c950b"),
-    "CA-D-376": (9, "f03248c4d66a550d2c2ad6018b1a42a5cf2ac6aba0488e1d3c38c388ecedb321"),
-    "CA-D-378": (10, "9435f3abb5a56f46c37c43c3e758afa1e288a0af259f39a34237495d8fcf255f"),
-    "CA-D-392": (8, "dfc6540a2654237153dbf7a660589ea4fa69e08124fc65ece65cf39df4d21150"),
-    "CA-D-520": (1, "0241f547edfb5c20ffc9cbae2981eb40cd2dbaf1e49f0fa00e823afcf643f271"),
-    "CA-E-459": (19, "c20f5a68f2d2299e44651f68348605447cad6095b06b898c3cb135994dfc2c38"),
-    "CA-M-284": (14, "511958b7bb1701039215209b3be552a4b25485c48d56d19fab10c5a95564ed98"),
+SCHEMA_IDS = frozenset({
+    "CA-D-364", "CA-D-366", "CA-D-375", "CA-D-376", "CA-D-378",
+    "CA-D-392", "CA-D-520", "CA-E-459", "CA-M-284",
 })
 
 

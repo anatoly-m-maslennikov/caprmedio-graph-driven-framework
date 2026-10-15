@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from collections.abc import Callable, Collection
 import tomllib
-from types import MappingProxyType
 
 from connector_bindings import (
     ConnectorBindingError, ConnectorBindings, FileSource, admission_for_started_action,
@@ -13,21 +12,12 @@ from connector_scope_parsing import validate_scope_request
 from connector_scope_reading import execute_scope_request
 from FIND_AND_FETCH_ARTIFACTS.find_and_fetch_artifacts import _load_frontmatter
 from project_selection import ProjectSelection, _validate_structure, bind_selection
-from project_settings_reader import SCHEMA_PINS, read_project_settings
+from project_settings_reader import SCHEMA_IDS, read_project_settings
 
 
-SCOPE_QUERY_PINS = MappingProxyType({
-    "CA-R-1936": (2, "dbb7471c477adf1474db73624e066d3fff202a61d975729d8d4ea4cbf95b040a"),
-    "CA-R-1937": (4, "740a4f6df454347f30f31e6fa96a08c51c92336deb39728d5b274d00d0d082ad"),
-    "CA-M-376": (2, "5ccecc40357c7819b2dbed8855748a1ef1ac06f05bfd1581792806206ea6810a"),
-    "CA-M-377": (4, "2eecb1099bc75319b8af2ea7dc6b5210197aaa2bd9951e4fd11165b03d5b2973"),
-    "CA-E-628": (1, "b7a79e9e68b4a79463d718016739c4ffee6cb98535045dc95c0713745531e458"),
-    "CA-E-629": (3, "24cbac92dbd73c61fdfb2182c27c8acc0f67d7860a485f31859ccd996b8e445a"),
-    "CA-D-625": (3, "708d39bbb841ece46a30d330c3768fbede6373ae00d30aacb5cdde3c18c24fcc"),
-    "CA-D-626": (3, "d11441faffe55da24cf641369b4ab67ab83fad2b537a0bc176407f3dd2e562f8"),
-    "CA-D-441": (5, "30042a747a31e13c2618a7111a884c5af1ed2175c687645f9eaae9f6d5d10e81"),
-    "CA-D-442": (6, "caa3df94215a7ae1e3e516c0bf94cae1295c79270f0f521e6f75a1eb51d70a2f"),
-    "CA-O-211": (3, "cb55a19f11c8d0b653cce695b2829a21984b1738a48b5ae63397b899860232bd"),
+SCOPE_QUERY_IDS = frozenset({
+    "CA-R-1936", "CA-R-1937", "CA-M-376", "CA-M-377", "CA-E-628", "CA-E-629",
+    "CA-D-625", "CA-D-626", "CA-D-441", "CA-D-442", "CA-O-211",
 })
 
 
@@ -135,8 +125,7 @@ def make_scope_query_receiver(
     if not isinstance(selection, ProjectSelection):
         raise TypeError("Validated Project selection is required.")
     schemas = tuple(schema_sources)
-    expected = {**SCHEMA_PINS, **SCOPE_QUERY_PINS}
-    expected.pop("CA-O-211")
+    expected = (SCHEMA_IDS | SCOPE_QUERY_IDS) - {"CA-O-211"}
     by_identity = {}
     for source in schemas:
         if (not isinstance(source, FileSource) or source.root != selection.root
@@ -144,17 +133,19 @@ def make_scope_query_receiver(
             raise ValueError("Exact selected Project schema sources are required.")
         metadata = _metadata(source)
         identity = metadata.get("atom_id")
-        pin = expected.get(identity)
-        if (pin is None or identity in by_identity or metadata.get("version") != pin[0]
-                or source.sha256 != pin[1]):
-            raise ValueError("Query schema differs from the complete accepted source frontier.")
+        version = metadata.get("version")
+        role = {"R": "Requirement", "M": "Method", "E": "Evaluation", "D": "Delivery"}.get(identity[3:4] if isinstance(identity, str) else "")
+        if (not isinstance(identity, str) or identity not in expected or identity in by_identity
+                or type(version) is not int or version < 1
+                or metadata.get("status") != "Active" or metadata.get("content_role") != role):
+            raise ValueError("Current active Query schema authority with a valid identity and Version is required.")
         by_identity[identity] = source
-    if by_identity.keys() != expected.keys():
+    if by_identity.keys() != expected:
         raise ValueError("The complete accepted Query and Settings schema frontier is required.")
     if (not isinstance(action_definition, FileSource) or action_definition.root != selection.root
-            or action_definition.sha256 != SCOPE_QUERY_PINS["CA-O-211"][1]):
-        raise ValueError("Exact accepted O211 Action definition is required.")
-    settings_schemas = tuple(by_identity[identity] for identity in SCHEMA_PINS)
+            or action_definition.sha256 is None):
+        raise ValueError("Current O211 Action definition is required.")
+    settings_schemas = tuple(by_identity[identity] for identity in SCHEMA_IDS)
     relative = selection.settings_path.relative_to(selection.root)
     settings_source = FileSource(selection.root, relative,
                                 selection.provenance.get(relative.as_posix(), {}).get("sha256"))

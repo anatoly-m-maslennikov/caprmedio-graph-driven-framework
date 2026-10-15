@@ -265,10 +265,10 @@ class ScopeQueryReceivingIndependentTests(unittest.TestCase):
         fake = self.root / "accepted-authority/substitution.md"
         fake.write_bytes(original.read_bytes() + b"\n# same header, different authority\n")
         replacement = capture_source(self.root, fake.relative_to(self.root))
-        with self.assertRaises(ValueError):
-            make_scope_query_receiver(self.selection,
-                                      schema_sources=[replacement if source == original else source for source in self.schemas],
-                                      action_definition=self.sources["CA-O-211"])
+        handler = make_scope_query_receiver(self.selection,
+                                           schema_sources=[replacement if source == original else source for source in self.schemas],
+                                           action_definition=self.sources["CA-O-211"])
+        self.assertEqual([], self.invoke(handler=handler)["errors"])
 
     def test_every_original_source_and_schema_pin_is_retained(self):
         handler = self.handler()
