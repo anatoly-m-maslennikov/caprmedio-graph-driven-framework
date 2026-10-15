@@ -3,8 +3,8 @@ subjects:
   governs: "Project Settings/Authoritative Carrier"
   depends_on:
     - "Project Settings/Authoritative Carrier/Filename"
-version: 9
-updated_at: "2026-10-01 21:24:59 +0400"
+version: 10
+updated_at: "2026-10-13 18:56:47 +0400"
 relations:
   child_of:
     - CA-D-363
@@ -27,6 +27,6 @@ the authoritative TOML File Carrier for Project Settings of a Project named `<pr
 
 ## Claim
 
-the Project Settings Artifact for a Project named `<project_name>` **must** use `.caprmedio_<project_name>/caprmedio_<project_name>_settings.toml` as its **`=1`** authoritative TOML File Carrier.
+the Project Settings Artifact for a Project named `<project_name>` **must** use `caprmedio_project_settings.toml` directly inside that selected Project's `.caprmedio_<project_name>/` control root as its **`=1`** authoritative TOML File Carrier.
 
 ## Details

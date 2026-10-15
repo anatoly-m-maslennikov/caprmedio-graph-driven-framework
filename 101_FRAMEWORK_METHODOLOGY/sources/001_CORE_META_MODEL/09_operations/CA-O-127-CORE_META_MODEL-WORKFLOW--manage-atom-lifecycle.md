@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Workflow"
   depends_on: ["Step", "Workflow Run", "Workflow/Relation Kind: On Result", "Operator", "Journal"]
-version: 3
-updated_at: "2026-10-05 01:39:17 +0000"
+version: 4
+updated_at: "2026-10-13 18:55:32 +0400"
 relations:
   relates_to: [CA-O-129, CA-O-145, CA-M-303, CA-R-1508, CA-R-1513, CA-R-1520, CA-R-1525, CA-R-1720]
 ---
@@ -25,6 +25,8 @@ Manage atom lifecycle
 One reusable parameterized Workflow graph binds Create Atom, Update Atom, Replace Atom and Change Atom Status. Archive is only a Change Status shortcut admitted by the applicable model, not another Workflow. The Step definitions own all Action and input bindings.
 
 Each invocation admits exactly one Create target or one existing current target/predecessor, with its complete required Carrier set. Replace retains the complete accepted set of >=1 distinct successors for that one predecessor, not additional predecessors. A request naming multiple independent targets/predecessors ends blocked before Step dispatch or effects; bulk callers expand their requests into separate individually admitted Runs of this same Workflow, with fresh exact inputs/assessment/permission bindings for each.
+
+For a containment cascade required by R1521, the calling Workflow binds the parent and every selected contained Plan or Operations Atom's latest Revision as separate individually admitted Runs of this Workflow, all requesting the same Status under each target's own model. Older historical Revisions and references outside the parent Carrier tree are excluded. Each Run retains the single-target boundary below; none discovers, invokes or authorizes the other targets. The caller preserves nesting under D461/D467 and advances only after a verified applied or no-op result with required recording. It stops on the first failed, refused or uncertain result, retains earlier completed effects and leaves remaining targets untouched, without automatic retry or cross-Atom rollback. One completed Run proves only its bound target; the caller reports the whole cascade complete only after every selected target has a verified result.
 
 ### Nodes and entry
 

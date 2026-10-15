@@ -6,8 +6,8 @@ subjects:
     - "Atom/Identifier"
     - "Atom/Revision"
     - "Carrier"
-version: 8
-updated_at: "2026-10-02 19:36:21 +0400"
+version: 10
+updated_at: "2026-10-14 18:37:38 +0400"
 relations: {}
 atom_id: "CA-D-435"
 content_role: "Delivery"
@@ -24,16 +24,16 @@ Serialize Atom replacement event references
 
 ## Scope
 
-replacement references in schema-version `3` completed File Carrier events.
+Actual Atom replacement references supplied for Journal recording.
 
 ## Claim
 
-a schema-version `3` completed File Carrier `MOVE` **or** `MOVE+UPDATE` event recording an Atom replacement **must** serialize its observed replacement references as paired top-level `predecessor_atom_id` **and** `successor_atom_ids` fields.
+Journal serialization **must** preserve the actually supplied predecessor **and** successor Atom references of a replacement observation, including `predecessor_atom_id` **and** `successor_atom_ids` **when** supplied.
 
-- `predecessor_atom_id` stores the observed identity as a string; `successor_atom_ids` stores the observed successor identities as an array of strings. preserve their values **and** array order exactly through safe encoding. array order does **not** establish priority **or** execution order.
-- the pair is optional on ordinary events; absence does **not** establish whether a move was a replacement. a partial pair, a null field, **or** a value with the wrong storage type fails this encoding.
-- both fields participate **in** the existing Event digest. the ordinary result **and** `previous_result_event` retain Carrier **and** Revision evidence **without** duplicating it **in** replacement fields.
-- legacy **or** nonconforming IDs, an empty observed successor array, duplicate **or** self-referencing identities, a filename mismatch, **and** an invalid archive placement remain recordable payload. CA-E-462 evaluates the replacement independently; failed conformance **must not** become a Journal-admission gate under CA-R-1491.
-- ordinary **and** historical records **without** these fields retain their selected schema. preserved observations **must not** be rewritten **to** satisfy current Atom grammar, archive rules, **or** successor conditions. successful storage proves **only** event **and** storage integrity, **not** a valid replacement.
+- preserve reference values **and** array order as data through safe encoding. array order does **not** establish priority **or** execution order.
+- do **not** look up an earlier Journal record, require a predecessor chain, compute a digest, validate the replacement **or** fabricate a baseline **to** append these observations.
+- absence of replacement references does **not** establish whether the action was a replacement. do **not** infer missing identities, successors **or** historical facts.
+- existing records remain readable **without** rewriting their fields, selected representation **or** observed values. legacy **or** nonconforming values remain observations, **not** certified replacements.
+- actual source replacement, exact predecessor history **and** successor correctness remain independently governed by CA-R-807 **and** CA-E-462. Journal append **or** read grants no source-effect permission **and** proves none of those conditions.
 
 ## Details

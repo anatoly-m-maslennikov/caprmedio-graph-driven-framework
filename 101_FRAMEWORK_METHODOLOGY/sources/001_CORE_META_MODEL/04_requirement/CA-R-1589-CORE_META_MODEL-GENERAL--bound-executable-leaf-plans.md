@@ -7,8 +7,8 @@ subjects:
     - "Operator"
     - "Atom/Content Role: Plan/Type: Plan/Decomposition"
     - "Atom/Content Role: Plan/Type: Plan/Label"
-version: 4
-updated_at: "2026-10-03 00:40:46 +0400"
+version: 5
+updated_at: "2026-10-14 13:43:24 +0400"
 relations: {"relates_to": ["CA-R-1575", "CA-R-1584"]}
 atom_id: "CA-R-1589"
 content_role: "Requirement"
@@ -19,7 +19,9 @@ status: "Active"
 author: "Anatoly Maslennikov"
 global_tier: 10
 ---
-# Bound executable leaf Plans
+# Summary
+
+Bound executable leaf Plans
 
 ## Scope
 

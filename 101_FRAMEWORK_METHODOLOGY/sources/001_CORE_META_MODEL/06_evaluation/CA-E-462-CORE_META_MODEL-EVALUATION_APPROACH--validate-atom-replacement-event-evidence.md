@@ -12,8 +12,8 @@ subjects:
     - "Artifact/Carrier"
     - "Project"
     - "Applicable Methodology"
-version: 12
-updated_at: "2026-10-02 20:09:13 +0400"
+version: 13
+updated_at: "2026-10-13 04:51:40 +0400"
 relations:
   evaluation_for:
     - CA-R-1491
@@ -45,7 +45,7 @@ the Evaluation **must** check whether an Atom replacement satisfies CA-R-807. Jo
 ### Checks
 
 - report a failed replacement Evaluation **if** predecessor **or** successor identities are missing, unresolved, duplicate, self-referencing, **or** mismatched.
-- verify that **every** named successor was Active **before** the predecessor was archived, that the archive preserves the predecessor's body, Summary, identity, Version, **and** every metadata value except archived Status **and** archive-time Updated At, **and** that **`=1`** authoritative Journal event records that replacement.
+- verify that **every** named successor was Active **before** the predecessor was archived, that the archived current predecessor preserves its body, Summary, identity **and** every metadata value except Version, archived Status **and** archive-time Updated At, with Version incremented by exactly **`1`** **and** actual archive-time Updated At. verify retained exact prior Revision bytes, including the prior Version, Status **and** Updated At, **and** that **`=1`** authoritative Journal event records that replacement.
 - check event field representation against the selected Delivery authority. a format check alone **must not** be reported as proof of replacement correctness.
 - repeated submission of the same event **must not** create another authoritative record.
 
