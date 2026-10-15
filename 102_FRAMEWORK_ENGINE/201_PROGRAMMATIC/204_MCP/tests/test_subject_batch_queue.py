@@ -1,4 +1,4 @@
-"""Actual SDK confirmation, disconnected enqueue and a fresh real DBOS worker."""
+"""Committed drafts, ordinary MCP enqueue and a fresh real DBOS worker."""
 
 import asyncio
 import json
@@ -11,8 +11,8 @@ import unittest
 MCP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(MCP / "tests"))
 
-import test_subject_batch_confirmation as fixtures  # noqa: E402
-import subject_batch_confirmation as host  # noqa: E402
+import test_subject_batch_gateway as fixtures  # noqa: E402
+import orchestrator  # noqa: E402
 from backend import status  # noqa: E402
 from contracts import Status  # noqa: E402
 from subject_batch_stage import stage_subject_batch  # noqa: E402
@@ -22,7 +22,7 @@ APP = MCP.parent / "203_APPS/WORKFLOW_ORCHESTRATOR"
 
 class SubjectBatchQueueTests(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
-        self.fixture = fixtures.SubjectBatchConfirmationTests("runTest")
+        self.fixture = fixtures.SubjectBatchGatewayTests("runTest")
         self.fixture.setUp()
         for callback, arguments, keywords in self.fixture._cleanups:
             self.addCleanup(callback, *arguments, **keywords)
@@ -57,18 +57,29 @@ class SubjectBatchQueueTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(self.ready.exists(), self.log.read_text())
         return process
 
-    async def test_confirm_enqueue_disconnect_and_fresh_worker_publish_exact_batch(self):
+    async def test_committed_drafts_enqueue_without_form_and_fresh_worker_publishes_exact_batch(
+        self,
+    ):
         fixture, project = self.fixture, self.fixture.project
         archives = project.archives()
         staged = stage_subject_batch(self.root, project.parameters, limit=2)
         project.use_reviewed_packet(staged["reviewed_packet"])
+        drafts = {
+            item["draft"]["path"]: (self.root / item["draft"]["path"]).read_bytes()
+            for item in project.packet["atoms"]
+        }
+        draft_commit = project.commit_drafts()
+        self.assertNotEqual(project.packet["git_checkpoint"], draft_commit)
+        self.assertEqual(
+            project.packet["git_checkpoint"], project.git("rev-parse", "HEAD^").strip()
+        )
         fixture.runner, fixture.frozen = project.execution("queued-draft-subject-batch")
         initialized = await self.start_worker()
         self.stop_worker(initialized)
-        response = await fixture.connected_call(enqueue=host._enqueue)
-        self.assertEqual("dispatched", response.structured_content["status"])
-        self.assertTrue(fixture.receipt().is_file())
-        self.assertEqual(1, len(fixture.forms))
+        response = await fixture.connected_call(enqueue=orchestrator.run)
+        self.assertEqual("queued", response.structured_content["disposition"])
+        self.assertEqual([], fixture.forms)
+        self.assertFalse(list(project.root.rglob("subject_batch_confirmation.json")))
         for path in project.paths:
             self.assertEqual(project.before[path], path.read_bytes())
         started = time.monotonic()
@@ -88,6 +99,9 @@ class SubjectBatchQueueTests(unittest.IsolatedAsyncioTestCase):
         for path, archive in zip(project.paths, archives):
             self.assertNotEqual(project.before[path], path.read_bytes())
             self.assertEqual(project.before[path], archive.read_bytes())
+        for relative, raw in drafts.items():
+            self.assertFalse((self.root / relative).exists())
+            self.assertEqual(raw, project.git("show", f"{draft_commit}:{relative}").encode())
         self.stop_worker(worker)
         print(f"subject_batch_queue: targets=2 execution_seconds={time.monotonic() - started:.3f}")
 

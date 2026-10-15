@@ -73,6 +73,12 @@ class SubjectBatchContractTests(unittest.TestCase):
 
     def test_one_workflow_declares_real_repeated_mutation_children_only(self):
         _, frozen = self.project.execution()
+        self.assertFalse(
+            any(
+                "subject_intent_sha256" in effect
+                for effect in frozen["request"]["execution"]["effects"]
+            )
+        )
         runs = frozen["request"]["execution"]["requested_runs"]
         self.assertEqual(
             ["CA-O-127", "CA-O-129", "CA-O-128", "CA-O-030", "CA-O-129", "CA-O-128", "CA-O-030"],

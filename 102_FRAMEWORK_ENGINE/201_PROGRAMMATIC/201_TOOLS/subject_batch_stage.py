@@ -32,7 +32,6 @@ def _runner(root: Path) -> Any:
 
 
 def _stage_target(root: Path, state: BatchAdmission, item: Mapping[str, Any]) -> dict[str, Any]:
-    state.validation_scope = None
     prepared = prepare_subject_intent(
         root, item["target"], item["subject_patches"], subject_profile="approved"
     )
@@ -93,12 +92,13 @@ def stage_subject_batch(
         pin = progress["reviewed_packet"]
         FileSource(root, Path(pin["path"]), pin["digest"]).revalidate()
         return _compact(progress)
-    _assert_original_identity_unique(
-        operations,
-        root,
-        {item["target"]["atom_id"] for item in packet["atoms"]},
-        _capture_identity_layout(operations, root),
-    )
+    if progress["completed"] == 0:
+        _assert_original_identity_unique(
+            operations,
+            root,
+            {item["target"]["atom_id"] for item in packet["atoms"]},
+            _capture_identity_layout(operations, root),
+        )
     state = BatchAdmission(root, packet, None, {})
     token = _ACTIVE.set(state)
     try:

@@ -13,10 +13,6 @@ for location in (APP, TOOLS, TOOLS / "tests"):
 
 import atom_operations as operations  # noqa: E402
 from lifecycle_intents import carrier_descriptor  # noqa: E402
-from subject_batch_authorization import (  # noqa: E402
-    capture_batch_review,
-    persist_subject_batch_confirmation,
-)
 from subject_batch_fixture import SubjectBatchProject  # noqa: E402
 from test_subject_apply_portfolio import PUBLICATION_PINS  # noqa: E402
 from work_journal import read_records  # noqa: E402
@@ -76,8 +72,6 @@ class SubjectBatchSelfActionTests(unittest.TestCase):
         action, before, target = action_target(project)
         archives = project.archives()
         runner, frozen = project.execution("subject-batch-self-action")
-        review = capture_batch_review(runner, frozen)
-        persist_subject_batch_confirmation(runner, frozen, review, operator_name="golden-operator")
         result = runner.dispatch(frozen)
         progress = json.loads(
             (

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -102,3 +103,52 @@ def require_batch_reviewed_draft(root: Path, canonical_raw: bytes) -> None:
     if state is None or state.root != root or state.ordinal < 0:
         raise ValueError("Reviewed edit-draft requires its admitted batch target")
     require_reviewed_draft_candidate(root, state.packet["atoms"][state.ordinal], canonical_raw)
+
+
+def remove_promoted_subject_draft(
+    root: Path, item: Mapping[str, Any], result: Mapping[str, Any]
+) -> dict[str, Any]:
+    """Consume only the exact pinned proposal after canonical publication succeeded."""
+    carriers = [result["observed"]]
+    if result["outcome"] == "applied":
+        carriers.append(result["history"]["prior_revision"])
+    for carrier in carriers:
+        FileSource(root, Path(carrier["path"]), carrier["digest"]).revalidate()
+    read_reviewed_draft(root, item)
+    pin = item["draft"]
+    path = root / pin["path"]
+    raw, fingerprint = operations.read_raw_atom_revision(root, path)
+    if hashlib.sha256(raw).hexdigest() != pin["digest"]:
+        raise ValueError("Promoted Subject draft changed before conditional removal")
+    operations.write_raw_atom_revision(root, path, None, expected=fingerprint, mode=fingerprint[-1])
+    FileSource(root, Path(pin["path"]), None).revalidate()
+    return {"state": "removed", **pin}
+
+
+def finish_subject_draft_promotion(
+    root: Path, item: Mapping[str, Any], result: Mapping[str, Any]
+) -> dict[str, Any]:
+    effects = sorted(
+        {
+            effect["carrier"]["path"]
+            for effect in result.get("effects", [])
+            if effect.get("state") in {"changed", "unknown"}
+        }
+    )
+    completion = {"outcome": result["outcome"], "effect_refs": effects}
+    if "draft" not in item or result["outcome"] not in {"applied", "no-op"}:
+        return completion
+    try:
+        completion["draft_promotion"] = remove_promoted_subject_draft(root, item, result)
+    except Exception as error:
+        completion.update(
+            outcome="partial",
+            draft_promotion={
+                "state": "unknown",
+                **item["draft"],
+                "diagnostic": type(error).__name__,
+                "automatic_retry": False,
+            },
+        )
+    completion["effect_refs"] = sorted({*effects, item["draft"]["path"]})
+    return completion

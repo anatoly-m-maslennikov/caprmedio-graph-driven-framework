@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 3
-updated_at: "2026-10-15 08:07:09 +0000"
+version: 4
+updated_at: "2026-10-15 11:24:25 +0000"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1912]
@@ -29,6 +29,14 @@ Apply the approved Core Subject migration
 Apply only the exact separately authorized Core Subject migration while preserving governing authority, source meaning and history.
 
 ## Details
+
+### Operator-authorized minimum Subjects-only sequence — 2026-10-15
+
+The Operator now authorizes this Candidate #4 Subjects-only sequence through the existing Workflows: commit current work → create the selected edit drafts → commit drafts → archive exact current predecessors and promote drafts → rebuild the entity graph from actual migrated sources. No additional confirmation, independent post-stage full preview, semantic review or extra review/validation round is required. This checkpoint supersedes conflicting earlier prerequisite, approval and Definition-of-Done clauses for this sequence; it does not remove normal operation checks or expand generic content-update authority.
+
+Retain current target/draft checks and ordinary operation results, canonical ID and original Status restoration, Version +1, actual Project-time updated_at and byte-exact predecessor archives. Stop at the first failed or unknown result, preserve completed predecessors and the untouched remainder, and perform no automatic replay or batch rollback. Existing Git commits and predecessor archives remain recovery evidence, not permission for automatic reset. Preserve all 29 held owners unchanged and ordinary content migration separately under CA-P-1970. Record actual graph-rebuild output; candidate-only reproduction or a planned graph is not that output.
+
+CA-P-1911 remains the single application owner. The latest authorization supersedes the earlier separate batch/target confirmation, fresh final-Atom preview/stage/approval and prior-Plan-Done gates as prerequisites to this sequence. Preserve normal current-rule/self-update and target/draft checks; do not replay a stale or failed operation or substitute an unrelated patch.
 
 ### Selected existing-tool application sequence — 2026-10-15
 

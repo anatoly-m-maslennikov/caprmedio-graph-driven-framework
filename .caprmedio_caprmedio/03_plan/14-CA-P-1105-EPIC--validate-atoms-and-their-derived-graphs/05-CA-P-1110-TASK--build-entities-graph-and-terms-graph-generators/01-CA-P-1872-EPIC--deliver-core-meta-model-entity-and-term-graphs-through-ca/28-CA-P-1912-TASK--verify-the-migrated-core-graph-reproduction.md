@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 3
-updated_at: "2026-10-12 04:02:18 +0400"
+version: 4
+updated_at: "2026-10-15 11:24:25 +0000"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1969]
@@ -29,6 +29,14 @@ Verify the migrated Core graph reproduction
 Verify that the approved migrated Core Subjects reproduce the separately accepted graph without unexpected source or meaning changes.
 
 ## Details
+
+### Operator-authorized minimum Subjects-only sequence — 2026-10-15
+
+The Operator now authorizes this Candidate #4 Subjects-only sequence through the existing Workflows: commit current work → create the selected edit drafts → commit drafts → archive exact current predecessors and promote drafts → rebuild the entity graph from actual migrated sources. No additional confirmation, independent post-stage full preview, semantic review or extra review/validation round is required. This checkpoint supersedes conflicting earlier prerequisite, approval and Definition-of-Done clauses for this sequence; it does not remove normal operation checks or expand generic content-update authority.
+
+Retain current target/draft checks and ordinary operation results, canonical ID and original Status restoration, Version +1, actual Project-time updated_at and byte-exact predecessor archives. Stop at the first failed or unknown result, preserve completed predecessors and the untouched remainder, and perform no automatic replay or batch rollback. Existing Git commits and predecessor archives remain recovery evidence, not permission for automatic reset. Preserve all 29 held owners unchanged and ordinary content migration separately under CA-P-1970. Record actual graph-rebuild output; candidate-only reproduction or a planned graph is not that output.
+
+For this Task, retain the actual post-promotion entity-graph rebuild and its real output/result. The earlier independent full ledger/reproduction acceptance round is not an additional prerequisite or required validation round for this authorized sequence. Do not repair sources or infer graph success from old candidate-only evidence.
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 

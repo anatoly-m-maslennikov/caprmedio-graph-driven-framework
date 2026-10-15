@@ -1,4 +1,4 @@
-"""Trusted form receipt and exact per-target admission for one selected batch."""
+"""Selected-request authorization and exact per-target batch admission."""
 
 from __future__ import annotations
 
@@ -13,10 +13,10 @@ import atom_operations as operations
 from connector_bindings import FileSource, capture_source
 from subject_batch import load_subject_batch, require_git_checkpoint
 from subject_batch_frontier import require_subject_batch_frontier
-from workflow_run_support import _canonical_digest
+from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
+from workflow_run_support import RunExecutionSession, _canonical_digest
 
 _ACTIVE: ContextVar[Any] = ContextVar("subject_batch_admission", default=None)
-CONFIRMATION = "subject_batch_confirmation.json"
 
 
 @dataclass
@@ -27,31 +27,19 @@ class BatchAdmission:
     authorities: dict[str, str]
     ordinal: int = -1
     completed: dict[str, str] = field(default_factory=dict)
-    validation_scope: Any = None
 
 
-def capture_batch_review(runner: Any, frozen: Mapping[str, Any]) -> dict[str, Any]:
-    """Capture the whole reviewed frontier once, before any selected dispatch."""
+def capture_batch_admission(runner: Any, frozen: Mapping[str, Any]) -> dict[str, Any]:
+    """Bind the selected packet and finite governing sources without a review round."""
     from subject_notation import get_profile
     from ATOM_UPDATE.atom_update import SOURCE_PINS
-    from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import source_context_from_project
 
     execution = frozen["request"]["execution"]
     packet = load_subject_batch(runner.root, execution["parameters"])
     require_subject_batch_frontier(packet, execution)
     require_git_checkpoint(runner.root, packet)
-    from atom_subject_patch import _assert_original_identity_unique, _capture_identity_layout
-
-    _assert_original_identity_unique(
-        operations,
-        runner.root,
-        {item["target"]["atom_id"] for item in packet["atoms"]},
-        _capture_identity_layout(operations, runner.root),
-    )
-    context = source_context_from_project(runner.root)
     control = operations.control_root(runner.root)
-    paths = {str(Path(pin["path"]).relative_to(runner.root)) for pin in context.authority.bindings}
-    paths.update(
+    paths = set(
         (control / name).relative_to(runner.root).as_posix()
         for name in (
             "operators_registry.toml",
@@ -67,65 +55,24 @@ def capture_batch_review(runner: Any, frozen: Mapping[str, Any]) -> dict[str, An
     pins = {path: capture_source(runner.root, path).sha256 for path in sorted(paths)}
     if any(value is None for value in pins.values()):
         raise ValueError("Subject batch authority frontier is incomplete")
-    return {"request_digest": _canonical_digest(execution), "packet": packet, "authorities": pins}
-
-
-def revalidate_batch_review(root: Path, review: Mapping[str, Any]) -> None:
-    for path, digest in review["authorities"].items():
-        FileSource(root, Path(path), digest).revalidate()
-    for item in review["packet"]["atoms"]:
-        target = item["target"]
-        FileSource(root, Path(target["path"]), target["digest"]).revalidate()
-
-
-def persist_subject_batch_confirmation(
-    runner: Any, frozen: Mapping[str, Any], review: Mapping[str, Any], *, operator_name: str
-) -> None:
-    """Internal host act, called only after accepting the actual MCP form."""
-    execution = frozen["request"]["execution"]
-    if review["request_digest"] != _canonical_digest(execution) or not operator_name:
-        raise ValueError("Subject batch review differs from this selected request")
-    revalidate_batch_review(runner.root, review)
-    path = runner.run_directory(frozen["request"]["run_id"]) / CONFIRMATION
-    if path.exists():
-        raise ValueError("Subject batch confirmation already exists; inspect its retained Run")
-    runner._write(
-        path,
-        {
-            "schema_version": 1,
-            "operator_name": operator_name,
-            "form": {"review": True, "pause": True},
-            **review,
-        },
-    )
-
-
-def load_subject_batch_confirmation(runner: Any, frozen: Mapping[str, Any]) -> dict[str, Any]:
-    folder = runner.run_directory(frozen["request"]["run_id"])
-    receipt: dict[str, Any] = runner._read(folder / CONFIRMATION)
-    if (
-        receipt.get("schema_version") != 1
-        or receipt.get("form") != {"review": True, "pause": True}
-        or not receipt.get("operator_name")
-        or receipt.get("request_digest") != _canonical_digest(frozen["request"]["execution"])
-    ):
-        raise ValueError("Actual exact Subject batch confirmation is unavailable")
-    revalidate_batch_review(runner.root, receipt)
-    require_subject_batch_frontier(receipt["packet"], frozen["request"]["execution"])
-    if (
-        load_subject_batch(runner.root, frozen["request"]["execution"]["parameters"])
-        != receipt["packet"]
-    ):
-        raise ValueError("Retained confirmation differs from the exact reviewed Subject packet")
-    return receipt
+    return {"packet": packet, "authorities": pins}
 
 
 @contextmanager
 def bind_subject_batch(
     runner: Any, frozen: Mapping[str, Any], session: Any
 ) -> Iterator[BatchAdmission]:
-    receipt = load_subject_batch_confirmation(runner, frozen)
-    state = BatchAdmission(runner.root, receipt["packet"], session, receipt["authorities"])
+    execution = frozen["request"]["execution"]
+    if (
+        not isinstance(session, RunExecutionSession)
+        or Path(session.tracker.root).resolve() != runner.root
+        or execution.get("mode") != "execute"
+        or execution.get("operation_route") != "update_atom"
+        or _canonical_digest(session.request) != _canonical_digest(execution)
+    ):
+        raise ValueError("Subject batch requires the actual authorized selected Session")
+    admitted = capture_batch_admission(runner, frozen)
+    state = BatchAdmission(runner.root, admitted["packet"], session, admitted["authorities"])
     token = _ACTIVE.set(state)
     try:
         yield state
@@ -143,15 +90,19 @@ def active_batch_target(root: Path, target: Mapping[str, Any]) -> bool:
     )
 
 
-def batch_validation_scope(root: Path) -> Any:
+def validate_batch_carrier(root: Path, path: Path, frontmatter: str, body: str) -> bool:
     state = _ACTIVE.get()
-    if state is None or state.root != Path(root).resolve() or state.ordinal < 0:
-        return None
-    if state.validation_scope is None:
-        from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import CarrierValidationScope
-
-        state.validation_scope = CarrierValidationScope(state.root)
-    return state.validation_scope
+    if state is None:
+        return False
+    if (
+        state.root != Path(root).resolve()
+        or state.ordinal < 0
+        or path != root / state.packet["atoms"][state.ordinal]["target"]["path"]
+    ):
+        raise ValueError("Subject batch carrier validation differs from its exact target")
+    # Exact byte patches preserve the body; the caller rebuilds its graph after promotion.
+    parse_carrier(("---\n" + frontmatter + "\n---\n" + body).encode("utf-8"), path)
+    return True
 
 
 def validate_batch_action(
@@ -167,7 +118,7 @@ def validate_batch_action(
         or request.get("subject_patches") != item["subject_patches"]
         or request.get("subject_profile") != "approved"
     ):
-        raise ValueError("Subject effect differs from the exact confirmed batch mapping")
+        raise ValueError("Subject effect differs from the exact admitted batch mapping")
     if session is not None:
         if session is not state.session or session.recording_errors:
             raise ValueError("Subject batch requires its admitted, durably recorded Session")

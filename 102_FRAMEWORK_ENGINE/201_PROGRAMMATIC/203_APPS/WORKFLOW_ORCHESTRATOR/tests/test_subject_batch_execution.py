@@ -14,12 +14,10 @@ for location in (APP, TOOLS, TOOLS / "tests"):
 
 import atom_operations as operations  # noqa: E402
 import atom_subject_apply as native  # noqa: E402
+import backend  # noqa: E402
 import subject_batch_execution as batch  # noqa: E402
 from selected_execution import SelectedExecution, SelectedExecutionError  # noqa: E402
-from subject_batch_authorization import (  # noqa: E402
-    capture_batch_review,
-    persist_subject_batch_confirmation,
-)
+from subject_batch_stage import stage_subject_batch  # noqa: E402
 from subject_batch_fixture import SubjectBatchProject  # noqa: E402
 
 EFFECT_TIME = "2026-10-15 19:20:21 +0400"
@@ -30,12 +28,6 @@ class SubjectBatchExecutionTests(unittest.TestCase):
         self.project = SubjectBatchProject(self, count=3)
         self.archives = self.project.archives()
         self.runner, self.frozen = self.project.execution()
-
-    def approve(self):
-        review = capture_batch_review(self.runner, self.frozen)
-        persist_subject_batch_confirmation(
-            self.runner, self.frozen, review, operator_name="golden-operator"
-        )
 
     def progress(self):
         path = (
@@ -60,10 +52,9 @@ class SubjectBatchExecutionTests(unittest.TestCase):
         self.assertEqual(self.project.before[path], path.read_bytes())
         self.assertFalse(self.archives[ordinal].exists())
 
-    def test_persisted_confirmation_survives_new_runner_and_native_effects_are_exact(self):
+    def test_fresh_runner_executes_without_extra_confirmation_and_native_effects_are_exact(self):
         reports = set(self.project.root.rglob("*update-assessment*"))
         self.assertEqual(set(), reports)
-        self.approve()
         reconnect = SelectedExecution(self.project.root)
         frozen = reconnect.load(self.frozen["request"]["run_id"])
         with patch.object(native, "current_timestamp", return_value=EFFECT_TIME):
@@ -80,7 +71,15 @@ class SubjectBatchExecutionTests(unittest.TestCase):
         publisher.assert_not_called()
 
     def test_first_failure_preserves_completed_atom_and_skips_later(self):
-        self.approve()
+        staged = stage_subject_batch(self.project.root, self.project.parameters, limit=3)
+        self.project.use_reviewed_packet(staged["reviewed_packet"])
+        drafts = [
+            self.project.root / item["draft"]["path"] for item in self.project.packet["atoms"]
+        ]
+        draft_bytes = [path.read_bytes() for path in drafts]
+        self.project.commit_drafts()
+        self.archives = self.project.archives()
+        self.runner, self.frozen = self.project.execution("draft-backed-first-failure")
         original = native.subject_update_action
         observed = []
 
@@ -103,6 +102,9 @@ class SubjectBatchExecutionTests(unittest.TestCase):
         self.assert_changed(0)
         self.assert_untouched(1)
         self.assert_untouched(2)
+        self.assertFalse(drafts[0].exists())
+        self.assertEqual(draft_bytes[1], drafts[1].read_bytes())
+        self.assertEqual(draft_bytes[2], drafts[2].read_bytes())
         self.assertNotIn(self.project.targets[2]["atom_id"], observed)
         self.assertEqual("stopped", self.progress()["state"])
         self.assertEqual("failed", self.progress()["atoms"][-1]["outcome"])
@@ -113,7 +115,6 @@ class SubjectBatchExecutionTests(unittest.TestCase):
         publisher.assert_not_called()
 
     def test_unknown_native_outcome_stops_without_replay(self):
-        self.approve()
         original = native.subject_update_action
 
         def uncertain_second(root, parameters, **kwargs):
@@ -138,7 +139,6 @@ class SubjectBatchExecutionTests(unittest.TestCase):
         publisher.assert_not_called()
 
     def test_partial_native_result_keeps_written_atoms_and_skips_later(self):
-        self.approve()
         original = native.subject_update_action
 
         def partial_second(root, parameters, **kwargs):
@@ -166,26 +166,20 @@ class SubjectBatchExecutionTests(unittest.TestCase):
             self.runner.dispatch(self.frozen)
         publisher.assert_not_called()
 
-    def test_unconfirmed_and_changed_packet_cannot_publish(self):
-        with patch.object(
-            batch, "subject_update_action", side_effect=AssertionError("unconfirmed")
-        ) as publisher:
-            with self.assertRaises((ValueError, SelectedExecutionError)):
-                self.runner.dispatch(self.frozen)
-        publisher.assert_not_called()
-        for ordinal in range(3):
-            self.assert_untouched(ordinal)
-        self.approve()
+    def test_changed_packet_cannot_publish(self):
         self.project.packet_path.write_bytes(self.project.packet_path.read_bytes() + b"\n")
         with patch.object(
             batch, "subject_update_action", side_effect=AssertionError("changed packet")
         ) as publisher:
             try:
                 result = self.runner.dispatch(self.frozen)
-            except ValueError, SelectedExecutionError:
+            except (ValueError, SelectedExecutionError):
                 pass
             else:
-                self.assertIn(result["disposition"], {"blocked", "recording_pending"})
+                outcome, _, _ = backend._selected_public_outcome(
+                    self.frozen, result, self.frozen["request"]["run_id"]
+                )
+                self.assertNotEqual("completed", outcome)
         publisher.assert_not_called()
         for ordinal in range(3):
             self.assert_untouched(ordinal)

@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from pathlib import Path
 import json
-import re
 from typing import Any, Mapping
 
 from atom_operations import ROLE_DIRECTORY
@@ -26,31 +25,42 @@ def subject_batch_frontier(packet: Mapping[str, Any]) -> tuple[list[str], list[d
     for item in packet["atoms"]:
         target = item["target"]
         frontier.append(target["path"])
-        if not _changed(item):
-            continue
-        path = Path(target["path"])
-        role = next(parent for parent in path.parents if ROLE_DIRECTORY.fullmatch(parent.name))
-        archive = (role / "archive" / f"{path.stem}@{target['version']}{path.suffix}").as_posix()
-        frontier.append(archive)
-        effects.extend(
-            [
+        if _changed(item):
+            path = Path(target["path"])
+            role = next(parent for parent in path.parents if ROLE_DIRECTORY.fullmatch(parent.name))
+            archive = (
+                role / "archive" / f"{path.stem}@{target['version']}{path.suffix}"
+            ).as_posix()
+            frontier.append(archive)
+            effects.extend(
+                [
+                    {
+                        "type": "subjectUpdate",
+                        "path": target["path"],
+                        "atom_id": target["atom_id"],
+                        "before_version": target["version"],
+                        "version": target["version"] + 1,
+                    },
+                    {
+                        "type": "predecessorArchive",
+                        "atom_id": target["atom_id"],
+                        "version": target["version"],
+                        "path": archive,
+                        "sha256": target["digest"],
+                        "lifecycle": "archived",
+                    },
+                ]
+            )
+        if "draft" in item:
+            frontier.append(item["draft"]["path"])
+            effects.append(
                 {
-                    "type": "subjectUpdate",
-                    "path": target["path"],
+                    "type": "draftRemoval",
+                    "path": item["draft"]["path"],
                     "atom_id": target["atom_id"],
-                    "before_version": target["version"],
-                    "version": target["version"] + 1,
-                },
-                {
-                    "type": "predecessorArchive",
-                    "atom_id": target["atom_id"],
-                    "version": target["version"],
-                    "path": archive,
-                    "sha256": target["digest"],
-                    "lifecycle": "archived",
-                },
-            ]
-        )
+                    "sha256": item["draft"]["digest"],
+                }
+            )
     return frontier, effects
 
 
@@ -63,11 +73,6 @@ def require_subject_batch_frontier(packet: Mapping[str, Any], execution: Mapping
         raise ValueError("Subject batch declared effects differ from its exact ordered packet")
     for effect, wanted in zip(declared, expected, strict=True):
         actual = dict(effect)
-        if wanted["type"] == "subjectUpdate":
-            # Packet approval survives approved grammar updates that change later intent hashes.
-            digest = actual.pop("subject_intent_sha256", None)
-            if not isinstance(digest, str) or re.fullmatch(r"[0-9a-f]{64}", digest) is None:
-                raise ValueError("Subject batch effect requires its initial intent hash metadata")
         if json.dumps(actual, sort_keys=True) != json.dumps(wanted, sort_keys=True):
             raise ValueError(
                 "Subject batch declared effect differs from its exact packet target or revision"

@@ -1,0 +1,45 @@
+---
+atom_id: CA-O-129
+content_role: Operations
+type: Step
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: Standard
+global_tier: 11
+author: Anatoly Maslennikov
+status: Active
+subjects:
+  governs: "Step"
+  depends_on: ["Action", "Step Run", "Workflow Run", "Step/Agentic Execution Context"]
+version: 5
+updated_at: "2026-10-15 10:01:40 +0000"
+relations:
+  relates_to: [CA-O-128, CA-O-145, CA-R-1509, CA-R-1511, CA-R-1527]
+---
+# Summary
+
+Apply an admitted Atom lifecycle change
+
+## Operation
+
+This Step invokes exactly CA-O-128, apply authorized Atom lifecycle changes, as one Agentic Action. Its context is Integrated under R1527; missing required capability blocks admission, not silent context substitution.
+
+### Input and parameter binding
+
+Bind request kind, exactly one Create target or one existing current target/predecessor, its complete frozen Carrier/proposal or status/replacement mapping, current models/authority, permissions/effect admission, effect/recovery/Journal capabilities and check expectations from the exact admitted Workflow request and revalidated current evidence. For Change Status, bind actual target Content Role, optional Type, exact applicable model source/revision (including R1874 for Operations and R1875 for Analysis), current and requested status, transition result and the most-specific Delivery destination rule. Bind a declared Role/Type override only when it exists; otherwise bind the role model. A missing/ambiguous/unsupported model, forbidden transition, collision, or archive request without model-defined archival status returns its truthful unchanged outcome before O128. For Replace preserve the complete accepted set of >=1 successors for that one predecessor. An ambiguous or multi-target/predecessor request returns invalid before invoking O128; separate requests require separate admitted Workflow Runs. Archive shortcut normalization remains subject to O128's actual status-model guard.
+
+For a caller-composed containment cascade under R1521, bind only this Run's one explicit target and requested Status. Recheck its actual latest Revision, source pin, own qualified model, matching Directory Carrier when present, containment-preserving destination, history and permission immediately before its Action. Earlier successful placement changes do not authorize a stale locator or source pin. The caller retains the complete target set, independent ordering and overall completion; this Step neither discovers descendants nor dispatches another target, and its successful result does not prove the whole cascade complete.
+
+For ordinary Update outside the reviewed Subjects-only batch branch, bind the exact identity-preserving assessment and target/proposal/evidence from the latest completed O145 Step Run in this Workflow whose O067 binding matches the current proposal; do not accept an arbitrary historical pass. For other kinds no Update assessment is fabricated. Bind prior effect/receipt evidence and actual Run/parent references from retained execution state, not guessed success.
+
+Return O128's result and evidence unchanged to the Workflow. This Step has no second Action reference, alternate classifier, routing decision or implicit retry.
+
+## Details
+
+The Workflow decides whether to dispatch or terminate after this result. Every dispatch is a distinct Step Run with its exact O128 definition/input/context binding; completed effects are not replayed when a receipt is pending. Tool adapter calls are implementation details, not extra graph nodes or authority.
+
+### Reviewed Subjects-only batch member
+
+For the calling Workflow's explicitly reviewed and once-confirmed Subjects-only map, bind this one member's exact source-before, profile and ordered patches and the actual batch admission instead of an O145/O067 result or per-Atom Analysis Report. Pass only that independently admitted member to O128. Recheck exact source and applicable current rules, preserve all non-Subject bytes except required N+1/actual Updated At, and verify existing predecessor history and actual results. No per-member form or same-connection staging is required; ordinary content Update assessment remains unchanged. The caller stops first failure/uncertainty without replay or rollback of earlier successful members, retaining existing low-level failing-Atom handling and actual results/logs.
+
+For draft-backed batch approval, the reviewed map is the completed packet containing every CA-D-446 Subjects-only edit-draft path/digest; the separately reviewed map-only batch remains admitted with no draft pins. Its temporary `<canonical-ID>@draft` and Status Draft identify a derived proposal, not another canonical target. Reopen exact source and draft; normalize to the pinned canonical ID and original Status, and require independent fresh Subjects-only canonical materialization/validation before the existing archive/update effect. A full proposal's other bytes cannot broaden the admitted patch. Actual publication changes only Subjects, N+1 and actual time; new-Atom Draft identity/lineage rules remain unchanged.

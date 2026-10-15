@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: "2026-10-15 10:01:40 +0000"
+version: 10
+updated_at: "2026-10-15 11:27:33 +0000"
 subjects:
   governs: "MCP/selected Workflow adapter Carrier"
   depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal, Projection, Project]
@@ -87,9 +87,9 @@ Only the two declared read-only Run observation routes remain; the obsolete
 not admitted. This is a delivery declaration, not implementation acceptance:
 this source-contract alignment does not by itself claim current route registration, query execution, functional verification, or immutable-image acceptance. The complete shared-registry gate remains mandatory only for non-Release selected routes; neither direct Release command depends on that gate.
 
-### Reviewed Subjects-only batch dispatch
+### Instructed Subjects-only batch dispatch
 
-CA-R-866/CA-O-030's reusable reviewed Subjects-only batch may reuse the existing update route and updater with a closed exact ordered map/packet and one actual Operator confirmation retained in execution context. It is not subject to the ordinary per-target Analysis Report, O067/O145, confirmation-form or same-process/same-MCP-connection staged-session ceremony described above. Bind each independent effect to its exact authorized map member and current source-before; no caller approval Boolean, inferred approval from a hash, second executor or new Tool family is admitted. Keep complete validation, exact predecessor/archive effects, actual results/logs and existing low-level failed-Atom handling. Stop first failure or uncertainty; no automatic replay/resume or rollback of earlier successes. Generic content updates and other routes retain their existing dispatch/admission behavior. Actual implementation and verification remain required; these sources alone grant no execution permission.
+The exact packet uses the existing selected update route, request Initiative and Operator authorization from the actual instructed operation. Do not invoke an additional batch form, review/pause response, content-review round, confirmation receipt or fabricated approval; ordinary singleton confirmation remains unchanged. Reuse existing selected dispatch and updater, not another executor or Tool family. Derive public batch frontier/effects from packet metadata without initial intent-hash fields; fresh native intent stays internal where needed. Preserve normal target/draft/patch/layout, exact source, archive, Version/time and conditional-write/readback checks, not a redundant full-candidate validation gate. The caller composes current commit, bounded draft creation, draft commit, promotion and existing graph rebuild after completion, reporting actual results. Stop first failure/uncertainty and preserve completed/held/remaining sources without automatic batch rollback/replay/retry/resume; native failed-write handling remains.
 
 ### Retained direct local and public Release bindings
 
@@ -108,4 +108,4 @@ These direct commands do not weaken the complete manifest/source/currentness/per
 - Current CA-R-1847, CA-R-1848, CA-E-567 and CA-E-568.
 - Current CA-A-1142, CA-P-1618 and CA-P-1535; CA-D-527 v3; CA-D-521 v7; CA-D-548 v2; CA-D-523 v2.
 
-The existing `atom_update` preparation Tool additionally binds CA-D-425's `stage_subject_batch` operation with exact `{operation, subject_batch: {path, digest}, limit?}` and bounded strict limit1..10/default10. It emits compact actual progress and the completed schema1 reviewed packet, with no canonical/history mutation and no new route or Tool family. When draft-backed staging is chosen, that packet pins every CA-D-446 temporary-ID/Status edit draft before one actual batch confirmation; map-only batch review remains admitted without staging; publication restores canonical ID/original Status and independently validates normalized Subjects-only materialization. Existing `preview_subjects` and scratch `stage_subjects` schemas stay unchanged. This explicit additional preparation branch supersedes any earlier 'only preview/stage_subjects' wording for this Tool, not ordinary route admission or canonical ID grammar.
+The existing `atom_update` preparation Tool also binds CA-D-425's `stage_subject_batch` with closed `{operation, subject_batch: {path, digest}, limit?}`, strict limit1..10/default10, compact actual progress and final schema1 packet. This creates no canonical/history effect. Draft-backed packets bind every temporary-ID/Status proposal; map-only execution remains available. Existing request authorization admits subsequent exact promotion without an extra form/review/full-validation round. Restore canonical ID/original Status through normal writer checks; canonical ID grammar and ordinary `preview_subjects`/`stage_subjects` behavior are unchanged.

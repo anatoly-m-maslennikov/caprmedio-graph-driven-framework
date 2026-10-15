@@ -16,11 +16,11 @@ APP = TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR"
 for location in (TOOLS, APP, TOOLS / "ATOM_UPDATE/tests"):
     sys.path.insert(0, str(location))
 
-from atom_subject_patch import prepare_subject_intent  # noqa: E402
 from ATOM_UPDATE.atom_update import SOURCE_PINS  # noqa: E402
 from lifecycle_intents import carrier_descriptor  # noqa: E402
 from selected_execution import SelectedExecution  # noqa: E402
 from subject_batch import build_subject_batch_requested_runs  # noqa: E402
+from subject_batch_frontier import subject_batch_frontier  # noqa: E402
 from test_subject_apply_portfolio import REPOSITORY, SubjectApplyProject  # noqa: E402
 from selected_workflows_docker_fixture import digest  # noqa: E402
 
@@ -103,30 +103,7 @@ class SubjectBatchProject:
 
     def execution(self, run_id="subject-batch-fixture", *, request_transform=None):
         request = self.golden.request(request_id=run_id)
-        frontier, effects = [], []
-        for item in self.packet["atoms"]:
-            prepared = prepare_subject_intent(
-                self.root, item["target"], item["subject_patches"], subject_profile="approved"
-            )
-            target = item["target"]
-            if prepared["subject_intent"]["noop"]:
-                frontier.append(target["path"])
-                continue
-            archive = prepared["subject_intent"]["predecessorArchive"]
-            frontier.extend([target["path"], archive["path"]])
-            effects.extend(
-                [
-                    {
-                        "type": "subjectUpdate",
-                        "path": target["path"],
-                        "atom_id": target["atom_id"],
-                        "before_version": target["version"],
-                        "version": target["version"] + 1,
-                        "subject_intent_sha256": prepared["subject_intent_sha256"],
-                    },
-                    {"type": "predecessorArchive", **archive},
-                ]
-            )
+        frontier, effects = subject_batch_frontier(self.packet)
         request.update(
             target_frontier=frontier,
             target_frontier_digest=digest(frontier),
@@ -160,9 +137,21 @@ class SubjectBatchProject:
 
     def archives(self):
         return [
-            self.root
-            / prepare_subject_intent(
-                self.root, item["target"], item["subject_patches"], subject_profile="approved"
-            )["subject_intent"]["predecessorArchive"]["path"]
-            for item in self.packet["atoms"]
+            self.root / effect["path"]
+            for effect in subject_batch_frontier(self.packet)[1]
+            if effect["type"] == "predecessorArchive"
         ]
+
+    def commit_drafts(self):
+        self.git("add", *[item["draft"]["path"] for item in self.packet["atoms"]])
+        self.git(
+            "-c",
+            "user.name=Fixture",
+            "-c",
+            "user.email=fixture@example.invalid",
+            "commit",
+            "--quiet",
+            "-m",
+            "Fixture staged drafts",
+        )
+        return self.git("rev-parse", "HEAD").strip()

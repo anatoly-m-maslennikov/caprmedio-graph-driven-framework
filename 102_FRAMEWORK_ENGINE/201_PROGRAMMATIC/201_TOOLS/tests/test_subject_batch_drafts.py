@@ -10,7 +10,6 @@ import atom_operations as operations
 import atom_subject_apply as native
 from atom_subject_patch import prepare_subject_intent, materialize_subject_intent
 from subject_batch import load_subject_batch
-from subject_batch_authorization import capture_batch_review, persist_subject_batch_confirmation
 from subject_batch_stage import stage_subject_batch
 from subject_batch_drafts import require_reviewed_draft_candidate
 from lifecycle_intents import carrier_descriptor
@@ -56,9 +55,9 @@ class SubjectBatchDraftTests(unittest.TestCase):
         project.save_packet()
         staged = stage_subject_batch(project.root, project.parameters, limit=1)
         project.use_reviewed_packet(staged["reviewed_packet"])
+        draft_path = project.root / project.packet["atoms"][0]["draft"]["path"]
+        self.assertTrue(draft_path.exists())
         runner, frozen = project.execution("noop-subject-edit-draft")
-        review = capture_batch_review(runner, frozen)
-        persist_subject_batch_confirmation(runner, frozen, review, operator_name="golden-operator")
         with patch.object(
             native, "current_timestamp", side_effect=AssertionError("no-op edit time")
         ):
@@ -66,6 +65,7 @@ class SubjectBatchDraftTests(unittest.TestCase):
         self.assertEqual("terminal", result["disposition"])
         self.assertEqual(before, path.read_bytes())
         self.assertEqual([], list((path.parent / "archive").glob("*")))
+        self.assertFalse(draft_path.exists())
 
     def test_staging_is_bounded_resumable_and_keeps_canonical_sources_untouched(self):
         project = SubjectBatchProject(self)
@@ -111,20 +111,31 @@ class SubjectBatchDraftTests(unittest.TestCase):
         draft = project.root / project.packet["atoms"][0]["draft"]["path"]
         draft.write_bytes(draft.read_bytes() + b"\nunreviewed body edit\n")
         with self.assertRaises(ValueError):
-            capture_batch_review(runner, frozen)
+            load_subject_batch(project.root, project.parameters)
+        with patch("subject_batch_execution.subject_update_action") as native_publisher:
+            result = runner.dispatch(frozen)
+        self.assertEqual("terminal", result["disposition"])
+        self.assertNotEqual("completed", result.get("outcome"))
+        native_publisher.assert_not_called()
         for path in project.paths:
             self.assertEqual(project.before[path], path.read_bytes())
 
     def test_promotion_restores_canonical_identity_and_done_status_with_exact_history(self):
         project = SubjectBatchProject(self, count=1, role="Plan", status="Done")
         path, archive = project.paths[0], project.archives()[0]
-        completed = stage_subject_batch(project.root, project.parameters, limit=1)
-        project.use_reviewed_packet(completed["reviewed_packet"])
-        runner, frozen = project.execution("promote-subject-edit-draft")
-        review = capture_batch_review(runner, frozen)
-        persist_subject_batch_confirmation(runner, frozen, review, operator_name="golden-operator")
-        with patch.object(native, "current_timestamp", return_value=EFFECT_TIME):
-            result = runner.dispatch(frozen)
+        with patch.object(
+            operations,
+            "_validate_complete_carrier",
+            side_effect=AssertionError("full-carrier validation"),
+        ) as complete_validation:
+            completed = stage_subject_batch(project.root, project.parameters, limit=1)
+            project.use_reviewed_packet(completed["reviewed_packet"])
+            draft_path = project.root / project.packet["atoms"][0]["draft"]["path"]
+            self.assertTrue(draft_path.exists())
+            runner, frozen = project.execution("promote-subject-edit-draft")
+            with patch.object(native, "current_timestamp", return_value=EFFECT_TIME):
+                result = runner.dispatch(frozen)
+        complete_validation.assert_not_called()
         self.assertEqual("terminal", result["disposition"])
         before = operations.parse_carrier(project.before[path], path)
         after = operations.parse_carrier(path.read_bytes(), path)
@@ -136,6 +147,7 @@ class SubjectBatchDraftTests(unittest.TestCase):
         self.assertEqual(before.body, after.body)
         self.assertEqual(project.before[path], archive.read_bytes())
         self.assertEqual(project.fixture.before_mode, path.stat().st_mode & 0o777)
+        self.assertFalse(draft_path.exists())
         self.assertEqual(
             1,
             sum(

@@ -2771,14 +2771,6 @@ class SelectedExecution:
         if intent.exists():
             return {"disposition": "recording_pending", "outcome": "interrupted_pending",
                     "workflow_run_id": run_id, "reason": "uncertain selected dispatch intent retained; no replay"}
-        execution = request["execution"]
-        if execution.get("operation_route") == "update_atom" and "subject_batch" in execution.get("parameters", {}):
-            from subject_batch_authorization import load_subject_batch_confirmation
-            try:
-                load_subject_batch_confirmation(self, frozen)
-            except (ValueError, OSError) as error:
-                return {"disposition": "blocked", "outcome": "blocked", "workflow_run_id": run_id,
-                        "effect_refs": [], "diagnostics": [str(error)]}
         graph = self._revalidate(frozen)
         self._validate_query_admission(graph, request["execution"])
         try:

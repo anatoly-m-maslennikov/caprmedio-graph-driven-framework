@@ -9,6 +9,7 @@ from atom_subject_apply import subject_update_action
 from atom_subject_patch import prepare_subject_intent
 from subject_batch import subject_batch_run_ids
 from subject_batch_authorization import batch_definition_binding, bind_subject_batch
+from subject_batch_drafts import finish_subject_draft_promotion
 
 PROGRESS = "subject_batch_progress.json"
 
@@ -23,16 +24,6 @@ def _parameters(root: Path, item: Mapping[str, Any]) -> dict[str, Any]:
         "subject_profile": "approved",
         "subject_intent_sha256": prepared["subject_intent_sha256"],
     }
-
-
-def _effect_refs(result: Mapping[str, Any]) -> list[str]:
-    return sorted(
-        {
-            effect["carrier"]["path"]
-            for effect in result.get("effects", [])
-            if effect.get("state") in {"changed", "unknown"}
-        }
-    )
 
 
 def _record_change(
@@ -91,13 +82,12 @@ def _execute_target(
         session=session,
         action_run_id=actual[-1]["run_id"],
     )
-    effects = _effect_refs(result)
     row = {
         "ordinal": ordinal,
         "target": item["target"],
         "outcome": result["outcome"],
         "native_result": result,
-        "effect_refs": effects,
+        **finish_subject_draft_promotion(runner.root, item, result),
     }
     result_path = runner.run_directory(run_id) / f"subject-{ordinal}.json"
     try:
@@ -119,6 +109,8 @@ def _finish_target(
         "failed": "failed",
         "partial": "partial",
     }.get(row["outcome"], "interrupted_pending")
+    if terminal == "no_op" and effects:
+        terminal = "completed"
     if effects:
         session.note_effects(actual[-1]["run_id"], result_ref=reference, effect_refs=effects)
     for record in reversed(actual):
@@ -152,7 +144,6 @@ def execute_subject_batch(runner: Any, frozen: Mapping[str, Any], session: Any) 
         runner._write(path, progress)
         for ordinal, item in enumerate(state.packet["atoms"], 1):
             state.ordinal = ordinal - 1
-            state.validation_scope = None
             progress["in_flight"] = {"ordinal": ordinal, "target": item["target"]}
             runner._write(path, progress)
             try:

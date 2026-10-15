@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 3
-updated_at: "2026-10-12 04:02:18 +0400"
+version: 4
+updated_at: "2026-10-15 11:24:25 +0000"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1911, CA-P-1968, CA-P-1973]
@@ -29,6 +29,14 @@ Prepare the accepted Core Subject migration preview
 Prepare an exact, sealed migration preview for the verified accepted Core graph without changing authoritative sources.
 
 ## Details
+
+### Operator-authorized minimum Subjects-only sequence — 2026-10-15
+
+The Operator now authorizes this Candidate #4 Subjects-only sequence through the existing Workflows: commit current work → create the selected edit drafts → commit drafts → archive exact current predecessors and promote drafts → rebuild the entity graph from actual migrated sources. No additional confirmation, independent post-stage full preview, semantic review or extra review/validation round is required. This checkpoint supersedes conflicting earlier prerequisite, approval and Definition-of-Done clauses for this sequence; it does not remove normal operation checks or expand generic content-update authority.
+
+Retain current target/draft checks and ordinary operation results, canonical ID and original Status restoration, Version +1, actual Project-time updated_at and byte-exact predecessor archives. Stop at the first failed or unknown result, preserve completed predecessors and the untouched remainder, and perform no automatic replay or batch rollback. Existing Git commits and predecessor archives remain recovery evidence, not permission for automatic reset. Preserve all 29 held owners unchanged and ordinary content migration separately under CA-P-1970. Record actual graph-rebuild output; candidate-only reproduction or a planned graph is not that output.
+
+For this Task, the earlier separate final sealed-preview/acceptance round and separate migration authorization are superseded by the Operator's sequence above. Preserve existing preview evidence as history; do not manufacture a completed preview or require another one as an execution prerequisite.
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 

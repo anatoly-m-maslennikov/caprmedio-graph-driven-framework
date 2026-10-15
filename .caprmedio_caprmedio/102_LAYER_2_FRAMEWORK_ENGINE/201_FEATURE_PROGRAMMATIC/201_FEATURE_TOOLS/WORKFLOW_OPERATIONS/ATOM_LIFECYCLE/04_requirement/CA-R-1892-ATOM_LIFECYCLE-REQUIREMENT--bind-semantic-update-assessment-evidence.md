@@ -9,8 +9,8 @@ status: Active
 subjects:
   governs: "Workflow Operations/Atom Lifecycle/Semantic Update Assessment Evidence"
   depends_on: ["CA-O-067", "CA-R-1432", "CA-R-1464", "Analysis Report"]
-version: 2
-updated_at: "2026-10-15 09:48:30 +0000"
+version: 3
+updated_at: "2026-10-15 11:27:33 +0000"
 relations:
   relates_to: [CA-R-1825, CA-R-1826, CA-R-1827]
 ---
@@ -24,7 +24,7 @@ Tool realization of one substantive Atom Update through the existing O067/O145/O
 
 ## Claim
 
-Outside CA-R-866's explicitly reviewed Subjects-only batch branch, a Tool **must** treat a substantive Update as unresolved unless one current, completed `Analysis` Atom of type `Analysis Report` supplies exact, read-only-verifiable semantic assessment evidence. The evidence **must** establish unchanged Summary and same primary-Claim identity, one admitted R1432 class, a declared delta, and completed lineage-impact review. It is evidence only: it does not grant Operator permission, effect admission, or any other authorization.
+Outside CA-R-866's explicitly instructed Subjects-only batch branch, a Tool **must** treat a substantive Update as unresolved unless one current, completed `Analysis` Atom of type `Analysis Report` supplies exact, read-only-verifiable semantic assessment evidence. The evidence **must** establish unchanged Summary and same primary-Claim identity, one admitted R1432 class, a declared delta, and completed lineage-impact review. It is evidence only: it does not grant Operator permission, effect admission, or any other authorization.
 
 ## Details
 
@@ -34,4 +34,4 @@ O145 and O129 independently reopen the report and every declared pin. They compa
 
 The Tool seals only the normalized verified evidence from a completed O145 Step together with its exact request binding. O129 revalidates that seal immediately before effects. Mechanical lossless normalization remains separately provable without this optional report.
 
-CA-R-866's branch substitutes one reviewed exact ordered map and actual batch confirmation for per-Atom semantic Analysis Reports and O067/O145 assessment bindings. It preserves same-ID identity/Summary, the declared Subject delta and lineage-impact review, complete validation and exact source-before checks. This is not an exemption for ordinary content updates or permission inferred from syntax, hashes or a caller Boolean.
+CA-R-866's branch substitutes the exact ordered packet and actual instructed-operation Initiative/Operator authorization for per-Atom semantic Analysis Reports/O067/O145. It requires no additional form, review/pause response, content-review/confirmation round or fabricated receipt. Keep normal exact source/draft/patch/layout, identity/Summary, archive, Version/time and readback checks, not a separate full-candidate validation or initial intent-metadata gate. This exception does not weaken ordinary content-update assessments or admit authority from syntax, hashes or a caller Boolean.

@@ -78,7 +78,7 @@ def _assessment(root: Path, request: Mapping[str, Any], target: operations.Atom,
     from lifecycle_intents import _assessment_json, _mechanical_update_evidence, _semantic_assessment_evidence
     from subject_batch_authorization import validate_batch_action
     if validate_batch_action(root, request):
-        return {"admitted_change_class": "semantic_revision", "basis": "confirmed-subject-batch-map"}
+        return {"admitted_change_class": "semantic_revision", "basis": "authorized-subject-batch-map"}
     before = prepared["subject_intent"]["target"]
     if prepared["subject_intent"]["noop"]:
         return _mechanical_update_evidence(target, before, prepared["proposed"],
@@ -254,7 +254,7 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
             require_subject_publication_window(root, request, intent)
         except SubjectPublicationAuthorizationError as error:
             _fail(error.code, str(error))
-        # shortcut: confirmed pauses do not prevent outside writes or interruption, reconsider if stronger isolation is required.
+        # shortcut: compare-to-replace permits outside-write races, reconsider if stronger isolation is required.
         actual_at = current_timestamp(root)
         materialized = materialize_subject_intent(root, prepared, actual_at)
         archive = intent["predecessorArchive"]

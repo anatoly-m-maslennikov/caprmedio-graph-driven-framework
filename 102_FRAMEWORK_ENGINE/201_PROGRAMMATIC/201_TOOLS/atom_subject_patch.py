@@ -1012,9 +1012,10 @@ def _replace_frontmatter(text: str, before: str, after: str) -> str:
 
 def _validate_complete(operations: Any, root: Path, path: Path, frontmatter: str, body: str,
                        *, validation_scope: CarrierValidationScope | None = None) -> None:
-    from subject_batch_authorization import batch_validation_scope
-    validation_scope = validation_scope or batch_validation_scope(root)
+    from subject_batch_authorization import validate_batch_carrier
     try:
+        if validate_batch_carrier(root, path, frontmatter, body):
+            return
         if validation_scope is None:
             operations._validate_complete_carrier(root, path, frontmatter, body, creating=False)
         else:

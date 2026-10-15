@@ -19,8 +19,8 @@ subjects:
     - "Atom/Revision/Updated At"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 21
-updated_at: "2026-10-15 10:01:40 +0000"
+version: 22
+updated_at: "2026-10-15 11:27:33 +0000"
 relations: {}
 ---
 # Summary
@@ -64,11 +64,11 @@ Default local preview writes nothing. Opt-in local `run --stage-preview` exports
 
 Staging performs no authoritative, archive/history, Journal, promotion or MCP effect. It does not create source effect-time evidence, bypass the standalone apply guard, change the staged-only migration scope or reopen deferred live changed-Subject publication. New contract authoring is not implementation or runtime readiness; affected use still needs the independently verified realization.
 
-### Reviewed Subjects-only batch effect
+### Instructed Subjects-only batch effect
 
-CA-R-866's reviewed Subjects-only batch is an alternative admission for exact map members through this existing Action. One actual Operator confirmation covers the entire reviewed ordered map; retain it and the map/source/patch bindings in execution context. No separate per-member Analysis Report, O067/O145 result, confirmation form or same-MCP-connection staging is required. Reuse the existing one-Atom effect and exact archive semantics, with final exact source-before/current-rule/complete-carrier/intent/destination checks and actual N+1/time materialization. A member's permission cannot cover a changed map, another target or non-Subject bytes. Create the Git checkpoint before starting, retain actual results/logs, advance only after verified success/no-op, stop first failure or uncertainty, and never automatically retry/resume or roll back earlier successful members. Retain existing low-level failing-Atom restoration and truthful partial/unknown handling; no new recovery mechanism is required.
+CA-R-866's exact ordered batch uses the actual Operator instruction and existing request Initiative/authorization. Retain packet/member and request bindings, without a separate batch form, review/pause response, content review, per-Atom Analysis Report/O067/O145 result or confirmation receipt. Public batch effects need no initial intent-hash metadata; derive fresh native intent internally when needed.
 
-The ordinary assessment, form and staged-session clauses below apply outside that batch branch. They must not be used to require per-Atom ceremony for an already confirmed exact batch member. This source declaration is not implementation readiness or confirmation of a particular map.
+The caller commits current state, creates and commits edit drafts, then invokes independent existing one-Atom archive/promote effects in packet order and rebuilds the graph only after completion. Retain normal target/draft/patch/layout, current source, conditional-write, exact archive, N+1/actual-time and readback checks; no redundant full-candidate validation pass is a batch gate. Stop first failure or uncertainty, keep completed effects and leave remaining and held sources untouched. Existing native failed-write restoration remains; no automatic batch rollback, replay, retry or resume is added. Actual results and logging failures are separate observations. Ordinary singleton assessment/form/session requirements below remain unchanged and do not apply to this batch.
 
 ### Ordinary one-target Subject effect
 
@@ -115,4 +115,4 @@ These direct calls preserve the existing no-Journal local preparation policy: no
 
 ### Existing-Atom edit-draft publication
 
-The draft-backed reviewed batch uses CA-D-446/CA-D-425's full existing-Atom edit drafts and final schema1 packet, not an old scratch preview. The separately reviewed map-only batch remains admitted without draft staging. Bind actual one-batch confirmation to every exact draft path/digest and canonical target/source-before. These temporary `@draft` IDs and Draft markers never become canonical identity or a source Status transition. Immediately before the existing per-member effect, reopen and independently validate normalized canonical materialization with original ID/Status and actual time, preserving all non-Subject bytes except N+1/time. Archive exact current predecessor and publish the canonical result only after equality with the reviewed normalized proposal is proved. Keep existing low-level failing-Atom restoration and truthful partial/unknown handling; the actual result, not proposal existence, proves publication.
+The instructed draft-backed batch uses CA-D-446/CA-D-425's source-pinned full drafts and final schema1 packet. Existing request authorization admits their exact promotion without an additional review/form/confirmation round. Restore canonical ID and original source Status from the temporary markers; the current Active sources therefore publish Active while generic non-Active status preservation remains unchanged. Reopen exact source and draft at the operation, enforce normal Subjects-only patch/layout and metadata checks, archive the exact predecessor, publish N+1 with actual time, and independently read back the actual effect. No separate full-candidate preflight or public initial intent metadata is required. Keep existing native failed-write handling and truthful partial/unknown results; proposal existence is not publication. After verified canonical output and any required predecessor readback, conditionally remove only that member's exact packet-pinned draft bytes. If draft cleanup fails or its bytes have drifted, stop and report the actual cleanup failure, preserving the published canonical Revision and archive; do not roll them back or remove another file.

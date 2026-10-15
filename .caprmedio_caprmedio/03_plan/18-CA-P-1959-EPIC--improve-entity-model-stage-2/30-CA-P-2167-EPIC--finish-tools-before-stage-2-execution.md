@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 78
-updated_at: "2026-10-15 09:39:40 +0000"
+version: 79
+updated_at: "2026-10-15 11:24:25 +0000"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,16 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Operator-authorized minimum Subjects-only sequence — 2026-10-15
+
+The Operator now authorizes this Candidate #4 Subjects-only sequence through the existing Workflows: commit current work → create the selected edit drafts → commit drafts → archive exact current predecessors and promote drafts → rebuild the entity graph from actual migrated sources. No additional confirmation, independent post-stage full preview, semantic review or extra review/validation round is required. This checkpoint supersedes conflicting earlier prerequisite, approval and Definition-of-Done clauses for this sequence; it does not remove normal operation checks or expand generic content-update authority.
+
+Retain current target/draft checks and ordinary operation results, canonical ID and original Status restoration, Version +1, actual Project-time updated_at and byte-exact predecessor archives. Stop at the first failed or unknown result, preserve completed predecessors and the untouched remainder, and perform no automatic replay or batch rollback. Existing Git commits and predecessor archives remain recovery evidence, not permission for automatic reset. Preserve all 29 held owners unchanged and ordinary content migration separately under CA-P-1970. Record actual graph-rebuild output; candidate-only reproduction or a planned graph is not that output.
+
+Local release `local-20261015-subject-batch-003` terminated with outcome `failed` at `tests`: the reported suite ran 3,391 tests with zero skips and one failed Docker module, `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests/test_first_cut_http_docker_e2e.py`. This is not release/runtime acceptance and no migration occurred. Evidence: `.caprmedio_tmp/verification/local-release-20261015-subject-batch-003.log` and `.caprmedio_runtime/simple_local_release/reports/local-20261015-subject-batch-003.md`.
+
+Keep this Epic and unfinished descendants Active; completion and any status-cascade disposition remain unresolved. Preserve earlier receipts, failed/uncertain attempts and historical decisions without treating their superseded gates as current requirements. No FPF, new recovery machinery, content migration or unrelated rebuild is added.
 
 ### Selected Subjects-only batch Workflow — 2026-10-15
 

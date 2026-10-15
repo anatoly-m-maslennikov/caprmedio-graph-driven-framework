@@ -1,6 +1,5 @@
 """A batch can update its grammar Subject before the next native mutation."""
 
-import hashlib
 from pathlib import Path
 import sys
 import unittest
@@ -12,11 +11,8 @@ for location in (APP, TOOLS, TOOLS / "tests"):
     sys.path.insert(0, str(location))
 
 import atom_operations as operations  # noqa: E402
+import subject_batch_execution as batch  # noqa: E402
 from lifecycle_intents import carrier_descriptor  # noqa: E402
-from subject_batch_authorization import (  # noqa: E402
-    capture_batch_review,
-    persist_subject_batch_confirmation,
-)
 from subject_batch_fixture import SubjectBatchProject  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier as admission  # noqa: E402
 
@@ -41,12 +37,13 @@ class SubjectBatchSelfRuleTests(unittest.TestCase):
             )
         )
         context = admission.source_context_from_project(project.root)
-        binding = next(
-            row["binding"]
-            for row in context.inputs["sources"]
-            if row["binding"]["atom_id"] == "CA-D-276"
+        rule = Path(
+            next(
+                row["binding"]["path"]
+                for row in context.inputs["sources"]
+                if row["binding"]["atom_id"] == "CA-D-276"
+            )
         )
-        rule = Path(binding["path"])
         before = rule.read_bytes()
         target = carrier_descriptor(project.root, rule.relative_to(project.root).as_posix())
         old = operations.parse_carrier(before, rule).metadata["subjects"]["governs"]
@@ -81,34 +78,21 @@ class SubjectBatchSelfRuleTests(unittest.TestCase):
         project.packet["git_checkpoint"] = project.git("rev-parse", "HEAD").strip()
         project.save_packet()
         runner, frozen = project.execution("subject-batch-self-rule")
-        review = capture_batch_review(runner, frozen)
-        persist_subject_batch_confirmation(runner, frozen, review, operator_name="golden-operator")
-        captures, original = [], admission.source_context_from_project
+        observations, original = [], batch.subject_update_action
 
-        def observe(root):
-            current = original(root)
-            captures.append(
-                next(
-                    row["binding"]
-                    for row in current.inputs["sources"]
-                    if row["binding"]["atom_id"] == "CA-D-276"
-                )
-            )
-            return current
+        def observe(root, parameters, **kwargs):
+            if parameters["target"] == project.targets[0]:
+                observations.append(rule.read_bytes())
+            return original(root, parameters, **kwargs)
 
-        with patch.object(admission, "source_context_from_project", side_effect=observe):
+        with patch.object(batch, "subject_update_action", side_effect=observe):
             result = runner.dispatch(frozen)
         self.assertEqual("terminal", result["disposition"])
         after = operations.parse_carrier(rule.read_bytes(), rule)
         self.assertEqual(target["version"] + 1, after.metadata["version"], repr(result))
-        self.assertNotEqual(project.before[project.paths[0]], project.paths[0].read_bytes())
-        after_digest = hashlib.sha256(rule.read_bytes()).hexdigest()
-        self.assertTrue(
-            any(
-                row["version"] == after.metadata["version"] and row["sha256"] == after_digest
-                for row in captures
-            )
-        )
+        self.assertEqual([rule.read_bytes()], observations)
+        next_atom = operations.parse_carrier(project.paths[0].read_bytes(), project.paths[0])
+        self.assertEqual(project.targets[0]["version"] + 1, next_atom.metadata["version"])
         archive = rule.parent / "archive" / f"{rule.stem}@{target['version']}.md"
         self.assertEqual(before, archive.read_bytes())
 
