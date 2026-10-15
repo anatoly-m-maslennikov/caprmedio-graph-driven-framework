@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 2
-updated_at: "2026-10-12 04:02:18 +0400"
+version: 3
+updated_at: "2026-10-15 08:07:09 +0000"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1912]
@@ -29,6 +29,12 @@ Apply the approved Core Subject migration
 Apply only the exact separately authorized Core Subject migration while preserving governing authority, source meaning and history.
 
 ## Details
+
+### Selected existing-tool application sequence — 2026-10-15
+
+The Operator selected option 1 using the existing Tools: apply the 609 nongrammar Atoms first, then CA-E-383, and handle CA-R-1324 last through a fresh preview, fresh staging and exact approval after the preceding changes. The verified 611-owner/848-patch preview, seal `4c993644468c6beb348b56335b7053baa435dbc14d895e8dec96fff5334bc538`, remains preserved unchanged; only the intended application sequence changes. The final CA-R-1324 effect must bind its freshly reviewed intent and current grammar evidence, not reuse the old seal or intent as authorization.
+
+This selects execution strategy only. It authorizes no current staging or live publication, changes no Tool, and waives no current-source, exact packet/target approval, pending batch-confirmation or semantic-report policy gate. Keep this Plan Active and preserve all earlier evidence and uncertain batches without replay; ordinary content migration remains deferred.
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
