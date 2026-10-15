@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 82
-updated_at: "2026-10-15 01:33:34 +0000"
+version: 83
+updated_at: "2026-10-15 02:17:41 +0000"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,17 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Current-rule loading and unwanted-rollback regression — 2026-10-15
+
+This supersedes the earlier open self-update/repinning decision. The Operator chose current rule reads without fixed rule-file Version/hash admission and removed redundant post-write checks against the intentionally replaced rule. Keep captured per-operation currentness, exact target pre-write checks, Operator confirmation, exact current/history readback and unrelated-authority checks. Historical Run observations use their saved bindings, not today's rule versions.
+
+Committed `5344c513e` implements the Subject publication correction and current selected-definition/grammar/direct-provider reads. `396e33e46` covers finite validator readers; `e8784a9e5` covers Settings/Scope Query readers; `d7799050b` aligns six non-Core Tool contracts with exact predecessor archives. Independent bounded reviews passed; no live Subject/content migration or runtime replacement occurred.
+
+The requested real functional test is `201_TOOLS/tests/test_subject_rule_self_update.py`: update a rule used by the updater, verify exact successor bytes and archived predecessor, then publish a second Atom in the same process using fresh rule Version/hash evidence. The old implementation reproduced the unwanted rollback; the corrected test passed in 24.096 seconds. All 25 existing publication tests passed in 244.161 seconds, including stale-target, unrelated-authority drift, write/readback failure, owned restoration and no-replay cases. Evidence: `.caprmedio_tmp/stage2-migration-20261015/postwrite-check-removal/`.
+
+The preceding frozen suite at `70bbe1584` ran 370 modules and 3,324 tests with no skips and two failed modules in 1,125.127 seconds. It is not a green result. `c6ba7e406` fixes the release fixture's missing sibling modules and aligns query reconnect coverage with the existing representative policy; focused host tests passed. A new full suite on the current committed implementation remains required. Fresh connected preview/staging, final packet approval and independent migration reproduction remain pending. Keep both Epics Active. The separate per-Atom semantic-assessment decision is not waived by this checkpoint.
+
 
 ### Current native preview and remaining migration gates — 2026-10-15
 
