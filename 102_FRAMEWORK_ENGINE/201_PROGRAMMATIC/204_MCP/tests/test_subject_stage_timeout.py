@@ -1,4 +1,4 @@
-"""Only direct Subject staging receives the longer completion budget."""
+"""Only exact direct Subject preparation operations receive longer budgets."""
 import asyncio
 from pathlib import Path
 import sys
@@ -29,11 +29,13 @@ class SubjectStageTimeoutTests(unittest.IsolatedAsyncioTestCase):
                 return response
 
         cases = [
-            ("atom_update", {"request": {"operation": "stage_subjects"}}, 180),
-            ("atom_update", {"request": {"operation": "preview_subjects"}}, 90),
+            ("atom_update", {"request": {"operation": "stage_subjects"}}, 600),
+            ("atom_update", {"request": {"operation": "preview_subjects"}}, 300),
             ("update_atom", {"request": {"operation": "stage_subjects"}}, 90),
             ("atom_update_extra", {"request": {"operation": "stage_subjects"}}, 90),
+            ("atom_update_extra", {"request": {"operation": "preview_subjects"}}, 90),
             ("atom_update", {"request": {"operation": "stage_subjects_extra"}}, 90),
+            ("atom_update", {"request": {"operation": "preview_subjects_extra"}}, 90),
             ("discover_tools", {"request": {}}, 90),
         ]
         for arguments in (None, [], "stage_subjects", {}, {"request": None},
@@ -50,7 +52,8 @@ class SubjectStageTimeoutTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(0, gateway.active.in_flight)
         self.assertEqual(len(cases), len(calls))
         self.assertEqual(90, hot_reload.IMPLEMENTATION_CALL_TIMEOUT_SECONDS)
-        self.assertEqual(180, hot_reload.SUBJECT_STAGE_CALL_TIMEOUT_SECONDS)
+        self.assertEqual(300, hot_reload.SUBJECT_PREVIEW_CALL_TIMEOUT_SECONDS)
+        self.assertEqual(600, hot_reload.SUBJECT_STAGE_CALL_TIMEOUT_SECONDS)
 
     async def test_pending_stage_returns_the_child_completion_without_replay(self):
         entered, release = asyncio.Event(), asyncio.Event()
@@ -73,7 +76,7 @@ class SubjectStageTimeoutTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(1, gateway.active.in_flight)
             release.set()
             self.assertIs(response, await pending)
-            self.assertEqual([180], calls)
+            self.assertEqual([600], calls)
             self.assertEqual(0, gateway.active.in_flight)
         finally:
             release.set()
@@ -101,7 +104,7 @@ class SubjectStageTimeoutTests(unittest.IsolatedAsyncioTestCase):
             self.assertTrue(actual.is_error)
             self.assertEqual("uncertain", actual.structured_content["outcome"])
             self.assertIn("no automatic replay", actual.structured_content["diagnostics"][0])
-            self.assertEqual([180], calls)
+            self.assertEqual([600], calls)
             self.assertEqual(0, gateway.active.in_flight)
         finally:
             release.set()

@@ -15,6 +15,7 @@ from functools import wraps
 import hashlib
 import json
 from pathlib import Path
+import re
 import weakref
 
 import atom_operations as operations
@@ -123,6 +124,43 @@ def _frontier(root, prepared, execution):
     return originals, tuple(capture_source(root, path) for path in sorted(paths - {target}))
 
 
+def _validate_staged_atom(atom):
+    if type(atom) is not dict or atom.keys() != {"source", "subject_intent_sha256", "candidate", "validation"}:
+        _reject("Reviewed staging has an invalid Atom entry")
+    source, candidate, validation = atom["source"], atom["candidate"], atom["validation"]
+    if (type(source) is not dict or source.keys() != {"path", "atom_id", "version", "sha256"}
+            or type(candidate) is not dict or candidate.keys() != {"path", "sha256"}
+            or type(validation) is not dict
+            or validation != {"state": "passed", "logical_source_path": source["path"]}):
+        _reject("Reviewed staging has invalid source, candidate, or validation evidence")
+    if (type(source["version"]) is not int or source["version"] < 1
+            or type(source["atom_id"]) is not str or not source["atom_id"]):
+        _reject("Reviewed staging has an invalid source identity")
+    for path in (source["path"], candidate["path"]):
+        if type(path) is not str or not path or Path(path).is_absolute() or ".." in Path(path).parts:
+            _reject("Reviewed staging has an unsafe Carrier path")
+    for digest in (source["sha256"], candidate["sha256"], atom["subject_intent_sha256"]):
+        if type(digest) is not str or re.fullmatch(r"[0-9a-f]{64}", digest) is None:
+            _reject("Reviewed staging has an invalid Digest")
+
+
+def _manifest_atoms(manifest):
+    if (type(manifest) is not dict or manifest.keys() != {"schema_version", "preview_sha256", "atoms"}
+            or type(manifest["schema_version"]) is not int or manifest["schema_version"] != 1
+            or type(manifest["preview_sha256"]) is not str
+            or re.fullmatch(r"[0-9a-f]{64}", manifest["preview_sha256"]) is None
+            or type(manifest["atoms"]) is not list or not manifest["atoms"]):
+        _reject("Reviewed staging requires the closed Subject manifest")
+    atoms = manifest["atoms"]
+    for atom in atoms:
+        _validate_staged_atom(atom)
+    if (len({atom["source"]["path"] for atom in atoms}) != len(atoms)
+            or len({atom["source"]["atom_id"] for atom in atoms}) != len(atoms)
+            or len({atom["subject_intent_sha256"] for atom in atoms}) != len(atoms)):
+        _reject("Reviewed staging has ambiguous source entries")
+    return atoms
+
+
 def _reviewed_subject_candidate(root, request, prepared, staged_manifest):
     """Reopen the exact staged candidate without issuing confirmation."""
     from atom_subject_patch import preview_subject_patches
@@ -131,13 +169,15 @@ def _reviewed_subject_candidate(root, request, prepared, staged_manifest):
         _reject("Reviewed staging requires its exact existing manifest pin")
     staged = FileSource(root, Path(staged_manifest["path"]), staged_manifest["digest"])
     manifest = json.loads(staged.read_bytes())
-    if manifest.keys() != {"schema_version", "preview_sha256", "atoms"} or manifest["schema_version"] != 1 or len(manifest["atoms"]) != 1:
-        _reject("Reviewed staging must bind exactly one Subject intent")
-    atom = manifest["atoms"][0]
-    if (atom["subject_intent_sha256"] != request["subject_intent_sha256"]
-            or atom["source"] != {"path": intent["target"]["path"], "atom_id": intent["target"]["atom_id"],
-                                  "version": intent["target"]["version"], "sha256": intent["target"]["digest"]}):
+    atoms = _manifest_atoms(manifest)
+    matches = [atom for atom in atoms if atom["source"]["path"] == intent["target"]["path"]
+               or atom["source"]["atom_id"] == intent["target"]["atom_id"]]
+    source = {"path": intent["target"]["path"], "atom_id": intent["target"]["atom_id"],
+              "version": intent["target"]["version"], "sha256": intent["target"]["digest"]}
+    if (len(matches) != 1 or matches[0]["subject_intent_sha256"] != request["subject_intent_sha256"]
+            or matches[0]["source"] != source):
         _reject("Reviewed staging differs from the exact source-bound intent")
+    atom = matches[0]
     candidate = FileSource(root, Path(atom["candidate"]["path"]), atom["candidate"]["sha256"])
     candidate_raw = candidate.read_bytes()
     frontmatter, _ = operations.split_frontmatter(candidate_raw.decode("utf-8"))
@@ -146,7 +186,10 @@ def _reviewed_subject_candidate(root, request, prepared, staged_manifest):
         "expected": {"atom_id": request["target"]["atom_id"], "version": request["target"]["version"],
                      "sha256": request["target"]["digest"]}, "subject_patches": request["subject_patches"]}],
         timestamp=illustrative_at, subject_profile=request.get("subject_profile", "legacy"))
-    if candidate_raw != expected["atoms"][0]["proposed_carrier"].encode("utf-8") or manifest["preview_sha256"] != expected["preview_sha256"]:
+    # A batch seal covers all entries; only a singleton has this one-target seal.
+    if (candidate_raw != expected["atoms"][0]["proposed_carrier"].encode("utf-8")
+            or expected["atoms"][0]["subject_intent_sha256"] != atom["subject_intent_sha256"]
+            or len(atoms) == 1 and manifest["preview_sha256"] != expected["preview_sha256"]):
         _reject("Reviewed candidate differs from the independently reopened preview")
     return staged, candidate, candidate_raw
 

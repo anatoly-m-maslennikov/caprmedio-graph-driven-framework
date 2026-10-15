@@ -154,7 +154,7 @@ class SubjectPublicationGatewayTests(unittest.IsolatedAsyncioTestCase):
         self.fixture.assert_unchanged(self)
         self.assertEqual([], self.child_calls)
 
-    async def test_error_and_multi_atom_stage_responses_are_not_retained(self):
+    async def test_error_and_duplicate_intent_stage_responses_are_not_retained(self):
         session = object()
         value = {
             "operation": "stage_subjects",

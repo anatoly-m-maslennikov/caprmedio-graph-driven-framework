@@ -69,8 +69,10 @@ GENERATION_READY_TIMEOUT_SECONDS = 20
 # Read-only catalog scans have their own sixty-second bound and watch calls may
 # wait thirty seconds.  The child's startup budget must not truncate either.
 IMPLEMENTATION_CALL_TIMEOUT_SECONDS = 90
-# Scratch staging repeats the sealed preview before returning completion.
-SUBJECT_STAGE_CALL_TIMEOUT_SECONDS = 180
+# Full Subject previews are bounded by the native reader's five-minute budget.
+SUBJECT_PREVIEW_CALL_TIMEOUT_SECONDS = 300
+# Scratch staging repeats that preview and verifies all staged candidates.
+SUBJECT_STAGE_CALL_TIMEOUT_SECONDS = 600
 _STARTUP_TELEMETRY_ENV = 'CAPRMEDIO_STARTUP_TELEMETRY'
 _STARTUP_PHASES = frozenset({
     'initial_fingerprint', 'reload_fingerprint', 'fingerprint_verify',
@@ -558,17 +560,20 @@ class Gateway:
             return
         preview, staged = value.get('preview'), value.get('staging')
         if (value.get('operation') != 'stage_subjects' or value.get('errors') != []
-                or not isinstance(preview, dict) or preview.get('count') != 1
-                or not isinstance(preview.get('atoms'), list) or len(preview['atoms']) != 1
+                or not isinstance(preview, dict) or type(preview.get('count')) is not int
+                or preview['count'] < 1 or not isinstance(preview.get('atoms'), list)
+                or len(preview['atoms']) != preview['count']
                 or not isinstance(staged, dict)):
             return
-        atom = preview['atoms'][0]
-        intent = atom.get('subject_intent_sha256') if isinstance(atom, dict) else None
+        intents = [atom.get('subject_intent_sha256') if isinstance(atom, dict) else None
+                   for atom in preview['atoms']]
         path, pin = staged.get('manifest_path'), staged.get('manifest_sha256')
-        if (not isinstance(intent, str) or not isinstance(path, str)
-                or not isinstance(pin, str)):
+        if (any(not isinstance(intent, str) for intent in intents)
+                or len(set(intents)) != len(intents)
+                or not isinstance(path, str) or not isinstance(pin, str)):
             return
-        self.subject_stages[(id(connection), intent)] = (connection, {'path': path, 'digest': pin})
+        for intent in intents:
+            self.subject_stages[(id(connection), intent)] = (connection, {'path': path, 'digest': pin})
 
     async def _confirm_subject(self, context, arguments):
         from selected_routes import SelectedRouteAdapter, _QueueBackedSelectedSupport
@@ -624,6 +629,9 @@ class Gateway:
                    and request.get('operation') == 'stage_subjects')
         if staging:
             timeout = SUBJECT_STAGE_CALL_TIMEOUT_SECONDS
+        elif (params.name == 'atom_update' and isinstance(request, dict)
+              and request.get('operation') == 'preview_subjects'):
+            timeout = SUBJECT_PREVIEW_CALL_TIMEOUT_SECONDS
         response = await generation.client.call_tool(params.name, params.arguments,
             read_timeout_seconds=timeout)
         if staging:
