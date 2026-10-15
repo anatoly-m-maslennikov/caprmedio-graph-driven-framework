@@ -1,4 +1,8 @@
 ---
+atom_id: "CA-M-284"
+content_role: "Method"
+current_scope_unit: "PROGRAMMATIC"
+status: "Active"
 cce_version: "cce_1"
 cce_form: "method"
 subjects:
@@ -9,8 +13,8 @@ subjects:
     - "Artifact/Revision"
     - "Project Settings"
     - "programmatic software"
-version: 11
-updated_at: "2026-09-17 19:02:53 +0000"
+version: 14
+updated_at: "2026-10-13 22:52:30 +0400"
 relations:
   derived_from:
     - "CA-A-053"
@@ -24,8 +28,10 @@ llm_session_ids:
 use one centralized Settings Reader for **every** applicable Tool, App, **and** MCP
 component. the Reader reads the authoritative Project Settings Artifact,
 validates the complete input, **and** returns an immutable typed snapshot with
-source **and** Revision provenance under CA-D-365. the snapshot is derived;
-Project Settings is **not** a Projection.
+the actual validated values, exact selected Project, physical source path,
+raw SHA-256 Digest, **and** declared schema marker. the Reader **must not** query
+the Work Journal **or** determine logical Revision **or** currentness. the snapshot
+is derived; Project Settings is **not** a Projection.
 
 ## Applicable when
 
@@ -52,8 +58,9 @@ parsing **or** inventing a second control panel.
 
 ## Failure or stop
 
-stop **when** the authoritative Project Settings Carrier is missing **or** invalid, provenance is absent,
-**or** a consumer would bypass **or** mutate the shared snapshot.
+stop **when** the authoritative Project Settings Carrier is missing **or** schema-invalid,
+mandatory physical source path **or** Digest provenance is absent, **or** a consumer
+would bypass **or** mutate the shared snapshot.
 
 ## Sources
 

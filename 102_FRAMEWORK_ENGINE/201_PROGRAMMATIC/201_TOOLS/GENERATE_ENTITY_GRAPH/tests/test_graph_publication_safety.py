@@ -81,9 +81,8 @@ class GraphPublicationSafetyTests(unittest.TestCase):
         }
 
     def request(self, *, execution_authorization: dict[str, object] | None | object = ..., **overrides: object) -> dict[str, object]:
-        start = {"event_id": "publication-safety-start", "action_id": "CA-O-134", "event_digest": "0" * 64,
-                 "carrier": f"{self.control_root}/_journal/events.ndjson", "line": 1,
-                 "previous_carrier_digest": "0" * 64, "appended_carrier_digest": "1" * 64}
+        start = {"run_id": "action-1872", "parent_run_id": "step-1872", "kind": "action",
+                 "definition": {"atom_id": "CA-O-134", "version": 1}}
         authorization = self.execution_authorization() if execution_authorization is ... else execution_authorization
         context = graph.actual_run_recording_context(
             "workflow-1872", "step-1872", "action-1872", start,
@@ -108,7 +107,7 @@ class GraphPublicationSafetyTests(unittest.TestCase):
     def assert_awaiting_terminal(self, result: dict[str, object]) -> None:
         self.assertEqual("incomplete", result["outcome"])
         self.assertEqual({"state": "awaiting_terminal_recording"}, result["completion"])
-        self.assertEqual(["publication-safety-start"], result["run_receipt_refs"])
+        self.assertNotIn("run_receipt_refs", result)
         self.assertNotIn("terminal_receipt_ref", result["completion"])
 
     def evidence(self, content: bytes | None) -> dict[str, str] | None:

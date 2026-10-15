@@ -57,13 +57,10 @@ class ExecuteRevertChangesRequest(_ClosedRevertRequest):
     cancel_after_effect_id: JsonValue | None = None
 
 
-class RecoverRevertChangesRequest(_ClosedRevertRequest):
-    operation: Literal["recover_recording"]
-    pending_recording_event: dict[str, JsonValue] | None = None
 
 
 RevertChangesOperation = Annotated[
-    AdmitRevertChangesRequest | ExecuteRevertChangesRequest | RecoverRevertChangesRequest,
+    AdmitRevertChangesRequest | ExecuteRevertChangesRequest,
     Field(discriminator="operation"),
 ]
 
@@ -134,12 +131,6 @@ def binding_is_admitted(binding: Mapping[str, object] | None) -> bool:
     )
 
 
-class RecordingPendingError(OSError):
-    """The shared session saved a canonical pending event that must be retried."""
-
-    def __init__(self, pending_event_id: str) -> None:
-        self.pending_event_id = pending_event_id
-        super().__init__(f"pending Journal event: {pending_event_id}")
 
 
 def _canonical(value: object) -> str:
@@ -159,13 +150,12 @@ class RevertChangesService:
 
     ``observe`` returns the current hash for a target.  ``apply_effect`` applies
     one already-admitted governed effect.  ``run_tracker`` provides ``start``,
-    ``finish`` and ``recover``; it is owned by the shared run support packet.
+    and ``finish``; it is owned by the shared run support packet.
     """
 
     _TOP_LEVEL = {
         "admit": {"operation", "reversal_request"},
         "execute": {"operation", "approved_reversal_manifest", "cancel_after_effect_id"},
-        "recover_recording": {"operation", "pending_recording_event"},
     }
     _REQUIRED = {
         "selected_change_refs", "targets", "affected_reference_hashes", "governing_definition_hash",
@@ -187,15 +177,13 @@ class RevertChangesService:
             raise RevertChangesError("request must be an object")
         operation = request.get("operation")
         if operation not in self._TOP_LEVEL:
-            raise RevertChangesError("operation must be admit, execute, or recover_recording")
+            raise RevertChangesError("operation must be admit or execute")
         unknown = set(request) - self._TOP_LEVEL[operation]
         if unknown:
             raise RevertChangesError(f"unknown or mixed-mode fields: {sorted(unknown)}")
         if operation == "admit":
             return self.admit(request.get("reversal_request"))
-        if operation == "execute":
-            return self.execute(request.get("approved_reversal_manifest"), request.get("cancel_after_effect_id"))
-        return self.recover_recording(request.get("pending_recording_event"))
+        return self.execute(request.get("approved_reversal_manifest"), request.get("cancel_after_effect_id"))
 
     def admit(self, reversal_request: Any) -> dict[str, Any]:
         if not isinstance(reversal_request, Mapping):
@@ -243,8 +231,8 @@ class RevertChangesService:
         start_payload = {"event_id": event_id, "phase": "Started", "action_id": "CA-O-131", "manifest_id": manifest_id}
         try:
             start_receipt = self.run_tracker.start(start_payload)
-        except Exception as exc:  # Target effects must not start without confirmed start evidence.
-            return self._recording_blocked(manifest_id, request, account, event_id, "start", exc)
+        except Exception as exc:
+            return self._run_start_failed(manifest_id, account, exc)
         for index, effect in enumerate(effects):
             external = self._external_mismatches(request)
             if external:
@@ -299,27 +287,6 @@ class RevertChangesService:
         finally:
             self.run_tracker = original
 
-    def recover_recording_with_session(self, pending_event: Mapping[str, Any], session: Any) -> dict[str, Any]:
-        """Reconcile only a canonical pending Journal event; never rerun effects."""
-        original = self.run_tracker
-        self.run_tracker = _SessionTracker(session, "unused-for-recording-recovery")
-        try:
-            return self.recover_recording(pending_event)
-        finally:
-            self.run_tracker = original
-
-    def recover_recording(self, event: Any) -> dict[str, Any]:
-        if not isinstance(event, Mapping) or not isinstance(event.get("event_id"), str) or not isinstance(event.get("result"), Mapping):
-            return self._blocked(["pending_recording_event"])
-        try:
-            receipt = self.run_tracker.recover(dict(event))
-        except Exception as exc:
-            result = dict(event["result"])
-            result.update({"outcome": "recording_blocked", "pending_recording_event": dict(event), "recording_error": str(exc)})
-            return result
-        result = dict(event["result"])
-        result["run_receipt_refs"] = [dict(receipt)]
-        return result
 
     def _validate_request(self, request: Mapping[str, Any]) -> list[str]:
         errors: list[str] = []
@@ -426,12 +393,17 @@ class RevertChangesService:
                 "missing_or_mismatched_bindings": sorted(set(bindings)), "effect_account": {"effects": [], "applied_effect_count": 0},
                 "evidence_refs": [], "run_receipt_refs": []}
 
+    def _run_start_failed(self, manifest_id: str, account: dict[str, Any], error: Exception) -> dict[str, Any]:
+        result = self._blocked(["run_start_failed"], manifest_id)
+        result.update({"effect_account": account, "run_error": str(error)})
+        return result
+
     def _run_terminal(self, outcome: str, manifest_id: str, request: Mapping[str, Any], account: dict[str, Any]) -> dict[str, Any]:
         event_id = f"{manifest_id}:action"
         try:
             start = self.run_tracker.start({"event_id": event_id, "phase": "Started", "action_id": "CA-O-131", "manifest_id": manifest_id})
         except Exception as exc:
-            return self._recording_blocked(manifest_id, request, account, event_id, "start", exc)
+            return self._run_start_failed(manifest_id, account, exc)
         return self._terminal(outcome, manifest_id, request, account, start)
 
     def _terminal(self, outcome: str, manifest_id: str, request: Mapping[str, Any], account: dict[str, Any], start_receipt: Mapping[str, Any], bindings: list[str] | None = None) -> dict[str, Any]:
@@ -446,14 +418,11 @@ class RevertChangesService:
         try:
             receipt = self.run_tracker.finish(event)
         except Exception as exc:
-            return self._recording_blocked(manifest_id, request, account, getattr(exc, "pending_event_id", event["event_id"]), "terminal", exc, result)
+            result["run_error"] = str(exc)
+            return result
         result["run_receipt_refs"].append(dict(receipt))
         return result
 
-    def _recording_blocked(self, manifest_id: str, request: Mapping[str, Any], account: dict[str, Any], event_id: str, phase: str, error: Exception, known: dict[str, Any] | None = None) -> dict[str, Any]:
-        result = known or {"manifest_id": manifest_id, "effect_account": account, "evidence_refs": list(request["history_reference_evidence"]), "run_receipt_refs": []}
-        result.update({"outcome": "recording_blocked", "recording_error": str(error), "pending_recording_event": {"event_id": event_id, "phase": phase, "result": dict(result)}})
-        return result
 
 
 def apply_approved_reversal(request: Mapping[str, Any], *, observe: Callable[[str], str], apply_effect: Callable[[dict[str, Any]], Mapping[str, Any]], run_tracker: Any,
@@ -473,7 +442,7 @@ class _SessionTracker:
 
     def start(self, _payload: Mapping[str, Any]) -> dict[str, Any]:
         self.actual = self.session.start_run(self.requested_action_run_id)
-        return {"run_id": self.actual["run_id"], "durable": True}
+        return {"run_id": self.actual["run_id"]}
 
     def finish(self, event: Mapping[str, Any]) -> dict[str, Any]:
         if self.actual is None:
@@ -486,12 +455,4 @@ class _SessionTracker:
             self.actual["run_id"], outcome=self._OUTCOMES[result["outcome"]],
             result_ref=f".caprmedio_runtime/revert_changes/{event['event_id']}.json", effect_refs=effect_refs,
         )
-        if finished.get("disposition") == "recording_pending":
-            pending = getattr(self.session, "pending", [])
-            if pending:
-                raise RecordingPendingError(str(pending[-1]))
-            raise OSError("shared terminal recording is pending")
-        return {"run_id": self.actual["run_id"], "durable": finished.get("disposition") == "terminal", **dict(finished)}
-
-    def recover(self, event: Mapping[str, Any]) -> dict[str, Any]:
-        return self.session.recover(str(event["event_id"]))
+        return {"run_id": self.actual["run_id"], **dict(finished)}

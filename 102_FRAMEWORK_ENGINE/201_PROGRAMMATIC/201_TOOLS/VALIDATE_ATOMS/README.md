@@ -54,10 +54,10 @@ An absent Summary produces one missing-property diagnostic; an existing but
 misplaced Summary still fails placement. Missing layout is not also reported as
 a semantic Claim defect by this mechanical checker.
 
-CA-D-268 requires deterministic canonical relation ordering but does not define
-its comparator. The checker therefore reports a coverage gap for multi-target
-lists rather than inventing lexical sorting, even when a list happens to be
-lexically sorted. Endpoint, role and uniqueness checks continue independently.
+CA-D-268 v13 treats relation target collections as unordered and source-file
+target order as nonsemantic. Validation neither requires sorting nor normalizes
+target order. Endpoint, role, uniqueness and other Relation Kind checks remain
+applicable to every target.
 
 ## Run
 

@@ -49,4 +49,10 @@ Independent reviewer `preview_currentness_tests` separately passed 19 checks: th
 
 Commit `d6940f0e3` records the deferred gate, same-session evidence correction and these two fixture files. This is acceptance of the explicitly disabled live route, not acceptance of publication.
 
+### Additional sealed-frontier checks
+
+Commit `751fc9048` adds two selected-route test methods: 21 malformed frontier/effect variants and a deliberate in-memory mutant control. The independently authored portfolio passed eight selected tests and seven native tests in the locked isolated environment. Eighteen variants reach `subject-frontier-mismatch`; empty and duplicate frontiers fail earlier with exact shared `invalid-request` diagnostics. Removing the equality guard produces the wrong deferred diagnostic, which the control detects. All cases preserve source bytes, mode and history and confirm that the writer is not called.
+
+The updated fixture hashes are `4b59a6d345893c582c6611d28713a68b0a707d63aed387581470284c044fe29d` for `test_subject_apply_portfolio.py` and `910b22d5833270cde87f1da2d2aec35b4d285594bb428773b45d90094daa72dd` for `test_selected_subject_apply.py`. These supersede the fixture snapshot above; the production gate is unchanged. CA-P-2181 remains partial. These results do not cover staging or successful publication.
+
 Successful publication, rollback under concurrent edits, the full application portfolio and the final tools-first gate remain unaccepted. The accepted RMEDO describes the required behavior; this document records incomplete implementation, not a relaxation of that behavior. No original Core Subject was migrated or installed MCP runtime activated by this work. CA-P-1910 still requires its separate exact migration-packet approval.

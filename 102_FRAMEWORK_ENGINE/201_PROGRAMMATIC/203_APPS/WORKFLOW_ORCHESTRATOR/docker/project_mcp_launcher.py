@@ -16,7 +16,6 @@ _TOOLS = Path(__file__).resolve().parents[3] / "201_TOOLS"
 if str(_TOOLS) not in sys.path:
     sys.path.insert(0, str(_TOOLS))
 
-from installed_mcp_binding import InstalledMcpBinding, MCP_FILES
 from project_selection import ProjectSelectionError, resolve_project
 
 from runtime_images import ImageError
@@ -62,23 +61,6 @@ class LaunchError(RuntimeError):
         super().__init__(self.code)
 
 
-class _InstalledSelection:
-    """Retain a selected Project while relocating only installed MCP state.
-
-    ``ProjectSelection`` deliberately keeps its legacy ``.caprmedio_install``
-    compatibility properties.  An installed package activation must instead
-    use the post-migration runtime namespace without mutating that read-only
-    selection or either Project configuration carrier.
-    """
-
-    def __init__(self, selection: object, state: Path) -> None:
-        self._selection = selection
-        self.launcher_state = state
-
-    def __getattr__(self, name: str):
-        return getattr(self._selection, name)
-
-
 def _selection_root(selection: object) -> Path:
     root = getattr(selection, "root", getattr(selection, "rootPath", None))
     try:
@@ -95,7 +77,9 @@ def _state_root(selection: object) -> Path:
     value = getattr(selection, "launcher_state", None)
     if value is None:
         instance = getattr(selection, "instance_id", "")
-        value = root / ".caprmedio_install" / "project_mcp" / instance
+        if not isinstance(instance, str) or _FINGERPRINT.fullmatch(instance) is None:
+            raise LaunchError("PROJECT_SELECTION_REFUSED")
+        value = root / ".caprmedio_runtime" / "runtime" / "project_mcp" / instance
     try:
         state = Path(value)
         relative = state.relative_to(root)
@@ -196,7 +180,7 @@ def _positive_timeout(value: object, *, ceiling: float, default: float) -> float
 
 
 def _requested_port(value: object) -> int | None:
-    """Admit the optional Docker-owned or caller-selected host port."""
+    """Admit an optional caller assertion of the selected host port."""
     if value is None:
         return None
     if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 65535:
@@ -204,6 +188,18 @@ def _requested_port(value: object) -> int | None:
         # programmatic seam is never reached by the CLI's argument validator.
         raise LaunchError("DOCKER_START_FAILED")
     return value
+
+
+def _configured_port(selection: object, requested_port: int | None) -> int:
+    """Read the sole Project-owned HTTP port and check an optional assertion."""
+    settings = getattr(selection, "settings", None)
+    project_mcp = settings.get("project_mcp") if isinstance(settings, Mapping) else None
+    port = project_mcp.get("http_port") if isinstance(project_mcp, Mapping) else None
+    if type(port) is not int or not 1 <= port <= 65535:
+        raise LaunchError("PROJECT_SELECTION_REFUSED")
+    if requested_port is not None and requested_port != port:
+        raise LaunchError("PROJECT_SELECTION_REFUSED")
+    return port
 
 
 def _labels(row: Mapping[str, Any]) -> Mapping[str, Any] | None:
@@ -344,7 +340,7 @@ def _record_safe_metadata(selection: object, result: Mapping[str, Any]) -> None:
 
 
 def _admit_runtime(rows: object, selection: object, image_id: str, fingerprint: str,
-                   requested_port: int | None = None):
+                   requested_port: int):
     """Return absent, a ready candidate, or its terminal safe condition."""
     if not isinstance(rows, list):
         return "DOCKER_PUBLICATION_FAILED"
@@ -373,7 +369,7 @@ def _admit_runtime(rows: object, selection: object, image_id: str, fingerprint: 
     publisher = _publisher(row)
     if publisher is None:
         return "DOCKER_PUBLICATION_FAILED"
-    if requested_port is not None and publisher[1] != requested_port:
+    if publisher[1] != requested_port:
         return "RUNTIME_MISMATCH"
     container = row.get("Id")
     if not isinstance(container, str) or not container:
@@ -452,58 +448,9 @@ class Launcher:
         code = getattr(error, "code", None)
         return code if isinstance(code, str) and code in _CONDITIONS else fallback
 
-    @staticmethod
-    def _installed_runtime(selection: object, binding: object) -> tuple[object, str, str, Path]:
-        """Validate one typed admission handoff without reopening a checkout.
-
-        The installed binding has already verified package, selectors, context,
-        image, and compose bytes.  This seam only checks that it still names
-        the selected Project and derives the runtime-local state namespace.
-        In particular it never asks ``ImageManager`` to resolve or build an
-        image and never substitutes a source-root compose file.
-        """
-
-        if not isinstance(binding, InstalledMcpBinding):
-            raise LaunchError("IMAGE_REFUSED")
-        root = _selection_root(selection)
-        context = binding.target_context
-        control = getattr(selection, "control_relative", None)
-        settings = getattr(selection, "settings", None)
-        project = settings.get("project") if isinstance(settings, Mapping) else None
-        if (
-            not isinstance(control, Path)
-            or control.is_absolute()
-            or context.control_child_relpath != control.as_posix()
-            or not isinstance(project, Mapping)
-            or context.target_project_identity != project.get("name")
-        ):
-            raise LaunchError("PROJECT_SELECTION_REFUSED")
-        expected_context = (
-            root / ".caprmedio_runtime" / "installation" / "contexts" / f"{context.sha256}.toml"
-        )
-        if context.path != expected_context:
-            raise LaunchError("PROJECT_SELECTION_REFUSED")
-        image_digest = binding.image_digest
-        fingerprint = binding.runtime_selector_sha256
-        if (not isinstance(image_digest, str) or _FINGERPRINT.fullmatch(image_digest) is None
-                or not isinstance(fingerprint, str) or _FINGERPRINT.fullmatch(fingerprint) is None):
-            raise LaunchError("IMAGE_REFUSED")
-        try:
-            compose = Path(binding.compose_file)
-            expected_compose = binding.package_root / MCP_FILES[-1]
-        except (TypeError, ValueError):
-            raise LaunchError("IMAGE_REFUSED") from None
-        if not compose.is_absolute() or compose != expected_compose:
-            raise LaunchError("IMAGE_REFUSED")
-        instance = getattr(selection, "instance_id", None)
-        if not isinstance(instance, str) or _FINGERPRINT.fullmatch(instance) is None:
-            raise LaunchError("PROJECT_SELECTION_REFUSED")
-        state = root / ".caprmedio_runtime" / "runtime" / "project_mcp" / instance
-        return _InstalledSelection(selection, state), "sha256:" + image_digest, fingerprint, compose
-
     def _launch_runtime(self, selection: object, backend: object, image_id: str, fingerprint: str,
-                        startup_timeout: float, requested_port: int | None,
-                        compose_file: Path | None = None, *, lock_held: bool = False) -> dict[str, Any]:
+                        startup_timeout: float, requested_port: int,
+                        *, lock_held: bool = False) -> dict[str, Any]:
         """Inspect, start once, and health-check one already identified runtime."""
 
         lock = nullcontext() if lock_held else _project_lock(selection, startup_timeout)
@@ -525,11 +472,7 @@ class Launcher:
                     if remaining <= 0:
                         return complete(self._failure("DOCKER_START_FAILED", selection,
                                                       image_id, fingerprint))
-                    if compose_file is None:
-                        backend.start(selection, image_id, fingerprint, remaining, requested_port)
-                    else:
-                        backend.start_installed(selection, image_id, fingerprint, compose_file,
-                                              remaining, requested_port)
+                    backend.start(selection, image_id, fingerprint, remaining, requested_port)
                 except LaunchError as error:
                     return complete(self._failure(error.code, selection, image_id, fingerprint))
                 except Exception as error:
@@ -583,6 +526,7 @@ class Launcher:
                                                       default=_DEFAULT_BUILD_TIMEOUT)
             if type(build_if_missing) is not bool:
                 raise LaunchError("IMAGE_REFUSED")
+            configured_port = _configured_port(selection, requested_port)
             if source_root is None:
                 return self._failure("IMAGE_INPUT_UNAVAILABLE", selection)
             source = Path(source_root)
@@ -596,69 +540,8 @@ class Launcher:
                     _record_safe_metadata(selection, result)
                     return result
                 return self._launch_runtime(selection, backend, image_id, fingerprint, startup_timeout,
-                                            requested_port, lock_held=True)
+                                            configured_port, lock_held=True)
         except LaunchError as error:
             return self._failure(error.code, selection)
-
-    def launch_installed(self, project_root, binding, token=None, control_root=None, timeout=60, *, port=None):
-        """Launch only the immutable image and Compose file in an admitted binding.
-
-        This intentionally has no ``source_root``, image, or build arguments:
-        installed activation cannot fall back to checkout bytes or construct a
-        replacement image.  ``token`` is retained only for the common public
-        call shape; loopback HTTP MCP remains anonymous.
-        """
-
-        del token
-        try:
-            requested_port = _requested_port(port)
-        except LaunchError as error:
-            return self._failure(error.code)
-        try:
-            selection = resolve_project(project_root, control_root)
-        except Exception:
-            return self._failure("PROJECT_SELECTION_REFUSED")
-        try:
-            startup_timeout = _positive_timeout(timeout, ceiling=_DEFAULT_STARTUP_TIMEOUT,
-                                                default=_DEFAULT_STARTUP_TIMEOUT)
-            selected, image_id, fingerprint, compose_file = self._installed_runtime(selection, binding)
-            backend = self._backend(self.backend, build_if_missing=False,
-                                    build_timeout=_DEFAULT_BUILD_TIMEOUT)
-            return self._launch_runtime(selected, backend, image_id, fingerprint, startup_timeout,
-                                        requested_port, compose_file)
-        except LaunchError as error:
-            return self._failure(error.code, selection)
-
-    def launch_admitted(self, *, project_root, control_root, binding, image, port=None):
-        """Run the installed HTTP handoff with its target-owned settings.
-
-        ``installed_mcp_runtime`` has just reopened the binding.  The image
-        value it supplies is therefore an assertion of the selected immutable
-        digest, not an override.  This method reads ``config.toml`` only; an
-        absent or migration-blocked carrier is refused rather than created or
-        repaired during service activation.
-        """
-
-        try:
-            from project_mcp_configuration import load_project_mcp_settings
-
-            settings = load_project_mcp_settings(project_root)
-        except Exception:
-            return self._failure("PROJECT_SELECTION_REFUSED")
-        if not isinstance(binding, InstalledMcpBinding):
-            return self._failure("IMAGE_REFUSED")
-        if not isinstance(binding.image_digest, str) or _FINGERPRINT.fullmatch(binding.image_digest) is None:
-            return self._failure("IMAGE_REFUSED")
-        expected_image = "sha256:" + binding.image_digest
-        if image != expected_image:
-            return self._failure("IMAGE_REFUSED")
-        return self.launch_installed(
-            project_root,
-            binding,
-            control_root=control_root,
-            timeout=settings.startup_timeout_seconds,
-            port=settings.port if port is None else port,
-        )
-
 
 __all__ = ["ImageError", "LaunchError", "Launcher", "ProjectSelectionError"]

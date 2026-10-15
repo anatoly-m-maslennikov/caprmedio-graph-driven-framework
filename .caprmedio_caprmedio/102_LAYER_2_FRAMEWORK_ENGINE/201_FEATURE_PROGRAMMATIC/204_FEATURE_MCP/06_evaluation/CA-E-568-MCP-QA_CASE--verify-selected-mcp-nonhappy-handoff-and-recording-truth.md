@@ -8,8 +8,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-05 02:00:00 +0400"
+version: 5
+updated_at: "2026-10-14 19:54:14 +0400"
 subjects:
   governs: "MCP/selected Workflow non-happy truth"
   depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal]
@@ -22,15 +22,15 @@ Verify selected MCP non-happy, handoff, and recording truth
 
 ## Scope
 
-Functional MCP failures for unauthorized execute, incomplete or stale binding manifests, deferred/handoff, cancellation, partial/unknown effects, and shared event-recording recovery.
+Functional MCP failures for unauthorized execute, incomplete or stale binding manifests, deferred/handoff, cancellation, partial/unknown effects, and truthful plain-Journal logging failure.
 
 ## Claim
 
-Every realization **must** preserve the shared service's non-happy evidence and must never replay work to recover recording.
+Every realization **must** preserve the shared service's actual non-happy evidence and must never replay work because logging fails or recorded rows repeat.
 
 ## Details
 
-Using a functional fixture, submit unauthorized mutation `execute`, unsupported
+For non-Release selected routes, using a functional fixture, submit unauthorized mutation `execute`, unsupported
 `apply`, unsealed/unknown route, missing route binding, altered manifest digest,
 stale original-source or query-admission pin, stale source/frontier, malformed
 parent lineage, and absent worker cases. For both query routes submit a secret
@@ -47,18 +47,22 @@ outcome, safe refs, and diagnostics without a success conversion or fabricated
 effect.
 
 For `find_and_fetch_journal_events`, retain the pre-dispatch sealed source
-prefix, then attempt source-member mutation, truncation, deletion, duplicate or
-malformed Event, stale continuation, and self-Run/Event inclusion. Each retained
+prefix, then attempt source-member mutation, truncation, deletion, unreadable
+member bytes, stale continuation and self-Run/Event inclusion. Read repeated
+IDs, absent/nonstring IDs, lists, scalars and ordinary duplicate-key JSON
+without a Journal-row validation gate or changing the decoded data. Each retained
 member failure is rejected with its diagnostic; later append strictly outside the
-prefix remains allowed; neither the query's own Event nor a recovery retry can
-enter or enlarge the result. Assert a preview has no Run/Event and an admitted
+prefix remains allowed; the query's own Event cannot enter or enlarge the
+result, and no logging retry or recovery route is introduced. Assert a preview has no Run/Event and an admitted
 actual query records only actual outcomes through shared support after snapshot
 capture, never by replay.
 
-Simulate an Action that completed but whose canonical event append is pending. Observation must return the actual Action/Run status plus `recording_blocker` and pending event ref. Invoke `recover_selected_run_recording` twice with the same event ref and verify only the same event/payload is retried, no Action/Workflow execution is called, and a durable receipt is visible only after shared support confirms it. Reject a mismatched event/run or raw replacement payload.
+Simulate an Action with independently observed completed source effects and a plain Journal append I/O failure. Retain its actual Action/Run outcome, safe effect/result references and ordinary logging diagnostic without turning logging into permission, completion proof, a pending ledger or a retry/recovery gate. Repeated plain log rows never create another actual Run or invoke an Action/Workflow. Verify the obsolete `recover_selected_run_recording` route is not exposed; no replacement recording-retry route or automatic effect replay is introduced. Genuine unknown source effects remain unknown and require their independently governed inspection, not a successful log append.
 
-Acceptance retains request traces, target mutation traces, service invocation count, event identities/payload digests, and output/result/receipt references. This is planned functional proof, not a runtime pass.
+For the two direct Release commands, verify the closed connected-Project requests and explicit public draft, full-suite failure/unavailability/unknown-result stop before local delivery or public publication, including required integration tests. Missing Docker or another required test environment and skipped required tests must stop release, not produce a passing result. Required Docker integration tests build a disposable image from the current code; an old installed or running image is not a substitute, and test execution does not restart the running Project MCP. Verify there is no separate Active Atom metadata, placement or relation validation step. Retain truthful source-effect results independently of logging failure. Do not require a separate whole-catalog/dependency registry gate, old D527 selected execute envelope, DBOS dispatch or candidate/N+1 pipeline for release. Retain normal permissions, safe owned paths, installation locking/readback and public Git/PR boundaries; other selected routes keep their existing complete admission checks.
+
+Acceptance retains request traces, target mutation traces, service invocation count, actual supplied log data and logging diagnostics, and independently observed output/result/effect references. This is planned functional proof, not a runtime pass.
 
 ### Sources
 
-- CA-R-1847 v4; CA-R-1848 v4; CA-D-547 v5; CA-A-1142 v2; CA-P-1532 v2; CA-P-1535 v2; CA-D-527 v3; CA-R-1850 v2; CA-R-1866 v2; CA-R-1867 v1.
+- CA-R-1847 v9; CA-R-1848 v5; CA-D-547 v6; CA-A-1142 v2; CA-P-1618 v1; CA-P-1535 v2; CA-D-527 v3; CA-R-1850 v2; CA-R-1866 v3; CA-R-1867 v1.

@@ -151,15 +151,9 @@ class AllowedValueEvidenceTests(unittest.TestCase):
         self.assertFalse(validate_allowed_value_evidence(
             mention(evidence=None), self.authorities, self.targets))
 
-    def test_real_r1662_value_registration_is_admitted(self):
-        root = Path(__file__).resolve().parents[6]
-        path = root / (
-            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-            "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/04_requirement/"
-            "CA-R-1662-PROJECT_CONFIGURATION-REQUIREMENT--register-type-values-for-evaluation-atoms.md"
-        )
-        raw = path.read_text()
-        authority = "CA-R-1662@26"
+    def test_fixture_value_registration_is_admitted(self):
+        raw = source()
+        authority = AUTHORITY
         actual = {
             "property": PROPERTY,
             "value": VALUE,
@@ -307,16 +301,11 @@ class AllowedValueEvidenceTests(unittest.TestCase):
                 validate_allowed_value_evidence(
                     mention(evidence=proof()), {AUTHORITY: source(body)}, self.targets)
 
-    def test_historical_r1526_agentic_named_value_bullet_is_admitted(self):
-        root = Path(__file__).resolve().parents[6]
-        path = root / (
-            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/"
-            "archive/CA-R-1526-CORE_META_MODEL-GENERAL-REQUIREMENT--define-action-execution-kind@3.md"
-        )
-        authority = "CA-R-1526@3"
+    def test_fixture_agentic_named_value_bullet_is_admitted(self):
+        raw = execution_source("Action Execution Kind **means** one selected execution form.\n\n" + EXECUTION_EXCERPT)
+        authority = "MOCK-R-1526@1"
         self.assertTrue(validate_allowed_value_evidence(
-            execution_mention(authority=authority), {authority: path.read_text()},
+            execution_mention(authority=authority), {authority: raw},
             {authority: EXECUTION_PROPERTY}))
 
     def test_named_value_bullet_rejects_unknown_non_governing_wrong_property_and_cropping(self):
@@ -349,15 +338,9 @@ class AllowedValueEvidenceTests(unittest.TestCase):
             with self.subTest(bullet=bullet), self.assertRaises(ValueError):
                 validate_allowed_value_evidence(item, {authority: raw}, {authority: EXECUTION_PROPERTY})
 
-    def test_real_r1307_conditional_domain_admits_both_activity_values(self):
-        root = Path(__file__).resolve().parents[6]
-        path = root / (
-            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/"
-            "CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models.md"
-        )
-        raw = path.read_text()
-        authority = "CA-R-1307@12"
+    def test_fixture_conditional_domain_admits_both_activity_values(self):
+        raw = activity_source()
+        authority = "MOCK-R-1307@1"
         targets = {authority: ACTIVITY_PROPERTY}
         for value in ("Active", "Inactive"):
             with self.subTest(value=value):
@@ -509,14 +492,8 @@ class AllowedValueEvidenceTests(unittest.TestCase):
             validate_allowed_value_evidence(
                 correct_item, {authority: raw}, {authority: "Record/Status"})
 
-    def test_real_d316_internal_carrier_ownership_domain_is_bounded(self):
-        root = Path(__file__).resolve().parents[6]
-        path = root / (
-            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/"
-            "CA-D-316-CORE_META_MODEL-GENERAL--classify-carriers-by-ownership.md"
-        )
-        raw = path.read_text()
+    def test_fixture_internal_carrier_ownership_domain_is_bounded(self):
+        raw = source(OWNERSHIP_EXCERPT, governs=OWNERSHIP_PROPERTY, role="Delivery")
         claim_with_extra = raw.replace(
             OWNERSHIP_EXCERPT, OWNERSHIP_EXCERPT + "\nExtra context.")
         targets = {OWNERSHIP_AUTHORITY: OWNERSHIP_PROPERTY}
@@ -534,7 +511,7 @@ class AllowedValueEvidenceTests(unittest.TestCase):
                 "Framework-Owned",
                 excerpt=OWNERSHIP_EXCERPT.replace("internal CAPRMEDIO ", ""),
             ), raw.replace("internal CAPRMEDIO ", ""), targets),
-            (ownership_mention("Framework-Owned"), raw.replace("status: \"Active\"", "status: \"Draft\""), targets),
+            (ownership_mention("Framework-Owned"), raw.replace("status: Active", "status: Draft"), targets),
             (ownership_mention("Framework-Owned"), raw, {OWNERSHIP_AUTHORITY: "Other/Ownership Class"}),
         )
         for item, evidence_raw, evidence_targets in rejected:

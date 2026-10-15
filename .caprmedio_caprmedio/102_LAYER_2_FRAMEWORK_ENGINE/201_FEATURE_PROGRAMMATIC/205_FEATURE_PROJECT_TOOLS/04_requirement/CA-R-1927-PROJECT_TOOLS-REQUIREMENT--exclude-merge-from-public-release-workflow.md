@@ -10,10 +10,9 @@ status: "Active"
 subjects:
   governs: "Public release merge boundary"
   depends_on: [Workflow, Pull Request, Git Commit]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
-relations:
-  relates_to: [CA-O-188, CA-O-196, CA-M-368, CA-E-617, CA-D-617]
+version: 2
+updated_at: "2026-10-14 12:27:48 +0000"
+relations: {}
 ---
 # Summary
 

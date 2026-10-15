@@ -21,7 +21,8 @@ class ProjectStateTests(unittest.TestCase):
             control = root / f'.caprmedio_{name}'
             control.mkdir(parents=True)
             (control / 'caprmedio_project_settings.toml').write_text(
-                f'[paths]\ncontrol_root=".caprmedio_{name}"\n[project]\nname="{name}"\n')
+                f'[paths]\ncontrol_root=".caprmedio_{name}"\n[project]\nname="{name}"\n'
+                f'[project_mcp]\nhttp_port={56317 if name == "alpha" else 56318}\n')
             (control / 'project_structure.toml').write_text('schema_version=1\n')
             selections.append(resolve_project(root))
         left, right = selections
@@ -39,7 +40,7 @@ class ProjectStateTests(unittest.TestCase):
         self.assertEqual({'mcp-http'}, set(spec['services']))
         service = spec['services']['mcp-http']
         self.assertEqual(['mcp-http'], service['command'])
-        self.assertEqual(['127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:-}:8092'], service['ports'])
+        self.assertEqual(['127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:?Project Settings HTTP port is required}:8092'], service['ports'])
         self.assertEqual([{'type': 'bind', 'source': '${CAPRMEDIO_PROJECT_ROOT}',
                           'target': '/project'}], service['volumes'])
         self.assertTrue(service['read_only'])

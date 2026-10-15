@@ -8,7 +8,8 @@ from __future__ import annotations
 
 import argparse
 import asyncio
-from contextlib import AsyncExitStack
+from collections.abc import Iterator
+from contextlib import AsyncExitStack, contextmanager
 from dataclasses import dataclass
 import hashlib
 import json
@@ -32,10 +33,25 @@ sys.path[:0] = [str(DOCKER), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS"), str(Path
 from project_selection import bind_selection, resolve_project  # noqa: E402
 from runtime_images import FINGERPRINT_LABEL, ImageManager, SCHEMA, SCHEMA_LABEL  # noqa: E402
 from first_cut_http_security import probe_first_cut_http_security  # noqa: E402
+from selected_workflows_docker_fixture import (  # noqa: E402
+    _CONTEXT_DECLARATION_DIGEST, _CONTEXT_DECLARATION_PATH,
+)
 import test_first_cut_http_docker_e2e as first_cut_http  # noqa: E402
 from test_selected_workflows_docker_e2e import _structured_tool_result  # noqa: E402
 
 ATOM_IDS = {"alpha": "CA-O-999991", "beta": "CA-O-999992"}
+LAUNCHER_REQUIRED_TOOLS = frozenset({
+    "workflow_orchestrator", "get_execution_context", "reload_mcp_implementation", "get_mcp_reload_status",
+})
+
+
+def _write_context_declaration(authority: Path) -> None:
+    source = ROOT / _CONTEXT_DECLARATION_PATH
+    raw = source.read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == _CONTEXT_DECLARATION_DIGEST, "context declaration pin changed"
+    destination = authority / "GET_EXECUTION_CONTEXT" / "07_delivery" / source.name
+    destination.parent.mkdir(parents=True)
+    destination.write_bytes(raw)
 
 
 def _snapshot(root: Path, names) -> dict[str, str]:
@@ -64,7 +80,7 @@ class ProjectFixture:
     atom_id: str
 
     @classmethod
-    def create(cls, root: Path, name: str, marker: str):
+    def create(cls, root: Path, name: str, marker: str, http_port: int):
         root.mkdir(parents=True)
         control = ".caprmedio_" + name
         authority = root / control
@@ -73,13 +89,20 @@ class ProjectFixture:
         (authority / "caprmedio_project_settings.toml").write_text(
             f'[project]\nname = "{name}"\n[paths]\ncontrol_root = "{control}"\n'
             f'journal_root = "{control}/_journal"\nprojection_root = "{control}/_projection"\n'
-            'runtime_root = ".caprmedio_runtime"\ntemporary_root = ".caprmedio_tmp"\n',
+            'runtime_root = ".caprmedio_runtime"\ntemporary_root = ".caprmedio_tmp"\n'
+            f'[project_mcp]\nhttp_port = {http_port}\n',
             encoding="utf-8",
         )
         (authority / "project_structure.toml").write_text(
             'schema_version = 1\n[[scope_units]]\nscope_unit_name = "FIXTURE"\n'
-            f'authority_path = "{control}/09_operations"\n', encoding="utf-8",
+            f'authority_path = "{control}/09_operations"\n'
+            'delivery_path = "delivery/FIXTURE"\n'
+            '[[scope_units]]\nscope_unit_name = "GET_EXECUTION_CONTEXT"\n'
+            f'authority_path = "{control}/GET_EXECUTION_CONTEXT"\n'
+            'delivery_path = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GET_EXECUTION_CONTEXT"\n',
+            encoding="utf-8",
         )
+        _write_context_declaration(authority)
         (root / "fixture_entrypoint.py").write_text('"""Read-only fixture source carrier."""\n', encoding="utf-8")
         atom_id = ATOM_IDS[name]
         source_ref = f"{control}/09_operations/{atom_id}--launcher-fixture.md"
@@ -106,8 +129,10 @@ def _fixtures(parent: Path, group: str) -> list[ProjectFixture]:
         repository = parent / "repo-multi"
         (repository / ".git").mkdir(parents=True)
         roots = [repository / "projects" / "alpha", repository / "projects" / "beta"]
-    return [ProjectFixture.create(root, name, f"{group}: {name} authority")
-            for root, name in zip(roots, ("alpha", "beta"), strict=True)]
+    ports = [_available_port()]
+    ports.append(_available_port(excluded=tuple(ports)))
+    return [ProjectFixture.create(root, name, f"{group}: {name} authority", port)
+            for root, name, port in zip(roots, ("alpha", "beta"), ports, strict=True)]
 
 
 def _launch(fixture, token, source_root, image, *, deadline, port=None, command_receipt=None):
@@ -166,7 +191,8 @@ def _cleanup(fixtures, tokens, records):
                 assert identifiers == [record["container_id"]], "cleanup container identity changed"
             labels = rows[0]["Config"]["Labels"]
             environment = backend._environment(selection, rows[0]["Image"],
-                                               labels["org.caprmedio.runtime.fingerprint"])
+                                               labels["org.caprmedio.runtime.fingerprint"],
+                                               selection.settings["project_mcp"]["http_port"])
             command = ["docker", "compose", "--env-file", "/dev/null", "--project-name",
                        selection.compose_project, "-f", str(DOCKER / "project-mcp.compose.yaml"),
                        "down", "--timeout", "10"]
@@ -189,10 +215,29 @@ def _cleanup(fixtures, tokens, records):
     return receipts, failures
 
 
-def _available_port() -> int:
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
-        probe.bind(("127.0.0.1", 0))
-        return int(probe.getsockname()[1])
+def _available_port(*, excluded: tuple[int, ...] = ()) -> int:
+    for _ in range(8):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = int(probe.getsockname()[1])
+            if port not in excluded:
+                return port
+    raise AssertionError("could not select a distinct ephemeral fixture port")
+
+
+@contextmanager
+def _fixture_settings_port(fixture: ProjectFixture, port: int) -> Iterator[None]:
+    """Change only owned test Settings and restore their exact bytes on any outcome."""
+    path = fixture.root / fixture.control / "caprmedio_project_settings.toml"
+    before = path.read_bytes()
+    current = resolve_project(fixture.root, fixture.control).settings["project_mcp"]["http_port"]
+    marker = f"http_port = {current}\n".encode()
+    assert before.count(marker) == 1, "fixture Settings port is ambiguous"
+    try:
+        path.write_bytes(before.replace(marker, f"http_port = {port}\n".encode()))
+        yield
+    finally:
+        path.write_bytes(before)
 
 
 def _compose_services(selection, token, row):
@@ -200,7 +245,10 @@ def _compose_services(selection, token, row):
     from project_mcp_backend import ProjectMcpBackend
     backend = ProjectMcpBackend(build_if_missing=False)
     labels = row["Config"]["Labels"]
-    environment = backend._environment(selection, row["Image"], labels["org.caprmedio.runtime.fingerprint"])
+    environment = backend._environment(
+        selection, row["Image"], labels["org.caprmedio.runtime.fingerprint"],
+        selection.settings["project_mcp"]["http_port"],
+    )
     command = ["docker", "compose", "--env-file", "/dev/null", "--project-name", selection.compose_project,
                "-f", str(DOCKER / "project-mcp.compose.yaml"), "ps", "--all", "--format", "json"]
     response = subprocess.run(command, env=environment, capture_output=True, text=True, timeout=45, check=False)
@@ -212,7 +260,7 @@ def _compose_services(selection, token, row):
 
 
 def _collision_diagnostic(rows):
-    """Classify a failed explicit-port start without accepting a host remap."""
+    """Classify backend-verified selected rows without accepting a host remap."""
     assert isinstance(rows, list)
     if not rows:
         return "DOCKER_START_FAILED", []
@@ -222,17 +270,23 @@ def _collision_diagnostic(rows):
         assert isinstance(row, dict)
         state = row.get("State")
         assert isinstance(state, dict)
-        health = state.get("Health")
+        health = state.get("Health", {})
         assert isinstance(health, dict)
         network = row.get("NetworkSettings")
         assert isinstance(network, dict)
         ports = network.get("Ports")
-        assert isinstance(ports, dict) and set(ports) == {"8092/tcp"}
-        assert ports["8092/tcp"] == [], "collision created a host publisher"
-        assert state.get("Status") == "running" and health.get("Status") == "healthy"
+        assert isinstance(ports, dict)
+        status = state.get("Status")
+        if status in {"created", "exited"}:
+            assert ports in ({}, {"8092/tcp": []}, {"8092/tcp": None}), "collision created a host publisher"
+        else:
+            assert set(ports) == {"8092/tcp"}
+            assert ports["8092/tcp"] == [], "collision created a host publisher"
+            assert status == "running" and health.get("Status") == "healthy"
         observed.append({"container_id": row.get("Id"), "state": state.get("Status"),
-                         "health": health.get("Status"), "ports": {"8092/tcp": ports["8092/tcp"]}})
-    return "DOCKER_PUBLICATION_FAILED", observed
+                         "health": health.get("Status"), "ports": ports})
+    return ("DOCKER_START_FAILED" if status in {"created", "exited"}
+            else "DOCKER_PUBLICATION_FAILED"), observed
 
 
 def _bounded_collision_observed(rows):
@@ -301,7 +355,7 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
                                             deadline=deadline)
             records.append(alpha)
         assert alpha["condition"] == "READY_STARTED", alpha
-        beta_port = _available_port()
+        beta_port = resolve_project(fixtures[1].root, fixtures[1].control).settings["project_mcp"]["http_port"]
         assert beta_port != alpha["port"], "ephemeral selection collided with the live dynamic publication"
         beta = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
                                        deadline=deadline, port=beta_port)
@@ -324,9 +378,13 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
                               *((row, launches[0]) for row in concurrent)]:
             assert row["condition"] == "READY_REUSED", row
             assert all(row[key] == original[key] for key in ("container_id", "port", "project_id")), row
-        mismatch = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
-                                           deadline=deadline, port=alpha["port"])
-        assert mismatch["condition"] == "RUNTIME_MISMATCH", mismatch
+        wrong_flag = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
+                                             deadline=deadline, port=alpha["port"])
+        assert wrong_flag["condition"] == "PROJECT_SELECTION_REFUSED", wrong_flag
+        with _fixture_settings_port(fixtures[1], alpha["port"]):
+            mismatch = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
+                                               deadline=deadline, port=alpha["port"])
+            assert mismatch["condition"] == "RUNTIME_MISMATCH", mismatch
         evidence.update(repeated=repeat, concurrent=concurrent)
         async with AsyncExitStack() as stack:
             sessions = [await stack.enter_async_context(harness._http_session(row["url"], None))
@@ -337,6 +395,7 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
                 names = {tool.name for tool in (await session.list_tools()).tools}
                 security.append(await asyncio.to_thread(probe_first_cut_http_security, row["url"], None,
                     list_tools=lambda _url, _token: names,
+                    required_tools=LAUNCHER_REQUIRED_TOOLS,
                     recording_boundary=lambda: [item.snapshot() for item in fixtures]))
                 read = _structured_tool_result(await session.call_tool("get_execution_context", {"request": {"id": fixture.atom_id}}))
                 definition = read["definition"]
@@ -346,8 +405,11 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
                     "request": {"id": fixtures[1 - index].atom_id}})
                 assert foreign.is_error, foreign
                 reads.append(read)
-                refused = _structured_tool_result(await session.call_tool("create_atom", {"request": {"operation_route": "create_atom", "request_id": "unconfigured"}}))
-                assert refused.get("disposition") in {"blocked", "rejected"}, refused
+                assert "create_atom" not in names, "unconfigured selected route was unexpectedly admitted"
+                refusal_before = [item.snapshot() for item in fixtures]
+                refused = await session.call_tool("create_atom", {"request": {"operation_route": "create_atom", "request_id": "unconfigured"}})
+                assert refused.is_error, refused
+                assert [item.snapshot() for item in fixtures] == refusal_before, "unconfigured route changed authority or Journal"
             request_id = str(uuid.uuid4())
             receipt_paths = [resolve_project(item.root, item.control).reload_state / f"{request_id}.json" for item in fixtures]
             assert receipt_paths[0] != receipt_paths[1] and not any(path.exists() for path in receipt_paths)
@@ -365,23 +427,25 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
         historical_beta_id = beta["container_id"]
         beta_selection = resolve_project(fixtures[1].root, fixtures[1].control)
         records[:] = [row for row in records if row.get("project_id") != beta_selection.instance_id]
-        occupied = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
-                                           deadline=deadline, port=alpha["port"])
-        alpha_rows = await asyncio.to_thread(backend.inspect, resolve_project(fixtures[0].root, fixtures[0].control))
-        assert len(alpha_rows) == 1 and alpha_rows[0]["Id"] == alpha["container_id"], alpha_rows
-        alpha_publishers = alpha_rows[0]["NetworkSettings"]["Ports"]["8092/tcp"]
-        assert alpha_publishers == [{"HostIp": "127.0.0.1", "HostPort": str(alpha["port"])}], alpha_rows
-        failed_beta_rows = await asyncio.to_thread(backend.inspect, beta_selection)
-        evidence["collision_observed"] = _bounded_collision_observed(failed_beta_rows)
-        evidence["occupied_result"] = occupied
-        expected_collision, _collision_shape = _collision_diagnostic(failed_beta_rows)
-        _assert_collision_refusal(occupied, expected_collision)
-        failed_cleanup, failed_cleanup_failures = await asyncio.to_thread(
-            _cleanup, [fixtures[1]], [tokens[1]], records)
-        assert not failed_cleanup_failures, {"cleanup_failures": failed_cleanup_failures}
-        assert not await asyncio.to_thread(backend.inspect, beta_selection)
+        with _fixture_settings_port(fixtures[1], alpha["port"]):
+            occupied = await asyncio.to_thread(_launch, fixtures[1], tokens[1], source_root, image,
+                                               deadline=deadline, port=alpha["port"])
+            alpha_rows = await asyncio.to_thread(backend.inspect, resolve_project(fixtures[0].root, fixtures[0].control))
+            assert len(alpha_rows) == 1 and alpha_rows[0]["Id"] == alpha["container_id"], alpha_rows
+            alpha_publishers = alpha_rows[0]["NetworkSettings"]["Ports"]["8092/tcp"]
+            assert alpha_publishers == [{"HostIp": "127.0.0.1", "HostPort": str(alpha["port"])}], alpha_rows
+            failed_beta_rows = await asyncio.to_thread(backend.inspect, beta_selection)
+            evidence["collision_observed"] = _bounded_collision_observed(failed_beta_rows)
+            evidence["occupied_result"] = occupied
+            expected_collision, _collision_shape = _collision_diagnostic(failed_beta_rows)
+            _assert_collision_refusal(occupied, expected_collision)
+            failed_cleanup, failed_cleanup_failures = await asyncio.to_thread(
+                _cleanup, [fixtures[1]], [tokens[1]], records)
+            assert not failed_cleanup_failures, {"cleanup_failures": failed_cleanup_failures}
+            assert not await asyncio.to_thread(backend.inspect, beta_selection)
         evidence["port_cases"] = {"dynamic_started": alpha["port"], "explicit_started": beta_port,
-                                  "explicit_reused": repeat[1]["port"], "mismatch": mismatch,
+                                  "explicit_reused": repeat[1]["port"], "wrong_explicit_flag": wrong_flag,
+                                  "mismatch": mismatch,
                                   "occupied_refusal": occupied, "historical_beta_container_id": historical_beta_id,
                                   "pre_occupied_cleanup": beta_cleanup,
                                   "failed_resource_cleanup": failed_cleanup}
@@ -405,6 +469,11 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
 
 
 class ProjectLauncherFixtureTests(unittest.TestCase):
+    def setUp(self) -> None:
+        ports = patch.object(sys.modules[__name__], "_available_port", side_effect=(45121, 45122))
+        ports.start()
+        self.addCleanup(ports.stop)
+
     def test_nested_projects_have_valid_distinct_selected_authority(self):
         from capability_discovery.service import Service, Context
         parent = ROOT / ".caprmedio_tmp" / "launcher-epic-1829" / "fixture-checks"
@@ -433,6 +502,7 @@ class ProjectLauncherFixtureTests(unittest.TestCase):
         self.assertEqual("BUILD_FAILED", result["condition"])
         self.assertNotIn("--image", receipt["argv"])
         self.assertNotIn("--no-build", receipt["argv"])
+        self.assertNotIn("--port", receipt["argv"])
         self.assertGreater(run.call_args.kwargs["timeout"], 600)
         self.assertLessEqual(run.call_args.kwargs["timeout"], 690)
 
@@ -483,21 +553,32 @@ class ProjectLauncherFixtureTests(unittest.TestCase):
 
     def test_collision_diagnostics_distinguish_start_and_publication_failures(self):
         self.assertEqual("DOCKER_START_FAILED", _collision_diagnostic([])[0])
-        stopped = [{"Id": "beta-stopped", "State": {"Status": "exited"},
-                    "NetworkSettings": {"Ports": {"8092/tcp": []}}}]
-        with self.assertRaises(AssertionError):
-            _collision_diagnostic(stopped)
+        for state in ("created", "exited"):
+            for ports in ({}, {"8092/tcp": []}, {"8092/tcp": None}):
+                with self.subTest(state=state, ports=ports):
+                    stopped = [{"Id": "beta-stopped", "State": {"Status": state},
+                                "NetworkSettings": {"Ports": ports}}]
+                    self.assertEqual("DOCKER_START_FAILED", _collision_diagnostic(stopped)[0])
         unpublished = [{"Id": "beta-unpublished", "State": {"Status": "running", "Health": {"Status": "healthy"}},
                         "NetworkSettings": {"Ports": {"8092/tcp": []}}}]
         code, observed = _collision_diagnostic(unpublished)
         self.assertEqual("DOCKER_PUBLICATION_FAILED", code)
         self.assertEqual([], observed[0]["ports"]["8092/tcp"])
 
+    def test_collision_diagnostics_reject_unknown_or_unhealthy_states(self):
+        for state in ({"Status": "unknown"}, {"Status": "running"},
+                      {"Status": "running", "Health": {"Status": "unhealthy"}}):
+            with self.subTest(state=state), self.assertRaises(AssertionError):
+                _collision_diagnostic([{"Id": "beta", "State": state,
+                                        "NetworkSettings": {"Ports": {"8092/tcp": []}}}])
+
     def test_collision_diagnostic_rejects_a_silent_host_remap(self):
         remapped = [{"Id": "beta-remapped", "State": {"Status": "running", "Health": {"Status": "healthy"}},
                      "NetworkSettings": {"Ports": {"8092/tcp": [{"HostIp": "127.0.0.1", "HostPort": "54321"}]}}}]
-        with self.assertRaisesRegex(AssertionError, "host publisher"):
-            _collision_diagnostic(remapped)
+        for state in ("created", "exited", "running"):
+            remapped[0]["State"]["Status"] = state
+            with self.subTest(state=state), self.assertRaisesRegex(AssertionError, "host publisher"):
+                _collision_diagnostic(remapped)
 
     def test_collision_diagnostic_rejects_multiple_or_other_target_publications(self):
         healthy = {"State": {"Status": "running", "Health": {"Status": "healthy"}},

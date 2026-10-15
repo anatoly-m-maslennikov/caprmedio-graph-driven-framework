@@ -15,12 +15,15 @@ from unittest.mock import patch
 TOOLS = Path(__file__).resolve().parents[1]
 REPOSITORY = TOOLS.parents[2]
 CONTROL = Path(".caprmedio_caprmedio")
-SOURCE = CONTROL / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
+SOURCE = CONTROL / "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
 sys.path.insert(0, str(TOOLS))
 
 from atom_operations import atom_from_path, frontmatter_scalar, ToolError  # noqa: E402
 from authoritative_status_models import resolve_status_model, StatusModelError  # noqa: E402
 import lifecycle_intents  # noqa: E402
+import test_selected_atom_lifecycle as lifecycle_fixture  # noqa: E402
+import test_proposed_relation_admission as reference_fixture  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers.check_sections import ROLE_SECTIONS  # noqa: E402
 from lifecycle_intents import carrier_descriptor, change_status_atom_action, LifecycleError, preflight_atom_lifecycle  # noqa: E402
 
 
@@ -66,14 +69,37 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         (self.root / ".git").mkdir()
         control = self.root / CONTROL
         control.mkdir()
+        lifecycle_fixture.SelectedAtomLifecycleTest._copy_complete_carrier_authority(self)
         (control / "caprmedio_project_settings.toml").write_text(
+            '[project]\nkey = "status-fixture"\nname = "caprmedio"\nrepository_slug = "status-fixture"\n'
+            '[artifacts.identity]\nproject_prefix = "CA"\n'
             '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
             'journal_root = ".caprmedio_caprmedio/_journal"\n', encoding="utf-8",
         )
         (control / "project_structure.toml").write_text(
+            'schema_version = 1\n\n'
             '[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\n'
-            f'authority_path = "{SOURCE.as_posix()}"\n', encoding="utf-8",
+            'parent = "PROJECT"\nscope_unit_type = "Unordered"\n'
+            'scope_unit_label = "METHODOLOGY"\nstructural_level = 1\n'
+            'navigational_order_number = 0\n'
+            f'authority_path = "{SOURCE.as_posix()}"\n'
+            f'delivery_path = "{SOURCE.as_posix()}"\n\n'
+            '[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
+            'parent = "METHODOLOGY_SOURCES"\nscope_unit_type = "Unordered"\n'
+            'scope_unit_label = "METHODOLOGY"\nstructural_level = 2\n'
+            'navigational_order_number = 0\n'
+            f'authority_path = "{(SOURCE / "001_CORE_META_MODEL").as_posix()}"\n'
+            f'delivery_path = "{(SOURCE / "001_CORE_META_MODEL").as_posix()}"\n\n'
+            '[[scope_units]]\nscope_unit_name = "STATUS_FIXTURE"\n'
+            'parent = "PROJECT"\nscope_unit_type = "Unordered"\n'
+            'scope_unit_label = "FIXTURE"\nstructural_level = 1\n'
+            'navigational_order_number = 1\n'
+            'authority_path = ".caprmedio_caprmedio/fixture"\n'
+            'delivery_path = ".caprmedio_caprmedio/fixture"\n', encoding="utf-8",
         )
+        closure = reference_fixture.ProposedRelationAdmissionTest("run")
+        closure.root = self.root
+        closure._copy_verified_authority_closure()
         self.sources: dict[str, Path] = {}
         for atom_id in AUTHORITY_IDS:
             source = self.authority_paths[atom_id]
@@ -103,18 +129,28 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             folder /= "draft"
         elif role == "Plan" and status == "Backlog":
             folder /= "001_backlog"
-        elif status != "Active":
+        elif status.casefold() != "active":
             folder /= status.lower()
         folder.mkdir(parents=True, exist_ok=True)
         name = f"CA-{letter}--golden.md" if draft else f"CA-{letter}-{number}--golden.md"
         path = folder / name
         identity = "" if draft else f"atom_id: CA-{letter}-{number}\n"
+        atom_type = atom_type or {"Concern": "Problem", "Analysis": "Analysis Report", "Plan": "Plan",
+                                  "Evaluation": "QA Case", "Operations": "Action"}.get(role)
         type_value = f"type: {atom_type}\n" if atom_type else ""
+        sections = (*ROLE_SECTIONS[role],) if "Details" in ROLE_SECTIONS[role] else (*ROLE_SECTIONS[role], "Details")
+        body = "# Summary\n\nGolden immutable meaning\n\n" + "".join(
+            f"## {section}\n\n" + ("The whole body must survive the status transition." if section == "Details"
+                                     else "Golden immutable meaning") + "\n\n" for section in sections)
+        if role == "Plan":
+            body += "### Definition of Done\n\nEach admitted Status transition preserves this Plan's Summary and supporting Details.\n"
         path.write_text(
             f"---\n{identity}content_role: {role}\n{type_value}status: {status}\n"
+            "current_scope_unit: STATUS_FIXTURE\nclaim_target_scope_unit: STATUS_FIXTURE\n"
+            "local_tier: Standard\nglobal_tier: 11\nauthor: Anatoly Maslennikov\n"
             "version: 3\nupdated_at: 2026-01-01 00:00:00 +0000\n"
-            f"{relations}\n---\n# Summary\n\nGolden immutable meaning\n\n"
-            "## Details\n\nThe whole body must survive the status transition.\n",
+            "subjects:\n  governs: Atom/Test\n  depends_on: []\n"
+            f"{relations}\n---\n{body}",
             encoding="utf-8",
         )
         return path
@@ -210,22 +246,28 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
                 path = self.atom(role, "Done" if role == "Analysis" else "Active")
                 request = self.request(path, "Archived")
                 before_atom = atom_from_path(self.root, path)
+                before_bytes = path.read_bytes()
                 canonical_current = self.root / CONTROL / "fixture" / directory
-                destination = canonical_current / "archived" / f"{path.stem}@3.md"
+                destination = canonical_current / "archived" / f"{path.stem}@4.md"
                 self.assertFalse(destination.parent.exists())
                 result = self.execute(request)
                 self.assertEqual("applied", result["outcome"])
                 self.assertFalse(path.exists())
                 self.assertEqual(destination.relative_to(self.root).as_posix(), result["observed"]["path"])
                 self.assertEqual("Archived", result["observed"]["status"])
-                self.assertEqual(3, result["observed"]["version"])
+                self.assertEqual(4, result["observed"]["version"])
+                self.assertEqual(before_bytes, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
                 after_atom = atom_from_path(self.root, destination)
                 self.assertEqual(before_atom.content, after_atom.content)
                 self.assertEqual(before_atom.atom_id, after_atom.atom_id)
                 self.assert_model(result, request)
 
     def test_plan_local_container_backlog_done_canceled_and_reactivation(self) -> None:
-        path = self.atom("Plan", "Active", atom_type="Task", container="parent-plan")
+        parent = self.atom("Plan", "Active", number=7999)
+        canonical_parent = parent.with_name("CA-P-7999--golden-immutable-meaning.md")
+        parent.rename(canonical_parent)
+        path = self.atom("Plan", "Active", atom_type="Plan", container=canonical_parent.stem,
+                         relations="relations:\n  is_decomposition_of: [CA-P-7999]")
         local = path.parent
         for status, folder in (("Backlog", "001_backlog"), ("Done", "done"),
                                ("Canceled", "canceled"), ("Active", None)):
@@ -243,7 +285,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         for status in ("resolved", "canceled", "active"):
             request = self.request(path, status)
             result = self.execute(request)
-            expected = local / status / path.name
+            expected = local / path.name if status == "active" else local / status / path.name
             self.assertEqual(expected.relative_to(self.root).as_posix(), result["observed"]["path"])
             path = expected
             self.assert_model(result, request)
@@ -263,7 +305,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         with self.assertRaises((LifecycleError, StatusModelError, ToolError)):
             change_status_atom_action(self.root, request, execute=True, authorized=False)
         self.assertEqual(before, self.snapshot())
-        destination = path.parent / "archived" / f"{path.stem}@3.md"
+        destination = path.parent / "archived" / f"{path.stem}@4.md"
         destination.parent.mkdir()
         destination.write_bytes(b"reserved destination; must survive")
         collided = self.snapshot()

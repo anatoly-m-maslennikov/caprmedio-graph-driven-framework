@@ -53,18 +53,12 @@ _CA_O_030_PATH = Path(
     "CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md"
 )
 _HISTORICAL_CA_O_030_DIGEST = "c2d70fa275a075d2fbc978cab246158cfd8413cec88716521336736d0bf060cc"
-_CA_O_134_PATH = (
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
-    "CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md"
+_CONTEXT_DECLARATION_PATH = Path(
+    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+    "201_FEATURE_TOOLS/GET_EXECUTION_CONTEXT/07_delivery/"
+    "CA-D-514-GET_EXECUTION_CONTEXT--encode-get-execution-context-bindings.md"
 )
-_STALE_CA_O_134_DIGEST = "b94eebdd85eab9f7080680e85999c68022e82cdfa7945bf0d840b429ebad037a"
-_CA_O_137_PATH = (
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
-    "CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md"
-)
-_STALE_CA_O_137_DIGEST = "6c154852b99df16961fe63c8fd869dbf86f8d75ecc950b25b189e41c3c1c5dad"
+_CONTEXT_DECLARATION_DIGEST = "76881743016a97914d2c8c1080c8122d44a84069f9d1e69505c818f631f93f05"
 JOURNAL_CASES = tuple(f"J{number:02d}" for number in range(1, 9))
 STATUS_DOMAINS = (
     ("Requirement", "R", "04_requirement", "CA-R-1309", ("Draft", "Active", "Archived")),
@@ -191,7 +185,8 @@ class GoldenProject:
         """Create the only Project a harness may mutate, then freeze its pins."""
         (self.root / ".caprmedio_caprmedio").mkdir(parents=True, exist_ok=True)
         (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
-            "[paths]\n"
+            '[project]\nkey = "golden-fixture"\nname = "caprmedio"\nrepository_slug = "golden-fixture"\n'
+            '[artifacts.identity]\nproject_prefix = "CA"\n\n[paths]\n'
             'control_root = ".caprmedio_caprmedio"\n'
             'journal_root = ".caprmedio_caprmedio/_journal"\n'
             'runtime_root = ".caprmedio_runtime"\n\n'
@@ -210,8 +205,6 @@ class GoldenProject:
         if self.case.route in {"create_atom", "replace_atom", "change_atom_status"}:
             self._write_complete_carrier_project_structure()
             self._copy_complete_carrier_authority()
-        if self.case.route == "replace_atom":
-            self._seed_w03_predecessor_journal()
         self._write_graph_authority()
         self._write_compiler_authority()
         if self.case.route == "update_atom":
@@ -238,6 +231,7 @@ class GoldenProject:
         # Docker can make non-removable on macOS file-sharing backends.
         (self.root / ".git").mkdir()
         self._copy_runtime_readiness_definition()
+        self._copy_pinned(_CONTEXT_DECLARATION_PATH, _CONTEXT_DECLARATION_DIGEST)
         manifest = self._copy_reviewed_manifest()
         self.manifest = manifest
         return manifest
@@ -261,11 +255,17 @@ class GoldenProject:
     def _write_atom(self, atom_id: str, slug: str, summary: str) -> Path:
         path = self._authority_dir / f"{atom_id}--{slug}.md"
         path.parent.mkdir(parents=True, exist_ok=True)
+        frontmatter = f"atom_id: {atom_id}\ncontent_role: Requirement\nstatus: Active"
+        content = f"# Summary\n\n{summary}\n\n## Scope\n\nFixture scope.\n\n## Claim\n\nFixture claim.\n"
+        if self.case.route in {"replace_atom", "change_atom_status"}:
+            carrier = self._carrier(atom_id, slug, summary)
+            frontmatter, content = carrier["frontmatter"], carrier["content"]
         path.write_text(
-            "---\n"
-            f"atom_id: {atom_id}\ncontent_role: Requirement\nstatus: Active\nversion: 1\n"
-            "updated_at: 2026-10-05 00:00:00 +0000\nrelations: {}\n---\n"
-            f"# Summary\n\n{summary}\n\n## Scope\n\nFixture scope.\n\n## Claim\n\nFixture claim.\n",
+            f"---\n{frontmatter}\nversion: 1\n"
+            "updated_at: 2026-10-05 00:00:00 +0000\n"
+            + ("" if self.case.route in {"replace_atom", "change_atom_status"} else "relations: {}\n")
+            + "---\n"
+            + content,
             encoding="utf-8",
         )
         return path
@@ -282,6 +282,7 @@ class GoldenProject:
         # Canonical serializer output is not required by the adapter; this is
         # the minimal valid Project Structure source it parses and rewrites.
         (control / "project_structure.toml").write_text(
+            "schema_version = 1\n\n"
             "[[scope_units]]\n"
             'scope_unit_name = "PARENT"\nparent = "PROJECT"\nscope_unit_type = "Ordered"\n'
             'scope_unit_label = "LAYER"\nstructural_level = 1\nlocal_order = 1\n'
@@ -302,56 +303,15 @@ class GoldenProject:
         (self.root / "fixture/reference.txt").parent.mkdir(parents=True, exist_ok=True)
         (self.root / "fixture/reference.txt").write_text("CHILD\n", encoding="utf-8")
 
-    def _seed_w03_predecessor_journal(self) -> None:
-        """Retain W03's real prior state instead of fabricating an O051 link.
-
-        Replacement consumes one existing predecessor Carrier.  Its golden
-        fixture therefore begins with the one canonical Journal result that
-        binds that exact current path, version, and bytes; it is deliberately
-        not a selected Run receipt and preview must preserve it unchanged.
-        """
-        import sys
-
-        tools_root = Path(__file__).resolve().parents[3] / "201_TOOLS"
-        if str(tools_root) not in sys.path:
-            sys.path.insert(0, str(tools_root))
-        from lifecycle_intents import carrier_descriptor
-        from work_journal import append_sealed_events, with_event_digest
-
-        predecessor = carrier_descriptor(self.root, "CA-R-100")
-        event = with_event_digest({
-            "schema_version": 3,
-            "event_id": "golden-w03-predecessor",
-            "action_id": "fixture-initial-state",
-            "event": "completed",
-            "kind": "governed_project_change",
-            "subject_kind": "file",
-            "author": "golden-operator",
-            "occurred_at": "2026-10-06T00:00:00+00:00",
-            "llm_session": {"app": "golden-fixture", "uuid": "w03-predecessor"},
-            "structural_scope": "CORE_META_MODEL",
-            "action_type": "ADD",
-            "sources": [],
-            "result": {
-                "state": "present",
-                "filename": predecessor["filename"],
-                "version": predecessor["version"],
-                "path": predecessor["path"],
-                "sha256": predecessor["digest"],
-            },
-        })
-        append_sealed_events(
-            self.root, [event], author="golden-operator",
-            local_date="2026-10-06", timezone="UTC",
-        )
-
     def _copy_complete_carrier_authority(self) -> None:
         """Copy the validator's finite, current source closure for W01/W03/W04."""
         import sys
 
-        validate_root = Path(__file__).resolve().parents[3] / "201_TOOLS" / "VALIDATE_ATOMS"
-        if str(validate_root) not in sys.path:
-            sys.path.insert(0, str(validate_root))
+        tools_root = Path(__file__).resolve().parents[3] / "201_TOOLS"
+        validate_root = tools_root / "VALIDATE_ATOMS"
+        for module_root in (tools_root, validate_root):
+            if str(module_root) not in sys.path:
+                sys.path.insert(0, str(module_root))
         from validate_atoms_workers.proposed_carrier import _REGISTRY_IDS, _SUPPORT_IDS, _entry
 
         for atom_id in (*_REGISTRY_IDS, *_SUPPORT_IDS):
@@ -471,7 +431,9 @@ class GoldenProject:
         )
         shutil.copy2(self._fixture_source(Path(defaults_relative)),
                      source / "001_CORE_META_MODEL/caprmedio_framework_default_settings.toml")
-        (source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text(
+        instance_settings = self.root / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
+        instance_settings.parent.mkdir(parents=True, exist_ok=True)
+        instance_settings.write_text(
             '[extensions.example]\nenabled = true\nrevision = "v2"\n', encoding="utf-8"
         )
         # W04 resolves its status domains from the Project's declared
@@ -479,11 +441,15 @@ class GoldenProject:
         # exact copy of every current role authority available for the
         # all-role Docker proof; normal W04 still requests Requirement only.
         original_sources = self._fixture_source(self.compiler_source_dir.relative_to(self.root))
+        current_sources = [
+            path for path in original_sources.rglob("*.md") if "archive" not in path.parts
+        ]
         for _role, _letter, _directory, atom_id, _statuses in STATUS_DOMAINS:
-            matches = [path for path in original_sources.rglob(
-                f"{atom_id}-*.md") if "archive" not in path.parts]
+            matches = [path for path in current_sources if path.name.startswith(f"{atom_id}-")]
             if len(matches) != 1:
-                raise GoldenCorpusError(f"current {atom_id} status-model source is unavailable or ambiguous")
+                raise GoldenCorpusError(
+                    f"current {atom_id} status-model source is unavailable or ambiguous"
+                )
             source_model = matches[0]
             target_model = source / source_model.relative_to(original_sources)
             target_model.parent.mkdir(parents=True, exist_ok=True)
@@ -491,8 +457,7 @@ class GoldenProject:
             if target_model.read_bytes() != source_model.read_bytes():
                 raise GoldenCorpusError(f"fixture copy changed current {atom_id} status-model source")
         for atom_id in SEMANTIC_ASSESSMENT_AUTHORITIES:
-            matches = [path for path in original_sources.rglob(
-                f"{atom_id}-*.md") if "archive" not in path.parts]
+            matches = [path for path in current_sources if path.name.startswith(f"{atom_id}-")]
             if len(matches) != 1:
                 raise GoldenCorpusError(f"current {atom_id} semantic-assessment source is unavailable or ambiguous")
             source_authority = matches[0]
@@ -510,6 +475,12 @@ class GoldenProject:
                 'navigational_order_number = 2\n'
                 'authority_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"\n'
                 'delivery_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"\n'
+                "\n[[scope_units]]\n"
+                'scope_unit_name = "CORE_META_MODEL"\nparent = "METHODOLOGY_SOURCES"\n'
+                'scope_unit_type = "Unordered"\nscope_unit_label = "FEATURE"\nstructural_level = 2\n'
+                'navigational_order_number = 0\n'
+                'authority_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"\n'
+                'delivery_path = "delivery/CORE_META_MODEL"\n'
             )
 
     def native_compiler_parameters(self, operation: str = "dry_run", *, expected_source_frontier_digest: str | None = None,
@@ -681,8 +652,8 @@ class GoldenProject:
             observed = {**value, "ordered_effects": request["ordered_effects"]} if name == "operator_decision" else value
             request[name] = {**value, **record(f"{name}.json", observed)}
         definition = (
-            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
+            ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
+            "METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/"
             "CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
         )
         source = self._fixture_source(Path(definition))
@@ -856,13 +827,13 @@ class GoldenProject:
             return self.native_graph_parameters("entities")
         if route == "build_terms_graph":
             return self.native_graph_parameters("terms")
-        target = self._descriptor("CA-R-100")
-        if route == "create_atom":
-            return {"carrier": self._carrier("CA-R-102", "created", "Created summary")}
         if route == "update_atom":
             if self._semantic_update_parameters is None:
                 raise GoldenCorpusError("W02 semantic assessment carrier was not prepared")
             return copy.deepcopy(self._semantic_update_parameters)
+        target = self._descriptor("CA-R-100")
+        if route == "create_atom":
+            return {"carrier": self._carrier("CA-R-102", "created", "Created summary")}
         if route == "replace_atom":
             return {"predecessor": target, "successors": [self._carrier("CA-R-103", "replacement", "Replacement summary")],
                     "status_model": self._status_model()}
@@ -942,36 +913,6 @@ class GoldenProject:
             raise GoldenCorpusError("selected workflow manifest does not contain a route list")
         actual_routes = tuple(item.get("route") for item in manifest["routes"] if isinstance(item, dict))
         expected_routes = MANIFEST_ROUTE_NAMES
-        if actual_routes in {
-            (*expected_routes, "release_version"),
-            (*expected_routes, "release_version", "public.release"),
-        }:
-            # The live projection can admit Release and Public Release rows.
-            # Selected-workflow goldens deliberately retain their historical
-            # fifteen-route baseline, reconstructed with fresh digests rather
-            # than borrowing mutable live carrier bytes.
-            manifest = copy.deepcopy(manifest)
-            manifest["routes"] = manifest["routes"][:len(expected_routes)]
-            manifest.pop("release_source_admissions", None)
-            manifest.pop("public_release_source_admissions", None)
-            self._refresh_graph_action_fixture_pin(
-                manifest,
-                route_name="build_entities_graph",
-                action_id="CA-O-134",
-                source_path=_CA_O_134_PATH,
-                stale_digest=_STALE_CA_O_134_DIGEST,
-            )
-            self._refresh_graph_action_fixture_pin(
-                manifest,
-                route_name="build_terms_graph",
-                action_id="CA-O-137",
-                source_path=_CA_O_137_PATH,
-                stale_digest=_STALE_CA_O_137_DIGEST,
-            )
-            manifest["source_freshness"]["selected_binding_digest"] = digest(manifest["routes"])
-            unsigned = {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"}
-            manifest["canonical_manifest_sha256"] = digest(unsigned)
-            actual_routes = tuple(item.get("route") for item in manifest["routes"] if isinstance(item, dict))
         if actual_routes != expected_routes:
             raise GoldenCorpusError("selected workflow manifest is not the exact closed fifteen-route portfolio")
         freshness = manifest.get("source_freshness")
@@ -1018,59 +959,6 @@ class GoldenProject:
         self.manifest_path.write_bytes(canonical_json(manifest) + b"\n")
         return manifest
 
-    def _refresh_graph_action_fixture_pin(
-        self,
-        manifest: dict[str, Any],
-        *,
-        route_name: str,
-        action_id: str,
-        source_path: str,
-        stale_digest: str,
-    ) -> None:
-        """Reseal one approved graph-action pair in the historical corpus.
-
-        The disposable fifteen-route corpus deliberately preserves the reviewed
-        manifest shape.  An approved graph Action changed in place after that
-        carrier was sealed, so copying it requires its actual current bytes and
-        frontmatter version rather than accepting the stale production pin.
-        """
-        routes = manifest.get("routes")
-        if not isinstance(routes, list):
-            raise GoldenCorpusError("selected workflow fixture manifest has no route list")
-        entity_routes = [route for route in routes if isinstance(route, dict)
-                         and route.get("route") == route_name]
-        if len(entity_routes) != 1:
-            raise GoldenCorpusError(f"selected workflow fixture has no unique {route_name} route")
-        route = entity_routes[0]
-        try:
-            candidates = [route["ordered_steps"][0]["action"], route["ordered_actions"][0]]
-        except (IndexError, KeyError, TypeError) as error:
-            raise GoldenCorpusError(f"{route_name} no longer has the expected one-step shape") from error
-        if any(not isinstance(pin, dict) for pin in candidates):
-            raise GoldenCorpusError(f"{route_name} action pins are malformed")
-        if any(pin.get("atom_id") != action_id or pin.get("source_path") != source_path
-               for pin in candidates):
-            raise GoldenCorpusError(f"{route_name} action topology changed; fixture pin cannot be refreshed")
-
-        source = self._fixture_source(Path(source_path))
-        if not source.is_file():
-            raise GoldenCorpusError(f"current {action_id} source is unavailable")
-        lines = source.read_text(encoding="utf-8").splitlines()
-        try:
-            actual_version = int(next(line.partition(":")[2].strip() for line in lines
-                                      if line.startswith("version:")))
-        except (StopIteration, ValueError) as error:
-            raise GoldenCorpusError(f"current {action_id} source has no integer version") from error
-        actual_digest = file_digest(source)
-        if all(pin.get("version") == actual_version and pin.get("digest") == actual_digest
-               for pin in candidates):
-            return
-        if any(pin.get("version") != 2 or pin.get("digest") != stale_digest
-               for pin in candidates):
-            raise GoldenCorpusError(f"{route_name} action pin is neither current nor the approved stale corpus pin")
-        for pin in candidates:
-            pin["version"] = actual_version
-            pin["digest"] = actual_digest
 
     def _copy_pinned(self, relative: Path, expected_digest: object) -> None:
         if not isinstance(expected_digest, str) or len(expected_digest) != 64:

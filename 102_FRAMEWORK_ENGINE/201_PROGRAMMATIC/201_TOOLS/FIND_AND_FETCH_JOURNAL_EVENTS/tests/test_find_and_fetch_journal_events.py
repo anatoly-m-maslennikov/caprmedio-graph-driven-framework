@@ -23,14 +23,19 @@ from query_filter import QueryFilterError, parse_filter_with_stats  # noqa: E402
 class JournalQueryGoldenTest(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         self.control = self.root / ".caprmedio_fixture"
         journal = self.control / "_journal"
         journal.mkdir(parents=True)
         (self.control / "caprmedio_project_settings.toml").write_text(
-            "[paths]\ncontrol_root = \".caprmedio_fixture\"\n", encoding="utf-8"
+            "[project]\nname = \"fixture\"\n[paths]\ncontrol_root = \".caprmedio_fixture\"\n", encoding="utf-8"
         )
-        defaults = self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+        (self.control / "project_structure.toml").write_text(
+            'schema_version = 1\n[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
+            'authority_path = ".caprmedio_fixture/core"\ndelivery_path = ".caprmedio_fixture/core"\n',
+            encoding="utf-8",
+        )
+        defaults = self.control / "core"
         defaults.mkdir(parents=True)
         (defaults / "caprmedio_framework_default_settings.toml").write_text(
             "[query]\n"
@@ -227,28 +232,38 @@ class JournalQueryGoldenTest(unittest.TestCase):
         snapshot = capture_snapshot(self.root)
         other = self.root / ".caprmedio_other"
         (other / "_journal").mkdir(parents=True)
-        defaults = other / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+        defaults = other / "core"
         defaults.mkdir(parents=True)
         (defaults / "caprmedio_framework_default_settings.toml").write_text(
-            (self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml").read_text(encoding="utf-8"),
+            (self.control / "core/caprmedio_framework_default_settings.toml").read_text(encoding="utf-8"),
             encoding="utf-8",
         )
         (self.control / "caprmedio_project_settings.toml").unlink()
+        (self.control / "project_structure.toml").unlink()
         (other / "caprmedio_project_settings.toml").write_text(
-            "[paths]\ncontrol_root = \".caprmedio_other\"\n", encoding="utf-8"
+            '[project]\nname = "other"\n[paths]\ncontrol_root = ".caprmedio_other"\n', encoding="utf-8"
+        )
+        (other / "project_structure.toml").write_text(
+            'schema_version = 1\n[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
+            'authority_path = ".caprmedio_other/core"\ndelivery_path = ".caprmedio_other/core"\n',
+            encoding="utf-8",
         )
         outcome = query(snapshot, {})
         self.assertEqual(outcome["status"], "blocked")
         self.assertEqual(outcome["findings"][0]["code"], "changed-source")
 
-    def test_malformed_missing_id_unreadable_and_secret_sentinel_are_bounded(self):
+    def test_json_decoding_missing_id_unreadable_and_secret_sentinel(self):
         path = self.write_events("events.ndjson", {"event_id": "E-1"})
         path.write_bytes(b"not-json\n")
-        with self.assertRaisesRegex(JournalQueryError, "malformed-event"):
+        with self.assertRaises(json.JSONDecodeError):
             capture_snapshot(self.root)
         path.write_bytes(b'{"name":"no-id"}\n')
-        with self.assertRaisesRegex(JournalQueryError, "missing-event-id"):
-            capture_snapshot(self.root)
+        snapshot = capture_snapshot(self.root)
+        self.assertEqual([], snapshot["event_ids"])
+        self.assertEqual(
+            [{"event_id": None, "event": {"name": "no-id"}}],
+            query(snapshot, {"mode": "full_events"})["results"],
+        )
         path.write_bytes(b'{"event_id":"E-1"}\n')
         with patch.object(Path, "read_bytes", side_effect=PermissionError):
             with self.assertRaisesRegex(JournalQueryError, "unreadable-member"):
@@ -385,16 +400,16 @@ class JournalQueryGoldenTest(unittest.TestCase):
         self.assertEqual(2, result["limits"]["max_page_size"]["configured"])
         self.assertNotEqual("instance", result["limits"]["max_page_size"]["source"])
 
-    def test_malformed_duplicate_ids_duplicate_keys_and_limits_fail_closed(self):
+    def test_duplicate_rows_and_normal_json_keys_preserve_query_limits(self):
         self.write_events("duplicate-keys.ndjson", {"event_id": "E-1"})
         (self.journal / "duplicate-keys.ndjson").write_bytes(b'{"event_id":"E-1","event_id":"E-2"}\n')
-        with self.assertRaisesRegex(JournalQueryError, "duplicate-json-key"):
-            capture_snapshot(self.root)
+        snapshot = capture_snapshot(self.root)
+        self.assertEqual(["E-2"], query(snapshot, {})["results"])
         (self.journal / "duplicate-keys.ndjson").unlink()
         self.write_events("one.ndjson", {"event_id": "E-1"})
         self.write_events("two.ndjson", {"event_id": "E-1"})
-        with self.assertRaisesRegex(JournalQueryError, "duplicate-event-id"):
-            capture_snapshot(self.root)
+        snapshot = capture_snapshot(self.root)
+        self.assertEqual(["E-1", "E-1"], query(snapshot, {})["results"])
         (self.journal / "two.ndjson").unlink()
         snapshot = capture_snapshot(self.root)
         outcome = query(snapshot, {"limit": 3})

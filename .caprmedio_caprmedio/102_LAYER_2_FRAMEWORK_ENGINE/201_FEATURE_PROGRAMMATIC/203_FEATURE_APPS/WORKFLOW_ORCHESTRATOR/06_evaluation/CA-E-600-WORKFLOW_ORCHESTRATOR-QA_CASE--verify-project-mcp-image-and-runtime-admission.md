@@ -7,11 +7,11 @@ local_tier: Standard
 global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 03:06:01 +0400"
+version: 4
+updated_at: "2026-10-13 23:30:12 +0400"
 subjects:
   governs: "Workflow Orchestrator/Project MCP runtime admission evaluation"
-  depends_on: [Project, MCP, Docker Runtime, Image, Gateway, Credential, Carrier]
+  depends_on: [Project, MCP, Docker Runtime, Image, Gateway, Credential, Carrier, Project Settings]
 relations:
   evaluation_for: [CA-R-1901, CA-M-356]
   relates_to: [CA-E-537, CA-E-584, CA-E-585]
@@ -26,7 +26,7 @@ image-fingerprint, lock, Docker-publication, and runtime-reuse checks for the Pr
 
 ## Claim
 
-the Evaluation **must** prove that only a matching immutable image and a healthy same-Project runtime can be used, and that dynamic loopback publication is Docker-owned.
+the Evaluation **must** prove that only a matching immutable image and a healthy same-Project runtime published on the fixed Project Settings port can be used.
 
 ## Details
 
@@ -35,5 +35,8 @@ the Evaluation **must** prove that only a matching immutable image and a healthy
 - test explicit image references that are mutable, missing, wrong-schema, fingerprint-mismatched, or correct. Verify missing matching images build under the invocation's default `build_if_missing=true`, refuse under `--no-build`, and capture/re-inspect an immutable digest without retagging or replacing another image.
 - exercise a packaged launcher lacking a required Engine/Docker/dependency input. Verify `IMAGE_INPUT_UNAVAILABLE` safely requests `--source-root`, preserves installed runtime N, and does not begin a full Release, package replacement, or Framework promotion.
 - simulate a held per-Project lock, a matching healthy runtime, a matching unhealthy runtime, and a live mismatched runtime. Only the healthy matching case is reusable; every other live case preserves the existing service and returns its non-success disposition.
-- in a real-Docker gate when Docker is available, start one `mcp-http` service with no explicit host port and verify Docker reports exactly one `127.0.0.1` publication for container port `8092`, a real assigned host port, and no host-side pre-reservation. Verify an explicit port follows the same one-publication rule.
+- test the Project Settings `[project_mcp] http_port` field with valid, missing, non-integer, boolean, zero and out-of-range values. Missing or invalid values fail before any Docker effect. A supplied `--port` must equal the configured value; runtime config values do not provide a competing port source.
+- test two Project roots with different configured ports, healthy exact-port reuse, an existing wrong-port publication and an occupied requested port. Failure preserves existing resources, makes no random-port attempt and launches no Workflow. Verify the small uv bootstrap forwards only the selected Project and its configured port.
+- in a real-Docker gate when Docker is available, explicitly start or reuse one `mcp-http` service and verify exactly one `127.0.0.1:<http_port>` publication for container port `8092`, equal to that Project's Settings value, with no host-side pre-reservation.
+- test clean installation and upgrade of the executable `.caprmedio_runtime/start_mcp.py`: its bytes match the selected Engine package, upgrade refreshes it, existing configuration and state remain unchanged, and installation starts neither MCP nor a Workflow. Test explicit bootstrap invocation against an installed package in a target Project without an Engine source checkout.
 - verify the admitted launcher starts neither worker, queue, Agent, Workflow, Tool call, proxy, nor Release action. Docker absence or denial is incomplete/failed evidence for the real-Docker case, not a passing mock result.

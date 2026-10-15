@@ -4,12 +4,13 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import os
 import re
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import tomllib
 
 
@@ -21,6 +22,8 @@ if str(TOOLS_ROOT) not in sys.path:
 from framework_installation import InstallationError, installation_status  # noqa: E402
 from artifact_metadata import SETTINGS_PATH, atom_identifier, project_identity  # noqa: E402
 from project_runtime import atomic_tempfile, repository_root  # noqa: E402
+from WORKFLOW_OPERATIONS.PROJECT_STRUCTURE import project_structure  # noqa: E402
+from project_selection import ProjectSelectionError, _DeclarationBoundaryProof, _declaration_boundary_proof, bound_selection  # noqa: E402
 
 
 ROOT = repository_root(SCRIPT)
@@ -156,40 +159,35 @@ def journal_records(journal: Path) -> list[tuple[Path, int, dict[str, object]]]:
 
 
 def configuration_binding(config_sha: str, carrier: Path | None = None) -> dict[str, str]:
-    """Resolve the one completed receipt for the canonical native carrier."""
+    """Observe optional log metadata matching the current Settings bytes."""
 
     matches: list[dict[str, str]] = []
     carrier = CONFIG if carrier is None else carrier
     configuration_path = project_relative(carrier)
-    for carrier in sorted(JOURNAL.glob("*.ndjson")):
-        for number, line in enumerate(carrier.read_text(encoding="utf-8").splitlines(), 1):
-            try:
-                record = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            if not isinstance(record, dict):
-                continue
+    try:
+        current_sha = sha(carrier)
+    except OSError:
+        current_sha = ""
+    if current_sha and config_sha == current_sha:
+        try:
+            history = journal_records(JOURNAL)
+        except (OSError, UnicodeDecodeError):
+            history = []
+        for journal_carrier, number, record in history:
             result = record.get("result")
             if (
-                record.get("kind") != "governed_project_change"
-                or record.get("event") != "completed"
-                or record.get("subject_kind") != "file"
-                or not isinstance(result, dict)
+                not isinstance(result, dict)
                 or result.get("path") != configuration_path
                 or result.get("sha256") != config_sha
-                or not isinstance(result.get("version"), int)
             ):
-                continue
-            updated_at = normalise_timestamp(record.get("occurred_at"))
-            if not updated_at:
                 continue
             matches.append(
                 {
-                    "revision": str(result["version"]),
-                    "journal_carrier": project_relative(carrier),
+                    "revision": str(result.get("version", "unknown")),
+                    "journal_carrier": project_relative(journal_carrier),
                     "journal_line": str(number),
                     "journal_event_id": str(record.get("event_id", "unknown")),
-                    "updated_at": updated_at,
+                    "updated_at": normalise_timestamp(record.get("occurred_at")),
                 }
             )
     if len(matches) == 1:
@@ -289,62 +287,67 @@ def navigational_order_number(
     return navigational_order
 
 
+class _BoundaryRows(list):
+    """Keep non-serialized admission evidence with its projected row payload."""
+
+    def __init__(self, values, proof: _DeclarationBoundaryProof):
+        super().__init__(values)
+        self._boundary_proof = proof
+
+    def __deepcopy__(self, memo):
+        return _BoundaryRows(copy.deepcopy(list(self), memo), self._boundary_proof)
+
+
+def _revalidate_scope_boundary(rows: list[dict[str, object]]) -> None:
+    if not isinstance(rows, _BoundaryRows):
+        raise SystemExit("Scope rows lack their captured declaration boundary proof")
+    try:
+        rows._boundary_proof.revalidate()
+    except ProjectSelectionError as error:
+        raise SystemExit(str(error)) from error
+
+
 def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dict[str, object]]:
-    """Discover active typed Scope Units and link each to its nearest typed parent."""
+    """Project complete accepted declarations, independently of folder naming."""
 
     try:
         project_name = project_identity(root)["project"]["name"]
     except ValueError as error:
         raise SystemExit(str(error)) from error
     default_mode = modes.get("default")
-    if not isinstance(default_mode, str) or not default_mode:
+    if default_mode not in {"strict", "casual"}:
         raise SystemExit("Project Configuration lacks authority_modes.default")
-    rows: list[dict[str, object]] = []
-    for carrier in sorted((path for path in control.rglob("*") if path.is_dir()), key=lambda path: path.as_posix()):
-        if not active_path(carrier, control):
-            continue
-        if EPIC_DIRECTORY.fullmatch(carrier.name):
-            continue
-        parsed = parse_scope_unit_name(carrier.name)
-        if parsed is None:
-            continue
-        relative_to_control = carrier.relative_to(control).as_posix()
+    declarations, digest, proof = _delivery_bindings(control, root)
+    nodes: dict[str, str] = {}
+    for authority, declaration in declarations.items():
+        path = root / authority
+        try:
+            node = path.relative_to(control).as_posix()
+        except ValueError:
+            node = path.relative_to(root).as_posix()
+        if node in nodes.values():
+            raise SystemExit(f"duplicate projected Scope Unit node ID: {node}")
+        nodes[str(declaration["scope_unit_name"])] = node
+    rows: list[dict[str, object]] = _BoundaryRows([], proof)
+    for authority, declaration in sorted(declarations.items()):
+        carrier = root / authority
+        name = str(declaration["scope_unit_name"])
+        parent = project_name if declaration["parent"] == "PROJECT" else nodes[str(declaration["parent"])]
+        prefix = re.match(r"([0-9]+)_", carrier.name)
         rows.append(
             {
-                "node_id": relative_to_control,
-                "scope_unit_name": parsed["scope_unit_name"],
+                **declaration,
+                "node_id": nodes[name],
                 "project_boundary_position": "PROJECT",
-                "scope_unit_type": parsed["scope_unit_type"],
-                "authority_path": carrier.relative_to(root).as_posix(),
-                "authority_materialized": True,
-                "numeric_prefix": parsed["numeric_prefix"],
-                "scope_unit_label": parsed["scope_unit_label"],
-                "authority_mode": default_mode,
-                "local_order": parsed["local_order"],
-                "parent": project_name,
-                "structural_parent": project_name,
+                "authority_materialized": carrier.is_dir(),
+                "numeric_prefix": prefix.group(1) if prefix else None,
+                "authority_mode": declaration.get("authority_mode", default_mode),
+                "authority_mode_inherited": "authority_mode" not in declaration,
+                "local_order": declaration.get("local_order"),
+                "parent": parent,
+                "structural_parent": parent,
+                "delivery_source_sha256": digest,
             }
-        )
-    if not rows:
-        raise SystemExit("no active typed Scope Unit Directory Carriers found")
-    by_path = {control / str(row["node_id"]): row for row in rows}
-    for row in rows:
-        parent = (control / str(row["node_id"])).parent
-        parent_row: dict[str, object] | None = None
-        while parent != control:
-            parent_row = by_path.get(parent)
-            if parent_row is not None:
-                row["parent"] = parent_row["node_id"]
-                row["structural_parent"] = parent_row["node_id"]
-                break
-            parent = parent.parent
-        row["structural_level"] = 1 if parent_row is None else int(parent_row["structural_level"]) + 1
-    structural_level_width = len(str(max(int(row["structural_level"]) for row in rows)))
-    for row in rows:
-        row["navigational_order_number"] = navigational_order_number(
-            str(row["numeric_prefix"]),
-            int(row["structural_level"]),
-            structural_level_width,
         )
     for row in rows:
         children = [child for child in rows if child["parent"] == row["node_id"]]
@@ -357,168 +360,129 @@ def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dic
             row["child_composition"] = "UNORDERED"
         else:
             row["child_composition"] = "MIXED"
+    _revalidate_scope_boundary(rows)
     return rows
 
 
-def current_directory_entries(directory: Path) -> list[dict[str, str]]:
-    """Return the exact Git-admitted current file frontier of one Directory Carrier."""
-
-    relative = project_relative(directory)
-    completed = subprocess.run(
-        ["git", "-C", str(ROOT), "ls-files", "--cached", "--others", "--exclude-standard", "--", relative],
-        check=False,
-        capture_output=True,
-        text=True,
-    )
-    if completed.returncode != 0:
-        raise SystemExit("cannot resolve the Git-admitted Scope Unit Directory Carrier frontier")
-    entries: list[dict[str, str]] = []
-    for value in completed.stdout.splitlines():
-        path = ROOT / value
-        if not path.is_file():
-            raise SystemExit(f"Scope Unit Directory Carrier contains an unresolved entry: {value}")
-        entries.append({"path": value, "sha256": sha(path)})
-    return sorted(entries, key=lambda entry: entry["path"])
-
-
-def directory_receipt(directory: Path) -> dict[str, str]:
-    """Resolve the one completed Work Journal receipt for a current Directory Carrier."""
-
-    relative = project_relative(directory)
-    current_entries = current_directory_entries(directory)
-    if not current_entries:
-        raise SystemExit(f"Scope Unit Directory Carrier is empty: {relative}")
-    relative_entries = [
-        {"path": Path(entry["path"]).relative_to(relative).as_posix(), "sha256": entry["sha256"]}
-        for entry in current_entries
-    ]
-    expected_digest = canonical_json_digest(relative_entries)
-    matches: list[dict[str, str]] = []
-    for carrier, number, record in journal_records(JOURNAL):
-        result = record.get("result")
-        if (
-            record.get("kind") != "governed_project_change"
-            or record.get("event") != "completed"
-            or record.get("subject_kind") != "folder"
-            or not isinstance(result, dict)
-            or result.get("path") != relative
-            or result.get("sha256") != expected_digest
-            or not isinstance(result.get("version"), int)
-            or result.get("entries") != current_entries
-        ):
-            continue
-        updated_at = normalise_timestamp(record.get("occurred_at"))
-        event_id = record.get("event_id")
-        if not updated_at or not isinstance(event_id, str) or not event_id:
-            continue
-        matches.append(
-            {
-                "carrier": relative,
-                "revision": str(result["version"]),
-                "sha256": expected_digest,
-                "journal_carrier": project_relative(carrier),
-                "journal_line": str(number),
-                "journal_event_id": event_id,
-                "updated_at": updated_at,
-            }
-        )
-    if len(matches) != 1:
-        state = "unresolved" if not matches else "ambiguous"
-        raise SystemExit(f"{state} exact Work Journal receipt for Scope Unit Directory Carrier: {relative}")
-    return matches[0]
+def directory_observations(
+    control: Path, root: Path, scope_unit_rows: list[dict[str, object]],
+) -> list[dict[str, object]]:
+    """Report physical carriers without accepting their naming or topology as declarations."""
+    declared = {root / str(row["authority_path"]).removesuffix("/"): row for row in scope_unit_rows}
+    paths = set(declared)
+    paths.update(path for path in control.rglob("*")
+                 if path.is_dir() and not path.is_symlink() and active_path(path, control)
+                 and SCOPE_UNIT_CANDIDATE.match(path.name))
+    nodes = {path: str(row["node_id"]) for path, row in declared.items()}
+    for path in paths - declared.keys():
+        nodes[path] = path.relative_to(control).as_posix()
+    materialized = {path for path in paths if path.is_dir()}
+    levels = {path: 1 + sum(parent in materialized for parent in path.parents) for path in materialized}
+    width = len(str(max(levels.values(), default=1)))
+    project_name = project_identity(root)["project"]["name"]
+    observations = []
+    for path in sorted(paths):
+        row = declared.get(path)
+        observation: dict[str, object] = {
+            "kind": "declared" if row is not None else "undeclared",
+            "node_id": nodes[path], "authority_path": path.relative_to(root).as_posix(),
+            "authority_materialized": path in materialized, "mismatches": [],
+        }
+        if path in materialized:
+            parent = next((ancestor for ancestor in path.parents if ancestor in materialized), None)
+            observation.update({"observed_parent": nodes[parent] if parent is not None else project_name,
+                                "observed_structural_level": levels[path]})
+            parsed = SCOPE_UNIT_NAME.fullmatch(path.name)
+            if parsed is not None:
+                local_order = parsed["local_order"]
+                observation.update({
+                    "observed_scope_unit_name": parsed["name"],
+                    "observed_scope_unit_type": "Ordered" if local_order is not None else "Unordered",
+                    "observed_scope_unit_label": parsed["unit_type"],
+                    "observed_numeric_prefix": parsed["numeric_prefix"],
+                    "observed_local_order": int(local_order) if local_order is not None else None,
+                })
+                prefix = parsed["numeric_prefix"]
+                if len(prefix) > width:
+                    observation["observed_prefix_structural_level"] = int(prefix[:width])
+                    observation["observed_navigational_order_number"] = int(prefix[width:])
+            if row is not None:
+                observation["mismatches"] = [field for field in (
+                    "scope_unit_name", "scope_unit_type", "scope_unit_label", "parent", "structural_level",
+                    "local_order", "navigational_order_number",
+                ) if "observed_" + field in observation and observation["observed_" + field] != row[field]]
+                if ("observed_prefix_structural_level" in observation
+                        and observation["observed_prefix_structural_level"] != row["structural_level"]):
+                    observation["mismatches"].append("numeric_prefix")
+        observations.append(observation)
+    return observations
 
 
-def atom_frontmatter(path: Path) -> tuple[str, str]:
-    """Return frontmatter and body from one governed Markdown Atom carrier."""
-
-    text = path.read_text(encoding="utf-8")
-    if not text.startswith("---\n"):
-        raise SystemExit(f"Delivery Atom lacks frontmatter: {project_relative(path)}")
-    boundary = text.find("\n---\n", 4)
-    if boundary < 0:
-        raise SystemExit(f"Delivery Atom has unterminated frontmatter: {project_relative(path)}")
-    return text[4:boundary], text[boundary + len("\n---\n") :]
-
-
-DELIVERY_BINDING = re.compile(
-    r"(?m)^[A-Z][A-Z0-9_]* uses authority path `(?P<authority_path>[^`]+)` "
-    r"and Delivery path `(?P<delivery_path>[^`]+)`\.$"
-)
-DELIVERY_ATOM_ID = re.compile(r"(?P<atom_id>CA-D-[0-9]+)-")
-
-
-def delivery_atom_binding(directory: Path, receipt: dict[str, str]) -> dict[str, str]:
-    """Resolve the sole active Delivery Atom which binds one Scope Unit's places."""
-
-    delivery_directory = directory / "07_delivery"
-    if not delivery_directory.is_dir():
-        raise SystemExit(f"Scope Unit lacks a Delivery directory: {project_relative(directory)}")
-    authority_path = project_relative(directory) + "/"
-    candidates: list[dict[str, str]] = []
-    receipt_entries = {
-        entry["path"]: entry["sha256"] for entry in current_directory_entries(directory)
-    }
-    for path in sorted(delivery_directory.glob("*.md")):
-        frontmatter, body = atom_frontmatter(path)
-        matches = list(DELIVERY_BINDING.finditer(body))
-        if len(matches) != 1 or matches[0]["authority_path"] != authority_path:
-            continue
-        versions = re.findall(r"(?m)^version:\s*([1-9][0-9]*)\s*$", frontmatter)
-        updated_ats = re.findall(r"(?m)^updated_at:\s*([^\n]+)\s*$", frontmatter)
-        atom_id_match = DELIVERY_ATOM_ID.match(path.name)
-        updated_at = normalise_timestamp(updated_ats[0]) if len(updated_ats) == 1 else ""
-        if len(versions) != 1 or not atom_id_match or not updated_at:
-            raise SystemExit(f"Delivery Atom lacks an exact revision: {project_relative(path)}")
-        digest = sha(path)
-        path_relative = project_relative(path)
-        if receipt_entries.get(path_relative) != digest:
-            raise SystemExit(
-                "Scope Unit Directory Carrier receipt does not bind its active Delivery Atom: "
-                f"{path_relative}"
-            )
-        candidates.append(
-            {
-                "atom_id": atom_id_match["atom_id"],
-                "carrier": path_relative,
-                "revision": versions[0],
-                "sha256": digest,
-                "authority_path": authority_path,
-                "delivery_path": matches[0]["delivery_path"],
-                "journal_carrier": receipt["journal_carrier"],
-                "journal_line": receipt["journal_line"],
-                "journal_event_id": receipt["journal_event_id"],
-                "updated_at": updated_at,
-            }
-        )
-    if len(candidates) != 1:
-        state = "missing" if not candidates else "ambiguous"
-        raise SystemExit(
-            f"{state} active Delivery Atom binding for Scope Unit Directory Carrier: "
-            f"{project_relative(directory)}"
-        )
-    return candidates[0]
-
-
-def delivery_path_from_scope_unit(row: dict[str, object]) -> str:
-    """Derive one Delivery path from the typed Scope Unit directory coordinate."""
-
-    segments: list[str] = []
-    for segment in str(row["node_id"]).split("/"):
-        parsed = parse_scope_unit_name(segment)
-        if parsed is None:
-            raise SystemExit(f"Scope Unit Directory Carrier is not typed: {segment}")
-        segments.append(str(parsed["numeric_prefix"]) + "_" + str(parsed["scope_unit_name"]))
-    return "/".join(segments) + "/"
+def _delivery_bindings(control: Path, root: Path) -> tuple[dict[str, dict[str, object]], str, _DeclarationBoundaryProof]:
+    """Read and validate exact declarations and their concrete directory bindings."""
+    carrier = control / "project_structure.toml"
+    try:
+        selection = bound_selection(root)
+        if selection is not None:
+            if control != selection.control_root:
+                raise ProjectSelectionError("Graph control differs from the selected Project")
+            selection._revalidate_boundary()
+        if carrier.parent.is_symlink() or carrier.is_symlink() or not carrier.is_file():
+            raise ValueError("Project Structure is missing or invalid")
+        raw = carrier.read_bytes()
+        document = tomllib.loads(raw.decode("utf-8"))
+        if (set(document) != {"schema_version", "scope_units"}
+                or type(document["schema_version"]) is not int or document["schema_version"] != 1
+                or not isinstance(document["scope_units"], list)):
+            raise ValueError("Project Structure schema is invalid")
+        declarations = document["scope_units"]
+        by_authority: dict[str, dict[str, object]] = {}
+        for declaration in declarations:
+            for field in ("authority_path", "delivery_path"):
+                value = declaration[field]
+                if not isinstance(value, str) or not value or "\\" in value or "\x00" in value:
+                    raise ValueError(f"unsafe Project Structure {field}: {value}")
+                canonical = value.removesuffix("/")
+                relative = PurePosixPath(canonical)
+                if (relative.is_absolute() or canonical in {"", ".", ".."} or relative.as_posix() != canonical or ":" in value
+                        or any(part in {".", ".."} for part in relative.parts)):
+                    raise ValueError(f"unsafe Project Structure {field}: {value}")
+                cursor = root
+                for part in relative.parts:
+                    cursor /= part
+                    if cursor.is_symlink():
+                        raise ValueError(f"unsafe Project Structure {field}: {value}")
+                    if cursor.exists() and not cursor.is_dir():
+                        raise ValueError(f"Project Structure {field} is not a directory: {value}")
+            authority = declaration["authority_path"].removesuffix("/")
+            if authority in by_authority:
+                raise ValueError(f"duplicate Project Structure authority binding: {authority}")
+            by_authority[authority] = declaration
+        proof = _declaration_boundary_proof(root, control.relative_to(root), declarations)
+        project_structure._validate_tree(declarations, root, control_root=control.relative_to(root))
+        proof.revalidate()
+    except (OSError, UnicodeDecodeError, ValueError, TypeError, RuntimeError) as error:
+        raise SystemExit(str(error)) from error
+    return by_authority, hashlib.sha256(raw).hexdigest(), proof
 
 
 def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[dict[str, object]]:
-    """Attach deterministic Delivery paths without treating Project folders as authority."""
-
+    """Bind Delivery paths to exact authoritative Project Structure declarations."""
+    _revalidate_scope_boundary(scope_unit_rows)
+    by_authority, source_digest, _ = _delivery_bindings(CONTROL, ROOT)
     for row in scope_unit_rows:
-        row["delivery_path"] = delivery_path_from_scope_unit(row)
+        if row.get("delivery_source_sha256", source_digest) != source_digest:
+            raise SystemExit("Project Structure changed after Scope rows were captured")
+        declaration = by_authority.get(str(row["authority_path"]).removesuffix("/"))
+        if declaration is None or declaration["scope_unit_name"] != row["scope_unit_name"]:
+            raise SystemExit(f"missing or mismatched Project Structure binding: {row['authority_path']}")
+    for row in scope_unit_rows:
+        row["delivery_path"] = by_authority[str(row["authority_path"]).removesuffix("/")]["delivery_path"]
+        row["delivery_source_sha256"] = source_digest
         row["structure_sha256"] = canonical_json_digest(
             {key: row[key] for key in SCOPE_UNIT_GRAPH_FIELDS if key != "delivery_path"}
         )
+    _revalidate_scope_boundary(scope_unit_rows)
     return scope_unit_rows
 
 
@@ -617,7 +581,9 @@ def project_scope_unit_graph(
     scope_unit_rows: list[dict[str, object]],
     source_atoms: list[dict[str, str]],
     executed_generator: Path | None = None,
+    *, observations: list[dict[str, object]] | None = None,
 ) -> str:
+    _revalidate_scope_boundary(scope_unit_rows)
     project = config["project"]
     identity = config["artifacts"]["identity"]
     modes = config["authority_modes"]
@@ -667,6 +633,13 @@ def project_scope_unit_graph(
         lines += ["", "[[methodology_source_atoms]]"] + [
             f"{key} = {quote(value)}" for key, value in source_atom.items()
         ]
+    for observation in observations or []:
+        lines += ["", "[[directory_observations]]"]
+        for key, value in observation.items():
+            if value is None:
+                continue
+            encoded = str(value).lower() if isinstance(value, bool) else value if isinstance(value, int) else quote(value)
+            lines.append(f"{key} = {encoded}")
     return "\n".join(lines) + "\n"
 
 
@@ -676,7 +649,9 @@ def project_scope_unit_graph_sources(
     scope_unit_rows: list[dict[str, object]],
     source_atoms: list[dict[str, str]],
     executed_generator: Path | None = None,
+    *, observations: list[dict[str, object]] | None = None,
 ) -> str:
+    _revalidate_scope_boundary(scope_unit_rows)
     generator = generator_metadata(executed_generator)
     lines = [
         "# Generated source bindings. Delete and regenerate; do not edit directly.",
@@ -730,32 +705,36 @@ def project_scope_unit_graph_sources(
         )
     for row in scope_unit_rows:
         node_path = "scope_units." + str(row["node_id"])
-        structure_carrier = str(row["authority_path"])
-        structure_revision = "observed_scope_unit_structure"
-        structure_sha256 = str(row["structure_sha256"])
         for field in SCOPE_UNIT_GRAPH_FIELDS:
             if row[field] is None:
                 continue
-            if field == "authority_mode":
-                kind = "framework_settings"
-            elif field in {"parent", "structural_parent"} and row[field] not in {item["node_id"] for item in scope_unit_rows}:
-                kind = "project_settings"
-            else:
-                kind = None
-            if kind is not None:
-                binding = bindings[kind]
+            if field in {"authority_materialized", "numeric_prefix"}:
+                observed = {key: row[key] for key in ("authority_path", "authority_materialized", "numeric_prefix")}
                 append_binding(
-                    node_path + "." + field, kind, binding["carrier"],
+                    node_path + "." + field, "directory_observation", str(row["authority_path"]),
+                    "observed_directory", canonical_json_digest(observed),
+                )
+                continue
+            if field == "authority_mode" and row.get("authority_mode_inherited", True):
+                binding = bindings["framework_settings"]
+                append_binding(
+                    node_path + "." + field, "framework_settings", binding["carrier"],
                     f"{binding['identifier']}@{binding['revision']}", binding["sha256"], binding,
                 )
                 continue
+            digest = str(row["delivery_source_sha256"])
             append_binding(
-                node_path + "." + field,
-                "scope_unit_directory_structure",
-                structure_carrier,
-                structure_revision,
-                structure_sha256,
+                node_path + "." + field, "project_structure",
+                project_relative(CONTROL / "project_structure.toml"), "sha256:" + digest, digest,
             )
+    for observation in observations or []:
+        for field, value in observation.items():
+            if value is not None:
+                append_binding(
+                    "directory_observations." + str(observation["authority_path"]) + "." + field,
+                    "directory_observation", str(observation["authority_path"]), "observed_directory",
+                    canonical_json_digest(observation),
+                )
     for source_atom in source_atoms:
         revision = source_atom["atom_id"] + "@" + source_atom["version"] + "," + source_atom["updated_at"]
         append_binding(
@@ -808,23 +787,25 @@ def main() -> None:
         raise SystemExit("required control root or Project Configuration is missing")
     config = configuration()
     bindings = settings_bindings()
-    if any(item["status"] != "resolved" for item in bindings.values()):
-        raise SystemExit("Settings current revision binding is unresolved or ambiguous")
     source_atoms = active_source_atoms()
     modes = config["authority_modes"]
     assert isinstance(modes, dict)
-    rows = bind_scope_unit_structure(scope_units(CONTROL, ROOT, modes))
+    rows = scope_units(CONTROL, ROOT, modes)
+    observations = directory_observations(CONTROL, ROOT, rows)
     updated_at = source_updated_at(bindings, source_atoms)
-    graph_payload = project_scope_unit_graph(updated_at, config, bindings, rows, source_atoms)
-    sources_payload = project_scope_unit_graph_sources(updated_at, bindings, rows, source_atoms)
+    graph_payload = project_scope_unit_graph(updated_at, config, bindings, rows, source_atoms, observations=observations)
+    sources_payload = project_scope_unit_graph_sources(updated_at, bindings, rows, source_atoms, observations=observations)
     changed = (not OUTPUT.is_file() or OUTPUT.read_text(encoding="utf-8") != graph_payload) or (
         not SOURCE_MAP.is_file() or SOURCE_MAP.read_text(encoding="utf-8") != sources_payload
     )
+    _revalidate_scope_boundary(rows)
     print(json.dumps({"apply": args.apply, "changed": changed, "methodology_source_atoms": len(source_atoms), "outputs": [project_relative(OUTPUT), project_relative(SOURCE_MAP)], "scope_units": len(rows)}, sort_keys=True))
     if not args.apply:
         return
     installed_generator()
+    _revalidate_scope_boundary(rows)
     write_output(OUTPUT, graph_payload)
+    _revalidate_scope_boundary(rows)
     write_output(SOURCE_MAP, sources_payload)
 
 

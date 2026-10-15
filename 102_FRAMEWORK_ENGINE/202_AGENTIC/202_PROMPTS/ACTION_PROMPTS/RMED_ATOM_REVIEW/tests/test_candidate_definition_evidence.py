@@ -9,9 +9,6 @@ from allowed_value_evidence import validate_allowed_value_evidence  # noqa: E402
 from review_evidence import _validate_resolved_mention  # noqa: E402
 
 
-ROOT = Path(__file__).resolve().parents[6]
-
-
 def binding(raw, *, atom_id="TEST-R-1", version=1, path="candidate.md"):
     return {"atom_id": atom_id, "version": version, "path": path,
             "sha256": hashlib.sha256(raw.encode()).hexdigest()}
@@ -47,25 +44,22 @@ def validate_candidate(raw, item, *, atom_id="TEST-R-1", version=1, authorities=
 
 
 class CandidateDefinitionEvidenceTests(unittest.TestCase):
-    def test_real_r1191_defines_its_own_exact_target(self):
-        path = ROOT / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md"
-        raw = path.read_text()
+    def test_fixture_definition_admits_its_own_exact_target(self):
         quote = "a Primary Entity **means** an Entity occurrence whose identity does **not** require another Entity occurrence as its bearer."
-        validate_candidate(raw, mention("Primary Entity", quote), atom_id="CA-R-1191", version=13)
+        raw = source("Primary Entity", quote)
+        validate_candidate(raw, mention("Primary Entity", quote))
 
-    def test_real_d414_positive_classification_defines_its_own_target(self):
-        path = ROOT / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-414-CORE_META_MODEL-CORE--classify-carrier-as-a-primary-entity.md"
-        raw = path.read_text()
+    def test_fixture_positive_classification_defines_its_own_target(self):
         quote = "the Term Carrier **must** be **NARROWER_THAN** Primary Entity."
-        validate_candidate(raw, mention("Carrier", quote, kind="classification"), atom_id="CA-D-414", version=14)
+        raw = source("Carrier", quote, role="Delivery")
+        validate_candidate(raw, mention("Carrier", quote, kind="classification"))
 
-    def test_negative_delivery_constraint_does_not_self_define_d352_target(self):
-        path = ROOT / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md"
-        raw = path.read_text()
+    def test_negative_delivery_constraint_does_not_self_define_its_target(self):
         quote = "a Status subdirectory used for Artifact Carrier placement **must not** be a Directory Carrier."
+        raw = source("Artifact/Carrier Placement/Status Subdirectory", quote, role="Delivery")
         with self.assertRaisesRegex(ValueError, "positive classification"):
             validate_candidate(raw, mention("Artifact/Carrier Placement/Status Subdirectory", quote,
-                                            kind="classification"), atom_id="CA-D-352", version=10)
+                                            kind="classification"))
 
     def test_candidate_exact_anchor_cannot_bypass_explicit_route(self):
         quote = "a Child **means** an independently defined target."

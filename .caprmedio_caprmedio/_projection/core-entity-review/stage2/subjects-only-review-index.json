@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "state": "partial_review_only_not_staging_ready",
+  "source_owner_count": 140,
+  "occurrence_count": 760,
+  "prospectively_supported_rows": 662,
+  "withheld_proposals": 31,
+  "existing_unresolved_rows": 67,
+  "source_migration": "not_performed",
+  "staged_candidate_exports": 0,
+  "reports": [
+    {
+      "batch": "r-001",
+      "review_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-r-001.json",
+      "review_sha256": "55e2f3c9240ca2725a6c311149a10deee9c7749dc01a347ebe70328b918b4634",
+      "acceptance_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-r-001.acceptance.json",
+      "acceptance_sha256": "068fb4fde4196add248533f354adce2e86589bec556add031ccf07b3bff23555"
+    },
+    {
+      "batch": "r-002",
+      "review_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-r-002.json",
+      "review_sha256": "d5270052506a2ce555f91fc3cc977b5d4a47cc71aeb6ae61c773ea92e342b65b",
+      "acceptance_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-r-002.acceptance.json",
+      "acceptance_sha256": "ecc165bfaf11d2c40edbfdff2ecb2e9a84dd9f8ad3ca4671d217bd65d0a1a032"
+    },
+    {
+      "batch": "r-003",
+      "review_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-r-003.json",
+      "review_sha256": "042bd53790f6af7f6ecb2f8903c429619a8f6f999486b7da43dd2b71c595cf7a",
+      "acceptance_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-r-003.acceptance.json",
+      "acceptance_sha256": "26a5121a719e851ff4bf4ed6e9fb414a80de5c0dbb6d6f6eda0b767f290b3db5"
+    },
+    {
+      "batch": "m-001",
+      "review_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-m-001.json",
+      "review_sha256": "1ed45fb92dfb445b554c4b0d0ecef556d0321ca3f86744f174915ceda6163480",
+      "acceptance_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-m-001.acceptance.json",
+      "acceptance_sha256": "937d05192afe2bc1d40522618fd3dae1e059071fb946e5e8cc19bdb8a1c66969"
+    },
+    {
+      "batch": "e-001",
+      "review_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-e-001.json",
+      "review_sha256": "f035cc6f7d896af306d010ac683a5d808430253395fd2b0a015ed71d98ecc7aa",
+      "acceptance_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-e-001.acceptance.json",
+      "acceptance_sha256": "4533aca9a5dff7077bb4085f41fb50295fea708e8b98e119e0a42bd02c0e934d"
+    },
+    {
+      "batch": "d-001",
+      "review_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-d-001.json",
+      "review_sha256": "31cb3455e2cceffc7d65c0ec2aedb499575c43c78d6c05bad5ae075df5b6d8fe",
+      "acceptance_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-d-001.acceptance.json",
+      "acceptance_sha256": "578bced11957edc95b034d2b938ac08cf1cd55c80cd65d03e27b43ba308f8e49"
+    },
+    {
+      "batch": "o-001",
+      "review_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-o-001.json",
+      "review_sha256": "8bb42ec84b64a4bffd09d98f35d87a0757a87f042967c1b7454444105bf10519",
+      "acceptance_path": ".caprmedio_tmp/stage2-migration-20261012/reviews/review-o-001.acceptance.json",
+      "acceptance_sha256": "343e5fd4eab54bbf3c0e5dc38ac3bab94c05265d29d7a1079a4795c1d96a5a31"
+    }
+  ]
+}

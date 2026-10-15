@@ -2,8 +2,8 @@
 subjects:
   governs: "feature-boundary"
   depends_on: []
-version: 19
-updated_at: 2026-10-09 17:01:07 +0400
+version: 20
+updated_at: "2026-10-14 21:05:33 +0400"
 relations:
   delivery_for:
     - CA-R-856
@@ -16,8 +16,8 @@ llm_session_ids:
 ---
 # Deliver the Tool installer
 
-Realize the existing `INSTALL_TOOLS` Tool through `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/install_tools.py` and its shared non-executable `framework_installation.py` library. The first-initialization variant delegates through this existing Tool; it does not declare another public Tool. The Tool exposes machine-readable `describe`, read-only `status`, dry-run `run`, and explicit `run --apply` interfaces.
+Realize the existing `INSTALL_TOOLS` Tool through `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/INSTALL_TOOLS/install_tools.py` and its shared non-executable `framework_installation.py` library. The Tool exposes machine-readable `describe`, read-only `status`, dry-run `run`, and explicit `run --apply` interfaces. This ordinary managed-Tool installer is not the retired separate Framework-package initialization or native runtime-installation API.
 
-Reusable package content and its manifest are governed only by `102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-596-TOOLS-DELIVERY--encode-the-reusable-framework-package.md`; the sole package selector is governed only by `102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-598-TOOLS-DELIVERY--encode-current-reusable-package-selector.md`; and the target runtime selector is governed only by `102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-599-TOOLS-DELIVERY--encode-target-runtime-installation-selector.md`. This Delivery adds no competing runtime layout, selector or manifest schema. Stable package-owned wrappers and environment follow CA-D-601. Mutable target settings live only at `.caprmedio_runtime/config.toml`: a default is created only when absent, and existing bytes are never overwritten by apply, upgrade, rollback or recovery.
+The retained installer inventories the canonical Tool sources, stages and verifies the complete managed Tool release below `.caprmedio_tmp/install_tools/`, and publishes its verified bytes, manifest, stable launchers and current Tool selection below `.caprmedio_runtime/tools/`. Existing source/currentness, path, byte and mode checks and installed inventory/status remain required. The retired reusable Framework package, package/target selectors, state-generation and Full Gate contracts do not govern this ordinary Tool installation.
 
-Installation staging and atomic-write intermediates live below `.caprmedio_tmp/release_candidates/<run_id>/`. The Tool does not install Codex or Git Hooks, alter user Carriers or Git configuration, delete `.caprmedio_install/`, or treat legacy runtime state as cleanup authority. Failed pre-activation publication preserves the prior selection; after activation, a missing terminal Journal record is retained as `recording_pending` and only exact terminal-recording recovery is allowed.
+Persistent configuration and operational state outside the managed Tool surface remain protected. Selected host integrations, recognized legacy migration and failure handling remain governed by CA-R-856 and CA-M-103; `--without-hooks` leaves host Hook integrations unchanged. This retirement alignment grants no new Hook, Git-configuration, user-Carrier or cleanup authority and does not waive those existing preservation/restoration obligations. Plain Journal append/read is independent observation, not a receipt or completion prerequisite, and introduces no `recording_pending` or recording-only retry/recovery operation. Actual installation failures and logging diagnostics remain truthful; no log entry authorizes effect replay.

@@ -279,19 +279,19 @@ class RegisteredToolRegistryTests(unittest.TestCase):
         self.assertEqual((), snapshot.tools)
         self.assertEqual("entrypoint", snapshot.quarantined[0]["diagnostics"][0]["field"])
 
-    def test_current_three_provider_descriptors_compile_independently(self) -> None:
+    def test_current_query_provider_descriptors_compile_independently(self) -> None:
         bindings = [
             self._binding(
-                "FRAMEWORK_IMAGE_RESTORATION", "restore_framework_image",
-                "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/framework_image_restoration_mcp.py", 591, 187,
+                "DISCOVER_TOOLS", "discover_tools",
+                "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/DISCOVER_TOOLS/discover_tools.py", 512, 112,
             ),
             self._binding(
-                "ADMIT_PACKAGE_SOURCES", "admit_package_sources",
-                "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/source_admission_mcp.py", 602, 199,
+                "DISCOVER_OPERATIONS", "discover_operations",
+                "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/DISCOVER_OPERATIONS/discover_operations.py", 513, 113,
             ),
             self._binding(
-                "INSTALL_FRAMEWORK_RUNTIME", "install_framework_runtime",
-                "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/framework_runtime_installation_mcp.py", 620, 200,
+                "GET_EXECUTION_CONTEXT", "get_execution_context",
+                "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GET_EXECUTION_CONTEXT/get_execution_context.py", 514, 114,
             ),
         ]
         snapshot = registry.compile_registry(Path.cwd(), bindings)

@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import shutil
 import sys
 import tempfile
 import unittest
@@ -12,7 +11,6 @@ from dataclasses import FrozenInstanceError
 from pathlib import Path
 
 
-REPOSITORY = Path(__file__).resolve().parents[5]
 TOOL_DIRECTORY = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOL_DIRECTORY.parent))
 sys.path.insert(0, str(TOOL_DIRECTORY))
@@ -20,6 +18,7 @@ sys.path.insert(0, str(TOOL_DIRECTORY))
 import generate_entity_graph as graph  # noqa: E402
 import subject_model_sources as sources  # noqa: E402
 import subject_notation  # noqa: E402
+from historical_core_authority import historical_authority_bytes  # noqa: E402
 
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
@@ -82,11 +81,10 @@ class SubjectProfileGraphTests(unittest.TestCase):
 
     def copy_current_approved_pins(self) -> None:
         for pin in subject_notation.get_profile("approved").grammar_pins:
-            source = REPOSITORY / pin.path
             destination = self.repository / pin.path
-            self.assertTrue(source.is_file(), source)
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source, destination)
+            suffix = "/".join(Path(pin.path).parts[-2:])
+            destination.write_bytes(historical_authority_bytes(suffix, pin.sha256))
             self.assertEqual(pin.sha256, hashlib.sha256(destination.read_bytes()).hexdigest())
 
     def test_approved_mixed_path_retains_full_prefixes_and_only_emits_dot_and_colon_edges(self) -> None:

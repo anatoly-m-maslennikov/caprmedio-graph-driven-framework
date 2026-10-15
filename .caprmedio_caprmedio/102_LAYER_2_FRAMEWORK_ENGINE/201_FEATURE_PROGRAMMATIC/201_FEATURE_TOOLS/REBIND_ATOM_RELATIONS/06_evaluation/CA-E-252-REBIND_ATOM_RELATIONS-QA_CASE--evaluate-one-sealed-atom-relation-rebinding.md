@@ -2,8 +2,8 @@
 subjects:
   governs: "artifact-operations"
   depends_on: []
-version: 10
-updated_at: 2026-09-12 04:15:38 +0400
+version: 11
+updated_at: "2026-10-13 00:04:48 +0400"
 relations:
   evaluation_for:
     - CA-R-1049
@@ -21,4 +21,4 @@ Verify direct `--apply` is rejected **without** authorized project-local MCP del
 
 ## Sources
 
-- [CA-R-1049 — Rebind one active Atom relation set](../../04_requirement/CA-R-1049-TOOLS-CORE-REQUIREMENT--rebind-one-active-atom-relation-set.md)
+- [CA-R-1049 — Rebind one active Atom relation set](../../../306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-1049-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--rebind-one-active-atom-relation-set.md)

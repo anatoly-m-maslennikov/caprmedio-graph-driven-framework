@@ -70,8 +70,8 @@ class _Session:
         return dict(receipt)
 
 
-class _PendingChildSession(_Session):
-    """Model a child terminal writer that retained, but did not seal, its fact."""
+class _UnsettledChildSession(_Session):
+    """Retain a child's actual effects while its execution state is unsettled."""
 
     def __init__(self, requested_runs: list[dict[str, object]], pending_child: str) -> None:
         super().__init__(requested_runs)
@@ -84,7 +84,7 @@ class _PendingChildSession(_Session):
         observed = self.observed.get(requested)
         if observed is None or observed["result_ref"] != result.get("result_ref") or observed["effect_refs"] != result.get("effect_refs"):
             raise AssertionError("pending child lost observed creation effects")
-        receipt = {"run_id": run_id, "disposition": "recording_pending", **result}
+        receipt = {**result, "run_id": run_id, "disposition": "interrupted", "outcome": "interrupted_pending"}
         self.interrupted[requested] = receipt
         return dict(receipt)
 
@@ -128,7 +128,7 @@ class SelectedCreationExecutionTests(unittest.TestCase):
             events.extend(json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line)
         return events
 
-    def test_real_create_records_canonical_add_that_unblocks_real_replace(self) -> None:
+    def test_real_create_and_replace_record_supplied_actual_results(self) -> None:
         create_parameters = self.w01.native_parameters()
         create_frozen, create_session = self._frozen("create_atom", create_parameters, "w01-create")
         requested = create_frozen["request"]["execution"]["requested_runs"]
@@ -165,10 +165,10 @@ class SelectedCreationExecutionTests(unittest.TestCase):
         self.assertEqual("completed", replace_result["outcome"])
         replacement = next(event for event in self._events(self.root)
                            if event.get("event_id") == "selected-replacement:w03-after-create:step:1:action:1:nested:CA-O-051")
-        self.assertEqual(creation["event_id"], replacement["previous_result_event"])
+        self.assertNotIn("previous_result_event", replacement)
         self.assertEqual(created["atom_id"], replacement["predecessor_atom_id"])
 
-    def test_create_append_pending_is_partial_and_retains_effect_without_replay(self) -> None:
+    def test_create_append_failure_keeps_actual_outcome_and_effect_without_replay(self) -> None:
         parameters = self.w01.native_parameters()
         frozen, session = self._frozen("create_atom", parameters, "w01-append-pending")
         parent_id = "w01-append-pending:step:1:action:1"
@@ -177,30 +177,40 @@ class SelectedCreationExecutionTests(unittest.TestCase):
         with patch("selected_creation_journal.append_sealed_events", side_effect=OSError("full")):
             result = self.selected._execute_graph(frozen, session)
 
-        self.assertEqual("partial", result["outcome"])
-        self.assertEqual("recording-pending", result["step_results"][0]["result"])
-        self.assertEqual("partial", session.terminal[parent_id]["outcome"])
-        self.assertEqual("partial", session.terminal[action_id]["outcome"])
+        self.assertEqual("completed", result["outcome"])
+        self.assertEqual("applied", result["step_results"][0]["result"])
+        self.assertEqual("OSError", result["step_results"][0]["recording_error"])
+        self.assertEqual("completed", session.terminal[parent_id]["outcome"])
+        self.assertEqual("completed", session.terminal[action_id]["outcome"])
         self.assertTrue(session.observed[action_id]["effect_refs"])
         self.assertTrue((self.root / parameters["carrier"]["path"]).is_file())
         self.assertFalse(any(event.get("event_id") == f"selected-creation:{action_id}"
                              for event in self._events(self.root)))
-        pending = list((self.root / ".caprmedio_runtime/state/work_journal/pending").glob("*.json"))
-        self.assertTrue(pending, "exact canonical Create event must remain recoverable")
+        child_result = self.root / session.terminal[action_id]["result_ref"]
+        observed = json.loads(child_result.read_text(encoding="utf-8"))
+        self.assertEqual(f"selected-creation:{action_id}", observed["canonical_event"]["event_id"])
+        ledger = {ref: (self.root / ref).read_bytes() for ref in session.observed[action_id]["effect_refs"]}
+        with patch("lifecycle_intents.create_atom_action", side_effect=AssertionError("creation replayed")) as effect:
+            self.selected.handlers["CA-O-128"] = self.selected._native_handlers()["CA-O-128"]
+            retained = self.selected._execute_graph(frozen, session)
+        effect.assert_not_called()
+        self.assertNotEqual("completed", retained["outcome"])
+        self.assertEqual(ledger, {ref: (self.root / ref).read_bytes() for ref in ledger})
 
-    def test_child_terminal_recording_pending_never_exposes_applied_completion(self) -> None:
+    def test_unsettled_actual_child_state_never_exposes_applied_completion(self) -> None:
         parameters = self.w01.native_parameters()
         frozen, _ = self._frozen("create_atom", parameters, "w01-child-pending")
         parent_id = "w01-child-pending:step:1:action:1"
         action_id = f"{parent_id}:nested:CA-O-032"
         requested = frozen["request"]["execution"]["requested_runs"]
-        session = _PendingChildSession(requested, action_id)
+        session = _UnsettledChildSession(requested, action_id)
 
         result = self.selected._execute_graph(frozen, session)
 
         self.assertEqual("partial", result["outcome"])
         self.assertEqual("recording-pending", result["step_results"][0]["result"])
-        self.assertEqual("recording_pending", session.interrupted[action_id]["disposition"])
+        self.assertEqual("interrupted", session.interrupted[action_id]["disposition"])
+        self.assertEqual("interrupted_pending", session.interrupted[action_id]["outcome"])
         self.assertTrue(session.observed[action_id]["effect_refs"])
         self.assertTrue(any(event.get("event_id") == f"selected-creation:{action_id}"
                             for event in self._events(self.root)))

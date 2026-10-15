@@ -96,11 +96,18 @@ def _mcp_status(url: str, headers: Mapping[str, str], payload: Mapping[str, obje
     )
 
 
+def _validate_required_tools(required_tools: frozenset[str]) -> None:
+    if (not isinstance(required_tools, frozenset) or not required_tools
+            or any(not isinstance(name, str) or not name for name in required_tools)):
+        raise FirstCutHttpSecurityError("HTTP probe requires a nonempty explicit tool set")
+
+
 def probe_first_cut_http_security(
     mcp_url: str,
     token: str | None = None,
     *,
     list_tools: McpToolList,
+    required_tools: frozenset[str] = REQUIRED_TOOLS,
     health_request: HealthRequest = _urllib_status,
     mcp_request: McpRequest = _mcp_status,
     recording_boundary: RecordingBoundary | None = None,
@@ -111,6 +118,7 @@ def probe_first_cut_http_security(
     """
     if not callable(list_tools) or not callable(health_request) or not callable(mcp_request):
         raise FirstCutHttpSecurityError("HTTP probe callbacks are unavailable")
+    _validate_required_tools(required_tools)
     health_url = _health_url(mcp_url)
     before = recording_boundary() if recording_boundary is not None else None
     denied = (
@@ -151,7 +159,7 @@ def probe_first_cut_http_security(
     if health_status != 200:
         raise FirstCutHttpSecurityError("anonymous health probe did not return 200")
     names = frozenset(str(name) for name in list_tools(mcp_url, token))
-    missing = REQUIRED_TOOLS - names
+    missing = required_tools - names
     if missing:
         raise FirstCutHttpSecurityError("anonymous MCP tool list is incomplete")
     return {

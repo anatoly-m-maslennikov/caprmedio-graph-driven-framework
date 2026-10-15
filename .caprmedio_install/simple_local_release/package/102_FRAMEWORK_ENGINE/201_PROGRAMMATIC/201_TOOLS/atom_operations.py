@@ -7,8 +7,10 @@ import hashlib
 import json
 import os
 import re
+import stat
 import sys
 import tomllib
+import uuid
 from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any, Mapping, Sequence
@@ -440,6 +442,119 @@ def write_atom_revision(atom: Atom, frontmatter: str, content: str) -> None:
     _atomic_write(atom.path, render(frontmatter, content))
 
 
+def _raw_revision_parent(root: Path, path: Path, *, create: bool = False) -> int:
+    """Hold the lexical destination directory without following any alias."""
+
+    try:
+        relative = path.relative_to(root)
+        if not relative.parts or ".." in relative.parts:
+            raise ValueError("unsafe path")
+        flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
+        descriptor = os.open(root, flags)
+        try:
+            for part in relative.parts[:-1]:
+                if create:
+                    try:
+                        os.mkdir(part, dir_fd=descriptor)
+                    except FileExistsError:
+                        pass
+                child = os.open(part, flags, dir_fd=descriptor)
+                os.close(descriptor)
+                descriptor = child
+            return descriptor
+        except BaseException:
+            os.close(descriptor)
+            raise
+    except (OSError, ValueError, AttributeError) as error:
+        raise ToolError("subject-destination-unsafe", "Subject destination cannot be safely opened") from error
+
+
+def _raw_revision_fingerprint(value: os.stat_result) -> tuple[int, ...]:
+    return (value.st_dev, value.st_ino, value.st_size, value.st_mtime_ns, value.st_ctime_ns,
+            stat.S_IMODE(value.st_mode))
+
+
+def read_raw_atom_revision(root: Path, path: Path) -> tuple[bytes, tuple[int, ...]]:
+    """Read exact bytes and mode through a no-follow, stable regular-file handle."""
+
+    parent = _raw_revision_parent(root, path)
+    try:
+        descriptor = os.open(path.name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=parent)
+        with os.fdopen(descriptor, "rb") as stream:
+            before = os.fstat(stream.fileno())
+            if not stat.S_ISREG(before.st_mode):
+                raise ToolError("subject-source-unsafe", "Subject revision is not a regular file")
+            raw = stream.read()
+            after = os.fstat(stream.fileno())
+        if _raw_revision_fingerprint(before) != _raw_revision_fingerprint(after):
+            raise ToolError("subject-source-changed", "Subject revision changed during readback")
+        return raw, _raw_revision_fingerprint(after)
+    finally:
+        os.close(parent)
+
+
+def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
+                            expected: tuple[int, ...] | None, mode: int) -> tuple[int, ...] | None:
+    """Prototype raw publication; final compare-to-replace/remove is not concurrency-safe."""
+
+    parent = _raw_revision_parent(root, path, create=expected is None and raw is not None)
+    staging = None
+    temporary = ".subject-" + uuid.uuid4().hex + ".tmp"
+    staged = False
+    published: tuple[int, ...] | None = None
+    try:
+        if raw is not None:
+            staging = _raw_revision_parent(root, root / ".caprmedio_tmp" / "atom_subject_apply" / "atomic" / temporary, create=True)
+            if os.fstat(staging).st_dev != os.fstat(parent).st_dev:
+                raise ToolError("subject-destination-unsafe", "Subject temporary state is on a different filesystem")
+            descriptor = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW,
+                                 mode, dir_fd=staging)
+            staged = True
+            with os.fdopen(descriptor, "wb") as stream:
+                stream.write(raw)
+                stream.flush()
+                os.fchmod(stream.fileno(), mode)
+                os.fsync(stream.fileno())
+        try:
+            current = os.stat(path.name, dir_fd=parent, follow_symlinks=False)
+        except FileNotFoundError:
+            current = None
+        if ((expected is None and current is not None)
+                or (expected is not None and (current is None or not stat.S_ISREG(current.st_mode)
+                                             or _raw_revision_fingerprint(current) != expected))):
+            raise ToolError("subject-destination-stale", "Subject destination differs from the captured revision")
+        fresh_parent = _raw_revision_parent(root, path)
+        try:
+            if (os.fstat(fresh_parent).st_dev, os.fstat(fresh_parent).st_ino) != (os.fstat(parent).st_dev, os.fstat(parent).st_ino):
+                raise ToolError("subject-destination-stale", "Subject destination directory changed")
+        finally:
+            os.close(fresh_parent)
+        if raw is None:
+            os.unlink(path.name, dir_fd=parent)
+        elif expected is None:
+            os.link(temporary, path.name, src_dir_fd=staging, dst_dir_fd=parent, follow_symlinks=False)
+            os.unlink(temporary, dir_fd=staging)
+            staged = False
+        else:
+            os.replace(temporary, path.name, src_dir_fd=staging, dst_dir_fd=parent)
+            staged = False
+        if raw is not None:
+            published = _raw_revision_fingerprint(os.stat(path.name, dir_fd=parent, follow_symlinks=False))
+        os.fsync(parent)
+        if raw is None:
+            return None
+        return published
+    except OSError as error:
+        raise ToolError("subject-publication-failed", "Subject raw-byte publication failed",
+                        {"publication_fingerprint": published} if published is not None else {}) from error
+    finally:
+        if staged:
+            os.unlink(temporary, dir_fd=staging)
+        if staging is not None:
+            os.close(staging)
+        os.close(parent)
+
+
 def _validate_complete_carrier(root: Path, path: Path, frontmatter: str, content: str, *, creating: bool) -> None:
     try:
         parsed = parse_carrier(("---\n" + frontmatter + "\n---\n" + content).encode("utf-8"), Path("proposed.md"))
@@ -818,6 +933,9 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
 
 def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
+    staging = getattr(args, "stage_preview", False)
+    if staging and args.apply:
+        raise ToolError("subject-stage-apply-rejected", "staged preview cannot be combined with --apply")
     payload = _load_payload(args.input)
     raw_items = _items(payload)
     subject_items = ["subject_patches" in item for item in raw_items]
@@ -834,7 +952,13 @@ def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         if not isinstance(profile, str) or profile not in {"legacy", "approved"}:
             raise ToolError("subject-profile-invalid", "subject_profile must be legacy or approved")
 
+        if staging:
+            from atom_subject_stage import stage_subject_preview
+
+            return stage_subject_preview(root, raw_items, subject_profile=profile)
         return preview_subject_patches(root, raw_items, subject_profile=profile)
+    if staging:
+        raise ToolError("subject-stage-input-invalid", "staged preview requires Subject-only update items")
     if "subject_profile" in payload:
         raise ToolError("input-invalid", "subject_profile requires Subject-only update items")
     selectors = [item.get("selector") for item in raw_items]
@@ -1237,6 +1361,7 @@ def describe(tool_id: str) -> dict[str, Any]:
             "expected_fields": ["atom_id", "version", "sha256"],
             "patch_fields": ["field", "index (depends_on only)", "old", "new"],
             "selector": "exact repository-relative file path", "apply_supported": False,
+            "staging_option": "--stage-preview", "staging_only": True,
             "mcp_binding": None,
         }
     return result
@@ -1267,6 +1392,8 @@ def parser(tool_id: str) -> argparse.ArgumentParser:
     elif tool_id in {"ATOM_CREATE", "ATOM_UPDATE", "ATOM_PROMOTE", "ATOM_UPGRADE"}:
         run.add_argument("--input", required=True)
         run.add_argument("--apply", action="store_true")
+        if tool_id == "ATOM_UPDATE":
+            run.add_argument("--stage-preview", action="store_true")
     elif tool_id == "ATOM_ARCHIVE":
         run.add_argument("--atom", action="append", required=True)
         run.add_argument("--apply", action="store_true")
@@ -1282,7 +1409,7 @@ def parser(tool_id: str) -> argparse.ArgumentParser:
 def cli(tool_id: str) -> int:
     args = parser(tool_id).parse_args()
     kind = "finder" if tool_id in {"ATOM_SEARCH", "ATOM_READ"} else "doer"
-    mode = "describe" if args.command == "describe" else "apply" if getattr(args, "apply", False) else "read-only" if kind == "finder" else "dry-run"
+    mode = "describe" if args.command == "describe" else "apply" if getattr(args, "apply", False) else "staged-preview" if getattr(args, "stage_preview", False) else "read-only" if kind == "finder" else "dry-run"
     try:
         if (args.command == "run" and getattr(args, "apply", False)
                 and tool_id in {"ATOM_CREATE", "ATOM_UPDATE"}):

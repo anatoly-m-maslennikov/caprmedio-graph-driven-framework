@@ -10,10 +10,9 @@ status: "Active"
 subjects:
   governs: "Public release invocation"
   depends_on: [Operator, Workflow, Action, Journal]
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
-relations:
-  relates_to: [CA-O-188, CA-O-196, CA-M-365, CA-E-610, CA-D-610]
+version: 2
+updated_at: "2026-10-14 12:27:48 +0000"
+relations: {}
 ---
 # Summary
 

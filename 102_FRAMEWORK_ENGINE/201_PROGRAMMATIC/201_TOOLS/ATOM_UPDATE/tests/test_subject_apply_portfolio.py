@@ -4,18 +4,18 @@ from __future__ import annotations
 
 import copy
 import hashlib
-import json
 import shutil
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 TOOLS = Path(__file__).resolve().parents[2]
 REPOSITORY = TOOLS.parents[2]
 APP = TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR"
-for location in (TOOLS, APP, APP / "tests"):
+for location in (TOOLS, APP, APP / "tests", TOOLS.parent / "204_MCP/tests"):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))
 
@@ -25,58 +25,101 @@ import atom_subject_patch as subject_patch  # noqa: E402
 from lifecycle_intents import LifecycleError, carrier_descriptor, update_assessment_seal  # noqa: E402
 from selected_workflows_docker_fixture import GoldenCase, GoldenProject, digest  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
+from test_selected_routes_mcp import copy_complete_selected_guard_fixture  # noqa: E402
 
 
 TEST_TEMP_ROOT = REPOSITORY / ".caprmedio_tmp/tests/test_subject_apply_portfolio"
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-O030_V7_SHA256 = "c2d70fa275a075d2fbc978cab246158cfd8413cec88716521336736d0bf060cc"
+CORE_OPERATIONS = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/"
+TOOL_WORKFLOWS = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/"
+CURRENT_W02_PINS = {
+    "CA-O-067": (CORE_OPERATIONS + "CA-O-067-CORE_META_MODEL-ACTION--assess-atom-update-identity.md", 7,
+                 "5c2098027094df1837b3b48b112a56866e3bee927699a58156e51b53925e998d"),
+    "CA-O-127": (CORE_OPERATIONS + "CA-O-127-CORE_META_MODEL-WORKFLOW--manage-atom-lifecycle.md", 4,
+                 "cb06d919ac51982a7eba820f62939cabefb7e7698de208345f46a97c5283f557"),
+    "CA-O-128": (CORE_OPERATIONS + "CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom-lifecycle-changes.md", 6,
+                 "48f0464400d198b0d914fbd2b76bd8d8ce616c94b41bd140ec5889ac6b9ac2e2"),
+    "CA-O-129": (CORE_OPERATIONS + "CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-lifecycle-change.md", 4,
+                 "fd95ab7ee49b96d9a33ceb951934e274e087ba47f349a0455b7654fc8ff546a1"),
+    "CA-O-145": (CORE_OPERATIONS + "CA-O-145-CORE_META_MODEL-STEP--assess-update-identity-for-atom-lifecycle.md", 2,
+                 "e1da6f807f965d94bb2f6b829767fb23d34ea6dc600408f78408378caf208f89"),
+}
+PUBLICATION_PINS = {
+    "CA-R-866": (TOOL_WORKFLOWS + "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md", 26,
+                 "ef34d271cdf1fac68cec3ee5df48937396f3485cadf107ca46b9b1c32e883146"),
+    "CA-M-371": (TOOL_WORKFLOWS + "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md", 12,
+                 "f0f4a2aa25de2d6b04061a65b7606101410cd9f56ccfe81567f323c6dc99b04d"),
+    "CA-E-304": (TOOL_WORKFLOWS + "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md", 25,
+                 "79f5eb5b9e73fe1907a8b923c1ea9443a11def5f1d21eaea0e0393644bd0b2c3"),
+    "CA-O-030": (TOOL_WORKFLOWS + "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md", 19,
+                 "14b8423f542af6d12a2f40a7ca4cdf3a343c7ea14ebc6bdecc16c01a69a28453"),
+    "CA-E-626": (TOOL_WORKFLOWS + "06_evaluation/CA-E-626-TOOL_WORKFLOWS-CORE-QA_CASE--verify-independent-atom-workflow-effects.md", 4,
+                 "298064da1bd521fad4e654d670bbf7de39357cbe295881417e9e72e4127607e6"),
+}
+
+
+class CurrentSubjectGoldenProject(GoldenProject):
+    """Real fifteen-route fixture; not seventeen-route or live release evidence."""
+
+    def _copy_reviewed_manifest(self):
+        settings = self.root / operations.SETTINGS_PATH
+        fixture_settings = settings.read_bytes()
+        try:
+            manifest = copy_complete_selected_guard_fixture(self.root)
+        finally:
+            settings.write_bytes(fixture_settings)
+        route = next(row for row in manifest["routes"] if row["route"] == "update_atom")
+        pins = [route["workflow"], *route["ordered_actions"], *route["native_action_calls"]]
+        pins.extend(pin for pair in route["ordered_steps"] for pin in pair.values())
+        current = {**CURRENT_W02_PINS, "CA-O-030": PUBLICATION_PINS["CA-O-030"]}
+        assert {pin["atom_id"] for pin in pins} == set(current)
+        for pin in pins:
+            path, version, sha256 = current[pin["atom_id"]]
+            assert (pin["source_path"], pin["version"], pin["digest"]) == (path, version, sha256)
+        for path, version, sha256 in PUBLICATION_PINS.values():
+            self._copy_pinned(Path(path), sha256)
+            frontmatter, _ = operations.split_frontmatter((self.root / path).read_text())
+            assert operations.frontmatter_scalar(frontmatter, "version") == str(version)
+        return manifest
 
 
 class SubjectApplyProject:
-    """One reviewed W02 fixture with only its O030 native binding resealed."""
+    """One current-contract W02 fixture, retaining real admission and validation."""
 
-    def __init__(self, root: Path, *, noop: bool = False) -> None:
+    def __init__(self, root: Path, *, noop: bool = False, newline: str = "\n", subject_profile: str = "approved",
+                 role: str = "Requirement", status: str = "Active") -> None:
         self.root = root
-        self.golden = GoldenProject(REPOSITORY, root, GoldenCase("W02", "update_atom"))
+        self.golden = CurrentSubjectGoldenProject(REPOSITORY, root, GoldenCase("W02", "update_atom"))
         self.manifest = self.golden.prepare()
         self.golden._write_complete_carrier_project_structure()
         self.golden._copy_complete_carrier_authority()
-        route = next(row for row in self.manifest["routes"] if row["route"] == "update_atom")
-        pin = route["native_action_calls"][0]
-        assert pin["atom_id"] == "CA-O-030" and pin["version"] == 7 and pin["digest"] == O030_V7_SHA256
-        source = REPOSITORY / pin["source_path"]
-        current_raw = source.read_bytes()
-        assert "version: 10\n" in current_raw.decode("utf-8")
-        shutil.copyfile(source, root / pin["source_path"])
-        pin.update(version=10, digest=hashlib.sha256(current_raw).hexdigest())
-        self.manifest["source_freshness"]["selected_binding_digest"] = digest(self.manifest["routes"])
-        self.manifest["canonical_manifest_sha256"] = digest({
-            key: value for key, value in self.manifest.items() if key != "canonical_manifest_sha256"
-        })
-        self.golden.manifest_path.write_text(json.dumps(self.manifest), encoding="utf-8")
-        for grammar_pin in get_profile("approved").grammar_pins:
+        for grammar_pin in get_profile(subject_profile).grammar_pins:
             original = REPOSITORY / grammar_pin.path
             assert hashlib.sha256(original.read_bytes()).hexdigest() == grammar_pin.sha256
             destination = root / grammar_pin.path
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(original, destination)
-        self.path = self.golden.status_atom("Requirement", "Active", number=8100)
+        self.path = self.golden.status_atom(role, status, number=8100)
+        assert newline in {"\n", "\r\n"}
+        if newline == "\r\n":
+            self.path.write_bytes(self.path.read_bytes().replace(b"\n", b"\r\n"))
         self.path.chmod(0o640)
         self.before = self.path.read_bytes()
         self.before_mode = self.path.stat().st_mode & 0o777
         self.target = carrier_descriptor(root, self.path.relative_to(root).as_posix())
-        self.patches = [] if noop else [{"field": "governs", "old": "Atom/Test", "new": "Atom.State"}]
-        self.prepared = subject_patch.prepare_subject_intent(root, self.target, self.patches, subject_profile="approved")
+        self.patches = [] if noop else [{"field": "governs", "old": "Atom/Test",
+                                        "new": "Atom.State" if subject_profile == "approved" else "Atom/State"}]
+        self.prepared = subject_patch.prepare_subject_intent(root, self.target, self.patches, subject_profile=subject_profile)
         self.parameters = {
             "target": self.target, "subject_patches": self.patches,
-            "subject_intent_sha256": self.prepared["subject_intent_sha256"], "subject_profile": "approved",
+            "subject_intent_sha256": self.prepared["subject_intent_sha256"], "subject_profile": subject_profile,
         }
         if not noop:
             self.parameters["semantic_assessment_report"] = self.golden._semantic_assessment_report(self.target, self.prepared["proposed"])
         self.golden._semantic_update_parameters = self.parameters
         self.archive = None if noop else root / self.prepared["subject_intent"]["predecessorArchive"]["path"]
 
-    def execution(self, run_id: str):
+    def execution(self, run_id: str, *, request_transform=None):
         from selected_execution import SelectedExecution
 
         request = self.golden.request(request_id=run_id)
@@ -92,6 +135,8 @@ class SubjectApplyProject:
                  "subject_intent_sha256": self.parameters["subject_intent_sha256"]},
                 {"type": "predecessorArchive", **archive},
             ]
+        if request_transform is not None:
+            request_transform(request)
         request["target_frontier_digest"] = digest(request["target_frontier"])
         request["effects_digest"] = digest(request["effects"])
         runner = SelectedExecution(self.root)
@@ -99,14 +144,30 @@ class SubjectApplyProject:
         graph = runner._validate_graph(graph_request)
         tracker = runner._shared_tracker({"graph": graph, "request": {"execution": graph_request}})
         preview = tracker.run_selected_operation(request)
-        execute = self.golden.request(request_id=run_id, mode="execute",
-                                      receipt=preview["proposal_receipt"], receipt_digest=preview["proposal_receipt_digest"])
+        with patch.object(self.golden, "_requested_runs",
+                          return_value=SelectedExecution.build_requested_runs(graph, run_id)):
+            execute = self.golden.request(request_id=run_id, mode="execute",
+                                          receipt=preview["proposal_receipt"], receipt_digest=preview["proposal_receipt_digest"])
         for field in ("target_frontier", "target_frontier_digest", "effects", "effects_digest"):
             execute[field] = request[field]
         for field in ("target_frontier_digest", "effects_digest"):
             execute["operator_authorization"][field] = request[field]
         frozen = runner.freeze({"operation": "enqueue_selected", "run_id": run_id, "execution": execute})
         return runner, frozen
+
+    def confirmation(self, frozen):
+        from atom_subject_stage import stage_subject_preview
+        from subject_publication_authorization import authorize_subject_publication
+
+        staged = stage_subject_preview(self.root, [{"selector": self.target["path"],
+            "expected": {"atom_id": self.target["atom_id"], "version": self.target["version"],
+                         "sha256": self.target["digest"]}, "subject_patches": self.patches}],
+            timestamp="2026-10-13 14:00:00 +0400", subject_profile=self.parameters.get("subject_profile", "legacy"))
+        self.staged = staged
+        execution = frozen["request"]["execution"]
+        return authorize_subject_publication(self.root, execution, operator_name="golden-operator",
+            llm_session={"app": "run-support", "uuid": execution["request_id"]},
+            staged_manifest={"path": staged["manifest_path"], "digest": staged["manifest_sha256"]})
 
     def assert_unchanged(self, case: unittest.TestCase) -> None:
         case.assertEqual(self.before, self.path.read_bytes())

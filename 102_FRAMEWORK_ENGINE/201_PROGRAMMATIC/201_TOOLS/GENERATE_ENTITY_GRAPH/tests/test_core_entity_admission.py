@@ -21,7 +21,6 @@ from historical_core_authority import historical_authority_bytes  # noqa: E402
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp/tests/test_core_entity_admission"
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-REAL_CORE = TOOL_DIRECTORY.parents[3] / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
 
 
 def operation_atom(atom_id: str, name: str, atom_type: str = "Action", *, operation: str | None = None) -> str:
@@ -55,8 +54,6 @@ class CoreEntityAdmissionTests(unittest.TestCase):
         )
         for suffix, revision, digest, role in core._REQUIRED_AUTHORITIES.values():
             raw = historical_authority_bytes(suffix, digest)
-            if raw is None:
-                raw = (REAL_CORE / suffix).read_bytes()
             self.assertEqual(digest, hashlib.sha256(raw).hexdigest())
             destination = self.folder / suffix
             destination.parent.mkdir(parents=True, exist_ok=True)
@@ -92,6 +89,28 @@ class CoreEntityAdmissionTests(unittest.TestCase):
             with patch.object(historical_core_authority, "_ASSET_ROOT", alias):
                 with self.assertRaisesRegex(RuntimeError, "asset root is unsafe"):
                     historical_authority_bytes(suffix, digest)
+
+    def test_fixed_authority_inputs_refuse_unknown_missing_changed_and_wrong_pins(self) -> None:
+        import historical_core_authority
+
+        suffix, _, digest, _ = next(iter(core._REQUIRED_AUTHORITIES.values()))
+        with self.assertRaisesRegex(ValueError, "not a fixed test input"):
+            historical_authority_bytes("04_requirement/unknown.md", digest)
+        with self.assertRaisesRegex(ValueError, "pin differs"):
+            historical_authority_bytes(suffix, "0" * 64)
+        with self.assertRaisesRegex(ValueError, "path is unsafe"):
+            historical_authority_bytes("../outside.md", digest)
+        assets = self.repository / "fixed-inputs"
+        with patch.object(historical_core_authority, "_ASSET_ROOT", assets):
+            with self.assertRaisesRegex(RuntimeError, "asset root is unsafe"):
+                historical_authority_bytes(suffix, digest)
+            carrier = assets / suffix
+            carrier.parent.mkdir(parents=True)
+            with self.assertRaisesRegex(RuntimeError, "carrier is unavailable"):
+                historical_authority_bytes(suffix, digest)
+            carrier.write_bytes(b"changed fixed input\n")
+            with self.assertRaisesRegex(RuntimeError, "digest differs"):
+                historical_authority_bytes(suffix, digest)
 
     def test_raw_factory_recognizes_only_actual_selected_atom_identity_and_type(self) -> None:
         profile, carriers = self.profile()

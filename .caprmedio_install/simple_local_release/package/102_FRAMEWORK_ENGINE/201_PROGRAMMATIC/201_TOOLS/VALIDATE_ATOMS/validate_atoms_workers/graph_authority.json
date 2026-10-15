@@ -48,7 +48,7 @@
     "CA-D-268": {
       "version": 12,
       "sha256": "2afc204f59d90286345c9f4b5f74f8fcf2b8b40b992ab5aca734b0ad53e46335",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md"
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md"
     },
     "CA-R-1040": {
       "version": 16,
@@ -153,7 +153,7 @@
     "CA-D-269": {
       "version": 12,
       "sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md"
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md"
     },
     "CA-D-475": {
       "version": 4,

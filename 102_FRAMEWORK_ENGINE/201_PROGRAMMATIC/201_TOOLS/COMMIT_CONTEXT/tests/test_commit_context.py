@@ -105,10 +105,7 @@ class CommitContextTests(unittest.TestCase):
         self.assertNotIn("action_message", event)
         self.assertEqual("2026-08-20", context["local_date"])
         self.assertEqual("anatoly-m-maslennikov", context["author"])
-        self.assertEqual(
-            ".caprmedio_caprmedio/_journal/anatoly-m-maslennikov-2026-08-20-part-1.ndjson",
-            context["predictions"]["journal_partitions"][0]["path"],
-        )
+        self.assertNotIn("journal_partitions", context["predictions"])
         self.assertNotIn("previous_result_event", event)
 
     def test_configured_paths_rejects_noncanonical_journal_descendant(self) -> None:
@@ -123,6 +120,26 @@ class CommitContextTests(unittest.TestCase):
 
         with self.assertRaisesRegex(ContextError, "exactly control_root/_journal"):
             configured_repository_paths(self.root)
+
+    def test_context_does_not_inspect_unreadable_matching_journal_history(self) -> None:
+        path = ".caprmedio_caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
+        self.write_atom(path, version=1, relations={})
+        partition = self.root / ".caprmedio_caprmedio/_journal/anatoly-m-maslennikov-2026-08-20-part-1.ndjson"
+        partition.parent.mkdir()
+        original = b"uninterpreted historical bytes\n"
+        partition.write_bytes(original)
+        partition.chmod(0)
+        try:
+            with self.assertRaises(PermissionError):
+                partition.read_bytes()
+            context = gather_context(self.root, self.trigger(None, path))
+            validate_context(context)
+            self.assertEqual("ADD", context["action_type"])
+            self.assertEqual(1, len(context["predictions"]["journal_records"]))
+            self.assertNotIn("journal_partitions", context["predictions"])
+        finally:
+            partition.chmod(0o644)
+        self.assertEqual(original, partition.read_bytes())
 
     def test_configured_paths_derives_journal_from_custom_control_root(self) -> None:
         control = Path(".caprmedio_fixture")
@@ -354,16 +371,20 @@ class CommitContextTests(unittest.TestCase):
         (self.root / original).unlink(missing_ok=True)
         self.assertEqual("MOVE+UPDATE", gather_context(self.root, self.trigger(original, moved_updated))["action_type"])
 
-    def test_remove_creates_tombstone_and_recovery_baseline(self) -> None:
+    def test_remove_records_only_actual_tombstone(self) -> None:
         path = ".caprmedio_caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"
         self.commit_subject(path, version=3)
         (self.root / path).unlink()
         context = gather_context(self.root, self.trigger(path, None))
         self.assertEqual("REMOVE", context["action_type"])
         self.assertEqual({"state": "removed", "filename": "CA-R-002-REQUIREMENT--subject.md", "version": 3}, context["result"])
-        self.assertIn("recovery", context)
-        self.assertEqual([], context["recovery"]["contradictions"])
-        self.assertEqual("recovered", context["predictions"]["journal_records"][0]["event"])
+        self.assertNotIn("recovery", context)
+        self.assertNotIn("previous_result_event", context)
+        records = context["predictions"]["journal_records"]
+        self.assertEqual(1, len(records))
+        self.assertEqual("completed", records[0]["event"])
+        self.assertEqual(context["result"], records[0]["result"])
+        self.assertNotIn("previous_result_event", records[0])
 
     def test_no_change_fails_closed(self) -> None:
         path = ".caprmedio_caprmedio/04_requirement/CA-R-002-REQUIREMENT--subject.md"

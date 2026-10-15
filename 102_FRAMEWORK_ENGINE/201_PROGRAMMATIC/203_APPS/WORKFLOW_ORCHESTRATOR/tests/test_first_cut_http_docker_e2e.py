@@ -1,7 +1,6 @@
 """Opt-in HTTP MCP proof for the approved six-Workflow first usable cut.
 
-Run only with a sealed immutable candidate image and either the established
-Release E2E context or an explicit first-cut scratch context.  This is
+Run only with the actual built immutable image and explicit private scratch. This is
 evidence for the bounded cut, not a Release/promotion or all-route suite.
 """
 from __future__ import annotations
@@ -11,8 +10,6 @@ from contextlib import AsyncExitStack, asynccontextmanager
 import json
 import os
 from dataclasses import dataclass
-from pathlib import Path
-import re
 import socket
 import sys
 import unittest
@@ -24,6 +21,8 @@ from first_cut_http_security import (
     probe_first_cut_http_security,
 )
 import test_selected_workflows_docker_e2e as selected_harness
+from current_code_e2e_context import CurrentCodeE2EContext as FirstCutE2EContext, narrow_context
+from runtime import _startup_diagnostic
 
 
 FIRST_CUT_CASES = (
@@ -34,16 +33,7 @@ FIRST_CUT_CASES = (
     ("W09", "run_implementation_workflow"),
     ("W13", "build_applicable_methodology"),
 )
-_IMMUTABLE_IMAGE = re.compile(r"sha256:[0-9a-f]{64}\Z")
 _REPOSITORY_TMP = selected_harness.ROOT / ".caprmedio_tmp"
-
-
-@dataclass(frozen=True)
-class FirstCutE2EContext:
-    """The two selected-harness values safe for this development-only cut."""
-
-    scratch_root: Path
-    candidate_image_digest: str
 
 
 @dataclass
@@ -59,31 +49,12 @@ class _HttpSessionMetadata:
 
 
 def _narrow_context(environ: Mapping[str, str]) -> FirstCutE2EContext:
-    """Validate the explicit, disposable context without changing Release grammar."""
-    image = environ.get("CAPRMEDIO_FIRST_CUT_HTTP_IMAGE")
-    scratch_text = environ.get("CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH")
-    if not image or not scratch_text:
-        raise ValueError(
-            "CAPRMEDIO_FIRST_CUT_HTTP_IMAGE and CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH are both required"
-        )
-    if not _IMMUTABLE_IMAGE.fullmatch(image):
-        raise ValueError("CAPRMEDIO_FIRST_CUT_HTTP_IMAGE must be a lowercase sha256 immutable digest")
-    scratch = Path(scratch_text)
-    if not scratch.is_absolute() or scratch.is_symlink() or not scratch.is_dir():
-        raise ValueError("CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH must be an existing, non-symlink absolute directory")
-    try:
-        scratch_resolved = scratch.resolve(strict=True)
-        repository_tmp = _REPOSITORY_TMP.resolve(strict=True)
-        scratch_resolved.relative_to(repository_tmp)
-    except (OSError, ValueError) as error:
-        raise ValueError("CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH must be below repository .caprmedio_tmp") from error
-    if scratch_resolved == repository_tmp:
-        raise ValueError("CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH must be a child of repository .caprmedio_tmp")
-    return FirstCutE2EContext(scratch_root=scratch_resolved, candidate_image_digest=image)
+    """Validate the explicit, disposable image and scratch context."""
+    return narrow_context(environ, _REPOSITORY_TMP)
 
 
 def _first_cut_context(environ: Mapping[str, str]) -> object:
-    """Prefer a valid formal context, otherwise require the narrow explicit one."""
+    """Reuse the current built-image context or require its explicit inputs."""
     if selected_harness.E2E_CONTEXT is not None:
         return selected_harness.E2E_CONTEXT
     return _narrow_context(environ)
@@ -123,6 +94,30 @@ async def _cleanup_attempted_http_start(first_failure: BaseException | None, att
     if not attempted:
         return first_failure
     return await _attempt_cleanup(first_failure, stop)
+
+
+async def _start_http(runtime):
+    try:
+        return await asyncio.to_thread(runtime.mcp_http_start)
+    except RuntimeError:
+        if runtime.mock and not runtime.auth_file:
+            try:
+                logs = await asyncio.to_thread(
+                    runtime.call,
+                    "logs",
+                    "--no-color",
+                    "--tail",
+                    "80",
+                    "mcp-http",
+                    http=True,
+                    timeout=10,
+                )
+                print(
+                    f"Mock HTTP startup service logs:\n{_startup_diagnostic(logs)}", file=sys.stderr
+                )
+            except Exception:
+                pass  # Diagnostic failure must not replace the startup failure.
+        raise
 
 
 class FirstCutCorpusTests(unittest.TestCase):
@@ -315,7 +310,9 @@ class FirstCutCorpusTests(unittest.TestCase):
                 events.append("fixture-cleanup")
 
         class Assertions:
-            async def _stop(self, _runtime) -> None:
+            async def _stop(self, _runtime, *, http=False) -> None:
+                if not http:
+                    raise AssertionError("HTTP fixture cleanup must include its Compose file")
                 events.append("runtime-stop")
 
         async def startup() -> None:
@@ -340,6 +337,8 @@ class FirstCutCorpusTests(unittest.TestCase):
 
         asyncio.run(check())
         self.assertLess(events.index("http-startup-complete"), events.index("http-stop"), events)
+        self.assertEqual("fixture-cleanup", events[-1])
+        self.assertIn("runtime-stop", events)
 
     def test_loopback_client_ignores_inherited_socks_proxy(self) -> None:
         try:
@@ -357,6 +356,55 @@ class FirstCutCorpusTests(unittest.TestCase):
                     await client.aclose()
 
         asyncio.run(check_client())
+
+    def test_http_client_uses_sdk_stream_timeouts_and_keeps_response_hook(self) -> None:
+        from mcp.shared._httpx_utils import MCP_DEFAULT_TIMEOUT, MCP_DEFAULT_SSE_READ_TIMEOUT
+
+        hook = mock.AsyncMock()
+
+        async def check_client() -> None:
+            client = FirstCutHttpDockerEndToEnd._http_client(response_hook=hook)
+            try:
+                self.assertEqual(MCP_DEFAULT_SSE_READ_TIMEOUT, client.timeout.read)
+                for phase in ("connect", "write", "pool"):
+                    self.assertEqual(MCP_DEFAULT_TIMEOUT, getattr(client.timeout, phase))
+                self.assertEqual([hook], client.event_hooks["response"])
+                self.assertFalse(client.trust_env)
+            finally:
+                await client.aclose()
+
+        asyncio.run(check_client())
+
+    def test_shared_fixture_cleanup_selects_exact_compose_files_after_disconnect_failure(
+        self,
+    ) -> None:
+        async def check_cleanup() -> None:
+            for http in (False, True):
+                with self.subTest(http=http):
+                    harness = selected_harness.SelectedWorkflowsDockerEndToEnd("runTest")
+                    harness._disconnect = mock.AsyncMock(
+                        side_effect=RuntimeError("disconnect failed")
+                    )
+                    runtime = mock.Mock()
+                    with self.assertRaisesRegex(RuntimeError, "disconnect failed"):
+                        await harness._stop(runtime, http=http)
+                    harness._disconnect.assert_awaited_once_with()
+                    runtime.call.assert_called_once_with("down", "--volumes", http=http, timeout=60)
+
+        asyncio.run(check_cleanup())
+
+    def test_local_stdio_client_uses_bounded_legacy_startup(self) -> None:
+        async def connect() -> None:
+            context = mock.AsyncMock()
+            with mock.patch("mcp.Client", return_value=context) as factory:
+                async with selected_harness._stdio_client("fixture-parameters") as client:
+                    self.assertIs(context.__aenter__.return_value, client)
+                factory.assert_called_once_with(
+                    "fixture-parameters", cache=None, mode="legacy", read_timeout_seconds=60
+                )
+                context.__aexit__.assert_awaited_once()
+
+        asyncio.run(connect())
 
 
 class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
@@ -406,10 +454,12 @@ class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
     @staticmethod
     def _http_client(_token: str | None = None, *, response_hook=None):
         import httpx2
+        from mcp.shared._httpx_utils import MCP_DEFAULT_TIMEOUT, MCP_DEFAULT_SSE_READ_TIMEOUT
 
         # The admitted endpoint is explicit loopback and anonymous.
         return httpx2.AsyncClient(
             trust_env=False,
+            timeout=httpx2.Timeout(MCP_DEFAULT_TIMEOUT, read=MCP_DEFAULT_SSE_READ_TIMEOUT),
             event_hooks={"response": [] if response_hook is None else [response_hook]},
         )
 
@@ -487,7 +537,7 @@ class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             )
 
         async def stop_runtime() -> None:
-            await self._assertions._stop(runtime)
+            await self._assertions._stop(runtime, http=http_start_attempted)
 
         async def clean_fixture() -> None:
             temporary.cleanup()
@@ -502,7 +552,7 @@ class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                     failure = await _cleanup_attempted_http_start(failure, http_start_attempted, stop_http)
                 finally:
                     try:
-                        if startup_task is not None:
+                        if startup_task is not None or http_start_attempted:
                             failure = await _attempt_cleanup(failure, stop_runtime)
                     finally:
                         failure = await _attempt_cleanup(failure, clean_fixture)
@@ -531,10 +581,11 @@ class FirstCutHttpDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                         definition = stdio_context.get("definition")
                         self.assertIsInstance(definition, dict, stdio_context)
                         self.assertEqual("create_atom", definition.get("name"), stdio_context)
+                        await self._assertions._disconnect()
                     token, port = self._http_environment()
                     os.environ["CAPRMEDIO_MCP_HTTP_PORT"] = str(port)
                     http_start_attempted = True
-                    http_startup_task = asyncio.create_task(asyncio.to_thread(runtime.mcp_http_start))
+                    http_startup_task = asyncio.create_task(_start_http(runtime))
                     started = await asyncio.shield(http_startup_task)
                     self.assertEqual(f"http://127.0.0.1:{port}/mcp", started["url"])
                     running_status = await asyncio.to_thread(runtime.mcp_http_status)

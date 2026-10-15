@@ -15,7 +15,7 @@ from mcp import Client, StdioServerParameters, types
 APP = Path(__file__).resolve().parents[1]
 ROOT = APP.parents[2]
 sys.path.insert(0, str(APP))
-from hot_reload import (Gateway, Generation, GENERATION_READY_TIMEOUT_SECONDS,
+from hot_reload import (Gateway, Generation, digest, GENERATION_READY_TIMEOUT_SECONDS,
                         IMPLEMENTATION_CALL_TIMEOUT_SECONDS)  # noqa: E402
 
 
@@ -68,6 +68,23 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
     async def reload(self, client, request_id):
         return await client.call_tool('reload_mcp_implementation',
             {'request': {'operation': 'reload', 'request_id': request_id}})
+
+    async def test_unbound_gateway_uses_project_local_instance_runtime_without_legacy_fallback(self):
+        legacy = self.root / '.caprmedio_install/mcp_hot_reload/old.json'
+        legacy.parent.mkdir(parents=True)
+        legacy.write_bytes(b'retained old receipt')
+        gateway = Gateway(self.root, self.source)
+        self.assertEqual(self.root / '.caprmedio_runtime/runtime/mcp_hot_reload' / digest(str(self.root)), gateway.storage)
+        await gateway.initialize()
+        try:
+            gateway.persist('current', {'outcome': 'observed'})
+            self.assertTrue((gateway.storage / 'current.json').is_file())
+            self.assertIn(str(self.root / '.caprmedio_tmp/mcp_hot_reload'), gateway.active.params.args[2])
+            self.assertNotIn(str(gateway.storage), gateway.active.params.args[2])
+            self.assertTrue((gateway.storage / 'gateway.lock').is_file())
+        finally:
+            await gateway.close()
+        self.assertEqual(b'retained old receipt', legacy.read_bytes())
 
     async def test_reload_rollback_duplicate_and_schema_change(self):
         async with Client(self.params(), cache=None) as client:
@@ -160,6 +177,7 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
                              {'new_echo', 'reload_mcp_implementation', 'get_mcp_reload_status'})
 
     async def test_status_is_read_only_and_reload_is_separate(self):
+        storage = Gateway(self.root, self.source).storage
         async with Client(self.params(), cache=None) as client:
             tools = {t.name: t for t in (await client.list_tools()).tools}
             self.assertTrue(tools['get_mcp_reload_status'].annotations.read_only_hint)
@@ -168,14 +186,14 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
             status = await client.call_tool('get_mcp_reload_status', {'request': {}})
             self.assertFalse(status.is_error)
             self.assertIsNotNone(status.structured_content['active_generation'])
-            self.assertFalse((self.root / '.caprmedio_install/mcp_hot_reload').exists())
+            self.assertEqual([], list(storage.glob('*.json')))
             invalid = await client.call_tool('reload_mcp_implementation',
                                             {'request': {'operation': 'status'}})
             self.assertTrue(invalid.is_error)
             invalid = await client.call_tool('get_mcp_reload_status',
                                             {'request': {'operation': 'reload'}})
             self.assertTrue(invalid.is_error)
-            self.assertFalse((self.root / '.caprmedio_install/mcp_hot_reload').exists())
+            self.assertEqual([], list(storage.glob('*.json')))
 
     async def test_cold_generation_bootstraps_before_the_legacy_deadline(self):
         """The gateway must not spend the child startup budget on auto-discovery."""

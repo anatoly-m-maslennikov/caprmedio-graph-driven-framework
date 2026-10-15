@@ -1,0 +1,38 @@
+---
+atom_id: CA-P-2333
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 8
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
+assignee: AI Agent
+status: Active
+subjects:
+  governs: Tool
+  depends_on: [Atom, Relation, Plan]
+version: 1
+updated_at: "2026-10-13 20:00:52 +0400"
+relations:
+  is_decomposition_of: [CA-P-2307]
+---
+# Summary
+
+Accept unordered relation targets
+
+## Objective
+
+Relation target order has no semantic meaning and does not block Atom admission.
+
+## Details
+
+Estimated own work: up to 15 minutes. Apply the Operator decision through D268, with an exact predecessor archive and Version increment. Remove only the obsolete validation requirement for a canonical target-list order. Refresh affected current source bindings and fixtures. Keep uniqueness, valid targets, Relation Kind semantics and stale-source checks.
+
+Independent lanes: governing-source review; checker and bindings implementation; regression tests. Root owns integration and Git. Verify target permutations, duplicates, missing targets, unsupported kinds and stale authority. Recheck the finite TOML packet; report any remaining unsupported relation separately. Do not sort authored lists, change relation meaning, amend unsupported kinds or enable live publication.
+
+### Definition of Done
+
+The Plan is not Done if order alone rejects an otherwise valid relation list, duplicate or invalid references become accepted, required current pins are stale, or focused independent verification is missing.

@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 3
+updated_at: "2026-10-14 18:44:20 +0400"
 subjects:
   governs: "FIND_AND_FETCH_JOURNAL_EVENTS/source snapshot"
   depends_on: [Journal, Event, Tool]
@@ -27,14 +27,20 @@ Source snapshot construction.
 
 To capture the query source, the adapter **must**, before any workflow/action-start
 recording or Action dispatch, read and seal the canonical Journal byte-prefix,
-enumerate its Event carriers once, reject raw duplicate object keys before
-parsing, and seal ordered references, member byte hashes, and unique Event IDs
+enumerate its recorded members once, decode their JSON with the ordinary codec
+without row-shape, duplicate-key or unique-ID validation, and seal ordered
+references, member byte hashes and actually supplied string Event IDs
 into one opaque snapshot token. A standalone Action captures before its own Run
 evidence and consumes exactly that token.
 
 ## Details
 
 The method enforces configured member and byte maxima, detects changed, deleted,
-truncated, unreadable, duplicate-ID, or malformed members, and never silently
+truncated or unreadable members, and never silently
 extends the frontier. Every continuation revalidates the original prefix and
-members; later append outside the prefix remains permitted.
+members; later append outside the prefix remains permitted. Capture every decoded
+row, including repeated IDs, missing or nonstring IDs, lists and scalar values;
+recorded JSON remains unchanged. Snapshot event_ids contains only supplied string
+IDs without deduplication. Query result wrappers use None for an absent or
+nonstring ID; do not invent an Event identity or insert fields into stored data.
+Coverage follows the actual rows and immutable member frontier, not ID uniqueness.

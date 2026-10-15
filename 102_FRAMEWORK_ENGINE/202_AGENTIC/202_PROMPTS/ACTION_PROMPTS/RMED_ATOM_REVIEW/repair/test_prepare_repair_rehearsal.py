@@ -5,12 +5,14 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 HERE = Path(__file__).resolve().parent
 sys.path[:0] = [str(HERE / "tests"), str(HERE.parent)]
 from prepare_repair_rehearsal import (  # noqa: E402
     CASES, FIXTURE_ROOT, REPAIR_AUTHORITY_IDS, REPOSITORY_ROOT, build, rewrite_fixture,
+    synthetic_authority,
 )
 from context_builder import markdown, metadata  # noqa: E402
 
@@ -47,8 +49,19 @@ class PrepareRepairRehearsalTests(unittest.TestCase):
     def test_build_emits_untyped_carriers_with_matching_permissions(self):
         before = {spec["fixture"]: hashlib.sha256((FIXTURE_ROOT / spec["fixture"]).read_bytes()).hexdigest()
                   for spec in CASES}
+        # Builder behavior must not depend on changing live authority carriers.
+        authority = [
+            synthetic_authority(identifier, "Fixture Authority", "Explicit fixture authority.")
+            for identifier in REPAIR_AUTHORITY_IDS
+        ]
+        baseline = authority, [row["binding"] for row in authority]
         temporary_root = REPOSITORY_ROOT / ".caprmedio_tmp"
-        with tempfile.TemporaryDirectory(dir=temporary_root, ignore_cleanup_errors=True) as temporary:
+        with (
+            tempfile.TemporaryDirectory(
+                dir=temporary_root, ignore_cleanup_errors=True
+            ) as temporary,
+            patch("prepare_repair_rehearsal.baseline_sources", return_value=baseline),
+        ):
             output = Path(temporary) / "rehearsal"
             build(output)
             repair_inputs = json.loads((output / "repair-inputs.json").read_text())

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import sys
+import tempfile
 import types
 import unittest
 from pathlib import Path
@@ -49,7 +50,7 @@ class SimpleLocalReleaseRouteTest(unittest.TestCase):
         mcp_types.ToolAnnotations = _Annotations
         mcp.types = mcp_types
         with patch.dict(sys.modules, {"mcp": mcp, "mcp.types": mcp_types}), \
-                patch("selected_routes.load_selected_manifest", side_effect=RuntimeError("old admission unavailable")):
+                patch("selected_routes.load_selected_manifest", side_effect=ValueError("ordinary admission unavailable")):
             adapter = register_selected_routes(server, PROJECT)
         return server, adapter
 
@@ -112,14 +113,64 @@ class SimpleLocalReleaseRouteTest(unittest.TestCase):
                 patch("work_journal.event_record", side_effect=lambda **values: {**values, "event_id": "started"}), \
                 patch("work_journal.append_record", side_effect=(None, OSError("journal unavailable"))):
             result = server.tools["release_version"]({"project_root": str(PROJECT), "run_id": "local-release-5"})
-        self.assertEqual("recording_failed", result["outcome"])
-        self.assertEqual("completed", result["actual_outcome"])
+        self.assertEqual("completed", result["outcome"])
+        self.assertIn("journal unavailable", result["recording_error"])
 
     def test_public_release_prompts_once_without_a_draft(self) -> None:
         server, _adapter = self.register()
         prompt = server.tools["public.release"]({"project_root": str(PROJECT), "run_id": "public-release-1"})
         self.assertEqual("input_required", prompt["outcome"])
         self.assertIn("content_draft", prompt["prompt"])
+
+    def test_unknown_fields_and_invalid_draft_never_load_runner(self) -> None:
+        server, _adapter = self.register()
+        with patch("selected_routes._direct_release_call", side_effect=AssertionError("runner called")):
+            for route, extra in (("release_version", {"runner": "foreign"}),
+                                 ("public.release", {"content_draft": {"description": "body", "summary": [], "apply": True}})):
+                result = server.tools[route]({"project_root": str(PROJECT), "run_id": "refused", **extra})
+                self.assertEqual("failed", result["outcome"])
+
+    def test_start_journal_failure_does_not_prevent_actual_release(self) -> None:
+        server, _adapter = self.register()
+        with patch("selected_routes._direct_release_call", return_value={"outcome": "completed"}) as runner, \
+                patch("work_journal.append_record", side_effect=OSError("journal unavailable")):
+            result = server.tools["release_version"]({"project_root": str(PROJECT), "run_id": "local-release-6"})
+        runner.assert_called_once()
+        self.assertEqual("completed", result["outcome"])
+        self.assertIn("journal unavailable", result["recording_error"])
+
+    def test_fixed_project_runner_is_loaded_and_symlink_parent_refuses(self) -> None:
+        from selected_routes import _direct_release_call
+        with tempfile.TemporaryDirectory(dir=PROJECT / ".caprmedio_tmp/tests") as directory:
+            root = Path(directory).resolve()
+            source = root / "PROJECT_TOOLS/RELEASE_VERSION/local_release.py"
+            source.parent.mkdir(parents=True)
+            source.write_text('def run_local_release(root, *, run_id):\n    return {"outcome": "completed", "observed": str(root), "run_id": run_id}\n')
+            request = {"project_root": str(root), "run_id": "fixed-runner"}
+            self.assertEqual(str(root), _direct_release_call(root, "release_version", request)["observed"])
+            source.parent.rename(source.parent.with_name("original"))
+            source.parent.symlink_to("original", target_is_directory=True)
+            with self.assertRaisesRegex(ValueError, "symlink"):
+                _direct_release_call(root, "release_version", request)
+
+    def test_admitted_host_root_maps_only_to_bound_local_project(self) -> None:
+        server, _adapter = self.register()
+        host_root = Path("/host/selected/project")
+        with patch("selected_routes.bound_selection", return_value=types.SimpleNamespace(host_root=host_root)), \
+                patch("selected_routes._direct_release_call", return_value={"outcome": "completed"}) as runner, \
+                patch("work_journal.append_record"):
+            result = server.tools["release_version"]({"project_root": str(host_root), "run_id": "host-release"})
+        self.assertEqual("completed", result["outcome"])
+        self.assertEqual(PROJECT, runner.call_args.args[0])
+
+    def test_runner_failure_is_preserved_when_journal_also_fails(self) -> None:
+        server, _adapter = self.register()
+        with patch("selected_routes._direct_release_call", return_value={"outcome": "failed", "diagnostics": ["tests failed"]}), \
+                patch("work_journal.append_record", side_effect=OSError("journal unavailable")):
+            result = server.tools["release_version"]({"project_root": str(PROJECT), "run_id": "failed-release"})
+        self.assertEqual("failed", result["outcome"])
+        self.assertEqual(["tests failed"], result["diagnostics"])
+        self.assertIn("journal unavailable", result["recording_error"])
 
     def test_existing_discovery_and_context_expose_direct_routes_without_a_manifest(self) -> None:
         service = Service.__new__(Service)

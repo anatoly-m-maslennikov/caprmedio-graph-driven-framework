@@ -4,8 +4,6 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-import re
-import shutil
 import sys
 import tempfile
 import unittest
@@ -15,9 +13,8 @@ from unittest.mock import patch
 APP = Path(__file__).resolve().parents[1]
 REPOSITORY = APP.parents[3]
 PROMPTS = REPOSITORY / "102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/IMPLEMENTATION_WORKFLOW"
-RELEASE_VERSION = REPOSITORY / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION"
 MCP = REPOSITORY / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP"
-for location in (APP, PROMPTS, RELEASE_VERSION, MCP):
+for location in (APP, PROMPTS, MCP, MCP / "tests"):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))
 
@@ -29,23 +26,8 @@ from selected_execution import (  # noqa: E402
     manifest_relative_path,
     make_revert_action_handler,
 )
-from release_actions import PHASES  # noqa: E402
-from release_source_admission import derive_release_execution_source_snapshot  # noqa: E402
-from selected_routes import SELECTED_ROUTE_NAMES, load_release_execution_manifest  # noqa: E402
-
-
-CA_O_134_PATH = (
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
-    "CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md"
-)
-STALE_CA_O_134_DIGEST = "b94eebdd85eab9f7080680e85999c68022e82cdfa7945bf0d840b429ebad037a"
-CA_O_137_PATH = (
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
-    "CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md"
-)
-STALE_CA_O_137_DIGEST = "6c154852b99df16961fe63c8fd869dbf86f8d75ecc950b25b189e41c3c1c5dad"
+from selected_routes import SELECTED_ROUTE_NAMES  # noqa: E402
+from test_selected_routes_mcp import copy_complete_selected_guard_fixture  # noqa: E402
 
 
 def digest(value: object) -> str:
@@ -53,7 +35,11 @@ def digest(value: object) -> str:
 
 
 class SelectedExecutionTests(unittest.TestCase):
-    """The queue interprets frozen source graphs; it does not author policies."""
+    """Interpreter units isolate registry admission; they do not prove it.
+
+    Actual whole-document admission is covered without mocks in
+    test_selected_full_registry_guard.py, not by this minimal graph fixture.
+    """
 
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
@@ -68,6 +54,25 @@ class SelectedExecutionTests(unittest.TestCase):
         self.manifest_path = control / "_projection/selected_workflow_bindings.json"
         self._write_definitions()
         self._write_manifest()
+        if getattr(self, "isolate_registry_admission", True):
+            actual_loader = SelectedExecution._load_manifest
+
+            def unit_manifest_loader(queue, execution):
+                if queue.root != self.root.resolve():
+                    return actual_loader(queue, execution)
+                reference = execution["definition_manifest"]["manifest_ref"]
+                path = queue._safe_path(reference)
+                if path.relative_to(queue.root).as_posix() != manifest_relative_path(queue.root):
+                    raise SelectedExecutionError("selected definition manifest location is not admitted")
+                manifest = json.loads(path.read_text())
+                observed = digest(queue._manifest_without_digest(manifest))
+                if manifest.get("canonical_manifest_sha256") != observed or execution["definition_manifest"]["manifest_digest"] != observed:
+                    raise SelectedExecutionError("selected definition manifest digest is stale or invalid")
+                return manifest, reference, observed
+
+            isolation = patch.object(SelectedExecution, "_load_manifest", autospec=True, side_effect=unit_manifest_loader)
+            isolation.start()
+            self.addCleanup(isolation.stop)
 
     def _write_definitions(self) -> None:
         for name, atom_id in (("workflow.md", "CA-O-127"), ("step-one.md", "CA-O-129"),
@@ -266,16 +271,14 @@ class SelectedExecutionTests(unittest.TestCase):
     def current_manifest_request(
         route_name: str, run_id: str, *, root: Path = REPOSITORY,
     ) -> tuple[SelectedExecution, dict[str, object]]:
-        """Use the current Release snapshot or the generic physical portfolio."""
+        """Use the generic physical portfolio."""
         manifest_path = root / ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json"
-        manifest = (load_release_execution_manifest(root) if route_name == "release_version"
-                    else json.loads(manifest_path.read_text(encoding="utf-8")))
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         execution: dict[str, object] = {
             "mode": "execute", "operation_route": route_name, "workflow_run_id": run_id,
             "source_freshness": manifest["source_freshness"],
             "definition_manifest": {
-                "manifest_ref": (manifest["manifest_ref"] if route_name == "release_version"
-                                 else manifest_path.relative_to(root).as_posix()),
+                "manifest_ref": manifest_path.relative_to(root).as_posix(),
                 "manifest_digest": manifest["canonical_manifest_sha256"],
             },
         }
@@ -285,111 +288,23 @@ class SelectedExecutionTests(unittest.TestCase):
         return selected, {"operation": "enqueue_selected", "run_id": run_id, "execution": execution}
 
     def _current_d547_fixture(self) -> tuple[Path, dict[str, object]]:
-        """Copy the established fifteen routes and current independent Release.
-
-        The live D547 carrier intentionally remains immutable in this test
-        lane.  This corpus proves the current graph-action sources and the
-        current Release source pair without treating stale live pins as
-        admitted production input.
-        """
-        source_manifest_path = REPOSITORY / ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json"
-        manifest = json.loads(source_manifest_path.read_text(encoding="utf-8"))
+        """Copy the current fifteen-route sources into a disposable portfolio."""
         fixture_root = self.root / "current-d547"
-        fixture_manifest_path = fixture_root / ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json"
-        source_settings = REPOSITORY / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
-        self.assertTrue(source_settings.is_file())
-        fixture_settings = fixture_root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
-        fixture_settings.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(source_settings, fixture_settings)
-        manifest["routes"] = [row for row in manifest["routes"] if row["route"] in SELECTED_ROUTE_NAMES]
+        manifest = copy_complete_selected_guard_fixture(fixture_root)
         self.assertEqual([row["route"] for row in manifest["routes"]], list(SELECTED_ROUTE_NAMES))
-        release_route, release_admission, release_authority = derive_release_execution_source_snapshot(REPOSITORY)
-        self.assertEqual(release_route["route"], "release_version")
-        manifest.pop("release_source_admissions", None)
-        manifest.pop("public_release_source_admissions", None)
-        approved_actions = {
-            "CA-O-134": ("build_entities_graph", CA_O_134_PATH, STALE_CA_O_134_DIGEST),
-            "CA-O-137": ("build_terms_graph", CA_O_137_PATH, STALE_CA_O_137_DIGEST),
-        }
-        observed_actions = {action_id: 0 for action_id in approved_actions}
-
-        for action_id, (route_name, source_path, _stale_digest) in approved_actions.items():
-            route = next((row for row in manifest["routes"] if row.get("route") == route_name), None)
-            self.assertIsNotNone(route, route_name)
+        for route_name, step_id, action_id in (
+            ("build_entities_graph", "CA-O-135", "CA-O-134"),
+            ("build_terms_graph", "CA-O-138", "CA-O-137"),
+        ):
+            route = next(row for row in manifest["routes"] if row["route"] == route_name)
             self.assertEqual(
-                [(step["step"]["atom_id"], step["action"]["atom_id"])
-                 for step in route["ordered_steps"]],
-                [("CA-O-135" if action_id == "CA-O-134" else "CA-O-138", action_id)],
+                [(row["step"]["atom_id"], row["action"]["atom_id"])
+                 for row in route["ordered_steps"]],
+                [(step_id, action_id)],
             )
             self.assertEqual([pin["atom_id"] for pin in route["ordered_actions"]], [action_id])
             self.assertEqual(route["native_action_calls"], [])
             self.assertEqual(route["on_result"], [])
-
-        for route in manifest["routes"]:
-            pins = [route["workflow"], *[item["step"] for item in route["ordered_steps"]],
-                    *[item["action"] for item in route["ordered_steps"]], *route["ordered_actions"],
-                    *route["native_action_calls"]]
-            for pin in pins:
-                action = approved_actions.get(pin.get("atom_id"))
-                if action is not None:
-                    _route_name, expected_path, stale_digest = action
-                    self.assertEqual(pin.get("source_path"), expected_path)
-                    source = REPOSITORY / expected_path
-                    lines = source.read_text(encoding="utf-8").splitlines()
-                    version = int(next(line.partition(":")[2].strip() for line in lines
-                                       if line.startswith("version:")))
-                    source_digest = hashlib.sha256(source.read_bytes()).hexdigest()
-                    if pin.get("version") != version or pin.get("digest") != source_digest:
-                        self.assertEqual(pin.get("version"), 2)
-                        self.assertEqual(pin.get("digest"), stale_digest)
-                        pin["version"] = version
-                        pin["digest"] = source_digest
-                    observed_actions[pin["atom_id"]] += 1
-                source_path = pin["source_path"]
-                source = REPOSITORY / source_path
-                self.assertTrue(source.is_file(), source_path)
-                # Current corpus bytes are fixture inputs. Rebind metadata in
-                # this disposable portfolio, preserving the source graph.
-                raw = source.read_bytes()
-                version = re.search(rb"(?m)^version:\s*([1-9][0-9]*)\s*$", raw)
-                self.assertIsNotNone(version, source_path)
-                pin["version"] = int(version.group(1))
-                pin["digest"] = hashlib.sha256(raw).hexdigest()
-                target = fixture_root / source_path
-                target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(source, target)
-        admission_pins = [
-            release_authority,
-            release_admission["acceptance_frontier"], release_admission["workflow"],
-            *[item["step"] for item in release_admission["ordered_steps"]],
-            *[item["action"] for item in release_admission["ordered_steps"]],
-            *release_admission["ordered_actions"], *release_admission["rmed_frontier"],
-        ]
-        for pin in admission_pins:
-            source_path = pin["source_path"]
-            source = REPOSITORY / source_path
-            self.assertTrue(source.is_file(), source_path)
-            self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), pin["digest"], source_path)
-            target = fixture_root / source_path
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(source, target)
-        self.assertEqual(observed_actions, {"CA-O-134": 2, "CA-O-137": 2})
-        for filename in ("project_structure.toml", "operators_registry.toml"):
-            shutil.copy2(REPOSITORY / ".caprmedio_caprmedio" / filename,
-                         fixture_root / ".caprmedio_caprmedio" / filename)
-        import release_source_admission
-        for relative in (release_source_admission._OPERATIONS_ROOT,
-                         *release_source_admission._RMED_ROOTS.values(),
-                         *release_source_admission._TOOLS_RMED_ROOTS.values()):
-            (fixture_root / relative).mkdir(parents=True, exist_ok=True)
-        native = fixture_root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_version.py"
-        native.parent.mkdir(parents=True, exist_ok=True)
-        native.write_text("# Documentary candidate code; never invoked.\n", encoding="utf-8")
-        manifest["source_freshness"]["selected_binding_digest"] = digest(manifest["routes"])
-        unsigned = {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"}
-        manifest["canonical_manifest_sha256"] = digest(unsigned)
-        fixture_manifest_path.parent.mkdir(parents=True, exist_ok=True)
-        fixture_manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
         return fixture_root, manifest
 
     @staticmethod
@@ -546,16 +461,14 @@ class SelectedExecutionTests(unittest.TestCase):
         manifest_path = fixture_root / ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json"
         executor = SelectedExecution(fixture_root)
         accepted: set[str] = set()
-        routes = [*manifest["routes"], load_release_execution_manifest(fixture_root)["routes"][0]]
+        routes = manifest["routes"]
         for route in routes:
-            definition = load_release_execution_manifest(fixture_root) if route["route"] == "release_version" else manifest
             execution = {
                 "mode": "execute", "operation_route": route["route"],
-                "source_freshness": definition["source_freshness"],
+                "source_freshness": manifest["source_freshness"],
                 "definition_manifest": {
-                    "manifest_ref": (definition["manifest_ref"] if route["route"] == "release_version"
-                                     else manifest_path.relative_to(fixture_root).as_posix()),
-                    "manifest_digest": definition["canonical_manifest_sha256"],
+                    "manifest_ref": manifest_path.relative_to(fixture_root).as_posix(),
+                    "manifest_digest": manifest["canonical_manifest_sha256"],
                 },
             }
             try:
@@ -566,9 +479,9 @@ class SelectedExecutionTests(unittest.TestCase):
                 accepted.add(graph["route"])
         self.assertEqual(
             [route["route"] for route in routes],
-            [*SELECTED_ROUTE_NAMES, "release_version"],
+            list(SELECTED_ROUTE_NAMES),
         )
-        self.assertEqual(len(accepted), 16)
+        self.assertEqual(len(accepted), 15)
         self.assertEqual(accepted, {route["route"] for route in routes})
         self.assertIn("run_implementation_workflow", accepted)
         self.assertIn("build_applicable_methodology", accepted)
@@ -576,7 +489,7 @@ class SelectedExecutionTests(unittest.TestCase):
     def test_current_d547_all_admitted_routes_pass_prequeue_freeze_validation(self) -> None:
         fixture_root, manifest = self._current_d547_fixture()
         frozen_routes: set[str] = set()
-        routes = [*manifest["routes"], load_release_execution_manifest(fixture_root)["routes"][0]]
+        routes = manifest["routes"]
         for ordinal, route in enumerate(routes, start=1):
             selected, request = self.current_manifest_request(
                 route["route"], f"current-freeze-{ordinal}", root=fixture_root,
@@ -585,26 +498,18 @@ class SelectedExecutionTests(unittest.TestCase):
             frozen_routes.add(frozen["graph"]["route"])
         self.assertEqual(frozen_routes, {route["route"] for route in routes})
 
-    def test_current_d547_separates_generic_and_private_release_phase_handlers(self) -> None:
-        manifest_path = REPOSITORY / ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json"
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        generic = [route for route in manifest["routes"] if route["route"] in SELECTED_ROUTE_NAMES]
+    def test_current_d547_generic_routes_have_builtin_handlers(self) -> None:
+        fixture_root, manifest = self._current_d547_fixture()
+        generic = manifest["routes"]
         self.assertEqual([route["route"] for route in generic], list(SELECTED_ROUTE_NAMES))
         generic_actions = {
             entry["action"]["atom_id"]
             for route in generic
             for entry in route["ordered_steps"]
         }
-        builtin = SelectedExecution(REPOSITORY).handlers
+        builtin = SelectedExecution(fixture_root).handlers
         self.assertFalse(generic_actions - set(builtin))
         self.assertIn("CA-O-131", builtin)
-        release = load_release_execution_manifest(REPOSITORY)["routes"][0]
-        pairs = [
-            (entry["step"]["atom_id"], entry["action"]["atom_id"])
-            for entry in release["ordered_steps"]
-        ]
-        self.assertEqual(release["route"], "release_version")
-        self.assertEqual(pairs, [phase[:2] for phase in PHASES])
 
     def test_current_d547_update_graph_uses_only_actual_bound_nodes(self) -> None:
         fixture_root, _manifest = self._current_d547_fixture()
@@ -629,7 +534,10 @@ class SelectedExecutionTests(unittest.TestCase):
         """Exercise all seven real prompt handlers through their injected Agent."""
         import implementation_actions
 
-        selected, request = self.current_manifest_request("run_implementation_workflow", "current-o016")
+        fixture_root, _manifest = self._current_d547_fixture()
+        selected, request = self.current_manifest_request(
+            "run_implementation_workflow", "current-o016", root=fixture_root,
+        )
         sources = implementation_actions.current_source_bindings(REPOSITORY)
         # The fixture executes against its disposable Project.  Preserve the
         # exact current source pins there so prompt validation remains real
@@ -790,12 +698,15 @@ class SelectedExecutionTests(unittest.TestCase):
         self.assertEqual(calls[6]["prior_results"][-1]["result"], "failed")
 
     def test_o016_rejects_missing_or_mismatched_step_packet(self) -> None:
-        selected, request = self.current_manifest_request("run_implementation_workflow", "current-o016-missing")
+        fixture_root, _manifest = self._current_d547_fixture()
+        selected, request = self.current_manifest_request(
+            "run_implementation_workflow", "current-o016-missing", root=fixture_root,
+        )
         request["execution"]["parameters"] = {"base_packet": {}, "step_packets": {"CA-O-092": {"context": "Isolated"}}}
         frozen = {"request": request, "graph": selected._validate_graph(request["execution"])}
 
         with self.assertRaisesRegex(SelectedExecutionError, "no packet for Step CA-O-091"):
-            SelectedExecution(REPOSITORY)._execute_graph(frozen, self.session(frozen))
+            selected._execute_graph(frozen, self.session(frozen))
 
     def test_shared_session_branched_skip_uses_manifest_step_identity(self) -> None:
         """A skipped manifest Step must not shift the actual Step definition."""
@@ -909,7 +820,7 @@ class SelectedExecutionTests(unittest.TestCase):
         with self.assertRaisesRegex(SelectedExecutionError, "requested Runs"):
             self.executor({}).freeze(stale)
 
-    def test_pending_terminal_recovery_never_replays_the_handler(self) -> None:
+    def test_terminal_logging_failure_preserves_outcomes_without_replaying_handlers(self) -> None:
         calls: list[str] = []
         runner, frozen = self._freeze_with_planned_runs(self.request("terminal-pending"), {
             "CA-O-128": lambda context: calls.append(context["requested_action_run_id"]) or {"result": "prepared", "effect_refs": []},
@@ -929,17 +840,35 @@ class SelectedExecutionTests(unittest.TestCase):
             return append(*args, **kwargs)
 
         with patch.object(work_journal, "append_sealed_events", side_effect=fail_terminal):
-            pending = runner.dispatch(frozen)
+            result = runner.dispatch(frozen)
 
-        self.assertEqual(pending["disposition"], "recording_pending")
-        # A missing terminal receipt for step 1 cannot authorize its On Result
-        # transition, so step 2 must not be dispatched before recovery.
-        self.assertEqual(calls, ["terminal-pending:step:1:action:1"])
-        for event_id in pending["pending_event_ids"]:
-            work_journal.recover_pending_event(self.root, event_id)
-        recovered = runner.dispatch(frozen)
-        self.assertEqual(recovered, pending)
-        self.assertEqual(calls, ["terminal-pending:step:1:action:1"])
+        self.assertEqual("terminal", result["disposition"])
+        self.assertEqual({"completed"}, {run["outcome"] for run in result["terminal_runs"]})
+        self.assertEqual(5, len(result["terminal_runs"]))
+        self.assertEqual(["fixture terminal Journal failure"] * 5, result["diagnostics"])
+        self.assertNotIn("pending_event_ids", result)
+        self.assertEqual(calls, ["terminal-pending:step:1:action:1", "terminal-pending:step:2:action:1"])
+        self.assertEqual(result, runner.dispatch(frozen))
+        self.assertEqual(calls, ["terminal-pending:step:1:action:1", "terminal-pending:step:2:action:1"])
+
+    def test_revert_adapter_does_not_treat_start_as_terminal(self) -> None:
+        class RevertService:
+            def execute_with_session(self, *_args: object) -> dict[str, object]:
+                return {
+                    "outcome": "reverted", "manifest_id": "reversal-1",
+                    "run_receipt_refs": [{"run_id": "started-run"}],
+                    "run_error": "",
+                    "effect_account": {"effects": [{"effect_id": "effect-1", "status": "completed"}]},
+                }
+
+        output = make_revert_action_handler(RevertService())({
+            "parameters": {"approved_reversal_manifest": {"manifest_id": "reversal-1"}},
+            "session": object(), "requested_action_run_id": "requested-run",
+        })
+        self.assertFalse(output["action_terminal_recorded"])
+        self.assertEqual(output["terminal_outcome"], "completed")
+        self.assertEqual(len(output["effect_refs"]), 1)
+        self.assertEqual(output["native_result"]["run_error"], "")
 
     def test_revert_adapter_uses_the_existing_lazy_action_run(self) -> None:
         frozen = self.executor({}).freeze(self.request())

@@ -7,14 +7,19 @@ hits are derived only from parsed YAML fields, never from carrier body text.
 from __future__ import annotations
 
 import hashlib
+import re
 import tomllib
 from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable
 
-from atom_operations import ATOM_ID, ToolError, _inside, _lifecycle, control_root, safe_path
+import yaml
+
+from atom_operations import ATOM_ID, ROLE_DIRECTORY, ToolError, _inside, _lifecycle, _role_directory, control_root, safe_path
 from subject_notation import SubjectNotationError, get_profile, parse_subject, profile_evidence
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError, parse_carrier
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext
+from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 
 _FIELDS = frozenset({"governs", "depends_on"})
@@ -29,13 +34,17 @@ def _diagnostic(code: str, path: Path, message: str) -> dict[str, str]:
 
 def _request(args: Any) -> tuple[str, set[str], str, set[str], str | None, Any]:
     subject = getattr(args, "subject", None)
-    if not isinstance(subject, str) or not subject:
+    if not isinstance(subject, str) or not subject or any(char in subject for char in ("\x00", "\n", "\r")):
         raise ToolError("subject-required", "subject lookup requires one non-empty subject")
+    match = getattr(args, "subject_match", None) or "exact"
+    if match not in {"exact", "prefix", "suffix", "contains"}:
+        raise ToolError("subject-match-invalid", "subject_match must be exact, prefix, suffix or contains")
     supplied_profile = getattr(args, "subject_profile", None)
     profile_name = "legacy" if supplied_profile is None else supplied_profile
     try:
         profile = get_profile(profile_name)
-        parse_subject(subject, subject_profile=profile.name)
+        if match in {"exact", "prefix"}:
+            parse_subject(subject, subject_profile=profile.name)
     except SubjectNotationError as error:
         raise ToolError(error.code, str(error)) from error
     field = getattr(args, "subject_field", None) or "both"
@@ -45,9 +54,6 @@ def _request(args: Any) -> tuple[str, set[str], str, set[str], str | None, Any]:
         fields = {field}
     else:
         raise ToolError("subject-field-invalid", "subject_field must be governs, depends_on, or both")
-    match = getattr(args, "subject_match", None) or "exact"
-    if match not in {"exact", "prefix"}:
-        raise ToolError("subject-match-invalid", "subject_match must be exact or prefix")
     requested_roles = getattr(args, "content_role", None) or []
     if not isinstance(requested_roles, (list, tuple)) or any(not isinstance(role, str) for role in requested_roles):
         raise ToolError("content-role-invalid", "content_role must be a list of role names")
@@ -61,11 +67,12 @@ def _request(args: Any) -> tuple[str, set[str], str, set[str], str | None, Any]:
     return subject, fields, match, roles, owner, profile
 
 
-def _owners(root: Path) -> dict[str, Path]:
+def _owners(root: Path, reader: ReadContext | None = None) -> dict[str, Path]:
     control = control_root(root)
     structure_path = control / "project_structure.toml"
     try:
-        structure = tomllib.loads(structure_path.read_text(encoding="utf-8"))
+        raw = reader.read(structure_path) if reader is not None else structure_path.read_bytes()
+        structure = tomllib.loads(raw.decode("utf-8"))
     except (OSError, tomllib.TOMLDecodeError) as error:
         raise ToolError("project-structure-unavailable", "cannot read authoritative project_structure.toml") from error
     rows = structure.get("scope_units")
@@ -98,9 +105,9 @@ def _owner_for(path: Path, owners: dict[str, Path]) -> str | None:
 
 
 def _subject_match(value: str, subject: str, mode: str, separators: tuple[str, ...]) -> bool:
-    if mode == "exact" or value == subject:
-        return value == subject
-    return any(value.startswith(subject + separator) for separator in separators)
+    from connector_atom_parse import subject_matches
+
+    return subject_matches(value, subject, mode, separators)
 
 
 def _structured_subjects(metadata: dict[str, Any], fields: set[str]) -> Iterable[tuple[str, int | None, str]]:
@@ -170,13 +177,80 @@ def _safe_frontier(root: Path, under: str | None) -> Path:
     return base
 
 
-def run_subject_search(root: Path, args: Any) -> dict[str, Any]:
+def _verify_current_identities(root: Path, identities: set[str], paths: list[Path],
+                               reader: ReadContext, installed: Path | None) -> None:
+    """Excluded content needs only identity evidence, never full Atom admission."""
+    control = control_root(root)
+    claims: dict[str, list[str]] = {identity: [] for identity in identities}
+    for path in paths:
+        if (_role_directory(path, control) is None or "_projection" in path.relative_to(control).parts
+                or _lifecycle(path, control) in {"draft", "archived"}
+                or (installed is not None and path.is_relative_to(installed))):
+            continue
+        filename = ATOM_ID.search(path.name)
+        filename_id = filename.group(1) if filename else None
+        if path.is_symlink():
+            if filename_id in identities or path.is_dir():
+                raise ToolError("subject-identity-inventory-unavailable", "An original identity source is symlinked")
+            continue
+        if path.suffix.lower() != ".md":
+            continue
+        raw = reader.read(path)
+        try:
+            metadata = parse_carrier(raw, path).metadata
+        except CarrierError:
+            normalized = raw.replace(b"\r\n", b"\n")
+            header = (normalized.split(b"\n---\n", 1)[0] if normalized.startswith(b"---\n") else b"").decode("utf-8", errors="replace")
+            possible = filename_id in identities or any(
+                re.search(r"(?<![A-Za-z0-9_-])" + re.escape(identity) + r"(?![A-Za-z0-9_-])", header)
+                for identity in identities)
+            for value in re.findall(r"(?m)^(?:atom_id|\"atom_id\"|'atom_id')\s*:\s*([^\n]*)$", header):
+                try:
+                    decoded = yaml.safe_load(value)
+                except yaml.YAMLError:
+                    continue  # Unrelated malformed C/A is not selected content.
+                possible = possible or (isinstance(decoded, str) and decoded in identities)
+            if possible:
+                raise ToolError("subject-identity-inventory-unavailable", "A selected identity has a malformed original source")
+            continue
+        if "projection" in metadata:
+            continue
+        status, identity = metadata.get("status"), metadata.get("atom_id")
+        if isinstance(status, str) and status.casefold() in {"draft", "archived"}:
+            continue
+        if filename_id in identities and identity != filename_id:
+            raise ToolError("subject-identity-inventory-unavailable", "A selected identity has an ambiguous original source")
+        if isinstance(identity, str) and identity in identities:
+            if not isinstance(status, str) or not status:
+                raise ToolError("subject-identity-inventory-unavailable", "A selected identity has an unresolved original Status")
+            claims[identity].append(path.relative_to(root).as_posix())
+    for identity, sources in claims.items():
+        if len(sources) > 1:
+            raise ToolError("subject-identity-duplicate", "Selected Atom identity has competing originals", {"atom_id": identity})
+        if not sources:
+            raise ToolError("subject-identity-inventory-unavailable", "Selected Atom identity has no current original")
+
+
+def run_subject_search(root: Path, args: Any, *, direct_subject_only: bool = False) -> dict[str, Any]:
     """Return pinned occurrences matching a structured subject relation."""
+
+    try:
+        return _run_subject_search(root, args, direct_subject_only=direct_subject_only)
+    except (OSError, UnicodeError, LimitReached) as error:
+        raise ToolError("subject-source-verification-unavailable", "The bounded Subject source verification is unavailable") from error
+
+
+def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> dict[str, Any]:
 
     root = Path(root).resolve()
     subject, fields, match_mode, roles, requested_owner, profile = _request(args)
     atom_filter, queries, limit = _validate_pre_traversal(args)
-    owners = _owners(root)
+    reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
+    control = control_root(root)
+    settings = control / "caprmedio_project_settings.toml"
+    if direct_subject_only or settings.exists():
+        reader.read(settings)
+    owners = _owners(root, reader)
     if requested_owner is not None and requested_owner not in owners:
         raise ToolError("scope-unit-unknown", "scope_unit is not registered in project_structure", {"scope_unit": requested_owner})
     under = getattr(args, "under", None)
@@ -185,16 +259,32 @@ def run_subject_search(root: Path, args: Any) -> dict[str, Any]:
     if lifecycle not in {"all", "active", "draft", "archived", "done", "resolved", "canceled"}:
         raise ToolError("lifecycle-invalid", "unsupported lifecycle")
     diagnostics: list[dict[str, str]] = []
-    candidates = [base] if base.is_file() else sorted(base.rglob("*.md"), key=lambda path: path.as_posix())
+    grammar, layout = (), None
+    if direct_subject_only:
+        import atom_operations as operations
+        from atom_subject_patch import _capture_grammar, _capture_identity_layout
+
+        grammar = _capture_grammar(operations, root, profile)
+        layout = _capture_identity_layout(operations, root)
+    frontier = reader.inventory(control if direct_subject_only else base)
+    candidates = [path for path in frontier if path == base or (base.is_dir() and path.is_relative_to(base))]
     valid: list[tuple[Path, dict[str, Any], str, str, str]] = []
-    control = control_root(root)
     for path in candidates:
-        if "_projection" in path.relative_to(control).parts:
+        if ("_projection" in path.relative_to(control).parts
+                or (layout is not None and path.is_relative_to(layout[0]))):
             continue
         # Lifecycle and requested content-role frontiers constrain the source
         # set before parsing: archived history is not an invalid active source.
         if lifecycle != "all" and _lifecycle(path, control) != lifecycle:
             continue
+        if requested_owner is not None and _owner_for(path, owners) != requested_owner:
+            continue
+        if path.is_symlink() and (path.is_dir() or ROLE_DIRECTORY.fullmatch(path.name)):
+            directory = _role_directory(path / "_", control)
+            directory_role = next((role for role in _ROLES
+                                   if directory and directory.endswith("_" + role.casefold())), None)
+            if not roles or directory_role is None or directory_role in roles:
+                raise ToolError("subject-source-verification-unavailable", "A selected Subject source directory is symlinked")
         filename_id = ATOM_ID.search(path.name)
         # A plain Markdown document is not an Atom candidate.  A filename
         # claiming a stable Atom identity is a candidate even if its metadata
@@ -208,7 +298,7 @@ def run_subject_search(root: Path, args: Any) -> dict[str, Any]:
             diagnostics.append(_diagnostic("source-symlink", path, "source file is a symlink"))
             continue
         try:
-            raw = path.read_bytes()
+            raw = reader.read(path)
             parsed = parse_carrier(raw, path)
         except (OSError, UnicodeError, CarrierError) as error:
             diagnostics.append(_diagnostic("source-invalid", path, "carrier cannot be parsed"))
@@ -253,6 +343,18 @@ def run_subject_search(root: Path, args: Any) -> dict[str, Any]:
             diagnostics.append(_diagnostic(error.code, path, str(error)))
             continue
         valid.append((path, metadata, parsed.frontmatter, parsed.body, hashlib.sha256(raw).hexdigest()))
+    if direct_subject_only:
+        current_ids = {metadata["atom_id"] for path, metadata, *_ in valid
+                       if _lifecycle(path, control) not in {"draft", "archived"}
+                       and metadata["status"].casefold() not in {"draft", "archived"}}
+        if current_ids:
+            _verify_current_identities(root, current_ids, frontier, reader, layout[0] if layout else None)
+        from atom_subject_patch import _assert_grammar_current, _assert_identity_layout_current
+
+        _assert_grammar_current(operations, root, grammar)
+        _assert_identity_layout_current(operations, root, layout)
+    if reader.currentness()["state"] != "unchanged":
+        raise ToolError("subject-source-changed", "Subject source bytes or frontier changed during lookup")
     original_counts = Counter(
         metadata["atom_id"] for path, metadata, *_ in valid if _lifecycle(path, control) not in {"archived", "draft"}
     )

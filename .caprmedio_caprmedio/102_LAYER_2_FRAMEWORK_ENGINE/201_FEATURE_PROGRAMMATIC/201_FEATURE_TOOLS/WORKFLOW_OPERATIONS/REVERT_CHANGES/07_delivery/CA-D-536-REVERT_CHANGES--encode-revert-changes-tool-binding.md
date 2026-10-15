@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 00:00:00 +0400"
+version: 3
+updated_at: "2026-10-14 20:03:17 +0400"
 subjects:
   governs: "Tool/WORKFLOW_OPERATIONS/REVERT_CHANGES/Carrier"
   depends_on: [Tool, Workflow, Action, Operator, Artifact, Journal]
@@ -37,7 +37,7 @@ action_ids = ["CA-O-131"]
 mcp_name = "revert_changes"
 ```
 
-The strict request has `operation` (`admit`, `execute`, or `recover_recording`), `reversal_request` for admission, `approved_reversal_manifest` for execution, and `pending_recording_event` only for storage recovery. Unknown fields, mixed modes, missing exact bindings, or a raw inverse instruction are explicit errors. The strict result has `outcome`, `manifest_id`, `effect_account`, `evidence_refs`, and `run_receipt_refs`; an admitted result additionally carries its manifest, while blocked/error results name the exact invalid binding. The Tool exposes no generic delete/reset parameter and no auto-apply mode.
+The strict request has `operation` (`admit` or `execute`), `reversal_request` for admission, and `approved_reversal_manifest` for execution. No Journal-only recovery operation or `pending_recording_event` field is exposed. Unknown fields, mixed modes, missing exact bindings, or a raw inverse instruction are explicit errors. The strict result has `outcome`, `manifest_id`, `effect_account`, `evidence_refs`, and `run_receipt_refs`; an admitted result additionally carries its manifest, while blocked/error results name the exact invalid binding. Existing `run_receipt_refs` retain actual shared Run observations and logging diagnostics, not canonical Journal receipts or a durability, permission or source-effect completion claim. Plain Journal append/read adds no logging retry or recovery, and logging failure does not change an independently observed reversal outcome or authorize effect replay. Actual Run-start failure still blocks before effects; actual Run-terminal failure preserves the effect account and reports `run_error`. The Tool exposes no generic delete/reset parameter and no auto-apply mode.
 
 For admission, every frozen evidence reference uses one `evidence_pin`:
 `{ evidence_ref, evidence_hash }`. `evidence_ref` is either an existing

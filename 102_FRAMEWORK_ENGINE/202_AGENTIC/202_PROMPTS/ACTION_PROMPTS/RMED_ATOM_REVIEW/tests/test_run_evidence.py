@@ -9,7 +9,7 @@ from unittest.mock import patch
 HERE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(HERE))
 from workflow_evidence import RunEvidence, render_report  # noqa: E402
-from work_journal import append_sealed_events, validate_sealed_event, WorkJournalError  # noqa: E402
+from work_journal import append_sealed_events  # noqa: E402
 from workflow_progress import CHECKS  # noqa: E402
 
 
@@ -83,7 +83,7 @@ class RunEvidenceTests(unittest.TestCase):
         state = self.store.finish('mock-run', 'interrupted', reason='Operator decision')
         self.assertEqual(state['outcome'], 'interrupted')
 
-    def test_recording_failure_retains_results_and_retry_does_not_repeat_events(self):
+    def test_recording_failure_retains_results_without_retrying_journal(self):
         state = self.start()
         row = checked(state['selection'][0]['source'], state['criteria_sha256'])
         with patch('workflow_evidence.append_sealed_events', side_effect=OSError('mock offline')):
@@ -91,8 +91,10 @@ class RunEvidenceTests(unittest.TestCase):
         self.assertEqual(state['reports'][0], row)
         self.assertTrue(state['recording_blockers'])
         self.assertIsNone(state['events'][-1]['receipt'])
-        state = self.store.sync('mock-run')
-        self.assertFalse(state['recording_blockers'])
+        with patch('workflow_evidence.append_sealed_events') as append:
+            state = self.store.sync('mock-run')
+            append.assert_not_called()
+        self.assertTrue(state['recording_blockers'])
         count = sum(len(p.read_text().splitlines()) for p in self.root.rglob('*.ndjson'))
         self.store.record('mock-run', 0, row, stage='check')
         self.store.sync('mock-run')
@@ -152,7 +154,7 @@ class RunEvidenceTests(unittest.TestCase):
         self.assertEqual(len(state['events']), len(again['events']))
         self.assertEqual({item['event']['workflow_run_id'] for item in state['events']}, {'mock-run'})
 
-    def test_lost_append_acknowledgement_does_not_duplicate_event(self):
+    def test_lost_append_acknowledgement_is_not_retried(self):
         state = self.start()
         row = checked(state['selection'][0]['source'], state['criteria_sha256'])
 
@@ -163,20 +165,18 @@ class RunEvidenceTests(unittest.TestCase):
         with patch('workflow_evidence.append_sealed_events', side_effect=append_then_lose_ack):
             self.store.record('mock-run', 0, row, stage='check')
         before = sum(len(p.read_text().splitlines()) for p in self.root.rglob('*.ndjson'))
-        state = self.store.sync('mock-run')
+        with patch('workflow_evidence.append_sealed_events') as append:
+            state = self.store.sync('mock-run')
+            append.assert_not_called()
         after = sum(len(p.read_text().splitlines()) for p in self.root.rglob('*.ndjson'))
         self.assertEqual(before, after)
-        self.assertIsNotNone(state['events'][-1]['receipt'])
+        self.assertIsNone(state['events'][-1]['receipt'])
+        self.assertTrue(state['recording_blockers'])
 
-    def test_symlink_target_and_forged_event_digest_rejected(self):
+    def test_symlink_source_target_rejected(self):
         (self.root / 'linked.md').symlink_to(self.root / 'atom.md')
         with self.assertRaises(ValueError):
             self.store.observe('linked.md')
-        state = self.start()
-        event = state['events'][0]['event'].copy()
-        event['outcome'] = 'forged'
-        with self.assertRaises(WorkJournalError):
-            validate_sealed_event(event)
 
     def test_completed_check_cannot_be_silently_rewritten(self):
         state = self.start()

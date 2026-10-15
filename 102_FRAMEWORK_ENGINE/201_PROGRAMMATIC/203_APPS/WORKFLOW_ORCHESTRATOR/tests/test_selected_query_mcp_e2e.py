@@ -170,14 +170,15 @@ class QueryProjectionBoundarySourceTests(unittest.IsolatedAsyncioTestCase):
                 return {"disposition": "preview", "proposal_receipt": {}, "proposal_receipt_digest": "sealed"}
 
             harness_case.harness = SimpleNamespace(
-                _recording_snapshot=lambda _: {}, _call=silent_projection_write)
+                _recording_snapshot=lambda _: {}, _call=silent_projection_write,
+                _connect=lambda *_: asyncio.sleep(0))
             with self.assertRaisesRegex(AssertionError, "canonical Project _projection"):
                 await harness_case._preview("projection-write-source-check")
 
 
 @unittest.skipUnless(
     os.environ.get("CAPRMEDIO_DOCKER_QUERY_E2E") == "1" and strict.E2E_CONTEXT is not None,
-    "requires CAPRMEDIO_DOCKER_QUERY_E2E=1 and sealed Release E2E context",
+    "requires CAPRMEDIO_DOCKER_QUERY_E2E=1 and an explicit built image/scratch context",
 )
 class SelectedQueryMcpEndToEnd(unittest.IsolatedAsyncioTestCase):
     """Happy queries and deliberate refusals have separate test methods."""
@@ -190,7 +191,9 @@ class SelectedQueryMcpEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.launched = False
         self.context = strict.E2E_CONTEXT
         assert self.context is not None
-        self.query_image = self.context.candidate_image_digest
+        self.query_image = _required_query_image(os.environ)
+        self.assertEqual(self.context.candidate_image_digest, self.query_image,
+                         "query image must equal the exact supplied test context image")
         observed = await asyncio.to_thread(
             subprocess.run, ["docker", "image", "inspect", "--format", "{{.Id}}", self.query_image],
             capture_output=True, text=True, timeout=20, check=False,
@@ -203,13 +206,12 @@ class SelectedQueryMcpEndToEnd(unittest.IsolatedAsyncioTestCase):
         try:
             if self.launched and self.runtime is not None:
                 await self.harness._stop(self.runtime)
+        finally:
             if self.lease is not None:
                 self.lease.cleanup()
-        finally:
-            pass
 
     async def _start_fixture(self, case_id: str, route: str) -> QueryProject:
-        parent = self.context.scratch_root / "selected-query-mcp-e2e"
+        parent = Path(self.context.scratch_root) / "selected-query-mcp-e2e"
         parent.mkdir(parents=True, exist_ok=True)
         root = Path(tempfile.mkdtemp(dir=parent))
         self.lease = FixtureLease(root)
@@ -228,6 +230,7 @@ class SelectedQueryMcpEndToEnd(unittest.IsolatedAsyncioTestCase):
         fixture, runtime = self.fixture, self.runtime
         assert runtime is not None
         request = fixture.request(request_id=request_id)
+        await self.harness._connect(runtime, fixture.root)
         before = fixture.snapshot()
         projections = _projection_fingerprint(fixture.root)
         records = self.harness._recording_snapshot(fixture.root)
@@ -293,113 +296,125 @@ class SelectedQueryMcpEndToEnd(unittest.IsolatedAsyncioTestCase):
         return native
 
     async def test_w14_fields_headings_closed_filter_and_retained_pagination(self) -> None:
-        await self._start_fixture("W14", "find_and_fetch_artifacts")
-        query = {"filter": '"fm:/atom_id" IN ("CA-R-100", "CA-R-101") AND '
-                            '("fm:/atom_id" != "CA-R-100" OR NOT ("fm:/atom_id" = "CA-R-101"))',
-                 "select": ["fm:/version", "fm:/status", "section:/1:Summary/2:Scope"], "limit": 1}
-        first = await self._execute(query, "query-w14-first")
-        self.assertEqual([{"artifact_id": "CA-R-100", "fm:/version": 1, "fm:/status": "Active",
-                           "section:/1:Summary/2:Scope": "\nFixture scope.\n\n"}], first["results"])
-        self.assertTrue(first["has_more"])
-        self.assertTrue(first["coverage"]["complete"])
-        self.assertEqual(2, first["coverage"]["matched_count"])
-        self.assertEqual({"complete": True, "incomplete": False, "findings": []}, first["diagnostics"])
-        second = await self._execute({**query, "snapshot": first["snapshot"], "cursor": first["next_cursor"]},
-                                     "query-w14-continuation")
-        self.assertEqual([{"artifact_id": "CA-R-101", "fm:/version": 1, "fm:/status": "Active",
-                           "section:/1:Summary/2:Scope": "\nFixture scope.\n\n"}], second["results"])
-        self.assertEqual(first["snapshot"], second["snapshot"])
-        self.assertFalse(second["has_more"])
-        self.assertIsNone(second["next_cursor"])
+        try:
+            await self._start_fixture("W14", "find_and_fetch_artifacts")
+            query = {"filter": '"fm:/atom_id" IN ("CA-R-100", "CA-R-101") AND '
+                                '("fm:/atom_id" != "CA-R-100" OR NOT ("fm:/atom_id" = "CA-R-101"))',
+                     "select": ["fm:/version", "fm:/status", "section:/1:Summary/2:Scope"], "limit": 1}
+            first = await self._execute(query, "query-w14-first")
+            self.assertEqual([{"artifact_id": "CA-R-100", "fm:/version": 1, "fm:/status": "Active",
+                               "section:/1:Summary/2:Scope": "\nFixture scope.\n\n"}], first["results"])
+            self.assertTrue(first["has_more"])
+            self.assertTrue(first["coverage"]["complete"])
+            self.assertEqual(2, first["coverage"]["matched_count"])
+            self.assertEqual({"complete": True, "incomplete": False, "findings": []}, first["diagnostics"])
+            second = await self._execute({**query, "snapshot": first["snapshot"], "cursor": first["next_cursor"]},
+                                         "query-w14-continuation")
+            self.assertEqual([{"artifact_id": "CA-R-101", "fm:/version": 1, "fm:/status": "Active",
+                               "section:/1:Summary/2:Scope": "\nFixture scope.\n\n"}], second["results"])
+            self.assertEqual(first["snapshot"], second["snapshot"])
+            self.assertFalse(second["has_more"])
+            self.assertIsNone(second["next_cursor"])
+        finally:
+            await self.harness._disconnect()
 
     async def test_w15_actual_facts_fields_filter_and_worker_retained_snapshot(self) -> None:
-        fixture = await self._start_fixture("W15", "find_and_fetch_journal_events")
-        self.assertEqual([], self.harness._events(fixture.root), "seed facts must come from the actual first Run")
-        seed = await self._execute({"limit": 100}, "query-w15-seed")
-        self.assertEqual([], seed["results"])
-        self.assertEqual([], seed["snapshot"]["event_ids"])
-        seed_facts = self.harness._events(fixture.root)
-        self.assertEqual(6, len(seed_facts))
-        expected = [{"event_id": event["event_id"], "event:/event": "completed",
-                     "event:/run/definition/atom_id": event["run"]["definition"]["atom_id"],
-                     "event:/outcome": "completed"}
-                    for event in sorted(seed_facts, key=lambda row: row["event_id"].encode())
-                    if event["event"] == "completed"]
-        query = {"filter": '"event:/llm_session/uuid" IN ("query-w15-seed") AND '
-                            '"event:/event" != "started" AND '
-                            '("event:/run/definition/atom_id" = "CA-O-161" OR '
-                            'NOT ("event:/run/definition/atom_id" = "CA-O-161"))',
-                 "mode": "fields", "select": ["event:/event", "event:/run/definition/atom_id", "event:/outcome"],
-                 "limit": 2}
-        first = await self._execute(query, "query-w15-first")
-        self.assertEqual(expected[:2], first["results"])
-        self.assertEqual("incomplete", first["status"])
-        self.assertEqual({"scanned": 6, "matched": 3, "returned": 2, "complete": False}, first["coverage"])
-        self.assertEqual({event["event_id"] for event in seed_facts}, set(first["snapshot"]["event_ids"]))
-        self.assertTrue(first["snapshot"]["snapshot_handle"])
-        second = await self._execute({**query, "snapshot": first["snapshot"], "cursor": first["next_cursor"]},
-                                     "query-w15-continuation")
-        self.assertEqual(expected[2:], second["results"])
-        self.assertEqual("complete", second["status"])
-        self.assertEqual(first["snapshot"], second["snapshot"])
-        self.assertEqual({"scanned": 6, "matched": 3, "returned": 1, "complete": True}, second["coverage"])
-        self.assertEqual([], second["findings"])
-        self.assertIsNone(second["next_cursor"])
-        self.assertTrue(all(row["configured"] > 0 and row["source"] in {"default", "instance", "request", "snapshot"}
-                            for row in second["limits"].values()))
+        try:
+            fixture = await self._start_fixture("W15", "find_and_fetch_journal_events")
+            self.assertEqual([], self.harness._events(fixture.root), "seed facts must come from the actual first Run")
+            seed = await self._execute({"limit": 100}, "query-w15-seed")
+            self.assertEqual([], seed["results"])
+            self.assertEqual([], seed["snapshot"]["event_ids"])
+            seed_facts = self.harness._events(fixture.root)
+            self.assertEqual(6, len(seed_facts))
+            expected = [{"event_id": event["event_id"], "event:/event": "completed",
+                         "event:/run/definition/atom_id": event["run"]["definition"]["atom_id"],
+                         "event:/outcome": "completed"}
+                        for event in sorted(seed_facts, key=lambda row: row["event_id"].encode())
+                        if event["event"] == "completed"]
+            query = {"filter": '"event:/llm_session/uuid" IN ("query-w15-seed") AND '
+                                '"event:/event" != "started" AND '
+                                '("event:/run/definition/atom_id" = "CA-O-161" OR '
+                                'NOT ("event:/run/definition/atom_id" = "CA-O-161"))',
+                     "mode": "fields", "select": ["event:/event", "event:/run/definition/atom_id", "event:/outcome"],
+                     "limit": 2}
+            first = await self._execute(query, "query-w15-first")
+            self.assertEqual(expected[:2], first["results"])
+            self.assertEqual("incomplete", first["status"])
+            self.assertEqual({"scanned": 6, "matched": 3, "returned": 2, "complete": False}, first["coverage"])
+            self.assertEqual({event["event_id"] for event in seed_facts}, set(first["snapshot"]["event_ids"]))
+            self.assertTrue(first["snapshot"]["snapshot_handle"])
+            second = await self._execute({**query, "snapshot": first["snapshot"], "cursor": first["next_cursor"]},
+                                         "query-w15-continuation")
+            self.assertEqual(expected[2:], second["results"])
+            self.assertEqual("complete", second["status"])
+            self.assertEqual(first["snapshot"], second["snapshot"])
+            self.assertEqual({"scanned": 6, "matched": 3, "returned": 1, "complete": True}, second["coverage"])
+            self.assertEqual([], second["findings"])
+            self.assertIsNone(second["next_cursor"])
+            self.assertTrue(all(row["configured"] > 0 and row["source"] in {"default", "instance", "request", "snapshot"}
+                                for row in second["limits"].values()))
+        finally:
+            await self.harness._disconnect()
 
     async def test_w14_expected_secret_and_mutation_refusals(self) -> None:
-        await self._start_fixture("W14", "find_and_fetch_artifacts")
-        secret = await self._execute({"select": ["fm:/token"], "limit": 1}, "query-w14-secret", happy=False)
-        self.assertEqual("invalid", secret["status"])
-        self.assertEqual([], secret["results"])
-        self.assertIn("secret-shaped selector", secret["findings"][0]["code"])
-        self.fixture.query_request = {"mutation": {"write": "forbidden"}}
-        projections = _projection_fingerprint(self.fixture.root)
-        request, preview = await self._preview("query-w14-mutation")
-        execute = self._sealed_execution("query-w14-mutation", request, preview)
-        before = self.harness._recording_snapshot(self.fixture.root)
-        assert self.runtime is not None
-        with self.assertRaisesRegex(AssertionError, "MCP Tool returned an error"):
-            await self.harness._call(self.runtime, self.fixture.root, "workflow_orchestrator", {
-                "operation": "enqueue_selected", "run_id": "query-w14-mutation", "execution": execute})
-        self.assertEqual(before, self.harness._recording_snapshot(self.fixture.root),
-                         "unsupported mutation must be refused before any Run record")
-        _assert_projection_unchanged(self.fixture.root, projections)
-        query = {"filter": '"fm:/atom_id" IN ("CA-R-100", "CA-R-101")', "limit": 1}
-        retained = await self._execute(query, "query-w14-retained-prerequisite")
-        altered = deepcopy(retained["snapshot"])
-        altered["digest"] = "0" * 64
-        tampered = await self._execute({**query, "snapshot": altered, "cursor": retained["next_cursor"]},
-                                       "query-w14-altered-snapshot", happy=False)
-        self.assertEqual("invalid", tampered["status"])
-        self.assertEqual([], tampered["results"])
-        self.assertIn("tampered retained snapshot", tampered["findings"][0]["code"])
+        try:
+            await self._start_fixture("W14", "find_and_fetch_artifacts")
+            secret = await self._execute({"select": ["fm:/token"], "limit": 1}, "query-w14-secret", happy=False)
+            self.assertEqual("invalid", secret["status"])
+            self.assertEqual([], secret["results"])
+            self.assertIn("secret-shaped selector", secret["findings"][0]["code"])
+            self.fixture.query_request = {"mutation": {"write": "forbidden"}}
+            projections = _projection_fingerprint(self.fixture.root)
+            request, preview = await self._preview("query-w14-mutation")
+            execute = self._sealed_execution("query-w14-mutation", request, preview)
+            before = self.harness._recording_snapshot(self.fixture.root)
+            assert self.runtime is not None
+            with self.assertRaisesRegex(AssertionError, "MCP Tool returned an error"):
+                await self.harness._call(self.runtime, self.fixture.root, "workflow_orchestrator", {
+                    "operation": "enqueue_selected", "run_id": "query-w14-mutation", "execution": execute})
+            self.assertEqual(before, self.harness._recording_snapshot(self.fixture.root),
+                             "unsupported mutation must be refused before any Run record")
+            _assert_projection_unchanged(self.fixture.root, projections)
+            query = {"filter": '"fm:/atom_id" IN ("CA-R-100", "CA-R-101")', "limit": 1}
+            retained = await self._execute(query, "query-w14-retained-prerequisite")
+            altered = deepcopy(retained["snapshot"])
+            altered["digest"] = "0" * 64
+            tampered = await self._execute({**query, "snapshot": altered, "cursor": retained["next_cursor"]},
+                                           "query-w14-altered-snapshot", happy=False)
+            self.assertEqual("invalid", tampered["status"])
+            self.assertEqual([], tampered["results"])
+            self.assertIn("tampered retained snapshot", tampered["findings"][0]["code"])
+        finally:
+            await self.harness._disconnect()
 
     async def test_w15_expected_protected_selector_and_limit_diagnostics(self) -> None:
-        await self._start_fixture("W15", "find_and_fetch_journal_events")
-        protected = await self._execute({"mode": "fields", "select": ["event:/details/api_key"], "limit": 1},
-                                        "query-w15-protected", happy=False)
-        self.assertEqual("invalid", protected["status"])
-        self.assertEqual([], protected["results"])
-        self.assertEqual("protected-selector", protected["findings"][0]["code"])
-        limited = await self._execute({"limit": 2, "limits": {"max_page_size": 1}},
-                                      "query-w15-limit", happy=False)
-        self.assertEqual("invalid", limited["status"])
-        self.assertEqual("page-limit-exceeded", limited["findings"][0]["code"])
-        self.assertEqual(1, limited["limits"]["max_page_size"]["configured"])
-        self.assertEqual("request", limited["limits"]["max_page_size"]["source"])
-        self.assertTrue(limited["limits"]["max_page_size"]["exhausted"])
-        self.assertEqual([], limited["results"])
-        retained = await self._execute({"limit": 1}, "query-w15-retained-prerequisite")
-        self.assertTrue(retained["next_cursor"])
-        altered = deepcopy(retained["snapshot"])
-        altered["prefix_digest"] = "0" * 64
-        tampered = await self._execute({"limit": 1, "snapshot": altered, "cursor": retained["next_cursor"]},
-                                       "query-w15-altered-snapshot", happy=False)
-        self.assertEqual("invalid", tampered["status"])
-        self.assertEqual("changed-snapshot", tampered["findings"][0]["code"])
-        self.assertEqual([], tampered["results"])
+        try:
+            await self._start_fixture("W15", "find_and_fetch_journal_events")
+            protected = await self._execute({"mode": "fields", "select": ["event:/details/api_key"], "limit": 1},
+                                            "query-w15-protected", happy=False)
+            self.assertEqual("invalid", protected["status"])
+            self.assertEqual([], protected["results"])
+            self.assertEqual("protected-selector", protected["findings"][0]["code"])
+            limited = await self._execute({"limit": 2, "limits": {"max_page_size": 1}},
+                                          "query-w15-limit", happy=False)
+            self.assertEqual("invalid", limited["status"])
+            self.assertEqual("page-limit-exceeded", limited["findings"][0]["code"])
+            self.assertEqual(1, limited["limits"]["max_page_size"]["configured"])
+            self.assertEqual("request", limited["limits"]["max_page_size"]["source"])
+            self.assertTrue(limited["limits"]["max_page_size"]["exhausted"])
+            self.assertEqual([], limited["results"])
+            retained = await self._execute({"limit": 1}, "query-w15-retained-prerequisite")
+            self.assertTrue(retained["next_cursor"])
+            altered = deepcopy(retained["snapshot"])
+            altered["prefix_digest"] = "0" * 64
+            tampered = await self._execute({"limit": 1, "snapshot": altered, "cursor": retained["next_cursor"]},
+                                           "query-w15-altered-snapshot", happy=False)
+            self.assertEqual("invalid", tampered["status"])
+            self.assertEqual("changed-snapshot", tampered["findings"][0]["code"])
+            self.assertEqual([], tampered["results"])
+        finally:
+            await self.harness._disconnect()
 
 
 if __name__ == "__main__":

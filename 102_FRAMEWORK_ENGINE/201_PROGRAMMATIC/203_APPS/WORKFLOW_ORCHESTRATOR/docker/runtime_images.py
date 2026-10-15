@@ -165,8 +165,9 @@ def _bounded_run(argv, *, cwd, timeout, capture_stdout=True, max_output=_MAX_OUT
 
 class ImageManager:
     def __init__(self, source_root, executor=_DEFAULT_EXECUTOR, timeout=600, *,
-                 uid=None, gid=None, platform=None):
+                 uid=None, gid=None, platform=None, build_temp_root=None):
         self.source_root = Path(source_root)
+        self.build_temp_root = Path(build_temp_root) if build_temp_root is not None else None
         self.executor = executor
         if isinstance(timeout, bool) or not isinstance(timeout, (int, float)) or not 0 < timeout <= 900:
             raise ImageError("IMAGE_INPUT_UNAVAILABLE", "Image timeout must be within (0, 900] seconds")
@@ -336,7 +337,11 @@ class ImageManager:
         try:
             # Retain one private attempt as build evidence.  Cleanup must never
             # mask a build result or retry a denied directory deletion.
-            attempt = Path(tempfile.mkdtemp(prefix="caprmedio-runtime-image-"))
+            parent = self.build_temp_root
+            if parent is not None and (not parent.is_absolute() or ".." in parent.parts
+                                       or parent.resolve(strict=True) != parent or not parent.is_dir()):
+                raise OSError("unsafe private image temporary root")
+            attempt = Path(tempfile.mkdtemp(prefix="caprmedio-runtime-image-", dir=parent))
             attempt.chmod(0o700)
             context = attempt / "context"
             context.mkdir()

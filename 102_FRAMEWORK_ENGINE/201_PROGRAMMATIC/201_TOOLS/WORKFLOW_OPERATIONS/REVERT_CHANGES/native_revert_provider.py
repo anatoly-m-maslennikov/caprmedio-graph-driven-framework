@@ -499,17 +499,13 @@ class NativeRevertProvider:
 
 
 class _SessionOnlyTracker:
-    """Prevent direct execution from replacing the selected-run Journal bridge."""
+    """Require the selected Action Run for actual source execution."""
 
     def start(self, _payload: Mapping[str, Any]) -> Mapping[str, Any]:
         raise RevertChangesError("native revert factory requires execute_with_session and the shared selected Action Run")
 
     def finish(self, _event: Mapping[str, Any]) -> Mapping[str, Any]:
         raise RevertChangesError("native revert factory requires execute_with_session and the shared selected Action Run")
-
-    def recover(self, _event: Mapping[str, Any]) -> Mapping[str, Any]:
-        raise RevertChangesError("native revert factory requires recover_recording_with_session and the shared selected Action Run")
-
 
 def make_native_revert_service(context: Mapping[str, Any]) -> RevertChangesService:
     """Build the selected-queue CA-O-131 service from its required frozen context.

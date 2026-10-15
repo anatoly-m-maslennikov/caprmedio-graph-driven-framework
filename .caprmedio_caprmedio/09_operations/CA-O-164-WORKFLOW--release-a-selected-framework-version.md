@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Release selected Framework Version"
   depends_on: [Workflow, Step, Action, Operator, Version, Methodology, Implementation, Skill, Test, Journal]
-version: 14
-updated_at: "2026-10-12 00:00:51 +0000"
+version: 15
+updated_at: "2026-10-14 12:27:02 +0000"
 relations:
   relates_to: [CA-O-011, CA-O-165, CA-O-166, CA-O-168, CA-O-169, CA-R-1525]
 ---
@@ -32,7 +32,6 @@ The Workflow uses the current active Atoms in the Project-owned `METHODOLOGY_SOU
 | Step | Action | Bound phase |
 | --- | --- | --- |
 | CA-O-170 | CA-O-165 | validate current active sources and delivery paths |
-| intended tool tests | — | run the intended local-release tests |
 | CA-O-172 | CA-O-166 | clear the derived product except protected settings, then copy only the active source units |
 | CA-O-173 | CA-O-166 | compile applicable Methodology in that product |
 | CA-O-178 | CA-O-169 | clear the installed Framework except protected configuration, copy `101_FRAMEWORK_METHODOLOGY` as-is, install `ca`, restart or reuse Project MCP for smoke, then remove verified superseded Project-owned release images |
@@ -41,13 +40,14 @@ The Workflow uses the current active Atoms in the Project-owned `METHODOLOGY_SOU
 
 | Step result | Next step or outcome |
 | --- | --- |
-| current active sources and delivery paths are valid | intended tool tests |
-| intended tool tests pass | CA-O-172 |
+| current active sources and delivery paths are valid and intended local-release tool tests pass | CA-O-172 |
 | verified derived source product | CA-O-173 |
 | compiled product | CA-O-178 |
 | verified installed copy, `ca`, and Project-MCP smoke | complete |
 | failed or unsafe result | stop and report it for manual handling |
 
 ## Details
+
+The four named Step/Action occurrences are the complete registered graph. Intended local-release tool tests are mandatory internal Workflow work after successful CA-O-170 validation and before CA-O-172 delivery; they are not another Atom Step or Action and cannot be bypassed by interpreting an edge label as execution. The admitted native Workflow runner must actually run the declared tests, retain their observed result, and stop before delivery on failure, unavailable execution, or unknown completion. CA-O-165 remains validation-only. This clarification creates no test Atom ID, restored retired Step, or second Workflow.
 
 This Workflow starts on one Operator command. It runs Git before every listed Step and before intended tool tests, then runs Git again after final completion. It validates the current inputs, runs intended local-release tests, copies active sources into the product, compiles them, installs Engine `.install` into the Project runtime package, and smokes the installed Docker/MCP path. A failed step or test stops and is reported for manual handling. It never starts CA-O-188, pushes, opens a PR, or makes an installed copy authoritative.

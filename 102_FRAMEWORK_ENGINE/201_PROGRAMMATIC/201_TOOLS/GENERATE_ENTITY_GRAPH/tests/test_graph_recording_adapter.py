@@ -31,13 +31,8 @@ class GraphRecordingAdapterTests(unittest.TestCase):
             "step-run",
             "action-run",
             {
-                "event_id": "event-start",
-                "action_id": "CA-O-134",
-                "event_digest": "0" * 64,
-                "carrier": ".caprmedio/_journal/events.ndjson",
-                "line": 1,
-                "previous_carrier_digest": "0" * 64,
-                "appended_carrier_digest": "1" * 64,
+                "run_id": "action-run", "parent_run_id": "step-run", "kind": "action",
+                "definition": {"atom_id": "CA-O-134", "version": 1},
             },
         )
 

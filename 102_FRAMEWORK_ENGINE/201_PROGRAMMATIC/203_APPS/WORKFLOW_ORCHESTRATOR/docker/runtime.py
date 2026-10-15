@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
 import tempfile
 
@@ -15,6 +16,21 @@ except ImportError:  # direct execution: docker/ is the import root
 
 DIRECTORY = Path(__file__).resolve().parent
 SOURCE_ROOT = DIRECTORY.parents[4]
+_DIAGNOSTIC_LIMIT = 4096
+
+
+def _startup_diagnostic(value: object) -> str:
+    """Redact recognizable credentials before bounding mock-fixture diagnostics."""
+    if not isinstance(value, str):
+        return ""
+    value = re.sub(
+        r"(?im)\b(?:bearer\s+|(?:(?:access[_-]?|refresh[_-]?|id[_-]?|api[_-]?)?token"
+        r"|(?:client[_-]?)?secret|password|credentials?|api[_-]?key|authorization)[\"']?\s*[=:]).*$",
+        "[redacted]",
+        value,
+    )
+    value = re.sub(r"(?i)\b([a-z][a-z0-9+.-]*://)[^/\s@]+@", r"\1[redacted]@", value)
+    return value[-_DIAGNOSTIC_LIMIT:]
 
 
 class Runtime:
@@ -68,6 +84,20 @@ class Runtime:
             check=False,
         )
         if result.returncode:
+            if (
+                self.mock
+                and not authentication
+                and not self.auth_file
+                and capture
+                and arguments
+                and arguments[0] == "up"
+                and "-d" in arguments
+            ):
+                raise RuntimeError(
+                    f"Mock Docker startup failed (exit {result.returncode})\n"
+                    f"stdout: {_startup_diagnostic(result.stdout)}\n"
+                    f"stderr: {_startup_diagnostic(result.stderr)}"
+                )
             raise RuntimeError("Docker operation failed; inspect service logs")
         return result.stdout if capture else None
 
@@ -233,7 +263,7 @@ def main():
     parser.add_argument("--build-timeout", type=float, default=600, help="Bound image build seconds (maximum 600)")
     parser.add_argument("--no-build", action="store_true", help="Refuse a missing compatible image instead of building")
     parser.add_argument("--port", type=_project_mcp_port,
-                        help="Optional loopback port for project-mcp (1..65535)")
+                        help="Assert the Project Settings HTTP port for project-mcp (1..65535)")
     parser.add_argument("--output", choices=["json", "url"], default="json", help="Project MCP result format")
     parser.add_argument(
         "operation", choices=["build", "start", "stop", "restart", "status", "logs", "mcp",

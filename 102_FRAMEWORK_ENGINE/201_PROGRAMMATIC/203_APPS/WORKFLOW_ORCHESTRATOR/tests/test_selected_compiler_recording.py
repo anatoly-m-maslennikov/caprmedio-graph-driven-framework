@@ -19,6 +19,7 @@ sys.path.insert(0, str(TOOLS / "COMPILE_APPLICABLE_METHODOLOGY"))
 import compile_applicable_methodology as compiler  # noqa: E402
 import work_journal  # noqa: E402
 from selected_execution import SelectedExecution, build_requested_runs, canonical_json  # noqa: E402
+from selected_workflows_docker_fixture import GoldenCase, GoldenProject  # noqa: E402
 
 
 def digest(value: object) -> str:
@@ -41,7 +42,7 @@ def carrier(atom_id: str, *, version: int = 1) -> bytes:
 
 
 class SelectedCompilerRecordingTest(unittest.TestCase):
-    """The native projection is complete only after its actual Action Run seals."""
+    """Actual publication and Run outcomes remain separate from Journal I/O."""
 
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
@@ -70,50 +71,11 @@ class SelectedCompilerRecordingTest(unittest.TestCase):
         self.core.write_bytes(carrier("CA-R-001"))
         self._write_manifest()
 
-    def _write_definition(self, name: str, atom_id: str, version: int) -> dict[str, object]:
-        path = self.root / "definitions" / name
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(
-            f"---\natom_id: {atom_id}\nversion: {version}\nstatus: Active\n---\n# {atom_id}\n",
-            encoding="utf-8",
-        )
-        return {
-            "atom_id": atom_id,
-            "version": version,
-            "source_path": path.relative_to(self.root).as_posix(),
-            "digest": hashlib.sha256(path.read_bytes()).hexdigest(),
-        }
-
     def _write_manifest(self) -> None:
-        workflow = self._write_definition("workflow.md", "CA-O-011", 12)
-        step = self._write_definition("step.md", "CA-O-157", 2)
-        action = self._write_definition("action.md", "CA-O-009", 5)
-        self.source_freshness = {
-            "selected_source_registry_ref": "selected/registry.json",
-            "selected_source_registry_version": 1,
-            "selected_source_registry_digest": "a" * 64,
-            "selected_binding_ref": "selected/build-applicable-methodology.json",
-            "selected_binding_digest": "b" * 64,
-        }
-        value: dict[str, object] = {
-            "routes": [{
-                "route": "build_applicable_methodology",
-                "workflow": workflow,
-                "ordered_steps": [{"step": step, "action": action}],
-                "on_result": [{
-                    "from": "CA-O-157",
-                    "condition": "completed publication from the still-valid final frontier",
-                    "to": "complete",
-                }],
-                "native_action_calls": [],
-                "entry_step": "CA-O-157",
-            }],
-            "source_freshness": self.source_freshness,
-        }
-        value["canonical_manifest_sha256"] = digest(value)
+        fixture = GoldenProject(APP.parents[3], self.root, GoldenCase("W13", "build_applicable_methodology"))
+        value = fixture._copy_reviewed_manifest()
+        self.source_freshness = value["source_freshness"]
         self.manifest = self.control / "_projection/selected_workflow_bindings.json"
-        self.manifest.parent.mkdir(parents=True, exist_ok=True)
-        self.manifest.write_text(json.dumps(value), encoding="utf-8")
 
     def _compiler_parameters(self) -> dict[str, object]:
         places = compiler.methodology_paths(self.root)
@@ -218,21 +180,26 @@ class SelectedCompilerRecordingTest(unittest.TestCase):
             for line in path.read_text(encoding="utf-8").splitlines()
         ]
 
-    def test_compiler_publication_completes_only_after_actual_action_run_receipt(self) -> None:
+    def test_compiler_publication_retains_actual_action_outcome_and_output(self) -> None:
         runner, request = self._request("compiler-recorded")
         result = runner.dispatch(runner.freeze(request))
 
         self.assertEqual("terminal", result["disposition"])
-        self.assertEqual(3, len(result["run_ids"]))
+        expected = {row["requested_run_id"]: row for row in request["execution"]["requested_runs"]}
         self.assertEqual({"completed"}, {row["outcome"] for row in result["terminal_runs"]})
         projection = self._projection_bytes()
         self.assertEqual({"04_requirement/CA-R-001--core.md"}, set(projection))
         graph_result = json.loads((runner.run_directory("compiler-recorded") / "graph_result.json").read_text(encoding="utf-8"))
+        actual = {graph_result["workflow_run_id"]}
+        for row in graph_result["step_results"]:
+            actual.update((row["step_run_id"], row["action_run_id"]))
+        self.assertEqual(actual, set(result["run_ids"]))
+        self.assertLessEqual(actual, set(expected))
         self.assertEqual(
             "completed publication from the still-valid final frontier",
-            graph_result["step_results"][0]["result"],
+            graph_result["step_results"][-1]["result"],
         )
-        action_progress = runner.run_directory("compiler-recorded") / "compiler-recorded:step:1:action:1.json"
+        action_progress = runner.run_directory("compiler-recorded") / f"{graph_result['step_results'][-1]['action_run_id']}.json"
         progress = json.loads(action_progress.read_text(encoding="utf-8"))
         native = progress["native_result"]
         self.assertEqual("completed publication from the still-valid final frontier", progress["result"])
@@ -247,8 +214,13 @@ class SelectedCompilerRecordingTest(unittest.TestCase):
             event for event in events
             if event.get("kind") == "workflow_execution" and event.get("event") == "completed"
         ]
-        action_event = next(event for event in completed if event["run"]["kind"] == "action")
-        step_event = next(event for event in completed if event["run"]["kind"] == "step")
+        self.assertEqual(actual, {event["run"]["run_id"] for event in completed})
+        for event in completed:
+            planned = expected[event["run"]["run_id"]]
+            self.assertEqual(planned["definition"], event["run"]["definition"])
+            self.assertEqual(planned.get("parent_requested_run_id"), event["run"].get("parent_run_id"))
+        action_event = next(event for event in completed if event["run"]["run_id"] == graph_result["step_results"][-1]["action_run_id"])
+        step_event = next(event for event in completed if event["run"]["run_id"] == graph_result["step_results"][-1]["step_run_id"])
         workflow_event = next(event for event in completed if event["run"]["kind"] == "workflow")
         self.assertEqual("completed", action_event["outcome"])
         self.assertEqual(step_event["run"]["run_id"], action_event["run"]["parent_run_id"])
@@ -278,8 +250,8 @@ class SelectedCompilerRecordingTest(unittest.TestCase):
             def fail_action_terminal(*args: object, **kwargs: object) -> object:
                 events = args[1]
                 if (isinstance(events, list) and events and events[0].get("event") == "completed"
-                        and events[0].get("run", {}).get("kind") == "action"):
-                    raise OSError("fixture action receipt failure")
+                        and events[0].get("run", {}).get("definition", {}).get("atom_id") == "CA-O-009"):
+                    raise OSError("fixture action logging failure")
                 return append(*args, **kwargs)
 
             with patch.object(work_journal, "append_sealed_events", side_effect=fail_action_terminal):
@@ -287,18 +259,21 @@ class SelectedCompilerRecordingTest(unittest.TestCase):
             output_after_failure = self._projection_bytes()
             retry = runner.dispatch(frozen)
 
-        self.assertEqual("recording_pending", pending["disposition"])
-        self.assertEqual("inspect-or-recover-only", pending["retry_disposition"])
-        self.assertTrue(pending["pending_event_ids"])
+        self.assertEqual("terminal", pending["disposition"])
+        self.assertIn("fixture action logging failure", pending["diagnostics"])
         self.assertEqual(pending, retry)
         self.assertEqual(1, calls)
         self.assertEqual(output_after_failure, self._projection_bytes())
-        action_terminal = next(row for row in pending["terminal_runs"] if row["run_id"] == pending["run_ids"][2])
-        self.assertEqual("recording_pending", action_terminal["disposition"])
+        graph_result = json.loads((runner.run_directory("compiler-recording-pending") / "graph_result.json").read_text(encoding="utf-8"))
+        action_id = graph_result["step_results"][-1]["action_run_id"]
+        action_terminal = next(row for row in pending["terminal_runs"] if row["run_id"] == action_id)
+        self.assertEqual("terminal", action_terminal["disposition"])
         self.assertEqual("completed", action_terminal["outcome"])
+        self.assertEqual("fixture action logging failure", action_terminal["recording_error"])
+        self.assertFalse(any(event.get("run", {}).get("run_id") == action_id and event.get("event") == "completed" for event in self._journal_events()))
         progress = json.loads((runner.run_directory("compiler-recording-pending") /
-                               "compiler-recording-pending:step:1:action:1.json").read_text(encoding="utf-8"))
-        self.assertEqual("publication recording required", progress["result"])
+                               f"{action_id}.json").read_text(encoding="utf-8"))
+        self.assertEqual("completed publication from the still-valid final frontier", progress["result"])
         self.assertEqual("pending_recording", progress["native_result"]["outcome"])
 
 

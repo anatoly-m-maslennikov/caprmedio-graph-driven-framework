@@ -3,6 +3,7 @@ import asyncio
 import hashlib
 import json
 import os
+import shutil
 from pathlib import Path
 import sys
 import tempfile
@@ -11,6 +12,7 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 MCP = Path(__file__).resolve().parents[1]
+ROOT = MCP.parents[2]
 TOOLS = MCP.parent / "201_TOOLS"
 sys.path[:0] = [str(MCP), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS")]
 
@@ -19,7 +21,7 @@ from atom_operations import control_root, project_identity_prefix, resolve_repos
 from artifact_metadata import configured_timezone, project_identity
 from authoritative_status_models import _configured_control_root
 from capability_discovery.service import Service
-from hot_reload import Gateway
+from hot_reload import Gateway, _singleton_lock_path, _open_singleton_lock, _close_singleton_lock
 import selected_routes
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
 
@@ -54,6 +56,31 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual("UTC", str(configured_timezone(selection.root)))
                 self.assertEqual(selection.control_relative.as_posix() + "/_projection/selected_workflow_bindings.json",
                                  selected_routes.selected_manifest_ref(selection.root))
+
+    def test_runtime_namespace_properties_are_selected_and_read_only(self):
+        for selection in self.selections:
+            runtime = selection.root / ".caprmedio_runtime/runtime"
+            self.assertEqual(runtime / "project_mcp" / selection.instance_id, selection.launcher_state)
+            self.assertEqual(runtime / "mcp_hot_reload" / selection.instance_id, selection.reload_state)
+            self.assertFalse(runtime.exists())
+            self.assertFalse((selection.root / ".caprmedio_install").exists())
+
+    def test_gateway_fence_is_inside_exact_runtime_instance_and_retains_old_bytes(self):
+        selection = self.selections[0]
+        legacy = selection.root / ".caprmedio_install/runtime_locks/mcp_hot_reload" / (selection.instance_id + ".lock")
+        legacy.parent.mkdir(parents=True)
+        legacy.write_bytes(b"retained legacy observation")
+        expected = selection.reload_state / "gateway.lock"
+        self.assertEqual(expected, _singleton_lock_path(selection.root, selection.instance_id))
+        held = _open_singleton_lock(selection.root, selection.instance_id)
+        try:
+            with self.assertRaisesRegex(RuntimeError, "busy"):
+                _open_singleton_lock(selection.root, selection.instance_id)
+            other = _open_singleton_lock(self.selections[1].root, self.selections[1].instance_id)
+            _close_singleton_lock(other)
+        finally:
+            _close_singleton_lock(held)
+        self.assertEqual(b"retained legacy observation", legacy.read_bytes())
 
     def test_foreign_root_and_outside_project_source_refuse(self):
         alpha, beta = self.selections
@@ -94,12 +121,25 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
         selection = self.selections[0]
         with bind_selection(selection):
             admitted = selected_routes._query_admission_specs(selection.root)
-            self.assertEqual(selected_routes._QUERY_SOURCE_ADMISSION_SPECS[0]["workflow"]["digest"], admitted[0]["workflow"]["digest"])
+            for original, bound in zip(selected_routes._QUERY_SOURCE_ADMISSION_SPECS, admitted, strict=True):
+                original_pins = [original["acceptance_frontier"], original["workflow"],
+                                 *original["ordered_actions"],
+                                 *[pin for step in original["ordered_steps"] for pin in step.values()]]
+                bound_pins = [bound["acceptance_frontier"], bound["workflow"],
+                              *bound["ordered_actions"],
+                              *[pin for step in bound["ordered_steps"] for pin in step.values()]]
+                for source, target in zip(original_pins, bound_pins, strict=True):
+                    for field in ("atom_id", "version", "digest"):
+                        self.assertEqual(source[field], target[field])
+                    destination = selection.root / target["source_path"]
+                    destination.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(ROOT / source["source_path"], destination)
             routes = [{**row, "mutation_capable": False} for row in admitted]
-            with patch.object(selected_routes, "_validate_pin", side_effect=lambda root, pin: dict(pin)):
-                self.assertEqual(list(admitted), selected_routes._validate_query_source_admissions(selection.root, list(admitted), routes))
-                with self.assertRaisesRegex(selected_routes.SelectedRouteError, "accepted source frontier"):
-                    selected_routes._validate_query_source_admissions(selection.root, list(selected_routes._QUERY_SOURCE_ADMISSION_SPECS), routes)
+            self.assertEqual(list(admitted), selected_routes._validate_query_source_admissions(
+                selection.root, list(admitted), routes))
+            with self.assertRaisesRegex(selected_routes.SelectedRouteError, "another Project authority"):
+                selected_routes._validate_query_source_admissions(
+                    selection.root, list(selected_routes._QUERY_SOURCE_ADMISSION_SPECS), routes)
 
     def test_typed_source_admission_uses_selected_carriers_and_keeps_byte_pin(self):
         selection = self.selections[0]
@@ -153,6 +193,9 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
                             ("--instance-id", selection.instance_id), ("--host-project-root", str(selection.host_root))):
             self.assertEqual(value, args[args.index(flag) + 1])
         self.assertNotIn("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN", observed["params"].env)
+        self.assertIn(f'pycache_prefix={selection.root / ".caprmedio_tmp/mcp_hot_reload" / selection.instance_id / "fixed"}', args)
+        self.assertFalse((selection.reload_state / "bytecode").exists())
+        gateway._release_singleton_fence()
 
 
 if __name__ == "__main__":

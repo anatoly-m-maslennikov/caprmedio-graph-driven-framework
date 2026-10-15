@@ -35,6 +35,7 @@ from validate_atoms_workers.graph_authority_refresh import (  # noqa: E402
     APPROVED_GRAPH_AUTHORITY_IDS,
     verify_entries,
 )
+from project_selection import resolve_project  # noqa: E402
 
 
 FIXTURE_SCOPE = "PARENT"
@@ -43,18 +44,6 @@ FIXTURE_AUTHORITY = (
     "201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/PARENT"
 )
 REGISTERED_AUTHOR = "Anatoly Maslennikov"
-STATUS_MODEL_SOURCES = (
-    Path(
-        ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-        "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/"
-        "CA-R-1398-CORE_META_MODEL-GENERAL--register-core-evaluation-status-values.md"
-    ),
-    Path(
-        ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-        "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/"
-        "CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md"
-    ),
-)
 
 
 class ProposedRelationAdmissionTest(unittest.TestCase):
@@ -79,6 +68,8 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
     def _write_project_context(self) -> None:
         control = self.root / ".caprmedio_caprmedio"
         (control / "caprmedio_project_settings.toml").write_text(
+            '[project]\nkey = "CA"\nname = "caprmedio"\nrepository_slug = "fixture"\n'
+            '[artifacts.identity]\nproject_prefix = "CA"\n'
             '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n', encoding="utf-8"
         )
         (control / "operators_registry.toml").write_text(
@@ -86,6 +77,11 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
             f'name = "{REGISTERED_AUTHOR}"\n'
             'role = "project owner"\n',
             encoding="utf-8",
+        )
+        core_owner = next(
+            row["authority_path"]
+            for row in resolve_project(PROJECT).structure["scope_units"]
+            if row["scope_unit_name"] == "CORE_META_MODEL"
         )
         (control / "project_structure.toml").write_text(
             "schema_version = 1\n\n"
@@ -99,6 +95,20 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
             "navigational_order_number = 1\n"
             f'authority_path = "{FIXTURE_AUTHORITY}"\n'
             'delivery_path = "102_FRAMEWORK_ENGINE"\n'
+            'authority_mode = "strict"\n\n'
+            '[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\n'
+            'parent = "PROJECT"\nscope_unit_type = "Unordered"\n'
+            'scope_unit_label = "LAYER"\nstructural_level = 1\n'
+            'navigational_order_number = 2\n'
+            f'authority_path = "{Path(core_owner).parent.as_posix()}"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources"\n'
+            'authority_mode = "strict"\n\n'
+            '[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
+            'parent = "METHODOLOGY_SOURCES"\nscope_unit_type = "Unordered"\n'
+            'scope_unit_label = "LAYER"\nstructural_level = 2\n'
+            'navigational_order_number = 1\n'
+            f'authority_path = "{core_owner}"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources/001_CORE_META_MODEL"\n'
             'authority_mode = "strict"\n',
             encoding="utf-8",
         )
@@ -118,20 +128,21 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
     def _copy_verified_authority_closure(self) -> None:
         """Copy exact current source bytes, then independently verify graph pins."""
 
-        for identifier in (*proposed_carrier._REGISTRY_IDS, *proposed_carrier._SUPPORT_IDS):
+        for identifier in (
+            *proposed_carrier._REGISTRY_IDS, *proposed_carrier._SUPPORT_IDS,
+            *proposed_carrier._FRONTIER_IDS,
+        ):
             entry = proposed_carrier._entry(identifier)
             self.assertIsInstance(entry, dict)
             self._copy_source(entry)
 
         graph_entries = json.loads((WORKERS / "graph_authority.json").read_text(encoding="utf-8"))["sources"]
-        self.assertEqual(25, len(APPROVED_GRAPH_AUTHORITY_IDS))
+        self.assertEqual(26, len(APPROVED_GRAPH_AUTHORITY_IDS))
         self.assertTrue(set(APPROVED_GRAPH_AUTHORITY_IDS).issubset(graph_entries))
         for identifier in APPROVED_GRAPH_AUTHORITY_IDS:
             entry = graph_entries[identifier]
             self.assertIsInstance(entry, dict)
             self._copy_source(entry)
-        for source in STATUS_MODEL_SOURCES:
-            self._copy_project_file(source)
         verify_entries(self.root, graph_entries)
         self.graph_entries = graph_entries
 
@@ -178,7 +189,7 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
         version: int = 1,
         extra: str = "",
     ) -> str:
-        kind = f'type: "{role}"\n' if role in {"Evaluation", "Plan"} else ""
+        kind = 'type: "QA Case"\n' if role == "Evaluation" else 'type: "Plan"\n' if role == "Plan" else ""
         return (
             f'atom_id: "{atom_id}"\n'
             f'content_role: "{role}"\n'
@@ -273,7 +284,7 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
         self._target("CA-R-920004")
         self._target(
             "CA-R-920004",
-            relative=self._relative("04_requirement", "duplicate", "CA-R-920004--target.md"),
+            relative=self._relative("04_requirement", "CA-R-920004--duplicate.md"),
         )
         self._refuses(self._evaluation("CA-E-920005", ["CA-R-920004"]))
 

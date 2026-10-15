@@ -1,4 +1,4 @@
-"""Explicit process generations; no watcher, workflow dispatch or automatic replay."""
+"""Explicit process generations and connected Subject publication; no automatic replay."""
 import asyncio
 import fcntl
 import hashlib
@@ -68,24 +68,27 @@ GENERATION_READY_TIMEOUT_SECONDS = 20
 # Read-only catalog scans have their own sixty-second bound and watch calls may
 # wait thirty seconds.  The child's startup budget must not truncate either.
 IMPLEMENTATION_CALL_TIMEOUT_SECONDS = 90
+# Scratch staging repeats the sealed preview before returning completion.
+SUBJECT_STAGE_CALL_TIMEOUT_SECONDS = 180
 _STARTUP_TELEMETRY_ENV = 'CAPRMEDIO_STARTUP_TELEMETRY'
 _STARTUP_PHASES = frozenset({
     'initial_fingerprint', 'reload_fingerprint', 'fingerprint_verify',
     'child_handshake', 'list_tools', 'generation_ready', 'schema_validation',
+    'implementation_import', 'selected_registration', 'catalog', 'catalog_registration',
 })
-_SINGLETON_LOCK_PARTS = ('.caprmedio_install', 'runtime_locks', 'mcp_hot_reload')
+_SINGLETON_LOCK_PARTS = ('.caprmedio_runtime', 'runtime', 'mcp_hot_reload')
 _INSTANCE_ID = re.compile(r'[0-9a-f]{64}\Z')
 _PROCESS_QUERY_MAX_BYTES = 64 * 1024
 _PROCESS_QUERY_MAX_SECONDS = 2.0
 _GATEWAY_ENTRYPOINTS = frozenset(('server.py', 'http_server.py'))
 
 
-def _startup_telemetry_enabled():
+def _startup_telemetry_enabled() -> bool:
     """Keep bounded startup timing diagnostics opt-in and transport-safe."""
     return os.environ.get(_STARTUP_TELEMETRY_ENV) == '1'
 
 
-def _startup_timing(enabled, phase, started, outcome='completed'):
+def _startup_timing(enabled: bool, phase: str, started: float, outcome: str = 'completed') -> None:
     """Emit fixed phase timing only; never put diagnostic data on MCP stdout."""
     if enabled and phase in _STARTUP_PHASES:
         elapsed_ms = max(0, round((time.monotonic() - started) * 1000))
@@ -101,7 +104,7 @@ def _singleton_lock_path(root, instance_id):
         current = Path(root).resolve(strict=True)
         if not current.is_dir() or current.is_symlink():
             raise ValueError()
-        for part in _SINGLETON_LOCK_PARTS:
+        for part in (*_SINGLETON_LOCK_PARTS, instance_id):
             current = current / part
             status = os.lstat(current) if os.path.lexists(current) else None
             if status is None:
@@ -109,7 +112,7 @@ def _singleton_lock_path(root, instance_id):
                 status = os.lstat(current)
             if stat.S_ISLNK(status.st_mode) or not stat.S_ISDIR(status.st_mode):
                 raise ValueError()
-        return current / f'{instance_id}.lock'
+        return current / 'gateway.lock'
     except (OSError, RuntimeError, TypeError, ValueError) as error:
         raise RuntimeError('MCP gateway singleton fence is unavailable') from error
 
@@ -310,11 +313,13 @@ class Gateway:
             raise ValueError('Gateway selection belongs to another Project')
         self.implementation = Path(implementation or Path(__file__).with_name('implementation_server.py'))
         self.active, self.generations = None, []
+        self.subject_stages = {}
         self.reload_lock, self.receipts = asyncio.Lock(), {}
         self.generation_fence = threading.Lock()
         self._singleton_descriptor = None
         self._initialized = False
-        self.storage = selection.reload_state if selection is not None else self.root / '.caprmedio_install/mcp_hot_reload'
+        self.storage = (selection.reload_state if selection is not None else
+                        self.root / '.caprmedio_runtime/runtime/mcp_hot_reload' / self._singleton_instance_id)
 
     @property
     def _singleton_instance_id(self):
@@ -359,7 +364,7 @@ class Gateway:
             if self.selection.host_root is not None:
                 arguments += ['--host-project-root', str(self.selection.host_root)]
         generation = Generation(StdioServerParameters(command=sys.executable,
-            args=['-B', '-X', f'pycache_prefix={self.storage / "bytecode" / fingerprint}',
+            args=['-B', '-X', f'pycache_prefix={self.root / ".caprmedio_tmp/mcp_hot_reload" / self._singleton_instance_id / fingerprint}',
                   *arguments],
             env=environment), fingerprint)
         phase = 'generation_ready'
@@ -409,7 +414,8 @@ class Gateway:
     @staticmethod
     def child_environment():
         """Pass only runtime essentials; transport credentials never reach tools."""
-        allowed = {'PATH', 'TMPDIR', 'TEMP', 'TMP', 'LANG', 'TZ', 'CAPRMEDIO_RUNTIME_NAMESPACE'}
+        allowed = {'PATH', 'TMPDIR', 'TEMP', 'TMP', 'LANG', 'TZ',
+                   'CAPRMEDIO_RUNTIME_NAMESPACE', _STARTUP_TELEMETRY_ENV}
         return {key: value for key, value in os.environ.items()
                 if key in allowed or key.startswith('LC_')}
 
@@ -540,6 +546,86 @@ class Gateway:
         with bind_selection(self.selection) if self.selection is not None else nullcontext():
             return await self._call(context, params)
 
+    def _retain_subject_stage(self, context, response):
+        # The SDK makes a fresh Session proxy per request around this Connection.
+        connection = getattr(getattr(context, 'session', None), '_connection', None)
+        value = response.structured_content
+        if connection is None or response.is_error or not isinstance(value, dict):
+            return
+        preview, staged = value.get('preview'), value.get('staging')
+        if (value.get('operation') != 'stage_subjects' or value.get('errors') != []
+                or not isinstance(preview, dict) or preview.get('count') != 1
+                or not isinstance(preview.get('atoms'), list) or len(preview['atoms']) != 1
+                or not isinstance(staged, dict)):
+            return
+        atom = preview['atoms'][0]
+        intent = atom.get('subject_intent_sha256') if isinstance(atom, dict) else None
+        path, pin = staged.get('manifest_path'), staged.get('manifest_sha256')
+        if (not isinstance(intent, str) or not isinstance(path, str)
+                or not isinstance(pin, str)):
+            return
+        self.subject_stages[(id(connection), intent)] = (connection, {'path': path, 'digest': pin})
+
+    async def _confirm_subject(self, context, arguments):
+        from selected_routes import SelectedRouteAdapter, _QueueBackedSelectedSupport
+        app = Path(__file__).resolve().parents[1] / '203_APPS/WORKFLOW_ORCHESTRATOR'
+        if str(app) not in sys.path:
+            sys.path.insert(0, str(app))
+        from selected_execution import SelectedExecution
+        from subject_publication_confirmation import confirm_subject_publication, _result
+        from atom_subject_apply import _parameters, _prepare
+        from connector_bindings import capture_source
+        import atom_operations
+        from operator_registry import parse_operators_registry
+
+        try:
+            if set(arguments) != {'request'}:
+                raise ValueError('Expected only request')
+            adapter = SelectedRouteAdapter(self.root)
+            request = adapter._validate_request('update_atom', arguments['request'])
+            refusal = adapter._validate_execute(request)
+            if refusal:
+                raise ValueError(refusal)
+            parameters = _parameters(request['parameters'])
+            registry = capture_source(self.root, atom_operations.control_root(self.root).relative_to(self.root)
+                                      / 'operators_registry.toml')
+            operators = parse_operators_registry(registry.read_bytes())
+            if _prepare(self.root, parameters)['subject_intent']['noop']:
+                return None
+            connection = getattr(getattr(context, 'session', None), '_connection', None)
+            retained = self.subject_stages.get((id(connection), parameters['subject_intent_sha256']))
+            if retained is None or retained[0] is not connection:
+                raise ValueError('This connected session has no successful one-Atom stage for the exact intent')
+            if len(operators) != 1:
+                raise ValueError('Connected Subject publication requires one registered Operator name association')
+            runner = SelectedExecution(self.root)
+            frozen = runner.freeze({'operation': 'enqueue_selected',
+                'run_id': _QueueBackedSelectedSupport._workflow_run_id(request), 'execution': request})
+        except (AttributeError, KeyError, TypeError, ValueError, RuntimeError, OSError) as error:
+            return _result('refused', diagnostic=str(error))
+        return await confirm_subject_publication(context, runner, frozen,
+            operator_name=operators[0].name, staged_manifest=retained[1], operator_registry=registry)
+
+    async def _implementation_call(self, context, params, generation):
+        request = params.arguments.get('request') if isinstance(params.arguments, dict) else None
+        if (params.name == 'update_atom' and isinstance(request, dict)
+                and request.get('mode') == 'execute'
+                and isinstance(request.get('parameters'), dict)
+                and 'subject_patches' in request['parameters']):
+            confirmed = await self._confirm_subject(context, params.arguments)
+            if confirmed is not None:
+                return confirmed
+        timeout = IMPLEMENTATION_CALL_TIMEOUT_SECONDS
+        staging = (params.name == 'atom_update' and isinstance(request, dict)
+                   and request.get('operation') == 'stage_subjects')
+        if staging:
+            timeout = SUBJECT_STAGE_CALL_TIMEOUT_SECONDS
+        response = await generation.client.call_tool(params.name, params.arguments,
+            read_timeout_seconds=timeout)
+        if staging:
+            self._retain_subject_stage(context, response)
+        return response
+
     async def _call(self, context, params):
         if params.name == STATUS.name:
             if params.arguments != {'request': {}}:
@@ -552,8 +638,7 @@ class Gateway:
         try:
             if params.name not in {t.name for t in generation.tools}:
                 return result({'outcome': 'rejected', 'diagnostics': ['Unknown Tool']}, True)
-            response = await generation.client.call_tool(params.name, params.arguments,
-                read_timeout_seconds=IMPLEMENTATION_CALL_TIMEOUT_SECONDS)
+            response = await self._implementation_call(context, params, generation)
             from activation_refresh import activation_succeeded, attach_receipt, completion_marker
             try:
                 marker = completion_marker(response.structured_content)

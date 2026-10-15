@@ -20,8 +20,7 @@ from zoneinfo import ZoneInfo
 TOOLS = Path(__file__).resolve().parents[5] / '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS'
 sys.path.insert(0, str(TOOLS))
 from project_runtime import atomic_tempfile  # noqa: E402 - repository path bootstrap
-from work_journal import (append_sealed_events, configured_journal_root,  # noqa: E402
-                          with_event_digest, validate_sealed_event, validate_partition)
+from work_journal import append_sealed_events, configured_journal_root  # noqa: E402
 from workflow_progress import report_progress, summarize_progress  # noqa: E402
 
 WORKFLOW = 'RMED Atoms Base Revise'
@@ -142,22 +141,8 @@ class RunEvidence:
         self._atomic(self.path(state['report_path']), render_report(state).encode())
 
     def _sync(self, state):
-        state['recording_blockers'] = []
-        # Recovery state and immutable outbox are saved before external effects.
-        self._save(state)
-        for entry in state['events']:
-            if entry['receipt'] is not None:
-                continue
-            try:
-                self.path(state['journal'])
-                self.path('.caprmedio_runtime')
-                entry['receipt'] = append_sealed_events(self.root, [entry['event']],
-                    author=state['author'], local_date=entry['event']['occurred_at'][:10],
-                    timezone=state['timezone'])[0]
-            except (OSError, RuntimeError, ValueError) as error:
-                state['recording_blockers'].append({'stage': 'journal',
-                    'event_id': entry['event']['event_id'], 'error': str(error)})
-                break  # Retain event order; retry storage only, never the Action.
+        state['recording_blockers'] = [item for item in state['recording_blockers']
+                                      if item['stage'] != 'report']
         self._save(state)
         try:
             self._write_report(state)
@@ -172,15 +157,23 @@ class RunEvidence:
 
     def _event(self, state, event, step, outcome, details):
         now = datetime.now(ZoneInfo(state['timezone'])).isoformat()
-        value = with_event_digest({'schema_version': 4, 'kind': 'workflow_execution',
+        value = {'schema_version': 4, 'kind': 'workflow_execution',
             'event_id': str(uuid.uuid4()), 'action_id': state['workflow_run_id'],
             'event': event, 'author': state['author'], 'occurred_at': now,
             'llm_session': state['session'], 'structural_scope': state['scope'],
             'workflow_run_id': state['workflow_run_id'], 'workflow_name': WORKFLOW,
-            'step': step, 'outcome': outcome, 'report_path': state['report_path'], 'details': details})
-        validate_sealed_event(value)
-        state['events'].append({'event': value, 'receipt': None})
+            'step': step, 'outcome': outcome, 'report_path': state['report_path'], 'details': details}
+        entry = {'event': value, 'receipt': None}
+        state['events'].append(entry)
         state['updated_at'] = now
+        self._save(state)
+        try:
+            entry['receipt'] = append_sealed_events(self.root, [value],
+                author=state['author'], local_date=now[:10], timezone=state['timezone'])[0]
+        except (OSError, RuntimeError, ValueError) as error:
+            # The Run is already saved; a log failure never retries its effects.
+            state['recording_blockers'].append({'stage': 'journal',
+                'event_id': value['event_id'], 'error': str(error)})
 
     def start(self, run_id, request, *, author, session, scope, timezone='UTC', definition=None):
         with self._lock(run_id):
@@ -188,7 +181,6 @@ class RunEvidence:
             if path.exists():
                 raise ValueError('run already exists; resume it instead')
             now = datetime.now(ZoneInfo(timezone)).isoformat()
-            validate_partition(author, now[:10], timezone)
             journal = configured_journal_root(self.root).as_posix()
             self.path(journal)
             state = {'workflow_name': WORKFLOW, 'workflow_run_id': run_id,
@@ -269,7 +261,7 @@ class RunEvidence:
                 raise ValueError('ordinal outside frozen selection')
             previous = state['reports'][ordinal]
             if previous == report:
-                return self._sync(state)  # Retry the acknowledgement, not the effect.
+                return self._sync(state)
             self._running(state)
             if stage not in {'check', 'fix'}:
                 raise ValueError('stage must be check or fix')

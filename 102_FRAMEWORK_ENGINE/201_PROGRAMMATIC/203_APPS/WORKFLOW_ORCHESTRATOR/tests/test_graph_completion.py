@@ -107,12 +107,12 @@ class GraphCompletionTests(unittest.TestCase):
 
         self.assertEqual(before, observation)
         self.assertEqual("built", result["outcome"])
-        self.assertEqual("pass", result["quality_dispositions"]["recording"])
+        self.assertEqual("not_applicable", result["quality_dispositions"]["recording"])
         self.assertEqual(
-            {"state": "recorded", "terminal_receipt_ref": "fixture-terminal-event"},
+            {"state": "completed"},
             result["completion"],
         )
-        self.assertEqual(["fixture-start-event", "fixture-terminal-event"], result["run_receipt_refs"])
+        self.assertNotIn("run_receipt_refs", result)
         self.assertEqual(before["output_effects"], result["output_effects"])
 
     def test_unchanged_projection_can_only_become_recorded_no_op(self) -> None:
@@ -125,26 +125,18 @@ class GraphCompletionTests(unittest.TestCase):
         result = self.finalize(observation, terminal, receipts=[start, receipt])
 
         self.assertEqual("no_op", result["outcome"])
-        self.assertEqual("recorded", result["completion"]["state"])
+        self.assertEqual("completed", result["completion"]["state"])
         self.assertEqual([], result["output_effects"]["paths"])
 
-    def test_recording_failure_retains_actual_effect_and_pending_identity(self) -> None:
+    def test_logging_metadata_does_not_gate_actual_terminal_completion(self) -> None:
         observation = self.observation()
-        start = self.receipt("fixture-start-event")
-        terminal = self.terminal(outcome="completed", disposition="recording_pending")
-
-        result = self.finalize(
-            observation, terminal, receipts=[start], pending_event_id="fixture-pending-terminal-event",
-        )
-
-        self.assertEqual("incomplete", result["outcome"])
-        self.assertEqual("unresolved", result["quality_dispositions"]["recording"])
-        self.assertEqual(
-            {"state": "recording_pending", "pending_receipt_ref": "fixture-pending-terminal-event"},
-            result["completion"],
-        )
+        terminal = self.terminal(outcome="completed")
+        result = self.finalize(observation, terminal, receipts=[], pending_event_id="ignored-old-metadata")
+        self.assertEqual("built", result["outcome"])
+        self.assertEqual("not_applicable", result["quality_dispositions"]["recording"])
+        self.assertEqual({"state": "completed"}, result["completion"])
         self.assertEqual(observation["output_effects"], result["output_effects"])
-        self.assertEqual(["fixture-start-event"], result["run_receipt_refs"])
+        self.assertNotIn("run_receipt_refs", result)
 
     def test_missing_terminal_blocks_without_converting_construction_to_built(self) -> None:
         observation = self.observation()
@@ -154,7 +146,7 @@ class GraphCompletionTests(unittest.TestCase):
 
         self.assertEqual("incomplete", result["outcome"])
         self.assertEqual({"state": "blocked"}, result["completion"])
-        self.assertEqual("unresolved", result["quality_dispositions"]["recording"])
+        self.assertEqual("not_applicable", result["quality_dispositions"]["recording"])
 
     def test_forged_or_mismatched_terminal_fails_closed(self) -> None:
         observation = self.observation()
@@ -162,7 +154,8 @@ class GraphCompletionTests(unittest.TestCase):
         receipt = self.receipt()
         cases = (
             self.terminal(outcome="completed", receipt=receipt, effect_refs=[]),
-            self.terminal(outcome="completed", receipt=self.receipt("forged-event")),
+            {**self.terminal(outcome="completed"), "run_id": "another-actual-Run"},
+            {**self.terminal(outcome="completed"), "result_ref": "another/result.json"},
             self.terminal(outcome="no_op", receipt=receipt),
         )
 
@@ -172,8 +165,8 @@ class GraphCompletionTests(unittest.TestCase):
                     self.finalize(observation, terminal, receipts=[start, receipt])
 
 
-class GraphCompletionRecoveryTests(unittest.TestCase):
-    """Reconciliation reads retained evidence; it never reinvokes construction."""
+class GraphCompletionRetainedRunTests(unittest.TestCase):
+    """Reconciliation reads actual retained Runs; it never repeats construction."""
 
     run_id = "fixture-workflow"
     requested_step = "fixture-workflow:step:1"
@@ -297,7 +290,7 @@ class GraphCompletionRecoveryTests(unittest.TestCase):
             _session_result=lambda *_args: {"disposition": "terminal", "outcome": "completed"},
         )
         execute = MagicMock(side_effect=AssertionError("reconciliation must not rerun the graph builder"))
-        pending_reader = MagicMock(side_effect=AssertionError("recovered evidence must not read a pending carrier"))
+        no_append = MagicMock(side_effect=AssertionError("result observation must not append a Journal row"))
         with patch.object(self.runner, "_revalidate", return_value=graph), \
              patch.object(self.runner, "_shared_tracker", return_value=tracker), \
              patch.object(self.runner, "run_directory", return_value=self.folder), \
@@ -307,17 +300,16 @@ class GraphCompletionRecoveryTests(unittest.TestCase):
              patch.object(self.runner, "_write", side_effect=lambda path, value: writes.__setitem__(path, value)), \
              patch.object(self.runner, "_execute_graph", execute), \
              patch("selected_run_recovery.read_selected_run_evidence", return_value={"events": [{"event": {"event_id": "action-terminal"}}]}), \
-             patch("selected_run_recovery.validate_selected_run_events"), \
              patch("workflow_run_support._validate_common", return_value=execution), \
              patch("workflow_run_support._proposal", return_value={"fixture": "proposal"}), \
              patch("workflow_run_support.RunExecutionSession.restore", return_value=session), \
-             patch("work_journal._read_pending_event", pending_reader):
+             patch("work_journal.append_sealed_events", no_append):
             result = self.runner.reconcile_graph_recording(frozen)
         execute.assert_not_called()
-        pending_reader.assert_not_called()
+        no_append.assert_not_called()
         return result, writes, values, execute
 
-    def test_recovery_uses_sealed_evidence_without_replaying_builder(self) -> None:
+    def test_retained_actual_run_finalizes_without_replaying_builder(self) -> None:
         result, writes, _values, _execute = self.reconcile()
 
         progress = writes[self.progress_path]
@@ -325,7 +317,7 @@ class GraphCompletionRecoveryTests(unittest.TestCase):
         self.assertEqual(("terminal", "completed"), (result["disposition"], result["outcome"]))
         self.assertEqual("completed", progress["result"])
         self.assertEqual("built", progress["native_result"]["outcome"])
-        self.assertEqual("recorded", progress["native_result"]["completion"]["state"])
+        self.assertEqual("completed", progress["native_result"]["completion"]["state"])
         self.assertEqual("completed", aggregate["outcome"])
         self.assertEqual("completed", aggregate["step_results"][0]["result"])
 
@@ -415,8 +407,7 @@ class GraphCompletionStatusTests(unittest.TestCase):
         handle.get_result.return_value = {"cached_dbos_result": True}
         transport = MagicMock()
         transport.retrieve_workflow.return_value = handle
-        with patch.object(backend, "release_host_runtime", return_value=False), \
-             patch.object(backend, "SelectedExecution", return_value=selected), \
+        with patch.object(backend, "SelectedExecution", return_value=selected), \
              patch.object(backend, "client", return_value=transport):
             observed = backend.status(self.root, {"operation": "status", "run_id": self.run_id})
         transport.destroy.assert_called_once()

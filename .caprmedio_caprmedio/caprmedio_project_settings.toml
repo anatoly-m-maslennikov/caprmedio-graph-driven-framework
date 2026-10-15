@@ -1,4 +1,4 @@
-# Project Settings: [project] and [artifacts.identity] are authoritative Operator inputs.
+# Project Settings: [project], [artifacts.identity] and [project_mcp] are authoritative Operator inputs.
 # Other sections are retained legacy compatibility data pending Settings migration.
 # The legacy projection metadata below does not govern Project identity.
 
@@ -134,3 +134,6 @@ key = "caprmedio"
 name = "caprmedio"
 obsolete_names = ["DSET", "CARMAIO", "CARMADIO"]
 repository_slug = "caprmedio-graph-driven-framework"
+
+[project_mcp]
+http_port = 56317

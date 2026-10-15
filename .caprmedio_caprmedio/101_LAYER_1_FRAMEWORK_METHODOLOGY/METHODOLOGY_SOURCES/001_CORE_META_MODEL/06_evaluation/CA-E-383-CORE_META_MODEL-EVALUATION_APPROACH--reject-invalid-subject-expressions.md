@@ -14,8 +14,8 @@ subjects:
     - "Scope Unit/Name"
     - "Subject"
     - "Subject Path"
-version: 15
-updated_at: "2026-10-11 18:04:47 +0400"
+version: 16
+updated_at: "2026-10-14 13:43:24 +0400"
 relations:
   evaluation_for:
     - CA-R-1194
@@ -38,7 +38,9 @@ author: "Anatoly Maslennikov"
 type: "Evaluation Approach"
 global_tier: 11
 ---
-# Reject Invalid Subject Expressions
+# Summary
+
+Reject Invalid Subject Expressions
 
 ## Scope
 

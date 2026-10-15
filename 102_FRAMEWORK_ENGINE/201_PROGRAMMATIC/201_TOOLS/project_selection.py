@@ -8,7 +8,7 @@ variables never select a Project or replace its identity here.
 
 from __future__ import annotations
 
-from collections.abc import Iterator, Mapping
+from collections.abc import Iterable, Iterator, Mapping
 from contextlib import contextmanager
 from contextvars import ContextVar
 from dataclasses import dataclass, field, replace
@@ -56,6 +56,7 @@ class ProjectSelection:
     structure: Mapping[str, Any]
     provenance: Mapping[str, Any] = field(default_factory=dict)
     host_root: Path | None = None
+    _boundary_proof: _DeclarationBoundaryProof | None = field(default=None, repr=False, compare=False)
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "settings", _freeze(self.settings))
@@ -70,6 +71,11 @@ class ProjectSelection:
     def structure_path(self) -> Path:
         return self.control_root / STRUCTURE_FILENAME
 
+    def _revalidate_boundary(self, *, reader: ReadContext | None = None) -> None:
+        if self._boundary_proof is None:
+            raise ProjectSelectionError("Selected Project declaration boundary proof is unavailable")
+        self._boundary_proof.revalidate(reader=reader)
+
     @property
     def installed_state(self) -> Path:
         return self.launcher_state
@@ -80,11 +86,11 @@ class ProjectSelection:
 
     @property
     def launcher_state(self) -> Path:
-        return self.root / ".caprmedio_install" / "project_mcp" / self.instance_id
+        return self.root / ".caprmedio_runtime" / "runtime" / "project_mcp" / self.instance_id
 
     @property
     def reload_state(self) -> Path:
-        return self.root / ".caprmedio_install" / "mcp_hot_reload" / self.instance_id
+        return self.root / ".caprmedio_runtime" / "runtime" / "mcp_hot_reload" / self.instance_id
 
 
 _SELECTION: ContextVar[ProjectSelection | None] = ContextVar("caprmedio_project_selection", default=None)
@@ -187,6 +193,109 @@ def _instance_id(root: Path, relative: Path) -> str:
     return hashlib.sha256(f"{root}\0{relative.as_posix()}".encode("utf-8")).hexdigest()
 
 
+@dataclass(frozen=True)
+class _DeclarationBoundaryProof:
+    root: Path
+    marker_pins: Mapping[str, str | None]
+    _reader: ReadContext = field(repr=False, compare=False)
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "marker_pins", MappingProxyType(dict(self.marker_pins)))
+
+    def revalidate(self, *, reader: ReadContext | None = None) -> None:
+        """Reopen the original marker set without replacing any captured pin."""
+        reader = reader if reader is not None else ReadContext(roots=[str(self.root)], limits=dict(CEILINGS))
+        for relative, expected in self.marker_pins.items():
+            try:
+                raw = reader.read(self.root / relative, remember=False)
+            except FileNotFoundError:
+                if expected is None:
+                    continue
+                raise ProjectSelectionError("Declaration boundary Settings disappeared") from None
+            except (OSError, RuntimeError, ValueError) as error:
+                raise ProjectSelectionError("Declaration boundary evidence is unavailable or unsafe") from error
+            if expected is None or hashlib.sha256(raw).hexdigest() != expected:
+                raise ProjectSelectionError("Declaration boundary evidence changed")
+
+
+def _declaration_boundary_proof(
+    project_root: str | Path, control_root: str | Path,
+    declarations: Iterable[Mapping[str, Any]], *, reader: ReadContext | None = None,
+) -> _DeclarationBoundaryProof:
+    """Pin Settings-defined boundaries along only the supplied declaration paths.
+
+    This private refusal check neither resolves logical Settings Revisions nor
+    selects another Project.  Callers retain its proof through their final check.
+    """
+    root = _project_root(project_root)
+    control = root / _control_relative(control_root)
+    reader = reader if reader is not None else ReadContext(roots=[str(root)], limits=dict(CEILINGS))
+    pins: dict[str, str | None] = {}
+
+    def marker(directory: Path) -> dict[str, Any] | None:
+        path = directory / SETTINGS_FILENAME
+        key = path.relative_to(root).as_posix()
+        try:
+            raw = reader.read(path)
+        except FileNotFoundError:
+            if str(path) in reader.fingerprints:
+                raise ProjectSelectionError("Declaration boundary evidence changed") from None
+            pins[key] = None
+            return None
+        except (OSError, RuntimeError, ValueError) as error:
+            raise ProjectSelectionError("Declaration boundary Settings are unavailable or unsafe") from error
+        digest = hashlib.sha256(raw).hexdigest()
+        if reader.fingerprints[str(path)] != digest:
+            raise ProjectSelectionError("Declaration boundary evidence changed")
+        pins[key] = digest
+        try:
+            settings = tomllib.loads(raw.decode("utf-8"))
+            project, paths = settings.get("project"), settings.get("paths")
+            name = project.get("name") if isinstance(project, dict) else None
+            declared = paths.get("control_root") if isinstance(paths, dict) else None
+            if not isinstance(name, str) or not name.strip() or name != name.strip():
+                raise ProjectSelectionError("Declaration boundary Settings lack exact Project identity")
+            if not isinstance(declared, str) or _control_relative(declared) != Path(directory.name):
+                raise ProjectSelectionError("Declaration boundary Settings contradict their control root")
+        except (UnicodeError, ValueError) as error:
+            raise ProjectSelectionError("Declaration boundary Settings are invalid or contradictory") from error
+        return settings
+
+    if marker(control) is None:
+        raise ProjectSelectionError("Owning Project Settings are unavailable")
+    directories = {control}
+    try:
+        for row in declarations:
+            if not isinstance(row, Mapping):
+                raise ProjectSelectionError("Project Structure declaration is invalid")
+            for field_name in ("authority_path", "delivery_path"):
+                value = row.get(field_name)
+                if not isinstance(value, str) or not value or "\\" in value or "\x00" in value:
+                    raise ProjectSelectionError(f"Project Structure {field_name} is unsafe")
+                relative = Path(value.rstrip("/"))
+                if relative.is_absolute() or not relative.parts or ".." in relative.parts or relative.as_posix() != value.rstrip("/"):
+                    raise ProjectSelectionError(f"Project Structure {field_name} is unsafe")
+                directory = reader.allowed(root / relative)
+                while directory != root:
+                    directories.add(directory)
+                    directory = directory.parent
+        for directory in sorted(directories):
+            if directory == control:
+                continue
+            settings = marker(directory)
+            if settings is not None:
+                # A matching Name does not merge distinct root/control instances.
+                if _instance_id(directory.parent, Path(directory.name)) != _instance_id(root, control.relative_to(root)):
+                    raise ProjectSelectionError("Project Structure path crosses another Project control root")
+        proof = _DeclarationBoundaryProof(root, pins, reader)
+        proof.revalidate(reader=reader)
+        return proof
+    except ProjectSelectionError:
+        raise
+    except (OSError, RuntimeError, TypeError, ValueError) as error:
+        raise ProjectSelectionError("Project declaration boundary evidence is unavailable or unsafe") from error
+
+
 def resolve_project(project_root: str | Path, control_root: str | Path | None = None) -> ProjectSelection:
     """Read exactly one local Project selection before any runtime effects."""
     root = _project_root(project_root)
@@ -215,6 +324,7 @@ def resolve_project(project_root: str | Path, control_root: str | Path | None = 
             raise ProjectSelectionError("Project Settings must contain a non-empty Project name")
         structure = _read_toml(reader, structure_path)
         _validate_structure(structure, root)
+        boundary_proof = _declaration_boundary_proof(root, relative, structure.get("scope_units", ()), reader=reader)
         if reader.currentness()["state"] != "unchanged":
             raise ProjectSelectionError("Project carriers changed during selection")
         provenance = {
@@ -226,7 +336,7 @@ def resolve_project(project_root: str | Path, control_root: str | Path | None = 
             for path, document in ((settings_path, settings), (structure_path, structure))
         }
         return ProjectSelection(root, control, relative, _instance_id(root, relative), settings,
-                                structure, provenance, host_root=root)
+                                structure, provenance, host_root=root, _boundary_proof=boundary_proof)
     except ProjectSelectionError:
         raise
     except (OSError, RuntimeError, TypeError, ValueError) as error:

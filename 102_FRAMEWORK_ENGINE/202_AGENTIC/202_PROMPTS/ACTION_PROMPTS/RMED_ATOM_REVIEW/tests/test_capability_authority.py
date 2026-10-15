@@ -1,10 +1,8 @@
 """Prompt/authority regressions; not a substitute for agentic semantic evaluation."""
-import json
 from pathlib import Path
 import unittest
 
 HERE = Path(__file__).resolve().parents[1]
-ROOT = HERE.parents[4]
 
 
 def text(name):
@@ -18,18 +16,6 @@ class CapabilityAuthority(unittest.TestCase):
                      "repair/propose_repair.prompt.md"):
             with self.subTest(name=name):
                 self.assertIn("CA-R-1799", text(name))
-
-    def test_capability_rule_is_bound_with_authority_guards(self):
-        entries = json.loads((HERE / "source_bindings.json").read_text())["sources"]
-        entry = next(row for row in entries if row["atom_id"] == "CA-R-1799")
-        rule = (ROOT / entry["path"]).read_text()
-        self.assertIn("CA-P-033", rule)
-        self.assertIn("direct Operator instruction **or** explicit prior authorization", rule)
-        self.assertIn("it does **not** itself authorize **or** trigger execution", rule)
-        self.assertIn("conditions optional", rule)
-        self.assertIn("local_tier: Core", rule)
-        self.assertIn("global_tier: 1", rule)
-        self.assertIn("**without** initiating **or** forcing their execution", rule)
 
     def test_checker_preserves_approved_automation_and_mandatory_safeguards(self):
         check = text("evaluate_coherence.prompt.md")

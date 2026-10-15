@@ -7,13 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-05 02:00:00 +0400"
+version: 5
+updated_at: "2026-10-14 19:54:14 +0400"
 subjects:
   governs: "MCP/selected Workflow dispatch truth"
   depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal]
-relations:
-  relates_to: [CA-R-1847, CA-R-1720, CA-R-1525, CA-P-1484]
+relations: {}
 ---
 # Summary
 
@@ -25,17 +24,19 @@ Authorization, currentness, result truth, and defer/handoff behavior at the sele
 
 ## Claim
 
-MCP **must not** report dispatch, completion, effects, or recording as successful unless the shared service returns exact current evidence for that fact.
+MCP **must not** invent dispatch, completion, effects or logging success. Each reported fact must retain the actual shared-service **or** direct-runner result and its truthful diagnostics; a Journal entry is not permission or proof of source-effect completion.
 
 ## Details
 
-Before a preview or execute, the adapter validates the selected route against
+The complete manifest/source/permission gate remains required for non-Release selected routes and their query admissions. The two direct local/public Release commands instead use CA-D-547's simple connected-Project runner interface and full test suite, without an additional whole-catalog, dependency-registry, Release-source-admission, D527 selected-envelope or DBOS gate. Normal explicit inputs, existing Operator/client permissions, current source/file safety, actual Run outcomes, installation lock/readback and public Git/PR boundaries remain required. Full-suite verification includes required integration tests; missing Docker or another required test environment, or skipping required tests, cannot pass release. Release verification adds no separate Active Atom metadata, placement or relation validation; the full test suite and normal input, permission and file/path safety checks remain. Required Docker integration tests build a disposable image from the current code; an old installed or running image is not a substitute, and test execution does not restart the running Project MCP. A source-defined condition or a log entry does not prove tests or effects ran. This clause supplies no new execution, confirmation, retry or publication authority.
+
+Before a non-Release selected preview or execute, the adapter validates that route against
 exactly one outer `definition_manifest` reference/digest, its canonical binding,
 exact admitted source/definition revisions, root/frontier and target/reference
 digests, input schema, and parent lineage. That one manifest preserves CA-A-1142
 v2 as the unchanged original-thirteen registry and contains the two exact
-CA-P-1532@2/CA-P-1535@2 query-source admission frontier pins required by
-CA-R-1847; it has no competing registry or manifest. The source-freshness
+CA-P-1618@1/CA-P-1535@2 query-source admission frontier pins required by
+CA-R-1847, including its explicit byte-identical relocation, O163@2-to-@3 structural-successor bridge and exact O163@4 plain-Journal reading amendment; the two Done proof carriers remain unchanged and it has no competing registry, manifest, or third query proof. The source-freshness
 object may carry only its selected-source registry/binding evidence: any
 `definition_manifest_ref`, `definition_manifest_digest`, or other
 duplicate/shadow manifest field there or anywhere else is an unknown field and
@@ -57,11 +58,11 @@ are outside it. Both query routes accept only CA-R-1850's shared closed literal
 grammar, safe selected fetches, and no credential/secret selection. They do not
 create a new parser, Journal writer, or read-only-to-mutation conversion.
 
-The shared service owns execution, cancellation, terminal state, durable event identity, and retry semantics. MCP preserves its outcome rather than translating a deferred, handoff-required, recording-blocked, failed, canceled, partial-effect, unknown-effect, or no-op result into success. A no-op has no invented mutation; a handoff includes the actual continuation/reference and no claimed local dispatch; an unstarted call has no invented Action Run. A terminal Action/Workflow result with pending recording exposes the actual result plus `recording_blocker` and pending event ref, not a clean completion.
+The existing shared service or direct runner owns its actual execution, cancellation and source-effect outcome. MCP preserves a deferred, handoff-required, failed, canceled, partial-effect, unknown-effect or no-op result without converting it into success. A no-op has no invented mutation; a handoff has its actual continuation/reference and no claimed local dispatch; an unstarted call has no invented Action Run. Plain Journal append/read has no prior-history, chain, validation, receipt, deduplication, retry or recovery prerequisite. Preserve actual logging I/O diagnostics independently of the observed Run/source-effect result; do not downgrade a completed source effect solely because logging fails, claim an unobserved append, or replay work because a log row is absent or repeated. Source-effect uncertainty and no-effect-replay safeguards remain unchanged.
 
-Observation results disclose only references and redacted safe material authorized by the selected Run; they never fabricate output/results, reveal secrets, or treat an outbox/intake acknowledgement as an effect or Journal receipt. The adapter reports the source currentness observed for the operation and the exact Run/Event/Journal/report references returned by shared support. It is a projection boundary, not an authority to alter source, Artifact, or Journal history.
+Observation results disclose only references and redacted safe material authorized by the selected Run; they never fabricate output/results, reveal secrets, or treat an outbox/intake acknowledgement as proof of an effect or successful Journal append. The adapter reports the source currentness observed for the operation and actual safe Run, result/effect/report references and logging diagnostics returned by the service or runner. It is a projection boundary, not an authority to alter source, Artifact, or Journal history.
 
 ### Sources
 
-- CA-A-1142 v2, unchanged original-thirteen registry; CA-P-1532 v2 and CA-P-1535 v2, exact query admission frontiers.
-- CA-D-527 v3; CA-D-521 v3; CA-R-1720 v17; CA-R-1525 v6; CA-R-1728 v16; CA-D-523 v2; CA-R-1850 v2; CA-R-1866 v2; CA-R-1867 v1.
+- CA-A-1142 v2, unchanged original-thirteen registry; CA-P-1618 v1 and CA-P-1535 v2, exact query admission frontiers.
+- CA-D-527 v3; CA-D-521 v7; CA-R-1720 v19; CA-R-1525 v7; CA-R-1728 v16; CA-D-523 v2; CA-R-1850 v2; CA-R-1866 v3; CA-R-1867 v1.

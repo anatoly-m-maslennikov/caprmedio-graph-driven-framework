@@ -13,7 +13,7 @@ import json
 import os
 import re
 import stat
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Mapping, Sequence
@@ -60,12 +60,31 @@ class _SourceSnapshot:
     fingerprint: tuple[int, int, int, int, int]
 
 
+@dataclass
+class _IdentityParseCache:
+    entries: dict[Path, tuple[bytes, dict[str, Any] | tuple[str, str]]] = field(default_factory=dict)
+
+    def metadata(self, operations: Any, raw: bytes, path: Path) -> dict[str, Any]:
+        cached = self.entries.get(path)
+        if cached is None or cached[0] != raw:
+            try:
+                result = operations.parse_carrier(raw, path).metadata
+            except operations.CarrierError as error:
+                result = (error.code, str(error))
+            self.entries[path] = (raw, result)
+        result = self.entries[path][1]
+        if isinstance(result, tuple):
+            raise operations.CarrierError(*result)
+        return result
+
+
 def preview_subject_patches(
     root: Path,
     items: list[object],
     *,
     timestamp: str | None = None,
     subject_profile: str = "legacy",
+    _identity_parse_cache: _IdentityParseCache | None = None,
 ) -> dict[str, Any]:
     """Prepare a sealed-in-memory preview of explicit Subject replacements.
 
@@ -82,11 +101,13 @@ def preview_subject_patches(
     except SubjectNotationError as error:
         _fail(operations, error.code, str(error))
     project_root = Path(root).resolve()
+    identity_parse_cache = _identity_parse_cache if _identity_parse_cache is not None else _IdentityParseCache()
     if not isinstance(items, list) or not items:
         _fail(operations, "subject-patches-required", "subject patch preview requires a non-empty atoms list")
     if timestamp is not None:
         _require_timestamp(operations, timestamp)
     grammar = _capture_grammar(operations, project_root, profile)
+    identity_layout = _capture_identity_layout(operations, project_root)
 
     planned: list[dict[str, Any]] = []
     selectors: set[str] = set()
@@ -105,12 +126,14 @@ def preview_subject_patches(
             atom_ids,
             profile_name,
         )
+        if identity_layout is not None and result["path"].is_relative_to(identity_layout[0]):
+            _fail(operations, "subject-selector-delivered", "Subject selector cannot address an installed source copy")
         planned.append(result)
         has_change = has_change or not result["noop"]
 
     for item in planned:
         _assert_snapshot_current(operations, project_root, item["snapshot"], item["selector"])
-    _assert_original_identity_unique(operations, project_root, atom_ids)
+    _assert_original_identity_unique(operations, project_root, atom_ids, identity_layout, _parse_cache=identity_parse_cache)
     illustrative_at = _preview_timestamp(operations, project_root, timestamp) if has_change else None
     atoms: list[dict[str, Any]] = []
     for item in planned:
@@ -121,8 +144,9 @@ def preview_subject_patches(
         atoms.append(atom)
     for item in planned:
         _assert_snapshot_current(operations, project_root, item["snapshot"], item["selector"])
-    _assert_original_identity_unique(operations, project_root, atom_ids)
+    _assert_original_identity_unique(operations, project_root, atom_ids, identity_layout, _parse_cache=identity_parse_cache)
     _assert_grammar_current(operations, project_root, grammar)
+    _assert_identity_layout_current(operations, project_root, identity_layout)
 
     preview: dict[str, Any] = {
         "count": len(atoms),
@@ -157,6 +181,7 @@ def prepare_subject_intent(
         _fail(operations, error.code, str(error))
     project_root = Path(root).resolve()
     grammar = _capture_grammar(operations, project_root, profile)
+    identity_layout = _capture_identity_layout(operations, project_root)
     plan = _plan_item(operations, project_root, {
         "selector": target_descriptor["path"],
         "expected": {
@@ -165,14 +190,18 @@ def prepare_subject_intent(
         },
         "subject_patches": subject_patches,
     }, 0, set(), set(), profile.name)
+    if identity_layout is not None and plan["path"].is_relative_to(identity_layout[0]):
+        _fail(operations, "subject-selector-delivered", "Subject selector cannot address an installed source copy")
     prepared = _intent_from_plan(operations, project_root, plan, profile.name, evidence)
     if _canonical(operations, dict(target_descriptor)) != _canonical(operations, prepared["subject_intent"]["target"]):
         _fail(operations, "subject-target-stale", "Subject target descriptor does not match the captured carrier")
     _validate_complete(operations, project_root, plan["path"], prepared["proposed"]["frontmatter"], prepared["proposed"]["content"])
     _assert_snapshot_current(operations, project_root, plan["snapshot"], plan["selector"])
-    _assert_original_identity_unique(operations, project_root, {plan["atom_id"]})
+    _assert_original_identity_unique(operations, project_root, {plan["atom_id"]}, identity_layout)
     _assert_grammar_current(operations, project_root, grammar)
+    _assert_identity_layout_current(operations, project_root, identity_layout)
     plan["grammar_snapshots"] = grammar
+    plan["identity_layout"] = identity_layout
     return prepared
 
 
@@ -207,8 +236,9 @@ def materialize_subject_intent(
     project_root = Path(root).resolve()
     materialized = _materialize_item(operations, project_root, plan, actual_updated_at)
     _assert_snapshot_current(operations, project_root, plan["snapshot"], plan["selector"])
-    _assert_original_identity_unique(operations, project_root, {plan["atom_id"]})
+    _assert_original_identity_unique(operations, project_root, {plan["atom_id"]}, plan["identity_layout"])
     _assert_grammar_current(operations, project_root, plan["grammar_snapshots"])
+    _assert_identity_layout_current(operations, project_root, plan["identity_layout"])
     return {
         "carrier_bytes": materialized["proposed_carrier"].encode("utf-8"),
         "materialization": {
@@ -237,8 +267,7 @@ def _intent_from_plan(operations: Any, root: Path, plan: dict[str, Any], profile
         **{field: operations.frontmatter_scalar(plan["frontmatter"], field)
            for field in ("status", "updated_at", "content_role", "type")},
     }
-    patches = [{key: patch[key] for key in (("field", "index", "old", "new")
-               if patch["field"] == "depends_on" else ("field", "old", "new"))}
+    patches = [{key: patch[key] for key in ("field", "operation", "old", "new") if key in patch}
                for patch in plan["patches"]]
     predecessor = None
     if not plan["noop"]:
@@ -295,22 +324,69 @@ def _assert_grammar_current(operations: Any, root: Path, snapshots: Sequence[_So
             raise operations.ToolError(code, "Subject grammar source changed after intent preparation") from error
 
 
-def _assert_original_identity_unique(operations: Any, root: Path, atom_ids: set[str]) -> None:
+def _capture_identity_layout(operations: Any, root: Path) -> tuple[Path, tuple[_SourceSnapshot, ...]] | None:
+    """Only a verified release layout distinguishes installed source copies."""
+
+    from COMPILE_APPLICABLE_METHODOLOGY.compile_applicable_methodology import CompileError
+    from RELEASE_VERSION.methodology_layout import resolve_methodology_layout
+
+    registry = operations.control_root(root) / "project_structure.toml"
+    try:
+        snapshots = tuple(_read_source_snapshot(operations, root, path, path.relative_to(root).as_posix())
+                          for path in (root / operations.SETTINGS_PATH, registry))
+    except operations.ToolError as error:
+        if error.code == "subject-selector-missing":
+            return None
+        raise
+    try:
+        layout = resolve_methodology_layout(root)
+    except (CompileError, OSError, UnicodeError, ValueError):
+        return None  # No release-layout exemption in ordinary or unverifiable Projects.
+    for snapshot in snapshots:
+        _assert_snapshot_current(operations, root, snapshot, snapshot.path.relative_to(root).as_posix())
+    if (root / layout.control_root != operations.control_root(root)
+            or hashlib.sha256(snapshots[1].raw).hexdigest() != layout.structure_sha256):
+        _fail(operations, "subject-source-changed", "Project release layout changed while it was resolved")
+    copied = root / layout.installed_root / Path(layout.source_copy_root).name
+    return copied, snapshots
+
+
+def _assert_identity_layout_current(
+    operations: Any, root: Path, layout: tuple[Path, tuple[_SourceSnapshot, ...]] | None,
+) -> None:
+    if layout is None:
+        return
+    copied, snapshots = layout
+    for snapshot in snapshots:
+        _assert_snapshot_current(operations, root, snapshot, snapshot.path.relative_to(root).as_posix())
+    if any(path.is_symlink() for path in (copied, *copied.parents)):
+        _fail(operations, "subject-identity-inventory-unavailable", "installed source-copy place traverses a symlink")
+
+
+def _assert_original_identity_unique(
+    operations: Any, root: Path, atom_ids: set[str],
+    layout: tuple[Path, tuple[_SourceSnapshot, ...]] | None,
+    *, _parse_cache: _IdentityParseCache | None = None,
+) -> None:
     """Reject competing current identity claims, including outside the payload."""
 
     control = operations.control_root(root)
+    _assert_identity_layout_current(operations, root, layout)
     reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
+    parse_cache = _parse_cache if _parse_cache is not None else _IdentityParseCache()
     matches: dict[str, list[str]] = {atom_id: [] for atom_id in atom_ids}
 
     def candidates() -> tuple[Path, ...]:
         found: list[Path] = []
         for path in reader.inventory(control, remember=False):
-            if (operations._role_directory(path, control) is None
-                    or "_projection" in path.relative_to(control).parts
+            if ("_projection" in path.relative_to(control).parts
                     or operations._lifecycle(path, control) in {"draft", "archived"}):
                 continue
-            if path.is_symlink() and path.is_dir():
+            role = operations._role_directory(path, control)
+            if path.is_symlink() and (operations.ROLE_DIRECTORY.fullmatch(path.name) or (role and path.is_dir())):
                 _fail(operations, "subject-identity-inventory-unavailable", "an original role directory is a symlink")
+            if role is None:
+                continue
             if path.suffix.lower() == ".md":
                 found.append(path)
         return tuple(found)
@@ -326,18 +402,20 @@ def _assert_original_identity_unique(operations: Any, root: Path, atom_ids: set[
                 continue
             raw = reader.read(path)
             try:
-                metadata = operations.parse_carrier(raw, path).metadata
+                # Reuse parsing only after the existing fresh no-follow read matches exact bytes.
+                metadata = parse_cache.metadata(operations, raw, path)
             except operations.CarrierError:
                 normalized = raw.replace(b"\r\n", b"\n")
                 header = (normalized.split(b"\n---\n", 1)[0] if normalized.startswith(b"---\n") else b"").decode("utf-8", errors="replace")
-                claims = re.findall(r"(?m)^(?:atom_id|\"atom_id\"|'atom_id'):\s*([^\n]*)$", header)
-                try:
-                    identities = [yaml.safe_load(claim) for claim in claims]
-                except yaml.YAMLError:
-                    _fail(operations, "subject-identity-inventory-unavailable", "an original identity claim cannot be resolved")
+                claims = re.findall(r"(?m)^(?:atom_id|\"atom_id\"|'atom_id')\s*:\s*([^\n]*)$", header)
+                identities = []
+                for claim in claims:
+                    try:
+                        identities.append(yaml.safe_load(claim))
+                    except yaml.YAMLError:
+                        continue  # Malformed unrelated C/A does not establish a selected identity claim.
                 if (filename_id in atom_ids or any(value in atom_ids for value in identities if isinstance(value, str))
-                        or any(re.search(r"(?<![A-Za-z0-9_-])" + re.escape(atom_id) + r"(?![A-Za-z0-9_-])", header) for atom_id in atom_ids)
-                        or ("atom_id" in header and not claims)):
+                        or any(re.search(r"(?<![A-Za-z0-9_-])" + re.escape(atom_id) + r"(?![A-Za-z0-9_-])", header) for atom_id in atom_ids)):
                     _fail(operations, "subject-identity-inventory-unavailable", "a selected identity has a malformed original source")
                 continue
             if "projection" in metadata:
@@ -351,11 +429,14 @@ def _assert_original_identity_unique(operations: Any, root: Path, atom_ids: set[
             if isinstance(atom_id, str) and atom_id in atom_ids:
                 if not isinstance(status, str) or not status:
                     _fail(operations, "subject-identity-inventory-unavailable", "a selected identity has an unresolved original Status")
+                if layout is not None and path.is_relative_to(layout[0]):
+                    continue
                 matches[atom_id].append(path.relative_to(root).as_posix())
         if reader.currentness()["state"] != "unchanged" or candidates() != paths_before:
             _fail(operations, "subject-source-changed", "original identity sources changed during preview inventory")
     except (OSError, LimitReached) as error:
         raise operations.ToolError("subject-identity-inventory-unavailable", "original identity inventory is incomplete or unavailable") from error
+    _assert_identity_layout_current(operations, root, layout)
     for atom_id, paths in matches.items():
         if len(paths) > 1:
             _fail(operations, "subject-identity-duplicate", "selected Atom identity has more than one original carrier", {"atom_id": atom_id, "paths": paths})
@@ -443,21 +524,27 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
     patches = item["subject_patches"]
     if not isinstance(patches, list):
         _fail(operations, "subject-patches-invalid", "subject_patches must be an ordered list")
+    dependency_patches = [patch for patch in patches if isinstance(patch, Mapping) and patch.get("field") == "depends_on"]
+    if len(dependency_patches) > 1 and any(patch.get("operation") == "replace_set" for patch in dependency_patches):
+        _fail(operations, "subject-occurrence-duplicate", "Complete dependency replacement cannot overlap another dependency patch")
     records: list[dict[str, Any]] = []
     subject_replacements: list[_Replacement] = []
     occurrences: set[tuple[str, int | None]] = set()
     resulting_dependencies = [node.value for node in dependencies]
     resulting_governs = governs_node.value
     for patch_ordinal, patch in enumerate(patches):
-        record, replacement = _plan_patch(
-            operations,
-            patch,
-            patch_ordinal,
-            governs_node,
-            dependencies,
-            occurrences,
-            resulting_dependencies,
-        )
+        if isinstance(patch, Mapping) and patch.get("operation") == "replace_set":
+            record, replacement = _plan_dependency_set(operations, patch, subjects, frontmatter, resulting_dependencies)
+        else:
+            record, replacement = _plan_patch(
+                operations,
+                patch,
+                patch_ordinal,
+                governs_node,
+                dependencies,
+                occurrences,
+                resulting_dependencies,
+            )
         records.append(record)
         if record["field"] == "governs":
             resulting_governs = record["new"]
@@ -712,6 +799,37 @@ def _snapshot_identity(
     return atom_id, version
 
 
+def _plan_dependency_set(operations: Any, patch: Mapping[str, Any], subjects: MappingNode,
+                         frontmatter: str, resulting_dependencies: list[str]) -> tuple[dict[str, Any], _Replacement | None]:
+    if set(patch) != {"field", "operation", "old", "new"} or patch["field"] != "depends_on":
+        _fail(operations, "subject-patch-invalid", "replace_set has exactly depends_on field, operation, old, and new")
+    for name in ("old", "new"):
+        values = patch[name]
+        if not isinstance(values, list):
+            _fail(operations, "subject-set-invalid", "Complete dependency sets must be lists")
+        for value in values:
+            _valid_patch_value(operations, value, name)
+        if len(set(values)) != len(values):
+            _fail(operations, "subject-dependency-duplicate", "Complete dependency sets must contain unique values")
+    node = _mapping_entries(operations, subjects, "subjects").get("depends_on")
+    if not isinstance(node, SequenceNode):
+        _fail(operations, "subject-shape-invalid", "Complete dependency replacement requires an existing list")
+    if set(patch["old"]) != set(resulting_dependencies):
+        _fail(operations, "subject-old-stale", "Complete old dependency set differs from the pinned source")
+    changed = set(patch["new"]) != set(resulting_dependencies)
+    record = {"field": "depends_on", "operation": "replace_set", "old": patch["old"], "new": patch["new"],
+              "changed": changed, "span": {"start": node.start_mark.index, "end": node.end_mark.index}}
+    if not changed:
+        return record, None
+    from connector_property_carrier import _replace_value, _span_end
+
+    start, end = node.start_mark.index, _span_end(frontmatter, node)
+    transformed = _replace_value(frontmatter, node, patch["new"], "\r\n" if "\r\n" in frontmatter else "\n")
+    value = transformed[start:len(transformed) - len(frontmatter[end:])]
+    resulting_dependencies[:] = patch["new"]
+    return record, _Replacement(_Span(start, end), value)
+
+
 def _plan_patch(  # noqa: C901 - validates one closed public patch shape.
     operations: Any,
     patch: object,
@@ -727,21 +845,23 @@ def _plan_patch(  # noqa: C901 - validates one closed public patch shape.
     if field == "governs":
         if set(patch) != {"field", "old", "new"}:
             _fail(operations, "subject-patch-invalid", "governs patch has exactly field, old, and new")
-        index: int | None = None
-        node = governs
     elif field == "depends_on":
-        if set(patch) != {"field", "index", "old", "new"}:
-            _fail(operations, "subject-patch-invalid", "depends_on patch has exactly field, index, old, and new")
-        index = patch["index"]
-        if isinstance(index, bool) or not isinstance(index, int) or index < 0 or index >= len(dependencies):
-            _fail(operations, "subject-index-invalid", "depends_on patch index must identify one existing zero-based dependency")
-        node = dependencies[index]
+        if set(patch) != {"field", "old", "new"}:
+            _fail(operations, "subject-patch-invalid", "depends_on patch has exactly field, old, and new")
     else:
         _fail(operations, "subject-field-invalid", "subject patch field must be governs or depends_on")
     old = patch["old"]
     new = patch["new"]
     _valid_patch_value(operations, old, "old")
     _valid_patch_value(operations, new, "new")
+    index: int | None = None
+    node = governs
+    if field == "depends_on":
+        matches = [ordinal for ordinal, dependency in enumerate(dependencies) if dependency.value == old]
+        if len(matches) != 1:
+            _fail(operations, "subject-old-stale", "Subject patch old value must match exactly one original dependency")
+        index = matches[0]
+        node = dependencies[index]
     occurrence = (field, index)
     if occurrence in occurrences:
         _fail(operations, "subject-occurrence-duplicate", "Subject patch may name an occurrence only once", {"field": field, "index": index})

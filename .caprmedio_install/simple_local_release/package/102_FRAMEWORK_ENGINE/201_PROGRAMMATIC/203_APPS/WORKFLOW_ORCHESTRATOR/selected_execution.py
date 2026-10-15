@@ -737,7 +737,10 @@ class SelectedExecution:
                 # mutation and must retain every observed post-effect outcome.
                 child_actual = session.start_run(requested_child)
                 child_run_id = child_actual["run_id"]
-                result = action(self.root, context["parameters"], **dict(call))
+                effect_call = dict(call)
+                if action is lifecycle_intents.update_atom_action and "subject_patches" in context["parameters"]:
+                    effect_call.update(session=session, action_run_id=child_run_id, prior=admitted)
+                result = action(self.root, context["parameters"], **effect_call)
                 if not isinstance(result, Mapping) or not isinstance(result.get("outcome"), str):
                     raise SelectedExecutionError("lifecycle Action returned an invalid result")
                 result = dict(result)

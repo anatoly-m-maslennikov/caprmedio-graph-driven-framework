@@ -24,8 +24,9 @@ _TOOLS = Path(__file__).resolve().parents[1]
 if str(_TOOLS) not in sys.path:
     sys.path.insert(0, str(_TOOLS))
 
-from work_journal import resolve_settings_path
-from VALIDATE_ATOMS.validate_atoms_workers.read_io import open_regular
+from project_selection import ProjectSelectionError, active_selection
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regular
+from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 from tool_description import binding_matches, make_tool_description
 
 try:
@@ -149,11 +150,7 @@ class JournalQueryResult(_ClosedModel):
     findings: list[JournalQueryFinding]
 
 
-_DEFAULT_SETTINGS = Path(
-    "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
-    "caprmedio_framework_default_settings.toml"
-)
+_DEFAULT_SETTINGS_FILENAME = "caprmedio_framework_default_settings.toml"
 _INSTANCE_SETTINGS = Path(
     "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
 )
@@ -218,16 +215,13 @@ def _safe_regular_file(path: Path, code: str) -> None:
         raise JournalQueryError(code)
 
 
-def _read_toml(path: Path, code: str) -> dict[str, Any]:
+def _read_toml(path: Path, code: str, reader: ReadContext) -> dict[str, Any]:
     _safe_regular_file(path, code)
     try:
         if path.resolve() != path:
             raise JournalQueryError(code)
-        with os.fdopen(open_regular(path), "rb") as handle:
-            if not stat.S_ISREG(os.fstat(handle.fileno()).st_mode):
-                raise JournalQueryError(code)
-            value = tomllib.loads(handle.read().decode("utf-8"))
-    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        value = tomllib.loads(reader.read(path).decode("utf-8"))
+    except (OSError, RuntimeError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
         raise JournalQueryError(code) from error
     if not isinstance(value, dict):
         raise JournalQueryError(code)
@@ -238,12 +232,37 @@ def _control_and_settings(root: Path) -> tuple[Path, dict[str, Any], dict[str, A
     if root.is_symlink() or not root.is_dir():
         raise JournalQueryError("invalid-project-root")
     try:
-        control = resolve_settings_path(root).parent
-    except (OSError, RuntimeError) as error:
+        selection = active_selection(root)
+        reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
+        for path in (selection.settings_path, selection.structure_path):
+            pin = selection.provenance[path.relative_to(selection.root).as_posix()]
+            if _sha256(reader.read(path)) != pin["sha256"]:
+                raise ProjectSelectionError("Selected Project carriers changed")
+        selection._revalidate_boundary(reader=reader)
+    except (ProjectSelectionError, OSError, RuntimeError, KeyError) as error:
         raise JournalQueryError("project-settings-unavailable") from error
-    defaults = _read_toml(control / _DEFAULT_SETTINGS, "default-settings-unavailable")
+    control = selection.control_root
+    core = [row for row in selection.structure.get("scope_units", ())
+            if row.get("scope_unit_name") == "CORE_META_MODEL"]
+    if len(core) != 1 or not isinstance(core[0].get("authority_path"), str):
+        raise JournalQueryError("default-settings-unavailable")
+    defaults = _read_toml(selection.root / core[0]["authority_path"] / _DEFAULT_SETTINGS_FILENAME,
+                          "default-settings-unavailable", reader)
     instance_path = control / _INSTANCE_SETTINGS
-    instance = _read_toml(instance_path, "instance-settings-unavailable") if os.path.lexists(instance_path) else {}
+    try:
+        reader.allowed(instance_path)
+        if os.path.lexists(instance_path.parent) and not instance_path.parent.is_dir():
+            raise JournalQueryError("instance-settings-unavailable")
+    except (OSError, RuntimeError) as error:
+        raise JournalQueryError("instance-settings-unavailable") from error
+    instance_present = os.path.lexists(instance_path)
+    instance = _read_toml(instance_path, "instance-settings-unavailable", reader) if instance_present else {}
+    try:
+        selection._revalidate_boundary(reader=reader)
+        if reader.currentness()["state"] != "unchanged" or os.path.lexists(instance_path) != instance_present:
+            raise JournalQueryError("query-settings-changed")
+    except (ProjectSelectionError, OSError, RuntimeError) as error:
+        raise JournalQueryError("project-settings-unavailable") from error
     return control, defaults, instance
 
 
@@ -289,27 +308,6 @@ def _resolve_limits(
     return values, sources
 
 
-def _decode_event(raw: bytes) -> dict[str, Any]:
-    def duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
-        output: dict[str, Any] = {}
-        for key, value in pairs:
-            if key in output:
-                raise JournalQueryError("duplicate-json-key")
-            output[key] = value
-        return output
-
-    try:
-        value = json.loads(raw.decode("utf-8"), object_pairs_hook=duplicate_keys)
-    except JournalQueryError:
-        raise
-    except (UnicodeDecodeError, json.JSONDecodeError) as error:
-        raise JournalQueryError("malformed-event") from error
-    if not isinstance(value, dict):
-        raise JournalQueryError("malformed-event")
-    event_id = value.get("event_id")
-    if not isinstance(event_id, str) or not event_id:
-        raise JournalQueryError("missing-event-id")
-    return value
 
 
 def _read_member(path: Path, *, max_file_bytes: int, total_read: int, max_total_read: int) -> tuple[bytes, int]:
@@ -336,12 +334,14 @@ def _member_events(relative: str, content: bytes) -> list[dict[str, Any]]:
     offset = 0
     for line_number, line in enumerate(content.splitlines(keepends=True), start=1):
         raw = line.rstrip(b"\r\n")
-        if not raw:
-            raise JournalQueryError("malformed-event")
-        event = _decode_event(raw)
+        if not raw.strip():
+            offset += len(line)
+            continue
+        event = json.loads(raw)
+        observed_id = event.get("event_id") if isinstance(event, Mapping) else None
         entries.append(
             {
-                "event_id": event["event_id"],
+                "event_id": observed_id if isinstance(observed_id, str) else None,
                 "event": event,
                 "member": relative,
                 "line": line_number,
@@ -350,9 +350,17 @@ def _member_events(relative: str, content: bytes) -> list[dict[str, Any]]:
             }
         )
         offset += len(line)
-    if content and not entries:
-        raise JournalQueryError("malformed-event")
     return entries
+
+
+def _record_order(record: Mapping[str, Any]) -> tuple[int, str, str, int]:
+    event_id = record["event_id"]
+    return (
+        0 if isinstance(event_id, str) else 1,
+        event_id if isinstance(event_id, str) else "",
+        record["member"],
+        record["line"],
+    )
 
 
 def _snapshot_core(snapshot: Mapping[str, Any]) -> dict[str, Any]:
@@ -376,7 +384,7 @@ def _snapshot_public(snapshot: Mapping[str, Any], handle: str) -> dict[str, Any]
         "source_root": snapshot["source_root"],
         "prefix_bytes": snapshot["prefix_bytes"],
         "prefix_digest": snapshot["prefix_digest"],
-        "event_ids": [record["event_id"] for record in snapshot["records"]],
+        "event_ids": [record["event_id"] for record in snapshot["records"] if isinstance(record["event_id"], str)],
     }
 
 
@@ -438,7 +446,6 @@ def capture_snapshot(
     total_read = 0
     members: list[dict[str, Any]] = []
     records: list[dict[str, Any]] = []
-    seen_ids: set[str] = set()
     try:
         paths = sorted(journal.iterdir(), key=lambda path: path.name.encode("utf-8"))
     except OSError as error:
@@ -463,12 +470,8 @@ def capture_snapshot(
         member = {"ref": relative, "prefix_bytes": len(content), "prefix_digest": _sha256(content)}
         members.append(member)
         for record in _member_events(relative, content):
-            event_id = record["event_id"]
-            if event_id in seen_ids:
-                raise JournalQueryError("duplicate-event-id")
-            seen_ids.add(event_id)
             records.append(record)
-    records.sort(key=lambda record: record["event_id"].encode("utf-8"))
+    records.sort(key=_record_order)
     # The prefix was already bounded and read above.  For a single carrier its
     # digest is exactly the retained carrier-prefix digest; otherwise retain a
     # deterministic digest of the ordered carrier-prefix evidence.
@@ -577,7 +580,7 @@ def _revalidate_members(
     expected_records = snapshot.get("records")
     if not isinstance(expected_records, list):
         raise JournalQueryError("invalid-retained-provenance")
-    derived_records.sort(key=lambda record: record["event_id"].encode("utf-8"))
+    derived_records.sort(key=_record_order)
     if _json_bytes(derived_records) != _json_bytes(expected_records):
         raise JournalQueryError("invalid-retained-provenance")
     return total

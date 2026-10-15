@@ -22,11 +22,21 @@ import yaml
 from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
 
 from subject_notation import SubjectNotationError, get_profile, parse_subject, profile_evidence
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext
+from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 
 _SHA256 = re.compile(r"[0-9a-f]{64}")
 _TIMESTAMP = re.compile(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} [+-]\d{4}")
 _YAML_STRING = "tag:yaml.org,2002:str"
+_TARGET_FIELDS = frozenset({
+    "atom_id", "path", "filename", "version", "digest", "lifecycle", "status",
+    "updated_at", "content_role", "type",
+})
+_INTENT_FIELDS = frozenset({
+    "schema_version", "target", "subject_profile", "subject_profile_evidence",
+    "subject_patches", "proposal", "execution_metadata", "predecessorArchive", "noop",
+})
 
 
 @dataclass(frozen=True)
@@ -76,6 +86,8 @@ def preview_subject_patches(
         _fail(operations, "subject-patches-required", "subject patch preview requires a non-empty atoms list")
     if timestamp is not None:
         _require_timestamp(operations, timestamp)
+    grammar = _capture_grammar(operations, project_root, profile)
+    identity_layout = _capture_identity_layout(operations, project_root)
 
     planned: list[dict[str, Any]] = []
     selectors: set[str] = set()
@@ -94,15 +106,27 @@ def preview_subject_patches(
             atom_ids,
             profile_name,
         )
+        if identity_layout is not None and result["path"].is_relative_to(identity_layout[0]):
+            _fail(operations, "subject-selector-delivered", "Subject selector cannot address an installed source copy")
         planned.append(result)
         has_change = has_change or not result["noop"]
 
+    for item in planned:
+        _assert_snapshot_current(operations, project_root, item["snapshot"], item["selector"])
+    _assert_original_identity_unique(operations, project_root, atom_ids, identity_layout)
     illustrative_at = _preview_timestamp(operations, project_root, timestamp) if has_change else None
     atoms: list[dict[str, Any]] = []
     for item in planned:
-        atoms.append(_materialize_item(operations, project_root, item, illustrative_at))
+        atom = _materialize_item(operations, project_root, item, illustrative_at)
+        prepared = _intent_from_plan(operations, project_root, item, profile_name, evidence)
+        atom["subject_intent"] = prepared["subject_intent"]
+        atom["subject_intent_sha256"] = prepared["subject_intent_sha256"]
+        atoms.append(atom)
     for item in planned:
         _assert_snapshot_current(operations, project_root, item["snapshot"], item["selector"])
+    _assert_original_identity_unique(operations, project_root, atom_ids, identity_layout)
+    _assert_grammar_current(operations, project_root, grammar)
+    _assert_identity_layout_current(operations, project_root, identity_layout)
 
     preview: dict[str, Any] = {
         "count": len(atoms),
@@ -116,6 +140,283 @@ def preview_subject_patches(
         operations.canonical_json(preview).encode("utf-8")
     ).hexdigest()
     return preview
+
+
+def prepare_subject_intent(
+    root: Path,
+    target_descriptor: Mapping[str, Any],
+    subject_patches: list[object],
+    *,
+    subject_profile: str = "legacy",
+) -> dict[str, Any]:
+    """Prepare one deterministic Subject intent without future effect metadata."""
+
+    operations = _operations()
+    if not isinstance(target_descriptor, Mapping) or set(target_descriptor) != _TARGET_FIELDS:
+        _fail(operations, "subject-target-invalid", "Subject target must contain exactly its complete carrier descriptor")
+    try:
+        profile = get_profile(subject_profile)
+        evidence = profile_evidence(profile.name)
+    except SubjectNotationError as error:
+        _fail(operations, error.code, str(error))
+    project_root = Path(root).resolve()
+    grammar = _capture_grammar(operations, project_root, profile)
+    identity_layout = _capture_identity_layout(operations, project_root)
+    plan = _plan_item(operations, project_root, {
+        "selector": target_descriptor["path"],
+        "expected": {
+            "atom_id": target_descriptor["atom_id"], "version": target_descriptor["version"],
+            "sha256": target_descriptor["digest"],
+        },
+        "subject_patches": subject_patches,
+    }, 0, set(), set(), profile.name)
+    if identity_layout is not None and plan["path"].is_relative_to(identity_layout[0]):
+        _fail(operations, "subject-selector-delivered", "Subject selector cannot address an installed source copy")
+    prepared = _intent_from_plan(operations, project_root, plan, profile.name, evidence)
+    if _canonical(operations, dict(target_descriptor)) != _canonical(operations, prepared["subject_intent"]["target"]):
+        _fail(operations, "subject-target-stale", "Subject target descriptor does not match the captured carrier")
+    _validate_complete(operations, project_root, plan["path"], prepared["proposed"]["frontmatter"], prepared["proposed"]["content"])
+    _assert_snapshot_current(operations, project_root, plan["snapshot"], plan["selector"])
+    _assert_original_identity_unique(operations, project_root, {plan["atom_id"]}, identity_layout)
+    _assert_grammar_current(operations, project_root, grammar)
+    _assert_identity_layout_current(operations, project_root, identity_layout)
+    plan["grammar_snapshots"] = grammar
+    plan["identity_layout"] = identity_layout
+    return prepared
+
+
+def materialize_subject_intent(
+    root: Path,
+    prepared: Mapping[str, Any],
+    actual_updated_at: str | None,
+) -> dict[str, Any]:
+    """Recheck a prepared intent and return bytes; this function never publishes."""
+
+    operations = _operations()
+    if not isinstance(prepared, Mapping) or set(prepared) != {
+        "subject_intent", "subject_intent_sha256", "intended_carrier", "proposed", "_plan",
+    }:
+        _fail(operations, "subject-intent-invalid", "prepared Subject intent has unsupported or missing fields")
+    intent = prepared["subject_intent"]
+    if not isinstance(intent, Mapping) or set(intent) != _INTENT_FIELDS:
+        _fail(operations, "subject-intent-invalid", "Subject intent has unsupported or missing fields")
+    fresh = prepare_subject_intent(
+        root, intent["target"], intent["subject_patches"], subject_profile=intent["subject_profile"],
+    )
+    if _canonical(operations, dict(intent)) != _canonical(operations, fresh["subject_intent"]):
+        _fail(operations, "subject-intent-stale", "Subject intent differs from its freshly derived intent")
+    if prepared["subject_intent_sha256"] != fresh["subject_intent_sha256"]:
+        _fail(operations, "subject-intent-hash-mismatch", "Subject intent hash does not match its freshly derived intent")
+    if (prepared["intended_carrier"] != fresh["intended_carrier"]
+            or _canonical(operations, prepared["proposed"]) != _canonical(operations, fresh["proposed"])):
+        _fail(operations, "subject-intent-stale", "Subject proposal differs from its freshly derived carrier")
+    plan = fresh["_plan"]
+    if not plan["noop"]:
+        _require_timestamp(operations, actual_updated_at)
+    project_root = Path(root).resolve()
+    materialized = _materialize_item(operations, project_root, plan, actual_updated_at)
+    _assert_snapshot_current(operations, project_root, plan["snapshot"], plan["selector"])
+    _assert_original_identity_unique(operations, project_root, {plan["atom_id"]}, plan["identity_layout"])
+    _assert_grammar_current(operations, project_root, plan["grammar_snapshots"])
+    _assert_identity_layout_current(operations, project_root, plan["identity_layout"])
+    return {
+        "carrier_bytes": materialized["proposed_carrier"].encode("utf-8"),
+        "materialization": {
+            "version": materialized["after_version"],
+            "updated_at": fresh["subject_intent"]["target"]["updated_at"] if plan["noop"] else actual_updated_at,
+            "after_sha256": materialized["after_sha256"],
+        },
+    }
+
+
+def _canonical(operations: Any, value: object) -> str:
+    try:
+        return operations.canonical_json(value)
+    except (TypeError, ValueError) as error:
+        raise operations.ToolError("subject-intent-invalid", "Subject intent must be canonical JSON data") from error
+
+
+def _intent_from_plan(operations: Any, root: Path, plan: dict[str, Any], profile_name: str, evidence: dict[str, Any]) -> dict[str, Any]:
+    _ensure_non_overlapping(operations, plan["subject_replacements"])
+    frontmatter = _apply_replacements(plan["frontmatter"], plan["subject_replacements"])
+    intended = _replace_frontmatter(plan["text"], plan["frontmatter"], frontmatter)
+    target = {
+        "atom_id": plan["atom_id"], "path": plan["selector"], "filename": plan["path"].name,
+        "version": plan["version"], "digest": plan["before_sha256"],
+        "lifecycle": operations._lifecycle(plan["path"], operations.control_root(root)),
+        **{field: operations.frontmatter_scalar(plan["frontmatter"], field)
+           for field in ("status", "updated_at", "content_role", "type")},
+    }
+    patches = [{key: patch[key] for key in (("field", "index", "old", "new")
+               if patch["field"] == "depends_on" else ("field", "old", "new"))}
+               for patch in plan["patches"]]
+    predecessor = None
+    if not plan["noop"]:
+        role = next(parent for parent in plan["path"].parents if operations.ROLE_DIRECTORY.fullmatch(parent.name))
+        archive = role / "archive" / f'{plan["path"].stem}@{plan["version"]}{plan["path"].suffix}'
+        predecessor = {
+            "atom_id": plan["atom_id"], "version": plan["version"],
+            "path": archive.relative_to(root).as_posix(), "sha256": plan["before_sha256"], "lifecycle": "archived",
+        }
+    intent = {
+        "schema_version": 1, "target": target, "subject_profile": profile_name,
+        "subject_profile_evidence": evidence, "subject_patches": patches,
+        "proposal": {
+            "frontmatter_digest": hashlib.sha256(frontmatter.encode("utf-8")).hexdigest(),
+            "content_digest": hashlib.sha256(plan["body"].encode("utf-8")).hexdigest(),
+            "sha256": hashlib.sha256(intended.encode("utf-8")).hexdigest(),
+        },
+        "execution_metadata": {
+            "version": plan["version"] if plan["noop"] else plan["version"] + 1,
+            "updated_at": "preserve" if plan["noop"] else "actual_effect_time",
+        },
+        "predecessorArchive": predecessor, "noop": plan["noop"],
+    }
+    return {
+        "subject_intent": intent,
+        "subject_intent_sha256": hashlib.sha256(_canonical(operations, intent).encode("utf-8")).hexdigest(),
+        "intended_carrier": intended, "proposed": {"frontmatter": frontmatter, "content": plan["body"]}, "_plan": plan,
+    }
+
+
+def _capture_grammar(operations: Any, root: Path, profile: Any) -> tuple[_SourceSnapshot, ...]:
+    snapshots: list[_SourceSnapshot] = []
+    for pin in profile.grammar_pins:
+        try:
+            snapshot = _read_source_snapshot(operations, root, root / pin.path, pin.path)
+            metadata = operations.parse_carrier(snapshot.raw, Path(pin.path)).metadata
+        except (operations.ToolError, operations.CarrierError) as error:
+            code = "subject-grammar-pin-symlink" if getattr(error, "code", None) == "subject-selector-symlink" else "subject-grammar-pin-stale"
+            raise operations.ToolError(code, "Subject grammar source cannot be bound to its declared pin") from error
+        if (hashlib.sha256(snapshot.raw).hexdigest() != pin.sha256
+                or metadata.get("atom_id") != pin.atom_id or type(metadata.get("version")) is not int
+                or metadata["version"] != pin.version):
+            _fail(operations, "subject-grammar-pin-stale", "Subject grammar source differs from its declared pin", {"path": pin.path})
+        snapshots.append(snapshot)
+    return tuple(snapshots)
+
+
+def _assert_grammar_current(operations: Any, root: Path, snapshots: Sequence[_SourceSnapshot]) -> None:
+    for snapshot in snapshots:
+        try:
+            _assert_snapshot_current(operations, root, snapshot, snapshot.path.relative_to(root).as_posix())
+        except operations.ToolError as error:
+            code = "subject-grammar-pin-symlink" if error.code == "subject-selector-symlink" else "subject-grammar-pin-stale"
+            raise operations.ToolError(code, "Subject grammar source changed after intent preparation") from error
+
+
+def _capture_identity_layout(operations: Any, root: Path) -> tuple[Path, tuple[_SourceSnapshot, ...]] | None:
+    """Only a verified release layout distinguishes installed source copies."""
+
+    from COMPILE_APPLICABLE_METHODOLOGY.compile_applicable_methodology import CompileError
+    from RELEASE_VERSION.methodology_layout import resolve_methodology_layout
+
+    registry = operations.control_root(root) / "project_structure.toml"
+    try:
+        snapshots = tuple(_read_source_snapshot(operations, root, path, path.relative_to(root).as_posix())
+                          for path in (root / operations.SETTINGS_PATH, registry))
+    except operations.ToolError as error:
+        if error.code == "subject-selector-missing":
+            return None
+        raise
+    try:
+        layout = resolve_methodology_layout(root)
+    except (CompileError, OSError, UnicodeError, ValueError):
+        return None  # No release-layout exemption in ordinary or unverifiable Projects.
+    for snapshot in snapshots:
+        _assert_snapshot_current(operations, root, snapshot, snapshot.path.relative_to(root).as_posix())
+    if (root / layout.control_root != operations.control_root(root)
+            or hashlib.sha256(snapshots[1].raw).hexdigest() != layout.structure_sha256):
+        _fail(operations, "subject-source-changed", "Project release layout changed while it was resolved")
+    copied = root / layout.installed_root / Path(layout.source_copy_root).name
+    return copied, snapshots
+
+
+def _assert_identity_layout_current(
+    operations: Any, root: Path, layout: tuple[Path, tuple[_SourceSnapshot, ...]] | None,
+) -> None:
+    if layout is None:
+        return
+    copied, snapshots = layout
+    for snapshot in snapshots:
+        _assert_snapshot_current(operations, root, snapshot, snapshot.path.relative_to(root).as_posix())
+    if any(path.is_symlink() for path in (copied, *copied.parents)):
+        _fail(operations, "subject-identity-inventory-unavailable", "installed source-copy place traverses a symlink")
+
+
+def _assert_original_identity_unique(
+    operations: Any, root: Path, atom_ids: set[str],
+    layout: tuple[Path, tuple[_SourceSnapshot, ...]] | None,
+) -> None:
+    """Reject competing current identity claims, including outside the payload."""
+
+    control = operations.control_root(root)
+    _assert_identity_layout_current(operations, root, layout)
+    reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
+    matches: dict[str, list[str]] = {atom_id: [] for atom_id in atom_ids}
+
+    def candidates() -> tuple[Path, ...]:
+        found: list[Path] = []
+        for path in reader.inventory(control, remember=False):
+            if (operations._role_directory(path, control) is None
+                    or "_projection" in path.relative_to(control).parts
+                    or operations._lifecycle(path, control) in {"draft", "archived"}):
+                continue
+            if path.is_symlink() and path.is_dir():
+                _fail(operations, "subject-identity-inventory-unavailable", "an original role directory is a symlink")
+            if path.suffix.lower() == ".md":
+                found.append(path)
+        return tuple(found)
+
+    try:
+        paths_before = candidates()
+        for path in paths_before:
+            filename = operations.ATOM_ID.search(path.name)
+            filename_id = filename.group(1) if filename else None
+            if path.is_symlink():
+                if filename_id in atom_ids:
+                    _fail(operations, "subject-identity-inventory-unavailable", "a selected identity has an unsupported original source")
+                continue
+            raw = reader.read(path)
+            try:
+                metadata = operations.parse_carrier(raw, path).metadata
+            except operations.CarrierError:
+                normalized = raw.replace(b"\r\n", b"\n")
+                header = (normalized.split(b"\n---\n", 1)[0] if normalized.startswith(b"---\n") else b"").decode("utf-8", errors="replace")
+                claims = re.findall(r"(?m)^(?:atom_id|\"atom_id\"|'atom_id'):\s*([^\n]*)$", header)
+                try:
+                    identities = [yaml.safe_load(claim) for claim in claims]
+                except yaml.YAMLError:
+                    _fail(operations, "subject-identity-inventory-unavailable", "an original identity claim cannot be resolved")
+                if (filename_id in atom_ids or any(value in atom_ids for value in identities if isinstance(value, str))
+                        or any(re.search(r"(?<![A-Za-z0-9_-])" + re.escape(atom_id) + r"(?![A-Za-z0-9_-])", header) for atom_id in atom_ids)
+                        or ("atom_id" in header and not claims)):
+                    _fail(operations, "subject-identity-inventory-unavailable", "a selected identity has a malformed original source")
+                continue
+            if "projection" in metadata:
+                continue
+            status = metadata.get("status")
+            if isinstance(status, str) and status.casefold() in {"draft", "archived"}:
+                continue
+            atom_id = metadata.get("atom_id")
+            if filename_id in atom_ids and atom_id != filename_id:
+                _fail(operations, "subject-identity-inventory-unavailable", "a selected identity has an ambiguous original source")
+            if isinstance(atom_id, str) and atom_id in atom_ids:
+                if not isinstance(status, str) or not status:
+                    _fail(operations, "subject-identity-inventory-unavailable", "a selected identity has an unresolved original Status")
+                if layout is not None and path.is_relative_to(layout[0]):
+                    continue
+                matches[atom_id].append(path.relative_to(root).as_posix())
+        if reader.currentness()["state"] != "unchanged" or candidates() != paths_before:
+            _fail(operations, "subject-source-changed", "original identity sources changed during preview inventory")
+    except (OSError, LimitReached) as error:
+        raise operations.ToolError("subject-identity-inventory-unavailable", "original identity inventory is incomplete or unavailable") from error
+    _assert_identity_layout_current(operations, root, layout)
+    for atom_id, paths in matches.items():
+        if len(paths) > 1:
+            _fail(operations, "subject-identity-duplicate", "selected Atom identity has more than one original carrier", {"atom_id": atom_id, "paths": paths})
+        if not paths:
+            _fail(operations, "subject-identity-inventory-unavailable", "selected Atom identity has no current original carrier", {"atom_id": atom_id})
 
 
 def _validate_subject_values(operations: Any, values: Sequence[str], subject_profile: str) -> None:

@@ -116,7 +116,7 @@ class ImageOutputSafetyTests(unittest.TestCase):
                       AWS_SECRET_ACCESS_KEY=PRIVATE_MARKER, GITHUB_TOKEN=PRIVATE_MARKER)
         with patch.dict(os.environ, caller, clear=True):
             client = ProjectMcpBackend._docker_client_environment()
-            service = ProjectMcpBackend._environment(selection, IMAGE_ID, "b" * 64)
+            service = ProjectMcpBackend._environment(selection, IMAGE_ID, "b" * 64, 56317)
         self.assertEqual(dict(PROXY_ROUTING, PATH="/synthetic-bin"), client)
         for name, value in PROXY_ROUTING.items():
             self.assertEqual(value, service[name])

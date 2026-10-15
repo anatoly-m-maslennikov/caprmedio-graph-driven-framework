@@ -101,9 +101,9 @@ class SubjectIntentMaterializationTests(unittest.TestCase):
     def test_ordered_dependency_patches_and_lowercase_selector_are_literal(self) -> None:
         literal = 'atom(atom_id="CA-P-501").Status'
         patches = [
-            {"field": "depends_on", "index": 1, "old": "Atom/Revision", "new": "Atom.Revision"},
+            {"field": "depends_on", "old": "Atom/Revision", "new": "Atom.Revision"},
             {"field": "governs", "old": "Atom/Status", "new": literal},
-            {"field": "depends_on", "index": 0, "old": "Atom", "new": "Atom"},
+            {"field": "depends_on", "old": "Atom", "new": "Atom"},
         ]
         prepared = self._prepare(subject_profile="approved", patches=patches)
         self.assertEqual(patches, prepared["subject_intent"]["subject_patches"])
@@ -111,6 +111,8 @@ class SubjectIntentMaterializationTests(unittest.TestCase):
         self.assertEqual(literal, metadata["subjects"]["governs"])
         self.assertEqual(["Atom", "Atom.Revision"], metadata["subjects"]["depends_on"])
         self.assertEqual("not_performed", prepared["subject_intent"]["subject_profile_evidence"]["native_admission"])
+        materialized = subject_patch.materialize_subject_intent(self.root, prepared, "2026-10-14 00:40:00 +0400")
+        self.assertEqual(["Atom", "Atom.Revision"], operations.parse_carrier(materialized["carrier_bytes"], self.path).metadata["subjects"]["depends_on"])
 
     def test_target_descriptor_is_closed_and_all_fields_are_pinned(self) -> None:
         for field in self.target:

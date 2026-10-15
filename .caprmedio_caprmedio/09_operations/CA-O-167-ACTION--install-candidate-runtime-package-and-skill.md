@@ -10,10 +10,10 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Install candidate Framework package and project Skill"
   depends_on: [Action, Framework Package, Methodology, Skill, Artifact/Revision, Delivery, Journal]
-version: 4
-updated_at: "2026-10-10 19:05:19 +0400"
+version: 5
+updated_at: "2026-10-14 19:37:26 +0400"
 relations:
-  relates_to: [CA-O-164, CA-O-175, CA-D-563, CA-R-1525, CA-R-1720]
+  relates_to: [CA-O-164, CA-O-175, CA-R-1525, CA-R-1720]
 ---
 # Summary
 

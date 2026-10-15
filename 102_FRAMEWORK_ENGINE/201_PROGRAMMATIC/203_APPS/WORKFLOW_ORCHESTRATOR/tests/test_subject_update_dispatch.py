@@ -42,6 +42,9 @@ class _ChildSession:
     def finish_run(self, run_id: str, **result: object) -> dict[str, object]:
         return {"run_id": run_id, "disposition": "terminal", **result}
 
+    def note_effects(self, run_id: str, **result: object) -> None:
+        self.observed_effects = {"run_id": run_id, **result}
+
 
 class SubjectUpdateDispatchTests(unittest.TestCase):
     def setUp(self) -> None:
@@ -83,14 +86,15 @@ class SubjectUpdateDispatchTests(unittest.TestCase):
             lifecycle_intents.update_assessment_seal(incomplete)
         self.assertEqual("update-parameters-invalid", caught.exception.code)
 
-    def _dispatch(self, *, prior_state: str = "admitted", retained_child: bool = False) -> tuple[dict[str, object], Mock, _ChildSession, dict[str, object], list[str]]:
+    def _dispatch(self, *, prior_state: str = "admitted", retained_child: bool = False,
+                  native_outcome: str = "failed", log_failure: bool = False) -> tuple[dict[str, object], Mock, _ChildSession, dict[str, object], list[str]]:
         selected = SelectedExecution(self.root)
         order: list[str] = []
         session = _ChildSession(order)
         requested_child = "requested-child"
         if retained_child:
             session.actual[requested_child] = {"run_id": "existing-actual-child"}
-        prior = {"state": prior_state, "event": {"event_id": "prior-event"}, "receipt": {"event_id": "prior-event"}}
+        prior = {"state": prior_state, "before_result": {"path": self.target["path"], "sha256": "a" * 64}}
         assessment = lifecycle_intents.update_assessment_seal(self.parameters, self.evidence)
         saved: list[dict[str, object]] = []
 
@@ -99,7 +103,7 @@ class SubjectUpdateDispatchTests(unittest.TestCase):
             if not call["execute"]:
                 return {"operation": "update", "outcome": "preview", "observed": self.target}
             order.append("effect")
-            return {"operation": "update", "outcome": "failed", "observed": self.target, "effects": []}
+            return {"operation": "update", "outcome": native_outcome, "observed": self.target, "effects": []}
 
         def admit(*_args: object) -> dict[str, object]:
             order.append("prior")
@@ -129,10 +133,9 @@ class SubjectUpdateDispatchTests(unittest.TestCase):
             patch.object(selected, "_replacement_journal_context", return_value=("operator", "2026-10-12", "UTC", "2026-10-12T00:00:00+00:00")),
             patch.object(selected, "_bound_action_structural_scope", return_value="FIXTURE"),
             patch.object(selected, "_lifecycle_result_facts", return_value=({"path": self.target["path"], "sha256": "a" * 64}, b"before")),
-            patch.object(selected, "_lifecycle_context_seed", return_value={}),
-            patch("work_journal.seal_append_context", return_value={}),
             patch("selected_lifecycle_journal.prepare_lifecycle_journal", return_value={}),
             patch("selected_lifecycle_journal.admit_lifecycle_prior", side_effect=admit),
+            patch("selected_lifecycle_journal.record_lifecycle_change", side_effect=OSError("full") if log_failure else None),
         ):
             result = selected.handlers["CA-O-128"](context)
         return result, publisher, session, prior, order
@@ -149,12 +152,20 @@ class SubjectUpdateDispatchTests(unittest.TestCase):
         self.assertIs(effect_call.kwargs["prior"], prior)
         self.assertEqual(lifecycle_intents.update_assessment_seal(self.parameters, self.evidence), effect_call.kwargs["assessment"])
 
-    def test_pending_prior_prevents_child_start_and_native_effect(self) -> None:
+    def test_prior_logging_state_does_not_gate_actual_child(self) -> None:
         result, publisher, session, _prior, order = self._dispatch(prior_state="pending")
-        self.assertEqual("lifecycle-prior-pending", result["result"])
-        self.assertEqual(["prior"], order)
-        self.assertEqual({}, session.actual)
-        self.assertEqual(1, publisher.call_count)
+        self.assertEqual("failed", result["result"])
+        self.assertEqual(["prior", "start", "effect"], order)
+        self.assertEqual(1, len(session.actual))
+        self.assertEqual(2, publisher.call_count)
+
+    def test_logging_failure_keeps_the_actual_source_outcome(self) -> None:
+        result, publisher, _session, _prior, order = self._dispatch(native_outcome="applied", log_failure=True)
+        self.assertEqual("applied", result["result"])
+        self.assertEqual("completed", result["terminal_outcome"])
+        self.assertEqual("OSError", result["recording_error"])
+        self.assertEqual(["prior", "start", "effect"], order)
+        self.assertEqual(2, publisher.call_count)
 
     def test_retained_child_never_reinvokes_native_subject_update(self) -> None:
         result, publisher, _session, _prior, order = self._dispatch(retained_child=True)

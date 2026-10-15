@@ -21,6 +21,13 @@ from yaml.events import SequenceEndEvent, SequenceStartEvent
 from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
 
 
+TOOLS_ROOT = Path(__file__).resolve().parents[1]
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
+
+from project_runtime import TemporaryBoundaryError, repository_root
+
+
 RETIRED_PROPERTIES = frozenset({"cce_form", "cce_version", "llm_session_ids"})
 PLAN_KIND = "remove_retired_atom_properties"
 EXCLUDED_PARTS = frozenset({"history", "archive", "archives", "archived", "draft", "drafts",
@@ -33,6 +40,10 @@ SAFE_TAGS = frozenset("tag:yaml.org,2002:" + name for name in (
 
 class MigrationError(ValueError):
     """Unsafe, stale, or unsupported input; no guessed transformation."""
+
+
+def _error_record(error: BaseException, kind: str) -> dict[str, Any]:
+    return {"error": str(error), "kind": kind}
 
 
 def _digest(raw: bytes) -> str:
@@ -462,6 +473,10 @@ def _apply_change(change: dict[str, Any]) -> bool:
 
 
 def apply_plan(plan: dict[str, Any], root: Path) -> dict[str, Any]:
+    try:
+        repository_root(root)
+    except TemporaryBoundaryError as error:
+        raise MigrationError(str(error)) from error
     changes = _plan_changes(plan, root)
     completed = _preflight(plan, root, changes)
     applied = []
@@ -549,7 +564,7 @@ def main(argv: list[str] | None = None) -> int:
         _output(args.output, result)
         return 2 if result.get("blockers") else 0
     except (MigrationError, OSError, ValueError, KeyError, TypeError, AttributeError) as error:
-        print(json.dumps({"error": str(error), "kind": PLAN_KIND}), file=sys.stderr)
+        print(json.dumps(_error_record(error, PLAN_KIND)), file=sys.stderr)
         return 2
 
 

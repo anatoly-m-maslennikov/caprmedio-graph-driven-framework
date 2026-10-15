@@ -5,7 +5,7 @@
     "selected_source_registry_version": 2,
     "selected_source_registry_digest": "f165779ab67c049b90d813909d99eda245a89f280eef70445cd8dfdf9cb91eaa",
     "selected_binding_ref": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/selected_workflow_bindings.json#/routes",
-    "selected_binding_digest": "42ee865298426066d41e18203b16af73f3b3a96dfb47573427a71ba798cddd7b"
+    "selected_binding_digest": "d2b84aaf289a5361871c459f4600d6bcac22220ab35d2d00b0ef83845b69c011"
   },
   "routes": [
     {
@@ -885,9 +885,9 @@
         {
           "step": {
             "atom_id": "CA-O-091",
-            "version": 4,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-091-CORE_META_MODEL-STEP--prepare-delegated-implementation-work.md",
-            "digest": "8581f4a6fa4c805eaa08b845b46bd4ceda4880f611c8cc6538d0c382e3999b8b"
+            "version": 5,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-091-CORE_META_MODEL-STEP--prepare-delegated-implementation-work.md",
+            "digest": "4d1096291c5c783f867988fa2056551e925eae83a868f6cebb0396e5eb348cab"
           },
           "action": {
             "atom_id": "CA-O-017",
@@ -899,9 +899,9 @@
         {
           "step": {
             "atom_id": "CA-O-092",
-            "version": 3,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-092-CORE_META_MODEL-STEP--prepare-tests-in-the-implementation-subagent.md",
-            "digest": "ffc2b9a0fcdb2f0d97c4e881ebf586a8d4eb2eb4594469cd62bc5f75b11bb2ef"
+            "version": 4,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-092-CORE_META_MODEL-STEP--prepare-tests-in-the-implementation-subagent.md",
+            "digest": "c0d3978d4f406a5da4d5b342dfb0048aa955121c8ddb8a1d0f082616877dab59"
           },
           "action": {
             "atom_id": "CA-O-018",
@@ -913,9 +913,9 @@
         {
           "step": {
             "atom_id": "CA-O-093",
-            "version": 3,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-093-CORE_META_MODEL-STEP--implement-requirements-in-the-assigned-subagent.md",
-            "digest": "bda6055ba9ea55de409a1a4f3e89ad7ae8346140e7e2e7bb4dc1eaa931a2b522"
+            "version": 4,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-093-CORE_META_MODEL-STEP--implement-requirements-in-the-assigned-subagent.md",
+            "digest": "a83edac4fb71f30162aa25cab9c76516b9febd917c4e032ece81089a257b301a"
           },
           "action": {
             "atom_id": "CA-O-019",
@@ -927,9 +927,9 @@
         {
           "step": {
             "atom_id": "CA-O-094",
-            "version": 4,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-094-CORE_META_MODEL-STEP--run-the-selected-implementation-checks.md",
-            "digest": "0bbf1604864cb9697f7efe32314f2dce193826597278d58f5ab31aca54d9d9ec"
+            "version": 5,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-094-CORE_META_MODEL-STEP--run-the-selected-implementation-checks.md",
+            "digest": "0466dc2064d536b6edb0006b1018d8c580dc29442aa0c30a07578cf51824f494"
           },
           "action": {
             "atom_id": "CA-O-020",
@@ -941,9 +941,9 @@
         {
           "step": {
             "atom_id": "CA-O-095",
-            "version": 3,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-095-CORE_META_MODEL-STEP--diagnose-failures-in-the-assigned-subagent.md",
-            "digest": "49d06e90f7939527a66d51ffe06084f157bdab9de138255d4dea7edc114d3fa8"
+            "version": 4,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-095-CORE_META_MODEL-STEP--diagnose-failures-in-the-assigned-subagent.md",
+            "digest": "3e1f7a5b3d9f06e002c8e23f5d5b2719a42886e62310012e74caa27e2b0e9c5c"
           },
           "action": {
             "atom_id": "CA-O-089",
@@ -955,9 +955,9 @@
         {
           "step": {
             "atom_id": "CA-O-096",
-            "version": 3,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-096-CORE_META_MODEL-STEP--admit-an-implementation-repair-retry.md",
-            "digest": "0c7bcf5a9385792bd2576bdbc0e7a9d8445854ee29eac6879c70c35114c9e35e"
+            "version": 4,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-096-CORE_META_MODEL-STEP--admit-an-implementation-repair-retry.md",
+            "digest": "4b8083b0f864dfdb4694b75dc807140ad612f70edacfee2b6bc591003934530e"
           },
           "action": {
             "atom_id": "CA-O-024",
@@ -969,9 +969,9 @@
         {
           "step": {
             "atom_id": "CA-O-099",
-            "version": 2,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-099-CORE_META_MODEL-STEP--repair-code-and-retain-issue-evidence.md",
-            "digest": "cb41a0ac54a473f106cfd02efcdfc6b75f5d592eecdc7f5c3c3906aceb925617"
+            "version": 3,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-099-CORE_META_MODEL-STEP--repair-code-and-retain-issue-evidence.md",
+            "digest": "c36568a6db7e2e6049059f1f7d5097b79a182258936c0ad9f0eb7a22351f0051"
           },
           "action": {
             "atom_id": "CA-O-021",
@@ -1194,9 +1194,9 @@
         {
           "step": {
             "atom_id": "CA-O-152",
-            "version": 2,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
-            "digest": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc"
+            "version": 3,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+            "digest": "1d9f1192496a2c42692ffe9d9628ac2b6b1ef4e362bde2eb2d7832694ac0f850"
           },
           "action": {
             "atom_id": "CA-O-004",
@@ -1208,9 +1208,9 @@
         {
           "step": {
             "atom_id": "CA-O-153",
-            "version": 2,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
-            "digest": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87"
+            "version": 3,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+            "digest": "daab4626602f7c28938e937badc433d826d8a6f311c3093045a2849a4228fc0c"
           },
           "action": {
             "atom_id": "CA-O-005",
@@ -1222,9 +1222,9 @@
         {
           "step": {
             "atom_id": "CA-O-154",
-            "version": 2,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
-            "digest": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad"
+            "version": 3,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+            "digest": "77829c9a4b71cea40e931d5a4430db064bd792066d84eaace1104fbe24821aee"
           },
           "action": {
             "atom_id": "CA-O-006",
@@ -1236,9 +1236,9 @@
         {
           "step": {
             "atom_id": "CA-O-155",
-            "version": 2,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
-            "digest": "895f31fddd18894449f73321bf1fe3a26e4686a2a474a87ad0c2475812fadc12"
+            "version": 3,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+            "digest": "ff550ed228c4dc06d4cd76235bb91ee8d58d588beb4ac56cc974ad0ecaef6693"
           },
           "action": {
             "atom_id": "CA-O-007",
@@ -1250,9 +1250,9 @@
         {
           "step": {
             "atom_id": "CA-O-156",
-            "version": 2,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md",
-            "digest": "66ad7ecaf6fcaa3368539f464be8345818f71135d85d3e9f9d96c2ba7b32e822"
+            "version": 3,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md",
+            "digest": "188f6248126a04464334b8372336f362c4d8d0ed68e08ec8597105a4eb5b8e60"
           },
           "action": {
             "atom_id": "CA-O-008",
@@ -1264,9 +1264,9 @@
         {
           "step": {
             "atom_id": "CA-O-157",
-            "version": 2,
-            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md",
-            "digest": "4007710401af00358dcaf1c04aaa2f62ed396ef9471d74d7940fb35dcafad1c4"
+            "version": 3,
+            "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md",
+            "digest": "27b4f0c822dd7b2ff0cbe5b9b85a70bac1a061e5c15897fee834b5f65fcc215c"
           },
           "action": {
             "atom_id": "CA-O-009",
@@ -1371,5 +1371,5 @@
       "mutation_capable": true
     }
   ],
-  "canonical_manifest_sha256": "e1a0b97bd9ae83df2795de65efa722547fb6fad151a27ee5515612f7d65e33f4"
+  "canonical_manifest_sha256": "46d963d19a4ab13e892ab24685f43ee5bade87d46239fc5a3dfa7427c0a3b7bf"
 }

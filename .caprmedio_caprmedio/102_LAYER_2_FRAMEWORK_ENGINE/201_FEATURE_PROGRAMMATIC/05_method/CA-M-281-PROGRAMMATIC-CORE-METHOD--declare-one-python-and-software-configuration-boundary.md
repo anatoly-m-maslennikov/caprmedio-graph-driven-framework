@@ -1,12 +1,16 @@
 ---
+atom_id: "CA-M-281"
+content_role: "Method"
+current_scope_unit: "PROGRAMMATIC"
+status: "Active"
 cce_version: "cce_1"
 cce_form: "method"
 subjects:
   governs: "python-technical-configuration"
   depends_on:
     - "programmatic software"
-version: 11
-updated_at: "2026-09-11 20:58:34 +0400"
+version: 12
+updated_at: "2026-10-13 19:17:17 +0400"
 relations:
   derived_from:
     - "CA-A-053"

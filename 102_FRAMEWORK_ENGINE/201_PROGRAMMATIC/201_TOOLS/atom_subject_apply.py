@@ -11,6 +11,10 @@ from typing import Any
 
 import atom_operations as operations
 from artifact_metadata import current_timestamp
+from subject_publication_authorization import (
+    SubjectPublicationAuthorizationError, require_subject_publication_window,
+    revalidate_subject_publication_authority, with_subject_publication_window,
+)
 
 
 def _fail(code: str, message: str) -> None:
@@ -93,7 +97,7 @@ def _assessment(root: Path, request: Mapping[str, Any], target: operations.Atom,
 
 
 def _completed_assessment(root: Path, session: Any, assessment: Mapping[str, Any], mutation: Mapping[str, Any]) -> None:
-    """Reopen the existing O067/O145 completion and its persisted content seal."""
+    """Read the actual O067/O145 completion and its persisted content seal."""
 
     by_actual = {record["run_id"]: (requested, record) for requested, record in session.actual.items()}
     mutation_workflows = {run_id for run_id in session._parent_lineage(mutation)
@@ -112,15 +116,9 @@ def _completed_assessment(root: Path, session: Any, assessment: Mapping[str, Any
         if any(not isinstance(item, Mapping) or item.get("disposition") != "terminal" or item.get("outcome") != "completed"
                for item in (terminal, step_terminal)):
             continue
-        for record, completed in ((action, terminal), (parent[1], step_terminal)):
-            event = session._reopen_started_event(completed["event_receipt"])
-            if (event.get("schema_version") != 5 or event.get("kind") != "workflow_execution"
-                    or event.get("event") != "completed" or event.get("outcome") != "completed"
-                    or event.get("run") != record or event.get("result_ref") != completed["result_ref"]
-                    or event.get("effect_refs") != [] or event.get("action_id") != session.request["assigned_action_id"]
-                    or event.get("llm_session", {}).get("uuid") != session.request["request_id"]
-                    or event.get("initiative") != session.request["initiative"]):
-                _fail("subject-assessment-unrecorded", "Subject assessment completion differs from its canonical receipt")
+        if (terminal.get("run_id") != action["run_id"] or terminal.get("effect_refs") != []
+                or step_terminal.get("run_id") != parent[1]["run_id"] or step_terminal.get("effect_refs") != []):
+            _fail("subject-assessment-unrecorded", "Subject assessment completion differs from its actual Run")
         relative = terminal["result_ref"]
         if not isinstance(relative, str) or Path(relative).is_absolute() or ".." in Path(relative).parts or Path(relative).as_posix() != relative:
             _fail("subject-assessment-unrecorded", "Subject assessment result reference is unsafe")
@@ -139,11 +137,9 @@ def _gate(root: Path, request: Mapping[str, Any], intent: Mapping[str, Any], *,
           authorized: bool, session: object, action_run_id: object, prior: object,
           assessment: Mapping[str, Any]) -> None:
     from workflow_run_support import RunExecutionSession, SelectedRunError, _canonical_digest, _proposal, _validate_common
-    from work_journal import validate_sealed_event
     if authorized is not True or not isinstance(session, RunExecutionSession) or Path(session.tracker.root).resolve() != root:
         _fail("subject-session-required", "Subject publication requires the actual selected execution Session")
     try:
-        from selected_lifecycle_journal import _fresh_prior_receipt
         sealed = _validate_common(session.request)
         if sealed["mode"] != "execute" or sealed["operation_route"] != "update_atom" or sealed["parameters"] != request:
             _fail("subject-request-mismatch", "Subject publication differs from the sealed selected request")
@@ -170,22 +166,16 @@ def _gate(root: Path, request: Mapping[str, Any], intent: Mapping[str, Any], *,
         if (actual.get("kind") != "action" or actual.get("definition", {}).get("atom_id") != "CA-O-030"
                 or requested_id not in requested or requested[requested_id]["definition"] != actual["definition"]
                 or requested_id in session.terminal or requested_id in session.interrupted
-                or requested_id in session.observed_effects or session.pending):
+                or requested_id in session.observed_effects):
             _fail("subject-action-start-invalid", "Subject Action is not a fresh effect-free O030 start")
-        session.read_recorded_action_start(action_run_id)
         by_actual = {record["run_id"]: (key, record) for key, record in session.actual.items()}
         for run_id in (action_run_id, *session._parent_lineage(actual)):
             key, record = by_actual[run_id]
             declared = requested.get(key)
-            event = session._reopen_started_event(session._started_receipts[key])
             parent_key = declared.get("parent_requested_run_id") if declared else None
             expected_parent = session.actual[parent_key]["run_id"] if parent_key else None
             if (declared is None or declared["kind"] != record["kind"] or declared["definition"] != record["definition"]
-                    or record.get("parent_run_id") != expected_parent or event.get("run") != record
-                    or event.get("schema_version") != 5 or event.get("kind") != "workflow_execution"
-                    or event.get("event") != "started" or event.get("action_id") != sealed["assigned_action_id"]
-                    or event.get("llm_session", {}).get("uuid") != sealed["request_id"]
-                    or event.get("initiative") != sealed["initiative"]):
+                    or record.get("parent_run_id") != expected_parent):
                 _fail("subject-action-start-invalid", "Subject actual start lineage differs from this sealed Session")
         if session.workflow_definition_bindings != session.canonical_requested_definition_bindings(sealed["requested_runs"]):
             _fail("subject-definition-stale", "Subject Session definitions differ from the sealed requested set")
@@ -196,13 +186,6 @@ def _gate(root: Path, request: Mapping[str, Any], intent: Mapping[str, Any], *,
                     or operations.frontmatter_scalar(definition_frontmatter, "version") != str(binding["version"])):
                 _fail("subject-definition-stale", "Subject Run definition differs from its exact identity and version")
         _completed_assessment(root, session, assessment, actual)
-        if not isinstance(prior, Mapping) or set(prior) != {"state", "event", "receipt"} or prior["state"] != "admitted":
-            _fail("subject-prior-required", "Subject publication requires the admitted canonical lifecycle prior")
-        event = validate_sealed_event(prior["event"])
-        expected = {"state": "present", "filename": before["filename"], "version": before["version"],
-                    "path": before["path"], "sha256": before["digest"]}
-        if event["result"] != expected or prior["receipt"] != _fresh_prior_receipt(root, event):
-            _fail("subject-prior-stale", "Subject lifecycle prior differs from the exact current target")
     except (SelectedRunError, OSError, RuntimeError, KeyError, TypeError, ImportError, UnicodeError, json.JSONDecodeError) as error:
         from lifecycle_intents import LifecycleError
         if isinstance(error, LifecycleError):
@@ -210,6 +193,7 @@ def _gate(root: Path, request: Mapping[str, Any], intent: Mapping[str, Any], *,
         raise LifecycleError("subject-execution-unadmitted", "Subject selected execution evidence cannot be revalidated") from error
 
 
+@with_subject_publication_window
 def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute: bool = False,
                           authorized: bool = False, assessment: Mapping[str, Any] | None = None,
                           session: object | None = None, action_run_id: str | None = None,
@@ -255,8 +239,11 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
         if assessment is None:
             _fail("assessment-invalid", "Subject execution requires completed O145 assessment")
         _gate(root, request, intent, authorized=authorized, session=session, action_run_id=action_run_id, prior=prior, assessment=assessment)
-        # shortcut: compare-to-replace/unlink races remain; require approved publication design and combined verification before enabling.
-        _fail("subject-publication-deferred", "Subject-only live publication is deferred; current and history are unchanged")
+        try:
+            require_subject_publication_window(root, request, intent)
+        except SubjectPublicationAuthorizationError as error:
+            _fail(error.code, str(error))
+        # shortcut: confirmed pauses do not prevent outside writes or interruption, reconsider if stronger isolation is required.
         actual_at = current_timestamp(root)
         materialized = materialize_subject_intent(root, prepared, actual_at)
         archive = intent["predecessorArchive"]
@@ -287,6 +274,11 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
             actual_raw, actual_fingerprint = operations.read_raw_atom_revision(root, path)
             if actual_raw != after_raw or actual_fingerprint != current_owner:
                 _fail("subject-publication-unconfirmed", "Subject current revision readback differs")
+            actual = _atom(root, after, actual_raw)
+            operations._validate_complete_carrier(root, path, actual.frontmatter, actual.content, creating=False)
+            _gate(root, request, intent, authorized=authorized, session=session, action_run_id=action_run_id,
+                  prior=prior, assessment=assessment)
+            revalidate_subject_publication_authority(root, request, intent)
             return {**base, "outcome": "applied", "observed": after,
                     "materialization": materialized["materialization"],
                     "effects": [{"state": "changed", "carrier": after}, {"state": "changed", "carrier": archived}],

@@ -15,7 +15,7 @@ REPOSITORY = APP.parents[3]
 TOOLS = APP.parents[1] / "201_TOOLS"
 REVERT = TOOLS / "WORKFLOW_OPERATIONS/REVERT_CHANGES"
 PROMPTS = REPOSITORY / "102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/IMPLEMENTATION_WORKFLOW"
-for path in (APP, APP / "tests", TOOLS, REVERT, REVERT / "tests", PROMPTS):
+for path in (APP, APP / "tests", TOOLS, REVERT, REVERT / "tests", PROMPTS, TOOLS.parent / "204_MCP/tests"):
     sys.path.insert(0, str(path))
 
 import backend
@@ -26,6 +26,7 @@ from native_revert_provider import NativeRevertProvider, make_native_revert_serv
 from selected_execution import SelectedExecution, build_requested_runs
 from selected_native_providers import SelectedNativeProviders
 from selected_workflows_docker_fixture import GoldenCase, GoldenProject
+from test_selected_routes_mcp import copy_complete_selected_guard_fixture
 
 
 class RegisteredDBOS:
@@ -61,12 +62,22 @@ class Session:
         return row
 
 
+class CurrentProviderGoldenProject(GoldenProject):
+    def _copy_reviewed_manifest(self):
+        settings = self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
+        prior = settings.read_bytes()
+        try:
+            return copy_complete_selected_guard_fixture(self.root)
+        finally:
+            settings.write_bytes(prior)
+
+
 class SelectedNativeProvidersTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name).resolve()
-        self.project = GoldenProject(REPOSITORY, self.root, GoldenCase("W10", "revert_changes"))
+        self.project = CurrentProviderGoldenProject(REPOSITORY, self.root, GoldenCase("W10", "revert_changes"))
         self.manifest = self.project.prepare()
 
     def freeze(self, route, parameters, run_id="native-selected"):
@@ -159,7 +170,7 @@ class SelectedNativeProvidersTests(unittest.TestCase):
             forecast_path = forecast / target_path.relative_to(self.root)
             forecast_path.parent.mkdir(parents=True, exist_ok=True)
             forecast_path.write_bytes(target_path.read_bytes())
-            with patch.object(lifecycle_intents, "datetime", revert_fixture.FrozenDatetime):
+            with patch.object(lifecycle_intents, "current_timestamp", return_value="2026-10-05 12:00:00 +0000"):
                 forecast_result = lifecycle_intents.update_atom_action(forecast, {
                     "target": lifecycle_intents.carrier_descriptor(forecast, "CA-R-100"),
                     "proposed": helper._proposal(forecast_path), "change_class": "semantic_revision"}, execute=True, authorized=True)
@@ -262,6 +273,14 @@ class SelectedNativeProvidersTests(unittest.TestCase):
             self.assertIsNot(engine.agent, providers.implementation_agent)
             self.assertIn(backend.WORKFLOW, dbos.workflows)
             self.assertIn("base-revise-fix", dbos.steps)
+
+    def test_release_routes_have_no_selected_native_provider_or_recovery(self):
+        providers = SelectedNativeProviders(self.root)
+        for route in ("release_version", "public.release"):
+            with self.subTest(route=route), self.assertRaisesRegex(RuntimeError, "use direct Release commands"):
+                providers.execution({"request": {"execution": {"operation_route": route, "parameters": {}}}})
+        self.assertFalse(hasattr(providers, "recover_release"))
+        self.assertFalse(hasattr(providers, "resolve_release_unknown_effect"))
 
     def test_denied_implementation_packet_never_launches_callback(self):
         import implementation_actions

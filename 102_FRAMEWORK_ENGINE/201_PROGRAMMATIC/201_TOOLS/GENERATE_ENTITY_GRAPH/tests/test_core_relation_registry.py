@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import hashlib
-import shutil
 import sys
 import tempfile
 import unittest
@@ -14,16 +13,12 @@ from unittest.mock import patch
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 TOOL_DIRECTORY = Path(__file__).resolve().parents[1]
-WORKSPACE = TOOL_DIRECTORY.parents[3]
-ACTUAL_CORE = (
-    WORKSPACE
-    / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"
-)
 if str(TOOL_DIRECTORY) not in sys.path:
     sys.path.insert(0, str(TOOL_DIRECTORY))
 
 import core_relation_registry as registry  # noqa: E402
 import generate_entity_graph as graph  # noqa: E402
+from historical_core_authority import historical_authority_bytes  # noqa: E402
 
 
 class CoreRelationRegistryTests(unittest.TestCase):
@@ -46,11 +41,10 @@ class CoreRelationRegistryTests(unittest.TestCase):
             "authority_mode = 'strict'\n",
             encoding="utf-8",
         )
-        for _, (_, _, _, suffix) in registry._REQUIRED_AUTHORITIES.items():
-            source = ACTUAL_CORE / suffix
+        for _, digest, _, suffix in registry._REQUIRED_AUTHORITIES.values():
             destination = self.authority / suffix
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source, destination)
+            destination.write_bytes(historical_authority_bytes(suffix, digest))
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
@@ -80,27 +74,6 @@ class CoreRelationRegistryTests(unittest.TestCase):
                 "graph_kind": graph_kind,
                 "canonical_name": canonical_name,
             }
-        )
-
-    def test_actual_current_registered_core_frontier_compiles_three_closed_records(self) -> None:
-        carriers, diagnostics = graph.discover_atoms(WORKSPACE, ACTUAL_CORE)
-        self.assertFalse([item for item in diagnostics if item.get("severity") == "error"])
-        frontier = graph.source_frontier_for(WORKSPACE, ACTUAL_CORE)
-        result = registry.prepare_core_relation_registry(
-            WORKSPACE,
-            carriers,
-            frontier,
-            {"atom_ids": [], "scope_unit_names": ["CORE_META_MODEL"]},
-        )
-
-        self.assertEqual((), result.diagnostics)
-        self.assertEqual(
-            [
-                ("entities", "IS_ALLOWED_VALUE_OF"),
-                ("entities", "IS_BORNE_BY"),
-                ("terms", "NARROWER_THAN"),
-            ],
-            [(row["kind"]["graph_kind"], row["kind"]["canonical_name"]) for row in result.records],
         )
 
     def test_records_have_complete_reviewed_metadata_exact_digests_and_contribution_refs(

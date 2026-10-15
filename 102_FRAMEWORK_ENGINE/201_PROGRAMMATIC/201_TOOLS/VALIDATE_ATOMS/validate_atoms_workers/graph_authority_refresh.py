@@ -7,6 +7,8 @@ from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
+from project_selection import active_selection
+
 from .parsing import CarrierError, parse_carrier
 
 
@@ -46,29 +48,25 @@ APPROVED_GRAPH_AUTHORITY_IDS = frozenset(
     }
 )
 
-CURRENT_SOURCE_ROOTS = (
-    Path(
-        ".caprmedio_caprmedio/000_CAPRMEDIO_framework/"
-        "00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/"
-        "001_CORE_META_MODEL/04_requirement"
-    ),
-    Path(
-        ".caprmedio_caprmedio/000_CAPRMEDIO_framework/"
-        "00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/"
-        "001_CORE_META_MODEL/07_delivery"
-    ),
-)
+_SOURCE_ROLE_DIRECTORIES = ("04_requirement", "07_delivery")
 
 
 def _source_roots(root: Path) -> tuple[Path, ...]:
-    resolved_root = root.resolve()
+    selection = active_selection(root)
+    owners = [
+        row for row in selection.structure.get("scope_units", ())
+        if row.get("scope_unit_name") == "CORE_META_MODEL"
+    ]
+    if len(owners) != 1 or not isinstance(owners[0].get("authority_path"), str):
+        raise ValueError("current graph authority owner is absent or ambiguous")
+    owner = selection.root / owners[0]["authority_path"]
     result: list[Path] = []
-    for relative in CURRENT_SOURCE_ROOTS:
-        declared_root = resolved_root / relative
+    for role in _SOURCE_ROLE_DIRECTORIES:
+        declared_root = owner / role
         source_root = declared_root.resolve()
         if (
-            declared_root.is_symlink()
-            or resolved_root not in source_root.parents
+            declared_root != source_root
+            or not source_root.is_relative_to(selection.control_root)
             or not source_root.is_dir()
         ):
             raise ValueError("current graph authority directory is unavailable")

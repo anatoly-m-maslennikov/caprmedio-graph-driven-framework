@@ -143,14 +143,13 @@ class ProjectMcpBackend:
 
     @staticmethod
     def _environment(selection: object, image_id: str, fingerprint: str,
-                     port: int | None = None) -> dict[str, str]:
+                     port: int) -> dict[str, str]:
         root = ProjectMcpBackend._root(selection)
         if not isinstance(image_id, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", image_id):
             raise BackendError()
         if not isinstance(fingerprint, str) or not re.fullmatch(r"[0-9a-f]{64}", fingerprint):
             raise BackendError()
-        if (port is not None and (isinstance(port, bool) or not isinstance(port, int)
-                                  or not 1 <= port <= 65535)):
+        if isinstance(port, bool) or not isinstance(port, int) or not 1 <= port <= 65535:
             raise BackendError()
         environment = {
             "PATH": os.environ.get("PATH", ""),
@@ -159,9 +158,7 @@ class ProjectMcpBackend:
             "CAPRMEDIO_CONTROL_ROOT": ProjectMcpBackend._control(selection),
             "CAPRMEDIO_PROJECT_INSTANCE_ID": ProjectMcpBackend._safe_instance(selection),
             "CAPRMEDIO_RUNTIME_FINGERPRINT": fingerprint,
-            # An empty segment preserves Compose's Docker-owned dynamic
-            # `127.0.0.1::8092` publication; a decimal segment is exact.
-            "CAPRMEDIO_MCP_HTTP_PORT": "" if port is None else str(port),
+            "CAPRMEDIO_MCP_HTTP_PORT": str(port),
         }
         for name in _DOCKER_CLIENT_ENV:
             if name in os.environ:
@@ -281,7 +278,7 @@ class ProjectMcpBackend:
         except (OSError, TypeError, ValueError) as error:
             raise BackendError() from error
 
-    def _start(self, selection, image_id, fingerprint, compose_file: Path | str, timeout, port=None):
+    def _start(self, selection, image_id, fingerprint, compose_file: Path | str, timeout, port):
         if not isinstance(timeout, (int, float)) or isinstance(timeout, bool) or timeout <= 0:
             raise BackendError()
         compose = self._compose_file(compose_file)
@@ -293,13 +290,9 @@ class ProjectMcpBackend:
         _bounded_run(command, timeout=float(timeout),
                      env=self._environment(selection, image_id, fingerprint, port))
 
-    def start(self, selection, image_id, fingerprint, timeout, port=None):
+    def start(self, selection, image_id, fingerprint, timeout, port):
         """Start development mode from its checked-in Compose carrier."""
         self._start(selection, image_id, fingerprint, _COMPOSE, timeout, port)
-
-    def start_installed(self, selection, image_id, fingerprint, compose_file, timeout, port=None):
-        """Start an admitted installation with its selected package Compose file."""
-        self._start(selection, image_id, fingerprint, compose_file, timeout, port)
 
     @staticmethod
     async def _initialize(url: str, timeout: float) -> None:

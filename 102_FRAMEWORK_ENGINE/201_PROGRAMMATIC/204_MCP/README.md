@@ -52,28 +52,28 @@ Scope mutations, Revert, graph builders, standalone advanced Artifact/Journal
 queries, and formal Release/promotion remain outside this first cut. A transport,
 manifest route, or completed scheduler call is not execution authority.
 
-## Conditional release-preparation Actions
+## Direct Project release commands
 
-The implementation also supports two separately admitted direct Actions:
+`release_version` and `public.release` call the connected Project's helpers in
+`PROJECT_TOOLS`, separately from selected Workflow sessions. Their requests
+contain `project_root` matching the bound Project and an Operator-selected
+`run_id`. Public release also accepts `content_draft` with exactly `description`
+and `summary`; without it, the command returns `input_required` without effects.
+The full Markdown description needs nonempty `## New` and `## Fixed` bullet
+sections; the summary is a nonempty list of concise, single-line history bullets.
 
-- `restore_framework_image` (CA-O-187): preview or explicitly execute restoration
-  of the exact retained Framework image; `record_terminal` retries result
-  recording only, without rebuilding or replaying the restoration.
-- `admit_package_sources` (CA-O-199): preview or explicitly execute source
-  admission for the exact retained Release boundary and current checkpoint.
+These commands require the host's Git, GitHub and Docker tools, not the ordinary
+MCP container. Run only on Operator instruction. They use the complete executable
+suite, including required current-code Docker integrations; unavailable, skipped
+required or failed checks stop release. Public release tests its prepared version
+and documentation before pushing `amm/dev` and creating/updating a Draft PR to
+`main`; it never merges. No sealed Session, restoration/admission Action or
+Journal receipt gate is required. See [Project release tools](../../../PROJECT_TOOLS/README.md).
 
-Each Tool is registered only when the Project's current Service catalog contains
-its exact source-bound executable binding. Source definitions alone do not expose
-either Tool. Use discovery and the advertised input schema; execution validates
-the current registered Operator and the exact retained command and records the
-Action in the shared Journal. Neither Action starts or promotes a Release.
-
-An older installed gateway may not advertise these bindings. Hot reload reads
-the gateway's own installed code tree, not an unrelated development checkout;
-an unchanged generation does not establish that new checkout code was activated.
-The native package must be admitted and installed before its activation path can
-expose the new bindings. Do not substitute a raw restoration or admission script
-for an unavailable binding.
+An older gateway may not expose the current direct commands. Hot reload reads
+that gateway's own code tree, not an unrelated checkout. Discover actual callable
+bindings after an authorized refresh; their source definitions alone do not prove
+activation.
 
 ## Hot reload
 

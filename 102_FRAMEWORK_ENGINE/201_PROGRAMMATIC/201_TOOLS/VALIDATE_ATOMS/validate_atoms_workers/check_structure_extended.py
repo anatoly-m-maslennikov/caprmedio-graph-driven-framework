@@ -23,6 +23,13 @@ def _inputs(check: Check) -> Record:
     return getattr(check, "inputs", {})
 
 
+def _project_name(check: Check) -> str | None:
+    identity = _inputs(check).get("_project_identity", {})
+    project = identity.get("project", {}) if isinstance(identity, dict) else {}
+    name = project.get("name") if isinstance(project, dict) else None
+    return name if _string(name) else None
+
+
 @lru_cache(maxsize=1)
 def _pins() -> Record:
     base = Path(__file__).parent
@@ -150,7 +157,7 @@ def _structure(check: Check) -> dict[str, Record] | None:
         for row in document["scope_units"]:
             _validate_structure_row(row)
             name = row["scope_unit_name"]
-            if name in units:
+            if name in units or name == _project_name(check):
                 raise ValueError
             units[name] = row
         _validate_parentage(units)
@@ -171,7 +178,7 @@ def _owner(metadata: Record, body: str, check: Check) -> None:
     if owner is None:
         return
     units = _structure(check)
-    if units is None or owner in units:
+    if units is None or owner in units or owner == _project_name(check):
         return
     author = metadata.get("author")
     if not _string(author):
@@ -216,13 +223,14 @@ def _target(metadata: Record, body: str, check: Check) -> None:
     units = _structure(check)
     if target is None or owner is None or units is None:
         return
-    if target not in units:
+    project_name = _project_name(check)
+    if target not in units and target != project_name:
         check.gap(
             "claim_target_scope_unit",
             "Target does not resolve to a declared non-Project Scope Unit; the implicit Project requires explicit identity context.",
         )
         return
-    if owner not in units:
+    if owner not in units and owner != project_name:
         check.gap(
             "current_scope_unit",
             "Relational admission requires resolved Project or Operator ownership.",

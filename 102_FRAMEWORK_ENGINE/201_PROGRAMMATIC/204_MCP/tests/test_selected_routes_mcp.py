@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import copy
 import hashlib
+import json
 import shutil
 import sys
 import tempfile
@@ -31,6 +32,7 @@ from selected_routes import (  # noqa: E402
     selected_manifest_ref,
 )
 import test_model_driven_status_lifecycle as status_goldens  # noqa: E402
+import selected_routes  # noqa: E402
 
 
 class FakeRunSupport:
@@ -38,7 +40,6 @@ class FakeRunSupport:
 
     def __init__(self) -> None:
         self.calls: list[dict] = []
-        self.recovery_calls: list[dict] = []
 
     def run_selected_operation(self, request: dict) -> dict:
         self.calls.append(copy.deepcopy(request))
@@ -69,10 +70,6 @@ class FakeRunSupport:
     def get_selected_action_run(self, request: dict) -> dict:
         return {"action_run_id": request["action_run_id"], "status": "completed", "lineage": {"workflow_run_id": "run:fixture"}}
 
-    def recover_selected_run_recording(self, request: dict) -> dict:
-        self.recovery_calls.append(copy.deepcopy(request))
-        return {"event_ref": request["pending_event_ref"], "receipt_ref": "receipt:fixture"}
-
 
 class SelectedManifestRefResolverTest(unittest.TestCase):
     def test_manifest_ref_uses_the_configured_control_root_projection(self) -> None:
@@ -93,6 +90,287 @@ class SelectedManifestRefResolverTest(unittest.TestCase):
                 ".caprmedio_fixture/_projection/selected_workflow_bindings.json",
                 selected_manifest_ref(project),
             )
+
+
+class QueryAdmissionPhysicalProofTest(unittest.TestCase):
+    """Reopen the two proofs without depending on the unrepaired portfolio."""
+
+    def setUp(self) -> None:
+        temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        self.admissions = list(selected_routes._query_admission_specs(ROOT))
+        manifest = json.loads((ROOT / selected_manifest_ref(ROOT)).read_text())
+        self.routes = [copy.deepcopy(route) for route in manifest["routes"]
+                       if route["route"] in QUERY_ROUTE_NAMES]
+        for admission, route in zip(self.admissions, self.routes, strict=True):
+            for field in ("workflow", "ordered_steps", "ordered_actions"):
+                route[field] = copy.deepcopy(admission[field])
+            pins = [admission["acceptance_frontier"], admission["workflow"],
+                    *admission["ordered_actions"],
+                    *[pin for step in admission["ordered_steps"] for pin in step.values()]]
+            for pin in pins:
+                destination = self.root / pin["source_path"]
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(ROOT / pin["source_path"], destination)
+
+    def test_query_source_admissions_and_read_only_routes_validate(self) -> None:
+        self.assertEqual(self.admissions, selected_routes._validate_query_source_admissions(
+            self.root, self.admissions, self.routes))
+        for route in self.routes:
+            self.assertFalse(route["mutation_capable"])
+            selected_routes._validate_route(self.root, route)
+
+    def test_missing_third_reordered_or_shadow_proofs_reject(self) -> None:
+        for mutation in ("missing", "third", "reordered", "shadow", "route-mismatch", "stale-digest"):
+            with self.subTest(mutation=mutation):
+                admissions, routes = copy.deepcopy(self.admissions), copy.deepcopy(self.routes)
+                if mutation == "missing":
+                    admissions.pop()
+                elif mutation == "third":
+                    admissions.append(copy.deepcopy(admissions[0]))
+                elif mutation == "reordered":
+                    admissions.reverse()
+                elif mutation == "shadow":
+                    admissions[1]["structural_successor_bridge"] = {"accepted": True}
+                elif mutation == "route-mismatch":
+                    routes[1]["workflow"] = copy.deepcopy(routes[0]["workflow"])
+                else:
+                    admissions[0]["workflow"]["digest"] = "0" * 64
+                with self.assertRaises(SelectedRouteError):
+                    selected_routes._validate_query_source_admissions(self.root, admissions, routes)
+
+    def test_physically_valid_old_proof_and_unadmitted_step_revisions_reject(self) -> None:
+        for mutation in ("old-proof", "predecessor", "superseded-step", "newer-step", "changed-body"):
+            with self.subTest(mutation=mutation):
+                admissions = copy.deepcopy(self.admissions)
+                pin = (
+                    admissions[0]["acceptance_frontier"]
+                    if mutation == "old-proof"
+                    else admissions[1]["ordered_steps"][0]["step"]
+                )
+                path = self.root / pin["source_path"]
+                original_contents = path.read_bytes()
+                if mutation in {"predecessor", "superseded-step"}:
+                    current = ROOT / pin["source_path"]
+                    version = 2 if mutation == "predecessor" else 3
+                    contents = (
+                        current.parent / "archived" / (current.stem + f"@{version}.md")
+                    ).read_bytes()
+                    pin["version"] = version
+                else:
+                    contents = original_contents
+                    if mutation == "old-proof":
+                        contents = contents.replace(b"CA-P-1618", b"CA-P-1532").replace(
+                            b"version: 1", b"version: 2"
+                        )
+                        pin.update(atom_id="CA-P-1532", version=2)
+                    elif mutation == "newer-step":
+                        contents = contents.replace(b"version: 4", b"version: 5")
+                        pin["version"] = 5
+                    else:
+                        contents += b"\nUnadmitted changed query body.\n"
+                pin["digest"] = hashlib.sha256(contents).hexdigest()
+                path.write_bytes(contents)
+                # The pin is physically valid; rejection must be the fixed admission boundary.
+                try:
+                    self.assertEqual(pin, selected_routes._validate_pin(self.root, pin))
+                    with self.assertRaisesRegex(SelectedRouteError, "accepted source frontier"):
+                        selected_routes._validate_query_source_admissions(
+                            self.root, admissions, self.routes
+                        )
+                finally:
+                    path.write_bytes(original_contents)
+
+    def test_query_only_manifest_still_rejects_before_shared_support(self) -> None:
+        manifest = json.loads((ROOT / selected_manifest_ref(ROOT)).read_text())
+        registry_ref = manifest["source_freshness"]["selected_source_registry_ref"]
+        destination = self.root / registry_ref
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / registry_ref, destination)
+        manifest["routes"], manifest["query_source_admissions"] = self.routes, self.admissions
+        manifest["source_freshness"]["selected_binding_digest"] = canonical_digest(self.routes)
+        manifest["canonical_manifest_sha256"] = canonical_digest(
+            {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"})
+        path = self.root / selected_manifest_ref(self.root)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(manifest))
+        support = FakeRunSupport()
+        adapter = SelectedRouteAdapter(self.root, service=support, strict_manifest=False)
+        result = adapter.invoke(QUERY_ROUTE_NAMES[0], {"request_id": "query-only"})
+        self.assertEqual("rejected", result["disposition"])
+        self.assertIn("must contain fifteen routes", result["diagnostics"][0])
+        self.assertEqual([], support.calls)
+
+
+def copy_complete_selected_guard_fixture(project: Path) -> dict:
+    """Current-source fifteen-route fixture; not a seventeen-route repair receipt."""
+    tools = MCP.parent / "201_TOOLS"
+    sys.path.insert(0, str(tools / "VALIDATE_ATOMS"))
+    from validate_atoms_workers.parsing import parse_carrier
+
+    manifest = json.loads((ROOT / selected_manifest_ref(ROOT)).read_text())
+    assert tuple(row["route"] for row in manifest["routes"]) == SELECTED_ROUTE_NAMES
+    manifest["query_source_admissions"] = copy.deepcopy(list(selected_routes._query_admission_specs(ROOT)))
+    query = {row["route"]: row for row in manifest["query_source_admissions"]}
+
+    def current_pin(pin):
+        # Fixture inputs are the exact selected paths, not a whole Project catalog.
+        path = selected_routes._safe_path(ROOT, pin["source_path"])
+        raw = path.read_bytes()
+        metadata = parse_carrier(raw, path).metadata
+        assert metadata.get("atom_id") == pin["atom_id"], "fixture source identity differs"
+        assert str(metadata.get("status", "")).lower() == "active", "fixture source is not Active"
+        version = metadata.get("version")
+        assert type(version) is int and version > 0, "fixture source version is invalid"
+        return {"atom_id": pin["atom_id"], "version": version,
+                "source_path": pin["source_path"], "digest": hashlib.sha256(raw).hexdigest()}
+
+    for route in manifest["routes"]:
+        if route["route"] in query:
+            for field in ("workflow", "ordered_steps", "ordered_actions"):
+                route[field] = copy.deepcopy(query[route["route"]][field])
+        else:
+            route["workflow"] = current_pin(route["workflow"])
+            route["ordered_steps"] = [{key: current_pin(pin) for key, pin in row.items()}
+                                      for row in route["ordered_steps"]]
+            route["ordered_actions"] = [current_pin(pin) for pin in route["ordered_actions"]]
+        route["native_action_calls"] = [current_pin(pin) for pin in route["native_action_calls"]]
+    freshness = manifest["source_freshness"]
+    registry = current_pin({"atom_id": "CA-A-1142", "source_path": freshness["selected_source_registry_ref"]})
+    freshness["selected_source_registry_ref"] = registry["source_path"]
+    freshness["selected_source_registry_digest"] = registry["digest"]
+    freshness["selected_binding_digest"] = canonical_digest(manifest["routes"])
+    manifest["canonical_manifest_sha256"] = canonical_digest(
+        {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"})
+    pins = {registry["source_path"]}
+    for route in manifest["routes"]:
+        pins.update(pin["source_path"] for pin in selected_routes._definition_sequence(route))
+        pins.update(pin["source_path"] for pin in route["native_action_calls"])
+    for admission in manifest["query_source_admissions"]:
+        pins.add(admission["acceptance_frontier"]["source_path"])
+    for relative in pins:
+        destination = project / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / relative, destination)
+    settings = project / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
+    shutil.copyfile(ROOT / settings.relative_to(project), settings)
+    path = project / selected_manifest_ref(project)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(manifest))
+    return load_selected_manifest(project)
+
+
+class _GuardServer:
+    def __init__(self):
+        self.tools = {}
+
+    def tool(self, *, name, **metadata):
+        def register(function):
+            self.tools[name] = function
+            return function
+        return register
+
+
+class WholeRegistryGuardTest(unittest.TestCase):
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        self.manifest = copy_complete_selected_guard_fixture(self.root)
+        self.support = FakeRunSupport()
+
+    def snapshot(self):
+        return {path.relative_to(self.root).as_posix(): path.read_bytes()
+                for path in self.root.rglob("*") if path.is_file()}
+
+    def request(self, route):
+        parameters, frontier, effects = {}, ["target:fixture"], []
+        return {"operation_route": route, "request_id": "guard-request", "parameters": parameters,
+                "parameters_digest": canonical_digest(parameters), "target_frontier": frontier,
+                "target_frontier_digest": canonical_digest(frontier), "effects": effects,
+                "effects_digest": canonical_digest(effects), "source_freshness": self.manifest["source_freshness"],
+                "definition_manifest": {"manifest_ref": self.manifest["manifest_ref"],
+                                        "manifest_digest": self.manifest["canonical_manifest_sha256"]},
+                "initiative": {"initiative_id": "fixture", "instruction_summary": "guard"}}
+
+    def corrupt_unselected_route(self, *, malformed=False):
+        path = self.root / self.manifest["manifest_ref"]
+        document = json.loads(path.read_text())
+        self.assertNotEqual("create_atom", document["routes"][1]["route"])
+        if malformed:
+            document["routes"][1]["unknown_route_field"] = True
+        else:
+            document["routes"][1]["workflow"]["digest"] = "0" * 64
+        document["source_freshness"]["selected_binding_digest"] = canonical_digest(document["routes"])
+        document["canonical_manifest_sha256"] = canonical_digest(
+            {key: value for key, value in document.items() if key != "canonical_manifest_sha256"})
+        path.write_text(json.dumps(document))
+
+    def test_complete_physical_fixture_registers_only_admitted_routes_and_previews(self):
+        before = self.snapshot()
+        server = _GuardServer()
+        adapter = selected_routes.register_selected_routes(server, self.root)
+        self.assertEqual(frozenset((*SELECTED_ROUTE_NAMES, "release_version", "public.release")), adapter.public_route_names)
+        self.assertEqual(set(SELECTED_ROUTE_NAMES) | {"release_version", "public.release", "get_selected_workflow_run", "get_selected_action_run"}, set(server.tools))
+        self.assertNotIn("recover_selected_run_recording", server.tools)
+        self.assertFalse(hasattr(adapter, "recover_recording"))
+        self.assertFalse(hasattr(selected_routes._QueueBackedSelectedSupport, "recover_selected_run_recording"))
+        self.assertIn("release_version", server.tools)
+        self.assertIn("public.release", server.tools)
+        adapter.service = self.support
+        result = server.tools["create_atom"](self.request("create_atom"))
+        self.assertEqual("preview", result["disposition"])
+        self.assertEqual(1, len(self.support.calls))
+        self.assertEqual("run:fixture", server.tools["get_selected_workflow_run"]({"run_id": "run:fixture"})["run_id"])
+        self.assertEqual("action:fixture", server.tools["get_selected_action_run"]({"action_run_id": "action:fixture"})["action_run_id"])
+        self.assertEqual(1, len(self.support.calls))
+        self.assertEqual(before, self.snapshot())
+
+    def test_unselected_source_drift_withholds_ordinary_routes_only(self):
+        self.corrupt_unselected_route()
+        server = _GuardServer()
+        sentinel = object()
+        server.tools["existing_helper"] = sentinel
+        before = self.snapshot()
+        selected_routes.register_selected_routes(server, self.root)
+        self.assertEqual({"existing_helper", "release_version", "public.release", "get_selected_workflow_run", "get_selected_action_run"}, set(server.tools))
+        self.assertIs(sentinel, server.tools["existing_helper"])
+        self.assertEqual(before, self.snapshot())
+
+    def test_unselected_route_drift_blocks_invocation_before_shared_support(self):
+        adapter = SelectedRouteAdapter(self.root, service=self.support)
+        self.corrupt_unselected_route()
+        before = self.snapshot()
+        result = adapter.invoke("create_atom", self.request("create_atom"))
+        self.assertEqual("rejected", result["disposition"])
+        self.assertIn("source pin is stale", result["diagnostics"][0])
+        self.assertEqual([], self.support.calls)
+        self.assertEqual(before, self.snapshot())
+
+    def test_direct_release_refuses_selected_envelope_without_virtual_manifest(self):
+        adapter = SelectedRouteAdapter(self.root, service=self.support)
+        self.corrupt_unselected_route()
+        before = self.snapshot()
+        self.assertFalse(hasattr(selected_routes, "load_release_execution_manifest"))
+        result = adapter.invoke("release_version", self.request("release_version"))
+        self.assertEqual("failed", result["outcome"])
+        self.assertIn("only project_root and run_id", result["diagnostics"][0])
+        self.assertEqual([], self.support.calls)
+        self.assertEqual(before, self.snapshot())
+
+    def test_malformed_unselected_route_blocks_registration_and_invocation(self):
+        adapter = SelectedRouteAdapter(self.root, service=self.support)
+        self.corrupt_unselected_route(malformed=True)
+        server = _GuardServer()
+        before = self.snapshot()
+        selected_routes.register_selected_routes(server, self.root)
+        result = adapter.invoke("create_atom", self.request("create_atom"))
+        self.assertEqual("rejected", result["disposition"])
+        self.assertIn("incomplete or unknown schema", result["diagnostics"][0])
+        self.assertEqual({"release_version", "public.release", "get_selected_workflow_run", "get_selected_action_run"}, set(server.tools))
+        self.assertEqual([], self.support.calls)
+        self.assertEqual(before, self.snapshot())
 
 
 class SelectedRoutesMCPTest(unittest.TestCase):
@@ -264,7 +542,7 @@ class SelectedRoutesMCPTest(unittest.TestCase):
                 self.assertEqual(route["route"], frozen["graph"]["route"])
                 self.assertEqual(graph["entry_step"], frozen["graph"]["entry_step"])
 
-    def test_manifest_is_closed_selected_prefix_with_optional_source_admitted_release(self) -> None:
+    def test_manifest_is_closed_fifteen_ordinary_routes(self) -> None:
         contract = selected_manifest_contract(ROOT)
         self.assertEqual(self.manifest["manifest_ref"], contract["manifest_ref"])
         self.assertEqual(list(SELECTED_ROUTE_NAMES), contract["route_names"])
@@ -274,11 +552,7 @@ class SelectedRoutesMCPTest(unittest.TestCase):
         self.assertEqual(["from", "condition", "to"], contract["on_result_fields"])
         self.assertEqual("complete", contract["on_result_terminal_target"])
         route_names = [entry["route"] for entry in self.manifest["routes"]]
-        self.assertIn(
-            route_names,
-            [list(SELECTED_ROUTE_NAMES), [*SELECTED_ROUTE_NAMES, "release_version"]],
-        )
-        self.assertEqual(list(SELECTED_ROUTE_NAMES), route_names[:len(SELECTED_ROUTE_NAMES)])
+        self.assertEqual(list(SELECTED_ROUTE_NAMES), route_names)
         self.assertEqual(self.manifest["canonical_manifest_sha256"], canonical_digest(
             {key: value for key, value in self.manifest.items()
              if key not in {"canonical_manifest_sha256", "manifest_ref"}}))
@@ -295,31 +569,14 @@ class SelectedRoutesMCPTest(unittest.TestCase):
             for pin in [entry["workflow"], *[item["step"] for item in entry["ordered_steps"]],
                         *entry["ordered_actions"], *entry["native_action_calls"]]:
                 self.assertEqual(64, len(pin["digest"]))
-                self.assertTrue((ROOT / pin["source_path"]).is_file())
 
         routes = {entry["route"]: entry for entry in self.manifest["routes"]}
-        if route_names[-1:] == ["release_version"]:
-            release = routes["release_version"]
-            self.assertTrue(release["mutation_capable"])
-            self.assertEqual("CA-O-164", release["workflow"]["atom_id"])
-            self.assertEqual("CA-O-170", release["entry_step"])
-            self.assertEqual(12, len(release["ordered_steps"]))
-            self.assertEqual(1, len(self.manifest["release_source_admissions"]))
-            release_admission = self.manifest["release_source_admissions"][0]
-            self.assertEqual("release_version", release_admission["route"])
-            self.assertEqual("CA-P-1622", release_admission["acceptance_frontier"]["atom_id"])
-            for field in ("workflow", "ordered_steps", "ordered_actions", "native_action_calls", "mutation_capable"):
-                self.assertEqual(release[field], release_admission[field])
-        else:
-            self.assertNotIn("release_version", routes)
-            self.assertNotIn("release_source_admissions", self.manifest)
+        self.assertNotIn("release_version", routes)
+        self.assertNotIn("public.release", routes)
+        self.assertNotIn("release_source_admissions", self.manifest)
+        self.assertNotIn("public_release_source_admissions", self.manifest)
         admissions = self.manifest["query_source_admissions"]
         self.assertEqual(list(QUERY_ROUTE_NAMES), [entry["route"] for entry in admissions])
-        self.assertEqual(["CA-P-1618", "CA-P-1535"], [entry["acceptance_frontier"]["atom_id"] for entry in admissions])
-        self.assertNotIn("CA-P-1543", {pin["atom_id"] for entry in admissions
-                                        for pin in [entry["acceptance_frontier"], entry["workflow"],
-                                                    *[item["step"] for item in entry["ordered_steps"]],
-                                                    *[item["action"] for item in entry["ordered_steps"]]]})
         for admission in admissions:
             route = routes[admission["route"]]
             self.assertFalse(route["mutation_capable"])
@@ -327,22 +584,6 @@ class SelectedRoutesMCPTest(unittest.TestCase):
                 self.assertEqual(admission[field], route[field])
         for route in ("create_atom", "replace_atom", "change_atom_status"):
             self.assertEqual([], routes[route]["on_result"])
-        self.assertEqual(
-            [
-                ("CA-O-152", "complete exact selection", "CA-O-153"),
-                ("CA-O-153", "required checks complete, no unresolved conflict, required approvals valid", "CA-O-157"),
-                ("CA-O-153", "unresolved conflict with an authorized correction-proposal route", "CA-O-154"),
-                ("CA-O-154", "exact supported proposal ready", "CA-O-155"),
-                ("CA-O-155", "valid exact approval and upstream corrections required", "CA-O-156"),
-                ("CA-O-155", "valid exact resolution decision without a needed source correction", "CA-O-152"),
-                ("CA-O-155", "requested revision and applicable authority permits another bounded proposal attempt", "CA-O-154"),
-                ("CA-O-156", "authorized correction completed", "CA-O-152"),
-                ("CA-O-157", "completed publication from the still-valid final frontier", "complete"),
-                ("CA-O-157", "changed frontier", "CA-O-152"),
-            ],
-            [(edge["from"], edge["condition"], edge["to"])
-             for edge in routes["build_applicable_methodology"]["on_result"]],
-        )
 
     def test_manifest_rejects_missing_or_third_query_source_admission(self) -> None:
         """The two accepted frontier records are closed manifest evidence."""
@@ -498,16 +739,11 @@ class SelectedRoutesMCPTest(unittest.TestCase):
             self.assertEqual("rejected", result["disposition"])
         self.assertEqual([], self.support.calls)
 
-    def test_apply_unknown_route_bad_lineage_and_recording_recovery_are_strict(self) -> None:
+    def test_apply_unknown_route_and_bad_lineage_are_strict(self) -> None:
         apply = self.request("create_atom", mode="apply")
         self.assertEqual("rejected", self.adapter.invoke("create_atom", apply)["disposition"])
         malformed = self.request("create_atom")
         malformed["lineage"] = {"parent_workflow_run_id": "not-a-real-lineage", "unexpected": True}
         self.assertEqual("rejected", self.adapter.invoke("create_atom", malformed)["disposition"])
-        recovered = self.adapter.recover_recording({"pending_event_ref": "event:pending", "request_id": "recovery-1"})
-        self.assertEqual("receipt:fixture", recovered["receipt_ref"])
-        self.assertEqual([{"pending_event_ref": "event:pending", "request_id": "recovery-1"}], self.support.recovery_calls)
-        self.assertEqual("rejected", self.adapter.recover_recording({"pending_event_ref": "event:pending", "payload": {}})["disposition"])
-
 if __name__ == "__main__":
     unittest.main()

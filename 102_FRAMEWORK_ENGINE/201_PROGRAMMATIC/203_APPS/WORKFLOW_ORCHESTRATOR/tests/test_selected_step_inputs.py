@@ -98,7 +98,7 @@ class SelectedStepInputsTest(unittest.TestCase):
         finally:
             lease.cleanup()
 
-    def test_w06_failed_o143_seal_never_promotes_a_post_cutover_result(self) -> None:
+    def test_w06_failed_o143_logging_preserves_actual_cutover_and_handoff(self) -> None:
         lease, project = self._w06_fixture()
         try:
             structure = project.root / ".caprmedio_caprmedio/project_structure.toml"
@@ -121,17 +121,18 @@ class SelectedStepInputsTest(unittest.TestCase):
             rows = {row["step_definition_id"]: row for row in graph["step_results"]}
             terminals = {row["run_id"]: row for row in pending["terminal_runs"]}
 
-            self.assertEqual("recording_pending", pending["disposition"], pending)
-            self.assertTrue(pending["interrupted_runs"], pending)
-            self.assertEqual("inspect-or-recover-only", pending["retry_disposition"])
+            self.assertEqual("terminal", pending["disposition"], pending)
+            self.assertIn("fixture O143 receipt failure", pending["diagnostics"])
+            self.assertNotIn("interrupted_runs", pending)
             self.assertEqual(pending, retry)
-            self.assertEqual("recording_pending", terminals[rows["CA-O-143"]["action_run_id"]]["disposition"])
+            self.assertEqual("terminal", terminals[rows["CA-O-143"]["action_run_id"]]["disposition"])
             self.assertEqual("completed", terminals[rows["CA-O-143"]["action_run_id"]]["outcome"])
+            self.assertEqual("fixture O143 receipt failure", terminals[rows["CA-O-143"]["action_run_id"]]["recording_error"])
             self.assertEqual(
-                ["CA-O-139", "CA-O-140", "CA-O-141", "CA-O-142", "CA-O-143"],
+                ["CA-O-139", "CA-O-140", "CA-O-141", "CA-O-142", "CA-O-143", "CA-O-144"],
                 [row["step_definition_id"] for row in graph["step_results"]],
             )
-            self.assertNotIn("CA-O-144", rows)
+            self.assertEqual("checks complete", rows["CA-O-144"]["result"])
             self.assertEqual(bytes_after_effect, structure.read_bytes())
         finally:
             lease.cleanup()
@@ -197,7 +198,7 @@ class SelectedStepInputsTest(unittest.TestCase):
 
             self.assertEqual(project.resolve(), runner.root)
             self.assertNotEqual(project.resolve(), implementation_actions.ROOT.resolve())
-            self.assertEqual("implementation delivered", output["result"])
+            self.assertEqual("implemented", output["result"])
             self.assertEqual([packet], calls)
 
 

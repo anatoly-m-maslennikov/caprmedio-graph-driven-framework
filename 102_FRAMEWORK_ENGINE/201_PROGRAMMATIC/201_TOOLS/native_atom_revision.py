@@ -21,7 +21,7 @@ from artifact_metadata import repository_root
 from project_selection import active_selection
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
-from work_journal import append_record, configured_journal_root, event_record
+from work_journal import _part_order, append_record, configured_journal_root, event_record
 
 
 TIMESTAMP = re.compile(r"[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}")
@@ -74,7 +74,7 @@ def carrier_digest(root: Path, atom: NativeAtom) -> str:
 def revision_records(root: Path, atom: NativeAtom) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     current_address = carrier_address(root, atom)
-    for path in sorted((root / configured_journal_root(root)).glob("src-work-journal-*.ndjson")):
+    for path in sorted((root / configured_journal_root(root)).glob("src-work-journal-*.ndjson"), key=_part_order):
         for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
             if not line:
                 continue

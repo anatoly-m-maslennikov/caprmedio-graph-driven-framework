@@ -68,6 +68,8 @@ class ProjectStructureActions(unittest.TestCase):
         control = self.root / ".caprmedio_caprmedio"
         control.mkdir()
         (control / "caprmedio_project_settings.toml").write_text(
+            "[project]\nname = 'caprmedio'\n"
+            "[paths]\ncontrol_root = '.caprmedio_caprmedio'\n"
             "[authority_modes]\ndefault = 'casual'\n", encoding="utf-8"
         )
         self.toml = control / "project_structure.toml"
@@ -618,6 +620,7 @@ class ProjectStructureActions(unittest.TestCase):
                 "parameters": parameters, "sealed_outer_admission": True,
                 "workflow_run_id": "structural-queue-test", "action_run_id": f"{route}:o143",
             }
+            self.assertEqual("prepared", handlers["CA-O-012"](context)["result"])
             self.assertEqual("accepted", handlers["CA-O-005"](context)["result"])
             applied = handlers["CA-O-014"](context)
             self.assertEqual("completed", applied["result"])
@@ -699,6 +702,7 @@ class ProjectStructureSharedServiceIntegration(unittest.TestCase):
         control = self.root / ".caprmedio_caprmedio"
         control.mkdir()
         (control / "caprmedio_project_settings.toml").write_text(
+            "[project]\nname = 'caprmedio'\n"
             "[authority_modes]\ndefault = 'casual'\n\n"
             "[paths]\ncontrol_root = '.caprmedio_caprmedio'\njournal_root = '.caprmedio_caprmedio/_journal'\n"
             "runtime_root = '.caprmedio_runtime'\n",

@@ -162,9 +162,8 @@ class SelectedGraphTests(unittest.TestCase):
         route = "build_entities_graph" if graph_kind == "entities" else "build_terms_graph"
         return graph.actual_run_recording_context(
             "test-workflow-run", "test-step-run", "test-action-run",
-            {"event_id": "test-action-start", "action_id": action, "event_digest": "0" * 64,
-             "carrier": ".caprmedio_selected_graphs/_journal/events.ndjson", "line": 1,
-             "previous_carrier_digest": "0" * 64, "appended_carrier_digest": "1" * 64},
+            {"run_id": "test-action-run", "parent_run_id": "test-step-run", "kind": "action",
+             "definition": {"atom_id": action, "version": 1}},
             execution_authorization={
                 "authorization_ref": "test-authorization", "authorization_freshness": {"state": "current", "digest": "0" * 64},
                 "request_id": "test-request", "operation_route": route, "proposal_receipt_digest": "0" * 64,

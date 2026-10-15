@@ -341,4 +341,4 @@ See [Version History](VERSION_HISTORY.md) for project origins and version milest
 - **[Anatoly Levenchuk](https://t.me/ailev_blog)**, creator of the [First Principles Framework](https://github.com/ailev/FPF). I could never have built this project without FPF. I also maintain an [LLM-friendly FPF knowledge-graph toolkit](https://github.com/anatoly-m-maslennikov/levenchuk-fpf-knowledge-graph-toolkit).
 
 <!-- latest-public-release -->
-Latest public release: **0.4.3**. See [Version History](VERSION_HISTORY.md).
+Latest public release: **0.4.4**. See [Version History](VERSION_HISTORY.md).

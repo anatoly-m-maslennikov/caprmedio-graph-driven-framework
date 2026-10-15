@@ -33,6 +33,25 @@ class GraphExecutionAuthorizationTests(unittest.TestCase):
             "previous_carrier_digest": digest,
             "appended_carrier_digest": digest,
         }
+        self.actual = {
+            "workflow": {
+                "run_id": "fixture-workflow",
+                "kind": "workflow",
+                "definition": {"atom_id": "FIXTURE-O-1", "version": 1},
+            },
+            "step": {
+                "run_id": "fixture-step",
+                "kind": "step",
+                "parent_run_id": "fixture-workflow",
+                "definition": {"atom_id": "FIXTURE-O-2", "version": 1},
+            },
+            "action": {
+                "run_id": "fixture-action",
+                "kind": "action",
+                "parent_run_id": "fixture-step",
+                "definition": {"atom_id": "CA-O-134", "version": 1},
+            },
+        }
         self.authorization = {
             "authorization_ref": "fixture/operator-authorization.json",
             "authorization_freshness": {"state": "current", "digest": digest},
@@ -74,7 +93,7 @@ class GraphExecutionAuthorizationTests(unittest.TestCase):
         )
 
     def session(self, request: object) -> SimpleNamespace:
-        return SimpleNamespace(receipts=[self.receipt], request=request)
+        return SimpleNamespace(actual=deepcopy(self.actual), request=request)
 
     def assert_no_authorization(self, session: SimpleNamespace) -> None:
         context = self.invoke(session)["run_recording_context"]
@@ -86,7 +105,7 @@ class GraphExecutionAuthorizationTests(unittest.TestCase):
         context = self.invoke(self.session({"operator_authorization": self.authorization}))["run_recording_context"]
         self.assertTrue(is_actual_recording_context(context))
         self.assertEqual(context.authorization_evidence(), self.authorization)
-        self.assertEqual(context.start_event_receipt, self.receipt)
+        self.assertEqual(dict(context.action_run), self.actual["action"])
         self.assertEqual(
             (context.workflow_run_id, context.step_run_id, context.action_run_id),
             ("fixture-workflow", "fixture-step", "fixture-action"),
@@ -107,7 +126,26 @@ class GraphExecutionAuthorizationTests(unittest.TestCase):
         self.assertEqual(context.authorization_evidence(), self.authorization)
 
     def test_missing_session_request_does_not_inherit_caller_authorization(self) -> None:
-        self.assert_no_authorization(SimpleNamespace(receipts=[self.receipt]))
+        self.assert_no_authorization(SimpleNamespace(actual=deepcopy(self.actual)))
+
+    def test_receipts_without_actual_runs_cannot_bind_caller_context(self) -> None:
+        result = self.invoke(
+            SimpleNamespace(
+                receipts=[self.receipt],
+                request={"operator_authorization": self.authorization},
+            )
+        )
+        self.assertIs(result, self.parameters)
+        self.assertFalse(is_actual_recording_context(result["run_recording_context"]))
+
+    def test_wrong_actual_parent_cannot_bind_caller_context(self) -> None:
+        for run in ("step", "action"):
+            with self.subTest(run=run):
+                session = self.session({"operator_authorization": self.authorization})
+                session.actual[run]["parent_run_id"] = "wrong-parent"
+                result = self.invoke(session)
+                self.assertIs(result, self.parameters)
+                self.assertFalse(is_actual_recording_context(result["run_recording_context"]))
 
     def test_nonmapping_session_request_does_not_inherit_caller_authorization(self) -> None:
         for request in (None, [], "caller-request", True):

@@ -79,6 +79,9 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         )
         self.requirements.mkdir(parents=True)
         (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
+            "[project]\nkey = \"lifecycle-fixture\"\nname = \"lifecycle-fixture\"\n"
+            "repository_slug = \"lifecycle-fixture\"\n"
+            "[artifacts.identity]\nproject_prefix = \"CA\"\n"
             "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n"
             "[artifact_timestamps]\ntimezone = \"UTC\"\n", encoding="utf-8"
         )
@@ -289,8 +292,9 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             execute=True,
             authorized=True,
         )
-        self.assertEqual(carrier_only["observed"]["version"], 1)
+        self.assertEqual(carrier_only["observed"]["version"], 2)
         self.assertEqual(carrier_only["effects"][0]["state"], "changed")
+        self.assertEqual(before, (self.root / carrier_only["history"]["prior_revision"]["path"]).read_bytes())
         self._assert_configured_timestamp(self.target)
 
         before_semantic = self.target.read_bytes()
@@ -310,6 +314,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(self.target.read_bytes(), before_semantic)
 
         before = self.target.read_bytes()
+        history_before = {path: path.read_bytes() for path in (self.requirements / "archive").glob("*.md")}
         noop = update_atom_action(
             self.root,
             {
@@ -322,6 +327,58 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         )
         self.assertEqual(noop["outcome"], "no-op")
         self.assertEqual(self.target.read_bytes(), before)
+        self.assertEqual(history_before, {path: path.read_bytes() for path in (self.requirements / "archive").glob("*.md")})
+
+    def test_admitted_equivalent_refinement_increments_and_preserves_exact_prior(self) -> None:
+        before = self.target.read_bytes()
+        prior = carrier_descriptor(self.root, "CA-R-100")
+        proposal = self._proposal(self.target, summary="Stable summary", body_suffix="\nEquivalent acceptance clarification.\n")
+        parameters = {"target": prior, "proposed": proposal, "change_class": "equivalent_refinement",
+                      "semantic_assessment_report": self._semantic_assessment_report(proposal, change_class="equivalent_refinement")}
+        preview = update_atom_action(self.root, parameters)
+        self.assertEqual("preview", preview["outcome"])
+        assessment = update_assessment_seal(parameters, preview["assessment_evidence"])
+        result = update_atom_action(self.root, parameters, execute=True, authorized=True, assessment=assessment)
+        self.assertEqual("applied", result["outcome"])
+        self.assertEqual(prior["version"] + 1, result["observed"]["version"])
+        self.assertEqual(prior["atom_id"], result["observed"]["atom_id"])
+        self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
+        self._assert_configured_timestamp(self.target)
+
+    def test_identified_nonactive_current_carrier_retains_exact_history(self) -> None:
+        status_authority = REQUIREMENT_STATUS_AUTHORITY.with_name(
+            "CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md")
+        shutil.copyfile(status_authority, self.root / status_authority.relative_to(REPOSITORY))
+        current = self.requirements.parent / "03_plan/done/01-CA-P-200-TASK--completed-fixture-plan.md"
+        current.parent.mkdir(parents=True)
+        current.write_text(
+            "---\natom_id: CA-P-200\ncontent_role: Plan\ntype: Plan\nlabel: Task\n"
+            f"current_scope_unit: {_FIXTURE_SCOPE}\nclaim_target_scope_unit: {_FIXTURE_SCOPE}\n"
+            "work_sequence_number: 1\nlocal_tier: Standard\nglobal_tier: 14\n"
+            "author: Anatoly Maslennikov\nstatus: Done\nversion: 3\n"
+            "updated_at: \"2026-01-01 00:00:00 +0000\"\nsubjects:\n"
+            "  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n"
+            "# Summary\n\nCompleted fixture Plan\n\n## Objective\n\nRetain fixture evidence.\n"
+            "\n## Details\n\n### Definition of Done\n\nFixture evidence is retained.\n",
+            encoding="utf-8",
+        )
+        parsed = proposed_carrier.parse_carrier(current.read_bytes(), current)
+        proposed_carrier.validate_proposed_carrier(
+            parsed.metadata, parsed.body, proposed_carrier.source_context_from_project(self.root),
+            current.relative_to(self.root / ".caprmedio_caprmedio"),
+        )
+        before = current.read_bytes()
+        prior = carrier_descriptor(self.root, current.relative_to(self.root).as_posix())
+        self.assertEqual("done", prior["lifecycle"])
+        frontmatter, content = split_frontmatter(current.read_text(encoding="utf-8"))
+        proposal = {"frontmatter": frontmatter, "content": content}
+        proposal["content"] += "\n"
+        result = update_atom_action(self.root, {"target": prior, "proposed": proposal, "change_class": "carrier_only"},
+                                    execute=True, authorized=True)
+        self.assertEqual("applied", result["outcome"])
+        self.assertEqual(prior["version"] + 1, result["observed"]["version"])
+        self.assertEqual(prior["status"], result["observed"]["status"])
+        self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
 
     def test_update_rejects_unproven_equivalent_refinement(self) -> None:
         before = self.target.read_bytes()
@@ -640,9 +697,20 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             update_atom_action(self.root, parameters, execute=True)
         result = update_atom_action(self.root, parameters, execute=True, authorized=True)
         self.assertEqual(result["observed"]["atom_id"], "CA-R-100")
-        self.assertEqual(result["observed"]["version"], 1)
+        self.assertEqual(result["observed"]["version"], 2)
         self.assertEqual(atom_from_path(self.root, self.target).atom_id, "CA-R-100")
         self.assertEqual((self.root / result["history"]["prior_revision"]["path"]).read_bytes(), before)
+        self.assertEqual(1, result["history"]["prior_revision"]["version"])
+        self._assert_configured_timestamp(self.target)
+        normalized = self.target.read_bytes()
+        atom = atom_from_path(self.root, self.target)
+        noop = update_atom_action(
+            self.root, {"target": carrier_descriptor(self.root, atom),
+                        "proposed": {"frontmatter": atom.frontmatter, "content": atom.content},
+                        "change_class": "carrier_only"}, execute=True, authorized=True)
+        self.assertEqual("no-op", noop["outcome"])
+        self.assertEqual(2, noop["observed"]["version"])
+        self.assertEqual(normalized, self.target.read_bytes())
 
     def test_historical_migration_rejects_forged_stale_or_nonhistorical_identity(self) -> None:
         parameters, before = self._legacy_update()
@@ -774,6 +842,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
     def test_replace_publishes_supplied_successors_then_archives_one_predecessor(self) -> None:
         first = self._carrier("CA-R-105", "first-replacement", "First replacement")
         second = self._carrier("CA-R-106", "second-replacement", "Second replacement")
+        before = self.target.read_bytes()
+        before_mode = self.target.stat().st_mode & 0o777
         result = replace_atom_action(
             self.root,
             {
@@ -793,8 +863,16 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertTrue((self.root / second["path"]).exists())
         archived = self.root / predecessor["path"]
         self.assertTrue(archived.exists())
-        self.assertIn("@1", archived.name)
+        self.assertEqual(self.target.stem + "@2.md", archived.name)
+        self.assertEqual(2, predecessor["version"])
         self.assertIn("status: Archived", archived.read_text(encoding="utf-8"))
+        history = self.root / result["history"]["prior_revision"]["path"]
+        self.assertEqual(self.target.stem + "@1.md", history.name)
+        self.assertEqual(before, history.read_bytes())
+        self.assertEqual(before_mode, history.stat().st_mode & 0o777)
+        self.assertEqual(before_mode, archived.stat().st_mode & 0o777)
+        self.assertEqual([1, 1], [row["version"] for row in result["successors"]])
+        self.assertIn(result["history"]["prior_revision"], [row["carrier"] for row in result["effects"]])
         for path in (self.root / first["path"], self.root / second["path"], archived):
             self._assert_configured_timestamp(path)
 
@@ -803,12 +881,12 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         second = self._carrier("CA-R-106", "second-replacement", "Second replacement")
         original_archive = __import__("lifecycle_intents").archive_atom_revision
 
-        def verify_active_before_archive(root: Path, atom: object, frontmatter: str, content: str) -> object:
+        def verify_active_before_archive(root: Path, atom: object, frontmatter: str, content: str, **kwargs: object) -> object:
             for successor in (first, second):
                 candidate = root / successor["path"]
                 self.assertTrue(candidate.exists())
                 self.assertIn("status: Active", candidate.read_text(encoding="utf-8"))
-            return original_archive(root, atom, frontmatter, content)
+            return original_archive(root, atom, frontmatter, content, **kwargs)
 
         with patch("lifecycle_intents.archive_atom_revision", side_effect=verify_active_before_archive):
             result = replace_atom_action(
@@ -820,6 +898,65 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             )
         self.assertEqual("applied", result["outcome"])
         self.assertEqual(["CA-R-105", "CA-R-106"], [row["atom_id"] for row in result["successors"]])
+
+    def test_replace_archive_collision_preserves_history_and_created_successor(self) -> None:
+        successor = self._carrier("CA-R-105", "archive-collision", "Archive collision")
+        before = self.target.read_bytes()
+        history = self.target.parent / "archived" / (self.target.stem + "@1.md")
+        history.parent.mkdir()
+        foreign = b"existing history must not be replaced\n"
+        history.write_bytes(foreign)
+
+        result = replace_atom_action(
+            self.root, {"predecessor": carrier_descriptor(self.root, "CA-R-100"),
+                        "successors": [successor], "status_model": self._model()},
+            execute=True, authorized=True)
+
+        self.assertEqual("partial", result["outcome"])
+        self.assertEqual("destination-collision", result["unknown_remainder"][0]["code"])
+        self.assertEqual(before, self.target.read_bytes())
+        self.assertEqual(foreign, history.read_bytes())
+        self.assertTrue((self.root / successor["path"]).exists())
+        self.assertFalse(history.with_name(self.target.stem + "@2.md").exists())
+
+    def test_replace_archive_verification_failure_restores_predecessor_without_replaying_successor(self) -> None:
+        successor = self._carrier("CA-R-105", "archive-restoration", "Archive restoration")
+        before = self.target.read_bytes()
+        original_read = __import__("atom_operations").atom_from_path
+
+        def refuse_archived_read(root: Path, path: Path) -> object:
+            if path.name == self.target.stem + "@2.md":
+                raise ToolError("injected-archive-readback", "archived current readback failed")
+            return original_read(root, path)
+
+        with patch("atom_operations.atom_from_path", side_effect=refuse_archived_read), patch(
+                "lifecycle_intents.create_atom_revision", wraps=__import__("lifecycle_intents").create_atom_revision) as create:
+            result = replace_atom_action(
+                self.root, {"predecessor": carrier_descriptor(self.root, "CA-R-100"),
+                            "successors": [successor], "status_model": self._model()},
+                execute=True, authorized=True)
+
+        self.assertEqual("partial", result["outcome"])
+        self.assertEqual("injected-archive-readback", result["unknown_remainder"][0]["code"])
+        self.assertEqual(1, create.call_count)
+        self.assertEqual(before, self.target.read_bytes())
+        self.assertTrue((self.root / successor["path"]).exists())
+        self.assertFalse((self.target.parent / "archived" / (self.target.stem + "@1.md")).exists())
+        self.assertFalse((self.target.parent / "archived" / (self.target.stem + "@2.md")).exists())
+
+    def test_replace_retains_exact_crlf_predecessor_history(self) -> None:
+        self.target.write_bytes(self.target.read_bytes().replace(b"\n", b"\r\n"))
+        before = self.target.read_bytes()
+        successor = self._carrier("CA-R-105", "crlf-replacement", "CRLF replacement")
+
+        result = replace_atom_action(
+            self.root, {"predecessor": carrier_descriptor(self.root, "CA-R-100"),
+                        "successors": [successor], "status_model": self._model()},
+            execute=True, authorized=True)
+
+        self.assertEqual("applied", result["outcome"])
+        self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
+        self.assertEqual(2, result["predecessor"]["version"])
 
     def test_replace_rejects_preexisting_successor_without_archiving_predecessor(self) -> None:
         successor = self._carrier("CA-R-105", "already-present", "Already present")

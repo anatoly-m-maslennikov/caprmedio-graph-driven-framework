@@ -108,6 +108,10 @@ def build_plan(report: dict[str, Any], root: Path, report_raw: bytes,
 
 
 def apply_plan(plan: dict[str, Any], root: Path) -> dict[str, Any]:
+    try:
+        safe.repository_root(root)
+    except safe.TemporaryBoundaryError as error:
+        raise safe.MigrationError(str(error)) from error
     if (plan.get("kind") != KIND or plan.get("schema_version") != 1 or plan.get("blockers")
             or plan.get("source_root") != str(root)):
         raise safe.MigrationError("Unsupported, mismatched, or blocked plan.")
@@ -164,7 +168,7 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(result["counts"]))
         return 2 if result.get("blockers") else 0
     except (ValueError, OSError, KeyError, TypeError, AttributeError, yaml.YAMLError) as error:
-        print(json.dumps({"error": str(error), "kind": KIND}), file=sys.stderr)
+        print(json.dumps(safe._error_record(error, KIND)), file=sys.stderr)
         return 2
 
 

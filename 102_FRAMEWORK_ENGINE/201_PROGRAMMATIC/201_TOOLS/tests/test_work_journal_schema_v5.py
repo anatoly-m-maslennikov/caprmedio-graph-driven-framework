@@ -1,4 +1,4 @@
-"""Schema-v5 Journal validation and date-rollover recovery tests."""
+"""Workflow-shaped metadata remains plain data at the Journal boundary."""
 
 from __future__ import annotations
 
@@ -6,7 +6,6 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from unittest import mock
 
 
 TOOLS = Path(__file__).resolve().parents[1]
@@ -18,9 +17,10 @@ import work_journal  # noqa: E402
 
 class WorkJournalSchemaV5Test(unittest.TestCase):
     def setUp(self) -> None:
-        self.directory = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
+        temporary_root = TOOLS.parents[2] / ".caprmedio_tmp/tests/work_journal_metadata"
+        temporary_root.mkdir(parents=True, exist_ok=True)
+        self.directory = tempfile.TemporaryDirectory(dir=temporary_root)
         self.root = Path(self.directory.name)
-        (self.root / ".git").mkdir()
         control = self.root / ".caprmedio_caprmedio"
         control.mkdir()
         (control / "caprmedio_project_settings.toml").write_text(
@@ -85,9 +85,7 @@ class WorkJournalSchemaV5Test(unittest.TestCase):
         control.mkdir()
         settings = control / "caprmedio_project_settings.toml"
         settings.write_text(
-            "[paths]\n"
-            'control_root = ".caprmedio_example"\n'
-            'runtime_root = ".caprmedio_runtime"\n',
+            '[paths]\ncontrol_root = ".caprmedio_example"\nruntime_root = ".caprmedio_runtime"\n',
             encoding="utf-8",
         )
 
@@ -106,100 +104,26 @@ class WorkJournalSchemaV5Test(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "exactly"):
             work_journal.configured_journal_root(self.root)
 
-    def test_recovery_maps_legacy_sealed_carrier_to_canonical_location(self) -> None:
-        legacy_context = {
-            "author": "test-user",
-            "local_date": "2026-10-04",
-            "timezone": "Asia/Tbilisi",
-            "partition_ref": ".caprmedio_caprmedio/work_journal/test-user-2026-10-04-part-1.ndjson",
-        }
-        legacy_context["append_context_digest"] = work_journal.canonical_json_digest(legacy_context)
-        pending = work_journal.store_pending_event(
-            self.root,
-            self.event,
-            legacy_context,
-            result_ref="results/CA-R-1510.json",
-            effect_refs=["03_plan/result.md"],
-            diagnostic="recover after the byte-preserving Journal rename",
+    def test_workflow_metadata_is_not_validated_or_rewritten(self) -> None:
+        changed = {**self.event, "event_digest": "caller supplied", "outcome": "unknown"}
+        rows = [self.event, changed]
+        work_journal.append_sealed_events(
+            self.root, rows, author="test-user", local_date="2026-10-04", timezone="UTC"
         )
-        self.assertEqual(
-            work_journal.canonical_json_bytes(legacy_context).decode("utf-8"),
-            pending["append_context_bytes"],
-        )
+        self.assertEqual(rows, work_journal.read_records(self.root))
 
-        receipt = work_journal.recover_pending_event(self.root, "event-1510")
-
-        self.assertEqual(
-            ".caprmedio_caprmedio/_journal/test-user-2026-10-04-part-1.ndjson",
-            receipt["carrier"],
-        )
-        journal = self.root / ".caprmedio_caprmedio/_journal/test-user-2026-10-04-part-1.ndjson"
-        self.assertTrue(journal.is_file())
-        self.assertEqual(1, len(journal.read_text(encoding="utf-8").splitlines()))
-        self.assertFalse((self.root / ".caprmedio_caprmedio/work_journal").exists())
-
-    def test_migration_pending_blocks_admission_without_new_journal_or_events(self) -> None:
+    def test_legacy_directory_bytes_do_not_gate_current_append(self) -> None:
         legacy = self.root / ".caprmedio_caprmedio/work_journal"
         legacy.mkdir()
-
-        with self.assertRaisesRegex(RuntimeError, "migration-pending"):
-            work_journal.append_sealed_events(
-                self.root,
-                [self.event],
-                author="test-user",
-                local_date="2026-10-04",
-                timezone="Asia/Tbilisi",
-            )
-
-        self.assertFalse((self.root / ".caprmedio_caprmedio/_journal").exists())
+        path = legacy / "historical.ndjson"
+        original = b"existing historical bytes\n"
+        path.write_bytes(original)
+        work_journal.append_sealed_events(
+            self.root, [self.event], author="test-user", local_date="2026-10-04", timezone="UTC"
+        )
+        self.assertEqual([self.event], work_journal.read_records(self.root))
+        self.assertEqual(original, path.read_bytes())
         self.assertFalse((self.root / ".caprmedio_runtime").exists())
-        self.assertEqual([], list(legacy.glob("*.ndjson")))
-
-    def test_global_recovery_reuses_original_context_after_receipt_failure(self) -> None:
-        original_atomic = work_journal._atomic_json
-        with mock.patch.object(work_journal, "_atomic_json", side_effect=OSError("receipt write interrupted")):
-            with self.assertRaises(OSError):
-                work_journal.append_sealed_events(
-                    self.root,
-                    [self.event],
-                    author="test-user",
-                    local_date="2026-10-04",
-                    timezone="Asia/Tbilisi",
-                )
-        context = work_journal.seal_append_context(
-            self.root,
-            self.event,
-            author="test-user",
-            local_date="2026-10-04",
-            timezone="Asia/Tbilisi",
-        )
-        work_journal.store_pending_event(
-            self.root,
-            self.event,
-            context,
-            result_ref="results/CA-R-1510.json",
-            effect_refs=["03_plan/result.md"],
-            diagnostic="receipt write interrupted",
-        )
-        receipt = work_journal.recover_pending_event(self.root, "event-1510")
-        self.assertEqual(".caprmedio_caprmedio/_journal/test-user-2026-10-04-part-1.ndjson", receipt["carrier"])
-        journal = self.root / ".caprmedio_caprmedio/_journal/test-user-2026-10-04-part-1.ndjson"
-        self.assertEqual(1, len(journal.read_text(encoding="utf-8").splitlines()))
-        changed = dict(self.event)
-        changed["event"] = "failed"
-        changed["outcome"] = "failed"
-        changed = work_journal.with_event_digest(changed)
-        with self.assertRaises(work_journal.WorkJournalError) as error:
-            work_journal.append_sealed_events(
-                self.root,
-                [changed],
-                author="test-user",
-                local_date="2026-10-05",
-                timezone="UTC",
-            )
-        self.assertEqual("identity-collision", error.exception.code)
-        self.assertEqual(1, len(journal.read_text(encoding="utf-8").splitlines()))
-        self.assertIsNotNone(original_atomic)
 
 
 if __name__ == "__main__":

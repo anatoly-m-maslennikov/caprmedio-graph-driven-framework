@@ -11,7 +11,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(TOOLS))
 
-from atom_operations import ToolError  # noqa: E402
+from atom_operations import ToolError, describe, parser  # noqa: E402
 from atom_subject_lookup import run_subject_search  # noqa: E402
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
@@ -52,9 +52,9 @@ APPROVED_PROFILE_EVIDENCE = {
         {"atom_id": "CA-M-228", "version": 16,
          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
          "sha256": "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d"},
-        {"atom_id": "CA-E-383", "version": 15,
+        {"atom_id": "CA-E-383", "version": 16,
          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
-         "sha256": "6baca162365f248e08fc8d8a29b27e350149ff478290553b3cd6ee0441b4a6a6"},
+         "sha256": "a356617c341cd1d3c723e3e3ddbf9852c720781c8f22dd31f07cf33dfa4ec512"},
     ],
     "native_admission": "not_performed",
 }
@@ -107,6 +107,20 @@ class SubjectLookupTest(unittest.TestCase):
         prefix = run_subject_search(self.root, self._args(subject_match="prefix"))
         self.assertEqual(prefix["count"], 2)
         self.assertEqual([item["index"] for item in prefix["occurrences"]], [None, 1])
+
+    def test_literal_suffix_and_contains_accept_fragments_without_case_folding(self) -> None:
+        suffix = run_subject_search(self.root, self._args(subject="/child", subject_match="suffix"))
+        self.assertEqual(["Core/Atom/child"], [row["value"] for row in suffix["occurrences"]])
+        contains = run_subject_search(self.root, self._args(subject="/Atom", subject_match="contains"))
+        self.assertEqual(3, contains["count"])
+        lower = run_subject_search(self.root, self._args(subject="/atom", subject_match="contains"))
+        self.assertEqual(0, lower["count"])
+
+    def test_cli_and_description_advertise_the_same_four_modes(self) -> None:
+        modes = ["exact", "prefix", "suffix", "contains"]
+        self.assertEqual(modes, describe("ATOM_SEARCH")["subject_lookup"]["matches"])
+        for mode in modes:
+            self.assertEqual(mode, parser("ATOM_SEARCH").parse_args(["run", "--subject", "Core/Atom", "--subject-match", mode]).subject_match)
 
     def test_profiles_select_lexical_boundaries_and_exact_evidence(self) -> None:
         self._write("CA-R-3", "Core.Atom.child", [])

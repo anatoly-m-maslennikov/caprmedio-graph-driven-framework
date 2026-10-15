@@ -14,7 +14,7 @@ TESTS = Path(__file__).resolve().parent
 if str(TESTS) not in sys.path:
     sys.path.insert(0, str(TESTS))
 
-from test_selected_workflows_docker_e2e import SelectedWorkflowsDockerEndToEnd
+import test_selected_workflows_docker_e2e as docker_e2e
 
 
 class _StatusFixture:
@@ -26,8 +26,8 @@ class _StatusFixture:
 
 
 class SelectedW04TerminalOutcomeAssertions(unittest.TestCase):
-    _events = staticmethod(SelectedWorkflowsDockerEndToEnd._events)
-    _safe_existing_ref = staticmethod(SelectedWorkflowsDockerEndToEnd._safe_existing_ref)
+    _events = staticmethod(docker_e2e.SelectedWorkflowsDockerEndToEnd._events)
+    _safe_existing_ref = staticmethod(docker_e2e.SelectedWorkflowsDockerEndToEnd._safe_existing_ref)
 
     def _assert_native_child_lineage(
         self, route_name: str, child_atom_id: str, *, expected_outcome: str, include_native_child: bool,
@@ -92,15 +92,11 @@ class SelectedW04TerminalOutcomeAssertions(unittest.TestCase):
             (journal / "runs.ndjson").write_text("\n".join(json.dumps(event) for event in events) + "\n", encoding="utf-8")
             selected = {"disposition": "terminal", "run_ids": list(run_pins), "terminal_runs": terminals}
             graph = {"step_results": graph_rows}
-            SelectedWorkflowsDockerEndToEnd._assert_shared_run_journal(
+            docker_e2e.SelectedWorkflowsDockerEndToEnd._assert_shared_run_journal(
                 self, root, request_id, route, selected, graph, expected_outcome=expected_outcome,
             )
 
-    def test_current_w02_child_pin_and_applied_lineage(self) -> None:
-        repository = TESTS.parents[4]
-        manifest = json.loads((repository / ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json").read_text())
-        routes = {route["route"]: route for route in manifest["routes"]}
-        self.assertEqual(["CA-O-030"], [item["atom_id"] for item in routes["update_atom"]["native_action_calls"]])
+    def test_w02_applied_native_child_lineage(self) -> None:
         self._assert_native_child_lineage(
             "update_atom", "CA-O-030", expected_outcome="completed", include_native_child=True,
         )
@@ -122,13 +118,13 @@ class SelectedW04TerminalOutcomeAssertions(unittest.TestCase):
             "effect_refs": [],
             "lifecycle_error": {"code": "status-unadmitted", "message": "source model refused status"},
         }
-        SelectedWorkflowsDockerEndToEnd._assert_status_admission_blocked(self, blocked)
+        docker_e2e.SelectedWorkflowsDockerEndToEnd._assert_status_admission_blocked(self, blocked)
         preview = {**blocked, "disposition": "preview", "proposal_receipt": "forged"}
         with self.assertRaises(AssertionError):
-            SelectedWorkflowsDockerEndToEnd._assert_status_admission_blocked(self, preview)
+            docker_e2e.SelectedWorkflowsDockerEndToEnd._assert_status_admission_blocked(self, preview)
 
     def test_noop_probe_rejects_completed_terminal(self) -> None:
-        harness = SelectedWorkflowsDockerEndToEnd(methodName="runTest")
+        harness = docker_e2e.SelectedWorkflowsDockerEndToEnd(methodName="runTest")
         calls = iter((
             {"disposition": "preview", "proposal_receipt": "receipt", "proposal_receipt_digest": "digest"},
             {"outcome": "queued"},

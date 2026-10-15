@@ -121,12 +121,11 @@ class SelectedGoldenRequestsTest(unittest.TestCase):
                     frozen = SelectedExecution(project.root).freeze({"operation": "enqueue_selected", "run_id": execute["request_id"], "execution": execute})
                     self.assertEqual(execute["request_id"], frozen["request"]["run_id"])
                     admitted = adapter.invoke(route, execute)
-                    # The host lacks PyYAML required by the queue import; this
-                    # is a truthful shared-admission environment blocker, not
-                    # a route or effect pass.
+                    # Missing host queue dependencies or an uninitialized DBOS
+                    # database block dispatch; neither is a route or effect pass.
                     self.assertEqual("blocked", admitted.get("disposition"), admitted)
                     self.assertTrue(any(marker in admitted["diagnostics"][0] for marker in (
-                        "No module named 'yaml'", "initialize its DBOS database"
+                        "No module named 'yaml'", "No module named 'dbos'", "initialize its DBOS database"
                     )))
                     malformed = dict(preview_request); malformed["parameters_digest"] = "0" * 64
                     self.assertEqual("rejected", adapter.invoke(route, malformed)["disposition"])

@@ -5,25 +5,30 @@ package. Shared compiler, installer and test-gate helpers remain in the Engine.
 
 ## Two workflows
 
-- **Local release:** stage active Methodology sources, compile and test the
-  candidate, replace the release product, compile it, and copy that product to
-  the installed Methodology. Keep five separate scoped Git checkpoints. Keep
-  configurations unchanged and install the tested Engine/package before MCP
-  startup and smoke verification.
+- **Local release:** validate inputs and run the complete suite before replacing
+  delivered or installed files. Copy active Methodology sources, compile the
+  product, build the Engine/package and candidate image, install the Methodology
+  and Project runtime, then start and verify MCP. Preserve configuration and
+  remove only proven superseded Project-owned images.
 - **Public release:** one prompt produces the full PR description and concise
-  Version History bullets. Apply documentation, run the full gate, commit/push
-  `amm/dev`, create/update its `main` PR, then insert the actual PR URL. That
-  URL-only follow-up does not repeat the test suite. Never merge the PR.
+  Version History bullets. Discover at most one matching open PR, prepare the
+  version and documentation, and run the complete suite before public effects.
+  Push `amm/dev`, create/update its Draft `main` PR, then insert its actual URL
+  when newly known. That URL-only follow-up does not repeat the suite. Never merge.
 
 The implementation cores are `RELEASE_VERSION/local_release.py` and
-`PUBLIC_RELEASE/public_release.py`. Their callbacks are integration boundaries,
-not substitute test passes. MCP integration must use the existing admitted
-Session, concrete candidate-bound gate evidence and canonical Journal.
-The selected MCP provider calls the Project-local Public helper and the
-current ten-phase Local dispatcher. Local callbacks retain candidate-bound
-proofs, scoped Git checkpoint receipts and installed MCP readiness evidence.
-This is source-level integration: the current live runtime has not been
-reinstalled or released by these focused tests.
+`PUBLIC_RELEASE/public_release.py`. Direct MCP requests bind the connected
+Project through `project_root` and an Operator-selected `run_id`; Public release
+also needs `content_draft` with exactly `description` and `summary`. No selected
+Session, sealed proposal or Journal receipt gates the release. Journal recording
+errors are reported separately from the actual release outcome.
+
+Release effects run on the host, with its Git, GitHub and Docker tools; the
+ordinary MCP container has none of those host privileges. Both commands start
+only on Operator instruction and checkpoint safe, nonignored changes. Public
+release binds matching fetch/push `origin` identities to the configured repository
+slug, requires `amm/dev`, and refuses source drift during its prepared-materials
+suite. Focused tests do not establish an actual release or runtime installation.
 
 ## Kept small
 

@@ -13,7 +13,7 @@ from zoneinfo import ZoneInfo
 
 import yaml
 from validate_atoms_workers.parsing import parse_carrier
-from work_journal import append_sealed_events, validate_sealed_event, with_event_digest
+from work_journal import append_sealed_events
 
 
 def digest(raw):
@@ -135,26 +135,16 @@ class Replacement:
                 'llm_session': state['session'], 'subject_kind': 'file',
                 'action_id': f'{self.run_id}:replacement:{self.ordinal}',
                 'structural_scope': previous.metadata.get('current_scope_unit', request.scope)}
-        git = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=self.store.root,
-                             capture_output=True, text=True, check=False)
-        recovery = with_event_digest({**base, 'event_id': base['action_id'] + ':before',
-            'event': 'recovered', 'kind': 'governed_project_state',
-            'result': self.result(source, before, version),
-            'recovery_evidence': {'git': {'base_commit': git.stdout.strip()} if git.returncode == 0
-                else {'repository_state': 'not_a_git_repository'},
-                'carrier': {'filename': source.name}}})
         archived = self.result(archive, archived_raw, version)
         new = self.result(successor, successor_raw, 1)
-        events = [recovery, with_event_digest({**base,
+        events = [{**base,
             'event_id': base['action_id'] + ':archive', 'event': 'completed',
             'kind': 'governed_project_change', 'action_type': 'MOVE+UPDATE', 'sources': [],
-            'previous_result_event': recovery['event_id'], 'result': archived,
-            'predecessor_atom_id': predecessor, 'successor_atom_ids': [successor_id]}),
-            with_event_digest({**base, 'event_id': base['action_id'] + ':successor',
+            'result': archived,
+            'predecessor_atom_id': predecessor, 'successor_atom_ids': [successor_id]},
+            {**base, 'event_id': base['action_id'] + ':successor',
                 'event': 'completed', 'kind': 'governed_project_change',
-                'action_type': 'ADD', 'sources': [], 'result': new})]
-        for event in events:
-            validate_sealed_event(event)
+                'action_type': 'ADD', 'sources': [], 'result': new}]
         plan = {'predecessor_atom_id': predecessor, 'successor_atom_id': successor_id,
                 'before': context['source'], 'archived': archived, 'successor': new,
                 'archive_content': archived_raw.decode(), 'successor_content': successor_raw.decode(),
@@ -182,11 +172,14 @@ class Replacement:
                 temporary.unlink(missing_ok=True)
 
     def append(self, plan, events):
-        receipts = append_sealed_events(self.store.root, events,
-            author=events[0]['author'], local_date=events[0]['occurred_at'][:10], timezone='Asia/Tbilisi')
-        saved = {row['event_id']: row for row in plan['journal_receipts']}
-        saved.update({row['event_id']: row for row in receipts})
-        plan['journal_receipts'] = list(saved.values())
+        try:
+            receipts = append_sealed_events(self.store.root, events,
+                author=events[0]['author'], local_date=events[0]['occurred_at'][:10], timezone='Asia/Tbilisi')
+        except (OSError, RuntimeError) as error:
+            plan['recording_error'] = str(error)
+        else:
+            plan['journal_receipts'].extend(receipts)
+            plan.pop('recording_error', None)
         self.engine.save(self.plan_path, plan)
 
     def apply(self, value, request, new_summary):
@@ -202,13 +195,16 @@ class Replacement:
             archive, successor = self.store.path(plan['archived']['path']), self.store.path(plan['successor']['path'])
             if not before.exists() and not (archive.is_file() and successor.is_file()):
                 raise ValueError('Incomplete replacement with missing predecessor; reconcile first')
-            self.append(plan, plan['events'][:1])
             self.publish(archive, plan['archive_content'].encode())
             self.publish(successor, plan['successor_content'].encode())
             if before.exists():
                 if digest(before.read_bytes()) != plan['before']['sha256']:
                     raise ValueError('Source changed during replacement; preserve all Carriers')
                 before.unlink()
-            self.append(plan, plan['events'][1:])
-            return {key: plan[key] for key in ('predecessor_atom_id', 'successor_atom_id',
+            events = [event for event in plan['events'] if event.get('event') == 'completed']
+            self.append(plan, events)
+            evidence = {key: plan[key] for key in ('predecessor_atom_id', 'successor_atom_id',
                     'before', 'archived', 'successor', 'journal_receipts')}
+            if 'recording_error' in plan:
+                evidence['recording_error'] = plan['recording_error']
+            return evidence

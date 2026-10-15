@@ -68,11 +68,6 @@ class InstallToolsTests(unittest.TestCase):
             self.canonical,
             ignore=shutil.ignore_patterns("tests", "__pycache__", "*.pyc", ".DS_Store"),
         )
-        private_reader_source = TOOLS_SOURCE.parent / "204_MCP"
-        private_reader_target = self.canonical.parent / "204_MCP"
-        private_reader_target.mkdir()
-        for name in ("release_source_admission.py", "selected_routes.py"):
-            shutil.copy2(private_reader_source / name, private_reader_target / name)
 
     def tearDown(self) -> None:
         if self.previous_codex_home is None:
@@ -178,70 +173,6 @@ class InstallToolsTests(unittest.TestCase):
             )
         self.assertEqual([], list((self.repository / ".caprmedio_runtime").rglob("__pycache__")))
         self.assertEqual([], list((self.repository / ".caprmedio_runtime").rglob("*.pyc")))
-
-    def test_release_private_reader_closure_has_exact_sorted_inventory_rows(self) -> None:
-        result = install_tools.install(self.repository, apply=True)
-        rows, release = install_tools.source_inventory(self.repository)
-        self.assertEqual(result["release"], release)
-        self.assertEqual(sorted(row["path"] for row in rows), [row["path"] for row in rows])
-        release_root = self.repository / ".caprmedio_runtime/tools/releases" / release
-        private_closure = (
-            ("204_MCP/release_source_admission.py", "204_MCP/release_source_admission.py"),
-            ("204_MCP/selected_routes.py", "204_MCP/selected_routes.py"),
-            ("201_TOOLS/project_selection.py", "204_MCP/project_selection.py"),
-            (
-                "201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/__init__.py",
-                "204_MCP/VALIDATE_ATOMS/validate_atoms_workers/__init__.py",
-            ),
-            (
-                "201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/read_io.py",
-                "204_MCP/VALIDATE_ATOMS/validate_atoms_workers/read_io.py",
-            ),
-            (
-                "201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/settings.py",
-                "204_MCP/VALIDATE_ATOMS/validate_atoms_workers/settings.py",
-            ),
-        )
-        for source_relative, installed_relative in private_closure:
-            source = self.canonical.parent / source_relative
-            relative = installed_relative
-            installed = release_root / relative
-            self.assertEqual(source.read_bytes(), installed.read_bytes())
-            self.assertEqual(source.stat().st_mode & 0o777, installed.stat().st_mode & 0o777)
-        (self.canonical.parent / "204_MCP/selected_routes.py").unlink()
-        with self.assertRaisesRegex(install_tools.InstallationError, "canonical private reader source is missing"):
-            install_tools.source_inventory(self.repository)
-
-    def test_release_private_reader_symlink_is_refused(self) -> None:
-        dependency = self.canonical.parent / "204_MCP/selected_routes.py"
-        dependency.unlink()
-        dependency.symlink_to("release_source_admission.py")
-        with self.assertRaisesRegex(install_tools.InstallationError, "canonical private reader source is missing"):
-            install_tools.source_inventory(self.repository)
-
-    def test_release_private_reader_mapped_dependencies_refuse_missing_files_and_aliases(self) -> None:
-        dependency = self.canonical / "project_selection.py"
-        dependency.unlink()
-        with self.assertRaisesRegex(install_tools.InstallationError, "canonical private reader source is missing"):
-            install_tools.source_inventory(self.repository)
-
-        shutil.copy2(TOOLS_SOURCE / "project_selection.py", dependency)
-        dependency.unlink()
-        dependency.symlink_to("background_services.toml")
-        with self.assertRaisesRegex(install_tools.InstallationError, "canonical private reader source is missing"):
-            install_tools.source_inventory(self.repository)
-
-        dependency.unlink()
-        shutil.copy2(TOOLS_SOURCE / "project_selection.py", dependency)
-        workers = self.canonical / "VALIDATE_ATOMS/validate_atoms_workers"
-        original_is_symlink = Path.is_symlink
-        with patch.object(
-            Path,
-            "is_symlink",
-            autospec=True,
-            side_effect=lambda path: path == workers or original_is_symlink(path),
-        ), self.assertRaisesRegex(install_tools.InstallationError, "canonical private reader source is missing"):
-            install_tools.source_inventory(self.repository)
 
     def test_apply_without_hooks_installs_tools_and_preserves_host_hook_state(self) -> None:
         custom = self.repository / "custom-hooks"

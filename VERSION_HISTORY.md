@@ -44,3 +44,11 @@ Summary:
 - Add isolated Project-root Docker MCP startup and uv-managed runtimes with preserved configuration.
 - Simplify Operator-invoked Local/Public releases, with active Methodology copies, intended tests, Git checkpoints, and PR-linked release notes.
 - Improve Tool discovery, Subject validation/patching, graph projection foundations, and Methodology authority; retain non-authoritative research separately.
+
+<!-- public-release:public-20261015-green-suite-1 -->
+## 0.4.4 [PR](https://github.com/anatoly-m-maslennikov/caprmedio-graph-driven-framework/pull/30)
+- Add direct Subject lookup, bound preview/staging and exact-change Codex confirmation; Core Subject migration remains separate.
+- Replace retired sealed-release and installer paths with direct releases that test prepared materials before publication.
+- Simplify Journals to project-scoped append/read and distinguish logging failures from actual Action outcomes.
+- Fix selected-Project queries, pagination, current graph sources, Atom version/history handling and format-preserving edits.
+- Improve Docker/HTTP test isolation, startup and cleanup while retaining required integrations and launcher checks.

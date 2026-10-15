@@ -125,6 +125,20 @@ class NativeAtomRevisionTests(unittest.TestCase):
         source = (TOOLS_ROOT / "framework_settings_revision.py").read_text(encoding="utf-8")
         self.assertNotIn("next(parent for parent", source)
 
+    def test_old_date_carrier_and_numeric_parts_preserve_revision_order(self) -> None:
+        address = revisions.carrier_address(self.root, self.atom).as_posix()
+        digest = hashlib.sha256(self.canonical.read_bytes()).hexdigest()
+        journal = self.control / "_journal"
+        journal.mkdir()
+        for part in range(13):
+            row = self._record(part + 1, address, digest)
+            row["details"]["updated_at"] = "2026-10-14 01:02:03"
+            name = "src-work-journal-2026-10-14"
+            if part:
+                name += f"-part-{part}"
+            (journal / f"{name}.ndjson").write_text(json.dumps(row) + "\n", encoding="utf-8")
+        self.assertEqual(list(range(1, 14)), [row["version"] for row in revisions.revision_records(self.root, self.atom)])
+
 
 if __name__ == "__main__":
     unittest.main()

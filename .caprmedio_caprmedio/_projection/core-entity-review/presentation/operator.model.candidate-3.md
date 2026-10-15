@@ -1,11 +1,14 @@
-# Candidate #3 — Object, Term, Selection
+# Candidate #3 — Object, History, Projection, Selection, Actor
 
 Status: Candidate; not adopted Core authority.
 
 Saved: 2026-10-11, Asia/Tbilisi.
 
 Updated: 2026-10-12, Asia/Tbilisi — clarified Atom identity, versioning,
-status/currentness, filenames and Applicable Methodology source eligibility.
+status/currentness, filenames and Applicable Methodology source eligibility;
+separated Actor (who) from Object (what); separated History and Projection from
+Object, included non-Atom governing configurations, and retained Terms as
+source meanings and derived vocabulary rather than an independent root branch.
 
 Basis: the Operator's latest decisions in this conversation. This document
 supersedes the wording of candidate #2 presented in chat, which was not saved.
@@ -21,22 +24,37 @@ native relation admission or runtime state.
 ```text
 Entity
   /Object
-    /Occurrent
     /Continuant
-  /Term
+    /Occurrent
+  /History
+    /Revision
+    /Journal
+  /Projection
   /Selection
+  /Actor
 ```
 
-- **Entity:** the umbrella for the things represented by this model.
-- **Object:** something whose identity, state or relations we track.
-- **Term:** a name with a meaning in its context.
-- **Selection:** an expression choosing existing Entities, such as Objects or Terms.
+- **Entity:** the umbrella for everything represented by this model.
+- **Object:** what we track through identity, state or relations, including
+  source Atoms, source-authoritative configurations and live occurrences.
+- **History:** preserved states and records about what actually happened.
+- **Projection:** derived artifacts, including compiled graphs and documents.
+- **Selection:** an expression choosing existing items from sources or views.
+- **Actor:** who performs work, separate from the Object branch.
 
-Terms describe meaning. Objects represent things. Selections choose things.
+Objects represent what; Actors represent who. History preserves information
+about states and events; Projections derive information from sources.
+Selections choose existing items. Terms describe meaning in source uses,
+allowed-value domains and derived Terms Graph entries; they are not a sixth
+independent Entity branch.
 
-These are model categories, not a claim that Terms or Selections do not exist.
-A Term can name an Object kind or a concept that has no additional Object node.
+These five branches are sibling model categories. Only Object divides into
+Continuant and Occurrent; History, Projection, Selection and Actor do not
+inherit either classification through this taxonomy.
+A Term can name an Entity kind, an Actor role or another concept without an
+additional Entity node or an authoritative definition layer.
 The Term and the Object it names are not interchangeable.
+Neither are an Actor Type name and the Actor performing work.
 
 General and CAPRMEDIO-project entries are two views of this same model, not two
 sources of truth. General means reusable across projects. Project-specific means
@@ -46,7 +64,8 @@ by this project.
 ### Notation
 
 - `/`: broader kind to narrower kind.
-- `.`: bearer to dependent Object.
+- `.`: bearer qualification for a dependent entity or component. Actual
+  Properties remain dependent Objects.
 - `:`: Property to allowed value, not assignment.
 - No `@` relation operator. `@<Version Number>` is filename punctuation only;
   it is neither part of an Atom ID nor Subject relation syntax. Delivery
@@ -56,9 +75,9 @@ Indentation outside a taxonomy is grouping or ownership, not an inferred `/` edg
 The relation meanings shown here are candidate meanings, not newly admitted
 native relation names.
 
-## 2. Objects
+## 2. Objects, History, Projections and Actors
 
-### 2.1 General Objects
+### 2.1 General Objects, History and Projections
 
 ```text
 Object
@@ -71,29 +90,22 @@ Object
     /Session
 
   /Continuant
-    /Artifact
-      /Atom
-        .ID
-        .Summary
-        .Status
-        .Substance
-        .Substance Scope
-        .Semantics
-        .Details
-        .Content Role
-        .Type
-        .Governance Locus
-        .Global Tier
-        .Local Tier
-        .Version Number
-        .Updated At
-      /Projection
-        .Source References
-
-    /History
-      /Revision
-      /Journal
-        .Record
+    /Atom
+      .ID
+      .Summary
+      .Status
+      .Substance
+      .Substance Scope
+      .Semantics
+      .Details
+      .Content Role
+      .Type
+      .Governance Locus
+      .Global Tier
+      .Local Tier
+      .Version Number
+      .Updated At
+    /Governing Configuration
 
     /Scope Unit
       .ID
@@ -105,12 +117,6 @@ Object
         : Unordered
       .Local Order
       .Navigational Order Number
-
-    /Actor
-      .Actor Type
-        : Operator
-        : AI Agent
-      .Name
 
     /Carrier
       .Carrier ID
@@ -129,14 +135,22 @@ Object
 An Occurrent happens or unfolds in time. A Continuant keeps its identity through
 time. Duration and having a file do not decide the classification: a temporary
 file is a Continuant Carrier; a long-running Workflow Run is an Occurrent.
+Executions are live, ephemeral occurrences. A record about what actually happened
+in an Execution belongs to History; storing the record does not preserve the
+Execution itself.
 
 #### Artifact and dependent Objects
 
-- An Artifact is one governed lifecycle unit.
+- Artifact describes one governed lifecycle unit. It is used for source and
+  derived records, not a taxonomy parent that places History or Projection
+  under Object.
 - An Atom is the smallest independently governed Artifact.
-- A Projection is derived and does not become authority for its source facts.
+- Governing Configuration is source-authoritative configuration that is not an
+  Atom, including `project_structure.toml`. Project Configuration Atoms remain
+  Atoms; a configuration file is not made an Atom merely because it governs.
 - Properties are dependent Objects. They need a bearer, not a separate Carrier
-  or independent lifecycle.
+  or independent lifecycle. Their bearer may be an Object, Actor, Journal or
+  Projection; the bearer does not thereby inherit the Object classification.
 - An Atom may be represented by one folder and one file with different roles:
   the folder organizes children; the file contains its classic content. This
   does not require every Atom to have both.
@@ -180,23 +194,36 @@ Content Role, Type, tiers and internal/external/relational Governance Locus rema
 Properties or classifications, not additional Object roots. I remains actual
 Implementation; this candidate creates no Implementation Atoms.
 
-#### History
+#### History and Projection
+
+```text
+History
+  /Revision
+  /Journal
+    .Record
+
+Projection
+  .Source References
+```
 
 - History means preserved information, not the events themselves.
 - Revision is a preserved historical state, not the change that produced it.
-- Journal records changes, executions, decisions and outcomes.
-- Journal also qualifies as Artifact. It is one Object with both classifications,
-  not two copied Journal nodes.
-- History is not below Artifact. Revision is neither an Artifact nor an
-  Artifact-borne Property; no recursive Revision-of-Revision rule is introduced.
-- A Journal Record is a dependent stored record. It is not the event it describes.
+- Journal contains records about actual happened changes, Executions, decisions
+  and outcomes. Executions themselves are never Journal contents.
+- A Journal is a History lifecycle unit. Describing it as an Artifact does not
+  classify it as an Object or create a copied Journal node.
+- Revision is not an Atom, a separately governed Artifact or an Artifact-borne
+  Property; no recursive Artifact.Revision or Revision-of-Revision rule is
+  introduced.
+- A Journal Record is a dependent stored History record about an event. It is
+  not the event it describes; the Journal remains History.
 - Git preserves Atom contents and versions. Journals register what happened.
+- Projection is a separate derived artifact, not an Object subtype or History
+  merely because it is saved. It does not become authority for its source facts.
 
-#### Scope Unit, Actor, Carrier and Relation
+#### Scope Unit, Carrier and Relation
 
 - Scope Unit owns Atoms and child Scope Units; it is outside any individual Atom.
-- Actor identifies who performs work. Name is optional; an unnamed Actor Type
-  names a generic role, not a uniquely distinguished performer.
 - Carrier identifies what carries a representation. Its filename/path is a
   location, not identity. General D policies govern field/storage mappings.
 - Relation remains the selected connection concept. An ordinary relation fact
@@ -214,7 +241,6 @@ Implementation; this candidate creates no Implementation Atoms.
 | Scope Unit | `Scope Unit.ID`: `(project prefix)-SU-(number)` |
 | Carrier | Carrier ID; not filename/path |
 | Execution | Execution ID |
-| Actor | Actor Type + optional Name; individual unnamed distinctions deferred |
 | Dependent Object | bearer identity + dependent name |
 | Historical Atom lookup | Atom ID + Version Number, e.g. `CA-P-123`, version `3` |
 | Other unversioned Artifact state | Artifact ID + Updated At |
@@ -261,10 +287,11 @@ Historical lookup uses Atom ID plus Version Number. Existing non-archived status
 containers remain inside the current-original uniqueness boundary. Drafts have
 no assigned Atom IDs; no Draft semantic deduplication policy is added.
 
-Projected instances still belong to separate views; an original and its derived
-copy do not become one Object merely because they share a bare ID. An Applicable
-Methodology projected Atom member preserves the source Atom ID, Version Number
-and authored content; its projection-local Status and provenance may differ. An
+Projected instances still belong to separate views; a source Atom Object and its
+derived member do not become the same instance merely because they share a bare
+ID. An Applicable Methodology projected Atom member preserves the source Atom
+ID, Version Number and authored content; its projection-local Status and
+provenance may differ. An
 excluded member may be Archived in the Projection without becoming an archived
 historical source version.
 
@@ -272,7 +299,7 @@ Scope Unit ID stays stable when Label, Name or path changes. Metadata folder nam
 retain `(project prefix)-SU-(number)-(LABEL)-(NAME_NAME)`. Project-root delivery
 folder names stay as they are. Carrier ID syntax/assignment remains authoring work.
 
-### 2.2 CAPRMEDIO project Objects
+### 2.2 CAPRMEDIO project Objects, History and Projections
 
 These are concrete project components, occurrences or specializations of the
 general model. They do not introduce another root for every feature.
@@ -309,13 +336,14 @@ CAPRMEDIO Project
 This is an ownership outline, not a new Project Structure declaration. Actual
 accepted child units come from Project Structure, not from arbitrary folders.
 
-#### Project Artifacts and History
+#### Project Objects, Projections and History
 
 ```text
-Authoritative Artifacts
-  Project Settings
-  Project Structure
-  Framework Instance Settings
+Source-authoritative Objects
+  Governing Configurations (not Atoms)
+    Project Settings
+    Project Structure (project_structure.toml)
+    Framework Instance Settings
   Original project Atoms
     Core Meta-model Atoms
     Extension Atoms
@@ -390,9 +418,10 @@ and versions. An applicability exclusion and an archived historical version are
 different.
 
 The production Scope Unit and the delivered Applicable Methodology Projection
-are separate Objects. The Projection does not replace Core, Extension or
-Configuration source authority. This later design direction is not claimed to
-be already adopted by the active-only compilation wording in current Core.
+are separate Entities: a Scope Unit Object and a Projection. The Projection
+does not replace Core, Extension or Configuration source authority. This later
+design direction is not claimed to be already adopted by the active-only
+compilation wording in current Core.
 
 #### Project Occurrents
 
@@ -416,21 +445,59 @@ Sessions
 Reusable procedures are O Atom definitions. Their performances are Executions.
 Ad hoc work does not require a new O Atom; the Operator decides repeatability.
 A service startup does not, by itself, create a Workflow Run.
+Journal entries describe actual happened performances; they are not the live
+Executions shown here.
 
-## 3. Terms
+### 2.3 Actors
+
+```text
+Actor
+  .Actor Type
+    : Operator
+    : AI Agent
+  .Name
+```
+
+Actor identifies who performs work. It is an Entity branch alongside Object,
+History, Projection and Selection, not an Object subtype or an
+Occurrent/Continuant subtype.
+The work performed can be an Execution Object; its performer remains an Actor.
+
+Actor Type and Name remain dependent Objects borne by the Actor. Their dot
+qualification does not place the Actor under Object or introduce another
+Property class. Operator and AI Agent remain Actor Type allowed values, not
+new Object kinds or additional Actor subtypes.
+
+Name is optional. The existing identity convention remains Actor Type +
+optional Name; individual unnamed distinctions remain deferred. An unnamed
+Actor Type names a generic role, not a uniquely distinguished performer.
+No new Actor identity field, selector syntax, runtime type or user type is added.
+
+## 3. Source meanings and Terms Graph
 
 ### 3.1 General Terms
 
-Terms name both Object kinds and concepts without additional Object nodes.
+Terms are names with meanings in context. They name Entity kinds, Actor roles
+and concepts without additional Entity nodes. Source meanings and registered
+allowed values remain; derived entries belong to the Terms Graph Projection,
+not a separate authoritative definitions layer or independent Term root.
+The review category Term can still describe a source meaning or derived
+vocabulary entry; it does not introduce a root branch. A source label alone
+does not create a materialized Projection entry.
 These groups organize vocabulary; they are not new native Term hierarchies.
 
 ```text
-Object-kind names
+Entity and kind names
   Object, Continuant, Occurrent
-  Artifact, Atom, Projection
+  Artifact, Atom, Governing Configuration
   History, Revision, Journal
-  Scope Unit, Actor, Carrier, Relation
+  Projection, Selection
+  Scope Unit, Carrier, Relation
   Execution, Session
+
+Actor vocabulary
+  Actor, Actor Type
+  Operator, AI Agent (Actor Type allowed values)
 
 Content concepts
   issue, question, objective, rationale
@@ -462,11 +529,11 @@ evidence of how a Term is used. The Terms Graph derives definitions from those
 cases without making the Term and any source Atom the same instance.
 
 Registered allowed-value domains and admitted nodes remain preserved. A raw
-scalar is not automatically a new Term or Object. `:` retains its allowed-value
-meaning; it is not assignment syntax.
+scalar is not automatically a new Term, Object or Actor. `:` retains its
+allowed-value meaning; it is not assignment syntax.
 
-A label or alias does not create another Object. Syntax characters, selector
-keywords/keys and identifier literals are not automatically Terms either.
+A label or alias does not create another Object or Actor. Syntax characters,
+selector keywords/keys and identifier literals are not automatically Terms either.
 The Terms Graph is distinct from the Objects Graph; no new cross-graph native
 relation is admitted by this document.
 
@@ -559,8 +626,15 @@ retire source Atoms or implement extraction, compilation or conflict checking.
 ```text
 Objects selected by identity
   one original Atom by ID
-  one historical Atom state by Atom ID + Version Number
   one dependent Object through its bearer
+
+History selected by identity or recorded references
+  one historical Atom Revision by Atom ID + Version Number
+  Journal records about actual happened Executions
+
+Projections selected by identity or conditions
+  a derived graph or document
+  projected members in a stated source view
 
 Objects selected by conditions
   Active Atoms (a Status view)
@@ -571,15 +645,22 @@ Objects selected by conditions
   Atoms linked through a declared relation
   applicable Methods, Evaluations or Delivery rules
 
-Terms selected by conditions
+Actors selected by existing identity or conditions
+  Actors with Actor Type Operator or AI Agent
+  named Actors matched by Actor Type and Name
+
+Source vocabulary and Terms Graph entries selected by conditions
   Terms used in selected sources
-  Terms naming selected Object kinds
+  Terms naming selected Entity kinds or Actor roles
   registered values in a selected allowed-value domain
 ```
 
-A Selection chooses existing Entities; it does not create a new Object for the
-set. Its expression uses Terms, identifiers and syntax, but is not itself one Term.
+A Selection chooses existing items; it does not create another Entity for the
+set. Its expression uses Terms, identifiers and syntax, but is not itself one
+Term or an authoritative definition.
 Resolved members retain their identities and provenance.
+Actor selection examples are conceptual; no new Actor selector grammar or
+storage fields are introduced.
 
 The Selection must make its source/view and filters clear. For Scope Units,
 ownership, targeting and applicability are not interchangeable. Current
@@ -588,7 +669,7 @@ are different views.
 Inputs used for an actual operation must retain the required source/state evidence.
 
 A saved selection definition may be an Atom or another Artifact. A separately
-identified, tracked materialization may be a Projection Object. Its definition,
+identified, tracked materialization may be a Projection. Its definition,
 expression, resolved membership and materialized output are not interchangeable.
 
 ### 4.2 CAPRMEDIO project Selections
@@ -625,18 +706,21 @@ accepted input frontier, a completed Run or a Projection.
 ## 5. Connections between the branches
 
 ```text
-Term → names a meaning → Object kind or another concept
+Source Term use → names a meaning → Entity kind, Actor role or another concept
 Selection → uses → Terms, identifiers and conditions
-Selection → chooses → existing Objects or Terms
-Artifact → contains source usage of → Terms, or a definition of a Selection
+Selection → chooses → existing items from sources or views
+Actor → performs → work represented by an Execution Object
+Source Artifact → contains source usage of → Terms, or a definition of a Selection
 Atom.Semantics → explains source-case meaning for → Terms and values in scope
 Terms Graph Projection → compiles meanings from → source cases
 Execution → processes → selected inputs
+History Revision → preserves → a historical state
+History Journal → contains records about → actual happened Executions and outcomes
 Projection → materializes a derived result from → selected sources
 ```
 
 These arrows explain model roles; they do not register native edges. Ordinary
-Object connections still include ownership, GOVERNS/DEPENDS_ON, carrying,
+connections still include ownership, GOVERNS/DEPENDS_ON, carrying,
 derivation, and historical recording with their separately governed endpoints.
 
 Example:
@@ -652,16 +736,34 @@ All applicable Ms for this Scope Unit
   → Selection
 
 A saved prompt compiled from those Ms
-  → Projection Object
+  → Projection
 
 Running the prompted work
-  → Execution Object
+  → live Execution Object
+
+A Journal entry about that actual happened work
+  → historical record, not the Execution
+
+Who performs that work
+  → Actor
 ```
 
 ## 6. Adoption boundary
 
 - This document broadens the candidate meaning of Entity. It does not claim the
-  current Core definition or any Object/Term/Selection profile already matches it.
+  current Core definition or any current profile already matches its five
+  branches: Object, History, Projection, Selection and Actor.
+- History, Projection and Actor are siblings of Object in this candidate
+  taxonomy, not merely separate display groups. They do not inherit Object,
+  Continuant or Occurrent by taxonomy. Dependent Properties remain Objects;
+  current Core classifications, profiles and runtime types are unchanged.
+- Non-Atom Governing Configuration remains source-authoritative. This does not
+  convert configuration files into Atoms or change their schemas or contents.
+- Live Executions remain ephemeral Occurrent Objects. Journal records about
+  actual happened Executions belong to History; they do not contain or become
+  the Executions themselves. Session remains an Occurrent.
+- Terms retain source meanings, allowed-value domains and derived Terms Graph
+  entries without an independent Term root or authoritative definition layer.
 - Current `subjects.governs` still resolves one canonical Entity under current
   authority. This candidate does not admit an arbitrary Selection as that target.
 - Existing `atom(...)` syntax remains non-enumerating and case-sensitive.
@@ -677,7 +779,7 @@ Running the prompted work
 - Optional `Atom.Semantics` is a candidate content field. Current Atom schemas,
   authoring rules, definition Atoms, Terms extractors and validators are unchanged.
 - Omitted or unreviewed legacy labels are unclassified, not deleted or invalid.
-- No new native Object/Term/Selection instances or relations are admitted.
+- No new native Entity or vocabulary instances or relations are admitted.
   This document creates no parser changes, Core revisions, Journal events or
   runtime effects.
 - If adopted later, correct authoritative Subjects first; content alignment
@@ -686,3 +788,6 @@ Running the prompted work
 The prior source-pinned 706-identity review remains separate evidence. Candidate
 #3 records the latest conceptual direction; it is not a claim of fresh exhaustive
 review, live execution, implementation completeness or native admission.
+Reports pinned to earlier candidate revisions remain historical evidence,
+not current acceptance. Re-review affected targets against this revision; do
+not silently replace their candidate pins or inherit their semantic acceptance.

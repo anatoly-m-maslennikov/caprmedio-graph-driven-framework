@@ -1,6 +1,6 @@
 ---
-version: 5
-updated_at: "2026-09-17 02:26:06 +0000"
+version: 6
+updated_at: "2026-10-14 13:43:24 +0400"
 relations:
   child_of:
     - CA-R-1487
@@ -25,18 +25,22 @@ author: "Anatoly Maslennikov"
 type: "Action"
 global_tier: 11
 ---
-# Select an alternative under active priorities
+# Summary
+
+Select an alternative under active priorities
+
+## Operation
 
 Select Priority-Governed Alternative **means** the Action that applies resolved Operator priorities **to** candidate alternatives **and** returns a justified selection **or** an unresolved comparison.
 
-## execution
+### execution
 
 1. obtain the effective priorities resolved under CA-O-022 for the affected context. unresolved priorities do **not** authorize selection.
 2. reject **every** candidate that violates applicable authority **or** a non-negotiable constraint.
 3. apply the selected model **to** the remaining alternatives using the available evidence. use CA-M-297 **only** for Operator-selected comparison by priority order; use the selected technique for another model.
 4. return a selected alternative **only** **when** that model justifies the choice. retain the constraints, criterion evidence, **and** comparison result that justify it.
 
-## unresolved comparison
+### unresolved comparison
 
 **if** no admissible alternative remains **or** the model does **not** determine a selection:
 
@@ -45,3 +49,5 @@ Select Priority-Governed Alternative **means** the Action that applies resolved 
 - do **not** invent a tie-break, substitute an algorithm, **or** return an unsupported winner.
 
 **if** the Operator changes the applicable priorities, use the newly resolved result under CA-O-022 **before** comparing again.
+
+## Details

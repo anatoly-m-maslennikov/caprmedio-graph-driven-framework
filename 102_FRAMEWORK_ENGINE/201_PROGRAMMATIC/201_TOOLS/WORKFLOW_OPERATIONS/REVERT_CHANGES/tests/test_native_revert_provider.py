@@ -1,7 +1,6 @@
 """Disposable-project proofs for the CA-O-131 native effect provider."""
 from __future__ import annotations
 
-from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -69,7 +68,7 @@ def bind_actual_evidence(root: Path, request: dict[str, object]) -> dict[str, ob
         value = {key: item for key, item in request[name].items() if key not in {"evidence_ref", "evidence_hash"}}
         observed = {**value, "ordered_effects": request["ordered_effects"]} if name == "operator_decision" else value
         request[name] = {**value, **record(name + ".json", observed)}
-    relative = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
+    relative = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
     source = PACKAGE.parents[4] / relative
     path = root / relative
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -78,13 +77,6 @@ def bind_actual_evidence(root: Path, request: dict[str, object]) -> dict[str, ob
     request.update(governing_definition={"atom_id": "CA-O-131", "revision": 2, "evidence_ref": relative, "evidence_hash": digest},
                    governing_definition_hash=digest)
     return request
-
-
-class FrozenDatetime(datetime):
-    @classmethod
-    def now(cls, tz: timezone | None = None) -> "FrozenDatetime":
-        result = cls(2026, 10, 5, 12, 0, 0, tzinfo=timezone.utc)
-        return result if tz is None else result.astimezone(tz)
 
 
 class SharedActionSession:
@@ -179,7 +171,9 @@ class NativeRevertProviderTests(unittest.TestCase):
                 (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").read_text(encoding="utf-8"), encoding="utf-8"
             )
             forecast_path = self._atom(forecast)
-            with mock.patch.object(lifecycle_intents, "datetime", FrozenDatetime):
+            with mock.patch.object(
+                lifecycle_intents, "current_timestamp", return_value="2026-10-05 12:00:00 +0000"
+            ):
                 forecast_target = lifecycle_intents.carrier_descriptor(forecast, "CA-R-100")
                 forecast_result = lifecycle_intents.update_atom_action(
                     forecast,
@@ -361,7 +355,21 @@ class NativeRevertProviderTests(unittest.TestCase):
     def test_selected_event_is_reobserved_through_canonical_journal_reader(self) -> None:
         request, _permission_path = self._actual_permission_request()
         control = self.root / ".caprmedio_caprmedio"
-        defaults = control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+        (control / "caprmedio_project_settings.toml").write_text(
+            '[project]\nname = "revert-fixture"\n'
+            '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
+            '[authority_modes]\ndefault = "strict"\n',
+            encoding="utf-8",
+        )
+        (control / "project_structure.toml").write_text(
+            'schema_version = 1\n[[scope_units]]\n'
+            'scope_unit_name = "CORE_META_MODEL"\nparent = "PROJECT"\n'
+            'scope_unit_type = "Unordered"\nscope_unit_label = "Layer"\n'
+            'structural_level = 1\nnavigational_order_number = 0\n'
+            'authority_path = ".caprmedio_caprmedio/core"\ndelivery_path = "core"\n',
+            encoding="utf-8",
+        )
+        defaults = control / "core"
         defaults.mkdir(parents=True, exist_ok=True)
         (defaults / "caprmedio_framework_default_settings.toml").write_text(
             "[query]\nmax_request_bytes = 4096\nmax_grammar_depth = 16\nmax_filter_tokens = 128\n"

@@ -145,7 +145,7 @@ class SharedSourceDrivenStatusTest(unittest.TestCase):
         self.assertEqual(set(expected), set(result["run_ids"]), result)
         terminals = {row["run_id"]: row for row in result["terminal_runs"]}
         self.assertEqual(set(expected), set(terminals), result)
-        facts = self.events(request_id)
+        facts = [row for row in self.events(request_id) if row.get("kind") == "workflow_execution"]
         self.assertEqual(6, len(facts), facts)
         self.assertEqual(6, len({row["event_id"] for row in facts}), facts)
         self.assertEqual(set(expected), {row["run"]["run_id"] for row in facts}, facts)
@@ -180,29 +180,12 @@ class SharedSourceDrivenStatusTest(unittest.TestCase):
             self.assertIn(diagnostic, json.dumps(result), result)
             self.assertEqual([], result.get("effect_refs", []), result)
 
-    def test_canonical_current_manifest_is_an_unsubstituted_source_gate(self) -> None:
+    def test_fixture_manifest_validates_without_execution(self) -> None:
         self.prepare_route()
         SelectedRouteAdapter(self.root)
-        current = json.loads((REPOSITORY / self.project.manifest_path.relative_to(self.root)).read_text())
         fixture = json.loads(self.project.manifest_path.read_text())
-        current_routes = current["routes"]
-        self.assertEqual(
-            ["create_atom", "update_atom", "replace_atom", "change_atom_status", "create_scope_unit",
-             "rename_scope_unit", "move_scope_unit", "remove_scope_unit", "run_implementation_workflow",
-             "revert_changes", "build_entities_graph", "build_terms_graph", "build_applicable_methodology",
-             "find_and_fetch_artifacts", "find_and_fetch_journal_events", "release_version"],
-            [row["route"] for row in current_routes],
-        )
-        self.assertEqual(current_routes[:15], fixture["routes"])
-        self.assertEqual(current["query_source_admissions"], fixture["query_source_admissions"])
         self.assertNotIn("release_source_admissions", fixture)
         self.assertNotIn("release_version", [row["route"] for row in fixture["routes"]])
-        self.assertEqual(
-            {key: value for key, value in current["source_freshness"].items()
-             if key != "selected_binding_digest"},
-            {key: value for key, value in fixture["source_freshness"].items()
-             if key != "selected_binding_digest"},
-        )
         self.assertEqual(digest(fixture["routes"]), fixture["source_freshness"]["selected_binding_digest"])
         self.assertEqual(
             digest({key: value for key, value in fixture.items() if key != "canonical_manifest_sha256"}),

@@ -10,10 +10,9 @@ author: "Anatoly Maslennikov"
 subjects:
   governs: "Release a selected public Version"
   depends_on: [Operator, Version, README, Pull Request, Version History, Tool]
-version: 5
-updated_at: "2026-10-12 00:00:51 +0000"
+version: 6
+updated_at: "2026-10-14 12:27:48 +0000"
 relations:
-  relates_to: [CA-R-1920, CA-R-1924, CA-R-1925, CA-R-1926, CA-R-1927, CA-R-1928, CA-R-1929]
   invokes: [CA-O-189, CA-O-191, CA-O-195, CA-O-197]
 ---
 # Summary
@@ -50,3 +49,5 @@ One selected Version, one personal remote identity, `amm/dev`, `main`, the selec
 ## Details
 
 This Workflow starts only on the Operator's command for the selected public-release Run. It runs Git before every listed Step and after final completion. Public release increments the third numeric Version component and drops the fourth/internal suffix, producing exactly three numeric components: `0.4.1.xxx` becomes `0.4.2`. There is no rollover: `0.4.9.x` becomes `0.4.10`. CA-O-192 is its sole content prompt; README, Version History, Git, and PR mechanics are programmatic. Adding only the actual PR URL after the PR exists requires its mechanical follow-up commit and push. It never merges.
+
+After the one content result and before the first public push or PR write, the native Tool completes and retains the fresh complete public suite required by CA-M-365/CA-M-366 for the fixed selected source and prepared materials. This is internal Tool work, not another named Step/Action or a restored CA-O-193/CA-O-194 source-proof phase. A failed, stale, incomplete or unsafe result stops for manual handling. Creating a new PR uses Draft; an existing matching open PR is converted to Draft before body editing. Actual-URL-only finalization, or a no-op when that URL is already present, preserves all non-metadata bindings and does not rerun the suite or content prompt.

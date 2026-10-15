@@ -104,10 +104,10 @@ class SelectedActionObservationTests(unittest.TestCase):
         }, "graph": graph}), encoding="utf-8")
         return action_id, folder, execution
 
-    def _progress(self, action_id: str, folder: Path) -> str:
+    def _progress(self, action_id: str, folder: Path, *, outcome: str = "completed") -> str:
         result_ref = (folder.relative_to(self.root) / f"{action_id}.json").as_posix()
         (folder / f"{action_id}.json").write_text(json.dumps({
-            "result": "completed", "action_run_id": action_id,
+            "result": outcome, "action_run_id": action_id,
             "native_result": {"token": "must-not-be-disclosed", "payload": "unbound-output"},
         }), encoding="utf-8")
         return result_ref
@@ -140,7 +140,7 @@ class SelectedActionObservationTests(unittest.TestCase):
             "event_receipts": [receipt], "disposition": "terminal",
         }}), encoding="utf-8")
 
-    def test_completed_observation_requires_a_matching_sealed_journal_fact(self) -> None:
+    def test_completed_observation_uses_bound_source_progress(self) -> None:
         action_id, folder, execution = self._run("completed")
         result_ref = self._progress(action_id, folder)
         self._accepted(folder, self._record_terminal(action_id, result_ref, execution,
@@ -157,13 +157,13 @@ class SelectedActionObservationTests(unittest.TestCase):
         self.assertEqual("completed", result["outcome"])
         self.assertEqual("completed:step:1", result["step_run_id"])
         self.assertEqual(result_ref, result["result_ref"])
-        self.assertEqual("completed", result["journal_confirmation"]["event"])
+        self.assertNotIn("journal_confirmation", result)
         self.assertNotIn("must-not-be-disclosed", json.dumps(result))
         self.assertNotIn("unbound-output", json.dumps(result))
 
     def test_failed_and_pending_observations_remain_truthful(self) -> None:
         failed_id, failed_folder, failed_execution = self._run("failed")
-        failed_ref = self._progress(failed_id, failed_folder)
+        failed_ref = self._progress(failed_id, failed_folder, outcome="failed")
         self._accepted(failed_folder, self._record_terminal(
             failed_id, failed_ref, failed_execution, event_name="failed", outcome="failed",
         ))
@@ -174,10 +174,10 @@ class SelectedActionObservationTests(unittest.TestCase):
         pending = observe_selected_action(self.root, pending_id, self.manifest)
 
         self.assertEqual(("terminal", "failed"), (failed["disposition"], failed["outcome"]))
-        self.assertEqual(("recording_pending", "pending"), (pending["disposition"], pending["outcome"]))
+        self.assertEqual(("terminal", "completed"), (pending["disposition"], pending["outcome"]))
         self.assertEqual(
             (pending_folder.relative_to(self.root) / f"{pending_id}.json").as_posix(),
-            pending["progress_ref"],
+            pending["result_ref"],
         )
         self.assertNotIn("native_result", pending)
 

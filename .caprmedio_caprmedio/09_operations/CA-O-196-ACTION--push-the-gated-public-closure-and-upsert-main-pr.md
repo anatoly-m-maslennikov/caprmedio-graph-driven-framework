@@ -10,10 +10,9 @@ author: "Anatoly Maslennikov"
 subjects:
   governs: "Push gated public closure and upsert main Pull Request"
   depends_on: [Git Commit, Personal Remote, Pull Request, Tool Call, Journal]
-version: 1
-updated_at: "2026-10-10 19:05:19 +0400"
-relations:
-  relates_to: [CA-O-188, CA-O-195, CA-R-1920, CA-R-1925, CA-R-1926, CA-R-1927, CA-R-1929]
+version: 2
+updated_at: "2026-10-14 12:35:36 +0000"
+relations: {}
 ---
 # Summary
 
