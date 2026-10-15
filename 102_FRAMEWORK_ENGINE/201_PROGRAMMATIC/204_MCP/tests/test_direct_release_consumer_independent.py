@@ -32,7 +32,8 @@ class DirectReleaseConsumerIndependentTests(unittest.TestCase):
             'schema_version = 1\nscope_units = []\n', encoding="utf-8")
         self.entrypoint = self.root / "PROJECT_TOOLS/RELEASE_VERSION/local_release.py"
         self.entrypoint.parent.mkdir(parents=True)
-        shutil.copyfile(route_fixture.PROJECT / "PROJECT_TOOLS/RELEASE_VERSION/local_release.py", self.entrypoint)
+        for module in (route_fixture.PROJECT / "PROJECT_TOOLS/RELEASE_VERSION").glob("*.py"):
+            shutil.copyfile(module, self.entrypoint.with_name(module.name))
         self.product = self.root / "101_FRAMEWORK_METHODOLOGY"
         self.product.mkdir()
         self.sentinel = self.product / "keep.md"
@@ -57,7 +58,9 @@ class DirectReleaseConsumerIndependentTests(unittest.TestCase):
 
     def fail_first_command(self, argv, *, cwd, **options):
         self.assertEqual(cwd, self.root)
-        self.assertEqual(argv[:3], ("git", "add", "-A"))
+        self.assertEqual(argv, (
+            "git", "diff", "--cached", "--name-only", "--", ":(glob)**/.env*", ":(glob)**/*.env",
+        ))
         return subprocess.CompletedProcess(argv, 2, "", "Independent first-command refusal")
 
     def test_invalid_or_legacy_manifest_envelope_refuses_without_dispatch_or_journal(self):

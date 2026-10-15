@@ -151,6 +151,36 @@ class QueryFixtureCarrierTests(unittest.TestCase):
 class QueryProjectionBoundarySourceTests(unittest.IsolatedAsyncioTestCase):
     """Mock the transport only; exercise the real preview Projection guard."""
 
+    async def test_query_status_reuses_the_shared_reconnect_representatives(self) -> None:
+        from types import SimpleNamespace
+        from unittest.mock import AsyncMock
+
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as directory:
+            for case_id, reconnect in (("W14", False), ("W15", True)):
+                with self.subTest(case_id=case_id):
+                    case = SelectedQueryMcpEndToEnd(
+                        "test_w14_fields_headings_closed_filter_and_retained_pagination")
+                    root, runtime = Path(directory), object()
+                    case.fixture = SimpleNamespace(
+                        root=root, case=GoldenCase(case_id, "query"), snapshot=lambda: {})
+                    case.runtime = runtime
+                    case._preview = AsyncMock(return_value=({}, {}))
+                    case._sealed_execution = lambda *_: {}
+                    terminal = AsyncMock(return_value={
+                        "disposition": "terminal", "outcome": "completed", "selected_result": {}})
+                    case.harness = SimpleNamespace(
+                        _call=AsyncMock(return_value={"outcome": "queued"}),
+                        _terminal_status=terminal, _graph_result=lambda *_: {},
+                        _assert_graph_path_and_native_results=lambda *_: [
+                            {"effect_refs": [], "action_run_id": "action"}],
+                        _assert_shared_run_journal=lambda *_: None,
+                        _route_binding=lambda *_: {},
+                        _action_progress=lambda *_: {"native_result": {}},
+                    )
+                    self.assertEqual({}, await case._execute({"limit": 1}, "query-policy"))
+                    terminal.assert_awaited_once_with(
+                        runtime, root, "query-policy", reconnect=reconnect)
+
     async def test_preview_rejects_silent_projection_write_even_when_other_snapshots_match(self) -> None:
         from types import SimpleNamespace
 
@@ -267,7 +297,9 @@ class SelectedQueryMcpEndToEnd(unittest.IsolatedAsyncioTestCase):
             "operation": "enqueue_selected", "run_id": request_id, "execution": execute})
         self.assertIn(admitted.get("outcome"),
                       {"queued", "admitted", "started", "running", "pending", "completed", "failed"}, admitted)
-        terminal = await self.harness._terminal_status(runtime, fixture.root, request_id)
+        terminal = await self.harness._terminal_status(
+            runtime, fixture.root, request_id,
+            reconnect=fixture.case.case_id in strict._RECONNECT_CASES)
         self.assertEqual("terminal", terminal.get("disposition"), terminal)
         graph = self.harness._graph_result(fixture.root, request_id)
         selected = terminal.get("selected_result")
