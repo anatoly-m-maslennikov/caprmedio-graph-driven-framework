@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Atom/Revision/Updated At", "Update Sealed Atom Carriers", "Artifact/Carrier", "Journal/Record"]
-version: 25
-updated_at: "2026-10-14 23:49:48 +0400"
+version: 26
+updated_at: "2026-10-15 10:01:40 +0000"
 relations:
   evaluation_for: [CA-R-866, CA-O-030, CA-R-1464, CA-R-1415, CA-R-1371]
   relates_to: [CA-O-067, CA-R-1432, CA-R-1788, CA-R-1662]
@@ -66,7 +66,15 @@ Legacy keeps dots literal, uses `/` for bearer qualification and `:` for allowed
 
 The preview result includes its `subject_profile` and `subject_profile_evidence` with exactly `grammar_pins` and `native_admission: not_performed`; each grammar pin contains `atom_id`, `version`, `path`, and `sha256`, and these fields are included in the digest. Assert lexical syntax/direction validation only: no native endpoint, typed edge, target conformance, history, archive, Journal, MCP, source effect, or source migration is claimed.
 
-### Admitted one-target Subject application cases
+### Reviewed Subjects-only batch acceptance
+
+Exercise the reusable branch through the existing updater with one exact ordered map and one actual Operator batch confirmation, without per-Atom Analysis Reports, O067/O145 assessment Runs, confirmation forms or same-connection staging. Independently author before/intended/actual/history byte ledgers. Include multiple eligible Atoms, LF/CRLF, a true no-op, and an Atom that is itself applicable rule authority; each later operation reads its actual current rules.
+
+Prove a Git checkpoint precedes execution, each changed member changes only its declared Subjects plus exactly N+1 and actual Updated At, and exact predecessor bytes/modes follow the existing archive effect. Reject wrong/missing confirmation, out-of-map target or patch, stale source-before, invalid source/result, unsafe path and archive collision before that member's effect. Verify actual per-member results and truthful logging failures separately. Inject a failure/uncertainty in a later member: earlier successes remain, later members are untouched, existing failing-Atom restoration/error handling remains, and no automatic retry, resume or cross-Atom rollback occurs. Wrong output must fail independent readback. Generic content updates outside the branch still require their existing assessments and authorization.
+
+### Ordinary one-target Subject application cases
+
+The report/form cases in this section and Selected publication access cases apply outside CA-R-866's reviewed batch branch.
 
 Exercise CA-D-531's exact Subject variant through the existing selected `update_atom` envelope and real shared Run/lifecycle composition, retaining generic-route regression cases. Use CA-D-425's deterministic intent and real complete-carrier/status validation with independently authored LF/CRLF before/intended/actual/history byte ledgers. Include Active, correctly placed non-Active current originals and no-op. Reject multiple independent targets, extra or mixed fields, caller authorization Booleans, fabricated starts/assessment, stale intent, grammar/report/definition/source drift, owner/path mismatch, projection/delivered copies, duplicate non-archived originals including unsafe or malformed competing claims, symlink/ancestor/inode swaps and archive collision.
 
@@ -117,3 +125,9 @@ Test the native expected_preview_sha256 check against the preview actually used:
 Compare independent expected preview/intent seals and LF/CRLF bytes. Test cross-owner identity ambiguity, delivered/history/Draft exclusion, selected unsafe/malformed sources and unrelated malformed excluded C/A. The latter must not become global current-schema admission; possible selected-ID claims still refuse. Preview changes no bytes/membership. Stage creates only a fresh scratch batch, validates reopened exact bytes at original source context and writes/readbacks the success manifest last; originals/history/Journal remain unchanged.
 
 Inject write/readback/validation/final-currentness and post-helper provider failures. Preserve actual retained/unverified artifact references without a success seal, false zero-effect report, unsafe cleanup or replay. Neither operation creates Session/Action Run/Journal receipts or claims an Atom update; actual enclosing-Step recording remains caller-owned. Existing publication tests/guards are separate. Source authoring and direct-helper fixtures alone do not prove connected-MCP readiness.
+
+### Existing-Atom edit-draft batch cases
+
+Exercise `stage_subject_batch` through existing `atom_update` with limits 1 and 10 and default10; reject Boolean/out-of-range limits, wrong packet hashes, unknown fields, mixed draft pins and unsafe paths. Prove each bounded call leaves canonical source/history bytes and modes unchanged and reports actual progress; only complete staging returns the final schema1 packet with every draft path/digest. Independently inspect full proposal files in owning-role `draft/`: exact temporary `atom_id: <canonical-ID>@draft`, Status Draft, declared Subjects and changed-proposal N+1/illustrative time, with otherwise preserved source bytes. A true no-op keeps canonical Version/time. Prove they are not competing canonical originals or globally admitted suffixed IDs, and ordinary new-Atom Drafts remain ID-free.
+
+Confirm the final packet once, then test normalized ID/original-Status/actual-time materialization against an independently fresh native Subjects-only canonical candidate. Require exact current predecessor archive and canonical ID/Status restoration at N+1 only for a changed member. Tampered body, metadata, temporary marker, draft hash, packet, source pin or unexpected proposal collision refuses without that member's effect; existing earlier successes remain. Keep existing failed-Atom restoration/error handling, actual results/logs, first-failure stop and no automatic replay. No lifecycle Draft lineage/history is fabricated solely to stage these source-bound proposals.

@@ -8,8 +8,8 @@ subjects:
     - "Atom/Revision/History"
     - "Atom/Revision/Version"
     - "Atom/Content Role"
-version: 4
-updated_at: "2026-10-05 08:55:00 +0400"
+version: 5
+updated_at: "2026-10-15 10:01:40 +0000"
 relations:
   relates_to:
     - CA-D-288
@@ -37,7 +37,7 @@ the durable, ID-free provenance property on a Project-owned Draft Atom Carrier.
 
 ## Claim
 
-**every** Project-owned Draft Atom Carrier **must** carry **`=1`** top-level `revision_lineage: {history_entry_ref: {history_revision, path}}` map and **must not** carry `atom_id`. `history_entry_ref` is a pre-addressable safe retained-history locator; it is not the Draft's own identity and does not change CA-D-288's ID-free filename.
+Outside the explicit Subjects-only edit-draft exception below, **every** Project-owned Draft Atom Carrier **must** carry **`=1`** top-level `revision_lineage: {history_entry_ref: {history_revision, path}}` map and **must not** carry `atom_id`. `history_entry_ref` is a pre-addressable safe retained-history locator; it is not the Draft's own identity and does not change CA-D-288's ID-free filename.
 
 Only the admitted lifecycle writer may append the referenced retained Atom-history entry. That entry has exactly `draft_output: {path, digest}`, `origin: {kind}`, `parent_history_entry_ref` when the Draft follows a Draft, and `direct_predecessor` when the origin has or inherits an identified predecessor. `draft_output.path` is the safe locator of this resulting Draft Carrier and `draft_output.digest` equals its exact bytes; both must match the current Carrier that names the entry. `origin.kind` is exactly `never_identified`, `demoted_identified`, or `draft_update`. A `demoted_identified` entry's direct predecessor is the immediately preceding identified Revision and has exactly `atom_id`, `version`, `content_role`, `summary`, `digest`, and `immutable_locator: {history_revision, path}`. A `draft_update` entry directly names the immediately prior matching Draft-history entry and repeats its resolved origin/direct predecessor basis; it binds the new Draft output without changing its original identity basis.
 
@@ -46,3 +46,7 @@ An entry is a current Draft head only when it is the unique retained-history lea
 ## Details
 
 The admitted Create, identified-to-Draft, or Draft Update effect reserves the pre-addressable entry reference, writes the resulting Draft, and appends the matching retained-history entry. The validation resolves retained history internally; a filename, current path alone, arbitrary archive, request value, result seal, or Journal record cannot create or replace it. A Summary change from a `demoted_identified` predecessor requires the separately admitted Replace/fresh-identity path. This Delivery introduces no persistent identity registry, Event writer, Tool, Workflow, Journal authority, cryptographic authentication claim, or hidden global history index.
+
+### Subjects-only edit-draft exception
+
+CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry the temporary `atom_id: <canonical-ID>@draft`, `status: Draft`, and matching temporary-ID filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest; this is the narrow provenance basis for this proposal, not ordinary Draft identity allocation or retained-head promotion. No additional `revision_lineage` or demotion history is created just to stage it. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. New-Atom Drafts and ordinary lifecycle Drafts remain ID-free and subject to their existing lineage rules; canonical ID grammar is unchanged.

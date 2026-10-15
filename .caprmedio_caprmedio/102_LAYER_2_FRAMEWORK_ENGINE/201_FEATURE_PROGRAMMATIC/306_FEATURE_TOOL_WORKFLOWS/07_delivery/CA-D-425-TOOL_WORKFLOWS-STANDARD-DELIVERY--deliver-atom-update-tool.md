@@ -13,8 +13,8 @@ subjects:
   governs: "Tool/ATOM_UPDATE/Carrier"
   depends_on:
     - "Tool/ATOM_UPDATE"
-version: 16
-updated_at: "2026-10-14 10:47:40 +0400"
+version: 17
+updated_at: "2026-10-15 10:01:40 +0000"
 relations: {"delivery_for":["CA-R-866"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -40,6 +40,10 @@ Legacy uses `/` as bearer qualification, `:` as Property-to-allowed-value, and l
 The Subject-only mode is exclusive. A request carrying `subject_patches` must not also carry complete `frontmatter` or `content` replacement fields. The selected source must be a complete, canonical, non-symlink Atom Carrier at the exact path, with the expected identity, Version, and full-file SHA-256. The preview validates the complete resulting Carrier and preserves path, filename, identity, Summary, body, unrelated frontmatter, and line endings; only the declared Subject spans plus required Version and `updated_at` spans may differ.
 
 Subject-only preview **must** select a complete original Atom Carrier with a stable Atom ID, excluding Draft and archived carriers by both carried Status and placement. Both the pinned source and proposed result **must** pass existing complete-carrier validation, including the applicable Content Role/Type Status model and correct Carrier placement. Preserve the carried Status byte-for-byte; do not activate the source or perform a lifecycle transition. Missing, ambiguous, unsupported, or stale validation authority **must** fail closed.
+
+### Reviewed Subjects-only batch binding
+
+The existing updater may realize CA-R-866/CA-O-030's reusable reviewed Subjects-only batch through the existing Workflow/Tool boundary. Bind a closed ordered map/packet to its exact source pins, profiles and patches and the actual one-batch Operator confirmation retained in execution context. A closed batch packet reference/request representation may be added to the existing route; it is not a new Tool family, executor or caller authorization Boolean. Execute independent one-Atom effects using the existing archive writer, actual metadata materialization, validation and low-level failure handling. No per-member semantic report/form or same-MCP-connection staging is required. Preserve ordinary generic update behavior and truthful actual results; this Delivery alone is not implementation acceptance.
 
 ## Details
 
@@ -99,3 +103,11 @@ The closed result is exactly {operation, preview, staging, errors}. Preview succ
 On failure preview/staging are null and errors is nonempty. Every error is exactly {code, message, stage_root, retained_artifacts, unverified_artifacts}, retaining the native Tool code; stage_root is null when unknown. Retained references are exactly {path, sha256?}; unverified references are exactly {path, state:unverified}. Missing evidence uses empty arrays, but known scratch writes must never disappear. A final provider failure after helper creation retains actual artifact evidence and refuses success. Do not add cleanup or replay. All nested models reject unknown fields and coercion.
 
 The combined provider advertises read_only=false and idempotent=false because stage creates fresh scratch batches; preview itself is zero-write. These are non-Action preparation Tool calls preserving the existing no-Session/no-Journal scratch policy. No authoritative/history write, actual Version/time change, assessment, update receipt, promotion or effect approval is implied. Actual enclosing-Step recording remains required. Local no-MCP clauses above apply to CLI use; this direct delivery changes neither CLI behavior nor selected update_atom/publication safeguards. Installed binding/code refresh and actual registered/connected-MCP acceptance remain separate from this declaration.
+
+### Existing-Atom edit-draft staging and approval
+
+CA-D-446's narrow Subjects-only edit draft stages the full proposed next Revision under the owning role's `draft/` folder, with the source filename's canonical ID replaced once by `<canonical-ID>@draft`, carried `atom_id` equal to that temporary proposal ID, and `status: Draft`. It is derived review evidence, not another canonical original, a new-Atom Draft, or a canonical ID/Type change. Keep the current source untouched; the packet retains its exact canonical ID, complete descriptor and source-before pin and binds every draft's actual safe path and SHA-256. Changed draft proposals show N+1 and illustrative time; true no-op proposals retain source Version/time apart from temporary proposal markers.
+
+The existing `atom_update` Tool additionally accepts exactly `{operation: "stage_subject_batch", subject_batch: {path, digest}, limit?}`. The packet reference uses CA-D-531's representation; `limit` is a strict integer from 1 through 10, default 10. Each call stages at most that many members, creates no canonical/history effect, and returns compact progress with `operation`, `state: "staging"|"staged"|"stopped"`, `count`, `completed`, `remaining`, `stage_run_id`, and a `reviewed_packet: {path, digest}|null`, with actual failure evidence when relevant. Stage complete proposal bytes using bounded create-only/no-follow operations and independent readback; never overwrite a conflicting proposal or report a partial batch as staged. Preserve truthful artifacts on failure. Only the final packet pins every ordered draft; no per-Atom semantic report or form is introduced.
+
+For draft-backed approval, before one actual batch confirmation review the final packet and all bound full proposals. Draft-backed execution requires draft pins for all members, not mixed staged/unstaged evidence; the reviewed map-only batch may execute with no draft pins. Reopen exact source and draft bytes before each member; normalize only the temporary ID/Status markers back to the pinned canonical ID and original Status and materialize actual effect time. Compare with independently fresh, complete-carrier-validated Subjects-only canonical materialization. Any other metadata/body difference, wrong marker, path/digest drift or source drift refuses that member. Then use the existing exact predecessor archive and canonical N+1 update, preserving original Status and all unrelated bytes. Same-MCP-connection staging is unnecessary. Existing low-level failed-Atom handling, first-failure stop, retained earlier successes and no automatic effect replay remain.

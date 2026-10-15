@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: "2026-10-15 01:59:30 +0000"
+version: 9
+updated_at: "2026-10-15 10:01:40 +0000"
 subjects:
   governs: "MCP/selected Workflow adapter Carrier"
   depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal, Projection, Project]
@@ -87,6 +87,10 @@ Only the two declared read-only Run observation routes remain; the obsolete
 not admitted. This is a delivery declaration, not implementation acceptance:
 this source-contract alignment does not by itself claim current route registration, query execution, functional verification, or immutable-image acceptance. The complete shared-registry gate remains mandatory only for non-Release selected routes; neither direct Release command depends on that gate.
 
+### Reviewed Subjects-only batch dispatch
+
+CA-R-866/CA-O-030's reusable reviewed Subjects-only batch may reuse the existing update route and updater with a closed exact ordered map/packet and one actual Operator confirmation retained in execution context. It is not subject to the ordinary per-target Analysis Report, O067/O145, confirmation-form or same-process/same-MCP-connection staged-session ceremony described above. Bind each independent effect to its exact authorized map member and current source-before; no caller approval Boolean, inferred approval from a hash, second executor or new Tool family is admitted. Keep complete validation, exact predecessor/archive effects, actual results/logs and existing low-level failed-Atom handling. Stop first failure or uncertainty; no automatic replay/resume or rollback of earlier successes. Generic content updates and other routes retain their existing dispatch/admission behavior. Actual implementation and verification remain required; these sources alone grant no execution permission.
+
 ### Retained direct local and public Release bindings
 
 `release_version` invokes the existing `PROJECT_TOOLS/RELEASE_VERSION/local_release.py:run_local_release` with the closed request `{project_root, run_id}`. `public.release` invokes the existing public runner with `{project_root, run_id, content_draft?}`; the draft contains exactly `description` and `summary`. A missing public draft requests that input rather than executing publication. Resolve only the connected selected Project; reject foreign roots, unknown fields and a request for the other release's effects.
@@ -103,3 +107,5 @@ These direct commands do not weaken the complete manifest/source/currentness/per
 
 - Current CA-R-1847, CA-R-1848, CA-E-567 and CA-E-568.
 - Current CA-A-1142, CA-P-1618 and CA-P-1535; CA-D-527 v3; CA-D-521 v7; CA-D-548 v2; CA-D-523 v2.
+
+The existing `atom_update` preparation Tool additionally binds CA-D-425's `stage_subject_batch` operation with exact `{operation, subject_batch: {path, digest}, limit?}` and bounded strict limit1..10/default10. It emits compact actual progress and the completed schema1 reviewed packet, with no canonical/history mutation and no new route or Tool family. When draft-backed staging is chosen, that packet pins every CA-D-446 temporary-ID/Status edit draft before one actual batch confirmation; map-only batch review remains admitted without staging; publication restores canonical ID/original Status and independently validates normalized Subjects-only materialization. Existing `preview_subjects` and scratch `stage_subjects` schemas stay unchanged. This explicit additional preparation branch supersedes any earlier 'only preview/stage_subjects' wording for this Tool, not ordinary route admission or canonical ID grammar.

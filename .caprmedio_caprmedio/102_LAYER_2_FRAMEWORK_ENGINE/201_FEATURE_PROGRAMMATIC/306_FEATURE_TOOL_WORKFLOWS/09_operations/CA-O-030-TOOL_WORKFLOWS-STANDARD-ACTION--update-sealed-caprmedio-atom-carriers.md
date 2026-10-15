@@ -19,8 +19,8 @@ subjects:
     - "Atom/Revision/Updated At"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 20
-updated_at: "2026-10-15 01:59:30 +0000"
+version: 21
+updated_at: "2026-10-15 10:01:40 +0000"
 relations: {}
 ---
 # Summary
@@ -64,11 +64,19 @@ Default local preview writes nothing. Opt-in local `run --stage-preview` exports
 
 Staging performs no authoritative, archive/history, Journal, promotion or MCP effect. It does not create source effect-time evidence, bypass the standalone apply guard, change the staged-only migration scope or reopen deferred live changed-Subject publication. New contract authoring is not implementation or runtime readiness; affected use still needs the independently verified realization.
 
-### Admitted one-target Subject effect
+### Reviewed Subjects-only batch effect
+
+CA-R-866's reviewed Subjects-only batch is an alternative admission for exact map members through this existing Action. One actual Operator confirmation covers the entire reviewed ordered map; retain it and the map/source/patch bindings in execution context. No separate per-member Analysis Report, O067/O145 result, confirmation form or same-MCP-connection staging is required. Reuse the existing one-Atom effect and exact archive semantics, with final exact source-before/current-rule/complete-carrier/intent/destination checks and actual N+1/time materialization. A member's permission cannot cover a changed map, another target or non-Subject bytes. Create the Git checkpoint before starting, retain actual results/logs, advance only after verified success/no-op, stop first failure or uncertainty, and never automatically retry/resume or roll back earlier successful members. Retain existing low-level failing-Atom restoration and truthful partial/unknown handling; no new recovery mechanism is required.
+
+The ordinary assessment, form and staged-session clauses below apply outside that batch branch. They must not be used to require per-Atom ceremony for an already confirmed exact batch member. This source declaration is not implementation readiness or confirmation of a particular map.
+
+### Ordinary one-target Subject effect
 
 The existing selected update route retains its completed current Analysis Report and exact O067/O145 assessment, O129 lineage, actual selected Session and actual O030 Action start retained in the selected Run. Reopen those persisted bindings; a matching assessment hash alone is insufficient. For the one admitted target, bind deterministic intended Subject bytes with old Version/time, execution-time metadata rule and exact predecessor destination; no-op preserves them. Effect-time materialization and actual current/history readback remain distinct from illustrative preview and intent.
 
 ### Selected staged-review publication access
+
+For ordinary one-target Subject publication outside the reviewed batch branch:
 
 1. Before the publication window, stage and review the exact admitted source-bound change, retaining the existing sealed source/delta/intent, completed assessment, permission and Run evidence. Reopen the review evidence; a candidate or manifest is not an approval token. Candidate time remains illustrative and the existing actual-effect metadata materialization rule is unchanged.
 The existing `authorization_ref` must resolve a fresh purpose-specific trusted-host record of the Operator's explicit review of the exact source-bound intended change and manual editing/maintenance-script/Git/sync pause confirmation for the affected frontier. Accept the connected Codex Session's form response as sufficient Operator confirmation, without separate identity proof, only when the form shows the exact request, selected Session/Run, intended change and affected files and explicitly confirms review and the pause. Tool arguments, client names, model assertions, caller-written JSON/hash and arbitrary callbacks cannot supply that response. Bind the record to the exact existing request, source/delta/intent, selected Session/Run and affected files. Privately issue and consume the nonserializable one-use confirmation through the existing selected dispatch in the same process, preserving the public API, route and request fields. Decline, cancel, malformed response, timeout, disconnect, missing issuer/resolver, missing or mismatched confirmation and bound-evidence drift stop before effects. Building this connection grants no publication or runtime-activation permission.
@@ -93,7 +101,7 @@ This model does not exclude other Engine writers. It does not itself establish c
 
 Successful source-effect completion requires all admitted current/history postconditions; Journal append/read is not permission, proof or a completion gate. For caught publication/postcondition errors, retain the exclusive window while attempting exact restoration of the verified mutable before-frontier and removal of attempt-owned history; preserve pre-existing history and accepted Journal evidence. Confirmed restoration reports a failed attempt, not update success. Failed or unverified restoration is partial/unknown. Abrupt crash or interruption is not crash-atomic and remains interrupted: inspect actual affected current/history files and Run evidence before any separately admitted continuation. Never automatically replay an Atom effect. This adds no crash-recovery framework and changes no other Action's safety boundary.
 
-Live changed-Subject publication remains blocked under its existing explicit guard until this selected access binding and combined verification are independently accepted. This definition is not implementation or readiness, does not remove that guard, activate MCP, alter native meaning or authorize Core migration.
+Ordinary one-target changed-Subject publication remains blocked under its existing explicit guard until this selected access binding and combined verification are independently accepted. The reviewed batch branch separately requires its actual implementation and verification before execution. This definition is not implementation or readiness, does not remove that guard, activate MCP, alter native meaning or authorize Core migration.
 
 ### Run recording
 
@@ -104,3 +112,7 @@ Retain each actual standalone **or** nested Action Run's exact admitted definiti
 CA-D-425's atom_update MCP provider admits only preview_subjects and stage_subjects, separately from selected update_atom. They reuse this definition's preparation policy but are not actual Atom-update Action Runs. They require no selected Session, completed O067/O145 assessment or fabricated authorization/context reference. Preview writes nothing. Explicit stage permits only the fixed generated scratch candidates/manifest after the native helper checks its own preview against the requested seal before any scratch creation, preserving exact source pins and illustrative time.
 
 These direct calls preserve the existing no-Journal local preparation policy: no Session/Run/event receipt, source Version/time change, archive, promotion or publication is claimed. Actual enclosing-Step Tool-call recording remains required. Local no-MCP statements above describe the CLI, not this separately declared direct binding. Existing update_atom assessment, actual Action-Run observation, trusted-host confirmation, exclusive window, restoration and live-publication guard remain unchanged. Scratch failure retains truthful artifact evidence; a preview hash or candidate never grants effect permission.
+
+### Existing-Atom edit-draft publication
+
+The draft-backed reviewed batch uses CA-D-446/CA-D-425's full existing-Atom edit drafts and final schema1 packet, not an old scratch preview. The separately reviewed map-only batch remains admitted without draft staging. Bind actual one-batch confirmation to every exact draft path/digest and canonical target/source-before. These temporary `@draft` IDs and Draft markers never become canonical identity or a source Status transition. Immediately before the existing per-member effect, reopen and independently validate normalized canonical materialization with original ID/Status and actual time, preserving all non-Subject bytes except N+1/time. Archive exact current predecessor and publish the canonical result only after equality with the reviewed normalized proposal is proved. Keep existing low-level failing-Atom restoration and truthful partial/unknown handling; the actual result, not proposal existence, proves publication.

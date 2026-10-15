@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: [Atom, Subject, Artifact/Carrier, Atom/Revision]
-version: 12
-updated_at: "2026-10-14 23:49:48 +0400"
+version: 13
+updated_at: "2026-10-15 10:01:40 +0000"
 relations:
   relates_to: [CA-R-866, CA-O-030, CA-E-304, CA-D-425]
 ---
@@ -64,7 +64,7 @@ not give `@` a Subject role.
 
 For reuse by CA-D-531's one-target Subject update, the same pure planner **must** also derive the complete intended Carrier by replacing only the exact Subject spans, retaining the old Version and Updated At. Return the exact proposal pins and CA-D-425's `subject_intent`/`subject_intent_sha256`, which bind the selected complete target, ordered patches, grammar evidence, effect-time metadata rule and exact predecessor-history destination. The hash excludes the separate illustrative timestamp and is unchanged when only that illustrative time changes. A no-op binds unchanged bytes and no history effect. Rechecking a changed source, grammar pin or intended effect yields a changed intent or refusal, never a silently refreshed approval.
 
-This preparation supplies neither an identity assessment nor effect permission. CA-O-067/CA-O-145 assess the intended proposal under CA-R-1892 and CA-D-585; CA-O-030 owns the separately admitted existing-MCP effect. Reuse this planner without converting its local preview into a source-effect writer or weakening standalone apply rejection.
+This preparation alone supplies neither semantic review nor effect permission. CA-R-866's reviewed Subjects-only batch may reuse one accepted map and one actual batch confirmation without per-Atom Analysis Reports, O067/O145 assessments or confirmation forms; retain exact source/patch/profile bindings and validate every member before its existing one-Atom effect. Staging in the same MCP connection is not required. Outside that branch, CA-O-067/CA-O-145 assess the intended proposal under CA-R-1892 and CA-D-585. CA-O-030 owns the separately admitted existing-MCP effect. Reuse this planner without converting its local preview into a source-effect writer or weakening standalone apply rejection.
 
 ### Opt-in local candidate staging
 
@@ -81,3 +81,7 @@ For CA-D-425's closed direct input, privately resolve each explicit logical Atom
 preview_subjects returns the pure planner's complete sealed preview unchanged. Direct stage_subjects passes the prior preview_sha256 to the native stage_subject_preview helper's optional expected_preview_sha256 argument and passes the same illustrative_updated_at as timestamp. Immediately after computing its own preview and before any scratch directory/file creation, the helper must compare that preview's hash with the expected seal; mismatch refuses with no artifact. Direct stage requires this check; CLI callers may omit the argument with unchanged behavior. An adapter-only prior preview cannot bind the later preview actually staged. Preserve same-time final preview equality, independent candidate readback/validation and manifest-last writing.
 
 Recheck actual definition/grammar and selected Project settings/structure provenance before and after the helper, even without a release-layout exemption. Scope malformed excluded-source identity refusal to possible selected-ID claims from filename, literal header or decoded ID; retain cross-owner collisions, bounded no-follow checks and currentness without full admission of unrelated C/A. If a final provider check fails after scratch writes, retain actual retained/unverified artifact evidence and refuse success. No Session, Action Run or canonical Journal is created; actual enclosing-Step recording and publication rules remain unchanged.
+
+### Stage the existing-Atom edit drafts
+
+For draft-backed review of the batch, use CA-D-425's existing `atom_update` operation `stage_subject_batch` with the exact packet reference and bounded limit 1..10. Produce CA-D-446's full source-pinned edit drafts: temporary canonical-ID-plus-`@draft`, Status Draft and the proposed Subjects/metadata, never changing the canonical source. Independently read back path/digest and emit the schema1 final packet only when every member has its draft pin; partial progress is not success. Review that entire final packet once. Before each later effect, reopen source and proposal, restore canonical ID/original Status in normalized materialization, use actual time, and independently compare against a fresh complete-carrier-validated Subjects-only candidate. No other byte change or implicit identity/Status transition is admitted; no same-connection staging or per-Atom report/form is required. Existing scratch `stage_subjects` behavior remains separate and does not substitute for this edit-draft packet.

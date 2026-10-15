@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 85
-updated_at: "2026-10-15 08:07:09 +0000"
+version: 86
+updated_at: "2026-10-15 09:39:40 +0000"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,26 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Selected Subjects-only batch Workflow — 2026-10-15
+
+The Operator selected mass migration to the latest Candidate #4 through Workflows, using one reviewed exact Subject map/packet and one batch confirmation. For reusable Subjects-only batches, mandatory separate per-Atom semantic assessment reports and confirmations are removed; a batch does not depend on retaining the staging call's original MCP connection. Bind the persisted reviewed packet, exact targets/patches and current source evidence to that confirmation, with stale or mismatched evidence refusing before effects. This supersedes conflicting earlier per-target report/confirmation and same-connection requirements for Subjects-only batches; generic content updates remain unchanged.
+
+This migration uses edit drafts: stage proposed next Atom revisions under `draft/` in bounded calls through the existing Tool. An edit draft carries a temporary `atom_id` such as `CA-R-123@draft` and Status `Draft`; the canonical current Atom remains unchanged. The temporary ID identifies a proposed edit, not a canonical original or a newly created Atom. New-Atom Drafts remain ID-free. After exact review and approval, archive the current revision byte-for-byte, restore the draft's canonical Atom ID and original Status, and publish Version N+1 with actual Project-time updated_at. Normalized promotion preserves the existing Subjects-only delta and all unrelated canonical bytes; temporary draft ID/Status do not become extra source changes. Reusable Subjects-only batches may still use a reviewed map without drafts; this migration selects the draft-backed path.
+
+Retain independent per-Atom effects and truthful results within the ordered batch. Stop at the first failed or unknown result, keep completed predecessors, and leave the remainder untouched. No automatic replay or rollback of completed Atoms is admitted. Establish the exact pre-batch Git checkpoint and retain actual per-Atom before/after and failure evidence for explicit recovery; Git history is not a substitute for effect verification or permission for an automatic reset. Keep Version +1, actual Project-time updated_at and exact predecessor archives until the Operator explicitly changes those semantics. Previous-version archives and Git remain the existing recovery mechanisms; add no extra recovery machinery. Ordinary content, unrelated rebuilds and deferred content migration remain excluded.
+
+Connected staging attempt 002 timed out and has no completion manifest. Its 611 candidate files reproduce the reviewed mechanical graph, but that candidate-only PASS is not successful staging, Tool completion or migration. Preserve that batch and the older uncertain batches; do not synthesize a receipt or replay them. Evidence: `.caprmedio_tmp/stage2-migration-20261015/connected-preview/stage611-current-rules-002.disposition.md` and `packet-stage-reproduction/candidate-only.md` under the same preparation root.
+
+The Operator explicitly chose ordinary independent code review and tests without FPF for this change. Earlier FPF prerequisites do not apply to this fix. Execute these bounded responsibilities in order, reusing existing children and splitting any own-work leaf that exceeds 15 minutes before execution:
+
+1. Align and independently check only the affected contracts for the selected batch review/confirmation, persisted packet, per-Atom effect and Git recovery boundaries.
+2. Implement the batch through the existing Workflow and Atom-update machinery, including bounded existing-Tool edit-draft staging and normalized promotion, without another writer or general rebuild; retain current-rule self-update, target/intent validation and exact readback.
+3. Run independent focused tests for rule self-update, stale packet/target refusal, draft tampering, draft/path collisions, normalized promotion restoring canonical ID/original Status, partial failure with completed predecessors preserved, reconnect/persisted confirmation, exact Version/time/history effects and no replay.
+4. Verify the actual reviewed runtime and connected batch capability; local fixtures and saved candidate bytes do not establish it.
+5. With the exact reviewed batch confirmation and required current evidence, execute the Subjects-only migration and independently reconcile all 906 owners, including 611 change owners, 266 unchanged owners and 29 holds, against the approved map/packet and reproduced graph.
+
+These are pending ordered tasks, not completion receipts or a claim that current code already implements the decision. Keep this Epic Active. No source migration, completed stage, live approval receipt or new policy beyond the Operator's stated batch decision is inferred from this Plan update.
 
 ### Selected existing-tool application sequence — 2026-10-15
 
