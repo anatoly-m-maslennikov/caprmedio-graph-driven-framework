@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 81
-updated_at: "2026-10-14 21:48:00 +0400"
+version: 82
+updated_at: "2026-10-15 01:33:34 +0000"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,14 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Current native preview and remaining migration gates — 2026-10-15
+
+Committed `926abb828` adds invocation-local validation reuse while preserving complete validation and fresh currentness checks. The saved native preview passed all 611 change candidates and 848 ordered patches in 155.309 seconds; all 906 pinned Core source digests and modes remained unchanged. The producer passed 104 focused tests and a different reviewer passed 36 tests and independently checked the actual serialized result, ordered owner/patch coverage and seals. Evidence: `.caprmedio_tmp/stage2-migration-20261015/optimized-preview/README.md` and `native611.json`. This is native preview evidence only; no full staging or connected transport acceptance is established.
+
+Committed `d6386df38` adds exact Project ownership, Project name and full build-time HEAD labels to fresh local-release image builds and requires the initial safe commit/clean-worktree checkpoint before tests or Docker work. Cache reuse remains unchanged; current-code identity still uses the fingerprint and immutable image ID. The earlier frozen full suite at `2ddf5934d` passed 357 modules and 3,269 tests with zero skips or failed modules in 860.112 seconds (`.caprmedio_tmp/verification/full-suite-20261015-host-blacklist.log`). That pass predates both later increments and does not establish their current full-suite acceptance, installed activation or a completed release.
+
+Remaining work includes large-response transport/limit handling, final graph/candidate packet acceptance, exact live publication approval and independent reproduction. The 611-owner native preparation result is 3,903,714 bytes; independent review measured the actual SDK-serialized SSE envelope at 9,427,872 bytes because the result is represented twice. The measured native duration exceeds the earlier ninety-second preview gateway budget. The Operator has now approved preview/stage budgets of 300/600 seconds and a 16 MiB controlled-client response limit, with other limits unchanged; implementation and tests are underway, not deployed or accepted connected execution. An Operator decision also remains for exact Subject self-updates of selected authority sources: 51 manifest-definition owners and two disjoint grammar pins are confirmed examples, while additional validation-authority pins have been found. The general set and policy remain open; their source changes otherwise invalidate native post-effect authority checks and trigger restoration. Do not blindly refresh pins, infer approval or replay an uncertain effect. Both Epics remain Active; preserve earlier uncertain staging batches. No live Subject/content migration or full staged-packet acceptance follows from this checkpoint.
 
 ### Runtime-only tests and current migration preparation — 2026-10-14
 

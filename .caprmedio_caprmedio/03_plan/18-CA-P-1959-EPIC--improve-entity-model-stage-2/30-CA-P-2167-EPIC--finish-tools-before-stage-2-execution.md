@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 74
-updated_at: "2026-10-15 00:35:00 +0000"
+version: 75
+updated_at: "2026-10-15 01:33:34 +0000"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,14 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Current implementation and native-preview checkpoint — 2026-10-15
+
+Committed `926abb828` reuses invocation-local validation state without skipping complete validation, final status-frontier readback or finite authority-currentness checks. The producer passed 104 focused tests; a different reviewer passed 36 tests and checked the serialized 611-owner result, all 848 ordered patches and canonical carrier/intent seals. The saved full native preview completed in 155.309 seconds with all 906 pinned Core source digests and modes unchanged. See `.caprmedio_tmp/stage2-migration-20261015/optimized-preview/README.md` and `native611.json`. No full native staging or connected MCP acceptance is claimed.
+
+Committed `d6386df38` delivers fresh-build exact Project ownership/name/full-HEAD image labels and the first safe Git checkpoint followed by clean-worktree verification, with existing environment-file exclusions retained. Cache reuse does not add an ownership claim, and HEAD provenance does not replace source-fingerprint/immutable-image identity. The older full suite at `2ddf5934d` passed 357 modules and 3,269 tests, zero skips and zero failed modules, in 860.112 seconds; log: `.caprmedio_tmp/verification/full-suite-20261015-host-blacklist.log`. It predates these changes. Focused results and this historical suite do not establish a full-suite pass for the current code, deployed activation or release completion.
+
+Next, resolve large-response transport/limit handling and the final graph/candidate packet and approval gates. Native preview took longer than the earlier ninety-second gateway budget. Its preparation result is 3,903,714 bytes; independent review measured the actual SDK-serialized SSE envelope at 9,427,872 bytes because it represents the result twice. The Operator has approved preview/stage budgets of 300/600 seconds and a 16 MiB controlled-client response limit, leaving other limits unchanged. Implementation and tests are underway; deployed activation and connected acceptance remain unproven. The Operator must also decide how exact Subject self-updates of selected authority sources are admitted: 51 manifest-definition owners and two disjoint grammar pins are confirmed examples, not an exhaustive set, because additional validation-authority pins have been found. Current post-effect authority checks otherwise invalidate their own source pins and trigger restoration. Resolve that general policy without blindly refreshing pins or treating preparation as publication approval. Preserve uncertain staging evidence and no replay. P2167 and P1959 stay Active; live application, independent reproduction and the separate content migration remain outside this checkpoint's accepted result.
 
 ### Repository-host release and disabled MCP exposure — 2026-10-15
 
