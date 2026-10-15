@@ -36,7 +36,7 @@ class StatusDemotionGoldenTest(unittest.TestCase):
         self.assertEqual("CA-A--golden.md", destination.name)
         self.assertFalse(path.exists())
         self.assertEqual(before.content, atom_from_path(self.fixture.root, destination).content)
-        self.assertEqual(3, result["observed"]["version"])
+        self.assertEqual(4, result["observed"]["version"])
         self.assertIsNone(result["observed"]["atom_id"])
         self.assertIsNone(frontmatter_scalar(atom_from_path(self.fixture.root, destination).frontmatter, "atom_id"))
         history = self.fixture.root / result["history"]["prior_revision"]["path"]
@@ -54,19 +54,21 @@ class StatusDemotionGoldenTest(unittest.TestCase):
         destination = self.fixture.root / result["observed"]["path"]
         self.assertEqual("CA-R--CORE_META_MODEL-GENERAL--golden.md", destination.name)
         self.assertEqual(before.content, atom_from_path(self.fixture.root, destination).content)
-        self.assertEqual(3, result["observed"]["version"])
+        self.assertEqual(4, result["observed"]["version"])
         self.assertIsNone(result["observed"]["atom_id"])
 
-    def test_archived_carrier_cannot_be_demoted_or_create_history(self) -> None:
+    def test_current_archived_can_demote_but_exact_history_is_immutable(self) -> None:
         path = self.fixture.atom("Requirement", "Active")
         archived = self.fixture.execute(self.fixture.request(path, "Archived"))
         archived_path = self.fixture.root / archived["observed"]["path"]
         self.assertEqual("archived", atom_from_path(self.fixture.root, archived_path).lifecycle)
+        demoted = self.fixture.execute(self.fixture.request(archived_path, "Draft"))
+        self.assertEqual(5, demoted["observed"]["version"])
+        history = self.fixture.root / demoted["history"]["prior_revision"]["path"]
+        self.assertEqual("Archived", frontmatter_scalar(atom_from_path(self.fixture.root, history).frontmatter, "status"))
         before = self.fixture.snapshot()
-
         with self.assertRaisesRegex(LifecycleError, "atom-not-current"):
-            self.fixture.execute(self.fixture.request(archived_path, "Draft"))
-
+            self.fixture.execute(self.fixture.request(history, "Active"))
         self.assertEqual(before, self.fixture.snapshot())
 
     def test_concern_resolved_to_lowercase_draft_is_a_demotion(self) -> None:

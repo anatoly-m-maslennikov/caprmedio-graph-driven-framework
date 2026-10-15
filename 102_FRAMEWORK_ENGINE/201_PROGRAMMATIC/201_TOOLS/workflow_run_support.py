@@ -71,14 +71,14 @@ class SelectedRunError(ValueError):
 
 @dataclass(frozen=True)
 class RecordedActionStartProvenance:
-    """Read-only facts from one sealed, already-recorded Action start.
+    """Read-only facts from one sealed, actual Action start.
 
-    This carrier intentionally exposes the author and actual Run lineage, not
+    This carrier exposes the known author and actual Run lineage, not
     an assigned Action identifier, caller identity, authorization, outcome, or
-    any admission decision.
+    any admission decision. Missing Journal metadata remains unknown.
     """
 
-    author: str
+    author: str | None
     event_id: str | None
     action_run_id: str
     parent_lineage: tuple[str, ...]
@@ -637,11 +637,12 @@ class RunExecutionSession:
                 raise SelectedRunError("invalid-run", "an actual successor requires its actual predecessor first")
             record["predecessor_run_id"] = predecessor["run_id"]
         self.actual[requested_run_id] = record
-        event = self.tracker._lazy_journal_event(
+        event_id, recording_error = self.tracker._record_run_event(
             self.request, record, "started", None, None, [], None, self._bindings_for(record),
         )
-        self.start_event_ids[requested_run_id] = event["event_id"]
-        self._recording_error(self.tracker._append_one(event))
+        if event_id is not None:
+            self.start_event_ids[requested_run_id] = event_id
+        self._recording_error(recording_error)
         return copy.deepcopy(record)
 
     def finish_run(
@@ -677,9 +678,8 @@ class RunExecutionSession:
         if report_ref is not None:
             report_ref = _safe_ref(report_ref, "report_ref")
         event_name = {"completed": "completed", "no_op": "completed", "failed": "failed", "partial": "failed", "cancelled": "abandoned", "interrupted_pending": "interrupted"}[outcome]
-        event = self.tracker._lazy_journal_event(self.request, record, event_name, outcome, result_ref, effect_refs, report_ref, self._bindings_for(record))
-        recording_error = self.tracker._append_one(event)
-        result = {"event_id": event["event_id"], "run_id": run_id, "disposition": "terminal", "outcome": outcome, "result_ref": result_ref, "effect_refs": list(effect_refs), "report_ref": report_ref}
+        event_id, recording_error = self.tracker._record_run_event(self.request, record, event_name, outcome, result_ref, effect_refs, report_ref, self._bindings_for(record))
+        result = {"event_id": event_id, "run_id": run_id, "disposition": "terminal", "outcome": outcome, "result_ref": result_ref, "effect_refs": list(effect_refs), "report_ref": report_ref}
         if recording_error is not None:
             result["recording_error"] = recording_error
             self._recording_error(recording_error)
@@ -729,7 +729,7 @@ class RunExecutionSession:
             raise SelectedRunError("invalid-outcome", "no_op cannot invent an effect reference")
         if report_ref is not None:
             report_ref = _safe_ref(report_ref, "report_ref")
-        event = self.tracker._lazy_journal_event(
+        event_id, recording_error = self.tracker._record_run_event(
             self.request,
             record,
             "recovered",
@@ -739,9 +739,8 @@ class RunExecutionSession:
             report_ref,
             self._bindings_for(record),
         )
-        recording_error = self.tracker._append_one(event)
         result = {
-            "event_id": event["event_id"],
+            "event_id": event_id,
             "run_id": run_id,
             "disposition": "terminal",
             "outcome": outcome,
@@ -781,8 +780,10 @@ class RunExecutionSession:
         requested_id, record = self._actual_by_id(action_run_id)
         if record.get("kind") != "action":
             raise SelectedRunError("action-start-run-invalid", "recorded Action provenance requires an actual Action Run")
+        context = self.tracker.journal_context
+        author = context.get("author") if isinstance(context, Mapping) else None
         return RecordedActionStartProvenance(
-            author=str(self.tracker.journal_context.get("author", "run-support")),
+            author=author if isinstance(author, str) and author else None,
             event_id=self.start_event_ids.get(requested_id),
             action_run_id=action_run_id,
             parent_lineage=self._parent_lineage(record),
@@ -975,9 +976,22 @@ class LazyRunTracker(RunTracker):
             return str(error)
         return None
 
+    def _record_run_event(self, *args: Any) -> tuple[str | None, str | None]:
+        """Attempt recording without making Journal metadata a Run prerequisite."""
+        try:
+            event = self._lazy_journal_event(*args)
+            return event["event_id"], self._append_one(event)
+        except (OSError, RuntimeError, ValueError, TypeError) as error:
+            return None, str(error)
+
     def _lazy_journal_event(self, request: Mapping[str, Any], run: Mapping[str, Any], event: str, outcome: str | None, result_ref: str | None, effect_refs: list[str], report_ref: str | None, bindings: list[dict[str, Any]]) -> dict[str, Any]:
-        author = self.journal_context.get("author", "run-support")
-        timezone = self.journal_context.get("timezone", "UTC")
+        context = self.journal_context
+        if not isinstance(context, Mapping):
+            raise SelectedRunError("invalid-journal-context", "journal_context is unavailable")
+        author = context.get("author")
+        timezone = context.get("timezone")
+        if not isinstance(author, str) or not author or not isinstance(timezone, str) or not timezone:
+            raise SelectedRunError("invalid-journal-context", "journal_context author or timezone is unavailable")
         try:
             now = dt.datetime.now(dt.UTC if timezone == "UTC" else ZoneInfo(timezone)).isoformat(timespec="seconds")
         except ZoneInfoNotFoundError as error:

@@ -2,13 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Operations/Type"
   depends_on:
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Operations/Type: Action"
-    - "Atom/Content Role: Operations/Type: Workflow"
-    - "Atom/Content Role: Operations/Type: Step"
-    - "Atom/Content Role: Operations/Type: Actor"
-version: 5
-updated_at: "2026-10-03 00:22:56 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Atom/Content Role: Operations/Type: Actor"]
+version: 6
+updated_at: "2026-10-15 18:44:27 +0000"
 relations: {"relates_to": ["CA-R-1562", "CA-R-1563", "CA-R-1564", "CA-R-1569"]}
 atom_id: "CA-R-1565"
 content_role: "Requirement"

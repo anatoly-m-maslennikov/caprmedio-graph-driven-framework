@@ -120,8 +120,8 @@ def validate_batch_action(
     ):
         raise ValueError("Subject effect differs from the exact admitted batch mapping")
     if session is not None:
-        if session is not state.session or session.recording_errors:
-            raise ValueError("Subject batch requires its admitted, durably recorded Session")
+        if session is not state.session:
+            raise ValueError("Subject batch requires its admitted Session")
         key, actual = session._actual_by_id(action_run_id)
         if (
             actual["definition"]["atom_id"] != "CA-O-030"

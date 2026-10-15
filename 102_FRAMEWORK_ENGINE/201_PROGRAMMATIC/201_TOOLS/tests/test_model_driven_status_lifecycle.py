@@ -24,7 +24,13 @@ import lifecycle_intents  # noqa: E402
 import test_selected_atom_lifecycle as lifecycle_fixture  # noqa: E402
 import test_proposed_relation_admission as reference_fixture  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.check_sections import ROLE_SECTIONS  # noqa: E402
-from lifecycle_intents import carrier_descriptor, change_status_atom_action, LifecycleError, preflight_atom_lifecycle  # noqa: E402
+from lifecycle_intents import (  # noqa: E402
+    carrier_descriptor,
+    change_status_atom_action,
+    create_atom_action,
+    LifecycleError,
+    preflight_atom_lifecycle,
+)
 
 
 DOMAINS = (
@@ -155,6 +161,65 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         )
         return path
 
+    def create_carrier(self, role: str, status: str, *, number: int) -> dict[str, str]:
+        """Build one complete, source-model-qualified carrier for native Create."""
+        _role, letter, directory, _source_id, statuses = next(row for row in DOMAINS if row[0] == role)
+        if status not in statuses:
+            raise AssertionError(f"fixture status is not admitted: {role}/{status}")
+        draft = status.casefold() == "draft"
+        folder = self.root / CONTROL / "fixture" / directory
+        if draft:
+            folder /= "draft"
+        elif role == "Plan" and status == "Backlog":
+            folder /= "001_backlog"
+        elif status.casefold() != "active":
+            folder /= status.casefold()
+        atom_id = None if draft else f"CA-{letter}-{number}"
+        filename = f"CA-{letter}--created-{number}.md" if draft else f"{atom_id}--created-{number}.md"
+        atom_type = {"Concern": "Problem", "Analysis": "Analysis Report", "Plan": "Plan",
+                     "Evaluation": "QA Case", "Operations": "Action"}.get(role)
+        type_value = f"type: {atom_type}\n" if atom_type else ""
+        sections = (*ROLE_SECTIONS[role],) if "Details" in ROLE_SECTIONS[role] else (*ROLE_SECTIONS[role], "Details")
+        body = "# Summary\n\nCreated fixture carrier\n\n" + "".join(
+            f"## {section}\n\nCreated fixture value.\n\n" for section in sections
+        )
+        if role == "Plan":
+            body += "### Definition of Done\n\nFixture completion condition.\n"
+        identity = f"atom_id: {atom_id}\n" if atom_id is not None else ""
+        return {
+            "path": (folder / filename).relative_to(self.root).as_posix(),
+            "frontmatter": (
+                f"{identity}content_role: {role}\n{type_value}status: {status}\n"
+                "current_scope_unit: STATUS_FIXTURE\nclaim_target_scope_unit: STATUS_FIXTURE\n"
+                "local_tier: Standard\nglobal_tier: 11\nauthor: Anatoly Maslennikov\n"
+                "subjects:\n  governs: Atom/Test\n  depends_on: []\nrelations: {}"
+            ),
+            "content": body,
+        }
+
+    def set_journal_state(self, state: str) -> Path:
+        """Place only the requested pre-existing Journal condition in this disposable Project."""
+        journal = self.root / CONTROL / "_journal"
+        if state == "missing":
+            if journal.exists():
+                shutil.rmtree(journal)
+            return journal
+        if state == "empty":
+            if journal.exists() and any(journal.iterdir()):
+                shutil.rmtree(journal)
+            journal.mkdir(parents=True, exist_ok=True)
+            return journal
+        if state == "incomplete":
+            if journal.exists() and any(path.name != "preexisting.ndjson" for path in journal.iterdir()):
+                shutil.rmtree(journal)
+            journal.mkdir(parents=True, exist_ok=True)
+            (journal / "preexisting.ndjson").write_text(
+                '{"schema_version":5,"kind":"workflow_execution","event":"started"}\n',
+                encoding="utf-8",
+            )
+            return journal
+        raise AssertionError(f"unknown Journal fixture state: {state}")
+
     def request(self, path: Path, status: str) -> dict[str, object]:
         actual = atom_from_path(self.root, path)
         return {"target": carrier_descriptor(self.root, actual), "status": status}
@@ -190,6 +255,101 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
                                      model["model_sources"][0]["sha256"])
                 with self.assertRaises(StatusModelError):
                     resolve_status_model(self.root, actual, statuses[0].swapcase())
+
+    def test_create_accepts_every_role_admitted_status_without_journal_or_draft_history(self) -> None:
+        """Creation follows the current role model; absent recording state is not admission evidence."""
+        journal = self.set_journal_state("missing")
+        history = self.root / CONTROL / "archive" / "_draft_history"
+        for offset, (role, letter, _directory, _source_id, statuses) in enumerate(DOMAINS, start=1):
+            for status_offset, status in enumerate(statuses, start=1):
+                with self.subTest(role=role, status=status):
+                    number = 8100 + offset * 10 + status_offset
+                    carrier = self.create_carrier(role, status, number=number)
+                    result = create_atom_action(self.root, {"carrier": carrier}, execute=True, authorized=True)
+                    self.assertEqual("applied", result["outcome"])
+                    observed = result["observed"]
+                    path = self.root / observed["path"]
+                    self.assertTrue(path.is_file(), observed)
+                    atom = atom_from_path(self.root, path)
+                    self.assertEqual(role, frontmatter_scalar(atom.frontmatter, "content_role"))
+                    self.assertEqual(status, frontmatter_scalar(atom.frontmatter, "status"))
+                    self.assertIn(status, resolve_status_model(self.root, atom, status)["statuses"])
+                    if status.casefold() == "draft":
+                        self.assertIsNone(atom.atom_id)
+                    else:
+                        self.assertEqual(f"CA-{letter}-{number}", atom.atom_id)
+        self.assertFalse(journal.exists(), "Create must not admit itself through a Journal directory")
+        self.assertFalse(history.exists(), "Draft creation must not fabricate retained Draft history")
+
+    def test_manual_draft_promotes_without_retained_history_or_journal(self) -> None:
+        """An operator-written Draft is a valid current carrier without retrospective provenance."""
+        journal = self.set_journal_state("missing")
+        history = self.root / CONTROL / "archive" / "_draft_history"
+        path = self.atom("Requirement", "Draft", draft=True)
+        self.assertFalse(history.exists())
+        self.assertIsNone(atom_from_path(self.root, path).atom_id)
+        result = self.execute(self.request(path, "Active"))
+        self.assertEqual("applied", result["outcome"])
+        observed = self.root / result["observed"]["path"]
+        self.assertTrue(observed.is_file(), result)
+        promoted = atom_from_path(self.root, observed)
+        self.assertEqual("Active", frontmatter_scalar(promoted.frontmatter, "status"))
+        self.assertRegex(promoted.atom_id or "", r"^CA-R-[0-9]+$")
+        self.assertFalse(history.exists(), "Promotion must not manufacture Draft-history evidence")
+        self.assertFalse(journal.exists(), "Promotion must not require a Journal directory")
+
+    def test_manual_draft_to_archived_allocates_fresh_identity_and_next_version(self) -> None:
+        """Leaving Draft allocates once even when the selected admitted Status is Archived."""
+        journal = self.set_journal_state("missing")
+        path = self.atom("Requirement", "Draft", draft=True)
+        result = self.execute(self.request(path, "Archived"))
+        self.assertEqual("applied", result["outcome"])
+        observed = self.root / result["observed"]["path"]
+        archived = atom_from_path(self.root, observed)
+        self.assertEqual("Archived", frontmatter_scalar(archived.frontmatter, "status"))
+        self.assertRegex(archived.atom_id or "", r"^CA-R-[0-9]+$")
+        self.assertEqual(4, result["observed"]["version"])
+        self.assertTrue(observed.name.endswith("@4.md"), result["observed"])
+        self.assertFalse(journal.exists(), "Journal recording is not an admission precondition")
+
+    def test_operations_workflow_draft_active_draft_uses_status_directories_and_fresh_identity(self) -> None:
+        """Workflow carriers follow the Operations model without restoring an old Draft identity."""
+        draft = self.atom("Operations", "Draft", atom_type="Workflow", draft=True)
+        activated = self.execute(self.request(draft, "Active"))
+        active_path = self.root / activated["observed"]["path"]
+        active = atom_from_path(self.root, active_path)
+        self.assertEqual("Active", frontmatter_scalar(active.frontmatter, "status"))
+        self.assertRegex(active.atom_id or "", r"^CA-O-[0-9]+$")
+        self.assertEqual(4, activated["observed"]["version"])
+        self.assertEqual(self.root / CONTROL / "fixture/09_operations" / f"{active.atom_id}--golden.md", active_path)
+
+        demoted = self.execute(self.request(active_path, "Draft"))
+        draft_path = self.root / demoted["observed"]["path"]
+        after = atom_from_path(self.root, draft_path)
+        self.assertEqual("Draft", frontmatter_scalar(after.frontmatter, "status"))
+        self.assertIsNone(after.atom_id)
+        self.assertEqual(5, demoted["observed"]["version"])
+        self.assertEqual(self.root / CONTROL / "fixture/09_operations/draft/CA-O--golden.md", draft_path)
+
+    def test_supported_status_change_ignores_missing_empty_or_incomplete_journal(self) -> None:
+        """Journal state is post-effect observation, not a Status-change admission gate."""
+        for offset, state in enumerate(("missing", "empty", "incomplete"), start=1):
+            with self.subTest(journal=state):
+                journal = self.set_journal_state(state)
+                before = (journal / "preexisting.ndjson").read_bytes() if (
+                    journal / "preexisting.ndjson"
+                ).is_file() else None
+                path = self.atom("Requirement", "Active", number=8200 + offset)
+                result = self.execute(self.request(path, "Archived"))
+                self.assertEqual("applied", result["outcome"])
+                self.assertEqual("Archived", result["observed"]["status"])
+                if state == "missing":
+                    self.assertFalse(journal.exists())
+                elif state == "empty":
+                    self.assertTrue(journal.is_dir())
+                    self.assertEqual([], list(journal.iterdir()))
+                elif before is not None:
+                    self.assertEqual(before, (journal / "preexisting.ndjson").read_bytes())
 
     def test_actual_typed_atoms_use_role_fallback(self) -> None:
         for role, atom_type, status, source_id in (
@@ -438,7 +598,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         after = atom_from_path(self.root, destination)
         self.assertIsNone(frontmatter_scalar(after.frontmatter, "atom_id"))
         self.assertEqual(before.content, after.content)
-        self.assertEqual(3, result["observed"]["version"])
+        self.assertEqual(4, result["observed"]["version"])
         self.assertEqual(before_history, history.read_bytes())
 
 

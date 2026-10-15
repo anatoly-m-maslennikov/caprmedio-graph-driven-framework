@@ -2,13 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Plan/Type: Plan"
   depends_on:
-    - "Atom"
-    - "Atom/Content Role: Plan"
-    - "Atom/Claim"
-    - "Atom/Content Role: Plan/Type: Plan/Label"
-    - "Type"
-version: 4
-updated_at: "2026-10-03 00:22:56 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Type"]
+version: 6
+updated_at: "2026-10-15 18:44:35 +0000"
 relations: {"relates_to": ["CA-R-1338"]}
 atom_id: "CA-R-1574"
 content_role: "Requirement"

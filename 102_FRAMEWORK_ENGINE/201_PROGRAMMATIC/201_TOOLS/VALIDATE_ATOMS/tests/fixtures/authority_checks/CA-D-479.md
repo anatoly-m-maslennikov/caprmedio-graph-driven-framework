@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier/Main Content"
+  governs: "Markdown Atom Carrier.Main Content"
   depends_on:
-    - "Atom/Summary"
-    - "Atom/Claim"
-    - "Atom/Content Role"
-    - "Atom/Details"
-    - "Property"
-    - "Markdown Atom Carrier/Structure"
-version: 6
-updated_at: "2026-10-02 19:54:46 +0400"
+    ["Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Substance", "Atom/Content Role", "Entity/Continuant/Object/Atom.Details", "Property", "Markdown Atom Carrier"]
+version: 8
+updated_at: "2026-10-15 18:52:17 +0000"
 relations: {"relates_to": ["CA-D-356", "CA-D-478"]}
 atom_id: "CA-D-479"
 content_role: "Delivery"

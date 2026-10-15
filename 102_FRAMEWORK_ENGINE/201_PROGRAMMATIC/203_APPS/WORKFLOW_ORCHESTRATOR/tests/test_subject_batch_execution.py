@@ -138,6 +138,35 @@ class SubjectBatchExecutionTests(unittest.TestCase):
             self.runner.dispatch(self.frozen)
         publisher.assert_not_called()
 
+    def test_journal_append_failure_is_diagnostic_and_does_not_stop_the_batch(self):
+        with (
+            patch("workflow_run_support.RunTracker._append_one", return_value="Journal unavailable"),
+            patch.object(native, "current_timestamp", return_value=EFFECT_TIME),
+        ):
+            result = self.runner.dispatch(self.frozen)
+        self.assertEqual("terminal", result["disposition"])
+        self.assertIn("Journal unavailable", result["diagnostics"])
+        for ordinal in range(3):
+            self.assert_changed(ordinal)
+        progress = self.progress()
+        self.assertEqual("completed", progress["state"])
+        self.assertEqual(3, progress["completed"])
+        self.assertNotEqual("recording_pending", progress["state"])
+
+    def test_lifecycle_recording_failure_keeps_the_native_batch_outcome(self):
+        with (
+            patch.object(batch, "_record_change", side_effect=OSError("Journal unavailable")),
+            patch.object(native, "current_timestamp", return_value=EFFECT_TIME),
+        ):
+            self.runner.dispatch(self.frozen)
+        for ordinal in range(3):
+            self.assert_changed(ordinal)
+        progress = self.progress()
+        self.assertEqual("completed", progress["state"])
+        self.assertEqual(3, progress["completed"])
+        self.assertTrue(all(row["outcome"] == "applied" for row in progress["atoms"]))
+        self.assertTrue(all(row["recording_error"] == "OSError" for row in progress["atoms"]))
+
     def test_partial_native_result_keeps_written_atoms_and_skips_later(self):
         original = native.subject_update_action
 

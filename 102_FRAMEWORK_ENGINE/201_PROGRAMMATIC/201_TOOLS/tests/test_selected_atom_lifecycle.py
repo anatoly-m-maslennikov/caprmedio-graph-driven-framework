@@ -1090,7 +1090,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                 execute=True,
                 authorized=True,
             )
-        with self.assertRaisesRegex(LifecycleError, "mapping-required"):
+        with self.assertRaisesRegex(LifecycleError, "one-target-required"):
             change_status_atom_action(
                 self.root,
                 {"target": [carrier_descriptor(self.root, "CA-R-100")], "status": "Archived"},

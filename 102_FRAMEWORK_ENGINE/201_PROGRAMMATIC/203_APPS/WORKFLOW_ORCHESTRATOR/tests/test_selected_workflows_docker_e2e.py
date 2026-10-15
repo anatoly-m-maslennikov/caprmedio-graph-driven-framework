@@ -191,11 +191,8 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         request = fixture.request(request_id=request_id)
         await self._connect(runtime, root)
         before = fixture.snapshot()
-        journal = root / ".caprmedio_caprmedio/_journal"
-        self.assertTrue(journal.is_dir(), "preview requires the valid canonical Journal")
         records_before = self._recording_snapshot(root)
         initial_events = self._events(root)
-        self.assertEqual([], initial_events, "preview fixture must contain no fabricated Run events")
         result = await self._call(runtime, root, fixture.case.route, request)
         self.assertEqual("preview", result.get("disposition"), result)
         self.assertIn("proposal_receipt", result, result)
@@ -252,7 +249,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
 
     async def _execute_status_case(
         self, runtime: Runtime, root: Path, fixture: GoldenProject, path: Path,
-        status: str, request_id: str, *, expected_outcome: str = "completed",
+        status: str, request_id: str, *, expected_outcome: str = "completed", assert_journal: bool = True,
     ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
         """Exercise W04 through preview, selected enqueue, and reconnect status."""
         if expected_outcome not in {"completed", "no_op"}:
@@ -280,10 +277,40 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         rows = self._assert_graph_path_and_native_results(
             root, fixture, request_id, graph, expected_outcome=expected_outcome,
         )
-        self._assert_shared_run_journal(
-            root, request_id, self._route_binding(fixture), selected, graph,
-            expected_outcome=expected_outcome,
+        if assert_journal:
+            self._assert_shared_run_journal(
+                root, request_id, self._route_binding(fixture), selected, graph,
+                expected_outcome=expected_outcome,
+            )
+        native = self._action_progress(root, request_id, rows[-1]["action_run_id"]).get("native_result")
+        self.assertIsInstance(native, dict, native)
+        return native, graph, selected
+
+    async def _execute_create_case(
+        self, runtime: Runtime, root: Path, fixture: GoldenProject, carrier: Mapping[str, Any], request_id: str,
+    ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+        """Exercise W01 through the same preview, selected enqueue, and reconnect boundary."""
+        preview = await self._call(
+            runtime, root, fixture.case.route, fixture.request_for_create(carrier, request_id=request_id),
         )
+        self.assertEqual("preview", preview.get("disposition"), preview)
+        execute = fixture.request_for_create(
+            carrier, request_id=request_id, mode="execute",
+            receipt=preview["proposal_receipt"], receipt_digest=preview["proposal_receipt_digest"],
+        )
+        admitted = await self._call(
+            runtime, root, "workflow_orchestrator",
+            {"operation": "enqueue_selected", "run_id": request_id, "execution": execute},
+        )
+        self.assertIn(admitted.get("outcome"), {"queued", "admitted", "started", "running", "pending", "completed"}, admitted)
+        terminal = await self._terminal_status(runtime, root, request_id)
+        self.assertEqual("terminal", terminal.get("disposition"), terminal)
+        self.assertEqual("completed", terminal.get("outcome"), terminal)
+        selected = terminal.get("selected_result")
+        self.assertIsInstance(selected, dict, terminal)
+        graph = self._graph_result(root, request_id)
+        rows = self._assert_graph_path_and_native_results(root, fixture, request_id, graph)
+        self._assert_shared_run_journal(root, request_id, self._route_binding(fixture), selected, graph)
         native = self._action_progress(root, request_id, rows[-1]["action_run_id"]).get("native_result")
         self.assertIsInstance(native, dict, native)
         return native, graph, selected
@@ -806,8 +833,32 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                         await self._stop(runtime)
                     temporary.cleanup()
 
-    async def test_w04_draft_noop_and_refusal_through_docker(self) -> None:
-        """The complete role/status matrix lives in the real host selected runner."""
+    async def test_w01_direct_non_draft_status_create_through_docker(self) -> None:
+        """A requested admitted non-Draft Status survives the actual W01 MCP path."""
+        temporary, root, fixture = self._new_fixture(GoldenCase("W01", "create_atom"))
+        runtime = self._runtime(root)
+        launched = False
+        try:
+            fixture.prepare()
+            launched = True
+            await self._start(runtime)
+            carrier = fixture._carrier("CA-R-102", "direct-archived", "Direct archived creation", status="Archived")
+            native, _graph, _selected = await self._execute_create_case(
+                runtime, root, fixture, carrier, "p2385-direct-archived-create",
+            )
+            self.assertEqual("applied", native.get("outcome"), native)
+            observed = root / native["observed"]["path"]
+            self.assertTrue(observed.is_file(), native)
+            self.assertEqual("Archived", native["observed"]["status"], native)
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            if launched:
+                await self._stop(runtime)
+            temporary.cleanup()
+
+    async def test_w04_manual_draft_promotion_noop_and_refusal_through_docker(self) -> None:
+        """Manual ID-free Drafts do not need retained history to reach their admitted Status."""
         temporary, root, fixture = self._new_fixture(GoldenCase("W04", "change_atom_status"))
         runtime = self._runtime(root)
         launched = False
@@ -815,25 +866,26 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             fixture.prepare()
             launched = True
             await self._start(runtime)
-            path = fixture.status_atom("Requirement", "Active")
+            path = fixture.status_atom("Requirement", "Draft", draft=True)
+            history = root / ".caprmedio_caprmedio/archive/_draft_history"
+            self.assertFalse(history.exists())
             native, _graph, _selected = await self._execute_status_case(
-                runtime, root, fixture, path, "Draft", "p1616-requirement-draft-change",
+                runtime, root, fixture, path, "Active", "p2385-manual-draft-promote",
             )
             self.assertEqual("applied", native.get("outcome"), native)
             observed = root / native["observed"]["path"]
             self.assertTrue(observed.is_file(), native)
-            self.assertEqual("Draft", native["observed"]["status"], native)
-            self.assertIsNone(native["observed"]["atom_id"], native)
-            self.assertNotIn("atom_id:", observed.read_text(encoding="utf-8"), native)
-            self.assertIn("history", native, native)
+            self.assertEqual("Active", native["observed"]["status"], native)
+            self.assertRegex(str(native["observed"]["atom_id"]), r"^CA-R-[0-9]+$", native)
+            self.assertFalse(history.exists(), "manual promotion must not fabricate Draft history")
             before_noop = fixture.snapshot()
             noop, _graph, _selected = await self._execute_status_case(
-                runtime, root, fixture, observed, "Draft", "p1616-requirement-noop",
+                runtime, root, fixture, observed, "Active", "p2385-manual-draft-noop",
                 expected_outcome="no_op",
             )
             self.assertEqual("no-op", noop.get("outcome"), noop)
             self.assertTrue(all(effect.get("state") == "unchanged" for effect in noop.get("effects", [])), noop)
-            self.assertEqual(before_noop, fixture.snapshot(), "no-op changed authority/history")
+            self.assertEqual(before_noop, fixture.snapshot(), "no-op changed authority")
             before = fixture.snapshot()
             records_before = self._recording_snapshot(root)
             rejected = await self._call(
@@ -843,6 +895,32 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             self._assert_status_admission_blocked(rejected)
             self.assertEqual(before, fixture.snapshot(), "rejected W04 request changed authority")
             self.assertEqual(records_before, self._recording_snapshot(root), "refusal wrote Journal or Run records")
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            if launched:
+                await self._stop(runtime)
+            temporary.cleanup()
+
+    async def test_w04_incomplete_journal_does_not_block_status_change_through_docker(self) -> None:
+        """A pre-existing incomplete Journal remains observational, not W04 admission evidence."""
+        temporary, root, fixture = self._new_fixture(GoldenCase("W04", "change_atom_status"))
+        runtime = self._runtime(root)
+        launched = False
+        try:
+            fixture.prepare()
+            journal = fixture.set_journal_state("incomplete")
+            self.assertTrue((journal / "preexisting.ndjson").is_file())
+            launched = True
+            await self._start(runtime)
+            path = fixture.status_atom("Requirement", "Active", number=8021)
+            native, _graph, _selected = await self._execute_status_case(
+                runtime, root, fixture, path, "Archived", "p2385-incomplete-journal-status",
+                assert_journal=False,
+            )
+            self.assertEqual("applied", native.get("outcome"), native)
+            self.assertEqual("Archived", native["observed"]["status"], native)
+            self.assertTrue((journal / "preexisting.ndjson").is_file())
         except GoldenCorpusError as error:
             self.fail(str(error))
         finally:

@@ -333,6 +333,46 @@ class SelectedLifecycleCompositionTests(unittest.TestCase):
         self.assertEqual("Active", carrier_descriptor(self.root, saved["native_result"]["observed"]["path"])["status"])
         self.assertEqual([], self._events(self.root))
 
+    def test_unavailable_journal_metadata_does_not_block_update_or_status(self) -> None:
+        for case_id, route in (("W02", "update_atom"), ("W04", "change_atom_status")):
+            with self.subTest(route=route):
+                self.root = Path(self.temporary.name).resolve() / case_id
+                self.root.mkdir()
+                fixture, manifest, selected = self._prepare(case_id, route)
+                parameters = fixture.native_parameters()
+                run_id = "metadata-unavailable-" + case_id.lower()
+                frozen, requested = self._frozen(selected, manifest, route, parameters, run_id)
+                session = _Session(requested)
+                session.tracker.journal_context = None
+
+                result = selected._execute_graph(frozen, session)
+
+                self.assertEqual("completed", result["outcome"])
+                applied = [row for row in result["step_results"] if row["result"] == "applied"]
+                self.assertEqual(1, len(applied))
+                self.assertEqual("SelectedExecutionError", applied[0]["recording_error"])
+                self.assertTrue(result["effect_refs"])
+                self.assertFalse(any(event.get("event_id", "").startswith("lifecycle-change:")
+                                     for event in self._events(self.root)))
+                self.assertTrue(all((self.root / reference).is_file() for reference in result["effect_refs"]))
+                if route == "change_atom_status":
+                    action_id = self._requested_action(requested, "CA-O-128")
+                    observed = self._child_result(self.root, run_id, action_id)["native_result"]["observed"]
+                    source = self.root / observed["path"]
+                    before = source.read_bytes()
+                    no_op_frozen, no_op_requested = self._frozen(
+                        selected, manifest, route,
+                        {"target": observed, "status": parameters["status"]}, run_id + "-noop",
+                    )
+                    no_op_session = _Session(no_op_requested)
+                    no_op_session.tracker.journal_context = None
+
+                    no_op = selected._execute_graph(no_op_frozen, no_op_session)
+
+                    self.assertEqual("no_op", no_op["outcome"])
+                    self.assertEqual([], no_op["effect_refs"])
+                    self.assertEqual(before, source.read_bytes())
+
 
 if __name__ == "__main__":
     unittest.main()

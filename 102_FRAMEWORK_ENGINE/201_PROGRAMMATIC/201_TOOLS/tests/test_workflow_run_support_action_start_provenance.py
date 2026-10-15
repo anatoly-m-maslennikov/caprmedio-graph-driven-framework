@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 TOOLS = Path(__file__).resolve().parents[1]
@@ -169,6 +170,39 @@ class RecordedActionStartProvenanceTests(unittest.TestCase):
                     session.read_recorded_action_start(run)
                 self.assertEqual(expected, refused.exception.code)
                 self.assertEqual(before, self._carrier().read_bytes())
+
+    def test_unavailable_journal_metadata_does_not_block_actual_start_or_completion(self) -> None:
+        for context in (None, {}, {"author": "trusted-operator", "timezone": "Not/A-Timezone"}):
+            with self.subTest(context=context):
+                self.tracker.journal_context = context
+                session, action_run_id = self._session()
+                result = session.finish_run(
+                    action_run_id, outcome="completed", result_ref="results/action.json", effect_refs=[]
+                )
+
+                self.assertEqual(3, len(session.actual))
+                self.assertEqual("completed", result["outcome"])
+                self.assertEqual("terminal", result["disposition"])
+                self.assertIsNone(result["event_id"])
+                self.assertIn("invalid-journal-context", result["recording_error"])
+                self.assertEqual(4, len(session.recording_errors))
+                provenance = session.read_recorded_action_start(action_run_id)
+                self.assertIsNone(provenance.event_id)
+                self.assertEqual("trusted-operator" if context else None, provenance.author)
+        self.assertFalse((self.root / ".caprmedio_caprmedio/_journal").exists())
+
+    def test_failed_append_keeps_actual_start_and_terminal_facts(self) -> None:
+        with patch("work_journal.append_sealed_events", side_effect=OSError("unavailable")) as append:
+            session, action_run_id = self._session()
+            result = session.finish_run(
+                action_run_id, outcome="completed", result_ref="results/action.json", effect_refs=[]
+            )
+
+        self.assertEqual(4, append.call_count)
+        self.assertEqual("completed", result["outcome"])
+        self.assertEqual("unavailable", result["recording_error"])
+        self.assertEqual("actual-action", session.read_recorded_action_start(action_run_id).action_run_id)
+        self.assertEqual("completed", session.terminal["action"]["outcome"])
 
     @staticmethod
     def _remove_started_event(carrier: Path) -> None:

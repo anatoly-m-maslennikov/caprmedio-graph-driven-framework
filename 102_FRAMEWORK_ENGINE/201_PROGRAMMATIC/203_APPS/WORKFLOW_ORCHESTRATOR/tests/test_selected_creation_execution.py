@@ -215,6 +215,24 @@ class SelectedCreationExecutionTests(unittest.TestCase):
         self.assertTrue(any(event.get("event_id") == f"selected-creation:{action_id}"
                             for event in self._events(self.root)))
 
+    def test_unavailable_journal_metadata_does_not_block_create_or_allow_replay(self) -> None:
+        parameters = self.w01.native_parameters()
+        frozen, session = self._frozen("create_atom", parameters, "w01-metadata-unavailable")
+        session.tracker.journal_context = None
+
+        result = self.selected._execute_graph(frozen, session)
+
+        self.assertEqual("completed", result["outcome"])
+        self.assertEqual("applied", result["step_results"][0]["result"])
+        self.assertEqual("SelectedExecutionError", result["step_results"][0]["recording_error"])
+        self.assertTrue((self.root / parameters["carrier"]["path"]).is_file())
+        self.assertEqual([], self._events(self.root))
+        with patch("lifecycle_intents.create_atom_action", side_effect=AssertionError("creation replayed")) as effect:
+            self.selected.handlers["CA-O-128"] = self.selected._native_handlers()["CA-O-128"]
+            retained = self.selected._execute_graph(frozen, session)
+        effect.assert_not_called()
+        self.assertNotEqual("completed", retained["outcome"])
+
 
 if __name__ == "__main__":
     unittest.main()

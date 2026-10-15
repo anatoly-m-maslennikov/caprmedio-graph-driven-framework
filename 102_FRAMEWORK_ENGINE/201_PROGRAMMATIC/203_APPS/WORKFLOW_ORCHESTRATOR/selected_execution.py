@@ -301,7 +301,7 @@ class SelectedExecution:
             }
 
             def admitted_update_assessment(context: Mapping[str, Any]) -> dict[str, Any] | None:
-                """Return the one completed O145 seal for this frozen Update input."""
+                """Read actual same-session O145 completion, not Journal delivery."""
                 prior_results = context.get("lifecycle_prior_results")
                 if not isinstance(prior_results, list):
                     return None
@@ -370,8 +370,8 @@ class SelectedExecution:
                 """Execute O032 once below O128 and preserve its canonical ADD fact.
 
                 The Action result is the sole source for the result Carrier.
-                Any missing or pending Journal append remains a retained partial
-                observation and never creates a second O032 execution.
+                Journal recording is independent of that actual outcome and
+                never creates a second O032 execution.
                 """
                 session = context.get("session")
                 requested_child = context.get("creation_requested_run_id")
@@ -384,7 +384,6 @@ class SelectedExecution:
                     return {"result": "creation-recording-unavailable",
                             "terminal_outcome": "interrupted_pending", "effect_refs": []}
                 try:
-                    author, local_date, timezone, occurred_at = self._creation_journal_context(session)
                     structural_scope = self._creation_structural_scope(binding)
                 except SelectedExecutionError:
                     return {"result": "creation-recording-unavailable",
@@ -412,14 +411,15 @@ class SelectedExecution:
                 recording_error: str | None = None
                 if native_outcome == "applied":
                     try:
+                        author, local_date, timezone, occurred_at = self._creation_journal_context(session)
                         canonical_event = self._creation_canonical_event(
                             parameters=context.get("parameters"), native_result=result,
                             creation_binding=binding, creation_action_run_id=child_run_id,
                             execution_request_id=context.get("execution_request_id"), author=author,
                             occurred_at=occurred_at, structural_scope=structural_scope,
                         )
-                    except SelectedExecutionError as error:
-                        recording_error = str(error)
+                    except Exception as error:
+                        recording_error = type(error).__name__
                 try:
                     payload: dict[str, Any] = {
                         "creation_action_run_id": child_run_id,
@@ -630,7 +630,7 @@ class SelectedExecution:
                             "terminal_outcome": "interrupted_pending", "effect_refs": []}
                 if requested_child in getattr(session, "actual", {}):
                     # A retained child Run may only be reconciled through its
-                    # saved Journal evidence; never re-observe parameters or
+                    # retained actual result; never re-observe parameters or
                     # invoke the native mutation on its recovery path.
                     return {"result": "lifecycle-recovery-required",
                             "terminal_outcome": "interrupted_pending", "effect_refs": []}
@@ -657,37 +657,19 @@ class SelectedExecution:
                             "effect_refs": [], "native_result": preview}
 
                 try:
-                    author, local_date, timezone, occurred_at = self._replacement_journal_context(session)
                     observer_binding = context.get("action_binding")
                     observer_run_id = context.get("action_run_id")
                     if not isinstance(observer_binding, Mapping) or not isinstance(observer_run_id, str) or not observer_run_id:
-                        raise SelectedExecutionError("lifecycle baseline has no actual observing Action Run")
-                    observer_scope = self._bound_action_structural_scope(observer_binding)
+                        raise SelectedExecutionError("lifecycle observation has no actual observing Action Run")
+                    self._bound_action_structural_scope(observer_binding)
                     structural_scope = self._lifecycle_structural_scope(binding)
-                    before_facts, before_bytes = self._lifecycle_result_facts(preview.get("observed"))
+                    before_facts, _before_bytes = self._lifecycle_result_facts(preview.get("observed"))
                     execution_request_id = context.get("execution_request_id")
                     if not isinstance(execution_request_id, str) or not execution_request_id:
                         raise SelectedExecutionError("lifecycle request identity is invalid")
-                    import selected_lifecycle_journal
-                    observer_pin = {
-                        "action_id": observer_binding["atom_id"],
-                        "structural_scope": observer_scope,
-                        "occurred_at": occurred_at,
-                        "llm_session": {"app": "run-support", "uuid": execution_request_id},
-                    }
-                    action_pin = {
-                        "action_id": binding["atom_id"],
-                        "structural_scope": structural_scope,
-                        "occurred_at": occurred_at,
-                        "llm_session": {"app": "run-support", "uuid": execution_request_id},
-                    }
-                    append_context = {"author": author, "local_date": local_date, "timezone": timezone}
-                    prepared = selected_lifecycle_journal.prepare_lifecycle_journal(
-                        self.root, before_facts, before_bytes, observer_pin, observer_run_id, append_context,
-                    )
-                    admitted = selected_lifecycle_journal.admit_lifecycle_prior(
-                        self.root, prepared, append_context,
-                    )
+                    # This is a verified source observation, not a Journal
+                    # capability, baseline, or prior-record admission.
+                    admitted = {"state": "observed", "before_result": {"state": "present", **before_facts}}
                 except Exception:
                     return {"result": "lifecycle-prior-unavailable",
                             "terminal_outcome": "interrupted_pending", "effect_refs": []}
@@ -725,6 +707,15 @@ class SelectedExecution:
                         observed_facts, observed_bytes = self._lifecycle_result_facts(result.get("observed"))
                         if observed_facts["path"] not in effect_refs:
                             effect_refs = sorted([*effect_refs, observed_facts["path"]])
+                        author, local_date, timezone, occurred_at = self._replacement_journal_context(session)
+                        action_pin = {
+                            "action_id": binding["atom_id"],
+                            "structural_scope": structural_scope,
+                            "occurred_at": occurred_at,
+                            "llm_session": {"app": "run-support", "uuid": execution_request_id},
+                        }
+                        append_context = {"author": author, "local_date": local_date, "timezone": timezone}
+                        import selected_lifecycle_journal
                         recording = selected_lifecycle_journal.record_lifecycle_change(
                             self.root,
                             before_result=admitted.get("before_result"),
@@ -820,26 +811,12 @@ class SelectedExecution:
                     return {"result": str(preview["outcome"]), "terminal_outcome": "interrupted_pending",
                             "effect_refs": [], "native_result": preview}
                 try:
-                    author, local_date, timezone, occurred_at = self._replacement_journal_context(session)
                     structural_scope = self._bound_action_structural_scope(binding)
-                    before_facts, before_bytes = self._lifecycle_result_facts(preview.get("observed"))
+                    before_facts, _before_bytes = self._lifecycle_result_facts(preview.get("observed"))
                     execution_request_id = context.get("execution_request_id")
                     if not isinstance(execution_request_id, str) or not execution_request_id:
                         raise SelectedExecutionError("status request identity is invalid")
-                    import selected_lifecycle_journal
-                    action_pin = {
-                        "action_id": binding["atom_id"],
-                        "structural_scope": structural_scope,
-                        "occurred_at": occurred_at,
-                        "llm_session": {"app": "run-support", "uuid": execution_request_id},
-                    }
-                    append_context = {"author": author, "local_date": local_date, "timezone": timezone}
-                    prepared = selected_lifecycle_journal.prepare_lifecycle_journal(
-                        self.root, before_facts, before_bytes, action_pin, action_run_id, append_context,
-                    )
-                    admitted = selected_lifecycle_journal.admit_lifecycle_prior(
-                        self.root, prepared, append_context,
-                    )
+                    admitted = {"state": "observed", "before_result": {"state": "present", **before_facts}}
                 except Exception:
                     return {"result": "lifecycle-prior-unavailable",
                             "terminal_outcome": "interrupted_pending", "effect_refs": []}
@@ -869,6 +846,15 @@ class SelectedExecution:
                         observed_facts, observed_bytes = self._lifecycle_result_facts(result.get("observed"))
                         if observed_facts["path"] not in effect_refs:
                             effect_refs = sorted([*effect_refs, observed_facts["path"]])
+                        author, local_date, timezone, occurred_at = self._replacement_journal_context(session)
+                        action_pin = {
+                            "action_id": binding["atom_id"],
+                            "structural_scope": structural_scope,
+                            "occurred_at": occurred_at,
+                            "llm_session": {"app": "run-support", "uuid": execution_request_id},
+                        }
+                        append_context = {"author": author, "local_date": local_date, "timezone": timezone}
+                        import selected_lifecycle_journal
                         recording = selected_lifecycle_journal.record_lifecycle_change(
                             self.root,
                             before_result=admitted.get("before_result"),

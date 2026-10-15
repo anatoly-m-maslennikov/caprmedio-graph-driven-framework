@@ -159,6 +159,7 @@ class GoldenProject:
             raise GoldenCorpusError("execution_project_root must be an absolute container-visible path")
         self.execution_project_root = execution_project_root.rstrip("/") if execution_project_root else None
         self.manifest: dict[str, Any] | None = None
+        self._create_parameters: dict[str, Any] | None = None
         self._status_parameters: dict[str, Any] | None = None
         self._semantic_update_parameters: dict[str, Any] | None = None
         self._cached_revert_parameters: dict[str, Any] | None = None
@@ -236,6 +237,29 @@ class GoldenProject:
         manifest = self._copy_reviewed_manifest()
         self.manifest = manifest
         return manifest
+
+    def set_journal_state(self, state: str) -> Path:
+        """Set a disposable pre-existing Journal condition after fixture admission."""
+        journal = self.root / ".caprmedio_caprmedio/_journal"
+        if state == "missing":
+            if journal.exists():
+                shutil.rmtree(journal)
+            return journal
+        if state == "empty":
+            if journal.exists() and any(journal.iterdir()):
+                shutil.rmtree(journal)
+            journal.mkdir(parents=True, exist_ok=True)
+            return journal
+        if state == "incomplete":
+            if journal.exists() and any(path.name != "preexisting.ndjson" for path in journal.iterdir()):
+                shutil.rmtree(journal)
+            journal.mkdir(parents=True, exist_ok=True)
+            (journal / "preexisting.ndjson").write_text(
+                '{"schema_version":5,"kind":"workflow_execution","event":"started"}\n',
+                encoding="utf-8",
+            )
+            return journal
+        raise GoldenCorpusError(f"unknown Journal fixture state: {state}")
 
     @property
     def _authority_dir(self) -> Path:
@@ -672,13 +696,19 @@ class GoldenProject:
         self._cached_revert_parameters = {"approved_reversal_manifest": admitted["approved_reversal_manifest"]}
         return self._cached_revert_parameters
 
-    def _carrier(self, atom_id: str, slug: str, summary: str) -> dict[str, str]:
+    def _carrier(self, atom_id: str, slug: str, summary: str, *, status: str = "Active") -> dict[str, str]:
+        requirement_statuses = next(row[4] for row in STATUS_DOMAINS if row[0] == "Requirement")
+        if status not in requirement_statuses:
+            raise GoldenCorpusError(f"status {status!r} is not admitted for Requirement")
+        folder = self._authority_dir
+        if status != "Active":
+            folder /= "draft" if status == "Draft" else status.casefold()
         return {
-            "path": (self._authority_dir / f"{atom_id}--{slug}.md").relative_to(self.root).as_posix(),
+            "path": (folder / f"{atom_id}--{slug}.md").relative_to(self.root).as_posix(),
             "frontmatter": (
                 f"atom_id: {atom_id}\ncontent_role: Requirement\ncurrent_scope_unit: PARENT\n"
                 "claim_target_scope_unit: PARENT\nlocal_tier: Standard\nglobal_tier: 12\n"
-                "author: golden-operator\nstatus: Active\nsubjects:\n"
+                f"author: golden-operator\nstatus: {status}\nsubjects:\n"
                 "  governs: Atom/Test\n  depends_on: []\nrelations: {}"
             ),
             "content": (
@@ -796,6 +826,16 @@ class GoldenProject:
         finally:
             self._status_parameters = None
 
+    def request_for_create(self, carrier: Mapping[str, Any], *, request_id: str,
+                           mode: str = "preview", receipt: object | None = None,
+                           receipt_digest: object | None = None) -> dict[str, Any]:
+        """Build one W01 request with a complete carrier in its requested admitted Status."""
+        self._create_parameters = {"carrier": copy.deepcopy(dict(carrier))}
+        try:
+            return self.request(request_id=request_id, mode=mode, receipt=receipt, receipt_digest=receipt_digest)
+        finally:
+            self._create_parameters = None
+
     def native_parameters(self) -> dict[str, Any]:
         """Return one source-valid native Action payload for W01--W08 only."""
         route = self.case.route
@@ -834,6 +874,8 @@ class GoldenProject:
             return copy.deepcopy(self._semantic_update_parameters)
         target = self._descriptor("CA-R-100")
         if route == "create_atom":
+            if self._create_parameters is not None:
+                return copy.deepcopy(self._create_parameters)
             return {"carrier": self._carrier("CA-R-102", "created", "Created summary")}
         if route == "replace_atom":
             return {"predecessor": target, "successors": [self._carrier("CA-R-103", "replacement", "Replacement summary")],

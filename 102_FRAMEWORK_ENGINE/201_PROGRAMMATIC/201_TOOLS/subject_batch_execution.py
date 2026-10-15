@@ -71,8 +71,6 @@ def _execute_target(
     run_id = frozen["request"]["run_id"]
     identities = subject_batch_run_ids(run_id, ordinal)
     actual = [session.start_run(identity) for identity in identities]
-    if session.recording_errors:
-        raise RuntimeError("Subject batch Action start could not be durably recorded")
     parameters = _parameters(runner.root, item)
     result = subject_update_action(
         runner.root,
@@ -93,7 +91,7 @@ def _execute_target(
     try:
         row["lifecycle_recording"] = _record_change(runner, session, actual[-1], result)
     except Exception as error:
-        row.update(outcome="recording_pending", recording_error=type(error).__name__)
+        row["recording_error"] = type(error).__name__
     return _finish_target(runner, session, actual, result_path, row)
 
 
@@ -118,8 +116,7 @@ def _finish_target(
             record["run_id"], outcome=terminal, result_ref=reference, effect_refs=effects
         )
         if receipt.get("recording_error"):
-            row.update(outcome="recording_pending", recording_error=receipt["recording_error"])
-            break
+            row["recording_error"] = receipt["recording_error"]
     runner._write(result_path, row)
     return row
 
@@ -170,7 +167,7 @@ def execute_subject_batch(runner: Any, frozen: Mapping[str, Any], session: Any) 
 def _finish_batch(
     runner: Any, session: Any, workflow: Mapping[str, Any], path: Path, progress: dict[str, Any]
 ) -> dict[str, Any]:
-    complete = progress["completed"] == progress["count"] and not session.recording_errors
+    complete = progress["completed"] == progress["count"]
     progress.update(
         state="completed" if complete else "stopped",
         remaining=progress["count"] - len(progress["atoms"]),
@@ -185,6 +182,6 @@ def _finish_batch(
         effect_refs=effects,
     )
     if receipt.get("recording_error"):
-        progress.update(state="recording_pending", recording_error=receipt["recording_error"])
+        progress["recording_error"] = receipt["recording_error"]
         runner._write(path, progress)
     return progress

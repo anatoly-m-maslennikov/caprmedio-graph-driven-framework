@@ -1,19 +1,18 @@
-"""Focused D570 native Draft-promotion evidence and zero-effect coverage."""
+"""Native Draft operations need current carriers, not retained-history permission."""
 from __future__ import annotations
 
-from pathlib import Path
 import copy
+from pathlib import Path
 import sys
 import unittest
+from unittest.mock import patch
 
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(TOOLS), str(TOOLS / "tests")]
 
-from atom_operations import atom_digest, atom_from_path, draft_revision_lineage, replace_draft_revision_lineage, scan_atoms  # noqa: E402
-from lifecycle_intents import LifecycleError, carrier_descriptor, update_atom_action  # noqa: E402
-from draft_history import append_draft_entry, reserve_history_entry  # noqa: E402
-from draft_promotion_pending import lookup_pending_promotion  # noqa: E402
-import test_model_driven_status_lifecycle as fixture_module  # noqa: E402
+from atom_operations import atom_from_path, atom_identity_lock, frontmatter_scalar, remove_frontmatter_scalar, replace_frontmatter_scalar, scan_atoms
+from lifecycle_intents import LifecycleError, carrier_descriptor, change_status_atom_action, create_atom_action, update_atom_action
+import test_model_driven_status_lifecycle as fixture_module
 
 
 class DraftPromotionGoldenTest(unittest.TestCase):
@@ -25,205 +24,158 @@ class DraftPromotionGoldenTest(unittest.TestCase):
     def tearDown(self) -> None:
         self.fixture.tearDown()
 
-    def _demoted(self, number: int = 8000):
-        path = self.fixture.atom("Requirement", "Active", number=number)
-        demoted = self.fixture.execute(self.fixture.request(path, "Draft"))
-        return self.fixture.root / demoted["observed"]["path"], demoted
+    def _fresh_draft(self, *, container: str | None = None) -> Path:
+        return self.fixture.atom("Requirement", "Draft", draft=True, container=container)
 
-    def _fresh_draft(self, *, container: str | None = None):
-        settings = self.fixture.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
-        settings_text = settings.read_text(encoding="utf-8")
-        if "[artifacts.identity]" not in settings_text:
-            settings.write_text(settings_text + "\n[artifacts.identity]\nproject_prefix = \"CA\"\n", encoding="utf-8")
-        draft = self.fixture.atom("Requirement", "Draft", draft=True, container=container)
-        text = draft.read_text(encoding="utf-8")
-        front, content = text[4:].split("\n---\n", 1)
-        head = reserve_history_entry(self.fixture.root)
-        draft.write_text(
-            "---\n" + replace_draft_revision_lineage(front, {"history_entry_ref": head}) + "\n---\n" + content,
-            encoding="utf-8",
-        )
-        append_draft_entry(self.fixture.root, str(draft.relative_to(self.fixture.root)), reference=head, origin={"kind": "never_identified"})
-        return draft, head
+    def _update(self, path: Path, *, status: str | None = None) -> dict[str, object]:
+        atom = atom_from_path(self.fixture.root, path)
+        frontmatter = atom.frontmatter if status is None else replace_frontmatter_scalar(atom.frontmatter, "status", status)
+        return {"target": carrier_descriptor(self.fixture.root, atom),
+                "proposed": {"frontmatter": frontmatter, "content": atom.content + "\n"},
+                "change_class": "carrier_only"}
 
-    def _history_count(self) -> int:
-        return len(list((self.fixture.root / ".caprmedio_caprmedio/archive/_draft_history").glob("*.json")))
+    def test_manual_draft_promotes_without_history_or_journal(self) -> None:
+        draft = self._fresh_draft()
+        before = atom_from_path(self.fixture.root, draft)
+        result = self.fixture.execute(self.fixture.request(draft, "Active"))
+        self.assertEqual("applied", result["outcome"])
+        self.assertRegex(result["observed"]["atom_id"], r"^CA-R-[0-9]{3,}$")
+        observed = atom_from_path(self.fixture.root, self.fixture.root / result["observed"]["path"])
+        self.assertEqual(before.content, observed.content)
+        self.assertEqual(4, result["observed"]["version"])
+        self.assertFalse(draft.exists())
+        self.assertFalse((self.fixture.root / ".caprmedio_caprmedio/archive/_draft_history").exists())
+        self.assertFalse((self.fixture.root / ".caprmedio_caprmedio/_journal").exists())
 
-    def _draft_update(self, draft: Path, *, suffix: str) -> dict[str, object]:
-        atom = atom_from_path(self.fixture.root, draft)
-        return {
-            "target": carrier_descriptor(self.fixture.root, atom),
-            "proposed": {"frontmatter": atom.frontmatter, "content": atom.content + suffix},
-            "change_class": "carrier_only",
-        }
-
-    def test_demote_restore_and_optional_history_evidence(self) -> None:
-        draft, _ = self._demoted()
-        request = self.fixture.request(draft, "Active")
-        restored = self.fixture.execute(request)
-        self.assertEqual("CA-R-8000", restored["observed"]["atom_id"])
-
-    def test_retired_or_stale_evidence_and_live_identity_collision_are_zero_effect(self) -> None:
-        draft, _ = self._demoted()
-        request = self.fixture.request(draft, "Active")
-        request["draft_identity_evidence"] = {"kind": "prior_identified_revision"}
-        before = self.fixture.snapshot()
-        with self.assertRaises(LifecycleError):
-            self.fixture.execute(request)
-        self.assertEqual(before, self.fixture.snapshot())
-
-        request.pop("draft_identity_evidence")
-        self.fixture.atom("Requirement", "Active", number=8000)
-        collided = self.fixture.snapshot()
-        with self.assertRaises(LifecycleError):
-            self.fixture.execute(request)
-        self.assertEqual(collided, self.fixture.snapshot())
-
-    def test_non_direct_history_locator_and_unknown_marker_are_zero_effect(self) -> None:
-        draft, _ = self._demoted()
-        original = draft.read_text(encoding="utf-8")
-        draft.write_text(original.replace('"history_entry_ref": {', '"history_entry_ref": {"extra": true, '), encoding="utf-8")
-        before = self.fixture.snapshot()
-        with self.assertRaises(LifecycleError):
-            self.fixture.execute(self.fixture.request(draft, "Active"))
-        self.assertEqual(before, self.fixture.snapshot())
-        draft.write_text(original.replace('"history_revision"', '"retired_revision"'), encoding="utf-8")
-        before = self.fixture.snapshot()
-        with self.assertRaises(LifecycleError):
-            self.fixture.execute(self.fixture.request(draft, "Active"))
-        self.assertEqual(before, self.fixture.snapshot())
-
-    def test_missing_forged_stale_and_summary_mismatch_are_zero_effect(self) -> None:
-        for number, mutate in enumerate(("missing", "forged", "stale", "summary", "role", "extra"), start=8000):
-            with self.subTest(mutate=mutate):
-                if number != 8000:
-                    self.fixture.tearDown()
-                    self.fixture = fixture_module.ModelDrivenStatusLifecycleTest("run")
-                    self.fixture.setUp()
-                draft, _ = self._demoted(number)
-                if mutate == "missing":
-                    text = draft.read_text(encoding="utf-8").replace("revision_lineage:", "retired_lineage:")
-                    draft.write_text(text, encoding="utf-8")
-                elif mutate == "forged":
-                    text = draft.read_text(encoding="utf-8").replace('"history_revision": "', '"history_revision": "f')
-                    draft.write_text(text, encoding="utf-8")
-                elif mutate == "stale":
-                    text = draft.read_text(encoding="utf-8").replace('"path": "', '"path": "04_requirement/archive/')
-                    draft.write_text(text, encoding="utf-8")
-                elif mutate == "role":
-                    text = draft.read_text(encoding="utf-8").replace("content_role: Requirement", "content_role: Plan")
-                    draft.write_text(text, encoding="utf-8")
-                elif mutate == "extra":
-                    text = draft.read_text(encoding="utf-8").replace('"history_entry_ref": {', '"history_entry_ref": {"extra": true, ')
-                    draft.write_text(text, encoding="utf-8")
-                else:
-                    text = draft.read_text(encoding="utf-8").replace("Golden immutable meaning", "Changed meaning")
-                    draft.write_text(text, encoding="utf-8")
-                before = self.fixture.snapshot()
-                with self.assertRaises(LifecycleError):
-                    self.fixture.execute(self.fixture.request(draft, "Active"))
-                self.assertEqual(before, self.fixture.snapshot())
-
-    def test_fresh_lineage_allocates_next_unused_and_collision_refuses(self) -> None:
-        draft, _ = self._fresh_draft()
+    def test_demoted_draft_gets_fresh_identity_and_retains_actual_predecessor(self) -> None:
+        source = self.fixture.atom("Requirement", "Active", number=8000)
+        original = source.read_bytes()
+        demoted = self.fixture.execute(self.fixture.request(source, "Draft"))
+        draft = self.fixture.root / demoted["observed"]["path"]
+        history = self.fixture.root / demoted["history"]["prior_revision"]["path"]
+        self.assertEqual(original, history.read_bytes())
+        self.assertIsNone(frontmatter_scalar(atom_from_path(self.fixture.root, draft).frontmatter, "revision_lineage"))
         promoted = self.fixture.execute(self.fixture.request(draft, "Active"))
-        self.assertRegex(promoted["observed"]["atom_id"], r"^CA-R-[1-9][0-9]*$")
+        self.assertNotEqual("CA-R-8000", promoted["observed"]["atom_id"])
+        self.assertEqual(5, promoted["observed"]["version"])
+        self.assertEqual(original, history.read_bytes())
 
-    def test_actual_finalization_failure_retries_reserved_output_without_second_identity(self) -> None:
-        draft, head = self._fresh_draft()
-        request = self.fixture.request(draft, "Active")
-        lock_directory = self.fixture.root / ".caprmedio_caprmedio/.draft_promotion_locks"
-        lock_directory.symlink_to(self.fixture.root, target_is_directory=True)
-        first = self.fixture.execute(copy.deepcopy(request))
-        self.assertEqual("pending", first["outcome"])
-        self.assertEqual("finalization-failed", first["pending_promotion"]["repair_context"]["code"])
-        sealed = lookup_pending_promotion(self.fixture.root, draft_path=request["target"]["path"], head=head)
-        self.assertIsNotNone(sealed)
-        planned_id = sealed["reservation"]["planned_atom_id"]
-        self.assertEqual(planned_id, first["observed"]["atom_id"])
-        self.assertEqual(1, self._history_count())
+    def test_manual_draft_can_enter_archived_directly(self) -> None:
+        draft = self._fresh_draft()
+        result = self.fixture.execute(self.fixture.request(draft, "Archived"))
+        self.assertEqual("applied", result["outcome"])
+        self.assertEqual("Archived", result["observed"]["status"])
+        self.assertEqual(4, result["observed"]["version"])
+        self.assertTrue(result["observed"]["filename"].endswith("@4.md"))
 
-        lock_directory.unlink()
-        retried = self.fixture.execute(copy.deepcopy(request))
-        self.assertEqual("applied", retried["outcome"])
-        self.assertEqual(planned_id, retried["observed"]["atom_id"])
-        self.assertFalse(draft.exists())
-        self.assertEqual(2, self._history_count())
-        self.assertEqual(1, sum(atom.atom_id == planned_id for atom in scan_atoms(self.fixture.root)))
+    def test_all_history_filename_evidence_prevents_identity_reuse(self) -> None:
+        from lifecycle_intents import _draft_promotion_identity
+        draft = self._fresh_draft()
+        reserved = _draft_promotion_identity(self.fixture.root, atom_from_path(self.fixture.root, draft))
+        historical = draft.parent.parent / "archive" / f"{reserved}--unparseable.md"
+        historical.parent.mkdir()
+        historical.write_text("Not a parseable Atom, but a real retained ID filename.", encoding="utf-8")
+        result = self.fixture.execute(self.fixture.request(draft, "Active"))
+        self.assertNotEqual(reserved, result["observed"]["atom_id"])
+        self.assertTrue(historical.exists())
 
-    def test_terminal_retry_after_old_draft_removal_is_idempotent(self) -> None:
-        draft, _ = self._fresh_draft()
-        request = self.fixture.request(draft, "Active")
-        first = self.fixture.execute(copy.deepcopy(request))
-        self.assertFalse(draft.exists())
-        before = self.fixture.snapshot()
-        retried = self.fixture.execute(copy.deepcopy(request))
-        self.assertEqual(first["observed"], retried["observed"])
-        self.assertEqual("terminal-promotion-retry", retried["effects"][0]["reason"])
-        self.assertEqual(before, self.fixture.snapshot())
+    def test_optional_unresolvable_or_malformed_lineage_is_not_permission(self) -> None:
+        for index, value in enumerate(('"not a map"', '{"history_entry_ref": {"bad": true}}', 'null')):
+            with self.subTest(value=value):
+                draft = self._fresh_draft(container=f"optional-{index}")
+                text = draft.read_text(encoding="utf-8")
+                draft.write_text(text.replace("version: 3", f"revision_lineage: {value}\nversion: 3"), encoding="utf-8")
+                result = self.fixture.execute(self.fixture.request(draft, "Active"))
+                self.assertEqual("applied", result["outcome"])
 
-    def test_changed_request_origin_substitution_and_replay_refuse_without_effects(self) -> None:
-        draft, head = self._fresh_draft()
-        request = self.fixture.request(draft, "Active")
-        lock_directory = self.fixture.root / ".caprmedio_caprmedio/.draft_promotion_locks"
-        lock_directory.symlink_to(self.fixture.root, target_is_directory=True)
-        self.fixture.execute(copy.deepcopy(request))
-        lock_directory.unlink()
+    def test_history_writer_unavailability_cannot_gate_create_or_promotion(self) -> None:
+        lock = self.fixture.root / ".caprmedio_caprmedio/.draft_promotion_locks"
+        lock.symlink_to(self.fixture.root, target_is_directory=True)
+        carrier = self.fixture.create_carrier("Requirement", "Draft", number=9000)
+        result = create_atom_action(self.fixture.root, {"carrier": carrier}, execute=True, authorized=True)
+        draft = self.fixture.root / result["observed"]["path"]
+        self.assertEqual("applied", self.fixture.execute(self.fixture.request(draft, "Active"))["outcome"])
+        self.assertTrue(lock.is_symlink())
 
-        changed = copy.deepcopy(request)
-        changed["status"] = "Archived"
-        before = self.fixture.snapshot()
-        with self.assertRaisesRegex(LifecycleError, "different sealed request"):
-            self.fixture.execute(changed)
-        self.assertEqual(before, self.fixture.snapshot())
-
-        other, other_head = self._fresh_draft(container="substituted-origin")
-        original = draft.read_text(encoding="utf-8")
-        substituted = replace_draft_revision_lineage(original[4:].split("\n---\n", 1)[0], {"history_entry_ref": other_head})
-        draft.write_text("---\n" + substituted + "\n---\n" + original.split("\n---\n", 1)[1], encoding="utf-8")
+    def test_manual_draft_updates_without_history_and_stale_target_refuses(self) -> None:
+        draft = self._fresh_draft()
+        request = self._update(draft)
+        result = update_atom_action(self.fixture.root, request, execute=True, authorized=True)
+        self.assertEqual("applied", result["outcome"])
+        self.assertIsNone(result["observed"]["atom_id"])
+        self.assertEqual(4, result["observed"]["version"])
         before = self.fixture.snapshot()
         with self.assertRaises(LifecycleError):
-            self.fixture.execute(self.fixture.request(draft, "Active"))
+            update_atom_action(self.fixture.root, request, execute=True, authorized=True)
         self.assertEqual(before, self.fixture.snapshot())
 
-        # Restore the exact first head, complete it, then replay those old bytes.
-        restored = replace_draft_revision_lineage(substituted, {"history_entry_ref": head})
-        draft.write_text("---\n" + restored + "\n---\n" + original.split("\n---\n", 1)[1], encoding="utf-8")
-        replay_request = self.fixture.request(draft, "Active")
-        saved_bytes = draft.read_bytes()
-        self.fixture.execute(copy.deepcopy(replay_request))
-        self.assertFalse(draft.exists())
-        draft.write_bytes(saved_bytes)
+    def test_status_update_keeps_complete_admitted_delta(self) -> None:
+        source = self.fixture.atom("Requirement", "Active", number=8000)
+        before = source.read_bytes()
+        request = self._update(source, status="Archived")
+        result = update_atom_action(self.fixture.root, request, execute=True, authorized=True)
+        self.assertEqual("applied", result["outcome"])
+        destination = self.fixture.root / result["observed"]["path"]
+        self.assertEqual(request["proposed"]["content"], atom_from_path(self.fixture.root, destination).content)
+        self.assertEqual(4, result["observed"]["version"])
+        self.assertTrue(destination.name.endswith("@4.md"))
+        self.assertEqual(before, (self.fixture.root / result["history"]["prior_revision"]["path"]).read_bytes())
+
+    def test_complete_status_update_crosses_draft_identity_boundary_both_ways(self) -> None:
+        source = self.fixture.atom("Requirement", "Active", number=8000)
+        before = source.read_bytes()
+        request = self._update(source, status="Draft")
+        request["proposed"]["frontmatter"] = remove_frontmatter_scalar(request["proposed"]["frontmatter"], "atom_id")
+        demoted = update_atom_action(self.fixture.root, request, execute=True, authorized=True)
+        self.assertEqual("applied", demoted["outcome"])
+        self.assertIsNone(demoted["observed"]["atom_id"])
+        draft = self.fixture.root / demoted["observed"]["path"]
+        self.assertEqual(request["proposed"]["content"], atom_from_path(self.fixture.root, draft).content)
+        self.assertEqual(before, (self.fixture.root / demoted["history"]["prior_revision"]["path"]).read_bytes())
+        promoted_request = self._update(draft, status="Active")
+        promoted = update_atom_action(self.fixture.root, promoted_request, execute=True, authorized=True)
+        self.assertEqual("applied", promoted["outcome"])
+        self.assertNotEqual("CA-R-8000", promoted["observed"]["atom_id"])
+        self.assertEqual(5, promoted["observed"]["version"])
+        destination = self.fixture.root / promoted["observed"]["path"]
+        self.assertEqual(promoted_request["proposed"]["content"], atom_from_path(self.fixture.root, destination).content)
+        observed = atom_from_path(self.fixture.root, destination)
+        no_op = {"target": carrier_descriptor(self.fixture.root, observed),
+                 "proposed": {"frontmatter": observed.frontmatter, "content": observed.content},
+                 "change_class": "carrier_only"}
+        snapshot = self.fixture.snapshot()
+        self.assertEqual("no-op", update_atom_action(self.fixture.root, no_op, execute=True, authorized=True)["outcome"])
+        self.assertEqual(snapshot, self.fixture.snapshot())
+
+    def test_missing_old_draft_retry_is_truthful_and_does_not_replay(self) -> None:
+        draft = self._fresh_draft()
+        request = self.fixture.request(draft, "Active")
+        first = self.fixture.execute(copy.deepcopy(request))
         before = self.fixture.snapshot()
         with self.assertRaises(LifecycleError):
-            self.fixture.execute(copy.deepcopy(replay_request))
+            self.fixture.execute(copy.deepcopy(request))
         self.assertEqual(before, self.fixture.snapshot())
+        self.assertEqual(1, sum(atom.atom_id == first["observed"]["atom_id"] for atom in scan_atoms(self.fixture.root)))
 
-    def test_draft_update_rejects_unrelated_and_replayed_current_heads_before_writing(self) -> None:
-        draft_a, _ = self._fresh_draft(container="update-a")
-        _, head_b = self._fresh_draft(container="update-b")
-        original = draft_a.read_text(encoding="utf-8")
-        front, content = original[4:].split("\n---\n", 1)
-        draft_a.write_text(
-            "---\n" + replace_draft_revision_lineage(front, {"history_entry_ref": head_b}) + "\n---\n" + content,
-            encoding="utf-8",
-        )
+    def test_preview_permission_collision_and_unknown_fields_keep_zero_effect(self) -> None:
+        draft = self._fresh_draft()
+        request = self.fixture.request(draft, "Active")
         before = self.fixture.snapshot()
-        with self.assertRaisesRegex(LifecycleError, "own current retained-history head"):
-            update_atom_action(self.fixture.root, self._draft_update(draft_a, suffix="\n"), execute=True, authorized=True)
+        self.assertEqual("preview", change_status_atom_action(self.fixture.root, request)["outcome"])
+        with self.assertRaises(LifecycleError):
+            self.fixture.execute({**request, "draft_identity_evidence": {}})
+        with self.assertRaises(LifecycleError):
+            change_status_atom_action(self.fixture.root, request, execute=True, authorized=False)
         self.assertEqual(before, self.fixture.snapshot())
-
-        replayed, first_head = self._fresh_draft(container="update-replayed")
-        update_atom_action(self.fixture.root, self._draft_update(replayed, suffix="\n"), execute=True, authorized=True)
-        current = replayed.read_text(encoding="utf-8")
-        front, content = current[4:].split("\n---\n", 1)
-        replayed.write_text(
-            "---\n" + replace_draft_revision_lineage(front, {"history_entry_ref": first_head}) + "\n---\n" + content,
-            encoding="utf-8",
-        )
+        self.fixture.atom("Requirement", "Active", number=8000)
+        # Lock creation is runtime coordination, not an Atom effect. Establish
+        # it only after proving preview and unauthorized requests are effect-free.
+        with atom_identity_lock(self.fixture.root):
+            pass
         before = self.fixture.snapshot()
-        with self.assertRaisesRegex(LifecycleError, "own current retained-history head"):
-            update_atom_action(self.fixture.root, self._draft_update(replayed, suffix="\n"), execute=True, authorized=True)
+        with patch("lifecycle_intents._draft_promotion_identity", return_value="CA-R-8000"):
+            with self.assertRaises(LifecycleError):
+                self.fixture.execute(request)
         self.assertEqual(before, self.fixture.snapshot())
 
 
