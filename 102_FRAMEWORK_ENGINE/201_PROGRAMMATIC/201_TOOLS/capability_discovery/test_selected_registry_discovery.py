@@ -74,7 +74,7 @@ class SelectedRegistryDiscoveryTests(unittest.TestCase):
         finally:
             path.write_bytes(saved)
 
-    def test_stale_actual_unselected_pin_withholds_only_ordinary_routes(self):
+    def test_next_discovery_observes_current_unselected_definition(self):
         route = next(row for row in self.manifest["routes"] if row["route"] == "update_atom")
         path = self.root / route["native_action_calls"][0]["source_path"]
         saved = path.read_bytes()
@@ -82,10 +82,38 @@ class SelectedRegistryDiscoveryTests(unittest.TestCase):
         try:
             issues = []
             rows = self.service._admitted_selected_route_tools(issues)
+            self.assertEqual(17, len(rows))
+            self.assertEqual([], issues)
+            context = self.service.context(Context(id="create_atom"))
+            self.assertNotEqual(
+                self.manifest["canonical_manifest_sha256"],
+                context["definition"]["definition_manifest"]["manifest_digest"],
+            )
+        finally:
+            path.write_bytes(saved)
+
+    def test_in_call_unselected_source_drift_withholds_only_ordinary_routes(self):
+        from selected_definition_sources import CurrentDefinitionSources
+
+        route = next(row for row in self.manifest["routes"] if row["route"] == "update_atom")
+        reference = route["native_action_calls"][0]["source_path"]
+        path = self.root / reference
+        saved = path.read_bytes()
+        original = CurrentDefinitionSources.revalidate
+
+        def change_then_validate(sources):
+            self.assertIn(reference, sources.sources)
+            path.write_bytes(saved + b"\nsource drift\n")
+            original(sources)
+
+        try:
+            issues = []
+            with patch.object(CurrentDefinitionSources, "revalidate", change_then_validate):
+                rows = self.service._admitted_selected_route_tools(issues)
             self.assertEqual({"release_version", "public.release"}, {row["name"] for row in rows})
             self.assertEqual(
                 [
-                    "binding evidence stale: refresh source bindings, then re-preview selected routes"
+                    "binding evidence invalid: correct bindings, then re-preview selected routes"
                 ],
                 issues,
             )

@@ -16,6 +16,7 @@ import tempfile
 import threading
 import unittest
 import warnings
+from unittest.mock import patch
 from pathlib import Path
 
 
@@ -30,7 +31,7 @@ sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(VALIDATE))
 
 from atom_operations import ToolError, prepare_create_atom_revision  # noqa: E402
-from validate_atoms_workers import proposed_carrier  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier  # noqa: E402
 from validate_atoms_workers.graph_authority_refresh import (  # noqa: E402
     APPROVED_GRAPH_AUTHORITY_IDS,
     verify_entries,
@@ -369,15 +370,32 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
             )
         )
 
-    def test_stale_graph_authority_and_changed_target_refuse(self) -> None:
+    def test_current_graph_authority_and_post_read_drift(self) -> None:
         self._target("CA-R-950001")
         proposal = self._evaluation("CA-E-950002", ["CA-R-950001"])
 
         graph_entry = self.graph_entries["CA-R-1018"]
         graph_path = self.root / graph_entry["source_path"]
         graph_path.write_text(graph_path.read_text(encoding="utf-8") + "\n", encoding="utf-8")
-        self._refuses(proposal)
+        path, _, atom_id = self._prepare(proposal)
+        self.assertEqual("CA-E-950002", atom_id)
+        self.assertFalse(path.exists())
+        original_read = proposed_carrier.ReadContext.read
+        authority_changed = False
 
+        def read(reader, candidate, *args, **kwargs):
+            nonlocal authority_changed
+            raw = original_read(reader, candidate, *args, **kwargs)
+            if Path(candidate) == graph_path and not authority_changed:
+                authority_changed = True
+                graph_path.write_bytes(raw + b"\nChanged graph authority after observation.\n")
+            return raw
+
+        with patch.object(proposed_carrier.ReadContext, "read", read):
+            self._refuses(proposal)
+        self.assertTrue(authority_changed)
+
+    def test_changed_target_refuses(self) -> None:
         # A fresh isolated Project proves target-currentness separately.  The
         # writer uses atomic replacements of valid carriers; it neither patches
         # the resolver nor manufactures a pin.

@@ -77,17 +77,49 @@ class ProposedTypeAdmissionTests(unittest.TestCase):
             proposed_carrier.validate_proposed_carrier(
                 dict(metadata, type="Action"), body, self.context, path)
 
-    def test_missing_or_changed_type_pin_refuses_context(self):
+    def test_missing_type_source_locator_refuses_context(self):
         original = proposed_carrier._entry
-        for changed in (False, True):
-            def entry(identifier, **kwargs):
-                result = original(identifier, **kwargs)
-                if identifier == "CA-R-1666":
-                    return dict(result, sha256="0" * 64) if changed else {}
-                return result
-            with self.subTest(changed=changed), patch.object(proposed_carrier, "_entry", entry):
-                with self.assertRaises(proposed_carrier.ProposedCarrierError):
-                    proposed_carrier.source_context_from_project(self.root)
+
+        def entry(identifier, **kwargs):
+            return {} if identifier == "CA-R-1666" else original(identifier, **kwargs)
+
+        with patch.object(proposed_carrier, "_entry", entry):
+            with self.assertRaises(proposed_carrier.ProposedCarrierError):
+                proposed_carrier.source_context_from_project(self.root)
+
+    def test_historical_type_hash_does_not_override_current_source(self):
+        original = proposed_carrier._entry
+
+        def entry(identifier, **kwargs):
+            result = original(identifier, **kwargs)
+            return dict(result, sha256="0" * 64) if identifier == "CA-R-1666" else result
+
+        with patch.object(proposed_carrier, "_entry", entry):
+            context = proposed_carrier.source_context_from_project(self.root)
+        source = next(
+            row for row in context.inputs["sources"] if row["binding"]["atom_id"] == "CA-R-1666"
+        )
+        self.assertNotEqual(source["binding"]["sha256"], "0" * 64)
+        proposed_carrier._current(context._reader, context._selection)
+
+    def test_type_authority_changed_after_read_refuses_context(self):
+        entry = proposed_carrier._entry("CA-R-1666")
+        path = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
+        original = proposed_carrier.ReadContext.read
+        changed = False
+
+        def read(reader, candidate, *args, **kwargs):
+            nonlocal changed
+            raw = original(reader, candidate, *args, **kwargs)
+            if Path(candidate) == path and not changed:
+                changed = True
+                path.write_bytes(raw + b"\nChanged after observation.\n")
+            return raw
+
+        with patch.object(proposed_carrier.ReadContext, "read", read):
+            with self.assertRaises(proposed_carrier.ProposedCarrierError):
+                proposed_carrier.source_context_from_project(self.root)
+        self.assertTrue(changed)
 
 
 if __name__ == "__main__":

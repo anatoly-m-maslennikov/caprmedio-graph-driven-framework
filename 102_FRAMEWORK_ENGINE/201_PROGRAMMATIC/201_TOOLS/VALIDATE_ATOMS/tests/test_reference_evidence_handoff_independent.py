@@ -130,14 +130,43 @@ class ReferenceEvidenceHandoffIndependentTests(unittest.TestCase):
         self.assertEqual(result["reference_scope"]["direct_targets"], ["LOCAL-P-710"])
         self.assertEqual(blocking.scoped.fixtures.snapshot(scoped.root), before)
 
-    def test_plan_namespace_authority_changed_after_context_capture_refuses(self):
+    def test_current_plan_namespace_authority_is_observed_before_use(self):
         self.fixture.target("Backlog")
         scoped = self.fixture.fixture
         entry = blocking.scoped.admission._entry("CA-D-378")
         path = scoped.root / scoped.control.joinpath(*Path(entry["source_path"]).parts[1:])
-        path.write_bytes(path.read_bytes() + b"\nChanged identity authority.\n")
-        with self.assertRaises(blocking.scoped.admission.ProposedCarrierError):
-            self.fixture.validate()
+        self.assertNotIn(str(path), scoped.context._reader.fingerprints)
+        raw = path.read_bytes()
+        version = blocking.scoped.admission.parse_carrier(raw, path).metadata["version"]
+        current = raw.replace(
+            f"version: {version}\n".encode(), f"version: {version + 1}\n".encode()
+        )
+        self.assertNotEqual(raw, current)
+        path.write_bytes(current)
+        result = self.fixture.validate()
+        self.assertEqual((result["findings"], result["gaps"]), ([], []))
+        self.assertIn(str(path), scoped.context._reader.fingerprints)
+
+    def test_plan_namespace_authority_changed_after_read_refuses(self):
+        self.fixture.target("Backlog")
+        scoped = self.fixture.fixture
+        entry = blocking.scoped.admission._entry("CA-D-378")
+        path = scoped.root / scoped.control.joinpath(*Path(entry["source_path"]).parts[1:])
+        original = blocking.scoped.admission.ReadContext.read
+        changed = False
+
+        def read(reader, candidate, *args, **kwargs):
+            nonlocal changed
+            raw = original(reader, candidate, *args, **kwargs)
+            if Path(candidate) == path and not changed:
+                changed = True
+                path.write_bytes(raw + b"\nChanged identity authority after observation.\n")
+            return raw
+
+        with patch.object(blocking.scoped.admission.ReadContext, "read", read):
+            with self.assertRaises(blocking.scoped.admission.ProposedCarrierError):
+                self.fixture.validate()
+        self.assertTrue(changed)
 
 
 if __name__ == "__main__":
