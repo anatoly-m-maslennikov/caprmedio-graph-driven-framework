@@ -2,8 +2,8 @@
 subjects:
   governs: "evaluation"
   depends_on: []
-version: 15
-updated_at: "2026-10-05 00:12:28 +0000"
+version: 16
+updated_at: "2026-10-15 22:17:55 +0400"
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -56,4 +56,4 @@ Stop `GRAPH_SERVER`, reject the interaction as unsafe **or** stale, **and** reco
 ## Sources
 
 - [CA-R-1077 — Serve live graph sources read-only](../04_requirement/CA-R-1077-GRAPH_SERVER-REQUIREMENT--serve-live-graph-sources-read-only.md)
-- [CA-M-154 — Serve live graph sources without mutation](../05_method/CA-M-154-GRAPH_SERVER-CORE-METHOD--serve-live-graph-sources-without-mutation.md)
+- [CA-M-154 — Serve live graph sources without mutation](../05_method/CA-M-154-GRAPH_SERVER--serve-live-graph-sources-without-mutation.md)

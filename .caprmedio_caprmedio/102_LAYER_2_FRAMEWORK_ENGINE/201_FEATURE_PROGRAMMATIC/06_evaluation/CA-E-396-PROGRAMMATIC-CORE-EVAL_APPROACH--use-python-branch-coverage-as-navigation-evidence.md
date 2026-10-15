@@ -5,8 +5,8 @@ subjects:
   governs: "branch-coverage"
   depends_on:
     - "programmatic software"
-version: 7
-updated_at: "2026-09-11 20:58:34 +0400"
+version: 8
+updated_at: "2026-10-15 22:18:07 +0400"
 relations:
   evaluation_for:
     - CA-M-285
@@ -40,4 +40,4 @@ reject reliance based solely on the coverage percentage.
 ## Sources
 
 - [Coverage.py: branch coverage](https://coverage.readthedocs.io/en/latest/branch.html)
-- [CA-M-285 — Select software Evaluation techniques by failure mode](../05_method/CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode.md)
+- [CA-M-285 — Select software Evaluation techniques by failure mode](../05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md)

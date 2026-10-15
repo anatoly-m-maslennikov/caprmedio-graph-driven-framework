@@ -2,8 +2,8 @@
 subjects:
   governs: "evaluation"
   depends_on: []
-version: 15
-updated_at: "2026-10-05 00:10:14 +0000"
+version: 16
+updated_at: "2026-10-15 22:17:55 +0400"
 llm_session_ids:
   - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -58,4 +58,4 @@ Reject the MRT build, identify the first missing, extra, ambiguous, stale, incor
 ## Sources
 
 - [CA-R-1076 — Render interconnected HTML graph views](../04_requirement/CA-R-1076-GRAPH_UI-REQUIREMENT--render-interconnected-html-graph-views.md)
-- [CA-M-153 — Render and navigate active graph HTML](../05_method/CA-M-153-GRAPH_UI-CORE-METHOD--render-and-navigate-active-graph-html.md)
+- [CA-M-153 — Render and navigate active graph HTML](../05_method/CA-M-153-GRAPH_UI--render-and-navigate-active-graph-html.md)

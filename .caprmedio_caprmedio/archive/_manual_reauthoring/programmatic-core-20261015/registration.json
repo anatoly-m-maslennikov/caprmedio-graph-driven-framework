@@ -1,0 +1,116 @@
+{
+  "kind": "operator-authorized-direct-file-reauthoring",
+  "recorded_at": "2026-10-15 22:15:20 +0400",
+  "session_id": "01a01cb4-e15e-78d1-9084-766bf6b0cd63",
+  "authorization": "Operator confirmed direct-file registration of actual Draft history, activation and unambiguous tier changes; no MCP execution is claimed.",
+  "evidence_directory": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015",
+  "entries": [
+    {
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-CORE--bound-resource-use-to-the-workload.md",
+      "source_sha256": "cce9793f2c4448e821bb5368e1e49a27c70434e00c17c976c11b7f50cdfb10a7",
+      "original_proposal_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/original_proposals/CA-M--PROGRAMMATIC-CORE--bound-resource-use-to-the-workload.md",
+      "disposition": "new-draft-to-active",
+      "atom_id": "CA-M-386",
+      "head_ref": {
+        "history_revision": "bffa55b5a6e943b683726e64fbd9ba1c",
+        "path": ".caprmedio_caprmedio/archive/_draft_history/bffa55b5a6e943b683726e64fbd9ba1c.json"
+      },
+      "registered_sha256": "52056ab80b63a723d9262a0e4545aaa32eb54fc9d611eba90b5af15379baec70",
+      "registered_draft_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/registered_drafts/CA-M--PROGRAMMATIC-CORE--bound-resource-use-to-the-workload.md",
+      "active_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-386-PROGRAMMATIC-CORE--bound-resource-use-to-the-workload.md"
+    },
+    {
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-CORE--implement-only-declared-business-logic.md",
+      "source_sha256": "430d2ac80bd66ca06654763ad3686c5531a1a304a7be645c690b80e77bc1acd4",
+      "original_proposal_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/original_proposals/CA-M--PROGRAMMATIC-CORE--implement-only-declared-business-logic.md",
+      "disposition": "already-satisfied-by-existing-active-atom",
+      "atom_id": "CA-M-384",
+      "active_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-384-PROGRAMMATIC-CORE-METHOD--implement-only-declared-business-logic.md",
+      "active_sha256": "e82189f3a711385ae1abae50e8e14d04a461e4d434ce47dd50d2711da9201740"
+    },
+    {
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-CORE--keep-one-canonical-owner-of-behavior.md",
+      "source_sha256": "d87800c5b66b1feb19313855a949c9df68645a6a731ef44982871140ab330928",
+      "original_proposal_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/original_proposals/CA-M--PROGRAMMATIC-CORE--keep-one-canonical-owner-of-behavior.md",
+      "disposition": "new-draft-to-active",
+      "atom_id": "CA-M-387",
+      "head_ref": {
+        "history_revision": "d840c56ffc454b938fcd7c09dbdfbea9",
+        "path": ".caprmedio_caprmedio/archive/_draft_history/d840c56ffc454b938fcd7c09dbdfbea9.json"
+      },
+      "registered_sha256": "2863ef59178d943d69b5552d0d751df9c4f2beba57076e0edb5a52723d166522",
+      "registered_draft_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/registered_drafts/CA-M--PROGRAMMATIC-CORE--keep-one-canonical-owner-of-behavior.md",
+      "active_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-387-PROGRAMMATIC-CORE--keep-one-canonical-owner-of-behavior.md"
+    },
+    {
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-CORE--limit-effects-to-the-authorized-target-and-delta.md",
+      "source_sha256": "bd0f6c308c83abc1d21bbe1f36ff46149efd6ab9c4e565431e4f4eb4c8e1e902",
+      "original_proposal_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/original_proposals/CA-M--PROGRAMMATIC-CORE--limit-effects-to-the-authorized-target-and-delta.md",
+      "disposition": "new-draft-to-active",
+      "atom_id": "CA-M-388",
+      "head_ref": {
+        "history_revision": "dbe8ae8cb52047d4a6e61c0f6108d6eb",
+        "path": ".caprmedio_caprmedio/archive/_draft_history/dbe8ae8cb52047d4a6e61c0f6108d6eb.json"
+      },
+      "registered_sha256": "92a7b8d16fdb6ce1b4eb8253864feb5fe33575fea399338bd1a1029f84a5c12c",
+      "registered_draft_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/registered_drafts/CA-M--PROGRAMMATIC-CORE--limit-effects-to-the-authorized-target-and-delta.md",
+      "active_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-388-PROGRAMMATIC-CORE--limit-effects-to-the-authorized-target-and-delta.md"
+    },
+    {
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-CORE--pass-validated-configuration-through-one-shared-boundary.md",
+      "source_sha256": "9b3d2b5e0be93d9bbfc3d8d59c50da846ea7b4191674abf5921eb27894caeb7a",
+      "original_proposal_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/original_proposals/CA-M--PROGRAMMATIC-CORE--pass-validated-configuration-through-one-shared-boundary.md",
+      "disposition": "new-draft-to-active",
+      "atom_id": "CA-M-389",
+      "head_ref": {
+        "history_revision": "9c6456070f7e481382dccf1159f6f08c",
+        "path": ".caprmedio_caprmedio/archive/_draft_history/9c6456070f7e481382dccf1159f6f08c.json"
+      },
+      "registered_sha256": "228221794f2268a150e4997efc95bdfa26e27b646b5802e94d9cd7529961d588",
+      "registered_draft_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/registered_drafts/CA-M--PROGRAMMATIC-CORE--pass-validated-configuration-through-one-shared-boundary.md",
+      "active_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-389-PROGRAMMATIC-CORE--pass-validated-configuration-through-one-shared-boundary.md"
+    },
+    {
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-CORE--report-outcomes-from-observed-evidence.md",
+      "source_sha256": "6defb2d15982ef3c370e3fcd1e21d3fea51061ec5c1a57e426082829ebfbc2fc",
+      "original_proposal_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/original_proposals/CA-M--PROGRAMMATIC-CORE--report-outcomes-from-observed-evidence.md",
+      "disposition": "new-draft-to-active",
+      "atom_id": "CA-M-390",
+      "head_ref": {
+        "history_revision": "96ce38539b6f4195bc5fa033eecab17b",
+        "path": ".caprmedio_caprmedio/archive/_draft_history/96ce38539b6f4195bc5fa033eecab17b.json"
+      },
+      "registered_sha256": "77ec32f71177b7602719a245531388739686eb75b1f549f025e4ef73eeaa605e",
+      "registered_draft_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/registered_drafts/CA-M--PROGRAMMATIC-CORE--report-outcomes-from-observed-evidence.md",
+      "active_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-390-PROGRAMMATIC-CORE--report-outcomes-from-observed-evidence.md"
+    },
+    {
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-CORE--reuse-suitable-established-solutions.md",
+      "source_sha256": "8e7031d9d1c662ec39f3c998836c76827c67e98492eaa432c6a27624faa867ba",
+      "original_proposal_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/original_proposals/CA-M--PROGRAMMATIC-CORE--reuse-suitable-established-solutions.md",
+      "disposition": "new-draft-to-active",
+      "atom_id": "CA-M-391",
+      "head_ref": {
+        "history_revision": "d0431d8b57bf4d7193e22b12b2c06e49",
+        "path": ".caprmedio_caprmedio/archive/_draft_history/d0431d8b57bf4d7193e22b12b2c06e49.json"
+      },
+      "registered_sha256": "e6f4c4bc4f00f977c44d116a2f550b2b665d6c46a6f7cabb22bf4786381d3f2a",
+      "registered_draft_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/registered_drafts/CA-M--PROGRAMMATIC-CORE--reuse-suitable-established-solutions.md",
+      "active_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-391-PROGRAMMATIC-CORE--reuse-suitable-established-solutions.md"
+    },
+    {
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-CORE--separate-pure-computation-from-effects-and-recording.md",
+      "source_sha256": "bf920f3e0b5fcfd26620c805a1fd5b7311ae1eb858e2ec10aa3aac1369be23a8",
+      "original_proposal_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/original_proposals/CA-M--PROGRAMMATIC-CORE--separate-pure-computation-from-effects-and-recording.md",
+      "disposition": "new-draft-to-active",
+      "atom_id": "CA-M-392",
+      "head_ref": {
+        "history_revision": "f7d2c9bb18fc408f9bfe5774b5548a9e",
+        "path": ".caprmedio_caprmedio/archive/_draft_history/f7d2c9bb18fc408f9bfe5774b5548a9e.json"
+      },
+      "registered_sha256": "19d9845b455fcf42009091ec22d64aead1c094a45181ddcdedcbffe4f279d62f",
+      "registered_draft_evidence": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/registered_drafts/CA-M--PROGRAMMATIC-CORE--separate-pure-computation-from-effects-and-recording.md",
+      "active_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-392-PROGRAMMATIC-CORE--separate-pure-computation-from-effects-and-recording.md"
+    }
+  ]
+}

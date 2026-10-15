@@ -5,8 +5,8 @@ subjects:
   governs: "mutation-testing"
   depends_on:
     - "programmatic software"
-version: 7
-updated_at: "2026-09-11 20:58:34 +0400"
+version: 8
+updated_at: "2026-10-15 22:18:07 +0400"
 relations:
   evaluation_for:
     - CA-M-285
@@ -41,4 +41,4 @@ Hooks.
 ## Sources
 
 - [Mutmut documentation](https://mutmut.readthedocs.io/en/latest/)
-- [CA-M-285 — Select software Evaluation techniques by failure mode](../05_method/CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode.md)
+- [CA-M-285 — Select software Evaluation techniques by failure mode](../05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md)

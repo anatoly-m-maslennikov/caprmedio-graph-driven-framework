@@ -5,8 +5,8 @@ subjects:
   governs: "golden-baseline"
   depends_on:
     - "programmatic software"
-version: 8
-updated_at: "2026-09-24 17:18:07 +0000"
+version: 9
+updated_at: "2026-10-15 22:18:07 +0400"
 relations:
   evaluation_for:
     - CA-M-285
@@ -39,7 +39,7 @@ review.
 ## Sources
 
 - [Syrupy snapshot testing](https://github.com/syrupy-project/syrupy)
-- [CA-M-285 — Select software Evaluation techniques by failure mode](../05_method/CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode.md)
+- [CA-M-285 — Select software Evaluation techniques by failure mode](../05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md)
 
 ### Golden-corpus cases
 

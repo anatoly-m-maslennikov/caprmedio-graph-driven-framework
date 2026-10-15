@@ -8,8 +8,8 @@ local_tier: Core
 global_tier: 6
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 03:52:53 +0400"
+version: 2
+updated_at: "2026-10-15 22:18:07 +0400"
 subjects:
   governs: "canary-evaluation-admission"
   depends_on:
@@ -44,4 +44,4 @@ given a proposed change, canary cohort **or** shadow surface, workload, control,
 
 - [Google SRE Workbook — Canarying Releases](https://sre.google/workbook/canarying-releases/)
 - [Microsoft Azure Well-Architected Framework — Safe deployment practices](https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments)
-- [CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode](../05_method/CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode.md)
+- [CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode](../05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md)

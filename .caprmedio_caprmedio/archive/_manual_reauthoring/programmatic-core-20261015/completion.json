@@ -1,0 +1,210 @@
+{
+  "recorded_at": "2026-10-15 22:20:17 +0400",
+  "scope": "Operator-authorized manual activation and unambiguous retiering",
+  "activation_manifest": ".caprmedio_caprmedio/archive/_manual_reauthoring/programmatic-core-20261015/activation.json",
+  "tier_changes": [
+    {
+      "atom_id": "CA-M-285",
+      "before_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode.md",
+      "before_sha256": "703a3fac4c89f3ccf117478bd7a762a92867a3cf6db96b32866561cd2cd0f49d",
+      "before_version": 12,
+      "after_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md",
+      "after_sha256": "ea8701cf82a1a6318034073f24668b72e95c9a5b7a2b9553d40b157b9a0bcf0f",
+      "after_version": 13,
+      "local_tier": "Standard",
+      "global_tier": 8,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/archive/CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode@12.md",
+      "body_unchanged": true
+    },
+    {
+      "atom_id": "CA-M-358",
+      "before_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-358-PROGRAMMATIC-CORE-METHOD--run-project-python-only-in-uv-managed-isolated-environments.md",
+      "before_sha256": "83c589176ea647c383fc7a038b3e39fc986cccaf9163b436d7889033add1fcfc",
+      "before_version": 1,
+      "after_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-358-PROGRAMMATIC-GENERAL--run-project-python-only-in-uv-managed-isolated-environments.md",
+      "after_sha256": "983158e69ba9f191967702b481fd146377326a9a2160eff3b91870dbc75cbb4f",
+      "after_version": 2,
+      "local_tier": "General",
+      "global_tier": 7,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/archive/CA-M-358-PROGRAMMATIC-CORE-METHOD--run-project-python-only-in-uv-managed-isolated-environments@1.md",
+      "body_unchanged": true
+    },
+    {
+      "atom_id": "CA-M-153",
+      "before_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/GRAPH_UI/05_method/CA-M-153-GRAPH_UI-CORE-METHOD--render-and-navigate-active-graph-html.md",
+      "before_sha256": "05abcbe30c7abaa532c2cc4aee9ebce17103b4e56c6aef387df18a535c6638ab",
+      "before_version": 15,
+      "after_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/GRAPH_UI/05_method/CA-M-153-GRAPH_UI--render-and-navigate-active-graph-html.md",
+      "after_sha256": "bc8ffa70a72983d8dda7421b75dc796055c97bfbf8a5fae62e12169ca1bc018f",
+      "after_version": 16,
+      "local_tier": "Standard",
+      "global_tier": 14,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/GRAPH_UI/05_method/archive/CA-M-153-GRAPH_UI-CORE-METHOD--render-and-navigate-active-graph-html@15.md",
+      "body_unchanged": true
+    },
+    {
+      "atom_id": "CA-M-154",
+      "before_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/GRAPH_SERVER/05_method/CA-M-154-GRAPH_SERVER-CORE-METHOD--serve-live-graph-sources-without-mutation.md",
+      "before_sha256": "57843e579ab28513951ee61f3076899b659b19965a63815c7b083e435a1fa3af",
+      "before_version": 14,
+      "after_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/GRAPH_SERVER/05_method/CA-M-154-GRAPH_SERVER--serve-live-graph-sources-without-mutation.md",
+      "after_sha256": "4ba5853ba7937f977d515b48e248c164d0824342d9916be2c9084cebbad3337f",
+      "after_version": 15,
+      "local_tier": "Standard",
+      "global_tier": 14,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/GRAPH_SERVER/05_method/archive/CA-M-154-GRAPH_SERVER-CORE-METHOD--serve-live-graph-sources-without-mutation@14.md",
+      "body_unchanged": true
+    },
+    {
+      "atom_id": "CA-M-373",
+      "before_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/CA-M-373-TOOL_WORKFLOWS-CORE-METHOD--apply-one-explicit-atom-section-edit.md",
+      "before_sha256": "e31341fe536024f3b68b8f4358e750ae8504b5f02637fc582a742b6df1fc4163",
+      "before_version": 2,
+      "after_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/CA-M-373-TOOL_WORKFLOWS-METHOD--apply-one-explicit-atom-section-edit.md",
+      "after_sha256": "5444a9c6399dec1c9c7023acee5581067183a2595a470c0f6ac70f8157c21285",
+      "after_version": 3,
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/archive/CA-M-373-TOOL_WORKFLOWS-CORE-METHOD--apply-one-explicit-atom-section-edit@2.md",
+      "body_unchanged": true
+    },
+    {
+      "atom_id": "CA-M-374",
+      "before_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/CA-M-374-TOOL_WORKFLOWS-CORE-METHOD--apply-one-explicit-atom-property-edit.md",
+      "before_sha256": "59a0fba1131d8ef81d415436100f52124e5654c4ae0dbb47cfdc6d973062b411",
+      "before_version": 2,
+      "after_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/CA-M-374-TOOL_WORKFLOWS-METHOD--apply-one-explicit-atom-property-edit.md",
+      "after_sha256": "6cd34f9b418a38ac01279eecc32c89510c2d5404df049e92062a4c25457d81e6",
+      "after_version": 3,
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/archive/CA-M-374-TOOL_WORKFLOWS-CORE-METHOD--apply-one-explicit-atom-property-edit@2.md",
+      "body_unchanged": true
+    },
+    {
+      "atom_id": "CA-M-375",
+      "before_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/CA-M-375-TOOL_WORKFLOWS-CORE-METHOD--apply-one-configuration-workflow-through-the-shared-toml-connector.md",
+      "before_sha256": "82fa2b8bf7129e723e25e411753e8d10849dcc798963c973d0610e1ad3d4d70e",
+      "before_version": 4,
+      "after_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/CA-M-375-TOOL_WORKFLOWS-METHOD--apply-one-configuration-workflow-through-the-shared-toml-connector.md",
+      "after_sha256": "d0dd9149939a264960e630d535e7e94786204e7c5896d3d95000b8411daf8e1a",
+      "after_version": 5,
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/archive/CA-M-375-TOOL_WORKFLOWS-CORE-METHOD--apply-one-configuration-workflow-through-the-shared-toml-connector@4.md",
+      "body_unchanged": true
+    }
+  ],
+  "dependent_link_repairs": [
+    {
+      "atom_id": "CA-E-067",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/GRAPH_UI/06_evaluation/CA-E-067-GRAPH_UI-QA_CASE--interactive-html-graph-view-behavior.md",
+      "before_sha256": "9fe1c0f737f2c6b1d5f0f39618f6b5a9be965ae687d80112c6ed28e521930b1d",
+      "after_sha256": "3368b01044316db302bead640a311c4bff8c30dd964d825ea8f0dcb8222d974f",
+      "before_version": 15,
+      "after_version": 16,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/GRAPH_UI/06_evaluation/archive/CA-E-067-GRAPH_UI-QA_CASE--interactive-html-graph-view-behavior@15.md",
+      "changes": "relative-link-destination-only; Version and timestamp",
+      "legacy_identity_metadata_unchanged": true
+    },
+    {
+      "atom_id": "CA-E-068",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/GRAPH_SERVER/06_evaluation/CA-E-068-GRAPH_SERVER-QA_CASE--live-graph-source-read-safety-and-freshness.md",
+      "before_sha256": "0b9c7c3e025c015f35372a55a17d978db387e6759335ef3daa1f57e7bd9710a5",
+      "after_sha256": "d868a609532af9d34620c3a0e055c7a4dd8c75c97da498ee9eea7b67ae59df5e",
+      "before_version": 15,
+      "after_version": 16,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/GRAPH_SERVER/06_evaluation/archive/CA-E-068-GRAPH_SERVER-QA_CASE--live-graph-source-read-safety-and-freshness@15.md",
+      "changes": "relative-link-destination-only; Version and timestamp",
+      "legacy_identity_metadata_unchanged": true
+    },
+    {
+      "atom_id": "CA-E-389",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-389-PROGRAMMATIC-CORE-EVAL_APPROACH--combine-complementary-software-behavior-evidence.md",
+      "before_sha256": "65e70b899c3b47c0df205d474df34b4c86073d921d962b2a9fb32f89997d1713",
+      "after_sha256": "b72379418548f3dab5a33b3315baac188f5d52d631f7ea10d960e50b4fb147c3",
+      "before_version": 10,
+      "after_version": 11,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-389-PROGRAMMATIC-CORE-EVAL_APPROACH--combine-complementary-software-behavior-evidence@10.md",
+      "changes": "relative-link-destination-only; Version and timestamp",
+      "legacy_identity_metadata_unchanged": true
+    },
+    {
+      "atom_id": "CA-E-390",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-390-PROGRAMMATIC-CORE-EVAL_APPROACH--compare-deterministic-outputs-with-reviewed-golden-baselines.md",
+      "before_sha256": "16153d80b8cb83492fbb1e57ba6efcc7c0357aaa0ee911b6d5798ba25eee5503",
+      "after_sha256": "2dfd1e064c52b2eefc0a8093f5cf120c86168c6fe7371eddf3dc3ff600f7d42d",
+      "before_version": 8,
+      "after_version": 9,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-390-PROGRAMMATIC-CORE-EVAL_APPROACH--compare-deterministic-outputs-with-reviewed-golden-baselines@8.md",
+      "changes": "relative-link-destination-only; Version and timestamp",
+      "legacy_identity_metadata_unchanged": true
+    },
+    {
+      "atom_id": "CA-E-391",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-391-PROGRAMMATIC-CORE-EVAL_APPROACH--detect-weak-python-assertions-through-mutation-testing.md",
+      "before_sha256": "0cf0956db4772ed5363bdc9cabdd15aa3ebed3067926bc1aaa5a4dba3467f4ad",
+      "after_sha256": "1bddd4b9a76679d2f3b133c45514ac7ee8845a7bb41faa81fd965009ba367950",
+      "before_version": 7,
+      "after_version": 8,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-391-PROGRAMMATIC-CORE-EVAL_APPROACH--detect-weak-python-assertions-through-mutation-testing@7.md",
+      "changes": "relative-link-destination-only; Version and timestamp",
+      "legacy_identity_metadata_unchanged": true
+    },
+    {
+      "atom_id": "CA-E-395",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-395-PROGRAMMATIC-CORE-EVAL_APPROACH--fuzz-parsers-and-stateful-boundaries.md",
+      "before_sha256": "8860032af7949b78f27ad13591ca844ae3123233777afb1d0cef4c816b95f64e",
+      "after_sha256": "57bda4a16e939dc54ac69130f0c2671f2d1f6bf4b1318cac1bab81827a5c14aa",
+      "before_version": 7,
+      "after_version": 8,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-395-PROGRAMMATIC-CORE-EVAL_APPROACH--fuzz-parsers-and-stateful-boundaries@7.md",
+      "changes": "relative-link-destination-only; Version and timestamp",
+      "legacy_identity_metadata_unchanged": true
+    },
+    {
+      "atom_id": "CA-E-396",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-396-PROGRAMMATIC-CORE-EVAL_APPROACH--use-python-branch-coverage-as-navigation-evidence.md",
+      "before_sha256": "25a9f7858d2d2fdebaa91fd2098363798fd6071fa8c318a05643d2a1e509f6b2",
+      "after_sha256": "caa394dc93457b2719d321c4bc6da9c6c6090bcd99d8e147da09a0b3cf27f4ac",
+      "before_version": 7,
+      "after_version": 8,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-396-PROGRAMMATIC-CORE-EVAL_APPROACH--use-python-branch-coverage-as-navigation-evidence@7.md",
+      "changes": "relative-link-destination-only; Version and timestamp",
+      "legacy_identity_metadata_unchanged": true
+    },
+    {
+      "atom_id": "CA-E-536",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-536-PROGRAMMATIC-CORE-EVAL_APPROACH--admit-safe-canary-evaluation.md",
+      "before_sha256": "afd30122f958348b8886144bfbf6554e99981f2aaa4b5894a0db2942da90b6b1",
+      "after_sha256": "22d7e147c2133f688ad25c203512dcdf75b052d18a443637c40e1fbc4f71773a",
+      "before_version": 1,
+      "after_version": 2,
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-536-PROGRAMMATIC-CORE-EVAL_APPROACH--admit-safe-canary-evaluation@1.md",
+      "changes": "relative-link-destination-only; Version and timestamp",
+      "legacy_identity_metadata_unchanged": true
+    }
+  ],
+  "schema_pin_update": {
+    "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/schema_authority.json",
+    "atom_id": "CA-M-373",
+    "semantic_body_unchanged": true
+  },
+  "verification": {
+    "activation_independent_review": "pass",
+    "source_metadata_body_archive_and_link_assertions": "pass",
+    "schema_tests": "40 passed",
+    "draft_lifecycle_tests": "25 attempted; temporary fixture cleanup permission failures persisted on host-access retry; not passing",
+    "full_suite": "not run",
+    "runtime_and_MCP": "not refreshed or revalidated",
+    "legacy_E_identity_migration": "not performed; existing metadata retained"
+  },
+  "held_atom_ids": [
+    "CA-M-104",
+    "CA-M-110",
+    "CA-M-281",
+    "CA-M-284",
+    "CA-M-372",
+    "CA-M-376"
+  ]
+}

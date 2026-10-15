@@ -15,8 +15,8 @@ subjects:
     - "Spec"
     - "Evaluation"
     - "Implementation"
-version: 10
-updated_at: "2026-10-04 03:52:53 +0400"
+version: 11
+updated_at: "2026-10-15 22:18:07 +0400"
 relations:
   evaluation_for:
     - CA-M-285
@@ -61,4 +61,4 @@ given the applicable Spec, declared failure predicates, proposed Evaluation port
 - [Spadini et al. — Mock objects for testing Java systems](https://link.springer.com/article/10.1007/s10664-018-9663-0)
 - [Google Testing Blog — How Much Testing is Enough?](https://testing.googleblog.com/2021/06/how-much-testing-is-enough.html)
 - [Productive Coverage: Improving the Actionability of Code Coverage](https://research.google/pubs/productive-coverage-improving-the-actionability-of-code-coverage/)
-- [CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode](../05_method/CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode.md)
+- [CA-M-285-PROGRAMMATIC-CORE-METHOD--select-software-evaluation-techniques-by-failure-mode](../05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md)
