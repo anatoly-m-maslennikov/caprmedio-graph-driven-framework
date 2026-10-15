@@ -1,0 +1,1248 @@
+{
+  "projection_kind": "non_authoritative_consumer_review",
+  "reviewed_on": "2026-10-15",
+  "intent": "Bounded consumer analysis for CA-M-110, CA-M-281, and CA-M-284 tier/filename repair and compact Method-projection regeneration; no runtime behavior change.",
+  "consumer_edit_disposition": {
+    "applied_at": "2026-10-15 23:23:10 +0400",
+    "carrier_only": true,
+    "method_filename_target_type": "IMPLEMENTATION_METHOD",
+    "changes": [
+      {
+        "atom_id": "CA-E-253",
+        "current_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-253-PROGRAMMATIC-QA_CASE--verify-changed-component-technical-contract-conformance.md",
+        "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-253-PROGRAMMATIC-QA_CASE--verify-changed-component-technical-contract-conformance@11.md",
+        "old": {"version": 11, "sha256": "04f3f195f80d78cd82ef5ba37d7b0096ea02969f0f9e0b1344801f72ca011fe0"},
+        "new": {"version": 12, "sha256": "2180e4e0c2e61de0af7af5ebb672006851d3e490fb017f2f35f3d5c1591e5509"},
+        "transform": "one direct M110 filename link: CORE-IMPL_METHOD to GENERAL-IMPLEMENTATION_METHOD"
+      },
+      {
+        "atom_id": "CA-E-254",
+        "current_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-254-PROGRAMMATIC-QA_CASE--reject-incomplete-technical-contract-exception.md",
+        "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-254-PROGRAMMATIC-QA_CASE--reject-incomplete-technical-contract-exception@10.md",
+        "old": {"version": 10, "sha256": "cfae5759766dca15fc757dc9f56d95968c6be39f4e48165ef8912c37bee0ff33"},
+        "new": {"version": 11, "sha256": "1ad6960bb8ce7a0be0c6e3dd548c660c9fd08ce937faa8e3810c18bce2ffcfa6"},
+        "transform": "one direct M110 filename link: CORE-IMPL_METHOD to GENERAL-IMPLEMENTATION_METHOD"
+      },
+      {
+        "atom_id": "CA-E-255",
+        "current_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-255-PROGRAMMATIC-QA_CASE--verify-installed-selected-runtime-component.md",
+        "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-255-PROGRAMMATIC-QA_CASE--verify-installed-selected-runtime-component@11.md",
+        "old": {"version": 11, "sha256": "953e4828ab29b8456afe94dda15a8488546484ff3c6f121b46e68d3e3d264d7c"},
+        "new": {"version": 12, "sha256": "c58dba0543cb752a137e1253161d80c37c2cdee7db1b14525909a830a8516c45"},
+        "transform": "one direct M110 filename link: CORE-IMPL_METHOD to GENERAL-IMPLEMENTATION_METHOD"
+      },
+      {
+        "atom_id": "CA-E-452",
+        "current_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-452-PROGRAMMATIC-QA_CASE--verify-one-python-technical-configuration-boundary.md",
+        "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-452-PROGRAMMATIC-QA_CASE--verify-one-python-technical-configuration-boundary@9.md",
+        "old": {"version": 9, "sha256": "ca158fa83aa79cc6ff0c83416cde64c5b37d67fe8f30307d53bdac5884bc55cc"},
+        "new": {"version": 10, "sha256": "4bf8c284a0f62ce6c4c9d9ca506b0486e141d5f351b03ee96179cbe27c297606"},
+        "transform": "one direct M281 filename link: CORE-METHOD to GENERAL-IMPLEMENTATION_METHOD"
+      },
+      {
+        "atom_id": "CA-E-454",
+        "current_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-454-PROGRAMMATIC-QA_CASE--use-one-settings-reader-across-engine-software.md",
+        "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-454-PROGRAMMATIC-QA_CASE--use-one-settings-reader-across-engine-software@5.md",
+        "old": {"version": 5, "sha256": "8964fed68dec1582d62dc7d05bba7688c973b687da96d994e683e78b1741fd18"},
+        "new": {"version": 6, "sha256": "c0520b6918b5fbded7968239ca9719731358c548ab704e679b3380f4d34a46ec"},
+        "transform": "one direct M284 filename link: CORE-METHOD to GENERAL-IMPLEMENTATION_METHOD"
+      },
+      {
+        "atom_id": "CA-D-250",
+        "current_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/07_delivery/CA-D-250-PROGRAMMATIC-CORE-DELIVERY--provide-programmatic-software-carriers.md",
+        "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/07_delivery/archive/CA-D-250-PROGRAMMATIC-CORE-DELIVERY--provide-programmatic-software-carriers@10.md",
+        "old": {"version": 10, "sha256": "b16eaf263c4acc7842efe5ac4c70ac106a5e1fa09d78af5b6fc66328e207e209"},
+        "new": {"version": 11, "sha256": "6dc4ecc561fa28ddb1f50ad2faa17c84679174548ae46dbfd65b88361b060e0a"},
+        "transform": "two malformed long M281 tokens replaced by stable CA-M-281: one delivery_for relation and one body reference"
+      }
+    ]
+  },
+  "targets": [
+    {
+      "atom_id": "CA-M-110",
+      "carrier": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-110-PROGRAMMATIC-CORE-IMPL_METHOD--implement-programmatic-components-in-python.md",
+      "filename": "CA-M-110-PROGRAMMATIC-CORE-IMPL_METHOD--implement-programmatic-components-in-python.md",
+      "version": 20,
+      "sha256": "9ed2111d173386a6603d9ef7730a102d8d2321c53db7e9ffac8d9eb04890cf11",
+      "current_scope_unit": "PROGRAMMATIC",
+      "local_tier": null,
+      "global_tier": null,
+      "status": "Active"
+    },
+    {
+      "atom_id": "CA-M-281",
+      "carrier": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-281-PROGRAMMATIC-CORE-METHOD--declare-one-python-and-software-configuration-boundary.md",
+      "filename": "CA-M-281-PROGRAMMATIC-CORE-METHOD--declare-one-python-and-software-configuration-boundary.md",
+      "version": 12,
+      "sha256": "97214905f3ac1ff6cbf01d40036a4824d419d66a38e96e1b35aa6afbfa97be1d",
+      "current_scope_unit": "PROGRAMMATIC",
+      "local_tier": null,
+      "global_tier": null,
+      "status": "Active"
+    },
+    {
+      "atom_id": "CA-M-284",
+      "carrier": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-284-PROGRAMMATIC-CORE-METHOD--read-engine-settings-through-one-shared-boundary.md",
+      "filename": "CA-M-284-PROGRAMMATIC-CORE-METHOD--read-engine-settings-through-one-shared-boundary.md",
+      "version": 14,
+      "sha256": "511958b7bb1701039215209b3be552a4b25485c48d56d19fab10c5a95564ed98",
+      "current_scope_unit": "PROGRAMMATIC",
+      "local_tier": null,
+      "global_tier": null,
+      "status": "Active"
+    }
+  ],
+  "intra_target_relations": [
+    {
+      "consumer": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-281-PROGRAMMATIC-CORE-METHOD--declare-one-python-and-software-configuration-boundary.md",
+      "target": "CA-M-110",
+      "form": "relations.child_of",
+      "action_if_identity_splits": "rebind deliberately; no update for a tier/filename-only repair"
+    },
+    {
+      "consumer": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-284-PROGRAMMATIC-CORE-METHOD--read-engine-settings-through-one-shared-boundary.md",
+      "target": "CA-M-110",
+      "form": "relations.child_of",
+      "action_if_identity_splits": "rebind deliberately; no update for a tier/filename-only repair"
+    }
+  ],
+  "scope": {
+    "searched": [
+      ".caprmedio_caprmedio source Markdown",
+      "102_FRAMEWORK_ENGINE Python",
+      "tests Python",
+      "pyproject.toml"
+    ],
+    "excluded_from_mutation": [
+      "archive",
+      "archived",
+      "_projection except the named compact projection",
+      "_journal",
+      "execution_evidence"
+    ],
+    "stable_identity_rule": "Atom IDs remain the durable reference; path/tier/Version/digest observations have distinct meanings."
+  },
+  "required_actions": {
+    "compact_projection": {
+      "path": ".caprmedio_caprmedio/_projection/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/mrt_programmatic_methods_compact.projection.md",
+      "action": "Regenerate after the three source atoms change. It currently labels all three Unclassified and pins their current filenames/Versions.",
+      "runtime_effect": "none"
+    },
+    "if_method_filename_changes": {
+      "update_active_source_links": [
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-253-PROGRAMMATIC-QA_CASE--verify-changed-component-technical-contract-conformance.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-254-PROGRAMMATIC-QA_CASE--reject-incomplete-technical-contract-exception.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-255-PROGRAMMATIC-QA_CASE--verify-installed-selected-runtime-component.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-452-PROGRAMMATIC-QA_CASE--verify-one-python-technical-configuration-boundary.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-454-PROGRAMMATIC-QA_CASE--use-one-settings-reader-across-engine-software.md"
+      ],
+      "count": 5,
+      "note": "These five current Evaluation carriers link directly to the current Method filename. Their evaluation_for relations are stable IDs and remain unchanged."
+    },
+    "if_method_is_split_to_new_identity": {
+      "review_derived_normative_consumers": [
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-281-PROGRAMMATIC-CORE-METHOD--declare-one-python-and-software-configuration-boundary.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-284-PROGRAMMATIC-CORE-METHOD--read-engine-settings-through-one-shared-boundary.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-358-PROGRAMMATIC-GENERAL--run-project-python-only-in-uv-managed-isolated-environments.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-389-PROGRAMMATIC-CORE--pass-validated-configuration-through-one-shared-boundary.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/05_method/CA-M-383-CONNECTOR_TOOLS-STANDARD-METHOD--select-tomlkit-for-pure-toml-materialization.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-253-PROGRAMMATIC-QA_CASE--verify-changed-component-technical-contract-conformance.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-254-PROGRAMMATIC-QA_CASE--reject-incomplete-technical-contract-exception.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-255-PROGRAMMATIC-QA_CASE--verify-installed-selected-runtime-component.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-452-PROGRAMMATIC-QA_CASE--verify-one-python-technical-configuration-boundary.md",
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-454-PROGRAMMATIC-QA_CASE--use-one-settings-reader-across-engine-software.md"
+      ],
+      "count": 11,
+      "note": "Includes the two intra-target child_of relations, four active Method references, and five evaluation_for references. Stable IDs require deliberate reparenting/rebinding only if an old Method identity is retired/replaced; a tier-only repair does not require it."
+    },
+    "legacy_delivery_exception": {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/07_delivery/CA-D-250-PROGRAMMATIC-CORE-DELIVERY--provide-programmatic-software-carriers.md",
+      "note": "It contains CA-M-110 and a long noncanonical CA-M-281 identifier in delivery_for/body. Flag it for separate D250 normalization if the M281 filename or summary token changes; do not expand this Method-only change automatically."
+    }
+  },
+  "runtime_and_config_consumers": [
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/project_settings_schema.py",
+      "references": [
+        "CA-M-284"
+      ],
+      "classification": "stable_id_runtime_or_test_consumer",
+      "action": "No update: IDs remain stable; no filename, tier, Version, or digest is pinned."
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_project_settings_reader.py",
+      "references": [
+        "CA-M-284"
+      ],
+      "classification": "stable_id_runtime_or_test_consumer",
+      "action": "No update: IDs remain stable; no filename, tier, Version, or digest is pinned."
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_project_settings_reader_independent.py",
+      "references": [
+        "CA-M-284"
+      ],
+      "classification": "stable_id_runtime_or_test_consumer",
+      "action": "No update: IDs remain stable; no filename, tier, Version, or digest is pinned."
+    },
+    {
+      "path": "pyproject.toml",
+      "references": [
+        "CA-M-110"
+      ],
+      "classification": "stable_id_runtime_or_test_consumer",
+      "action": "No update: IDs remain stable; no filename, tier, Version, or digest is pinned."
+    }
+  ],
+  "historical_or_observational_pins": {
+    "count": 8,
+    "paths": [
+      ".caprmedio_caprmedio/01_concern/CA-C-141-QUESTION--which-derivation-rules-are-methods-rather-than-actions.md",
+      ".caprmedio_caprmedio/01_concern/CA-C-184-QUESTION--what-settings-sources-and-provenance-must-the-shared-reader-cover.md",
+      ".caprmedio_caprmedio/01_concern/CA-C-185-QUESTION--how-should-python-workflow-selections-separate-conventions-carriers-and-actions.md",
+      ".caprmedio_caprmedio/02_analysis/done/CA-A-1176-FPF_ANALYSIS_REPORT--recover-programmatic-method-and-evaluation-structure.md",
+      ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/39-CA-P-2280-TASK--implement-complete-configuration-read/01-CA-P-2300-TASK--bind-complete-configuration-read-to-receiving-context/done/01-CA-P-2354-TASK--align-settings-inspection-schema-and-source.md",
+      ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-275-FRAMEWORK_ENGINE-QUESTION--how-should-the-boundary-schemas-draft-be-reconciled.md",
+      ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-276-FRAMEWORK_ENGINE-QUESTION--how-should-the-shared-settings-reader-draft-be-reconciled.md",
+      ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/01_concern/CA-C-280-TOOLS-QUESTION--how-should-the-installed-toolset-draft-be-reconciled.md"
+    ],
+    "action": "Preserve exact historical quoted versions, digests, and paths. They are evidence, not live filename/tier pins."
+  },
+  "all_current_nonarchived_source_references": [
+    {
+      "path": ".caprmedio_caprmedio/01_concern/CA-C-112-QUESTION--which-events-substantiate-the-legacy-replacement-declarations.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [
+          "CA-M-110"
+        ],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/01_concern/CA-C-141-QUESTION--which-derivation-rules-are-methods-rather-than-actions.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [
+          "CA-M-110"
+        ],
+        "version_or_digest_observation": [
+          "CA-M-110"
+        ]
+      },
+      "classification": "historical_or_observational_pin",
+      "action": "preserve exact quoted Version/digest/path evidence; do not rewrite it to a later source state."
+    },
+    {
+      "path": ".caprmedio_caprmedio/01_concern/CA-C-184-QUESTION--what-settings-sources-and-provenance-must-the-shared-reader-cover.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-284"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [
+          "CA-M-284"
+        ],
+        "version_or_digest_observation": [
+          "CA-M-284"
+        ]
+      },
+      "classification": "historical_or_observational_pin",
+      "action": "preserve exact quoted Version/digest/path evidence; do not rewrite it to a later source state."
+    },
+    {
+      "path": ".caprmedio_caprmedio/01_concern/CA-C-185-QUESTION--how-should-python-workflow-selections-separate-conventions-carriers-and-actions.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-281"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [
+          "CA-M-281"
+        ],
+        "version_or_digest_observation": [
+          "CA-M-281"
+        ]
+      },
+      "classification": "historical_or_observational_pin",
+      "action": "preserve exact quoted Version/digest/path evidence; do not rewrite it to a later source state."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-1042-ANALYSIS_RPRT--harvest-the-whole-other-primary-python-versus-go-report.md",
+      "atom_id": "CA-A-1042",
+      "status": "Active",
+      "content_role": "Analysis",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-925-ANALYSIS_RPRT--harvest-the-whole-third-partition-draft-review-report.md",
+      "atom_id": "CA-A-925",
+      "status": "Active",
+      "content_role": "Analysis",
+      "references": [
+        "CA-M-284"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [
+          "CA-M-284"
+        ],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-979-ANALYSIS_RPRT--harvest-the-following-first-partition-session-packet.md",
+      "atom_id": "CA-A-979",
+      "status": "Active",
+      "content_role": "Analysis",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/done/CA-A-1158-FPF_ANALYSIS_REPORT--audit-active-method-alignment.md",
+      "atom_id": "CA-A-1158",
+      "status": "Done",
+      "content_role": "Analysis",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/done/CA-A-1162-FPF_ANALYSIS_REPORT--plan-active-method-repairs.md",
+      "atom_id": "CA-A-1162",
+      "status": "Done",
+      "content_role": "Analysis",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/done/CA-A-1176-FPF_ANALYSIS_REPORT--recover-programmatic-method-and-evaluation-structure.md",
+      "atom_id": "CA-A-1176",
+      "status": "Done",
+      "content_role": "Analysis",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": [
+          "CA-M-110"
+        ]
+      },
+      "classification": "historical_or_observational_pin",
+      "action": "preserve exact quoted Version/digest/path evidence; do not rewrite it to a later source state."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/done/CA-A-1177-FPF_ANALYSIS_REPORT--audit-programmatic-method-and-evaluation-coherence.md",
+      "atom_id": "CA-A-1177",
+      "status": "Done",
+      "content_role": "Analysis",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/done/05-CA-P-2325-TASK--repair-approved-prmedo-admission-carriers/done/01-CA-P-2326-TASK--repair-three-programmatic-source-headers.md",
+      "atom_id": "CA-P-2326",
+      "status": "Done",
+      "content_role": "Plan",
+      "references": [
+        "CA-M-110",
+        "CA-M-281"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/39-CA-P-2280-TASK--implement-complete-configuration-read/01-CA-P-2300-TASK--bind-complete-configuration-read-to-receiving-context/done/01-CA-P-2354-TASK--align-settings-inspection-schema-and-source.md",
+      "atom_id": "CA-P-2354",
+      "status": "Done",
+      "content_role": "Plan",
+      "references": [
+        "CA-M-284"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [
+          "CA-M-284"
+        ],
+        "version_or_digest_observation": [
+          "CA-M-284"
+        ]
+      },
+      "classification": "historical_or_observational_pin",
+      "action": "preserve exact quoted Version/digest/path evidence; do not rewrite it to a later source state."
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/canceled/01-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence/canceled/02-CA-P-1126-TASK--harvest-the-first-session-evidence-partition/canceled/27-CA-P-1334-TASK--harvest-the-other-primary-first-partition-post-report-continuation.md",
+      "atom_id": "CA-P-1334",
+      "status": "Canceled",
+      "content_role": "Plan",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-275-FRAMEWORK_ENGINE-QUESTION--how-should-the-boundary-schemas-draft-be-reconciled.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-281"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-281"
+        ],
+        "current_filename": [
+          "CA-M-281"
+        ],
+        "version_or_digest_observation": [
+          "CA-M-281"
+        ]
+      },
+      "classification": "historical_or_observational_pin",
+      "action": "preserve exact quoted Version/digest/path evidence; do not rewrite it to a later source state."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-276-FRAMEWORK_ENGINE-QUESTION--how-should-the-shared-settings-reader-draft-be-reconciled.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-284"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-284"
+        ],
+        "current_filename": [
+          "CA-M-284"
+        ],
+        "version_or_digest_observation": [
+          "CA-M-284"
+        ]
+      },
+      "classification": "historical_or_observational_pin",
+      "action": "preserve exact quoted Version/digest/path evidence; do not rewrite it to a later source state."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/02_analysis/CA-A-052-PROGRAMMATIC-ANALYSIS_RPRT--freeze-the-programmatic-method-and-evaluation-target.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/02_analysis/CA-A-055-PROGRAMMATIC-ANALYSIS_RPRT--finalize-shared-programmatic-methods.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/02_analysis/CA-A-056-PROGRAMMATIC-ANALYSIS_RPRT--map-shared-programmatic-evaluation-coverage.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/02_analysis/CA-A-057-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-programmatic-specialization-authority.md",
+      "atom_id": "CA-A-057",
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/02_analysis/CA-A-058-PROGRAMMATIC-ANALYSIS_RPRT--validate-programmatic-method-and-evaluation-closure.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/03_plan/01-CA-P-061-PROGRAMMATIC-EPIC--finalize-programmatic-methods-and-evaluations/done/01-CA-P-070-PROGRAMMATIC-TASK--freeze-programmatic-method-and-evaluation-target.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/03_plan/01-CA-P-061-PROGRAMMATIC-EPIC--finalize-programmatic-methods-and-evaluations/done/02-CA-P-071-PROGRAMMATIC-TASK--resolve-shared-programmatic-policy-decisions.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/03_plan/01-CA-P-061-PROGRAMMATIC-EPIC--finalize-programmatic-methods-and-evaluations/done/03-CA-P-072-PROGRAMMATIC-TASK--finalize-shared-programmatic-methods.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/03_plan/01-CA-P-061-PROGRAMMATIC-EPIC--finalize-programmatic-methods-and-evaluations/done/04-CA-P-073-PROGRAMMATIC-TASK--finalize-shared-programmatic-evaluations.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/03_plan/01-CA-P-061-PROGRAMMATIC-EPIC--finalize-programmatic-methods-and-evaluations/done/06-CA-P-075-PROGRAMMATIC-TASK--validate-programmatic-method-and-evaluation-closure.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/03_plan/done/03-CA-P-080-PROGRAMMATIC-TASK--upgrade-supported-python-to-3-14.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-157-PROGRAMMATIC-CORE-METHOD--allocate-deterministic-transformations-to-functions.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-158-PROGRAMMATIC-CORE-METHOD--allocate-owned-state-and-lifecycle-to-objects.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-159-PROGRAMMATIC-CORE-METHOD--define-typed-contracts-at-replaceable-technical-boundaries.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-160-PROGRAMMATIC-CORE-METHOD--separate-deterministic-transformations-from-effects-and-lifecycle.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-161-PROGRAMMATIC-CORE-METHOD--bound-file-and-subprocess-effects.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-162-PROGRAMMATIC-CORE-METHOD--ratchet-hand-authored-python-source-boundaries.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-163-PROGRAMMATIC-CORE-METHOD--emit-structured-operational-diagnostics.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-164-PROGRAMMATIC-CORE-METHOD--ratchet-typing-and-automation-adoption.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-165-PROGRAMMATIC-CORE-METHOD--measure-before-optimizing-programmatic-performance.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-166-PROGRAMMATIC-CORE-METHOD--preserve-declared-interface-compatibility-boundaries.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-221-PROGRAMMATIC-CORE-METHOD--use-uv-as-the-default-python-workflow-frontend.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-280-PROGRAMMATIC-CORE-METHOD--adopt-current-python-idioms-only-for-declared-benefit.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-282-PROGRAMMATIC-CORE-METHOD--use-ruff-for-python-formatting-linting-and-complexity.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-283-PROGRAMMATIC-CORE-METHOD--use-mypy-for-static-python-type-checking.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md",
+      "atom_id": "CA-M-285",
+      "status": "Active",
+      "content_role": "Method",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "active_derived_normative_consumer",
+      "action": "stable Atom ID relation only; no consumer edit for a tier/filename change, unless the Method is split into a different identity."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-286-PROGRAMMATIC-CORE-METHOD--validate-untrusted-structured-data-with-pydantic.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-358-PROGRAMMATIC-GENERAL--run-project-python-only-in-uv-managed-isolated-environments.md",
+      "atom_id": "CA-M-358",
+      "status": "Active",
+      "content_role": "Method",
+      "references": [
+        "CA-M-110",
+        "CA-M-281"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110",
+          "CA-M-281"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "active_derived_normative_consumer",
+      "action": "stable Atom ID relation only; no consumer edit for a tier/filename change, unless the Method is split into a different identity."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-389-PROGRAMMATIC-CORE--pass-validated-configuration-through-one-shared-boundary.md",
+      "atom_id": "CA-M-389",
+      "status": "Active",
+      "content_role": "Method",
+      "references": [
+        "CA-M-284"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-253-PROGRAMMATIC-QA_CASE--verify-changed-component-technical-contract-conformance.md",
+      "atom_id": "CA-E-253",
+      "status": "Active",
+      "content_role": "Evaluation",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [
+          "CA-M-110"
+        ],
+        "version_or_digest_observation": []
+      },
+      "classification": "active_filename_consumer",
+      "action": "update only the Markdown link target if that Method filename changes; retain the stable evaluation_for ID."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-254-PROGRAMMATIC-QA_CASE--reject-incomplete-technical-contract-exception.md",
+      "atom_id": "CA-E-254",
+      "status": "Active",
+      "content_role": "Evaluation",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [
+          "CA-M-110"
+        ],
+        "version_or_digest_observation": []
+      },
+      "classification": "active_filename_consumer",
+      "action": "update only the Markdown link target if that Method filename changes; retain the stable evaluation_for ID."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-255-PROGRAMMATIC-QA_CASE--verify-installed-selected-runtime-component.md",
+      "atom_id": "CA-E-255",
+      "status": "Active",
+      "content_role": "Evaluation",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [
+          "CA-M-110"
+        ],
+        "version_or_digest_observation": []
+      },
+      "classification": "active_filename_consumer",
+      "action": "update only the Markdown link target if that Method filename changes; retain the stable evaluation_for ID."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-452-PROGRAMMATIC-QA_CASE--verify-one-python-technical-configuration-boundary.md",
+      "atom_id": "CA-E-452",
+      "status": "Active",
+      "content_role": "Evaluation",
+      "references": [
+        "CA-M-281"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-281"
+        ],
+        "current_filename": [
+          "CA-M-281"
+        ],
+        "version_or_digest_observation": []
+      },
+      "classification": "active_filename_consumer",
+      "action": "update only the Markdown link target if that Method filename changes; retain the stable evaluation_for ID."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-454-PROGRAMMATIC-QA_CASE--use-one-settings-reader-across-engine-software.md",
+      "atom_id": "CA-E-454",
+      "status": "Active",
+      "content_role": "Evaluation",
+      "references": [
+        "CA-M-284"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-284"
+        ],
+        "current_filename": [
+          "CA-M-284"
+        ],
+        "version_or_digest_observation": []
+      },
+      "classification": "active_filename_consumer",
+      "action": "update only the Markdown link target if that Method filename changes; retain the stable evaluation_for ID."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/07_delivery/CA-D-250-PROGRAMMATIC-CORE-DELIVERY--provide-programmatic-software-carriers.md",
+      "atom_id": "CA-D-250",
+      "status": "Active",
+      "content_role": "Delivery",
+      "references": [
+        "CA-M-110",
+        "CA-M-281"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110",
+          "CA-M-281"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "active_legacy_delivery_consumer",
+      "action": "do not broaden this tier fix; its long noncanonical CA-M-281 relation/body token needs separate legacy-Delivery normalization only if the M281 filename is renamed."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/07_delivery/drafts/CA-D--PROGRAMMATIC-DELIVERY--publish-version-bound-machine-boundary-schemas.md",
+      "atom_id": null,
+      "status": "Draft",
+      "content_role": "Delivery",
+      "references": [
+        "CA-M-281"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-281"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/01_concern/CA-C-280-TOOLS-QUESTION--how-should-the-installed-toolset-draft-be-reconciled.md",
+      "atom_id": null,
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-281"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-281"
+        ],
+        "current_filename": [
+          "CA-M-281"
+        ],
+        "version_or_digest_observation": [
+          "CA-M-281"
+        ]
+      },
+      "classification": "historical_or_observational_pin",
+      "action": "preserve exact quoted Version/digest/path evidence; do not rewrite it to a later source state."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/02_analysis/CA-A-067-TOOLS-ANALYSIS_RPRT--python-vs-go-for-caprmedio-tools-sota-harvest.md",
+      "atom_id": "CA-A-067",
+      "status": null,
+      "content_role": null,
+      "references": [
+        "CA-M-110",
+        "CA-M-281"
+      ],
+      "forms": {
+        "frontmatter_relation": [],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/drafts/CA-D--TOOLS-DELIVERY--declare-installed-tool-release-contents-and-prerequisites.md",
+      "atom_id": null,
+      "status": "Draft",
+      "content_role": "Delivery",
+      "references": [
+        "CA-M-281"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-281"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "stable_id_or_nonnormative_reference",
+      "action": "no update for tier/filename-only repair unless this record is separately maintained as current narrative authority."
+    },
+    {
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/05_method/CA-M-383-CONNECTOR_TOOLS-STANDARD-METHOD--select-tomlkit-for-pure-toml-materialization.md",
+      "atom_id": "CA-M-383",
+      "status": "Active",
+      "content_role": "Method",
+      "references": [
+        "CA-M-110"
+      ],
+      "forms": {
+        "frontmatter_relation": [
+          "CA-M-110"
+        ],
+        "current_filename": [],
+        "version_or_digest_observation": []
+      },
+      "classification": "active_derived_normative_consumer",
+      "action": "stable Atom ID relation only; no consumer edit for a tier/filename change, unless the Method is split into a different identity."
+    }
+  ],
+  "findings": {
+    "runtime_filename_or_tier_pins": 0,
+    "runtime_version_or_digest_pins": 0,
+    "active_filename_consumers": 5,
+    "active_derived_normative_consumers": 11,
+    "no_generator_implementation_found": "No implementation/test/config source outside the output projection references mrt_programmatic_methods_compact; treat it as a derived artifact and rebuild its one output after source edits."
+  },
+  "minimal_validation": [
+    "Parse the three updated frontmatters: unchanged atom_id/status/current_scope_unit and explicit valid local/global tier fields; compute their new carrier SHA-256 values.",
+    "Rebuild mrt_programmatic_methods_compact.projection.md from the current root PROGRAMMATIC active Method frontier, then verify the three rows have the new filenames/Versions and no longer appear in Unclassified.",
+    "Resolve the five active Evaluation Markdown links after any filename change; retain their evaluation_for stable IDs.",
+    "No runtime test is required for tier/filename-only source edits. The existing project-settings reader tests select CA-M-284 by stable ID via rglob and therefore need no source or test change; run them only as optional regression confirmation in the normal disposable test environment."
+  ]
+}
+

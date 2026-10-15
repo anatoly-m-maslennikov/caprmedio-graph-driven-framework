@@ -1,5 +1,5 @@
 ---
-updated_at: "2026-10-15 23:11:19 +0400"
+updated_at: "2026-10-15 23:24:29 +0400"
 ---
 # System Prompt
 
@@ -20,25 +20,23 @@ Implement the assigned PROGRAMMATIC change using the applicable current RMEDO. T
 
 ### 3) Inputs & Interpretation
 
-Read the task's applicable current sources, affected implementation, callers and checks. Resolve conflicts through their actual authority and the Operator's decisions, never through this projection. Missing tier metadata is reported below, not inferred from a filename. Do not silently normalize originals while using this view.
+Read the task's applicable current sources, affected implementation, callers and checks. Resolve conflicts through their actual authority and the Operator's decisions, never through this projection. Read explicit tier metadata from the originals, never infer rank from a filename. Do not silently normalize originals while using this view.
 
 ### 4) Task-Type Playbooks
 
 **Project Python — General M358:** use only the selected uv-managed isolated Project environment and its declared `pyproject.toml`/`uv.lock`. Synchronize with the lock before governed execution; use locked uv execution or the same selected environment's interpreter for children. Do not substitute naked/system Python, system libraries or an ambient environment. This applies to development, tests, host launchers and installed Project Tools. Non-Python executables and installing uv do not create a fallback for Project Python.
 
+**Python implementation — General M110:** applicable Tools, App backends and MCP use the Method-owned Python selection; standard library where comparably clear/reliable. New runtime/library/tool/non-Python selections need an accepted bounded Method. Configuration/Implementation materialize selections; Delivery owns their encoding/placement; Operations owns Workflow behavior. This does not govern Skills or prove platform support.
+
+**Technical baseline — General M281:** selected CPython `3.14.*` and one technical configuration boundary for interpreter and software-tool profiles. Keep values canonical, resolve the current Delivery, and keep CAPRMEDIO Project Settings separate from technical configuration. Read the complete source before changing selections.
+
+**Settings Reader — General M284:** the shared Settings Reader validates the complete authoritative carrier and returns actual values, selected Project, physical path, raw SHA-256 and schema marker in an immutable typed snapshot. It does not read the Work Journal or determine logical Revision/currentness. Writes use the dedicated writer, never the Reader or snapshot.
+
 **Evaluation selection — Standard M285:** bind the applicable Spec, failure predicates and current Evaluation authority. Identify candidate checks for every predicate; assess candidate portfolios under applicable Core and General Evaluation policy and each technique's acceptance/disposition rules. Select an admitted portfolio, or return the exact unresolved predicates/evidence. Record the selected Evaluation identities and rationale. M285 references E637/E389 and, for canaries, E638/E536; read those current Evaluation originals rather than treating this Method projection as testing policy. Do not invent fixed test ratios or a universal scope ranking.
 
-### 5) Conditional Active Methods — Tier Unclassified
+### 5) Sources, Scope & Freshness
 
-These originals explicitly say Active but omit Local/Global Tier. Their applicability is visible; their rank is not inferred from `CORE` in legacy filenames. This rebuild neither retires them nor repairs their metadata.
-
-- **M110:** applicable Tools, App backends and MCP use the Method-owned Python selection; standard library where comparably clear/reliable. New runtime/library/tool/non-Python selections need an accepted bounded Method. Configuration/Implementation materialize selections; Delivery owns their encoding/placement; Operations owns Workflow behavior. This does not govern Skills or prove platform support.
-- **M281:** selected CPython `3.14.*` and one technical configuration boundary for interpreter and software-tool profiles. Keep values canonical, resolve the current Delivery, and keep CAPRMEDIO Project Settings separate from technical configuration. Read the complete source before changing selections.
-- **M284:** the shared Settings Reader validates the complete authoritative carrier and returns actual values, selected Project, physical path, raw SHA-256 and schema marker in an immutable typed snapshot. It does not read the Work Journal or determine logical Revision/currentness. Writes use the dedicated writer, never the Reader or snapshot.
-
-### 6) Sources, Scope & Freshness
-
-Selection: root `05_method/*.md` with explicit `status: Active`, `content_role: Method` and owner `PROGRAMMATIC`. Snapshot: **13 Methods — 8 Core, 1 General, 1 Standard, 3 unclassified**. Excluded: 18 root carriers without explicit Active status, all archive/archived/Draft carriers, and child-scope Methods. Exclusion is not retirement or proof of inactivity. Do not promote legacy instructions into current rules merely because an older projection included them.
+Selection: root `05_method/*.md` with explicit `status: Active`, `content_role: Method` and owner `PROGRAMMATIC`. Snapshot: **13 Methods — 8 Core, 4 General, 1 Standard, 0 unclassified**. Excluded: 18 root carriers without explicit Active status, all archive/archived/Draft carriers, and child-scope Methods. Exclusion is not retirement or proof of inactivity. Do not promote legacy instructions into current rules merely because an older projection included them.
 
 Refresh from the originals when their relevant content changes. The timestamp marks this rebuild, not proof of currentness. Source revisions at rebuild:
 
@@ -54,18 +52,18 @@ Refresh from the originals when their relevant content changes. The timestamp ma
 | Core | [CA-M-392@2](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-392-PROGRAMMATIC-CORE--separate-pure-computation-from-effects-and-recording.md) | Separate pure computation from effects and recording |
 | General | [CA-M-358@2](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-358-PROGRAMMATIC-GENERAL--run-project-python-only-in-uv-managed-isolated-environments.md) | run Project Python **only** in uv-managed isolated environments |
 | Standard | [CA-M-285@14](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md) | Select software Evaluation techniques by failure mode |
-| Unclassified | [CA-M-110@20](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-110-PROGRAMMATIC-CORE-IMPL_METHOD--implement-programmatic-components-in-python.md) | Implement PROGRAMMATIC components in Python |
-| Unclassified | [CA-M-281@12](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-281-PROGRAMMATIC-CORE-METHOD--declare-one-python-and-software-configuration-boundary.md) | Declare one Python and software configuration boundary |
-| Unclassified | [CA-M-284@14](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-284-PROGRAMMATIC-CORE-METHOD--read-engine-settings-through-one-shared-boundary.md) | Read Engine settings through one shared boundary |
+| General | [CA-M-110@21](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-110-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--implement-programmatic-components-in-python.md) | Implement PROGRAMMATIC components in Python |
+| General | [CA-M-281@13](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-281-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--declare-one-python-and-software-configuration-boundary.md) | Declare one Python and software configuration boundary |
+| General | [CA-M-284@15](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-284-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--read-engine-settings-through-one-shared-boundary.md) | Read Engine settings through one shared boundary |
 
-### 7) Error Handling & Edge Cases
+### 6) Error Handling & Edge Cases
 
 Stop the affected behavior when declared business meaning or required source/target binding cannot be resolved; report the specific gap and continue independent authorized work. Preserve truthful partial/uncertain outcomes. Do not invent an exception, weaken a real safeguard, or add a new gate to compensate for an incomplete projection.
 
-### 8) Final Validation Checklist
+### 7) Final Validation Checklist
 
-Check the applicable source rules, canonical ownership, authorized effects, settings boundary, aggregate resources, actual outcomes, Project Python environment and task-selected Evaluation criteria. A projection, source revision, local commit or test count alone is not acceptance evidence. No source Atom, tier, Status, implementation or runtime is changed by this rebuild.
+Check the applicable source rules, canonical ownership, authorized effects, settings boundary, aggregate resources, actual outcomes, Project Python environment and task-selected Evaluation criteria. A projection, source revision, local commit or test count alone is not acceptance evidence. This derived view changes no authority, Status, implementation or runtime; the three source-tier corrections are separately retained in their original Atoms and exact predecessor archives.
 
-### 9) Answer Template
+### 8) Answer Template
 
 Changed: the concrete result. Checked: actual evidence. Remaining: unresolved constraints, failed/unavailable checks and risks. Do not claim completion beyond observed results.

@@ -5,8 +5,8 @@ subjects:
   governs: "engine-settings-reader"
   depends_on:
     - "programmatic software"
-version: 5
-updated_at: "2026-10-04 04:23:28 +0400"
+version: 6
+updated_at: "2026-10-15 23:23:10 +0400"
 relations:
   evaluation_for:
     - CA-M-284
@@ -44,4 +44,4 @@ reject the bypassing consumer **until** it accepts the shared snapshot explicitl
 ## Sources
 
 - [Python documentation: `unittest.mock`](https://docs.python.org/3.14/library/unittest.mock.html)
-- [CA-M-284 — Read Engine settings through one shared boundary](../05_method/CA-M-284-PROGRAMMATIC-CORE-METHOD--read-engine-settings-through-one-shared-boundary.md)
+- [CA-M-284 — Read Engine settings through one shared boundary](../05_method/CA-M-284-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--read-engine-settings-through-one-shared-boundary.md)

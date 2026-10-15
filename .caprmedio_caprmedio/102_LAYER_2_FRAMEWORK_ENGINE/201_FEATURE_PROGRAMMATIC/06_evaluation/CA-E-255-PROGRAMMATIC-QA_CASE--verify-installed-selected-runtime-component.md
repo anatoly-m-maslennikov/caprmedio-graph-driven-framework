@@ -5,8 +5,8 @@ subjects:
   governs: "installed-runtime"
   depends_on:
     - "programmatic software"
-version: 11
-updated_at: "2026-10-04 04:23:28 +0400"
+version: 12
+updated_at: "2026-10-15 23:23:10 +0400"
 relations:
   evaluation_for:
     - CA-M-110
@@ -55,4 +55,4 @@ reject the installation claim **and** return the component **to** its Delivery o
 
 ## Sources
 
-- [CA-M-110 — Implement PROGRAMMATIC components in Python](../05_method/CA-M-110-PROGRAMMATIC-CORE-IMPL_METHOD--implement-programmatic-components-in-python.md)
+- [CA-M-110 — Implement PROGRAMMATIC components in Python](../05_method/CA-M-110-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--implement-programmatic-components-in-python.md)

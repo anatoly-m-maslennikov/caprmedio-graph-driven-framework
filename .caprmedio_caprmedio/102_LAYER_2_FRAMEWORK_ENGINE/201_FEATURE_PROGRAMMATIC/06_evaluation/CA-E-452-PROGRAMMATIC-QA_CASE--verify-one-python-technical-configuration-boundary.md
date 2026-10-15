@@ -5,8 +5,8 @@ subjects:
   governs: "python-technical-configuration"
   depends_on:
     - "programmatic software"
-version: 9
-updated_at: "2026-10-04 04:23:28 +0400"
+version: 10
+updated_at: "2026-10-15 23:23:10 +0400"
 relations:
   evaluation_for:
     - CA-M-281
@@ -49,4 +49,4 @@ materialized once.
 ## Sources
 
 - [PyPA: `pyproject.toml` specification](https://packaging.python.org/en/latest/specifications/pyproject-toml/)
-- [CA-M-281 — Declare one Python and software configuration boundary](../05_method/CA-M-281-PROGRAMMATIC-CORE-METHOD--declare-one-python-and-software-configuration-boundary.md)
+- [CA-M-281 — Declare one Python and software configuration boundary](../05_method/CA-M-281-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--declare-one-python-and-software-configuration-boundary.md)
