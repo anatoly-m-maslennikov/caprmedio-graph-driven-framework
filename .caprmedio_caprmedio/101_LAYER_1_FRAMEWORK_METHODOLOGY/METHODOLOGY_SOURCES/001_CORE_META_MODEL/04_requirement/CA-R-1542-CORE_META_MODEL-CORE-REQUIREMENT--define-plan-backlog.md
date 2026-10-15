@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Backlog"
+  governs: "Plan Backlog"
   depends_on:
-    - "Atom/Content Role: Plan/Status: Backlog"
-    - "Atom/Content Role: Plan/Type: Plan"
-version: 5
-updated_at: "2026-10-03 00:05:13 +0400"
+    ["Atom/Content Role: Plan.Status: Backlog", "Atom/Content Role: Plan/Type: Plan"]
+version: 6
+updated_at: "2026-10-15 12:22:28 +0000"
 relations: {"relates_to": ["CA-R-1539", "CA-R-1541"]}
 atom_id: "CA-R-1542"
 content_role: "Requirement"

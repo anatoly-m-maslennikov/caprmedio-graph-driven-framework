@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Local Tier"
+  governs: "Atom.Local Tier"
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Scope"
-    - "Property"
-    - "Scope Unit"
-version: 12
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Atom", "Atom.Substance", "Atom Scope", "Property", "Scope Unit"]
+version: 13
+updated_at: "2026-10-15 12:21:20 +0000"
 relations: {}
 atom_id: "CA-R-1287"
 content_role: "Requirement"

@@ -2,13 +2,9 @@
 subjects:
   governs: "Journal"
   depends_on:
-    - "Journal/Record"
-    - "Artifact/Carrier"
-    - "Atom"
-    - "Project"
-    - "Applicable Methodology"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Journal.Record", "Artifact Carrier", "Atom", "Project", "Applicable Methodology"]
+version: 6
+updated_at: "2026-10-15 12:19:24 +0000"
 relations:
   evaluation_for:
     - CA-R-1491

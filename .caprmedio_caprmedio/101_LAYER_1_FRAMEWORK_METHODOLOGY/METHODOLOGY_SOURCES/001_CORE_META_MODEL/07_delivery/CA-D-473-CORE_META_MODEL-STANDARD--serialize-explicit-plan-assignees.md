@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Assignee/Carrier"
+  governs: "Atom/Content Role: Plan/Type: Plan.Assignee"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Assignee"
-    - "File Carrier"
-version: 4
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Atom/Content Role: Plan/Type: Plan.Assignee", "File Carrier"]
+version: 5
+updated_at: "2026-10-15 12:18:47 +0000"
 relations: {"relates_to": ["CA-R-1584", "CA-R-1585"]}
 atom_id: "CA-D-473"
 content_role: "Delivery"

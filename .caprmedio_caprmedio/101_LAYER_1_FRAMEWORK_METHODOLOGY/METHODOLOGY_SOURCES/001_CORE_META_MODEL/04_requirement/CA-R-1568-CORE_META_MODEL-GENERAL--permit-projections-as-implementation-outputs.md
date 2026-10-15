@@ -2,13 +2,9 @@
 subjects:
   governs: "Projection"
   depends_on:
-    - "Implementation"
-    - "Spec Content Roles"
-    - "Artifact"
-    - "Atom"
-    - "Projection/Authority"
-version: 6
-updated_at: "2026-10-04 22:07:54 +0000"
+    ["Implementation", "Spec Content Roles", "Artifact", "Atom", "Projection.Authority"]
+version: 7
+updated_at: "2026-10-15 12:22:38 +0000"
 relations: {"relates_to": ["CA-R-1548", "CA-R-1571", "CA-R-1703"]}
 atom_id: "CA-R-1568"
 content_role: "Requirement"

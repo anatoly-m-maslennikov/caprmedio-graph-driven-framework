@@ -8,15 +8,11 @@ global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Atom/Content Role: Operations/Status"
+  governs: "Atom/Content Role: Operations.Status"
   depends_on:
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Operations/Type"
-    - "Artifact/Revision/Status"
-    - "Extension"
-    - "Project Configuration"
-version: 1
-updated_at: 2026-10-05 05:34:06 +0400
+    ["Atom/Content Role: Operations", "Atom/Content Role: Operations/Type", "Atom.Status", "Extension", "Project Configuration"]
+version: 2
+updated_at: "2026-10-15 12:23:22 +0000"
 relations: {relates_to: [CA-R-1530, CA-R-1565, CA-R-1306, CA-R-1308, CA-R-1312, CA-R-1313]}
 ---
 # Summary

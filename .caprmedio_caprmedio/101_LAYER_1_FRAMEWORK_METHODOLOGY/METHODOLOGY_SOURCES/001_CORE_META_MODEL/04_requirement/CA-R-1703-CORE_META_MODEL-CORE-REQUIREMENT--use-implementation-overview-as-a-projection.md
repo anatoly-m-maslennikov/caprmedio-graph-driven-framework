@@ -2,16 +2,9 @@
 subjects:
   governs: "Projection/Type: Implementation Overview"
   depends_on:
-    - "Projection"
-    - "Atom"
-    - "Artifact/Revision"
-    - "Implementation Binding"
-    - "Journal"
-    - "Implementation"
-    - "Verification"
-    - "Atom/Content Role"
-version: 18
-updated_at: "2026-10-03 02:24:19 +0400"
+    ["Projection", "Atom", "Artifact", "Implementation Binding", "Journal", "Implementation", "Verification", "Atom/Content Role"]
+version: 19
+updated_at: "2026-10-15 12:23:07 +0000"
 relations: {}
 atom_id: "CA-R-1703"
 content_role: "Requirement"

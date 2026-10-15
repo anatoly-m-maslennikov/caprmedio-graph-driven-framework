@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Carrier/Reconciliation"
+  governs: "Reconcile Atom Properties and Addresses"
   depends_on:
-    - "Atom"
-    - "Atom/Property"
-    - "Atom/Revision"
-    - "Atom/Summary"
-    - "Carrier"
-    - "Operator"
-version: 5
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Atom", "Atom.Property", "Revision/Type: Atom", "Atom.Summary", "Carrier", "Operator"]
+version: 6
+updated_at: "2026-10-15 12:20:27 +0000"
 relations: {"relates_to": ["CA-R-1598", "CA-D-478", "CA-D-479", "CA-D-480", "CA-D-481", "CA-R-1464"]}
 atom_id: "CA-O-077"
 content_role: "Operations"

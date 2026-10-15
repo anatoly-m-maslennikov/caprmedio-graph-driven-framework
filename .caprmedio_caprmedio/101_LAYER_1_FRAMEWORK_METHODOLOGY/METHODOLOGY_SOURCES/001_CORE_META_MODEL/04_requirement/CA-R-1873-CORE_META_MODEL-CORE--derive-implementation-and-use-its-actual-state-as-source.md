@@ -8,10 +8,10 @@ global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Implementation/Derivation and Actual-State Authority"
+  governs: "Implementation"
   depends_on: [Implementation, Projection, Journal, Carrier]
-version: 2
-updated_at: "2026-10-11 18:10:42 +0400"
+version: 3
+updated_at: "2026-10-15 12:23:21 +0000"
 relations: {relates_to: [CA-R-1470, CA-R-1746, CA-R-1343]}
 ---
 # Summary

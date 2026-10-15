@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: Atom/Global Tier
+  governs: "Atom.Global Tier"
   depends_on:
-    - Atom/Local Tier
-    - Project
-version: 8
-updated_at: "2026-10-02 22:41:14 +0400"
+    ["Atom.Local Tier", "Project"]
+version: 9
+updated_at: "2026-10-15 12:21:39 +0000"
 relations: {}
 atom_id: "CA-R-1389"
 content_role: "Requirement"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings/Authoritative Carrier"
+  governs: "Project Settings"
   depends_on:
-    - "Project Settings/Authoritative Carrier/Filename"
-version: 10
-updated_at: "2026-10-13 18:56:47 +0400"
+    ["Project Settings Authoritative TOML File Carrier.Filename"]
+version: 11
+updated_at: "2026-10-15 12:18:20 +0000"
 relations:
   child_of:
     - CA-D-363

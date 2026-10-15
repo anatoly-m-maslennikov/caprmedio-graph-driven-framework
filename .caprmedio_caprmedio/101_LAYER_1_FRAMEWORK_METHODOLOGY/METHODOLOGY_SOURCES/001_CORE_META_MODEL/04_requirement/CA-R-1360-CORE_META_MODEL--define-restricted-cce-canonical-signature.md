@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim/Canonical Signature"
+  governs: "Atom Claim Canonical Signature"
   depends_on:
-    - "Atom/Claim"
-    - "CCE Operator"
-    - "Subject Path"
-version: 9
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Atom.Substance", "CCE Operator", "Subject Path"]
+version: 10
+updated_at: "2026-10-15 12:21:33 +0000"
 relations:
   child_of:
     - CA-R-918

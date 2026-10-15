@@ -1,12 +1,12 @@
 ---
-version: 19
-updated_at: "2026-10-03 03:44:05 +0400"
+version: 20
+updated_at: "2026-10-15 12:23:18 +0000"
 relations:
   child_of:
     - "CA-M-001"
     - "CA-R-1407"
 subjects:
-  governs: "Project/graph dimensions"
+  governs: "Project.Graph Dimensions"
   depends_on:
     - "Subject"
     - "CAPRMEDIO Framework Instance"

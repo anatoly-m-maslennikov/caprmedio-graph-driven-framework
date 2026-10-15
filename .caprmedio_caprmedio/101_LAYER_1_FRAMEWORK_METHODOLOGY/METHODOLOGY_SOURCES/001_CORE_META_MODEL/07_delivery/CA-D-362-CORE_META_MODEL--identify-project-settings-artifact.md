@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings/Identifier"
+  governs: "Project Settings.Identifier"
   depends_on:
     - "Project Settings"
-version: 10
-updated_at: "2026-10-02 19:27:36 +0400"
+version: 11
+updated_at: "2026-10-15 12:18:18 +0000"
 relations:
   child_of:
     - CA-R-1738

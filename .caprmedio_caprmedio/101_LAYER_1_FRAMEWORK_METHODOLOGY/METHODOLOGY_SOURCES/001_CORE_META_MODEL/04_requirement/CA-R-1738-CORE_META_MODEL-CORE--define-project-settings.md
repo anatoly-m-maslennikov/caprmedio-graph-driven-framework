@@ -2,16 +2,9 @@
 subjects:
   governs: "Project Settings"
   depends_on:
-    - "Artifact"
-    - "Project"
-    - "Operator"
-    - "Atom"
-    - "Implementation"
-    - "Projection"
-    - "Project Name"
-    - "Atom/Identifier/Project Prefix"
-version: 21
-updated_at: "2026-10-03 02:53:00 +0400"
+    ["Artifact", "Project", "Operator", "Atom", "Implementation", "Projection", "Project Name", "Project Settings.Atom Prefix"]
+version: 22
+updated_at: "2026-10-15 12:23:11 +0000"
 relations:
   child_of:
     - "CA-R-1708"

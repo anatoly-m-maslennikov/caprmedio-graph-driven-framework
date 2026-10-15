@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: "Structural Entity/Authoritative Carrier"
+  governs: "Structural Entity"
   depends_on:
     - "Structural Entity"
     - "Directory Carrier"
     - "Scope Unit"
     - "Project Structure"
-version: 4
-updated_at: "2026-10-02 19:44:54 +0400"
+version: 5
+updated_at: "2026-10-15 12:18:43 +0000"
 relations: {"relates_to": ["CA-D-259", "CA-D-312", "CA-R-1484"]}
 atom_id: "CA-D-465"
 content_role: "Delivery"

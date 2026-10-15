@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Graph/Connectivity"
+  governs: "CAPRMEDIO Graph.Connectivity"
   depends_on:
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Atom"
-    - "Structural Entity"
-    - "Journal"
-    - "Relation"
-    - "Relation Kind"
-    - "Relation Kind/Metadata"
-version: 5
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["CAPRMEDIO Graph", "Projection", "Atom", "Structural Entity", "Journal", "Relation", "Relation Kind", "Relation Kind Metadata"]
+version: 6
+updated_at: "2026-10-15 12:22:09 +0000"
 relations: {}
 atom_id: "CA-R-1472"
 content_role: "Requirement"

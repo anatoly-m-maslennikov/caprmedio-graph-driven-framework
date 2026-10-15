@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Workflow"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Workflow/Relation Kind: On Result"
-    - "Workflow Run"
-    - "Step Run"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Implementation Retry Control"
-version: 11
-updated_at: "2026-10-04 16:11:58 +0000"
+    ["Workflow", "Step", "Relation/Type: On Result", "Execution/Workflow Run", "Execution/Step Run", "Atom/Content Role: Plan/Type: Plan", "Implementation Retry Control"]
+version: 12
+updated_at: "2026-10-15 12:20:17 +0000"
 relations:
   relates_to:
     - CA-R-1509

@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold/Carrier"
+  governs: "Atom/Content Role: Plan/Type: Plan.Autonomous Confidence Threshold"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Autonomous Confidence Threshold"
-    - "Hub Atom"
-    - "File Carrier"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-version: 5
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Autonomous Confidence Threshold", "Hub Atom", "File Carrier", "Atom/Content Role: Plan/Type: Plan.Definition of Done"]
+version: 6
+updated_at: "2026-10-15 12:18:46 +0000"
 relations: {"relates_to": ["CA-D-460", "CA-D-470", "CA-M-271", "CA-R-1428"]}
 atom_id: "CA-D-472"
 content_role: "Delivery"

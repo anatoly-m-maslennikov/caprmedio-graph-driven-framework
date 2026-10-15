@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Step Run/Tool Call"
+  governs: "Journal.Record"
   depends_on:
-    - "Step Run"
-    - "Workflow Run"
-    - "Step"
-    - "Action"
-    - "Tool"
-    - "Journal"
-    - "Projection"
-version: 4
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Execution/Step Run", "Execution/Workflow Run", "Step", "Action", "Tool", "Journal", "Projection"]
+version: 5
+updated_at: "2026-10-15 12:19:29 +0000"
 relations: {"evaluation_for": ["CA-R-1528", "CA-R-1511"]}
 atom_id: "CA-E-496"
 content_role: "Evaluation"

@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Tool selections"
+  governs: "Framework Instance.Settings.Tool Selections"
   depends_on:
-    - "Framework Instance Settings"
-    - "Tool"
-version: 7
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Framework Instance.Settings", "Tool"]
+version: 8
+updated_at: "2026-10-15 12:18:26 +0000"
 relations:
   child_of:
     - "CA-D-361"

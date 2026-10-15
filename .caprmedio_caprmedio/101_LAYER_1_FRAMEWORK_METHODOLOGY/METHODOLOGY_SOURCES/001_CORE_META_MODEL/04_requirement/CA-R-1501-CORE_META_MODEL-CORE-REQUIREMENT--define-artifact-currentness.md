@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Currentness"
+  governs: "Artifact.Currentness"
   depends_on:
-    - "Artifact"
-    - "Artifact/Revision"
-    - "Artifact/Applicability"
-version: 5
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Artifact", "Artifact.Applicability"]
+version: 6
+updated_at: "2026-10-15 12:22:14 +0000"
 relations: {child_of: [CA-M-001]}
 atom_id: "CA-R-1501"
 content_role: "Requirement"

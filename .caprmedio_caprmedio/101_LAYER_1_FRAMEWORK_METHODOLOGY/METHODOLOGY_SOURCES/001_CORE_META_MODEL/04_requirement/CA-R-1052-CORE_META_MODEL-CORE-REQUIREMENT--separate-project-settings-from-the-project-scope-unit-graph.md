@@ -2,12 +2,9 @@
 subjects:
   governs: "Project Settings"
   depends_on:
-    - "Project Structure"
-    - "Framework Instance Settings"
-    - "Project Scope Unit Graph Projection"
-    - "Projection"
-version: 21
-updated_at: "2026-10-02 21:26:39 +0400"
+    ["Project Structure", "Framework Instance.Settings", "Project Scope Unit Graph Projection", "Projection"]
+version: 22
+updated_at: "2026-10-15 12:21:06 +0000"
 relations:
   child_of:
     - CA-R-832-CORE-REQUIREMENT--select-optional-capabilities-through-configuration

@@ -1,23 +1,10 @@
 ---
 subjects:
-  governs: "AI Agent/authorization"
+  governs: "Actor/Type: AI Agent"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Operator"
-    - "AI Agent"
-    - "AI Agent/Confidence"
-    - "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold"
-    - "Spec"
-    - "Atom"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Project"
-    - "Implementation Workflow"
-version: 5
-updated_at: "2026-10-03 00:22:56 +0400"
+    ["Atom.Author", "Operator", "AI Agent", "AI Agent Confidence", "Atom/Content Role: Plan/Type: Plan.Autonomous Confidence Threshold", "Spec", "Atom", "Atom/Content Role: Plan/Type: Plan", "Atom/Content Role: Evaluation", "Atom/Content Role: Requirement", "Atom/Content Role: Method", "Atom/Content Role: Delivery", "Project", "Implementation Workflow"]
+version: 6
+updated_at: "2026-10-15 12:22:35 +0000"
 relations: {"child_of":["CA-M-261"],"relates_to":["CA-R-1591","CA-R-1552","CA-R-1080","CA-M-262"]}
 atom_id: "CA-R-1559"
 content_role: "Requirement"

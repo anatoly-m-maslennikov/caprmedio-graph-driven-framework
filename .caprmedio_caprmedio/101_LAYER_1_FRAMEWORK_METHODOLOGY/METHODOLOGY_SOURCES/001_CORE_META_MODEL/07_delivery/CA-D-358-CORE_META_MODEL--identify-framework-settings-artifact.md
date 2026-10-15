@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Identifier"
+  governs: "Framework Instance.Settings.Identifier"
   depends_on:
-    - "Framework Instance Settings"
-version: 10
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Framework Instance.Settings"]
+version: 11
+updated_at: "2026-10-15 12:18:17 +0000"
 relations:
   child_of:
     - CA-R-1402

@@ -2,13 +2,9 @@
 subjects:
   governs: Atom Tier Validation
   depends_on:
-    - Atom/Global Tier
-    - Atom/Local Tier
-    - Atom/Scope
-    - Scope Unit
-    - Project
-version: 15
-updated_at: "2026-10-01 21:46:55 +0400"
+    ["Atom.Global Tier", "Atom.Local Tier", "Atom Scope", "Scope Unit", "Project"]
+version: 16
+updated_at: "2026-10-15 12:19:17 +0000"
 relations: {"evaluation_for": ["CA-R-155", "CA-R-680", "CA-R-1442", "CA-R-1443", "CA-R-1389", "CA-R-1390", "CA-R-1391", "CA-R-1392", "CA-D-285", "CA-R-1566", "CA-R-1573"]}
 atom_id: "CA-E-456"
 content_role: "Evaluation"

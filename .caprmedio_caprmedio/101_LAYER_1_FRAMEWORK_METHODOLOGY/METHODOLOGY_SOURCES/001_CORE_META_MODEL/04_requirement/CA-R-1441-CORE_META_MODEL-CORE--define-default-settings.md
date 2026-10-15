@@ -2,12 +2,9 @@
 subjects:
   governs: "Default Settings"
   depends_on:
-    - "Artifact"
-    - "Framework Instance Settings"
-    - "Project"
-    - "Operator"
-version: 8
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Artifact", "Framework Instance.Settings", "Project", "Operator"]
+version: 9
+updated_at: "2026-10-15 12:21:56 +0000"
 relations:
   relates_to:
     - "CA-R-1402"

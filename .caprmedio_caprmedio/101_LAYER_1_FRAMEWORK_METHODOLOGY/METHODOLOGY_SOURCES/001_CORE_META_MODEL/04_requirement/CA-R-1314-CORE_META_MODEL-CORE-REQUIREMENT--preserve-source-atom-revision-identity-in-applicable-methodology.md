@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Member"
+  governs: "Applicable Methodology.Member"
   depends_on:
-    - "Atom/Revision"
-    - "DERIVED_FROM"
-version: 13
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Atom", "DERIVED_FROM"]
+version: 14
+updated_at: "2026-10-15 12:21:27 +0000"
 relations: {}
 atom_id: "CA-R-1314"
 content_role: "Requirement"

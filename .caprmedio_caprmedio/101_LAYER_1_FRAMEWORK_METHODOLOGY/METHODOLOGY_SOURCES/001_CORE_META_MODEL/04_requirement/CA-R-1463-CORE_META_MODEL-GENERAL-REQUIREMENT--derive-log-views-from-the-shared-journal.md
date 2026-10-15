@@ -2,17 +2,9 @@
 subjects:
   governs: "Projection"
   depends_on:
-    - "Journal"
-    - "Journal/Record"
-    - "Work Journal/Event"
-    - "Artifact"
-    - "Action"
-    - "Workflow"
-    - "Project"
-    - "Projection/Type: Artifact Change Log"
-    - "Projection/Type: Process Log"
-version: 7
-updated_at: "2026-10-01 21:44:50 +0400"
+    ["Journal", "Journal.Record", "Artifact", "Action", "Workflow", "Project", "Projection/Type: Artifact Change Log", "Projection/Type: Process Log"]
+version: 8
+updated_at: "2026-10-15 12:22:05 +0000"
 relations: {}
 atom_id: "CA-R-1463"
 content_role: "Requirement"

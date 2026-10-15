@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Atom"
-  depends_on: ["Action", "Atom/Summary", "Artifact/Revision", "Status", "Carrier", "Operator", "Journal"]
-version: 8
-updated_at: "2026-10-15 11:27:33 +0000"
+  depends_on: ["Action", "Atom.Summary", "Atom", "Revision/Type: Atom", "Status", "Carrier", "Operator", "Journal"]
+version: 9
+updated_at: "2026-10-15 12:20:47 +0000"
 relations:
   relates_to: [CA-O-051, CA-O-067, CA-R-1432, CA-R-1464, CA-R-1521, CA-R-1788, CA-R-807, CA-D-303, CA-D-289]
 ---

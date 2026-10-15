@@ -2,12 +2,9 @@
 subjects:
   governs: "Select Reconciliation Sources"
   depends_on:
-    - "Action"
-    - "Projection/Type: Reconciled Projection"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-version: 5
-updated_at: "2026-10-04 15:08:16 +0000"
+    ["Action", "Projection/Type: Reconciled Projection", "Artifact", "Atom.Substance"]
+version: 6
+updated_at: "2026-10-15 12:20:11 +0000"
 relations: {}
 atom_id: "CA-O-004"
 content_role: "Operations"

@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Relation/authority"
+  governs: "Relation.Authority"
   depends_on:
-    - "Relation"
-    - "Relation Kind"
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Single Source of Truth"
-    - "Atom/Claim"
-    - "Structural Entity"
-    - "Journal"
-version: 6
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Relation", "Relation Kind", "CAPRMEDIO Graph", "Projection", "Single Source of Truth", "Atom.Substance", "Structural Entity", "Journal"]
+version: 7
+updated_at: "2026-10-15 12:21:55 +0000"
 relations: {}
 atom_id: "CA-R-1437"
 content_role: "Requirement"

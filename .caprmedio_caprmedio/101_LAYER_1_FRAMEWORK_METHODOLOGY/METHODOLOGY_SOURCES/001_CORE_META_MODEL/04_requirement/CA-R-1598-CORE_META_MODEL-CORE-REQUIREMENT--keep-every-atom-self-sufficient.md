@@ -2,14 +2,9 @@
 subjects:
   governs: "Atom"
   depends_on:
-    - "Atom/Property"
-    - "Atom/Claim"
-    - "Atom/Revision"
-    - "Atom/Carrier"
-    - "Relation"
-    - "Single Source of Truth"
-version: 4
-updated_at: "2026-10-03 00:55:03 +0400"
+    ["Atom.Property", "Atom.Substance", "Atom", "Markdown Atom Carrier", "Relation", "Single Source of Truth"]
+version: 5
+updated_at: "2026-10-15 12:22:53 +0000"
 relations: {"relates_to": ["CA-R-117", "CA-R-118", "CA-R-1470"]}
 atom_id: "CA-R-1598"
 content_role: "Requirement"

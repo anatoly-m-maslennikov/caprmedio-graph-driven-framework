@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Atom/Global Tier"
+  governs: "Atom.Global Tier"
   depends_on:
     - "Atom"
     - "Scope Unit"
     - "Atom/Content Role"
-version: 4
-updated_at: "2026-10-03 00:37:21 +0400"
+version: 5
+updated_at: "2026-10-15 12:22:40 +0000"
 relations: {"relates_to": ["CA-R-1444", "CA-R-917"]}
 atom_id: "CA-R-1573"
 content_role: "Requirement"

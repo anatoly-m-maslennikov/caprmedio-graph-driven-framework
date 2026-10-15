@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Build Terms Graph"
-  depends_on: ["Workflow", "Step", "Workflow Run", "Projection/Type: Terms Graph"]
-version: 2
-updated_at: "2026-10-04 16:51:32 +0000"
+  depends_on: ["Workflow", "Step", "Execution/Workflow Run", "Projection/Type: Terms Graph"]
+version: 3
+updated_at: "2026-10-15 12:20:50 +0000"
 relations:
   relates_to: [CA-O-138, CA-R-1508, CA-R-1519, CA-R-1525, CA-R-1335, CA-R-1728]
 ---

@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Scope"
+  governs: "Atom Scope"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Scope Unit/Scope"
-    - "Operator"
-    - "Atom/Governed Subject"
-    - "Atom/Claim"
-version: 18
-updated_at: "2026-10-02 21:09:50 +0400"
+    ["Atom.Author", "Scope Unit Scope", "Operator", "Atom.Governed Subject", "Atom.Substance"]
+version: 19
+updated_at: "2026-10-15 12:21:04 +0000"
 relations:
   child_of:
     - CA-R-1596

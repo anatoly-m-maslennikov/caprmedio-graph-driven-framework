@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "File Carrier/GitHub Preview"
+  governs: "File Carrier"
   depends_on:
     - "Markdown"
     - "TOML"
     - "YAML"
-version: 11
-updated_at: "2026-10-02 19:18:22 +0400"
+version: 12
+updated_at: "2026-10-15 12:18:11 +0000"
 relations: {}
 atom_id: "CA-D-330"
 content_role: "Delivery"

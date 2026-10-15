@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Work Journal/Event/Type"
+  governs: "Event/Type"
   depends_on:
-    - "Work Journal/Event"
-version: 22
-updated_at: "2026-10-03 01:31:08 +0400"
+    ["Journal.Record"]
+version: 23
+updated_at: "2026-10-15 12:23:01 +0000"
 relations: {}
 atom_id: "CA-R-1643"
 content_role: "Requirement"

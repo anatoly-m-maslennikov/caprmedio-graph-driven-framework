@@ -2,15 +2,9 @@
 subjects:
   governs: "semantics"
   depends_on:
-    - "Atom/Content Role"
-    - "Implementation"
-    - "Action"
-    - "Workflow"
-    - "Actor"
-    - "Journal/Record"
-    - "Relation"
-version: 26
-updated_at: "2026-10-03 02:24:19 +0400"
+    ["Atom/Content Role", "Implementation", "Action", "Workflow", "Actor", "Journal.Record", "Relation"]
+version: 27
+updated_at: "2026-10-15 12:23:06 +0000"
 relations:
   child_of:
     - CA-M-001

@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Project Settings/Atom Prefix/Carrier"
+  governs: "Project Settings.Atom Prefix"
   depends_on:
     - "Project Settings"
     - "Atom"
     - "Operator"
-version: 9
-updated_at: "2026-10-13 22:23:39 +0400"
+version: 10
+updated_at: "2026-10-15 12:18:31 +0000"
 relations:
   child_of:
     - "CA-D-366"

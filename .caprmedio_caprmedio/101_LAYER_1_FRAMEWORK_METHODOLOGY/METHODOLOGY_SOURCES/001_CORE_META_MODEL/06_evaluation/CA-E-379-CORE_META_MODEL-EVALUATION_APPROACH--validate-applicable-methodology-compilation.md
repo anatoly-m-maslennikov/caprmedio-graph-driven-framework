@@ -2,18 +2,9 @@
 subjects:
   governs: "Applicable Methodology Compilation"
   depends_on:
-    - "Applicable Methodology"
-    - "Applicable Methodology/Sources"
-    - "Project Configuration"
-    - "Extension"
-    - "Framework Instance Settings"
-    - "Methodology Source/Expansion Boundary"
-    - "Atom/Revision"
-    - "Atom/Claim"
-    - "Operator"
-    - "Journal/Record"
-version: 21
-updated_at: "2026-10-02 19:57:02 +0400"
+    ["Applicable Methodology", "Applicable Methodology Source Set", "Project Configuration", "Extension", "Framework Instance.Settings", "Methodology Source.Expansion Boundary", "Atom", "Atom.Substance", "Operator", "Journal.Record"]
+version: 22
+updated_at: "2026-10-15 12:19:07 +0000"
 relations:
   evaluation_for:
     - CA-D-305

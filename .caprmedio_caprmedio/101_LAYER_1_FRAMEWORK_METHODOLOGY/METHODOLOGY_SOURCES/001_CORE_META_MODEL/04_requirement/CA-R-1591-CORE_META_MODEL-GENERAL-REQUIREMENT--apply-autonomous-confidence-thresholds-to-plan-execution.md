@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold"
+  governs: "Atom/Content Role: Plan/Type: Plan.Autonomous Confidence Threshold"
   depends_on:
     - "Atom/Content Role: Plan/Type: Plan"
     - "Autonomous Confidence Threshold"
     - "Operator"
     - "AI Agent"
-version: 4
-updated_at: "2026-10-03 00:47:46 +0400"
+version: 5
+updated_at: "2026-10-15 12:22:49 +0000"
 relations: {"relates_to": ["CA-R-1587", "CA-M-271"]}
 atom_id: "CA-R-1591"
 content_role: "Requirement"

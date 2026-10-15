@@ -10,20 +10,9 @@ status: Active
 subjects:
   governs: "Corrective Method Acceptance"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Summary"
-    - "Atom/Revision/Author"
-    - "Local Tier"
-    - "Projection"
-    - "AI Agent"
-    - "Operator"
-    - "Autonomous Confidence Threshold"
-    - "Spec"
-version: 4
-updated_at: "2026-10-04 15:14:54 +0000"
+    ["Action", "Atom/Content Role: Method", "Atom/Content Role: Evaluation", "Implementation", "Atom.Summary", "Atom.Author", "Local Tier", "Projection", "AI Agent", "Operator", "Autonomous Confidence Threshold", "Spec"]
+version: 5
+updated_at: "2026-10-15 12:20:31 +0000"
 relations:
   relates_to:
     - CA-O-021

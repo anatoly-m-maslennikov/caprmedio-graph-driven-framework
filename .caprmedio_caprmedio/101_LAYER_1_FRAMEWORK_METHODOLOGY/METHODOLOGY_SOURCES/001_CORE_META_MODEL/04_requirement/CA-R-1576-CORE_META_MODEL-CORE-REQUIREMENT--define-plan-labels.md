@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Label"
+  governs: "Atom/Content Role: Plan/Type: Plan.Label"
   depends_on:
-    - "Label"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Subtype"
-version: 5
-updated_at: "2026-10-03 00:34:47 +0400"
+    ["Label", "Atom/Content Role: Plan/Type: Plan", "Atom/Content Role: Plan/Type: Plan.Label"]
+version: 6
+updated_at: "2026-10-15 12:22:42 +0000"
 relations: {"relates_to": ["CA-R-1594", "CA-R-1574"]}
 atom_id: "CA-R-1576"
 content_role: "Requirement"

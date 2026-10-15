@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Workflow"
-  depends_on: ["Step", "Workflow Run", "Workflow/Relation Kind: On Result", "Operator", "Journal"]
-version: 6
-updated_at: "2026-10-15 11:27:33 +0000"
+  depends_on: ["Step", "Execution/Workflow Run", "Relation/Type: On Result", "Operator", "Journal"]
+version: 7
+updated_at: "2026-10-15 12:20:47 +0000"
 relations:
   relates_to: [CA-O-129, CA-O-145, CA-M-303, CA-R-1508, CA-R-1513, CA-R-1520, CA-R-1525, CA-R-1720]
 ---

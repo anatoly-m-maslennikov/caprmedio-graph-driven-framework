@@ -2,19 +2,9 @@
 subjects:
   governs: "Journal"
   depends_on:
-    - "Step Run"
-    - "Workflow Run"
-    - "Project"
-    - "Artifact"
-    - "Implementation"
-    - "Action"
-    - "Workflow"
-    - "Work Journal/Event"
-    - "Projection"
-    - "Carrier"
-    - "Atom/Content Role: Delivery"
-version: 19
-updated_at: "2026-10-14 18:37:38 +0400"
+    ["Execution/Step Run", "Execution/Workflow Run", "Project", "Artifact", "Implementation", "Action", "Workflow", "Journal.Record", "Projection", "Carrier", "Atom/Content Role: Delivery"]
+version: 20
+updated_at: "2026-10-15 12:23:08 +0000"
 relations:
   child_of:
     - CAPRMEDIO-REQU-007-CORE-REQUIREMENT--full-minimal-traceability

@@ -2,14 +2,9 @@
 subjects:
   governs: "Evaluation For Relation"
   depends_on:
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Operations"
-    - "Atom/Local Tier"
-version: 17
-updated_at: "2026-10-02 21:16:45 +0400"
+    ["Atom/Content Role: Evaluation", "Atom/Content Role: Requirement", "Atom/Content Role: Method", "Atom/Content Role: Delivery", "Atom/Content Role: Operations", "Atom.Local Tier"]
+version: 18
+updated_at: "2026-10-15 12:21:05 +0000"
 relations: {}
 atom_id: "CA-R-1018"
 content_role: "Requirement"

@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Workflow Run"
+  governs: "Execution/Workflow Run"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Step Run"
-    - "Artifact/Revision"
-    - "Journal"
-    - "Operator"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Workflow", "Step", "Action", "Execution/Step Run", "Atom", "Journal", "Operator"]
+version: 6
+updated_at: "2026-10-15 12:19:28 +0000"
 relations: {"evaluation_for": ["CA-R-1525"]}
 atom_id: "CA-E-494"
 content_role: "Evaluation"

@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier/YAML Frontmatter"
+  governs: "Markdown Atom Carrier.YAML Frontmatter"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Operator"
-    - "Scope Unit"
-    - "Actor"
-version: 16
-updated_at: "2026-10-15 10:01:40 +0000"
+    ["Atom.Author", "Operator", "Scope Unit", "Actor"]
+version: 17
+updated_at: "2026-10-15 12:17:56 +0000"
 relations: {}
 atom_id: "CA-D-276"
 content_role: "Delivery"

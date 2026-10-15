@@ -2,12 +2,9 @@
 subjects:
   governs: "Relational Atom Classification Validation"
   depends_on:
-    - "Relational Atom/Qualified Type"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Atom/Content Role: Requirement/Type: Demand"
-    - "Atom/Content Role: Plan/Type: Plan"
-version: 14
-updated_at: "2026-10-02 20:03:51 +0400"
+    ["Relational Atom/Type", "Atom/Content Role: Requirement/Type: Goal", "Atom/Content Role: Requirement/Type: Demand", "Atom/Content Role: Plan/Type: Plan"]
+version: 15
+updated_at: "2026-10-15 12:19:11 +0000"
 relations: {"evaluation_for": ["CA-R-923", "CA-R-924", "CA-R-1576", "CA-R-1588"]}
 atom_id: "CA-E-425"
 content_role: "Evaluation"

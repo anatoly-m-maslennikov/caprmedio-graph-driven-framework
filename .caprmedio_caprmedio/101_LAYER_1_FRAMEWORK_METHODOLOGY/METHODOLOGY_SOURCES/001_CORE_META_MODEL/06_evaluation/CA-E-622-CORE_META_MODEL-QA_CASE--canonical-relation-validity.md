@@ -2,19 +2,9 @@
 subjects:
   governs: "relation validation"
   depends_on:
-    - "Atom"
-    - "Atom/Content Role"
-    - "Atom/Status"
-    - "Journal"
-    - "Relation Kind"
-    - "Relation Kind/Metadata"
-    - "CAPRMEDIO Graph"
-    - "Applicable Methodology"
-    - "Relation/authority"
-    - "Projection"
-    - "Single Source of Truth"
-version: 24
-updated_at: "2026-10-11 17:56:31 +0400"
+    ["Atom", "Atom/Content Role", "Atom.Status", "Journal", "Relation Kind", "Relation Kind Metadata", "CAPRMEDIO Graph", "Applicable Methodology", "Relation.Authority", "Projection", "Single Source of Truth"]
+version: 25
+updated_at: "2026-10-15 12:19:41 +0000"
 relations: {"evaluation_for":["CA-R-806","CA-R-1246","CA-R-1437","CA-R-1472","CA-M-120","CA-R-1676","CA-R-1580","CA-R-807","CA-D-268","CA-R-1040","CA-D-483", "CA-D-466"]}
 atom_id: "CA-E-622"
 content_role: "Evaluation"

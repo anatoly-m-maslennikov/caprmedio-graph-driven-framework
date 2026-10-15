@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Carrier Set"
+  governs: "Applicable Methodology"
   depends_on:
-    - "Applicable Methodology/Member"
-version: 11
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Applicable Methodology.Member"]
+version: 12
+updated_at: "2026-10-15 12:18:07 +0000"
 relations: {}
 atom_id: "CA-D-306"
 content_role: "Delivery"

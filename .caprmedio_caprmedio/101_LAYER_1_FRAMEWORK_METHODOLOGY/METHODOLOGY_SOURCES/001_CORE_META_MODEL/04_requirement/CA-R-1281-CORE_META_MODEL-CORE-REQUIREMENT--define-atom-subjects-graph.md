@@ -2,21 +2,9 @@
 subjects:
   governs: "Projection/Type: Atom Subjects Graph"
   depends_on:
-    - "Projection"
-    - "Atom"
-    - "Atom/Subjects"
-    - "Subject Path"
-    - "Entity"
-    - "GOVERNS"
-    - "DEPENDS_ON"
-    - "Relation"
-    - "Relation Kind"
-    - "CAPRMEDIO Graph"
-    - "Artifact/Revision"
-    - "Subject"
-    - "Term"
-version: 12
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Projection", "Atom", "Atom.Subjects", "Subject Path", "Entity", "GOVERNS", "DEPENDS_ON", "Relation", "Relation Kind", "CAPRMEDIO Graph", "Subject", "Term"]
+version: 13
+updated_at: "2026-10-15 12:21:20 +0000"
 relations: {}
 atom_id: "CA-R-1281"
 content_role: "Requirement"

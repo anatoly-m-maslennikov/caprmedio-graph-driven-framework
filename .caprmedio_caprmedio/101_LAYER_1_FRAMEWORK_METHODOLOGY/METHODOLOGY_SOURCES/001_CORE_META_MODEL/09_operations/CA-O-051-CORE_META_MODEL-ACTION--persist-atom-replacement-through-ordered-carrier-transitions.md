@@ -2,14 +2,9 @@
 subjects:
   governs: "Persist Atom Replacement"
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Artifact/Revision"
-    - "Atom/Carrier"
-    - "Journal"
-    - "Artifact/Revision/Archive Carrier Basename"
-version: 7
-updated_at: "2026-10-13 04:46:56 +0400"
+    ["Action", "Atom", "Revision/Type: Atom", "Atom Carrier", "Journal", "Artifact Archive Carrier Basename"]
+version: 8
+updated_at: "2026-10-15 12:20:24 +0000"
 relations: {relates_to: [CA-R-1432, CA-R-807]}
 atom_id: "CA-O-051"
 content_role: "Operations"

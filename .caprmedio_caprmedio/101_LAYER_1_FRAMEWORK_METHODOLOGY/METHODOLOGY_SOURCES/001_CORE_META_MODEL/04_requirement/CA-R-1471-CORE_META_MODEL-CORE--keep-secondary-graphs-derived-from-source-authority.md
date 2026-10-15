@@ -2,15 +2,9 @@
 subjects:
   governs: "CAPRMEDIO Graph"
   depends_on:
-    - "Single Source of Truth"
-    - "Projection"
-    - "Atom"
-    - "Atom/Claim"
-    - "Structural Entity"
-    - "Journal"
-    - "Relation"
-version: 5
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Single Source of Truth", "Projection", "Atom", "Atom.Substance", "Structural Entity", "Journal", "Relation"]
+version: 6
+updated_at: "2026-10-15 12:22:08 +0000"
 relations: {}
 atom_id: "CA-R-1471"
 content_role: "Requirement"

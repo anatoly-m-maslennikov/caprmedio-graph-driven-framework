@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom Collection"
+  governs: "Container Atom"
   depends_on:
     - "Atom"
-version: 12
-updated_at: "2026-10-02 21:45:33 +0400"
+version: 13
+updated_at: "2026-10-15 12:21:15 +0000"
 relations: {}
 atom_id: "CA-R-1265"
 content_role: "Requirement"

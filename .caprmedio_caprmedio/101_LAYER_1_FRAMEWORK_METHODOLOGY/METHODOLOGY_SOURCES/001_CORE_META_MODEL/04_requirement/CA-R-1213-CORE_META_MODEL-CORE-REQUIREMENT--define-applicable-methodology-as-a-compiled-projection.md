@@ -2,17 +2,9 @@
 subjects:
   governs: "Applicable Methodology"
   depends_on:
-    - "Methodology Source"
-    - "Atom/Revision"
-    - "Projection"
-    - "Projection/Type: Reconciled Projection"
-    - "Scope Unit"
-    - "Atom/Claim"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Carrier"
-    - "Atom/Content Role: Delivery"
-version: 17
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["Methodology Source", "Atom", "Projection", "Projection/Type: Reconciled Projection", "Scope Unit", "Atom.Substance", "Atom/Content Role: Requirement/Type: Goal", "Carrier", "Atom/Content Role: Delivery"]
+version: 18
+updated_at: "2026-10-15 12:21:11 +0000"
 relations: {}
 atom_id: "CA-R-1213"
 content_role: "Requirement"

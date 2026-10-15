@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Default Settings/Carrier/Content"
+  governs: "Default Settings"
   depends_on:
-    - "Default Settings"
-    - "Framework Instance Settings"
-    - "Carrier"
-version: 7
-updated_at: "2026-10-02 19:36:21 +0400"
+    ["Default Settings", "Framework Instance.Settings", "Carrier"]
+version: 8
+updated_at: "2026-10-15 12:18:37 +0000"
 relations:
   child_of:
     - "CA-D-407"

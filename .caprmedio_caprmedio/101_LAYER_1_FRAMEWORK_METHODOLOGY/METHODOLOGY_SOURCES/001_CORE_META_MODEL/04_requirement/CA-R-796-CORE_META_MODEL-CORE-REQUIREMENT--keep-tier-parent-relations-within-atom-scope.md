@@ -2,12 +2,9 @@
 subjects:
   governs: "relation-model"
   depends_on:
-    - "Atom/Scope"
-    - "Atom"
-    - "Atom/Local Tier"
-    - "Relation"
-version: 18
-updated_at: "2026-10-02 20:52:00 +0400"
+    ["Atom Scope", "Atom", "Atom.Local Tier", "Relation"]
+version: 19
+updated_at: "2026-10-15 12:23:29 +0000"
 relations:
   child_of:
     - CA-R-917

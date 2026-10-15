@@ -8,10 +8,10 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Journal/Carrier Root"
+  governs: "Journal Carrier Root"
   depends_on: ["Project","Journal","Carrier","Projection","Workflow"]
-version: 3
-updated_at: "2026-10-14 13:43:03 +0400"
+version: 4
+updated_at: "2026-10-15 12:18:57 +0000"
 relations: {}
 ---
 # Summary

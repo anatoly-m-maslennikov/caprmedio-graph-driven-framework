@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Carrier/Content"
+  governs: "Plan Atom File Carrier.Content"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Summary"
-    - "Atom/Claim"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-    - "Atom/Content Role: Plan/Type: Plan/Details"
-    - "File Carrier"
-    - "Hub Atom"
-version: 7
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Atom.Summary", "Atom.Substance", "Atom/Content Role: Plan/Type: Plan.Definition of Done", "Atom/Content Role: Plan/Type: Plan.Details", "File Carrier", "Hub Atom"]
+version: 8
+updated_at: "2026-10-15 12:18:45 +0000"
 relations: {"relates_to": ["CA-R-1599", "CA-R-1586", "CA-D-482", "CA-D-460"]}
 atom_id: "CA-D-470"
 content_role: "Delivery"

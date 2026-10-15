@@ -2,15 +2,9 @@
 subjects:
   governs: "Obtain Source Correction Decision"
   depends_on:
-    - "Action"
-    - "Operator"
-    - "AI Agent"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "Journal"
-    - "Journal/Record"
-version: 6
-updated_at: "2026-10-04 16:46:08 +0000"
+    ["Action", "Operator", "AI Agent", "Artifact", "Atom.Substance", "Journal", "Journal.Record"]
+version: 7
+updated_at: "2026-10-15 12:20:12 +0000"
 relations: {}
 atom_id: "CA-O-007"
 content_role: "Operations"

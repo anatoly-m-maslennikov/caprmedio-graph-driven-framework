@@ -2,13 +2,9 @@
 subjects:
   governs: "Label"
   depends_on:
-    - "Entity"
-    - "Property"
-    - "Operator"
-    - "Type"
-    - "Atom/Content Role: Plan/Type: Plan/Subtype"
-version: 4
-updated_at: "2026-10-03 00:49:01 +0400"
+    ["Entity", "Property", "Operator", "Type", "Atom/Content Role: Plan/Type: Plan.Label"]
+version: 5
+updated_at: "2026-10-15 12:22:50 +0000"
 relations: {}
 atom_id: "CA-R-1594"
 content_role: "Requirement"

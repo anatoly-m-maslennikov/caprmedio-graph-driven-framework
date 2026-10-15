@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Identity"
+  governs: "Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-version: 5
-updated_at: "2026-10-03 00:06:54 +0400"
+    ["Atom/Content Role: Plan/Type: Plan"]
+version: 6
+updated_at: "2026-10-15 12:22:24 +0000"
 relations: {"relates_to": ["CA-R-1578"]}
 atom_id: "CA-R-1534"
 content_role: "Requirement"

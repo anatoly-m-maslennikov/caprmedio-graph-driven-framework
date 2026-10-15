@@ -2,11 +2,9 @@
 subjects:
   governs: "Projection"
   depends_on:
-    - "Carrier"
-    - "Type"
-    - "Atom/Claim"
-version: 5
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Carrier", "Type", "Atom.Substance"]
+version: 6
+updated_at: "2026-10-15 12:22:04 +0000"
 relations: {}
 atom_id: "CA-R-1460"
 content_role: "Requirement"

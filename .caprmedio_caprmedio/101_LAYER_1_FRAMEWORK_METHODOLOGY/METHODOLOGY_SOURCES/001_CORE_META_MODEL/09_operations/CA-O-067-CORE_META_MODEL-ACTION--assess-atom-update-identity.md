@@ -2,17 +2,9 @@
 subjects:
   governs: "Assess Atom Update Identity"
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Atom/Summary"
-    - "Atom/Claim"
-    - "Atom Change Classification"
-    - "Artifact/Revision"
-    - "Workflow"
-    - "Workflow Run"
-    - "Operator"
-version: 7
-updated_at: "2026-10-13 04:46:56 +0400"
+    ["Action", "Atom", "Atom.Summary", "Atom.Substance", "Atom Change Classification", "Revision/Type: Atom", "Workflow", "Execution/Workflow Run", "Operator"]
+version: 8
+updated_at: "2026-10-15 12:20:27 +0000"
 relations: {"relates_to": ["CA-R-1432", "CA-R-1464", "CA-M-303", "CA-R-1520"]}
 atom_id: "CA-O-067"
 content_role: "Operations"

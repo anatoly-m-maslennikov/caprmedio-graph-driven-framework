@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Project/normative authority graph"
+  governs: "Project Normative Authority Graph"
   depends_on:
     - "Project"
     - "Relation"
     - "Normative Authority Relation Pair"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+version: 6
+updated_at: "2026-10-15 12:19:24 +0000"
 relations: {"evaluation_for":["CA-R-833","CA-R-808","CA-R-879"]}
 atom_id: "CA-E-481"
 content_role: "Evaluation"

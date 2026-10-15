@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Identifier"
+  governs: "Atom.ID"
   depends_on:
-    - "Atom/Content Role"
-    - "Project"
-    - "Atom/Content Role: Plan/Type: Plan/Identifier"
-version: 10
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Atom/Content Role", "Project", "Atom/Content Role: Plan/Type: Plan.ID"]
+version: 11
+updated_at: "2026-10-15 12:18:32 +0000"
 relations: {}
 atom_id: "CA-D-378"
 content_role: "Delivery"

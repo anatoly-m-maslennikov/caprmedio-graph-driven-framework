@@ -1,19 +1,10 @@
 ---
 subjects:
-  governs: "Journal/Record"
+  governs: "Journal.Record"
   depends_on:
-    - "Work Journal/Event"
-    - "Atom/Identifier"
-    - "Atom/Revision"
-    - "Carrier"
-    - "Atom/Content Role: Operations"
-    - "Journal"
-    - "Atom"
-    - "Artifact/Carrier"
-    - "Project"
-    - "Applicable Methodology"
-version: 13
-updated_at: "2026-10-13 04:51:40 +0400"
+    ["Journal.Record", "Atom.ID", "Revision/Type: Atom", "Carrier", "Atom/Content Role: Operations", "Journal", "Atom", "Artifact Carrier", "Project", "Applicable Methodology"]
+version: 14
+updated_at: "2026-10-15 12:19:20 +0000"
 relations:
   evaluation_for:
     - CA-R-1491

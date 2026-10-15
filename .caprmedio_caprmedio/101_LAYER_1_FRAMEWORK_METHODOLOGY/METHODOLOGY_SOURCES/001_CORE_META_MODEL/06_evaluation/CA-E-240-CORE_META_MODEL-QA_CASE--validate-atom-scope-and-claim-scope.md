@@ -2,17 +2,9 @@
 subjects:
   governs: "Scope Reference Validation"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Atom/Scope"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Scope Unit"
-    - "Project Structure"
-    - "Operator"
-    - "Hub Atom"
-version: 30
-updated_at: "2026-10-01 21:25:33 +0400"
+    ["Atom.Author", "Atom Scope", "Atom.Target Scope Unit", "Atom.Substance", "Atom.Subjects", "Scope Unit", "Project Structure", "Operator", "Hub Atom"]
+version: 31
+updated_at: "2026-10-15 12:19:04 +0000"
 relations: {"evaluation_for": ["CA-R-1595", "CA-R-1596", "CA-R-922", "CA-R-923", "CA-R-1588", "CA-R-1271", "CA-R-947", "CA-R-944", "CA-R-1201", "CA-R-1202", "CA-D-482", "CA-D-495"]}
 atom_id: "CA-E-240"
 content_role: "Evaluation"

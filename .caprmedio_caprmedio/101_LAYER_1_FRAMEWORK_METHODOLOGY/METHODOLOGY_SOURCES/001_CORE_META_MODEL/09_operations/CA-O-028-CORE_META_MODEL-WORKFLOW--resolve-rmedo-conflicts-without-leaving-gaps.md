@@ -2,29 +2,9 @@
 subjects:
   governs: "RMEDO Conflict Resolution"
   depends_on:
-    - "Workflow/Relation Kind: On Result"
-    - "Step Run"
-    - "Workflow Run"
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Select Reconciliation Sources"
-    - "Assess Source Conflicts"
-    - "Propose Source Corrections"
-    - "Obtain Source Correction Decision"
-    - "Apply Approved Source Corrections"
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Global Tier"
-    - "Atom/Revision/Updated At"
-    - "Atom/Local Tier: Principle"
-    - "Relation"
-    - "Operator"
-    - "AI Agent"
-    - "Autonomous Confidence Threshold"
-    - "Journal"
-version: 8
-updated_at: "2026-10-04 15:07:08 +0000"
+    ["Relation/Type: On Result", "Execution/Step Run", "Execution/Workflow Run", "Action", "Step", "Workflow", "Select Reconciliation Sources", "Assess Source Conflicts", "Propose Source Corrections", "Obtain Source Correction Decision", "Apply Approved Source Corrections", "Atom", "Atom.Substance", "Atom.Global Tier", "Atom.Updated At", "Atom.Local Tier: Principle", "Relation", "Operator", "AI Agent", "Autonomous Confidence Threshold", "Journal"]
+version: 9
+updated_at: "2026-10-15 12:20:23 +0000"
 relations: {"relates_to":["CA-O-004","CA-O-005","CA-O-006","CA-O-007","CA-O-008","CA-R-1551","CA-R-807"]}
 atom_id: "CA-O-028"
 content_role: "Operations"

@@ -10,23 +10,9 @@ status: Active
 subjects:
   governs: "Reconcile Navigation Numbers"
   depends_on:
-    - "Project Structure"
-    - "Scope Unit"
-    - "Scope Unit/Navigational Order Number"
-    - "Scope Unit/Local Order"
-    - "Scope Unit/Structural Level"
-    - "Scope Unit/Type"
-    - "Scope Unit/Label"
-    - "Carrier"
-    - "Directory Carrier/Numeric Prefix"
-    - "Implementation Folder"
-    - "Operator"
-    - "Atom"
-    - "Action"
-    - "Project Structure Maintenance"
-
-version: 3
-updated_at: "2026-10-04 15:16:04 +0000"
+    ["Project Structure", "Scope Unit", "Scope Unit.Navigational Order Number", "Scope Unit.Local Order", "Scope Unit.Structural Level", "Scope Unit/Type", "Scope Unit.Label", "Carrier", "Directory Carrier.Numeric Prefix", "Implementation Folder", "Operator", "Atom", "Action", "Project Structure Maintenance"]
+version: 4
+updated_at: "2026-10-15 12:20:28 +0000"
 relations: {"relates_to": ["CA-R-1483", "CA-R-1484", "CA-R-976", "CA-R-981", "CA-R-983", "CA-M-291", "CA-D-440", "CA-D-442", "CA-D-444", "CA-D-445", "CA-D-297", "CA-D-299", "CA-D-300", "CA-D-380", "CA-O-012", "CA-O-015"]}
 global_tier: 11
 ---

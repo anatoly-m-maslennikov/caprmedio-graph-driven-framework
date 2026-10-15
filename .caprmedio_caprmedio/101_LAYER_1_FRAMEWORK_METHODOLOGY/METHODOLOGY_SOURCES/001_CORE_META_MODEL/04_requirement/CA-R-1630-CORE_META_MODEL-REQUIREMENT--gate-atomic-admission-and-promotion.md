@@ -2,10 +2,9 @@
 subjects:
   governs: "lifecycle"
   depends_on:
-    - "Framework Instance Settings"
-    - "Default Settings"
-version: 26
-updated_at: "2026-10-03 01:07:45 +0400"
+    ["Framework Instance.Settings", "Default Settings"]
+version: 27
+updated_at: "2026-10-15 12:22:57 +0000"
 relations:
   relates_to:
     - "CA-R-1439"

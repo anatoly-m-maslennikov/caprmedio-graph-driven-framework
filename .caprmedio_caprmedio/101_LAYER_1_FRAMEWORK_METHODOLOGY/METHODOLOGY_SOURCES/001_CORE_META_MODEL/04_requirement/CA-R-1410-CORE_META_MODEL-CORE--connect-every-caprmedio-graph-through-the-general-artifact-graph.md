@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Graph/Connectivity"
+  governs: "CAPRMEDIO Graph.Connectivity"
   depends_on:
     - "General Artifact Graph"
     - "Artifact"
     - "Structural Entity"
-version: 7
-updated_at: "2026-10-02 22:41:14 +0400"
+version: 8
+updated_at: "2026-10-15 12:21:47 +0000"
 relations: {}
 atom_id: "CA-R-1410"
 content_role: "Requirement"

@@ -2,9 +2,9 @@
 subjects:
   governs: "extension-model"
   depends_on:
-    - "Framework Instance Settings"
-version: 17
-updated_at: "2026-10-03 02:41:52 +0400"
+    ["Framework Instance.Settings"]
+version: 18
+updated_at: "2026-10-15 12:23:10 +0000"
 relations:
   child_of:
     - "CA-R-1709"

@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings/Authoritative Carrier/Content"
+  governs: "Project Settings"
   depends_on:
-    - "Project"
-    - "Atom/Identifier/Project Prefix"
-    - "Framework Instance Settings"
-    - "Projection"
-version: 11
-updated_at: "2026-10-15 00:35:00 +0000"
+    ["Project", "Project Settings.Atom Prefix", "Framework Instance.Settings", "Projection"]
+version: 12
+updated_at: "2026-10-15 12:18:21 +0000"
 relations:
   child_of:
     - CA-D-364

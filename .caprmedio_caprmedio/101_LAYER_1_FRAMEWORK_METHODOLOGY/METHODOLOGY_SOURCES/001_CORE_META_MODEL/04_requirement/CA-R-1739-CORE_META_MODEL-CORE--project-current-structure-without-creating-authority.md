@@ -2,13 +2,9 @@
 subjects:
   governs: "Project Scope Unit Graph Projection"
   depends_on:
-    - "Project Structure"
-    - "Scope Unit"
-    - "Projection"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Framework Instance Settings"
-version: 21
-updated_at: "2026-10-03 02:54:00 +0400"
+    ["Project Structure", "Scope Unit", "Projection", "Atom/Content Role: Requirement/Type: Goal", "Framework Instance.Settings"]
+version: 22
+updated_at: "2026-10-15 12:23:11 +0000"
 relations: {}
 atom_id: "CA-R-1739"
 content_role: "Requirement"

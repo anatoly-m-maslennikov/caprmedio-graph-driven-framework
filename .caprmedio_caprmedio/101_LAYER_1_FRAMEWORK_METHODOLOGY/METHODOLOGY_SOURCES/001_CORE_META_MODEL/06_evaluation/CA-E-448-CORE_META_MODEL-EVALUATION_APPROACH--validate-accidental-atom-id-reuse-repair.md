@@ -1,19 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Identity/collision repair"
+  governs: "Atom.ID"
   depends_on:
-    - "Atom/Identity"
-    - "Atom/Content Role"
-    - "Atom/Claim"
-    - "Atom/Scope"
-    - "Artifact/Revision"
-    - "Carrier/Canonical Address"
-    - "Project"
-    - "Operator"
-    - "Confidence Threshold"
-    - "Work Journal"
-version: 9
-updated_at: "2026-10-02 20:09:13 +0400"
+    ["Atom.ID", "Atom/Content Role", "Atom.Substance", "Atom Scope", "Atom", "Revision/Type: Atom", "Carrier.Canonical Address", "Project", "Operator", "Confidence Threshold", "Journal"]
+version: 10
+updated_at: "2026-10-15 12:19:15 +0000"
 relations:
   evaluation_for:
     - CA-M-276

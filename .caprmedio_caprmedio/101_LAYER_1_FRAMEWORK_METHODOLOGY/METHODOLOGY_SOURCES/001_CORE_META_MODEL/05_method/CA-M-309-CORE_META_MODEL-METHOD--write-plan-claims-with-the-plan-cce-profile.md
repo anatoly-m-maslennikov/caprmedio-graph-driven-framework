@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "CCE/Role Profile: Plan"
+  governs: "Plan CCE Role Profile"
   depends_on:
-    - "Atom/Content Role: Plan"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-    - "CCE Operator"
-version: 4
-updated_at: "2026-10-01 21:41:08 +0400"
+    ["Atom/Content Role: Plan", "Atom/Content Role: Plan/Type: Plan", "Atom/Content Role: Plan/Type: Plan.Definition of Done", "CCE Operator"]
+version: 5
+updated_at: "2026-10-15 12:20:06 +0000"
 relations:
   child_of:
     - CA-M-307

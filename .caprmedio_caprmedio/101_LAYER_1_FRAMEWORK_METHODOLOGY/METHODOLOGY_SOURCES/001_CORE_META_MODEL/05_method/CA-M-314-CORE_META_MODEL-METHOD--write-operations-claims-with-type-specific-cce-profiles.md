@@ -1,6 +1,6 @@
 ---
 subjects:
-  governs: "CCE/Role Profile: Operations"
+  governs: "Operations Type-specific CCE Profiles"
   depends_on:
     - "Atom/Content Role: Operations"
     - "Atom/Content Role: Operations/Type: Action"
@@ -8,8 +8,8 @@ subjects:
     - "Atom/Content Role: Operations/Type: Step"
     - "Atom/Content Role: Operations/Type: Actor"
     - "CCE Operator"
-version: 4
-updated_at: "2026-10-01 21:41:08 +0400"
+version: 5
+updated_at: "2026-10-15 12:20:09 +0000"
 relations:
   child_of:
     - CA-M-307

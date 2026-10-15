@@ -2,17 +2,9 @@
 subjects:
   governs: "Workflow"
   depends_on:
-    - "Action"
-    - "Step"
-    - "Assess Atom Update Identity"
-    - "Atom"
-    - "Atom/Summary"
-    - "Artifact/Revision"
-    - "Atom Change Classification"
-    - "Workflow Run"
-    - "Operator"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Action", "Step", "Assess Atom Update Identity", "Atom", "Atom.Summary", "Atom Change Classification", "Execution/Workflow Run", "Operator"]
+version: 6
+updated_at: "2026-10-15 12:19:27 +0000"
 relations: {"evaluation_for": ["CA-O-067", "CA-M-303", "CA-R-1432", "CA-R-1464", "CA-R-1520"]}
 atom_id: "CA-E-491"
 content_role: "Evaluation"

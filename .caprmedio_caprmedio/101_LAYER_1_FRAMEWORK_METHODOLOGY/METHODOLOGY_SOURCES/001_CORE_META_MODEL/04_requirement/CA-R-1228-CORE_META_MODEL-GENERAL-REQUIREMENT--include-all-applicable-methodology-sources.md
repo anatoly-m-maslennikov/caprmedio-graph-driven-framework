@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Sources"
+  governs: "Applicable Methodology Source Set"
   depends_on:
-    - "Methodology Source"
-    - "Core Meta-Model"
-    - "Project Configuration"
-    - "Extension"
-    - "Framework Instance Settings"
-version: 16
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["Methodology Source", "Core Meta-Model", "Project Configuration", "Extension", "Framework Instance.Settings"]
+version: 17
+updated_at: "2026-10-15 12:21:14 +0000"
 relations: {}
 atom_id: "CA-R-1228"
 content_role: "Requirement"

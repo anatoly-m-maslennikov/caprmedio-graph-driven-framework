@@ -2,14 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Method"
   depends_on:
-    - "Atom/Content Role"
-    - "Atom/Claim"
-    - "Spec"
-    - "Implementation"
-    - "Action"
-    - "Workflow"
-version: 13
-updated_at: "2026-10-02 22:05:04 +0400"
+    ["Atom/Content Role", "Atom.Substance", "Spec", "Implementation", "Action", "Workflow"]
+version: 14
+updated_at: "2026-10-15 12:21:30 +0000"
 relations: {}
 atom_id: "CA-R-1340"
 content_role: "Requirement"

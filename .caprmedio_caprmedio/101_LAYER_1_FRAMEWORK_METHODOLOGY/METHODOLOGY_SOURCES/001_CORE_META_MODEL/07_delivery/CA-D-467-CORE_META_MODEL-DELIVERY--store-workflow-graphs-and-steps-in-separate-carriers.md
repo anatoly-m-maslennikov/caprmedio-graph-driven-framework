@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Workflow/Carrier"
+  governs: "Workflow"
   depends_on:
-    - "Directory Carrier"
-    - "Atom Collection"
-    - "Artifact/Carrier"
-    - "Atom/Content Role: Operations/Type: Workflow"
-    - "Atom/Content Role: Operations/Type: Step"
-version: 6
-updated_at: "2026-10-13 18:23:23 +0400"
+    ["Directory Carrier", "Artifact Carrier", "Atom/Content Role: Operations/Type: Workflow", "Atom/Content Role: Operations/Type: Step"]
+version: 7
+updated_at: "2026-10-15 12:18:44 +0000"
 relations: {"delivery_for": ["CA-R-1570", "CA-R-1569"], "relates_to": ["CA-D-457", "CA-D-285"]}
 atom_id: "CA-D-467"
 content_role: "Delivery"

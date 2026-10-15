@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role/Name"
+  governs: "Atom/Content Role"
   depends_on:
     - "Atom/Content Role"
-version: 19
-updated_at: "2026-10-03 02:24:19 +0400"
+version: 20
+updated_at: "2026-10-15 12:23:08 +0000"
 relations:
   child_of:
     - CA-R-1531

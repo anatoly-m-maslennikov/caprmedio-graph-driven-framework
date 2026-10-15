@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Demand/Producer Result"
+  governs: "Atom/Content Role: Requirement/Type: Demand"
   depends_on:
-    - "Atom/Content Role: Implementation"
-version: 16
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Implementation"]
+version: 17
+updated_at: "2026-10-15 12:23:42 +0000"
 relations:
   child_of:
     - CA-R-933

@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Subject Index Carrier"
+  governs: "Applicable Methodology"
   depends_on:
     - "GOVERNS"
     - "DEPENDS_ON"
-version: 12
-updated_at: "2026-10-14 13:43:03 +0400"
+version: 13
+updated_at: "2026-10-15 12:18:07 +0000"
 relations: {}
 atom_id: "CA-D-307"
 content_role: "Delivery"

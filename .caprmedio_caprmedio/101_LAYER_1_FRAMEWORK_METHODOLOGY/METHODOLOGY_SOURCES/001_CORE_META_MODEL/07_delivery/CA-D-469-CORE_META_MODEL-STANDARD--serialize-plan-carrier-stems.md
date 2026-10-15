@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Carrier/Filename"
+  governs: "Plan Atom File Carrier.Filename"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Label"
-    - "Atom/Content Role: Plan/Type: Plan/Work Sequence Number"
-    - "Atom/Summary"
-    - "Atom/Identity"
-    - "Carrier"
-version: 4
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Atom/Content Role: Plan/Type: Plan.Label", "Atom/Content Role: Plan/Type: Plan.Work Sequence Number", "Atom.Summary", "Atom.ID", "Carrier"]
+version: 5
+updated_at: "2026-10-15 12:18:44 +0000"
 relations: {"relates_to": ["CA-R-1576", "CA-R-991", "CA-D-381", "CA-D-282", "CA-D-284", "CA-D-460", "CA-R-997"]}
 atom_id: "CA-D-469"
 content_role: "Delivery"

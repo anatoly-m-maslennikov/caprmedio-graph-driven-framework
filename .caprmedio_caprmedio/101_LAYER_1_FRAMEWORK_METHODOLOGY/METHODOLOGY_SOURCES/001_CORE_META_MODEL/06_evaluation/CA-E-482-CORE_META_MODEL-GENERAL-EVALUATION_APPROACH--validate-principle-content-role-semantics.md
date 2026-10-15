@@ -2,22 +2,9 @@
 subjects:
   governs: "Atom/Content Role"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Local Tier: Principle"
-    - "Atom/Content Role: Plan"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Actor"
-    - "Action"
-    - "Workflow"
-    - "Artifact/Carrier"
-version: 11
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Atom.Substance", "Atom.Local Tier: Principle", "Atom/Content Role: Plan", "Atom/Content Role: Requirement", "Atom/Content Role: Method", "Atom/Content Role: Evaluation", "Atom/Content Role: Delivery", "Atom/Content Role: Operations", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Actor", "Action", "Workflow", "Artifact Carrier"]
+version: 12
+updated_at: "2026-10-15 12:19:25 +0000"
 relations:
   evaluation_for:
     - CA-R-1531

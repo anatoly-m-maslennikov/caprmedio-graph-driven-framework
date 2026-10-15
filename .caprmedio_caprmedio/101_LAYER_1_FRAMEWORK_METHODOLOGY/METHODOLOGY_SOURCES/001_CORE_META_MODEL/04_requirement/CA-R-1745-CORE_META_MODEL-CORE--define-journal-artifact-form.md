@@ -2,11 +2,9 @@
 subjects:
   governs: "Journal"
   depends_on:
-    - "Artifact"
-    - "Journal/Record"
-    - "Atom/Claim"
-version: 17
-updated_at: "2026-10-04 22:04:35 +0000"
+    ["Artifact", "Journal.Record", "Atom.Substance"]
+version: 18
+updated_at: "2026-10-15 12:23:12 +0000"
 relations: {}
 atom_id: "CA-R-1745"
 content_role: "Requirement"

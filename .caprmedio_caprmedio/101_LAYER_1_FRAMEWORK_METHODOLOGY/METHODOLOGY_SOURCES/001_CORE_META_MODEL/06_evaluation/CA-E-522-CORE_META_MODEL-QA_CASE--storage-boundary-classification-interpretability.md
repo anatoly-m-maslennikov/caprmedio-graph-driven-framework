@@ -2,19 +2,9 @@
 subjects:
   governs: "Carrier"
   depends_on:
-    - "Atom"
-    - "Artifact"
-    - "Journal"
-    - "Journal/Record"
-    - "Work Journal/Event"
-    - "Projection"
-    - "Workflow"
-    - "Scope Unit"
-    - "Atom/Content Role"
-    - "Operator"
-    - "Runtime State"
-version: 1
-updated_at: "2026-09-30 14:54:00 +0400"
+    ["Atom", "Artifact", "Journal", "Journal.Record", "Projection", "Workflow", "Scope Unit", "Atom/Content Role", "Operator", "Runtime State"]
+version: 2
+updated_at: "2026-10-15 12:19:39 +0000"
 relations: {"evaluation_for": ["CA-D-308", "CA-D-341", "CA-R-1463", "CA-R-1467", "CA-R-1468", "CA-R-1720", "CA-R-1745"]}
 atom_id: "CA-E-522"
 content_role: "Evaluation"

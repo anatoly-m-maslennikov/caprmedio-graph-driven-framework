@@ -10,18 +10,9 @@ status: Active
 subjects:
   governs: "Governed Term Rendering"
   depends_on:
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "CCE"
-    - "CCE Operator"
-    - "CCE Operator Registry"
-    - "Concern"
-    - "General Term"
-    - "Governed Term"
-    - "Markdown Atom Carrier/Main Content/CCE Operator"
-    - "Scope Unit/Name"
-version: 3
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Atom", "Atom.Substance", "CCE", "CCE Operator", "CCE Operator Registry", "Concern", "General Term", "Governed Term", "Markdown Atom Carrier.Main Content.CCE Operator", "Scope Unit.Name"]
+version: 4
+updated_at: "2026-10-15 12:19:36 +0000"
 relations:
   evaluation_for:
     - CA-D-280

@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "AI Agent/authorization"
+  governs: "Actor/Type: AI Agent"
   depends_on:
     - "AI Agent"
     - "Operator"
     - "AI Agent Delegation"
-version: 4
-updated_at: "2026-10-03 00:22:56 +0400"
+version: 5
+updated_at: "2026-10-15 12:22:31 +0000"
 relations:
   child_of:
     - CA-P-034

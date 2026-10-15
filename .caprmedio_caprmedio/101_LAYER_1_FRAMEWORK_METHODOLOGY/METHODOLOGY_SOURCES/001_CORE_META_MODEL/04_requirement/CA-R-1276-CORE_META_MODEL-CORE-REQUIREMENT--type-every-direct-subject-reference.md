@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Atom/Subjects"
+  governs: "Atom.Subjects"
   depends_on:
     - "Relation Kind"
     - "GOVERNS"
     - "DEPENDS_ON"
-version: 10
-updated_at: "2026-10-02 21:45:33 +0400"
+version: 11
+updated_at: "2026-10-15 12:21:18 +0000"
 relations: {}
 atom_id: "CA-R-1276"
 content_role: "Requirement"

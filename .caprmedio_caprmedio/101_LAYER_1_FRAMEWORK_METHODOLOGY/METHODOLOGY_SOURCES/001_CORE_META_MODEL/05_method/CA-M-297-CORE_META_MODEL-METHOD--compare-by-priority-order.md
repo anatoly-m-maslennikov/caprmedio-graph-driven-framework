@@ -1,17 +1,15 @@
 ---
-version: 5
-updated_at: "2026-10-14 13:43:24 +0400"
+version: 6
+updated_at: "2026-10-15 12:19:59 +0000"
 relations:
   child_of:
     - CA-R-1487
   method_for:
     - CA-R-1487
 subjects:
-  governs: "Project/lexicographic selection"
+  governs: "Project Lexicographic Selection"
   depends_on:
-    - "Operator"
-    - "Project/priority model application"
-    - "Atom/Content Role: Method"
+    ["Operator", "Project Priority Model Application", "Atom/Content Role: Method"]
 atom_id: "CA-M-297"
 content_role: "Method"
 current_scope_unit: "CORE_META_MODEL"

@@ -1,18 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Local Tier/classification"
+  governs: "Atom.Local Tier"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Scope"
-    - "Atom/Content Role"
-    - "Atom/Local Tier"
-    - "Atom/Global Tier"
-    - "Scope Unit"
-    - "Type"
-    - "Methodology Source"
-    - "Autonomous Confidence Threshold"
-version: 12
-updated_at: "2026-10-01 21:38:15 +0400"
+    ["Atom.Substance", "Atom Scope", "Atom/Content Role", "Atom.Local Tier", "Atom.Global Tier", "Scope Unit", "Type", "Methodology Source", "Autonomous Confidence Threshold"]
+version: 13
+updated_at: "2026-10-15 12:19:52 +0000"
 relations: {"method_for": ["CA-R-1566", "CA-R-659", "CA-R-1431", "CA-R-1573"]}
 atom_id: "CA-M-272"
 content_role: "Method"

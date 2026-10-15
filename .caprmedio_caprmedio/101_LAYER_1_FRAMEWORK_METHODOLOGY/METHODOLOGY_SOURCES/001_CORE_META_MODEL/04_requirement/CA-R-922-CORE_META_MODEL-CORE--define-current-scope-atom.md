@@ -2,11 +2,9 @@
 subjects:
   governs: "Current-scope Atom"
   depends_on:
-    - "Atom/Claim/Target Scope Unit"
-    - "Scope Unit"
-    - "Atom"
-version: 21
-updated_at: "2026-09-29 05:38:16 +0000"
+    ["Atom.Target Scope Unit", "Scope Unit", "Atom"]
+version: 22
+updated_at: "2026-10-15 12:23:34 +0000"
 relations:
   child_of:
     - CA-R-1596

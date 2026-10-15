@@ -2,14 +2,9 @@
 subjects:
   governs: "Scope Unit"
   depends_on:
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Revision/Author"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Atom/Scope"
-    - "Operator"
-    - "Project"
-version: 22
-updated_at: "2026-09-29 22:56:17 +0400"
+    ["Atom.Target Scope Unit", "Atom.Author", "Atom/Content Role: Requirement/Type: Goal", "Atom Scope", "Operator", "Project"]
+version: 23
+updated_at: "2026-10-15 12:23:37 +0000"
 relations:
   child_of:
     - CA-R-925

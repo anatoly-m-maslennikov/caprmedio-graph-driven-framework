@@ -2,9 +2,9 @@
 subjects:
   governs: "scope-topology"
   depends_on:
-    - "Atom/Scope"
-version: 22
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Atom Scope"]
+version: 23
+updated_at: "2026-10-15 12:23:32 +0000"
 relations:
   child_of:
     - CA-R-858

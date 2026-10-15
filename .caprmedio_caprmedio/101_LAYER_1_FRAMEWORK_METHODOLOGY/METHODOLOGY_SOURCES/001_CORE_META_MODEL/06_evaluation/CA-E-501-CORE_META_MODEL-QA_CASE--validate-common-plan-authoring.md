@@ -2,21 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Plan/Type: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Claim"
-    - "Atom/Author"
-    - "Atom/Content Role: Plan/Type: Plan/Assignee"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-    - "Atom/Content Role: Plan/Type: Plan/Details"
-    - "Atom/Content Role: Plan/Type: Plan/Label"
-    - "Atom/Content Role: Plan/Type: Plan/Subtype"
-    - "Atom/Content Role: Plan/Type: Plan/Status"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Hub Atom"
-    - "Scope Unit"
-    - "Autonomous Confidence Threshold"
-version: 7
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Atom.Substance", "Atom.Author", "Atom/Content Role: Plan/Type: Plan.Assignee", "Atom/Content Role: Plan/Type: Plan.Definition of Done", "Atom/Content Role: Plan/Type: Plan.Details", "Atom/Content Role: Plan/Type: Plan.Label", "Atom/Content Role: Plan/Type: Plan.Status", "Hub Atom", "Scope Unit", "Autonomous Confidence Threshold"]
+version: 8
+updated_at: "2026-10-15 12:19:32 +0000"
 relations: {"evaluation_for": ["CA-R-1574", "CA-R-1575", "CA-R-1576", "CA-R-1577", "CA-R-1581", "CA-R-1599", "CA-R-1583", "CA-R-1584", "CA-R-1587", "CA-R-1588", "CA-R-1589", "CA-M-306", "CA-D-470"]}
 atom_id: "CA-E-501"
 content_role: "Evaluation"

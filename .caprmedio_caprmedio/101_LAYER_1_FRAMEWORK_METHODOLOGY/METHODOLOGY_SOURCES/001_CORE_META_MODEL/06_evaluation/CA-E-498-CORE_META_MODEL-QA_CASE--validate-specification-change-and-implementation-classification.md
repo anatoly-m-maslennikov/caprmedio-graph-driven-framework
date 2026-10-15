@@ -2,16 +2,9 @@
 subjects:
   governs: "Atom/Content Role"
   depends_on:
-    - "Spec Content Roles"
-    - "Change Content Roles"
-    - "Atom/Claim"
-    - "Action"
-    - "Workflow"
-    - "Step"
-    - "Implementation"
-    - "Carrier"
-version: 5
-updated_at: "2026-09-29 22:52:10 +0000"
+    ["Spec Content Roles", "Change Content Roles", "Atom.Substance", "Action", "Workflow", "Step", "Implementation", "Carrier"]
+version: 6
+updated_at: "2026-10-15 12:19:30 +0000"
 relations: {"evaluation_for": ["CA-R-1548", "CA-R-1549", "CA-R-1550", "CA-R-1339", "CA-R-1340", "CA-R-1343", "CA-R-1530", "CA-R-1569"]}
 atom_id: "CA-E-498"
 content_role: "Evaluation"

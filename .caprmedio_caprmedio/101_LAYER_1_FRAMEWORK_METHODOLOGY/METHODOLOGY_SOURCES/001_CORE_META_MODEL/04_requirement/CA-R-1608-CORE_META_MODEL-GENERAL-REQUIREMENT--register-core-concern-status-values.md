@@ -7,12 +7,11 @@ local_tier: General
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Atom/Content Role: Concern/Status"
+  governs: "Atom/Content Role: Concern.Status"
   depends_on:
-    - "Atom/Content Role: Concern"
-    - "Artifact/Revision/Status"
-version: 3
-updated_at: "2026-10-03 00:55:03 +0400"
+    ["Atom/Content Role: Concern", "Atom.Status"]
+version: 4
+updated_at: "2026-10-15 12:22:54 +0000"
 relations:
   relates_to:
     - CA-R-1308

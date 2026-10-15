@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim/Carrier"
+  governs: "Atom.Substance"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Carrier"
-    - "Atom/Content Role"
-    - "Markdown Atom Carrier/Main Content"
-version: 1
-updated_at: "2026-10-02 19:54:46 +0400"
+    ["Atom.Substance", "Atom.Target Scope Unit", "Markdown Atom Carrier", "Atom/Content Role", "Markdown Atom Carrier.Main Content"]
+version: 2
+updated_at: "2026-10-15 12:18:53 +0000"
 relations: {"relates_to": ["CA-D-479", "CA-D-482", "CA-R-1271"]}
 atom_id: "CA-D-495"
 content_role: "Delivery"

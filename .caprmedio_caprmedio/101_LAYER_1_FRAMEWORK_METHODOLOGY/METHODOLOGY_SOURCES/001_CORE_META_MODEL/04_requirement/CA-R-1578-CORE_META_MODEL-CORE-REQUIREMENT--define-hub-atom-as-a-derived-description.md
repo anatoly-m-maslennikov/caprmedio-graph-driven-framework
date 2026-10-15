@@ -2,14 +2,9 @@
 subjects:
   governs: "Hub Atom"
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Type"
-    - "Atom/Content Role: Plan/Type: Plan/Subtype"
-    - "Atom/Global Tier"
-version: 4
-updated_at: "2026-10-03 00:34:47 +0400"
+    ["Atom", "Atom.Substance", "Atom/Content Role: Plan/Type: Plan", "Type", "Atom/Content Role: Plan/Type: Plan.Label", "Atom.Global Tier"]
+version: 5
+updated_at: "2026-10-15 12:22:43 +0000"
 relations: {"relates_to": ["CA-R-1534", "CA-R-1579"]}
 atom_id: "CA-R-1578"
 content_role: "Requirement"

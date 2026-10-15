@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Workflow Run"
+  governs: "Execution/Workflow Run"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Step Run"
-    - "Artifact/Revision"
-    - "Journal"
-    - "Operator"
-version: 7
-updated_at: "2026-10-14 18:37:38 +0400"
+    ["Workflow", "Step", "Action", "Execution/Step Run", "Atom", "Journal", "Operator"]
+version: 8
+updated_at: "2026-10-15 12:22:21 +0000"
 relations: {"relates_to": ["CA-R-1510", "CA-R-1511", "CA-R-1519", "CA-R-1520", "CA-R-1720"]}
 atom_id: "CA-R-1525"
 content_role: "Requirement"

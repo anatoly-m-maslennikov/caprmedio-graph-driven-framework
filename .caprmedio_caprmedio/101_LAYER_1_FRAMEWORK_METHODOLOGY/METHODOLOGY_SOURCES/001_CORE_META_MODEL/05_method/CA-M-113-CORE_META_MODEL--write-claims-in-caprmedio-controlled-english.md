@@ -2,12 +2,9 @@
 subjects:
   governs: "language"
   depends_on:
-    - "artifact-model"
-    - "CCE"
-    - "Author"
-    - "Atom/Claim"
-version: 17
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["artifact-model", "CCE", "Author", "Atom.Substance"]
+version: 18
+updated_at: "2026-10-15 12:19:42 +0000"
 relations:
   child_of:
     - CA-M-111

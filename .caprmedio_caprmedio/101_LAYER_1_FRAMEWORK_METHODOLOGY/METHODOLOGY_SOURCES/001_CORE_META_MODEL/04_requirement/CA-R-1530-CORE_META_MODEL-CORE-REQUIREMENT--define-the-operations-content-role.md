@@ -2,14 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Operations"
   depends_on:
-    - "Atom/Content Role"
-    - "Atom/Claim"
-    - "Action"
-    - "Workflow"
-    - "Step"
-    - "Actor"
-version: 6
-updated_at: "2026-10-03 00:05:13 +0400"
+    ["Atom/Content Role", "Atom.Substance", "Action", "Workflow", "Step", "Actor"]
+version: 7
+updated_at: "2026-10-15 12:22:23 +0000"
 relations: {"relates_to": ["CA-R-1565"]}
 atom_id: "CA-R-1530"
 content_role: "Requirement"

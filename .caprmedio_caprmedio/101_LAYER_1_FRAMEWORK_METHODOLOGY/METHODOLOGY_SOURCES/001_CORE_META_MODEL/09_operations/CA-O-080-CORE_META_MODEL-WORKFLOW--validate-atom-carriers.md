@@ -10,12 +10,9 @@ status: Active
 subjects:
   governs: "Atom Carrier Validation"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Workflow/Relation Kind: On Result"
-    - "Check Atoms Step"
-version: 5
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Workflow", "Step", "Relation/Type: On Result", "Check Atoms Step"]
+version: 6
+updated_at: "2026-10-15 12:20:29 +0000"
 relations:
   relates_to:
     - CA-O-088

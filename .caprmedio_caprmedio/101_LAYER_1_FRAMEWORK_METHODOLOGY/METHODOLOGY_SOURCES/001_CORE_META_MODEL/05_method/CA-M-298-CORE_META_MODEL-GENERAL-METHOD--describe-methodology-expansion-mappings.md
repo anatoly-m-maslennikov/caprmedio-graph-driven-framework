@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: "Methodology Source/expansion mapping"
+  governs: "Methodology Source.Expansion Mapping"
   depends_on:
     - "Methodology Source"
     - "Extension"
     - "Project Configuration"
     - "Core Meta-Model"
-version: 5
-updated_at: "2026-10-01 21:40:53 +0400"
+version: 6
+updated_at: "2026-10-15 12:20:00 +0000"
 relations: {child_of: [CA-M-006], method_for: [CA-R-1375]}
 atom_id: "CA-M-298"
 content_role: "Method"

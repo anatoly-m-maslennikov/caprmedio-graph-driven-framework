@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Projected Atom Carrier"
+  governs: "Applicable Methodology Projected Atom Members"
   depends_on:
-    - "Applicable Methodology/Member"
-    - "Atom/Revision"
-    - "Methodology Source/Carrier"
-version: 10
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Applicable Methodology.Member", "Atom", "Methodology Source File Carrier"]
+version: 11
+updated_at: "2026-10-15 12:18:07 +0000"
 relations: {}
 atom_id: "CA-D-305"
 content_role: "Delivery"

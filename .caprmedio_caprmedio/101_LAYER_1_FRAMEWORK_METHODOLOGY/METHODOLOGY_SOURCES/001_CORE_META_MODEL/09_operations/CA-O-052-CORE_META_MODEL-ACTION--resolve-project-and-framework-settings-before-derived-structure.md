@@ -2,16 +2,9 @@
 subjects:
   governs: "Resolve Project Initialization Inputs"
   depends_on:
-    - "Action"
-    - "Project"
-    - "Project Settings"
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Project Structure"
-    - "Projection"
-    - "Artifact/Carrier"
-version: 4
-updated_at: "2026-10-04 15:08:22 +0000"
+    ["Action", "Project", "Project Settings", "Framework Instance.Settings", "Default Settings", "Project Structure", "Projection", "Artifact Carrier"]
+version: 5
+updated_at: "2026-10-15 12:20:24 +0000"
 relations:
   child_of:
     - CA-R-1052

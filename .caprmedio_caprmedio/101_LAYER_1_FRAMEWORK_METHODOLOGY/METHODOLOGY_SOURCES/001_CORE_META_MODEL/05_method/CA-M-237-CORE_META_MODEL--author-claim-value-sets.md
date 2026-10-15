@@ -2,14 +2,9 @@
 subjects:
   governs: "Claim Value Set Authoring"
   depends_on:
-    - "Atom/Claim"
-    - "Author"
-    - "Claim Value Set"
-    - "Property"
-    - "Subject Expression"
-    - "IS_ALLOWED_VALUE_OF"
-version: 10
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Atom.Substance", "Author", "Claim Value Set", "Property", "Subject Expression", "IS_ALLOWED_VALUE_OF"]
+version: 11
+updated_at: "2026-10-15 12:19:48 +0000"
 relations:
   child_of:
     - CA-M-115

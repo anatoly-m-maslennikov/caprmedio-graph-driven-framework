@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Step"
-  depends_on: ["Action", "Step Run", "Workflow Run", "Step/Agentic Execution Context"]
-version: 6
-updated_at: "2026-10-15 11:27:33 +0000"
+  depends_on: ["Action", "Execution/Step Run", "Execution/Workflow Run", "Agentic Step Execution Context"]
+version: 7
+updated_at: "2026-10-15 12:20:47 +0000"
 relations:
   relates_to: [CA-O-128, CA-O-145, CA-R-1509, CA-R-1511, CA-R-1527]
 ---

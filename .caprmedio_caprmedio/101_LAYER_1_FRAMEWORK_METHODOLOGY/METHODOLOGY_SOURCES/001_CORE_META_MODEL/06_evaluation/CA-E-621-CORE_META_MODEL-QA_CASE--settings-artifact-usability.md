@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: "Framework Instance Settings"
+  governs: "Framework Instance.Settings"
   depends_on:
     - "Project Settings"
     - "Project Structure"
     - "Authority Mode"
     - "Operator"
-version: 22
-updated_at: "2026-10-11 17:56:31 +0400"
+version: 23
+updated_at: "2026-10-15 12:19:40 +0000"
 relations:
   evaluation_for:
     - CA-R-1052

@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim/Canonical Signature/Projection"
+  governs: "Projection/Type: Canonical Signature"
   depends_on:
-    - "Atom/Claim/Canonical Signature"
-    - "Carrier"
-    - "Atom/Identity"
-    - "Atom/Revision"
-    - "Atom/Claim"
-    - "Atom/Carrier"
-    - "CCE"
-version: 12
-updated_at: "2026-10-05 00:25:37 +0400"
+    ["Atom Claim Canonical Signature", "Carrier", "Atom.ID", "Atom", "Atom.Substance", "Atom Carrier", "CCE"]
+version: 13
+updated_at: "2026-10-15 12:18:15 +0000"
 relations:
   child_of:
     - CA-D-266

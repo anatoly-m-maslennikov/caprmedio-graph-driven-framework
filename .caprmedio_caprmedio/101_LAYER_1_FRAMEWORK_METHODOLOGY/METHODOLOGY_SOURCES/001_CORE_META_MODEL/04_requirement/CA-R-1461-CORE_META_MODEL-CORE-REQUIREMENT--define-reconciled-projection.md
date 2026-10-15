@@ -2,14 +2,9 @@
 subjects:
   governs: "Projection/Type: Reconciled Projection"
   depends_on:
-    - "Projection"
-    - "Type"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "Carrier"
-    - "Operator"
-version: 5
-updated_at: "2026-10-01 21:41:08 +0400"
+    ["Projection", "Type", "Artifact", "Atom.Substance", "Carrier", "Operator"]
+version: 6
+updated_at: "2026-10-15 12:22:04 +0000"
 relations: {}
 atom_id: "CA-R-1461"
 content_role: "Requirement"

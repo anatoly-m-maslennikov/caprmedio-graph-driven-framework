@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "CCE/Role Profile"
+  governs: "CCE Role Profile"
   depends_on:
-    - "CCE"
-    - "CCE Operator"
-    - "Atom/Claim"
-    - "Atom/Content Role"
-    - "Type"
-version: 4
-updated_at: "2026-10-02 20:35:16 +0400"
+    ["CCE", "CCE Operator", "Atom.Substance", "Atom/Content Role", "Type"]
+version: 5
+updated_at: "2026-10-15 12:20:04 +0000"
 relations:
   child_of:
     - CA-M-113

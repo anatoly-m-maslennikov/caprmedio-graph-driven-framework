@@ -2,10 +2,9 @@
 subjects:
   governs: "Scope Unit"
   depends_on:
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Atom/Claim"
-version: 13
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Atom/Content Role: Requirement/Type: Goal", "Atom.Substance"]
+version: 14
+updated_at: "2026-10-15 12:21:21 +0000"
 relations: {}
 atom_id: "CA-R-1292"
 content_role: "Requirement"

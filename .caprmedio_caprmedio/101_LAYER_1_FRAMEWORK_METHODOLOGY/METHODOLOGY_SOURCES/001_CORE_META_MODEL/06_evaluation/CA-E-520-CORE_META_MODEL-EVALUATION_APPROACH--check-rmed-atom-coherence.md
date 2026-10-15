@@ -8,24 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-03 06:11:33 +0400"
+version: 6
+updated_at: "2026-10-15 12:19:38 +0000"
 subjects:
   governs: "Atom"
   depends_on:
-    - "Atom/Subjects"
-    - "Atom/Claim"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Details"
-    - "Atom/Summary"
-    - "Atom/Content Role"
-    - "Property"
-    - "Entity"
-    - "CCE"
-    - "Atom/Local Tier: Principle"
-    - "Operator"
-    - "CAPRMEDIO Framework Instance"
-    - "Workflow"
+    ["Atom.Subjects", "Atom.Substance", "Atom.Target Scope Unit", "Atom.Details", "Atom.Summary", "Atom/Content Role", "Property", "Entity", "CCE", "Atom.Local Tier: Principle", "Operator", "CAPRMEDIO Framework Instance", "Workflow"]
 relations: {"evaluation_for":["CA-D-269","CA-D-478","CA-D-479","CA-D-495","CA-M-113","CA-M-125","CA-R-1269","CA-R-1270","CA-R-1271","CA-R-1273","CA-R-1465","CA-R-1624","CA-R-1799"]}
 ---
 # Summary

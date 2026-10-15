@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Step"
-  depends_on: ["Assess Atom Update Identity", "Step Run", "Workflow Run", "Step/Agentic Execution Context"]
-version: 2
-updated_at: "2026-10-04 17:12:08 +0000"
+  depends_on: ["Assess Atom Update Identity", "Execution/Step Run", "Execution/Workflow Run", "Agentic Step Execution Context"]
+version: 3
+updated_at: "2026-10-15 12:20:55 +0000"
 relations:
   relates_to: [CA-O-067, CA-M-303, CA-R-1509, CA-R-1511, CA-R-1527]
 ---

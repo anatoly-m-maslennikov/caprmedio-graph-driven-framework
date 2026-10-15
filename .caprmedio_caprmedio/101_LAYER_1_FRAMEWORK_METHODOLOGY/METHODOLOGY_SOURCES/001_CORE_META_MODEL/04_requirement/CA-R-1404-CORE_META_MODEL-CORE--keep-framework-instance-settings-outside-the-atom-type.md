@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings"
+  governs: "Framework Instance.Settings"
   depends_on:
     - "Atom"
-version: 10
-updated_at: "2026-10-02 22:41:14 +0400"
+version: 11
+updated_at: "2026-10-15 12:21:46 +0000"
 relations:
   child_of:
     - CA-R-1405

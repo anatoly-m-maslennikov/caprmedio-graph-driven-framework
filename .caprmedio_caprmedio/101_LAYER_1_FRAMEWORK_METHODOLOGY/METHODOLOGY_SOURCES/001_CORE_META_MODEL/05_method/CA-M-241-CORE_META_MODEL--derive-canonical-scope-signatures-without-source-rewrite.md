@@ -2,11 +2,9 @@
 subjects:
   governs: "Canonical Scope Signature Derivation"
   depends_on:
-    - "Scope Expression"
-    - "Scope Expression/Canonical Scope Signature"
-    - "Atom/Carrier"
-version: 9
-updated_at: "2026-10-01 21:38:15 +0400"
+    ["Scope Expression", "Canonical Scope Signature", "Atom Carrier"]
+version: 10
+updated_at: "2026-10-15 12:19:50 +0000"
 relations:
   child_of:
     - CA-M-121

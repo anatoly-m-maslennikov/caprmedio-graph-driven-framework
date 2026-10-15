@@ -11,16 +11,9 @@ status: Active
 subjects:
   governs: "Atom/Content Role: Plan/Type: Plan"
   depends_on:
-    - "Action"
-    - "Atom/Revision"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-    - "Atom/Content Role: Plan/Status"
-    - "Relation"
-    - "Operator"
-    - "Workflow Run"
-    - "Journal"
-version: 1
-updated_at: "2026-10-04 15:12:11 +0000"
+    ["Action", "Atom", "Atom/Content Role: Plan/Type: Plan.Definition of Done", "Atom/Content Role: Plan.Status", "Relation", "Operator", "Execution/Workflow Run", "Journal"]
+version: 2
+updated_at: "2026-10-15 12:20:44 +0000"
 relations:
   relates_to: [CA-R-1583, CA-R-1599, CA-R-1520, CA-R-1580, CA-O-079, CA-O-017, CA-O-077, CA-O-090]
 ---

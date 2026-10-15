@@ -2,28 +2,9 @@
 subjects:
   governs: "Projection/Type: Entities Graph"
   depends_on:
-    - "Entity"
-    - "Property"
-    - "Term"
-    - "IS_BORNE_BY"
-    - "IS_ALLOWED_VALUE_OF"
-    - "BEARS"
-    - "Relation Kind"
-    - "Subject Path"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Artifact/Revision"
-    - "Projection"
-    - "Action"
-    - "Workflow"
-    - "Scope Unit"
-    - "Journal"
-    - "Carrier"
-    - "Atom"
-    - "Relation"
-    - "Atom/Content Role: Evaluation"
-version: 12
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Entity", "Property", "Term", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Relation Kind", "Subject Path", "Atom.Substance", "Atom.Subjects", "Artifact", "Projection", "Action", "Workflow", "Scope Unit", "Journal", "Carrier", "Atom", "Relation", "Atom/Content Role: Evaluation"]
+version: 13
+updated_at: "2026-10-15 12:19:16 +0000"
 relations:
   evaluation_for:
     - CA-R-1192

@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Artifact Timestamp Timezone"
+  governs: "Framework Instance.Settings.Artifact Timestamp Timezone"
   depends_on:
-    - "Framework Instance Settings"
-    - "Artifact/Revision"
-    - "Carrier"
-version: 9
-updated_at: "2026-10-11 18:10:42 +0400"
+    ["Framework Instance.Settings", "Artifact", "Carrier"]
+version: 10
+updated_at: "2026-10-15 12:18:35 +0000"
 relations:
   child_of:
     - "CA-D-311"

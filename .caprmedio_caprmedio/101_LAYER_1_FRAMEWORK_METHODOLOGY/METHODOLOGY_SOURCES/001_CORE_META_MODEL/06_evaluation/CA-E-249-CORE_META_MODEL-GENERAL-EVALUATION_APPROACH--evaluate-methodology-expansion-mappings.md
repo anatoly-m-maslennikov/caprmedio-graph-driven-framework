@@ -1,9 +1,9 @@
 ---
-version: 12
-updated_at: "2026-10-02 19:57:02 +0400"
+version: 13
+updated_at: "2026-10-15 12:19:06 +0000"
 relations: {"child_of":["CA-E-001"],"evaluation_for":["CA-M-298","CA-O-054","CA-R-1375"]}
 subjects:
-  governs: "Methodology Source/expansion mapping"
+  governs: "Methodology Source.Expansion Mapping"
   depends_on:
     - "Methodology Source"
     - "Core Meta-Model"

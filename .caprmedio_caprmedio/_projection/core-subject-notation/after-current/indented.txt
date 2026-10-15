@@ -1,0 +1,1311 @@
+Current Core mechanical Subject forest — provisional notation; no native admission
+
+Profile: approved
+
+AI Agent
+
+AI Agent Confidence
+
+AI Agent Delegation
+
+Action
+
+Active Artifact Carrier Basename
+
+Active Atom Carrier Discovery
+
+Actor
+  Actor/Type: AI Agent [NARROWER_THAN]
+
+Admit Methodology Expansion Mapping
+
+Agentic Action Instruction
+
+Agentic Step Execution Context
+
+Agentic Step Invocation Context
+
+Analysis
+
+Applicable Methodology
+  Applicable Methodology.Member [IS_BORNE_BY]
+
+Applicable Methodology Compilation
+
+Applicable Methodology Compilation Assess Step
+
+Applicable Methodology Compilation Correct Step
+
+Applicable Methodology Compilation Decide Step
+
+Applicable Methodology Compilation Propose Step
+
+Applicable Methodology Compilation Publish Step
+
+Applicable Methodology Compilation Select Step
+
+Applicable Methodology Conflict
+
+Applicable Methodology Membership Selection
+
+Applicable Methodology Projected Atom Members
+
+Applicable Methodology Retrieval
+
+Applicable Methodology Source Frontier Digest
+
+Applicable Methodology Source Set
+
+Apply Approved Source Corrections
+
+Apply Structural Change
+
+Approved Change Reversal Step
+
+Artifact
+  Artifact.Activity [IS_BORNE_BY]
+    Artifact.Activity: Active [IS_ALLOWED_VALUE_OF]
+    Artifact.Activity: Inactive [IS_ALLOWED_VALUE_OF]
+  Artifact.Applicability [IS_BORNE_BY]
+  Artifact.Authority [IS_BORNE_BY]
+  Artifact.Currentness [IS_BORNE_BY]
+  Artifact.Identity [IS_BORNE_BY]
+  Artifact.Local Tier [IS_BORNE_BY]
+  Artifact.Property [IS_BORNE_BY]
+  Artifact.Status [IS_BORNE_BY]
+  Artifact/Type [NARROWER_THAN]
+
+Artifact Archive Carrier Basename
+
+Artifact Carrier
+
+Artifact Carrier Placement
+
+Artifact Carrier Status Subdirectory
+
+Assess Atom Update Identity
+
+Assess Lineage Impact
+
+Assess Prepared Result Conformance
+
+Assess Source Conflicts
+
+Atom
+  Atom.Author [IS_BORNE_BY]
+  Atom.Content [IS_BORNE_BY]
+  Atom.Details [IS_BORNE_BY]
+  Atom.Global Tier [IS_BORNE_BY]
+  Atom.Governed Subject [IS_BORNE_BY]
+  Atom.ID [IS_BORNE_BY]
+  Atom.Local Tier [IS_BORNE_BY]
+    Atom.Local Tier: Core [IS_ALLOWED_VALUE_OF]
+    Atom.Local Tier: General [IS_ALLOWED_VALUE_OF]
+    Atom.Local Tier: Principle [IS_ALLOWED_VALUE_OF]
+    Atom.Local Tier: Standard [IS_ALLOWED_VALUE_OF]
+  Atom.Property [IS_BORNE_BY]
+  Atom.Status [IS_BORNE_BY]
+  Atom.Subjects [IS_BORNE_BY]
+  Atom.Substance [IS_BORNE_BY]
+  Atom.Summary [IS_BORNE_BY]
+  Atom.Target Scope Unit [IS_BORNE_BY]
+  Atom.Updated At [IS_BORNE_BY]
+  Atom.Version Number [IS_BORNE_BY]
+  Atom/Content Role [NARROWER_THAN]
+  Atom/Content Role: Analysis [NARROWER_THAN]
+    Atom/Content Role: Analysis.Status [IS_BORNE_BY]
+    Atom/Content Role: Analysis/Type [NARROWER_THAN]
+    Atom/Content Role: Analysis/Type: Analysis Report [NARROWER_THAN]
+  Atom/Content Role: Concern [NARROWER_THAN]
+    Atom/Content Role: Concern.Status [IS_BORNE_BY]
+  Atom/Content Role: Delivery [NARROWER_THAN]
+    Atom/Content Role: Delivery.Status [IS_BORNE_BY]
+  Atom/Content Role: Evaluation [NARROWER_THAN]
+    Atom/Content Role: Evaluation.Local Tier [IS_BORNE_BY]
+    Atom/Content Role: Evaluation.Status [IS_BORNE_BY]
+    Atom/Content Role: Evaluation/Type [NARROWER_THAN]
+  Atom/Content Role: Method [NARROWER_THAN]
+    Atom/Content Role: Method.Status [IS_BORNE_BY]
+  Atom/Content Role: Operations [NARROWER_THAN]
+    Atom/Content Role: Operations.Status [IS_BORNE_BY]
+    Atom/Content Role: Operations/Type [NARROWER_THAN]
+    Atom/Content Role: Operations/Type: Action [NARROWER_THAN]
+      Atom/Content Role: Operations/Type: Action/Execution Kind [NARROWER_THAN]
+      Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic [NARROWER_THAN]
+    Atom/Content Role: Operations/Type: Actor [NARROWER_THAN]
+    Atom/Content Role: Operations/Type: Step [NARROWER_THAN]
+    Atom/Content Role: Operations/Type: Workflow [NARROWER_THAN]
+  Atom/Content Role: Plan [NARROWER_THAN]
+    Atom/Content Role: Plan.Status [IS_BORNE_BY]
+      Atom/Content Role: Plan.Status: Active [IS_ALLOWED_VALUE_OF]
+      Atom/Content Role: Plan.Status: Backlog [IS_ALLOWED_VALUE_OF]
+      Atom/Content Role: Plan.Status: Canceled [IS_ALLOWED_VALUE_OF]
+    Atom/Content Role: Plan/Type: Plan [NARROWER_THAN]
+      Atom/Content Role: Plan/Type: Plan.Assignee [IS_BORNE_BY]
+      Atom/Content Role: Plan/Type: Plan.Autonomous Confidence Threshold [IS_BORNE_BY]
+      Atom/Content Role: Plan/Type: Plan.Definition of Done [IS_BORNE_BY]
+      Atom/Content Role: Plan/Type: Plan.Details [IS_BORNE_BY]
+      Atom/Content Role: Plan/Type: Plan.ID [IS_BORNE_BY]
+      Atom/Content Role: Plan/Type: Plan.Label [IS_BORNE_BY]
+      Atom/Content Role: Plan/Type: Plan.Status [IS_BORNE_BY]
+        Atom/Content Role: Plan/Type: Plan.Status: Done [IS_ALLOWED_VALUE_OF]
+      Atom/Content Role: Plan/Type: Plan.Target Scope Unit [IS_BORNE_BY]
+      Atom/Content Role: Plan/Type: Plan.Work Sequence Number [IS_BORNE_BY]
+  Atom/Content Role: Requirement [NARROWER_THAN]
+    Atom/Content Role: Requirement.Status [IS_BORNE_BY]
+    Atom/Content Role: Requirement/Type: Demand [NARROWER_THAN]
+    Atom/Content Role: Requirement/Type: Goal [NARROWER_THAN]
+  Atom/Type [NARROWER_THAN]
+    Atom/Type.Status [IS_BORNE_BY]
+
+Atom Archive Carrier
+
+Atom Carrier
+  Atom Carrier.Filename [IS_BORNE_BY]
+    Atom Carrier.Filename.Local Tier [IS_BORNE_BY]
+    Atom Carrier.Filename.Owning Scope Unit [IS_BORNE_BY]
+    Atom Carrier.Filename.Scope Unit Token [IS_BORNE_BY]
+    Atom Carrier.Filename.Summary Slug [IS_BORNE_BY]
+    Atom Carrier.Filename.Token Case [IS_BORNE_BY]
+
+Atom Carrier Binding
+
+Atom Carrier Replacement
+
+Atom Carrier Validation
+
+Atom Change Classification
+
+Atom Claim Authoring
+
+Atom Claim Boundary Authoring
+
+Atom Claim Canonical Signature
+
+Atom Claim Projection
+
+Atom Content Authoring
+
+Atom Direct Relation
+
+Atom History
+
+Atom Property Default
+
+Atom Relation Owner
+
+Atom Scope
+
+Atom State Identifier
+
+Atom Tier Validation
+  Atom Tier Validation.Concrete Cases [IS_BORNE_BY]
+
+Atom selection
+
+Author
+
+Authoritative Atom Carrier Bundle
+
+Authority
+
+Authority Mode
+
+Authorize Structural Change
+
+Autonomous Confidence Threshold
+
+BEARS
+
+Build Entities Graph
+
+Build Terms Graph
+
+CAPRMEDIO Framework Instance
+
+CAPRMEDIO Framework Instance Carrier Root
+
+CAPRMEDIO Graph
+  CAPRMEDIO Graph.Connectivity [IS_BORNE_BY]
+
+CAPRMEDIO Metamodel
+  CAPRMEDIO Metamodel.Fractality [IS_BORNE_BY]
+
+CARRIES
+
+CCE
+
+CCE Claim and Projection Validation
+
+CCE Operator
+
+CCE Operator Registry
+
+CCE Role Profile
+
+CORE_META_MODEL
+
+Canonical Scope Signature
+
+Canonical Scope Signature Derivation
+
+Canonical Scope Signature Derivation Validation
+
+Canonical Signature Derivation
+
+Canonical Signature Derivation Validation
+
+Carrier
+  Carrier.Canonical Address [IS_BORNE_BY]
+    Carrier.Canonical Address.Segment [IS_BORNE_BY]
+  Carrier.Format [IS_BORNE_BY]
+  Carrier.Ownership Class [IS_BORNE_BY]
+  Carrier.Storage Boundary [IS_BORNE_BY]
+
+Carrier-Only Recoding
+
+Change Content Roles
+
+Check Atoms
+
+Check Atoms Step
+
+Claim
+
+Claim Value Set
+
+Claim Value Set Authoring
+
+Claim Value Set Consolidation Candidate Evaluation
+
+Claim Value Set Validation
+
+Concern
+
+Condition Expression
+
+Confidence Threshold
+  Confidence Threshold.Resolution [IS_BORNE_BY]
+  Confidence Threshold.Resolution Validation [IS_BORNE_BY]
+  Confidence Threshold.Source [IS_BORNE_BY]
+
+Configuration Selection and Precedence
+
+Consumer
+
+Consumer Goal
+
+Container Atom
+
+Containment Relation Pair
+
+Content Role Naming
+
+Core Meta-Model
+
+Core Meta-model
+
+Corrective Method Acceptance
+
+Corrective Method Acceptance Step
+
+Current Plan Scope
+
+Current-scope Atom
+
+DEPENDS_ON
+
+DERIVED_FROM
+
+Default Settings
+
+Definition Atom
+
+Delivery CCE Role Profile
+
+Demand Atom File Carrier
+  Demand Atom File Carrier.Filename [IS_BORNE_BY]
+
+Demand Direction
+
+Dependency Order Derivation
+
+Dependency Order Derivation Evaluation
+
+Dependent Entity
+
+Directory Carrier
+  Directory Carrier.Name [IS_BORNE_BY]
+  Directory Carrier.Numeric Prefix [IS_BORNE_BY]
+
+Directory Carrier Nesting
+
+Draft Atom
+  Draft Atom.Revision Lineage [IS_BORNE_BY]
+
+Draft Atom Carrier
+  Draft Atom Carrier.Filename [IS_BORNE_BY]
+
+Entities Graph Construction Step
+
+Entity
+  Entity.Identity [IS_BORNE_BY]
+
+Entity Carrier Binding
+
+Entity Identity
+
+Evaluate RMED Review Batch
+
+Evaluation
+
+Evaluation CCE Role Profile
+
+Evaluation For Relation
+
+Evaluation Implementation
+
+Evaluation Implementation Step
+
+Evaluation Report
+
+Evaluator Evidence Calibration
+
+Event
+  Event/Type [NARROWER_THAN]
+
+Evidence
+
+Exact Atom Reference
+
+Execution
+  Execution/Action Run [NARROWER_THAN]
+  Execution/Step Run [NARROWER_THAN]
+  Execution/Workflow Run [NARROWER_THAN]
+
+Exploration Mode
+
+Extension
+
+External Project Goal File Carrier
+  External Project Goal File Carrier.Filename [IS_BORNE_BY]
+
+External Project Goal Reference
+
+File Carrier
+  File Carrier.Extension [IS_BORNE_BY]
+  File Carrier.Format [IS_BORNE_BY]
+
+Find and Fetch Journal Events
+
+Find and Fetch Journal Events Query Step
+
+Framework Instance
+  Framework Instance.Settings [IS_BORNE_BY]
+    Framework Instance.Settings.Artifact Timestamp Timezone [IS_BORNE_BY]
+    Framework Instance.Settings.Authority Modes [IS_BORNE_BY]
+    Framework Instance.Settings.Code-Root Locators [IS_BORNE_BY]
+    Framework Instance.Settings.Confidence [IS_BORNE_BY]
+      Framework Instance.Settings.Confidence.Necessary Information Threshold [IS_BORNE_BY]
+      Framework Instance.Settings.Confidence.Semantic Resolution Threshold [IS_BORNE_BY]
+    Framework Instance.Settings.Extension Selections [IS_BORNE_BY]
+    Framework Instance.Settings.Framework Control-Root Locator [IS_BORNE_BY]
+    Framework Instance.Settings.Identifier [IS_BORNE_BY]
+    Framework Instance.Settings.Interaction [IS_BORNE_BY]
+      Framework Instance.Settings.Interaction.Reporting Mode [IS_BORNE_BY]
+        Framework Instance.Settings.Interaction.Reporting Mode.Effects [IS_BORNE_BY]
+        Framework Instance.Settings.Interaction.Reporting Mode.Mandatory Information [IS_BORNE_BY]
+        Framework Instance.Settings.Interaction.Reporting Mode: silent [IS_ALLOWED_VALUE_OF]
+        Framework Instance.Settings.Interaction.Reporting Mode: verbose [IS_ALLOWED_VALUE_OF]
+    Framework Instance.Settings.Parameter Resolution [IS_BORNE_BY]
+    Framework Instance.Settings.Parameter Resolution Validation [IS_BORNE_BY]
+    Framework Instance.Settings.Revision Binding [IS_BORNE_BY]
+    Framework Instance.Settings.Tool Selections [IS_BORNE_BY]
+
+Framework Instance Settings Validation
+
+Framework-Owned Carrier
+
+GOVERNS
+
+General Artifact Graph
+
+General Term
+
+Generated-Only Provenance Validation
+
+Generator
+
+Global Tier
+
+Goal
+
+Governed Term
+
+Governed Term Rendering
+
+History
+
+Hub Atom
+
+Hub Carrier
+  Hub Carrier.Navigation Entry [IS_BORNE_BY]
+
+IS_ALLOWED_VALUE_OF
+
+IS_BORNE_BY
+
+IS_CARRIED_BY
+
+Implementation
+
+Implementation Binding
+
+Implementation Evaluation
+
+Implementation Evaluation Step
+
+Implementation Failure Diagnosis
+
+Implementation Failure Diagnosis Step
+
+Implementation Folder
+
+Implementation Preparation
+
+Implementation Preparation Step
+
+Implementation Relation
+
+Implementation Repair
+
+Implementation Repair Step
+
+Implementation Retry Control
+
+Implementation Retry Control Step
+
+Implementation Retry Limit
+
+Implementation Workflow
+
+Installed Extensions Catalog Entry
+
+Journal
+  Journal.Record [IS_BORNE_BY]
+
+Journal Carrier Root
+
+Journal Event query
+
+Label
+
+Lineage Impact Analysis
+
+Local Order
+
+Local Tier
+
+Markdown
+
+Markdown Atom Carrier
+  Markdown Atom Carrier.Main Content [IS_BORNE_BY]
+    Markdown Atom Carrier.Main Content.CCE Operator [IS_BORNE_BY]
+    Markdown Atom Carrier.Main Content.Paragraph [IS_BORNE_BY]
+  Markdown Atom Carrier.YAML Frontmatter [IS_BORNE_BY]
+    Markdown Atom Carrier.YAML Frontmatter.Scalar [IS_BORNE_BY]
+
+Markdown Atom Carrier Validation
+
+Materialized Representation
+
+Method CCE Role Profile
+
+Method Learning Workflow
+
+Method Lesson Drafting
+
+Method Lesson Drafting Step
+
+Methodology
+
+Methodology Source
+  Methodology Source.Expansion Boundary [IS_BORNE_BY]
+  Methodology Source.Expansion Mapping [IS_BORNE_BY]
+
+Methodology Source File Carrier
+
+Migrate Atom CCE Representation
+
+NARROWER_THAN
+
+Navigation Projection Derivation
+
+Navigational Order Number
+
+New Archived Revision Markdown Carrier Binding
+
+Non-ephemeral Entity
+
+Normative Atom Prose Authoring
+
+Normative Authority Relation Pair
+
+Obtain Source Correction Decision
+
+Operations Type-specific CCE Profiles
+
+Operator
+
+Owned Atoms
+
+Persist Atom Replacement
+
+Plan Atom Carrier
+  Plan Atom Carrier.Stem [IS_BORNE_BY]
+
+Plan Atom Carrier Bundle
+  Plan Atom Carrier Bundle.Location [IS_BORNE_BY]
+
+Plan Atom File Carrier
+  Plan Atom File Carrier.Content [IS_BORNE_BY]
+  Plan Atom File Carrier.Filename [IS_BORNE_BY]
+
+Plan Backlog
+
+Plan Backlog Directory Carrier
+
+Plan Blocking Relations
+
+Plan CCE Role Profile
+
+Plan Graph
+
+Prepare Structural Change
+
+Primary Entity
+
+Priority
+
+Producer
+
+Producer Result
+  Producer Result.Flow Direction [IS_BORNE_BY]
+
+Producer Scope Unit
+
+Project
+  Project.Graph Dimensions [IS_BORNE_BY]
+  Project.Minimum Model [IS_BORNE_BY]
+  Project.Operator Registry [IS_BORNE_BY]
+
+Project Atom ID
+
+Project Configuration
+
+Project Lexicographic Selection
+
+Project Name
+
+Project Normative Authority Graph
+
+Project Principle Universe
+
+Project Priority Model Application
+
+Project Scope Unit Graph Projection
+
+Project Settings
+  Project Settings.Atom Prefix [IS_BORNE_BY]
+  Project Settings.Identifier [IS_BORNE_BY]
+  Project Settings.Project Name [IS_BORNE_BY]
+  Project Settings.Revision Binding [IS_BORNE_BY]
+
+Project Settings Authoritative TOML File Carrier
+  Project Settings Authoritative TOML File Carrier.Filename [IS_BORNE_BY]
+
+Project Settings Validation
+
+Project Structure
+
+Project Structure Maintenance
+
+Project Structure Maintenance Application Step
+
+Project Structure Maintenance Authorization Step
+
+Project Structure Maintenance Candidate Assessment Step
+
+Project Structure Maintenance Preparation Step
+
+Project Structure Maintenance Result Assessment Step
+
+Project Structure Maintenance Selection Step
+
+Project-Owned Carrier
+
+Project-Owned Markdown Atom Carrier
+  Project-Owned Markdown Atom Carrier.Filename [IS_BORNE_BY]
+
+Projection
+  Projection.Authority [IS_BORNE_BY]
+  Projection.Updated At [IS_BORNE_BY]
+  Projection/Type [NARROWER_THAN]
+  Projection/Type: Artifact Change Log [NARROWER_THAN]
+  Projection/Type: Atom Subjects Graph [NARROWER_THAN]
+  Projection/Type: Canonical Scope Signature [NARROWER_THAN]
+  Projection/Type: Canonical Signature [NARROWER_THAN]
+  Projection/Type: Catalog [NARROWER_THAN]
+  Projection/Type: Direct Relation Registry [NARROWER_THAN]
+  Projection/Type: Entities Graph [NARROWER_THAN]
+  Projection/Type: Extended Entities Graph [NARROWER_THAN]
+  Projection/Type: Hub [NARROWER_THAN]
+  Projection/Type: Implementation Overview [NARROWER_THAN]
+  Projection/Type: Map [NARROWER_THAN]
+  Projection/Type: Process Log [NARROWER_THAN]
+  Projection/Type: Reconciled Projection [NARROWER_THAN]
+  Projection/Type: Terms Graph [NARROWER_THAN]
+
+Projection Carrier Root
+
+Projection Rebuild
+
+Proof Dependency Frontier
+
+Property
+
+Propose Source Corrections
+
+Publish Reconciled Projection
+
+RMED Atom Review Check Coverage Gate Step
+
+RMED Atom Review Coverage Gate Action
+
+RMED Atom Review Fix Coverage Gate Step
+
+RMED Atom Review Gather Coverage Gate Step
+
+RMED Atom Review Workflow
+
+RMED Review Evaluation Step
+
+RMED Review Repair Step
+
+RMED Review Selection Step
+
+RMEDO Conflict Resolution
+
+Reconcile Atom Properties and Addresses
+
+Reconcile Navigation Numbers
+
+Reconcile Unfinished Work
+
+Relation
+  Relation.Authority [IS_BORNE_BY]
+  Relation/Type: On Result [NARROWER_THAN]
+
+Relation Kind
+
+Relation Kind Metadata
+
+Relation Type
+
+Relational Atom
+  Relational Atom/Type [NARROWER_THAN]
+
+Relational Atom Classification Validation
+
+Repair RMED Review Batch
+
+Requirement CCE Role Profile
+
+Requirement Implementation
+
+Requirement Implementation Step
+
+Resolve Operator Priorities
+
+Resolve Project Initialization Inputs
+
+Revert Changes Workflow
+
+Revision
+  Revision/Type: Atom [NARROWER_THAN]
+
+Root Term
+
+Runtime State
+
+Runtime State Carrier
+
+Scope
+
+Scope Expression
+
+Scope Reference Validation
+
+Scope Unit
+  Scope Unit.Label [IS_BORNE_BY]
+  Scope Unit.Local Order [IS_BORNE_BY]
+  Scope Unit.Name [IS_BORNE_BY]
+  Scope Unit.Navigational Order Number [IS_BORNE_BY]
+  Scope Unit.Structural Level [IS_BORNE_BY]
+  Scope Unit/Type [NARROWER_THAN]
+  Scope Unit/Type: Ordered [NARROWER_THAN]
+  Scope Unit/Type: Unordered [NARROWER_THAN]
+
+Scope Unit Carrier Binding
+
+Scope Unit Scope
+
+Scoped Operator-choice Applicability
+
+Scripted Migration
+
+Select Priority-Governed Alternative
+
+Select RMED Review Batch
+
+Select Reconciliation Sources
+
+Single Source of Truth
+
+Skill
+
+Source Reconciliation
+
+Source Reconciliation Assessment Step
+
+Source Reconciliation Correction Step
+
+Source Reconciliation Decision Step
+
+Source Reconciliation Proposal Step
+
+Source Reconciliation Publication Step
+
+Source Reconciliation Selection Step
+
+Spec
+
+Spec Content Roles
+
+Status
+
+Step
+
+Structural Entity
+
+Structural Entity Containment Relations
+
+Structural Entity Direct Containment
+
+Structural Entity Recursive Containment
+
+Structural Level
+
+Structural Parent Relation
+
+Subject
+
+Subject Assignment
+
+Subject Expression
+
+Subject Expression Evaluation
+
+Subject Path
+
+Subject Projection Derivation
+
+Subject Relation Kind
+  Subject Relation Kind: DEPENDS_ON [IS_ALLOWED_VALUE_OF]
+
+Subtree-owned Atoms
+
+Subtree-targeting Atoms
+
+TOML
+
+Target Set
+
+Targeting Atoms
+
+Term
+  Term.Name [IS_BORNE_BY]
+
+Terminology Projection Derivation
+
+Terms Graph Construction Step
+
+Tool
+
+Tool Call
+
+Translation
+
+Type
+
+Type-Qualified Status Validation
+
+Verification
+
+Work Sequence Number
+
+Workflow
+
+YAML
+
+artifact-model
+
+authority
+
+extension-model
+
+language
+
+lifecycle
+
+relation validation
+
+relation-model
+
+scope-topology
+
+semantics
+
+settings specification
+
+Profile: legacy
+
+AI Agent
+
+AI Agent Delegation
+
+Action
+  Action/Execution Kind [UNCLASSIFIED]
+
+Actor
+
+Applicable Methodology
+
+Applicable Methodology Revision
+
+Apply Structural Change
+
+Approved Change Reversal
+
+Artifact
+  Artifact/Activity [UNCLASSIFIED]
+  Artifact/Applicability [UNCLASSIFIED]
+  Artifact/Authority [UNCLASSIFIED]
+  Artifact/Currentness [UNCLASSIFIED]
+  Artifact/Revision [UNCLASSIFIED]
+    Artifact/Revision/Archive Carrier Basename [UNCLASSIFIED]
+    Artifact/Revision/Status [UNCLASSIFIED]
+      Artifact/Revision/Status: Archived [IS_ALLOWED_VALUE_OF]
+    Artifact/Revision/Version [UNCLASSIFIED]
+  Artifact/Type [UNCLASSIFIED]
+
+Artifact Classification Resolution
+
+Artifact query and fetch execution
+
+Artifact query and selected fetch
+
+Atom
+  Atom/Carrier [UNCLASSIFIED]
+  Atom/Claim [UNCLASSIFIED]
+  Atom/Content Role [UNCLASSIFIED]
+    Atom/Content Role: Analysis [IS_ALLOWED_VALUE_OF]
+      Atom/Content Role: Analysis/Type [UNCLASSIFIED]
+        Atom/Content Role: Analysis/Type: Rationale [IS_ALLOWED_VALUE_OF]
+    Atom/Content Role: Concern [IS_ALLOWED_VALUE_OF]
+      Atom/Content Role: Concern/Type [UNCLASSIFIED]
+    Atom/Content Role: Delivery [IS_ALLOWED_VALUE_OF]
+    Atom/Content Role: Evaluation [IS_ALLOWED_VALUE_OF]
+    Atom/Content Role: Implementation [IS_ALLOWED_VALUE_OF]
+    Atom/Content Role: Method [IS_ALLOWED_VALUE_OF]
+    Atom/Content Role: Operations [IS_ALLOWED_VALUE_OF]
+      Atom/Content Role: Operations/Type [UNCLASSIFIED]
+        Atom/Content Role: Operations/Type: Action [IS_ALLOWED_VALUE_OF]
+        Atom/Content Role: Operations/Type: Actor [IS_ALLOWED_VALUE_OF]
+        Atom/Content Role: Operations/Type: Step [IS_ALLOWED_VALUE_OF]
+        Atom/Content Role: Operations/Type: Workflow [IS_ALLOWED_VALUE_OF]
+    Atom/Content Role: Plan [IS_ALLOWED_VALUE_OF]
+      Atom/Content Role: Plan/Type [UNCLASSIFIED]
+        Atom/Content Role: Plan/Type: Plan [IS_ALLOWED_VALUE_OF]
+          Atom/Content Role: Plan/Type: Plan/Details [UNCLASSIFIED]
+          Atom/Content Role: Plan/Type: Plan/Label [UNCLASSIFIED]
+    Atom/Content Role: Requirement [IS_ALLOWED_VALUE_OF]
+      Atom/Content Role: Requirement/Type [UNCLASSIFIED]
+        Atom/Content Role: Requirement/Type: Demand [IS_ALLOWED_VALUE_OF]
+        Atom/Content Role: Requirement/Type: Goal [IS_ALLOWED_VALUE_OF]
+          Atom/Content Role: Requirement/Type: Goal/Filename [UNCLASSIFIED]
+  Atom/Identifier [UNCLASSIFIED]
+  Atom/Identity [UNCLASSIFIED]
+  Atom/Local Tier [UNCLASSIFIED]
+    Atom/Local Tier: Standard [IS_ALLOWED_VALUE_OF]
+  Atom/Revision [UNCLASSIFIED]
+    Atom/Revision/History [UNCLASSIFIED]
+    Atom/Revision/Identifier [UNCLASSIFIED]
+    Atom/Revision/Status [UNCLASSIFIED]
+      Atom/Revision/Status: Draft [IS_ALLOWED_VALUE_OF]
+        Atom/Revision/Status: Draft/Identity Continuity Evidence [UNCLASSIFIED]
+    Atom/Revision/Version [UNCLASSIFIED]
+
+Atom Collection
+  Atom Collection/Local Tier [UNCLASSIFIED]
+  Atom Collection/Type [UNCLASSIFIED]
+    Atom Collection/Type: Ad Hoc [IS_ALLOWED_VALUE_OF]
+
+Authority Mode
+
+Authorize Structural Change
+
+Autonomous Confidence Threshold
+
+BEARS
+
+CAPRMEDIO Expansion
+
+CAPRMEDIO Framework Identity
+
+CAPRMEDIO Framework Instance
+
+CAPRMEDIO Graph
+
+CARRIES
+
+CCE
+
+CCE Condition Expression
+
+CCE Condition Expression Evaluation
+
+CCE Method
+
+CCE Operator
+
+CCE Operator Expression
+
+CCE Operator Expression Normalization
+
+CCE Operator Registry
+
+Cardinality Constraint
+
+Cardinality Constraint Authoring
+
+Carrier
+
+Change Content Roles
+
+Child Composition
+
+Claim
+
+Compatible Lineage Impact Disposition
+
+Composite Claim
+
+Concern About Relation
+
+Confidence Threshold
+
+Construct Entities Graph Projection
+
+Construct Terms Graph Projection
+
+Containment Relation Pair
+
+Core Meta-Model
+
+DEPENDS_ON
+
+Default Settings
+
+Definition Atom
+
+Delivery
+
+Delivery For Relation
+
+Dependency Relation Pair
+
+Dependent Entity
+
+Dependent Entity Occurrence
+
+Directory Carrier
+
+Entities Graph
+
+Entity
+  Entity/Carrier [UNCLASSIFIED]
+  Entity/Type [UNCLASSIFIED]
+
+Entity Taxonomy
+
+Evaluation
+
+Evidence For Relation
+
+Extension
+
+Extension Installation
+
+Feature Realization Relation
+
+File Carrier
+
+Find and Fetch Artifacts
+
+Framework Instance Settings
+  Framework Instance Settings/Carrier [UNCLASSIFIED]
+    Framework Instance Settings/Carrier/Atom metadata exclusion [UNCLASSIFIED]
+  Framework Instance Settings/Revision Binding [UNCLASSIFIED]
+
+GOVERNS
+
+General Term
+
+Goal
+
+Governance Origin
+
+Governed Entity
+
+Governed Term
+
+Graph of Graphs
+
+IS_ALLOWED_VALUE_OF
+
+IS_BORNE_BY
+
+Implementation
+
+Implementation Folder
+
+Implementation Of Relation
+
+Implementation Relation Pair
+
+Journal
+  Journal/Revision [UNCLASSIFIED]
+
+Legacy Evidence and Provisional RMED Preparation
+
+Lineage Impact Analysis Content
+
+Local Order
+
+Markdown
+
+Markdown Atom Carrier
+
+Method For Relation
+
+Methodology Source
+
+NARROWER_THAN
+
+Navigational Order Number
+
+Nonnegative Integer Literal
+
+Normative Authority Relation Pair
+
+Obsolete Project Name
+
+Operator
+
+Owned Atoms
+
+Plan Graph
+
+Previous Unit
+
+Primary Entity
+
+Project
+  Project/Scope Unit [UNCLASSIFIED]
+
+Project Boundary Position
+
+Project Configuration
+
+Project Name
+
+Project Scope Unit Graph Projection
+
+Project Settings
+  Project Settings/Revision Binding [UNCLASSIFIED]
+
+Project Structure
+
+Project Structure Maintenance
+
+Project-Owned Carrier Root
+
+Projection
+  Projection/Revision [UNCLASSIFIED]
+  Projection/Type [UNCLASSIFIED]
+    Projection/Type: Artifact Change Log [IS_ALLOWED_VALUE_OF]
+    Projection/Type: Catalog [IS_ALLOWED_VALUE_OF]
+    Projection/Type: Entities Graph [IS_ALLOWED_VALUE_OF]
+    Projection/Type: Process Log [IS_ALLOWED_VALUE_OF]
+    Projection/Type: Terms Graph [IS_ALLOWED_VALUE_OF]
+
+Property
+
+Provenance
+
+Rationale For Relation
+
+Recurrence Protection
+
+Related To Relation
+
+Relation
+
+Relation Kind
+
+Relational Atom
+
+Replacement-Required Lineage Impact Disposition
+
+Root Term
+
+Scope Expression
+
+Scope Expression Evaluation
+
+Scope Unit
+  Scope Unit/Type [UNCLASSIFIED]
+    Scope Unit/Type: Ordered [IS_ALLOWED_VALUE_OF]
+    Scope Unit/Type: Unordered [IS_ALLOWED_VALUE_OF]
+
+Scope Unit Graph
+
+Screen Short Names
+
+Session-State Envelope
+
+Set-valued Property
+
+Set-valued Property Membership Evaluation
+
+Single Source of Truth
+
+Spec
+
+Spec Content Roles
+
+Step
+  Step/Agentic Execution Context [UNCLASSIFIED]
+
+Step Run
+  Step Run/Invocation [UNCLASSIFIED]
+
+Structural Coordinate
+
+Structural Entity
+
+Structural Level
+
+Structural Parent Relation
+
+Structural Path
+
+Subject
+
+Subject Expression
+
+Subject Expression Writing
+
+Subject Path
+
+Subtree-owned Atoms
+
+Subtree-targeting Atoms
+
+Targeting Atoms
+
+Term
+
+Terms Graph
+
+Tool
+  Tool/Workflow Operations [UNCLASSIFIED]
+    Tool/Workflow Operations/Atom Lifecycle [UNCLASSIFIED]
+      Tool/Workflow Operations/Atom Lifecycle/Request Parameters [UNCLASSIFIED]
+
+Type
+
+Uncertain Lineage Impact Disposition
+
+Unit
+
+Update-Required Lineage Impact Disposition
+
+Work Journal
+  Work Journal/Record [UNCLASSIFIED]
+
+Work Sequence Number
+
+Workflow
+
+Workflow Run
+
+applicability
+
+artifact-catalog
+
+artifact-model
+
+atom-boundary
+
+authority
+
+classification
+
+continuous-improvement
+
+development-flow
+
+evaluation
+
+extension-model
+
+external-boundary
+
+framework-boundary
+
+interaction
+
+language
+
+lifecycle-traceability
+
+principles
+
+project-containment graph
+
+provenance
+
+relation-model
+
+requirement-topology
+
+runtime
+
+scope-topology
+
+semantics
+
+subject
+

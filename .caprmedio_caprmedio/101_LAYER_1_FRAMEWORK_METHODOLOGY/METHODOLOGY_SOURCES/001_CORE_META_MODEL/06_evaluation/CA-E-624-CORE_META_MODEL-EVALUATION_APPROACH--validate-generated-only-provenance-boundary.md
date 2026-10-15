@@ -2,11 +2,9 @@
 subjects:
   governs: "Generated-Only Provenance Validation"
   depends_on:
-    - "Journal/Record"
-    - "Implementation Relation"
-    - "Projection"
-version: 18
-updated_at: "2026-10-11 17:56:31 +0400"
+    ["Journal.Record", "Implementation Relation", "Projection"]
+version: 19
+updated_at: "2026-10-15 12:19:41 +0000"
 relations:
   evaluation_for:
     - CA-M-135

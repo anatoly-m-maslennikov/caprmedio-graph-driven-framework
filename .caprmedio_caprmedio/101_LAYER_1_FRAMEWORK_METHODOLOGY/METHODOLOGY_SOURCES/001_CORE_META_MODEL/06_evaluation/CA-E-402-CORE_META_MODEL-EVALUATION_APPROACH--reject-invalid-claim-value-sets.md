@@ -2,13 +2,9 @@
 subjects:
   governs: "Claim Value Set Validation"
   depends_on:
-    - "Atom/Claim"
-    - "Claim Value Set"
-    - "Property"
-    - "Subject Expression"
-    - "IS_ALLOWED_VALUE_OF"
-version: 10
-updated_at: "2026-10-02 20:03:51 +0400"
+    ["Atom.Substance", "Claim Value Set", "Property", "Subject Expression", "IS_ALLOWED_VALUE_OF"]
+version: 11
+updated_at: "2026-10-15 12:19:09 +0000"
 relations:
   evaluation_for:
     - CA-R-1359

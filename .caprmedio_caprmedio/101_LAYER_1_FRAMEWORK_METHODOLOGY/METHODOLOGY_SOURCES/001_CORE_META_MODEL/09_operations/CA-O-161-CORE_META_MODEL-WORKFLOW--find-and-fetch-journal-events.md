@@ -8,11 +8,11 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 3
+updated_at: "2026-10-15 12:21:03 +0000"
 subjects:
   governs: "Find and Fetch Journal Events"
-  depends_on: [Workflow, Step, Action, Journal, Workflow Run, Action Run]
+  depends_on: ["Workflow", "Step", "Action", "Journal", "Execution/Workflow Run", "Execution/Action Run"]
 relations:
   relates_to: [CA-O-162, CA-O-163, CA-R-1861, CA-R-1867]
 ---

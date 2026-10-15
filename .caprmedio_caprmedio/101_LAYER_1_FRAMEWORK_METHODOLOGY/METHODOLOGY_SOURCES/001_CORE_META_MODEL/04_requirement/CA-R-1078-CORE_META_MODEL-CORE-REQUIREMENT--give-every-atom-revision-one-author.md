@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Author"
+  governs: "Atom.Author"
   depends_on:
-    - "Atom/Revision"
-    - "Actor"
-version: 15
-updated_at: "2026-10-02 21:26:39 +0400"
+    ["Atom", "Actor"]
+version: 16
+updated_at: "2026-10-15 12:21:06 +0000"
 relations:
   child_of:
     - CA-R-1574

@@ -2,16 +2,9 @@
 subjects:
   governs: "Project Structure"
   depends_on:
-    - "Scope Unit"
-    - "Scope Unit/Name"
-    - "Scope Unit/Type"
-    - "Scope Unit/Label"
-    - "Scope Unit/Local Order"
-    - "Navigational Order Number"
-    - "Framework Instance Settings"
-    - "Carrier"
-version: 6
-updated_at: "2026-10-02 19:36:21 +0400"
+    ["Scope Unit", "Scope Unit.Name", "Scope Unit/Type", "Scope Unit.Label", "Scope Unit.Local Order", "Navigational Order Number", "Framework Instance.Settings", "Carrier"]
+version: 7
+updated_at: "2026-10-15 12:18:38 +0000"
 relations:
   child_of:
     - "CA-D-441"

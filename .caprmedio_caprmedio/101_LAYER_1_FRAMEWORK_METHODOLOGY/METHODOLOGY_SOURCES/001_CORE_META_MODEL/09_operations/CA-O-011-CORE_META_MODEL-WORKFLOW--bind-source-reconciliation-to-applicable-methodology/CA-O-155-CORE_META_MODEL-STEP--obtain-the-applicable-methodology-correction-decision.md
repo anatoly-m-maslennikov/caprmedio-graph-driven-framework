@@ -8,24 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 4
+updated_at: "2026-10-15 12:21:01 +0000"
 subjects:
-  governs: "Applicable Methodology Compilation/Step: decide"
+  governs: "Applicable Methodology Compilation Decide Step"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Applicable Methodology"
-    - "Obtain Source Correction Decision"
-    - "Operator"
-    - "Journal"
-    - "Journal/Record"
-    - "Applicable Methodology/Conflict"
-    - "Applicable Methodology/Source Frontier Digest"
-    - "Project Configuration"
-    - "Methodology Source/Expansion Boundary"
+    ["Workflow", "Step", "Action", "Execution/Workflow Run", "Applicable Methodology", "Obtain Source Correction Decision", "Operator", "Journal", "Journal.Record", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Project Configuration", "Methodology Source.Expansion Boundary"]
 relations:
   relates_to: [CA-O-011, CA-O-007]
 ---

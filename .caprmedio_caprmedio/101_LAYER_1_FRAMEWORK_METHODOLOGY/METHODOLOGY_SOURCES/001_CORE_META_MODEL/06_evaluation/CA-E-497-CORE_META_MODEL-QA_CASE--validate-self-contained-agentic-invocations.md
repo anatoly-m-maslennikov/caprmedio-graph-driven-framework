@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Step Run/Invocation"
+  governs: "Agentic Step Invocation Context"
   depends_on:
-    - "Step Run"
-    - "Workflow Run"
-    - "Step"
-    - "Action"
-    - "Operator"
-    - "Artifact/Revision"
-version: 4
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Execution/Step Run", "Execution/Workflow Run", "Step", "Action", "Operator", "Atom"]
+version: 5
+updated_at: "2026-10-15 12:19:30 +0000"
 relations: {"evaluation_for": ["CA-M-304", "CA-R-1789", "CA-R-1790", "CA-R-1791", "CA-R-1792", "CA-R-1793"]}
 atom_id: "CA-E-497"
 content_role: "Evaluation"

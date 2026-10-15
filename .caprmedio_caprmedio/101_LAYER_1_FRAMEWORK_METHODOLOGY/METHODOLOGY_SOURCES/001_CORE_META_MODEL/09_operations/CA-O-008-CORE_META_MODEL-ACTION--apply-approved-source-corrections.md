@@ -2,20 +2,9 @@
 subjects:
   governs: "Apply Approved Source Corrections"
   depends_on:
-    - "Action"
-    - "Operator"
-    - "AI Agent"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "Journal"
-    - "Journal/Record"
-    - "Atom"
-    - "Relation"
-    - "Atom/Content Role: Evaluation"
-    - "Framework Instance Settings"
-    - "Project Settings"
-version: 12
-updated_at: "2026-10-13 04:46:56 +0400"
+    ["Action", "Operator", "AI Agent", "Artifact", "Revision/Type: Atom", "Atom.Substance", "Journal", "Journal.Record", "Atom", "Relation", "Atom/Content Role: Evaluation", "Framework Instance.Settings", "Project Settings"]
+version: 13
+updated_at: "2026-10-15 12:20:13 +0000"
 relations: {}
 atom_id: "CA-O-008"
 content_role: "Operations"

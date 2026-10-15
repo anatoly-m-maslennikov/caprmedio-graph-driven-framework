@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/interaction/reporting mode: silent"
+  governs: "Framework Instance.Settings.Interaction.Reporting Mode: silent"
   depends_on:
-    - "Framework Instance Settings/interaction/reporting mode"
-    - "Framework Instance Settings/interaction/reporting mode/effects"
-    - "Framework Instance Settings/interaction/reporting mode/mandatory information"
-    - "Artifact"
-    - "Skill"
-    - "Project"
-version: 11
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Framework Instance.Settings.Interaction.Reporting Mode", "Framework Instance.Settings.Interaction.Reporting Mode.Effects", "Framework Instance.Settings.Interaction.Reporting Mode.Mandatory Information", "Artifact", "Skill", "Project"]
+version: 12
+updated_at: "2026-10-15 12:19:54 +0000"
 relations: {"relates_to":["CA-R-1628","CA-R-1439","CA-R-1440","CA-R-1558","CA-O-052","CA-R-1750"]}
 atom_id: "CA-M-277"
 content_role: "Method"

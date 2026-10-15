@@ -2,9 +2,9 @@
 subjects:
   governs: "scope-topology"
   depends_on:
-    - "Atom/Revision/Author"
-version: 19
-updated_at: "2026-10-02 20:52:00 +0400"
+    ["Atom.Author"]
+version: 20
+updated_at: "2026-10-15 12:23:31 +0000"
 relations: {}
 atom_id: "CA-R-837"
 content_role: "Requirement"

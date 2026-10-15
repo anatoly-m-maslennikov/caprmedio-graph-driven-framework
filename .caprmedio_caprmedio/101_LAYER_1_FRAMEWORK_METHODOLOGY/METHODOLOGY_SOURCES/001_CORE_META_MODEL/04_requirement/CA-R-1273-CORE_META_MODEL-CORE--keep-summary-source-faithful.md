@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Summary"
+  governs: "Atom.Summary"
   depends_on:
-    - "Atom/Claim"
-version: 14
-updated_at: "2026-10-02 21:45:33 +0400"
+    ["Atom.Substance"]
+version: 15
+updated_at: "2026-10-15 12:21:16 +0000"
 relations: {}
 atom_id: "CA-R-1273"
 content_role: "Requirement"

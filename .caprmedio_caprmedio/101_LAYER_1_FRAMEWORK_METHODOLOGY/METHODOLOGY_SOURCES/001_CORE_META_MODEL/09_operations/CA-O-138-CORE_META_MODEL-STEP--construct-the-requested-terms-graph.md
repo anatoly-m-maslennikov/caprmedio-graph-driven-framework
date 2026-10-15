@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Terms Graph Construction Step"
-  depends_on: ["Step", "Action", "Workflow Run", "Step Run", "Step/Agentic Execution Context", "Projection/Type: Terms Graph"]
-version: 1
-updated_at: "2026-10-04 16:48:42 +0000"
+  depends_on: ["Step", "Action", "Execution/Workflow Run", "Execution/Step Run", "Agentic Step Execution Context", "Projection/Type: Terms Graph"]
+version: 2
+updated_at: "2026-10-15 12:20:51 +0000"
 relations:
   relates_to: [CA-O-136, CA-O-137, CA-R-1509, CA-R-1525, CA-R-1526, CA-R-1527]
 ---

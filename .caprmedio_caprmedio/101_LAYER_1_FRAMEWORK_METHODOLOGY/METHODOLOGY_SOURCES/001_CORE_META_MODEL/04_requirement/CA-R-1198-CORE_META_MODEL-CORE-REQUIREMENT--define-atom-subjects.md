@@ -1,6 +1,6 @@
 ---
 subjects:
-  governs: "Atom/Subjects"
+  governs: "Atom.Subjects"
   depends_on:
     - "Atom"
     - "Subject"
@@ -8,8 +8,8 @@ subjects:
     - "DEPENDS_ON"
     - "Property"
     - "Entity"
-version: 13
-updated_at: "2026-10-02 21:29:19 +0400"
+version: 14
+updated_at: "2026-10-15 12:21:08 +0000"
 relations: {}
 atom_id: "CA-R-1198"
 content_role: "Requirement"

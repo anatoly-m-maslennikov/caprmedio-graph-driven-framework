@@ -2,19 +2,9 @@
 subjects:
   governs: "Propose Source Corrections"
   depends_on:
-    - "Action"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "Atom/Global Tier"
-    - "Atom/Revision/Updated At"
-    - "Atom/Local Tier: Principle"
-    - "Atom"
-    - "Relation"
-    - "Atom/Content Role: Evaluation"
-    - "Operator"
-    - "Autonomous Confidence Threshold"
-version: 6
-updated_at: "2026-10-04 15:07:08 +0000"
+    ["Action", "Revision/Type: Atom", "Atom.Substance", "Atom.Global Tier", "Atom.Updated At", "Atom.Local Tier: Principle", "Atom", "Relation", "Atom/Content Role: Evaluation", "Operator", "Autonomous Confidence Threshold"]
+version: 7
+updated_at: "2026-10-15 12:20:12 +0000"
 relations: {}
 atom_id: "CA-O-006"
 content_role: "Operations"

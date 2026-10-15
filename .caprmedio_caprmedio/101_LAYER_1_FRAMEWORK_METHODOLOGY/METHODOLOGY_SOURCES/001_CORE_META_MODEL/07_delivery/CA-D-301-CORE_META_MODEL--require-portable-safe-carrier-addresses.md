@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Carrier/Canonical Address/Segment"
+  governs: "Carrier.Canonical Address.Segment"
   depends_on: []
-version: 15
-updated_at: "2026-10-02 19:05:39 +0400"
+version: 16
+updated_at: "2026-10-15 12:18:05 +0000"
 relations: {}
 atom_id: "CA-D-301"
 content_role: "Delivery"

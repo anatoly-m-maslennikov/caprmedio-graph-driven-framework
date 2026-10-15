@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/code-root locators"
+  governs: "Framework Instance.Settings.Code-Root Locators"
   depends_on:
-    - "Framework Instance Settings"
-version: 7
-updated_at: "2026-10-01 21:24:33 +0400"
+    ["Framework Instance.Settings"]
+version: 8
+updated_at: "2026-10-15 12:18:25 +0000"
 relations:
   child_of:
     - "CA-D-361"

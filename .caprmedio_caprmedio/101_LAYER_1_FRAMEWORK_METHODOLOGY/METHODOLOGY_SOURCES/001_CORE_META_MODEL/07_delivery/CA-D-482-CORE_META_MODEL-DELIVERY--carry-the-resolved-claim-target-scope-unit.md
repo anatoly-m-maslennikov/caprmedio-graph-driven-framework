@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim/Target Scope Unit/Carrier"
+  governs: "Atom.Target Scope Unit"
   depends_on:
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Scope Unit"
-    - "Project"
-    - "Atom/Revision/Author"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Scope"
-    - "Current-scope Atom"
-    - "Relational Atom"
-version: 7
-updated_at: "2026-10-02 19:54:46 +0400"
+    ["Atom/Content Role: Requirement/Type: Goal", "Scope Unit", "Project", "Atom.Author", "Atom.Target Scope Unit", "Atom Scope", "Current-scope Atom", "Relational Atom"]
+version: 8
+updated_at: "2026-10-15 12:18:50 +0000"
 relations: {"relates_to": ["CA-R-1595", "CA-R-1596", "CA-R-922", "CA-R-923", "CA-D-478"]}
 atom_id: "CA-D-482"
 content_role: "Delivery"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Updated At"
+  governs: "Atom.Updated At"
   depends_on:
-    - "Atom/Revision"
-version: 10
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Atom"]
+version: 11
+updated_at: "2026-10-15 12:21:50 +0000"
 relations: {}
 atom_id: "CA-R-1416"
 content_role: "Requirement"

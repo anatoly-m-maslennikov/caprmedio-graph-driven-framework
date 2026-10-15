@@ -1,11 +1,11 @@
 ---
-version: 12
-updated_at: "2026-10-02 20:52:00 +0400"
+version: 13
+updated_at: "2026-10-15 12:23:30 +0000"
 relations:
   child_of:
     - "CA-R-1407"
 subjects:
-  governs: "Project/normative authority graph"
+  governs: "Project Normative Authority Graph"
   depends_on:
     - "Project"
 atom_id: "CA-R-833"

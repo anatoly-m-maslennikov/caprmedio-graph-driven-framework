@@ -2,14 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Requirement"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Content Role"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Operations"
-version: 21
-updated_at: "2026-10-03 02:10:09 +0400"
+    ["Atom.Substance", "Atom/Content Role", "Atom/Content Role: Method", "Atom/Content Role: Delivery", "Implementation", "Atom/Content Role: Operations"]
+version: 22
+updated_at: "2026-10-15 12:23:05 +0000"
 relations: {}
 atom_id: "CA-R-1694"
 content_role: "Requirement"

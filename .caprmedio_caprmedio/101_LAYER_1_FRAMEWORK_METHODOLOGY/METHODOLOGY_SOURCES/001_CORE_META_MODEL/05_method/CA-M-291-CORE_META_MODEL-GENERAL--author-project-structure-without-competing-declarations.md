@@ -2,17 +2,9 @@
 subjects:
   governs: "Project Structure"
   depends_on:
-    - "Scope Unit"
-    - "Scope Unit/Name"
-    - "Scope Unit/Type"
-    - "Scope Unit/Label"
-    - "Scope Unit/Local Order"
-    - "Scope Unit/Navigational Order Number"
-    - "Goal"
-    - "Framework Instance Settings"
-    - "Carrier"
-version: 5
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Scope Unit", "Scope Unit.Name", "Scope Unit/Type", "Scope Unit.Label", "Scope Unit.Local Order", "Scope Unit.Navigational Order Number", "Goal", "Framework Instance.Settings", "Carrier"]
+version: 6
+updated_at: "2026-10-15 12:19:58 +0000"
 relations:
   relates_to:
     - "CA-R-1483"

@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Step Run"
+  governs: "Execution/Step Run"
   depends_on:
-    - "Step"
-    - "Workflow Run"
-    - "Action"
-    - "Journal/Record"
-    - "Step/Agentic Execution Context"
-    - "Tool"
-    - "Step Run/Tool Call"
-version: 5
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Step", "Execution/Workflow Run", "Action", "Journal.Record", "Agentic Step Execution Context", "Tool", "Tool Call"]
+version: 6
+updated_at: "2026-10-15 12:22:18 +0000"
 relations: {}
 atom_id: "CA-R-1511"
 content_role: "Requirement"

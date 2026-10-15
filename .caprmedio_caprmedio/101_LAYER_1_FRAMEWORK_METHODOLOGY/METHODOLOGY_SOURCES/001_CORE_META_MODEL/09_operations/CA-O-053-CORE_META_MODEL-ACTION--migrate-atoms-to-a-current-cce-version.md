@@ -2,18 +2,9 @@
 subjects:
   governs: "Migrate Atom CCE Representation"
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Revision"
-    - "Atom/Summary"
-    - "Projection"
-    - "CCE"
-    - "Confidence Threshold"
-    - "Operator"
-    - "AI Agent"
-version: 5
-updated_at: "2026-10-04 15:11:59 +0000"
+    ["Action", "Atom", "Atom.Substance", "Atom.Summary", "Projection", "CCE", "Confidence Threshold", "Operator", "AI Agent"]
+version: 6
+updated_at: "2026-10-15 12:20:25 +0000"
 relations:
   child_of:
     - CA-M-115

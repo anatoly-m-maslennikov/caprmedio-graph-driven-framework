@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Directory Carrier/Name"
+  governs: "Directory Carrier.Name"
   depends_on:
-    - "Scope Unit/Type: Ordered"
-    - "Scope Unit/Type: Unordered"
-    - "Scope Unit/Label"
-    - "Local Order"
-version: 11
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Scope Unit/Type: Ordered", "Scope Unit/Type: Unordered", "Scope Unit.Label", "Local Order"]
+version: 12
+updated_at: "2026-10-15 12:18:03 +0000"
 relations: {}
 atom_id: "CA-D-298"
 content_role: "Delivery"

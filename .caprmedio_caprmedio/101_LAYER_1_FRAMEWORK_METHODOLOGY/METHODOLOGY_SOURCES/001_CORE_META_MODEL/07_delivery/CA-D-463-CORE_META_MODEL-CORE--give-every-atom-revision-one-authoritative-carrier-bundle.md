@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Authoritative Carrier Bundle"
+  governs: "Authoritative Atom Carrier Bundle"
   depends_on:
-    - "Atom/Revision"
-    - "Carrier"
-    - "Markdown Atom Carrier"
-    - "Atom/Property"
-    - "Project"
-version: 5
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Atom", "Carrier", "Markdown Atom Carrier", "Atom.Property", "Project"]
+version: 6
+updated_at: "2026-10-15 12:18:42 +0000"
 relations: {"relates_to": ["CA-D-258", "CA-D-259", "CA-D-416"]}
 atom_id: "CA-D-463"
 content_role: "Delivery"

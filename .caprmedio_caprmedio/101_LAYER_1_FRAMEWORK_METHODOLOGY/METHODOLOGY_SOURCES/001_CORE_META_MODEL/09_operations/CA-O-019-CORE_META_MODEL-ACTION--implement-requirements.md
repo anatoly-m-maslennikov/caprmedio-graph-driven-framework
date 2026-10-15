@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Requirement Implementation"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Implementation"
-version: 4
-updated_at: "2026-10-04 16:53:23 +0000"
+    ["Action", "Atom/Content Role: Plan/Type: Plan", "Atom/Content Role: Requirement", "Atom/Content Role: Method", "Atom/Content Role: Evaluation", "Atom/Content Role: Delivery", "Implementation"]
+version: 5
+updated_at: "2026-10-15 12:20:19 +0000"
 relations:
   relates_to:
     - CA-O-017

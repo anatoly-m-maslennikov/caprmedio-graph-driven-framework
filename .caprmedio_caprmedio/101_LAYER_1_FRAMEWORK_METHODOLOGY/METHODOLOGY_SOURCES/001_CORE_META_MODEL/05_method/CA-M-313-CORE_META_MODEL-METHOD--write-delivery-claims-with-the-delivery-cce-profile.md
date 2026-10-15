@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "CCE/Role Profile: Delivery"
+  governs: "Delivery CCE Role Profile"
   depends_on:
-    - "Atom/Content Role: Delivery"
-    - "CCE Operator"
-    - "Carrier"
-    - "Entity/Carrier"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Relation Type"
-version: 5
-updated_at: "2026-09-28 22:47:05 +0000"
+    ["Atom/Content Role: Delivery", "CCE Operator", "Carrier", "Entity Carrier Binding", "Atom.Substance", "Atom.Subjects", "Relation Type"]
+version: 6
+updated_at: "2026-10-15 12:20:09 +0000"
 relations:
   child_of:
     - CA-M-307

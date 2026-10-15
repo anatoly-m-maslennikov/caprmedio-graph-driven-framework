@@ -2,13 +2,9 @@
 subjects:
   governs: "Scope Unit"
   depends_on:
-    - "Structural Level"
-    - "Structural Parent Relation"
-    - "Scope Unit/Label"
-    - "Operator"
-    - "Project Structure"
-version: 19
-updated_at: "2026-10-03 02:39:08 +0400"
+    ["Structural Level", "Structural Parent Relation", "Scope Unit.Label", "Operator", "Project Structure"]
+version: 20
+updated_at: "2026-10-15 12:23:09 +0000"
 relations:
   child_of:
     - CAPRMEDIO-REQU-031-CORE-REQUIREMENT--model-project-structure-as-numbered-levels

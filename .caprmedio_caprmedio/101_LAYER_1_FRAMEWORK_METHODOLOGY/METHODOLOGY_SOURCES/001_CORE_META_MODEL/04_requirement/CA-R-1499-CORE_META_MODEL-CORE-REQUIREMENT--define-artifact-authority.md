@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Authority"
+  governs: "Artifact.Authority"
   depends_on:
     - "Artifact"
-version: 5
-updated_at: "2026-10-02 23:35:16 +0400"
+version: 6
+updated_at: "2026-10-15 12:22:13 +0000"
 relations: {child_of: [CA-M-001]}
 atom_id: "CA-R-1499"
 content_role: "Requirement"

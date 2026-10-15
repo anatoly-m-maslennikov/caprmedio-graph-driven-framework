@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Repair Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Step/Agentic Execution Context"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Workflow Run"
-    - "Step Run"
-version: 3
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Step", "Action", "Agentic Step Execution Context", "AI Agent", "Atom/Content Role: Plan/Type: Plan", "Execution/Workflow Run", "Execution/Step Run"]
+version: 4
+updated_at: "2026-10-15 12:20:35 +0000"
 relations:
   relates_to:
     - CA-O-021

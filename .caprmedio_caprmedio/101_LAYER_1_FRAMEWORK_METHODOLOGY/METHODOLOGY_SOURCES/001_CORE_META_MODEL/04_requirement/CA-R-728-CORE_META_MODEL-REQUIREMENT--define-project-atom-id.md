@@ -2,10 +2,9 @@
 subjects:
   governs: "Project Atom ID"
   depends_on:
-    - "artifact-model"
-    - "Artifact/Identity"
-version: 22
-updated_at: "2026-10-02 20:52:00 +0400"
+    ["artifact-model", "Artifact.Identity"]
+version: 23
+updated_at: "2026-10-15 12:23:28 +0000"
 relations: {}
 atom_id: "CA-R-728"
 content_role: "Requirement"

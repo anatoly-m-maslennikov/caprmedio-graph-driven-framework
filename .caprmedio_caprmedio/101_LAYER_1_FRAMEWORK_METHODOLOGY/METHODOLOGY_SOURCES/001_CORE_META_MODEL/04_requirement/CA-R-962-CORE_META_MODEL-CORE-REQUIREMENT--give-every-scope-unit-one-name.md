@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Name"
+  governs: "Scope Unit.Name"
   depends_on:
     - "Scope Unit"
-version: 14
-updated_at: "2026-10-02 21:09:50 +0400"
+version: 15
+updated_at: "2026-10-15 12:23:43 +0000"
 relations: {}
 atom_id: "CA-R-962"
 content_role: "Requirement"

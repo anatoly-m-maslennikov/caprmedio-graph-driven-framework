@@ -2,15 +2,9 @@
 subjects:
   governs: "Projection/Type: Process Log"
   depends_on:
-    - "Step Run"
-    - "Workflow Run"
-    - "Projection"
-    - "Journal"
-    - "Journal/Record"
-    - "Action"
-    - "Workflow"
-version: 6
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Execution/Step Run", "Execution/Workflow Run", "Projection", "Journal", "Journal.Record", "Action", "Workflow"]
+version: 7
+updated_at: "2026-10-15 12:22:07 +0000"
 relations: {}
 atom_id: "CA-R-1468"
 content_role: "Requirement"

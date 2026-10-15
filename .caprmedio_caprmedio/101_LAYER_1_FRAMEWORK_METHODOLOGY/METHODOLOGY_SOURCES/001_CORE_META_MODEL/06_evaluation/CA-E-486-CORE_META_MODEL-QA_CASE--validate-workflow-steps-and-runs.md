@@ -2,14 +2,9 @@
 subjects:
   governs: "Workflow"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Step Run"
-    - "Workflow/Relation Kind: On Result"
-    - "Journal/Record"
-version: 4
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Step", "Action", "Execution/Workflow Run", "Execution/Step Run", "Relation/Type: On Result", "Journal.Record"]
+version: 5
+updated_at: "2026-10-15 12:19:26 +0000"
 relations: {"evaluation_for": ["CA-R-1508", "CA-R-1509", "CA-R-1510", "CA-R-1511", "CA-R-1513"]}
 atom_id: "CA-E-486"
 content_role: "Evaluation"

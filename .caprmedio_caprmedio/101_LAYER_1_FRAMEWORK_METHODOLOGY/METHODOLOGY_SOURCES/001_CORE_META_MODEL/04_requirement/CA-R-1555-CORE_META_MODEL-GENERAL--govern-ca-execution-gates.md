@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: "AI Agent/authorization"
+  governs: "Actor/Type: AI Agent"
   depends_on:
     - "AI Agent"
     - "Operator"
     - "AI Agent Delegation"
     - "Confidence Threshold"
-version: 5
-updated_at: "2026-09-28 15:12:22 +0400"
+version: 6
+updated_at: "2026-10-15 12:22:32 +0000"
 relations: {"child_of":["CA-R-1713"]}
 atom_id: "CA-R-1555"
 content_role: "Requirement"

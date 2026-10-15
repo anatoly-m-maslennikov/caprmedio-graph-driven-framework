@@ -10,14 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Evaluation"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Implementation"
-    - "Artifact/Revision"
-version: 5
-updated_at: "2026-10-04 15:15:47 +0000"
+    ["Action", "Atom/Content Role: Plan/Type: Plan", "Atom/Content Role: Evaluation", "Atom/Content Role: Method", "Implementation", "Artifact"]
+version: 6
+updated_at: "2026-10-15 12:20:20 +0000"
 relations:
   relates_to:
     - CA-O-018

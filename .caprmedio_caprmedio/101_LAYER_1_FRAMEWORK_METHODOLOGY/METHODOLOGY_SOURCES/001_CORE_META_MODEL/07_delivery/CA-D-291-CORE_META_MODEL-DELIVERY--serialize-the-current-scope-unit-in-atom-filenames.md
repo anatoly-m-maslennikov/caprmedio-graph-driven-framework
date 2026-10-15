@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Carrier/Current Scope Unit/Filename Token"
+  governs: "Atom Carrier.Filename.Owning Scope Unit"
   depends_on:
-    - "Atom/Scope"
-    - "Scope Unit"
-version: 15
-updated_at: "2026-10-01 21:24:59 +0400"
+    ["Atom Scope", "Scope Unit"]
+version: 16
+updated_at: "2026-10-15 12:18:02 +0000"
 relations: {}
 atom_id: "CA-D-291"
 content_role: "Delivery"

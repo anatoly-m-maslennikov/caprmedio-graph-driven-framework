@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Atom/Identifier"
+  governs: "Atom.ID"
   depends_on:
     - "Atom"
     - "Project"
     - "Atom/Content Role"
-version: 1
-updated_at: "2026-10-02 20:08:42 +0400"
+version: 2
+updated_at: "2026-10-15 12:18:56 +0000"
 relations: {}
 atom_id: "CA-D-508"
 content_role: "Delivery"

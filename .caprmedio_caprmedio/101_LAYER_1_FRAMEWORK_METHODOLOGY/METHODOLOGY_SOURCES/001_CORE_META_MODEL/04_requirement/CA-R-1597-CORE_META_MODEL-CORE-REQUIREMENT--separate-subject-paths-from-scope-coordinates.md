@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Subjects"
+  governs: "Atom.Subjects"
   depends_on:
-    - "Subject"
-    - "Subject Path"
-    - "Entity"
-    - "Scope Unit"
-    - "Atom/Claim/Target Scope Unit"
-version: 4
-updated_at: "2026-10-03 00:49:47 +0400"
+    ["Subject", "Subject Path", "Entity", "Scope Unit", "Atom.Target Scope Unit"]
+version: 5
+updated_at: "2026-10-15 12:22:52 +0000"
 relations:
   relates_to:
     - CA-R-1275

@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Authoritative Carrier/Content"
+  governs: "Framework Instance.Settings"
   depends_on:
-    - "Framework Instance Settings"
-    - "Operator"
-    - "Framework Instance Settings/interaction/reporting mode"
-version: 11
-updated_at: "2026-10-01 21:24:33 +0400"
+    ["Framework Instance.Settings", "Operator", "Framework Instance.Settings.Interaction.Reporting Mode"]
+version: 12
+updated_at: "2026-10-15 12:18:34 +0000"
 relations:
   child_of:
     - CA-D-361

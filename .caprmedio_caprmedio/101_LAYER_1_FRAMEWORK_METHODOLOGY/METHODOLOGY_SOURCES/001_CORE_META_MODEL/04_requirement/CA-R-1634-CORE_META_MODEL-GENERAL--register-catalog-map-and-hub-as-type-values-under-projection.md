@@ -2,14 +2,9 @@
 subjects:
   governs: "Projection/Type"
   depends_on:
-    - "Projection"
-    - "Type"
-    - "Projection/Type: Catalog"
-    - "Projection/Type: Map"
-    - "Projection/Type: Hub"
-    - "Atom/Claim"
-version: 26
-updated_at: "2026-10-03 01:23:33 +0400"
+    ["Projection", "Type", "Projection/Type: Catalog", "Projection/Type: Map", "Projection/Type: Hub", "Atom.Substance"]
+version: 27
+updated_at: "2026-10-15 12:22:59 +0000"
 relations: {}
 atom_id: "CA-R-1634"
 content_role: "Requirement"

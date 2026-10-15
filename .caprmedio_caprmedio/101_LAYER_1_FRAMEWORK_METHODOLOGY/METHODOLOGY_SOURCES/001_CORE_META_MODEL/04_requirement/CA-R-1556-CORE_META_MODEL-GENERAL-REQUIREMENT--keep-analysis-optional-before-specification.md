@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "AI Agent/authorization"
+  governs: "Actor/Type: AI Agent"
   depends_on:
-    - "AI Agent"
-    - "Operator"
-    - "Spec"
-    - "Atom/Claim"
-    - "Carrier"
-    - "Atom/Content Role: Analysis/Type: Analysis Report"
-version: 5
-updated_at: "2026-10-03 00:22:56 +0400"
+    ["AI Agent", "Operator", "Spec", "Atom.Substance", "Carrier", "Atom/Content Role: Analysis/Type: Analysis Report"]
+version: 6
+updated_at: "2026-10-15 12:22:33 +0000"
 relations: {"child_of":["CA-R-1702"]}
 atom_id: "CA-R-1556"
 content_role: "Requirement"

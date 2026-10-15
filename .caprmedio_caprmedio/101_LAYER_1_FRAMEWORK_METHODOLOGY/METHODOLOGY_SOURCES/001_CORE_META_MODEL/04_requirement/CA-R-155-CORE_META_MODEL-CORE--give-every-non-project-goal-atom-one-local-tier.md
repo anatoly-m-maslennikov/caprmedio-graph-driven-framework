@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Local Tier"
+  governs: "Atom.Local Tier"
   depends_on:
-    - "Atom"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Project"
-    - "Atom/Local Tier: Principle"
-    - "Atom/Local Tier: Core"
-    - "Atom/Local Tier: General"
-    - "Atom/Local Tier: Standard"
-version: 30
-updated_at: "2026-09-29 17:41:03 +0000"
+    ["Atom", "Atom/Content Role: Requirement/Type: Goal", "Project", "Atom.Local Tier: Principle", "Atom.Local Tier: Core", "Atom.Local Tier: General", "Atom.Local Tier: Standard"]
+version: 31
+updated_at: "2026-10-15 12:22:30 +0000"
 relations: {}
 atom_id: "CA-R-155"
 content_role: "Requirement"

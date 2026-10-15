@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: "Artifact/Carrier Placement"
+  governs: "Artifact Carrier Placement"
   depends_on:
     - "Atom/Content Role"
     - "Scope Unit"
     - "Artifact"
     - "Directory Carrier"
-version: 13
-updated_at: "2026-10-02 19:05:39 +0400"
+version: 14
+updated_at: "2026-10-15 12:18:03 +0000"
 relations: {}
 atom_id: "CA-D-296"
 content_role: "Delivery"

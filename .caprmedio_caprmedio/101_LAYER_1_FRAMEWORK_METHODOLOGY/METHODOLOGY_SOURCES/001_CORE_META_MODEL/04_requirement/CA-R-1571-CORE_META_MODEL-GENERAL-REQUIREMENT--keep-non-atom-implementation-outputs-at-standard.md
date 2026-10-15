@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Local Tier"
+  governs: "Artifact.Local Tier"
   depends_on:
-    - "Artifact"
-    - "Atom"
-    - "Implementation"
-    - "Projection"
-    - "Atom/Local Tier: Standard"
-version: 4
-updated_at: "2026-10-03 00:22:56 +0400"
+    ["Artifact", "Atom", "Implementation", "Projection", "Atom.Local Tier: Standard"]
+version: 5
+updated_at: "2026-10-15 12:22:40 +0000"
 relations: {"relates_to": ["CA-R-660", "CA-R-1568"]}
 atom_id: "CA-R-1571"
 content_role: "Requirement"

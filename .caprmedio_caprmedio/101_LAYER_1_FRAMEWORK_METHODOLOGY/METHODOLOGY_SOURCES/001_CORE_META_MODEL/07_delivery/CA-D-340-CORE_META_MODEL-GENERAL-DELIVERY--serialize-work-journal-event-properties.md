@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Work Journal/Event/Carrier Serialization"
+  governs: "Journal.Record"
   depends_on:
-    - "Work Journal/Event/Type"
-    - "Journal"
-    - "Journal/Record"
-    - "Atom"
-    - "Artifact/Carrier"
-    - "Project"
-    - "Applicable Methodology"
-version: 12
-updated_at: "2026-10-14 18:37:38 +0400"
+    ["Event/Type", "Journal", "Journal.Record", "Atom", "Artifact Carrier", "Project", "Applicable Methodology"]
+version: 13
+updated_at: "2026-10-15 12:18:13 +0000"
 relations:
   relates_to:
     - CA-R-1491

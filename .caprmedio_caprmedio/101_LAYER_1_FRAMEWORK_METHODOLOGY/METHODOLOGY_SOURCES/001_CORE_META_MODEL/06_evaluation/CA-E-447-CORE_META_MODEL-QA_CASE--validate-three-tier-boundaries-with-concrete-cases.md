@@ -1,19 +1,10 @@
 ---
 subjects:
-  governs: "Atom Tier Validation/concrete cases"
+  governs: "Atom Tier Validation.Concrete Cases"
   depends_on:
-    - "Atom/Local Tier"
-    - "Atom/Global Tier"
-    - "Scope Unit"
-    - "Atom/Claim/Target Scope Unit"
-    - "Subtree-targeting Atoms"
-    - "Atom/Content Role"
-    - "Atom/Status"
-    - "Evaluation For Relation"
-    - "Methodology Source/Expansion Boundary"
-    - "Framework Instance Settings"
-version: 17
-updated_at: "2026-10-02 20:09:13 +0400"
+    ["Atom.Local Tier", "Atom.Global Tier", "Scope Unit", "Atom.Target Scope Unit", "Subtree-targeting Atoms", "Atom/Content Role", "Atom.Status", "Evaluation For Relation", "Methodology Source.Expansion Boundary", "Framework Instance.Settings"]
+version: 18
+updated_at: "2026-10-15 12:19:15 +0000"
 relations:
   evaluation_for:
     - CA-R-1402

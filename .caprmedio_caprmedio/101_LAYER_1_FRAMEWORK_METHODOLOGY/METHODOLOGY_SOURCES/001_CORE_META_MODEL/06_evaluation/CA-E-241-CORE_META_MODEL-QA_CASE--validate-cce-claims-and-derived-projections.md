@@ -2,16 +2,9 @@
 subjects:
   governs: "CCE Claim and Projection Validation"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Summary"
-    - "Translation"
-    - "Confidence Threshold"
-    - "Operator"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Hub Atom"
-    - "Framework Instance Settings"
-version: 22
-updated_at: "2026-10-02 19:59:59 +0400"
+    ["Atom.Substance", "Atom.Summary", "Translation", "Confidence Threshold", "Operator", "Atom/Content Role: Plan/Type: Plan", "Hub Atom", "Framework Instance.Settings"]
+version: 23
+updated_at: "2026-10-15 12:19:05 +0000"
 relations: {"evaluation_for":["CA-M-111","CA-M-115","CA-M-114","CA-M-271","CA-R-1591","CA-R-940","CA-R-941","CA-R-1273"]}
 atom_id: "CA-E-241"
 content_role: "Evaluation"

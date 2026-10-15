@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Property/Carrier"
+  governs: "Atom.Property"
   depends_on:
-    - "Atom/Property"
-    - "Markdown Atom Carrier"
-    - "Atom/Frontmatter"
-    - "Atom/Claim"
-    - "Atom/Summary"
-    - "Relation"
-version: 5
-updated_at: "2026-10-02 19:54:46 +0400"
+    ["Atom.Property", "Markdown Atom Carrier", "Markdown Atom Carrier.YAML Frontmatter", "Atom.Substance", "Atom.Summary", "Relation"]
+version: 6
+updated_at: "2026-10-15 12:18:48 +0000"
 relations: {"delivery_for": ["CA-R-1598"], "relates_to": ["CA-D-479", "CA-D-268", "CA-R-1470"]}
 atom_id: "CA-D-478"
 content_role: "Delivery"

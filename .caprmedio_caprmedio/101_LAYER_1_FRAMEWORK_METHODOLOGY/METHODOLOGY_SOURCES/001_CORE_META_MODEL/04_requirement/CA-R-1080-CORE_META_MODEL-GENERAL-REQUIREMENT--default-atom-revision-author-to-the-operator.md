@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Author"
+  governs: "Atom.Author"
   depends_on:
     - "Operator"
-version: 14
-updated_at: "2026-10-02 21:28:02 +0400"
+version: 15
+updated_at: "2026-10-15 12:21:07 +0000"
 relations:
   child_of:
     - CA-R-1078

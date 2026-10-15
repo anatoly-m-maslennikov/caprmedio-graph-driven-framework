@@ -10,9 +10,9 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Revert Changes Workflow"
-  depends_on: [Workflow, Step, Workflow Run, Step Run, Journal, Operator]
-version: 1
-updated_at: "2026-10-04 16:45:06 +0000"
+  depends_on: ["Workflow", "Step", "Execution/Workflow Run", "Execution/Step Run", "Journal", "Operator"]
+version: 2
+updated_at: "2026-10-15 12:20:48 +0000"
 relations:
   relates_to: [CA-O-132, CA-R-1525, CA-R-1720, CA-R-1643]
 ---

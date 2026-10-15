@@ -10,9 +10,9 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Approved Change Reversal Step"
-  depends_on: [Step, Action, Workflow Run, Step Run, Journal, Operator]
-version: 1
-updated_at: "2026-10-04 16:45:06 +0000"
+  depends_on: ["Step", "Action", "Execution/Workflow Run", "Execution/Step Run", "Journal", "Operator"]
+version: 2
+updated_at: "2026-10-15 12:20:49 +0000"
 relations:
   relates_to: [CA-O-131, CA-R-1509, CA-R-1511, CA-R-1525]
 ---

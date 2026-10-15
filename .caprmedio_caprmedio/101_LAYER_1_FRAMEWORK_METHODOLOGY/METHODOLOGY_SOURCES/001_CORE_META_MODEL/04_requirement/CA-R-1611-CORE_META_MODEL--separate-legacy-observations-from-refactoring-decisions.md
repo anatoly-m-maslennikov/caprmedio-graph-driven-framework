@@ -9,13 +9,9 @@ status: Active
 subjects:
   governs: "Implementation"
   depends_on:
-    - "Analysis"
-    - "Atom/Claim"
-    - "Evaluation"
-    - "Evidence"
-    - "Projection"
-version: 4
-updated_at: "2026-10-03 00:55:03 +0400"
+    ["Analysis", "Atom.Substance", "Evaluation", "Evidence", "Projection"]
+version: 5
+updated_at: "2026-10-15 12:22:55 +0000"
 relations:
   relates_to:
     - CA-R-1470

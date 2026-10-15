@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Proof Carrier/Dependency Frontier"
+  governs: "Proof Dependency Frontier"
   depends_on: []
-version: 12
-updated_at: "2026-10-02 19:18:22 +0400"
+version: 13
+updated_at: "2026-10-15 12:18:11 +0000"
 relations: {}
 atom_id: "CA-D-329"
 content_role: "Delivery"

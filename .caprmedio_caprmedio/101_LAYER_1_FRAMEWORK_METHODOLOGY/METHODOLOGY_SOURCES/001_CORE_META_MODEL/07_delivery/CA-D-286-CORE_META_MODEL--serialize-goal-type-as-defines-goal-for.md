@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Goal/Filename Token"
+  governs: "Atom/Content Role: Requirement/Type: Goal"
   depends_on: []
-version: 14
-updated_at: "2026-10-02 18:57:51 +0400"
+version: 15
+updated_at: "2026-10-15 12:18:00 +0000"
 relations: {}
 atom_id: "CA-D-286"
 content_role: "Delivery"

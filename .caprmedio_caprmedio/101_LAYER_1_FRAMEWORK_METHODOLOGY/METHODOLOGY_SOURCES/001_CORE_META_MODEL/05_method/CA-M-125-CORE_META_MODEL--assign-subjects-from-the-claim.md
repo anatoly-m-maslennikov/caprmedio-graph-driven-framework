@@ -2,19 +2,9 @@
 subjects:
   governs: "Subject Assignment"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Summary"
-    - "Atom/Subjects"
-    - "Subject Path"
-    - "Author"
-    - "Subject"
-    - "Term"
-    - "Atom/Content Role: Evaluation"
-    - "Evaluation For Relation"
-    - "Entity"
-    - "Dependent Entity"
-version: 25
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Atom.Substance", "Atom.Summary", "Atom.Subjects", "Subject Path", "Author", "Subject", "Term", "Atom/Content Role: Evaluation", "Evaluation For Relation", "Entity", "Dependent Entity"]
+version: 26
+updated_at: "2026-10-15 12:19:45 +0000"
 relations: {}
 atom_id: "CA-M-125"
 content_role: "Method"

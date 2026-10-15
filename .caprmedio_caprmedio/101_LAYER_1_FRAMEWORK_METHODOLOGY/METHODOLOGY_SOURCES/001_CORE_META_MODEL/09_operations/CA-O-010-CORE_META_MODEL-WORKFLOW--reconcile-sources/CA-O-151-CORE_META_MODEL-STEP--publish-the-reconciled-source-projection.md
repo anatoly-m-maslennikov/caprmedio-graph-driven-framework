@@ -10,14 +10,9 @@ status: Active
 subjects:
   governs: "Source Reconciliation Publication Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Source Reconciliation"
-    - "Step/Agentic Execution Context"
-    - "Workflow Run"
-    - "Step Run"
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+    ["Step", "Action", "Source Reconciliation", "Agentic Step Execution Context", "Execution/Workflow Run", "Execution/Step Run"]
+version: 4
+updated_at: "2026-10-15 12:20:59 +0000"
 relations:
   relates_to:
     - CA-O-010

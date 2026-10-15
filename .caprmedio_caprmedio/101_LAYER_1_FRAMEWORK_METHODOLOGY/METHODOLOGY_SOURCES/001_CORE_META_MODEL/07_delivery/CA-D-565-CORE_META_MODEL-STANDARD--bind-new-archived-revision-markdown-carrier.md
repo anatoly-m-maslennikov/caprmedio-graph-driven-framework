@@ -2,11 +2,9 @@
 subjects:
   governs: "New Archived Revision Markdown Carrier Binding"
   depends_on:
-    - "Artifact/Revision/Status"
-    - "Artifact/Revision/Archive Carrier"
-    - "Artifact/Carrier Placement"
-version: 1
-updated_at: "2026-10-05 00:00:00 +0000"
+    ["Atom.Status", "Atom Archive Carrier", "Artifact Carrier Placement"]
+version: 2
+updated_at: "2026-10-15 12:19:01 +0000"
 relations: {"relates_to": ["CA-D-289", "CA-D-466"]}
 atom_id: "CA-D-565"
 content_role: "Delivery"

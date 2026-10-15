@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Authoritative Carrier Bundle"
+  governs: "Plan Atom Carrier Bundle"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan/Carrier/Stem"
-    - "File Carrier"
-    - "Directory Carrier"
-version: 6
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Plan Atom Carrier.Stem", "File Carrier", "Directory Carrier"]
+version: 7
+updated_at: "2026-10-15 12:18:41 +0000"
 relations: {"relates_to": ["CA-R-1578", "CA-D-469"]}
 atom_id: "CA-D-460"
 content_role: "Delivery"

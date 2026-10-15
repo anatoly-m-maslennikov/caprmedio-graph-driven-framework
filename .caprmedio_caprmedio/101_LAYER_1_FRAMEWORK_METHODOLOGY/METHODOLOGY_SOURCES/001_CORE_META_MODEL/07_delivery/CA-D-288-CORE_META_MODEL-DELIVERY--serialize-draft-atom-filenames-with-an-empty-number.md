@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Status: Draft/Filename"
+  governs: "Draft Atom Carrier.Filename"
   depends_on:
-    - "Atom/Identifier"
-version: 13
-updated_at: "2026-10-15 10:01:40 +0000"
+    ["Atom.ID"]
+version: 14
+updated_at: "2026-10-15 12:18:01 +0000"
 relations: {}
 atom_id: "CA-D-288"
 content_role: "Delivery"

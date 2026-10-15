@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Name"
+  governs: "Scope Unit.Name"
   depends_on:
     - "Project"
-version: 17
-updated_at: "2026-10-02 21:09:50 +0400"
+version: 18
+updated_at: "2026-10-15 12:23:43 +0000"
 relations:
   child_of:
     - CA-R-962

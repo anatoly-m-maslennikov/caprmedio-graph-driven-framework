@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Blocking/Carrier"
+  governs: "Plan Blocking Relations"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Blocking"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Atom/Identifier"
-    - "Atom/Subjects"
-    - "Relation"
-version: 5
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Plan Blocking Relations", "Atom.ID", "Atom.Subjects", "Relation"]
+version: 6
+updated_at: "2026-10-15 12:18:46 +0000"
 relations: {"delivery_for": ["CA-R-1580"]}
 atom_id: "CA-D-471"
 content_role: "Delivery"

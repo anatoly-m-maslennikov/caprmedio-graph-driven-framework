@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Global Tier"
+  governs: "Atom.Global Tier"
   depends_on:
-    - "Atom/Local Tier: Core"
-    - "Scope Unit"
-    - "Structural Parent Relation"
-version: 10
-updated_at: "2026-10-02 22:41:14 +0400"
+    ["Atom.Local Tier: Core", "Scope Unit", "Structural Parent Relation"]
+version: 11
+updated_at: "2026-10-15 12:21:40 +0000"
 relations: {}
 atom_id: "CA-R-1390"
 content_role: "Requirement"

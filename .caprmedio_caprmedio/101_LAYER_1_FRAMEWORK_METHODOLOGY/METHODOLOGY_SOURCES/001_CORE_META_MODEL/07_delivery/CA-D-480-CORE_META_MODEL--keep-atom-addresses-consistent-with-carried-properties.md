@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Carrier/Canonical Address"
+  governs: "Atom.Property"
   depends_on:
-    - "Atom/Property"
-    - "Atom/Summary"
-    - "Atom/Identifier"
-    - "Atom/Revision/Status"
-    - "Markdown Atom Carrier"
-version: 4
-updated_at: "2026-10-02 19:57:02 +0400"
+    ["Atom.Property", "Atom.Summary", "Atom.ID", "Atom.Status", "Markdown Atom Carrier"]
+version: 5
+updated_at: "2026-10-15 12:18:49 +0000"
 relations: {"relates_to": ["CA-D-478", "CA-D-282", "CA-D-466"]}
 atom_id: "CA-D-480"
 content_role: "Delivery"

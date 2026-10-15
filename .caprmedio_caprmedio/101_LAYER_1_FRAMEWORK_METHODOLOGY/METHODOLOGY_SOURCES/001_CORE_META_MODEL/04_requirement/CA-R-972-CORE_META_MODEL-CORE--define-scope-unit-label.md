@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: "Scope Unit/Label"
+  governs: "Scope Unit.Label"
   depends_on:
     - "Label"
     - "Scope Unit"
     - "Operator"
     - "Scope Unit/Type"
-version: 18
-updated_at: "2026-10-02 21:09:50 +0400"
+version: 19
+updated_at: "2026-10-15 12:23:44 +0000"
 relations: {"relates_to": ["CA-R-1594"]}
 atom_id: "CA-R-972"
 content_role: "Requirement"

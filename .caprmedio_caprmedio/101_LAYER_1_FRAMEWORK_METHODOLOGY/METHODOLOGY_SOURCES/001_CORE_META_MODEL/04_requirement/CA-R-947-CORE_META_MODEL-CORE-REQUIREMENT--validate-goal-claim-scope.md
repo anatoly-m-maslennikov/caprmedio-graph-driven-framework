@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim/Target Scope Unit"
+  governs: "Atom.Target Scope Unit"
   depends_on:
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Atom/Scope"
-    - "Scope Unit"
-    - "Project Structure"
-    - "Project"
-version: 20
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Atom/Content Role: Requirement/Type: Goal", "Atom Scope", "Scope Unit", "Project Structure", "Project"]
+version: 21
+updated_at: "2026-10-15 12:23:41 +0000"
 relations:
   child_of:
     - CA-R-925

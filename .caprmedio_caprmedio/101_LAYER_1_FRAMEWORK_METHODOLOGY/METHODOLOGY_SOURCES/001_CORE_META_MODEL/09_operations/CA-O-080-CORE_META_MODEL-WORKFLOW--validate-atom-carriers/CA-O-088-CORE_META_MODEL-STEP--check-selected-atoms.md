@@ -10,12 +10,9 @@ status: Active
 subjects:
   governs: "Check Atoms Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Check Atoms"
-    - "Workflow Run"
-version: 4
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Step", "Action", "Check Atoms", "Execution/Workflow Run"]
+version: 5
+updated_at: "2026-10-15 12:20:30 +0000"
 relations:
   relates_to:
     - CA-O-087

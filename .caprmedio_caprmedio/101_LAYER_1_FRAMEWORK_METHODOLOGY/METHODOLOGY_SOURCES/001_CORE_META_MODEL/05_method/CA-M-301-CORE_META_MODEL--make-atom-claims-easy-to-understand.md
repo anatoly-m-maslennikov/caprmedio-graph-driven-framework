@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim"
+  governs: "Atom.Substance"
   depends_on:
-    - "Term"
-    - "Workflow/Relation Kind: On Result"
-    - "Step"
-    - "Atom"
-    - "Author"
-    - "CCE"
-    - "Action"
-    - "Workflow"
-version: 6
-updated_at: "2026-10-04 15:08:16 +0000"
+    ["Term", "Relation/Type: On Result", "Step", "Atom", "Author", "CCE", "Action", "Workflow"]
+version: 7
+updated_at: "2026-10-15 12:20:01 +0000"
 relations:
   child_of:
     - CA-M-113

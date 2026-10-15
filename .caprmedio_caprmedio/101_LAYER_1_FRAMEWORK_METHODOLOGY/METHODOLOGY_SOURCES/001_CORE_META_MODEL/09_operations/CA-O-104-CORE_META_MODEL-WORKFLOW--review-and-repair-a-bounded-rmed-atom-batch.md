@@ -8,20 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: "2026-10-04 02:57:00 +0400"
+version: 10
+updated_at: "2026-10-15 12:20:38 +0000"
 subjects:
   governs: "RMED Atom Review Workflow"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Workflow/Relation Kind: On Result"
-    - "Atom"
-    - "Journal"
-    - "Journal/Record"
-    - "Evaluation/Report"
+    ["Workflow", "Step", "Action", "Execution/Workflow Run", "Relation/Type: On Result", "Atom", "Journal", "Journal.Record", "Evaluation Report"]
 relations: {"relates_to":["CA-D-340","CA-O-108","CA-O-109","CA-O-110","CA-R-1643","CA-R-1720"]}
 ---
 # Summary

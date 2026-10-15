@@ -7,16 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-03 06:11:33 +0400"
+version: 8
+updated_at: "2026-10-15 12:18:54 +0000"
 subjects:
-  governs: "Workflow Run"
+  governs: "Execution/Workflow Run"
   depends_on:
-    - "Atom"
-    - "Atom/Revision"
-    - "Evaluation"
-    - "File Carrier"
-    - "Projection"
+    ["Atom", "Evaluation", "File Carrier", "Projection"]
 relations: {"relates_to":["CA-E-520"]}
 ---
 # Summary

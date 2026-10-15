@@ -2,12 +2,9 @@
 subjects:
   governs: "Priority"
   depends_on:
-    - "Atom/Content Role: Concern"
-    - "Scope Unit"
-    - "Framework Instance Settings"
-    - "Operator"
-version: 22
-updated_at: "2026-10-03 01:07:45 +0400"
+    ["Atom/Content Role: Concern", "Scope Unit", "Framework Instance.Settings", "Operator"]
+version: 23
+updated_at: "2026-10-15 12:22:57 +0000"
 relations: {}
 atom_id: "CA-R-1629"
 content_role: "Requirement"

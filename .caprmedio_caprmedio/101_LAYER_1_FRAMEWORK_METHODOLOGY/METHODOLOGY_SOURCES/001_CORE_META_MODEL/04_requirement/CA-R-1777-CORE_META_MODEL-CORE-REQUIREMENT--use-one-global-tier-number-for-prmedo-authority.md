@@ -1,12 +1,12 @@
 ---
-version: 20
-updated_at: "2026-10-03 03:44:15 +0400"
+version: 21
+updated_at: "2026-10-15 12:23:18 +0000"
 relations:
   child_of:
     - "CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary"
     - "CA-R-1407"
 subjects:
-  governs: "Atom/Global Tier"
+  governs: "Atom.Global Tier"
   depends_on:
     - "Atom"
     - "CAPRMEDIO Framework Instance"

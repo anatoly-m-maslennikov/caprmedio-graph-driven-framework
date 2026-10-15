@@ -2,24 +2,9 @@
 subjects:
   governs: "Source Reconciliation"
   depends_on:
-    - "Workflow/Relation Kind: On Result"
-    - "Step Run"
-    - "Workflow Run"
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Select Reconciliation Sources"
-    - "Assess Source Conflicts"
-    - "Propose Source Corrections"
-    - "Obtain Source Correction Decision"
-    - "Apply Approved Source Corrections"
-    - "Publish Reconciled Projection"
-    - "Operator"
-    - "AI Agent"
-    - "Autonomous Confidence Threshold"
-    - "Projection/Type: Reconciled Projection"
-version: 9
-updated_at: "2026-10-04 17:31:25 +0000"
+    ["Relation/Type: On Result", "Execution/Step Run", "Execution/Workflow Run", "Action", "Step", "Workflow", "Select Reconciliation Sources", "Assess Source Conflicts", "Propose Source Corrections", "Obtain Source Correction Decision", "Apply Approved Source Corrections", "Publish Reconciled Projection", "Operator", "AI Agent", "Autonomous Confidence Threshold", "Projection/Type: Reconciled Projection"]
+version: 10
+updated_at: "2026-10-15 12:20:14 +0000"
 relations: {}
 atom_id: "CA-O-010"
 content_role: "Operations"

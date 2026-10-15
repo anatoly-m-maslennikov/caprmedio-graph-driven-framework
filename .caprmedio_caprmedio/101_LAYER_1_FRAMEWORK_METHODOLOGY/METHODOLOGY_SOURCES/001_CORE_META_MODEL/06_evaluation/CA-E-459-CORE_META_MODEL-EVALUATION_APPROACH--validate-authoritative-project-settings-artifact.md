@@ -2,15 +2,9 @@
 subjects:
   governs: "Project Settings Validation"
   depends_on:
-    - "Project Settings"
-    - "Project Settings/Authoritative Carrier"
-    - "Project Settings/Revision Binding"
-    - "Project Name"
-    - "Atom/Identifier/Project Prefix"
-    - "Framework Instance Settings"
-    - "CORE_META_MODEL"
-version: 19
-updated_at: "2026-10-13 22:52:30 +0400"
+    ["Project Settings", "Project Settings.Revision Binding", "Project Name", "Project Settings.Atom Prefix", "Framework Instance.Settings", "CORE_META_MODEL"]
+version: 20
+updated_at: "2026-10-15 12:19:19 +0000"
 relations:
   evaluation_for:
     - CA-R-1738

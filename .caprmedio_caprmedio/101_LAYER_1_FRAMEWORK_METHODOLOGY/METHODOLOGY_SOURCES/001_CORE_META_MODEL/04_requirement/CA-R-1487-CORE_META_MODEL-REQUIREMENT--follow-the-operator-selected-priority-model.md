@@ -1,11 +1,11 @@
 ---
-version: 5
-updated_at: "2026-10-02 23:35:16 +0400"
+version: 6
+updated_at: "2026-10-15 12:22:09 +0000"
 relations:
   child_of:
     - CA-R-815
 subjects:
-  governs: "Project/priority model application"
+  governs: "Project Priority Model Application"
   depends_on:
     - "Operator"
     - "Project"

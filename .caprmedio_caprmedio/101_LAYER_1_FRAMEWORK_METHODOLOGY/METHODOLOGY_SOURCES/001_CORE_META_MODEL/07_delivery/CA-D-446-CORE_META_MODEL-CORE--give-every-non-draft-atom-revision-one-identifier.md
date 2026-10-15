@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Identifier"
+  governs: "Atom State Identifier"
   depends_on:
-    - "Atom/Identity"
-    - "Atom/Revision/Version"
-    - "Atom/Revision/Status: Draft"
-version: 8
-updated_at: "2026-10-15 10:01:40 +0000"
+    ["Atom.ID", "Atom.Version Number", "Draft Atom"]
+version: 9
+updated_at: "2026-10-15 12:18:39 +0000"
 relations:
   relates_to:
     - CA-D-378

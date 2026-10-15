@@ -2,10 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Evaluation"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Content Role: Implementation"
-version: 4
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Atom.Substance", "Implementation"]
+version: 5
+updated_at: "2026-10-15 12:22:14 +0000"
 relations: {}
 atom_id: "CA-R-1503"
 content_role: "Requirement"

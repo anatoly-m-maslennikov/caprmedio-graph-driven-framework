@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim"
+  governs: "Atom.Substance"
   depends_on:
-    - "Atom"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Summary"
-    - "Scope Expression"
-    - "Scope Unit"
-version: 19
-updated_at: "2026-10-02 20:03:51 +0400"
+    ["Atom", "Atom/Content Role: Evaluation", "Atom.Target Scope Unit", "Atom.Summary", "Scope Expression", "Scope Unit"]
+version: 20
+updated_at: "2026-10-15 12:19:08 +0000"
 relations:
   evaluation_for:
     - CA-R-1596

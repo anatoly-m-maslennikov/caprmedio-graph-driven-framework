@@ -8,10 +8,10 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 3
+updated_at: "2026-10-15 12:20:42 +0000"
 subjects:
-  governs: "RMED Atom Review Workflow/coverage/Action: 118"
+  governs: "RMED Atom Review Coverage Gate Action"
   depends_on: [Workflow, Step, Action, Atom, Operator, Journal]
 relations:
   relates_to: [CA-O-104]

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Carrier/Representation"
+  governs: "Carrier"
   depends_on:
-    - "Artifact/Revision"
-version: 11
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Artifact"]
+version: 12
+updated_at: "2026-10-15 12:18:09 +0000"
 relations: {}
 atom_id: "CA-D-311"
 content_role: "Delivery"

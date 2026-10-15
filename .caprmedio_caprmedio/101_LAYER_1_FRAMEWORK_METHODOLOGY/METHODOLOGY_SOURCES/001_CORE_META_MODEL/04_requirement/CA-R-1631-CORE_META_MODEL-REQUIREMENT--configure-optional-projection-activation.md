@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Optional Projection/Activation"
+  governs: "Framework Instance.Settings"
   depends_on:
-    - "Framework Instance Settings"
-    - "Projection"
-version: 20
-updated_at: "2026-10-03 01:23:33 +0400"
+    ["Framework Instance.Settings", "Projection"]
+version: 21
+updated_at: "2026-10-15 12:22:58 +0000"
 relations: {}
 atom_id: "CA-R-1631"
 content_role: "Requirement"

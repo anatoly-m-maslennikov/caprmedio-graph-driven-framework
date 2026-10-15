@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Claim/Target Scope Unit"
+  governs: "Atom/Content Role: Plan/Type: Plan.Target Scope Unit"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Claim/Target Scope Unit"
-    - "Scope Unit"
-    - "Hub Atom"
-    - "Atom/Content Role: Plan/Type: Plan/Label"
-version: 6
-updated_at: "2026-10-03 00:40:46 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Atom.Target Scope Unit", "Scope Unit", "Hub Atom", "Atom/Content Role: Plan/Type: Plan.Label"]
+version: 7
+updated_at: "2026-10-15 12:22:48 +0000"
 relations: {"relates_to": ["CA-R-1574", "CA-D-482"]}
 atom_id: "CA-R-1588"
 content_role: "Requirement"

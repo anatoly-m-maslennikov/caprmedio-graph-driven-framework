@@ -1,18 +1,10 @@
 ---
 subjects:
-  governs: "Confidence Threshold/resolution validation"
+  governs: "Confidence Threshold.Resolution Validation"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Confidence Threshold"
-    - "Autonomous Confidence Threshold"
-    - "Operator"
-    - "Hub Atom"
-    - "Framework Instance Settings"
-    - "Property"
-    - "Concern"
-    - "Carrier"
-version: 10
-updated_at: "2026-10-01 21:31:46 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Confidence Threshold", "Autonomous Confidence Threshold", "Operator", "Hub Atom", "Framework Instance.Settings", "Property", "Concern", "Carrier"]
+version: 11
+updated_at: "2026-10-15 12:19:13 +0000"
 relations: {"evaluation_for":["CA-R-1587","CA-R-1044","CA-R-1045","CA-R-1427","CA-R-1428","CA-M-271","CA-R-1591","CA-D-472","CA-D-485","CA-R-1713"]}
 atom_id: "CA-E-443"
 content_role: "Evaluation"

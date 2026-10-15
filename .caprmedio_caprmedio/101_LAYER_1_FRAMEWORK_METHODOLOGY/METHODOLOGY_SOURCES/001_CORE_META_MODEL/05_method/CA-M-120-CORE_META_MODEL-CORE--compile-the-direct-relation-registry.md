@@ -1,19 +1,10 @@
 ---
 subjects:
-  governs: "Relation Kind/registry compilation"
+  governs: "Projection/Type: Direct Relation Registry"
   depends_on:
-    - "Relation Kind"
-    - "Relation Kind/Metadata"
-    - "CAPRMEDIO Graph"
-    - "Applicable Methodology"
-    - "Relation/authority"
-    - "Atom/Content Role: Requirement"
-    - "Projection"
-    - "Generator"
-    - "Relation"
-    - "Single Source of Truth"
-version: 14
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Relation Kind", "Relation Kind Metadata", "CAPRMEDIO Graph", "Applicable Methodology", "Relation.Authority", "Atom/Content Role: Requirement", "Projection", "Generator", "Relation", "Single Source of Truth"]
+version: 15
+updated_at: "2026-10-15 12:19:44 +0000"
 relations:
   child_of:
     - CA-R-295

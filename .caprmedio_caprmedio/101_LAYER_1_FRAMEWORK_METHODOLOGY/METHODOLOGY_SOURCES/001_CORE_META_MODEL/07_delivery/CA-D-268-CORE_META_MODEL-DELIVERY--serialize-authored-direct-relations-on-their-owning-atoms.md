@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Direct Relation Serialization"
+  governs: "Atom Direct Relation"
   depends_on:
-    - "Atom/Relation Owner"
-version: 13
-updated_at: "2026-10-13 19:56:49 +0400"
+    ["Atom Relation Owner"]
+version: 14
+updated_at: "2026-10-15 12:17:54 +0000"
 relations: {}
 atom_id: "CA-D-268"
 content_role: "Delivery"

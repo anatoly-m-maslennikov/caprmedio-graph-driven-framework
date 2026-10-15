@@ -2,20 +2,9 @@
 subjects:
   governs: "Atom selection"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Owned Atoms"
-    - "Targeting Atoms"
-    - "Subtree-owned Atoms"
-    - "Subtree-targeting Atoms"
-    - "Scope Unit"
-    - "Atom Collection"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Content Role"
-    - "Atom/Status"
-    - "Artifact/Revision"
-    - "Directory Carrier"
-version: 13
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Atom.Author", "Owned Atoms", "Targeting Atoms", "Subtree-owned Atoms", "Subtree-targeting Atoms", "Scope Unit", "Carrier", "Atom.Target Scope Unit", "Atom/Content Role", "Atom.Status", "Atom", "Directory Carrier"]
+version: 14
+updated_at: "2026-10-15 12:19:52 +0000"
 relations: {}
 atom_id: "CA-M-273"
 content_role: "Method"

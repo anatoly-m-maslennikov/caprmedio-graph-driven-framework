@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Carrier Replacement"
   depends_on:
-    - "Atom/Revision"
-version: 11
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Atom", "Revision/Type: Atom"]
+version: 12
+updated_at: "2026-10-15 12:18:06 +0000"
 relations: {}
 atom_id: "CA-D-303"
 content_role: "Delivery"

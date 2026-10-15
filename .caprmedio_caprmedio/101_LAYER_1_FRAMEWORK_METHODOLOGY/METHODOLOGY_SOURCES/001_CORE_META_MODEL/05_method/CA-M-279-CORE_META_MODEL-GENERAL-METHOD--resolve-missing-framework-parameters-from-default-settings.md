@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/parameter resolution"
+  governs: "Framework Instance.Settings.Parameter Resolution"
   depends_on:
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Project"
-    - "Operator"
-version: 8
-updated_at: "2026-09-29 22:34:37 +0000"
+    ["Framework Instance.Settings", "Default Settings", "Project", "Operator"]
+version: 9
+updated_at: "2026-10-15 12:19:56 +0000"
 relations:
   relates_to:
     - "CA-R-1402"

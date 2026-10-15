@@ -2,17 +2,9 @@
 subjects:
   governs: "Projection"
   depends_on:
-    - "Artifact"
-    - "Artifact/Revision"
-    - "Atom"
-    - "Atom/Claim"
-    - "Scope Unit"
-    - "Structural Entity"
-    - "Project Structure"
-    - "Journal"
-    - "Single Source of Truth"
-version: 20
-updated_at: "2026-10-04 22:03:32 +0000"
+    ["Artifact", "Atom", "Atom.Substance", "Scope Unit", "Structural Entity", "Project Structure", "Journal", "Single Source of Truth"]
+version: 21
+updated_at: "2026-10-15 12:23:13 +0000"
 relations: {}
 atom_id: "CA-R-1746"
 content_role: "Requirement"

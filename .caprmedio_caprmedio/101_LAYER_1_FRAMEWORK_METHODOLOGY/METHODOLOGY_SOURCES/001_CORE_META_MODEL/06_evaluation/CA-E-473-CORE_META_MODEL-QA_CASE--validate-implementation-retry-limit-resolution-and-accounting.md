@@ -1,6 +1,6 @@
 ---
-version: 10
-updated_at: "2026-10-02 20:09:13 +0400"
+version: 11
+updated_at: "2026-10-15 12:19:23 +0000"
 relations:
   evaluation_for:
     - CA-R-1488
@@ -11,12 +11,7 @@ relations:
 subjects:
   governs: "Implementation Retry Limit"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Implementation Retry Control"
-    - "Implementation Workflow"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Default Settings"
+    ["Atom/Content Role: Plan/Type: Plan", "Implementation Retry Control", "Implementation Workflow", "Operator", "Framework Instance.Settings", "Default Settings"]
 atom_id: "CA-E-473"
 content_role: "Evaluation"
 current_scope_unit: "CORE_META_MODEL"

@@ -2,16 +2,9 @@
 subjects:
   governs: "Workflow"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Step Run"
-    - "Workflow/Relation Kind: On Result"
-    - "Artifact/Revision"
-    - "Operator"
-    - "Methodology"
-version: 5
-updated_at: "2026-10-03 00:01:03 +0400"
+    ["Step", "Action", "Execution/Workflow Run", "Execution/Step Run", "Relation/Type: On Result", "Atom", "Operator", "Methodology"]
+version: 6
+updated_at: "2026-10-15 12:22:19 +0000"
 relations: {"relates_to": ["CA-R-1508", "CA-R-1509", "CA-R-1510", "CA-R-1511", "CA-R-1513", "CA-R-1525"]}
 atom_id: "CA-R-1519"
 content_role: "Requirement"

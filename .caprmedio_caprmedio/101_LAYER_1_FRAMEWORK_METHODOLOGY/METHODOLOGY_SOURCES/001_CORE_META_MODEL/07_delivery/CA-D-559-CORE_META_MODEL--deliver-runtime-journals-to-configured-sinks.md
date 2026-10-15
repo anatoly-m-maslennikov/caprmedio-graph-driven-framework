@@ -8,10 +8,10 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Runtime Journal/Carrier"
+  governs: "Journal"
   depends_on: [Implementation, Projection, Journal, Carrier]
-version: 2
-updated_at: "2026-10-11 18:10:42 +0400"
+version: 3
+updated_at: "2026-10-15 12:18:59 +0000"
 relations: {relates_to: [CA-R-1745, CA-R-1720, CA-D-549, CA-D-504]}
 ---
 # Summary

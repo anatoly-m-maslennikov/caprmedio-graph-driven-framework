@@ -2,14 +2,9 @@
 subjects:
   governs: "Scope Unit"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Local Tier"
-    - "Methodology Source"
-    - "Core Meta-Model"
-    - "Extension"
-    - "Project Configuration"
-version: 16
-updated_at: "2026-10-03 02:57:13 +0400"
+    ["Atom.Substance", "Atom.Local Tier", "Methodology Source", "Core Meta-Model", "Extension", "Project Configuration"]
+version: 17
+updated_at: "2026-10-15 12:23:14 +0000"
 relations:
   child_of:
     - CAPRMEDIO-REQU-033-REQUIREMENT--preserve-ancestor-core-authority-across-structural-levels

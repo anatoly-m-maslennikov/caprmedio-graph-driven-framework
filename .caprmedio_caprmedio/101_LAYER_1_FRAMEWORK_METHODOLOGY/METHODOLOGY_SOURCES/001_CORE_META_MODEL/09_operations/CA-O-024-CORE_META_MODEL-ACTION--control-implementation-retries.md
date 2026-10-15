@@ -10,18 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Retry Control"
   depends_on:
-    - "Action"
-    - "Implementation Workflow"
-    - "Implementation Retry Limit"
-    - "Workflow Run"
-    - "Step Run"
-    - "Operator"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Autonomous Confidence Threshold"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Implementation"
-version: 11
-updated_at: "2026-10-04 16:53:23 +0000"
+    ["Action", "Implementation Workflow", "Implementation Retry Limit", "Execution/Workflow Run", "Execution/Step Run", "Operator", "Atom/Content Role: Plan/Type: Plan", "Autonomous Confidence Threshold", "Atom/Content Role: Evaluation", "Implementation"]
+version: 12
+updated_at: "2026-10-15 12:20:22 +0000"
 relations:
   relates_to:
     - CA-R-1559

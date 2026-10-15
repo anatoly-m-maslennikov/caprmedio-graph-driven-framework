@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "CCE/Role Profile: Method"
+  governs: "Method CCE Role Profile"
   depends_on:
-    - "Atom/Content Role: Method"
-    - "CCE Operator"
-    - "Atom/Claim"
-version: 5
-updated_at: "2026-10-04 04:27:08 +0400"
+    ["Atom/Content Role: Method", "CCE Operator", "Atom.Substance"]
+version: 6
+updated_at: "2026-10-15 12:20:07 +0000"
 relations:
   child_of:
     - CA-M-307

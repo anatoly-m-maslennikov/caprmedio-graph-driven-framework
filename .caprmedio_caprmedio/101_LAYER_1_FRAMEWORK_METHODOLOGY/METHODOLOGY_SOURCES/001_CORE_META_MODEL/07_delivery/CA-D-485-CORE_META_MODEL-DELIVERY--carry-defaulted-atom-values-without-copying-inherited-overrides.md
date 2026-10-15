@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier/YAML Frontmatter/Default"
+  governs: "Atom Property Default"
   depends_on:
-    - "Property"
-    - "Artifact/Property/Default"
-    - "Atom/Property"
-    - "Autonomous Confidence Threshold"
-    - "Implementation Retry Limit"
-version: 4
-updated_at: "2026-10-02 19:54:46 +0400"
+    ["Property", "Atom Property Default", "Atom.Property", "Autonomous Confidence Threshold", "Implementation Retry Limit"]
+version: 5
+updated_at: "2026-10-15 12:18:52 +0000"
 relations: {"relates_to": ["CA-D-478", "CA-D-472", "CA-D-447"]}
 atom_id: "CA-D-485"
 content_role: "Delivery"

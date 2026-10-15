@@ -8,22 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 4
+updated_at: "2026-10-15 12:21:00 +0000"
 subjects:
-  governs: "Applicable Methodology Compilation/Step: assess"
+  governs: "Applicable Methodology Compilation Assess Step"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Applicable Methodology"
-    - "Assess Source Conflicts"
-    - "Methodology Source/Expansion Boundary"
-    - "Core Meta-Model"
-    - "Atom"
-    - "Applicable Methodology/Conflict"
-    - "Applicable Methodology/Source Frontier Digest"
+    ["Workflow", "Step", "Action", "Execution/Workflow Run", "Applicable Methodology", "Assess Source Conflicts", "Methodology Source.Expansion Boundary", "Core Meta-Model", "Atom", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest"]
 relations:
   relates_to: [CA-O-011, CA-O-005]
 ---

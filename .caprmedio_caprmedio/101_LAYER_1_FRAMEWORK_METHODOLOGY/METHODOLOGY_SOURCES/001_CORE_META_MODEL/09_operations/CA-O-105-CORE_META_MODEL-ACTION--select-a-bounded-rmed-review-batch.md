@@ -8,18 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-09-30 19:02:43 +0000"
+version: 6
+updated_at: "2026-10-15 12:20:39 +0000"
 subjects:
   governs: "Select RMED Review Batch"
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Atom/Revision"
-    - "Scope Unit"
-    - "Framework Instance Settings"
-    - "Operator"
-    - "Evaluation"
+    ["Action", "Atom", "Scope Unit", "Framework Instance.Settings", "Operator", "Evaluation"]
 relations: {"relates_to":["CA-D-496","CA-D-497"]}
 ---
 # Summary

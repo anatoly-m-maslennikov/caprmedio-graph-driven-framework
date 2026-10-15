@@ -10,16 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Failure Diagnosis"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Spec"
-version: 3
-updated_at: "2026-10-04 16:53:23 +0000"
+    ["Action", "Atom/Content Role: Evaluation", "Implementation", "Atom/Content Role: Method", "Atom/Content Role: Plan/Type: Plan", "AI Agent", "Operator", "Spec"]
+version: 4
+updated_at: "2026-10-15 12:20:31 +0000"
 relations:
   relates_to:
     - CA-O-020

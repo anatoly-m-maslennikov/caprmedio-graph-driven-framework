@@ -2,11 +2,9 @@
 subjects:
   governs: "Directory Carrier"
   depends_on:
-    - "Artifact"
-    - "Structural Entity"
-    - "Atom/Revision"
-version: 4
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Artifact", "Structural Entity", "Atom"]
+version: 5
+updated_at: "2026-10-15 12:18:42 +0000"
 relations: {"relates_to": ["CA-D-259", "CA-D-460"]}
 atom_id: "CA-D-464"
 content_role: "Delivery"

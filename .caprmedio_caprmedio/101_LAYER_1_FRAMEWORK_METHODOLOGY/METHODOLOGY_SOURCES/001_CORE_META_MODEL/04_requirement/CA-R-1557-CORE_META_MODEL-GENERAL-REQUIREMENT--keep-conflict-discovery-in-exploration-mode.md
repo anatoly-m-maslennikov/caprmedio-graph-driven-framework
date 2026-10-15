@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: "AI Agent/authorization"
+  governs: "Actor/Type: AI Agent"
   depends_on:
     - "AI Agent"
     - "Operator"
     - "Exploration Mode"
     - "Atom/Content Role: Concern"
-version: 5
-updated_at: "2026-10-03 00:22:56 +0400"
+version: 6
+updated_at: "2026-10-15 12:22:33 +0000"
 relations: {"child_of":["CA-R-1702"]}
 atom_id: "CA-R-1557"
 content_role: "Requirement"

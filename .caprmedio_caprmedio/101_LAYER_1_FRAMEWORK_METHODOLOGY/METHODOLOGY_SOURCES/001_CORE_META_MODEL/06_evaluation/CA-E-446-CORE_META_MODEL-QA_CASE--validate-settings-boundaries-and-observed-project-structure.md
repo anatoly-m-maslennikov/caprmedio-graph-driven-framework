@@ -2,15 +2,9 @@
 subjects:
   governs: "Project Structure"
   depends_on:
-    - "Project Settings"
-    - "Framework Instance Settings"
-    - "Project"
-    - "Scope Unit"
-    - "Goal"
-    - "Carrier"
-    - "Applicable Methodology"
-version: 12
-updated_at: "2026-10-02 20:09:13 +0400"
+    ["Project Settings", "Framework Instance.Settings", "Project", "Scope Unit", "Goal", "Carrier", "Applicable Methodology"]
+version: 13
+updated_at: "2026-10-15 12:19:14 +0000"
 relations:
   evaluation_for:
     - "CA-R-1483"

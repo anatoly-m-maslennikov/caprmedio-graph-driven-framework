@@ -2,27 +2,9 @@
 subjects:
   governs: "Applicable Methodology Compilation"
   depends_on:
-    - "Workflow/Relation Kind: On Result"
-    - "Step Run"
-    - "Workflow Run"
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Source Reconciliation"
-    - "Applicable Methodology"
-    - "Methodology Source"
-    - "Scope Unit"
-    - "Framework Instance Settings"
-    - "Extension"
-    - "Project Configuration"
-    - "Methodology Source/Expansion Boundary"
-    - "Atom/Revision"
-    - "Atom/Claim"
-    - "Operator"
-    - "Applicable Methodology/Source Frontier Digest"
-    - "Journal/Record"
-version: 12
-updated_at: "2026-10-04 17:31:25 +0000"
+    ["Relation/Type: On Result", "Execution/Step Run", "Execution/Workflow Run", "Action", "Step", "Workflow", "Source Reconciliation", "Applicable Methodology", "Methodology Source", "Scope Unit", "Framework Instance.Settings", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Atom", "Atom.Substance", "Operator", "Applicable Methodology Source Frontier Digest", "Journal.Record"]
+version: 13
+updated_at: "2026-10-15 12:20:15 +0000"
 relations: {}
 atom_id: "CA-O-011"
 content_role: "Operations"

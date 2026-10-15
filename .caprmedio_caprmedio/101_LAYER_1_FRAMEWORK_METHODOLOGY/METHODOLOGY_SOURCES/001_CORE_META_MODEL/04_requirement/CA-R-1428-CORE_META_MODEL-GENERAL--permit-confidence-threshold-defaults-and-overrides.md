@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Confidence Threshold/source"
+  governs: "Confidence Threshold.Source"
   depends_on:
-    - "Confidence Threshold"
-    - "Operator"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Hub Atom"
-    - "Property"
-    - "Framework Instance Settings"
-version: 9
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Confidence Threshold", "Operator", "Atom/Content Role: Plan/Type: Plan", "Hub Atom", "Property", "Framework Instance.Settings"]
+version: 10
+updated_at: "2026-10-15 12:21:51 +0000"
 relations:
   child_of:
     - "CA-R-1427"

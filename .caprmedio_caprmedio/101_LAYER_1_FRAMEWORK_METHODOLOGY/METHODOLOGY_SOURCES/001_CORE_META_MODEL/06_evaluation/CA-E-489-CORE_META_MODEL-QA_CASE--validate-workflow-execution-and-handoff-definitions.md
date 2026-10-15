@@ -2,14 +2,9 @@
 subjects:
   governs: "Workflow"
   depends_on:
-    - "Workflow Run"
-    - "Step"
-    - "Action"
-    - "Workflow/Relation Kind: On Result"
-    - "Artifact/Revision"
-    - "Operator"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Execution/Workflow Run", "Step", "Action", "Relation/Type: On Result", "Atom", "Operator"]
+version: 6
+updated_at: "2026-10-15 12:19:26 +0000"
 relations: {"evaluation_for": ["CA-R-1519", "CA-R-1520"]}
 atom_id: "CA-E-489"
 content_role: "Evaluation"

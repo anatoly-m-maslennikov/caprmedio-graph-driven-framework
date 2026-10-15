@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Frontmatter"
+  governs: "Atom"
   depends_on:
-    - "Atom/Revision/Version"
-    - "Atom/Revision/Updated At"
-version: 13
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Atom.Version Number", "Atom.Updated At"]
+version: 14
+updated_at: "2026-10-15 12:17:56 +0000"
 relations: {}
 atom_id: "CA-D-270"
 content_role: "Delivery"

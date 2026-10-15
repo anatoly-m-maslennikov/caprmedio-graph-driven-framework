@@ -2,15 +2,9 @@
 subjects:
   governs: "Projection/Type: Implementation Overview"
   depends_on:
-    - "Projection"
-    - "Atom"
-    - "Artifact/Revision"
-    - "Implementation Binding"
-    - "Journal"
-    - "Implementation"
-    - "Verification"
-version: 27
-updated_at: "2026-10-03 01:23:33 +0400"
+    ["Projection", "Atom", "Artifact", "Implementation Binding", "Journal", "Implementation", "Verification"]
+version: 28
+updated_at: "2026-10-15 12:23:00 +0000"
 relations:
   relates_to:
     - CA-R-1634

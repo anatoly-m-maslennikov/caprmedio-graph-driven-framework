@@ -2,18 +2,9 @@
 subjects:
   governs: "Action"
   depends_on:
-    - "Actor"
-    - "Tool"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Journal/Record"
-    - "Carrier"
-    - "Action/Execution Kind"
-    - "Step"
-    - "Atom"
-    - "Atom/Content Role: Operations/Type: Action"
-    - "Atom/Claim"
-version: 10
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Actor", "Tool", "Atom/Content Role: Plan/Type: Plan", "Journal.Record", "Carrier", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Step", "Atom", "Atom/Content Role: Operations/Type: Action", "Atom.Substance"]
+version: 11
+updated_at: "2026-10-15 12:22:01 +0000"
 relations: {}
 atom_id: "CA-R-1452"
 content_role: "Requirement"

@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Framework Instance Settings"
+  governs: "Framework Instance.Settings"
   depends_on:
     - "Artifact"
     - "Project"
     - "Operator"
-version: 10
-updated_at: "2026-10-02 22:41:14 +0400"
+version: 11
+updated_at: "2026-10-15 12:21:45 +0000"
 relations: {}
 atom_id: "CA-R-1402"
 content_role: "Requirement"

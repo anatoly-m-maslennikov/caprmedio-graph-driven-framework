@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings"
+  governs: "Framework Instance.Settings"
   depends_on:
-    - "Operator"
-    - "Project Settings"
-    - "Project Structure"
-    - "Default Settings"
-    - "Project Name"
-    - "Atom/Identifier/Project Prefix"
-    - "Atom"
-version: 21
-updated_at: "2026-10-03 02:55:28 +0400"
+    ["Operator", "Project Settings", "Project Structure", "Default Settings", "Project Name", "Project Settings.Atom Prefix", "Atom"]
+version: 22
+updated_at: "2026-10-15 12:23:15 +0000"
 relations:
   relates_to:
     - "CA-R-1740"

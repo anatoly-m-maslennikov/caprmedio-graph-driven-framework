@@ -10,9 +10,9 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Evaluator Evidence Calibration"
-  depends_on: [Action, Evaluation, Operator, Atom/Revision, Artifact/Revision, Implementation]
-version: 1
-updated_at: "2026-10-04 15:12:43 +0000"
+  depends_on: ["Action", "Evaluation", "Operator", "Atom", "Artifact", "Implementation"]
+version: 2
+updated_at: "2026-10-15 12:20:45 +0000"
 relations:
   relates_to: [CA-O-018, CA-O-020, CA-O-104, CA-O-105, CA-O-106, CA-O-111, CA-O-118]
 ---

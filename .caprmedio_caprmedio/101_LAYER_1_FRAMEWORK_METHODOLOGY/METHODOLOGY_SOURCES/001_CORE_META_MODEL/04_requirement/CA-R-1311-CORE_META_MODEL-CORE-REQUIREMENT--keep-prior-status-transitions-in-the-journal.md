@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Revision/Status"
+  governs: "Artifact.Status"
   depends_on:
     - "Journal"
-version: 13
-updated_at: "2026-10-02 21:52:05 +0400"
+version: 14
+updated_at: "2026-10-15 12:21:25 +0000"
 relations: {}
 atom_id: "CA-R-1311"
 content_role: "Requirement"

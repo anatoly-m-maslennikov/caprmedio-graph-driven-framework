@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom Collection/Direct Containment"
+  governs: "Container Atom"
   depends_on:
-    - "Atom Collection"
-    - "Structural Entity/Direct Containment"
-version: 10
-updated_at: "2026-10-02 22:41:14 +0400"
+    ["Container Atom", "Structural Entity Direct Containment"]
+version: 11
+updated_at: "2026-10-15 12:21:38 +0000"
 relations: {}
 atom_id: "CA-R-1383"
 content_role: "Requirement"

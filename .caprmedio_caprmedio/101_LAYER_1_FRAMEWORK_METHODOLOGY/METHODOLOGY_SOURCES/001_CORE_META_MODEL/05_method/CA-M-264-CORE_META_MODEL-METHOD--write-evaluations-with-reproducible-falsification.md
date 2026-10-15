@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Evaluation/authoring"
+  governs: "Atom/Content Role: Evaluation"
   depends_on:
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Method"
-    - "Atom/Scope"
-    - "Atom/Local Tier"
-    - "Evaluation For Relation"
-version: 8
-updated_at: "2026-10-01 21:38:15 +0400"
+    ["Atom/Content Role: Evaluation", "Atom/Content Role: Method", "Atom Scope", "Atom.Local Tier", "Evaluation For Relation"]
+version: 9
+updated_at: "2026-10-15 12:19:50 +0000"
 relations: {}
 atom_id: "CA-M-264"
 content_role: "Method"

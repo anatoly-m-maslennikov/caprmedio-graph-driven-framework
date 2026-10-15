@@ -2,9 +2,9 @@
 subjects:
   governs: "language"
   depends_on:
-    - "Atom/Claim"
-version: 15
-updated_at: "2026-09-29 05:38:16 +0000"
+    ["Atom.Substance"]
+version: 16
+updated_at: "2026-10-15 12:23:39 +0000"
 relations:
   child_of:
     - CA-R-918

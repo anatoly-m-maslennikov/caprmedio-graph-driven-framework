@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Artifact/Activity: Active/Carrier Basename"
+  governs: "Active Artifact Carrier Basename"
   depends_on: []
-version: 11
-updated_at: "2026-10-01 21:24:59 +0400"
+version: 12
+updated_at: "2026-10-15 12:18:02 +0000"
 relations: {}
 atom_id: "CA-D-290"
 content_role: "Delivery"

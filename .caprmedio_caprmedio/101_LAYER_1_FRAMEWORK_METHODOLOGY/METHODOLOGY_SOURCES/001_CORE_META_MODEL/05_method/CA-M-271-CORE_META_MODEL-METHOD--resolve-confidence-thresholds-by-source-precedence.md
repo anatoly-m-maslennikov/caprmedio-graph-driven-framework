@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Confidence Threshold/resolution"
+  governs: "Confidence Threshold.Resolution"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Confidence Threshold"
-    - "Operator"
-    - "Hub Atom"
-    - "Framework Instance Settings"
-    - "Property"
-    - "AI Agent"
-version: 8
-updated_at: "2026-09-29 22:34:37 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Confidence Threshold", "Operator", "Hub Atom", "Framework Instance.Settings", "Property", "AI Agent"]
+version: 9
+updated_at: "2026-10-15 12:19:51 +0000"
 relations:
   child_of:
     - "CA-R-1428"

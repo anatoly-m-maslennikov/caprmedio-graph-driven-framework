@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Demand/Direction"
+  governs: "Demand Direction"
   depends_on:
-    - "Atom/Scope"
-    - "Atom/Claim/Target Scope Unit"
-version: 19
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Atom Scope", "Atom.Target Scope Unit"]
+version: 20
+updated_at: "2026-10-15 12:23:40 +0000"
 relations:
   child_of:
     - CA-R-932

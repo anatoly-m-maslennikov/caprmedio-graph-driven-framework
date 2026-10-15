@@ -10,14 +10,9 @@ status: Active
 subjects:
   governs: "Method Lesson Drafting Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Step/Agentic Execution Context"
-    - "AI Agent"
-    - "Workflow Run"
-    - "Step Run"
-version: 3
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Step", "Action", "Agentic Step Execution Context", "AI Agent", "Execution/Workflow Run", "Execution/Step Run"]
+version: 4
+updated_at: "2026-10-15 12:20:37 +0000"
 relations:
   relates_to:
     - CA-O-100

@@ -2,14 +2,9 @@
 subjects:
   governs: "Project Scope Unit Graph Projection"
   depends_on:
-    - "Project Structure"
-    - "Artifact/Revision"
-    - "Framework Instance Settings"
-    - "Atom"
-    - "Scope Unit"
-    - "Journal"
-version: 21
-updated_at: "2026-10-03 02:55:00 +0400"
+    ["Project Structure", "Framework Instance.Settings", "Atom", "Scope Unit", "Journal"]
+version: 22
+updated_at: "2026-10-15 12:23:12 +0000"
 relations:
   child_of:
     - CA-R-1052

@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: "File Carrier/Format"
+  governs: "File Carrier.Format"
   depends_on:
     - "Extension"
     - "Project Configuration"
-version: 12
-updated_at: "2026-09-29 22:20:38 +0000"
+version: 13
+updated_at: "2026-10-15 12:17:52 +0000"
 relations: {}
 atom_id: "CA-D-262"
 content_role: "Delivery"

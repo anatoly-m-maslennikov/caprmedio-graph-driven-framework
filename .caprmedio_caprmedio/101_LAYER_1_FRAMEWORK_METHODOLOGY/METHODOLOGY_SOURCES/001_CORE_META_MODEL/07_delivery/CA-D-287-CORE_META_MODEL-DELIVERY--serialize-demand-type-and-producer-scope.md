@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Demand/filename"
+  governs: "Demand Atom File Carrier.Filename"
   depends_on:
-    - "Producer/Scope Unit"
-version: 12
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Producer Scope Unit"]
+version: 13
+updated_at: "2026-10-15 12:18:01 +0000"
 relations: {}
 atom_id: "CA-D-287"
 content_role: "Delivery"

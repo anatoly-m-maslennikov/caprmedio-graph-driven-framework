@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "CCE/Role Profile/resolution"
+  governs: "CCE Role Profile"
   depends_on:
-    - "CCE/Role Profile"
-    - "Atom/Content Role"
-    - "Type"
-    - "Atom/Claim"
-version: 4
-updated_at: "2026-10-02 20:35:16 +0400"
+    ["CCE Role Profile", "Atom/Content Role", "Type", "Atom.Substance"]
+version: 5
+updated_at: "2026-10-15 12:20:05 +0000"
 relations:
   child_of:
     - CA-M-307

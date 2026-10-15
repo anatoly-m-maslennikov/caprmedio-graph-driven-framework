@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Journal/Record"
+  governs: "Journal.Record"
   depends_on:
-    - "Journal"
-    - "Artifact/Carrier"
-    - "Artifact/Revision"
-    - "Actor"
-version: 17
-updated_at: "2026-10-01 21:44:50 +0400"
+    ["Journal", "Artifact Carrier", "History", "Actor"]
+version: 18
+updated_at: "2026-10-15 12:23:01 +0000"
 relations: {}
 atom_id: "CA-R-1644"
 content_role: "Requirement"

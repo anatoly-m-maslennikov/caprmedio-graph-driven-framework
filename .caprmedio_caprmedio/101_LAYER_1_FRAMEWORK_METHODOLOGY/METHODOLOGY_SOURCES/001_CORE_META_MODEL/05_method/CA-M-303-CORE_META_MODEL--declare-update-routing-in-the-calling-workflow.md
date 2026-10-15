@@ -2,16 +2,9 @@
 subjects:
   governs: "Workflow"
   depends_on:
-    - "Author"
-    - "Action"
-    - "Step"
-    - "Workflow Run"
-    - "Atom"
-    - "Atom/Summary"
-    - "Artifact/Revision"
-    - "Assess Atom Update Identity"
-version: 4
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Author", "Action", "Step", "Execution/Workflow Run", "Atom", "Atom.Summary", "Assess Atom Update Identity"]
+version: 5
+updated_at: "2026-10-15 12:20:02 +0000"
 relations: {"relates_to": ["CA-M-301", "CA-O-067", "CA-R-1432", "CA-R-1464", "CA-R-1520"]}
 atom_id: "CA-M-303"
 content_role: "Method"

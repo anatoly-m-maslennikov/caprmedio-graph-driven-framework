@@ -2,15 +2,9 @@
 subjects:
   governs: "Work Sequence Number"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Work Sequence Number"
-    - "Atom/Content Role: Plan/Type: Plan/Subtype"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Atom/Content Role: Plan/Type: Plan/Blocking"
-    - "Atom/Scope"
-    - "Atom/Claim/Target Scope Unit"
-version: 17
-updated_at: "2026-10-01 21:46:54 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Atom/Content Role: Plan/Type: Plan.Work Sequence Number", "Atom/Content Role: Plan/Type: Plan.Label", "Plan Blocking Relations", "Atom Scope", "Atom.Target Scope Unit"]
+version: 18
+updated_at: "2026-10-15 12:23:48 +0000"
 relations:
   child_of:
     - CA-R-991

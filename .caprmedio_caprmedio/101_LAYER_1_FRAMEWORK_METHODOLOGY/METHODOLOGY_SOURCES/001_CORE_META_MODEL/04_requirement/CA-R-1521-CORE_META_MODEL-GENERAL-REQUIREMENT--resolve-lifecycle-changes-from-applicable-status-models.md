@@ -2,18 +2,9 @@
 subjects:
   governs: "Workflow"
   depends_on:
-    - "Entity"
-    - "Artifact"
-    - "Atom"
-    - "Atom/Content Role"
-    - "Type"
-    - "Status"
-    - "Structural Entity"
-    - "Scope Unit"
-    - "Atom Collection"
-    - "Carrier"
-version: 5
-updated_at: "2026-10-13 18:23:23 +0400"
+    ["Entity", "Artifact", "Atom", "Atom/Content Role", "Type", "Status", "Structural Entity", "Scope Unit", "Container Atom", "Carrier"]
+version: 6
+updated_at: "2026-10-15 12:22:21 +0000"
 relations: {"relates_to": ["CA-R-1519"]}
 atom_id: "CA-R-1521"
 content_role: "Requirement"

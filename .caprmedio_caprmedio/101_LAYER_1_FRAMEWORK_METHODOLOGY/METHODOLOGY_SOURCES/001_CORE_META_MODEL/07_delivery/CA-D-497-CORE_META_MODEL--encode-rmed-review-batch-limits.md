@@ -7,15 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-02 19:54:46 +0400"
+version: 4
+updated_at: "2026-10-15 12:18:54 +0000"
 subjects:
-  governs: "Framework Instance Settings"
+  governs: "Framework Instance.Settings"
   depends_on:
-    - "Workflow Run"
-    - "Default Settings"
-    - "Operator"
-    - "Atom"
+    ["Execution/Workflow Run", "Default Settings", "Operator", "Atom"]
 relations: {}
 ---
 # Summary

@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Method Lesson Drafting"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Operator"
-    - "AI Agent"
-version: 3
-updated_at: "2026-10-04 15:15:47 +0000"
+    ["Action", "Atom/Content Role: Method", "Atom/Content Role: Evaluation", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Operator", "AI Agent"]
+version: 4
+updated_at: "2026-10-15 12:20:36 +0000"
 relations:
   relates_to:
     - CA-O-090

@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Decomposition"
+  governs: "Atom/Content Role: Plan/Type: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Directory Carrier"
-    - "File Carrier"
-    - "Atom/Identifier"
-    - "Plan Graph"
-version: 4
-updated_at: "2026-10-01 21:33:03 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Directory Carrier", "File Carrier", "Atom.ID", "Plan Graph"]
+version: 5
+updated_at: "2026-10-15 12:19:35 +0000"
 relations: {"evaluation_for": ["CA-R-1579", "CA-R-1534", "CA-R-1536", "CA-R-1537", "CA-R-1538", "CA-D-481", "CA-D-460", "CA-D-461"]}
 atom_id: "CA-E-507"
 content_role: "Evaluation"

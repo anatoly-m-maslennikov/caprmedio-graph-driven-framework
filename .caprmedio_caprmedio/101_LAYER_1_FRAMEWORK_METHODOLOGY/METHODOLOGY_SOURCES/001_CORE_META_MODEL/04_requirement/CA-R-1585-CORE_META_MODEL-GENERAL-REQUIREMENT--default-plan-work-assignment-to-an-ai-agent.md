@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Assignee"
+  governs: "Atom/Content Role: Plan/Type: Plan.Assignee"
   depends_on:
     - "Atom/Content Role: Plan/Type: Plan"
     - "AI Agent"
-version: 4
-updated_at: "2026-10-03 00:34:47 +0400"
+version: 5
+updated_at: "2026-10-15 12:22:47 +0000"
 relations: {"relates_to": ["CA-R-1584"]}
 atom_id: "CA-R-1585"
 content_role: "Requirement"

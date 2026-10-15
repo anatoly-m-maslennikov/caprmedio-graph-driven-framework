@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Carrier/Validation"
+  governs: "Markdown Atom Carrier"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Atom"
-    - "Atom/Property"
-    - "Atom/Claim"
-    - "Atom/Summary"
-    - "Atom/Revision/Status"
-    - "Relation"
-    - "Markdown Atom Carrier"
-version: 7
-updated_at: "2026-10-01 21:33:03 +0400"
+    ["Atom.Author", "Atom", "Atom.Property", "Atom.Substance", "Atom.Summary", "Atom.Status", "Relation", "Markdown Atom Carrier"]
+version: 8
+updated_at: "2026-10-15 12:19:34 +0000"
 relations: {"evaluation_for": ["CA-R-1598", "CA-R-1599", "CA-D-478", "CA-D-479", "CA-D-480", "CA-D-481", "CA-D-482", "CA-D-483", "CA-D-485", "CA-D-460", "CA-D-470"]}
 atom_id: "CA-E-506"
 content_role: "Evaluation"

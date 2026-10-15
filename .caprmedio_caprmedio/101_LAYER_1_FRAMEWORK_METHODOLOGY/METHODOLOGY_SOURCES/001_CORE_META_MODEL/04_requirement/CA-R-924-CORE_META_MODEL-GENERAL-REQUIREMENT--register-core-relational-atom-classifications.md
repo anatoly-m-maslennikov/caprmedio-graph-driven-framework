@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Relational Atom/Qualified Type"
+  governs: "Relational Atom/Type"
   depends_on:
     - "Atom/Content Role: Requirement/Type: Goal"
     - "Atom/Content Role: Requirement/Type: Demand"
     - "Atom/Content Role: Plan/Type: Plan"
-version: 20
-updated_at: "2026-10-02 21:01:00 +0400"
+version: 21
+updated_at: "2026-10-15 12:23:35 +0000"
 relations:
   child_of:
     - CA-R-923
