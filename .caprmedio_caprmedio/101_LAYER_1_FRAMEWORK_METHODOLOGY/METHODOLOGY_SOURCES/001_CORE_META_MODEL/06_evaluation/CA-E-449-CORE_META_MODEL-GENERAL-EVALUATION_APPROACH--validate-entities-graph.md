@@ -3,8 +3,8 @@ subjects:
   governs: "Projection/Type: Entities Graph"
   depends_on:
     ["Entity", "Property", "Term", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Relation Kind", "Subject Path", "Atom.Substance", "Atom.Subjects", "Artifact", "Projection", "Action", "Workflow", "Scope Unit", "Journal", "Carrier", "Atom", "Relation", "Atom/Content Role: Evaluation"]
-version: 13
-updated_at: "2026-10-15 12:19:16 +0000"
+version: 15
+updated_at: "2026-10-15 18:56:34 +0400"
 relations:
   evaluation_for:
     - CA-R-1192
@@ -71,3 +71,19 @@ the Evaluation **must** reject a graph **or** filtered view **if**
 a source-faithful view derived through an upstream Entities Graph Projection **must** pass these Projection-specific checks **when** the remaining applicable source, display-selection **and** graph constraints pass.
 
 ## Details
+
+### Readable tree-view acceptance
+
+For the readable view specified by CA-R-1456 and delivered under CA-D-634, check that:
+
+- the output is a Markdown file with YAML frontmatter identifying Projection form, Entities Graph Type, completed rebuild time and every contributing source Atom as ID plus Version;
+- the Inherency view uses only its selected NARROWER_THAN, IS_BORNE_BY and IS_ALLOWED_VALUE_OF relations;
+- the main Inherency tree excludes dependent entities; each primary entity with dependents has exactly one detail section, in first-appearance order, including qualified properties and their allowed values;
+- a shared entity appears under every applicable parent without creating new identities or repeated detail sections;
+- declared sibling order is preserved; unordered siblings are alphabetical with deterministic ties; tree indentation uses literal tabs in fenced text blocks, while YAML uses spaces;
+- repeated generation from the same sources produces the same tree body and source list; updated_at records the actual completed rebuild;
+- missing source facts and cycles are reported without invented facts or endless expansion.
+
+These checks exercise the generator with controlled inputs. They do not add an unrelated whole-project Atom-validation gate.
+
+Construction/CONTAINS projection is deferred to the adjacent `draft/` RMED. It is not required by this active readable-view specification.

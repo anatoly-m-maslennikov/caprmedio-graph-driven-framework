@@ -3,8 +3,8 @@ subjects:
   governs: "Projection/Type: Entities Graph"
   depends_on:
     ["Entity", "Subject Path", "Atom.Substance", "Atom.Subjects", "Atom", "Relation", "Relation Kind", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Projection", "Term", "Scope Unit", "Journal", "Carrier"]
-version: 9
-updated_at: "2026-10-15 12:22:03 +0000"
+version: 11
+updated_at: "2026-10-15 18:56:34 +0400"
 relations:
   child_of:
     - CA-R-1438
@@ -41,3 +41,15 @@ the view **may** be derived from an upstream Entities Graph Projection **when** 
 these node **and** internal-Relation selection rules do **not** require importing the endpoints of separately admitted external references as native graph members. **if** the view includes cross-graph **or** source references under CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections, it **must** keep them distinguishable from its native node **and** internal-Relation selection **and** preserve their admitted endpoint classes, graph-qualified Relation authority, **and** source traceability. such references **must not** silently enlarge the selected native graph **or** bypass an explicit source-declaration requirement for its internal Relations.
 
 ## Details
+
+### Readable tree view
+
+The readable Entities Graph view **must** present the Inherency tree:
+
+**Inherency tree:** use NARROWER_THAN, IS_BORNE_BY and IS_ALLOWED_VALUE_OF. First show the primary-entity tree without dependent entities. Then show one detail tree for each primary entity with one or more dependent entities, including its properties, further dependents and allowed values. Detail sections follow the primary entities' first-appearance order in the main tree.
+
+An entity with multiple broader parents **must** appear under every applicable parent, with the same identity at every placement. Its dependent-entity detail section appears once at its first-appearance position. The view **must** preserve relation meaning and any declared cardinality; repeated display does not create another entity.
+
+The Inherency view **must** be generated programmatically. Use declared sibling order when available; otherwise use alphabetical order. Keep shared identities, dependent qualification and the declared source selection. This is a readable view of the graph, not a replacement for the source model or a claim that the entire graph is a tree.
+
+Construction/CONTAINS projection is deferred to the adjacent `draft/` RMED. It is not required by this active readable-view specification.
