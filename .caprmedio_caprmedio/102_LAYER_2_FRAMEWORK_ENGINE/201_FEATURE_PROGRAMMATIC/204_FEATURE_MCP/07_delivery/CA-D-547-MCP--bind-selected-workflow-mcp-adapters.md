@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-15 00:35:00 +0000"
+version: 8
+updated_at: "2026-10-15 01:59:30 +0000"
 subjects:
   governs: "MCP/selected Workflow adapter Carrier"
   depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal, Projection, Project]
@@ -46,15 +46,7 @@ observation_routes = ["get_selected_workflow_run", "get_selected_action_run"]
 `selected_workflow_bindings.json` is the one derived immutable per-route
 Projection manifest. It resides in the selected Project's registered
 `_projection/` root; the MCP implementation code retains its Engine delivery
-location. Its existing thirteen entries materialize CA-A-1142 v2's
-already-reviewed current source registry unchanged. Its two additional entries
-are `find_and_fetch_artifacts` and `find_and_fetch_journal_events`, admitted
-only by the exact CA-P-1618@1 and CA-P-1535@2 source-frontier pins specified in
-CA-R-1847@9. The manifest keeps those two acceptance pins in one
-`query_source_admissions` field and includes their accepted CA-O-158/159/160
-and CA-O-161/162/163 source pins in the corresponding route definitions under CA-R-1847's explicit relocation, O163@2-to-@3 structural-successor bridge and exact O163@4 plain-Journal reading amendment. The Done acceptance carriers retain their historical accepted revisions; no third proof or automatic current-source acceptance is added. It is
-not a second graph authority and cannot select, replace, repair, or independently
-admit a source.
+location. Its existing thirteen entries resolve the current CA-A-1142 selected registry. The two query entries resolve current CA-P-1618 and CA-P-1535 acceptance carriers and their current Workflow/Action/Step sources under CA-R-1847. One `query_source_admissions` field captures those actual source identities, Versions, safe declared paths and SHA-256 digests for the operation. Historical acceptance and relocation evidence stays preserved; it is not a fixed old-Version/hash gate. Resolve and validate current authority and supported contracts rather than substituting caller rules or assuming any newer source is compatible. This manifest is not another graph authority and cannot select, replace or repair a source.
 
 For every non-Release selected route the manifest includes one exact source Workflow, its full
 ordered Step list, its full ordered Action list, and only source-closed actual
@@ -62,8 +54,9 @@ native Action calls. Every definition entry carries its repository-relative
 source path, Atom ID, Version, and SHA-256 digest. Its
 `canonical_manifest_sha256` is the SHA-256 of RFC 8785 canonical JSON for the
 whole object with that self field omitted; a server checks that canonical digest,
-all original source pins, and both query admission frontiers before registration
-and again before dispatch. Absent, incomplete, duplicate, malformed, altered,
+all captured current source pins, and both current query admission frontiers before registration
+and again before dispatch. Source evidence is captured from current authoritative
+files per operation, not compared to compiled historical Version/hash constants. Absent, incomplete, duplicate, malformed, altered,
 or stale manifests reject without shared-support invocation, Run, Action Run,
 worker, effect, Event, or Journal write.
 
@@ -108,5 +101,5 @@ These direct commands do not weaken the complete manifest/source/currentness/per
 
 ### Sources
 
-- CA-R-1847 v10; CA-R-1848 v6; CA-E-567 v4; CA-E-568 v6.
-- CA-A-1142 v2; CA-P-1618 v1; CA-P-1535 v2; CA-D-527 v3; CA-D-521 v7; CA-D-548 v2; CA-D-523 v2.
+- Current CA-R-1847, CA-R-1848, CA-E-567 and CA-E-568.
+- Current CA-A-1142, CA-P-1618 and CA-P-1535; CA-D-527 v3; CA-D-521 v7; CA-D-548 v2; CA-D-523 v2.

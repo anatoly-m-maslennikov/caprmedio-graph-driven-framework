@@ -19,8 +19,8 @@ subjects:
     - "Atom/Revision/Updated At"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 19
-updated_at: "2026-10-14 23:49:48 +0400"
+version: 20
+updated_at: "2026-10-15 01:59:30 +0000"
 relations: {}
 ---
 # Summary
@@ -77,6 +77,14 @@ This exact changed Subject-only execution may stay in the existing connected MCP
 
 2. Establish a short exclusive window over the affected current Carrier, predecessor-history destination and governing authority sources. No manual editing, maintenance/script write, Git operation or synchronization may change that frontier during the window. Inability to establish the window stops before effects. No project-wide Engine write lock or replacement is required; distinct existing resource-specific locks remain unchanged.
 3. Within that window, reopen and revalidate the exact source, ownership, grammar, report, complete-carrier, definition, permission, intent and current/history destination evidence. Apply only the already admitted one-target effect; materialize actual metadata once, retain exact predecessor bytes and independently read back current/history facts.
+After the one admitted effect, verify exact intended current/history bytes,
+metadata and ownership. Do not repeat the pre-effect old-rule fingerprint gate:
+when an explicitly approved target is itself a governing source, its intended
+new bytes must not fail merely for differing from that source's before-state.
+Resolve current rules afresh for a later operation. This removes no pre-effect
+source/grammar/definition/permission check, target/intent seal, staging check,
+actual effect readback, unrelated-source protection or restoration duty.
+
 4. Hold the same window through those effects and readback and any invoked existing Action-local restoration. Retain the exact verified mutable-frontier and attempt-owned-history rules, pre-existing history and accepted Journal evidence. Unknown effects or failed restoration retain their existing truthful disposition; never infer success or replay the effect. Record any actual Journal I/O failure without a receipt gate, automatic recording retry or recovery.
 
 This model does not exclude other Engine writers. It does not itself establish crash-atomic multi-Carrier publication or a stronger guarantee and cannot protect against outside writers ignoring the window. Existing safety requirements remain unchanged. The model adds no public request fields, Boolean approval, local writer, transport or new retry/recovery framework.

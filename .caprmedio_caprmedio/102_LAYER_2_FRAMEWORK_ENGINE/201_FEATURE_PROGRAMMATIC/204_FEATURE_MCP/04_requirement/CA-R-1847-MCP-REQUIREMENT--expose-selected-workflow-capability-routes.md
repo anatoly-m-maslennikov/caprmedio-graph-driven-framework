@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 10
-updated_at: "2026-10-15 00:35:00 +0000"
+version: 11
+updated_at: "2026-10-15 01:59:30 +0000"
 subjects:
   governs: "MCP/selected Workflow capability routes"
   depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal]
@@ -48,26 +48,13 @@ bindings, and only source-closed native Action calls with exact source path,
 Version, and SHA-256 digest. It is an immutable derived projection, not another
 Workflow graph or source authority.
 
-The original thirteen entries retain CA-A-1142 v2 as their unchanged selected
-source registry and retain its closed source policies. The two query entries
-are admitted only by `query_source_admissions` in that same canonical manifest;
-that field contains exactly these current acceptance-frontier pins and their
-corresponding Workflow/Action/Step pins:
+The original thirteen entries resolve their current selected source registry by CA-A-1142's identity and declared authoritative location. The two query entries use `query_source_admissions` in that same canonical manifest, resolving CA-P-1618 and CA-P-1535 by their identities at the declared current acceptance-carrier locations and the corresponding current CA-O-158/159/160 and CA-O-161/162/163 definitions. Historical acceptance carriers and their predecessor evidence remain unchanged provenance; their old Versions or digests are not executable current-rule gates.
 
-- `find_and_fetch_artifacts`: CA-P-1618@1 at
-  `.caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/08-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/29-CA-P-1618-TASK--accept-current-artifact-query-source-frontier.md`, SHA-256 `bdf10c928c10c102dc489c8e3e526ffe73e8a33d492f4dabc8b5d0129c453b1f`; CA-O-158@4 `d7fdaebdd1d0c6ca7dac9aced25552c487336f2a51f18c0f03ef65d16ff4618a`, CA-O-159@2 `3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08`, and CA-O-160@2 `a743a84fd24db32123ac8162e7a2178e6d83b1b727cbe54477b6020914537384` at the current declared Core Operations paths bound below.
-- `find_and_fetch_journal_events`: CA-P-1535@2 at
-  `.caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/08-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/15-CA-P-1535-TASK--accept-final-journal-query-source.md`, SHA-256 `6246b46d2961d795e29eeb224f01b14979434d4ad24cf3f4913c490268cf52dc`; CA-O-161@2 `362b9d3848a796a14e7374cfa0bf0b561c4f2035b7b2bf87bd9b56fc97a6724d`, CA-O-162@2 `71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe`, and CA-O-163@4 `1e47a2e59581a18cc0869efedfeefb6474a404ce5f761123a1c65718726f3727` at the current declared Core Operations paths bound below.
+Keep the existing acceptance-carrier identity/path bindings: CA-P-1618 at `.caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/08-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/29-CA-P-1618-TASK--accept-current-artifact-query-source-frontier.md`, and CA-P-1535 at the same declared parent with basename `15-CA-P-1535-TASK--accept-final-journal-query-source.md`. Resolve the named Operations from their current declared Core Operations authority; this policy changes neither their identity nor their existing safe source locations.
 
-The Done P1618@1 and P1535@2 receipts remain unchanged historical source acceptance, not runtime or image proof. P1618 accepted O158@4/O159@2/O160@2; P1535 accepted O161@2/O162@2 and O163@2 (`8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c`), not O163@3. The full shared-registry repair retains exactly those two acceptance-frontier pins and explicitly admits their byte-identical source-path relocations plus the structurally repaired O163@3 successor (`0090078ce32293b84a1233ecc33d2fafc1b9541e7821ecc2388e8137b009b86a`). The O163 predecessor and successor differ only in Version and update time; Operation body and Subjects are unchanged. The exact predecessor archive/current source comparison and structural-repair consumer receipt must be preserved in the repair evidence. The Operator's subsequent plain-Journal decision separately admits exact O163@4 (`1e47a2e59581a18cc0869efedfeefb6474a404ce5f761123a1c65718726f3727`): its query Step retains immutable prefix/member coverage, literal grammar, limits, privacy and Project authority while removing Journal-row validation and unique-ID prerequisites. O163@3 and the Done acceptance carriers remain exact historical evidence, not proof that P1535 accepted the semantic @4 amendment. Preserve the exact @3 predecessor bytes; this explicit current binding is not automatic newer-source substitution or a query-only manifest gate.
+Read and validate each current source's canonical identity, owning authority, safe declared path and supported contract. Capture its actual Version and SHA-256 as per-operation evidence and use those captured values consistently in the canonical manifest, route definitions and dispatch. Do not compare current sources to compiled historical Version/hash constants or infer semantic compatibility from a newer Version alone. Missing, ambiguous, malformed, unsupported or contradictory current authority refuses admission. No caller-provided rule bundle, guessed relocation or arbitrary path may replace that authority.
 
-Current O158/O159/O160/O161/O162 paths use `.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/` with their existing exact basenames, Versions and digests. Current O163@4 uses that directory's `CA-O-161-CORE_META_MODEL-WORKFLOW--find-and-fetch-journal-events/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md`. The adapter's exact accepted specification, manifest query records and corresponding route pins must agree. This explicit repair bridge does not permit arbitrary future revisions; complete shared-registry validation remains required before registration and dispatch.
-
-The two acceptance pins are explicit admission evidence, not a second registry,
-authority, manifest, parser, or executor. Missing, malformed, incomplete,
-duplicate, digest-mismatched, or stale bindings or admissions reject the route
-before shared support, worker start, Run creation, Action Run creation, effect,
-or Journal event.
+The two query admission records remain inside one canonical manifest, not another registry, authority, parser or executor. Before registration and dispatch, require complete source coverage and agreement with the current sources captured for that operation; changed source bytes or evidence require a new capture and validation before effects, not silent refresh of an approved request. Preserve exact target, proposal, permission and intent bindings, canonical manifest integrity and all source/path safety checks.
 
 The only Release commands are `release_version` and `public.release`, bound in CA-D-547 to their existing simple local and public runners. Their closed direct requests are `{project_root, run_id}` and `{project_root, run_id, content_draft?}`, respectively; an absent public draft requests the explicit description/summary rather than performing publication. They do not use the selected D527 preview/execute envelope, candidate/N+1 pipeline or DBOS queue. The full test suite is verification before the requested local delivery or public publication; failure, unavailable execution or unknown completion stops that release. Required integration tests are included; missing Docker or another required test environment, or skipped required tests, stops release rather than satisfying verification. Release verification adds no separate Active Atom metadata, placement or relation validation; the full test suite and normal input, permission and file/path safety checks remain. Required Docker integration tests build a disposable image from the current code; an old installed or running image is not a substitute, and test execution does not restart the running Project MCP.
 
@@ -109,5 +96,5 @@ The adapters reuse the server's existing Project-root/stdin binding, discovery h
 
 ### Sources
 
-- CA-A-1142 v2, unchanged original-thirteen registry; CA-P-1618 v1 and CA-P-1535 v2, the exact two query admission frontiers; current CA-O-164 and CA-D-547, the direct local Release binding; current CA-O-188, the direct public Release definition; CA-P-1622/CA-P-1869 retain historical acceptance provenance, not current runtime admission gates; CA-P-1117 v7 shared Run obligation.
+- Current CA-A-1142 selected registry; current CA-P-1618 and CA-P-1535 query admission carriers; current CA-O-164 and CA-D-547, the direct local Release binding; current CA-O-188, the direct public Release definition; CA-P-1622/CA-P-1869 retain historical acceptance provenance, not current runtime admission gates; CA-P-1117 v7 shared Run obligation.
 - CA-D-527 v3; CA-D-521 v7; CA-D-548 v2; CA-R-1720 v19; CA-R-1525 v7; CA-R-1728 v16; CA-D-523 v2; CA-R-1850 v2; CA-R-1866 v3; CA-R-1867 v1.
