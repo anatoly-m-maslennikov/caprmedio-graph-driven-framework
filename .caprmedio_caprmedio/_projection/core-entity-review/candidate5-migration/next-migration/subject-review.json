@@ -1,0 +1,5759 @@
+{
+  "state": "review_before_next_migration",
+  "basis": "Current Atom Subjects after Candidate 5 migration; no display filtering",
+  "source_count": 983,
+  "subjects_needing_followup": 511,
+  "approved_exact_mappings": 3,
+  "retirements_approved": 0,
+  "group_policy_reference": "../../presentation/operator.model.candidate-6.plan.md#approved-group-decisions",
+  "group_policy_note": "Operator approved remapping or conditional removal of obsolete partition uses, governed-thing Subjects for RMED, shared meanings in Terms, precise-or-removed topic dependencies, and deferral of Implementation. Pending entries await individual dispositions under these policies; no individual retirement or source migration is recorded here.",
+  "additional_group_decisions": {
+    "context": "Required context belongs to Step; actual supplied context belongs to Step Run. Resolve each source use separately.",
+    "confidence_threshold_precedence_low_to_high": ["Settings default", "Plan override", "Direct Operator prompt override"],
+    "activity": "Remove separate Activity classification; remap matching uses to Status and retire Activity-specific rules. Individual Atom dispositions remain to be prepared."
+  },
+  "items": [
+    {
+      "subject": "AI Agent Confidence",
+      "occurrences": 4,
+      "atoms": [
+        "CA-E-440",
+        "CA-R-1044",
+        "CA-R-1559",
+        "CA-R-1561"
+      ],
+      "decision": "approved",
+      "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Confidence",
+      "approved_owner": "Agentic Step",
+      "approved_property": "Confidence",
+      "rejected_target": "Entity/Occurrent/Execution.Confidence",
+      "note": "Operator approved Agentic Step ownership and Step/Execution Kind: Agentic classification. Mapping recorded; source migration has not run."
+    },
+    {
+      "subject": "AI Agent Delegation",
+      "occurrences": 5,
+      "atoms": [
+        "CA-R-1551",
+        "CA-R-1552",
+        "CA-R-1555",
+        "CA-R-1561",
+        "CA-R-852"
+      ],
+      "decision": "approved",
+      "target": "Entity/Continuant/Actor/Type: AI Agent.Permissions",
+      "note": "Operator-approved mapping. Permissions retain allowed actions, scopes, constraints, validity, revocation and granting Operator; no separate Delegation entity. Source migration has not run."
+    },
+    {
+      "subject": "Action",
+      "occurrences": 2,
+      "atoms": [
+        "CA-M-305",
+        "CA-R-1570"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Action/Execution Kind",
+      "occurrences": 3,
+      "atoms": [
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Active Artifact Carrier Basename",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-290"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Active Atom Carrier Discovery",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-336"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Admit Methodology Expansion Mapping",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-054"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Agentic Action Instruction",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-304"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Agentic Step Execution Context",
+      "occurrences": 35,
+      "atoms": [
+        "CA-E-495",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-101",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110",
+        "CA-O-129",
+        "CA-O-135",
+        "CA-O-138",
+        "CA-O-139",
+        "CA-O-140",
+        "CA-O-141",
+        "CA-O-142",
+        "CA-O-143",
+        "CA-O-144",
+        "CA-O-145",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151",
+        "CA-R-1508",
+        "CA-R-1509",
+        "CA-R-1511",
+        "CA-R-1527",
+        "CA-R-1789",
+        "CA-R-1790"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Agentic Step Invocation Context",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-497",
+        "CA-R-1789"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Compilation",
+      "occurrences": 3,
+      "atoms": [
+        "CA-E-379",
+        "CA-O-011",
+        "CA-R-1316"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Compilation Assess Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-153"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Compilation Correct Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-156"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Compilation Decide Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-155"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Compilation Propose Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-154"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Compilation Publish Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-157"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Compilation Select Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-152"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Conflict",
+      "occurrences": 5,
+      "atoms": [
+        "CA-O-153",
+        "CA-O-155",
+        "CA-O-157",
+        "CA-R-1317",
+        "CA-R-1373"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Membership Selection",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1315"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Projected Atom Members",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-305"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Retrieval",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-225"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Revision",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1284"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Source Frontier Digest",
+      "occurrences": 5,
+      "atoms": [
+        "CA-O-011",
+        "CA-O-153",
+        "CA-O-155",
+        "CA-O-157",
+        "CA-R-1317"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology Source Set",
+      "occurrences": 4,
+      "atoms": [
+        "CA-D-253",
+        "CA-E-379",
+        "CA-R-1228",
+        "CA-R-1434"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Applicable Methodology.Member",
+      "occurrences": 3,
+      "atoms": [
+        "CA-D-305",
+        "CA-D-306",
+        "CA-R-1314"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Apply Approved Source Corrections",
+      "occurrences": 4,
+      "atoms": [
+        "CA-O-008",
+        "CA-O-010",
+        "CA-O-028",
+        "CA-O-156"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Apply Structural Change",
+      "occurrences": 2,
+      "atoms": [
+        "CA-O-014",
+        "CA-O-015"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Approved Change Reversal",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-131"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Approved Change Reversal Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-132"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Approved Change Reversal/Outcomes",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-424"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact",
+      "occurrences": 68,
+      "atoms": [
+        "CA-D-296",
+        "CA-D-309",
+        "CA-D-311",
+        "CA-D-390",
+        "CA-D-464",
+        "CA-E-404",
+        "CA-E-444",
+        "CA-E-449",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-M-239",
+        "CA-M-277",
+        "CA-M-278",
+        "CA-O-004",
+        "CA-O-007",
+        "CA-O-008",
+        "CA-O-009",
+        "CA-O-020",
+        "CA-O-123",
+        "CA-O-125",
+        "CA-O-126",
+        "CA-O-131",
+        "CA-O-158",
+        "CA-O-159",
+        "CA-O-160",
+        "CA-R-1026",
+        "CA-R-1220",
+        "CA-R-1249",
+        "CA-R-1262",
+        "CA-R-1268",
+        "CA-R-1306",
+        "CA-R-1307",
+        "CA-R-1394",
+        "CA-R-1402",
+        "CA-R-1405",
+        "CA-R-1409",
+        "CA-R-1410",
+        "CA-R-1439",
+        "CA-R-1441",
+        "CA-R-1455",
+        "CA-R-1461",
+        "CA-R-1463",
+        "CA-R-1467",
+        "CA-R-1483",
+        "CA-R-1499",
+        "CA-R-1500",
+        "CA-R-1501",
+        "CA-R-1502",
+        "CA-R-1521",
+        "CA-R-1558",
+        "CA-R-1568",
+        "CA-R-1571",
+        "CA-R-1609",
+        "CA-R-1638",
+        "CA-R-1639",
+        "CA-R-1646",
+        "CA-R-1655",
+        "CA-R-1703",
+        "CA-R-1708",
+        "CA-R-1720",
+        "CA-R-1738",
+        "CA-R-1745",
+        "CA-R-1746",
+        "CA-R-1765",
+        "CA-R-1773",
+        "CA-R-655",
+        "CA-R-834",
+        "CA-R-836"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact Archive Carrier Basename",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-051"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact Carrier",
+      "occurrences": 13,
+      "atoms": [
+        "CA-D-285",
+        "CA-D-340",
+        "CA-D-457",
+        "CA-D-467",
+        "CA-E-462",
+        "CA-E-476",
+        "CA-E-482",
+        "CA-E-521",
+        "CA-O-052",
+        "CA-R-1361",
+        "CA-R-1491",
+        "CA-R-1644",
+        "CA-R-1788"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact Carrier Placement",
+      "occurrences": 6,
+      "atoms": [
+        "CA-D-296",
+        "CA-D-451",
+        "CA-D-466",
+        "CA-D-483",
+        "CA-D-565",
+        "CA-R-1788"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact Carrier Status Subdirectory",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-352"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact Classification Resolution",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1655"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact query and fetch execution",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-160"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact query and selected fetch",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-159"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact.Activity",
+      "occurrences": 6,
+      "atoms": [
+        "CA-D-466",
+        "CA-E-386",
+        "CA-R-1307",
+        "CA-R-1394",
+        "CA-R-1395",
+        "CA-R-1396"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact.Activity: Active",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1394",
+        "CA-R-1395"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact.Activity: Inactive",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1394",
+        "CA-R-1396"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact.Applicability",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1500",
+        "CA-R-1501"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact.Authority",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1499",
+        "CA-R-1500"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact.Currentness",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1501"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact.Identity",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-728"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact.Local Tier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1571"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact.Property",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-267"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact.Status",
+      "occurrences": 11,
+      "atoms": [
+        "CA-D-466",
+        "CA-E-386",
+        "CA-R-1306",
+        "CA-R-1307",
+        "CA-R-1308",
+        "CA-R-1311",
+        "CA-R-1312",
+        "CA-R-1313",
+        "CA-R-1394",
+        "CA-R-1395",
+        "CA-R-1396"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact/Activity",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1419"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact/Applicability",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1502"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact/Authority",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1502"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact/Carrier",
+      "occurrences": 8,
+      "atoms": [
+        "CA-C-412",
+        "CA-C-415",
+        "CA-C-416",
+        "CA-C-418",
+        "CA-C-419",
+        "CA-C-420",
+        "CA-C-421",
+        "CA-C-427"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact/Currentness",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1502"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact/Revision",
+      "occurrences": 74,
+      "atoms": [
+        "CA-C-210",
+        "CA-C-211",
+        "CA-C-212",
+        "CA-C-213",
+        "CA-C-214",
+        "CA-C-215",
+        "CA-C-216",
+        "CA-C-217",
+        "CA-C-218",
+        "CA-C-219",
+        "CA-C-220",
+        "CA-C-221",
+        "CA-C-222",
+        "CA-C-223",
+        "CA-C-224",
+        "CA-C-225",
+        "CA-C-226",
+        "CA-C-227",
+        "CA-C-228",
+        "CA-C-229",
+        "CA-C-230",
+        "CA-C-231",
+        "CA-C-232",
+        "CA-C-233",
+        "CA-C-234",
+        "CA-C-235",
+        "CA-C-236",
+        "CA-C-237",
+        "CA-C-238",
+        "CA-C-239",
+        "CA-C-240",
+        "CA-C-241",
+        "CA-C-242",
+        "CA-C-243",
+        "CA-C-244",
+        "CA-C-245",
+        "CA-C-246",
+        "CA-C-247",
+        "CA-C-248",
+        "CA-C-249",
+        "CA-C-250",
+        "CA-C-251",
+        "CA-C-252",
+        "CA-C-253",
+        "CA-C-254",
+        "CA-C-255",
+        "CA-C-256",
+        "CA-C-257",
+        "CA-C-258",
+        "CA-C-259",
+        "CA-C-260",
+        "CA-C-261",
+        "CA-C-262",
+        "CA-C-263",
+        "CA-C-264",
+        "CA-C-265",
+        "CA-D-256",
+        "CA-D-360",
+        "CA-D-365",
+        "CA-D-377",
+        "CA-D-443",
+        "CA-O-124",
+        "CA-O-131",
+        "CA-O-134",
+        "CA-O-137",
+        "CA-R-1268",
+        "CA-R-1371",
+        "CA-R-1419",
+        "CA-R-1493",
+        "CA-R-1494",
+        "CA-R-1502",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact/Revision/Archive Carrier Basename",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-289"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact/Revision/Status: Archived",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1419"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact/Revision/Version",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-289"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Artifact/Type",
+      "occurrences": 6,
+      "atoms": [
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1405",
+        "CA-R-1701",
+        "CA-R-1708",
+        "CA-R-1765"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Assess Atom Update Identity",
+      "occurrences": 4,
+      "atoms": [
+        "CA-E-491",
+        "CA-M-303",
+        "CA-O-067",
+        "CA-O-145"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Assess Lineage Impact",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-058"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Assess Prepared Result Conformance",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-126"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Assess Source Conflicts",
+      "occurrences": 5,
+      "atoms": [
+        "CA-O-005",
+        "CA-O-010",
+        "CA-O-015",
+        "CA-O-028",
+        "CA-O-153"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Archive Carrier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-565"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Carrier",
+      "occurrences": 4,
+      "atoms": [
+        "CA-D-346",
+        "CA-E-407",
+        "CA-M-241",
+        "CA-O-051"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Carrier Binding",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-505"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Carrier Replacement",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-303"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Carrier Validation",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-513",
+        "CA-O-080"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Carrier.Filename.Local Tier",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-285",
+        "CA-D-484"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Carrier.Filename.Owning Scope Unit",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-291"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Carrier.Filename.Scope Unit Token",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-302"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Carrier.Filename.Summary Slug",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-282"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Carrier.Filename.Token Case",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-284"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Change Classification",
+      "occurrences": 4,
+      "atoms": [
+        "CA-E-491",
+        "CA-O-067",
+        "CA-R-1432",
+        "CA-R-1633"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Claim Authoring",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-111"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Claim Boundary Authoring",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-115"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Claim Canonical Signature",
+      "occurrences": 4,
+      "atoms": [
+        "CA-D-346",
+        "CA-E-405",
+        "CA-M-240",
+        "CA-R-1360"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Claim Projection",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-116"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Collection",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1381",
+        "CA-R-1567"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Collection/Local Tier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1567"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Collection/Type",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1546"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Collection/Type: Ad Hoc",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1381",
+        "CA-R-1546"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Content Authoring",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-103"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Direct Relation",
+      "occurrences": 4,
+      "atoms": [
+        "CA-D-268",
+        "CA-D-304",
+        "CA-E-404",
+        "CA-M-239"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom History",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-570"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Property Default",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-485"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Relation Owner",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-268"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Scope",
+      "occurrences": 31,
+      "atoms": [
+        "CA-D-283",
+        "CA-D-291",
+        "CA-D-304",
+        "CA-D-482",
+        "CA-E-240",
+        "CA-E-246",
+        "CA-E-403",
+        "CA-E-448",
+        "CA-E-456",
+        "CA-E-511",
+        "CA-M-264",
+        "CA-M-272",
+        "CA-M-276",
+        "CA-R-1014",
+        "CA-R-1287",
+        "CA-R-1294",
+        "CA-R-1358",
+        "CA-R-1443",
+        "CA-R-1444",
+        "CA-R-794",
+        "CA-R-796",
+        "CA-R-886",
+        "CA-R-916",
+        "CA-R-920",
+        "CA-R-927",
+        "CA-R-932",
+        "CA-R-935",
+        "CA-R-944",
+        "CA-R-945",
+        "CA-R-947",
+        "CA-R-992"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom State Identifier",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-446",
+        "CA-D-570"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Tier Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-456"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom Tier Validation.Concrete Cases",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-447"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom lifecycle conformance",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-418"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom lifecycle/Assessment scope",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-423"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom selection",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-460",
+        "CA-M-273"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom.Substance",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1563"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Carrier",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1586",
+        "CA-R-1590"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Claim",
+      "occurrences": 60,
+      "atoms": [
+        "CA-C-108",
+        "CA-C-210",
+        "CA-C-211",
+        "CA-C-212",
+        "CA-C-213",
+        "CA-C-214",
+        "CA-C-215",
+        "CA-C-216",
+        "CA-C-217",
+        "CA-C-218",
+        "CA-C-219",
+        "CA-C-220",
+        "CA-C-221",
+        "CA-C-222",
+        "CA-C-223",
+        "CA-C-224",
+        "CA-C-225",
+        "CA-C-226",
+        "CA-C-227",
+        "CA-C-228",
+        "CA-C-229",
+        "CA-C-230",
+        "CA-C-231",
+        "CA-C-232",
+        "CA-C-233",
+        "CA-C-234",
+        "CA-C-235",
+        "CA-C-236",
+        "CA-C-237",
+        "CA-C-238",
+        "CA-C-239",
+        "CA-C-240",
+        "CA-C-241",
+        "CA-C-242",
+        "CA-C-243",
+        "CA-C-244",
+        "CA-C-245",
+        "CA-C-246",
+        "CA-C-247",
+        "CA-C-248",
+        "CA-C-249",
+        "CA-C-250",
+        "CA-C-251",
+        "CA-C-252",
+        "CA-C-253",
+        "CA-C-254",
+        "CA-C-255",
+        "CA-C-256",
+        "CA-C-257",
+        "CA-C-258",
+        "CA-C-259",
+        "CA-C-260",
+        "CA-C-261",
+        "CA-C-262",
+        "CA-C-263",
+        "CA-C-264",
+        "CA-C-265",
+        "CA-R-1502",
+        "CA-R-1586",
+        "CA-R-1590"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role",
+      "occurrences": 63,
+      "atoms": [
+        "CA-D-296",
+        "CA-D-378",
+        "CA-D-386",
+        "CA-D-393",
+        "CA-D-451",
+        "CA-D-479",
+        "CA-D-483",
+        "CA-D-495",
+        "CA-D-508",
+        "CA-D-570",
+        "CA-E-386",
+        "CA-E-447",
+        "CA-E-448",
+        "CA-E-460",
+        "CA-E-482",
+        "CA-E-490",
+        "CA-E-498",
+        "CA-E-499",
+        "CA-E-520",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-E-622",
+        "CA-M-265",
+        "CA-M-272",
+        "CA-M-273",
+        "CA-M-276",
+        "CA-M-287",
+        "CA-M-288",
+        "CA-M-307",
+        "CA-M-308",
+        "CA-M-315",
+        "CA-O-103",
+        "CA-R-1283",
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1315",
+        "CA-R-1336",
+        "CA-R-1337",
+        "CA-R-1338",
+        "CA-R-1339",
+        "CA-R-1340",
+        "CA-R-1341",
+        "CA-R-1342",
+        "CA-R-1343",
+        "CA-R-1431",
+        "CA-R-1434",
+        "CA-R-1465",
+        "CA-R-1521",
+        "CA-R-1530",
+        "CA-R-1531",
+        "CA-R-1550",
+        "CA-R-1561",
+        "CA-R-1573",
+        "CA-R-1655",
+        "CA-R-1694",
+        "CA-R-1701",
+        "CA-R-1702",
+        "CA-R-1703",
+        "CA-R-1704",
+        "CA-R-1773",
+        "CA-R-659",
+        "CA-R-740"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Analysis/Type",
+      "occurrences": 3,
+      "atoms": [
+        "CA-D-389",
+        "CA-R-1232",
+        "CA-R-1875"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Concern/Type",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1231"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Evaluation/Type",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1506"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Implementation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1502"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Operations",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1563"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type",
+      "occurrences": 4,
+      "atoms": [
+        "CA-D-457",
+        "CA-R-1565",
+        "CA-R-1874"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type: Action/Execution Kind",
+      "occurrences": 7,
+      "atoms": [
+        "CA-E-495",
+        "CA-R-1452",
+        "CA-R-1509",
+        "CA-R-1526",
+        "CA-R-1527",
+        "CA-R-1789",
+        "CA-R-1790"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-304"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type: Actor",
+      "occurrences": 4,
+      "atoms": [
+        "CA-D-457",
+        "CA-M-314",
+        "CA-R-1564",
+        "CA-R-1565"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type: Step",
+      "occurrences": 3,
+      "atoms": [
+        "CA-M-305",
+        "CA-R-1563",
+        "CA-R-1570"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Operations/Type: Workflow",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1563",
+        "CA-R-1570"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan",
+      "occurrences": 92,
+      "atoms": [
+        "CA-D-386",
+        "CA-D-447",
+        "CA-D-469",
+        "CA-D-470",
+        "CA-D-471",
+        "CA-D-472",
+        "CA-D-473",
+        "CA-D-475",
+        "CA-D-481",
+        "CA-E-241",
+        "CA-E-425",
+        "CA-E-440",
+        "CA-E-443",
+        "CA-E-473",
+        "CA-E-482",
+        "CA-E-501",
+        "CA-E-502",
+        "CA-E-504",
+        "CA-E-505",
+        "CA-E-507",
+        "CA-E-519",
+        "CA-M-239",
+        "CA-M-271",
+        "CA-M-295",
+        "CA-M-306",
+        "CA-M-309",
+        "CA-O-016",
+        "CA-O-017",
+        "CA-O-018",
+        "CA-O-019",
+        "CA-O-020",
+        "CA-O-021",
+        "CA-O-024",
+        "CA-O-079",
+        "CA-O-089",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-100",
+        "CA-O-122",
+        "CA-R-1044",
+        "CA-R-1200",
+        "CA-R-1428",
+        "CA-R-1452",
+        "CA-R-1489",
+        "CA-R-1534",
+        "CA-R-1536",
+        "CA-R-1537",
+        "CA-R-1538",
+        "CA-R-1542",
+        "CA-R-1559",
+        "CA-R-1567",
+        "CA-R-1574",
+        "CA-R-1575",
+        "CA-R-1576",
+        "CA-R-1577",
+        "CA-R-1578",
+        "CA-R-1579",
+        "CA-R-1580",
+        "CA-R-1581",
+        "CA-R-1583",
+        "CA-R-1584",
+        "CA-R-1585",
+        "CA-R-1586",
+        "CA-R-1587",
+        "CA-R-1588",
+        "CA-R-1589",
+        "CA-R-1590",
+        "CA-R-1591",
+        "CA-R-1592",
+        "CA-R-1593",
+        "CA-R-1599",
+        "CA-R-924",
+        "CA-R-991",
+        "CA-R-992",
+        "CA-R-997"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan/Details",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1586"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Plan/Type: Plan/Label",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1546"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Content Role: Requirement/Type: Goal/Filename",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-292"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Identifier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-568"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Identity",
+      "occurrences": 2,
+      "atoms": [
+        "CA-C-452",
+        "CA-D-568"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Local Tier: Standard",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1567"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Revision",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-427"
+      ],
+      "decision": "map_approved",
+      "target": "Entity/Continuant/History/Revision"
+    },
+    {
+      "subject": "Atom/Revision/History",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-568"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Revision/Identifier",
+      "occurrences": 2,
+      "atoms": [
+        "CA-C-452",
+        "CA-D-568"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Revision/Status",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-427"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Revision/Status: Draft",
+      "occurrences": 2,
+      "atoms": [
+        "CA-C-452",
+        "CA-D-568"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Revision/Status: Draft/Identity Continuity",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-452"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Revision/Status: Draft/Identity Continuity Evidence",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-568"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Revision/Updated At",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-427"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Revision/Version",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-568"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Subjects",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-108"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Tier/Local Tier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-108"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Type",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-483"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Atom/Type.Status",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1315"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Author",
+      "occurrences": 12,
+      "atoms": [
+        "CA-E-472",
+        "CA-M-113",
+        "CA-M-115",
+        "CA-M-125",
+        "CA-M-229",
+        "CA-M-237",
+        "CA-M-287",
+        "CA-M-288",
+        "CA-M-294",
+        "CA-M-301",
+        "CA-M-303",
+        "CA-O-103"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Authoritative Atom Carrier Bundle",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-463",
+        "CA-E-502"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Authority",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-971"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Authority Mode",
+      "occurrences": 5,
+      "atoms": [
+        "CA-D-374",
+        "CA-D-391",
+        "CA-E-621",
+        "CA-R-1430",
+        "CA-R-1655"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Authorize Structural Change",
+      "occurrences": 2,
+      "atoms": [
+        "CA-O-013",
+        "CA-O-015"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Autonomous Confidence Threshold",
+      "occurrences": 22,
+      "atoms": [
+        "CA-D-472",
+        "CA-D-485",
+        "CA-E-443",
+        "CA-E-471",
+        "CA-E-477",
+        "CA-E-501",
+        "CA-E-519",
+        "CA-M-272",
+        "CA-M-306",
+        "CA-O-006",
+        "CA-O-010",
+        "CA-O-013",
+        "CA-O-024",
+        "CA-O-028",
+        "CA-O-090",
+        "CA-O-111",
+        "CA-R-1044",
+        "CA-R-1045",
+        "CA-R-1551",
+        "CA-R-1561",
+        "CA-R-1587",
+        "CA-R-1591"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "BEARS",
+      "occurrences": 3,
+      "atoms": [
+        "CA-E-449",
+        "CA-R-1243",
+        "CA-R-1456"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Build Entities Graph",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-133"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Build Terms Graph",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-136"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CAPRMEDIO Expansion",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1736"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CAPRMEDIO Framework Identity",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1778"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CAPRMEDIO Framework Instance",
+      "occurrences": 10,
+      "atoms": [
+        "CA-E-207",
+        "CA-E-520",
+        "CA-O-022",
+        "CA-R-1422",
+        "CA-R-1487",
+        "CA-R-1772",
+        "CA-R-1773",
+        "CA-R-1776",
+        "CA-R-1777",
+        "CA-R-850"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CAPRMEDIO Framework Instance Carrier Root",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-317"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CAPRMEDIO Graph",
+      "occurrences": 16,
+      "atoms": [
+        "CA-E-382",
+        "CA-E-466",
+        "CA-E-622",
+        "CA-M-120",
+        "CA-R-1246",
+        "CA-R-1248",
+        "CA-R-1281",
+        "CA-R-1335",
+        "CA-R-1406",
+        "CA-R-1408",
+        "CA-R-1409",
+        "CA-R-1437",
+        "CA-R-1438",
+        "CA-R-1471",
+        "CA-R-1472",
+        "CA-R-806"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CAPRMEDIO Graph.Connectivity",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1410",
+        "CA-R-1472"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CAPRMEDIO Metamodel.Fractality",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-917"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CARRIES",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-256",
+        "CA-D-257"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CCE",
+      "occurrences": 15,
+      "atoms": [
+        "CA-D-346",
+        "CA-E-512",
+        "CA-E-520",
+        "CA-M-111",
+        "CA-M-112",
+        "CA-M-113",
+        "CA-M-115",
+        "CA-M-123",
+        "CA-M-233",
+        "CA-M-294",
+        "CA-M-299",
+        "CA-M-301",
+        "CA-M-307",
+        "CA-O-053",
+        "CA-R-941"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CCE Claim and Projection Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-241"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CCE Condition Expression",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-122"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CCE Condition Expression Evaluation",
+      "occurrences": 2,
+      "atoms": [
+        "CA-M-122",
+        "CA-M-127"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CCE Method",
+      "occurrences": 2,
+      "atoms": [
+        "CA-M-230",
+        "CA-M-234"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CCE Operator",
+      "occurrences": 22,
+      "atoms": [
+        "CA-D-280",
+        "CA-E-383",
+        "CA-E-405",
+        "CA-E-472",
+        "CA-E-512",
+        "CA-M-122",
+        "CA-M-229",
+        "CA-M-230",
+        "CA-M-234",
+        "CA-M-240",
+        "CA-M-294",
+        "CA-M-307",
+        "CA-M-309",
+        "CA-M-310",
+        "CA-M-311",
+        "CA-M-312",
+        "CA-M-313",
+        "CA-M-314",
+        "CA-M-315",
+        "CA-R-1297",
+        "CA-R-1360",
+        "CA-R-1361"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CCE Operator Expression",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-236"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CCE Operator Expression Normalization",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-236"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CCE Operator Registry",
+      "occurrences": 4,
+      "atoms": [
+        "CA-E-512",
+        "CA-M-234",
+        "CA-M-235",
+        "CA-M-236"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CCE Role Profile",
+      "occurrences": 4,
+      "atoms": [
+        "CA-M-307",
+        "CA-M-308",
+        "CA-M-315"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "CORE_META_MODEL",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-459"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Canonical Scope Signature Derivation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-241"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Canonical Scope Signature Derivation Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-407"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Canonical Signature Derivation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-240"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Canonical Signature Derivation Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-405"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Cardinality Constraint",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-235"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Cardinality Constraint Authoring",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-235"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Carrier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-256"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Carrier-Only Recoding",
+      "occurrences": 3,
+      "atoms": [
+        "CA-D-304",
+        "CA-R-1432",
+        "CA-R-1633"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Change Content Roles",
+      "occurrences": 11,
+      "atoms": [
+        "CA-D-285",
+        "CA-D-484",
+        "CA-E-498",
+        "CA-E-499",
+        "CA-R-1548",
+        "CA-R-1549",
+        "CA-R-1550",
+        "CA-R-1566",
+        "CA-R-1567",
+        "CA-R-1682",
+        "CA-R-1683"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Check Atoms",
+      "occurrences": 2,
+      "atoms": [
+        "CA-O-087",
+        "CA-O-088"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Check Atoms Step",
+      "occurrences": 2,
+      "atoms": [
+        "CA-O-080",
+        "CA-O-088"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Child Composition",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1762",
+        "CA-R-960"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Claim",
+      "occurrences": 10,
+      "atoms": [
+        "CA-M-115",
+        "CA-R-1269",
+        "CA-R-1270",
+        "CA-R-1336",
+        "CA-R-1337",
+        "CA-R-1338",
+        "CA-R-1341",
+        "CA-R-1343",
+        "CA-R-643",
+        "CA-R-771"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Claim Value Set",
+      "occurrences": 5,
+      "atoms": [
+        "CA-E-402",
+        "CA-E-403",
+        "CA-M-237",
+        "CA-R-1358",
+        "CA-R-1359"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Claim Value Set Authoring",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-237"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Claim Value Set Consolidation Candidate Evaluation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-403"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Claim Value Set Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-402"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Compatible Lineage Impact Disposition",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1033"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Composite Claim",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1270"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Concern About Relation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1022"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Condition Expression",
+      "occurrences": 2,
+      "atoms": [
+        "CA-M-312",
+        "CA-R-1581"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Confidence Threshold",
+      "occurrences": 14,
+      "atoms": [
+        "CA-D-368",
+        "CA-D-369",
+        "CA-E-241",
+        "CA-E-443",
+        "CA-E-448",
+        "CA-M-271",
+        "CA-M-276",
+        "CA-O-053",
+        "CA-R-1044",
+        "CA-R-1427",
+        "CA-R-1428",
+        "CA-R-1555",
+        "CA-R-1652",
+        "CA-R-380"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Confidence Threshold.Resolution",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-271"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Confidence Threshold.Resolution Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-443"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Confidence Threshold.Source",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1428"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Configuration Selection and Precedence",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1724"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Construct Entities Graph Projection",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-134"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Construct Terms Graph Projection",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-137"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Consumer",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-932",
+        "CA-R-945"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Consumer Goal",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-933",
+        "CA-R-951"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Container Atom",
+      "occurrences": 9,
+      "atoms": [
+        "CA-E-490",
+        "CA-E-499",
+        "CA-R-1265",
+        "CA-R-1378",
+        "CA-R-1379",
+        "CA-R-1383",
+        "CA-R-1409",
+        "CA-R-1521"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Containment Relation Pair",
+      "occurrences": 3,
+      "atoms": [
+        "CA-D-264",
+        "CA-D-266",
+        "CA-R-1368"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Content Role Naming",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-287"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Core Meta-Model",
+      "occurrences": 14,
+      "atoms": [
+        "CA-E-249",
+        "CA-E-464",
+        "CA-M-298",
+        "CA-O-054",
+        "CA-O-153",
+        "CA-O-154",
+        "CA-R-1217",
+        "CA-R-1228",
+        "CA-R-1261",
+        "CA-R-1375",
+        "CA-R-1434",
+        "CA-R-1466",
+        "CA-R-1722",
+        "CA-R-1748"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Core Meta-model",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1234"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Corrective Method Acceptance",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-090"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Corrective Method Acceptance Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-098"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Current Plan Scope",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1541"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Current-scope Atom",
+      "occurrences": 3,
+      "atoms": [
+        "CA-D-482",
+        "CA-E-511",
+        "CA-R-922"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "DEPENDS_ON",
+      "occurrences": 16,
+      "atoms": [
+        "CA-D-269",
+        "CA-D-307",
+        "CA-E-246",
+        "CA-E-404",
+        "CA-M-228",
+        "CA-M-232",
+        "CA-M-239",
+        "CA-R-1198",
+        "CA-R-1200",
+        "CA-R-1202",
+        "CA-R-1275",
+        "CA-R-1276",
+        "CA-R-1278",
+        "CA-R-1280",
+        "CA-R-1281",
+        "CA-R-1459"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "DERIVED_FROM",
+      "occurrences": 4,
+      "atoms": [
+        "CA-E-404",
+        "CA-M-239",
+        "CA-R-1314",
+        "CA-R-1639"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Default Settings",
+      "occurrences": 18,
+      "atoms": [
+        "CA-D-361",
+        "CA-D-407",
+        "CA-D-408",
+        "CA-D-447",
+        "CA-D-497",
+        "CA-E-450",
+        "CA-E-458",
+        "CA-E-473",
+        "CA-M-279",
+        "CA-M-295",
+        "CA-O-052",
+        "CA-R-1405",
+        "CA-R-1429",
+        "CA-R-1441",
+        "CA-R-1630",
+        "CA-R-1750"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Definition Atom",
+      "occurrences": 10,
+      "atoms": [
+        "CA-E-382",
+        "CA-E-444",
+        "CA-M-114",
+        "CA-O-137",
+        "CA-R-126",
+        "CA-R-1279",
+        "CA-R-1319",
+        "CA-R-1435",
+        "CA-R-1454",
+        "CA-R-1455"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Delivery CCE Role Profile",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-313"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Delivery For Relation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1019"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Demand Atom File Carrier.Filename",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-287"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Demand Direction",
+      "occurrences": 3,
+      "atoms": [
+        "CA-R-1293",
+        "CA-R-1294",
+        "CA-R-944"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Dependency Order Derivation",
+      "occurrences": 3,
+      "atoms": [
+        "CA-E-404",
+        "CA-M-239",
+        "CA-O-017"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Dependency Order Derivation Evaluation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-404"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Dependency Relation Pair",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1026"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Dependent Entity",
+      "occurrences": 9,
+      "atoms": [
+        "CA-E-246",
+        "CA-E-383",
+        "CA-M-125",
+        "CA-R-1192",
+        "CA-R-1193",
+        "CA-R-1251",
+        "CA-R-1260",
+        "CA-R-1267",
+        "CA-R-1931"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Dependent Entity Occurrence",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1247"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Directory Carrier Nesting",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-264",
+        "CA-D-266"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Draft Atom",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-446",
+        "CA-D-570"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Draft Atom Carrier.Filename",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-288"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Draft Atom.Revision Lineage",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-570"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Entities Graph Construction Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-135"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Entity Carrier Binding",
+      "occurrences": 4,
+      "atoms": [
+        "CA-D-257",
+        "CA-D-505",
+        "CA-M-313",
+        "CA-R-1342"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Entity Identity",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-507"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Entity Taxonomy",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1261"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Entity/Type",
+      "occurrences": 4,
+      "atoms": [
+        "CA-E-387",
+        "CA-R-1285",
+        "CA-R-1349",
+        "CA-R-1350"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Evaluate RMED Review Batch",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-106"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Evaluation CCE Role Profile",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-312"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Evaluation For Relation",
+      "occurrences": 6,
+      "atoms": [
+        "CA-E-246",
+        "CA-E-447",
+        "CA-M-125",
+        "CA-M-264",
+        "CA-M-265",
+        "CA-R-1018"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Evaluation Implementation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-018"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Evaluation Implementation Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-092"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Evaluation Report",
+      "occurrences": 4,
+      "atoms": [
+        "CA-O-104",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Evaluator Evidence Calibration",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-123"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Event/Type",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-340",
+        "CA-R-1643"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Evidence",
+      "occurrences": 4,
+      "atoms": [
+        "CA-R-1497",
+        "CA-R-1505",
+        "CA-R-1611",
+        "CA-R-1646"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Evidence For Relation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1021"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Exact Atom Reference",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-366"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Exploration Mode",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1557",
+        "CA-R-1558"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Extension",
+      "occurrences": 29,
+      "atoms": [
+        "CA-D-262",
+        "CA-D-361",
+        "CA-D-373",
+        "CA-E-249",
+        "CA-E-379",
+        "CA-E-464",
+        "CA-M-298",
+        "CA-O-011",
+        "CA-O-054",
+        "CA-O-152",
+        "CA-O-154",
+        "CA-R-1206",
+        "CA-R-1207",
+        "CA-R-1217",
+        "CA-R-1218",
+        "CA-R-1220",
+        "CA-R-1228",
+        "CA-R-1286",
+        "CA-R-1313",
+        "CA-R-1375",
+        "CA-R-1434",
+        "CA-R-1466",
+        "CA-R-1722",
+        "CA-R-1723",
+        "CA-R-1724",
+        "CA-R-1748",
+        "CA-R-1773",
+        "CA-R-1874",
+        "CA-R-1875"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Extension Installation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1206"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "External Project Goal File Carrier.Filename",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-342"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "External Project Goal Reference",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-342"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Feature Realization Relation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1654"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Find and Fetch Artifacts",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-158"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Find and Fetch Journal Events",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-161"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Find and Fetch Journal Events Query Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-163"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Framework Instance Settings Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-458"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Framework Instance Settings/Carrier/Atom metadata exclusion",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-377"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Framework Instance Settings/Revision Binding",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-360"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Framework-Owned Carrier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-341"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "GOVERNS",
+      "occurrences": 16,
+      "atoms": [
+        "CA-D-269",
+        "CA-D-307",
+        "CA-E-246",
+        "CA-M-228",
+        "CA-M-232",
+        "CA-R-1198",
+        "CA-R-1199",
+        "CA-R-1201",
+        "CA-R-1202",
+        "CA-R-1203",
+        "CA-R-1275",
+        "CA-R-1276",
+        "CA-R-1279",
+        "CA-R-1281",
+        "CA-R-1363",
+        "CA-R-1459"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "General Artifact Graph",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1409",
+        "CA-R-1410"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "General Term",
+      "occurrences": 6,
+      "atoms": [
+        "CA-E-383",
+        "CA-E-444",
+        "CA-E-512",
+        "CA-M-229",
+        "CA-R-1320",
+        "CA-R-1455"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Generated-Only Provenance Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-624"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Generator",
+      "occurrences": 2,
+      "atoms": [
+        "CA-M-114",
+        "CA-M-120"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Global Tier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-087"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Governance Origin",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1701",
+        "CA-R-1709"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Governed Entity",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-999"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Governed Term",
+      "occurrences": 12,
+      "atoms": [
+        "CA-E-382",
+        "CA-E-383",
+        "CA-E-472",
+        "CA-E-512",
+        "CA-M-114",
+        "CA-M-229",
+        "CA-M-294",
+        "CA-O-137",
+        "CA-R-126",
+        "CA-R-1319",
+        "CA-R-1454",
+        "CA-R-1455"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Governed Term Rendering",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-512",
+        "CA-M-229"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Graph Projection construction/Completion",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-420"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Graph of Graphs",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1408"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Hub Atom",
+      "occurrences": 21,
+      "atoms": [
+        "CA-D-470",
+        "CA-D-472",
+        "CA-E-240",
+        "CA-E-241",
+        "CA-E-443",
+        "CA-E-460",
+        "CA-E-501",
+        "CA-E-504",
+        "CA-E-511",
+        "CA-M-271",
+        "CA-M-295",
+        "CA-R-1428",
+        "CA-R-1578",
+        "CA-R-1580",
+        "CA-R-1583",
+        "CA-R-1584",
+        "CA-R-1588",
+        "CA-R-1592",
+        "CA-R-1599",
+        "CA-R-991",
+        "CA-R-997"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Hub Carrier.Navigation Entry",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-331"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "IS_ALLOWED_VALUE_OF",
+      "occurrences": 12,
+      "atoms": [
+        "CA-E-383",
+        "CA-E-402",
+        "CA-E-403",
+        "CA-E-449",
+        "CA-M-237",
+        "CA-R-1245",
+        "CA-R-1346",
+        "CA-R-1358",
+        "CA-R-1359",
+        "CA-R-1405",
+        "CA-R-1436",
+        "CA-R-1456"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "IS_BORNE_BY",
+      "occurrences": 7,
+      "atoms": [
+        "CA-E-383",
+        "CA-E-449",
+        "CA-R-1243",
+        "CA-R-1260",
+        "CA-R-1351",
+        "CA-R-1456",
+        "CA-R-1931"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "IS_CARRIED_BY",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-257",
+        "CA-D-505"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation",
+      "occurrences": 52,
+      "atoms": [
+        "CA-C-418",
+        "CA-C-419",
+        "CA-C-420",
+        "CA-C-421",
+        "CA-D-285",
+        "CA-D-375",
+        "CA-D-484",
+        "CA-D-559",
+        "CA-E-441",
+        "CA-E-482",
+        "CA-E-498",
+        "CA-E-499",
+        "CA-E-519",
+        "CA-O-018",
+        "CA-O-019",
+        "CA-O-020",
+        "CA-O-021",
+        "CA-O-024",
+        "CA-O-089",
+        "CA-O-090",
+        "CA-O-100",
+        "CA-O-123",
+        "CA-O-124",
+        "CA-R-1340",
+        "CA-R-1343",
+        "CA-R-1503",
+        "CA-R-1504",
+        "CA-R-1505",
+        "CA-R-1506",
+        "CA-R-1548",
+        "CA-R-1549",
+        "CA-R-1550",
+        "CA-R-1566",
+        "CA-R-1567",
+        "CA-R-1568",
+        "CA-R-1571",
+        "CA-R-1610",
+        "CA-R-1611",
+        "CA-R-1638",
+        "CA-R-1646",
+        "CA-R-1682",
+        "CA-R-1683",
+        "CA-R-1694",
+        "CA-R-1695",
+        "CA-R-1702",
+        "CA-R-1703",
+        "CA-R-1720",
+        "CA-R-1738",
+        "CA-R-1772",
+        "CA-R-1873",
+        "CA-R-954"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Binding",
+      "occurrences": 5,
+      "atoms": [
+        "CA-R-1504",
+        "CA-R-1505",
+        "CA-R-1638",
+        "CA-R-1695",
+        "CA-R-1703"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Evaluation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-020"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Evaluation Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-094"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Failure Diagnosis",
+      "occurrences": 2,
+      "atoms": [
+        "CA-O-021",
+        "CA-O-089"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Failure Diagnosis Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-095"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Folder",
+      "occurrences": 4,
+      "atoms": [
+        "CA-D-445",
+        "CA-E-510",
+        "CA-O-078",
+        "CA-R-862"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Of Relation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1020"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Preparation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-017"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Preparation Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-091"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Relation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-624"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Relation Pair",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1027"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Repair",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-021"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Repair Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-099"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Retry Control",
+      "occurrences": 6,
+      "atoms": [
+        "CA-E-441",
+        "CA-E-473",
+        "CA-O-016",
+        "CA-O-021",
+        "CA-O-024",
+        "CA-R-1488"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Retry Control Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-096"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Retry Limit",
+      "occurrences": 13,
+      "atoms": [
+        "CA-D-447",
+        "CA-D-485",
+        "CA-E-441",
+        "CA-E-473",
+        "CA-E-519",
+        "CA-M-295",
+        "CA-M-306",
+        "CA-O-024",
+        "CA-R-1488",
+        "CA-R-1489"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Workflow",
+      "occurrences": 7,
+      "atoms": [
+        "CA-E-473",
+        "CA-E-519",
+        "CA-O-016",
+        "CA-O-024",
+        "CA-O-102",
+        "CA-R-1488",
+        "CA-R-1559"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Implementation Workflow/Carrier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-412"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Installed Extensions Catalog Entry",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1220"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Journal Carrier Root",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-549"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Journal Event query",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-162"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Journal/Revision",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1372"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Label",
+      "occurrences": 4,
+      "atoms": [
+        "CA-E-505",
+        "CA-R-1576",
+        "CA-R-1594",
+        "CA-R-972"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Legacy Evidence and Provisional RMED Preparation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-124"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Lifecycle Tool authority/Scope Unit",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-419"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Lineage Impact Analysis",
+      "occurrences": 4,
+      "atoms": [
+        "CA-O-058",
+        "CA-R-1432",
+        "CA-R-1497",
+        "CA-R-1633"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Lineage Impact Analysis Content",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1037"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Local Order",
+      "occurrences": 8,
+      "atoms": [
+        "CA-D-297",
+        "CA-D-298",
+        "CA-D-299",
+        "CA-E-243",
+        "CA-R-1293",
+        "CA-R-1760",
+        "CA-R-1761",
+        "CA-R-1763"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Local Tier",
+      "occurrences": 3,
+      "atoms": [
+        "CA-O-021",
+        "CA-O-087",
+        "CA-O-090"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Markdown",
+      "occurrences": 4,
+      "atoms": [
+        "CA-D-330",
+        "CA-O-158",
+        "CA-O-159",
+        "CA-O-160"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Markdown Atom Carrier",
+      "occurrences": 11,
+      "atoms": [
+        "CA-D-356",
+        "CA-D-416",
+        "CA-D-463",
+        "CA-D-478",
+        "CA-D-479",
+        "CA-D-480",
+        "CA-D-495",
+        "CA-E-457",
+        "CA-E-506",
+        "CA-R-1598"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Markdown Atom Carrier Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-457"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Markdown Atom Carrier.Main Content",
+      "occurrences": 8,
+      "atoms": [
+        "CA-D-277",
+        "CA-D-356",
+        "CA-D-357",
+        "CA-D-479",
+        "CA-D-495",
+        "CA-R-1465",
+        "CA-R-1624",
+        "CA-R-718"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Markdown Atom Carrier.Main Content.CCE Operator",
+      "occurrences": 3,
+      "atoms": [
+        "CA-D-280",
+        "CA-E-512",
+        "CA-M-229"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Markdown Atom Carrier.Main Content.Paragraph",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-279"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Markdown Atom Carrier.YAML Frontmatter",
+      "occurrences": 6,
+      "atoms": [
+        "CA-D-267",
+        "CA-D-276",
+        "CA-D-356",
+        "CA-D-357",
+        "CA-D-478",
+        "CA-O-087"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Markdown Atom Carrier.YAML Frontmatter.Scalar",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-277"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Materialized Representation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-309"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Method CCE Role Profile",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-311"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Method For Relation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1017"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Method Learning Workflow",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-102"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Method Lesson Drafting",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-100"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Method Lesson Drafting Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-101"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Methodology",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1519"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Methodology Source",
+      "occurrences": 19,
+      "atoms": [
+        "CA-D-394",
+        "CA-D-407",
+        "CA-D-550",
+        "CA-E-249",
+        "CA-M-272",
+        "CA-M-298",
+        "CA-O-011",
+        "CA-O-054",
+        "CA-O-152",
+        "CA-O-154",
+        "CA-O-156",
+        "CA-R-1213",
+        "CA-R-1217",
+        "CA-R-1218",
+        "CA-R-1219",
+        "CA-R-1228",
+        "CA-R-1284",
+        "CA-R-1722",
+        "CA-R-1748"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Methodology Source File Carrier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-305"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Methodology Source.Expansion Boundary",
+      "occurrences": 10,
+      "atoms": [
+        "CA-E-379",
+        "CA-E-447",
+        "CA-O-011",
+        "CA-O-153",
+        "CA-O-154",
+        "CA-O-155",
+        "CA-R-1217",
+        "CA-R-1317",
+        "CA-R-1375",
+        "CA-R-1434"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Methodology Source.Expansion Mapping",
+      "occurrences": 3,
+      "atoms": [
+        "CA-E-249",
+        "CA-M-298",
+        "CA-O-054"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Migrate Atom CCE Representation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-053"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "NARROWER_THAN",
+      "occurrences": 7,
+      "atoms": [
+        "CA-D-416",
+        "CA-E-382",
+        "CA-R-1244",
+        "CA-R-1345",
+        "CA-R-1347",
+        "CA-R-1435",
+        "CA-R-1765"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Navigation Projection Derivation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-231"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Navigational Order Number",
+      "occurrences": 8,
+      "atoms": [
+        "CA-D-297",
+        "CA-D-299",
+        "CA-D-300",
+        "CA-D-380",
+        "CA-D-442",
+        "CA-R-1485",
+        "CA-R-978",
+        "CA-R-981"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "New Archived Revision Markdown Carrier Binding",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-565"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Non-ephemeral Entity",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-506"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Nonnegative Integer Literal",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-235"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Normative Atom Prose Authoring",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-233"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Normative Authority Relation Pair",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-481",
+        "CA-R-879"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Obsolete Project Name",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-392"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Obtain Source Correction Decision",
+      "occurrences": 4,
+      "atoms": [
+        "CA-O-007",
+        "CA-O-010",
+        "CA-O-028",
+        "CA-O-155"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Operations Type-specific CCE Profiles",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-314"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Owned Atoms",
+      "occurrences": 6,
+      "atoms": [
+        "CA-E-460",
+        "CA-M-273",
+        "CA-O-087",
+        "CA-R-1447",
+        "CA-R-1775",
+        "CA-R-942"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Persist Atom Replacement",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-051"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Plan Atom Carrier",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-502",
+        "CA-M-295"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Plan Atom Carrier Bundle",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-460",
+        "CA-D-461"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Plan Atom Carrier Bundle.Location",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-461"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Plan Atom Carrier.Stem",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-460"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Plan Atom File Carrier.Content",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-470"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Plan Atom File Carrier.Filename",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-469"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Plan Backlog",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1542"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Plan Backlog Directory Carrier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-475"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Plan Blocking Relations",
+      "occurrences": 6,
+      "atoms": [
+        "CA-D-471",
+        "CA-E-505",
+        "CA-M-306",
+        "CA-R-1580",
+        "CA-R-992"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Plan CCE Role Profile",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-309"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Plan Graph",
+      "occurrences": 4,
+      "atoms": [
+        "CA-E-507",
+        "CA-R-1579",
+        "CA-R-1580",
+        "CA-R-1593"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Prepare Structural Change",
+      "occurrences": 2,
+      "atoms": [
+        "CA-O-012",
+        "CA-O-015"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Previous Unit",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-913"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Primary Entity",
+      "occurrences": 12,
+      "atoms": [
+        "CA-D-414",
+        "CA-D-505",
+        "CA-E-246",
+        "CA-R-1191",
+        "CA-R-1249",
+        "CA-R-1250",
+        "CA-R-1266",
+        "CA-R-1268",
+        "CA-R-1351",
+        "CA-R-1376",
+        "CA-R-834",
+        "CA-R-836"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Priority",
+      "occurrences": 3,
+      "atoms": [
+        "CA-D-386",
+        "CA-R-1629"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Producer",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-932",
+        "CA-R-945"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Producer Result",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-933",
+        "CA-R-951"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Producer Result.Flow Direction",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-945"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Producer Scope Unit",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-287"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Atom ID",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-728"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Boundary Position",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1762",
+        "CA-R-961"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Configuration",
+      "occurrences": 25,
+      "atoms": [
+        "CA-D-262",
+        "CA-D-302",
+        "CA-E-249",
+        "CA-E-379",
+        "CA-M-298",
+        "CA-O-011",
+        "CA-O-054",
+        "CA-O-152",
+        "CA-O-154",
+        "CA-O-155",
+        "CA-R-1206",
+        "CA-R-1207",
+        "CA-R-1218",
+        "CA-R-1228",
+        "CA-R-1286",
+        "CA-R-1313",
+        "CA-R-1375",
+        "CA-R-1434",
+        "CA-R-1466",
+        "CA-R-1655",
+        "CA-R-1722",
+        "CA-R-1748",
+        "CA-R-1773",
+        "CA-R-1874",
+        "CA-R-1875"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Lexicographic Selection",
+      "occurrences": 3,
+      "atoms": [
+        "CA-E-207",
+        "CA-M-297",
+        "CA-O-023"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Name",
+      "occurrences": 6,
+      "atoms": [
+        "CA-D-292",
+        "CA-D-375",
+        "CA-D-392",
+        "CA-E-459",
+        "CA-R-1738",
+        "CA-R-1750"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Normative Authority Graph",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-481",
+        "CA-R-833"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Principle Universe",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1773",
+        "CA-R-1774"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Priority Model Application",
+      "occurrences": 5,
+      "atoms": [
+        "CA-E-207",
+        "CA-M-297",
+        "CA-O-022",
+        "CA-O-023",
+        "CA-R-1487"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Scope Unit Graph Projection",
+      "occurrences": 8,
+      "atoms": [
+        "CA-D-333",
+        "CA-D-391",
+        "CA-D-392",
+        "CA-E-470",
+        "CA-R-1052",
+        "CA-R-1739",
+        "CA-R-1740",
+        "CA-R-626"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Settings Authoritative TOML File Carrier.Filename",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-363",
+        "CA-D-364"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Settings Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-459"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Settings/Revision Binding",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-365"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Structure Maintenance",
+      "occurrences": 4,
+      "atoms": [
+        "CA-D-444",
+        "CA-E-471",
+        "CA-O-015",
+        "CA-O-078"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Structure Maintenance Application Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-143"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Structure Maintenance Authorization Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-142"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Structure Maintenance Candidate Assessment Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-141"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Structure Maintenance Preparation Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-140"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Structure Maintenance Result Assessment Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-144"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Structure Maintenance Selection Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-139"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project Structure Maintenance/Step bindings",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-416"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project-Owned Carrier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-341"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project-Owned Carrier Root",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-318",
+        "CA-D-452"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project-Owned Markdown Atom Carrier.Filename",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-283"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Project/Scope Unit",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-292"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Projection Carrier Root",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-550"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Projection Rebuild",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1649"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Projection/Revision",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1495"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Projection/Type",
+      "occurrences": 3,
+      "atoms": [
+        "CA-D-635",
+        "CA-R-1634",
+        "CA-R-1943"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Proof Dependency Frontier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-329"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Property",
+      "occurrences": 37,
+      "atoms": [
+        "CA-D-479",
+        "CA-D-485",
+        "CA-D-505",
+        "CA-D-506",
+        "CA-E-246",
+        "CA-E-383",
+        "CA-E-402",
+        "CA-E-403",
+        "CA-E-443",
+        "CA-E-449",
+        "CA-E-505",
+        "CA-E-520",
+        "CA-M-237",
+        "CA-M-271",
+        "CA-O-134",
+        "CA-R-1193",
+        "CA-R-1198",
+        "CA-R-1245",
+        "CA-R-1251",
+        "CA-R-1259",
+        "CA-R-1284",
+        "CA-R-1287",
+        "CA-R-1306",
+        "CA-R-1321",
+        "CA-R-1346",
+        "CA-R-1352",
+        "CA-R-1358",
+        "CA-R-1359",
+        "CA-R-1394",
+        "CA-R-1428",
+        "CA-R-1435",
+        "CA-R-1436",
+        "CA-R-1465",
+        "CA-R-1489",
+        "CA-R-1502",
+        "CA-R-1531",
+        "CA-R-1594"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Propose Source Corrections",
+      "occurrences": 4,
+      "atoms": [
+        "CA-O-006",
+        "CA-O-010",
+        "CA-O-028",
+        "CA-O-154"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Provenance",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1502"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Publish Reconciled Projection",
+      "occurrences": 3,
+      "atoms": [
+        "CA-O-009",
+        "CA-O-010",
+        "CA-O-157"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "RMED Atom Review Check Coverage Gate Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-120"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "RMED Atom Review Coverage Gate Action",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-118"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "RMED Atom Review Fix Coverage Gate Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-121"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "RMED Atom Review Gather Coverage Gate Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-119"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "RMED Atom Review Workflow",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-104"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "RMED Review Evaluation Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-109"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "RMED Review Repair Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-110"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "RMED Review Selection Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-108"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "RMEDO Conflict Resolution",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-477",
+        "CA-O-028"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Rationale For Relation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1016"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Reconcile Atom Properties and Addresses",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-077"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Reconcile Navigation Numbers",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-510",
+        "CA-O-078"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Reconcile Unfinished Work",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-079"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Recurrence Protection",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1741"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Related To Relation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1653"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Relation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-256"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Relation Kind",
+      "occurrences": 29,
+      "atoms": [
+        "CA-D-269",
+        "CA-E-382",
+        "CA-E-444",
+        "CA-E-449",
+        "CA-E-466",
+        "CA-E-622",
+        "CA-M-120",
+        "CA-O-134",
+        "CA-O-137",
+        "CA-R-1199",
+        "CA-R-1200",
+        "CA-R-1243",
+        "CA-R-1246",
+        "CA-R-1276",
+        "CA-R-1281",
+        "CA-R-1335",
+        "CA-R-1363",
+        "CA-R-1408",
+        "CA-R-1437",
+        "CA-R-1438",
+        "CA-R-1454",
+        "CA-R-1455",
+        "CA-R-1456",
+        "CA-R-1459",
+        "CA-R-1472",
+        "CA-R-1513",
+        "CA-R-1579",
+        "CA-R-1593",
+        "CA-R-806"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Relation Kind Metadata",
+      "occurrences": 5,
+      "atoms": [
+        "CA-E-622",
+        "CA-M-120",
+        "CA-R-1246",
+        "CA-R-1472",
+        "CA-R-806"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Relation Type",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-313"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Relation/Type: On Result",
+      "occurrences": 19,
+      "atoms": [
+        "CA-E-486",
+        "CA-E-489",
+        "CA-E-500",
+        "CA-E-513",
+        "CA-M-301",
+        "CA-M-305",
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-015",
+        "CA-O-016",
+        "CA-O-028",
+        "CA-O-080",
+        "CA-O-102",
+        "CA-O-104",
+        "CA-O-127",
+        "CA-R-1508",
+        "CA-R-1513",
+        "CA-R-1519",
+        "CA-R-1570"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Relational Atom",
+      "occurrences": 7,
+      "atoms": [
+        "CA-D-482",
+        "CA-E-511",
+        "CA-M-115",
+        "CA-R-1256",
+        "CA-R-923",
+        "CA-R-925",
+        "CA-R-932"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Relational Atom Classification Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-425"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Relational Atom/Type",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-425",
+        "CA-R-924"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Repair RMED Review Batch",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-111"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Replacement-Required Lineage Impact Disposition",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1035"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Requirement CCE Role Profile",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-310"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Requirement Implementation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-019"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Requirement Implementation Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-093"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Resolve Operator Priorities",
+      "occurrences": 3,
+      "atoms": [
+        "CA-E-207",
+        "CA-O-022",
+        "CA-O-023"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Resolve Project Initialization Inputs",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-052"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Revert Changes Workflow",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-130"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Root Term",
+      "occurrences": 3,
+      "atoms": [
+        "CA-E-382",
+        "CA-R-1347",
+        "CA-R-1353"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Runtime State",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-522",
+        "CA-E-523"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Runtime State Carrier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-341"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Scope",
+      "occurrences": 3,
+      "atoms": [
+        "CA-E-207",
+        "CA-O-022",
+        "CA-R-1487"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Scope Expression",
+      "occurrences": 7,
+      "atoms": [
+        "CA-E-384",
+        "CA-E-407",
+        "CA-M-121",
+        "CA-M-241",
+        "CA-R-1271",
+        "CA-R-1361",
+        "CA-R-999"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Scope Expression Evaluation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-121"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Scope Reference Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-240"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Scope Unit Carrier Binding",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-505"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Scope Unit Scope",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1014"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Scope Unit/Type",
+      "occurrences": 12,
+      "atoms": [
+        "CA-D-442",
+        "CA-E-505",
+        "CA-E-510",
+        "CA-M-291",
+        "CA-O-078",
+        "CA-R-1758",
+        "CA-R-1759",
+        "CA-R-1762",
+        "CA-R-1763",
+        "CA-R-972",
+        "CA-R-979",
+        "CA-R-982"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Scoped Operator-choice Applicability",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-125"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Screen Short Names",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-065"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Scripted Migration",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1554"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Select Priority-Governed Alternative",
+      "occurrences": 2,
+      "atoms": [
+        "CA-E-207",
+        "CA-O-023"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Select RMED Review Batch",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-105"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Select Reconciliation Sources",
+      "occurrences": 5,
+      "atoms": [
+        "CA-O-004",
+        "CA-O-010",
+        "CA-O-015",
+        "CA-O-028",
+        "CA-O-152"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Selected Operations/Carrier",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-415"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Selected Workflow Step/Agentic invocation context binding",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-426"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Session-State Envelope",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1650"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Set-valued Property",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-127"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Set-valued Property Membership Evaluation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-127"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Single Source of Truth",
+      "occurrences": 12,
+      "atoms": [
+        "CA-E-466",
+        "CA-E-622",
+        "CA-M-120",
+        "CA-R-1408",
+        "CA-R-1437",
+        "CA-R-1470",
+        "CA-R-1471",
+        "CA-R-1483",
+        "CA-R-1598",
+        "CA-R-1609",
+        "CA-R-1610",
+        "CA-R-1746"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Skill",
+      "occurrences": 2,
+      "atoms": [
+        "CA-M-277",
+        "CA-M-278"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Source Reconciliation",
+      "occurrences": 8,
+      "atoms": [
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Source Reconciliation Assessment Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-147"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Source Reconciliation Correction Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-150"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Source Reconciliation Decision Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-149"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Source Reconciliation Proposal Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-148"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Source Reconciliation Publication Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-151"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Source Reconciliation Selection Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-146"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Source Reconciliation Workflow Carrier layout",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-350"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Source Reconciliation/Step bindings",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-417"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Source verification evidence",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-421"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Spec",
+      "occurrences": 10,
+      "atoms": [
+        "CA-E-440",
+        "CA-O-017",
+        "CA-O-021",
+        "CA-O-089",
+        "CA-O-090",
+        "CA-O-124",
+        "CA-R-1340",
+        "CA-R-1549",
+        "CA-R-1556",
+        "CA-R-1559"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Spec Content Roles",
+      "occurrences": 10,
+      "atoms": [
+        "CA-E-498",
+        "CA-E-499",
+        "CA-R-1431",
+        "CA-R-1548",
+        "CA-R-1550",
+        "CA-R-1568",
+        "CA-R-1610",
+        "CA-R-1682",
+        "CA-R-1683",
+        "CA-R-659"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Status",
+      "occurrences": 5,
+      "atoms": [
+        "CA-E-490",
+        "CA-M-287",
+        "CA-O-128",
+        "CA-R-1520",
+        "CA-R-1521"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Step",
+      "occurrences": 3,
+      "atoms": [
+        "CA-M-305",
+        "CA-R-1563",
+        "CA-R-1570"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Step Run",
+      "occurrences": 5,
+      "atoms": [
+        "CA-C-426",
+        "CA-O-131",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Step Run/Invocation",
+      "occurrences": 3,
+      "atoms": [
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Step/Agentic Execution Context",
+      "occurrences": 4,
+      "atoms": [
+        "CA-C-426",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Structural Coordinate",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1932"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Structural Entity",
+      "occurrences": 22,
+      "atoms": [
+        "CA-D-451",
+        "CA-D-464",
+        "CA-D-465",
+        "CA-E-466",
+        "CA-R-1257",
+        "CA-R-1368",
+        "CA-R-1376",
+        "CA-R-1378",
+        "CA-R-1379",
+        "CA-R-1409",
+        "CA-R-1410",
+        "CA-R-1437",
+        "CA-R-1470",
+        "CA-R-1471",
+        "CA-R-1472",
+        "CA-R-1521",
+        "CA-R-1660",
+        "CA-R-1746",
+        "CA-R-1757",
+        "CA-R-834",
+        "CA-R-836"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Structural Entity Containment Relations",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-266"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Structural Entity Direct Containment",
+      "occurrences": 5,
+      "atoms": [
+        "CA-D-264",
+        "CA-R-1376",
+        "CA-R-1383",
+        "CA-R-1409",
+        "CA-R-1498"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Structural Entity Recursive Containment",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1498"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Structural Level",
+      "occurrences": 11,
+      "atoms": [
+        "CA-D-297",
+        "CA-D-299",
+        "CA-D-300",
+        "CA-R-1444",
+        "CA-R-1485",
+        "CA-R-1730",
+        "CA-R-1731",
+        "CA-R-1737",
+        "CA-R-1751",
+        "CA-R-1772",
+        "CA-R-1773"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Structural Parent Relation",
+      "occurrences": 12,
+      "atoms": [
+        "CA-R-1390",
+        "CA-R-1392",
+        "CA-R-1484",
+        "CA-R-1485",
+        "CA-R-1660",
+        "CA-R-1661",
+        "CA-R-1730",
+        "CA-R-1731",
+        "CA-R-1737",
+        "CA-R-1763",
+        "CA-R-1764",
+        "CA-R-926"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Structural Path",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1661",
+        "CA-R-1764"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Subject",
+      "occurrences": 22,
+      "atoms": [
+        "CA-D-269",
+        "CA-E-246",
+        "CA-E-383",
+        "CA-E-444",
+        "CA-M-114",
+        "CA-M-125",
+        "CA-M-228",
+        "CA-M-232",
+        "CA-R-1194",
+        "CA-R-1198",
+        "CA-R-1199",
+        "CA-R-1200",
+        "CA-R-1203",
+        "CA-R-1275",
+        "CA-R-1279",
+        "CA-R-1280",
+        "CA-R-1281",
+        "CA-R-1321",
+        "CA-R-1351",
+        "CA-R-1363",
+        "CA-R-1597",
+        "CA-R-1776"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Subject Assignment",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-125"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Subject Expression",
+      "occurrences": 12,
+      "atoms": [
+        "CA-E-383",
+        "CA-E-387",
+        "CA-E-402",
+        "CA-M-237",
+        "CA-R-1194",
+        "CA-R-1245",
+        "CA-R-1321",
+        "CA-R-1324",
+        "CA-R-1325",
+        "CA-R-1348",
+        "CA-R-1349",
+        "CA-R-1350"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Subject Expression Evaluation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-383"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Subject Expression Writing",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-228"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Subject Path",
+      "occurrences": 20,
+      "atoms": [
+        "CA-D-269",
+        "CA-E-246",
+        "CA-E-383",
+        "CA-E-444",
+        "CA-E-449",
+        "CA-M-114",
+        "CA-M-125",
+        "CA-M-228",
+        "CA-M-232",
+        "CA-R-1194",
+        "CA-R-1247",
+        "CA-R-1275",
+        "CA-R-1279",
+        "CA-R-1281",
+        "CA-R-1360",
+        "CA-R-1455",
+        "CA-R-1456",
+        "CA-R-1459",
+        "CA-R-1597",
+        "CA-R-1931"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Subject Projection Derivation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-232"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Subject Relation Kind: DEPENDS_ON",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1580"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Subtree-owned Atoms",
+      "occurrences": 4,
+      "atoms": [
+        "CA-E-460",
+        "CA-M-273",
+        "CA-O-087",
+        "CA-R-942"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Subtree-targeting Atoms",
+      "occurrences": 5,
+      "atoms": [
+        "CA-E-447",
+        "CA-E-460",
+        "CA-M-273",
+        "CA-M-288",
+        "CA-R-1449"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "TOML",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-330"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Target Set",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1554"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Targeting Atoms",
+      "occurrences": 5,
+      "atoms": [
+        "CA-E-460",
+        "CA-M-273",
+        "CA-R-1448",
+        "CA-R-1449",
+        "CA-R-1775"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Term.Name",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1324"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Terminology Projection Derivation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-114"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Terms Graph Construction Step",
+      "occurrences": 1,
+      "atoms": [
+        "CA-O-138"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Tool",
+      "occurrences": 14,
+      "atoms": [
+        "CA-D-361",
+        "CA-D-372",
+        "CA-E-496",
+        "CA-M-304",
+        "CA-O-158",
+        "CA-O-159",
+        "CA-O-162",
+        "CA-R-1432",
+        "CA-R-1452",
+        "CA-R-1509",
+        "CA-R-1511",
+        "CA-R-1526",
+        "CA-R-1528",
+        "CA-R-1724"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Tool Call",
+      "occurrences": 3,
+      "atoms": [
+        "CA-M-304",
+        "CA-R-1511",
+        "CA-R-1528"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Tool/Workflow Operations/Atom Lifecycle/Request Parameters",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-568"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Translation",
+      "occurrences": 3,
+      "atoms": [
+        "CA-E-241",
+        "CA-M-116",
+        "CA-R-1274"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Type",
+      "occurrences": 35,
+      "atoms": [
+        "CA-D-393",
+        "CA-E-386",
+        "CA-E-387",
+        "CA-E-490",
+        "CA-M-272",
+        "CA-M-307",
+        "CA-M-308",
+        "CA-M-315",
+        "CA-R-1231",
+        "CA-R-1232",
+        "CA-R-1284",
+        "CA-R-1285",
+        "CA-R-1286",
+        "CA-R-1308",
+        "CA-R-1348",
+        "CA-R-1349",
+        "CA-R-1350",
+        "CA-R-1352",
+        "CA-R-1405",
+        "CA-R-1460",
+        "CA-R-1461",
+        "CA-R-1506",
+        "CA-R-1521",
+        "CA-R-1562",
+        "CA-R-1563",
+        "CA-R-1564",
+        "CA-R-1569",
+        "CA-R-1574",
+        "CA-R-1578",
+        "CA-R-1594",
+        "CA-R-1634",
+        "CA-R-1655",
+        "CA-R-1708",
+        "CA-R-1758",
+        "CA-R-1765"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Type-Qualified Status Validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-386"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Uncertain Lineage Impact Disposition",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1036"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Unit",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-964"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Update-Required Lineage Impact Disposition",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1034"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Verification",
+      "occurrences": 6,
+      "atoms": [
+        "CA-R-1505",
+        "CA-R-1633",
+        "CA-R-1638",
+        "CA-R-1683",
+        "CA-R-1695",
+        "CA-R-1703"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Work Journal/Record",
+      "occurrences": 2,
+      "atoms": [
+        "CA-D-360",
+        "CA-D-365"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Work Sequence Number",
+      "occurrences": 3,
+      "atoms": [
+        "CA-D-381",
+        "CA-R-992",
+        "CA-R-997"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Workflow",
+      "occurrences": 3,
+      "atoms": [
+        "CA-M-305",
+        "CA-R-1563",
+        "CA-R-1570"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Workflow Run",
+      "occurrences": 5,
+      "atoms": [
+        "CA-C-426",
+        "CA-O-131",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "Workflow/Step binding ownership",
+      "occurrences": 1,
+      "atoms": [
+        "CA-C-425"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "YAML",
+      "occurrences": 1,
+      "atoms": [
+        "CA-D-330"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "applicability",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1669",
+        "CA-R-1670"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "artifact-catalog",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1664"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "artifact-model",
+      "occurrences": 12,
+      "atoms": [
+        "CA-M-113",
+        "CA-R-118",
+        "CA-R-151",
+        "CA-R-1700",
+        "CA-R-1705",
+        "CA-R-1717",
+        "CA-R-1747",
+        "CA-R-1756",
+        "CA-R-1766",
+        "CA-R-728",
+        "CA-R-829",
+        "CA-R-941"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "atom-boundary",
+      "occurrences": 39,
+      "atoms": [
+        "CA-R-1016",
+        "CA-R-1017",
+        "CA-R-1019",
+        "CA-R-1020",
+        "CA-R-1021",
+        "CA-R-1022",
+        "CA-R-1023",
+        "CA-R-1024",
+        "CA-R-1025",
+        "CA-R-1026",
+        "CA-R-1027",
+        "CA-R-1029",
+        "CA-R-1030",
+        "CA-R-1032",
+        "CA-R-1033",
+        "CA-R-1034",
+        "CA-R-1035",
+        "CA-R-1036",
+        "CA-R-1037",
+        "CA-R-1038",
+        "CA-R-1039",
+        "CA-R-1040",
+        "CA-R-117",
+        "CA-R-118",
+        "CA-R-121",
+        "CA-R-151",
+        "CA-R-1632",
+        "CA-R-1653",
+        "CA-R-1654",
+        "CA-R-1657",
+        "CA-R-1659",
+        "CA-R-1676",
+        "CA-R-807",
+        "CA-R-808",
+        "CA-R-879",
+        "CA-R-915",
+        "CA-R-934",
+        "CA-R-960",
+        "CA-R-976"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "authority",
+      "occurrences": 12,
+      "atoms": [
+        "CA-R-1656",
+        "CA-R-1658",
+        "CA-R-1681",
+        "CA-R-1682",
+        "CA-R-1683",
+        "CA-R-1689",
+        "CA-R-1710",
+        "CA-R-1713",
+        "CA-R-1744",
+        "CA-R-1756",
+        "CA-R-829",
+        "CA-R-934"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "classification",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1701"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "continuous-improvement",
+      "occurrences": 5,
+      "atoms": [
+        "CA-R-1734",
+        "CA-R-1735",
+        "CA-R-1741",
+        "CA-R-1742",
+        "CA-R-1743"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "development-flow",
+      "occurrences": 5,
+      "atoms": [
+        "CA-R-1685",
+        "CA-R-1691",
+        "CA-R-1714",
+        "CA-R-1715",
+        "CA-R-1716"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "evaluation",
+      "occurrences": 6,
+      "atoms": [
+        "CA-E-620",
+        "CA-E-623",
+        "CA-R-1647",
+        "CA-R-1679",
+        "CA-R-1684",
+        "CA-R-1687"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "extension-model",
+      "occurrences": 5,
+      "atoms": [
+        "CA-R-1733",
+        "CA-R-1752",
+        "CA-R-1753",
+        "CA-R-1754",
+        "CA-R-1755"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "external-boundary",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1627",
+        "CA-R-1648"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "framework-boundary",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1680"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "interaction",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-853"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "language",
+      "occurrences": 6,
+      "atoms": [
+        "CA-E-472",
+        "CA-M-112",
+        "CA-M-113",
+        "CA-M-294",
+        "CA-R-940",
+        "CA-R-941"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "lifecycle",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1630"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "lifecycle-traceability",
+      "occurrences": 10,
+      "atoms": [
+        "CA-R-1032",
+        "CA-R-1051",
+        "CA-R-1697",
+        "CA-R-1698",
+        "CA-R-1699",
+        "CA-R-1706",
+        "CA-R-1726",
+        "CA-R-1727",
+        "CA-R-1728",
+        "CA-R-1729"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "principles",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1696"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "project-containment graph",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-834",
+        "CA-R-836"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "provenance",
+      "occurrences": 1,
+      "atoms": [
+        "CA-M-135"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "relation validation",
+      "occurrences": 1,
+      "atoms": [
+        "CA-E-622"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "relation-model",
+      "occurrences": 41,
+      "atoms": [
+        "CA-R-1016",
+        "CA-R-1017",
+        "CA-R-1019",
+        "CA-R-1020",
+        "CA-R-1021",
+        "CA-R-1022",
+        "CA-R-1023",
+        "CA-R-1024",
+        "CA-R-1025",
+        "CA-R-1026",
+        "CA-R-1027",
+        "CA-R-1029",
+        "CA-R-1030",
+        "CA-R-1032",
+        "CA-R-1033",
+        "CA-R-1034",
+        "CA-R-1035",
+        "CA-R-1036",
+        "CA-R-1037",
+        "CA-R-1038",
+        "CA-R-1039",
+        "CA-R-1040",
+        "CA-R-117",
+        "CA-R-118",
+        "CA-R-121",
+        "CA-R-1632",
+        "CA-R-1653",
+        "CA-R-1654",
+        "CA-R-1657",
+        "CA-R-1659",
+        "CA-R-1676",
+        "CA-R-796",
+        "CA-R-807",
+        "CA-R-808",
+        "CA-R-879",
+        "CA-R-915",
+        "CA-R-916",
+        "CA-R-934",
+        "CA-R-935",
+        "CA-R-960",
+        "CA-R-976"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "requirement-topology",
+      "occurrences": 2,
+      "atoms": [
+        "CA-R-1671",
+        "CA-R-1672"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "runtime",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1650"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "scope-topology",
+      "occurrences": 23,
+      "atoms": [
+        "CA-R-1656",
+        "CA-R-1658",
+        "CA-R-1677",
+        "CA-R-1678",
+        "CA-R-1686",
+        "CA-R-1688",
+        "CA-R-1690",
+        "CA-R-1719",
+        "CA-R-1721",
+        "CA-R-1732",
+        "CA-R-1749",
+        "CA-R-1751",
+        "CA-R-1756",
+        "CA-R-1771",
+        "CA-R-1932",
+        "CA-R-837",
+        "CA-R-886",
+        "CA-R-913",
+        "CA-R-935",
+        "CA-R-960",
+        "CA-R-961",
+        "CA-R-964",
+        "CA-R-976"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "semantics",
+      "occurrences": 11,
+      "atoms": [
+        "CA-M-123",
+        "CA-R-117",
+        "CA-R-121",
+        "CA-R-1702",
+        "CA-R-1707",
+        "CA-R-1709",
+        "CA-R-1712",
+        "CA-R-1718",
+        "CA-R-1725",
+        "CA-R-1736",
+        "CA-R-964"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "settings specification",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1429"
+      ],
+      "decision": "pending"
+    },
+    {
+      "subject": "subject",
+      "occurrences": 1,
+      "atoms": [
+        "CA-R-1770"
+      ],
+      "decision": "pending"
+    }
+  ]
+}

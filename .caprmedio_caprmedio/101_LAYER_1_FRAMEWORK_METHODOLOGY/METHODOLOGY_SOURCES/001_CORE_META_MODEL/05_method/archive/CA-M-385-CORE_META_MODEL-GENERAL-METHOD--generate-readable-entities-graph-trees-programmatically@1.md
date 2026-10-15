@@ -1,0 +1,42 @@
+---
+atom_id: CA-M-385
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: General
+global_tier: 10
+status: Active
+author: Anatoly Maslennikov
+subjects:
+  governs: "Projection/Type: Entities Graph"
+  depends_on: [Entity, Relation, Atom, Projection]
+version: 1
+updated_at: "2026-10-15 18:42:08 +0400"
+relations:
+  method_for: [CA-R-1456]
+---
+# Summary
+
+Generate readable Entities Graph trees programmatically
+
+## Scope
+
+The readable Inherency and Construction views of an Entities Graph.
+
+## Claim
+
+Generate both views with deterministic code from the selected sources and their explicit typed relations. **Do not** use an LLM to choose nodes, classify edges, invent containment or arrange the output.
+
+## Details
+
+1. Read the selected source Atoms and their Versions. Retain qualified identities and relation evidence; collect every contributing Atom, including reused governing definitions, in the source list.
+2. Partition the admitted relation facts: NARROWER_THAN, IS_BORNE_BY and IS_ALLOWED_VALUE_OF for Inherency; CONTAINS and inverse-derived IS_CONTAINED_BY for Construction. Atom Subjects depends_on is not IS_BORNE_BY.
+3. Render the primary-entity hierarchy first, broader before narrower, excluding dependent entities. Record first-appearance order while retaining every shared-parent placement.
+4. In that order, render one detail section for each primary entity with dependents. Traverse bearer to dependent and property to allowed value, retaining qualifications and relation distinctions. Reuse inherited facts only where source rules admit inheritance; do not author new source facts.
+5. Render Construction separately, container before contained entity. Preserve source-declared multiplicity and distinguish kind-level allowed composition from instance facts. Inverse declarations describe the same edge, not a second edge.
+6. Use source-declared sibling order where available; otherwise sort alphabetically by display name, breaking equal-name ties by qualified identity. Use the same ordering for roots. Track the current traversal path so a cycle is reported once at that placement rather than expanded forever; shared nodes on different paths are not cycles.
+7. Serialize through CA-D-634. Report unavailable source facts without guessing. The source list and tree body depend only on the selected source data and declared rules; updated_at is the completed rebuild time.
+
+## Outcome
+
+A reader can see what kinds exist, their dependent entities and allowed values, and how entities are composed, without mixing these meanings.

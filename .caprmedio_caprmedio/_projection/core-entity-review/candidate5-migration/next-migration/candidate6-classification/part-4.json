@@ -1,0 +1,747 @@
+[
+  {
+    "index": 256,
+    "subject": "IS_BORNE_BY",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation/Type: IS_BORNE_BY",
+    "reason": "A named relation kind, not a primary root.",
+    "evidence": [
+      "Candidate #6: agreed hierarchy and typed relations"
+    ],
+    "followup": null
+  },
+  {
+    "index": 257,
+    "subject": "IS_CARRIED_BY",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation/Type: IS_CARRIED_BY",
+    "reason": "D257 defines the inverse carrier relation.",
+    "evidence": [
+      "CA-D-257",
+      "CA-D-505"
+    ],
+    "followup": "Mapping work: Keep only general carrier policies; D505's per-property carrier model needs later content alignment."
+  },
+  {
+    "index": 258,
+    "subject": "Implementation",
+    "disposition": "deferred",
+    "target": null,
+    "reason": "Implementation entity classification is explicitly deferred.",
+    "evidence": [
+      "Candidate #6 group decision 5",
+      "CA-R-1343",
+      "CA-R-1503"
+    ],
+    "followup": "Mapping work: R1343 still defines Implementation Atoms contrary to the Operator decision; do not create Object/Implementation."
+  },
+  {
+    "index": 259,
+    "subject": "Implementation Binding",
+    "disposition": "deferred",
+    "target": null,
+    "reason": "Realization coverage depends on deferred Implementation disposition.",
+    "evidence": [
+      "CA-R-1504",
+      "CA-R-1505"
+    ],
+    "followup": "Mapping work: R1504 says coverage is not a new Carrier or registry; retain that distinction for later review."
+  },
+  {
+    "index": 260,
+    "subject": "Implementation Evaluation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O020 defines one concrete Action. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-020"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 261,
+    "subject": "Implementation Evaluation Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O094 defines a Step invoking O020. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-094"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 262,
+    "subject": "Implementation Failure Diagnosis",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O089 defines the concrete diagnostic Action used by O021. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-089",
+      "CA-O-021"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 263,
+    "subject": "Implementation Failure Diagnosis Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O095 defines the Step invoking O089. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-095"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 264,
+    "subject": "Implementation Folder",
+    "disposition": "deferred",
+    "target": null,
+    "reason": "Do not settle the storage of deferred Implementation by adding a new entity.",
+    "evidence": [
+      "Candidate #6 group decision 5"
+    ],
+    "followup": "Mapping work: Later distinguish Scope Unit delivery Directory Carrier from implementation itself."
+  },
+  {
+    "index": 265,
+    "subject": "Implementation Of Relation",
+    "disposition": "deferred",
+    "target": null,
+    "reason": "Implementation-related relation disposition follows deferred Implementation.",
+    "evidence": [
+      "Candidate #6 group decision 5"
+    ],
+    "followup": null
+  },
+  {
+    "index": 266,
+    "subject": "Implementation Preparation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O017 defines one concrete preparation Action. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-017"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 267,
+    "subject": "Implementation Preparation Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O091 binds O017 as a Step. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-091"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 268,
+    "subject": "Implementation Relation",
+    "disposition": "deferred",
+    "target": null,
+    "reason": "Implementation-related relation disposition is deferred.",
+    "evidence": [
+      "Candidate #6 group decision 5"
+    ],
+    "followup": null
+  },
+  {
+    "index": 269,
+    "subject": "Implementation Relation Pair",
+    "disposition": "deferred",
+    "target": null,
+    "reason": "R1027 registers realization relations whose endpoints depend on deferred Implementation.",
+    "evidence": [
+      "CA-R-1027",
+      "Candidate #6 group decision 5"
+    ],
+    "followup": "Mapping work: Do not turn the inverse-pair label into another Object."
+  },
+  {
+    "index": 270,
+    "subject": "Implementation Repair",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O021 defines a concrete repair Action. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-021"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 271,
+    "subject": "Implementation Repair Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O099 is the Step definition invoking the repair Action. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-099"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 272,
+    "subject": "Implementation Retry Control",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The same name covers O024's Action and RMED retry policy; one broad mapping loses their distinct targets.",
+    "evidence": [
+      "CA-O-024",
+      "CA-O-021",
+      "Candidate #6 group decision 2"
+    ],
+    "followup": "Mapping work: Map O definition references to the named Action; inspect R1488/E441/E473 uses for the actual retry property or governed Workflow."
+  },
+  {
+    "index": 273,
+    "subject": "Implementation Retry Control Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O096 is a concrete Step definition, not a new entity kind. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-096"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 274,
+    "subject": "Implementation Retry Limit",
+    "disposition": "deferred",
+    "target": null,
+    "reason": "Keep implementation-specific policy separate while Implementation disposition is deferred.",
+    "evidence": [
+      "Candidate #6 group decision 5",
+      "CA-D-276"
+    ],
+    "followup": "Mapping work: Existing Plan field implementation_retry_limit is evidenced; later decide Plan/default Settings ownership without inventing an Implementation entity."
+  },
+  {
+    "index": 275,
+    "subject": "Implementation Workflow",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The name identifies O016 but also serves as a broad RMED target.",
+    "evidence": [
+      "CA-O-024",
+      "CA-O-102",
+      "Candidate #6 group decisions 2 and 5"
+    ],
+    "followup": "Mapping work: Preserve O016 as a concrete Workflow; split RMED references to their governed thing rather than blanket replacing every use by generic Workflow."
+  },
+  {
+    "index": 276,
+    "subject": "Implementation Workflow/Carrier",
+    "disposition": "deferred",
+    "target": null,
+    "reason": "The source Concern and implementation-specific carrier need later disposition.",
+    "evidence": [
+      "Candidate #6 group decision 5"
+    ],
+    "followup": "Mapping work: Inspect C412's obsolete carrier claim before replacing it with generic Carrier."
+  },
+  {
+    "index": 277,
+    "subject": "Installed Extensions Catalog Entry",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1220 describes concrete installed-extension provenance, but its governing configuration owner is not settled by the Core/config placement decision.",
+    "evidence": [
+      "CA-R-1220"
+    ],
+    "followup": "Operator question: Project Configuration placement is decided. Should the entry be a property of installed-extension Settings or a distinct configuration object? Do not invent a new root."
+  },
+  {
+    "index": 278,
+    "subject": "Journal Carrier Root",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/History/Journal",
+    "reason": "D549 governs where Journal carriers are stored; D role carries the storage meaning.",
+    "evidence": [
+      "CA-D-549",
+      "Candidate #6 group decision 2"
+    ],
+    "followup": "Mapping work: Preserve the project-control-Journals-only applicability boundary and runtime-log exception."
+  },
+  {
+    "index": 279,
+    "subject": "Journal Event query",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O162 is a concrete query Action, not a query entity kind. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-162"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 280,
+    "subject": "Journal/Revision",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The Revision root is agreed, but R1372 describes a whole Journal snapshot timestamp rather than an event record.",
+    "evidence": [
+      "CA-R-1372",
+      "Candidate #6 approved Revision mapping"
+    ],
+    "followup": "Operator question: Should this become History/Revision scoped to Journal snapshots, or Journal.Updated At? Keep records distinct from snapshots."
+  },
+  {
+    "index": 281,
+    "subject": "Label",
+    "disposition": "terms",
+    "target": "Label",
+    "reason": "The shared meaning of Label is cross-owner terminology.",
+    "evidence": [
+      "Candidate #6 group decision 3"
+    ],
+    "followup": "Mapping work: Owner-qualified Label properties remain entities; derive the Term meaning from their uses."
+  },
+  {
+    "index": 282,
+    "subject": "Legacy Evidence and Provisional RMED Preparation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O124 defines a concrete preparation Action. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-124"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 283,
+    "subject": "Lifecycle Tool authority/Scope Unit",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "A legacy compound topic in C419 does not identify one unambiguous governed entity.",
+    "evidence": [
+      "Candidate #6 group decision 4"
+    ],
+    "followup": "Mapping work: Read C419 to distinguish the Tool's owning Scope Unit from its allowed authority; remove unsupported topic linkage rather than guess."
+  },
+  {
+    "index": 284,
+    "subject": "Lineage Impact Analysis",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The term covers an Analysis Atom/report and the assessment performed by O058.",
+    "evidence": [
+      "CA-O-058",
+      "CA-R-1037"
+    ],
+    "followup": "Mapping work: Keep the report under Analysis Atom applicability; distinguish the actual assessment Action. Review R1432/R1497/R1633 before one shared target."
+  },
+  {
+    "index": 285,
+    "subject": "Lineage Impact Analysis Content",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Analysis.Substance",
+    "reason": "R1037 governs the content of a Lineage Impact Analysis Atom.",
+    "evidence": [
+      "CA-R-1037",
+      "Candidate #6 group decision 2"
+    ],
+    "followup": "Mapping work: Keep Lineage Impact Analysis as the exact applicability condition, not a newly invented Analysis subtype."
+  },
+  {
+    "index": 286,
+    "subject": "Local Order",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Scope Unit.Local Order",
+    "reason": "R1760/R1293 and the D rules tie Local Order to ordered sibling Scope Units.",
+    "evidence": [
+      "CA-R-1760",
+      "CA-R-1293",
+      "CA-D-297",
+      "CA-D-298"
+    ],
+    "followup": "Mapping work: Retain the Ordered-Scope-Unit applicability condition; do not require a value for Unordered units."
+  },
+  {
+    "index": 287,
+    "subject": "Local Tier",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Local Tier",
+    "reason": "The references in O021 concern Atom authoring tiers, not a new root.",
+    "evidence": [
+      "CA-O-021",
+      "Candidate #6 Local Tier distinction"
+    ],
+    "followup": null
+  },
+  {
+    "index": 288,
+    "subject": "Markdown",
+    "disposition": "terms",
+    "target": "Markdown",
+    "reason": "A format/language meaning, not a new primary entity.",
+    "evidence": [
+      "CA-D-330",
+      "Candidate #6 group decision 3"
+    ],
+    "followup": null
+  },
+  {
+    "index": 289,
+    "subject": "Markdown Atom Carrier",
+    "disposition": "mapped",
+    "target": "Entity/Carrier/File Carrier",
+    "reason": "The actual file representation is a File Carrier; Markdown and carried Atom are applicability constraints.",
+    "evidence": [
+      "CA-R-1598",
+      "CA-D-276"
+    ],
+    "followup": "Mapping work: Preserve Markdown-Atom-carrier selection in scope; do not broaden all file rules or invent a new type."
+  },
+  {
+    "index": 290,
+    "subject": "Markdown Atom Carrier Validation",
+    "disposition": "mapped",
+    "target": "Entity/Carrier/File Carrier",
+    "reason": "E governs the carrier checked, not an invented Validation procedure entity.",
+    "evidence": [
+      "Candidate #6 group decision 2"
+    ],
+    "followup": "Mapping work: E457 must keep its Markdown Atom Carrier applicability restriction."
+  },
+  {
+    "index": 291,
+    "subject": "Markdown Atom Carrier.Main Content",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Main Content includes Summary and multiple body properties; it cannot safely collapse to Substance.",
+    "evidence": [
+      "CA-R-1465",
+      "CA-D-277",
+      "CA-D-276"
+    ],
+    "followup": "Mapping work: Map uses per source to the actual body property, or retain a carrier-content property if the rule truly governs the whole body."
+  },
+  {
+    "index": 292,
+    "subject": "Markdown Atom Carrier.Main Content.CCE Operator",
+    "disposition": "terms",
+    "target": "CCE Operator",
+    "reason": "The shared operator meaning remains a distinct Term; D specifies its rendering.",
+    "evidence": [
+      "CA-D-280",
+      "Candidate #6 group decisions 2 and 3"
+    ],
+    "followup": "Mapping work: Preserve Markdown-body applicability and separate format enforcement from the operator's meaning; inspect E512/M229 before automated replacement."
+  },
+  {
+    "index": 293,
+    "subject": "Markdown Atom Carrier.Main Content.Paragraph",
+    "disposition": "terms",
+    "target": "Paragraph",
+    "reason": "D279 governs paragraph serialization; Paragraph is a structural text term, not an independently identified entity.",
+    "evidence": [
+      "CA-D-279",
+      "Candidate #6 group decision 3"
+    ],
+    "followup": "Mapping work: Retain Markdown-body applicability and unwrapped-line policy."
+  },
+  {
+    "index": 294,
+    "subject": "Markdown Atom Carrier.YAML Frontmatter",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The name mixes a carrier section with serialization rules for several different Atom properties.",
+    "evidence": [
+      "CA-D-276",
+      "CA-D-267"
+    ],
+    "followup": "Mapping work: Map property-specific uses to their Atom properties; decide one carrier-section target for genuinely general frontmatter rules rather than inventing a property hierarchy."
+  },
+  {
+    "index": 295,
+    "subject": "Markdown Atom Carrier.YAML Frontmatter.Scalar",
+    "disposition": "terms",
+    "target": "YAML Scalar",
+    "reason": "D277 constrains a YAML syntax form, not another owned entity.",
+    "evidence": [
+      "CA-D-277",
+      "Candidate #6 group decision 3"
+    ],
+    "followup": "Mapping work: Preserve frontmatter and controlled-string applicability; do not merge scalar syntax with Atom property values."
+  },
+  {
+    "index": 296,
+    "subject": "Materialized Representation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "D309 covers regenerated carriers and Applicable Methodology projections; carrier and derived artifact are not interchangeable.",
+    "evidence": [
+      "CA-D-309"
+    ],
+    "followup": "Mapping work: Split per-source meaning between Projection and Carrier; preserve exact regeneration/source-binding applicability."
+  },
+  {
+    "index": 297,
+    "subject": "Method CCE Role Profile",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Method.Substance",
+    "reason": "M311 governs how Method content is written; a separate profile entity is unnecessary.",
+    "evidence": [
+      "CA-M-311",
+      "Candidate #6 group decision 2"
+    ],
+    "followup": null
+  },
+  {
+    "index": 298,
+    "subject": "Method For Relation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation/Type: method_for",
+    "reason": "A named typed relation, not a separate root.",
+    "evidence": [
+      "CA-R-1017"
+    ],
+    "followup": null
+  },
+  {
+    "index": 299,
+    "subject": "Method Learning Workflow",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O102 defines one concrete Workflow. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-102"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 300,
+    "subject": "Method Lesson Drafting",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O100 defines one concrete Action. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-100"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 301,
+    "subject": "Method Lesson Drafting Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O101 defines the Step invoking O100. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-101"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 302,
+    "subject": "Methodology",
+    "disposition": "terms",
+    "target": "Methodology",
+    "reason": "R1519 uses the general meaning of governing methodology rather than identifying a new entity.",
+    "evidence": [
+      "CA-R-1519",
+      "Candidate #6 group decision 3"
+    ],
+    "followup": "Mapping work: Where a source means the actual Applicable Methodology selection, map that source specifically; this Term is not authority of its own."
+  },
+  {
+    "index": 303,
+    "subject": "Methodology Source",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The label covers Core, Extensions and Project Configuration but does not settle whether a source is a configuration object or a selected collection of Atoms.",
+    "evidence": [
+      "CA-R-1217",
+      "Candidate #6 Core/config decision"
+    ],
+    "followup": "Operator question: Define source representation without reviving Artifact or inventing a new root; concrete CAPRMEDIO source mechanisms belong in Project Configuration."
+  },
+  {
+    "index": 304,
+    "subject": "Methodology Source File Carrier",
+    "disposition": "mapped",
+    "target": "Entity/Carrier/File Carrier",
+    "reason": "D305 refers to the actual original file carrying a selected methodology Atom.",
+    "evidence": [
+      "CA-D-305"
+    ],
+    "followup": "Mapping work: Preserve original-source carrier selection and one-way relative provenance; Project Configuration owns the project-specific rule."
+  },
+  {
+    "index": 305,
+    "subject": "Methodology Source.Expansion Boundary",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The boundary owner depends on the unsettled Methodology Source representation.",
+    "evidence": [
+      "CA-R-1217",
+      "Candidate #6 Core/config decision"
+    ],
+    "followup": "Operator question: Determine whether the property belongs to Core Meta-model configuration or a source collection; do not invent a Methodology Source entity merely to retain the string."
+  },
+  {
+    "index": 306,
+    "subject": "Methodology Source.Expansion Mapping",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Source-expansion mapping is a project-specific contract, but its source/target owner and representation require inspection.",
+    "evidence": [
+      "Candidate #6 Core/config decision"
+    ],
+    "followup": "Mapping work: Inspect E249/M298/O054 and distinguish a mapping result from the admission Action; no blanket new entity."
+  },
+  {
+    "index": 307,
+    "subject": "Migrate Atom CCE Representation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O053 defines the named migration Action. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-053"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 308,
+    "subject": "NARROWER_THAN",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation/Type: NARROWER_THAN",
+    "reason": "A named relation kind in the agreed hierarchy.",
+    "evidence": [
+      "Candidate #6 agreed relation model"
+    ],
+    "followup": null
+  },
+  {
+    "index": 309,
+    "subject": "Navigation Projection Derivation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "M231 governs both Atom Summary derivation and requested Projections, not a single derivation entity.",
+    "evidence": [
+      "CA-M-231",
+      "Candidate #6 group decision 2"
+    ],
+    "followup": "Mapping work: Split governed targets into Atom.Summary and Projection or retain an explicitly bounded compound target; do not force both to one thing."
+  },
+  {
+    "index": 310,
+    "subject": "Navigational Order Number",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Scope Unit.Navigational Order Number",
+    "reason": "R978 defines the navigation label of one Scope Unit.",
+    "evidence": [
+      "CA-R-978",
+      "CA-R-1485",
+      "CA-D-297"
+    ],
+    "followup": "Mapping work: Keep navigation separate from Local Order; numbers do not establish authority."
+  },
+  {
+    "index": 311,
+    "subject": "New Archived Revision Markdown Carrier Binding",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/History/Revision",
+    "reason": "D565 governs the storage of newly archived Atom revisions, not a new binding entity.",
+    "evidence": [
+      "CA-D-565",
+      "Candidate #6 group decision 2"
+    ],
+    "followup": "Mapping work: Preserve newly archived Atom revision applicability and carrier exceptions; old basename/content rules may need separate alignment."
+  },
+  {
+    "index": 312,
+    "subject": "Non-ephemeral Entity",
+    "disposition": "mapped",
+    "target": "Entity/Continuant",
+    "reason": "The approved model groups non-ephemeral objects/history/projections under Continuant.",
+    "evidence": [
+      "CA-D-506",
+      "Candidate #6 agreed hierarchy"
+    ],
+    "followup": "Mapping work: D506's blanket per-entity carrier binding must be reviewed against general D policies; mapping does not approve its old property syntax."
+  },
+  {
+    "index": 313,
+    "subject": "Nonnegative Integer Literal",
+    "disposition": "terms",
+    "target": "Nonnegative Integer Literal",
+    "reason": "A numeric syntax term used in cardinality prose.",
+    "evidence": [
+      "CA-M-235",
+      "Candidate #6 group decision 3"
+    ],
+    "followup": null
+  },
+  {
+    "index": 314,
+    "subject": "Normative Atom Prose Authoring",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Substance",
+    "reason": "M233 governs wording of normative content rather than an authoring procedure entity.",
+    "evidence": [
+      "CA-M-233",
+      "Candidate #6 group decision 2"
+    ],
+    "followup": "Mapping work: Preserve normative CCE-content applicability."
+  },
+  {
+    "index": 315,
+    "subject": "Normative Authority Relation Pair",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R879 governs direct child_of and inverse parent_of together; a pair label is not another relation instance.",
+    "evidence": [
+      "CA-R-879"
+    ],
+    "followup": "Mapping work: Represent both typed relations or direct child_of with inverse semantics in scope/content; choose per-source expression without dropping the inverse."
+  },
+  {
+    "index": 316,
+    "subject": "Obsolete Project Name",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Project.Settings.Obsolete Names",
+    "reason": "D392 identifies project.obsolete_names as the prior-name collection owned by Project Settings.",
+    "evidence": [
+      "CA-D-392"
+    ],
+    "followup": "Mapping work: Preserve the collection of prior names; do not confuse it with the current Project.Name."
+  },
+  {
+    "index": 317,
+    "subject": "Obtain Source Correction Decision",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O007 defines a named decision-obtaining Action. Known generic kind: Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action; the source Atom ID identifies the concrete instance, which the generic target alone would erase.",
+    "evidence": [
+      "CA-O-007"
+    ],
+    "followup": "Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed."
+  },
+  {
+    "index": 318,
+    "subject": "Operations Type-specific CCE Profiles",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Operations.Substance",
+    "reason": "M314 governs authoring Operations content, not independent profile entities.",
+    "evidence": [
+      "CA-M-314",
+      "Candidate #6 group decision 2"
+    ],
+    "followup": "Mapping work: The old Actor-as-Operations-Type clause conflicts with the agreed Actor branch and needs later content correction."
+  },
+  {
+    "index": 319,
+    "subject": "Owned Atoms",
+    "disposition": "mapped",
+    "target": "Owned Atoms",
+    "reason": "R1447 explicitly defines the named Selection by the Atom's owning Scope Unit.",
+    "evidence": [
+      "CA-R-1447",
+      "CA-R-942",
+      "Operator-approved named Selections"
+    ],
+    "followup": "Mapping work: Classify as Selection in the graph, preserving the distinct selection identity and ownership predicate; do not invent a narrower Object kind."
+  }
+]

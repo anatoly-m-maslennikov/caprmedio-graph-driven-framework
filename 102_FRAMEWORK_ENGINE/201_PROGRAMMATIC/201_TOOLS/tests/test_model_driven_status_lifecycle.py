@@ -176,6 +176,8 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             folder /= status.casefold()
         atom_id = None if draft else f"CA-{letter}-{number}"
         filename = f"CA-{letter}--created-{number}.md" if draft else f"{atom_id}--created-{number}.md"
+        if status == "Archived":
+            filename = filename.removesuffix(".md") + "@1.md"
         atom_type = {"Concern": "Problem", "Analysis": "Analysis Report", "Plan": "Plan",
                      "Evaluation": "QA Case", "Operations": "Action"}.get(role)
         type_value = f"type: {atom_type}\n" if atom_type else ""
@@ -280,6 +282,32 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
                         self.assertEqual(f"CA-{letter}-{number}", atom.atom_id)
         self.assertFalse(journal.exists(), "Create must not admit itself through a Journal directory")
         self.assertFalse(history.exists(), "Draft creation must not fabricate retained Draft history")
+
+    def test_archived_create_requires_its_initial_revision_suffix(self) -> None:
+        carrier = self.create_carrier("Requirement", "Archived", number=9050)
+        self.assertTrue(carrier["path"].endswith("@1.md"))
+        for invalid_path in (carrier["path"].replace("@1.md", ".md"),
+                             carrier["path"].replace("@1.md", "@2.md"),
+                             carrier["path"].replace("@1.md", "@1@1.md")):
+            with self.subTest(path=invalid_path):
+                before = self.snapshot()
+                with self.assertRaisesRegex(LifecycleError, "filename-invalid"):
+                    create_atom_action(self.root, {"carrier": {**carrier, "path": invalid_path}},
+                                       execute=True, authorized=True)
+                self.assertEqual(before, self.snapshot())
+        before = self.snapshot()
+        self.assertEqual("preview", create_atom_action(self.root, {"carrier": carrier})["outcome"])
+        self.assertEqual(before, self.snapshot())
+        created = create_atom_action(self.root, {"carrier": carrier}, execute=True, authorized=True)
+        self.assertEqual("applied", created["outcome"])
+        self.assertEqual("CA-R-9050", created["observed"]["atom_id"])
+        self.assertEqual(1, created["observed"]["version"])
+        self.assertEqual(carrier["path"], created["observed"]["path"])
+        archived = self.root / created["observed"]["path"]
+        active = self.execute(self.request(archived, "Active"))
+        rearchived = self.execute(self.request(self.root / active["observed"]["path"], "Archived"))
+        self.assertEqual(3, rearchived["observed"]["version"])
+        self.assertTrue(rearchived["observed"]["path"].endswith("@3.md"))
 
     def test_manual_draft_promotes_without_retained_history_or_journal(self) -> None:
         """An operator-written Draft is a valid current carrier without retrospective provenance."""

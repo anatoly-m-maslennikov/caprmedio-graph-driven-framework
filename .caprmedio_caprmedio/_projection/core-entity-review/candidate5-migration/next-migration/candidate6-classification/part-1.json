@@ -1,0 +1,748 @@
+[
+  {
+    "index": 64,
+    "subject": "Atom Carrier Binding",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom",
+    "reason": "The referenced bearer is the represented Atom; its storage is governed by Delivery without a separate binding entity.",
+    "evidence": [
+      "CA-D-505",
+      "Approved general D policies instead of per-property carrier relations"
+    ],
+    "followup": "Mapping work: retain the represented Atom and general carrier rule; retire only the redundant binding-property model during content alignment."
+  },
+  {
+    "index": 65,
+    "subject": "Atom Carrier Replacement",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom",
+    "reason": "Delivery governs the Atom being replaced or archived, not a replacement procedure entity.",
+    "evidence": [
+      "CA-D-303",
+      "Approved RMED governs the thing"
+    ],
+    "followup": "Mapping work: retain whole-carrier transition applicability in Substance Scope."
+  },
+  {
+    "index": 66,
+    "subject": "Atom Carrier Validation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Both occurrences concern the named Workflow CA-O-080, not generic validation or all Carriers.",
+    "evidence": [
+      "CA-E-513",
+      "CA-O-080"
+    ],
+    "followup": "Mapping work: target Workflow kind plus the CA-O-080 instance; relocate the concrete Workflow and its check to Project Configuration."
+  },
+  {
+    "index": 67,
+    "subject": "Atom Carrier.Filename.Local Tier",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Local Tier",
+    "reason": "Delivery describes serialization of the Atom's Local Tier.",
+    "evidence": [
+      "CA-D-285",
+      "Approved D governs stored property"
+    ],
+    "followup": "Mapping work: CA-D-484 shares this Subject; retain its filename applicability and check compatibility before applying."
+  },
+  {
+    "index": 68,
+    "subject": "Atom Carrier.Filename.Owning Scope Unit",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Owning Scope Unit",
+    "reason": "Delivery serializes the Atom's owning Scope Unit reference.",
+    "evidence": [
+      "CA-D-291"
+    ],
+    "followup": null
+  },
+  {
+    "index": 69,
+    "subject": "Atom Carrier.Filename.Scope Unit Token",
+    "disposition": "mapped",
+    "target": "Entity/Carrier/File Carrier.Filename",
+    "reason": "Rule governs encoding Scope Unit references in filenames; token is not another entity.",
+    "evidence": [
+      "CA-D-302"
+    ],
+    "followup": "Mapping work: keep the Project Configuration choice of token in the rule's applicability; do not invent a Token entity."
+  },
+  {
+    "index": 70,
+    "subject": "Atom Carrier.Filename.Summary Slug",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Summary",
+    "reason": "Delivery encodes the Atom Summary in its filename.",
+    "evidence": [
+      "CA-D-282"
+    ],
+    "followup": null
+  },
+  {
+    "index": 71,
+    "subject": "Atom Carrier.Filename.Token Case",
+    "disposition": "mapped",
+    "target": "Entity/Carrier/File Carrier.Filename",
+    "reason": "Casing is a filename serialization constraint, not a primary entity.",
+    "evidence": [
+      "CA-D-284"
+    ],
+    "followup": null
+  },
+  {
+    "index": 72,
+    "subject": "Atom Change Classification",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The name covers Atom-change policy and a concrete assessment Action; one global target would mix them.",
+    "evidence": [
+      "CA-R-1432",
+      "CA-R-1633"
+    ],
+    "followup": "Mapping work: map RMED to the governed Atom/change meaning; keep CA-O-067 as a named Action instance in Project Configuration."
+  },
+  {
+    "index": 73,
+    "subject": "Atom Claim Authoring",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Substance",
+    "reason": "Method describes authoring the primary contribution; Claim is the RMED label for Substance.",
+    "evidence": [
+      "CA-M-111",
+      "Approved RMED governs the thing"
+    ],
+    "followup": "Mapping work: Summary and applicability obligations remain in content; this is not content rewriting."
+  },
+  {
+    "index": 74,
+    "subject": "Atom Claim Boundary Authoring",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Substance",
+    "reason": "Method defines the independently replaceable contribution boundary.",
+    "evidence": [
+      "CA-M-115",
+      "Approved Claim maps to Substance"
+    ],
+    "followup": null
+  },
+  {
+    "index": 75,
+    "subject": "Atom Claim Canonical Signature",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Projection/Type: Canonical Signature",
+    "reason": "Delivery identifies an external non-authoritative Canonical Signature Projection.",
+    "evidence": [
+      "CA-D-346",
+      "Candidate #5 Canonical Signature Projection kind"
+    ],
+    "followup": "Mapping work: inspect R1360/M240/E405 for signature-value versus full-projection applicability; keep project-specific CCE rules in Project Configuration."
+  },
+  {
+    "index": 76,
+    "subject": "Atom Claim Projection",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Method derives Summary and Translations; existing Summary is explicitly not an independent Projection.",
+    "evidence": [
+      "CA-M-116"
+    ],
+    "followup": "Mapping work: address the governed Summary and Translation outputs separately; do not map all of this rule to Projection."
+  },
+  {
+    "index": 77,
+    "subject": "Atom Collection",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Ad Hoc denotes grouping without a planning boundary, while another source covers Plan and Workflow carrier groupings.",
+    "evidence": [
+      "CA-R-1381",
+      "CA-R-1567"
+    ],
+    "followup": "Mapping work: classify each use as named Selection, Directory Carrier, or Container Atom; remove the obsolete umbrella where no valid remap remains."
+  },
+  {
+    "index": 78,
+    "subject": "Atom Collection/Local Tier",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The source combines obsolete collection tiers with valid Plan and Workflow Atom tier constraints.",
+    "evidence": [
+      "CA-R-1567",
+      "Approved old partition removal"
+    ],
+    "followup": "Mapping work: map valid Plan/Workflow uses to their Atom Local Tier; remove only independently tiered non-Atom collection uses that cannot be remapped."
+  },
+  {
+    "index": 79,
+    "subject": "Atom Collection/Type",
+    "disposition": "remove",
+    "target": null,
+    "reason": "The old collection-type registry is not needed in the agreed model.",
+    "evidence": [
+      "CA-R-1546",
+      "Approved old partition removal"
+    ],
+    "followup": "Mapping work: retain Plan Labels and any valid carrier/selection rules; do not invent a replacement type registry."
+  },
+  {
+    "index": 80,
+    "subject": "Atom Collection/Type: Ad Hoc",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Ad Hoc names grouping without a planning boundary, which may preserve a valid Selection or Carrier use despite the obsolete collection classification.",
+    "evidence": [
+      "CA-R-1381",
+      "CA-R-1546",
+      "Approved old partition removal"
+    ],
+    "followup": "Mapping work: classify grouping occurrences as Selection or Directory Carrier where evidenced; remove only the obsolete classification with no valid remap."
+  },
+  {
+    "index": 81,
+    "subject": "Atom Content Authoring",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "This is the named Action CA-O-103, not a new entity kind.",
+    "evidence": [
+      "CA-O-103"
+    ],
+    "followup": "Mapping work: represent the CA-O-103 Action instance and move its concrete definition to Project Configuration."
+  },
+  {
+    "index": 82,
+    "subject": "Atom Direct Relation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation",
+    "reason": "Direct typed semantic links are Relations, not a separate Atom relation root.",
+    "evidence": [
+      "CA-D-268",
+      "CA-M-239",
+      "Candidate #5 Relation root"
+    ],
+    "followup": "Mapping work: preserve endpoint restrictions and relation kind; do not turn dependency order into a new Relation kind."
+  },
+  {
+    "index": 83,
+    "subject": "Atom History",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/History/Revision",
+    "reason": "Existing rule refers to retained Atom predecessor states rather than a separate Atom History entity.",
+    "evidence": [
+      "CA-D-570",
+      "Approved Atom/Revision mapping"
+    ],
+    "followup": "Mapping work: any event records remain Journal; do not fold Journal records into Revision."
+  },
+  {
+    "index": 84,
+    "subject": "Atom Property Default",
+    "disposition": "terms",
+    "target": "Default",
+    "reason": "Default versus explicit override is shared meaning across properties, not an ownerless property entity.",
+    "evidence": [
+      "CA-D-485",
+      "Approved cross-owner meanings belong in Terms"
+    ],
+    "followup": "Mapping work: retain particular governed properties where available; derive term meaning from usage."
+  },
+  {
+    "index": 85,
+    "subject": "Atom Relation Owner",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation.Source Reference",
+    "reason": "The owning Atom is the source endpoint carrying the relation's declared direction.",
+    "evidence": [
+      "CA-D-268",
+      "Candidate #5 Relation.Source Reference"
+    ],
+    "followup": null
+  },
+  {
+    "index": 86,
+    "subject": "Atom Scope",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Occurrences mix ownership, target and applicability; approved three-scope model forbids one blanket remap.",
+    "evidence": [
+      "CA-D-291",
+      "CA-R-1294",
+      "CA-R-1287",
+      "Approved three Atom-qualified scope names"
+    ],
+    "followup": "Mapping work: assign each occurrence to Atom.Owning Scope Unit, Atom.Target Scope Unit, or Atom.Substance Scope from the source role."
+  },
+  {
+    "index": 87,
+    "subject": "Atom State Identifier",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/History/Revision.Identity",
+    "reason": "The rule identifies an Atom state with Atom ID plus Version rather than a new state entity.",
+    "evidence": [
+      "CA-D-446",
+      "CA-D-570",
+      "Candidate #5 Revision.Identity"
+    ],
+    "followup": "Mapping work: preserve the tuple semantics; do not allocate a separate persistent Revision ID."
+  },
+  {
+    "index": 88,
+    "subject": "Atom Tier Validation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Evaluation checks both Local Tier and Global Tier; one replacement property would drop half its scope.",
+    "evidence": [
+      "CA-E-456"
+    ],
+    "followup": "Mapping work: use both Atom.Local Tier and Atom.Global Tier as governed properties, without a Validation entity."
+  },
+  {
+    "index": 89,
+    "subject": "Atom Tier Validation.Concrete Cases",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Evaluation fixtures cover several tier, scope and source rules rather than a dependent entity called Concrete Cases.",
+    "evidence": [
+      "CA-E-447"
+    ],
+    "followup": "Mapping work: map to each actual governed property/selection; move CAPRMEDIO-specific fixtures to Project Configuration."
+  },
+  {
+    "index": 90,
+    "subject": "Atom lifecycle conformance",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom",
+    "reason": "Concern is about Atom updates and archival contracts, not a separate lifecycle-conformance entity.",
+    "evidence": [
+      "CA-C-418"
+    ],
+    "followup": "Mapping work: preserve the historical Concern and its resolution; do not rewrite history as current policy."
+  },
+  {
+    "index": 91,
+    "subject": "Atom lifecycle/Assessment scope",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concern addresses the concrete CA-O-067 assessment and per-target invocation boundary.",
+    "evidence": [
+      "CA-C-423"
+    ],
+    "followup": "Mapping work: identify its named Action/Workflow instance references; preserve this resolved historical Concern without introducing lifecycle entities."
+  },
+  {
+    "index": 92,
+    "subject": "Atom selection",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Selection",
+    "reason": "Methods and evaluations concern ownership/targeting selection of Atoms.",
+    "evidence": [
+      "CA-E-460",
+      "CA-M-273"
+    ],
+    "followup": "Mapping work: retain Owned Atoms, Targeting Atoms and recursive variants as distinct named Selections."
+  },
+  {
+    "index": 93,
+    "subject": "Atom.Substance",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Substance",
+    "reason": "Expand the already approved Substance property to the full hierarchy.",
+    "evidence": [
+      "Approved Claim/Substance mapping",
+      "Candidate #5 full paths"
+    ],
+    "followup": "Mapping work: retain CA-R-1563 content conflict for content migration."
+  },
+  {
+    "index": 94,
+    "subject": "Atom/Carrier",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom",
+    "reason": "Delivery/carrier concerns are about the Atom; separate carrier relation properties are not required.",
+    "evidence": [
+      "Approved general D policies instead of per-property carrier relations"
+    ],
+    "followup": "Mapping work: R1586/R1590 carrier-bundle references need precise scope; use actual File/Directory Carrier Subjects where the rule governs the Carrier rather than the Atom."
+  },
+  {
+    "index": 95,
+    "subject": "Atom/Claim",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Substance",
+    "reason": "Claim is a role-specific label of Atom Substance.",
+    "evidence": [
+      "Approved Claim maps to Atom.Substance"
+    ],
+    "followup": null
+  },
+  {
+    "index": 96,
+    "subject": "Atom/Content Role",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role",
+    "reason": "Classification path is explicitly approved instead of Atom.Content Role.",
+    "evidence": [
+      "Approved Content Role classification notation"
+    ],
+    "followup": null
+  },
+  {
+    "index": 97,
+    "subject": "Atom/Content Role: Analysis/Type",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Analysis/Type",
+    "reason": "Expand the existing role-qualified type classification to its full path.",
+    "evidence": [
+      "Approved role/type classification notation"
+    ],
+    "followup": null
+  },
+  {
+    "index": 98,
+    "subject": "Atom/Content Role: Concern/Type",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Concern/Type",
+    "reason": "Expand the existing role-qualified type classification to its full path.",
+    "evidence": [
+      "Approved role/type classification notation"
+    ],
+    "followup": null
+  },
+  {
+    "index": 99,
+    "subject": "Atom/Content Role: Evaluation/Type",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Evaluation/Type",
+    "reason": "Expand the existing role-qualified type classification to its full path.",
+    "evidence": [
+      "Approved role/type classification notation"
+    ],
+    "followup": null
+  },
+  {
+    "index": 100,
+    "subject": "Atom/Content Role: Implementation",
+    "disposition": "deferred",
+    "target": null,
+    "reason": "Implementation has no placement for now and is not an Atom.",
+    "evidence": [
+      "Approved Implementation deferral"
+    ],
+    "followup": "No Subject migration or deletion of implementation content on this basis."
+  },
+  {
+    "index": 101,
+    "subject": "Atom/Content Role: Operations",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Operations",
+    "reason": "Expand the approved Operations classification path.",
+    "evidence": [
+      "Approved Operations kind",
+      "Candidate #6"
+    ],
+    "followup": "Mapping work: CA-R-1563 content contradictions remain separate."
+  },
+  {
+    "index": 102,
+    "subject": "Atom/Content Role: Operations/Type",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type",
+    "reason": "The abstract classification includes Workflow, Step and Action.",
+    "evidence": [
+      "CA-R-1565",
+      "Approved Core Operations kinds"
+    ],
+    "followup": "Mapping work: the legacy Actor value needs its own decision; do not implicitly approve it."
+  },
+  {
+    "index": 103,
+    "subject": "Atom/Content Role: Operations/Type: Action/Execution Kind",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action/Execution Kind",
+    "reason": "Action execution-kind classification remains distinct from the newly approved Step invocation classification.",
+    "evidence": [
+      "CA-R-1509",
+      "CA-M-304",
+      "Approved universal type classification notation"
+    ],
+    "followup": "Mapping work: preserve Action classification where defined; do not automatically move every Action kind to Step."
+  },
+  {
+    "index": 104,
+    "subject": "Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic",
+    "reason": "Method explicitly governs instructions for Agentic Action execution, not an Agentic Step's Confidence.",
+    "evidence": [
+      "CA-M-304"
+    ],
+    "followup": "Mapping work: derived instruction handling may need a Projection-qualified Subject later; do not collapse Action and Step."
+  },
+  {
+    "index": 105,
+    "subject": "Atom/Content Role: Operations/Type: Actor",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Legacy Actor Operations Atom defines participation/authorization policy; current approved Operations list names only Action, Step and Workflow.",
+    "evidence": [
+      "CA-R-1564",
+      "CA-R-1565"
+    ],
+    "followup": "Mapping work: split or remap permission-policy claims to appropriate RMED and Actor.Permissions; retain concrete participation details without an Actor Operations kind. The broad Actor permissions decision is already approved."
+  },
+  {
+    "index": 106,
+    "subject": "Atom/Content Role: Operations/Type: Step",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+    "reason": "Expand approved generic Step kind.",
+    "evidence": [
+      "Candidate #6 generic Step mapping"
+    ],
+    "followup": "Mapping work: retain held source aliases/content conflicts rather than editing their content here."
+  },
+  {
+    "index": 107,
+    "subject": "Atom/Content Role: Operations/Type: Workflow",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+    "reason": "Expand approved generic Workflow kind.",
+    "evidence": [
+      "Candidate #6 generic Workflow mapping"
+    ],
+    "followup": "Mapping work: distinguish generic kind from named Workflow instances."
+  },
+  {
+    "index": 108,
+    "subject": "Atom/Content Role: Plan/Type: Plan",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Plan",
+    "reason": "Remove redundant Plan Type; Epic/Task/etc are Labels.",
+    "evidence": [
+      "Approved Plan Labels only; no subtypes"
+    ],
+    "followup": null
+  },
+  {
+    "index": 109,
+    "subject": "Atom/Content Role: Plan/Type: Plan/Details",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Details",
+    "reason": "Plan inherits Details; remove redundant Type and use dependent-property notation.",
+    "evidence": [
+      "Approved Plan Labels only",
+      "Candidate #5 Atom.Details"
+    ],
+    "followup": null
+  },
+  {
+    "index": 110,
+    "subject": "Atom/Content Role: Plan/Type: Plan/Label",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Label",
+    "reason": "Plan grouping names are Labels rather than subtypes.",
+    "evidence": [
+      "Approved Plan Labels only",
+      "CA-R-1546"
+    ],
+    "followup": null
+  },
+  {
+    "index": 111,
+    "subject": "Atom/Content Role: Requirement/Type: Goal/Filename",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal",
+    "reason": "Delivery defines the Goal's external filename representation.",
+    "evidence": [
+      "CA-D-292",
+      "Approved D governs stored thing"
+    ],
+    "followup": "Mapping work: preserve external Project Goal applicability; do not impose this filename rule on every Goal."
+  },
+  {
+    "index": 112,
+    "subject": "Atom/Identifier",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.ID",
+    "reason": "Atom identifier is its ID, not a narrower entity kind.",
+    "evidence": [
+      "Approved Atom.ID naming"
+    ],
+    "followup": null
+  },
+  {
+    "index": 113,
+    "subject": "Atom/Identity",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.ID",
+    "reason": "The discussed current-Atom identity is represented by Atom ID.",
+    "evidence": [
+      "CA-D-568",
+      "Approved Atom.ID naming"
+    ],
+    "followup": "Mapping work: preserve historical identity evidence without reviving the retired Draft-lineage prerequisite."
+  },
+  {
+    "index": 114,
+    "subject": "Atom/Local Tier: Standard",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Local Tier: Standard",
+    "reason": "Local Tier is an Atom property with allowed value Standard.",
+    "evidence": [
+      "CA-R-1567",
+      "Candidate #5 Atom.Local Tier"
+    ],
+    "followup": null
+  },
+  {
+    "index": 115,
+    "subject": "Atom/Revision",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/History/Revision",
+    "reason": "Exact mapping explicitly approved by Operator.",
+    "evidence": [
+      "Approved Atom/Revision -> Entity/Continuant/History/Revision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 116,
+    "subject": "Atom/Revision/History",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/History/Revision",
+    "reason": "Retained predecessor history consists of Revisions; do not recurse through Revision.History.",
+    "evidence": [
+      "CA-D-568",
+      "Approved separate History/Revision root"
+    ],
+    "followup": "Mapping work: Journal event records remain separate."
+  },
+  {
+    "index": 117,
+    "subject": "Atom/Revision/Identifier",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/History/Revision.Identity",
+    "reason": "The state reference identifies a historical revision using Atom ID and Version.",
+    "evidence": [
+      "CA-D-568",
+      "CA-D-446",
+      "Candidate #5 Revision.Identity"
+    ],
+    "followup": "Mapping work: preserve ID/version tuple; do not create a new allocated ID."
+  },
+  {
+    "index": 118,
+    "subject": "Atom/Revision/Status",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Status",
+    "reason": "Status is the carried property of the retained Atom snapshot; the archived Revision is not a separate owner of that property.",
+    "evidence": [
+      "CA-C-427"
+    ],
+    "followup": "Mapping work: retain the historical snapshot qualifier and original Concern; do not reinterpret its past correction as a current instruction to edit archived bytes."
+  },
+  {
+    "index": 119,
+    "subject": "Atom/Revision/Status: Draft",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Status: Draft",
+    "reason": "A current Draft is an Atom status, not a historical Revision kind.",
+    "evidence": [
+      "CA-D-568",
+      "Approved current Atom versus historical Revision distinction"
+    ],
+    "followup": "Mapping work: preserve historical Concern wording; its Subject can point to the current Draft concept."
+  },
+  {
+    "index": 120,
+    "subject": "Atom/Revision/Status: Draft/Identity Continuity",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.ID",
+    "reason": "Draft identity continuity concerns assignment/replacement of the Atom ID, not another entity.",
+    "evidence": [
+      "CA-D-568",
+      "Approved Atom.ID naming"
+    ],
+    "followup": "Mapping work: retain Draft applicability and historical evidence; no restored-ID behavior is approved."
+  },
+  {
+    "index": 121,
+    "subject": "Atom/Revision/Status: Draft/Identity Continuity Evidence",
+    "disposition": "remove",
+    "target": null,
+    "reason": "Current rule expressly removes mandatory retained Draft lineage as an admission prerequisite.",
+    "evidence": [
+      "CA-D-568"
+    ],
+    "followup": "Mapping work: remove the obsolete evidence concept, preserving actual historical records and ordinary source checks."
+  },
+  {
+    "index": 122,
+    "subject": "Atom/Revision/Updated At",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Updated At",
+    "reason": "Updated At belongs to the retained Atom snapshot, using the same historical qualification as its Version Number.",
+    "evidence": [
+      "CA-C-427"
+    ],
+    "followup": "Mapping work: retain the historical snapshot qualifier; the historical Concern must not change the current rule preserving exact archived bytes."
+  },
+  {
+    "index": 123,
+    "subject": "Atom/Revision/Version",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Version Number",
+    "reason": "Version belongs to the Atom snapshot and participates in historical identity; no recursive Atom/Revision entity.",
+    "evidence": [
+      "CA-D-568",
+      "CA-D-446",
+      "Approved Atom Version Number naming"
+    ],
+    "followup": "Mapping work: historical version references retain their archived-target qualifier."
+  },
+  {
+    "index": 124,
+    "subject": "Atom/Subjects",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Subjects",
+    "reason": "Expand the Atom Subjects property to the full hierarchy.",
+    "evidence": [
+      "Candidate #5 Atom.Subjects"
+    ],
+    "followup": null
+  },
+  {
+    "index": 125,
+    "subject": "Atom/Tier/Local Tier",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Local Tier",
+    "reason": "Remove the unnecessary Tier wrapper.",
+    "evidence": [
+      "Candidate #5 Atom.Local Tier"
+    ],
+    "followup": null
+  },
+  {
+    "index": 126,
+    "subject": "Atom/Type",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Type",
+    "reason": "Type is a narrower-kind classification using the approved slash notation.",
+    "evidence": [
+      "Approved universal Type classification notation"
+    ],
+    "followup": "Mapping work: preserve content-role-specific allowed Types rather than creating a universal value set."
+  },
+  {
+    "index": 127,
+    "subject": "Atom/Type.Status",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Status",
+    "reason": "The source selects current Active Atoms with role-qualified allowed statuses; it does not mean the status of a Type registry.",
+    "evidence": [
+      "CA-R-1315"
+    ],
+    "followup": "Mapping work: keep RMEDO filtering and Applicable Methodology membership in Project Configuration."
+  }
+]

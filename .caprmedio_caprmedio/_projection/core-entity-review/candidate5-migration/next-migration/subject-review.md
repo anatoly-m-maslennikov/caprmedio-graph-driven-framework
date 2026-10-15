@@ -1,0 +1,569 @@
+# Next Subject migration — source review
+
+The graph must show current Atom Subjects as-is. Do not hide unmapped Subjects or invent root placements in the renderer.
+
+Sequence: rebuild from current Atoms → review unmapped Subjects → approve mappings or retirement → migrate source Subjects → rebuild.
+
+## Candidate #6 recalculation — 2026-10-16
+
+[Recalculated review](candidate6-classification/review.md) and [complete map](candidate6-classification/review-map.json): all 511 inventory Subjects classified by eight workers, with independent cross-slice review.
+
+- 193 candidate mappings; 80 Terms; 16 removal candidates; 13 deferred.
+- 209 unresolved: 190 source-specific mapping-work entries and 19 entries flagging possible Operator decisions, grouped into nine families.
+
+The original inventory and explicit-approval counts below are preserved as the input snapshot. Use the recalculated review for current disposition counts. These are review classifications, not an executable migration or source changes.
+
+## Approved mappings
+
+`Atom/Revision` → `Entity/Continuant/History/Revision`
+
+Revision belongs to History, not Atom. This records the Operator's decision for the next migration; no source update has run. Current exact occurrence: CA-C-427. The eight longer Atom/Revision paths remain visible in the review inventory; their remaining path segments still need mapping decisions.
+
+`AI Agent Delegation` → `Entity/Continuant/Actor/Type: AI Agent.Permissions`
+
+Permissions describe allowed actions, scopes and constraints, including validity, revocation and the granting Operator. No separate Delegation entity is needed. Affected Atoms: CA-R-852, CA-R-1551, CA-R-1552, CA-R-1555 and CA-R-1561. This mapping is approved, not yet applied to sources.
+
+## Approved Confidence mapping
+
+`AI Agent Confidence` → `Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Confidence`. The Operator rejected the proposed general `Entity/Occurrent/Execution.Confidence` placement and approved the Agentic Step classification. No source update has run. Affected Atoms: CA-R-1044, CA-R-1559, CA-R-1561 and CA-E-440.
+
+## Approved group decisions
+
+See [Candidate #6 — approved group decisions](../../presentation/operator.model.candidate-6.plan.md#approved-group-decisions):
+
+- Remap the old Artifact / Structural Entity partition where possible; remove obsolete uses that cannot be remapped.
+- RMED Subjects identify the governed thing. Operations sequences actions using RMED, without reinventing its rules.
+- Cross-owner shared meanings belong to the Terms graph/branch, not new entity nodes or cross-owner property Selections.
+- Replace vague topic dependencies with evidenced precise Subjects, or remove redundant/unsupported links.
+- Defer Implementation: no entity placement for now; no deletion of implementation code or governing Atoms is implied.
+- Required context belongs to the Step; actual supplied context belongs to its Step Run.
+- Confidence Threshold precedence: Settings default → Plan override → direct Operator prompt override. No additional Hub-chain precedence layer.
+- Remove the separate Activity classification. Remap matching uses to Status; retire Activity-specific rules without removing valid Status rules.
+
+These are approved mapping policies. Per-Subject dispositions are not yet recalculated or applied.
+
+## Current inventory
+
+The approved abstract-Core/concrete-Project-Configuration distinction is recorded in [Candidate #6's implementation plan](../../presentation/operator.model.candidate-6.plan.md). It requires Core rule changes and actual relocation of concrete definitions, not only Subject renaming. The inventory below predates that per-Atom classification; its pending count is not a count of newly resolved mappings.
+
+- 983 current source Atoms.
+- 511 distinct Subjects in this review: three exact mappings approved and 508 entries awaiting individual dispositions under the approved group policies—not 508 unanswered Operator questions.
+- 502 were previously unplaced; nine old mapped spellings remain in explicitly held Atoms.
+- Conditional removal of unmappable obsolete partition uses and redundant/unsupported topic links, plus removal of the Activity concept, is approved. No individual Atom retirement has been selected; record source-level dispositions rather than hiding names from the graph.
+
+This inventory is derived review data, not an executable migration packet. [Machine-readable inventory and source Atom IDs](subject-review.json).
+
+## Subjects
+
+- `AI Agent Confidence` — 4 occurrences
+- `AI Agent Delegation` — 5 occurrences
+- `Action` — 2 occurrences
+- `Action/Execution Kind` — 3 occurrences
+- `Active Artifact Carrier Basename` — 1 occurrence
+- `Active Atom Carrier Discovery` — 1 occurrence
+- `Admit Methodology Expansion Mapping` — 1 occurrence
+- `Agentic Action Instruction` — 1 occurrence
+- `Agentic Step Execution Context` — 35 occurrences
+- `Agentic Step Invocation Context` — 2 occurrences
+- `Applicable Methodology Compilation` — 3 occurrences
+- `Applicable Methodology Compilation Assess Step` — 1 occurrence
+- `Applicable Methodology Compilation Correct Step` — 1 occurrence
+- `Applicable Methodology Compilation Decide Step` — 1 occurrence
+- `Applicable Methodology Compilation Propose Step` — 1 occurrence
+- `Applicable Methodology Compilation Publish Step` — 1 occurrence
+- `Applicable Methodology Compilation Select Step` — 1 occurrence
+- `Applicable Methodology Conflict` — 5 occurrences
+- `Applicable Methodology Membership Selection` — 1 occurrence
+- `Applicable Methodology Projected Atom Members` — 1 occurrence
+- `Applicable Methodology Retrieval` — 1 occurrence
+- `Applicable Methodology Revision` — 1 occurrence
+- `Applicable Methodology Source Frontier Digest` — 5 occurrences
+- `Applicable Methodology Source Set` — 4 occurrences
+- `Applicable Methodology.Member` — 3 occurrences
+- `Apply Approved Source Corrections` — 4 occurrences
+- `Apply Structural Change` — 2 occurrences
+- `Approved Change Reversal` — 1 occurrence
+- `Approved Change Reversal Step` — 1 occurrence
+- `Approved Change Reversal/Outcomes` — 1 occurrence
+- `Artifact` — 68 occurrences
+- `Artifact Archive Carrier Basename` — 1 occurrence
+- `Artifact Carrier` — 13 occurrences
+- `Artifact Carrier Placement` — 6 occurrences
+- `Artifact Carrier Status Subdirectory` — 1 occurrence
+- `Artifact Classification Resolution` — 1 occurrence
+- `Artifact query and fetch execution` — 1 occurrence
+- `Artifact query and selected fetch` — 1 occurrence
+- `Artifact.Activity` — 6 occurrences
+- `Artifact.Activity: Active` — 2 occurrences
+- `Artifact.Activity: Inactive` — 2 occurrences
+- `Artifact.Applicability` — 2 occurrences
+- `Artifact.Authority` — 2 occurrences
+- `Artifact.Currentness` — 1 occurrence
+- `Artifact.Identity` — 1 occurrence
+- `Artifact.Local Tier` — 1 occurrence
+- `Artifact.Property` — 1 occurrence
+- `Artifact.Status` — 11 occurrences
+- `Artifact/Activity` — 1 occurrence
+- `Artifact/Applicability` — 1 occurrence
+- `Artifact/Authority` — 1 occurrence
+- `Artifact/Carrier` — 8 occurrences
+- `Artifact/Currentness` — 1 occurrence
+- `Artifact/Revision` — 74 occurrences
+- `Artifact/Revision/Archive Carrier Basename` — 1 occurrence
+- `Artifact/Revision/Status: Archived` — 1 occurrence
+- `Artifact/Revision/Version` — 1 occurrence
+- `Artifact/Type` — 6 occurrences
+- `Assess Atom Update Identity` — 4 occurrences
+- `Assess Lineage Impact` — 1 occurrence
+- `Assess Prepared Result Conformance` — 1 occurrence
+- `Assess Source Conflicts` — 5 occurrences
+- `Atom Archive Carrier` — 1 occurrence
+- `Atom Carrier` — 4 occurrences
+- `Atom Carrier Binding` — 1 occurrence
+- `Atom Carrier Replacement` — 1 occurrence
+- `Atom Carrier Validation` — 2 occurrences
+- `Atom Carrier.Filename.Local Tier` — 2 occurrences
+- `Atom Carrier.Filename.Owning Scope Unit` — 1 occurrence
+- `Atom Carrier.Filename.Scope Unit Token` — 1 occurrence
+- `Atom Carrier.Filename.Summary Slug` — 1 occurrence
+- `Atom Carrier.Filename.Token Case` — 1 occurrence
+- `Atom Change Classification` — 4 occurrences
+- `Atom Claim Authoring` — 1 occurrence
+- `Atom Claim Boundary Authoring` — 1 occurrence
+- `Atom Claim Canonical Signature` — 4 occurrences
+- `Atom Claim Projection` — 1 occurrence
+- `Atom Collection` — 2 occurrences
+- `Atom Collection/Local Tier` — 1 occurrence
+- `Atom Collection/Type` — 2 occurrences
+- `Atom Collection/Type: Ad Hoc` — 2 occurrences
+- `Atom Content Authoring` — 1 occurrence
+- `Atom Direct Relation` — 4 occurrences
+- `Atom History` — 1 occurrence
+- `Atom Property Default` — 2 occurrences
+- `Atom Relation Owner` — 1 occurrence
+- `Atom Scope` — 31 occurrences
+- `Atom State Identifier` — 2 occurrences
+- `Atom Tier Validation` — 1 occurrence
+- `Atom Tier Validation.Concrete Cases` — 1 occurrence
+- `Atom lifecycle conformance` — 1 occurrence
+- `Atom lifecycle/Assessment scope` — 1 occurrence
+- `Atom selection` — 2 occurrences
+- `Atom.Substance` — 1 occurrence
+- `Atom/Carrier` — 2 occurrences
+- `Atom/Claim` — 60 occurrences
+- `Atom/Content Role` — 63 occurrences
+- `Atom/Content Role: Analysis/Type` — 3 occurrences
+- `Atom/Content Role: Concern/Type` — 1 occurrence
+- `Atom/Content Role: Evaluation/Type` — 1 occurrence
+- `Atom/Content Role: Implementation` — 1 occurrence
+- `Atom/Content Role: Operations` — 1 occurrence
+- `Atom/Content Role: Operations/Type` — 4 occurrences
+- `Atom/Content Role: Operations/Type: Action/Execution Kind` — 7 occurrences
+- `Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic` — 1 occurrence
+- `Atom/Content Role: Operations/Type: Actor` — 4 occurrences
+- `Atom/Content Role: Operations/Type: Step` — 3 occurrences
+- `Atom/Content Role: Operations/Type: Workflow` — 2 occurrences
+- `Atom/Content Role: Plan/Type: Plan` — 92 occurrences
+- `Atom/Content Role: Plan/Type: Plan/Details` — 1 occurrence
+- `Atom/Content Role: Plan/Type: Plan/Label` — 1 occurrence
+- `Atom/Content Role: Requirement/Type: Goal/Filename` — 1 occurrence
+- `Atom/Identifier` — 1 occurrence
+- `Atom/Identity` — 2 occurrences
+- `Atom/Local Tier: Standard` — 1 occurrence
+- `Atom/Revision` — 1 occurrence — **map approved**
+- `Atom/Revision/History` — 1 occurrence
+- `Atom/Revision/Identifier` — 2 occurrences
+- `Atom/Revision/Status` — 1 occurrence
+- `Atom/Revision/Status: Draft` — 2 occurrences
+- `Atom/Revision/Status: Draft/Identity Continuity` — 1 occurrence
+- `Atom/Revision/Status: Draft/Identity Continuity Evidence` — 1 occurrence
+- `Atom/Revision/Updated At` — 1 occurrence
+- `Atom/Revision/Version` — 1 occurrence
+- `Atom/Subjects` — 1 occurrence
+- `Atom/Tier/Local Tier` — 1 occurrence
+- `Atom/Type` — 1 occurrence
+- `Atom/Type.Status` — 1 occurrence
+- `Author` — 12 occurrences
+- `Authoritative Atom Carrier Bundle` — 2 occurrences
+- `Authority` — 1 occurrence
+- `Authority Mode` — 5 occurrences
+- `Authorize Structural Change` — 2 occurrences
+- `Autonomous Confidence Threshold` — 22 occurrences
+- `BEARS` — 3 occurrences
+- `Build Entities Graph` — 1 occurrence
+- `Build Terms Graph` — 1 occurrence
+- `CAPRMEDIO Expansion` — 1 occurrence
+- `CAPRMEDIO Framework Identity` — 1 occurrence
+- `CAPRMEDIO Framework Instance` — 10 occurrences
+- `CAPRMEDIO Framework Instance Carrier Root` — 1 occurrence
+- `CAPRMEDIO Graph` — 16 occurrences
+- `CAPRMEDIO Graph.Connectivity` — 2 occurrences
+- `CAPRMEDIO Metamodel.Fractality` — 1 occurrence
+- `CARRIES` — 2 occurrences
+- `CCE` — 15 occurrences
+- `CCE Claim and Projection Validation` — 1 occurrence
+- `CCE Condition Expression` — 1 occurrence
+- `CCE Condition Expression Evaluation` — 2 occurrences
+- `CCE Method` — 2 occurrences
+- `CCE Operator` — 22 occurrences
+- `CCE Operator Expression` — 1 occurrence
+- `CCE Operator Expression Normalization` — 1 occurrence
+- `CCE Operator Registry` — 4 occurrences
+- `CCE Role Profile` — 4 occurrences
+- `CORE_META_MODEL` — 1 occurrence
+- `Canonical Scope Signature Derivation` — 1 occurrence
+- `Canonical Scope Signature Derivation Validation` — 1 occurrence
+- `Canonical Signature Derivation` — 1 occurrence
+- `Canonical Signature Derivation Validation` — 1 occurrence
+- `Cardinality Constraint` — 1 occurrence
+- `Cardinality Constraint Authoring` — 1 occurrence
+- `Carrier` — 1 occurrence
+- `Carrier-Only Recoding` — 3 occurrences
+- `Change Content Roles` — 11 occurrences
+- `Check Atoms` — 2 occurrences
+- `Check Atoms Step` — 2 occurrences
+- `Child Composition` — 2 occurrences
+- `Claim` — 10 occurrences
+- `Claim Value Set` — 5 occurrences
+- `Claim Value Set Authoring` — 1 occurrence
+- `Claim Value Set Consolidation Candidate Evaluation` — 1 occurrence
+- `Claim Value Set Validation` — 1 occurrence
+- `Compatible Lineage Impact Disposition` — 1 occurrence
+- `Composite Claim` — 1 occurrence
+- `Concern About Relation` — 1 occurrence
+- `Condition Expression` — 2 occurrences
+- `Confidence Threshold` — 14 occurrences
+- `Confidence Threshold.Resolution` — 1 occurrence
+- `Confidence Threshold.Resolution Validation` — 1 occurrence
+- `Confidence Threshold.Source` — 1 occurrence
+- `Configuration Selection and Precedence` — 1 occurrence
+- `Construct Entities Graph Projection` — 1 occurrence
+- `Construct Terms Graph Projection` — 1 occurrence
+- `Consumer` — 2 occurrences
+- `Consumer Goal` — 2 occurrences
+- `Container Atom` — 9 occurrences
+- `Containment Relation Pair` — 3 occurrences
+- `Content Role Naming` — 1 occurrence
+- `Core Meta-Model` — 14 occurrences
+- `Core Meta-model` — 1 occurrence
+- `Corrective Method Acceptance` — 1 occurrence
+- `Corrective Method Acceptance Step` — 1 occurrence
+- `Current Plan Scope` — 1 occurrence
+- `Current-scope Atom` — 3 occurrences
+- `DEPENDS_ON` — 16 occurrences
+- `DERIVED_FROM` — 4 occurrences
+- `Default Settings` — 18 occurrences
+- `Definition Atom` — 10 occurrences
+- `Delivery CCE Role Profile` — 1 occurrence
+- `Delivery For Relation` — 1 occurrence
+- `Demand Atom File Carrier.Filename` — 1 occurrence
+- `Demand Direction` — 3 occurrences
+- `Dependency Order Derivation` — 3 occurrences
+- `Dependency Order Derivation Evaluation` — 1 occurrence
+- `Dependency Relation Pair` — 1 occurrence
+- `Dependent Entity` — 9 occurrences
+- `Dependent Entity Occurrence` — 1 occurrence
+- `Directory Carrier Nesting` — 2 occurrences
+- `Draft Atom` — 2 occurrences
+- `Draft Atom Carrier.Filename` — 1 occurrence
+- `Draft Atom.Revision Lineage` — 1 occurrence
+- `Entities Graph Construction Step` — 1 occurrence
+- `Entity Carrier Binding` — 4 occurrences
+- `Entity Identity` — 1 occurrence
+- `Entity Taxonomy` — 1 occurrence
+- `Entity/Type` — 4 occurrences
+- `Evaluate RMED Review Batch` — 1 occurrence
+- `Evaluation CCE Role Profile` — 1 occurrence
+- `Evaluation For Relation` — 6 occurrences
+- `Evaluation Implementation` — 1 occurrence
+- `Evaluation Implementation Step` — 1 occurrence
+- `Evaluation Report` — 4 occurrences
+- `Evaluator Evidence Calibration` — 1 occurrence
+- `Event/Type` — 2 occurrences
+- `Evidence` — 4 occurrences
+- `Evidence For Relation` — 1 occurrence
+- `Exact Atom Reference` — 1 occurrence
+- `Exploration Mode` — 2 occurrences
+- `Extension` — 29 occurrences
+- `Extension Installation` — 1 occurrence
+- `External Project Goal File Carrier.Filename` — 1 occurrence
+- `External Project Goal Reference` — 1 occurrence
+- `Feature Realization Relation` — 1 occurrence
+- `Find and Fetch Artifacts` — 1 occurrence
+- `Find and Fetch Journal Events` — 1 occurrence
+- `Find and Fetch Journal Events Query Step` — 1 occurrence
+- `Framework Instance Settings Validation` — 1 occurrence
+- `Framework Instance Settings/Carrier/Atom metadata exclusion` — 1 occurrence
+- `Framework Instance Settings/Revision Binding` — 1 occurrence
+- `Framework-Owned Carrier` — 1 occurrence
+- `GOVERNS` — 16 occurrences
+- `General Artifact Graph` — 2 occurrences
+- `General Term` — 6 occurrences
+- `Generated-Only Provenance Validation` — 1 occurrence
+- `Generator` — 2 occurrences
+- `Global Tier` — 1 occurrence
+- `Governance Origin` — 2 occurrences
+- `Governed Entity` — 1 occurrence
+- `Governed Term` — 12 occurrences
+- `Governed Term Rendering` — 2 occurrences
+- `Graph Projection construction/Completion` — 1 occurrence
+- `Graph of Graphs` — 1 occurrence
+- `Hub Atom` — 21 occurrences
+- `Hub Carrier.Navigation Entry` — 1 occurrence
+- `IS_ALLOWED_VALUE_OF` — 12 occurrences
+- `IS_BORNE_BY` — 7 occurrences
+- `IS_CARRIED_BY` — 2 occurrences
+- `Implementation` — 52 occurrences
+- `Implementation Binding` — 5 occurrences
+- `Implementation Evaluation` — 1 occurrence
+- `Implementation Evaluation Step` — 1 occurrence
+- `Implementation Failure Diagnosis` — 2 occurrences
+- `Implementation Failure Diagnosis Step` — 1 occurrence
+- `Implementation Folder` — 4 occurrences
+- `Implementation Of Relation` — 1 occurrence
+- `Implementation Preparation` — 1 occurrence
+- `Implementation Preparation Step` — 1 occurrence
+- `Implementation Relation` — 1 occurrence
+- `Implementation Relation Pair` — 1 occurrence
+- `Implementation Repair` — 1 occurrence
+- `Implementation Repair Step` — 1 occurrence
+- `Implementation Retry Control` — 6 occurrences
+- `Implementation Retry Control Step` — 1 occurrence
+- `Implementation Retry Limit` — 13 occurrences
+- `Implementation Workflow` — 7 occurrences
+- `Implementation Workflow/Carrier` — 1 occurrence
+- `Installed Extensions Catalog Entry` — 1 occurrence
+- `Journal Carrier Root` — 1 occurrence
+- `Journal Event query` — 1 occurrence
+- `Journal/Revision` — 1 occurrence
+- `Label` — 4 occurrences
+- `Legacy Evidence and Provisional RMED Preparation` — 1 occurrence
+- `Lifecycle Tool authority/Scope Unit` — 1 occurrence
+- `Lineage Impact Analysis` — 4 occurrences
+- `Lineage Impact Analysis Content` — 1 occurrence
+- `Local Order` — 8 occurrences
+- `Local Tier` — 3 occurrences
+- `Markdown` — 4 occurrences
+- `Markdown Atom Carrier` — 11 occurrences
+- `Markdown Atom Carrier Validation` — 1 occurrence
+- `Markdown Atom Carrier.Main Content` — 8 occurrences
+- `Markdown Atom Carrier.Main Content.CCE Operator` — 3 occurrences
+- `Markdown Atom Carrier.Main Content.Paragraph` — 1 occurrence
+- `Markdown Atom Carrier.YAML Frontmatter` — 6 occurrences
+- `Markdown Atom Carrier.YAML Frontmatter.Scalar` — 1 occurrence
+- `Materialized Representation` — 1 occurrence
+- `Method CCE Role Profile` — 1 occurrence
+- `Method For Relation` — 1 occurrence
+- `Method Learning Workflow` — 1 occurrence
+- `Method Lesson Drafting` — 1 occurrence
+- `Method Lesson Drafting Step` — 1 occurrence
+- `Methodology` — 1 occurrence
+- `Methodology Source` — 19 occurrences
+- `Methodology Source File Carrier` — 1 occurrence
+- `Methodology Source.Expansion Boundary` — 10 occurrences
+- `Methodology Source.Expansion Mapping` — 3 occurrences
+- `Migrate Atom CCE Representation` — 1 occurrence
+- `NARROWER_THAN` — 7 occurrences
+- `Navigation Projection Derivation` — 1 occurrence
+- `Navigational Order Number` — 8 occurrences
+- `New Archived Revision Markdown Carrier Binding` — 1 occurrence
+- `Non-ephemeral Entity` — 1 occurrence
+- `Nonnegative Integer Literal` — 1 occurrence
+- `Normative Atom Prose Authoring` — 1 occurrence
+- `Normative Authority Relation Pair` — 2 occurrences
+- `Obsolete Project Name` — 1 occurrence
+- `Obtain Source Correction Decision` — 4 occurrences
+- `Operations Type-specific CCE Profiles` — 1 occurrence
+- `Owned Atoms` — 6 occurrences
+- `Persist Atom Replacement` — 1 occurrence
+- `Plan Atom Carrier` — 2 occurrences
+- `Plan Atom Carrier Bundle` — 2 occurrences
+- `Plan Atom Carrier Bundle.Location` — 1 occurrence
+- `Plan Atom Carrier.Stem` — 1 occurrence
+- `Plan Atom File Carrier.Content` — 1 occurrence
+- `Plan Atom File Carrier.Filename` — 1 occurrence
+- `Plan Backlog` — 1 occurrence
+- `Plan Backlog Directory Carrier` — 1 occurrence
+- `Plan Blocking Relations` — 6 occurrences
+- `Plan CCE Role Profile` — 1 occurrence
+- `Plan Graph` — 4 occurrences
+- `Prepare Structural Change` — 2 occurrences
+- `Previous Unit` — 1 occurrence
+- `Primary Entity` — 12 occurrences
+- `Priority` — 3 occurrences
+- `Producer` — 2 occurrences
+- `Producer Result` — 2 occurrences
+- `Producer Result.Flow Direction` — 1 occurrence
+- `Producer Scope Unit` — 1 occurrence
+- `Project Atom ID` — 1 occurrence
+- `Project Boundary Position` — 2 occurrences
+- `Project Configuration` — 25 occurrences
+- `Project Lexicographic Selection` — 3 occurrences
+- `Project Name` — 6 occurrences
+- `Project Normative Authority Graph` — 2 occurrences
+- `Project Principle Universe` — 2 occurrences
+- `Project Priority Model Application` — 5 occurrences
+- `Project Scope Unit Graph Projection` — 8 occurrences
+- `Project Settings Authoritative TOML File Carrier.Filename` — 2 occurrences
+- `Project Settings Validation` — 1 occurrence
+- `Project Settings/Revision Binding` — 1 occurrence
+- `Project Structure Maintenance` — 4 occurrences
+- `Project Structure Maintenance Application Step` — 1 occurrence
+- `Project Structure Maintenance Authorization Step` — 1 occurrence
+- `Project Structure Maintenance Candidate Assessment Step` — 1 occurrence
+- `Project Structure Maintenance Preparation Step` — 1 occurrence
+- `Project Structure Maintenance Result Assessment Step` — 1 occurrence
+- `Project Structure Maintenance Selection Step` — 1 occurrence
+- `Project Structure Maintenance/Step bindings` — 1 occurrence
+- `Project-Owned Carrier` — 1 occurrence
+- `Project-Owned Carrier Root` — 2 occurrences
+- `Project-Owned Markdown Atom Carrier.Filename` — 1 occurrence
+- `Project/Scope Unit` — 1 occurrence
+- `Projection Carrier Root` — 1 occurrence
+- `Projection Rebuild` — 1 occurrence
+- `Projection/Revision` — 1 occurrence
+- `Projection/Type` — 3 occurrences
+- `Proof Dependency Frontier` — 1 occurrence
+- `Property` — 37 occurrences
+- `Propose Source Corrections` — 4 occurrences
+- `Provenance` — 1 occurrence
+- `Publish Reconciled Projection` — 3 occurrences
+- `RMED Atom Review Check Coverage Gate Step` — 1 occurrence
+- `RMED Atom Review Coverage Gate Action` — 1 occurrence
+- `RMED Atom Review Fix Coverage Gate Step` — 1 occurrence
+- `RMED Atom Review Gather Coverage Gate Step` — 1 occurrence
+- `RMED Atom Review Workflow` — 1 occurrence
+- `RMED Review Evaluation Step` — 1 occurrence
+- `RMED Review Repair Step` — 1 occurrence
+- `RMED Review Selection Step` — 1 occurrence
+- `RMEDO Conflict Resolution` — 2 occurrences
+- `Rationale For Relation` — 1 occurrence
+- `Reconcile Atom Properties and Addresses` — 1 occurrence
+- `Reconcile Navigation Numbers` — 2 occurrences
+- `Reconcile Unfinished Work` — 1 occurrence
+- `Recurrence Protection` — 1 occurrence
+- `Related To Relation` — 1 occurrence
+- `Relation` — 1 occurrence
+- `Relation Kind` — 29 occurrences
+- `Relation Kind Metadata` — 5 occurrences
+- `Relation Type` — 1 occurrence
+- `Relation/Type: On Result` — 19 occurrences
+- `Relational Atom` — 7 occurrences
+- `Relational Atom Classification Validation` — 1 occurrence
+- `Relational Atom/Type` — 2 occurrences
+- `Repair RMED Review Batch` — 1 occurrence
+- `Replacement-Required Lineage Impact Disposition` — 1 occurrence
+- `Requirement CCE Role Profile` — 1 occurrence
+- `Requirement Implementation` — 1 occurrence
+- `Requirement Implementation Step` — 1 occurrence
+- `Resolve Operator Priorities` — 3 occurrences
+- `Resolve Project Initialization Inputs` — 1 occurrence
+- `Revert Changes Workflow` — 1 occurrence
+- `Root Term` — 3 occurrences
+- `Runtime State` — 2 occurrences
+- `Runtime State Carrier` — 1 occurrence
+- `Scope` — 3 occurrences
+- `Scope Expression` — 7 occurrences
+- `Scope Expression Evaluation` — 1 occurrence
+- `Scope Reference Validation` — 1 occurrence
+- `Scope Unit Carrier Binding` — 1 occurrence
+- `Scope Unit Scope` — 1 occurrence
+- `Scope Unit/Type` — 12 occurrences
+- `Scoped Operator-choice Applicability` — 1 occurrence
+- `Screen Short Names` — 1 occurrence
+- `Scripted Migration` — 1 occurrence
+- `Select Priority-Governed Alternative` — 2 occurrences
+- `Select RMED Review Batch` — 1 occurrence
+- `Select Reconciliation Sources` — 5 occurrences
+- `Selected Operations/Carrier` — 1 occurrence
+- `Selected Workflow Step/Agentic invocation context binding` — 1 occurrence
+- `Session-State Envelope` — 1 occurrence
+- `Set-valued Property` — 1 occurrence
+- `Set-valued Property Membership Evaluation` — 1 occurrence
+- `Single Source of Truth` — 12 occurrences
+- `Skill` — 2 occurrences
+- `Source Reconciliation` — 8 occurrences
+- `Source Reconciliation Assessment Step` — 1 occurrence
+- `Source Reconciliation Correction Step` — 1 occurrence
+- `Source Reconciliation Decision Step` — 1 occurrence
+- `Source Reconciliation Proposal Step` — 1 occurrence
+- `Source Reconciliation Publication Step` — 1 occurrence
+- `Source Reconciliation Selection Step` — 1 occurrence
+- `Source Reconciliation Workflow Carrier layout` — 1 occurrence
+- `Source Reconciliation/Step bindings` — 1 occurrence
+- `Source verification evidence` — 1 occurrence
+- `Spec` — 10 occurrences
+- `Spec Content Roles` — 10 occurrences
+- `Status` — 5 occurrences
+- `Step` — 3 occurrences
+- `Step Run` — 5 occurrences
+- `Step Run/Invocation` — 3 occurrences
+- `Step/Agentic Execution Context` — 4 occurrences
+- `Structural Coordinate` — 1 occurrence
+- `Structural Entity` — 22 occurrences
+- `Structural Entity Containment Relations` — 1 occurrence
+- `Structural Entity Direct Containment` — 5 occurrences
+- `Structural Entity Recursive Containment` — 1 occurrence
+- `Structural Level` — 11 occurrences
+- `Structural Parent Relation` — 12 occurrences
+- `Structural Path` — 2 occurrences
+- `Subject` — 22 occurrences
+- `Subject Assignment` — 1 occurrence
+- `Subject Expression` — 12 occurrences
+- `Subject Expression Evaluation` — 1 occurrence
+- `Subject Expression Writing` — 1 occurrence
+- `Subject Path` — 20 occurrences
+- `Subject Projection Derivation` — 1 occurrence
+- `Subject Relation Kind: DEPENDS_ON` — 1 occurrence
+- `Subtree-owned Atoms` — 4 occurrences
+- `Subtree-targeting Atoms` — 5 occurrences
+- `TOML` — 1 occurrence
+- `Target Set` — 1 occurrence
+- `Targeting Atoms` — 5 occurrences
+- `Term.Name` — 1 occurrence
+- `Terminology Projection Derivation` — 1 occurrence
+- `Terms Graph Construction Step` — 1 occurrence
+- `Tool` — 14 occurrences
+- `Tool Call` — 3 occurrences
+- `Tool/Workflow Operations/Atom Lifecycle/Request Parameters` — 1 occurrence
+- `Translation` — 3 occurrences
+- `Type` — 35 occurrences
+- `Type-Qualified Status Validation` — 1 occurrence
+- `Uncertain Lineage Impact Disposition` — 1 occurrence
+- `Unit` — 1 occurrence
+- `Update-Required Lineage Impact Disposition` — 1 occurrence
+- `Verification` — 6 occurrences
+- `Work Journal/Record` — 2 occurrences
+- `Work Sequence Number` — 3 occurrences
+- `Workflow` — 3 occurrences
+- `Workflow Run` — 5 occurrences
+- `Workflow/Step binding ownership` — 1 occurrence
+- `YAML` — 1 occurrence
+- `applicability` — 2 occurrences
+- `artifact-catalog` — 1 occurrence
+- `artifact-model` — 12 occurrences
+- `atom-boundary` — 39 occurrences
+- `authority` — 12 occurrences
+- `classification` — 1 occurrence
+- `continuous-improvement` — 5 occurrences
+- `development-flow` — 5 occurrences
+- `evaluation` — 6 occurrences
+- `extension-model` — 5 occurrences
+- `external-boundary` — 2 occurrences
+- `framework-boundary` — 1 occurrence
+- `interaction` — 1 occurrence
+- `language` — 6 occurrences
+- `lifecycle` — 1 occurrence
+- `lifecycle-traceability` — 10 occurrences
+- `principles` — 1 occurrence
+- `project-containment graph` — 2 occurrences
+- `provenance` — 1 occurrence
+- `relation validation` — 1 occurrence
+- `relation-model` — 41 occurrences
+- `requirement-topology` — 2 occurrences
+- `runtime` — 1 occurrence
+- `scope-topology` — 23 occurrences
+- `semantics` — 11 occurrences
+- `settings specification` — 1 occurrence
+- `subject` — 1 occurrence
+

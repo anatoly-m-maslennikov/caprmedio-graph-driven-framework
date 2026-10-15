@@ -703,8 +703,9 @@ class GoldenProject:
         folder = self._authority_dir
         if status != "Active":
             folder /= "draft" if status == "Draft" else status.casefold()
+        revision_suffix = "@1" if status == "Archived" else ""
         return {
-            "path": (folder / f"{atom_id}--{slug}.md").relative_to(self.root).as_posix(),
+            "path": (folder / f"{atom_id}--{slug}{revision_suffix}.md").relative_to(self.root).as_posix(),
             "frontmatter": (
                 f"atom_id: {atom_id}\ncontent_role: Requirement\ncurrent_scope_unit: PARENT\n"
                 "claim_target_scope_unit: PARENT\nlocal_tier: Standard\nglobal_tier: 12\n"
@@ -715,6 +716,69 @@ class GoldenProject:
                 f"# Summary\n\n{summary}\n\n## Scope\n\nFixture scope.\n\n"
                 "## Claim\n\nFixture claim.\n\n## Details\n\nFixture details.\n"
             ),
+        }
+
+    def create_status_carrier(self, role: str, status: str, *, number: int) -> dict[str, str]:
+        """Build one complete W01 carrier from the copied role/status model."""
+        try:
+            _, letter, directory, _source_id, statuses = next(row for row in STATUS_DOMAINS if row[0] == role)
+        except StopIteration as error:
+            raise GoldenCorpusError(f"unknown status-proof role: {role}") from error
+        if status not in statuses:
+            raise GoldenCorpusError(f"status {status!r} is not admitted for {role}")
+        draft = status.casefold() == "draft"
+        folder = self.root / ".caprmedio_caprmedio" / "PARENT" / directory
+        if draft:
+            folder /= "draft"
+        elif role == "Plan" and status == "Backlog":
+            folder /= "001_backlog"
+        elif status.casefold() != "active":
+            folder /= status.casefold()
+        atom_id = None if draft else f"CA-{letter}-{number}"
+        slug = f"w01-{role.casefold()}-{status.casefold()}-{number}"
+        revision_suffix = "@1" if status == "Archived" else ""
+        filename = f"CA-{letter}--{slug}.md" if draft else f"{atom_id}--{slug}{revision_suffix}.md"
+        type_by_role = {
+            "Requirement": None,
+            "Method": None,
+            "Evaluation": "QA Case",
+            "Delivery": None,
+            "Plan": "Plan",
+            "Concern": "Problem",
+            "Operations": "Action",
+            "Analysis": "Analysis Report",
+        }
+        sections_by_role = {
+            "Requirement": ("Scope", "Claim", "Details"),
+            "Method": ("Scope", "Claim", "Details"),
+            "Evaluation": ("Scope", "Claim", "Details"),
+            "Delivery": ("Scope", "Claim", "Details"),
+            "Plan": ("Objective", "Details"),
+            "Concern": ("Concern", "Evidences", "Blast radius"),
+            "Operations": ("Operation", "Details"),
+            "Analysis": ("Question", "Scope", "Approach", "Results", "TLDR"),
+        }
+        identity = "" if atom_id is None else f"atom_id: {atom_id}\n"
+        atom_type = type_by_role[role]
+        type_line = "" if atom_type is None else f"type: {atom_type}\n"
+        priority_line = "priority: high\n" if role == "Concern" else ""
+        sections = "".join(
+            f"## {heading}\n\nW01 {role} {status} fixture value.\n\n"
+            for heading in sections_by_role[role]
+        )
+        if role == "Plan":
+            sections += "### Definition of Done\n\nW01 fixture completion condition.\n"
+        return {
+            "path": (folder / filename).relative_to(self.root).as_posix(),
+            "frontmatter": (
+                f"{identity}content_role: {role}\n{type_line}"
+                "current_scope_unit: PARENT\nclaim_target_scope_unit: PARENT\n"
+                "local_tier: Standard\nglobal_tier: 5\n"
+                "author: golden-operator\n"
+                f"{priority_line}status: {status}\nsubjects:\n  governs: Atom/Test\n  depends_on: []\n"
+                "relations: {}"
+            ),
+            "content": f"# Summary\n\nW01 created {role} {status}\n\n{sections}",
         }
 
     def _descriptor(self, atom_id: str) -> dict[str, Any]:

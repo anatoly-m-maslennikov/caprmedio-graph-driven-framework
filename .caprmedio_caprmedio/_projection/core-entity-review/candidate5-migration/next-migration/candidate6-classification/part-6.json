@@ -1,0 +1,765 @@
+[
+  {
+    "index": 384,
+    "subject": "Reconcile Navigation Numbers",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The Action name and its result Evaluation need different governed targets.",
+    "evidence": [
+      "CA-E-510",
+      "Candidate #6 decision 2"
+    ],
+    "followup": "Mapping work: O078 targets its own named Action; E510 governs navigation-migration results. Resolve the result versus Scope Unit.Navigational Order Number target per occurrence."
+  },
+  {
+    "index": 385,
+    "subject": "Reconcile Unfinished Work",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-079\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-079",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 386,
+    "subject": "Recurrence Protection",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Evaluation",
+    "reason": "Recurrence protection is explicitly represented by a bounded Evaluation Atom.",
+    "evidence": [
+      "CA-R-1741"
+    ],
+    "followup": "Mapping work: Keep corrected failure-class applicability in Substance Scope; no Recurrence Protection entity."
+  },
+  {
+    "index": 387,
+    "subject": "Related To Relation",
+    "disposition": "remove",
+    "target": null,
+    "reason": "The untyped fallback relation conflicts with the approved typed-relations-only model.",
+    "evidence": [
+      "CA-R-1653",
+      "Operator decision: typed relations only"
+    ],
+    "followup": "Mapping work: Retire its dedicated rule through the content-change process; do not delete valid unrelated claims."
+  },
+  {
+    "index": 388,
+    "subject": "Relation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation",
+    "reason": "Bare Relation has the approved full entity path.",
+    "evidence": [
+      "Candidate #5 Relation root"
+    ],
+    "followup": "Mapping work: D256 has collision/alias history; merge duplicate mapped Subject references without dropping other Subjects."
+  },
+  {
+    "index": 389,
+    "subject": "Relation Kind",
+    "disposition": "terms",
+    "target": "Relation Kind",
+    "reason": "Shared meaning of relation classification belongs to Terms.",
+    "evidence": [
+      "Candidate #6 decision 3"
+    ],
+    "followup": "Mapping work: Owner-specific relation kinds require qualified Relation/Type paths per source; do not replace those with a generic Term."
+  },
+  {
+    "index": 390,
+    "subject": "Relation Kind Metadata",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Metadata is a bundle of relation registration fields, not one evidenced dependent entity.",
+    "evidence": [
+      "Candidate #6 decisions 2 and 3"
+    ],
+    "followup": "Mapping work: Map each governed field where evidenced; decide whether any remaining bundle is only a named Selection."
+  },
+  {
+    "index": 391,
+    "subject": "Relation Type",
+    "disposition": "terms",
+    "target": "Relation Type",
+    "reason": "Shared classification meaning belongs to Terms.",
+    "evidence": [
+      "Candidate #6 decision 3"
+    ],
+    "followup": null
+  },
+  {
+    "index": 392,
+    "subject": "Relation/Type: On Result",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation/Type: On Result",
+    "reason": "ON_RESULT is a typed control-flow relation, not a Workflow instance.",
+    "evidence": [
+      "CA-R-1508",
+      "Candidate #6 generic operation decision"
+    ],
+    "followup": "Mapping work: Retain owner-specific workflow graph constraints and exact relation-kind name."
+  },
+  {
+    "index": 393,
+    "subject": "Relational Atom",
+    "disposition": "terms",
+    "target": "Relational Atom",
+    "reason": "The generic classification meaning may remain a Term without recreating a primary entity branch.",
+    "evidence": [
+      "CA-R-1256",
+      "CA-R-924",
+      "Candidate #6 decision 3"
+    ],
+    "followup": "Mapping work: Per-Atom rules about owner versus target must govern Atom.Owning Scope Unit / Atom.Target Scope Unit rather than this Term."
+  },
+  {
+    "index": 394,
+    "subject": "Relational Atom Classification Validation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom",
+    "reason": "E425 checks an Atom's role-qualified Type and target-based relational classification, while explicitly keeping Plan Labels distinct from Types.",
+    "evidence": [
+      "CA-E-425",
+      "CA-R-924",
+      "Candidate #6 decision 2"
+    ],
+    "followup": "Mapping work: Keep the role-qualified Type and non-default target restrictions in Substance Scope; the checked thing is Atom, not a validation procedure entity."
+  },
+  {
+    "index": 395,
+    "subject": "Relational Atom/Type",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Relational classification spans Requirement Goal/Demand and conditionally Plan; it is not one new Type owner.",
+    "evidence": [
+      "CA-R-924"
+    ],
+    "followup": "Mapping work: Use the exact role-qualified types per source, or a named Selection of those kinds where the rule applies to the set."
+  },
+  {
+    "index": 396,
+    "subject": "Repair RMED Review Batch",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-111\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-111",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 397,
+    "subject": "Replacement-Required Lineage Impact Disposition",
+    "disposition": "terms",
+    "target": "Replacement-Required Lineage Impact Disposition",
+    "reason": "This names the meaning of a disposition value, not a new primary entity.",
+    "evidence": [
+      "CA-R-1035",
+      "Candidate #6 decision 3"
+    ],
+    "followup": "Mapping work: Retain the replacement_required value and descendant applicability; project-specific lineage mechanism belongs in Project Configuration."
+  },
+  {
+    "index": 398,
+    "subject": "Requirement CCE Role Profile",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Requirement.Substance",
+    "reason": "The Method specifies how to write Requirement Substance; its role supplies the method meaning.",
+    "evidence": [
+      "CA-M-310",
+      "Candidate #6 decision 2"
+    ],
+    "followup": null
+  },
+  {
+    "index": 399,
+    "subject": "Requirement Implementation",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-019\")",
+    "reason": "This names a concrete Operations Action, not an Implementation entity; preserve its identity under the existing Operations kind.",
+    "evidence": [
+      "CA-O-019",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Rehome the named Operation in Project Configuration and express its kind plus Atom ID without inventing a new executable instance grammar. The implementation entity deferral does not defer this named Operation."
+  },
+  {
+    "index": 400,
+    "subject": "Requirement Implementation Step",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-093\")",
+    "reason": "This names a concrete Operations Step, not an Implementation entity; preserve its identity under the existing Operations kind.",
+    "evidence": [
+      "CA-O-093",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Rehome the named Operation in Project Configuration and express its kind plus Atom ID without inventing a new executable instance grammar. The implementation entity deferral does not defer this named Operation."
+  },
+  {
+    "index": 401,
+    "subject": "Resolve Operator Priorities",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O022 names a concrete Action but E207 checks the effective priority model/selection.",
+    "evidence": [
+      "CA-O-022",
+      "CA-E-207",
+      "Candidate #6 decision 2"
+    ],
+    "followup": "Mapping work: Map O references to atom CA-O-022; determine the exact priority model/result Subject for E207."
+  },
+  {
+    "index": 402,
+    "subject": "Resolve Project Initialization Inputs",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-052\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-052",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 403,
+    "subject": "Revert Changes Workflow",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-130\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-130",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 404,
+    "subject": "Root Term",
+    "disposition": "terms",
+    "target": "Root Term",
+    "reason": "Root Term defines a terminology-graph position, not another project Object.",
+    "evidence": [
+      "CA-R-1347",
+      "CA-R-1353",
+      "Candidate #6 decision 3"
+    ],
+    "followup": "Mapping work: Preserve the no-parent meaning in derived Terms; do not invent a forced Term hierarchy."
+  },
+  {
+    "index": 405,
+    "subject": "Runtime State",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Runtime State is a storage/retention boundary in the checked sources, not simply an Occurrent.",
+    "evidence": [
+      "CA-E-522",
+      "CA-E-523"
+    ],
+    "followup": "Mapping work: Distinguish stored checkpoints/caches from live execution and Journal records; select exact targets per source."
+  },
+  {
+    "index": 406,
+    "subject": "Runtime State Carrier",
+    "disposition": "mapped",
+    "target": "Entity/Carrier",
+    "reason": "The D rule governs persistent Carriers and their separation from disposable runtime.",
+    "evidence": [
+      "CA-D-341",
+      "Candidate #6 decision 2"
+    ],
+    "followup": "Mapping work: Keep persistent/runtime boundary in Substance Scope; no Runtime State Carrier root."
+  },
+  {
+    "index": 407,
+    "subject": "Scope",
+    "disposition": "terms",
+    "target": "Scope",
+    "reason": "The shared meaning of applicability Scope is not a new Scope Unit instance.",
+    "evidence": [
+      "CA-R-1487",
+      "CA-E-207",
+      "Candidate #6 decision 3"
+    ],
+    "followup": "Mapping work: Priority-specific applicability remains in Project Configuration and must not be conflated with owning Scope Unit."
+  },
+  {
+    "index": 408,
+    "subject": "Scope Expression",
+    "disposition": "terms",
+    "target": "Scope Expression",
+    "reason": "Expression denotes shared scope syntax/meaning rather than another primary entity.",
+    "evidence": [
+      "Candidate #6 decision 3"
+    ],
+    "followup": "Mapping work: Inspect individual source use before conflating expression syntax with Atom.Substance Scope."
+  },
+  {
+    "index": 409,
+    "subject": "Scope Expression Evaluation",
+    "disposition": "terms",
+    "target": "Scope Expression",
+    "reason": "M121 specifies the interpretation of Scope Expression syntax (identity resolution, union, intersection, exclusion and predicates); remove the Evaluation procedure wrapper and retain the expression meaning.",
+    "evidence": [
+      "CA-M-121",
+      "Candidate #6 decisions 2 and 3"
+    ],
+    "followup": "Mapping work: Preserve all expression semantics in the Method; do not turn evaluation of an expression into another primary entity."
+  },
+  {
+    "index": 410,
+    "subject": "Scope Reference Validation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Validation is not an entity; scope references may mean owner, target or Substance Scope.",
+    "evidence": [
+      "Candidate #6 decision 2"
+    ],
+    "followup": "Mapping work: Inspect E240 to choose Atom.Owning Scope Unit, Atom.Target Scope Unit, or another precise reference; do not blanket-map."
+  },
+  {
+    "index": 411,
+    "subject": "Scope Unit Carrier Binding",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Scope Unit",
+    "reason": "A D rule specifies representation of Scope Unit; no separate binding entity is needed.",
+    "evidence": [
+      "CA-D-505",
+      "Candidate #6 decision 2"
+    ],
+    "followup": "Mapping work: Its old IS_CARRIED_BY/property wording is a content conflict to fix separately."
+  },
+  {
+    "index": 412,
+    "subject": "Scope Unit Scope",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1014 combines Scope Unit context, governed Subject and explicit Claim constraints.",
+    "evidence": [
+      "CA-R-1014"
+    ],
+    "followup": "Mapping work: Separate Owning Scope Unit from Substance Scope; do not treat the old combined Scope Unit Scope phrase as one property."
+  },
+  {
+    "index": 413,
+    "subject": "Scope Unit/Type",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Scope Unit/Type",
+    "reason": "Scope Unit Type is the approved classification branch.",
+    "evidence": [
+      "Candidate #5 Scope Unit Ordered/Unordered classification"
+    ],
+    "followup": null
+  },
+  {
+    "index": 414,
+    "subject": "Scoped Operator-choice Applicability",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-125\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-125",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 415,
+    "subject": "Screen Short Names",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-065\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-065",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 416,
+    "subject": "Scripted Migration",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Actor/Type: AI Agent",
+    "reason": "R1554 constrains AI Agent participation, not a migration process entity.",
+    "evidence": [
+      "CA-R-1554",
+      "Candidate #6 decision 2"
+    ],
+    "followup": "Mapping work: Limit Substance Scope to participation in scripted migration; exact target-set selection remains distinct."
+  },
+  {
+    "index": 417,
+    "subject": "Select Priority-Governed Alternative",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The concrete Action O023 and Evaluation E207 do not govern the same level.",
+    "evidence": [
+      "CA-O-023",
+      "CA-E-207",
+      "Candidate #6 decision 2"
+    ],
+    "followup": "Mapping work: O023 may use its instance; E207 must govern the selected alternative/result, not the procedure name."
+  },
+  {
+    "index": 418,
+    "subject": "Select RMED Review Batch",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-105\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-105",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 419,
+    "subject": "Select Reconciliation Sources",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-004\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-004",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 420,
+    "subject": "Selected Operations/Carrier",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "A Concern about carriers of selected Operations needs the selected set preserved.",
+    "evidence": [
+      "Candidate #6 decision 2"
+    ],
+    "followup": "Mapping work: Inspect C415 to identify named Selection and carrier concern; do not collapse it into all Operations or Carrier."
+  },
+  {
+    "index": 421,
+    "subject": "Selected Workflow Step/Agentic invocation context binding",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "C426 explicitly concerns missing context-binding rules in selected Step definitions and disclaims an observed runtime failure. Step Run.Context would change its subject.",
+    "evidence": [
+      "CA-C-426",
+      "Candidate #6 decision 7"
+    ],
+    "followup": "Mapping work: Preserve the selected Step identities and their required context-binding responsibility under Agentic Step.Context; use Step Run.Context only for separately evidenced actual supplied context."
+  },
+  {
+    "index": 422,
+    "subject": "Session-State Envelope",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Bounded session-state envelope mixes routing, current state, settings and authority references.",
+    "evidence": [
+      "CA-R-1650"
+    ],
+    "followup": "Mapping work: Is this the actual Session.Context or a persistent context package? Resolve without creating a new primary root."
+  },
+  {
+    "index": 423,
+    "subject": "Set-valued Property",
+    "disposition": "terms",
+    "target": "Set-valued Property",
+    "reason": "Generic property cardinality meaning belongs to Terms.",
+    "evidence": [
+      "CA-M-127",
+      "Candidate #6 decision 3"
+    ],
+    "followup": null
+  },
+  {
+    "index": 424,
+    "subject": "Set-valued Property Membership Evaluation",
+    "disposition": "terms",
+    "target": "Set-valued Property",
+    "reason": "Method governs membership semantics of the property, not an Evaluation entity.",
+    "evidence": [
+      "CA-M-127",
+      "Candidate #6 decisions 2 and 3"
+    ],
+    "followup": "Mapping work: Preserve the in/not in operators and listed-value applicability."
+  },
+  {
+    "index": 425,
+    "subject": "Single Source of Truth",
+    "disposition": "terms",
+    "target": "Single Source of Truth",
+    "reason": "Shared authority principle belongs to Terms; not a separate Object.",
+    "evidence": [
+      "Candidate #6 decision 3"
+    ],
+    "followup": "Mapping work: Owner-specific authority claims still need precise Subjects where the Term is only a topic placeholder."
+  },
+  {
+    "index": 426,
+    "subject": "Skill",
+    "disposition": "remove",
+    "target": null,
+    "reason": "Skill is incidental reporting context in M277/M278, not an evidenced governing entity dependency.",
+    "evidence": [
+      "CA-M-277",
+      "CA-M-278",
+      "Candidate #6 decision 4"
+    ],
+    "followup": "Mapping work: Keep reporting content and actual reporting target; remove only this unsupported broad dependency."
+  },
+  {
+    "index": 427,
+    "subject": "Source Reconciliation",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-010\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-010",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 428,
+    "subject": "Source Reconciliation Assessment Step",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-147\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-147",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 429,
+    "subject": "Source Reconciliation Correction Step",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-150\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-150",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 430,
+    "subject": "Source Reconciliation Decision Step",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-149\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-149",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 431,
+    "subject": "Source Reconciliation Proposal Step",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-148\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-148",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 432,
+    "subject": "Source Reconciliation Publication Step",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-151\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-151",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 433,
+    "subject": "Source Reconciliation Selection Step",
+    "disposition": "unresolved",
+    "target": "atom(atom_id=\"CA-O-146\")",
+    "reason": "Named project Operation is a particular Atom, not another abstract entity kind.",
+    "evidence": [
+      "CA-O-146",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar."
+  },
+  {
+    "index": 434,
+    "subject": "Source Reconciliation Workflow Carrier layout",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Workflow carrier layout is a Concern about a concrete Workflow, not a new abstract entity.",
+    "evidence": [
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Mapping work: Inspect C350; proposed target atom CA-O-010, preserve carrier-layout issue without inventing a carrier property."
+  },
+  {
+    "index": 435,
+    "subject": "Source Reconciliation/Step bindings",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Step bindings may belong to Step definitions rather than the named source-reconciliation Workflow.",
+    "evidence": [
+      "CA-R-1508",
+      "Candidate #6 generic operation decision"
+    ],
+    "followup": "Mapping work: Inspect C417 to select the affected Step instances/binding property, not blanket-map to Workflow."
+  },
+  {
+    "index": 436,
+    "subject": "Source verification evidence",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Evidence may be a Journal record, a Projection or a source citation; the name alone does not decide.",
+    "evidence": [
+      "Candidate #6 decision 2"
+    ],
+    "followup": "Mapping work: Inspect C421 and distinguish the actual evidence artifact from required evidence."
+  },
+  {
+    "index": 437,
+    "subject": "Spec",
+    "disposition": "terms",
+    "target": "Spec",
+    "reason": "Spec is shared meaning for specification, not an extra primary entity.",
+    "evidence": [
+      "Candidate #6 decision 3"
+    ],
+    "followup": "Mapping work: Where a source means a concrete RMED Atom set, preserve that Selection instead of treating the whole set as a Term."
+  },
+  {
+    "index": 438,
+    "subject": "Spec Content Roles",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The phrase can denote the meaning of RMED roles or an actual set of role classifications.",
+    "evidence": [
+      "Candidate #6 decision 3"
+    ],
+    "followup": "Mapping work: Per source: use Term Spec for shared meaning, exact RMED role paths for rules, or a Selection only for an actual set."
+  },
+  {
+    "index": 439,
+    "subject": "Status",
+    "disposition": "terms",
+    "target": "Status",
+    "reason": "Cross-owner Status meaning belongs to Terms.",
+    "evidence": [
+      "Candidate #6 decision 3"
+    ],
+    "followup": "Mapping work: Owner-specific Status values must use their actual owner path, not a generic term."
+  },
+  {
+    "index": 440,
+    "subject": "Step",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+    "reason": "Step is the generic Operations Type.",
+    "evidence": [
+      "CA-R-1508",
+      "Candidate #6 generic operation decision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 441,
+    "subject": "Step Run",
+    "disposition": "mapped",
+    "target": "Entity/Occurrent/Execution/Step Run",
+    "reason": "Actual Step execution is the approved Occurrent kind.",
+    "evidence": [
+      "CA-R-1791",
+      "CA-R-1792",
+      "CA-R-1793",
+      "Candidate #6 run paths"
+    ],
+    "followup": null
+  },
+  {
+    "index": 442,
+    "subject": "Step Run/Invocation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Invocation is an actual Step Run occurrence, but sources may require identifying individual deliveries separately.",
+    "evidence": [
+      "CA-R-1791",
+      "CA-R-1792",
+      "CA-R-1793"
+    ],
+    "followup": "Operator question: Can Invocation fold into Step Run with invocation identity retained, or is a distinct per-run occurrence necessary? Do not invent Step Run/Invocation."
+  },
+  {
+    "index": 443,
+    "subject": "Step/Agentic Execution Context",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The old name says Step context but these sources govern actual invocation delivery/results.",
+    "evidence": [
+      "CA-R-1791",
+      "CA-R-1792",
+      "CA-R-1793",
+      "Candidate #6 decision 7"
+    ],
+    "followup": "Mapping work: Map required context to Agentic Step.Context and supplied context to Step Run.Context per occurrence; C426 also requires inspection."
+  },
+  {
+    "index": 444,
+    "subject": "Structural Coordinate",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Scope Unit/Type: Ordered.Structural Coordinate",
+    "reason": "R1932 defines a derived locator of one ordered Scope Unit.",
+    "evidence": [
+      "CA-R-1932"
+    ],
+    "followup": "Mapping work: Derived locator is not Scope Unit identity; preserve level/order constituents."
+  },
+  {
+    "index": 445,
+    "subject": "Structural Entity",
+    "disposition": "remove",
+    "target": null,
+    "reason": "The obsolete Artifact/Structural Entity partition is removed where no single precise remap exists.",
+    "evidence": [
+      "CA-R-1376",
+      "CA-R-1409",
+      "Candidate #6 decision 1"
+    ],
+    "followup": "Mapping work: Per occurrence retain valid Scope Unit/Atom containment claims and replace precise references; do not delete whole Atoms."
+  },
+  {
+    "index": 446,
+    "subject": "Structural Entity Containment Relations",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation/Type: Contains",
+    "reason": "Containment representation concerns the existing Contains relation, not a Structural Entity subtype.",
+    "evidence": [
+      "Candidate #6 decision 1",
+      "approved contains/contained_by relations"
+    ],
+    "followup": "Mapping work: Check D266 direction and whether inverse Contained By also needs an explicit Subject."
+  },
+  {
+    "index": 447,
+    "subject": "Structural Entity Direct Containment",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation/Type: Contains",
+    "reason": "Direct containment is represented by the existing Contains relation.",
+    "evidence": [
+      "CA-R-1376",
+      "CA-R-1498",
+      "Candidate #6 decision 1"
+    ],
+    "followup": "Mapping work: Keep owner/range restrictions per source; remove obsolete Structural Entity partition."
+  }
+]

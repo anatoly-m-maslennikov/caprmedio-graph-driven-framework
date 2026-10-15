@@ -1,0 +1,810 @@
+[
+  {
+    "index": 128,
+    "subject": "Author",
+    "disposition": "terms",
+    "target": "Author",
+    "reason": "Authorship role shared by human and agent authors; no new Actor subtype is required.",
+    "evidence": [
+      "CA-M-113",
+      "CA-E-472",
+      "approved shared meanings decision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 129,
+    "subject": "Authoritative Atom Carrier Bundle",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "D463 governs Atom representation; E502 specifically governs Plan carrier pairing. One generic bundle entity would lose these boundaries.",
+    "evidence": [
+      "CA-D-463",
+      "CA-E-502"
+    ],
+    "followup": "Mapping work: use the represented Atom or Plan as the D/E Subject, preserving carrier-pair constraints in content; reconcile obsolete Revision wording separately."
+  },
+  {
+    "index": 130,
+    "subject": "Authority",
+    "disposition": "remove",
+    "target": null,
+    "reason": "The sole use is a broad topic dependency in a rule about nonauthoritative Scope Unit Name rendering; no separate Authority entity is evidenced.",
+    "evidence": [
+      "CA-R-971",
+      "approved vague topic dependency removal"
+    ],
+    "followup": "Retain the rule about Scope Unit Name rendering; remove only the unsupported Authority Subject link."
+  },
+  {
+    "index": 131,
+    "subject": "Authority Mode",
+    "disposition": "terms",
+    "target": "Authority Mode",
+    "reason": "Shared meaning occurs in Settings, Project Structure overrides and derived scope projections, not one owner-qualified property.",
+    "evidence": [
+      "CA-R-1430",
+      "CA-D-374",
+      "CA-D-391",
+      "approved shared meanings decision"
+    ],
+    "followup": "Mapping work: retain owner-qualified properties for actual Settings/Structure values; this Term does not replace them."
+  },
+  {
+    "index": 132,
+    "subject": "Authorize Structural Change",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Named Action definition CA-O-013 and a reference from O015 must retain that instance.",
+    "evidence": [
+      "CA-O-013",
+      "CA-O-015",
+      "approved concrete Operations decision"
+    ],
+    "followup": "Mapping work: preserve CA-O-013 identity under the Operations Action kind using admitted instance selection; relocate to Project Configuration."
+  },
+  {
+    "index": 133,
+    "subject": "Autonomous Confidence Threshold",
+    "disposition": "terms",
+    "target": "Autonomous Confidence Threshold",
+    "reason": "A policy meaning used across Plan overrides and Settings defaults; not actual Agentic Step Confidence.",
+    "evidence": [
+      "CA-R-1044",
+      "CA-R-1045",
+      "CA-D-472",
+      "approved threshold precedence decision"
+    ],
+    "followup": "Apply Settings default, Plan override, direct Operator prompt precedence; remove extra Hub-chain precedence from content later."
+  },
+  {
+    "index": 134,
+    "subject": "BEARS",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation/Type: BEARS",
+    "reason": "Named inverse view of IS_BORNE_BY belongs with Relation kinds, not a new primary entity.",
+    "evidence": [
+      "CA-R-1243",
+      "CA-R-1456",
+      "approved typed relations model"
+    ],
+    "followup": "Preserve inverse-derived status; do not promote BEARS to an independently authored primitive relation."
+  },
+  {
+    "index": 135,
+    "subject": "Build Entities Graph",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O133 defines one named Workflow, not a generic Workflow kind.",
+    "evidence": [
+      "CA-O-133",
+      "approved concrete Operations decision"
+    ],
+    "followup": "Mapping work: retain CA-O-133 instance identity under Operations Workflow; move concrete definition to Project Configuration."
+  },
+  {
+    "index": 136,
+    "subject": "Build Terms Graph",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O136 defines one named Workflow, not a generic Workflow kind.",
+    "evidence": [
+      "CA-O-136",
+      "approved concrete Operations decision"
+    ],
+    "followup": "Mapping work: retain CA-O-136 instance identity under Operations Workflow; move concrete definition to Project Configuration."
+  },
+  {
+    "index": 137,
+    "subject": "CAPRMEDIO Expansion",
+    "disposition": "terms",
+    "target": "CAPRMEDIO",
+    "reason": "R1736 defines the expansion of the project-specific name, not an entity kind.",
+    "evidence": [
+      "CA-R-1736",
+      "approved shared meanings decision"
+    ],
+    "followup": "Move the project-specific naming rule to Project Configuration; preserve the expansion in source Semantics/content."
+  },
+  {
+    "index": 138,
+    "subject": "CAPRMEDIO Framework Identity",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1778 names the framework CAPRMEDIO, but a framework/product name is not necessarily the current Project.Name.",
+    "evidence": [
+      "CA-R-1778"
+    ],
+    "followup": "Operator question: is the named CAPRMEDIO framework the CAPRMEDIO Project itself, or its delivered product? This determines the owner of its Name."
+  },
+  {
+    "index": 139,
+    "subject": "CAPRMEDIO Framework Instance",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The name covers installed framework context, methodology ownership and general project governance; it cannot be safely equated with Project or a running application.",
+    "evidence": [
+      "CA-R-850",
+      "CA-R-1422",
+      "CA-R-1772",
+      "CA-R-1773",
+      "CA-R-1776",
+      "CA-R-1777"
+    ],
+    "followup": "Operator question: does Framework Instance remain a distinct installed continuant, or should its uses split between Project, governing configuration and runtime occurrences?"
+  },
+  {
+    "index": 140,
+    "subject": "CAPRMEDIO Framework Instance Carrier Root",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "D317 describes a directory containing methodology sources and Settings for a framework instance; the instance owner remains unresolved.",
+    "evidence": [
+      "CA-D-317"
+    ],
+    "followup": "Mapping work: resolve Framework Instance first, then govern that represented object/configuration rather than creating a Carrier Root entity; old directory placement needs separate content alignment."
+  },
+  {
+    "index": 141,
+    "subject": "CAPRMEDIO Graph",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Uses span generic graph meaning, derived projections, relation-domain metadata and graph compositions.",
+    "evidence": [
+      "CA-R-806",
+      "CA-R-1408",
+      "CA-R-1409",
+      "CA-R-1472"
+    ],
+    "followup": "Mapping work: separate Term Graph, Projection instances/types and Relation domain properties per source; do not map every use to a new CAPRMEDIO Graph entity."
+  },
+  {
+    "index": 142,
+    "subject": "CAPRMEDIO Graph.Connectivity",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1410 requires connections to General Artifact Graph; R1472 governs typed cross-graph relations. These are not necessarily one stored Connectivity property.",
+    "evidence": [
+      "CA-R-1410",
+      "CA-R-1472"
+    ],
+    "followup": "Mapping work: map relation constraints to Relation and represented graph constraints to their Projection kinds; review obsolete General Artifact Graph assumptions separately."
+  },
+  {
+    "index": 143,
+    "subject": "CAPRMEDIO Metamodel.Fractality",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Scope Unit",
+    "reason": "R917 requires recursive Scope Unit governance; Fractality is not an additional object.",
+    "evidence": [
+      "CA-R-917",
+      "approved RMED governs thing decision"
+    ],
+    "followup": "Keep recursive applicability in Substance; do not create a separate Fractality node."
+  },
+  {
+    "index": 144,
+    "subject": "CARRIES",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation/Type: CARRIES",
+    "reason": "D256 explicitly defines the generic Carrier-to-continuant representation relation.",
+    "evidence": [
+      "CA-D-256"
+    ],
+    "followup": "Generic relation only; do not create per-property carrier bindings where general D policy suffices."
+  },
+  {
+    "index": 145,
+    "subject": "CCE",
+    "disposition": "terms",
+    "target": "CCE",
+    "reason": "Controlled language is a shared meaning, not an independently identified object in the agreed roots.",
+    "evidence": [
+      "CA-M-113",
+      "CA-M-122",
+      "CA-M-230",
+      "approved shared meanings decision"
+    ],
+    "followup": "CAPRMEDIO-specific language rules belong in Project Configuration; obsolete Definition Atom authority remains a content issue."
+  },
+  {
+    "index": 146,
+    "subject": "CCE Claim and Projection Validation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "E241 checks Atom Substance, Summary, and requested Translation/terminology Projections; one replacement would collapse distinct targets.",
+    "evidence": [
+      "CA-E-241",
+      "approved RMED governs thing decision"
+    ],
+    "followup": "Mapping work: retain separate governed targets Atom.Substance, Atom.Summary and requested Projection kinds; remove the procedure-like Subject name."
+  },
+  {
+    "index": 147,
+    "subject": "CCE Condition Expression",
+    "disposition": "terms",
+    "target": "CCE Condition Expression",
+    "reason": "A syntactic/logical expression category, not a separate primary object.",
+    "evidence": [
+      "CA-M-122",
+      "approved shared meanings decision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 148,
+    "subject": "CCE Condition Expression Evaluation",
+    "disposition": "terms",
+    "target": "CCE Condition Expression",
+    "reason": "Evaluation is supplied by the Method content; its governed subject is the expression being evaluated.",
+    "evidence": [
+      "CA-M-122",
+      "approved RMED governs thing decision"
+    ],
+    "followup": "Keep the CCE qualifier; do not merge all Condition Expression usages without checking their syntax."
+  },
+  {
+    "index": 149,
+    "subject": "CCE Method",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "CCE Method denotes selected Method Atoms defining CCE operators, while M234 governs the derived operator registry.",
+    "evidence": [
+      "CA-M-230",
+      "CA-M-234"
+    ],
+    "followup": "Mapping work: preserve the selected Method Atom applicability and separate the operator-registry target; generic Method kind alone would erase scope."
+  },
+  {
+    "index": 150,
+    "subject": "CCE Operator",
+    "disposition": "terms",
+    "target": "CCE Operator",
+    "reason": "Shared syntax token/function meaning; not a new Object.",
+    "evidence": [
+      "CA-M-230",
+      "CA-M-234",
+      "approved shared meanings decision"
+    ],
+    "followup": "Preserve distinct operator meanings and canonical spellings; do not merge with Operator Actor."
+  },
+  {
+    "index": 151,
+    "subject": "CCE Operator Expression",
+    "disposition": "terms",
+    "target": "CCE Operator Expression",
+    "reason": "Shared expression meaning used in normalization rules.",
+    "evidence": [
+      "CA-M-236",
+      "approved shared meanings decision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 152,
+    "subject": "CCE Operator Expression Normalization",
+    "disposition": "terms",
+    "target": "CCE Operator Expression",
+    "reason": "Normalization describes M's work on the expression, not a new entity.",
+    "evidence": [
+      "CA-M-236",
+      "approved RMED governs thing decision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 153,
+    "subject": "CCE Operator Registry",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Registry is a compiled operator list governed by Method Atoms, but the source also treats it as canonical admission authority.",
+    "evidence": [
+      "CA-M-234",
+      "CA-M-235",
+      "CA-M-236"
+    ],
+    "followup": "Mapping work: represent the derived registry output under the existing Projection branch, preserving source Atom authority; resolve its exact output type from source evidence without reopening the approved authority decision."
+  },
+  {
+    "index": 154,
+    "subject": "CCE Role Profile",
+    "disposition": "terms",
+    "target": "CCE Role Profile",
+    "reason": "Ranged language restrictions apply by content role/type/slot; this is a shared specification meaning.",
+    "evidence": [
+      "CA-M-307",
+      "approved shared meanings decision"
+    ],
+    "followup": "Keep per-role applicability in source rules; do not invent a generic CCE profile property on every Atom."
+  },
+  {
+    "index": 155,
+    "subject": "CORE_META_MODEL",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "E459 refers to the Core source set providing definitions, not simply the textual term or one configuration object.",
+    "evidence": [
+      "CA-E-459"
+    ],
+    "followup": "Mapping work: preserve named source-set selection for Core Meta-model; distinguish this use from the abstract Core model Term."
+  },
+  {
+    "index": 156,
+    "subject": "Canonical Scope Signature Derivation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Projection/Type: Canonical Scope Signature",
+    "reason": "M241 constructs the already admitted nonauthoritative signature Projection; derivation is Method content.",
+    "evidence": [
+      "CA-M-241",
+      "CA-R-1361",
+      "approved RMED governs thing decision"
+    ],
+    "followup": "Keep selected input frontier and no-source-rewrite constraints."
+  },
+  {
+    "index": 157,
+    "subject": "Canonical Scope Signature Derivation Validation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Projection/Type: Canonical Scope Signature",
+    "reason": "E407 checks that signature Projection and its derivation boundary.",
+    "evidence": [
+      "CA-E-407",
+      "CA-R-1361",
+      "approved RMED governs thing decision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 158,
+    "subject": "Canonical Signature Derivation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "M240 produces per-expression comparison signatures, and D346 stores their report. Choosing a Projection instance versus a property of that report needs consistent mapping.",
+    "evidence": [
+      "CA-M-240",
+      "CA-R-1360",
+      "CA-D-346"
+    ],
+    "followup": "Mapping work: align with the separate Atom Claim Canonical Signature mapping; do not invent a second signature hierarchy."
+  },
+  {
+    "index": 159,
+    "subject": "Canonical Signature Derivation Validation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "E405 checks the same restricted signature governed by R1360/M240; its exact signature target must match that family's mapping.",
+    "evidence": [
+      "CA-E-405",
+      "CA-R-1360",
+      "CA-M-240"
+    ],
+    "followup": "Mapping work: reuse the resolved Atom Claim Canonical Signature target, dropping Validation as a separate entity."
+  },
+  {
+    "index": 160,
+    "subject": "Cardinality Constraint",
+    "disposition": "terms",
+    "target": "Cardinality Constraint",
+    "reason": "Shared logical constraint meaning, not an ownerless Property object.",
+    "evidence": [
+      "CA-M-235",
+      "approved shared meanings decision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 161,
+    "subject": "Cardinality Constraint Authoring",
+    "disposition": "terms",
+    "target": "Cardinality Constraint",
+    "reason": "Authoring is the Method contribution; the constraint itself is its subject.",
+    "evidence": [
+      "CA-M-235",
+      "approved RMED governs thing decision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 162,
+    "subject": "Carrier",
+    "disposition": "mapped",
+    "target": "Entity/Carrier",
+    "reason": "Direct normalization to the agreed Carrier root.",
+    "evidence": [
+      "CA-D-256",
+      "approved Candidate5 roots"
+    ],
+    "followup": null
+  },
+  {
+    "index": 163,
+    "subject": "Carrier-Only Recoding",
+    "disposition": "terms",
+    "target": "Carrier-Only Recoding",
+    "reason": "A change-class meaning distinguished by semantic effect, not a new entity or occurrence instance.",
+    "evidence": [
+      "CA-D-304",
+      "CA-R-1432",
+      "CA-R-1633",
+      "approved shared meanings decision"
+    ],
+    "followup": "Preserve the actual Atom/Carrier targets for rules about concrete edits; no change-class node is required."
+  },
+  {
+    "index": 164,
+    "subject": "Change Content Roles",
+    "disposition": "terms",
+    "target": "Change Content Roles",
+    "reason": "The shared CAPO grouping is a named content-role meaning, not a separate entity kind.",
+    "evidence": [
+      "CA-R-1549",
+      "CA-R-1548",
+      "CA-R-1550",
+      "approved shared meanings decision"
+    ],
+    "followup": "Old I Atom claims in consumers remain deferred content conflicts."
+  },
+  {
+    "index": 165,
+    "subject": "Check Atoms",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O087 is a named Action referenced from its Step; its identity must survive.",
+    "evidence": [
+      "CA-O-087",
+      "CA-O-088",
+      "approved concrete Operations decision"
+    ],
+    "followup": "Mapping work: preserve CA-O-087 instance under Operations Action and relocate to Project Configuration."
+  },
+  {
+    "index": 166,
+    "subject": "Check Atoms Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O088 is a named Step in O080, not a new kind of Step.",
+    "evidence": [
+      "CA-O-088",
+      "CA-O-080",
+      "approved concrete Operations decision"
+    ],
+    "followup": "Mapping work: preserve CA-O-088 instance under Operations Step and relocate with its owning Workflow."
+  },
+  {
+    "index": 167,
+    "subject": "Child Composition",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Scope Unit.Child Composition",
+    "reason": "R960 explicitly defines this classification for one Scope Unit's direct children.",
+    "evidence": [
+      "CA-R-960",
+      "CA-R-1762"
+    ],
+    "followup": "Retain admitted values and distinguish child composition from Scope Unit Type."
+  },
+  {
+    "index": 168,
+    "subject": "Claim",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Substance",
+    "reason": "Claim is the RMED label for the shared Substance field, as already approved.",
+    "evidence": [
+      "approved Claim to Substance decision",
+      "CA-M-113",
+      "CA-R-1270"
+    ],
+    "followup": "Existing claims assuming every content role has a Claim, or defining I Atoms, need separate content alignment."
+  },
+  {
+    "index": 169,
+    "subject": "Claim Value Set",
+    "disposition": "terms",
+    "target": "Claim Value Set",
+    "reason": "R1359 defines expression form X:(A,B,C), not a separate primary entity.",
+    "evidence": [
+      "CA-R-1359",
+      "CA-R-1358",
+      "approved shared meanings decision"
+    ],
+    "followup": "Preserve expression semantics; owner-qualified allowed-value relations remain distinct."
+  },
+  {
+    "index": 170,
+    "subject": "Claim Value Set Authoring",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Substance",
+    "reason": "M237 governs authoring a value-set expression inside Substance, not an authoring entity.",
+    "evidence": [
+      "CA-M-237",
+      "CA-R-1358",
+      "CA-R-1359",
+      "approved RMED governs thing decision"
+    ],
+    "followup": "Keep the value-set expression restriction in Substance Scope."
+  },
+  {
+    "index": 171,
+    "subject": "Claim Value Set Consolidation Candidate Evaluation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Substance",
+    "reason": "E403 checks proposed value-set consolidation in Substance rather than a separate Evaluation entity.",
+    "evidence": [
+      "CA-E-403",
+      "CA-R-1358",
+      "approved RMED governs thing decision"
+    ],
+    "followup": "Preserve candidate/consolidation applicability and no unauthorized source-merge boundary."
+  },
+  {
+    "index": 172,
+    "subject": "Claim Value Set Validation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Substance",
+    "reason": "E402 validates the value-set expression carried in Substance.",
+    "evidence": [
+      "CA-E-402",
+      "CA-R-1359",
+      "approved RMED governs thing decision"
+    ],
+    "followup": "Keep value-set-specific applicability; do not broaden the check to unrelated Substance forms."
+  },
+  {
+    "index": 173,
+    "subject": "Compatible Lineage Impact Disposition",
+    "disposition": "terms",
+    "target": "Compatible Lineage Impact Disposition",
+    "reason": "R1033 defines the meaning of compatible for lineage analysis outcomes.",
+    "evidence": [
+      "CA-R-1033",
+      "approved shared meanings decision"
+    ],
+    "followup": "Do not add a compatible property or status to every Atom."
+  },
+  {
+    "index": 174,
+    "subject": "Composite Claim",
+    "disposition": "terms",
+    "target": "Composite Claim",
+    "reason": "A form of Substance expression, not an independently identified Object.",
+    "evidence": [
+      "CA-R-1270",
+      "approved Claim to Substance decision",
+      "approved shared meanings decision"
+    ],
+    "followup": "Retain the existing atomicity-versus-composition constraints for later content review."
+  },
+  {
+    "index": 175,
+    "subject": "Concern About Relation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation/Type: Concern About",
+    "reason": "R1022 declares a typed Concern-to-affected-entity relation.",
+    "evidence": [
+      "CA-R-1022"
+    ],
+    "followup": "Preserve source and target restrictions; do not map Concern About to a generic untyped reference."
+  },
+  {
+    "index": 176,
+    "subject": "Condition Expression",
+    "disposition": "terms",
+    "target": "Condition Expression",
+    "reason": "A shared logical expression meaning used in Plan DoD and Evaluation.",
+    "evidence": [
+      "CA-R-1581",
+      "CA-M-312",
+      "approved shared meanings decision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 177,
+    "subject": "Confidence Threshold",
+    "disposition": "terms",
+    "target": "Confidence Threshold",
+    "reason": "A shared decision-criterion meaning across owners, distinct from actual Confidence.",
+    "evidence": [
+      "CA-R-1427",
+      "CA-R-1428",
+      "approved shared meanings decision",
+      "approved threshold precedence decision"
+    ],
+    "followup": "Actual values remain owner-qualified Settings/Plan properties; no cross-owner property Selection."
+  },
+  {
+    "index": 178,
+    "subject": "Confidence Threshold.Resolution",
+    "disposition": "terms",
+    "target": "Confidence Threshold",
+    "reason": "Resolution is M's method for choosing the threshold, not a separate entity.",
+    "evidence": [
+      "CA-M-271",
+      "approved RMED governs thing decision",
+      "approved threshold precedence decision"
+    ],
+    "followup": "Align resolution content to Settings -> Plan -> direct prompt; remove extra Hub-chain layer."
+  },
+  {
+    "index": 179,
+    "subject": "Confidence Threshold.Resolution Validation",
+    "disposition": "terms",
+    "target": "Confidence Threshold",
+    "reason": "E443 checks threshold resolution; no Validation object is needed.",
+    "evidence": [
+      "CA-E-443",
+      "approved RMED governs thing decision",
+      "approved threshold precedence decision"
+    ],
+    "followup": "Update the checked precedence to Settings -> Plan -> direct prompt."
+  },
+  {
+    "index": 180,
+    "subject": "Confidence Threshold.Source",
+    "disposition": "terms",
+    "target": "Confidence Threshold",
+    "reason": "R1428 constrains threshold sourcing across multiple owners, not one universally owned Source property.",
+    "evidence": [
+      "CA-R-1428",
+      "approved shared meanings decision",
+      "approved threshold precedence decision"
+    ],
+    "followup": "Preserve distinction between selected Plan override and Settings default; remove the extra Hub-chain precedence."
+  },
+  {
+    "index": 181,
+    "subject": "Configuration Selection and Precedence",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Project.Framework Settings",
+    "reason": "R1724 governs current capability activation, selection and precedence in Framework Settings.",
+    "evidence": [
+      "CA-R-1724",
+      "approved RMED governs thing decision"
+    ],
+    "followup": "Keep concrete selection values in Settings, not duplicated Project Configuration Atoms."
+  },
+  {
+    "index": 182,
+    "subject": "Construct Entities Graph Projection",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O134 defines a named construction Action, distinct from its resulting Projection.",
+    "evidence": [
+      "CA-O-134",
+      "approved concrete Operations decision"
+    ],
+    "followup": "Mapping work: preserve CA-O-134 instance under Operations Action; relocate to Project Configuration."
+  },
+  {
+    "index": 183,
+    "subject": "Construct Terms Graph Projection",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O137 defines a named construction Action, distinct from the Terms Graph Projection.",
+    "evidence": [
+      "CA-O-137",
+      "approved concrete Operations decision"
+    ],
+    "followup": "Mapping work: preserve CA-O-137 instance under Operations Action; relocate to Project Configuration; old Definition Atom authority needs content correction."
+  },
+  {
+    "index": 184,
+    "subject": "Consumer",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R932/R945 use Consumer as the Demand-owning Scope Unit role; generic Scope Unit loses that relational role.",
+    "evidence": [
+      "CA-R-932",
+      "CA-R-945"
+    ],
+    "followup": "Mapping work: in these sources qualify the Demand Atom's Owning Scope Unit, not a new Consumer Actor or Scope Unit subtype."
+  },
+  {
+    "index": 185,
+    "subject": "Consumer Goal",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The accepted Goal is owned by a Consumer Scope Unit but sources do not establish whether it maps to a Plan Atom or that Atom's Substance.",
+    "evidence": [
+      "CA-R-933",
+      "CA-R-951"
+    ],
+    "followup": "Operator question: is Consumer Goal an accepted Plan Atom/objective, or a different result criterion? Retain owner and dependency until resolved."
+  },
+  {
+    "index": 186,
+    "subject": "Container Atom",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Current Subjects say Container Atom while R1265/R1378/R1379 still define non-Atom Collections; approved containment enablement contradicts that content.",
+    "evidence": [
+      "CA-R-1265",
+      "CA-R-1378",
+      "CA-R-1379",
+      "CA-R-1383",
+      "CA-R-1521"
+    ],
+    "followup": "Mapping work: map genuine container references to Atoms with enabled containment and retire obsolete Structural Entity collection claims only after preserving valid rules; do not map instances to the Container-enabled property."
+  },
+  {
+    "index": 187,
+    "subject": "Containment Relation Pair",
+    "disposition": "terms",
+    "target": "Containment Relation Pair",
+    "reason": "R1368 defines the shared meaning of CONTAINS plus inverse IS_CONTAINED_BY; no additional primary entity is needed.",
+    "evidence": [
+      "CA-R-1368",
+      "approved shared meanings decision"
+    ],
+    "followup": "Keep the two concrete Relation kinds and inverse direction distinct."
+  },
+  {
+    "index": 188,
+    "subject": "Content Role Naming",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role",
+    "reason": "M287 governs how Content Roles are named; Naming is not a new entity.",
+    "evidence": [
+      "CA-M-287",
+      "approved RMED governs thing decision"
+    ],
+    "followup": "Keep exclusions of verbs, Status and activity labels in content."
+  },
+  {
+    "index": 189,
+    "subject": "Core Meta-Model",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Uses mix abstract model meaning with selected source authority; mapping all to a Term or Selection would lose one meaning.",
+    "evidence": [
+      "CA-R-1434",
+      "CA-R-1217",
+      "approved Core/config distinction"
+    ],
+    "followup": "Mapping work: use Term Core Meta-model for its general meaning and preserve an admitted named source-set Selection where actual source Atoms are referenced."
+  },
+  {
+    "index": 190,
+    "subject": "Core Meta-model",
+    "disposition": "terms",
+    "target": "Core Meta-model",
+    "reason": "R1234 distinguishes source-layer meaning from local tier Core; it does not define a new root object.",
+    "evidence": [
+      "CA-R-1234",
+      "approved Core/config distinction",
+      "approved shared meanings decision"
+    ],
+    "followup": "Do not conflate the Core source layer with Local Tier Core inside Project Configuration."
+  },
+  {
+    "index": 191,
+    "subject": "Corrective Method Acceptance",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O090 defines a named corrective-method activation Action.",
+    "evidence": [
+      "CA-O-090",
+      "approved concrete Operations decision"
+    ],
+    "followup": "Mapping work: preserve CA-O-090 instance under Operations Action; move to Project Configuration without duplicating its RMED rules."
+  }
+]

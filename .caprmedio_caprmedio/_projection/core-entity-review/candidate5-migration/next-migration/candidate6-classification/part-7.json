@@ -1,0 +1,776 @@
+[
+  {
+    "index": 448,
+    "subject": "Structural Entity Recursive Containment",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Transitive containment is a Relation property, not a new Structural Entity kind.",
+    "evidence": [
+      "CA-R-1498",
+      "approved old-partition removal"
+    ],
+    "followup": "Mapping work: map to the agreed CONTAINS relation authority after separating direct and transitive meaning; do not invent a new relation-kind path."
+  },
+  {
+    "index": 449,
+    "subject": "Structural Level",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Scope Unit.Structural Level",
+    "reason": "Depth belongs to Scope Unit; Candidate #5 already lists this property.",
+    "evidence": [
+      "CA-R-1444",
+      "CA-R-1485",
+      "Candidate #5 Scope Unit properties"
+    ],
+    "followup": null
+  },
+  {
+    "index": 450,
+    "subject": "Structural Parent Relation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Sources use the direct Scope Unit parent relation, not an Artifact partition.",
+    "evidence": [
+      "CA-R-1390",
+      "CA-R-1392",
+      "CA-R-1484",
+      "CA-R-1763"
+    ],
+    "followup": "Mapping work: resolve the existing parent relation kind and its exact qualified path; preserve parentage rather than replacing with containment or a new property."
+  },
+  {
+    "index": 451,
+    "subject": "Structural Path",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "This is derived ordered Scope Unit ancestry, not a Carrier path or independent primary entity.",
+    "evidence": [
+      "CA-R-1661",
+      "CA-R-1764"
+    ],
+    "followup": "Operator question: retain Structural Path as a derived Scope Unit property, or represent that ordered ancestry only as a Selection/Projection?"
+  },
+  {
+    "index": 452,
+    "subject": "Subject",
+    "disposition": "terms",
+    "target": "Subject",
+    "reason": "Subject names the direct reference concept; source explicitly rejects intermediate Subject objects.",
+    "evidence": [
+      "CA-R-1198",
+      "CA-R-1280",
+      "CA-R-1281",
+      "approved shared meanings to Terms"
+    ],
+    "followup": "Mapping work: preserve actual GOVERNS/DEPENDS_ON Relations and Atom.Subjects separately; this Terms routing does not erase links."
+  },
+  {
+    "index": 453,
+    "subject": "Subject Assignment",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Subjects",
+    "reason": "M125 specifies how to author an Atom's Subjects, so it governs the result rather than a procedure entity.",
+    "evidence": [
+      "CA-M-125",
+      "approved RMED governs thing"
+    ],
+    "followup": null
+  },
+  {
+    "index": 454,
+    "subject": "Subject Expression",
+    "disposition": "terms",
+    "target": "Subject Expression",
+    "reason": "Expression is reference syntax, not another target entity.",
+    "evidence": [
+      "CA-R-1194",
+      "CA-R-1324",
+      "approved syntax is not entity"
+    ],
+    "followup": "Mapping work: keep syntax constraints and relation storage rules; do not create an Object for the expression."
+  },
+  {
+    "index": 455,
+    "subject": "Subject Expression Evaluation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Subjects",
+    "reason": "Checks of serialized Subject expressions govern the Atom's Subjects, not an Evaluation procedure entity.",
+    "evidence": [
+      "approved RMED governs thing",
+      "CA-R-1198",
+      "CA-E-383"
+    ],
+    "followup": "Keep expression grammar as Terms context; E383's old mandatory definitions and legacy grammar assertions require later content alignment."
+  },
+  {
+    "index": 456,
+    "subject": "Subject Expression Writing",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.Subjects",
+    "reason": "Writing a Subject expression authors the Atom Subjects reference representation.",
+    "evidence": [
+      "approved RMED governs thing",
+      "CA-R-1198",
+      "CA-M-228"
+    ],
+    "followup": "Keep expression grammar Terms distinct; M228's old component and relation profile requires later content alignment."
+  },
+  {
+    "index": 457,
+    "subject": "Subject Path",
+    "disposition": "terms",
+    "target": "Subject Path",
+    "reason": "A path identifies a target through syntax without creating an identity or becoming the relation.",
+    "evidence": [
+      "CA-R-1194",
+      "approved syntax is not entity"
+    ],
+    "followup": null
+  },
+  {
+    "index": 458,
+    "subject": "Subject Projection Derivation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Projection/Type: Atom Subjects Graph",
+    "reason": "M232 governs production of the already admitted projection type, not a derivation entity.",
+    "evidence": [
+      "CA-M-232",
+      "CA-R-1281",
+      "approved RMED governs thing"
+    ],
+    "followup": null
+  },
+  {
+    "index": 459,
+    "subject": "Subject Relation Kind: DEPENDS_ON",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "This identifies the admitted dependency relation kind; it is distinct from Plan blocking.",
+    "evidence": [
+      "CA-R-1580",
+      "CA-R-1200"
+    ],
+    "followup": "Mapping work: use the canonical qualified DEPENDS_ON relation-kind path consistent with the relation lane; do not reduce it to generic Relation or invent grammar."
+  },
+  {
+    "index": 460,
+    "subject": "Subtree-owned Atoms",
+    "disposition": "mapped",
+    "target": "Subtree-owned Atoms",
+    "reason": "Named selection by owning Scope Unit subtree retains its identity, not an Object subtype.",
+    "evidence": [
+      "CA-R-942",
+      "approved named selections"
+    ],
+    "followup": "Mapping work: retain as named Selection and preserve owning-scope predicate; no invented selector syntax."
+  },
+  {
+    "index": 461,
+    "subject": "Subtree-targeting Atoms",
+    "disposition": "mapped",
+    "target": "Subtree-targeting Atoms",
+    "reason": "Named selection unions targeting Atoms across a Scope Unit subtree.",
+    "evidence": [
+      "CA-R-1449",
+      "approved named selections"
+    ],
+    "followup": "Mapping work: retain named Selection distinct from subtree ownership; no invented selector syntax."
+  },
+  {
+    "index": 462,
+    "subject": "TOML",
+    "disposition": "terms",
+    "target": "TOML",
+    "reason": "Format name in a File Carrier representation policy, not a separate Object.",
+    "evidence": [
+      "CA-D-330",
+      "approved shared meanings to Terms"
+    ],
+    "followup": "Move GitHub/CAPRMEDIO-specific preview policy to Project Configuration; no format branch invented."
+  },
+  {
+    "index": 463,
+    "subject": "Target Set",
+    "disposition": "mapped",
+    "target": "Target Set",
+    "reason": "Exact governed set for migration is a named Selection rather than an Object.",
+    "evidence": [
+      "CA-R-1554",
+      "approved named selections"
+    ],
+    "followup": "Keep exact target membership and scope when relocating the project-specific migration policy."
+  },
+  {
+    "index": 464,
+    "subject": "Targeting Atoms",
+    "disposition": "mapped",
+    "target": "Targeting Atoms",
+    "reason": "Selection of Atoms targeting a Scope Unit remains separate from ownership selection.",
+    "evidence": [
+      "CA-R-1448",
+      "CA-R-1449",
+      "approved named selections"
+    ],
+    "followup": null
+  },
+  {
+    "index": 465,
+    "subject": "Term.Name",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Term.Name",
+    "reason": "Qualified name property of Term; this does not create ownerless names in the Object tree.",
+    "evidence": [
+      "CA-R-1324",
+      "approved Term branch"
+    ],
+    "followup": "Candidate #5 intentionally omitted Term properties; this is review-level completion of its full path, not a new mandatory vocabulary layer."
+  },
+  {
+    "index": 466,
+    "subject": "Terminology Projection Derivation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "M114 explicitly builds a terminology Catalog while newer decisions describe a Terms Graph; these cannot be silently equated.",
+    "evidence": [
+      "CA-M-114",
+      "approved RMED governs thing"
+    ],
+    "followup": "Operator question: retain terminology Catalog as a distinct Projection type/use, or replace this source's output with Terms Graph? Its Definition-Atom requirement also conflicts with derived Semantics."
+  },
+  {
+    "index": 467,
+    "subject": "Terms Graph Construction Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "CA-O-138 is a concrete Step instance, not a new Core kind.",
+    "evidence": [
+      "CA-O-138",
+      "approved concrete Operations in Project Configuration"
+    ],
+    "followup": "Mapping work: relocate CA-O-138 to Project Configuration and encode its named instance applicability under Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step; generic Step alone loses identity."
+  },
+  {
+    "index": 468,
+    "subject": "Tool",
+    "disposition": "deferred",
+    "target": null,
+    "reason": "Tools are concrete execution implementations; no Implementation entity placement is admitted now.",
+    "evidence": [
+      "CA-R-1432",
+      "CA-R-1509",
+      "CA-R-1511",
+      "CA-R-1526",
+      "approved Implementation deferred"
+    ],
+    "followup": "Retain sources unchanged until executable Tool representation is decided; definitions and actual calls must stay distinct."
+  },
+  {
+    "index": 469,
+    "subject": "Tool Call",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Actual invocation is an Occurrent; evidence is Journal content and calls are not automatically Step Runs.",
+    "evidence": [
+      "CA-R-1528",
+      "CA-R-1511"
+    ],
+    "followup": "Operator question: model Tool Call under generic Execution without a new kind, or admit a Tool Call execution subtype? Keep record Subjects separate."
+  },
+  {
+    "index": 470,
+    "subject": "Tool/Workflow Operations/Atom Lifecycle/Request Parameters",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete request parameters of lifecycle operations are not the entire Tool or a generic Step.",
+    "evidence": [
+      "CA-D-568",
+      "approved concrete Operations in Project Configuration"
+    ],
+    "followup": "Mapping work: bind the dependency to its actual lifecycle operation and parameter contract; the name alone cannot identify which Action/Workflow owns it."
+  },
+  {
+    "index": 471,
+    "subject": "Translation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1274 treats translated content as distinct from Summary; a universal replacement with Substance may lose which content is translated.",
+    "evidence": [
+      "CA-R-1274",
+      "approved RMED governs thing"
+    ],
+    "followup": "Mapping work: inspect M116/E241 with R1274 to distinguish translated Atom content from a derived Projection; no independent Translation Object invented."
+  },
+  {
+    "index": 472,
+    "subject": "Type",
+    "disposition": "terms",
+    "target": "Type",
+    "reason": "Shared classification meaning across owners belongs in Terms; actual owner-qualified Type classifications remain.",
+    "evidence": [
+      "approved shared meanings to Terms",
+      "CA-R-1701"
+    ],
+    "followup": null
+  },
+  {
+    "index": 473,
+    "subject": "Type-Qualified Status Validation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "E386 mixes valid qualified Status checks with obsolete Activity checks across Artifact kinds.",
+    "evidence": [
+      "CA-E-386",
+      "approved Activity removal"
+    ],
+    "followup": "Mapping work: remove Activity-specific clauses, retain applicable owner-qualified Status checks, and split or route cross-owner Status meaning to Terms; do not invent Artifact.Status."
+  },
+  {
+    "index": 474,
+    "subject": "Uncertain Lineage Impact Disposition",
+    "disposition": "terms",
+    "target": "Uncertain Lineage Impact Disposition",
+    "reason": "The source defines meaning of an outcome value, not an independent Object.",
+    "evidence": [
+      "CA-R-1036",
+      "approved shared meanings to Terms"
+    ],
+    "followup": "Relocate project-specific lineage policy; preserve its blocking meaning unless separately retired."
+  },
+  {
+    "index": 475,
+    "subject": "Unit",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Scope Unit",
+    "reason": "Source explicitly defines Unit as shorthand for Scope Unit.",
+    "evidence": [
+      "CA-R-964"
+    ],
+    "followup": "Retain the alias meaning as derived Terms information, not a second entity."
+  },
+  {
+    "index": 476,
+    "subject": "Update-Required Lineage Impact Disposition",
+    "disposition": "terms",
+    "target": "Update-Required Lineage Impact Disposition",
+    "reason": "The source defines an outcome value's meaning, not an independent Object.",
+    "evidence": [
+      "CA-R-1034",
+      "approved shared meanings to Terms"
+    ],
+    "followup": "Relocate project-specific lineage policy; mapping does not approve its traversal gate."
+  },
+  {
+    "index": 477,
+    "subject": "Verification",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1505 distinguishes a judgment from execution results and evidence; blanket conversion to Execution or Evaluation Atom loses this distinction.",
+    "evidence": [
+      "CA-R-1505"
+    ],
+    "followup": "Mapping work: inspect each use to separate verification criteria, a real assessment execution, and the resulting judgment/record."
+  },
+  {
+    "index": 478,
+    "subject": "Work Journal/Record",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/History/Journal.Record",
+    "reason": "Work Journal is Journal; Record is its dependent event-record content.",
+    "evidence": [
+      "CA-D-360",
+      "CA-D-365",
+      "approved Journal records only"
+    ],
+    "followup": "D360/D365 retain superseded history-as-admission requirements; defer those content repairs, not the record identity mapping."
+  },
+  {
+    "index": 479,
+    "subject": "Work Sequence Number",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number",
+    "reason": "Sources and Candidate #5 explicitly identify the Plan property; it is not Atom identity.",
+    "evidence": [
+      "CA-R-992",
+      "CA-R-997",
+      "CA-D-381",
+      "Candidate #5 Plan properties"
+    ],
+    "followup": "Do not restore removed Plan subtypes or treat ordinal order as blocking."
+  },
+  {
+    "index": 480,
+    "subject": "Workflow",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+    "reason": "Approved generic Operations Workflow kind.",
+    "evidence": [
+      "approved Candidate #6 generic operation Subjects"
+    ],
+    "followup": "Legacy M305/R1563/R1570 remain content/structural repair cases; mapping does not cure their content."
+  },
+  {
+    "index": 481,
+    "subject": "Workflow Run",
+    "disposition": "mapped",
+    "target": "Entity/Occurrent/Execution/Workflow Run",
+    "reason": "Approved actual execution kind distinct from Workflow definition and Journal record.",
+    "evidence": [
+      "approved Candidate #6 Run Subjects",
+      "CA-R-1511"
+    ],
+    "followup": null
+  },
+  {
+    "index": 482,
+    "subject": "Workflow/Step binding ownership",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concern C425 names a binding-ownership issue; the target may be the Step binding or concrete Workflow ownership.",
+    "evidence": [
+      "approved RMED governs thing",
+      "approved generic operation Subjects"
+    ],
+    "followup": "Mapping work: inspect C425's issue to identify its precise binding owner; do not replace with all Workflow definitions."
+  },
+  {
+    "index": 483,
+    "subject": "YAML",
+    "disposition": "terms",
+    "target": "YAML",
+    "reason": "Representation format term used by a File Carrier policy.",
+    "evidence": [
+      "CA-D-330",
+      "approved shared meanings to Terms"
+    ],
+    "followup": "No separate format Object or property-per-YAML-field mapping."
+  },
+  {
+    "index": 484,
+    "subject": "applicability",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1669 classifies implementation-method claims by Local Tier, while R1670 constrains an old implementation_decision Atom classification.",
+    "evidence": [
+      "CA-R-1669",
+      "CA-R-1670",
+      "approved vague-topic replacement"
+    ],
+    "followup": "Mapping work: target Method.Local Tier for R1669; resolve the old implementation_decision classification for R1670 before selecting its qualified Local Tier. No generic applicability entity."
+  },
+  {
+    "index": 485,
+    "subject": "artifact-catalog",
+    "disposition": "remove",
+    "target": null,
+    "reason": "R1664 already governs Analysis/Type: Rationale; the extra catalogue tag supplies no precise independent dependency.",
+    "evidence": [
+      "CA-R-1664",
+      "approved vague-topic removal"
+    ],
+    "followup": "Remove the vague dependency only, not the Rationale rule."
+  },
+  {
+    "index": 486,
+    "subject": "artifact-model",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "This topic tag governs different substantive rules; R1700 specifically concerns Atom Content Role/Type admission.",
+    "evidence": [
+      "CA-R-1700",
+      "approved vague-topic replacement"
+    ],
+    "followup": "Mapping work: replace each governing occurrence with its evidenced role/type/Atom target; drop only redundant dependencies. No blanket topic node."
+  },
+  {
+    "index": 487,
+    "subject": "atom-boundary",
+    "disposition": "remove",
+    "target": null,
+    "reason": "Approved vague-tag cleanup; representative lineage rules already name the actual governed concept and give no separate atom-boundary identity.",
+    "evidence": [
+      "CA-R-1034",
+      "CA-R-1036",
+      "approved vague-topic removal"
+    ],
+    "followup": "Mapping work: remove redundant dependencies; inspect any governing occurrence for a precise replacement before removing its only target. Never delete whole rules."
+  },
+  {
+    "index": 488,
+    "subject": "authority",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1656 uses a vague dependency but other sources govern distinct authority constraints; one replacement would invent a universal property.",
+    "evidence": [
+      "CA-R-1656",
+      "approved vague-topic replacement"
+    ],
+    "followup": "Mapping work: remove redundant dependencies and route source-specific authority rules to their exact owner; shared meaning belongs to Terms."
+  },
+  {
+    "index": 489,
+    "subject": "classification",
+    "disposition": "terms",
+    "target": "Classification",
+    "reason": "R1701 governs the shared meaning/boundaries of several classification axes, not a new concrete Object.",
+    "evidence": [
+      "CA-R-1701",
+      "approved shared meanings to Terms"
+    ],
+    "followup": "Preserve owner-specific Content Role, Type and Governance Origin rules; old Artifact partition language needs later content repair."
+  },
+  {
+    "index": 490,
+    "subject": "continuous-improvement",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The shared topic covers stage meaning; R1734 concerns Content Role boundaries, not an independent improvement entity.",
+    "evidence": [
+      "CA-R-1734",
+      "approved vague-topic replacement"
+    ],
+    "followup": "Mapping work: map each source to its actual role, Plan, Concern or Operation target and relocate project-specific policies; no new process root."
+  },
+  {
+    "index": 491,
+    "subject": "development-flow",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1685 mixes optional framing and factual outcome records; a single workflow target would change meaning.",
+    "evidence": [
+      "CA-R-1685",
+      "approved vague-topic replacement"
+    ],
+    "followup": "Mapping work: classify individual source claims as Terms, role-specific governed targets or Journal records; split mixed rules only when needed."
+  },
+  {
+    "index": 492,
+    "subject": "evaluation",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1647 governs a proof-currentness Catalog, while the tag is also used by other evaluation policies; not one Entity.",
+    "evidence": [
+      "CA-R-1647",
+      "approved RMED governs thing"
+    ],
+    "followup": "Mapping work: map each E/R to its checked or required thing; retain the R1647 concrete Catalog selection rather than all Evaluation Atoms."
+  },
+  {
+    "index": 493,
+    "subject": "extension-model",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1733 concerns a concrete Extension package and its separate application binding, not one generic model Object.",
+    "evidence": [
+      "CA-R-1733",
+      "approved concrete Project Configuration"
+    ],
+    "followup": "Mapping work: inspect per-source Extension and binding identity; relocate CAPRMEDIO-specific policies, keeping Settings activation separate."
+  },
+  {
+    "index": 494,
+    "subject": "external-boundary",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1627 governs secrets across multiple surfaces, not one external entity; its protections must not be dropped with the tag.",
+    "evidence": [
+      "CA-R-1627",
+      "approved vague-topic replacement"
+    ],
+    "followup": "Mapping work: keep the secret policy in Project Configuration; identify its governed content or Terms scope and inspect R1648 separately."
+  },
+  {
+    "index": 495,
+    "subject": "framework-boundary",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1680 is a CAPRMEDIO-project self-hosting rule with explicit project scope.",
+    "evidence": [
+      "CA-R-1680",
+      "approved project-specific Project Configuration"
+    ],
+    "followup": "Mapping work: relocate to Project Configuration and target the named CAPRMEDIO Project, not every Project or a new Framework Boundary entity."
+  },
+  {
+    "index": 496,
+    "subject": "interaction",
+    "disposition": "mapped",
+    "target": "Entity/Occurrent/Execution/Action Run",
+    "reason": "R853 requires attribution and authorization of each actually performed governed action.",
+    "evidence": [
+      "CA-R-853",
+      "approved Run Subjects"
+    ],
+    "followup": "Keep Actor and permission links; do not make definition Atoms stand in for actual runs."
+  },
+  {
+    "index": 497,
+    "subject": "language",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R940 governs human readability of Atom Substance; other occurrences may govern Terms or rendering, not one Language Object.",
+    "evidence": [
+      "CA-R-940",
+      "approved vague-topic replacement"
+    ],
+    "followup": "Mapping work: use Atom.Substance for claim-readability rules and precise representation/Terms targets for other sources."
+  },
+  {
+    "index": 498,
+    "subject": "lifecycle",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Project.Framework Settings",
+    "reason": "R1630 governs atomic-admission strictness settings; the lifecycle tag is not its actual owner.",
+    "evidence": [
+      "CA-R-1630",
+      "approved RMED governs thing"
+    ],
+    "followup": "Relocate concrete policy to Project Configuration; narrower existing strictness-field path can replace this review-level target after field resolution."
+  },
+  {
+    "index": 499,
+    "subject": "lifecycle-traceability",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1697 governs trace relationships spanning several entities and history; no single lifecycle entity exists.",
+    "evidence": [
+      "CA-R-1697",
+      "approved vague-topic replacement"
+    ],
+    "followup": "Mapping work: route individual rules to Relation, Journal.Record or exact governed property; do not invent a cross-owner traceability property."
+  },
+  {
+    "index": 500,
+    "subject": "principles",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1696 actually governs Core Meta-model authority and its implementation-neutral boundary.",
+    "evidence": [
+      "CA-R-1696",
+      "Candidate #6 boundary task"
+    ],
+    "followup": "Mapping work: use the Core Meta-model target adopted by Candidate #6 boundary definitions; do not invent a Principles entity or silently use all Objects."
+  },
+  {
+    "index": 501,
+    "subject": "project-containment graph",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R834 imposes the removed Artifact/Structural Entity partition, while R836 may contain independent graph constraints.",
+    "evidence": [
+      "CA-R-834",
+      "approved old-partition removal"
+    ],
+    "followup": "Mapping work: retire R834's obsolete partition claim as approved; inspect R836 for remapping before removing its useful constraints."
+  },
+  {
+    "index": 502,
+    "subject": "provenance",
+    "disposition": "deferred",
+    "target": null,
+    "reason": "M135's governing rule decides eligibility for Implementation relations and implementation coverage.",
+    "evidence": [
+      "CA-M-135",
+      "approved Implementation deferred"
+    ],
+    "followup": "Do not remove legitimate Journal provenance or generated-refresh records; implementation graph placement remains deferred."
+  },
+  {
+    "index": 503,
+    "subject": "relation validation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation",
+    "reason": "E622 checks validity of Relations and their registered kind constraints, not a validation entity.",
+    "evidence": [
+      "CA-E-622",
+      "approved RMED governs thing"
+    ],
+    "followup": "Keep graph-kind qualification in constraints; project-specific Applicable Methodology clauses need relocation/content separation."
+  },
+  {
+    "index": 504,
+    "subject": "relation-model",
+    "disposition": "remove",
+    "target": null,
+    "reason": "Approved vague dependency removal; representative lineage rules supply no distinct relation-model identity.",
+    "evidence": [
+      "CA-R-1034",
+      "CA-R-1036",
+      "approved vague-topic removal"
+    ],
+    "followup": "Mapping work: drop redundant tag links; any governing occurrence first receives its evidenced Relation target. No whole-Atom deletion."
+  },
+  {
+    "index": 505,
+    "subject": "requirement-topology",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1671 governs an old Implementation Decision's orphan permission, not generic requirement topology.",
+    "evidence": [
+      "CA-R-1671",
+      "approved vague-topic replacement"
+    ],
+    "followup": "Mapping work: inspect R1672 and resolve old Implementation Decision classification; defer genuinely Implementation-related uses rather than deleting valid M policies."
+  },
+  {
+    "index": 506,
+    "subject": "runtime",
+    "disposition": "remove",
+    "target": null,
+    "reason": "R1650 names its actual governed session-state envelope; runtime is an unsupported broad dependency tag.",
+    "evidence": [
+      "CA-R-1650",
+      "approved vague-topic removal"
+    ],
+    "followup": "Keep the session-state rule and resolve its owner separately; no Runtime entity invented."
+  },
+  {
+    "index": 507,
+    "subject": "scope-topology",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1656 governs Scope Unit parent cardinality; R1932 only uses a vague dependency; other occurrences have different scope properties.",
+    "evidence": [
+      "CA-R-1656",
+      "CA-R-1932",
+      "approved vague-topic replacement"
+    ],
+    "followup": "Mapping work: use Scope Unit or its precise property/relation per governing claim and drop redundant topic dependencies."
+  },
+  {
+    "index": 508,
+    "subject": "semantics",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1702 uses the tag for Content Role boundaries; R964 uses it only as a vague alias dependency. Do not equate all uses with Atom.Semantics.",
+    "evidence": [
+      "CA-R-1702",
+      "CA-R-964",
+      "approved shared meanings to Terms"
+    ],
+    "followup": "Mapping work: route shared meanings to Terms, exact owner-specific constraints to their targets, and remove redundant dependencies."
+  },
+  {
+    "index": 509,
+    "subject": "settings specification",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1429 spans Project/Framework/Default settings and Local Tier placement; it does not define another Settings Object.",
+    "evidence": [
+      "CA-R-1429",
+      "approved shared meanings to Terms"
+    ],
+    "followup": "Mapping work: retain Local Tier constraints on concrete configuration specifications, relocate project-specific rules, and avoid inventing ownerless Settings."
+  },
+  {
+    "index": 510,
+    "subject": "subject",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Concern.Owning Scope Unit",
+    "reason": "R1770 governs the Concern's owning scope chosen as narrowest common ancestor, not Subject syntax.",
+    "evidence": [
+      "CA-R-1770",
+      "approved RMED governs thing"
+    ],
+    "followup": null
+  }
+]

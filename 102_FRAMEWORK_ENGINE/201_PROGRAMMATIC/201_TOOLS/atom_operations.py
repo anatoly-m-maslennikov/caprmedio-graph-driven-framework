@@ -639,6 +639,18 @@ def _validate_complete_carrier(root: Path, path: Path, frontmatter: str, content
         raise ToolError("complete-carrier-invalid", "new Atom carrier is incomplete, invalid, or unresolved") from error
 
 
+def _validate_revision_filename(path: Path, frontmatter: str, *, creating: bool) -> None:
+    """Apply ordinary filename grammar plus the carried Archived Version suffix."""
+    filename = path.name
+    if frontmatter_scalar(frontmatter, "status") == "Archived":
+        version = "1" if creating else frontmatter_scalar(frontmatter, "version")
+        if version is None or not version.isdecimal() or not filename.endswith(f"@{int(version)}.md"):
+            raise ToolError("filename-invalid", "Archived carrier requires its Revision suffix immediately before .md")
+        filename = re.sub(r"@[0-9]+(?=\.md$)", "", filename)
+    if not CURRENT_FILENAME.fullmatch(filename):
+        raise ToolError("filename-invalid", f"new Atom filename does not follow current grammar: {path.name}")
+
+
 def prepare_create_atom_revision(
     root: Path, relative_path: str, frontmatter: str, content: str | None = None, *, creating: bool = True
 ) -> tuple[Path, str, str | None]:
@@ -652,12 +664,11 @@ def prepare_create_atom_revision(
     root = root.resolve()
     path = safe_path(root, relative_path)
     _validate_destination(root, path, filename_required=True)
-    if not CURRENT_FILENAME.fullmatch(path.name):
-        raise ToolError("filename-invalid", f"new Atom filename does not follow current grammar: {path.name}")
+    normalized = _normalize_frontmatter(frontmatter)
+    _validate_revision_filename(path, normalized, creating=creating)
     match = ATOM_ID.search(path.name)
     atom_id = match.group(1) if match else None
     destination_lifecycle = _lifecycle(path, control_root(root))
-    normalized = _normalize_frontmatter(frontmatter)
     declared = frontmatter_scalar(normalized, "atom_id")
     if destination_lifecycle == "draft" and atom_id is not None:
         raise ToolError("draft-has-stable-id", f"draft filename must not contain a stable Atom ID: {path.name}")
@@ -765,18 +776,8 @@ def _publish_status_atom_revision(root: Path, atom: Atom, relative_path: str, fr
                                   content: str, *, expected_bundle: Mapping) -> tuple[Atom, Path | None]:
     """Publish one admitted status bundle with checked before/after bytes."""
     require_current_atom(root, atom)
-    if frontmatter_scalar(frontmatter, "status") == "Archived":
-        target = safe_path(root, relative_path)
-        _validate_destination(root, target, filename_required=True)
-        base = re.sub(r"@[0-9]+(?=\.md$)", "", target.name)
-        if not CURRENT_FILENAME.fullmatch(base) or not target.name.endswith(f"@{atom_version(atom) + 1}.md"):
-            raise ToolError("filename-invalid", "status archive requires the new Revision suffix")
-        normalized = _normalize_frontmatter(frontmatter)
-        identity = frontmatter_scalar(normalized, "atom_id")
-        _validate_complete_carrier(root, target, normalized, content, creating=False)
-    else:
-        target, normalized, identity = prepare_create_atom_revision(
-            root, relative_path, frontmatter, content, creating=False)
+    target, normalized, identity = prepare_create_atom_revision(
+        root, relative_path, frontmatter, content, creating=False)
     draft = frontmatter_scalar(normalized, "status").casefold() == "draft"
     if atom.atom_id is None:
         if identity is None or atom_id_has_preserved_history_evidence(root, identity):
@@ -1020,14 +1021,7 @@ def prepare_draft_promotion(root: Path, atom: Atom, atom_id: str, frontmatter: s
         raise ToolError("atom-id-collision", f"Atom ID already exists: {atom_id}")
     normalized = re.sub(r"(?m)^revision_lineage:[^\n]*(?:\n[ \t]+[^\n]*)*(?:\n|$)", "", _normalize_frontmatter(frontmatter))
     normalized = replace_frontmatter_scalar(normalized, "atom_id", atom_id)
-    if frontmatter_scalar(normalized, "status") == "Archived":
-        _validate_destination(root, target, filename_required=True)
-        base = re.sub(r"@[0-9]+(?=\.md$)", "", target.name)
-        if not CURRENT_FILENAME.fullmatch(base) or not target.name.endswith(f"@{atom_version(atom) + 1}.md"):
-            raise ToolError("filename-invalid", "status archive requires the new Revision suffix")
-        _validate_complete_carrier(root, target, normalized, content, creating=False)
-    else:
-        prepare_create_atom_revision(root, target.relative_to(root).as_posix(), normalized, content, creating=False)
+    prepare_create_atom_revision(root, target.relative_to(root).as_posix(), normalized, content, creating=False)
     return target, normalized, render(normalized, content)
 
 
@@ -1134,8 +1128,8 @@ def _run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
                 raise ToolError("input-invalid", "create item requires filename")
             path = (directory / filename).resolve()
         _validate_destination(root, path, filename_required=True)
-        if not CURRENT_FILENAME.fullmatch(path.name):
-            raise ToolError("filename-invalid", f"new Atom filename does not follow current grammar: {path.name}")
+        frontmatter = _normalize_frontmatter(item.get("frontmatter", ""))
+        _validate_revision_filename(path, frontmatter, creating=True)
         if path.exists() or any(existing == path for existing, _ in plans):
             raise ToolError("destination-collision", f"Atom destination already exists: {path.relative_to(root)}")
         match = ATOM_ID.search(path.name)
@@ -1149,7 +1143,7 @@ def _run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
             raise ToolError("atom-id-collision", f"Atom ID already exists: {atom_id}")
         if atom_id:
             planned_ids.add(atom_id)
-        frontmatter = _with_atom_id(_normalize_frontmatter(item.get("frontmatter", "")), atom_id)
+        frontmatter = _with_atom_id(frontmatter, atom_id)
         frontmatter = _revision(root, frontmatter, creating=True)
         plans.append((path, render(frontmatter, item.get("content", ""))))
     result = {"count": len(plans), "changes": [{"operation": "create", "path": p.relative_to(root).as_posix()} for p, _ in plans]}

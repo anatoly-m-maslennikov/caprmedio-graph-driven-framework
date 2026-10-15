@@ -1,0 +1,744 @@
+[
+  {
+    "index": 320,
+    "subject": "Persist Atom Replacement",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Named Action definition, not a new entity kind.",
+    "evidence": [
+      "CA-O-051"
+    ],
+    "followup": "Mapping work: relocate CA-O-051 to Project Configuration and preserve its Action instance identity; generic Action alone is insufficient."
+  },
+  {
+    "index": 321,
+    "subject": "Plan Atom Carrier",
+    "disposition": "mapped",
+    "target": "Entity/Carrier",
+    "reason": "A Plan's file and optional directory are Carriers, not a separate abstract kind.",
+    "evidence": [
+      "CA-E-502",
+      "CA-D-460"
+    ],
+    "followup": "Mapping work: retain Plan-only applicability and the file/directory bundle constraints in Scope."
+  },
+  {
+    "index": 322,
+    "subject": "Plan Atom Carrier Bundle",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Plan",
+    "reason": "Delivery governs representation of one Plan identity using one file and an optional directory.",
+    "evidence": [
+      "CA-D-460",
+      "CA-D-461"
+    ],
+    "followup": "Mapping work: keep bundle composition as Delivery content, not another primary entity."
+  },
+  {
+    "index": 323,
+    "subject": "Plan Atom Carrier Bundle.Location",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Status",
+    "reason": "D461 specifies storage placement by the Plan's Status.",
+    "evidence": [
+      "CA-D-461"
+    ],
+    "followup": "Mapping work: keep placement and containment conditions in Delivery; do not create a Location property on an invented bundle."
+  },
+  {
+    "index": 324,
+    "subject": "Plan Atom Carrier.Stem",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The stem is shared by file and directory representations; no single existing qualified Subject covers both without losing scope.",
+    "evidence": [
+      "CA-D-460"
+    ],
+    "followup": "Mapping work: use Plan for its shared Delivery rule, or split file/directory filename references by source; do not invent a Carrier Bundle kind."
+  },
+  {
+    "index": 325,
+    "subject": "Plan Atom File Carrier.Content",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Plan",
+    "reason": "D470 serializes multiple Plan properties and sections, not a new File Content entity.",
+    "evidence": [
+      "CA-D-470"
+    ],
+    "followup": "Mapping work: retain exact section/property layout in Delivery; later content alignment resolves obsolete Claim wording."
+  },
+  {
+    "index": 326,
+    "subject": "Plan Atom File Carrier.Filename",
+    "disposition": "mapped",
+    "target": "Entity/Carrier/File Carrier.Filename",
+    "reason": "This is an actual filename rule; Plan specificity remains in its applicability.",
+    "evidence": [
+      "CA-D-469"
+    ],
+    "followup": "Mapping work: preserve Plan-only Scope and matching-directory stem rule."
+  },
+  {
+    "index": 327,
+    "subject": "Plan Backlog",
+    "disposition": "mapped",
+    "target": "Plan Backlog",
+    "reason": "R1542 defines a named selection of future-work Plans, not a distinct Plan kind.",
+    "evidence": [
+      "CA-R-1542",
+      "approved named Selections decision"
+    ],
+    "followup": "Mapping work: retain as a named Selection over Plan Atoms; backlog Status remains a separate property value."
+  },
+  {
+    "index": 328,
+    "subject": "Plan Backlog Directory Carrier",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Backlog",
+    "reason": "D475 specifies where Backlog Plans are stored; role D supplies representation semantics.",
+    "evidence": [
+      "CA-D-475"
+    ],
+    "followup": "Mapping work: keep the reserved directory and non-Atom constraint in Delivery."
+  },
+  {
+    "index": 329,
+    "subject": "Plan Blocking Relations",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation",
+    "reason": "BLOCKS is an explicitly defined typed Relation between Plans, not an independent root.",
+    "evidence": [
+      "CA-R-1580"
+    ],
+    "followup": "Mapping work: preserve BLOCKS identity and Plan endpoint restrictions; broad Relation alone must not widen applicability."
+  },
+  {
+    "index": 330,
+    "subject": "Plan CCE Role Profile",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Plan.Substance",
+    "reason": "M309 governs how Plan primary content is written; the method/profile is not its own entity.",
+    "evidence": [
+      "CA-M-309",
+      "approved RMED governs thing decision"
+    ],
+    "followup": "Mapping work: keep DoD and Details constraints; do not erase their distinct property applicability."
+  },
+  {
+    "index": 331,
+    "subject": "Plan Graph",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1593 defines a Projection of Plan relations, but Candidate #5 does not admit a Plan Graph Type.",
+    "evidence": [
+      "CA-R-1593",
+      "CA-R-1579"
+    ],
+    "followup": "Operator question: should Plan Graph be a named Map projection of Plans, or an additional Projection Type? Do not invent the Type during migration."
+  },
+  {
+    "index": 332,
+    "subject": "Prepare Structural Change",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Named Action CA-O-012 is referenced by a concrete Workflow.",
+    "evidence": [
+      "CA-O-012",
+      "CA-O-015"
+    ],
+    "followup": "Mapping work: relocate the Action to Project Configuration and bind references to CA-O-012, retaining the generic Action kind."
+  },
+  {
+    "index": 333,
+    "subject": "Previous Unit",
+    "disposition": "mapped",
+    "target": "Previous Unit",
+    "reason": "R913 selects the ordered peer with nearest lower Local Order; it is not a new Scope Unit kind.",
+    "evidence": [
+      "CA-R-913",
+      "approved named Selections decision"
+    ],
+    "followup": "Mapping work: classify as named Selection and retain its order/peer predicate."
+  },
+  {
+    "index": 334,
+    "subject": "Primary Entity",
+    "disposition": "terms",
+    "target": "Primary Entity",
+    "reason": "This is a cross-owner meaning about independent identity; the old Artifact/Structural Entity partition is separately obsolete.",
+    "evidence": [
+      "CA-R-1191",
+      "CA-R-1249",
+      "CA-R-834",
+      "approved shared meanings decision"
+    ],
+    "followup": "Mapping work: preserve useful meaning in derived Terms; remap or retire obsolete partition claims rather than treating Terms routing as their repair."
+  },
+  {
+    "index": 335,
+    "subject": "Priority",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Concern.Priority",
+    "reason": "The inspected rules explicitly govern the Concern's own Priority value.",
+    "evidence": [
+      "CA-R-1629",
+      "CA-D-386"
+    ],
+    "followup": "Mapping work: preserve distinction from the Operator-selected comparison model and virtual priority values."
+  },
+  {
+    "index": 336,
+    "subject": "Producer",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit",
+    "reason": "In these Demand rules Producer identifies the target Scope Unit, not a new entity.",
+    "evidence": [
+      "CA-R-932",
+      "CA-R-945"
+    ],
+    "followup": null
+  },
+  {
+    "index": 337,
+    "subject": "Producer Result",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Demand targets a specific producer result, not the whole target Scope Unit; no result representation is fixed here.",
+    "evidence": [
+      "CA-R-933",
+      "CA-R-945"
+    ],
+    "followup": "Operator question: should the constrained result be represented only by Demand.Substance Scope, or remain a named Selection of the target Scope Unit's results?"
+  },
+  {
+    "index": 338,
+    "subject": "Producer Result.Flow Direction",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R945 describes a directed flow between producer target and consumer owning Scope Units; treating it as a property of an unmapped result perpetuates that ambiguity.",
+    "evidence": [
+      "CA-R-945"
+    ],
+    "followup": "Mapping work: after resolving Producer Result, govern the evidenced directed relation or Demand's owner/target pair, not an invented Flow Direction root."
+  },
+  {
+    "index": 339,
+    "subject": "Producer Scope Unit",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit",
+    "reason": "D287 serializes the Demand's producer reference.",
+    "evidence": [
+      "CA-D-287",
+      "CA-R-932"
+    ],
+    "followup": null
+  },
+  {
+    "index": 340,
+    "subject": "Project Atom ID",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Atom.ID",
+    "reason": "R728 defines the immutable identity of an Atom; project ownership does not create a separate ID kind.",
+    "evidence": [
+      "CA-R-728",
+      "approved Atom.ID naming decision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 341,
+    "subject": "Project Boundary Position",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R961's PROJECT/BOOTSTRAP_SEED partition depends on obsolete bootstrap material and is absent from the new Scope Unit model.",
+    "evidence": [
+      "CA-R-961",
+      "CA-R-1762"
+    ],
+    "followup": "Mapping work: remove the obsolete bootstrap coordinate under the already approved retirement; retain or precisely remap any real project-membership claim after inspecting its remaining applicability. Do not reopen bootstrap-seed retirement."
+  },
+  {
+    "index": 342,
+    "subject": "Project Configuration",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The boundary is approved, but this source-authority collection is not current Settings and lacks an agreed exact path in the Candidate #5 tree.",
+    "evidence": [
+      "CA-R-1218",
+      "Candidate #6 Core/configuration decision"
+    ],
+    "followup": "Operator question: represent Project Configuration as a named Selection of project-owned rule Atoms, or as Governing Configuration? The actual configuration Atoms remain Atoms."
+  },
+  {
+    "index": 343,
+    "subject": "Project Lexicographic Selection",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "M297 defines a comparison method while O023 performs a concrete Action and E207 checks its outcome; one blanket kind mapping is inadequate.",
+    "evidence": [
+      "CA-M-297",
+      "CA-O-023",
+      "CA-E-207"
+    ],
+    "followup": "Mapping work: keep comparison meaning in Terms, map the O reference to its named Action instance, and qualify the governed selection/result for RMED."
+  },
+  {
+    "index": 344,
+    "subject": "Project Name",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Project.Settings.Project Name",
+    "reason": "The candidate already places the registered current Project Name under Project Settings.",
+    "evidence": [
+      "CA-D-292",
+      "Candidate #5 Project properties"
+    ],
+    "followup": "Mapping work: preserve distinctions between project name, Scope Unit name and path labels."
+  },
+  {
+    "index": 345,
+    "subject": "Project Normative Authority Graph",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R833 constrains a typed authority subgraph; it does not establish a new primary object or specific Projection type.",
+    "evidence": [
+      "CA-R-833"
+    ],
+    "followup": "Mapping work: express this as a named Selection of governing authority relations, retaining its acyclicity requirement; check E481's exact selection before final target."
+  },
+  {
+    "index": 346,
+    "subject": "Project Principle Universe",
+    "disposition": "mapped",
+    "target": "Project Principle Universe",
+    "reason": "R1773 denotes all project-wide principles: a named selected population, not another Object.",
+    "evidence": [
+      "CA-R-1773",
+      "approved named Selections decision"
+    ],
+    "followup": "Mapping work: retain selection definition in Project Configuration and review the old irreducible-invariant content separately."
+  },
+  {
+    "index": 347,
+    "subject": "Project Priority Model Application",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "The sources mix policy, comparison method, execution of two named Actions and Evaluation.",
+    "evidence": [
+      "CA-R-1487",
+      "CA-M-297",
+      "CA-O-022",
+      "CA-O-023",
+      "CA-E-207"
+    ],
+    "followup": "Mapping work: separate priority-model meaning from named Action definitions and actual Action Run results; retain project-specific rules in Project Configuration."
+  },
+  {
+    "index": 348,
+    "subject": "Project Scope Unit Graph Projection",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Projection/Type: Scope Unit Graph",
+    "reason": "Candidate #5 already admits this Projection Type, separate from authoritative Structure.",
+    "evidence": [
+      "CA-R-1052",
+      "Candidate #5 Projection types"
+    ],
+    "followup": "Mapping work: preserve project-specific selected population and Project.Structure authority."
+  },
+  {
+    "index": 349,
+    "subject": "Project Settings Authoritative TOML File Carrier.Filename",
+    "disposition": "mapped",
+    "target": "Entity/Carrier/File Carrier.Filename",
+    "reason": "This is a filename rule for the Project Settings Carrier.",
+    "evidence": [
+      "approved actual carrier filename rule",
+      "Candidate #5 Carrier hierarchy"
+    ],
+    "followup": "Mapping work: retain Project Settings/TOML applicability and the accepted caprmedio_project_settings.toml filename."
+  },
+  {
+    "index": 350,
+    "subject": "Project Settings Validation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Project.Settings",
+    "reason": "Evaluation governs Settings, not an invented Validation entity.",
+    "evidence": [
+      "approved RMED governs thing decision",
+      "CA-E-459"
+    ],
+    "followup": null
+  },
+  {
+    "index": 351,
+    "subject": "Project Settings/Revision Binding",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "D365 requires Journal receipts to establish current Settings, conflicting with the accepted file-read simplicity and Journal-for-history decision.",
+    "evidence": [
+      "CA-D-365",
+      "approved read Settings from file; Journal for history decision"
+    ],
+    "followup": "Mapping work: separate retained historical revision links from obsolete read-admission checks; do not blindly keep Project.Settings.Revision Binding."
+  },
+  {
+    "index": 352,
+    "subject": "Project Structure Maintenance",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O015 defines a named Workflow; D444 governs Project.Structure candidate storage; other references concern its execution.",
+    "evidence": [
+      "CA-O-015",
+      "CA-D-444",
+      "CA-O-078"
+    ],
+    "followup": "Mapping work: map RMED to Project.Structure, preserve CA-O-015 as a concrete Workflow instance in Project Configuration, and map actual runs separately."
+  },
+  {
+    "index": 353,
+    "subject": "Project Structure Maintenance Application Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete Step CA-O-143 inside Workflow CA-O-015.",
+    "evidence": [
+      "CA-O-143"
+    ],
+    "followup": "Mapping work: relocate CA-O-143 to Project Configuration, preserving Step kind, instance ID and bindings."
+  },
+  {
+    "index": 354,
+    "subject": "Project Structure Maintenance Authorization Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete Step CA-O-142 inside Workflow CA-O-015.",
+    "evidence": [
+      "CA-O-142"
+    ],
+    "followup": "Mapping work: relocate CA-O-142 to Project Configuration, preserving Step kind, instance ID and bindings."
+  },
+  {
+    "index": 355,
+    "subject": "Project Structure Maintenance Candidate Assessment Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete Step CA-O-141 inside Workflow CA-O-015.",
+    "evidence": [
+      "CA-O-141"
+    ],
+    "followup": "Mapping work: relocate CA-O-141 to Project Configuration, preserving Step kind, instance ID and bindings."
+  },
+  {
+    "index": 356,
+    "subject": "Project Structure Maintenance Preparation Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete Step CA-O-140 inside Workflow CA-O-015.",
+    "evidence": [
+      "CA-O-140"
+    ],
+    "followup": "Mapping work: relocate CA-O-140 to Project Configuration, preserving Step kind, instance ID and bindings."
+  },
+  {
+    "index": 357,
+    "subject": "Project Structure Maintenance Result Assessment Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete Step CA-O-144 inside Workflow CA-O-015.",
+    "evidence": [
+      "CA-O-144"
+    ],
+    "followup": "Mapping work: relocate CA-O-144 to Project Configuration, preserving Step kind, instance ID and bindings."
+  },
+  {
+    "index": 358,
+    "subject": "Project Structure Maintenance Selection Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete Step CA-O-139 inside Workflow CA-O-015.",
+    "evidence": [
+      "CA-O-139"
+    ],
+    "followup": "Mapping work: relocate CA-O-139 to Project Configuration, preserving Step kind, instance ID and bindings."
+  },
+  {
+    "index": 359,
+    "subject": "Project Structure Maintenance/Step bindings",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "A Concern about bindings of the named Workflow must not become a global Step property by dropping the instance boundary.",
+    "evidence": [
+      "CA-C-416",
+      "CA-O-015"
+    ],
+    "followup": "Mapping work: preserve CA-O-015 and its exact Step binding applicability; C/A content remains outside the migration repair scope."
+  },
+  {
+    "index": 360,
+    "subject": "Project-Owned Carrier",
+    "disposition": "mapped",
+    "target": "Entity/Carrier",
+    "reason": "Ownership is applicability, not another Carrier root.",
+    "evidence": [
+      "CA-D-341"
+    ],
+    "followup": "Mapping work: retain restriction to project-owned persistent Carriers; do not widen to all runtime resources."
+  },
+  {
+    "index": 361,
+    "subject": "Project-Owned Carrier Root",
+    "disposition": "mapped",
+    "target": "Entity/Carrier/Directory Carrier",
+    "reason": "D318 specifies a concrete project-control directory; D452 references its boundary for secret placement.",
+    "evidence": [
+      "CA-D-318",
+      "CA-D-452"
+    ],
+    "followup": "Mapping work: keep the project-control root locator/selection explicit, not every Directory Carrier."
+  },
+  {
+    "index": 362,
+    "subject": "Project-Owned Markdown Atom Carrier.Filename",
+    "disposition": "mapped",
+    "target": "Entity/Carrier/File Carrier.Filename",
+    "reason": "D283 governs filenames of actual Atom files, with project and Plan exclusions in Scope.",
+    "evidence": [
+      "CA-D-283"
+    ],
+    "followup": "Mapping work: preserve those exclusions; this does not authorize renaming files."
+  },
+  {
+    "index": 363,
+    "subject": "Project/Scope Unit",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Project.Settings.Project Name",
+    "reason": "D292 uses the exact registered Project Name for an external Goal filename.",
+    "evidence": [
+      "CA-D-292"
+    ],
+    "followup": "Mapping work: this mapping is specific to this one use; it does not equate all Project and Scope Unit entities."
+  },
+  {
+    "index": 364,
+    "subject": "Projection Carrier Root",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Projection",
+    "reason": "D550 governs where persistent Projections are stored; D content supplies location.",
+    "evidence": [
+      "CA-D-550",
+      "approved RMED governs thing decision"
+    ],
+    "followup": "Mapping work: retain per-Projection exceptions in Project Configuration and flag legacy paths for separate content migration."
+  },
+  {
+    "index": 365,
+    "subject": "Projection Rebuild",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "R1649 mixes the actual rebuild execution, its terminal Event and a Journal record; these are distinct under the approved model.",
+    "evidence": [
+      "CA-R-1649"
+    ],
+    "followup": "Mapping work: separate Action Run, terminal Event and Journal record applicability without inventing a Rebuild entity or equating the event with its record."
+  },
+  {
+    "index": 366,
+    "subject": "Projection/Revision",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Projection.Updated At",
+    "reason": "This particular source R1495 directly requires a Projection's latest completed rebuild timestamp.",
+    "evidence": [
+      "CA-R-1495"
+    ],
+    "followup": "Mapping work: do not apply this special-case mapping to historical Revision subjects elsewhere."
+  },
+  {
+    "index": 367,
+    "subject": "Projection/Type",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Projection/Type",
+    "reason": "Type classification remains beneath Projection using the universal classification notation.",
+    "evidence": [
+      "CA-R-1634",
+      "approved universal Type notation"
+    ],
+    "followup": "Mapping work: preserve Type values and the later filename policy; do not infer new Types from purpose names."
+  },
+  {
+    "index": 368,
+    "subject": "Proof Dependency Frontier",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "D329 specifies references carried by proof but the new model has no admitted Proof kind or settled owner for this reference list.",
+    "evidence": [
+      "CA-D-329"
+    ],
+    "followup": "Operator question: are these proof references content of an Evaluation result record, or of a Projection? Do not create a Proof root."
+  },
+  {
+    "index": 369,
+    "subject": "Property",
+    "disposition": "terms",
+    "target": "Property",
+    "reason": "Cross-owner meaning belongs in Terms; actual owner-qualified properties remain in entity model.",
+    "evidence": [
+      "CA-R-1502",
+      "CA-R-1191",
+      "approved shared meanings decision"
+    ],
+    "followup": "Mapping work: reroute shared meaning only; retain concrete property owners in source-specific Subjects."
+  },
+  {
+    "index": 370,
+    "subject": "Propose Source Corrections",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Named Action CA-O-006 used by concrete workflows, not a new primary entity.",
+    "evidence": [
+      "CA-O-006"
+    ],
+    "followup": "Mapping work: relocate to Project Configuration and preserve Action instance CA-O-006 in referring bindings."
+  },
+  {
+    "index": 371,
+    "subject": "Provenance",
+    "disposition": "terms",
+    "target": "Provenance",
+    "reason": "R1502 uses shared provenance meaning without declaring a concrete owner-qualified property.",
+    "evidence": [
+      "CA-R-1502",
+      "approved shared meanings decision"
+    ],
+    "followup": null
+  },
+  {
+    "index": 372,
+    "subject": "Publish Reconciled Projection",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Named Action CA-O-009, not a Projection type or additional entity kind.",
+    "evidence": [
+      "CA-O-009"
+    ],
+    "followup": "Mapping work: relocate to Project Configuration and preserve Action instance CA-O-009 and its publication target."
+  },
+  {
+    "index": 373,
+    "subject": "RMED Atom Review Check Coverage Gate Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete check substep of a named Workflow.",
+    "evidence": [
+      "CA-O-120"
+    ],
+    "followup": "Mapping work: preserve Step instance CA-O-120 and stage=check under Project Configuration."
+  },
+  {
+    "index": 374,
+    "subject": "RMED Atom Review Coverage Gate Action",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete Action reused by three coverage-gate Steps.",
+    "evidence": [
+      "CA-O-118"
+    ],
+    "followup": "Mapping work: preserve Action instance CA-O-118 in Project Configuration; do not duplicate it per Step."
+  },
+  {
+    "index": 375,
+    "subject": "RMED Atom Review Fix Coverage Gate Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete fix substep of a named Workflow.",
+    "evidence": [
+      "CA-O-121"
+    ],
+    "followup": "Mapping work: preserve Step instance CA-O-121 and stage=fix under Project Configuration."
+  },
+  {
+    "index": 376,
+    "subject": "RMED Atom Review Gather Coverage Gate Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete gather substep of a named Workflow.",
+    "evidence": [
+      "CA-O-119"
+    ],
+    "followup": "Mapping work: preserve Step instance CA-O-119 and stage=gather under Project Configuration."
+  },
+  {
+    "index": 377,
+    "subject": "RMED Atom Review Workflow",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete Workflow definition with a specific Step graph.",
+    "evidence": [
+      "CA-O-104"
+    ],
+    "followup": "Mapping work: preserve Workflow instance CA-O-104 in Project Configuration; generic Workflow kind is not enough."
+  },
+  {
+    "index": 378,
+    "subject": "RMED Review Evaluation Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete Step invoking the evaluation Action in its own context.",
+    "evidence": [
+      "CA-O-109"
+    ],
+    "followup": "Mapping work: preserve Step instance CA-O-109 and required context in Project Configuration."
+  },
+  {
+    "index": 379,
+    "subject": "RMED Review Repair Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete Step invoking the repair Action.",
+    "evidence": [
+      "CA-O-110"
+    ],
+    "followup": "Mapping work: preserve Step instance CA-O-110 and required context in Project Configuration."
+  },
+  {
+    "index": 380,
+    "subject": "RMED Review Selection Step",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Concrete Step invoking the selection Action.",
+    "evidence": [
+      "CA-O-108"
+    ],
+    "followup": "Mapping work: preserve Step instance CA-O-108 and required context in Project Configuration."
+  },
+  {
+    "index": 381,
+    "subject": "RMEDO Conflict Resolution",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "O028 names a Workflow while E477 checks the specific resolution outcome/authority coverage.",
+    "evidence": [
+      "CA-E-477"
+    ],
+    "followup": "Mapping work: preserve Workflow instance CA-O-028 in Project Configuration; map Evaluation to the affected Atom authority or selected run outcome rather than an invented procedure entity."
+  },
+  {
+    "index": 382,
+    "subject": "Rationale For Relation",
+    "disposition": "mapped",
+    "target": "Entity/Continuant/Object/Relation",
+    "reason": "R1016 registers the typed rationale_for Relation with explicit endpoint kinds.",
+    "evidence": [
+      "CA-R-1016"
+    ],
+    "followup": "Mapping work: preserve rationale_for identity and Rationale-to-RMED endpoint applicability; do not broaden to all Relations."
+  },
+  {
+    "index": 383,
+    "subject": "Reconcile Atom Properties and Addresses",
+    "disposition": "unresolved",
+    "target": null,
+    "reason": "Named Action CA-O-077 performs a coordinated change; it is not an abstract kind.",
+    "evidence": [
+      "CA-O-077"
+    ],
+    "followup": "Mapping work: preserve Action instance CA-O-077 in Project Configuration and its governed Atom/carrier targets."
+  }
+]
