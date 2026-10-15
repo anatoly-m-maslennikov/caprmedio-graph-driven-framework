@@ -91,6 +91,29 @@ class SubjectBatchConfirmationTests(unittest.IsolatedAsyncioTestCase):
         self.assertFalse(self.receipt().exists())
         self.assertEqual([], self.queued)
 
+    async def test_self_consistent_but_false_frontier_and_effects_refuse_before_form(self):
+        def narrow(request):
+            request["target_frontier"] = request["target_frontier"][:1]
+
+        def wrong_effect(request):
+            request["effects"][0]["atom_id"] = "CA-R-999999"
+
+        for ordinal, transform in enumerate((narrow, wrong_effect)):
+            with self.subTest(transform=transform.__name__):
+                self.runner, self.frozen = self.project.execution(
+                    f"false-subject-batch-frontier-{ordinal}", request_transform=transform
+                )
+                response = await self.connected_call()
+                self.assertEqual("refused", response.structured_content["status"])
+                self.assertIn(
+                    "Subject batch declared", response.structured_content["diagnostics"][0]
+                )
+                self.assertEqual([], self.forms)
+                self.assertEqual([], self.queued)
+                self.assertFalse(self.receipt().exists())
+                for path in self.project.paths:
+                    self.assertEqual(self.project.before[path], path.read_bytes())
+
     async def test_draft_backed_packet_uses_one_form_for_the_complete_batch(self):
         staged = stage_subject_batch(self.project.root, self.project.parameters, limit=2)
         self.project.use_reviewed_packet(staged["reviewed_packet"])

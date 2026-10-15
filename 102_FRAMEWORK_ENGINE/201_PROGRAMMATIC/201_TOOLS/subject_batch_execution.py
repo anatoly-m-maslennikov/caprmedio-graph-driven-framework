@@ -47,6 +47,8 @@ def _record_change(
     runner._lifecycle_result_facts(result["history"]["prior_revision"])
     author, local_date, timezone, occurred_at = runner._replacement_journal_context(session)
     binding = batch_definition_binding(child["definition"])
+    if binding["path"] == result["observed"]["path"]:
+        binding["sha256"] = result["observed"]["digest"]
     pin = {
         "action_id": "CA-O-030",
         "structural_scope": runner._lifecycle_structural_scope(binding),

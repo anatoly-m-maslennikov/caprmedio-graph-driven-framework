@@ -12,6 +12,7 @@ from typing import Any, Mapping
 import atom_operations as operations
 from connector_bindings import FileSource, capture_source
 from subject_batch import load_subject_batch, require_git_checkpoint
+from subject_batch_frontier import require_subject_batch_frontier
 from workflow_run_support import _canonical_digest
 
 _ACTIVE: ContextVar[Any] = ContextVar("subject_batch_admission", default=None)
@@ -37,6 +38,7 @@ def capture_batch_review(runner: Any, frozen: Mapping[str, Any]) -> dict[str, An
 
     execution = frozen["request"]["execution"]
     packet = load_subject_batch(runner.root, execution["parameters"])
+    require_subject_batch_frontier(packet, execution)
     require_git_checkpoint(runner.root, packet)
     from atom_subject_patch import _assert_original_identity_unique, _capture_identity_layout
 
@@ -99,9 +101,8 @@ def persist_subject_batch_confirmation(
 
 
 def load_subject_batch_confirmation(runner: Any, frozen: Mapping[str, Any]) -> dict[str, Any]:
-    receipt: dict[str, Any] = runner._read(
-        runner.run_directory(frozen["request"]["run_id"]) / CONFIRMATION
-    )
+    folder = runner.run_directory(frozen["request"]["run_id"])
+    receipt: dict[str, Any] = runner._read(folder / CONFIRMATION)
     if (
         receipt.get("schema_version") != 1
         or receipt.get("form") != {"review": True, "pause": True}
@@ -110,6 +111,7 @@ def load_subject_batch_confirmation(runner: Any, frozen: Mapping[str, Any]) -> d
     ):
         raise ValueError("Actual exact Subject batch confirmation is unavailable")
     revalidate_batch_review(runner.root, receipt)
+    require_subject_batch_frontier(receipt["packet"], frozen["request"]["execution"])
     if (
         load_subject_batch(runner.root, frozen["request"]["execution"]["parameters"])
         != receipt["packet"]
@@ -142,7 +144,6 @@ def active_batch_target(root: Path, target: Mapping[str, Any]) -> bool:
 
 
 def batch_validation_scope(root: Path) -> Any:
-    """Reuse finite carrier validation within one target, then recapture for the next."""
     state = _ACTIVE.get()
     if state is None or state.root != Path(root).resolve() or state.ordinal < 0:
         return None
@@ -192,7 +193,6 @@ def revalidate_batch_authority(root: Path, request: Mapping[str, Any]) -> None:
 
 
 def batch_definition_binding(binding: Mapping[str, Any]) -> dict[str, Any]:
-    """Read scope using the approved current bytes while retaining original Run definitions."""
     state = _ACTIVE.get()
     if state is None:
         raise ValueError("Subject batch is not active")

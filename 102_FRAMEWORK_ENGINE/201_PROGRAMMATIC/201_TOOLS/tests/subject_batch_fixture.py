@@ -101,7 +101,7 @@ class SubjectBatchProject:
         self.packet = json.loads(self.packet_path.read_bytes())
         self.golden._semantic_update_parameters = self.parameters
 
-    def execution(self, run_id="subject-batch-fixture"):
+    def execution(self, run_id="subject-batch-fixture", *, request_transform=None):
         request = self.golden.request(request_id=run_id)
         frontier, effects = [], []
         for item in self.packet["atoms"]:
@@ -133,6 +133,10 @@ class SubjectBatchProject:
             effects=effects,
             effects_digest=digest(effects),
         )
+        if request_transform is not None:
+            request_transform(request)
+            request["target_frontier_digest"] = digest(request["target_frontier"])
+            request["effects_digest"] = digest(request["effects"])
         runner = SelectedExecution(self.root)
         graph_request = {**request, "mode": "execute"}
         graph = runner._validate_graph(graph_request)
