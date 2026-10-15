@@ -79,7 +79,7 @@ FRONTMATTER_TITLES = {
 }
 
 # Values transcribed from the named Claims. A contribution is usable only after
-# checking its complete source bytes against registry.json/schema_authority.json.
+# checking its observed complete source bytes and current carried metadata.
 TYPE_CONTRIBUTIONS = {
     "CA-R-1231": ("Concern", ("Question", "Conflict", "Problem")),
     "CA-R-1232": ("Analysis", ("Analysis Report", "Rationale")),

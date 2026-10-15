@@ -6,7 +6,6 @@ Unknown relation kinds and missing reference evidence remain coverage gaps.
 
 from __future__ import annotations
 
-import hashlib
 import json
 import os
 import re
@@ -14,7 +13,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import cast
 
-from .authority import Record, diagnostic
+from .authority import Record, _verified, diagnostic
 from .check_support import Check, _plan, _string, _strings
 from .read_io import ReadContext
 
@@ -69,13 +68,7 @@ def _pins(check: Check, *atom_ids: str) -> bool:
         valid = len(entries) == 1
         if valid:
             source = entries[0]
-            binding = source["binding"]
-            valid = (
-                binding.get("version") == pin["version"]
-                and binding.get("sha256") == pin["sha256"]
-                and isinstance(source.get("text"), str)
-                and hashlib.sha256(source["text"].encode()).hexdigest() == pin["sha256"]
-            )
+            valid = _verified(source, pin)
         if not valid:
             _gap(
                 check,

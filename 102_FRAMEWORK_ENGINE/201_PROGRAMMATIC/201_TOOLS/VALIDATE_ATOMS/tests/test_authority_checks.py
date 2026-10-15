@@ -49,12 +49,11 @@ class AuthorityChecksTest(unittest.TestCase):
         self.assertEqual(outcome(result, "property.retired_fields")["outcome"], "not_checked")
         self.assertFalse(result["findings"])
 
-    def test_changed_source_retains_obligations_but_does_not_execute(self) -> None:
+    def test_changed_observed_source_retains_obligations_but_does_not_execute(self) -> None:
         original = source("CA-D-478")
         context = resolve_context([original])
         changed = copy.deepcopy(original)
         changed["text"] += "\nchanged\n"
-        changed["binding"]["sha256"] = hashlib.sha256(changed["text"].encode()).hexdigest()
         stale = resolve_context([changed])
         self.assertEqual(stale.required, context.required)
         self.assertGreater(stale.unsupported, context.unsupported)

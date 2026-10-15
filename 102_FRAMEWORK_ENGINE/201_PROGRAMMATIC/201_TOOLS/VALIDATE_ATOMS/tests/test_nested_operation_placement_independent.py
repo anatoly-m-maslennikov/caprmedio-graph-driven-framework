@@ -197,13 +197,37 @@ class NestedOperationPlacementIndependentTests(unittest.TestCase):
         with self.assertRaises(scoped.admission.ProposedCarrierError):
             self.validate()
 
-    def test_stale_workflow_delivery_authority_refuses(self):
+    def test_current_workflow_delivery_authority_is_observed_before_use(self):
         self.parent()
         entry = scoped.admission._entry("CA-D-467")
         path = self.root / self.control.joinpath(*Path(entry["source_path"]).parts[1:])
-        path.write_bytes(path.read_bytes() + b"\nChanged after source capture.\n")
-        with self.assertRaises(scoped.admission.ProposedCarrierError):
-            self.validate()
+        raw = path.read_bytes()
+        version = parse_carrier(raw, path).metadata["version"]
+        current = raw.replace(f"version: {version}\n".encode(), f"version: {version + 1}\n".encode())
+        path.write_bytes(current)
+        self.validate()
+        self.assertEqual(hashlib.sha256(current).hexdigest(),
+                         self.fixture.context._reader.fingerprints[str(path)])
+
+    def test_workflow_delivery_authority_drift_after_capture_refuses(self):
+        self.parent()
+        entry = scoped.admission._entry("CA-D-467")
+        authority_path = self.root / self.control.joinpath(*Path(entry["source_path"]).parts[1:])
+        original = scoped.admission.ReadContext.read
+        changed = False
+
+        def read(reader, path, *args, **kwargs):
+            nonlocal changed
+            raw = original(reader, path, *args, **kwargs)
+            if Path(path) == authority_path and not changed:
+                changed = True
+                authority_path.write_bytes(raw + b"\nChanged after observation.\n")
+            return raw
+
+        with patch.object(scoped.admission.ReadContext, "read", read):
+            with self.assertRaises(scoped.admission.ProposedCarrierError):
+                self.validate()
+        self.assertTrue(changed)
 
     def test_parent_change_after_observation_refuses(self):
         parent = self.parent()

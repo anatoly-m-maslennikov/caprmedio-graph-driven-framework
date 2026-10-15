@@ -9,7 +9,7 @@ import tomllib
 from dataclasses import dataclass
 from pathlib import Path
 
-from .authority import AuthorityContext, Obligation, Record, _domain, resolve_context
+from .authority import AuthorityContext, Obligation, Record, _domain, _verified, resolve_context
 from .check_operators import load_operators_registry
 from .checks import validate_carrier
 from .context import load_source
@@ -113,21 +113,15 @@ def _entry(identifier: str, *, graph: bool = False) -> Record:
 def _source(root: Path, identifier: str, reader: ReadContext, report: Record, *, graph: bool = False) -> Record:
     entry = _entry(identifier, graph=graph)
     path = entry.get("source_path") if isinstance(entry, dict) else None
-    version = entry.get("version") if isinstance(entry, dict) else None
-    digest = entry.get("sha256") if isinstance(entry, dict) else None
-    if not isinstance(path, str) or type(version) is not int or not isinstance(digest, str):
-        raise ProposedCarrierError("required source pin is unavailable")
+    if not isinstance(path, str) or not path or Path(path).is_absolute() or ".." in Path(path).parts:
+        raise ProposedCarrierError("required source locator is unavailable")
     selection = bound_selection(root)
     if selection is not None and Path(path).is_relative_to('.caprmedio_caprmedio'):
         path = (selection.control_relative / Path(path).relative_to('.caprmedio_caprmedio')).as_posix()
     absolute = root / path
-    item = load_source(
-        absolute,
-        {"atom_id": identifier, "version": version, "sha256": digest, "path": str(absolute)},
-        reader,
-        report,
-    )
-    if item is None:
+    item = load_source(absolute, None, reader, report)
+    if (item is None or item["metadata"].get("atom_id") != identifier
+            or not _verified(item, entry)):
         raise ProposedCarrierError("required source is unreadable, changed, or inactive")
     return item
 

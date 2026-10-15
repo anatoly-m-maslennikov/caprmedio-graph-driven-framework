@@ -46,7 +46,7 @@ class SectionAuthorityTests(unittest.TestCase):
                     self.assertEqual(source["binding"]["path"], str(path))
         self.assertEqual(context._reader.currentness()["state"], "unchanged")
 
-    def test_missing_and_changed_section_sources_refuse(self):
+    def test_missing_and_wrong_identity_section_sources_refuse(self):
         for identifier in SECTION_SOURCES:
             entry = support_sources()[identifier]
             original = fixtures.authority_fixture_bytes(identifier, entry)
@@ -54,7 +54,7 @@ class SectionAuthorityTests(unittest.TestCase):
                 root = Path(directory).resolve()
                 path = root / entry["source_path"]
                 path.parent.mkdir(parents=True)
-                for raw in (None, original + b"\nchanged\n"):
+                for raw in (None, original.replace(identifier.encode(), b"CA-R-999999")):
                     with self.subTest(identifier=identifier, missing=raw is None):
                         if raw is not None:
                             path.write_bytes(raw)

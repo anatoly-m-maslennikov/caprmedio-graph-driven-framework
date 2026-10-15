@@ -9,12 +9,11 @@ from __future__ import annotations
 
 from dataclasses import replace
 from functools import lru_cache
-import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
 
-from .authority import Record
+from .authority import Record, _verified
 from .check_sections import _headings
 from .check_support import Check, _integer, _string
 
@@ -51,13 +50,7 @@ def _authority(check: Check, *identifiers: str) -> bool:
         if verified:
             assert pin is not None
             source, binding = matches[0], matches[0]["binding"]
-            verified = (
-                type(binding.get("version")) is int
-                and binding.get("version") == pin["version"]
-                and binding.get("sha256") == pin["sha256"]
-                and isinstance(source.get("text"), str)
-                and hashlib.sha256(source["text"].encode()).hexdigest() == pin["sha256"]
-            )
+            verified = _verified(source, pin)
         if not verified:
             check.gap(
                 "authority",

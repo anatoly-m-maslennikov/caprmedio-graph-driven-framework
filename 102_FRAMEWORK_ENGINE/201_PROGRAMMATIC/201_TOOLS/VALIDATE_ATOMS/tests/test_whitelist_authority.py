@@ -45,7 +45,7 @@ class WhitelistAuthorityTests(unittest.TestCase):
                     self.assertEqual(source["binding"]["path"], str(path))
         self.assertEqual(context._reader.currentness()["state"], "unchanged")
 
-    def test_missing_and_changed_new_authority_refuse(self):
+    def test_missing_and_wrong_identity_new_authority_refuse(self):
         identifier = "CA-D-434"
         entry = proposed_carrier._entry(identifier)
         original = fixtures.authority_fixture_bytes(identifier, entry)
@@ -53,7 +53,7 @@ class WhitelistAuthorityTests(unittest.TestCase):
             root = Path(directory).resolve()
             path = root / entry["source_path"]
             path.parent.mkdir(parents=True)
-            for raw in (None, original + b"\nchanged\n"):
+            for raw in (None, original.replace(identifier.encode(), b"CA-R-999999")):
                 with self.subTest(raw=raw):
                     if raw is not None:
                         path.write_bytes(raw)

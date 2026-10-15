@@ -10,6 +10,16 @@ from pathlib import Path
 from typing import Any
 
 Record = dict[str, Any]
+_SOURCE_ROLES = {
+    "C": "Concern",
+    "A": "Analysis",
+    "P": "Plan",
+    "R": "Requirement",
+    "M": "Method",
+    "E": "Evaluation",
+    "D": "Delivery",
+    "O": "Operations",
+}
 
 
 def diagnostic(
@@ -61,11 +71,30 @@ def _binding_key(binding: Record) -> tuple[str, int, str, str]:
 
 
 def _verified(source: Record, entry: Record) -> bool:
-    binding = source["binding"]
+    del entry  # Registry entries select obligations; observed Carrier bytes bind the Revision.
+    binding, metadata = source.get("binding"), source.get("metadata")
+    if not isinstance(binding, dict) or not isinstance(metadata, dict):
+        return False
+    version, text = binding.get("version"), source.get("text")
+    identifier = binding.get("atom_id")
+    identity = identifier.rsplit("-", 2) if isinstance(identifier, str) else []
+    expected_role = _SOURCE_ROLES.get(identity[1]) if len(identity) == 3 else None
     return bool(
-        binding["version"] == entry["version"]
-        and binding["sha256"] == entry["sha256"]
-        and hashlib.sha256(source["text"].encode("utf-8")).hexdigest() == entry["sha256"]
+        type(version) is int
+        and version > 0
+        and type(metadata.get("version")) is int
+        and metadata["version"] == version
+        and isinstance(binding.get("atom_id"), str)
+        and binding["atom_id"]
+        and metadata.get("atom_id") == binding["atom_id"]
+        and expected_role is not None
+        and metadata.get("content_role") == expected_role
+        and metadata.get("status") in {"Active", "active"}
+        and "projection" not in metadata
+        and isinstance(binding.get("path"), str)
+        and binding["path"]
+        and isinstance(text, str)
+        and hashlib.sha256(text.encode("utf-8")).hexdigest() == binding.get("sha256")
     )
 
 

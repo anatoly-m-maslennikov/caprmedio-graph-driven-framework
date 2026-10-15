@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, cast
 
 from .check_support import Check
+from .authority import _verified
 
 MANIFESTS = (
     "schema_authority.json",
@@ -26,7 +27,7 @@ def support_sources() -> dict[str, Any]:
             continue
         for identifier, entry in json.loads(path.read_text())["sources"].items():
             old = result.get(identifier)
-            if old and (old["version"], old["sha256"]) != (entry["version"], entry["sha256"]):
+            if old and old.get("source_path") != entry.get("source_path"):
                 raise ValueError("Conflicting installed support-source bindings.")
             result[identifier] = entry
     return result
@@ -44,13 +45,7 @@ def exact_source(inputs: dict[str, Any], identifier: str) -> dict[str, Any] | No
     if len(rows) != 1:
         return None
     row = cast(dict[str, Any], rows[0])
-    binding = row["binding"]
-    if type(binding.get("version")) is not int or (
-        binding.get("version"),
-        binding.get("sha256"),
-    ) != (entry["version"], entry["sha256"]):
-        return None
-    if hashlib.sha256(row["text"].encode("utf-8")).hexdigest() != entry["sha256"]:
+    if not _verified(row, entry):
         return None
     return row
 
