@@ -6,6 +6,7 @@ import copy
 import difflib
 import json
 from pathlib import Path
+from typing import Any, Mapping
 
 import anyio
 from mcp import types
@@ -32,7 +33,7 @@ FORM_SCHEMA = {
 }
 
 
-def _result(status, *, native_result=None, diagnostic=None):
+def _result(status: str, *, native_result: Any = None, diagnostic: str | None = None) -> types.CallToolResult:
     data = {"status": status, "result": native_result}
     if native_result is None:
         data.update(effects=[], diagnostics=[diagnostic or status])
@@ -40,12 +41,12 @@ def _result(status, *, native_result=None, diagnostic=None):
                                 structured_content=data, is_error=status != "dispatched")
 
 
-def _admitted(runner, frozen):
+def _admitted(runner: Any, frozen: Mapping[str, Any]) -> dict[str, Any]:
     request = frozen["request"]
     if canonical_json(runner.load(request["run_id"])) != canonical_json(frozen):
         raise ValueError("Host input differs from the exact saved selected request")
     graph = runner._revalidate(frozen)
-    execution = request["execution"]
+    execution: dict[str, Any] = request["execution"]
     if execution["mode"] != "execute" or execution["operation_route"] != "update_atom":
         raise ValueError("Only an admitted selected Subject execution can be confirmed")
     runner._validate_requested_runs(execution, graph, request["run_id"])

@@ -250,6 +250,9 @@ def bind_subject_publication_confirmation(confirmation):
 
 
 def require_subject_publication_window(root, request, intent):
+    from subject_batch_authorization import validate_batch_action
+    if validate_batch_action(root, request):
+        return
     record = _record(_BOUND.get())
     active = _ACTIVE.get()
     if (active is None or active[0] != record.root or active[0] != Path(root).resolve()
@@ -260,6 +263,9 @@ def require_subject_publication_window(root, request, intent):
 
 def revalidate_subject_publication_authority(root, request, intent):
     """Observe unchanged governing/review evidence after the actual readback."""
+    from subject_batch_authorization import validate_batch_action
+    if validate_batch_action(root, request):
+        return
     require_subject_publication_window(root, request, intent)
     record = _record(_BOUND.get())
     if _originals(record.root) != record.originals:
@@ -272,7 +278,8 @@ def with_subject_publication_window(action):
     """Bind exact host confirmation through the action and caught restoration."""
     @wraps(action)
     def admitted(root, parameters, **kwargs):
-        if kwargs.get("execute") is not True:
+        from subject_batch_authorization import validate_batch_action
+        if kwargs.get("execute") is not True or validate_batch_action(root, parameters):
             return action(root, parameters, **kwargs)
         from atom_subject_apply import _parameters, _prepare
         request = _parameters(parameters)

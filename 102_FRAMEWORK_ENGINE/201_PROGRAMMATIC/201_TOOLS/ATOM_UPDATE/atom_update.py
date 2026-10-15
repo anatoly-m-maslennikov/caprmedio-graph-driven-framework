@@ -51,7 +51,7 @@ Version = Annotated[int, Field(ge=1)]
 Text = Annotated[str, Field(min_length=1)]
 Timestamp = Annotated[str, Field(pattern=r"^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} [+-]\d{4}$")]
 Profile = Literal["legacy", "approved"]
-Operation = Literal["preview_subjects", "stage_subjects"]
+Operation = Literal["preview_subjects", "stage_subjects", "stage_subject_batch"]
 
 
 class _Closed(BaseModel):
@@ -103,7 +103,18 @@ class StageSubjectsRequest(_Preparation):
     illustrative_updated_at: Timestamp | None
 
 
-class SubjectPreparationRequest(RootModel[Annotated[PreviewSubjectsRequest | StageSubjectsRequest, Field(discriminator="operation")]]):
+class BatchPacketPin(_Closed):
+    path: Text
+    digest: Digest
+
+
+class StageSubjectBatchRequest(_Closed):
+    operation: Literal["stage_subject_batch"]
+    subject_batch: BatchPacketPin
+    limit: int = Field(default=10, ge=1, le=10)
+
+
+class SubjectPreparationRequest(RootModel[Annotated[PreviewSubjectsRequest | StageSubjectsRequest | StageSubjectBatchRequest, Field(discriminator="operation")]]):
     pass
 
 
@@ -255,11 +266,31 @@ class PreparationError(_Closed):
     unverified_artifacts: list[UnverifiedArtifact]
 
 
+class BatchStageInFlight(_Closed):
+    ordinal: int = Field(ge=1)
+    target: TargetDescriptor
+
+
+class BatchStageProgress(_Closed):
+    operation: Literal["stage_subject_batch"]
+    state: Literal["staging", "staged", "stopped"]
+    stage_run_id: Text
+    count: int = Field(ge=1)
+    completed: int = Field(ge=0)
+    remaining: int = Field(ge=0)
+    reviewed_packet: BatchPacketPin | None
+    automatic_retry: Literal[False]
+    in_flight: BatchStageInFlight | None = None
+    inspection_required: bool = False
+    diagnostic: str | None = None
+
+
 class SubjectPreparationResult(_Closed):
     operation: Operation
     preview: SubjectPreview | None
     staging: ScratchStage | None
     errors: list[PreparationError]
+    batch: BatchStageProgress | None = Field(default=None, exclude_if=lambda value: value is None)
 
 
 def _contract_reader(root):
@@ -360,6 +391,15 @@ class _DescriptorAdapter:
                     raise operations.ToolError("subject-project-selection-stale", "Project carriers differ from retained provenance")
             selection._revalidate_boundary(reader=reader)
             with bind_selection(selection):
+                if parsed.operation == "stage_subject_batch":
+                    from subject_batch_stage import stage_subject_batch
+                    progress = stage_subject_batch(self._root,
+                        {"subject_batch": parsed.subject_batch.model_dump()}, limit=parsed.limit)
+                    selection._revalidate_boundary(reader=reader)
+                    if reader.currentness()["state"] != "unchanged":
+                        raise operations.ToolError("subject-source-changed", "Subject batch staging source frontier changed")
+                    return SubjectPreparationResult(operation=parsed.operation, preview=None, staging=None,
+                                                    errors=[], batch=progress)
                 items = _resolve_items(self._root, parsed, reader)
                 if parsed.operation == "preview_subjects":
                     preview = subjects.preview_subject_patches(self._root, items, subject_profile=parsed.subject_profile)
@@ -386,8 +426,8 @@ def create_adapter(root: str | Path):
 def describe_tool():
     return make_tool_description(entrypoint=ENTRYPOINT, name=TOOL_NAME, delivery_atom_id=DELIVERY_ID,
         action_ids=[ACTION_ID], input_symbol="SubjectPreparationRequest", output_symbol="SubjectPreparationResult",
-        title="Prepare Atom Subjects", description="Preview exact Subject changes or explicitly export derived scratch candidates.",
-        purpose="Prepare reviewed Subject evidence without invoking Atom publication or creating a Session, Run or Journal.",
+        title="Prepare Atom Subjects", description="Preview exact Subject changes, export scratch candidates or stage bounded edit-drafts.",
+        purpose="Prepare exact Subject evidence and edit-drafts without invoking canonical Atom publication.",
         read_only=False, destructive=False, idempotent=False, open_world=False)
 
 

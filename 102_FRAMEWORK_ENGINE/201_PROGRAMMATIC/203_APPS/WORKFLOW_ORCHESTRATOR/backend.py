@@ -130,6 +130,12 @@ def status(root, request):
         frozen = selected._read(selected_request)
         response.update({'workflow_id': frozen['graph']['workflow']['atom_id'],
                          'selected_route': frozen['graph']['route']})
+        batch_progress = selected_directory / 'subject_batch_progress.json'
+        if batch_progress.is_file():
+            from subject_batch import subject_batch_progress_summary
+            response['subject_batch'] = subject_batch_progress_summary(selected._read(batch_progress),
+                result_ref=batch_progress.relative_to(selected.root).as_posix())
+            response.pop('result', None)
         accepted = selected_directory / 'accepted.json'
         uncertain = selected_directory / 'dispatch_uncertain.json'
         if accepted.is_file():
@@ -149,6 +155,9 @@ def status(root, request):
             outcome, disposition, terminal_reason = _selected_public_outcome(frozen, result, request.run_id)
             response.update({'selected_result': result, 'outcome': outcome,
                              'disposition': disposition})
+            if batch_progress.is_file():
+                response['selected_result'] = {'outcome': outcome, 'disposition': disposition,
+                                              'result_ref': accepted.relative_to(selected.root).as_posix()}
             if reconciliation_reason is not None:
                 response['reason'] = reconciliation_reason
             elif terminal_reason is not None:

@@ -76,6 +76,9 @@ def _pin(root: Path, value: object) -> bytes:
 def _assessment(root: Path, request: Mapping[str, Any], target: operations.Atom,
                 prepared: Mapping[str, Any]) -> dict[str, Any]:
     from lifecycle_intents import _assessment_json, _mechanical_update_evidence, _semantic_assessment_evidence
+    from subject_batch_authorization import validate_batch_action
+    if validate_batch_action(root, request):
+        return {"admitted_change_class": "semantic_revision", "basis": "confirmed-subject-batch-map"}
     before = prepared["subject_intent"]["target"]
     if prepared["subject_intent"]["noop"]:
         return _mechanical_update_evidence(target, before, prepared["proposed"],
@@ -139,6 +142,9 @@ def _gate(root: Path, request: Mapping[str, Any], intent: Mapping[str, Any], *,
     from workflow_run_support import RunExecutionSession, SelectedRunError, _canonical_digest, _proposal, _validate_common
     if authorized is not True or not isinstance(session, RunExecutionSession) or Path(session.tracker.root).resolve() != root:
         _fail("subject-session-required", "Subject publication requires the actual selected execution Session")
+    from subject_batch_authorization import validate_batch_action
+    if validate_batch_action(root, request, session=session, action_run_id=action_run_id):
+        return
     try:
         sealed = _validate_common(session.request)
         if sealed["mode"] != "execute" or sealed["operation_route"] != "update_atom" or sealed["parameters"] != request:
@@ -201,9 +207,11 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
     """Preview or publish one identity-preserving, exactly sealed Subject intent."""
 
     from atom_subject_patch import materialize_subject_intent
+    from subject_batch_authorization import validate_batch_action
     from lifecycle_intents import LifecycleError, _validate_update_assessment
     root = Path(root).resolve()
     request = _parameters(parameters)
+    batch = validate_batch_action(root, request)
     try:
         prepared = _prepare(root, request)
         intent = prepared["subject_intent"]
@@ -228,17 +236,20 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
             return {**base, "outcome": "replace_handoff" if admitted == "replacement" else "unresolved",
                     "classification": {"requested": "semantic_revision", "admitted": admitted,
                                        "reason": "semantic-assessment-class-mismatch"}}
-        if assessment is not None:
+        if assessment is not None and not batch:
             _validate_update_assessment(request, assessment, evidence)
             base["assessment"] = dict(assessment)
         if intent["noop"]:
             materialized = materialize_subject_intent(root, prepared, before["updated_at"])
+            if batch:
+                from subject_batch_drafts import require_batch_reviewed_draft
+                require_batch_reviewed_draft(root, materialized["carrier_bytes"])
             return {**base, "outcome": "no-op", "materialization": materialized["materialization"]}
         if execute is not True:
             return {**base, "outcome": "preview"}
-        if assessment is None:
+        if assessment is None and not batch:
             _fail("assessment-invalid", "Subject execution requires completed O145 assessment")
-        _gate(root, request, intent, authorized=authorized, session=session, action_run_id=action_run_id, prior=prior, assessment=assessment)
+        _gate(root, request, intent, authorized=authorized, session=session, action_run_id=action_run_id, prior=prior, assessment=assessment or {})
         try:
             require_subject_publication_window(root, request, intent)
         except SubjectPublicationAuthorizationError as error:
@@ -249,6 +260,9 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
         archive = intent["predecessorArchive"]
         archive_path = root / archive["path"]
         after_raw = materialized["carrier_bytes"]
+        if batch:
+            from subject_batch_drafts import require_batch_reviewed_draft
+            require_batch_reviewed_draft(root, after_raw)
         after = {**before, "version": materialized["materialization"]["version"],
                  "updated_at": materialized["materialization"]["updated_at"],
                  "digest": materialized["materialization"]["after_sha256"]}
@@ -256,8 +270,9 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
         # Final admission is repeated after materialization, not delegated to the caller.
         fresh = _prepare(root, request)
         fresh_evidence = _assessment(root, request, target, fresh)
-        _validate_update_assessment(request, assessment, fresh_evidence)
-        _gate(root, request, intent, authorized=authorized, session=session, action_run_id=action_run_id, prior=prior, assessment=assessment)
+        if not batch:
+            _validate_update_assessment(request, assessment, fresh_evidence)
+        _gate(root, request, intent, authorized=authorized, session=session, action_run_id=action_run_id, prior=prior, assessment=assessment or {})
         current_raw, current_fingerprint = operations.read_raw_atom_revision(root, path)
         if current_raw != raw or current_fingerprint != fingerprint:
             _fail("subject-source-changed", "Subject target changed immediately before publication")

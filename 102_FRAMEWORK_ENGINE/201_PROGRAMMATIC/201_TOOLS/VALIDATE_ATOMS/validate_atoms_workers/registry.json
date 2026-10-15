@@ -3,8 +3,8 @@
   "description": "Reviewed obligation inventory bound to exact source bytes. Adapter availability is resolved separately in code. This is implementation provenance, not independent methodology authority.",
   "sources": {
     "CA-D-276": {
-      "version": 15,
-      "sha256": "ea6013f935f9b465d4a6ea5afd80a20a44dbc4ab50db2d031f325510f4881b06",
+      "version": 16,
+      "sha256": "276704d5656dcc1700650f79b9cce58c921203b7c9804811a7147a1c97e808a0",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter.md",
       "required": true,
       "obligations": [
@@ -58,8 +58,8 @@
       ]
     },
     "CA-D-446": {
-      "version": 7,
-      "sha256": "3391dbfa646ef362dd1c54cd8c9dab590ee7650f2215d51aec5b7f9ef49d4829",
+      "version": 8,
+      "sha256": "a04eb16d411594afb88d8c1925072328bad8c41771b835c02e4903b6d12fb3e9",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md",
       "required": true,
       "obligations": [

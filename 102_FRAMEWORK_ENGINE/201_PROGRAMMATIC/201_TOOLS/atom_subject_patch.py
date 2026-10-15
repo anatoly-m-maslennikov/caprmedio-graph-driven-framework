@@ -202,7 +202,9 @@ def prepare_subject_intent(
         _fail(operations, "subject-target-stale", "Subject target descriptor does not match the captured carrier")
     _validate_complete(operations, project_root, plan["path"], prepared["proposed"]["frontmatter"], prepared["proposed"]["content"])
     _assert_snapshot_current(operations, project_root, plan["snapshot"], plan["selector"])
-    _assert_original_identity_unique(operations, project_root, {plan["atom_id"]}, identity_layout)
+    from subject_batch_authorization import active_batch_target
+    if not active_batch_target(project_root, target_descriptor):
+        _assert_original_identity_unique(operations, project_root, {plan["atom_id"]}, identity_layout)
     _assert_grammar_current(operations, project_root, grammar)
     _assert_identity_layout_current(operations, project_root, identity_layout)
     plan["grammar_snapshots"] = grammar
@@ -241,7 +243,9 @@ def materialize_subject_intent(
     project_root = Path(root).resolve()
     materialized = _materialize_item(operations, project_root, plan, actual_updated_at)
     _assert_snapshot_current(operations, project_root, plan["snapshot"], plan["selector"])
-    _assert_original_identity_unique(operations, project_root, {plan["atom_id"]}, plan["identity_layout"])
+    from subject_batch_authorization import active_batch_target
+    if not active_batch_target(project_root, intent["target"]):
+        _assert_original_identity_unique(operations, project_root, {plan["atom_id"]}, plan["identity_layout"])
     _assert_grammar_current(operations, project_root, plan["grammar_snapshots"])
     _assert_identity_layout_current(operations, project_root, plan["identity_layout"])
     return {
@@ -1008,6 +1012,8 @@ def _replace_frontmatter(text: str, before: str, after: str) -> str:
 
 def _validate_complete(operations: Any, root: Path, path: Path, frontmatter: str, body: str,
                        *, validation_scope: CarrierValidationScope | None = None) -> None:
+    from subject_batch_authorization import batch_validation_scope
+    validation_scope = validation_scope or batch_validation_scope(root)
     try:
         if validation_scope is None:
             operations._validate_complete_carrier(root, path, frontmatter, body, creating=False)

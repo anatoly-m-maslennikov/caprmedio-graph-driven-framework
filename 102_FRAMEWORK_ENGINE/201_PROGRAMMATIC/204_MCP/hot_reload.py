@@ -620,13 +620,18 @@ class Gateway:
         if (params.name == 'update_atom' and isinstance(request, dict)
                 and request.get('mode') == 'execute'
                 and isinstance(request.get('parameters'), dict)
+                and 'subject_batch' in request['parameters']):
+            return await self._confirm_subject_batch(context, params.arguments)
+        if (params.name == 'update_atom' and isinstance(request, dict)
+                and request.get('mode') == 'execute'
+                and isinstance(request.get('parameters'), dict)
                 and 'subject_patches' in request['parameters']):
             confirmed = await self._confirm_subject(context, params.arguments)
             if confirmed is not None:
                 return confirmed
         timeout = IMPLEMENTATION_CALL_TIMEOUT_SECONDS
         staging = (params.name == 'atom_update' and isinstance(request, dict)
-                   and request.get('operation') == 'stage_subjects')
+                   and request.get('operation') in {'stage_subjects', 'stage_subject_batch'})
         if staging:
             timeout = SUBJECT_STAGE_CALL_TIMEOUT_SECONDS
         elif (params.name == 'atom_update' and isinstance(request, dict)
@@ -637,6 +642,44 @@ class Gateway:
         if staging:
             self._retain_subject_stage(context, response)
         return response
+
+    async def _confirm_subject_batch(self, context, arguments):
+        from selected_routes import SelectedRouteAdapter, _QueueBackedSelectedSupport
+        app = Path(__file__).resolve().parents[1] / '203_APPS/WORKFLOW_ORCHESTRATOR'
+        if str(app) not in sys.path:
+            sys.path.insert(0, str(app))
+        from selected_execution import SelectedExecution, canonical_json
+        from subject_batch_confirmation import confirm_subject_batch_publication
+        from subject_publication_confirmation import _result
+        from connector_bindings import capture_source
+        from operator_registry import parse_operators_registry
+        import atom_operations
+        try:
+            if set(arguments) != {'request'}:
+                raise ValueError('Expected only request')
+            request = arguments['request']
+            runner = SelectedExecution(self.root)
+            run_id = _QueueBackedSelectedSupport._workflow_run_id(request)
+            try:
+                frozen = runner.load(run_id)
+            except FileNotFoundError:
+                adapter = SelectedRouteAdapter(self.root)
+                request = adapter._validate_request('update_atom', request)
+                refusal = adapter._validate_execute(request)
+                if refusal:
+                    raise ValueError(refusal)
+                frozen = runner.freeze({'operation': 'enqueue_selected', 'run_id': run_id, 'execution': request})
+            if canonical_json(frozen['request']['execution']) != canonical_json(request):
+                raise ValueError('Run ID already binds a different exact Subject batch request')
+            registry = capture_source(self.root, atom_operations.control_root(self.root).relative_to(self.root)
+                                      / 'operators_registry.toml')
+            operators = parse_operators_registry(registry.read_bytes())
+            if len(operators) != 1:
+                raise ValueError('Subject batch confirmation requires one registered Operator name association')
+        except (AttributeError, KeyError, TypeError, ValueError, RuntimeError, OSError) as error:
+            return _result('refused', diagnostic=str(error))
+        return await confirm_subject_batch_publication(context, runner, frozen,
+            operator_name=operators[0].name, operator_registry=registry)
 
     async def _call(self, context, params):
         if params.name == STATUS.name:

@@ -1794,6 +1794,10 @@ class SelectedExecution:
         expected = self.build_requested_runs(
             graph, run_id, self._declared_run_visit_limits(execution),
         )
+        if graph.get("route") == "update_atom" and "subject_batch" in execution.get("parameters", {}):
+            from subject_batch import build_subject_batch_requested_runs, load_subject_batch
+            packet = load_subject_batch(self.root, execution["parameters"])
+            expected = build_subject_batch_requested_runs(graph, run_id, len(packet["atoms"]))
         if canonical_json(requested) != canonical_json(expected):
             raise SelectedExecutionError("requested Runs do not exactly bind the selected Workflow graph")
 
@@ -2566,6 +2570,10 @@ class SelectedExecution:
         existing graph interpreter.  A program-owned provider may override it
         for a separately admitted route whose executor owns the same Session.
         """
+        execution = frozen["request"]["execution"]
+        if execution.get("operation_route") == "update_atom" and "subject_batch" in execution.get("parameters", {}):
+            from subject_batch_execution import execute_subject_batch
+            return execute_subject_batch(self, frozen, session)
         return self._execute_graph(frozen, session)
 
     def _prepare_journal_query_before_run(
@@ -2763,6 +2771,14 @@ class SelectedExecution:
         if intent.exists():
             return {"disposition": "recording_pending", "outcome": "interrupted_pending",
                     "workflow_run_id": run_id, "reason": "uncertain selected dispatch intent retained; no replay"}
+        execution = request["execution"]
+        if execution.get("operation_route") == "update_atom" and "subject_batch" in execution.get("parameters", {}):
+            from subject_batch_authorization import load_subject_batch_confirmation
+            try:
+                load_subject_batch_confirmation(self, frozen)
+            except (ValueError, OSError) as error:
+                return {"disposition": "blocked", "outcome": "blocked", "workflow_run_id": run_id,
+                        "effect_refs": [], "diagnostics": [str(error)]}
         graph = self._revalidate(frozen)
         self._validate_query_admission(graph, request["execution"])
         try:
