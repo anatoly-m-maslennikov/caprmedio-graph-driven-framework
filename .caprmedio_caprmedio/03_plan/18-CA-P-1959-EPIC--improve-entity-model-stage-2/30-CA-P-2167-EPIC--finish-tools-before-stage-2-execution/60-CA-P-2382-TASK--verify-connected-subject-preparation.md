@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan]
-version: 6
-updated_at: "2026-10-14 15:01:31 +0400"
+version: 7
+updated_at: "2026-10-15 03:24:34 +0000"
 relations:
   is_decomposition_of: [CA-P-2167]
 ---
@@ -28,6 +28,12 @@ Verify connected Subject preparation
 Verify the activated, reviewed MCP image through actual discovery, lookup, sealed preview and scratch-only staging for one supported pinned Core Atom.
 
 ## Details
+
+### Current connected lookup and full preview — 2026-10-15
+
+Saved connected attempt `live611-current-rules-002.json` completed the current 611-owner/848-patch read-only preview in 197.147 seconds, after advertised discovery/context and schema checks. Its actual seal is `4c993644468c6beb348b56335b7053baa435dbc14d895e8dec96fff5334bc538`. Independent saved-result verification passed, including exact owner/patch order, all intent/proposal/after hashes, permitted Subjects/Version/time changes and preservation of raw ordinary content. All 906 source hashes and modes match before, after and current files; staging is null and errors are empty. Evidence is under `.caprmedio_tmp/stage2-migration-20261015/connected-preview/`; `verification-current-rules-002.json` has SHA-256 `5eeffbf0393c2e9fecbe5c2594b56460ede47c5f035edd2467494b05e5632354`. Attempt 001 remains preserved as its pre-Tool-call failure.
+
+The actual connected lookup saved in `current-lookup.json` returned the expected CA-D-253 v12, with complete selected lookup, no effects and no errors. This closes current lookup/full-preview verification only. A new scratch-stage approval has been requested and remains pending; no new stage, publication or migration is claimed. Keep this Task Active and preserve both earlier uncertain staging batches unchanged, without replay. Successful fresh stage/readback and the separate final packet/publication gates remain outstanding.
 
 ### Fresh scratch-stage uncertainty and next local lanes — 2026-10-14 15:01 +0400
 
