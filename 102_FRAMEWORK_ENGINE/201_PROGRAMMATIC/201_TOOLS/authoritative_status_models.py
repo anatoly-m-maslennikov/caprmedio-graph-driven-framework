@@ -18,7 +18,7 @@ _SOURCE_TAIL = Path(
     "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
 )
 _VALUES = re.compile(r"(?:(?:the\s+)?Core\s+allowed values of|Core)\s+(?:`?Atom/Content Role:\s*)?([^/`\n]+?)(?:/Status|\s+Status)(?:\s+values)?`?\s*\*\*must\*\* be exactly\s*\(([^)]*)\)", re.I)
-_ROLE = re.compile(r"Atom/Content Role:\s*([^/`\n]+)")
+_ROLE = re.compile(r"Atom/Content Role:\s*([^/.`\n]+)")
 _TYPE = re.compile(
     r"Atom/Content Role:\s*[^/`\n]+/Type:\s*`?([A-Za-z][A-Za-z0-9 _-]*)`?"
 )
