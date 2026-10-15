@@ -1,9 +1,9 @@
 """Current-source selected status proof; development-only, not live MCP/image proof.
 
-The canonical first-fifteen-route portfolio is copied unchanged. A stale
-production pin is a real failing gate, never replaced by a fixture-only rehash
-or a skipped positive case. Release is intentionally outside this historical
-fixture baseline and has separate proof.
+The canonical first-fifteen-route portfolio is copied unchanged. Current
+definition revisions are observed without rewriting historical manifest pins;
+captured-source drift still refuses. Release is outside this historical fixture
+baseline and has separate proof.
 """
 from __future__ import annotations
 
@@ -64,8 +64,7 @@ class SharedSourceDrivenStatusTest(unittest.TestCase):
         self.project = _StatusProject(REPOSITORY, self.root, GoldenCase("W04", ROUTE))
 
     def prepare_route(self) -> None:
-        # This strict existing helper copies the actual canonical portfolio and
-        # every declared source pin. It intentionally fails on pending rebinds.
+        # Copy the actual canonical portfolio and its declared definition sources.
         self.project.manifest = self.project._copy_reviewed_manifest()
 
     def authority_snapshot(self) -> dict[str, str | None]:
@@ -193,14 +192,24 @@ class SharedSourceDrivenStatusTest(unittest.TestCase):
         )
         self.assertEqual([], self.events())
 
-    def test_actual_selected_definition_change_refuses_without_preview_or_run(self) -> None:
+    def test_current_selected_definition_revision_admits_without_preview_or_run(self) -> None:
         self.prepare_route()
         route = next(row for row in self.project.manifest["routes"] if row["route"] == ROUTE)
-        source = self.root / route["workflow"]["source_path"]
-        source.write_bytes(source.read_bytes() + b"\nDeliberately stale selected definition.\n")
+        historical = route["workflow"]
+        source = self.root / historical["source_path"]
+        current = re.sub(
+            r"(?m)^version:.*$",
+            f"version: {historical['version'] + 1}",
+            source.read_text(encoding="utf-8"),
+            count=1,
+        )
+        source.write_text(current + "\nCurrent selected definition revision.\n", encoding="utf-8")
         before = self.fixture.snapshot()
-        with self.assertRaisesRegex(SelectedRouteError, "source pin is stale"):
-            SelectedRouteAdapter(self.root)
+        adapter = SelectedRouteAdapter(self.root)
+        observed = adapter.routes[ROUTE]["workflow"]
+        self.assertEqual(historical["version"] + 1, observed["version"])
+        self.assertEqual(historical["atom_id"], observed["atom_id"])
+        self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), observed["digest"])
         self.assertEqual(before, self.fixture.snapshot())
         self.assertEqual([], self.events())
 

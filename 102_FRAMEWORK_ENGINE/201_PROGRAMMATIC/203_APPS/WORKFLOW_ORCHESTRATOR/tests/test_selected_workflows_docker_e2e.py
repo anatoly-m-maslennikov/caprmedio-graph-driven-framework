@@ -867,7 +867,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                 runtime, root, case.route, fixture.request(request_id="golden-w13-stale")
             )
             self.assertEqual("rejected", result.get("disposition"), result)
-            self.assertTrue(any("source pin is stale:" in value for value in result.get("diagnostics", [])), result)
+            self.assertIn("definition_manifest is stale or does not identify the canonical binding", result.get("diagnostics", []), result)
             self.assertEqual(before, fixture.snapshot())
             self.assertFalse(list((root / ".caprmedio_caprmedio/_journal").glob("*.ndjson")))
         except GoldenCorpusError as error:
