@@ -10,6 +10,7 @@ TOOLS = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(TOOLS))
 
 from subject_notation import (  # noqa: E402
+    GrammarPin,
     SubjectNotationError,
     get_profile,
     parse_initial_atom_selector,
@@ -93,20 +94,19 @@ class SubjectNotationTest(unittest.TestCase):
         with self.assertRaises(FrozenInstanceError):
             legacy.grammar_pins[0].version = 0  # type: ignore[misc]
 
-        self.assertEqual(
-            [
-                ("CA-R-1931", 1, "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8"),
-                ("CA-R-1321", 14, "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df"),
-                ("CA-R-1324", 12, "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3"),
-                ("CA-M-228", 16, "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d"),
-                ("CA-E-383", 16, "a356617c341cd1d3c723e3e3ddbf9852c720781c8f22dd31f07cf33dfa4ec512"),
-            ],
-            [(pin.atom_id, pin.version, pin.sha256) for pin in get_profile("approved").grammar_pins],
-        )
+        sources = get_profile("approved").grammar_pins
+        self.assertEqual(["CA-R-1931", "CA-R-1321", "CA-R-1324", "CA-M-228", "CA-E-383"], [source.atom_id for source in sources])
+        for source in sources:
+            self.assertFalse(hasattr(source, "version"))
+            self.assertFalse(hasattr(source, "sha256"))
 
     def test_evidence_is_exactly_scoped_and_fresh(self) -> None:
-        first = profile_evidence("approved")
-        second = profile_evidence("approved")
+        pins = [GrammarPin(source.atom_id, 2, source.path, "1" * 64) for source in get_profile("approved").grammar_pins]
+        with self.assertRaises(SubjectNotationError) as unbound:
+            profile_evidence("approved")
+        self.assertEqual("profile-evidence-unbound", unbound.exception.code)
+        first = profile_evidence("approved", grammar_pins=pins)
+        second = profile_evidence("approved", grammar_pins=pins)
         self.assertEqual(set(first), {"grammar_pins", "native_admission"})
         self.assertEqual(first["native_admission"], "not_performed")
         self.assertEqual(len(first["grammar_pins"]), 5)

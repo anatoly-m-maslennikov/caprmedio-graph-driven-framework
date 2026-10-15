@@ -155,7 +155,8 @@ class SubjectIntentMaterializationTests(unittest.TestCase):
                     source = self.root / pin.path
                     original = source.read_bytes()
                     source.write_bytes(original + b"\n")
-                    self._error("subject-grammar-pin-stale", subject_patch.materialize_subject_intent, self.root, prepared, "2026-10-12 10:20:30 +0400")
+                    code = "subject-grammar-pin-stale" if profile_name == "legacy" else "subject-intent-stale"
+                    self._error(code, subject_patch.materialize_subject_intent, self.root, prepared, "2026-10-12 10:20:30 +0400")
                     source.write_bytes(original)
         self.assertNotEqual(self._prepare()["subject_intent_sha256"], self._prepare(subject_profile="approved")["subject_intent_sha256"])
 

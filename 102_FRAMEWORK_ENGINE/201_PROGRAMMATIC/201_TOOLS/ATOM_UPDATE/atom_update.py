@@ -30,44 +30,20 @@ MCP_NAME = "atom_update"
 ACTION_ID = "CA-O-030"
 DELIVERY_ID = "CA-D-425"
 ENTRYPOINT = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/atom_update.py"
-SOURCE_PINS = tuple([
-    {
-        "atom_id": "CA-R-866",
-        "version": 26,
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
-        "sha256": "ef34d271cdf1fac68cec3ee5df48937396f3485cadf107ca46b9b1c32e883146"
-    },
-    {
-        "atom_id": "CA-R-1093",
-        "version": 12,
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-1093-TOOL_WORKFLOWS-CORE-REQUIREMENT--separate-generic-and-atom-specific-tool-authority.md",
-        "sha256": "089aef0c7af39cd3135b411b5629ee32e350f35beae53a5dbd85754cb50f53e4"
-    },
-    {
-        "atom_id": "CA-O-030",
-        "version": 19,
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md",
-        "sha256": "14b8423f542af6d12a2f40a7ca4cdf3a343c7ea14ebc6bdecc16c01a69a28453"
-    },
-    {
-        "atom_id": "CA-M-371",
-        "version": 12,
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md",
-        "sha256": "f0f4a2aa25de2d6b04061a65b7606101410cd9f56ccfe81567f323c6dc99b04d"
-    },
-    {
-        "atom_id": "CA-D-425",
-        "version": 16,
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/07_delivery/CA-D-425-TOOL_WORKFLOWS-STANDARD-DELIVERY--deliver-atom-update-tool.md",
-        "sha256": "208431f44e901ed023f45c80536a92ab63e7c046ff45f56dede0f091c8bc7023"
-    },
-    {
-        "atom_id": "CA-E-304",
-        "version": 25,
-        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
-        "sha256": "79f5eb5b9e73fe1907a8b923c1ea9443a11def5f1d21eaea0e0393644bd0b2c3"
-    }
-])
+SOURCE_PINS = (
+    {"atom_id": "CA-R-866",
+     "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md"},
+    {"atom_id": "CA-R-1093",
+     "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-1093-TOOL_WORKFLOWS-CORE-REQUIREMENT--separate-generic-and-atom-specific-tool-authority.md"},
+    {"atom_id": "CA-O-030",
+     "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md"},
+    {"atom_id": "CA-M-371",
+     "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md"},
+    {"atom_id": "CA-D-425",
+     "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/07_delivery/CA-D-425-TOOL_WORKFLOWS-STANDARD-DELIVERY--deliver-atom-update-tool.md"},
+    {"atom_id": "CA-E-304",
+     "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md"},
+)
 
 AtomID = Annotated[str, Field(pattern=r"^CA-[CAPRMEDO]-[0-9]+$")]
 Digest = Annotated[str, Field(pattern=r"^[0-9a-f]{64}$")]
@@ -291,9 +267,14 @@ def _contract_reader(root):
     for pin in SOURCE_PINS:
         raw = reader.read(root / pin["path"])
         metadata = operations.parse_carrier(raw, root / pin["path"]).metadata
-        if (hashlib.sha256(raw).hexdigest() != pin["sha256"]
-                or metadata.get("atom_id") != pin["atom_id"] or metadata.get("version") != pin["version"]):
-            raise operations.ToolError("subject-preparation-contract-stale", "Preparation definition differs from its accepted source pin")
+        version = metadata.get("version")
+        role = {"R": "Requirement", "O": "Operations", "M": "Method", "D": "Delivery", "E": "Evaluation"}[pin["atom_id"][3]]
+        if (metadata.get("atom_id") != pin["atom_id"] or type(version) is not int or version < 1
+                or metadata.get("content_role") != role
+                or (metadata.get("status") != "Active"
+                    and not (pin["atom_id"] == "CA-R-1093" and "status" not in metadata))
+                or (pin["atom_id"] == ACTION_ID and metadata.get("type") != "Action")):
+            raise operations.ToolError("subject-preparation-contract-stale", "Preparation definition has invalid current metadata")
     return reader
 
 

@@ -21,7 +21,7 @@ from typing import Any, Mapping, Sequence
 import yaml
 from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
 
-from subject_notation import SubjectNotationError, get_profile, parse_subject, profile_evidence
+from subject_notation import GrammarPin, SubjectNotationError, get_profile, parse_subject, profile_evidence
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import CarrierValidationScope
@@ -99,7 +99,6 @@ def preview_subject_patches(
     try:
         profile = get_profile(subject_profile)
         profile_name = profile.name
-        evidence = profile_evidence(profile_name)
     except SubjectNotationError as error:
         _fail(operations, error.code, str(error))
     project_root = Path(root).resolve()
@@ -110,6 +109,7 @@ def preview_subject_patches(
     if timestamp is not None:
         _require_timestamp(operations, timestamp)
     grammar = _capture_grammar(operations, project_root, profile)
+    evidence = _captured_profile_evidence(operations, profile, grammar)
     identity_layout = _capture_identity_layout(operations, project_root)
 
     planned: list[dict[str, Any]] = []
@@ -181,11 +181,11 @@ def prepare_subject_intent(
         _fail(operations, "subject-target-invalid", "Subject target must contain exactly its complete carrier descriptor")
     try:
         profile = get_profile(subject_profile)
-        evidence = profile_evidence(profile.name)
     except SubjectNotationError as error:
         _fail(operations, error.code, str(error))
     project_root = Path(root).resolve()
     grammar = _capture_grammar(operations, project_root, profile)
+    evidence = _captured_profile_evidence(operations, profile, grammar)
     identity_layout = _capture_identity_layout(operations, project_root)
     plan = _plan_item(operations, project_root, {
         "selector": target_descriptor["path"],
@@ -311,13 +311,27 @@ def _capture_grammar(operations: Any, root: Path, profile: Any) -> tuple[_Source
             metadata = operations.parse_carrier(snapshot.raw, Path(pin.path)).metadata
         except (operations.ToolError, operations.CarrierError) as error:
             code = "subject-grammar-pin-symlink" if getattr(error, "code", None) == "subject-selector-symlink" else "subject-grammar-pin-stale"
-            raise operations.ToolError(code, "Subject grammar source cannot be bound to its declared pin") from error
-        if (hashlib.sha256(snapshot.raw).hexdigest() != pin.sha256
-                or metadata.get("atom_id") != pin.atom_id or type(metadata.get("version")) is not int
-                or metadata["version"] != pin.version):
+            raise operations.ToolError(code, "Subject grammar source cannot be read from its selected location") from error
+        if (metadata.get("atom_id") != pin.atom_id or type(metadata.get("version")) is not int
+                or metadata["version"] < 1):
+            _fail(operations, "subject-grammar-pin-stale", "Subject grammar source metadata is invalid", {"path": pin.path})
+        if profile.name == "approved" and (
+                metadata.get("status") != "Active" or metadata.get("content_role") !=
+                {"R": "Requirement", "M": "Method", "E": "Evaluation"}.get(pin.atom_id[3:4])):
+            _fail(operations, "subject-grammar-pin-stale", "Current Subject grammar source metadata is invalid", {"path": pin.path})
+        if isinstance(pin, GrammarPin) and (
+                hashlib.sha256(snapshot.raw).hexdigest() != pin.sha256 or metadata["version"] != pin.version):
             _fail(operations, "subject-grammar-pin-stale", "Subject grammar source differs from its declared pin", {"path": pin.path})
         snapshots.append(snapshot)
     return tuple(snapshots)
+
+
+def _captured_profile_evidence(operations: Any, profile: Any, snapshots: Sequence[_SourceSnapshot]) -> dict[str, Any]:
+    pins = []
+    for source, snapshot in zip(profile.grammar_pins, snapshots, strict=True):
+        metadata = operations.parse_carrier(snapshot.raw, snapshot.path).metadata
+        pins.append(GrammarPin(source.atom_id, metadata["version"], source.path, hashlib.sha256(snapshot.raw).hexdigest()))
+    return profile_evidence(profile.name, grammar_pins=pins)
 
 
 def _assert_grammar_current(operations: Any, root: Path, snapshots: Sequence[_SourceSnapshot]) -> None:

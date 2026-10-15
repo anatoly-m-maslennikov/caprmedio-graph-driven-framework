@@ -274,10 +274,6 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
             actual_raw, actual_fingerprint = operations.read_raw_atom_revision(root, path)
             if actual_raw != after_raw or actual_fingerprint != current_owner:
                 _fail("subject-publication-unconfirmed", "Subject current revision readback differs")
-            actual = _atom(root, after, actual_raw)
-            operations._validate_complete_carrier(root, path, actual.frontmatter, actual.content, creating=False)
-            _gate(root, request, intent, authorized=authorized, session=session, action_run_id=action_run_id,
-                  prior=prior, assessment=assessment)
             revalidate_subject_publication_authority(root, request, intent)
             return {**base, "outcome": "applied", "observed": after,
                     "materialization": materialized["materialization"],

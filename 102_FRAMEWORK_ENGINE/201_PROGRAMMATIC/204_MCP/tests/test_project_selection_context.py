@@ -119,7 +119,14 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
 
     def test_query_frontier_keeps_exact_pins_but_refuses_another_control(self):
         selection = self.selections[0]
+        foreign = selected_routes._query_admission_specs(ROOT)
         with bind_selection(selection):
+            for original in selected_routes._QUERY_SOURCE_ADMISSION_SPECS:
+                for source in [original['acceptance_frontier'], original['workflow'], *original['ordered_actions'],
+                               *[pin for step in original['ordered_steps'] for pin in step.values()]]:
+                    destination = selection.root / selected_routes._selected_authority_ref(selection.root, source['source_path'])
+                    destination.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(ROOT / source['source_path'], destination)
             admitted = selected_routes._query_admission_specs(selection.root)
             for original, bound in zip(selected_routes._QUERY_SOURCE_ADMISSION_SPECS, admitted, strict=True):
                 original_pins = [original["acceptance_frontier"], original["workflow"],
@@ -129,17 +136,15 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
                               *bound["ordered_actions"],
                               *[pin for step in bound["ordered_steps"] for pin in step.values()]]
                 for source, target in zip(original_pins, bound_pins, strict=True):
-                    for field in ("atom_id", "version", "digest"):
-                        self.assertEqual(source[field], target[field])
+                    self.assertEqual(source['atom_id'], target['atom_id'])
                     destination = selection.root / target["source_path"]
-                    destination.parent.mkdir(parents=True, exist_ok=True)
-                    shutil.copyfile(ROOT / source["source_path"], destination)
+                    self.assertEqual(hashlib.sha256(destination.read_bytes()).hexdigest(), target['digest'])
             routes = [{**row, "mutation_capable": False} for row in admitted]
             self.assertEqual(list(admitted), selected_routes._validate_query_source_admissions(
                 selection.root, list(admitted), routes))
             with self.assertRaisesRegex(selected_routes.SelectedRouteError, "another Project authority"):
                 selected_routes._validate_query_source_admissions(
-                    selection.root, list(selected_routes._QUERY_SOURCE_ADMISSION_SPECS), routes)
+                    selection.root, list(foreign), routes)
 
     def test_typed_source_admission_uses_selected_carriers_and_keeps_byte_pin(self):
         selection = self.selections[0]
@@ -149,10 +154,24 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(selection.control_relative.as_posix(), context.inputs["control_relative"])
             self.assertEqual(1, context.inputs["structure"]["schema_version"])
         pin = {"source_path": ".caprmedio_caprmedio/fixture.md", "version": 1, "sha256": "a" * 64}
-        with bind_selection(selection), patch.object(proposed_carrier, "_entry", return_value=pin), patch.object(proposed_carrier, "load_source", return_value={}) as load:
-            proposed_carrier._source(selection.root, "CA-D-1", object(), {})
-        self.assertEqual(selection.control_root / "fixture.md", load.call_args.args[0])
-        self.assertEqual(pin["sha256"], load.call_args.args[1]["sha256"])
+        path = selection.control_root / "fixture.md"
+        raw = b"---\natom_id: CA-D-1\ncontent_role: Delivery\nstatus: Active\nversion: 2\n---\n# Current rule\n"
+        binding = {"atom_id": "CA-D-1", "version": 2, "path": str(path),
+                   "sha256": hashlib.sha256(raw).hexdigest()}
+        row = {"binding": binding, "text": raw.decode(),
+               "metadata": proposed_carrier.parse_carrier(raw, path).metadata}
+        with bind_selection(selection), patch.object(proposed_carrier, "_entry", return_value=pin), patch.object(proposed_carrier, "load_source", return_value=row) as load:
+            observed = proposed_carrier._source(selection.root, "CA-D-1", object(), {})
+        self.assertEqual(path, load.call_args.args[0])
+        self.assertIsNone(load.call_args.args[1])
+        self.assertEqual(binding, observed["binding"])
+        path.write_bytes(raw)
+        reader = proposed_carrier.ReadContext(roots=[str(selection.root)], limits=dict(proposed_carrier.CEILINGS))
+        report = {"bindings": {}, "coverage": {"gaps": []}}
+        admitted = proposed_carrier.load_source(path, binding, reader, report)
+        self.assertEqual(binding["sha256"], admitted["binding"]["sha256"])
+        self.assertIsNone(proposed_carrier.load_source(
+            path, {**binding, "sha256": pin["sha256"]}, reader, report))
 
     def test_docker_entrypoint_forwards_only_admitted_selection_arguments(self):
         import importlib.util

@@ -317,7 +317,7 @@ class SelectedSubjectApplyTests(unittest.TestCase):
 
     def test_stale_governing_source_refuses_exact_host_record_before_effects(self):
         runner, frozen, confirmation = self.confirmed_execution("subject-private-authority-stale")
-        path = self.fixture.root / PUBLICATION_PINS["CA-R-866"][0]
+        path = self.fixture.root / PUBLICATION_PINS["CA-R-866"]
         changed = path.read_bytes() + b"\n<!-- fixture governing source changed -->\n"
         path.write_bytes(changed)
         self.assert_confirmed_refusal(runner, frozen, confirmation, "subject-publication-window-unconfirmed")
@@ -496,7 +496,7 @@ class SelectedSubjectApplyTests(unittest.TestCase):
     def test_failed_post_effect_authority_check_restores_owned_current_and_history(self):
         runner, frozen, confirmation = self.confirmed_execution("subject-private-postcondition")
         real_write = operations.write_raw_atom_revision
-        governing = self.fixture.root / PUBLICATION_PINS["CA-R-866"][0]
+        governing = self.fixture.root / PUBLICATION_PINS["CA-R-866"]
         changed = governing.read_bytes() + b"\n<!-- fixture post-effect source conflict -->\n"
 
         def change_authority(root, path, raw, **kwargs):
@@ -611,7 +611,10 @@ raise AssertionError("Requested publication boundary was not reached")
                     for line in path.read_bytes().splitlines()]
                 native_events = [event for event in events if event.get("run", {}).get("definition", {}).get("atom_id") == "CA-O-030"]
                 self.assertEqual(["started"], [event["event"] for event in native_events])
-                self.assertEqual(PUBLICATION_PINS["CA-O-030"][1], native_events[0]["run"]["definition"]["version"])
+                definition_metadata, _ = operations.split_frontmatter(
+                    (self.fixture.root / PUBLICATION_PINS["CA-O-030"]).read_text())
+                self.assertEqual(int(operations.frontmatter_scalar(definition_metadata, "version")),
+                                 native_events[0]["run"]["definition"]["version"])
                 self.assertTrue((runner.run_directory(run_id) / "dispatch-intent.json").is_file())
                 self.assertFalse((runner.run_directory(run_id) / "accepted.json").exists())
                 with patch.object(native, "subject_update_action", side_effect=AssertionError("interrupted effect replayed")):

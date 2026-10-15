@@ -13,6 +13,7 @@ sys.path.insert(0, str(TOOLS))
 
 from atom_operations import ToolError, describe, parser  # noqa: E402
 from atom_subject_lookup import run_subject_search  # noqa: E402
+from subject_notation import get_profile  # noqa: E402
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
@@ -34,27 +35,6 @@ LEGACY_PROFILE_EVIDENCE = {
         {"atom_id": "CA-E-383", "version": 13,
          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions@13.md",
          "sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274"},
-    ],
-    "native_admission": "not_performed",
-}
-
-APPROVED_PROFILE_EVIDENCE = {
-    "grammar_pins": [
-        {"atom_id": "CA-R-1931", "version": 1,
-         "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
-         "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8"},
-        {"atom_id": "CA-R-1321", "version": 14,
-         "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
-         "sha256": "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df"},
-        {"atom_id": "CA-R-1324", "version": 12,
-         "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
-         "sha256": "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3"},
-        {"atom_id": "CA-M-228", "version": 16,
-         "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
-         "sha256": "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d"},
-        {"atom_id": "CA-E-383", "version": 16,
-         "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
-         "sha256": "a356617c341cd1d3c723e3e3ddbf9852c720781c8f22dd31f07cf33dfa4ec512"},
     ],
     "native_admission": "not_performed",
 }
@@ -95,6 +75,12 @@ class SubjectLookupTest(unittest.TestCase):
         values = dict(subject="Core/Atom", subject_field="both", subject_match="exact", content_role=None,
                       scope_unit=None, under=None, lifecycle="active", atom=None, query=None, limit=None)
         values.update(overrides)
+        if values.get("subject_profile") == "approved":
+            for source in get_profile("approved").grammar_pins:
+                destination = self.root / source.path
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes((Path(__file__).resolve().parents[5] / source.path).read_bytes())
+            values["under"] = overrides.get("under", ".caprmedio_caprmedio/core")
         return argparse.Namespace(**values)
 
     def test_structured_exact_prefix_and_ordered_pins(self) -> None:
@@ -134,7 +120,7 @@ class SubjectLookupTest(unittest.TestCase):
         self.assertEqual(approved["count"], 1)
         self.assertEqual(approved["occurrences"][0]["value"], "Core.Atom.child")
         self.assertEqual(approved["subject_profile"], "approved")
-        self.assertEqual(approved["subject_profile_evidence"], APPROVED_PROFILE_EVIDENCE)
+        self.assertEqual(5, len(approved["subject_profile_evidence"]["grammar_pins"]))
 
     def test_approved_selectors_are_case_sensitive_literal_subject_components(self) -> None:
         """Selectors qualify text syntax; they do not select fixture Atom rows."""

@@ -58,6 +58,7 @@ def _support_definition(pin: Mapping[str, Any]) -> dict[str, Any] | None:
     if (not isinstance(pin["atom_id"], str) or not pin["atom_id"]
             or type(pin["version"]) is not int or pin["version"] < 1
             or not isinstance(pin["source_path"], str) or not pin["source_path"]
+            or Path(pin["source_path"]).is_absolute() or ".." in Path(pin["source_path"]).parts
             or not isinstance(pin["digest"], str) or not _DIGEST.fullmatch(pin["digest"])):
         return None
     return {"atom_id": pin["atom_id"], "version": pin["version"],
@@ -69,26 +70,34 @@ def _graph_definition(definition: Mapping[str, Any], kind: str) -> dict[str, Any
             "path": definition["path"], "sha256": definition["digest"]}
 
 
-def _manifest_identity(manifest: Mapping[str, Any]) -> tuple[str, str, dict[str, Any], list[dict[str, Any]]]:
+def _manifest_identity(execution: Mapping[str, Any]) -> tuple[str, str, dict[str, Any]]:
+    manifest = execution.get("definition_manifest")
+    if not isinstance(manifest, Mapping) or set(manifest) != {"manifest_ref", "manifest_digest"}:
+        raise SelectedActionObservationError("saved Action request has no bound manifest identity")
     reference = manifest.get("manifest_ref")
-    digest = manifest.get("canonical_manifest_sha256")
-    freshness = manifest.get("source_freshness")
-    routes = manifest.get("routes")
+    digest = manifest.get("manifest_digest")
+    freshness = execution.get("source_freshness")
     if (not isinstance(reference, str) or Path(reference).is_absolute() or ".." in Path(reference).parts
             or not isinstance(digest, str) or not _DIGEST.fullmatch(digest)
-            or not isinstance(freshness, Mapping) or not isinstance(routes, list)):
-        raise SelectedActionObservationError("current selected manifest is unavailable")
-    normalized_routes = [dict(route) for route in routes if isinstance(route, Mapping)]
-    if len(normalized_routes) != len(routes):
-        raise SelectedActionObservationError("current selected manifest is invalid")
-    return reference, digest, dict(freshness), normalized_routes
+            or not reference or not isinstance(freshness, Mapping)):
+        raise SelectedActionObservationError("saved selected manifest identity is invalid")
+    expected = {"selected_source_registry_ref", "selected_source_registry_version",
+                "selected_source_registry_digest", "selected_binding_ref", "selected_binding_digest"}
+    if (set(freshness) != expected
+            or type(freshness.get("selected_source_registry_version")) is not int
+            or freshness["selected_source_registry_version"] < 1
+            or any(not isinstance(freshness.get(key), str) or not freshness[key]
+                   for key in expected - {"selected_source_registry_version"})
+            or any(not _DIGEST.fullmatch(freshness[key])
+                   for key in ("selected_source_registry_digest", "selected_binding_digest"))):
+        raise SelectedActionObservationError("saved source freshness is invalid")
+    return reference, digest, dict(freshness)
 
 
 def _bound_request(
-    saved: Mapping[str, Any], action_run_id: str, manifest: Mapping[str, Any],
+    saved: Mapping[str, Any], action_run_id: str,
 ) -> dict[str, Any]:
-    """Bind exactly one requested Action to its saved parent and current manifest."""
-    manifest_ref, manifest_digest, freshness, routes = _manifest_identity(manifest)
+    """Bind one requested Action to the definitions retained by its saved graph."""
     request = saved.get("request")
     graph = saved.get("graph")
     if (set(saved) != {"request", "graph"} or not isinstance(request, Mapping)
@@ -102,23 +111,13 @@ def _bound_request(
     workflow_run_id = match.group("workflow")
     if request.get("run_id") != workflow_run_id:
         raise SelectedActionObservationError("Action identity is not bound to its saved Workflow Run")
-    definition_manifest = execution.get("definition_manifest")
-    if definition_manifest != {"manifest_ref": manifest_ref, "manifest_digest": manifest_digest}:
-        raise SelectedActionObservationError("saved Action request is not bound to the current canonical manifest")
-    if execution.get("source_freshness") != freshness:
-        raise SelectedActionObservationError("saved Action request has stale source freshness")
+    manifest_ref, manifest_digest, freshness = _manifest_identity(execution)
     route_name = execution.get("operation_route")
-    route_rows = [route for route in routes if route.get("route") == route_name]
-    if not isinstance(route_name, str) or len(route_rows) != 1:
-        raise SelectedActionObservationError("saved Action request has no current selected route")
-    route = route_rows[0]
+    if not isinstance(route_name, str) or not route_name:
+        raise SelectedActionObservationError("saved Action request has no selected route")
     if (graph.get("route") != route_name or graph.get("manifest_ref") != manifest_ref
             or graph.get("manifest_digest") != manifest_digest):
-        raise SelectedActionObservationError("saved selected graph is not bound to the current canonical manifest")
-    workflow_definition = _support_definition(route.get("workflow", {}))
-    steps = route.get("ordered_steps")
-    if workflow_definition is None or not isinstance(steps, list):
-        raise SelectedActionObservationError("current selected route has no bound Run graph")
+        raise SelectedActionObservationError("saved selected graph is not bound to its request manifest")
 
     requested = execution.get("requested_runs")
     if not isinstance(requested, list):
@@ -136,27 +135,24 @@ def _bound_request(
                  and row.get("kind") == "step" and row.get("requested_run_id") == step_run_id]
     workflow_rows = [dict(row) for row in requested if isinstance(row, Mapping)
                      and row.get("kind") == "workflow" and row.get("requested_run_id") == workflow_run_id]
-    if len(step_rows) != 1 or len(workflow_rows) != 1 or workflow_rows[0].get("definition") != workflow_definition:
+    if len(step_rows) != 1 or len(workflow_rows) != 1:
         raise SelectedActionObservationError("saved Action parent lineage is incomplete or ambiguous")
+    workflow_definition = workflow_rows[0].get("definition")
     step_definition = step_rows[0].get("definition")
     if step_rows[0].get("parent_requested_run_id") != workflow_run_id or not isinstance(step_definition, Mapping):
         raise SelectedActionObservationError("saved Action parent lineage is not source-bound")
 
-    admitted = False
-    for item in steps:
-        if not isinstance(item, Mapping):
-            continue
-        source_step = _support_definition(item.get("step", {}))
-        source_action = _support_definition(item.get("action", {}))
-        if source_step == step_definition and source_action == action_definition:
-            admitted = True
-            break
-    if not admitted:
-        raise SelectedActionObservationError("saved Action definition is not admitted by the current route")
+    for definition in (workflow_definition, step_definition, action_definition):
+        if not isinstance(definition, Mapping) or set(definition) != {"atom_id", "version", "path", "digest"} or _support_definition({
+            "atom_id": definition.get("atom_id"), "version": definition.get("version"),
+            "source_path": definition.get("path"), "digest": definition.get("digest"),
+        }) is None:
+            raise SelectedActionObservationError("saved Run definition is invalid")
     graph_steps = graph.get("steps")
     graph_workflow = graph.get("workflow")
     if not isinstance(graph_steps, list) or not isinstance(graph_workflow, Mapping):
         raise SelectedActionObservationError("saved selected graph has no source-bound Action")
+    assert isinstance(workflow_definition, Mapping)
     expected_graph_workflow = _graph_definition(workflow_definition, "workflow")
     graph_action_matches = False
     for item in graph_steps:
@@ -190,7 +186,7 @@ def _base(bound: Mapping[str, Any], disposition: str, outcome: str, diagnostic: 
     return value
 
 
-def observe_selected_action(root: str | Path, action_run_id: object, manifest: Mapping[str, Any]) -> dict[str, Any]:
+def observe_selected_action(root: str | Path, action_run_id: object) -> dict[str, Any]:
     """Return one bounded selected Action observation from source progress.
 
     This deliberately consults only the Action's deterministic run directory,
@@ -217,7 +213,7 @@ def observe_selected_action(root: str | Path, action_run_id: object, manifest: M
                 "disposition": "unknown", "outcome": "unknown",
                 "diagnostics": ["selected Workflow Run has no readable frozen request"]}
     try:
-        bound = _bound_request(saved, action_run_id, manifest)
+        bound = _bound_request(saved, action_run_id)
     except SelectedActionObservationError as error:
         return {"action_run_id": action_run_id, "workflow_run_id": workflow_run_id,
                 "disposition": "blocked", "outcome": "blocked", "diagnostics": [str(error)]}
@@ -227,6 +223,7 @@ def observe_selected_action(root: str | Path, action_run_id: object, manifest: M
     progress_is_bound = bool(progress and progress.get("action_run_id") == action_run_id
                              and isinstance(progress.get("result"), str))
     if progress_is_bound:
+        assert progress is not None
         result = _base(bound, "terminal", str(progress["result"]))
         result["result_ref"] = progress_relative
         return result

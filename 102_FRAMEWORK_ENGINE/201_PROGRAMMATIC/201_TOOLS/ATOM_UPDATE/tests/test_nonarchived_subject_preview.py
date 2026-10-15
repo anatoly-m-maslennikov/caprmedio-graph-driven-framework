@@ -42,7 +42,7 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
                 destination = self.root / pin.path
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(lifecycle_fixture.REPOSITORY / pin.path, destination)
-                self.assertEqual(pin.sha256, hashlib.sha256(destination.read_bytes()).hexdigest())
+                self.assertEqual((lifecycle_fixture.REPOSITORY / pin.path).read_bytes(), destination.read_bytes())
 
     def _plan(self, status: str, *, number: int = 501, folder: str | None = None) -> Path:
         directory = self.fixture.requirements.parent / "03_plan"

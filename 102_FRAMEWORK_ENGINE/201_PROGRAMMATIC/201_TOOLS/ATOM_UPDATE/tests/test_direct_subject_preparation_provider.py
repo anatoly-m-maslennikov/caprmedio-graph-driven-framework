@@ -5,6 +5,7 @@ import copy
 import hashlib
 import json
 from pathlib import Path
+import re
 import shutil
 import sys
 import unittest
@@ -33,7 +34,10 @@ class DirectSubjectPreparationProviderTests(unittest.TestCase):
             destination = self.root / pin["path"]
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(REPOSITORY / pin["path"], destination)
-            self.assertEqual(pin["sha256"], hashlib.sha256(destination.read_bytes()).hexdigest())
+            metadata = operations.parse_carrier(destination.read_bytes(), destination).metadata
+            self.assertEqual(pin["atom_id"], metadata["atom_id"])
+            self.assertIs(type(metadata["version"]), int)
+            self.assertGreater(metadata["version"], 0)
         self.adapter = provider.create_adapter(self.root)
         self.item = {"atom_id": "CA-P-7801", "version": 7, "sha256": hashlib.sha256(self.original).hexdigest(),
                      "subject_patches": [{"field": "governs", "old": "Atom/Status", "new": "Atom/State"}]}
@@ -140,9 +144,9 @@ class DirectSubjectPreparationProviderTests(unittest.TestCase):
             with self.subTest(request=request), self.assertRaises(ValueError):
                 provider.SubjectPreparationRequest.model_validate(request)
 
-    def test_definition_drift_refuses_before_native_preparation(self):
+    def test_invalid_definition_refuses_before_native_preparation(self):
         definition = self.root / provider.SOURCE_PINS[0]["path"]
-        definition.write_bytes(definition.read_bytes() + b"\nDrift.\n")
+        definition.write_bytes(definition.read_bytes().replace(b"atom_id: CA-R-866", b"atom_id: CA-R-999", 1))
         before = self.ledger()
         with patch.object(provider.subjects, "preview_subject_patches", side_effect=AssertionError("stale definition reached preview")):
             result = self.invoke()
@@ -150,6 +154,47 @@ class DirectSubjectPreparationProviderTests(unittest.TestCase):
         self.assertIsNone(result["staging"])
         self.assertTrue(result["errors"])
         self.assertEqual(before, self.ledger())
+
+    def test_current_same_identity_rule_revision_is_accepted(self):
+        definition = self.root / provider.SOURCE_PINS[0]["path"]
+        definition.write_text(re.sub(r"(?m)^version: .*", "version: 123", definition.read_text()) + "\nUpdated rule.\n")
+        self.assertEqual([], self.invoke()["errors"])
+
+    def test_current_rule_metadata_is_validated(self):
+        definition = self.root / provider.SOURCE_PINS[0]["path"]
+        original = definition.read_text()
+        for field, value in (("content_role", "Plan"), ("status", "Archived"),
+                             ("version", "0"), ("version", "true"), ("version", "'2'")):
+            with self.subTest(field=field, value=value):
+                definition.write_text(re.sub(rf"(?m)^{field}: .*", f"{field}: {value}", original))
+                with patch.object(provider.subjects, "preview_subject_patches", side_effect=AssertionError("invalid definition reached preview")):
+                    result = self.invoke()
+                self.assertIsNone(result["preview"])
+                self.assertTrue(result["errors"])
+        definition.write_text(re.sub(r"(?m)^status: .*\n", "", original))
+        with patch.object(provider.subjects, "preview_subject_patches", side_effect=AssertionError("missing Status reached preview")):
+            result = self.invoke()
+        self.assertIsNone(result["preview"])
+        self.assertTrue(result["errors"])
+
+    def test_captured_rule_drift_during_preparation_refuses(self):
+        definition = self.root / provider.SOURCE_PINS[0]["path"]
+        original = definition.read_bytes()
+        native_preview = provider.subjects.preview_subject_patches
+
+        def drift_after_native_preview(*args, **kwargs):
+            preview = native_preview(*args, **kwargs)
+            definition.write_bytes(original + b"\nExternal mid-call rule drift.\n")
+            return preview
+
+        try:
+            with patch.object(provider.subjects, "preview_subject_patches", drift_after_native_preview):
+                result = self.adapter.invoke(self.request).model_dump(mode="json")
+            self.assertIsNone(result["preview"])
+            self.assertEqual("subject-source-changed", result["errors"][0]["code"])
+            self.assertEqual(self.original, self.path.read_bytes())
+        finally:
+            definition.write_bytes(original)
 
     def test_descriptor_advertises_only_preparation_binding_and_scratch_effects(self):
         before = self.ledger()

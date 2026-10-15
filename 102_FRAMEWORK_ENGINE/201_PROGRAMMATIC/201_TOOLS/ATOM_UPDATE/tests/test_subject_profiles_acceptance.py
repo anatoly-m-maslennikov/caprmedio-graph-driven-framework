@@ -31,50 +31,8 @@ for path in (TOOLS, GRAPH_TOOLS, TESTS):
 import atom_operations as operations  # noqa: E402
 import generate_entity_graph as graph  # noqa: E402
 import test_subject_tools_acceptance as fixtures  # noqa: E402
+from subject_notation import get_profile  # noqa: E402
 
-
-APPROVED_GRAMMAR_PINS = [
-    (
-        "CA-R-1931",
-        1,
-        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
-        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/"
-        "CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
-        "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
-    ),
-    (
-        "CA-R-1321",
-        14,
-        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
-        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/"
-        "CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
-        "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df",
-    ),
-    (
-        "CA-R-1324",
-        12,
-        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
-        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/"
-        "CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
-        "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3",
-    ),
-    (
-        "CA-M-228",
-        16,
-        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
-        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/"
-        "CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
-        "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d",
-    ),
-    (
-        "CA-E-383",
-        16,
-        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
-        "METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/"
-        "CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
-        "a356617c341cd1d3c723e3e3ddbf9852c720781c8f22dd31f07cf33dfa4ec512",
-    ),
-]
 
 
 def graph_carrier(atom_id: str, governs: str, depends_on: tuple[str, ...]) -> str:
@@ -277,10 +235,11 @@ class SubjectProfilesAcceptanceTests(unittest.TestCase):
         self.assertEqual("not_performed", evidence["native_admission"])
         pins = evidence["grammar_pins"]
         self.assertIsInstance(pins, list)
-        self.assertEqual(
-            APPROVED_GRAMMAR_PINS,
-            [(pin["atom_id"], pin["version"], pin["path"], pin["sha256"]) for pin in pins if isinstance(pin, dict)],
-        )
+        for pin, selected in zip(pins, get_profile("approved").grammar_pins, strict=True):
+            raw = (self.root / selected.path).read_bytes()
+            metadata = operations.parse_carrier(raw, self.root / selected.path).metadata
+            self.assertEqual((selected.atom_id, metadata["version"], selected.path, hashlib.sha256(raw).hexdigest()),
+                             (pin["atom_id"], pin["version"], pin["path"], pin["sha256"]))
         self.assertEqual(1, preview["count"])
         change = preview["atoms"][0]
         self.assertIsInstance(change, dict)

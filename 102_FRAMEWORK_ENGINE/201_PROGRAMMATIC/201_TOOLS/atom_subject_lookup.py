@@ -260,12 +260,17 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
         raise ToolError("lifecycle-invalid", "unsupported lifecycle")
     diagnostics: list[dict[str, str]] = []
     grammar, layout = (), None
-    if direct_subject_only:
-        import atom_operations as operations
-        from atom_subject_patch import _capture_grammar, _capture_identity_layout
-
+    import atom_operations as operations
+    from atom_subject_patch import (
+        _capture_grammar, _capture_identity_layout, _captured_profile_evidence,
+        _assert_grammar_current, _assert_identity_layout_current,
+    )
+    if direct_subject_only or profile.name == "approved":
         grammar = _capture_grammar(operations, root, profile)
-        layout = _capture_identity_layout(operations, root)
+        evidence = _captured_profile_evidence(operations, profile, grammar)
+        layout = _capture_identity_layout(operations, root) if direct_subject_only else None
+    else:
+        evidence = profile_evidence(profile.name)
     frontier = reader.inventory(control if direct_subject_only else base)
     candidates = [path for path in frontier if path == base or (base.is_dir() and path.is_relative_to(base))]
     valid: list[tuple[Path, dict[str, Any], str, str, str]] = []
@@ -349,10 +354,8 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
                        and metadata["status"].casefold() not in {"draft", "archived"}}
         if current_ids:
             _verify_current_identities(root, current_ids, frontier, reader, layout[0] if layout else None)
-        from atom_subject_patch import _assert_grammar_current, _assert_identity_layout_current
-
-        _assert_grammar_current(operations, root, grammar)
-        _assert_identity_layout_current(operations, root, layout)
+    _assert_grammar_current(operations, root, grammar)
+    _assert_identity_layout_current(operations, root, layout)
     if reader.currentness()["state"] != "unchanged":
         raise ToolError("subject-source-changed", "Subject source bytes or frontier changed during lookup")
     original_counts = Counter(
@@ -393,4 +396,4 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
         occurrences = occurrences[:limit]
     return {"source_root": base.relative_to(root).as_posix(), "count": len(occurrences), "occurrences": occurrences,
             "diagnostics": diagnostics, "coverage": "limited" if limited or diagnostics else "full",
-            "subject_profile": profile.name, "subject_profile_evidence": profile_evidence(profile.name)}
+            "subject_profile": profile.name, "subject_profile_evidence": evidence}

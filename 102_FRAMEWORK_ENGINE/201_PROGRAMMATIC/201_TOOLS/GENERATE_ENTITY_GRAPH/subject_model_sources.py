@@ -36,43 +36,6 @@ _GRAMMAR_PINS = (
      "carrier_path": _CORE_PATH + "/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
      "carrier_sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e"},
 )
-# The extractor's longstanding D269/R1194 evidence above remains deliberately
-# frozen.  Approved parsing additionally binds these exact current grammar
-# sources before it reads any carrier; this proves only source-pin freshness,
-# never native endpoint admission.
-_APPROVED_CORE_GRAMMAR_PINS = (
-    {
-        "atom_id": "CA-R-1931",
-        "version": 1,
-        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
-        "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
-    },
-    {
-        "atom_id": "CA-R-1321",
-        "version": 14,
-        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
-        "sha256": "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df",
-    },
-    {
-        "atom_id": "CA-R-1324",
-        "version": 12,
-        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
-        "sha256": "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3",
-    },
-    {
-        "atom_id": "CA-M-228",
-        "version": 16,
-        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
-        "sha256": "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d",
-    },
-    {
-        "atom_id": "CA-E-383",
-        "version": 16,
-        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
-        "sha256": "a356617c341cd1d3c723e3e3ddbf9852c720781c8f22dd31f07cf33dfa4ec512",
-    },
-)
-
 
 class SubjectModelSourceError(ValueError):
     def __init__(self, code: str) -> None:
@@ -105,53 +68,23 @@ def _subject_profile(subject_profile: str = "legacy") -> object:
         raise SubjectModelSourceError(getattr(error, "code", "subject-profile-invalid")) from error
 
 
-def _profile_pins(profile: object) -> tuple[dict[str, object], ...]:
-    pins = getattr(profile, "grammar_pins", None)
-    if not isinstance(pins, Sequence) or isinstance(pins, (str, bytes)):
-        raise SubjectModelSourceError("subject-profile-invalid")
-    rows: list[dict[str, object]] = []
-    for pin in pins:
-        row = (
-            dict(pin)
-            if isinstance(pin, Mapping)
-            else {
-                "atom_id": getattr(pin, "atom_id", None),
-                "version": getattr(pin, "version", None),
-                "path": getattr(pin, "path", None),
-                "sha256": getattr(pin, "sha256", None),
-            }
-        )
-        if set(row) != {"atom_id", "version", "path", "sha256"}:
-            raise SubjectModelSourceError("subject-profile-invalid")
-        if (not isinstance(row["atom_id"], str) or not row["atom_id"] or type(row["version"]) is not int
-                or row["version"] < 1 or not isinstance(row["path"], str) or not row["path"]
-                or not isinstance(row["sha256"], str) or re.fullmatch(r"[0-9a-f]{64}", row["sha256"]) is None):
-            raise SubjectModelSourceError("subject-profile-invalid")
-        rows.append(row)
-    return tuple(rows)
-
-
-def _check_current_approved_grammar_pins(repository: Path, profile: object) -> None:
+def _check_current_approved_grammar_pins(
+    repository: Path, profile: object, *, expected: Mapping[str, object] | None = None,
+) -> dict[str, object] | None:
     if getattr(profile, "name", None) != "approved":
-        return
-    expected = tuple(_APPROVED_CORE_GRAMMAR_PINS)
-    actual = _profile_pins(profile)
-    if actual != expected:
-        raise SubjectModelSourceError("approved-grammar-pins-mismatch")
-    for pin in actual:
-        path = repository / str(pin["path"])
-        try:
-            for probe in (path, *path.parents):
-                if probe == repository:
-                    break
-                if probe.is_symlink():
-                    raise SubjectModelSourceError("approved-grammar-pin-symlink")
-            if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != pin["sha256"]:
-                raise SubjectModelSourceError("approved-grammar-pin-stale")
-        except SubjectModelSourceError:
-            raise
-        except OSError as error:
-            raise SubjectModelSourceError("approved-grammar-pin-stale") from error
+        return None
+    from atom_subject_patch import _capture_grammar, _captured_profile_evidence, _operations
+
+    operations = _operations()
+    try:
+        snapshots = _capture_grammar(operations, repository, profile)
+        evidence = _captured_profile_evidence(operations, profile, snapshots)
+    except (operations.ToolError, subject_notation.SubjectNotationError) as error:
+        code = "approved-grammar-pin-symlink" if getattr(error, "code", None) == "subject-grammar-pin-symlink" else "approved-grammar-pin-stale"
+        raise SubjectModelSourceError(code) from error
+    if expected is not None and evidence != expected:
+        raise SubjectModelSourceError("approved-grammar-pin-stale")
+    return evidence
 
 
 def _readonly(value: object) -> object:
@@ -325,7 +258,7 @@ def collect_subject_model_sources(
     _check_code()
     repository = Path(repository).resolve()
     profile = _subject_profile(subject_profile)
-    _check_current_approved_grammar_pins(repository, profile)
+    grammar_evidence = _check_current_approved_grammar_pins(repository, profile)
     if not isinstance(selected_carriers, Sequence) or isinstance(selected_carriers, (str, bytes)):
         raise SubjectModelSourceError("subject-carrier-selection-invalid")
     pins, occurrences, diagnostics = [], [], []
@@ -367,7 +300,7 @@ def collect_subject_model_sources(
     occurrences.sort(key=lambda row: (row["subject_path"], row["role"], facts._source_key(row["source_ref"])))
     pins.sort(key=lambda row: row["carrier_path"])
     diagnostics.sort(key=lambda row: (row["code"], row["details"]["carrier_path"]))
-    profile_evidence = subject_notation.profile_evidence(subject_profile)
+    profile_evidence = grammar_evidence if grammar_evidence is not None else subject_notation.profile_evidence(subject_profile)
     provider_profile = {"implementation_sha256": _LOADED_IMPLEMENTATION_SHA256,
                         "parser_implementation_sha256": _LOADED_PARSER_SHA256,
                         "fact_context_implementation_sha256": facts._LOADED_IMPLEMENTATION_SHA256,
@@ -387,5 +320,6 @@ def collect_subject_model_sources(
               "unperformed": ["grammar_authority_binding", "target_resolution", "main_content_conformance", "native_admission"],
               "diagnostics": diagnostics}
     result["collection_sha256"] = _digest(result)
+    _check_current_approved_grammar_pins(repository, profile, expected=grammar_evidence)
     _check_code()
     return SubjectModelSources(facts.canonical_bytes(result), _token=_TOKEN)

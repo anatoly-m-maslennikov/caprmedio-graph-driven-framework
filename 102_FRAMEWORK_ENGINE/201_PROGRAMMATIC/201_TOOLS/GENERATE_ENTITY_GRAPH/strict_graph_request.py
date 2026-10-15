@@ -157,7 +157,7 @@ def build_graph(repository: Path, request, api):
             before = _observed(destination, repository)
         elif existing is not None:
             raise api.EntityGraphError("existing-projection-destination-unbound", "Prior-output evidence requires an explicit destination")
-        _check_current_approved_grammar_pins(repository, profile)
+        grammar_evidence = _check_current_approved_grammar_pins(repository, profile)
         frontier = api._mapping(request["source_frontier"], "source_frontier")
         selection = api._mapping(request["selection"], "selection")
         folder, actual_frontier, diagnostics = api._validate_frontier(repository, frontier)
@@ -206,7 +206,7 @@ def build_graph(repository: Path, request, api):
             selection_evidence["display_selection"] = dict(request["display_selection"])
         if subject_profile == "approved":
             selection_evidence.update(subject_profile=subject_profile,
-                                      subject_profile_evidence=api.subject_notation.profile_evidence(subject_profile))
+                                      subject_profile_evidence=grammar_evidence)
         result = {"outcome": "incomplete", f"{graph_kind}_graph": namespace,
                   "source_frontier_evidence": actual_frontier, "selection_evidence": selection_evidence,
                   "source_fact_context_evidence": context_evidence(context),
@@ -221,7 +221,7 @@ def build_graph(repository: Path, request, api):
             quality["currentness"] = "fail"
             diagnostics.append(_diagnostic("source-frontier-changed-after-construction", "Bound source bytes changed during construction"))
             return result
-        _check_current_approved_grammar_pins(repository, profile)
+        _check_current_approved_grammar_pins(repository, profile, expected=grammar_evidence)
         if destination is None:
             return result
         if quality["permission"] != "pass":
@@ -246,7 +246,7 @@ def build_graph(repository: Path, request, api):
             quality["currentness"] = "fail"
             diagnostics.append(_diagnostic("source-frontier-changed-before-publication", "Bound sources changed before publication"))
             return result
-        _check_current_approved_grammar_pins(repository, profile)
+        _check_current_approved_grammar_pins(repository, profile, expected=grammar_evidence)
         current = _observed(destination, repository)
         if current != before or existing is not None and (current is None or current["carrier_sha256"] != existing["sha256"]):
             result["outcome"] = "stale"
@@ -267,7 +267,7 @@ def build_graph(repository: Path, request, api):
         # Probe path again before mutation; never follow an output symlink.
         if api._publication_path(repository, request["output_destination"]) != destination:
             raise api.EntityGraphError("output-destination-changed", "Output destination changed before publication")
-        _check_current_approved_grammar_pins(repository, profile)
+        _check_current_approved_grammar_pins(repository, profile, expected=grammar_evidence)
         attempted = True
         api.atomic_write(destination, rendered.decode("utf-8"))
         after = _observed(destination, repository)

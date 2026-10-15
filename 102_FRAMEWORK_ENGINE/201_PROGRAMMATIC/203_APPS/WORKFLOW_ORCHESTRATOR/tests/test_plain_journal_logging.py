@@ -27,7 +27,7 @@ class PlainJournalLoggingTests(unittest.TestCase):
         action_id, folder, _execution = self.fixture._run("plain-log")
         result_ref = self.fixture._progress(action_id, folder)
 
-        observed = observe_selected_action(self.fixture.root, action_id, self.fixture.manifest)
+        observed = observe_selected_action(self.fixture.root, action_id)
 
         self.assertEqual(("terminal", "completed"), (observed["disposition"], observed["outcome"]))
         self.assertEqual(result_ref, observed["result_ref"])

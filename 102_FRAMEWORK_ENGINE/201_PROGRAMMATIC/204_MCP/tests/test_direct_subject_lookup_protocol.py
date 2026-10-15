@@ -94,13 +94,12 @@ class DirectSubjectLookupProtocolTests(unittest.IsolatedAsyncioTestCase):
             structure += (f'[[scope_units]]\nscope_unit_name = "{name}"\nauthority_path = "{relative}"\n'
                           f'delivery_path = "{relative}"\n')
         (control / "project_structure.toml").write_text(structure, encoding="utf-8")
-        # The provider freezes the independently reviewed authority packet.
-        # Copy actual pinned bytes, never substitute a fixture hash or freshness result.
+        # Copy each current selected authority without substituting freshness.
         for pin in provider.SOURCE_PINS:
-            self._copy_pin(pin["path"], pin["sha256"])
+            self._copy_pin(pin["path"], hashlib.sha256((REPOSITORY / pin["path"]).read_bytes()).hexdigest())
         for name in ("legacy", "approved"):
             for pin in get_profile(name).grammar_pins:
-                self._copy_pin(pin.path, pin.sha256)
+                self._copy_pin(pin.path, hashlib.sha256((REPOSITORY / pin.path).read_bytes()).hexdigest())
         self.paths = {}
         for role, kind in KINDS.items():
             atom_id = f"CA-{kind}-9200"

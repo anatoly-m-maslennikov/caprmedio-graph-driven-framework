@@ -66,8 +66,8 @@ class AtomReceivingIndependentTests(unittest.TestCase):
         grammar = []
         for pin in get_profile("approved").grammar_pins:
             raw = (REPOSITORY / pin.path).read_bytes()
-            self.assertEqual(pin.sha256, hashlib.sha256(raw).hexdigest())
-            path = self.root / "definitions" / Path(pin.path).name
+            path = self.root / pin.path
+            path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(raw)
             grammar.append(capture_source(self.root, path.relative_to(self.root)))
         self.query_schemas = (*self.schemas, *grammar)

@@ -8,6 +8,7 @@ import shutil
 import sys
 import unittest
 from unittest.mock import patch
+import yaml
 
 TOOLS = Path(__file__).resolve().parents[2]
 REPOSITORY = TOOLS.parents[2]
@@ -35,7 +36,7 @@ class SubjectLookupProviderTests(unittest.TestCase):
             destination = self.root / pin["path"]
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(REPOSITORY / pin["path"], destination)
-            self.assertEqual(pin["sha256"], hashlib.sha256(destination.read_bytes()).hexdigest())
+            self.assertEqual((REPOSITORY / pin["path"]).read_bytes(), destination.read_bytes())
         self.adapter = provider.create_adapter(self.root)
         self.request = {"subject": "Core/Atom", "subject_field": "both", "subject_match": "prefix",
                         "subject_profile": "legacy", "scope_unit": "CORE",
@@ -104,14 +105,41 @@ class SubjectLookupProviderTests(unittest.TestCase):
         self.assertIsNone(result["current_state"])
         self.assertEqual("schema_invalid", result["errors"][0]["code"])
 
-    def test_canonical_contract_pin_drift_refuses_without_lookup(self):
+    def test_invalid_current_contract_identity_refuses_without_lookup(self):
         source = self.root / provider.SOURCE_PINS[0]["path"]
-        source.write_bytes(source.read_bytes() + b"\nDrift.\n")
+        source.write_bytes(source.read_bytes().replace(b"CA-R-1936", b"CA-R-99999", 1))
         with patch.object(provider, "run_subject_search", side_effect=AssertionError("stale contract reached lookup")):
             result = self.invoke()
         self.assertIsNone(result["data"])
         self.assertIsNone(result["current_state"])
         self.assertEqual("stale_state", result["errors"][0]["code"])
+
+    def test_subjects_and_version_updates_are_read_on_next_call_in_same_adapter(self):
+        first = self.invoke()
+        source = self.root / provider.SOURCE_PINS[0]["path"]
+        parsed = provider.parse_carrier(source.read_bytes(), source)
+        metadata = {**parsed.metadata, "version": parsed.metadata["version"] + 1}
+        metadata["subjects"] = {**metadata["subjects"], "governs": "Connector.Interface"}
+        source.write_text("---\n" + yaml.safe_dump(metadata, sort_keys=False) + "---\n" + parsed.body)
+        second = self.invoke()
+        self.assertEqual([], second["errors"])
+        self.assertEqual(first["data"]["matches"], second["data"]["matches"])
+
+    def test_contract_changed_during_lookup_is_stale_without_replay(self):
+        source = self.root / provider.SOURCE_PINS[0]["path"]
+        actual = provider.run_subject_search
+
+        def lookup_then_change(*args, **kwargs):
+            value = actual(*args, **kwargs)
+            source.write_bytes(source.read_bytes() + b"\nConcurrent current-rule drift.\n")
+            return value
+
+        with patch.object(provider, "run_subject_search", side_effect=lookup_then_change) as search:
+            result = self.adapter.invoke(self.request).model_dump(mode="json")
+        self.assertEqual(1, search.call_count)
+        self.assertEqual("stale_state", result["errors"][0]["code"])
+        self.assertIsNone(result["data"])
+        self.assertEqual([], result["effects"])
 
     def test_descriptor_and_binding_are_effect_free_and_canonical(self):
         before = self.ledger()

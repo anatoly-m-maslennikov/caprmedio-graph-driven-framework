@@ -10,7 +10,16 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from types import MappingProxyType
-from typing import Mapping
+from typing import Mapping, Sequence
+import re
+
+
+@dataclass(frozen=True)
+class GrammarSource:
+    """One stable current grammar source selector, without observed evidence."""
+
+    atom_id: str
+    path: str
 
 
 @dataclass(frozen=True)
@@ -25,12 +34,12 @@ class GrammarPin:
 
 @dataclass(frozen=True)
 class SubjectProfile:
-    """Immutable syntax and evidence for one explicit Subject profile."""
+    """Immutable syntax and declared grammar sources for one explicit profile."""
 
     name: str
     separators: tuple[str, ...]
     bearer_separator: str
-    grammar_pins: tuple[GrammarPin, ...]
+    grammar_pins: tuple[GrammarSource | GrammarPin, ...]
 
 
 @dataclass(frozen=True)
@@ -50,6 +59,7 @@ class SubjectNotationError(ValueError):
         super().__init__(message)
 
 
+# Legacy syntax deliberately names archived history, not current rule authority.
 _LEGACY_PINS = (
     GrammarPin(
         "CA-R-1204",
@@ -83,36 +93,26 @@ _LEGACY_PINS = (
     ),
 )
 
-_APPROVED_PINS = (
-    GrammarPin(
+_APPROVED_SOURCES = (
+    GrammarSource(
         "CA-R-1931",
-        1,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
-        "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
     ),
-    GrammarPin(
+    GrammarSource(
         "CA-R-1321",
-        14,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
-        "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df",
     ),
-    GrammarPin(
+    GrammarSource(
         "CA-R-1324",
-        12,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
-        "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3",
     ),
-    GrammarPin(
+    GrammarSource(
         "CA-M-228",
-        16,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
-        "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d",
     ),
-    GrammarPin(
+    GrammarSource(
         "CA-E-383",
-        16,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
-        "a356617c341cd1d3c723e3e3ddbf9852c720781c8f22dd31f07cf33dfa4ec512",
     ),
 )
 
@@ -128,7 +128,7 @@ _PROFILES = MappingProxyType(
             name="approved",
             separators=("/", ".", ":"),
             bearer_separator=".",
-            grammar_pins=_APPROVED_PINS,
+            grammar_pins=_APPROVED_SOURCES,
         ),
     }
 )
@@ -375,25 +375,32 @@ def _looks_like_selector(value: str) -> bool:
     )
 
 
-def profile_evidence(name: str = "legacy") -> dict[str, object]:
-    """Return new JSON-compatible grammar evidence for the named profile."""
+def profile_evidence(
+    name: str = "legacy", *, grammar_pins: Sequence[GrammarPin] | None = None,
+) -> dict[str, object]:
+    """Project explicit current observations or the declared legacy history."""
 
     profile = get_profile(name)
+    pins = tuple(grammar_pins) if grammar_pins is not None else profile.grammar_pins
+    if any(not isinstance(pin, GrammarPin) for pin in pins):
+        raise SubjectNotationError("profile-evidence-unbound", "Current grammar observations are required")
+    if [(pin.atom_id, pin.path) for pin in pins] != [
+        (source.atom_id, source.path) for source in profile.grammar_pins
+    ]:
+        raise SubjectNotationError("profile-evidence-invalid", "Grammar observations must match the selected sources")
+    rows = []
+    for pin in pins:
+        if not isinstance(pin, GrammarPin) or type(pin.version) is not int or pin.version < 1 or not isinstance(pin.sha256, str) or re.fullmatch(r"[0-9a-f]{64}", pin.sha256) is None:
+            raise SubjectNotationError("profile-evidence-invalid", "Grammar observations require a Version and SHA-256")
+        rows.append({"atom_id": pin.atom_id, "version": pin.version, "path": pin.path, "sha256": pin.sha256})
     return {
-        "grammar_pins": [
-            {
-                "atom_id": pin.atom_id,
-                "version": pin.version,
-                "path": pin.path,
-                "sha256": pin.sha256,
-            }
-            for pin in profile.grammar_pins
-        ],
+        "grammar_pins": rows,
         "native_admission": "not_performed",
     }
 
 
 __all__ = [
+    "GrammarSource",
     "GrammarPin",
     "InitialAtomSelector",
     "SubjectNotationError",

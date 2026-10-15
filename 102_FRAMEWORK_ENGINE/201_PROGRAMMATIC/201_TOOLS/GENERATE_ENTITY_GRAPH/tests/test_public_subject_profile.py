@@ -12,7 +12,7 @@ from pydantic import ValidationError
 
 import test_graph_publication_safety as publication
 import test_selected_graphs as selected
-from historical_core_authority import historical_authority_bytes
+from subject_model_sources import _check_current_approved_grammar_pins
 
 
 graph = publication.graph
@@ -46,9 +46,7 @@ class PublicSubjectProfileTests(unittest.TestCase):
         self.assertEqual(5, len(pins))
         for pin in pins:
             destination = self.root / pin.path
-            suffix = "/".join(Path(pin.path).parts[-2:])
-            payload = historical_authority_bytes(suffix, pin.sha256)
-            self.assertEqual(pin.sha256, hashlib.sha256(payload).hexdigest())
+            payload = (Path(__file__).resolve().parents[5] / pin.path).read_bytes()
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(payload)
 
@@ -162,7 +160,7 @@ class PublicSubjectProfileTests(unittest.TestCase):
                 result = graph.build_graph(self.root, self.request(kind, subject_profile="approved"))
                 self.assertEqual("incomplete", result["outcome"])
                 self.assertEqual("approved", result["selection_evidence"]["subject_profile"])
-                self.assertEqual(subject_notation.profile_evidence("approved"), result["selection_evidence"]["subject_profile_evidence"])
+                self.assertEqual(_check_current_approved_grammar_pins(self.root, subject_notation.get_profile("approved")), result["selection_evidence"]["subject_profile_evidence"])
                 namespace = result[f"{kind}_graph"]
                 self.assertEqual({subject, *dependencies}, {row["subject_path"] for row in namespace["incidence"]})
                 self.assertEqual({"GOVERNS", "DEPENDS_ON"}, {row["kind"] for row in namespace["incidence"]})
@@ -224,7 +222,7 @@ class PublicSubjectProfileTests(unittest.TestCase):
                     if missing:
                         path.unlink()
                     else:
-                        path.write_bytes(original + b"\nchanged fixture grammar\n")
+                        path.write_bytes(original.replace(pin.atom_id.encode(), b"CA-R-99999", 1))
                     try:
                         with patch.object(graph, "parse_subject_relations", wraps=graph.parse_subject_relations) as parser:
                             result = graph.build_graph(self.root, request)
@@ -316,7 +314,7 @@ class PublicSubjectProfileTests(unittest.TestCase):
         self.assertEqual("created", result["output_effects"]["state"])
         published = json.loads(self.fixture.output.read_bytes())
         self.assertEqual(result["selection_evidence"], published["selection_evidence"])
-        self.assertEqual(subject_notation.profile_evidence("approved"), published["selection_evidence"]["subject_profile_evidence"])
+        self.assertEqual(_check_current_approved_grammar_pins(self.root, subject_notation.get_profile("approved")), published["selection_evidence"]["subject_profile_evidence"])
         self.assertEqual(legacy["source_fact_context_evidence"], result["source_fact_context_evidence"])
         self.fixture.assert_awaiting_terminal(result)
         self.assert_sources_preserved(source_before)

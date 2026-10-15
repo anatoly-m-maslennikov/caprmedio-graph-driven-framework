@@ -187,7 +187,7 @@ class SubjectPublicationConfirmationTests(unittest.IsolatedAsyncioTestCase):
         self.fixture.assert_unchanged(self)
 
     async def test_displayed_manifest_candidate_authority_and_saved_request_drift_refuse(self):
-        paths = [self.manifest["path"], self.staged_atom["candidate"]["path"], PUBLICATION_PINS["CA-R-866"][0],
+        paths = [self.manifest["path"], self.staged_atom["candidate"]["path"], PUBLICATION_PINS["CA-R-866"],
                  (self.runner.run_directory(self.frozen["request"]["run_id"]) / "selected_request.json").relative_to(self.fixture.root).as_posix()]
         for relative in paths:
             with self.subTest(path=relative):

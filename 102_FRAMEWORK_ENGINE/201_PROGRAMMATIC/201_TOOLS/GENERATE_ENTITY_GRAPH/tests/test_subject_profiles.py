@@ -18,7 +18,6 @@ sys.path.insert(0, str(TOOL_DIRECTORY))
 import generate_entity_graph as graph  # noqa: E402
 import subject_model_sources as sources  # noqa: E402
 import subject_notation  # noqa: E402
-from historical_core_authority import historical_authority_bytes  # noqa: E402
 
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
@@ -83,9 +82,9 @@ class SubjectProfileGraphTests(unittest.TestCase):
         for pin in subject_notation.get_profile("approved").grammar_pins:
             destination = self.repository / pin.path
             destination.parent.mkdir(parents=True, exist_ok=True)
-            suffix = "/".join(Path(pin.path).parts[-2:])
-            destination.write_bytes(historical_authority_bytes(suffix, pin.sha256))
-            self.assertEqual(pin.sha256, hashlib.sha256(destination.read_bytes()).hexdigest())
+            raw = (Path(__file__).resolve().parents[5] / pin.path).read_bytes()
+            destination.write_bytes(raw)
+            self.assertEqual(raw, destination.read_bytes())
 
     def test_approved_mixed_path_retains_full_prefixes_and_only_emits_dot_and_colon_edges(self) -> None:
         subject = "Core/Atom.Dependent: Value"
@@ -290,9 +289,10 @@ class SubjectProfileGraphTests(unittest.TestCase):
         with self.assertRaises(FrozenInstanceError):
             profile.grammar_pins[0].sha256 = "0" * 64  # type: ignore[misc]
 
-        first = subject_notation.profile_evidence("approved")
+        self.copy_current_approved_pins()
+        first = sources._check_current_approved_grammar_pins(self.repository, profile)
         first["grammar_pins"][0]["atom_id"] = "CA-R-FORGED"  # type: ignore[index]
-        second = subject_notation.profile_evidence("approved")
+        second = sources._check_current_approved_grammar_pins(self.repository, profile)
         self.assertEqual("CA-R-1931", second["grammar_pins"][0]["atom_id"])  # type: ignore[index]
         self.assertEqual("not_performed", second["native_admission"])
 
@@ -320,7 +320,7 @@ class SubjectProfileGraphTests(unittest.TestCase):
         self.write("CA-R-2074", "Core/Atom.Dependent")
         first = subject_notation.get_profile("approved").grammar_pins[0]
         first_path = self.repository / first.path
-        first_path.write_bytes(first_path.read_bytes() + b"\nchanged after grammar pin\n")
+        first_path.write_bytes(first_path.read_bytes().replace(first.atom_id.encode(), b"CA-R-99999", 1))
         with self.assertRaises(sources.SubjectModelSourceError) as stale:
             sources.collect_subject_model_sources(self.repository, self.carriers(), subject_profile="approved")
         self.assertEqual("approved-grammar-pin-stale", stale.exception.code)
@@ -337,6 +337,21 @@ class SubjectProfileGraphTests(unittest.TestCase):
         with self.assertRaises(sources.SubjectModelSourceError) as symlink:
             sources.collect_subject_model_sources(self.repository, self.carriers(), subject_profile="approved")
         self.assertEqual("approved-grammar-pin-symlink", symlink.exception.code)
+
+    def test_new_request_observes_changed_current_grammar_but_same_request_rejects_drift(self) -> None:
+        self.copy_current_approved_pins()
+        profile = subject_notation.get_profile("approved")
+        first = sources._check_current_approved_grammar_pins(self.repository, profile)
+        source = profile.grammar_pins[0]
+        path = self.repository / source.path
+        raw = path.read_bytes()
+        version = first["grammar_pins"][0]["version"]
+        path.write_bytes(raw.replace(f"version: {version}".encode(), f"version: {version + 1}".encode(), 1))
+        second = sources._check_current_approved_grammar_pins(self.repository, profile)
+        self.assertEqual(version + 1, second["grammar_pins"][0]["version"])
+        self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), second["grammar_pins"][0]["sha256"])
+        with self.assertRaises(sources.SubjectModelSourceError):
+            sources._check_current_approved_grammar_pins(self.repository, profile, expected=first)
 
 
 if __name__ == "__main__":

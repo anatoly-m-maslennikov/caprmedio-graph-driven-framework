@@ -148,7 +148,7 @@ class SelectedActionObservationTests(unittest.TestCase):
         before = {path.relative_to(self.root).as_posix(): path.read_bytes()
                   for path in self.root.rglob("*") if path.is_file()}
 
-        result = observe_selected_action(self.root, action_id, self.manifest)
+        result = observe_selected_action(self.root, action_id)
 
         after = {path.relative_to(self.root).as_posix(): path.read_bytes()
                  for path in self.root.rglob("*") if path.is_file()}
@@ -170,8 +170,8 @@ class SelectedActionObservationTests(unittest.TestCase):
         pending_id, pending_folder, _ = self._run("pending")
         self._progress(pending_id, pending_folder)
 
-        failed = observe_selected_action(self.root, failed_id, self.manifest)
-        pending = observe_selected_action(self.root, pending_id, self.manifest)
+        failed = observe_selected_action(self.root, failed_id)
+        pending = observe_selected_action(self.root, pending_id)
 
         self.assertEqual(("terminal", "failed"), (failed["disposition"], failed["outcome"]))
         self.assertEqual(("terminal", "completed"), (pending["disposition"], pending["outcome"]))
@@ -188,24 +188,43 @@ class SelectedActionObservationTests(unittest.TestCase):
                                                       event_name="completed", outcome="completed"))
         support = _QueueBackedSelectedSupport(self.root, object())
 
-        with patch("selected_routes.load_selected_manifest", return_value=self.manifest):
+        with patch("selected_routes.load_selected_manifest", side_effect=AssertionError("historical read must not load current rules")):
             result = support.get_selected_action_run({"action_run_id": action_id})
 
         self.assertEqual(("terminal", "completed"), (result["disposition"], result["outcome"]))
 
     def test_unknown_and_unsafe_identities_are_not_resolved(self) -> None:
-        unknown = observe_selected_action(self.root, "unknown:step:1:action:1", self.manifest)
-        unsafe = observe_selected_action(self.root, "../selected_request.json", self.manifest)
+        unknown = observe_selected_action(self.root, "unknown:step:1:action:1")
+        unsafe = observe_selected_action(self.root, "../selected_request.json")
 
         self.assertEqual(("unknown", "unknown"), (unknown["disposition"], unknown["outcome"]))
         self.assertEqual(("rejected", "rejected"), (unsafe["disposition"], unsafe["outcome"]))
 
-    def test_stale_manifest_never_relabels_saved_action_progress(self) -> None:
+    def test_current_rule_advance_preserves_historical_action_and_saved_bytes(self) -> None:
         action_id, folder, _ = self._run("stale")
         self._progress(action_id, folder)
-        stale = {**self.manifest, "canonical_manifest_sha256": "d" * 64}
+        saved = folder / "selected_request.json"
+        before = saved.read_bytes()
+        self.manifest["canonical_manifest_sha256"] = "d" * 64
+        self.manifest["routes"][0]["workflow"]["version"] = 3
+        result = observe_selected_action(self.root, action_id)
+        self.assertEqual(("terminal", "completed"), (result["disposition"], result["outcome"]))
+        self.assertEqual("a" * 64, result["definition_manifest"]["manifest_digest"])
+        self.assertEqual(before, saved.read_bytes())
 
-        result = observe_selected_action(self.root, action_id, stale)
-
-        self.assertEqual(("blocked", "blocked"), (result["disposition"], result["outcome"]))
-        self.assertIn("current canonical manifest", result["diagnostics"][0])
+    def test_tampered_saved_cross_bindings_refuse(self) -> None:
+        for field in ("manifest_digest", "workflow", "action"):
+            with self.subTest(field=field):
+                action_id, folder, _ = self._run(f"tampered-{field}")
+                self._progress(action_id, folder)
+                path = folder / "selected_request.json"
+                saved = json.loads(path.read_bytes())
+                if field == "manifest_digest":
+                    saved["graph"][field] = "d" * 64
+                elif field == "workflow":
+                    saved["graph"][field]["version"] += 1
+                else:
+                    saved["graph"]["steps"][0]["actions"][0]["sha256"] = "e" * 64
+                path.write_text(json.dumps(saved), encoding="utf-8")
+                result = observe_selected_action(self.root, action_id)
+                self.assertEqual("blocked", result["disposition"])

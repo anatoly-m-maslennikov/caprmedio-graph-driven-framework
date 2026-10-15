@@ -11,7 +11,7 @@ from connector_atom_parse import IDENTITY, LIFECYCLES, validate_filters
 from connector_atom_read import AtomSourceView
 from connector_bindings import ConnectorBindingError, ConnectorBindings, FileSource, admission_for_started_action
 from project_selection import ProjectSelection, ProjectSelectionError, bind_selection
-from subject_notation import get_profile
+from subject_notation import GrammarPin, GrammarSource, get_profile
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 
 
@@ -28,6 +28,18 @@ _ACTIONS = {
 
 def _metadata(source: FileSource) -> dict:
     return parse_carrier(source.read_bytes(), source.root / source.relative_path).metadata
+
+
+def _grammar_binding_matches(
+    pin: GrammarPin | GrammarSource, values: dict[str, object], source: FileSource | None,
+) -> bool:
+    if source is None or type(values.get("version")) is not int or values["version"] < 1:
+        return False
+    if isinstance(pin, GrammarPin):
+        return source.sha256 == pin.sha256 and values["version"] == pin.version
+    return (source.relative_path.as_posix() == pin.path and values.get("status") == "Active"
+            and values.get("content_role") ==
+            {"R": "Requirement", "M": "Method", "E": "Evaluation"}.get(pin.atom_id[3:4]))
 
 
 def make_atom_receiver(
@@ -87,8 +99,7 @@ def make_atom_receiver(
     if operation == "query":
         for pin in get_profile(view.subject_profile).grammar_pins:
             values, source = metadata.get(pin.atom_id, ({}, None))
-            if (source is None or source.sha256 != pin.sha256
-                    or type(values.get("version")) is not int or values["version"] != pin.version):
+            if not _grammar_binding_matches(pin, values, source):
                 raise ValueError("The explicit Subject profile requires its complete exact grammar pins.")
     selected_sources = []
     for path in (selection.settings_path, selection.structure_path):

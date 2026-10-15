@@ -122,7 +122,7 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
             selected_routes._validate_route(self.root, route)
 
     def test_missing_third_reordered_or_shadow_proofs_reject(self) -> None:
-        for mutation in ("missing", "third", "reordered", "shadow", "route-mismatch", "stale-digest"):
+        for mutation in ("missing", "third", "reordered", "shadow", "route-mismatch", "invalid-digest"):
             with self.subTest(mutation=mutation):
                 admissions, routes = copy.deepcopy(self.admissions), copy.deepcopy(self.routes)
                 if mutation == "missing":
@@ -136,11 +136,11 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
                 elif mutation == "route-mismatch":
                     routes[1]["workflow"] = copy.deepcopy(routes[0]["workflow"])
                 else:
-                    admissions[0]["workflow"]["digest"] = "0" * 64
+                    admissions[0]["workflow"]["digest"] = "invalid"
                 with self.assertRaises(SelectedRouteError):
                     selected_routes._validate_query_source_admissions(self.root, admissions, routes)
 
-    def test_physically_valid_old_proof_and_unadmitted_step_revisions_reject(self) -> None:
+    def test_current_revisions_resolve_but_substituted_proof_identity_rejects(self) -> None:
         for mutation in ("old-proof", "predecessor", "superseded-step", "newer-step", "changed-body"):
             with self.subTest(mutation=mutation):
                 admissions = copy.deepcopy(self.admissions)
@@ -172,12 +172,19 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
                         contents += b"\nUnadmitted changed query body.\n"
                 pin["digest"] = hashlib.sha256(contents).hexdigest()
                 path.write_bytes(contents)
-                # The pin is physically valid; rejection must be the fixed admission boundary.
                 try:
                     self.assertEqual(pin, selected_routes._validate_pin(self.root, pin))
-                    with self.assertRaisesRegex(SelectedRouteError, "accepted source frontier"):
+                    if mutation == "old-proof":
+                        with self.assertRaises(SelectedRouteError):
+                            selected_routes._validate_query_source_admissions(self.root, admissions, self.routes)
+                    else:
+                        routes = copy.deepcopy(self.routes)
+                        for route in routes:
+                            for item in route['ordered_steps']:
+                                if item['step']['atom_id'] == pin['atom_id']:
+                                    item['step'] = pin
                         selected_routes._validate_query_source_admissions(
-                            self.root, admissions, self.routes
+                            self.root, admissions, routes
                         )
                 finally:
                     path.write_bytes(original_contents)
@@ -301,7 +308,9 @@ class WholeRegistryGuardTest(unittest.TestCase):
         if malformed:
             document["routes"][1]["unknown_route_field"] = True
         else:
-            document["routes"][1]["workflow"]["digest"] = "0" * 64
+            pin = document["routes"][1]["workflow"]
+            source = self.root / pin['source_path']
+            source.write_bytes(source.read_bytes().replace(pin['atom_id'].encode(), b'CA-O-999999'))
         document["source_freshness"]["selected_binding_digest"] = canonical_digest(document["routes"])
         document["canonical_manifest_sha256"] = canonical_digest(
             {key: value for key, value in document.items() if key != "canonical_manifest_sha256"})
@@ -344,7 +353,7 @@ class WholeRegistryGuardTest(unittest.TestCase):
         before = self.snapshot()
         result = adapter.invoke("create_atom", self.request("create_atom"))
         self.assertEqual("rejected", result["disposition"])
-        self.assertIn("source pin is stale", result["diagnostics"][0])
+        self.assertIn("current definition is unavailable or invalid", result["diagnostics"][0])
         self.assertEqual([], self.support.calls)
         self.assertEqual(before, self.snapshot())
 
@@ -647,7 +656,7 @@ class SelectedRoutesMCPTest(unittest.TestCase):
                     (project / self.manifest["manifest_ref"]).write_text(
                         __import__("json").dumps(candidate), encoding="utf-8",
                     )
-                    expected = ("differs from the accepted source frontier"
+                    expected = ("current definition is unavailable or invalid"
                                 if mutation == "old-artifact-frontier" else "exactly two routes")
                     with self.assertRaisesRegex(SelectedRouteError, expected):
                         load_selected_manifest(project)

@@ -42,7 +42,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
                 destination = self.root / pin.path
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(REPOSITORY / pin.path, destination)
-                self.assertEqual(pin.sha256, hashlib.sha256(destination.read_bytes()).hexdigest())
+                self.assertEqual((REPOSITORY / pin.path).read_bytes(), destination.read_bytes())
 
     def tearDown(self) -> None:
         self.temporary.cleanup()

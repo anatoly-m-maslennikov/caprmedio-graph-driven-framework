@@ -49,7 +49,7 @@ class SubjectToolsAcceptanceTest(unittest.TestCase):
                 destination = self.root / pin.path
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(REPOSITORY / pin.path, destination)
-                self.assertEqual(pin.sha256, hashlib.sha256(destination.read_bytes()).hexdigest())
+                self.assertEqual((REPOSITORY / pin.path).read_bytes(), destination.read_bytes())
         self.methodology = self.control / "101_LAYER_1_FRAMEWORK_METHODOLOGY"
         self.engine = self.control / "102_LAYER_2_FRAMEWORK_ENGINE"
         self.requirements = self.methodology / "04_requirement"

@@ -63,7 +63,7 @@ class AtomReceiverTests(unittest.TestCase):
         self.authorities = {identity: self.copy_authority(CONTRACT_ROOT / relative, identity)
                             for identity, relative in CONTRACT_FILES.items()}
         self.schemas = tuple(self.authorities[identity] for identity in ("CA-D-625", "CA-R-1936", "CA-M-376"))
-        self.grammar = tuple(self.copy_authority(PROJECT / pin.path, pin.atom_id)
+        self.grammar = tuple(self.copy_authority(PROJECT / pin.path, pin.atom_id, pin.path)
                              for pin in get_profile("approved").grammar_pins)
         self.sequence = 0
         self.current = True
@@ -72,9 +72,9 @@ class AtomReceiverTests(unittest.TestCase):
     def digest(path):
         return hashlib.sha256(path.read_bytes()).hexdigest()
 
-    def copy_authority(self, source, identity):
-        path = self.root / "receiver_authority" / (identity + ".md")
-        path.parent.mkdir(exist_ok=True)
+    def copy_authority(self, source, identity, relative=None):
+        path = self.root / relative if relative is not None else self.root / "receiver_authority" / (identity + ".md")
+        path.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, path)
         self.assertEqual(source.read_bytes(), path.read_bytes())
         return capture_source(self.root, path.relative_to(self.root))

@@ -15,6 +15,8 @@ from typing_extensions import NotRequired, TypedDict
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / '201_TOOLS'))
 from project_selection import bound_selection
+from connector_bindings import capture_source
+from selected_definition_sources import CurrentDefinitionSources
 
 
 DEFAULT_CONTROL_ROOT = Path(".caprmedio_caprmedio")
@@ -59,7 +61,6 @@ _ORIGINAL_SELECTED_SOURCE_REGISTRY_REF = (
     ".caprmedio_caprmedio/02_analysis/"
     "CA-A-1142-ANALYSIS_RPRT--prepare-the-selected-source-to-rmed-handoff.md"
 )
-_ORIGINAL_SELECTED_SOURCE_REGISTRY_VERSION = 2
 _QUERY_SOURCE_ADMISSION_FIELDS = {
     "route", "acceptance_frontier", "workflow", "ordered_steps", "ordered_actions",
 }
@@ -67,61 +68,51 @@ _QUERY_SOURCE_ADMISSION_SPECS = (
     {
         "route": "find_and_fetch_artifacts",
         "acceptance_frontier": {
-            "atom_id": "CA-P-1618", "version": 1,
+            "atom_id": "CA-P-1618",
             "source_path": ".caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/08-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/29-CA-P-1618-TASK--accept-current-artifact-query-source-frontier.md",
-            "digest": "bdf10c928c10c102dc489c8e3e526ffe73e8a33d492f4dabc8b5d0129c453b1f",
         },
         "workflow": {
-            "atom_id": "CA-O-158", "version": 4,
+            "atom_id": "CA-O-158",
             "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md",
-            "digest": "d7fdaebdd1d0c6ca7dac9aced25552c487336f2a51f18c0f03ef65d16ff4618a",
         },
         "ordered_steps": [{
             "step": {
-                "atom_id": "CA-O-160", "version": 2,
+                "atom_id": "CA-O-160",
                 "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md",
-                "digest": "a743a84fd24db32123ac8162e7a2178e6d83b1b727cbe54477b6020914537384",
             },
             "action": {
-                "atom_id": "CA-O-159", "version": 2,
+                "atom_id": "CA-O-159",
                 "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
-                "digest": "3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08",
             },
         }],
         "ordered_actions": [{
-            "atom_id": "CA-O-159", "version": 2,
+            "atom_id": "CA-O-159",
             "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
-            "digest": "3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08",
         }],
     },
     {
         "route": "find_and_fetch_journal_events",
         "acceptance_frontier": {
-            "atom_id": "CA-P-1535", "version": 2,
+            "atom_id": "CA-P-1535",
             "source_path": ".caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/08-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/15-CA-P-1535-TASK--accept-final-journal-query-source.md",
-            "digest": "6246b46d2961d795e29eeb224f01b14979434d4ad24cf3f4913c490268cf52dc",
         },
         "workflow": {
-            "atom_id": "CA-O-161", "version": 2,
+            "atom_id": "CA-O-161",
             "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-161-CORE_META_MODEL-WORKFLOW--find-and-fetch-journal-events.md",
-            "digest": "362b9d3848a796a14e7374cfa0bf0b561c4f2035b7b2bf87bd9b56fc97a6724d",
         },
         "ordered_steps": [{
             "step": {
-                "atom_id": "CA-O-163", "version": 4,
+                "atom_id": "CA-O-163",
                 "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-161-CORE_META_MODEL-WORKFLOW--find-and-fetch-journal-events/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md",
-                "digest": "1e47a2e59581a18cc0869efedfeefb6474a404ce5f761123a1c65718726f3727",
             },
             "action": {
-                "atom_id": "CA-O-162", "version": 2,
+                "atom_id": "CA-O-162",
                 "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
-                "digest": "71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe",
             },
         }],
         "ordered_actions": [{
-            "atom_id": "CA-O-162", "version": 2,
+            "atom_id": "CA-O-162",
             "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
-            "digest": "71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe",
         }],
     },
 )
@@ -180,10 +171,16 @@ def _selected_authority_ref(root: Path, reference: str) -> str:
     return reference
 
 
-def _query_admission_specs(root: Path) -> tuple[dict[str, Any], ...]:
+def _query_admission_specs(root: Path, sources: CurrentDefinitionSources | None = None) -> tuple[dict[str, Any], ...]:
     specifications = copy.deepcopy(_QUERY_SOURCE_ADMISSION_SPECS)
+    owned_sources = sources is None
+    sources = sources or CurrentDefinitionSources(root)
     def bind(value):
         if isinstance(value, dict):
+            if set(value) == {'atom_id', 'source_path'}:
+                value['source_path'] = _selected_authority_ref(root, value['source_path'])
+                value.update(_current_pin(root, value, sources))
+                return
             for key, child in value.items():
                 if key == 'source_path':
                     value[key] = _selected_authority_ref(root, child)
@@ -193,6 +190,8 @@ def _query_admission_specs(root: Path) -> tuple[dict[str, Any], ...]:
             for child in value:
                 bind(child)
     bind(list(specifications))
+    if owned_sources:
+        sources.revalidate()
     return specifications
 
 
@@ -251,32 +250,36 @@ def _frontmatter_value(contents: str, field: str) -> str | None:
     return match.group(1).strip() if match else None
 
 
-def _validate_pin(root: Path, pin: Any) -> dict[str, Any]:
-    if not isinstance(pin, Mapping) or set(pin) != {"atom_id", "version", "source_path", "digest"}:
-        raise SelectedRouteError("definition pin must contain atom_id, version, source_path, and digest")
-    atom_id, version, source_path, digest = (pin["atom_id"], pin["version"], pin["source_path"], pin["digest"])
-    if not isinstance(atom_id, str) or not atom_id or not isinstance(version, int) or version < 1:
-        raise SelectedRouteError("definition pin has invalid identity or version")
-    if not isinstance(digest, str) or not _DIGEST.fullmatch(digest):
-        raise SelectedRouteError("definition pin has invalid digest")
+def _current_pin(root: Path, pin: Mapping[str, Any], sources: CurrentDefinitionSources,
+                 expected_type: str | None = None) -> dict[str, Any]:
+    source_path = pin['source_path']
     path = _safe_path(root, source_path)
     selection = bound_selection(root)
     relative_parts = path.relative_to(root).parts
     if (selection is not None and relative_parts and relative_parts[0].startswith('.caprmedio_')
             and not path.is_relative_to(selection.control_root)):
         raise SelectedRouteError("source pin belongs to another Project authority")
-    if not path.is_file():
-        raise SelectedRouteError(f"source pin is unavailable: {source_path}")
-    contents = path.read_bytes()
-    if hashlib.sha256(contents).hexdigest() != digest:
-        raise SelectedRouteError(f"source pin is stale: {source_path}")
     try:
-        text = contents.decode("utf-8")
-    except UnicodeDecodeError as error:
-        raise SelectedRouteError(f"source pin is not UTF-8: {source_path}") from error
-    if _frontmatter_value(text, "atom_id") != atom_id or _frontmatter_value(text, "version") != str(version):
-        raise SelectedRouteError(f"source pin metadata differs: {source_path}")
-    return dict(pin)
+        return sources.read(pin['atom_id'], source_path, expected_type)
+    except (OSError, ValueError, RuntimeError) as error:
+        raise SelectedRouteError(f"current definition is unavailable or invalid: {source_path}") from error
+
+
+def _validate_pin(root: Path, pin: Any, sources: CurrentDefinitionSources | None = None,
+                  expected_type: str | None = None) -> dict[str, Any]:
+    if not isinstance(pin, Mapping) or set(pin) != {"atom_id", "version", "source_path", "digest"}:
+        raise SelectedRouteError("definition pin must contain atom_id, version, source_path, and digest")
+    atom_id, version, digest = (pin["atom_id"], pin["version"], pin["digest"])
+    if not isinstance(atom_id, str) or not atom_id or type(version) is not int or version < 1:
+        raise SelectedRouteError("definition pin has invalid identity or version")
+    if not isinstance(digest, str) or not _DIGEST.fullmatch(digest):
+        raise SelectedRouteError("definition pin has invalid digest")
+    owned_sources = sources is None
+    sources = sources or CurrentDefinitionSources(root)
+    observed = _current_pin(root, pin, sources, expected_type)
+    if owned_sources:
+        sources.revalidate()
+    return observed
 
 
 def _manifest_path(root: Path) -> Path:
@@ -287,7 +290,7 @@ def _definition_sequence(route: Mapping[str, Any]) -> list[dict[str, Any]]:
     return [route["workflow"], *[item["step"] for item in route["ordered_steps"]], *route["ordered_actions"]]
 
 
-def _validate_route(root: Path, entry: Any) -> dict[str, Any]:
+def _validate_route(root: Path, entry: Any, sources: CurrentDefinitionSources | None = None) -> dict[str, Any]:
     required = {"route", "workflow", "ordered_steps", "ordered_actions", "native_action_calls",
                 "entry_step", "on_result", "mutation_capable"}
     if not isinstance(entry, Mapping) or set(entry) != required:
@@ -298,18 +301,19 @@ def _validate_route(root: Path, entry: Any) -> dict[str, Any]:
         raise SelectedRouteError("route binding has no ordered step graph")
     if not isinstance(entry["ordered_actions"], list) or not isinstance(entry["native_action_calls"], list):
         raise SelectedRouteError("route binding has an invalid ordered Action list")
-    pin_validator = _validate_pin
+    def pin_validator(root, pin, kind):
+        return _validate_pin(root, pin, sources, kind)
     result = dict(entry)
-    result["workflow"] = pin_validator(root, entry["workflow"])
+    result["workflow"] = pin_validator(root, entry["workflow"], "Workflow")
     steps: list[dict[str, Any]] = []
     for item in entry["ordered_steps"]:
         if not isinstance(item, Mapping) or set(item) != {"step", "action"}:
             raise SelectedRouteError("ordered step binding must have one Step and one Action")
-        steps.append({"step": pin_validator(root, item["step"]), "action": pin_validator(root, item["action"])})
+        steps.append({"step": pin_validator(root, item["step"], "Step"), "action": pin_validator(root, item["action"], "Action")})
     step_ids = {item["step"]["atom_id"] for item in steps}
     if entry["entry_step"] not in step_ids:
         raise SelectedRouteError("route entry step is not in its ordered Step list")
-    actions = [pin_validator(root, item) for item in entry["ordered_actions"]]
+    actions = [pin_validator(root, item, "Action") for item in entry["ordered_actions"]]
     if [item["action"]["atom_id"] for item in steps] != [item["atom_id"] for item in actions]:
         raise SelectedRouteError("ordered Action list differs from Step Action bindings")
     if not isinstance(entry["on_result"], list):
@@ -323,15 +327,17 @@ def _validate_route(root: Path, entry: Any) -> dict[str, Any]:
         if edge["to"] != "complete" and edge["to"] not in step_ids:
             raise SelectedRouteError("route on_result target is not in its ordered Step list or complete")
     result.update(ordered_steps=steps, ordered_actions=actions,
-                  native_action_calls=[pin_validator(root, item) for item in entry["native_action_calls"]])
+                  native_action_calls=[pin_validator(root, item, "Action") for item in entry["native_action_calls"]])
     return result
 
 
 def _validate_query_source_admissions(
-    root: Path, admissions: Any, routes: list[dict[str, Any]],
+    root: Path, admissions: Any, routes: list[dict[str, Any]], sources: CurrentDefinitionSources | None = None,
 ) -> list[dict[str, Any]]:
     """Validate the two admission-frontier proofs without creating a registry."""
-    specifications = _query_admission_specs(root)
+    owned_sources = sources is None
+    sources = sources or CurrentDefinitionSources(root)
+    specifications = _query_admission_specs(root, sources)
     if not isinstance(admissions, list) or len(admissions) != len(specifications):
         raise SelectedRouteError("selected query-source admissions must contain exactly two routes")
     by_route = {entry["route"]: entry for entry in routes}
@@ -348,8 +354,8 @@ def _validate_query_source_admissions(
             raise SelectedRouteError("query-source admission definitions are malformed")
         admission = {
             "route": value["route"],
-            "acceptance_frontier": _validate_pin(root, value["acceptance_frontier"]),
-            "workflow": _validate_pin(root, value["workflow"]),
+            "acceptance_frontier": _validate_pin(root, value["acceptance_frontier"], sources, "Plan"),
+            "workflow": _validate_pin(root, value["workflow"], sources, "Workflow"),
             "ordered_steps": [],
             "ordered_actions": [],
         }
@@ -357,16 +363,18 @@ def _validate_query_source_admissions(
             if not isinstance(item, Mapping) or set(item) != {"step", "action"}:
                 raise SelectedRouteError("query-source admission Step binding is malformed")
             admission["ordered_steps"].append({
-                "step": _validate_pin(root, item["step"]),
-                "action": _validate_pin(root, item["action"]),
+                "step": _validate_pin(root, item["step"], sources, "Step"),
+                "action": _validate_pin(root, item["action"], sources, "Action"),
             })
-        admission["ordered_actions"] = [_validate_pin(root, item) for item in value["ordered_actions"]]
+        admission["ordered_actions"] = [_validate_pin(root, item, sources, "Action") for item in value["ordered_actions"]]
         if admission != expected:
             raise SelectedRouteError("query-source admission differs from the accepted source frontier")
         for key in ("workflow", "ordered_steps", "ordered_actions"):
             if admission[key] != route[key]:
                 raise SelectedRouteError("query-source admission definitions differ from the selected route")
         validated.append(admission)
+    if owned_sources:
+        sources.revalidate()
     return validated
 
 
@@ -400,27 +408,29 @@ def validate_selected_manifest_document(root: str | Path, manifest: Any) -> dict
         raise SelectedRouteError("selected workflow binding manifest source freshness is incomplete")
     if not _DIGEST.fullmatch(freshness["selected_source_registry_digest"]) or not _DIGEST.fullmatch(freshness["selected_binding_digest"]):
         raise SelectedRouteError("selected workflow binding manifest freshness digest is invalid")
-    if (freshness["selected_source_registry_ref"] != _selected_authority_ref(project_root, _ORIGINAL_SELECTED_SOURCE_REGISTRY_REF)
-            or freshness["selected_source_registry_version"] != _ORIGINAL_SELECTED_SOURCE_REGISTRY_VERSION):
+    if freshness["selected_source_registry_ref"] != _selected_authority_ref(project_root, _ORIGINAL_SELECTED_SOURCE_REGISTRY_REF):
         raise SelectedRouteError("selected workflow binding manifest does not retain the CA-A-1142 registry authority")
     if freshness["selected_binding_ref"] != f"{manifest_ref}#/routes":
         raise SelectedRouteError("selected workflow binding manifest does not retain its binding reference")
-    registry = _safe_path(project_root, freshness["selected_source_registry_ref"])
-    if not registry.is_file() or hashlib.sha256(registry.read_bytes()).hexdigest() != freshness["selected_source_registry_digest"]:
-        raise SelectedRouteError("selected source registry pin is stale")
+    sources = CurrentDefinitionSources(project_root)
+    registry = _current_pin(project_root, {'atom_id': 'CA-A-1142',
+        'source_path': freshness['selected_source_registry_ref']}, sources, 'Analysis Report')
     routes = manifest["routes"]
     if not isinstance(routes, list) or len(routes) != len(SELECTED_ROUTE_NAMES):
         raise SelectedRouteError("selected workflow binding manifest must contain fifteen routes")
     expected_names = SELECTED_ROUTE_NAMES
-    validated = [_validate_route(project_root, entry) for entry in routes]
+    if canonical_digest(routes) != freshness["selected_binding_digest"]:
+        raise SelectedRouteError("selected workflow route binding digest differs")
+    validated = [_validate_route(project_root, entry, sources) for entry in routes]
     if tuple(entry["route"] for entry in validated) != expected_names or len({entry["route"] for entry in validated}) != len(expected_names):
         raise SelectedRouteError("selected workflow route registry is incomplete or duplicate")
-    admissions = _validate_query_source_admissions(project_root, manifest["query_source_admissions"], validated)
-    if canonical_digest(validated) != freshness["selected_binding_digest"]:
-        raise SelectedRouteError("selected workflow route binding digest differs")
-    result = {"manifest_ref": manifest_ref, "schema_version": 1, "source_freshness": dict(freshness),
-              "query_source_admissions": admissions, "routes": validated,
-              "canonical_manifest_sha256": manifest["canonical_manifest_sha256"]}
+    admissions = _validate_query_source_admissions(project_root, manifest["query_source_admissions"], validated, sources)
+    current_freshness = {**freshness, 'selected_source_registry_version': registry['version'],
+        'selected_source_registry_digest': registry['digest'], 'selected_binding_digest': canonical_digest(validated)}
+    resolved = {'schema_version': 1, 'source_freshness': current_freshness,
+                'query_source_admissions': admissions, 'routes': validated}
+    sources.revalidate()
+    result = {"manifest_ref": manifest_ref, **resolved, "canonical_manifest_sha256": canonical_digest(resolved)}
     return result
 
 
@@ -428,11 +438,14 @@ def load_selected_manifest(root: str | Path) -> dict[str, Any]:
     """Verify all fifteen ordinary route source bindings without dispatch."""
     project_root = Path(root).resolve(strict=True)
     try:
-        manifest = json.loads(_manifest_path(project_root).read_text(encoding="utf-8"),
+        source = capture_source(project_root, selected_manifest_ref(project_root))
+        manifest = json.loads(source.read_bytes().decode("utf-8"),
                               object_pairs_hook=_unique_manifest_object)
     except (OSError, json.JSONDecodeError) as error:
         raise SelectedRouteError("selected workflow binding manifest is unreadable") from error
-    return validate_selected_manifest_document(project_root, manifest)
+    result = validate_selected_manifest_document(project_root, manifest)
+    source.revalidate()
+    return result
 
 
 def _find_shadow_manifest_fields(
@@ -718,9 +731,8 @@ class _QueueBackedSelectedSupport:
             app = Path(__file__).resolve().parents[1] / "203_APPS/WORKFLOW_ORCHESTRATOR"
             if str(app) not in sys.path:
                 sys.path.insert(0, str(app))
-            manifest = load_selected_manifest(self.root)
             observer = importlib.import_module("selected_action_observation")
-            return observer.observe_selected_action(self.root, request["action_run_id"], manifest)
+            return observer.observe_selected_action(self.root, request["action_run_id"])
         except (ImportError, ValueError, RuntimeError, OSError) as error:
             return {"action_run_id": request["action_run_id"], "disposition": "blocked", "outcome": "blocked",
                     "diagnostics": [f"selected Action observation is unavailable: {error}"]}

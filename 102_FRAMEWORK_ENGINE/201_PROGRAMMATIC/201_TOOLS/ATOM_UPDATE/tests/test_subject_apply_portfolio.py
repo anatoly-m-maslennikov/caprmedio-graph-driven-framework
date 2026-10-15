@@ -33,28 +33,18 @@ TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 CORE_OPERATIONS = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/"
 TOOL_WORKFLOWS = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/"
 CURRENT_W02_PINS = {
-    "CA-O-067": (CORE_OPERATIONS + "CA-O-067-CORE_META_MODEL-ACTION--assess-atom-update-identity.md", 7,
-                 "5c2098027094df1837b3b48b112a56866e3bee927699a58156e51b53925e998d"),
-    "CA-O-127": (CORE_OPERATIONS + "CA-O-127-CORE_META_MODEL-WORKFLOW--manage-atom-lifecycle.md", 4,
-                 "cb06d919ac51982a7eba820f62939cabefb7e7698de208345f46a97c5283f557"),
-    "CA-O-128": (CORE_OPERATIONS + "CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom-lifecycle-changes.md", 6,
-                 "48f0464400d198b0d914fbd2b76bd8d8ce616c94b41bd140ec5889ac6b9ac2e2"),
-    "CA-O-129": (CORE_OPERATIONS + "CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-lifecycle-change.md", 4,
-                 "fd95ab7ee49b96d9a33ceb951934e274e087ba47f349a0455b7654fc8ff546a1"),
-    "CA-O-145": (CORE_OPERATIONS + "CA-O-145-CORE_META_MODEL-STEP--assess-update-identity-for-atom-lifecycle.md", 2,
-                 "e1da6f807f965d94bb2f6b829767fb23d34ea6dc600408f78408378caf208f89"),
+    "CA-O-067": CORE_OPERATIONS + "CA-O-067-CORE_META_MODEL-ACTION--assess-atom-update-identity.md",
+    "CA-O-127": CORE_OPERATIONS + "CA-O-127-CORE_META_MODEL-WORKFLOW--manage-atom-lifecycle.md",
+    "CA-O-128": CORE_OPERATIONS + "CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom-lifecycle-changes.md",
+    "CA-O-129": CORE_OPERATIONS + "CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-lifecycle-change.md",
+    "CA-O-145": CORE_OPERATIONS + "CA-O-145-CORE_META_MODEL-STEP--assess-update-identity-for-atom-lifecycle.md",
 }
 PUBLICATION_PINS = {
-    "CA-R-866": (TOOL_WORKFLOWS + "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md", 26,
-                 "ef34d271cdf1fac68cec3ee5df48937396f3485cadf107ca46b9b1c32e883146"),
-    "CA-M-371": (TOOL_WORKFLOWS + "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md", 12,
-                 "f0f4a2aa25de2d6b04061a65b7606101410cd9f56ccfe81567f323c6dc99b04d"),
-    "CA-E-304": (TOOL_WORKFLOWS + "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md", 25,
-                 "79f5eb5b9e73fe1907a8b923c1ea9443a11def5f1d21eaea0e0393644bd0b2c3"),
-    "CA-O-030": (TOOL_WORKFLOWS + "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md", 19,
-                 "14b8423f542af6d12a2f40a7ca4cdf3a343c7ea14ebc6bdecc16c01a69a28453"),
-    "CA-E-626": (TOOL_WORKFLOWS + "06_evaluation/CA-E-626-TOOL_WORKFLOWS-CORE-QA_CASE--verify-independent-atom-workflow-effects.md", 4,
-                 "298064da1bd521fad4e654d670bbf7de39357cbe295881417e9e72e4127607e6"),
+    "CA-R-866": TOOL_WORKFLOWS + "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
+    "CA-M-371": TOOL_WORKFLOWS + "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md",
+    "CA-E-304": TOOL_WORKFLOWS + "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
+    "CA-O-030": TOOL_WORKFLOWS + "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md",
+    "CA-E-626": TOOL_WORKFLOWS + "06_evaluation/CA-E-626-TOOL_WORKFLOWS-CORE-QA_CASE--verify-independent-atom-workflow-effects.md",
 }
 
 
@@ -74,12 +64,18 @@ class CurrentSubjectGoldenProject(GoldenProject):
         current = {**CURRENT_W02_PINS, "CA-O-030": PUBLICATION_PINS["CA-O-030"]}
         assert {pin["atom_id"] for pin in pins} == set(current)
         for pin in pins:
-            path, version, sha256 = current[pin["atom_id"]]
+            path = current[pin["atom_id"]]
+            raw = (REPOSITORY / path).read_bytes()
+            frontmatter, _ = operations.split_frontmatter(raw.decode("utf-8"))
+            version = int(operations.frontmatter_scalar(frontmatter, "version"))
+            sha256 = hashlib.sha256(raw).hexdigest()
             assert (pin["source_path"], pin["version"], pin["digest"]) == (path, version, sha256)
-        for path, version, sha256 in PUBLICATION_PINS.values():
+        for atom_id, path in PUBLICATION_PINS.items():
+            raw = (REPOSITORY / path).read_bytes()
+            sha256 = hashlib.sha256(raw).hexdigest()
             self._copy_pinned(Path(path), sha256)
             frontmatter, _ = operations.split_frontmatter((self.root / path).read_text())
-            assert operations.frontmatter_scalar(frontmatter, "version") == str(version)
+            assert operations.frontmatter_scalar(frontmatter, "atom_id") == atom_id
         return manifest
 
 
@@ -95,10 +91,10 @@ class SubjectApplyProject:
         self.golden._copy_complete_carrier_authority()
         for grammar_pin in get_profile(subject_profile).grammar_pins:
             original = REPOSITORY / grammar_pin.path
-            assert hashlib.sha256(original.read_bytes()).hexdigest() == grammar_pin.sha256
             destination = root / grammar_pin.path
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(original, destination)
+            assert destination.read_bytes() == original.read_bytes()
         self.path = self.golden.status_atom(role, status, number=8100)
         assert newline in {"\n", "\r\n"}
         if newline == "\r\n":

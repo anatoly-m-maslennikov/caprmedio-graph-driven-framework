@@ -7,7 +7,6 @@ import copy
 import hashlib
 import json
 from pathlib import Path
-import shutil
 import stat
 import sys
 import unittest
@@ -37,28 +36,21 @@ STAGE_PREFIX = Path(".caprmedio_tmp/subject-preview")
 TOOL_WORKFLOWS = (
     ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/"
 )
-# Current preparation sources retain plain logging and the host-owned Subject dispatch contract.
-PREPARATION_PINS = tuple({"atom_id": atom_id, "version": version,
-                          "path": TOOL_WORKFLOWS + relative, "sha256": digest}
-                         for atom_id, version, relative, digest in (
-    ("CA-R-866", 26,
-     "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
-     "ef34d271cdf1fac68cec3ee5df48937396f3485cadf107ca46b9b1c32e883146"),
-    ("CA-R-1093", 12,
-     "04_requirement/CA-R-1093-TOOL_WORKFLOWS-CORE-REQUIREMENT--separate-generic-and-atom-specific-tool-authority.md",
-     "089aef0c7af39cd3135b411b5629ee32e350f35beae53a5dbd85754cb50f53e4"),
-    ("CA-O-030", 19,
-     "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md",
-     "14b8423f542af6d12a2f40a7ca4cdf3a343c7ea14ebc6bdecc16c01a69a28453"),
-    ("CA-M-371", 12,
-     "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md",
-     "f0f4a2aa25de2d6b04061a65b7606101410cd9f56ccfe81567f323c6dc99b04d"),
-    ("CA-D-425", 16,
-     "07_delivery/CA-D-425-TOOL_WORKFLOWS-STANDARD-DELIVERY--deliver-atom-update-tool.md",
-     "208431f44e901ed023f45c80536a92ab63e7c046ff45f56dede0f091c8bc7023"),
-    ("CA-E-304", 25,
-     "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
-     "79f5eb5b9e73fe1907a8b923c1ea9443a11def5f1d21eaea0e0393644bd0b2c3"),
+# Capture the current same-ID rules; retain their observed bytes in each fixture.
+PREPARATION_PINS = tuple({"atom_id": atom_id, "path": TOOL_WORKFLOWS + relative}
+                            for atom_id, relative in (
+    ("CA-R-866",
+     "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md"),
+    ("CA-R-1093",
+     "04_requirement/CA-R-1093-TOOL_WORKFLOWS-CORE-REQUIREMENT--separate-generic-and-atom-specific-tool-authority.md"),
+    ("CA-O-030",
+     "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md"),
+    ("CA-M-371",
+     "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md"),
+    ("CA-D-425",
+     "07_delivery/CA-D-425-TOOL_WORKFLOWS-STANDARD-DELIVERY--deliver-atom-update-tool.md"),
+    ("CA-E-304",
+     "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md"),
 ))
 
 
@@ -87,7 +79,7 @@ def _snapshot(root: Path) -> dict[str, tuple]:
 
 class DirectSubjectPreparationProtocolTests(unittest.IsolatedAsyncioTestCase):
     def setUp(self) -> None:
-        self.assertEqual(6, len(PREPARATION_PINS), "accepted preparation source pins are not ready")
+        self.assertEqual(6, len(PREPARATION_PINS), "current preparation sources are not ready")
         self.fixture = native_fixture.NonarchivedSubjectPreviewTests(methodName="runTest")
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
@@ -96,12 +88,13 @@ class DirectSubjectPreparationProtocolTests(unittest.IsolatedAsyncioTestCase):
         for pin in PREPARATION_PINS:
             source = REPOSITORY / pin["path"]
             raw = source.read_bytes()
-            self.assertEqual(pin["sha256"], _digest(raw), f"accepted pin is stale: {pin['atom_id']}")
             metadata = operations.parse_carrier(raw, source).metadata
-            self.assertEqual((pin["atom_id"], pin["version"]), (metadata["atom_id"], metadata["version"]))
+            self.assertEqual(pin["atom_id"], metadata["atom_id"])
+            self.assertIs(type(metadata["version"]), int)
+            self.assertGreater(metadata["version"], 0)
             destination = self.root / pin["path"]
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source, destination)
+            destination.write_bytes(raw)
         self.path = self.fixture._plan("Done", number=9500)
         self.second = self.fixture._plan("Backlog", number=9501)
         self.second.write_bytes(self.second.read_bytes().replace(b"\r\n", b"\n"))
@@ -320,7 +313,8 @@ class DirectSubjectPreparationProtocolTests(unittest.IsolatedAsyncioTestCase):
             for target in (self.path, self.root / get_profile("approved").grammar_pins[0].path):
                 original = target.read_bytes()
                 try:
-                    target.write_bytes(original + b"\nExternal source drift.\n")
+                    target.write_bytes(original + b"\nExternal source drift.\n" if target == self.path else
+                                       original.replace(b"atom_id:", b"invalid_atom_id:", 1))
                     self._refusal(await self._call(session, self.request, pure=True), "preview_subjects")
                 finally:
                     target.write_bytes(original)

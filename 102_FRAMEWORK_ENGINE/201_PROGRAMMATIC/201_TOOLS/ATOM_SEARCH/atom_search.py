@@ -31,56 +31,41 @@ MCP_NAME = "atom_search"
 ACTION_ID = "CA-O-046"
 DELIVERY_ID = "CA-D-424"
 ENTRYPOINT = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/atom_search.py"
-SOURCE_PINS = tuple([
+# Current rule selectors; each request captures its own actual source observations.
+SOURCE_PINS = (
     {
         "atom_id": "CA-R-1936",
-        "version": 2,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/04_requirement/CA-R-1936-CONNECTOR_TOOLS-CORE-REQUIREMENT--use-one-coherent-connector-interface.md",
-        "sha256": "dbb7471c477adf1474db73624e066d3fff202a61d975729d8d4ea4cbf95b040a"
     },
     {
         "atom_id": "CA-R-863",
-        "version": 20,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/04_requirement/CA-R-863-CONNECTOR_TOOLS-STANDARD-REQUIREMENT--search-caprmedio-markdown-atoms.md",
-        "sha256": "83955ee92f170f9a97d9edc4e01c933f34fd9485f3d177f91e7ac2b77c7e39f6"
     },
     {
         "atom_id": "CA-O-046",
-        "version": 9,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/09_operations/CA-O-046-CONNECTOR_TOOLS-STANDARD-ACTION--search-caprmedio-atom-carriers.md",
-        "sha256": "6b0b3fdc81d0089861e7cea5e4a2eaa7570ac712293a573104c602853311340b"
     },
     {
         "atom_id": "CA-M-370",
-        "version": 6,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/05_method/CA-M-370-CONNECTOR_TOOLS-STANDARD-METHOD--match-direct-subject-fields.md",
-        "sha256": "253899527362c6bf17fad6bbe5b33f7cd2b0fa909c8a66669002cf17b4c1e08d"
     },
     {
         "atom_id": "CA-M-376",
-        "version": 2,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/05_method/CA-M-376-CONNECTOR_TOOLS-CORE-METHOD--execute-one-explicit-connector-operation.md",
-        "sha256": "5ccecc40357c7819b2dbed8855748a1ef1ac06f05bfd1581792806206ea6810a"
     },
     {
         "atom_id": "CA-E-301",
-        "version": 19,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/06_evaluation/CA-E-301-CONNECTOR_TOOLS-STANDARD-QA_CASE--verify-search-caprmedio-atom-carriers.md",
-        "sha256": "3f2f31abd50ff2d1330b73d11d7c424a76d55f9988854e939e1146b1908d943e"
     },
     {
         "atom_id": "CA-D-625",
-        "version": 3,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-625-CONNECTOR_TOOLS-CORE-DELIVERY--deliver-coherent-connector-interface.md",
-        "sha256": "708d39bbb841ece46a30d330c3768fbede6373ae00d30aacb5cdde3c18c24fcc"
     },
     {
         "atom_id": "CA-D-424",
-        "version": 14,
         "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-424-CONNECTOR_TOOLS-STANDARD-DELIVERY--deliver-atom-search-tool.md",
-        "sha256": "1c956aecac1b3cfb55b90cf32aa03ea44ca029289e0e1ab49ecf6d946237564a"
-    }
-])
+    },
+)
 
 AtomID = Annotated[str, Field(pattern=r"^CA-[CAPRMEDO]-[0-9]+$")]
 Digest = Annotated[str, Field(pattern=r"^[0-9a-f]{64}$")]
@@ -179,11 +164,12 @@ def _contract_reader(root: Path) -> ReadContext:
     reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
     for pin in SOURCE_PINS:
         raw = reader.read(root / pin["path"])
-        if hashlib.sha256(raw).hexdigest() != pin["sha256"]:
-            raise ToolError("subject-contract-stale", "Direct lookup contract differs from its accepted source pin")
         metadata = parse_carrier(raw, root / pin["path"]).metadata
-        if metadata.get("atom_id") != pin["atom_id"] or metadata.get("version") != pin["version"]:
-            raise ToolError("subject-contract-stale", "Direct lookup contract identity or Version differs")
+        role = {"R": "Requirement", "O": "Operations", "M": "Method", "E": "Evaluation", "D": "Delivery"}[pin["atom_id"][3:4]]
+        if (metadata.get("atom_id") != pin["atom_id"] or type(metadata.get("version")) is not int
+                or metadata["version"] < 1 or metadata.get("content_role") != role
+                or metadata.get("status") != "Active"):
+            raise ToolError("subject-contract-stale", "Direct lookup contract metadata is invalid")
     return reader
 
 
