@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 83
-updated_at: "2026-10-15 02:17:41 +0000"
+version: 84
+updated_at: "2026-10-15 03:14:12 +0000"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,16 @@ Improve entity model — Stage 2
 Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Verified local release and current preparation evidence — 2026-10-15
+
+Local release `local-20261015-current-rules-001` completed with terminal exit 0 after its mandatory full suite passed. It started from source HEAD `44b858ef9`; release checkpoints are `38039e0ff` (initial Journal checkpoint), `0280f77c4`, `eaa1b22b5` and `4a0aa8be2`. Exact suite module/test totals were not retained for this checkpoint and are not inferred. The actual local receipt is `.caprmedio_runtime/simple_local_release/reports/local-20261015-current-rules-001.md`.
+
+The new Project MCP reports readiness on port 56317: container `6545b60287f9785d6c6c56467b18472f35d1def6d7f2bad5fb8c1e016cf31917`, image `sha256:92ec07477c7be9d3bfeed3acabbe0a80008bc7929805965d5f45b81bc9fdd7d6`, fingerprint `176ee3a888af7f7bdaac3aae70d68aa1e3029e9f5163b20f92df47989fc80d0f`. Its saved `ready.json` is under `.caprmedio_runtime/runtime/project_mcp/1c85ed12963e347a8b1698c22c50e1a1209fd9b20ec950631b61a9c12823bbee/`. The coordinator's actual connected `get_mcp_reload_status` succeeded at generation `cc69b313e2090ac70609c644509b45e5120e7e0fa5eb3e4a3e49d761c4dced76`; that response is conversation evidence, not an invented saved status receipt.
+
+Independent review accepted the metadata-only `current-rules-refresh` successor and the mechanical forest's `mechanical-forest-current-rules` successor, preserving 906 source tuples, 611 change owners, 848 ordered patches, 266 unchanged owners and 29 held owners; Candidate #4 and the map remain unchanged. The preparation review is recorded in the reviewer's actual response, with no separate acceptance file claimed. The mechanical comparison is saved at `.caprmedio_tmp/stage2-migration-20261015/mechanical-forest-review/verification-current-rules.json`. These passes do not establish P1909 acceptance, native graph admission or a staged migration packet.
+
+Fresh connected 611-owner preview and staging remain unverified. The first controlled-client attempt failed before any Tool call; `.caprmedio_tmp/stage2-migration-20261015/connected-preview/live611-current-rules-001.json` retains `calls: []` and matching before/after hashes and modes for all 906 sources. The coordinator identified a client SDK timeout-type mismatch and is correcting that client; no preview result or retry outcome is inferred. The Operator's question about one exact 611-owner batch confirmation plus the reviewed map instead of 611 forms/reports remains unanswered. Keep both Epics Active, preserve uncertain staging evidence and no replay, and retain the final graph/packet, exact publication approval and independent reproduction gates. Ordinary content migration remains deferred.
 
 ### Current-rule loading and unwanted-rollback regression — 2026-10-15
 
