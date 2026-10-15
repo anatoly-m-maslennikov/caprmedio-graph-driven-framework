@@ -631,7 +631,7 @@ class Gateway:
                 return confirmed
         timeout = IMPLEMENTATION_CALL_TIMEOUT_SECONDS
         staging = (params.name == 'atom_update' and isinstance(request, dict)
-                   and request.get('operation') in {'stage_subjects', 'stage_subject_batch'})
+                   and request.get('operation') in ('stage_subjects', 'stage_subject_batch'))
         if staging:
             timeout = SUBJECT_STAGE_CALL_TIMEOUT_SECONDS
         elif (params.name == 'atom_update' and isinstance(request, dict)

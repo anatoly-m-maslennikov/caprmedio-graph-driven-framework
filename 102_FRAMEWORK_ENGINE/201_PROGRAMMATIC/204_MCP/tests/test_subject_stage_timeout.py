@@ -30,6 +30,7 @@ class SubjectStageTimeoutTests(unittest.IsolatedAsyncioTestCase):
 
         cases = [
             ("atom_update", {"request": {"operation": "stage_subjects"}}, 600),
+            ("atom_update", {"request": {"operation": "stage_subject_batch"}}, 600),
             ("atom_update", {"request": {"operation": "preview_subjects"}}, 300),
             ("update_atom", {"request": {"operation": "stage_subjects"}}, 90),
             ("atom_update_extra", {"request": {"operation": "stage_subjects"}}, 90),
