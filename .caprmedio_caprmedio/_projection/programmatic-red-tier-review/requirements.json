@@ -1,0 +1,2317 @@
+{
+  "schema_version": 1,
+  "projection": true,
+  "authority": false,
+  "captured_at": "2026-10-15 22:34:34 +0400",
+  "status": "read_only_classification_with_holds",
+  "base": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC",
+  "selection": "Exactly94 explicitly Active current Requirement carriers; archive, archived, draft, evidence and Projection carriers excluded. PROGRAMMATIC root has zero explicitActive Requirements.",
+  "source_inventory": ".caprmedio_caprmedio/_projection/programmatic-red-tier-review/inventory.json",
+  "source_freshness": "All94 live source hashes matched the exact captured inventory before this report; recheck before any mutation.",
+  "classification_authority": [
+    "CA-R-659@20",
+    "CA-R-1431@11",
+    "CA-R-660@16",
+    "CA-M-272@13",
+    "CA-R-1442@11",
+    "CA-R-1339@12",
+    "CA-D-482@8",
+    "CA-M-273@14"
+  ],
+  "method": "Complete Claims and Details reviewed in three read-only lanes. Tier fit is separate from preservation-ready disposition. No scope or target inferred from folders, owner or body Scope. No General tier justified by reuse alone.",
+  "counts": {
+    "total": 94,
+    "by_scope": {
+      "TOOLS": 43,
+      "DISCOVER_OPERATIONS": 1,
+      "DISCOVER_TOOLS": 1,
+      "GET_EXECUTION_CONTEXT": 1,
+      "GET_EXECUTION_STATUS": 1,
+      "RESUME_EXECUTION_CONTEXT": 1,
+      "WATCH_EXECUTION": 1,
+      "WORKFLOW_ORCHESTRATOR": 12,
+      "MCP": 10,
+      "PROJECT_TOOLS": 9,
+      "CONNECTOR_TOOLS": 6,
+      "TOOL_WORKFLOWS": 8
+    },
+    "by_disposition": {
+      "hold": 40,
+      "keep": 54
+    },
+    "missing_claim_target": 29,
+    "undeclared_owner": 0
+  },
+  "general_candidate_witnesses": {
+    "CA-R-1898": {
+      "candidate": "General",
+      "realizations": [
+        "Prune exact .DS_Store entries before filesystem traversal/content admission.",
+        "Apply the same exact-basename policy in a source-provider inventory before any member read or digest comparison."
+      ],
+      "changed_shared_contract": "Change the admitted host-metadata exclusion set while preserving declared source ownership, permission and observed-result Core boundaries.",
+      "authority_unit": "Uniform Tool-source admission/validation policy across roles; not the implementation of one query or test.",
+      "hold": "Missing required carried Claim Target Scope Unit; no promotion authorized by this report."
+    },
+    "CA-R-1930": {
+      "candidate": "General portion only, not complete-Claim classification",
+      "realizations": [
+        "Expose description from live canonical Tool models and bindings.",
+        "Generate the same closed description from those canonical models at packaging time and serve verified current artifacts."
+      ],
+      "changed_shared_contract": "Revise the mandatory shared description fields or supported schema contract while preserving Tool identity, canonical behavior ownership and Operator permission boundaries.",
+      "hold": "Missing target plus mixed ownership/source boundaries; split decision needed, no authored split."
+    },
+    "CA-R-1850": {
+      "candidate": "Not accepted as General",
+      "realizations": [
+        "Bounded recursive-descent parser plus typed AST evaluator.",
+        "A materially different bounded parser/table-driven evaluator preserving exact grammar, type semantics and configured limits."
+      ],
+      "changed_shared_contract": "Revise admitted literal operators while preserving permission, no-code-execution and declared behavior ownership.",
+      "failure": "Witness reuse does not establish governance of every Standard TOOLS Atom; complete Scope is read-only QUERY_FILTER consumers. Parent holds final General adjudication."
+    }
+  },
+  "missing_generic_programmatic_core_requirements": [],
+  "core_gap_reason": "No independently new foundational R result/model established by reviewed Active descendants. Proposed generic rules duplicate agreed M384/M386-392 or existing broader methodology authority. Legacy root R carriers lacking explicit Active status were not admitted as reviewed active authority.",
+  "cross_cutting_holds": [
+    {
+      "issue": "missing_required_claim_target_scope_unit",
+      "count": 29,
+      "evidence": "CA-D-482@8 lines28-34; CA-M-273@14 line32. Authoring default is not later location-based inference."
+    },
+    {
+      "issue": "mixed_claim",
+      "atoms": [
+        "CA-R-1930",
+        "CA-R-1936",
+        "CA-R-1933",
+        "CA-R-1934",
+        "CA-R-1935",
+        "CA-R-1847",
+        "CA-R-1848"
+      ],
+      "evidence": "CA-M-272@13 lines30-34; no unapproved split authored."
+    },
+    {
+      "issue": "requirement_delivery_boundary",
+      "atoms": [
+        "CA-R-1059",
+        "CA-R-1068",
+        "CA-R-1870"
+      ],
+      "evidence": "CA-R-1339@12 lines28-34; concrete locations/representation are separable from semantic required results."
+    },
+    {
+      "issue": "journal_authority_conflict",
+      "atoms": [
+        "CA-R-1824"
+      ],
+      "evidence": "R1824@2 lines29-65 require receipt/dedup/retry recovery gates; R1491@8 lines34-38 forbids these as plain Journal append/read gates."
+    }
+  ],
+  "limitations": [
+    "No authoritative source, Journal, Git, MCP or runtime mutation.",
+    "No implementation/runtime conformance claim.",
+    "No legacy no-status source admitted Active.",
+    "Report does not authorize target repair, new identities, mixed-Claim splitting or tier changes."
+  ],
+  "atoms": [
+    {
+      "atom_id": "CA-R-1059",
+      "version": 15,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1059-TOOLS-REQUIREMENT--generate-active-requirement-subject-catalog.md",
+      "sha256": "f7f687aacc6e3e853660a844d244eaaafec8877ca63e3a79ee4e74d5f4c1dd56",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.98,
+      "disposition": "hold",
+      "reason": "One concrete Subject Catalog result; independent pathname/column delivery contribution warrants role-boundary review.",
+      "evidence_lines": [
+        24,
+        28
+      ],
+      "hold_reasons": [
+        "requirement_delivery_boundary_review"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1068",
+      "version": 12,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1068-TOOLS-REQUIREMENT--generate-active-requirement-lineage-map.md",
+      "sha256": "2b15d23d6bb8542f4630b47aef6586e43573c00b121580c604bf48f974ff69cd",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.98,
+      "disposition": "hold",
+      "reason": "One concrete lineage Projection result; independent pathname/column delivery contribution warrants role-boundary review.",
+      "evidence_lines": [
+        24,
+        28
+      ],
+      "hold_reasons": [
+        "requirement_delivery_boundary_review"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1622",
+      "version": 4,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1622-TOOLS-REQUIREMENT--implement-atom-carrier-validation-in-validate-atoms.md",
+      "sha256": "6c3fe5d890dca9fedcda58810004d0d9c0c27b73f3fceaa0486cb7b01f32d1c0",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "One VALIDATE_ATOMS Action realization and its supported mechanical coverage, not all-TOOLS constitutive authority.",
+      "evidence_lines": [
+        33,
+        37,
+        43
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1623",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1623-TOOLS-REQUIREMENT--keep-atom-validation-execution-bounded-and-read-only.md",
+      "sha256": "065bdd3b96011ddbadda85748f17bfcbfa15da9660839b028114c8a9d89dcab3",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "Bounded read-only behavior of the selected validator, not a scope-wide foundation.",
+      "evidence_lines": [
+        31,
+        35,
+        42
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1810",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1810-TOOLS--derive-one-current-capability-catalog.md",
+      "sha256": "12b544083cd474e5ac44cfd9c135dca6e5ec9da165de6ec02a78f5082a1211a3",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.98,
+      "disposition": "hold",
+      "reason": "One current Capability Catalog read-model result; declared, implemented and exposed facts remain distinct.",
+      "evidence_lines": [
+        31,
+        35,
+        43
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1821",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1821-TOOLS-REQUIREMENT--admit-only-current-authorized-selected-operation-runs.md",
+      "sha256": "6c6391f0b5036ee3332522c6ed73a445c7f8c0b15d5d3e4cee7766e63ffccec0",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "Closed selected-operation RUN_SUPPORT admission contract for the thirteen named routes.",
+      "evidence_lines": [
+        24,
+        30,
+        80
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1822",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1822-TOOLS-REQUIREMENT--bind-selected-run-identities-revisions-and-lineage.md",
+      "sha256": "0311db99d3f305722f158af43e9ea30a79eb6320501589c65c1fd258db227f12",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Selected-Run identity and lineage results retain inherited provenance boundaries.",
+      "evidence_lines": [
+        24,
+        29,
+        54
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1823",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1823-TOOLS-REQUIREMENT--report-truthful-selected-run-outcomes.md",
+      "sha256": "58e8e2108ded557ff1583a47baec94b7285547a8522ffb175947c9b97face119",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Actual selected-Run outcome and recording-state model with concrete Event/outcome mappings.",
+      "evidence_lines": [
+        24,
+        29,
+        55
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1824",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1824-TOOLS-REQUIREMENT--recover-selected-run-journal-evidence-without-replaying-effects.md",
+      "sha256": "e4062c2b18ead48ee8505679ce81dec9eaf6e11be888fa802dfda2da4b4c5599",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.97,
+      "disposition": "hold",
+      "reason": "Concrete selected-Run Journal recovery contract; receipt/deduplication/retry gates conflict with higher plain-Journal R1491@8.",
+      "evidence_lines": [
+        24,
+        29,
+        65
+      ],
+      "hold_reasons": [
+        "plain_journal_R1491_conflict"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1849",
+      "version": 3,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1849-TOOLS-REQUIREMENT--query-and-fetch-markdown-artifacts-read-only.md",
+      "sha256": "f70123260870f72cefe7163f784826eca4131cf250915726e9bbdacee6e91759",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "One named read-only Artifact-query capability and its bound methodology Actions.",
+      "evidence_lines": [
+        24,
+        31,
+        49
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1850",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1850-TOOLS-REQUIREMENT--define-the-bounded-query-filter-contract.md",
+      "sha256": "383022199dd56e7c1e0a079e8b1d1ef38008043caa74d1a8f1cb6c3ac92ad822",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.95,
+      "disposition": "hold",
+      "reason": "Shared QUERY_FILTER is reused but its complete Scope governs read-only users of that filter, not every Standard TOOLS Atom; General adjudication remains held.",
+      "evidence_lines": [
+        23,
+        29,
+        42
+      ],
+      "hold_reasons": [
+        "all_standard_general_test_adjudication"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1861",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1861-TOOLS-REQUIREMENT--read-only-query-the-canonical-events-journal.md",
+      "sha256": "c1c45101a09a36709bda0a306bd5d4339b9af17c2a933bdd5931d544bfb09fa9",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "The named Journal query's source-domain result boundary.",
+      "evidence_lines": [
+        24,
+        28,
+        35
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1862",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1862-TOOLS-REQUIREMENT--filter-every-event-field-with-a-bounded-literal-grammar.md",
+      "sha256": "ba1620b7dfbb9b04ae25b94aac1b4e6b4221214e609a96619ed36b30cd96e5c3",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "Journal-specific selector mapping to the existing shared filter contract.",
+      "evidence_lines": [
+        24,
+        28,
+        37
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1863",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1863-TOOLS-REQUIREMENT--return-event-ids-by-default-and-selected-event-content-on-request.md",
+      "sha256": "72d776ed96e3a7b6900f402d83c738d36269bf7369f97cfca87bd1c6585da087",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "Concrete Journal query result selection and default content behavior.",
+      "evidence_lines": [
+        24,
+        28,
+        32
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1864",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1864-TOOLS-REQUIREMENT--preserve-journal-query-read-only-and-secret-boundaries.md",
+      "sha256": "97e95d712867ec82446a0966dcbbd4f5db2d1c1b70ea641cde08b3eafe3d0df9",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "Secret/read-only boundaries of one Journal-query capability inherit broader authority.",
+      "evidence_lines": [
+        24,
+        28,
+        32
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1865",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1865-TOOLS-REQUIREMENT--report-complete-query-diagnostics-and-bounded-coverage.md",
+      "sha256": "06fa6e4d2bc2e047bde0ee90c41e9711adcc59c5cb405d8571135f49a96f0de1",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "The particular Journal query's diagnostics and measured coverage result contract.",
+      "evidence_lines": [
+        24,
+        28,
+        41
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1866",
+      "version": 3,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1866-TOOLS-REQUIREMENT--seal-a-stable-event-source-snapshot-before-query-execution.md",
+      "sha256": "02ed02120cc1dc1581dd00ca36ad02fc3a0b9313faac9e915d951e2c32bae4c5",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "One Journal-query snapshot and continuation result contract.",
+      "evidence_lines": [
+        24,
+        28,
+        42
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1867",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1867-TOOLS-REQUIREMENT--use-shared-selected-run-journaling-only-for-actual-query-invocation.md",
+      "sha256": "4e0822927a4b19361c831ccadda7b252d3519ff6c6a151f9d2850812d91da588",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "Shared-recording binding for actual execution of the named query.",
+      "evidence_lines": [
+        24,
+        28,
+        32
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1868",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1868-TOOLS-REQUIREMENT--preserve-event-field-typing-and-missing-null-distinction.md",
+      "sha256": "efc221916c86f3db122c15af5230fd5672369bc38c516244f919ab5068dd974a",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "Journal selector extraction preserves shared typed value semantics.",
+      "evidence_lines": [
+        24,
+        28,
+        35
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1869",
+      "version": 3,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1869-TOOLS-REQUIREMENT--reject-nonliteral-and-ambiguous-event-query-expressions.md",
+      "sha256": "03f44ef2543d2138b858516a7b908fcba8da4fbbd25c2d11852c84e2336ef2f9",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "Journal-specific selector admission without a second filter language.",
+      "evidence_lines": [
+        24,
+        28,
+        41
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1870",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1870-TOOLS-REQUIREMENT--bind-journal-query-to-its-declared-tool-and-golden-test-paths.md",
+      "sha256": "d37e9051292022b4c5a907d1ed1f173313ef8cc62d80183698048c61ebb1a094",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Claim contributes only implementation and golden-test locations: Delivery-primary, not an Entity model or required semantic result.",
+      "evidence_lines": [
+        24,
+        28,
+        32
+      ],
+      "hold_reasons": [
+        "delivery_primary_claim_in_requirement"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1871",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1871-TOOLS-REQUIREMENT--return-observable-query-result-and-limit-evidence.md",
+      "sha256": "ae59387951166a621f74d2fa2f16fd4e208a66f81c7cf2145718938d305b184b",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "One query's observable result/limit evidence envelope.",
+      "evidence_lines": [
+        24,
+        28,
+        32
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1872",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1872-TOOLS-REQUIREMENT--retain-one-minimal-journal-query-route-definition.md",
+      "sha256": "a59a26b9154bdf267cec6456fe001b7390a4a99d7a9e31c437a5544613dd7d9e",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.99,
+      "disposition": "keep",
+      "reason": "Concrete cardinality of one Journal-query source-to-implementation route.",
+      "evidence_lines": [
+        24,
+        28,
+        32
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1898",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1898-TOOLS-REQUIREMENT--ignore-finder-metadata-in-tool-validation.md",
+      "sha256": "f20bc4992a2cb0a1724ddf8da0538accde2021a1b4350292661efb11e09d66e5",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "General",
+      "recommended_tier": null,
+      "confidence": 0.97,
+      "disposition": "hold",
+      "reason": "Uniform exact-basename metadata exclusion constrains Tool selection, inventories, validation, packaging, Projections and runtime checks across roles; replaceable policy, not constitutive identity.",
+      "evidence_lines": [
+        23,
+        27,
+        33
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1930",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/04_requirement/CA-R-1930-TOOLS-CORE-REQUIREMENT--require-uniform-tool-self-description.md",
+      "sha256": "99b1472d2d2e8ee32cde9fb74213ac65237554240b857d1c2770fb2a49d14de7",
+      "current_tier": "Core",
+      "current_global_tier": 9,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": null,
+      "recommended_tier": null,
+      "confidence": 0.94,
+      "disposition": "hold",
+      "reason": "Mixed canonical source/permission boundaries and independently replaceable every-Tool self-description contract; hold complete-Claim tier pending boundary review.",
+      "evidence_lines": [
+        21,
+        25,
+        33
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit",
+        "independently_replaceable_mixed_claim"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1805",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/DISCOVER_OPERATIONS/04_requirement/CA-R-1805-DISCOVER_OPERATIONS--provide-discover-operations.md",
+      "sha256": "ae14766fd4d9a4d5f0840ba43ccbb3d3a532a1b7c6c3a66e55134fedc233acf8",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "DISCOVER_OPERATIONS",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Named DISCOVER_OPERATIONS capability and its ranked bounded results.",
+      "evidence_lines": [
+        31,
+        35,
+        42
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1804",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/DISCOVER_TOOLS/04_requirement/CA-R-1804-DISCOVER_TOOLS--provide-discover-tools.md",
+      "sha256": "1c653692ba87969c3cc634f92174fae302e6aa206873e7aae4b3866cfd43cebb",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "DISCOVER_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Named DISCOVER_TOOLS capability and its ranked bounded results.",
+      "evidence_lines": [
+        31,
+        35,
+        42
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1806",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/GET_EXECUTION_CONTEXT/04_requirement/CA-R-1806-GET_EXECUTION_CONTEXT--provide-get-execution-context.md",
+      "sha256": "6dc1c18f73d183df732e9fea10fa51977fb0005e01c879af0ad46d153977f0fb",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "GET_EXECUTION_CONTEXT",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Named GET_EXECUTION_CONTEXT capability and source-bound context result.",
+      "evidence_lines": [
+        31,
+        35,
+        42
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1807",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/GET_EXECUTION_STATUS/04_requirement/CA-R-1807-GET_EXECUTION_STATUS--provide-get-execution-status.md",
+      "sha256": "8f455fc6849b7800358288580b6e04449ba2f4b954aef9cf207ab7683a828138",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "GET_EXECUTION_STATUS",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Named GET_EXECUTION_STATUS capability and saved result distinction.",
+      "evidence_lines": [
+        31,
+        35,
+        42
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1808",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/RESUME_EXECUTION_CONTEXT/04_requirement/CA-R-1808-RESUME_EXECUTION_CONTEXT--provide-resume-execution-context.md",
+      "sha256": "0f2cfca2aa6cb8f6b7af4d25ae36d3218e7a1a4b90d98a3c9fbe5add2688d663",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "RESUME_EXECUTION_CONTEXT",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Named RESUME_EXECUTION_CONTEXT capability, not permission to replay effects.",
+      "evidence_lines": [
+        31,
+        35,
+        42
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1809",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/WATCH_EXECUTION/04_requirement/CA-R-1809-WATCH_EXECUTION--provide-watch-execution.md",
+      "sha256": "80d0e66afcf56ac60ed460e970eaf8a0752c5f896d9c78e16c1065aa4af2ceac",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WATCH_EXECUTION",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Named WATCH_EXECUTION capability and bounded correlated updates.",
+      "evidence_lines": [
+        31,
+        35,
+        42
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1839",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/04_requirement/CA-R-1839-APPLICABLE_METHODOLOGY--select-the-complete-active-methodology-source-frontier.md",
+      "sha256": "3f6eb41f3898d2e8e9f2ae138f357f4d3b439092176d5681088361e855ff5127",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Applicable Methodology compiler's exact selected source-frontier result.",
+      "evidence_lines": [
+        25,
+        29,
+        42
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1840",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/04_requirement/CA-R-1840-APPLICABLE_METHODOLOGY--assess-and-preserve-applicable-methodology-conflicts.md",
+      "sha256": "19911c9e500447e999d0fe3f5cb34315d2edf0e2834c8ed3a76e4db824eaac39",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One compiler's deterministic conflict assessment/proposal result.",
+      "evidence_lines": [
+        25,
+        29,
+        42
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1841",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/04_requirement/CA-R-1841-APPLICABLE_METHODOLOGY--gate-source-corrections-and-reassessment-on-exact-approval.md",
+      "sha256": "7c0cf479a8d734d2611193307a23322ae082101e79b76daa1c417b1acdfe6cec",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One compiler's exact approved correction/selection handoff and reassessment boundary.",
+      "evidence_lines": [
+        25,
+        29,
+        43
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1842",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/04_requirement/CA-R-1842-APPLICABLE_METHODOLOGY--publish-a-current-resolved-frontier-atomically.md",
+      "sha256": "4f8e3e8a546a3877e48898a13ea119f36c125f72bb1d220751d66197c4a6072f",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One compiler's current complete atomic publication result and preservation behavior.",
+      "evidence_lines": [
+        25,
+        29,
+        40
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1825",
+      "version": 3,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/04_requirement/CA-R-1825-ATOM_LIFECYCLE-REQUIREMENT--resolve-current-atom-lifecycle-dispatch.md",
+      "sha256": "71d988309f579f7812917ef5db1761ff504baf7473715cd62c29548212312d45",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Specific one-target lifecycle dispatcher with qualified-model and replacement handoff results.",
+      "evidence_lines": [
+        24,
+        28,
+        36
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1826",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/04_requirement/CA-R-1826-ATOM_LIFECYCLE-REQUIREMENT--preserve-semantic-revision-and-history.md",
+      "sha256": "5a547ba6fada738af8069d03eb1210e83e92c80d14f4fec4b16c1a889e4e9910",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Lifecycle dispatch result facts preserve native revision/history semantics.",
+      "evidence_lines": [
+        24,
+        28,
+        34
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1827",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/04_requirement/CA-R-1827-ATOM_LIFECYCLE-REQUIREMENT--validate-one-sealed-lifecycle-target.md",
+      "sha256": "de4b152c3d77e10077f35f658292e50e8f5d579e059a4b46732acd3fba64de7f",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One sealed lifecycle target's validation and relation diagnostics.",
+      "evidence_lines": [
+        24,
+        28,
+        34
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1828",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/04_requirement/CA-R-1828-ATOM_LIFECYCLE-REQUIREMENT--return-lifecycle-dispatch-result-and-carriers.md",
+      "sha256": "64519be48a00cc4d18a2bb67bab7fcecc2a53d89e63bbadbbdb018cbe331b4d7",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Particular lifecycle payload/result handoff inside shared Run support.",
+      "evidence_lines": [
+        24,
+        28,
+        34
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1892",
+      "version": 3,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/04_requirement/CA-R-1892-ATOM_LIFECYCLE-REQUIREMENT--bind-semantic-update-assessment-evidence.md",
+      "sha256": "2abfdf2cdca132e697a5c6f66b5403f79b2064536102842c3b201cf001d54056",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.98,
+      "disposition": "hold",
+      "reason": "One substantive Update assessment-evidence boundary and explicitly instructed Subjects exception.",
+      "evidence_lines": [
+        23,
+        27,
+        37
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1835",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/04_requirement/CA-R-1835-GRAPH_PROJECTIONS--build-faithful-entities-graph-projections.md",
+      "sha256": "ac1bac759fc072bb10b725b3e63d0b072d56c688a5a52c70a74cffd89e212dbb",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One Entities Graph builder result with source-qualified facts and explicit coverage.",
+      "evidence_lines": [
+        24,
+        28,
+        45
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1836",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/04_requirement/CA-R-1836-GRAPH_PROJECTIONS--build-faithful-terms-graph-projections.md",
+      "sha256": "15575dc4ceea2f41507640ce9d82a27ce64d12e23ce964ef47a57e9dd8f40694",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One Terms Graph builder result, separate namespace and defining authority evidence.",
+      "evidence_lines": [
+        24,
+        28,
+        45
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1837",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/04_requirement/CA-R-1837-GRAPH_PROJECTIONS--enforce-projection-quality-and-truthful-outcomes.md",
+      "sha256": "82bbdeb5af1f60cd53fa69b31560a877331df7de526f46016f434f912e97135a",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Shared disposition of only the two graph builders, not all Standard TOOLS content.",
+      "evidence_lines": [
+        24,
+        28,
+        45
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1838",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/04_requirement/CA-R-1838-GRAPH_PROJECTIONS--retain-source-and-shared-run-boundaries.md",
+      "sha256": "587c33dba8a8fd196c05c38bf106624cdff9a24b38e94643863f2e3f3861e1c6",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Boundaries of graph construction and shared Run/Journal support for those builders.",
+      "evidence_lines": [
+        24,
+        28,
+        45
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1830",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/04_requirement/CA-R-1830-PROJECT_STRUCTURE-REQUIREMENT--validate-declared-scope-unit-tree-before-cutover.md",
+      "sha256": "98fc6ccca7e1ec9f08c9ac41a601d7d8f41b2d2f532dc6cabf811bc5548acf91",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One proposed Project Structure delta's required valid declaration result.",
+      "evidence_lines": [
+        25,
+        29,
+        41
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1831",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/04_requirement/CA-R-1831-PROJECT_STRUCTURE-REQUIREMENT--apply-authorized-scope-unit-cutover-losslessly.md",
+      "sha256": "77ccc60a9367814339701f2cc1061ab135f886cf235783d8c0b34d5dabf92b99",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One authorized structural cutover's preservation and actual-effect result.",
+      "evidence_lines": [
+        25,
+        29,
+        36
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1832",
+      "version": 1,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/04_requirement/CA-R-1832-PROJECT_STRUCTURE-REQUIREMENT--report-structural-change-result-and-breakage.md",
+      "sha256": "bea38620ca0b6e0a612ab720af6bdf6760f93e478134375d0ea16424f27fade9",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One structural operation's precise result and breakage disposition.",
+      "evidence_lines": [
+        25,
+        29,
+        35
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1833",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/REVERT_CHANGES/04_requirement/CA-R-1833-REVERT_CHANGES--admit-exact-approved-change-reversal-manifests.md",
+      "sha256": "04695f400ceb4f795e055921c8fbebcc7ca4d03b52dc901b0aa1bf08e53fb98d",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One explicitly approved reversal manifest's admission result, no inferred inverse.",
+      "evidence_lines": [
+        24,
+        28,
+        41
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1834",
+      "version": 2,
+      "relative_path": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/REVERT_CHANGES/04_requirement/CA-R-1834-REVERT_CHANGES--execute-admitted-approved-change-reversals.md",
+      "sha256": "d1744cdac2a4ed8e473e94fe2fa753befe75c1d30911783bbfc0477726002732",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One admitted reversal's observed effect account and outcomes.",
+      "evidence_lines": [
+        24,
+        28,
+        41
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1522",
+      "version": 4,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1522-WORKFLOW_ORCHESTRATOR-REQUIREMENT--provide-workflow-orchestration-from-methodology.md",
+      "sha256": "8edf51808cf177db6f74c763e4789e8361199528811570bf429fd919cd7b7f21",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.96,
+      "disposition": "hold",
+      "reason": "Concrete methodology-derived executor role and execution branches.",
+      "evidence_lines": [
+        27,
+        35
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1812",
+      "version": 1,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1812-WORKFLOW_ORCHESTRATOR--execute-authorized-base-revise-runs-independently.md",
+      "sha256": "4fe32a7ab5507f7d0c3c13d2af39b41fc9583b58cef208f6adac033013ebeee3",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Initial RMED Base Revise execution capability.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1813",
+      "version": 1,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1813-WORKFLOW_ORCHESTRATOR--recover-agent-execution-without-repeating-edits.md",
+      "sha256": "b6eaf127dfc9a1b6e09220dcb247a756b9ea28936aac31b650809e8af0081651",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Concrete Agent execution recovery and hash handling.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1814",
+      "version": 2,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1814-WORKFLOW_ORCHESTRATOR--constrain-isolated-agent-fixes-to-granted-authority.md",
+      "sha256": "5ce7352b4dee0ff3129e794b9dd818c9a62f064b63d763eaf0961e7d33a41323",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Specific isolated-Agent change admission contract.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1817",
+      "version": 1,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1817-WORKFLOW_ORCHESTRATOR--pause-on-incomplete-base-revise-coverage.md",
+      "sha256": "08dd389a1da7a44413cbe543607cc65881c5fc6ca92a5c7bf08f0361928143b5",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Base Revise phase Coverage Gate.",
+      "evidence_lines": [
+        23
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1818",
+      "version": 1,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1818-WORKFLOW_ORCHESTRATOR--provide-an-explicitly-managed-docker-runtime.md",
+      "sha256": "f04117623c358cf1ef55c60e15eed7dfe56882a5f313592341293b83129c02ea",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Specific Docker execution-option outcomes.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1819",
+      "version": 1,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1819-WORKFLOW_ORCHESTRATOR--isolate-agent-proposals-from-project-writes.md",
+      "sha256": "07428d10196f80f5b7857515225274b7c331c0254590a8ddd27ab912978b6daa",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Docker Agent-service isolation result.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1883",
+      "version": 1,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1883-WORKFLOW_ORCHESTRATOR-REQUIREMENT--recover-only-an-existing-frozen-release-run.md",
+      "sha256": "f0fb0d4559f579668a27925526c744d449eafa69668863d50dbf37601fd66d4d",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "One frozen Release recovery capability.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1891",
+      "version": 1,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1891-WORKFLOW_ORCHESTRATOR-REQUIREMENT--provide-isolated-host-execution-for-release-runs.md",
+      "sha256": "d8aa9e90601a3e53b437cec608ebacaa0a84ffd0b715b98167bab83b6da5b5f4",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Release-only Host Executor capability.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1895",
+      "version": 2,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1895-WORKFLOW_ORCHESTRATOR-REQUIREMENT--terminalize-one-operator-authorized-unknown-release-effect.md",
+      "sha256": "e00a9f721f4a364bd620497e09fd7b17cbece22b3c98e1bf26e135bf87088a5b",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "One named frozen Run/unknown-effect resolution.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1896",
+      "version": 1,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1896-WORKFLOW_ORCHESTRATOR-REQUIREMENT--stop-an-idle-release-host-worker-through-private-ipc.md",
+      "sha256": "2f2dff93c91303f7267c503cbf583bb2952e6860698b073a22c116087fab5e91",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Exact idle Release-worker private IPC behavior.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1901",
+      "version": 3,
+      "relative_path": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/04_requirement/CA-R-1901-WORKFLOW_ORCHESTRATOR-REQUIREMENT--admit-one-compatible-project-mcp-runtime.md",
+      "sha256": "a00abb443b92574571d98259dbaf6e6790028b70747dc32a3632a1cb59c6d660",
+      "current_tier": "Standard",
+      "current_global_tier": 14,
+      "scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "scope_declared": true,
+      "claim_target_scope_unit": "WORKFLOW_ORCHESTRATOR",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One compatible Project MCP image/lifecycle/port admission result.",
+      "evidence_lines": [
+        26
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1811",
+      "version": 1,
+      "relative_path": "204_FEATURE_MCP/04_requirement/CA-R-1811-MCP--expose-discovery-and-execution-observation.md",
+      "sha256": "f6978f252f87f5089926a47e7e63e5cf514f406a872ec3b4bd648c66f545a18a",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "MCP",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Named discovery and observation capabilities exposed over MCP.",
+      "evidence_lines": [
+        33
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1816",
+      "version": 1,
+      "relative_path": "204_FEATURE_MCP/04_requirement/CA-R-1816-MCP--report-server-and-client-refresh-separately.md",
+      "sha256": "02e117b6e4c5da49620d1209718be55ddb4d87f469bb09efbe4f63e994becb41",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "MCP",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.98,
+      "disposition": "hold",
+      "reason": "Gateway publication versus client-discovery refresh result.",
+      "evidence_lines": [
+        23
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1820",
+      "version": 1,
+      "relative_path": "204_FEATURE_MCP/04_requirement/CA-R-1820-MCP--reload-mcp-implementation-without-disconnecting.md",
+      "sha256": "3bbf6c505d4d37194c2573ee08b7e48e11d5ab93de8e4030ff0aa0c77236d7b7",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "MCP",
+      "scope_declared": true,
+      "claim_target_scope_unit": "MCP",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Project-local hot-reload behavior.",
+      "evidence_lines": [
+        33
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1847",
+      "version": 13,
+      "relative_path": "204_FEATURE_MCP/04_requirement/CA-R-1847-MCP-REQUIREMENT--expose-selected-workflow-capability-routes.md",
+      "sha256": "6717ce106a8154823c145899c5f4415e0e266a90e4ba6d0710d2bc992c86d48c",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "MCP",
+      "scope_declared": true,
+      "claim_target_scope_unit": "MCP",
+      "target_declared": true,
+      "tier_fit": null,
+      "recommended_tier": null,
+      "confidence": 0.86,
+      "disposition": "hold",
+      "reason": "Selected-route exposure mixes independently revisable route, Release, dispatch, query and Subjects-only batch regimes.",
+      "evidence_lines": [
+        29,
+        33,
+        106
+      ],
+      "hold_reasons": [
+        "independently_replaceable_mixed_claim"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1848",
+      "version": 7,
+      "relative_path": "204_FEATURE_MCP/04_requirement/CA-R-1848-MCP-REQUIREMENT--guard-selected-mcp-dispatch-and-observation-truth.md",
+      "sha256": "8f16cfcaeb35f773e546c5289c1ff81c19f5086e3b6fe8ec16354f91ef8246d6",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "MCP",
+      "scope_declared": true,
+      "claim_target_scope_unit": "MCP",
+      "target_declared": true,
+      "tier_fit": null,
+      "recommended_tier": null,
+      "confidence": 0.88,
+      "disposition": "hold",
+      "reason": "Selected-boundary truth rule mixes overlapping blacklist, Release, source admission, query and reporting regimes.",
+      "evidence_lines": [
+        25,
+        29,
+        70
+      ],
+      "hold_reasons": [
+        "independently_replaceable_mixed_claim"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1884",
+      "version": 1,
+      "relative_path": "204_FEATURE_MCP/04_requirement/CA-R-1884-MCP--provide-localhost-http-mcp-alongside-stdio.md",
+      "sha256": "33c3c289ed9426d893675704b7f14f6b72b0f887edce9902d997b2d4fec81f9e",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "MCP",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Additional localhost HTTP transport capability.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1885",
+      "version": 2,
+      "relative_path": "204_FEATURE_MCP/04_requirement/CA-R-1885-MCP--protect-localhost-http-mcp-access.md",
+      "sha256": "69bcc819e804dc298399b7d8a0dd9c7e5a98590b927f77d74742f19a474fb5d6",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "MCP",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "HTTP-specific loopback/Host-Origin access behavior.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1894",
+      "version": 1,
+      "relative_path": "204_FEATURE_MCP/04_requirement/CA-R-1894-MCP-REQUIREMENT--refresh-only-accepted-selected-source-pins.md",
+      "sha256": "8c757293510088685fa539e22eedb8cea2a4d3cdd14ccc7fadf3f20d0e7ece4b",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "MCP",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "One registered selected-source pin refresh capability.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1899",
+      "version": 1,
+      "relative_path": "204_FEATURE_MCP/04_requirement/CA-R-1899-MCP-REQUIREMENT--admit-exact-acceptance-carrier-relocations.md",
+      "sha256": "07a50f28f2ab4e0c715fda85255452d8ba1321f35733cbf1c813665dc20609f7",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "MCP",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.99,
+      "disposition": "hold",
+      "reason": "Three registered exact carrier-relocation admissions.",
+      "evidence_lines": [
+        25
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1900",
+      "version": 1,
+      "relative_path": "204_FEATURE_MCP/04_requirement/CA-R-1900-MCP-REQUIREMENT--select-one-project-mcp-launch-context.md",
+      "sha256": "2cfb22ca49f4f07f5fe6b5e292ea41e2e006dfac8dca5d723dea3a6f20b2f5d0",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "MCP",
+      "scope_declared": true,
+      "claim_target_scope_unit": "MCP",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One safe Project MCP launch-context binding.",
+      "evidence_lines": [
+        26
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1878",
+      "version": 5,
+      "relative_path": "205_FEATURE_PROJECT_TOOLS/04_requirement/CA-R-1878-PROJECT_TOOLS-REQUIREMENT--preserve-authoritative-sources-and-derived-release-boundaries.md",
+      "sha256": "6669004055c38d7a0a80af62a6f1ff5d64f3c6b01c187d087bfd931157616ace",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "PROJECT_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.97,
+      "disposition": "hold",
+      "reason": "Concrete Release Version source/delivery boundary; target unresolved independently from declared owner.",
+      "evidence_lines": [
+        20,
+        26,
+        32
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1880",
+      "version": 3,
+      "relative_path": "205_FEATURE_PROJECT_TOOLS/04_requirement/CA-R-1880-PROJECT_TOOLS-REQUIREMENT--preserve-prior-release-and-truthful-failure-recording.md",
+      "sha256": "27f79dc58cf468efa96bf989fe459efd35197d467453164b855c0636bd895bfd",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "PROJECT_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": null,
+      "target_declared": null,
+      "tier_fit": "Standard",
+      "recommended_tier": null,
+      "confidence": 0.97,
+      "disposition": "hold",
+      "reason": "Concrete Release Version runtime replacement/failure-recording behavior; target unresolved independently from owner.",
+      "evidence_lines": [
+        21,
+        27,
+        33
+      ],
+      "hold_reasons": [
+        "missing_required_claim_target_scope_unit"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1920",
+      "version": 2,
+      "relative_path": "205_FEATURE_PROJECT_TOOLS/04_requirement/CA-R-1920-PROJECT_TOOLS-REQUIREMENT--require-explicit-operator-invocation-for-public-release.md",
+      "sha256": "4f1eaeb4f4668a33ac6c5f9886fe536300f31e680df4260008a001f231d0aa5a",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "PROJECT_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "PROJECT_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.96,
+      "disposition": "keep",
+      "reason": "Exact public-release Operator invocation gate.",
+      "evidence_lines": [
+        25,
+        29
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1921",
+      "version": 2,
+      "relative_path": "205_FEATURE_PROJECT_TOOLS/04_requirement/CA-R-1921-PROJECT_TOOLS-REQUIREMENT--bound-public-release-to-one-personal-remote.md",
+      "sha256": "70259ff2a5975851b42143b50a36822115ce0393a6e1d764f4822aa9397b9f65",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "PROJECT_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "PROJECT_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Exact personal remote and branch-direction public-release boundary.",
+      "evidence_lines": [
+        25,
+        29
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1923",
+      "version": 2,
+      "relative_path": "205_FEATURE_PROJECT_TOOLS/04_requirement/CA-R-1923-PROJECT_TOOLS-REQUIREMENT--require-an-actual-pr-link-in-version-history.md",
+      "sha256": "ead465c278e71c53a2f5d5470f114c0d7f8f6eba98ad004de201240d1852987e",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "PROJECT_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "PROJECT_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Public-release Version History entry content.",
+      "evidence_lines": [
+        25,
+        29
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1925",
+      "version": 2,
+      "relative_path": "205_FEATURE_PROJECT_TOOLS/04_requirement/CA-R-1925-PROJECT_TOOLS-REQUIREMENT--require-immutable-proof-for-public-push.md",
+      "sha256": "342ea54a73f99691d3a2395e3e63f5b4cf817e5b374bff6a3c615147fdef8607",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "PROJECT_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "PROJECT_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Public-push immutable-proof retention result.",
+      "evidence_lines": [
+        25,
+        29
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1926",
+      "version": 2,
+      "relative_path": "205_FEATURE_PROJECT_TOOLS/04_requirement/CA-R-1926-PROJECT_TOOLS-REQUIREMENT--maintain-one-matching-open-main-pr.md",
+      "sha256": "2f2eee6307e4913324d022b65afdab155f6f575ee4dcb2314926cc40b97b3e25",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "PROJECT_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "PROJECT_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Exact amm/dev-to-main matching open PR behavior.",
+      "evidence_lines": [
+        25,
+        29
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1927",
+      "version": 2,
+      "relative_path": "205_FEATURE_PROJECT_TOOLS/04_requirement/CA-R-1927-PROJECT_TOOLS-REQUIREMENT--exclude-merge-from-public-release-workflow.md",
+      "sha256": "17ec7eaa6f23799d7df58b47be8c242210ac0a352705530a5b33779e9d922d4d",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "PROJECT_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "PROJECT_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "Narrow public-release terminal boundary excluding merge.",
+      "evidence_lines": [
+        25,
+        29
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1928",
+      "version": 2,
+      "relative_path": "205_FEATURE_PROJECT_TOOLS/04_requirement/CA-R-1928-PROJECT_TOOLS-REQUIREMENT--record-public-release-lineage-with-schema-v5-runs.md",
+      "sha256": "a6cf116ae3519bc9a382f291a24e80176ce4138425f027feae05788cf3926b57",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "PROJECT_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "PROJECT_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.97,
+      "disposition": "keep",
+      "reason": "Concrete public-release schema-v5 Run-recording contract.",
+      "evidence_lines": [
+        25,
+        29
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1936",
+      "version": 2,
+      "relative_path": "305_FEATURE_CONNECTOR_TOOLS/04_requirement/CA-R-1936-CONNECTOR_TOOLS-CORE-REQUIREMENT--use-one-coherent-connector-interface.md",
+      "sha256": "dbb7471c477adf1474db73624e066d3fff202a61d975729d8d4ea4cbf95b040a",
+      "current_tier": "Core",
+      "current_global_tier": 9,
+      "scope_unit": "CONNECTOR_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "CONNECTOR_TOOLS",
+      "target_declared": true,
+      "tier_fit": null,
+      "recommended_tier": null,
+      "confidence": 0.94,
+      "disposition": "hold",
+      "reason": "Mixed logical/storage and Workflow/connector ownership boundaries with concrete operation envelope, result schema and direct Subject subset.",
+      "evidence_lines": [
+        29,
+        31,
+        35,
+        45
+      ],
+      "hold_reasons": [
+        "independently_replaceable_mixed_claim"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1937",
+      "version": 4,
+      "relative_path": "305_FEATURE_CONNECTOR_TOOLS/04_requirement/CA-R-1937-CONNECTOR_TOOLS-STANDARD-REQUIREMENT--query-declared-scope-units.md",
+      "sha256": "740a4f6df454347f30f31e6fa96a08c51c92336deb39728d5b274d00d0d082ad",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "CONNECTOR_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "CONNECTOR_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.97,
+      "disposition": "keep",
+      "reason": "Specific Scope Unit Query payload, filtering and coverage behavior.",
+      "evidence_lines": [
+        27,
+        35,
+        37
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1938",
+      "version": 4,
+      "relative_path": "305_FEATURE_CONNECTOR_TOOLS/04_requirement/CA-R-1938-CONNECTOR_TOOLS-STANDARD-REQUIREMENT--read-one-complete-scope-unit-declaration.md",
+      "sha256": "130c78d5407055c9e4c56547958217a1d6dbe04e779da6d08ae17504b7be9304",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "CONNECTOR_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "CONNECTOR_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.97,
+      "disposition": "keep",
+      "reason": "One complete Scope Unit Read capability and source-state result.",
+      "evidence_lines": [
+        27,
+        35,
+        37
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1941",
+      "version": 5,
+      "relative_path": "305_FEATURE_CONNECTOR_TOOLS/04_requirement/CA-R-1941-CONNECTOR_TOOLS-STANDARD-REQUIREMENT--bound-private-carrier-storage-changes.md",
+      "sha256": "41da4722fbc2ae7cb29adce97a0995c693da6092582527eb1ecf3d1a809bd64f",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "CONNECTOR_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "CONNECTOR_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.96,
+      "disposition": "keep",
+      "reason": "Specific private rename/move/remove capability and selected-root/review-window safeguards.",
+      "evidence_lines": [
+        27,
+        41,
+        43
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1942",
+      "version": 2,
+      "relative_path": "305_FEATURE_CONNECTOR_TOOLS/04_requirement/CA-R-1942-CONNECTOR_TOOLS-STANDARD-REQUIREMENT--read-one-complete-toml-configuration.md",
+      "sha256": "2a8e2dc1560098971d19d0999b4363ca7f87f48f7ab0462b6a370dd2d8d115f5",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "CONNECTOR_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "CONNECTOR_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.98,
+      "disposition": "keep",
+      "reason": "One complete logical configuration Read capability.",
+      "evidence_lines": [
+        27,
+        31,
+        33
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-863",
+      "version": 20,
+      "relative_path": "305_FEATURE_CONNECTOR_TOOLS/04_requirement/CA-R-863-CONNECTOR_TOOLS-STANDARD-REQUIREMENT--search-caprmedio-markdown-atoms.md",
+      "sha256": "83955ee92f170f9a97d9edc4e01c933f34fd9485f3d177f91e7ac2b77c7e39f6",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "CONNECTOR_TOOLS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "CONNECTOR_TOOLS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.97,
+      "disposition": "keep",
+      "reason": "ATOM_SEARCH-specific filtering, profiles, coverage and direct subset.",
+      "evidence_lines": [
+        31,
+        39,
+        49
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1041",
+      "version": 10,
+      "relative_path": "306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-1041-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--coordinate-atom-replacement-intent.md",
+      "sha256": "e1539b772b35f2728d2eecefe2b137a6fd21ad4ccff7caa753ec8d19b14f092e",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOL_WORKFLOWS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOL_WORKFLOWS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.96,
+      "disposition": "keep",
+      "reason": "REPLACE_ATOM-specific admission, delegation and complete successor result.",
+      "evidence_lines": [
+        24,
+        37,
+        45
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1829",
+      "version": 4,
+      "relative_path": "306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-1829-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--dispatch-one-bounded-scope-unit-change.md",
+      "sha256": "e8eeac9b0046b86890fdae4d05709222b07c359cc1a8715222be5947c0d0afcf",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOL_WORKFLOWS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOL_WORKFLOWS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.97,
+      "disposition": "keep",
+      "reason": "Bounded Project Structure route and structural-result contract.",
+      "evidence_lines": [
+        29,
+        33,
+        41
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-1933",
+      "version": 2,
+      "relative_path": "306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-1933-TOOL_WORKFLOWS-CORE-REQUIREMENT--edit-one-explicit-atom-section.md",
+      "sha256": "d4085b56f48e3964ca099793747097cf9ffa986d38b6971a22edcb50f589c4d8",
+      "current_tier": "Core",
+      "current_global_tier": 9,
+      "scope_unit": "TOOL_WORKFLOWS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOL_WORKFLOWS",
+      "target_declared": true,
+      "tier_fit": null,
+      "recommended_tier": null,
+      "confidence": 0.92,
+      "disposition": "hold",
+      "reason": "Mixed section-edit capability and independently replaceable generic same-ID, no-op and independent-Action boundaries.",
+      "evidence_lines": [
+        29,
+        31,
+        33
+      ],
+      "hold_reasons": [
+        "independently_replaceable_mixed_claim"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1934",
+      "version": 2,
+      "relative_path": "306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-1934-TOOL_WORKFLOWS-CORE-REQUIREMENT--edit-atom-properties-by-current-values.md",
+      "sha256": "21a98b6114444ed3d8c50016b169cdd509bd2a25e8e686f565f2ca010369bf40",
+      "current_tier": "Core",
+      "current_global_tier": 9,
+      "scope_unit": "TOOL_WORKFLOWS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOL_WORKFLOWS",
+      "target_declared": true,
+      "tier_fit": null,
+      "recommended_tier": null,
+      "confidence": 0.92,
+      "disposition": "hold",
+      "reason": "Mixed Property/current-value edit capability and generic identity, no-op and multi-Action boundaries.",
+      "evidence_lines": [
+        29,
+        31,
+        33
+      ],
+      "hold_reasons": [
+        "independently_replaceable_mixed_claim"
+      ]
+    },
+    {
+      "atom_id": "CA-R-1935",
+      "version": 2,
+      "relative_path": "306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-1935-TOOL_WORKFLOWS-CORE-REQUIREMENT--share-one-toml-connector-across-configuration-workflows.md",
+      "sha256": "90f858ca1ce04e528f96d669a0e3c436f9b38f6368ed870b20d361d27a1b9b77",
+      "current_tier": "Core",
+      "current_global_tier": 9,
+      "scope_unit": "TOOL_WORKFLOWS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOL_WORKFLOWS",
+      "target_declared": true,
+      "tier_fit": null,
+      "recommended_tier": null,
+      "confidence": 0.94,
+      "disposition": "hold",
+      "reason": "Mixed Workflow/connector ownership separation and specific configuration read/validate/write/CreateScopeUnit contract.",
+      "evidence_lines": [
+        29,
+        31,
+        33
+      ],
+      "hold_reasons": [
+        "independently_replaceable_mixed_claim"
+      ]
+    },
+    {
+      "atom_id": "CA-R-865",
+      "version": 16,
+      "relative_path": "306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-865-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--create-caprmedio-markdown-atoms.md",
+      "sha256": "943f76d02388d6cae3d3b02cfaca6351351a85b234d68c85cf56f877bb0474c2",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOL_WORKFLOWS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOL_WORKFLOWS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.97,
+      "disposition": "keep",
+      "reason": "ATOM_CREATE-specific admission and one-Atom Action behavior.",
+      "evidence_lines": [
+        29,
+        37,
+        39
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-866",
+      "version": 28,
+      "relative_path": "306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
+      "sha256": "175e986897124aba016788ed08cd4f8f6406e139d8208eba0fd9c274f11ea69c",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOL_WORKFLOWS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOL_WORKFLOWS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.95,
+      "disposition": "keep",
+      "reason": "ATOM_UPDATE-specific same-identity capability, Subject preparation/staging and concrete admitted branches.",
+      "evidence_lines": [
+        26,
+        77,
+        137
+      ],
+      "hold_reasons": []
+    },
+    {
+      "atom_id": "CA-R-868",
+      "version": 14,
+      "relative_path": "306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-868-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--archive-active-atoms.md",
+      "sha256": "245b1cfcc1e8ce22b25fbf99b02517432d1f1e95278ec01df7954b186cb03c1e",
+      "current_tier": "Standard",
+      "current_global_tier": 11,
+      "scope_unit": "TOOL_WORKFLOWS",
+      "scope_declared": true,
+      "claim_target_scope_unit": "TOOL_WORKFLOWS",
+      "target_declared": true,
+      "tier_fit": "Standard",
+      "recommended_tier": "Standard",
+      "confidence": 0.97,
+      "disposition": "keep",
+      "reason": "ATOM_ARCHIVE-specific lifecycle transition, history and one-Atom effects.",
+      "evidence_lines": [
+        26,
+        38,
+        40
+      ],
+      "hold_reasons": []
+    }
+  ]
+}

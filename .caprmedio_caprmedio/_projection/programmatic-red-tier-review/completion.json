@@ -1,0 +1,240 @@
+{
+  "artifact_kind": "non-authoritative-completion-report",
+  "recorded_at_utc": "2026-10-15 18:46:02 UTC",
+  "operator_request": "Review and align active PROGRAMMATIC RED tiers; Operator explicitly selected Core/General separation for E389/E536",
+  "execution": "Approved direct-file continuation; no MCP Run or prior Draft admission claimed",
+  "reviewed_existing_atoms": 313,
+  "roles": {
+    "Evaluation": 136,
+    "Delivery": 83,
+    "Requirement": 94
+  },
+  "exact_review_coverage": true,
+  "existing_atoms_unchanged": 310,
+  "changes": [
+    {
+      "atom_id": "CA-E-389",
+      "classification": "semantic_revision",
+      "before_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-389-PROGRAMMATIC-CORE-EVAL_APPROACH--combine-complementary-software-behavior-evidence.md",
+      "before_version": 11,
+      "before_sha256": "b72379418548f3dab5a33b3315baac188f5d52d631f7ea10d960e50b4fb147c3",
+      "after_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-389-PROGRAMMATIC-GENERAL-EVAL_APPROACH--combine-complementary-software-behavior-evidence.md",
+      "after_version": 12,
+      "after_sha256": "4f21ae74c2f07bca6b78d7b79070804afba10d2b851a15fbae7efbd70fd68d23",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-389-PROGRAMMATIC-CORE-EVAL_APPROACH--combine-complementary-software-behavior-evidence@11.md",
+      "body_unchanged": true,
+      "local_tier": "General",
+      "global_tier": 7
+    },
+    {
+      "atom_id": "CA-E-536",
+      "classification": "semantic_revision",
+      "before_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-536-PROGRAMMATIC-CORE-EVAL_APPROACH--admit-safe-canary-evaluation.md",
+      "before_version": 2,
+      "before_sha256": "22d7e147c2133f688ad25c203512dcdf75b052d18a443637c40e1fbc4f71773a",
+      "after_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-536-PROGRAMMATIC-GENERAL-EVAL_APPROACH--admit-safe-canary-evaluation.md",
+      "after_version": 3,
+      "after_sha256": "63d477f884b41e696f5c01af369aa20d28c7346e762aaf64a0904729bcefaca1",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-536-PROGRAMMATIC-CORE-EVAL_APPROACH--admit-safe-canary-evaluation@2.md",
+      "body_unchanged": true,
+      "local_tier": "General",
+      "global_tier": 7
+    },
+    {
+      "atom_id": "CA-E-627",
+      "classification": "semantic_revision",
+      "before_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/06_evaluation/CA-E-627-TOOL_WORKFLOWS-CORE-QA_CASE--verify-shared-toml-and-configuration-workflows.md",
+      "before_version": 4,
+      "before_sha256": "63b7370f3f1db0751d6e59eb390c0a9afe1caf757395bc9509abb22e5f8e06b6",
+      "after_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/06_evaluation/CA-E-627-TOOL_WORKFLOWS-QA_CASE--verify-shared-toml-and-configuration-workflows.md",
+      "after_version": 5,
+      "after_sha256": "5313d104ebae4388f053fc272bd5e25a309bfeacdd004c4fb624d6748b9ccd47",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/06_evaluation/archive/CA-E-627-TOOL_WORKFLOWS-CORE-QA_CASE--verify-shared-toml-and-configuration-workflows@4.md",
+      "body_unchanged": true,
+      "local_tier": "Standard",
+      "global_tier": 11
+    }
+  ],
+  "new_core_evaluations": [
+    {
+      "atom_id": "CA-E-637",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-637-PROGRAMMATIC-CORE-EVAL_APPROACH--require-observable-evidence-for-behavioral-acceptance.md",
+      "sha256": "7591a1a808599240ee21a945b3c8fc2c457fe0bc0491c82086ebdc40d53b39e9",
+      "version": 1
+    },
+    {
+      "atom_id": "CA-E-638",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-638-PROGRAMMATIC-CORE-EVAL_APPROACH--bound-and-recover-canary-exposure.md",
+      "sha256": "fc77c148544ae927dd88ada1318a17a5db97c0d00c6bf81a5810884a0ae67efe",
+      "version": 1
+    }
+  ],
+  "method_consumer_update": {
+    "atom_id": "CA-M-285",
+    "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md",
+    "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/archive/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode@13.md",
+    "before_version": 13,
+    "after_version": 14,
+    "before_sha256": "ea8701cf82a1a6318034073f24668b72e95c9a5b7a2b9553d40b157b9a0bcf0f",
+    "after_sha256": "7758edf1da83e8d4c553bedb524fb9d623cb4292915b649bcfb751f123dfebbd",
+    "classification": "refinement",
+    "equivalence": "Complete General criteria unchanged; extracted Core invariants entailed by old Claims; same aggregate acceptance contract."
+  },
+  "lineage_impact_analyses": [
+    {
+      "atom_id": "CA-A-1186",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/02_analysis/CA-A-1186-PROGRAMMATIC-ANALYSIS_RPRT--review-lineage-impact-of-ca-e-627-version-4-to-5.md",
+      "sha256": "566cff0a022765a23de349b50882e012efb241107562d5410f985d8896f8d7d5",
+      "version": 1
+    },
+    {
+      "atom_id": "CA-A-1187",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/02_analysis/CA-A-1187-PROGRAMMATIC-ANALYSIS_RPRT--review-lineage-impact-of-ca-e-389-version-11-to-12.md",
+      "sha256": "90595b47735358b5e16058d58c936c7abb35703d44b51aca4250958908858d99",
+      "version": 1
+    },
+    {
+      "atom_id": "CA-A-1188",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/02_analysis/CA-A-1188-PROGRAMMATIC-ANALYSIS_RPRT--review-lineage-impact-of-ca-e-536-version-2-to-3.md",
+      "sha256": "ec1174968f15c632810c4160a7030e984a192ef42a0a0c8127bdaa4c297b60a6",
+      "version": 1
+    }
+  ],
+  "final_authority_pins": [
+    {
+      "atom_id": "CA-R-659",
+      "version": 20,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-659-CORE_META_MODEL-CORE-REQUIREMENT--define-core-local-tier.md",
+      "sha256": "d57d2c6d92648ea957d709fee352eb51f8a8c48e769e0060e58a60acfb87c667",
+      "reviewed_version": 20,
+      "status": "Active"
+    },
+    {
+      "atom_id": "CA-R-1431",
+      "version": 12,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1431-CORE_META_MODEL-CORE--define-general-local-tier.md",
+      "sha256": "6d9dc5646213dda24fdbc420b2ec0a76cb01ab341e444bbe8eb22d9b42757a23",
+      "reviewed_version": 11,
+      "status": "Active",
+      "body_equivalence_to_reviewed_revision": true,
+      "reviewed_revision_archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1431-CORE_META_MODEL-CORE--define-general-local-tier@11.md"
+    },
+    {
+      "atom_id": "CA-R-660",
+      "version": 16,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-660-CORE_META_MODEL-CORE--define-standard-local-tier.md",
+      "sha256": "066b8b41c71dd5cc53688b2ba2e0bcc8e0bda17a6d31a1fac4946d0f3964d11f",
+      "reviewed_version": 16,
+      "status": "Active"
+    },
+    {
+      "atom_id": "CA-R-794",
+      "version": 22,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-794-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-evaluation-policy-and-concrete-cases.md",
+      "sha256": "2199faa97a7cdbb258c86affdfd641d90bb2624d944d6999a3a1e96d928b9a8f",
+      "reviewed_version": 22,
+      "status": "Active"
+    },
+    {
+      "atom_id": "CA-R-1432",
+      "version": 13,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+      "sha256": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7",
+      "reviewed_version": 12,
+      "status": "Active",
+      "body_equivalence_to_reviewed_revision": true,
+      "reviewed_revision_archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect@12.md"
+    },
+    {
+      "atom_id": "CA-R-1633",
+      "version": 22,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+      "sha256": "ebc29acd176f662feebeba7d6c586390bdfaecc7c2bb1170a7f6e2b19372a264",
+      "reviewed_version": 21,
+      "status": "Active",
+      "body_equivalence_to_reviewed_revision": true,
+      "reviewed_revision_archive": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision@21.md"
+    },
+    {
+      "atom_id": "CA-R-1037",
+      "version": 14,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+      "sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+      "reviewed_version": 14,
+      "status": "Active"
+    },
+    {
+      "atom_id": "CA-M-272",
+      "version": 13,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-272-CORE_META_MODEL-METHOD--classify-an-atom-local-tier-from-its-complete-claim.md",
+      "sha256": "0680e2df18af31ffa2540d9e59aa9505d86816b86dc686b217efb9bfd46775f0",
+      "reviewed_version": 13,
+      "status": "Active"
+    },
+    {
+      "atom_id": "CA-D-283",
+      "version": 14,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DELIVERY--serialize-project-owned-markdown-atom-filenames.md",
+      "sha256": "82248feca99dddf3a76b177fae730cd5e052dbcd326ed256d03aa537a03283d5",
+      "reviewed_version": 14,
+      "status": "Active"
+    },
+    {
+      "atom_id": "CA-D-285",
+      "version": 14,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-285-CORE_META_MODEL--serialize-local-tier-filename-tokens.md",
+      "sha256": "91bb8fc8120453a9f367a4d5d6d589175e935a990d6f6ada6838458fb8d85b05",
+      "reviewed_version": 14,
+      "status": "Active"
+    }
+  ],
+  "review_reports": [
+    "inventory.json",
+    "requirements.json",
+    "root-evaluations.json",
+    "child-evaluations.json",
+    "deliveries.json"
+  ],
+  "holds": {
+    "requirements": 40,
+    "requirements_missing_claim_target": 29,
+    "child_evaluations": [
+      "CA-E-223",
+      "CA-E-067",
+      "CA-E-068",
+      "CA-E-626"
+    ],
+    "deliveries": [
+      "CA-D-250",
+      "CA-D-354",
+      "CA-D-569"
+    ],
+    "root_evaluation_semantic_followups": [
+      "CA-E-270",
+      "CA-E-377",
+      "CA-E-454"
+    ]
+  },
+  "verification": {
+    "independent_split_and_consumer_review": "pass",
+    "independent_three_LIA_review": "pass; bounded examined source-reference fixed points, not runtime proof",
+    "exhaustive_313_report_coverage": "pass",
+    "unchanged_310_original_RED_hashes": "pass",
+    "exact_predecessors_and_body_preservation": "pass",
+    "new_identity_uniqueness": "pass",
+    "new_Core_historical_basis_and_Method_links": "pass",
+    "schema_tests": "40 passed after repairing prior M373 stale test fixture",
+    "runtime_full_suite_graph_and_MCP": "not tested or refreshed"
+  },
+  "prior_work_fixture_carryover": {
+    "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/tests/fixtures/schema_authority/CA-M-373.md",
+    "reason": "Earlier Method retiering updated the production authority binding but left its exact test fixture at v2; fixture now equals canonical M373v3 bytes; body and validator behavior unchanged",
+    "sha256": "5444a9c6399dec1c9c7023acee5581067183a2595a470c0f6ac70f8157c21285"
+  },
+  "limitations": [
+    "No Requirement or Delivery source changed.",
+    "Existing missing targets, undeclared owners and disputed/mixed Claims remain unchanged.",
+    "Classification witnesses and LIA conclusions do not establish runtime conformance.",
+    "Unrelated concurrent methodology migration and its Git/index state were not included."
+  ]
+}

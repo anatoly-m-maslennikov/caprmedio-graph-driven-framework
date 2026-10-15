@@ -1,0 +1,1453 @@
+{
+  "projection_kind": "non_authoritative_review",
+  "reviewed_on": "2026-10-15",
+  "selection": {
+    "root": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC",
+    "included": "only Markdown Delivery carriers with status: Active",
+    "excluded_path_classes": [
+      "archive",
+      "archived",
+      "draft",
+      "drafts",
+      "projection",
+      "evidence"
+    ]
+  },
+  "authority": {
+    "core_tier": "CA-R-659",
+    "general_tier": "CA-R-1431",
+    "standard_tier": "CA-R-660",
+    "delivery_role": "CA-R-1342",
+    "delivery_claim_method": "CA-M-313",
+    "project_structure": ".caprmedio_caprmedio/project_structure.toml"
+  },
+  "criteria": {
+    "core": "Foundational carrier-model or representation boundary under CA-R-659.",
+    "general": "Reusable rule that governs all Standard Atoms in the declared Scope Unit across content roles under CA-R-1431.",
+    "standard": "Default concrete Carrier contribution under CA-R-660.",
+    "delivery": "Carrier definition, classification, binding, format, storage, representation, placement, or carrier-change constraint under CA-R-1342; not a delivery procedure."
+  },
+  "summary": {
+    "selected_active_delivery_atoms": 83,
+    "retain_core": 4,
+    "retain_standard": 76,
+    "hold": 3,
+    "general_recommendations": 0,
+    "missing_generic_core_delivery_principles": [],
+    "finding": "No new generic Core Delivery principle is grounded: CA-R-1342 already states the universal Delivery boundary, and every in-scope non-Core claim is either a named concrete carrier or remains blocked by structural identity/ownership evidence."
+  },
+  "atoms": [
+    {
+      "atom_id": "CA-D-009",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-009-TOOLS-DELIVERY--deliver-the-change-record-appender-script.md",
+      "sha256": "05b410f6c6f2ef4abffd4672758d37b9f60f79fa3ff9ee21f331b06769ee4cb0",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-038",
+      "carrier": "305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-038-CONNECTOR_TOOLS-STANDARD-DELIVERY--bind-atom-search-delivery-place.md",
+      "sha256": "f27f5408fa45a6a468bc9e21f83225afdc8afea97bf925b2f961fbae8c84d26c",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "CONNECTOR_TOOLS",
+        "claim_target_scope_unit": "CONNECTOR_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-041",
+      "carrier": "306_FEATURE_TOOL_WORKFLOWS/07_delivery/CA-D-041-TOOL_WORKFLOWS-STANDARD-DELIVERY--bind-atom-update-delivery-place.md",
+      "sha256": "bfe89f574876f7c6e9ec80b3c11c2e4af321a1a18c9c7b9f94792ccd177bd8b8",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOL_WORKFLOWS",
+        "claim_target_scope_unit": "TOOL_WORKFLOWS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-250",
+      "carrier": "07_delivery/CA-D-250-PROGRAMMATIC-CORE-DELIVERY--provide-programmatic-software-carriers.md",
+      "sha256": "b16eaf263c4acc7842efe5ac4c70ac106a5e1fa09d78af5b6fc66328e207e209",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "PROGRAMMATIC",
+        "claim_target_scope_unit": null,
+        "local_tier": null,
+        "global_tier": null
+      },
+      "recommendation": "hold",
+      "recommended_tier": null,
+      "confidence_percent": 100,
+      "reason": "legacyidentity,mixedClaim: Active Delivery carrier lacks local_tier, claim_target_scope_unit, global_tier, Summary/Scope/Claim sections; its one body paragraph combines software source, runtime, dependency, configuration, and Evaluation placement. CA-R-660 cannot safely default this malformed mixed carrier; after normalization/splitting its concrete portions can be assessed for Standard."
+    },
+    {
+      "atom_id": "CA-D-354",
+      "carrier": "201_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/07_delivery/CA-D-354-GENERATE_ENTITY_GRAPH-DELIVERY--bind-entity-graph-generator-authority-and-delivery-places.md",
+      "sha256": "ed2b56445455b92182c8545b94d0d14c331012fd1b41dae2f9f6bc130e62d895",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "GENERATE_ENTITY_GRAPH",
+        "claim_target_scope_unit": "GENERATE_ENTITY_GRAPH",
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "hold",
+      "recommended_tier": null,
+      "confidence_percent": 100,
+      "reason": "undeclaredowner: current_scope_unit GENERATE_ENTITY_GRAPH has no scope_units declaration in project_structure.toml, so its carrier cannot be tiered against a declared owner."
+    },
+    {
+      "atom_id": "CA-D-424",
+      "carrier": "305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-424-CONNECTOR_TOOLS-STANDARD-DELIVERY--deliver-atom-search-tool.md",
+      "sha256": "1c956aecac1b3cfb55b90cf32aa03ea44ca029289e0e1ab49ecf6d946237564a",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "CONNECTOR_TOOLS",
+        "claim_target_scope_unit": "CONNECTOR_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-425",
+      "carrier": "306_FEATURE_TOOL_WORKFLOWS/07_delivery/CA-D-425-TOOL_WORKFLOWS-STANDARD-DELIVERY--deliver-atom-update-tool.md",
+      "sha256": "49b0d1329bf9cfad0881590e34bae1bdfbdf42cc0d3eb56a73e8a645b4bbf70a",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOL_WORKFLOWS",
+        "claim_target_scope_unit": "TOOL_WORKFLOWS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-491",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-491-TOOLS-DELIVERY--deliver-the-validate-atoms-command.md",
+      "sha256": "a25878c5166e5cd20de074bf175f614bb75d436ea3e289faa20ddb33a5e8380d",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-492",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-492-TOOLS-DELIVERY--serialize-atom-validator-requests.md",
+      "sha256": "b96db02b28c7bb1cc843500889e83238e4a5a8264a8ceb48c14c13580eac58b1",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-493",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-493-TOOLS-DELIVERY--serialize-atom-validator-results.md",
+      "sha256": "766c52a7f2d9746c97ff7868376b2968358c88c2e61a3330576e0cac5f34d853",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-512",
+      "carrier": "201_FEATURE_TOOLS/DISCOVER_TOOLS/07_delivery/CA-D-512-DISCOVER_TOOLS--encode-discover-tools-bindings.md",
+      "sha256": "194278e65e55be3b7c024c6993ab2f749bb908187aeb06822e554aa738c3a696",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "DISCOVER_TOOLS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-513",
+      "carrier": "201_FEATURE_TOOLS/DISCOVER_OPERATIONS/07_delivery/CA-D-513-DISCOVER_OPERATIONS--encode-discover-operations-bindings.md",
+      "sha256": "35fbea6c0594fdb9fc4956972b3b0fbb633e5cd3080f5e72edaea21a1c3fc9d6",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "DISCOVER_OPERATIONS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-514",
+      "carrier": "201_FEATURE_TOOLS/GET_EXECUTION_CONTEXT/07_delivery/CA-D-514-GET_EXECUTION_CONTEXT--encode-get-execution-context-bindings.md",
+      "sha256": "76881743016a97914d2c8c1080c8122d44a84069f9d1e69505c818f631f93f05",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "GET_EXECUTION_CONTEXT",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-515",
+      "carrier": "201_FEATURE_TOOLS/GET_EXECUTION_STATUS/07_delivery/CA-D-515-GET_EXECUTION_STATUS--encode-get-execution-status-bindings.md",
+      "sha256": "3b55aafb8f2e19b92414231c4551b0509c49446f0ef64433a2c477f249564c7b",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "GET_EXECUTION_STATUS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-516",
+      "carrier": "201_FEATURE_TOOLS/RESUME_EXECUTION_CONTEXT/07_delivery/CA-D-516-RESUME_EXECUTION_CONTEXT--encode-resume-execution-context-bindings.md",
+      "sha256": "e12e871dd3d5325cd3e065364a42e0e823966757784e36e0fc026fece34b41ee",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "RESUME_EXECUTION_CONTEXT",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-517",
+      "carrier": "201_FEATURE_TOOLS/WATCH_EXECUTION/07_delivery/CA-D-517-WATCH_EXECUTION--encode-watch-execution-bindings.md",
+      "sha256": "268ec2f1c74f475251720de8bec13eddfc091e6f2cf369a1855571654da60db9",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "WATCH_EXECUTION",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-518",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-518-TOOLS--register-rmed-atoms-base-revise-discovery-binding.md",
+      "sha256": "9e6da9219a14c8504b00d679b9ee95fd1d02fe8a22a6813235b80259fa7e662a",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-519",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-519-TOOLS--register-validate-atoms-discovery-binding.md",
+      "sha256": "3b9d3f7b55f185f83b81c911e2e1f6dfd4d2bf6beb0fc60aa320439ea4186450",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-520",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-520-TOOLS--encode-capability-catalog-and-observation-boundaries.md",
+      "sha256": "0241f547edfb5c20ffc9cbae2981eb40cd2dbaf1e49f0fa00e823afcf643f271",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-521",
+      "carrier": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/07_delivery/CA-D-521-WORKFLOW_ORCHESTRATOR--encode-orchestrator-requests-and-durable-state.md",
+      "sha256": "8559a17a31e4aacb6be2911b5890b8b9648556821b13310452becb1e3c81d48e",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "WORKFLOW_ORCHESTRATOR",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-522",
+      "carrier": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/07_delivery/CA-D-522-WORKFLOW_ORCHESTRATOR--register-orchestrator-runtime-dependencies.md",
+      "sha256": "08cc4bae994698c6983c09b6a76dcc208810854e09324d4b8aa5c9f6326cdc24",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "WORKFLOW_ORCHESTRATOR",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-523",
+      "carrier": "204_FEATURE_MCP/07_delivery/CA-D-523-MCP--encode-mcp-reload-control-and-generation-evidence.md",
+      "sha256": "cfc70135e092523d69f75fe9eaa3282f63c37df5dfa9a6e22e1e115110a9c83f",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "MCP",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-524",
+      "carrier": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/07_delivery/CA-D-524-WORKFLOW_ORCHESTRATOR--carry-coverage-gate-and-operator-question-results.md",
+      "sha256": "a7eb91c7d3c2356c75be6b31cb4f3ef37e4c6a53145a1fcee7aed875882f4a90",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "WORKFLOW_ORCHESTRATOR",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-525",
+      "carrier": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/07_delivery/CA-D-525-WORKFLOW_ORCHESTRATOR--carry-the-docker-runtime-and-persistent-state.md",
+      "sha256": "077087ec25df3117ee0fa937c5aaa3b77e314643fcdf12b63e0e038115a00b07",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "WORKFLOW_ORCHESTRATOR",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-526",
+      "carrier": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/07_delivery/CA-D-526-WORKFLOW_ORCHESTRATOR--encode-explicit-docker-runtime-controls.md",
+      "sha256": "f85f904d26d8238bab72dd425917157b8fe356282c6e71d70b2975737a041b12",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "WORKFLOW_ORCHESTRATOR",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-527",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-527-TOOLS-DELIVERY--encode-shared-selected-run-request-and-result-contract.md",
+      "sha256": "4ece20d07d78e7512a0bd527ba016151c116c49cb730a93bf8b9cd14ab2ef2fa",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-528",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-528-TOOLS-DELIVERY--extend-the-sealed-work-journal-for-selected-run-evidence.md",
+      "sha256": "80f5381327a9d861dcd2958c7ab5808e06e386b9cbdfd0b6ecdafe137ffcffc3",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-529",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-529-TOOLS-DELIVERY--place-shared-selected-run-support-at-the-existing-tools-boundary.md",
+      "sha256": "4c9c600800991b5405b3336832a95c7c81e745f965a3976f174b7e45f350daad",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-530",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/07_delivery/CA-D-530-ATOM_LIFECYCLE-DELIVERY--bind-atom-lifecycle-dispatch-carriers.md",
+      "sha256": "0d876ccf3cc904c8cfa2479ed4bea2c0192249f2bc082a6e92b7de1df4a95805",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-531",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/07_delivery/CA-D-531-ATOM_LIFECYCLE-DELIVERY--deliver-sealed-lifecycle-dispatch-interface.md",
+      "sha256": "cd741cdb76b751bcb8b7d9c1a8e6cd51b1f21f921f09ed1f3dc4308e570199e5",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-532",
+      "carrier": "306_FEATURE_TOOL_WORKFLOWS/07_delivery/CA-D-532-TOOL_WORKFLOWS-STANDARD-DELIVERY--deliver-lifecycle-result-carriers.md",
+      "sha256": "0b9ea6abe70cadac8f8642296225498eadf0b1fafd88b2e5bf380fdc70461ff0",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOL_WORKFLOWS",
+        "claim_target_scope_unit": "TOOL_WORKFLOWS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-533",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/07_delivery/CA-D-533-PROJECT_STRUCTURE-DELIVERY--bind-project-structure-tool-request-and-result.md",
+      "sha256": "7c867d390ca1a18a8fd2761286706ac1639cc6032ce023e72ae8ddd3283e137b",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-534",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/07_delivery/CA-D-534-PROJECT_STRUCTURE-DELIVERY--bind-project-structure-authority-and-cutover-carriers.md",
+      "sha256": "a131a003922b142ab46ae1a8caaebd2baf75709d32ed99958a72ab0f5de9e556",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-535",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/PROJECT_STRUCTURE/07_delivery/CA-D-535-PROJECT_STRUCTURE-DELIVERY--bind-project-structure-functional-fixture-boundary.md",
+      "sha256": "6fced1633a0f8b339e12e9b0ea02f78f12714b520f915b30331e6810abca1a35",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-536",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/REVERT_CHANGES/07_delivery/CA-D-536-REVERT_CHANGES--encode-revert-changes-tool-binding.md",
+      "sha256": "97d2e15298267a7049dac5f2a2a6d7003e80b059c58c64bdf297267f1c89f395",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-537",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/REVERT_CHANGES/07_delivery/CA-D-537-REVERT_CHANGES--bind-revert-changes-delivery-boundaries.md",
+      "sha256": "81683c8bccf6ec4d7916ab7a22c3b55675b1eab47b47fe3b3ae6f586c604eaf5",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-538",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/07_delivery/CA-D-538-GRAPH_PROJECTIONS--bind-graph-projection-tool-carriers.md",
+      "sha256": "5bd74d98f67b59fa387d53bf581bce014ab9521a1a66742d47c1c63f32decf64",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-539",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/07_delivery/CA-D-539-GRAPH_PROJECTIONS--bind-strict-graph-request-and-result-contract.md",
+      "sha256": "7e6868fb8dc34336422b0436014f55a547491f563e4aa870bff914855eef4980",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-540",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/07_delivery/CA-D-540-GRAPH_PROJECTIONS--bind-implementation-and-review-boundaries.md",
+      "sha256": "564280b33edcee8a6e656994cdd45106a9766f652d38d7930b61b65d84e6336a",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-541",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/07_delivery/CA-D-541-APPLICABLE_METHODOLOGY--encode-the-compiler-request-boundary.md",
+      "sha256": "784e4327057a62a27aaae7cb5bb46c930cc0cc34330bc1d18f532e42ebacd5f3",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-542",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/07_delivery/CA-D-542-APPLICABLE_METHODOLOGY--encode-source-decision-and-publication-provenance.md",
+      "sha256": "77c5454b041a91b69d5b84e118ce00c0b35d6ae1bc4f135732025dc0ff42ff01",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-543",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/07_delivery/CA-D-543-APPLICABLE_METHODOLOGY--bind-native-compiler-carriers-and-functional-evidence.md",
+      "sha256": "c01eeb8f79b82bd5f79b66339399705e3606a5498c9302fbf3f5e9e223676481",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-547",
+      "carrier": "204_FEATURE_MCP/07_delivery/CA-D-547-MCP--bind-selected-workflow-mcp-adapters.md",
+      "sha256": "7273e7e821d7266f77a4a6bfc82b469d0238456a633b603c92665d99ca8aa1ab",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "MCP",
+        "claim_target_scope_unit": "MCP",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-548",
+      "carrier": "204_FEATURE_MCP/07_delivery/CA-D-548-MCP--preserve-existing-mcp-helpers-and-hot-reload.md",
+      "sha256": "20977e429b498b36cc1f397a31bd592d788d67eada121d9f597f069cd76c4a80",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "MCP",
+        "claim_target_scope_unit": "MCP",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-551",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-551-TOOLS-DELIVERY--place-artifact-query-tool-and-golden-test.md",
+      "sha256": "292dd73b41e95b48d210d510275a456dddd5322b9b97cd666f52ff06bb8e4e78",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-555",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-555-TOOLS-DELIVERY--place-the-journal-event-query-tool.md",
+      "sha256": "ac20481552dbe768f17bf2c6d04813a250e9988adc23096b2ab74932341025bf",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-556",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-556-TOOLS-DELIVERY--encode-the-bounded-journal-event-query-interface.md",
+      "sha256": "b47726c7c2664af1f3852cece5300b8c937b5e2ccb18f06974f9360c78ddcdaa",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-557",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-557-TOOLS-DELIVERY--bind-journal-query-source-route-to-one-tool.md",
+      "sha256": "e0401e058d145abd177e2031e7b8f3dc28a6fd88e049b533d46ceba8d94f6888",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-558",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-558-TOOLS-DELIVERY--deliver-the-journal-event-query-golden-test.md",
+      "sha256": "02dd54b433c2c59665f1f88622542051acde740c14b9cc0ae6f6282086edb06c",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": "TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-561",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-561-TOOLS-DELIVERY--bind-release-source-compilation-and-package-carriers.md",
+      "sha256": "420eb982f1f3ab5a8eee85d9bb19ed0ceef7e8dc3fc4cbdff1c5c87523811881",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-562",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-562-TOOLS-DELIVERY--bind-full-framework-runtime-installation-boundary.md",
+      "sha256": "3ead5e8eb16a9fa9a08e6e02ec022c38c8cd894e6df4458e53bf439c82045188",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-564",
+      "carrier": "205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-564-PROJECT_TOOLS-DELIVERY--bind-candidate-image-and-safe-retirement-evidence.md",
+      "sha256": "9fca8bcdbed5abcb8be63c55cbff0ee6867e0550ed5994200e59157f8afa4cf5",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "PROJECT_TOOLS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-569",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/07_delivery/CA-D-569-ATOM_LIFECYCLE-DELIVERY--bind-draft-identity-evidence-in-lifecycle-request.md",
+      "sha256": "ada92dcacfcf906878e3c3e3964281abd8e9c8b99336042564d565d2a79dd523",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "ATOM_LIFECYCLE",
+        "claim_target_scope_unit": "ATOM_LIFECYCLE",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "hold",
+      "recommended_tier": null,
+      "confidence_percent": 100,
+      "reason": "undeclaredowner: current_scope_unit ATOM_LIFECYCLE has no scope_units declaration in project_structure.toml, so its carrier cannot be tiered against a declared owner."
+    },
+    {
+      "atom_id": "CA-D-576",
+      "carrier": "204_FEATURE_MCP/07_delivery/CA-D-576-MCP-DELIVERY--bind-additive-release-manifest-publisher-carriers.md",
+      "sha256": "5a517456f8f7ef828f8d44a4eb3671e2519c16bbc2d4d032f7e72b9be272dee1",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "MCP",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-577",
+      "carrier": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/07_delivery/CA-D-577-WORKFLOW_ORCHESTRATOR-DELIVERY--carry-typed-release-recovery-requests.md",
+      "sha256": "76e8f5dcd09c3db1627115ab7d786a7a7af5beb0c2d1011a82f3e1c081c44efb",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "WORKFLOW_ORCHESTRATOR",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-578",
+      "carrier": "204_FEATURE_MCP/07_delivery/CA-D-578-MCP--carry-the-localhost-http-gateway-and-configuration.md",
+      "sha256": "cf4f28f13a197c7a043fbf786a78bde72df44b970b24152e1c4e3e36f902480d",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "MCP",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-583",
+      "carrier": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/07_delivery/CA-D-583-WORKFLOW_ORCHESTRATOR-DELIVERY--store-release-host-state-in-an-isolated-namespace.md",
+      "sha256": "e78c6c8350c7e365dc956964501133bdc5f942cd9d4ed568be22bed8b74b37b0",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "WORKFLOW_ORCHESTRATOR",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-585",
+      "carrier": "201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/07_delivery/CA-D-585-ATOM_LIFECYCLE-DELIVERY--serialize-semantic-assessment-report-reference.md",
+      "sha256": "5019377b6822baf20e71ca4f4f70c18669dbe2a2a419f3a074a6698919e7965f",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-586",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-586-TOOLS-DELIVERY--package-the-release-tool-private-reader-closure.md",
+      "sha256": "201a2fbebb6d94363816ac93eff6ed7fd92d568248d5e9f39fa44977c1b50686",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-589",
+      "carrier": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/07_delivery/CA-D-589-WORKFLOW_ORCHESTRATOR-DELIVERY--carry-operator-authorized-unknown-release-effect-resolution.md",
+      "sha256": "cd151c85055e50346a01137c9964bf28db5fe78a2b01584484fd8de31a2a38cb",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "WORKFLOW_ORCHESTRATOR",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-590",
+      "carrier": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/07_delivery/CA-D-590-WORKFLOW_ORCHESTRATOR-DELIVERY--carry-private-release-host-worker-shutdown.md",
+      "sha256": "fb9c712ecd11920af5014982608caea72b511f969203a0f6adc2f56267575226",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "WORKFLOW_ORCHESTRATOR",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-592",
+      "carrier": "204_FEATURE_MCP/07_delivery/CA-D-592-MCP-DELIVERY--register-exact-acceptance-carrier-relocations.md",
+      "sha256": "10ce7ffdae76ee2e8d2fe167396529dd01e8091d4a1513a877d5fee9ec89deb8",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "MCP",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-593",
+      "carrier": "204_FEATURE_MCP/07_delivery/CA-D-593-MCP-DELIVERY--carry-project-mcp-launch-context.md",
+      "sha256": "680eb82029c07eeb9b1f0a05e0c532b45fd6290077549618af434e284e41f5c9",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "MCP",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-594",
+      "carrier": "203_FEATURE_APPS/WORKFLOW_ORCHESTRATOR/07_delivery/CA-D-594-WORKFLOW_ORCHESTRATOR-DELIVERY--carry-project-mcp-runtime-admission.md",
+      "sha256": "e2a28cc59f1885714251079e068f180d55122ce165126d3dc140c031008ca8e4",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "WORKFLOW_ORCHESTRATOR",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 14
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-595",
+      "carrier": "204_FEATURE_MCP/07_delivery/CA-D-595-MCP-DELIVERY--carry-project-mcp-launch-results.md",
+      "sha256": "c3f53fc81585aafcc2189643eb2f60360358899f557e53e20519687c5b98b798",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "MCP",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-610",
+      "carrier": "205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-610-PROJECT_TOOLS-DELIVERY--place-the-public-release-native-tool-source.md",
+      "sha256": "2827ffec8e426e9841dacd9e952496efaf5ed0301f5e8ab54005533f93d6b1d5",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "PROJECT_TOOLS",
+        "claim_target_scope_unit": "PROJECT_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-611",
+      "carrier": "205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-611-PROJECT_TOOLS-DELIVERY--bind-public-release-to-its-own-package-root.md",
+      "sha256": "0e36de9ba9f98da490d4d1b29690c4d26017aab2f65636cdf1baa3593f1bb527",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "PROJECT_TOOLS",
+        "claim_target_scope_unit": "PROJECT_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-612",
+      "carrier": "205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-612-PROJECT_TOOLS-DELIVERY--serialize-public-release-native-entrypoint-discovery.md",
+      "sha256": "607f49df7b5c175a992a73d4ecd5888b4628c0e814092eb4f45b3387adacc851",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "PROJECT_TOOLS",
+        "claim_target_scope_unit": "PROJECT_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-613",
+      "carrier": "205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-613-PROJECT_TOOLS-DELIVERY--serialize-public-release-workflow-bindings.md",
+      "sha256": "6fbb0dd91ee5e16c9c864c6b8710ff719f0f8dc746b9e8a3ee047c246abb52ed",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "PROJECT_TOOLS",
+        "claim_target_scope_unit": "PROJECT_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-616",
+      "carrier": "205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-616-PROJECT_TOOLS-DELIVERY--serialize-public-remote-effect-proofs-without-secrets.md",
+      "sha256": "de8b53c89e1df344e1e36045d9021c434f0c8aacfdb6f3c0dcaedf2a6d3f8724",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "PROJECT_TOOLS",
+        "claim_target_scope_unit": "PROJECT_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-617",
+      "carrier": "205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-617-PROJECT_TOOLS-DELIVERY--serialize-one-actual-public-pr-identity.md",
+      "sha256": "6f8d44d5411c9b5cb758481ba0936016704430b65b4041f181fc677c2e13ad11",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "PROJECT_TOOLS",
+        "claim_target_scope_unit": "PROJECT_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-618",
+      "carrier": "205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-618-PROJECT_TOOLS-DELIVERY--serialize-parented-public-tool-call-evidence.md",
+      "sha256": "c08398a3757bcf4558623402201017a1b3cca924cbe02a88805bca923dd5c1c4",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "PROJECT_TOOLS",
+        "claim_target_scope_unit": "PROJECT_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-621",
+      "carrier": "201_FEATURE_TOOLS/07_delivery/CA-D-621-TOOLS-DELIVERY--encode-uniform-tool-self-description.md",
+      "sha256": "536b55b681f35893e792892cc829d2ae81e45df7e2ccbf85b4fe2b5c06a1e8c3",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOLS",
+        "claim_target_scope_unit": null,
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-622",
+      "carrier": "306_FEATURE_TOOL_WORKFLOWS/07_delivery/CA-D-622-TOOL_WORKFLOWS-CORE-DELIVERY--deliver-logical-atom-and-scope-unit-connectors.md",
+      "sha256": "d795b1429b3487b7983cf7c1bce2c39376b3e55952deaa1b5f1789817d773acc",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOL_WORKFLOWS",
+        "claim_target_scope_unit": "TOOL_WORKFLOWS",
+        "local_tier": "Core",
+        "global_tier": 9
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Core",
+      "confidence_percent": 98,
+      "reason": "foundational carrier boundary: Claim defines the logical connector/workflow representation and its identity/authority separation, rather than a named Tool implementation."
+    },
+    {
+      "atom_id": "CA-D-623",
+      "carrier": "306_FEATURE_TOOL_WORKFLOWS/07_delivery/CA-D-623-TOOL_WORKFLOWS-CORE-DELIVERY--deliver-logical-atom-modifications.md",
+      "sha256": "b97a8220c4639adceddc5bfa1d044ab556dca251247f18a1e36600f0fed3e8b0",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOL_WORKFLOWS",
+        "claim_target_scope_unit": "TOOL_WORKFLOWS",
+        "local_tier": "Core",
+        "global_tier": 9
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Core",
+      "confidence_percent": 98,
+      "reason": "foundational carrier boundary: Claim defines the logical connector/workflow representation and its identity/authority separation, rather than a named Tool implementation."
+    },
+    {
+      "atom_id": "CA-D-624",
+      "carrier": "306_FEATURE_TOOL_WORKFLOWS/07_delivery/CA-D-624-TOOL_WORKFLOWS-CORE-DELIVERY--deliver-shared-toml-and-configuration-workflows.md",
+      "sha256": "8ac78bdc2aef63273d7817493166a10f37e8ed807c72feaedc72d51dcf67d836",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "TOOL_WORKFLOWS",
+        "claim_target_scope_unit": "TOOL_WORKFLOWS",
+        "local_tier": "Core",
+        "global_tier": 9
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Core",
+      "confidence_percent": 98,
+      "reason": "foundational carrier boundary: Claim defines the logical connector/workflow representation and its identity/authority separation, rather than a named Tool implementation."
+    },
+    {
+      "atom_id": "CA-D-625",
+      "carrier": "305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-625-CONNECTOR_TOOLS-CORE-DELIVERY--deliver-coherent-connector-interface.md",
+      "sha256": "708d39bbb841ece46a30d330c3768fbede6373ae00d30aacb5cdde3c18c24fcc",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "CONNECTOR_TOOLS",
+        "claim_target_scope_unit": "CONNECTOR_TOOLS",
+        "local_tier": "Core",
+        "global_tier": 9
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Core",
+      "confidence_percent": 98,
+      "reason": "foundational carrier boundary: Claim defines the logical connector/workflow representation and its identity/authority separation, rather than a named Tool implementation."
+    },
+    {
+      "atom_id": "CA-D-626",
+      "carrier": "305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-626-CONNECTOR_TOOLS-STANDARD-DELIVERY--deliver-declared-scope-unit-query-data.md",
+      "sha256": "d11441faffe55da24cf641369b4ab67ab83fad2b537a0bc176407f3dd2e562f8",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "CONNECTOR_TOOLS",
+        "claim_target_scope_unit": "CONNECTOR_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-627",
+      "carrier": "305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-627-CONNECTOR_TOOLS-STANDARD-DELIVERY--deliver-complete-scope-unit-read-data.md",
+      "sha256": "51bf03d989054ad46d6242b20b090e4b7c385b64e640347a137d5d661f45c5ee",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "CONNECTOR_TOOLS",
+        "claim_target_scope_unit": "CONNECTOR_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-630",
+      "carrier": "305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-630-CONNECTOR_TOOLS-STANDARD-DELIVERY--bind-private-carrier-operation-payloads.md",
+      "sha256": "cb8ed1bf59cb8f29a280e211792d93fcdef1f22468fa9dca31695c6085a24dfe",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "CONNECTOR_TOOLS",
+        "claim_target_scope_unit": "CONNECTOR_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-631",
+      "carrier": "305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-631-CONNECTOR_TOOLS-STANDARD-DELIVERY--deliver-complete-configuration-read-data.md",
+      "sha256": "e40eac396a9b2a55d44f5eede4412aec0e6f284ef88de275469ffe305b67dcdd",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "CONNECTOR_TOOLS",
+        "claim_target_scope_unit": "CONNECTOR_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-632",
+      "carrier": "305_FEATURE_CONNECTOR_TOOLS/07_delivery/CA-D-632-CONNECTOR_TOOLS-STANDARD-DELIVERY--deliver-the-bounded-tomlkit-materializer-dependency.md",
+      "sha256": "27d8d765370eac76ff3a50a75e121651387cc227730269165fa6175b782ade48",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "CONNECTOR_TOOLS",
+        "claim_target_scope_unit": "CONNECTOR_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    },
+    {
+      "atom_id": "CA-D-633",
+      "carrier": "205_FEATURE_PROJECT_TOOLS/07_delivery/CA-D-633-PROJECT_TOOLS-DELIVERY--deliver-the-complete-project-local-ca-skill-without-hooks.md",
+      "sha256": "25466f146998f634bbea3b00666350a50685e4a8dbd3c6fc46a4dd036f73be3d",
+      "current": {
+        "content_role": "Delivery",
+        "status": "Active",
+        "scope_unit": "PROJECT_TOOLS",
+        "claim_target_scope_unit": "PROJECT_TOOLS",
+        "local_tier": "Standard",
+        "global_tier": 11
+      },
+      "recommendation": "retain",
+      "recommended_tier": "Standard",
+      "confidence_percent": 99,
+      "reason": "concrete bounded Carrier contribution for a named Tool, service, runtime, schema, configuration, test, or delivery place; it is not a reusable rule governing every Standard Delivery in its declared owner."
+    }
+  ]
+}
+
