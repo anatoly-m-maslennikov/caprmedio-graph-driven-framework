@@ -17,8 +17,8 @@ subjects:
     - "Create Sealed Atom Carriers"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 16
-updated_at: "2026-10-12 23:54:41 +0400"
+version: 17
+updated_at: "2026-10-15 23:45:00 +0400"
 relations: {"evaluation_for":["CA-R-865","CA-O-032","CA-D-508"]}
 ---
 # Summary
@@ -44,6 +44,7 @@ Create validates and admits one new Atom before its authorized effect. Several r
 - For ordered targets A, B and C, let A succeed and make B fail admission or publication. Retain A and its truthful effect evidence, report B's failure and do not start C. Do not roll back A or invent completion for B/C.
 - Inject a post-write validation failure within one Atom action. Prove that action's admitted all-or-nothing boundary and exact restoration where claimed; preserve unrelated Atoms, existing history and accepted recording. Unverified restoration remains a failed or uncertain effect, not a passing rollback.
 - Reject a competing identity admission after preview without silently choosing another ID. Verify the Project-wide next-unreused-number rule and initial Version metadata rather than only checking active filenames.
+- Create an Atom in each requested Status admitted by its applicable Role/Type model, including a case where Journal append fails or has no Event ID; verify the actual created Atom/Run outcome without replay.
 
 ### Acceptance criteria
 

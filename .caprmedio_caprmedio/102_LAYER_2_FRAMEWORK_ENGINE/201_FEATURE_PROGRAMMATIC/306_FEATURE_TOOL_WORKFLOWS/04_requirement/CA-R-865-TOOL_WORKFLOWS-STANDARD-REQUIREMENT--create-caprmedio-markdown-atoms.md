@@ -14,8 +14,8 @@ subjects:
     - "Atom/Identifier"
     - "Atom/Revision"
     - "Artifact/Carrier"
-version: 16
-updated_at: "2026-10-12 23:58:28 +0400"
+version: 17
+updated_at: "2026-10-15 23:45:00 +0400"
 relations: {}
 ---
 # Summary
@@ -35,6 +35,7 @@ the ATOM_CREATE Tool **must** provide admission **and** creation of complete new
 - create **`=1`** Atom per independently admitted Action. A several-Atom Workflow stops at the first failed Action, retains completed creations and leaves the remainder untouched. Retain each one-Atom Action's complete admission, preflight and storage-effect safeguards; do not promise a cross-Atom all-or-nothing effect.
 - permit generic Carrier-construction mechanics while retaining responsibility for Atom admission, identity, Revision, one-Atom storage-effect safeguards, **and** effect semantics.
 - default **to** a mutation-free dry run. accept `--apply` **only** through authorized Project-local MCP delegation with a sealed Initiative action envelope.
+- admit any requested initial Status allowed by the Atom's applicable Role/Type Status model and transition conditions. Journal append is an independent observation attempt; its absence, incompleteness or failure neither blocks a created Atom nor authorizes replay.
 
 ## Details
 

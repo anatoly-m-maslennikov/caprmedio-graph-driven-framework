@@ -8,8 +8,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-04 23:03:24 +0400"
+version: 3
+updated_at: "2026-10-15 23:45:00 +0400"
 subjects:
   governs: "WORKFLOW_OPERATIONS/RUN_SUPPORT/journal recovery"
   depends_on: [Journal, Action, Workflow Run, Evaluation]
@@ -27,8 +27,9 @@ already occurred.
 
 ## Claim
 
-An append failure retains identical pending evidence and a retry appends once
-without rerunning its completed Action.
+When recording retry is supported, an append failure retains identical pending
+evidence and a retry appends without rerunning its completed Action. Neither
+receipt nor canonical-once recovery is a mutation-success gate.
 
 ## Test case
 

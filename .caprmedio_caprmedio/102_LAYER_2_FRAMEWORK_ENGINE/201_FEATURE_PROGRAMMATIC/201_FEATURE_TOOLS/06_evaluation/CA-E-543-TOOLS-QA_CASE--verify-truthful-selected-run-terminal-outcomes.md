@@ -8,8 +8,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 22:39:38 +0400"
+version: 2
+updated_at: "2026-10-15 23:45:00 +0400"
 subjects:
   governs: "WORKFLOW_OPERATIONS/RUN_SUPPORT/outcomes"
   depends_on: [Workflow Run, Action, Journal, Evaluation]
@@ -45,8 +45,9 @@ and a failure with one performed or uncertain effect.
 - Cancellation retains an actual reason/effects and is not emitted for an
   unstarted denial. Safe result/effect references and redaction facts remain
   inspectable without secret material.
-- A terminal result whose receipt is pending reports `recording_pending`, not
-  journaled completion.
+- A terminal result reports its actual in-memory terminal/effect outcome even
+  with Event ID absent or recording pending; that diagnostic does not invalidate
+  completion or authorize replay.
 
 ## Details
 
