@@ -305,6 +305,8 @@ class SimpleLocalReleaseTests(unittest.TestCase):
 
     def test_test_failure_leaves_both_methodology_destinations_untouched(self):
         calls = []
+        stdout = "early stdout evidence\n" + "output tail\n" * 500
+        stderr = "early failure traceback\n" + "error tail\n" * 500
 
         def runner(argv, cwd):
             calls.append(argv)
@@ -317,7 +319,8 @@ class SimpleLocalReleaseTests(unittest.TestCase):
                 self.assertEqual(str(self.root), argv[argv.index("--project-root") + 1])
                 for target in (self.product, self.installed):
                     self.assertEqual("obsolete", (target / "old.txt").read_text())
-            return subprocess.CompletedProcess(argv, 2 if any(item.endswith("run_full_test_suite.py") for item in argv) else 0, "", "test failure")
+            failed = any(item.endswith("run_full_test_suite.py") for item in argv)
+            return subprocess.CompletedProcess(argv, 2 if failed else 0, stdout if failed else "", stderr if failed else "")
 
         result = run_local_release(self.root, run_id="tests-failed", runner=runner)
         self.assertEqual("tests", result["failed_step"])
@@ -326,7 +329,17 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             self.assertEqual("obsolete", (target / "old.txt").read_text())
         self.assertEqual(1, sum(any(item.endswith("run_full_test_suite.py") for item in argv) for argv in calls))
         self.assertEqual(2, sum(argv[:2] == ("git", "commit") for argv in calls))
-        self.assertIn("test failure", (self.root / result["report_path"]).read_text())
+        report = (self.root / result["report_path"]).read_text()
+        logs = list((self.root / ".caprmedio_tmp/simple_local_release").glob("tests-failed-tests-*.log"))
+        self.assertEqual(1, len(logs))
+        self.assertIn(f"Complete test output: `{logs[0].relative_to(self.root).as_posix()}`", report)
+        self.assertEqual(f"stdout:\n{stdout}\nstderr:\n{stderr}", logs[0].read_text())
+        self.assertNotIn("early failure traceback", report)
+        with patch("local_release.tempfile.NamedTemporaryFile", side_effect=OSError("unavailable")):
+            unsaved = run_local_release(self.root, run_id="tests-log-unavailable", runner=runner)
+        self.assertEqual(("failed", "tests"), (unsaved["outcome"], unsaved["failed_step"]))
+        self.assertIn("Complete test output could not be saved (OSError)",
+                      (self.root / unsaved["report_path"]).read_text())
 
     def test_git_stages_everything_and_commits_before_steps_and_at_end(self):
         runner, calls = self._runner()

@@ -382,6 +382,25 @@ def _read_version(root: Path) -> tuple[Path, str]:
     return version_path, version_text.replace(f'"{version}"', f'"{next_version}"', 1)
 
 
+def _failed_test_output(root: Path, run_id: str, result: Any) -> str:
+    """Retain complete failed-suite output separately from the bounded report."""
+    streams = {name: str(getattr(result, name, "") or "") for name in ("stdout", "stderr")}
+    try:
+        temporary = _target(root, Path(".caprmedio_tmp/simple_local_release"), label="test-log")
+        temporary.mkdir(parents=True, exist_ok=True)
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", prefix=f"{run_id}-tests-", suffix=".log",
+            dir=temporary, delete=False,
+        ) as log:
+            log.write("\n".join(f"{name}:\n{value}" for name, value in streams.items()))
+            location = Path(log.name).relative_to(root).as_posix()
+        note = f"Complete test output: `{location}`"
+    except (LocalReleaseError, OSError) as error:
+        note = f"Complete test output could not be saved ({type(error).__name__})"
+    detail = "\n".join(f"{name}:\n{value[-4000:]}" for name, value in streams.items())
+    return f"{note}\n{detail}"
+
+
 def run_local_release(project_root: Path | str, *, run_id: str,
                       runner: Callable[[tuple[str, ...], Path], Any] | None = None) -> dict[str, object]:
     """Run the direct local release without candidate selection or recovery state."""
@@ -494,7 +513,7 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 except OSError as error:
                     raise LocalReleaseError("local-release-command-unavailable") from error
                 if getattr(result, "returncode", 0) != 0:
-                    detail = "\n".join(f"{stream}:\n{str(getattr(result, stream, '') or '')[-4000:]}" for stream in ("stdout", "stderr"))
+                    detail = _failed_test_output(root, run_id, result)
                     raise LocalReleaseError(f"local-release-command-failed: {detail}")
             elif phase == "copy active sources":
                 failed_step = "copy_active_sources"
