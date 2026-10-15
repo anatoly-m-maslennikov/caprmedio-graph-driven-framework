@@ -81,6 +81,13 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         image_factory = patch("local_release._image_manager", return_value=self.image)
         self.image_factory = image_factory.start()
         self.addCleanup(image_factory.stop)
+        provenance = patch("local_release.release_image_provenance", return_value={
+            "project_id": "c" * 64, "project_root": str(self.root),
+            "control_root": ".caprmedio_caprmedio", "project_name": "Fixture",
+            "head_commit": "d" * 40,
+        })
+        self.provenance = provenance.start()
+        self.addCleanup(provenance.stop)
 
     def _runner(self):
         calls = []
@@ -332,7 +339,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual(len(adds), len(commits))
         for add, commit in zip(adds, commits):
             self.assertEqual(add + 2, commit)
-        self.assertEqual(len(calls) - 1, commits[-1])
+        self.assertEqual(len(calls) - 2, commits[-1])
         self.assertEqual([
             "validate inputs", "tests", "copy active sources", "compile product", "build package", "prepare candidate image",
             "copy product to installed framework", "install project runtime", "start mcp", "final",

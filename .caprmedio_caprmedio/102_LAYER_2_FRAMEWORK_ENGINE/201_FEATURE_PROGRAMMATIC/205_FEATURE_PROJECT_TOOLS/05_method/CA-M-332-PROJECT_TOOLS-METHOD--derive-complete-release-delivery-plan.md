@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-15 01:12:14 +0000"
+version: 8
+updated_at: "2026-10-15 01:26:10 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Direct delivery"
   depends_on: [Tool, Methodology, Runtime, Skill, Image]
@@ -28,4 +28,6 @@ The Tool copies the selected active source, compiles it, prepares the package, i
 
 ## Details
 
-Before each Local release step and at completion, inspect Git state. Preserve the project's runtime configuration and do not modify authoritative sources during delivery. Enumerate accumulated Project-owned release containers and images, proving exact ownership and obsolete-code identity rather than inferring them from tags or version age. Remove eligible stopped obsolete containers before MCP startup; after successful installation and smoke, repeat and remove obsolete images unused by any container or protected reference. Preserve verified current-code resources, running containers outside the existing exact-prior MCP replacement path, unrelated resources and targets with unknown ownership/code identity. Retain and report unproven orphans and cleanup failures; never force-delete or prune globally.
+As the first Local release step, commit all tracked changes and untracked nonignored files allowed by existing file-safety exclusions, then verify a clean worktree and index. Preserve ignored files and environment-file exclusions; excluded nonignored dirty files stop release rather than being committed or waived. A clean repository is a no-op; commit failure or residual tracked/nonignored untracked changes stop before tests, image preparation/build or Docker work. Before each later Local release step and at completion, inspect Git state and verify cleanliness after its checkpoint. Preserve the project's runtime configuration and do not modify authoritative sources during delivery. Enumerate accumulated Project-owned release containers and images, proving exact ownership and obsolete-code identity rather than inferring them from tags or version age. Remove eligible stopped obsolete containers before MCP startup; after successful installation and smoke, repeat and remove obsolete images unused by any container or protected reference. Preserve verified current-code resources, running containers outside the existing exact-prior MCP replacement path, unrelated resources and targets with unknown ownership/code identity. Retain and report unproven orphans and cleanup failures; never force-delete or prune globally.
+
+For fresh local-release image builds, attach and inspect exact Project ownership, canonical Project name and full owning-repository build-time Git HEAD commit labels under CA-D-562; refuse fresh preparation when name or HEAD is unavailable or invalid. Keep existing cache reuse without a metadata-only rebuild or a new ownership claim for reused images. Use matching inspected exact ownership labels to identify eligible labelled orphans; preserve legacy unlabelled or unproven images. Name and HEAD are provenance only, not cleanup ownership gates: use the source fingerprint and immutable image ID to protect actual current code, including a dirty checkout's built bytes.

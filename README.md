@@ -283,7 +283,8 @@ Implementation has golden mock-Agent evidence, not a live-LLM claim.
 
 Two Project-owned release commands run directly from the repository on the host:
 
-- **Local release (`PROJECT_TOOLS/release.py local`):** run the complete suite; copy active
+- **Local release (`PROJECT_TOOLS/release.py local`):** first commit all tracked
+  and untracked nonignored changes and verify a clean worktree; run the complete suite; copy active
   Methodology Sources into `101_FRAMEWORK_METHODOLOGY`; compile Applicable
   Methodology; replace the installed Methodology; build and install the Engine
   package and project-local `ca`; remove eligible stopped obsolete Project-owned
@@ -298,6 +299,9 @@ Two Project-owned release commands run directly from the repository on the host:
 Both start only on an Operator command. They commit all safe, nonignored changes
 before each step and at the end. Failures stop for manual handling: no automatic
 rollback, retry, recovery or legacy compatibility path is part of this cut.
+Local release skips an empty initial commit; commit failure or remaining changes
+stop it before tests, builds or Docker work. Existing environment-file exclusions
+remain; excluded nonignored changes must be resolved before release.
 
 The reusable beta package is in `.caprmedio_install/simple_local_release/package`;
 its installed Project copy is in `.caprmedio_runtime/simple_local_release/package`.

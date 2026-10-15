@@ -8,6 +8,7 @@ are started, replaced or retired here.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from collections.abc import Callable
 import hashlib
 import json
 import os
@@ -21,8 +22,10 @@ import time
 
 try:
     from .image_reference import IMMUTABLE_IMAGE
+    from .image_provenance import ImageBuildProvenance, label_arguments
 except ImportError:  # direct execution/import with docker/ on sys.path
     from image_reference import IMMUTABLE_IMAGE
+    from image_provenance import ImageBuildProvenance, label_arguments
 
 
 ENGINE_ROOT = "102_FRAMEWORK_ENGINE"
@@ -164,10 +167,15 @@ def _bounded_run(argv, *, cwd, timeout, capture_stdout=True, max_output=_MAX_OUT
 
 
 class ImageManager:
-    def __init__(self, source_root, executor=_DEFAULT_EXECUTOR, timeout=600, *,
-                 uid=None, gid=None, platform=None, build_temp_root=None):
+    def __init__(self, source_root: Path | str, executor: Callable[..., subprocess.CompletedProcess[str]] = _DEFAULT_EXECUTOR,
+                 timeout: float = 600, *, uid: int | None = None, gid: int | None = None,
+                 platform: str | None = None, build_temp_root: Path | str | None = None,
+                 build_provenance: ImageBuildProvenance | None = None) -> None:
         self.source_root = Path(source_root)
         self.build_temp_root = Path(build_temp_root) if build_temp_root is not None else None
+        if build_provenance is not None and not isinstance(build_provenance, ImageBuildProvenance):
+            raise ImageError("IMAGE_INPUT_UNAVAILABLE", "Image build provenance must be explicitly typed")
+        self.build_provenance = build_provenance
         self.executor = executor
         if isinstance(timeout, bool) or not isinstance(timeout, (int, float)) or not 0 < timeout <= 900:
             raise ImageError("IMAGE_INPUT_UNAVAILABLE", "Image timeout must be within (0, 900] seconds")
@@ -282,7 +290,7 @@ class ImageManager:
             raise ImageError(code, "Docker image output is incomplete or invalid")
         return output
 
-    def _inspect(self, image: str, identity: ImageIdentity, *, code="IMAGE_REFUSED") -> str:
+    def _inspect(self, image: str, identity: ImageIdentity, *, code: str = "IMAGE_REFUSED", built: bool = False) -> str:
         raw = self._run(("docker", "image", "inspect", image), code=code)
         try:
             values = json.loads(raw, object_pairs_hook=_unique_object)
@@ -290,6 +298,9 @@ class ImageManager:
                 raise ValueError("one image is required")
             value = values[0]
             labels = value["Config"]["Labels"]
+            if built and self.build_provenance is not None:
+                if not isinstance(labels, dict) or any(labels.get(key) != expected for key, expected in self.build_provenance.labels().items()):
+                    raise ValueError("built image provenance differs")
             platform = identity.platform.split("/")
             if (value["Id"] != image or not isinstance(labels, dict)
                     or labels.get(SCHEMA_LABEL) != SCHEMA
@@ -305,7 +316,7 @@ class ImageManager:
         if self.identity() != identity:
             raise self._input_error()
 
-    def resolve(self, explicit_id=None, build_if_missing=True) -> str:
+    def resolve(self, explicit_id: str | None = None, build_if_missing: bool = True) -> str:
         if explicit_id is not None and (not isinstance(explicit_id, str)
                                        or IMMUTABLE_IMAGE.fullmatch(explicit_id) is None):
             raise ImageError("IMAGE_REFUSED", "An explicit image must be one lowercase immutable sha256 ID")
@@ -357,6 +368,7 @@ class ImageManager:
         command = ("docker", "build", "--iidfile", str(iidfile),
                    "--label", f"{SCHEMA_LABEL}={SCHEMA}",
                    "--label", f"{FINGERPRINT_LABEL}={identity.fingerprint}",
+                   *label_arguments(self.build_provenance),
                    "--platform", identity.platform,
                    "--build-arg", f"RUNTIME_UID={identity.uid}",
                    "--build-arg", f"RUNTIME_GID={identity.gid}",
@@ -372,7 +384,7 @@ class ImageManager:
                 raise ValueError("immutable builder identity is invalid")
         except (OSError, ValueError, UnicodeError) as error:
             raise ImageError("BUILD_FAILED", "Builder did not capture one immutable sha256 image ID") from error
-        self._inspect(image, identity, code="BUILD_FAILED")
+        self._inspect(image, identity, code="BUILD_FAILED", built=True)
         self._current(identity)
         self._verify_context(context, identity)
         return image

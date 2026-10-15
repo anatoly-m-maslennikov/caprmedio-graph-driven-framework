@@ -1,6 +1,5 @@
 """Retire only inspected obsolete resources belonging to the selected Project."""
 
-from dataclasses import dataclass, field
 from pathlib import Path
 import re
 import subprocess
@@ -9,21 +8,14 @@ from release_cleanup_identity import (
     IMAGE,
     IDENTIFIER,
     FINGERPRINT,
-    SCHEMA,
     Container,
+    Cleanup as Cleanup,
     Runner,
-    image_fingerprint,
-    image_has_current_code,
+    image_has_current_code as image_has_current_code,
+    owner_labels,
     run_docker,
 )
-
-
-@dataclass
-class Cleanup:
-    images: set[str] = field(default_factory=set)
-    attempted: set[str] = field(default_factory=set)
-    notes: list[str] = field(default_factory=list)
-    pending: bool = False
+from release_cleanup_images import cleanup_obsolete_images as cleanup_obsolete_images
 
 
 def _identifiers(output: str, pattern: re.Pattern[str]) -> set[str]:
@@ -101,7 +93,7 @@ def cleanup_stopped_containers(
     cleanup: Cleanup | None = None,
 ) -> Cleanup:
     if cleanup is None:
-        cleanup = Cleanup()
+        cleanup = Cleanup(owner=owner_labels(root, project_id, control))
     try:
         identifiers = _identifiers(
             run_docker(
@@ -132,63 +124,3 @@ def cleanup_stopped_containers(
             cleanup.pending = True
             cleanup.notes.append(f"Container {identifier} retained: inspection or removal failed.")
     return cleanup
-
-
-def _remove_image(
-    root: Path,
-    runner: Runner | None,
-    image: str,
-    fingerprint: str,
-    cleanup: Cleanup,
-) -> None:
-    if image_fingerprint(root, runner, image) == fingerprint:
-        cleanup.notes.append(f"Image {image} retained: current code fingerprint.")
-        return
-    references = run_docker(
-        root, runner, "container", "ls", "--all", "--filter", f"ancestor={image}", "--quiet"
-    )
-    if references.strip():
-        cleanup.notes.append(f"Image {image} retained: a container still uses it.")
-        cleanup.pending = True
-        return
-    run_docker(root, runner, "image", "rm", image)
-    cleanup.notes.append(f"Removed obsolete Project-linked image {image}.")
-
-
-def cleanup_obsolete_images(
-    root: Path,
-    current_image: str,
-    fingerprint: str,
-    cleanup: Cleanup,
-    runner: Runner | None = None,
-) -> None:
-    try:
-        observed = _identifiers(
-            run_docker(
-                root,
-                runner,
-                "image",
-                "ls",
-                "--no-trunc",
-                "--quiet",
-                "--filter",
-                f"label={SCHEMA}=1",
-            ),
-            IMAGE,
-        )
-        unproven = observed - cleanup.images - {current_image}
-        if unproven:
-            cleanup.pending = True
-            cleanup.notes.append(
-                "Retained runtime images without Project ownership evidence: "
-                + ", ".join(sorted(unproven))
-            )
-    except OSError, RuntimeError, ValueError, subprocess.TimeoutExpired:
-        cleanup.pending = True
-        cleanup.notes.append("Runtime image discovery unavailable; unproven images retained.")
-    for image in sorted(cleanup.images - {current_image}):
-        try:
-            _remove_image(root, runner, image, fingerprint, cleanup)
-        except OSError, RuntimeError, ValueError, subprocess.TimeoutExpired:
-            cleanup.pending = True
-            cleanup.notes.append(f"Image {image} retained: inspection or removal failed.")

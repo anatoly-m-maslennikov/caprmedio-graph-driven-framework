@@ -5,7 +5,10 @@ package. Shared compiler, installer and test-gate helpers remain in the Engine.
 
 ## Two workflows
 
-- **Local release:** validate inputs and run the complete suite before replacing
+- **Local release:** first commit all tracked changes and untracked nonignored
+  files, then verify a clean worktree and index. A clean repository needs no
+  empty commit; a failed commit or remaining changes stop before tests, builds
+  or Docker work. Validate inputs and run the complete suite before replacing
   delivered or installed files. Copy active Methodology sources, compile the
   product, build the Engine/package and candidate image, install the Methodology
   and Project runtime, then start and verify MCP. Preserve configuration and
@@ -18,6 +21,18 @@ package. Shared compiler, installer and test-gate helpers remain in the Engine.
   version and documentation, and run the complete suite before public effects.
   Push `amm/dev`, create/update its Draft `main` PR, then insert its actual URL
   when newly known. That URL-only follow-up does not repeat the suite. Never merge.
+
+Local checkpoints keep existing ignored-file and environment-file exclusions.
+Excluded nonignored changes stop release rather than being committed or waived.
+
+Fresh Local-release image builds carry exact Project ownership, Project name and
+the full build-time owning-repository HEAD commit ID; missing or invalid name or
+HEAD stops fresh preparation before building. Name and HEAD record provenance;
+the source fingerprint
+and immutable image ID identify current code. Matching ownership labels allow
+cleanup to identify labelled orphan images. Cached images keep their existing
+labels and reuse behavior; no metadata-only rebuild or ownership claim is added.
+Legacy unlabelled or otherwise unproven images remain retained and reported.
 
 The implementation cores are `RELEASE_VERSION/local_release.py` and
 `PUBLIC_RELEASE/public_release.py`. Run them through `release.py` on the host,

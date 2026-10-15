@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: "2026-10-15 01:12:14 +0000"
+version: 9
+updated_at: "2026-10-15 01:23:06 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Runtime package carrier"
   depends_on: [Tool, Runtime, Manifest, Methodology, Installation, Projection]
@@ -35,6 +35,8 @@ After normal source/input/file-safety checks, the full test suite including requ
 Prepare the direct local package in a component-owned, Run-specific descendant of the configured Project Temporary State root under `.caprmedio_tmp/`, following CA-M-289; staging is not a persistent installation root. It carries the complete `102_FRAMEWORK_ENGINE/`, the product's sources and compilation at `METHODOLOGY/sources/` and `METHODOLOGY/compiled/`, the complete canonical `ca` payload at `SKILLS/ca/`, and `pyproject.toml`, `uv.lock` and `version.toml`. Install those same prepared bytes at the governed persistent Project runtime package destination outside temporary state; install its complete `SKILLS/ca/` payload at `.agents/skills/ca/` and refresh the package-bound Project MCP bootstrap. This Delivery does not introduce a new persistent MCP path. Compilation and source lineage remain governed by CA-D-561; this Delivery adds no export or binding-projection schema.
 
 The prepared runtime supplies the Project-MCP launcher and Docker image inputs. Build or reuse and verify the package-bound candidate image in the same Workflow before any installed target is cleared. Final installation delivers the prepared bytes, then restarts or reuses the Project MCP with that image for CA-O-169's startup/smoke check; it does not defer image preparation until after replacement. A successful build alone does not prove a working Project MCP. This direct flow requires no candidate-snapshot manifest, retained Full Gate, selected-N execution gate, N+1 promotion, native runtime selector, state-generation proof or bootstrap image-restoration prerequisite.
+
+Fresh local-release image builds record exact Project ownership with `org.caprmedio.project` (selected instance ID), `org.caprmedio.control_root` (relative control directory) and `org.caprmedio.host_project_root` (canonical owning repository root), plus canonical Settings `project.name` in `org.caprmedio.project.name` and the full build-time owning-repository Git HEAD commit ID in `org.caprmedio.source.head_commit`. Verify those labels by inspecting the built image; missing or invalid Project name or HEAD refuses fresh preparation before building. Name and HEAD are provenance, not ownership gates or proof of a clean checkout or exact built source tree; the runtime source fingerprint and inspected immutable image ID remain the code-identity checks. Preserve existing cache reuse: an admitted cached image is not rebuilt merely to add labels, and reuse does not add or transfer ownership. Matching inspected exact ownership labels can identify newly labelled orphan images for bounded cleanup; old unlabelled or otherwise unproven images remain retained and reported.
 
 ### Preservation and failure boundary
 

@@ -19,6 +19,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from release_cleanup import cleanup_obsolete_images, cleanup_stopped_containers, image_has_current_code  # noqa: E402
+from release_image_provenance import release_image_provenance  # noqa: E402
 
 
 class LocalReleaseError(RuntimeError):
@@ -336,12 +337,14 @@ def _cleanup_staging(root: Path, staging: Path | None) -> str:
     return f"Retained temporary staging: `{staging.relative_to(root).as_posix()}`.\n" if os.path.lexists(staging) else ""
 
 
-def _image_manager(source: Path, temporary: Path | None = None):
+def _image_manager(source: Path, temporary: Path | None = None, *, build_provenance: dict[str, str] | None = None):
     docker = Path(__file__).resolve().parents[2] / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker"
     if str(docker) not in sys.path:
         sys.path.insert(0, str(docker))
     from runtime_images import ImageManager
-    return ImageManager(source, build_temp_root=temporary)
+    from image_provenance import ImageBuildProvenance
+    provenance = ImageBuildProvenance(**build_provenance) if build_provenance is not None else None
+    return ImageManager(source, build_temp_root=temporary, build_provenance=provenance)
 
 
 def _launcher_image(selection) -> str | None:
@@ -424,6 +427,12 @@ def run_local_release(project_root: Path | str, *, run_id: str,
     try:
         for phase in phases:
             failed_step = f"git_before_{phase.replace(' ', '_')}"
+            sensitive = runner((
+                "git", "diff", "--cached", "--name-only", "--", ":(glob)**/.env*", ":(glob)**/*.env",
+            ), root)
+            if (getattr(sensitive, "returncode", 1) != 0 or not isinstance(getattr(sensitive, "stdout", None), str)
+                    or sensitive.stdout.strip()):
+                raise LocalReleaseError("local-release-staged-environment-file-or-check-unavailable")
             try:
                 result = runner((
                     "git", "add", "-A", "--", ".", ":(exclude,glob)**/.env*", ":(exclude,glob)**/*.env",
@@ -445,6 +454,10 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                     raise LocalReleaseError("local-release-git-failed")
             elif getattr(result, "returncode", 0) != 0:
                 raise LocalReleaseError("local-release-git-failed")
+            result = runner(("git", "status", "--porcelain", "--untracked-files=all"), root)
+            if (getattr(result, "returncode", 1) != 0 or not isinstance(getattr(result, "stdout", None), str)
+                    or result.stdout.strip()):
+                raise LocalReleaseError("local-release-worktree-not-clean")
 
             if phase == "final":
                 continue
@@ -546,7 +559,10 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 _verify_package(prepared_product, product_identity)
                 image_temporary = staging / "image_builds"
                 image_temporary.mkdir(mode=0o700)
-                manager = _image_manager(package, image_temporary)
+                manager = _image_manager(
+                    package, image_temporary,
+                    build_provenance=release_image_provenance(root, selection, cleanup_runner),
+                )
                 candidate_image = manager.resolve()
                 candidate_fingerprint = manager.identity().fingerprint
                 if (not isinstance(candidate_image, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", candidate_image)

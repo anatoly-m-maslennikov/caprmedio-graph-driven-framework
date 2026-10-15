@@ -1,6 +1,7 @@
 """Strict Docker observations and immutable current-code identity checks."""
 
 from collections.abc import Callable
+from dataclasses import dataclass, field
 from pathlib import Path
 import re
 import subprocess
@@ -12,6 +13,23 @@ IMAGE = re.compile(r"sha256:[0-9a-f]{64}")
 IDENTIFIER = re.compile(r"[0-9a-f]{64}")
 FINGERPRINT = "org.caprmedio.runtime.fingerprint"
 SCHEMA = "org.caprmedio.runtime.schema"
+
+
+@dataclass
+class Cleanup:
+    images: set[str] = field(default_factory=set)
+    attempted: set[str] = field(default_factory=set)
+    notes: list[str] = field(default_factory=list)
+    pending: bool = False
+    owner: dict[str, str] = field(default_factory=dict)
+
+
+def owner_labels(root: Path, project_id: str, control: str) -> dict[str, str]:
+    return {
+        "org.caprmedio.project": project_id,
+        "org.caprmedio.control_root": control,
+        "org.caprmedio.host_project_root": str(root),
+    }
 
 
 class Configuration(BaseModel):
@@ -57,7 +75,7 @@ def run_docker(root: Path, runner: Runner | None, *arguments: str) -> str:
     return result.stdout
 
 
-def image_fingerprint(root: Path, runner: Runner | None, image: str) -> str:
+def image_labels(root: Path, runner: Runner | None, image: str) -> dict[str, str]:
     projection = '{"Id":{{json .Id}},"Config":{"Labels":{{json .Config.Labels}}}}'
     row = ImageMetadata.model_validate_json(
         run_docker(root, runner, "image", "inspect", "--format", projection, image)
@@ -69,7 +87,11 @@ def image_fingerprint(root: Path, runner: Runner | None, image: str) -> str:
         or re.fullmatch(r"[0-9a-f]{64}", labels.get(FINGERPRINT, "")) is None
     ):
         raise ValueError("Image runtime ownership unproven")
-    return labels[FINGERPRINT]
+    return labels
+
+
+def image_fingerprint(root: Path, runner: Runner | None, image: str) -> str:
+    return image_labels(root, runner, image)[FINGERPRINT]
 
 
 def image_has_current_code(

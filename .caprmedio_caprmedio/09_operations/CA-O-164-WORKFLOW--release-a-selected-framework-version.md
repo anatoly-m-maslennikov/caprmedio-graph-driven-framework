@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Release selected Framework Version"
   depends_on: [Workflow, Step, Action, Operator, Version, Methodology, Implementation, Skill, Test, Journal]
-version: 17
-updated_at: "2026-10-15 01:12:14 +0000"
+version: 18
+updated_at: "2026-10-15 01:26:10 +0000"
 relations:
   relates_to: [CA-O-011, CA-O-165, CA-O-166, CA-O-168, CA-O-169, CA-R-1525]
 ---
@@ -53,3 +53,5 @@ Invoke this Workflow from the repository host through `PROJECT_TOOLS/release.py 
 The four named Step/Action occurrences are the complete registered graph. Intended local-release tool tests are mandatory internal Workflow work after successful CA-O-170 validation and before CA-O-172 delivery; they are not another Atom Step or Action and cannot be bypassed by interpreting an edge label as execution. The admitted native Workflow runner must actually run the declared tests, retain their observed result, and stop before delivery on failure, unavailable execution, or unknown completion. CA-O-165 remains validation-only. This clarification creates no test Atom ID, restored retired Step, or second Workflow.
 
 This Workflow starts on one Operator command. It runs Git before every listed Step and before intended tool tests, then runs Git again after final completion. It validates the current inputs, runs intended local-release tests, copies active sources into the product, compiles them, installs Engine `.install` into the Project runtime package, and smokes the installed Docker/MCP path. A failed step or test stops and is reported for manual handling. It never starts CA-O-188, pushes, opens a PR, or makes an installed copy authoritative.
+
+Its first release step commits all tracked changes and all untracked nonignored files allowed by the existing file-safety exclusions, then verifies that the worktree and index are clean. Ignored files remain ignored and environment-file exclusions remain; an excluded nonignored dirty file stops release rather than being committed or waived. An already clean repository needs no empty commit. A failed commit or any remaining tracked or nonignored untracked change stops the release before tests, image preparation/build or Docker work. Verify cleanliness after each later checkpoint as well. This checkpoint is internal work of this Workflow, not a new Step or Action.
