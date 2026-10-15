@@ -1,0 +1,30 @@
+---
+subjects:
+  governs: "Targeting Atoms"
+  depends_on:
+    ["Atom", "Atom.Target Scope Unit", "Scope Unit"]
+version: 10
+updated_at: "2026-10-15 12:12:19 +0000"
+relations: {}
+atom_id: "CA-R-1448@draft"
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "General"
+status: "Draft"
+author: "Anatoly Maslennikov"
+global_tier: 10
+---
+# Summary
+
+Define Targeting Atoms
+
+## Scope
+
+the targeting of Atoms to Scope Units.
+
+## Claim
+
+Targeting Atoms **means** the set of **all** Atoms whose resolved Claim Target Scope Unit **`=`** the selected Scope Unit, independently of **where** those Atoms are owned **or** stored.
+
+## Details

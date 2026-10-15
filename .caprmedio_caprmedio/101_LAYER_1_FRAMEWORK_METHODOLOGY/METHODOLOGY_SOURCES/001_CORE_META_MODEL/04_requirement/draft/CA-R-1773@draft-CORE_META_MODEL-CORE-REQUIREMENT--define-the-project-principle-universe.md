@@ -1,0 +1,32 @@
+---
+version: 17
+updated_at: "2026-10-15 12:14:43 +0000"
+relations:
+  child_of:
+    - CA-M-001
+subjects:
+  governs: "Project Principle Universe"
+  depends_on:
+    ["Project", "Atom.Local Tier: Principle", "Structural Level", "Atom/Content Role", "Artifact", "Extension", "Project Configuration", "CAPRMEDIO Framework Instance"]
+atom_id: "CA-R-1773@draft"
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "Core"
+status: "Draft"
+author: "Anatoly Maslennikov"
+global_tier: 9
+---
+# Summary
+
+Define the Project Principle universe
+
+## Scope
+
+the Project Principle universe.
+
+## Claim
+
+CAPRMEDIO **must** define the Project Principle universe as **all** irreducible governed invariants that apply across the entire current Project independently of Structural Level, scope label, Content Role, Artifact form, Extension, Project Configuration, **or** substrate.
+
+## Details

@@ -1,0 +1,34 @@
+---
+atom_id: "CA-R-1608@draft"
+content_role: Requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: General
+author: Anatoly Maslennikov
+status: "Draft"
+subjects:
+  governs: "Atom/Content Role: Concern.Status"
+  depends_on:
+    ["Atom/Content Role: Concern", "Atom.Status"]
+version: 4
+updated_at: "2026-10-15 12:14:10 +0000"
+relations:
+  relates_to:
+    - CA-R-1308
+    - CA-R-1313
+    - CA-R-1336
+global_tier: 10
+---
+# Summary
+
+Register Core Concern Status Values
+
+## Scope
+
+`Atom/Content Role: Concern/Status`.
+
+## Claim
+
+the Core allowed values of `Atom/Content Role: Concern/Status` **must** be exactly (`draft`, `active`, `resolved`, `canceled`).
+
+## Details

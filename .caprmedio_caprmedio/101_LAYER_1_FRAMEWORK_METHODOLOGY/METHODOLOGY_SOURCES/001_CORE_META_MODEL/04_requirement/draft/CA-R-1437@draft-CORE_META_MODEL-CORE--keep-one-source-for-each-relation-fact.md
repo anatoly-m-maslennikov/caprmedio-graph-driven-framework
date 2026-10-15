@@ -1,0 +1,32 @@
+---
+subjects:
+  governs: "Relation.Authority"
+  depends_on:
+    ["Relation", "Relation Kind", "CAPRMEDIO Graph", "Projection", "Single Source of Truth", "Atom.Substance", "Structural Entity", "Journal"]
+version: 7
+updated_at: "2026-10-15 12:12:08 +0000"
+relations: {}
+atom_id: "CA-R-1437@draft"
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "Core"
+status: "Draft"
+author: "Anatoly Maslennikov"
+global_tier: 9
+---
+# Summary
+
+Keep one source for each relation fact
+
+## Scope
+
+authoritative source declarations for Relation facts.
+
+## Claim
+
+**every** independently authored Relation fact **must** have **`=1`** authoritative source declaration under Single Source of Truth. its representation **in** multiple CAPRMEDIO Graph views remains a reference **or** derived Projection of that declaration **without** creating another independently maintained source.
+
+a Relation derived under admitted derivation authority **must** remain traceable **to** that authority **and** its authoritative input facts, including through upstream Projections. it does **not** require a fabricated direct source declaration for the derived result. this distinction **must not** weaken a Relation Kind's requirement for an explicit source fact **or** permit unsupported inference.
+
+## Details
