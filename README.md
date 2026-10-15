@@ -286,8 +286,10 @@ Two Project-owned release commands run directly from the repository on the host:
 - **Local release (`PROJECT_TOOLS/release.py local`):** run the complete suite; copy active
   Methodology Sources into `101_FRAMEWORK_METHODOLOGY`; compile Applicable
   Methodology; replace the installed Methodology; build and install the Engine
-  package and project-local `ca`; start Docker MCP; remove only proven
-  superseded Project-owned images.
+  package and project-local `ca`; remove eligible stopped obsolete Project-owned
+  containers before Docker MCP startup; after successful smoke, repeat cleanup
+  and remove unused obsolete images, preserving
+  verified current-code resources and unrelated or unproven targets.
 - **Public release (`PROJECT_TOOLS/release.py public`):** run the complete suite; use one content
   prompt for the full PR description and its concise Version History bullets;
   update the version and README; push `amm/dev`; create or update the PR to

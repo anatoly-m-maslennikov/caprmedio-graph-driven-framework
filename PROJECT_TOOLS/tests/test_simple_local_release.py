@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import subprocess
+from contextlib import AbstractContextManager
 import json
 import stat
 import sys
@@ -99,7 +100,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         output.mkdir(parents=True)
         (output / "compiled.md").write_text("compiled", encoding="utf-8")
 
-    def _compiler(self, *, fail=False):
+    def _compiler(self, *, fail: bool = False) -> AbstractContextManager[object]:
         module = ModuleType("COMPILE_APPLICABLE_METHODOLOGY.compile_applicable_methodology")
         module.CompileError = RuntimeError
         module.MethodologyPaths = SimpleNamespace
@@ -349,6 +350,8 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             self.assertEqual(self.root, cwd)
             if argv[0] == "git":
                 return subprocess.run(argv, cwd=cwd, capture_output=True, text=True, check=False)
+            if argv[0] == "docker":
+                return subprocess.CompletedProcess(argv, 0, "", "")
             return subprocess.CompletedProcess(argv, 0, "http://localhost:12345/mcp", "")
 
         with self._compiler():

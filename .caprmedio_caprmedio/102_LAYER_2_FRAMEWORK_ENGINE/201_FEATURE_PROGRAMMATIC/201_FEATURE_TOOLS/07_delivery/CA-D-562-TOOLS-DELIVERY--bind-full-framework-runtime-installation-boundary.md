@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-14 19:54:14 +0400"
+version: 8
+updated_at: "2026-10-15 01:12:14 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Runtime package carrier"
   depends_on: [Tool, Runtime, Manifest, Methodology, Installation, Projection]
@@ -42,4 +42,4 @@ Keep Settings, runtime configuration, Project Structure, Operator registry, auth
 
 Actual failure reports retain the failed phase and observed result for manual inspection before any separately authorized retry; a report or Journal entry does not prove completion or fabricate a Workflow, approval or earlier event. Plain Journal append/read preserves supplied actual observations without baseline, prior-history, chain, validation, receipt, deduplication, retry or recovery prerequisites; logging I/O failure does not change the independently observed source-effect outcome. This Delivery imposes no new Journal row count or recovery protocol and does not authorize replay of an unknown effect.
 
-After verified installation and successful Project-MCP startup/smoke, cleanup may remove only exactly identified superseded release-owned images for this Project that are not retained by a container or protected reference. Unknown ownership, unavailable inspection, container use or failed removal leaves the image retained and the cleanup outcome reported as pending. A prior Project-MCP container may be stopped and removed only through the existing exact Project-ownership checks; never force-delete containers, remove unrelated images or prune globally. Successful installation does not falsely imply completed cleanup.
+Cleanup covers accumulated obsolete release-owned containers and images for this Project, not only the immediate predecessor. Before Project-MCP startup, remove only proven obsolete stopped Project-owned containers; after verified installation and successful startup/smoke, repeat that cleanup and remove proven obsolete images no longer retained by any container or protected reference. Preserve all images and containers carrying the verified current code. A prior Project-MCP container may be stopped and removed only through the existing exact Project-ownership replacement checks; accumulated cleanup preserves other running containers. Unknown ownership or code identity, unavailable inspection, protected use or failed removal retains the target and reports cleanup pending, including unproven orphan images. Tags and version age alone are not proof. Never force-delete containers, remove unrelated or other-Project resources or prune globally. Successful installation does not falsely imply completed cleanup.

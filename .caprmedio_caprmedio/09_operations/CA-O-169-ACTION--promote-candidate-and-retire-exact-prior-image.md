@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Install selected Framework Methodology and refresh Project MCP"
   depends_on: [Action, Version, Methodology, Implementation, Skill, Test, Permission, Journal]
-version: 8
-updated_at: "2026-10-14 12:27:02 +0000"
+version: 9
+updated_at: "2026-10-15 01:12:14 +0000"
 relations:
   relates_to: [CA-O-164, CA-O-178, CA-R-1525]
 ---
@@ -31,6 +31,8 @@ The Action requires CA-O-164's current validated active sources, passing intende
 
 Commit the successful installed clear and product copy separately, staging only each transition's owned changes. These checkpoints remain separate within this Action. Other successful state-changing installation steps also retain their own scoped commit; unchanged or read-only steps record results without empty commits. A failed transition or commit stops before the next transition.
 
-Only after installed-package verification and successful Project-MCP startup/smoke, this same Action removes all verified superseded CAPRMEDIO release-owned images for the current Project, including the exact prior image when eligible. It derives each exact immutable image identity and Project-root ownership from retained actual release, build, launcher or start evidence and matching Docker inspection. A tag prefix alone is not ownership proof. It preserves the promoted candidate, unrelated images, other-Project or otherwise protected images, and images retained by containers or required protected references. It never force-deletes containers or prunes globally. Record each image's ownership evidence, use/protection check and actual removal or retention outcome through the shared Run/Action Journal evidence. In-use and unproven cleanup targets remain preserved and are reported as blockers; successful installation is not falsely reported as complete image cleanup.
+This Action considers all accumulated obsolete release-owned containers and images for the current Project, not only the immediate predecessor. Before Project-MCP startup, it may remove exactly identified stopped obsolete containers so retained old containers do not prevent startup. The existing exact-prior Project-MCP replacement path may stop and remove that prior container through its ownership checks; accumulated cleanup does not stop other running containers. After installed-package verification and successful Project-MCP startup/smoke, repeat eligible stopped-container cleanup and remove the now-unused obsolete images.
+
+Derive each exact immutable image/container identity, Project-root ownership and obsolete-code status from actual release, build, launcher or start evidence and matching Docker inspection. A tag prefix or version age alone proves neither ownership nor obsolete code. Preserve the promoted candidate and all images/containers carrying the verified current code, running containers outside the existing exact-prior replacement path, unrelated or other-Project resources, required protected references, and images retained by any container. Unknown ownership, unknown code identity or unavailable inspection means retain and report, including unproven orphan images. Never force-delete containers or prune globally. Record each target's ownership and code evidence, use/protection check and actual removal or retention outcome through the shared Run/Action Journal evidence. Blocked or failed cleanup is reported as pending; successful installation does not imply complete cleanup.
 
 The Action never copies from an installed tree as source authority, broadens the active source set, creates another Workflow, pushes, opens a PR, removes unrelated Project state, or retries an uncertain effect. A failed copy, Skill installation, MCP restart/reuse, or smoke check stops with actual evidence and leaves no claim of completed installation.

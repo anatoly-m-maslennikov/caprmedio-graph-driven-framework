@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-12 00:00:00 +0000"
+version: 7
+updated_at: "2026-10-15 01:12:14 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Direct delivery"
   depends_on: [Tool, Methodology, Runtime, Skill, Image]
@@ -28,4 +28,4 @@ The Tool copies the selected active source, compiles it, prepares the package, i
 
 ## Details
 
-Before each Local release step and at completion, inspect Git state. Preserve the project's runtime configuration and do not modify authoritative sources during delivery. Use only project-owned Docker images for cleanup, retaining any image that is in use or cannot be identified as owned by the project.
+Before each Local release step and at completion, inspect Git state. Preserve the project's runtime configuration and do not modify authoritative sources during delivery. Enumerate accumulated Project-owned release containers and images, proving exact ownership and obsolete-code identity rather than inferring them from tags or version age. Remove eligible stopped obsolete containers before MCP startup; after successful installation and smoke, repeat and remove obsolete images unused by any container or protected reference. Preserve verified current-code resources, running containers outside the existing exact-prior MCP replacement path, unrelated resources and targets with unknown ownership/code identity. Retain and report unproven orphans and cleanup failures; never force-delete or prune globally.

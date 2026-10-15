@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Release selected Framework Version"
   depends_on: [Workflow, Step, Action, Operator, Version, Methodology, Implementation, Skill, Test, Journal]
-version: 16
-updated_at: "2026-10-15 00:35:00 +0000"
+version: 17
+updated_at: "2026-10-15 01:12:14 +0000"
 relations:
   relates_to: [CA-O-011, CA-O-165, CA-O-166, CA-O-168, CA-O-169, CA-R-1525]
 ---
@@ -34,7 +34,7 @@ The Workflow uses the current active Atoms in the Project-owned `METHODOLOGY_SOU
 | CA-O-170 | CA-O-165 | validate current active sources and delivery paths |
 | CA-O-172 | CA-O-166 | clear the derived product except protected settings, then copy only the active source units |
 | CA-O-173 | CA-O-166 | compile applicable Methodology in that product |
-| CA-O-178 | CA-O-169 | clear the installed Framework except protected configuration, copy `101_FRAMEWORK_METHODOLOGY` as-is, install `ca`, restart or reuse Project MCP for smoke, then remove verified superseded Project-owned release images |
+| CA-O-178 | CA-O-169 | clear the installed Framework except protected configuration, copy `101_FRAMEWORK_METHODOLOGY` as-is, install `ca`, remove eligible stopped obsolete Project-owned containers before MCP startup, restart or reuse Project MCP for smoke, then finish eligible container/image cleanup |
 
 ## Transitions
 

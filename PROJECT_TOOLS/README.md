@@ -9,7 +9,10 @@ package. Shared compiler, installer and test-gate helpers remain in the Engine.
   delivered or installed files. Copy active Methodology sources, compile the
   product, build the Engine/package and candidate image, install the Methodology
   and Project runtime, then start and verify MCP. Preserve configuration and
-  remove only proven superseded Project-owned images.
+  remove eligible stopped obsolete Project-owned containers before MCP startup,
+  then repeat cleanup and remove unused obsolete images after successful smoke.
+  Preserve verified current-code resources, other running containers and
+  unrelated or unproven targets; report unfinished cleanup.
 - **Public release:** one prompt produces the full PR description and concise
   Version History bullets. Discover at most one matching open PR, prepare the
   version and documentation, and run the complete suite before public effects.

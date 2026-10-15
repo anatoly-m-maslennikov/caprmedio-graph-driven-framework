@@ -17,6 +17,9 @@ from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from release_cleanup import cleanup_obsolete_images, cleanup_stopped_containers, image_has_current_code  # noqa: E402
+
 
 class LocalReleaseError(RuntimeError):
     """A pre-effect refusal from the bounded local-release runner."""
@@ -388,6 +391,7 @@ def run_local_release(project_root: Path | str, *, run_id: str,
         selection = resolve_project(root)
     except ProjectSelectionError as error:
         raise LocalReleaseError("local-release-project-selection-invalid") from error
+    cleanup_runner = runner
     if runner is None:
         runner = lambda argv, cwd: subprocess.run(argv, cwd=cwd, text=True, capture_output=True, check=False)
 
@@ -412,6 +416,7 @@ def run_local_release(project_root: Path | str, *, run_id: str,
     receipt_path: str | None = None
     cleanup_note = "No proven superseded Project-owned image identity was available; none was removed."
     cleanup_pending = False
+    cleanup = None
     phases = (
         "validate inputs", "tests", "copy active sources", "compile product", "build package", "prepare candidate image",
         "copy product to installed framework", "install project runtime", "start mcp", "final",
@@ -565,6 +570,12 @@ def run_local_release(project_root: Path | str, *, run_id: str,
             else:
                 failed_step = "start_mcp"
                 launcher = runtime / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py"
+                cleanup = cleanup_stopped_containers(
+                    root, selection.instance_id, selection.control_relative.as_posix(),
+                    candidate_image, candidate_fingerprint, cleanup_runner,
+                )
+                if prior_image is not None:
+                    cleanup.images.add(prior_image)
                 if prior_project is not None:
                     try:
                         result = runner((
@@ -582,6 +593,9 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                         cleanup_pending = True
                     elif len(identifiers) > 1:
                         cleanup_note = "Prior Project MCP containers were retained because ownership was ambiguous."
+                        cleanup_pending = True
+                    elif identifiers and identifiers[0] in cleanup.attempted:
+                        cleanup_note = f"Prior container {identifiers[0]} retained after its earlier removal attempt; no retry."
                         cleanup_pending = True
                     elif len(identifiers) == 1:
                         try:
@@ -602,15 +616,22 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                                 and isinstance(row.get("State"), dict)
                                 and isinstance(row["State"].get("Running"), bool)
                             ):
-                                if row["State"]["Running"]:
+                                protected = image_has_current_code(
+                                    root, row.get("Image", ""), candidate_image, candidate_fingerprint, cleanup_runner,
+                                )
+                                if protected:
+                                    cleanup_note = "Retained the existing Project MCP container with current code for canonical reuse."
+                                else:
+                                    cleanup.attempted.add(identifiers[0])
+                                if row["State"]["Running"] and not protected:
                                     stopped = runner(("docker", "container", "stop", identifiers[0]), root)
                                     if getattr(stopped, "returncode", 1) != 0:
                                         cleanup_note = "The proven prior Project MCP container was retained because stop failed."
                                         cleanup_pending = True
-                                if not cleanup_pending:
+                                if not cleanup_pending and not protected:
                                     removed = runner(("docker", "container", "rm", identifiers[0]), root)
                                     if getattr(removed, "returncode", 1) == 0:
-                                        cleanup_note = "Stopped and removed one prior Project MCP container with exact Project labels."
+                                        cleanup_note = f"Stopped and removed prior Project MCP container {identifiers[0]} with exact Project labels."
                                     else:
                                         cleanup_note = "A proven prior Project MCP container was retained because removal failed."
                                         cleanup_pending = True
@@ -632,31 +653,17 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 if getattr(mcp, "returncode", 0) != 0:
                     raise LocalReleaseError("local-release-command-failed")
                 current_image = _launcher_image(selection)
-                if prior_image is not None and current_image is not None and prior_image != current_image:
-                    try:
-                        result = runner(("docker", "container", "ls", "--all", "--filter", f"ancestor={prior_image}", "--quiet"), root)
-                    except OSError:
-                        result = None
-                    references = (
-                        [value for value in getattr(result, "stdout", "").splitlines() if re.fullmatch(r"[0-9a-f]{12,64}", value)]
-                        if getattr(result, "returncode", 1) == 0 and isinstance(getattr(result, "stdout", ""), str) else None
-                    )
-                    if references == []:
-                        try:
-                            result = runner(("docker", "image", "rm", prior_image), root)
-                        except OSError:
-                            result = None
-                        if getattr(result, "returncode", 1) == 0:
-                            cleanup_note = f"Removed the exact prior Project-owned image `{prior_image}` after replacement."
-                        else:
-                            cleanup_note = "The proven prior Project-owned image was retained because removal failed."
-                            cleanup_pending = True
-                    else:
-                        cleanup_note = "The proven prior Project-owned image was retained because container use was present or unknown."
-                        cleanup_pending = True
-                elif prior_image is not None and current_image is None:
-                    cleanup_note = "The prior Project-owned image was retained because the new launcher state was unavailable."
-                    cleanup_pending = True
+                cleanup_stopped_containers(
+                    root, selection.instance_id, selection.control_relative.as_posix(),
+                    candidate_image, candidate_fingerprint, cleanup_runner, cleanup=cleanup,
+                )
+                if cleanup.images and current_image != candidate_image:
+                    cleanup.notes.append("Obsolete images retained: replacement launcher image was not verified.")
+                    cleanup.pending = True
+                else:
+                    cleanup_obsolete_images(root, candidate_image, candidate_fingerprint, cleanup, cleanup_runner)
+                cleanup_pending |= cleanup.pending
+                cleanup_note = "\n".join([cleanup_note, *cleanup.notes])
                 receipt = _project_path(
                     root, Path(".caprmedio_runtime/simple_local_release/reports") / f"{run_id}.md",
                     label="simple-receipt",
@@ -687,6 +694,8 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 + (f"{str(error)[:8500]}\n\n" if failed_step == "tests" else "")
                 +
                 "Manual action required: inspect the current project state before any retry.\n\n"
+                + ("Docker cleanup:\n" + "\n".join([cleanup_note, *cleanup.notes]) + "\n\n" if cleanup is not None else "")
+                +
                 f"{staging_note}",
                 encoding="utf-8",
             )
