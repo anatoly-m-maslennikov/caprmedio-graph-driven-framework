@@ -6,6 +6,7 @@ FROM python:3.14.7-slim@sha256:51dafde81dbdb6ebde285137a295cf18a47ca95234fe388a3
 ARG RUNTIME_UID=1000
 ARG RUNTIME_GID=1000
 RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates \
+    && git config --system --add safe.directory /project \
     && rm -rf /var/lib/apt/lists/* \
     && (getent group ${RUNTIME_GID} || groupadd -g ${RUNTIME_GID} caprmedio) \
     && useradd -u ${RUNTIME_UID} -g ${RUNTIME_GID} -m -d /home/caprmedio caprmedio
