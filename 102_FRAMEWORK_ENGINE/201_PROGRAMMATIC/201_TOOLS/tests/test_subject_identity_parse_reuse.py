@@ -50,7 +50,8 @@ class IdentityParseReuseTests(unittest.TestCase):
         self.assertEqual(1, result["count"])
         self.assertEqual(1, self.count_path(parser))
         self.assertEqual(4, reads.count(self.unrelated))
-        self.assertEqual(4, inventory.call_count)
+        self.assertEqual(4, sum(call.args[1] == operations.control_root(self.root)
+                                for call in inventory.call_args_list))
 
     def test_two_public_previews_do_not_share_parse_state(self):
         with patch.object(operations, "parse_carrier", wraps=operations.parse_carrier) as parser:

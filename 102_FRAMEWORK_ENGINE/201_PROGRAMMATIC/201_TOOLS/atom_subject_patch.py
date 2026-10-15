@@ -24,6 +24,7 @@ from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
 from subject_notation import SubjectNotationError, get_profile, parse_subject, profile_evidence
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
+from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import CarrierValidationScope
 
 
 _SHA256 = re.compile(r"[0-9a-f]{64}")
@@ -85,6 +86,7 @@ def preview_subject_patches(
     timestamp: str | None = None,
     subject_profile: str = "legacy",
     _identity_parse_cache: _IdentityParseCache | None = None,
+    _validation_scope: CarrierValidationScope | None = None,
 ) -> dict[str, Any]:
     """Prepare a sealed-in-memory preview of explicit Subject replacements.
 
@@ -101,6 +103,7 @@ def preview_subject_patches(
     except SubjectNotationError as error:
         _fail(operations, error.code, str(error))
     project_root = Path(root).resolve()
+    validation_scope = _validation_scope if _validation_scope is not None else CarrierValidationScope(project_root)
     identity_parse_cache = _identity_parse_cache if _identity_parse_cache is not None else _IdentityParseCache()
     if not isinstance(items, list) or not items:
         _fail(operations, "subject-patches-required", "subject patch preview requires a non-empty atoms list")
@@ -125,6 +128,7 @@ def preview_subject_patches(
             selectors,
             atom_ids,
             profile_name,
+            validation_scope=validation_scope,
         )
         if identity_layout is not None and result["path"].is_relative_to(identity_layout[0]):
             _fail(operations, "subject-selector-delivered", "Subject selector cannot address an installed source copy")
@@ -137,7 +141,7 @@ def preview_subject_patches(
     illustrative_at = _preview_timestamp(operations, project_root, timestamp) if has_change else None
     atoms: list[dict[str, Any]] = []
     for item in planned:
-        atom = _materialize_item(operations, project_root, item, illustrative_at)
+        atom = _materialize_item(operations, project_root, item, illustrative_at, validation_scope=validation_scope)
         prepared = _intent_from_plan(operations, project_root, item, profile_name, evidence)
         atom["subject_intent"] = prepared["subject_intent"]
         atom["subject_intent_sha256"] = prepared["subject_intent_sha256"]
@@ -147,6 +151,7 @@ def preview_subject_patches(
     _assert_original_identity_unique(operations, project_root, atom_ids, identity_layout, _parse_cache=identity_parse_cache)
     _assert_grammar_current(operations, project_root, grammar)
     _assert_identity_layout_current(operations, project_root, identity_layout)
+    _revalidate_validation_scope(operations, validation_scope)
 
     preview: dict[str, Any] = {
         "count": len(atoms),
@@ -474,6 +479,7 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
     selectors: set[str],
     atom_ids: set[str],
     subject_profile: str,
+    *, validation_scope: CarrierValidationScope | None = None,
 ) -> dict[str, Any]:
     if not isinstance(item, Mapping) or set(item) != {"selector", "expected", "subject_patches"}:
         _fail(operations, "subject-patch-item-invalid", "each Subject patch item has exactly selector, expected, and subject_patches")
@@ -559,7 +565,7 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
     )
     # A preview may never turn an invalid source into an apparently valid
     # proposal through its allowed Version/Updated At metadata changes.
-    _validate_complete(operations, root, path, frontmatter, body)
+    _validate_complete(operations, root, path, frontmatter, body, validation_scope=validation_scope)
 
     selectors.add(selector)
     atom_ids.add(atom_id)
@@ -919,7 +925,8 @@ def _require_timestamp(operations: Any, timestamp: object) -> None:
         _fail(operations, "subject-preview-time-invalid", "illustrative timestamp must be YYYY-MM-DD HH:MM:SS +ZZZZ")
 
 
-def _materialize_item(operations: Any, root: Path, item: Mapping[str, Any], illustrative_at: str | None) -> dict[str, Any]:
+def _materialize_item(operations: Any, root: Path, item: Mapping[str, Any], illustrative_at: str | None,
+                      *, validation_scope: CarrierValidationScope | None = None) -> dict[str, Any]:
     replacements = list(item["subject_replacements"])
     metadata_patches: list[dict[str, Any]] = []
     if not item["noop"]:
@@ -938,7 +945,7 @@ def _materialize_item(operations: Any, root: Path, item: Mapping[str, Any], illu
     proposed_frontmatter = _apply_replacements(item["frontmatter"], replacements)
     proposed_text = _replace_frontmatter(item["text"], item["frontmatter"], proposed_frontmatter)
     proposed_raw = proposed_text.encode("utf-8")
-    _validate_complete(operations, root, item["path"], proposed_frontmatter, item["body"])
+    _validate_complete(operations, root, item["path"], proposed_frontmatter, item["body"], validation_scope=validation_scope)
     after_sha256 = hashlib.sha256(proposed_raw).hexdigest()
     after_version = item["version"] if item["noop"] else item["version"] + 1
     return {
@@ -985,9 +992,14 @@ def _replace_frontmatter(text: str, before: str, after: str) -> str:
     return text[:start] + after + text[start + len(before):]
 
 
-def _validate_complete(operations: Any, root: Path, path: Path, frontmatter: str, body: str) -> None:
+def _validate_complete(operations: Any, root: Path, path: Path, frontmatter: str, body: str,
+                       *, validation_scope: CarrierValidationScope | None = None) -> None:
     try:
-        operations._validate_complete_carrier(root, path, frontmatter, body, creating=False)
+        if validation_scope is None:
+            operations._validate_complete_carrier(root, path, frontmatter, body, creating=False)
+        else:
+            operations._validate_complete_carrier(root, path, frontmatter, body, creating=False,
+                                                  validation_scope=validation_scope)
     except operations.ToolError:
         raise
     except Exception as error:
@@ -995,3 +1007,11 @@ def _validate_complete(operations: Any, root: Path, path: Path, frontmatter: str
             "complete-carrier-authority-unavailable",
             "complete-carrier validation authority is unavailable",
         ) from error
+
+
+def _revalidate_validation_scope(operations: Any, scope: CarrierValidationScope) -> None:
+    try:
+        scope.revalidate()
+    except Exception as error:
+        raise operations.ToolError("complete-carrier-authority-unavailable",
+                                   "complete-carrier validation authority changed or is unavailable") from error

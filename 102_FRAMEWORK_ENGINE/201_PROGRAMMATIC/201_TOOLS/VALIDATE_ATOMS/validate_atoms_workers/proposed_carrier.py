@@ -8,7 +8,6 @@ import re
 import tomllib
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
 
 from .authority import AuthorityContext, Obligation, Record, _domain, resolve_context
 from .check_operators import load_operators_registry
@@ -24,7 +23,10 @@ from .proposed_references import ProposedReferenceError, _container_id, inventor
 from .parsing import CarrierError, parse_carrier
 from .graph_authority_refresh import APPROVED_GRAPH_AUTHORITY_IDS
 from artifact_metadata import project_identity
-from authoritative_status_models import StatusModelError, resolve_status_model
+from authoritative_status_models import (
+    StatusModelError, StatusModelIndex, capture_status_models,
+    resolve_status_model, revalidate_status_models,
+)
 from project_selection import ProjectSelection, active_selection, bind_selection, bound_selection
 
 
@@ -66,6 +68,38 @@ class VerifiedSourceContext:
     inputs: Record
     _selection: ProjectSelection
     _reader: ReadContext
+
+
+@dataclass
+class CarrierValidationScope:
+    """Own one pure-preview or scratch-stage validation closure, never apply."""
+
+    root: Path
+    _context: VerifiedSourceContext | None = None
+    _status_index: StatusModelIndex | None = None
+
+    def validate(self, root: Path, metadata: Record, body: str, relative_path: Path,
+                 *, allow_existing_relations: bool) -> Record:
+        if root.resolve() != self.root:
+            raise ProposedCarrierError("validation scope belongs to another Project")
+        if self._context is None:
+            self._context = source_context_from_project(self.root)
+            with bind_selection(self._context._selection):
+                self._status_index = capture_status_models(self.root, self._context._reader)
+        if self._status_index is None:
+            raise ProposedCarrierError("status-model validation scope is incomplete")
+        return validate_proposed_carrier(metadata, body, self._context, relative_path,
+                                         allow_existing_relations=allow_existing_relations,
+                                         _status_index=self._status_index)
+
+    def revalidate(self) -> None:
+        if self._context is not None:
+            _current(self._context._reader, self._context._selection)
+            with bind_selection(self._context._selection):
+                if self._status_index is None:
+                    raise ProposedCarrierError("status-model validation scope is incomplete")
+                revalidate_status_models(self._status_index, self._context._reader)
+            _current(self._context._reader, self._context._selection)
 
 
 def _entry(identifier: str, *, graph: bool = False) -> Record:
@@ -237,6 +271,7 @@ def _operations_placement(
 def validate_proposed_carrier(
     metadata: Record, body: str, verified_source_context: VerifiedSourceContext, relative_path: Path,
     *, allow_existing_relations: bool = False, reference_roles: tuple[str, ...] | None = None,
+    _status_index: StatusModelIndex | None = None,
 ) -> Record:
     """Reject every failed, unresolved, or unsupported finite carrier obligation.
 
@@ -253,7 +288,7 @@ def validate_proposed_carrier(
     try:
         with bind_selection(verified_source_context._selection):
             status_model = resolve_status_model(
-                verified_source_context.root, metadata, metadata.get("status")
+                verified_source_context.root, metadata, metadata.get("status"), _index=_status_index,
             )
     except StatusModelError as error:
         raise ProposedCarrierError("status model is missing, ambiguous, or unadmitted") from error

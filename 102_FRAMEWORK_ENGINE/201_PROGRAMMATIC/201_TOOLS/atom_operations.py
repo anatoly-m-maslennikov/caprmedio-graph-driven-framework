@@ -18,7 +18,9 @@ from typing import Any, Mapping, Sequence
 from project_runtime import atomic_tempfile
 from project_selection import bound_selection
 from artifact_metadata import current_timestamp
+from authoritative_status_models import StatusModelError
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
+    CarrierValidationScope,
     ProposedCarrierError,
     source_context_from_project,
     validate_proposed_carrier,
@@ -577,14 +579,18 @@ def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
             os.close(parent)
 
 
-def _validate_complete_carrier(root: Path, path: Path, frontmatter: str, content: str, *, creating: bool) -> None:
+def _validate_complete_carrier(root: Path, path: Path, frontmatter: str, content: str, *, creating: bool,
+                               validation_scope: CarrierValidationScope | None = None) -> None:
     try:
         parsed = parse_carrier(("---\n" + frontmatter + "\n---\n" + content).encode("utf-8"), Path("proposed.md"))
-        validate_proposed_carrier(
-            parsed.metadata, parsed.body, source_context_from_project(root), path.relative_to(control_root(root)),
-            allow_existing_relations=not creating,
-        )
-    except (CarrierError, ProposedCarrierError, UnicodeError) as error:
+        relative = path.relative_to(control_root(root))
+        if validation_scope is None:
+            validate_proposed_carrier(parsed.metadata, parsed.body, source_context_from_project(root), relative,
+                                      allow_existing_relations=not creating)
+        else:
+            validation_scope.validate(root, parsed.metadata, parsed.body, relative,
+                                      allow_existing_relations=not creating)
+    except (CarrierError, ProposedCarrierError, UnicodeError, StatusModelError) as error:
         raise ToolError("complete-carrier-invalid", "new Atom carrier is incomplete, invalid, or unresolved") from error
 
 

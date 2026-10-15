@@ -10,15 +10,19 @@ from pathlib import Path
 from typing import Any
 
 import atom_operations as operations
-from atom_subject_patch import _IdentityParseCache, _raw_frontmatter, _validate_complete, preview_subject_patches
+from atom_subject_patch import (
+    CarrierValidationScope, _IdentityParseCache, _raw_frontmatter,
+    _revalidate_validation_scope, _validate_complete, preview_subject_patches,
+)
 
 
 def stage_subject_preview(root: Path, items: list[object], *, timestamp: str | None = None,
                           subject_profile: str = "legacy", expected_preview_sha256: str | None = None) -> dict[str, Any]:
     root = Path(root).resolve()
+    validation_scope = CarrierValidationScope(root)
     identity_parse_cache = _IdentityParseCache()
     preview = preview_subject_patches(root, items, timestamp=timestamp, subject_profile=subject_profile,
-                                      _identity_parse_cache=identity_parse_cache)
+                                      _identity_parse_cache=identity_parse_cache, _validation_scope=validation_scope)
     if expected_preview_sha256 is not None and (
             preview["preview_sha256"] != expected_preview_sha256 or timestamp != preview["illustrative_updated_at"]):
         raise operations.ToolError("subject-stage-preview-mismatch", "Staging requires the same reviewed preview seal and illustrative time")
@@ -54,7 +58,8 @@ def stage_subject_preview(root: Path, items: list[object], *, timestamp: str | N
             if measured != atom["after_sha256"]:
                 raise operations.ToolError("subject-stage-readback-mismatch", "staged candidate differs from the original preview hash")
             frontmatter, body = _raw_frontmatter(operations, reopened.decode("utf-8"))
-            _validate_complete(operations, root, root / atom["selector"], frontmatter, body)
+            _validate_complete(operations, root, root / atom["selector"], frontmatter, body,
+                               validation_scope=validation_scope)
             candidates.append((candidate, raw, fingerprint))
             manifest_atoms.append({
                 "source": {"path": atom["selector"], "atom_id": atom["atom_id"],
@@ -64,7 +69,8 @@ def stage_subject_preview(root: Path, items: list[object], *, timestamp: str | N
                 "validation": {"state": "passed", "logical_source_path": atom["selector"]},
             })
         final = preview_subject_patches(root, items, timestamp=preview["illustrative_updated_at"],
-                                        subject_profile=subject_profile, _identity_parse_cache=identity_parse_cache)
+                                        subject_profile=subject_profile, _identity_parse_cache=identity_parse_cache,
+                                        _validation_scope=validation_scope)
         if final != preview:
             raise operations.ToolError("subject-stage-currentness-mismatch", "source preview changed during staging")
         _check_directories(root, directories)
@@ -82,6 +88,7 @@ def stage_subject_preview(root: Path, items: list[object], *, timestamp: str | N
         for candidate, raw, candidate_fingerprint in candidates:
             candidate_raw, candidate_observed = operations.read_raw_atom_revision(root, candidate)
             _check_candidate(raw, candidate_fingerprint, candidate_raw, candidate_observed)
+        _revalidate_validation_scope(operations, validation_scope)
         return {
             "preview": preview, "staging_only": True, "illustrative": True, "sources_unchanged": True,
             "stage_root": batch.relative_to(root).as_posix(),

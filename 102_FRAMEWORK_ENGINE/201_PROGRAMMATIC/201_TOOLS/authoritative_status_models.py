@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
+from dataclasses import dataclass
 import hashlib
 from pathlib import Path
 import re
@@ -10,6 +11,7 @@ from typing import Any
 
 from FIND_AND_FETCH_ARTIFACTS.find_and_fetch_artifacts import _load_frontmatter
 from project_selection import bound_selection
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
 
 _DEFAULT_CONTROL_ROOT = Path(".caprmedio_caprmedio")
 _SOURCE_TAIL = Path(
@@ -99,10 +101,10 @@ def _methodology_source_root(root: Path) -> Path:
     return source
 
 
-def _source_snapshot(path: Path, root: Path) -> dict[str, Any] | None:
+def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[str, Any] | None:
     """Read one potential status authority once; ignore unrelated Markdown."""
     try:
-        raw = path.read_bytes()
+        raw = path.read_bytes() if raw is None else raw
         text = raw.decode("utf-8")
     except (OSError, UnicodeDecodeError) as error:
         raise StatusModelError("source-invalid", f"unreadable methodology source: {path}") from error
@@ -176,7 +178,57 @@ def _atom_value(atom: object, name: str) -> str | None:
     return matches[0].strip().strip("\"'")
 
 
-def _models(root: Path, role: str, atom_type: str | None) -> list[dict[str, Any]]:
+@dataclass(frozen=True)
+class StatusModelIndex:
+    root: Path
+    source_root: Path
+    frontier: dict[Path, str]
+    declarations: tuple[dict[str, Any], ...]
+
+
+def _status_paths(base: Path, reader: ReadContext) -> tuple[Path, ...]:
+    if not base.is_dir():
+        raise StatusModelError("source-missing", "current methodology source root is unavailable")
+    paths = []
+    for path in reader.inventory(base, remember=False):
+        if "archive" in path.parts:
+            continue
+        reader.allowed(path)
+        if path.suffix == ".md":
+            paths.append(path)
+    return tuple(paths)
+
+
+def capture_status_models(root: Path, reader: ReadContext) -> StatusModelIndex:
+    """Capture every possible declaration once within one bounded invocation."""
+    base = _methodology_source_root(root)
+    frontier, declarations = {}, []
+    for path in _status_paths(base, reader):
+        raw = reader.read(path, remember=False)
+        frontier[path] = hashlib.sha256(raw).hexdigest()
+        snapshot = _source_snapshot(path, root, raw)
+        if snapshot is not None:
+            declarations.append(snapshot)
+    return StatusModelIndex(root, base, frontier, tuple(declarations))
+
+
+def revalidate_status_models(index: StatusModelIndex, reader: ReadContext) -> None:
+    base = _methodology_source_root(index.root)
+    if base != index.source_root or _status_paths(base, reader) != tuple(index.frontier):
+        raise StatusModelError("source-stale", "status-model source frontier changed during validation")
+    for path, digest in index.frontier.items():
+        if hashlib.sha256(reader.read(path, remember=False)).hexdigest() != digest:
+            raise StatusModelError("source-stale", "status-model source bytes changed during validation")
+
+
+def _models(root: Path, role: str, atom_type: str | None,
+            index: StatusModelIndex | None = None) -> list[dict[str, Any]]:
+    if index is not None:
+        if root != index.root:
+            raise StatusModelError("source-invalid", "status-model index belongs to another Project")
+        return [{"statuses": list(row["statuses"]), "type": row["type"], "source": dict(row["source"])}
+                for row in index.declarations if row["role"] == role
+                and (row["type"] is None or row["type"] == atom_type)]
     base = _methodology_source_root(root)
     if not base.is_dir():
         raise StatusModelError("source-missing", "current methodology source root is unavailable")
@@ -195,7 +247,8 @@ def _models(root: Path, role: str, atom_type: str | None) -> list[dict[str, Any]
 
 
 def resolve_status_model(root: str | Path, atom: object, requested_status: str,
-                         supplied_model: Mapping[str, Any] | None = None) -> dict[str, Any]:
+                         supplied_model: Mapping[str, Any] | None = None, *,
+                         _index: StatusModelIndex | None = None) -> dict[str, Any]:
     """Resolve one current Role/Type domain; supplied input may only match it."""
     project = Path(root).resolve()
     role, atom_type = _atom_value(atom, "content_role"), _atom_value(atom, "type")
@@ -203,7 +256,7 @@ def resolve_status_model(root: str | Path, atom: object, requested_status: str,
         raise StatusModelError("target-invalid", "target lacks carried content_role")
     if not isinstance(requested_status, str) or not requested_status:
         raise StatusModelError("status-invalid", "requested_status must be a non-empty string")
-    candidates = _models(project, role, atom_type)
+    candidates = _models(project, role, atom_type, _index)
     specific = [row for row in candidates if row["type"] is not None]
     selected = specific if specific else [row for row in candidates if row["type"] is None]
     if not selected:
