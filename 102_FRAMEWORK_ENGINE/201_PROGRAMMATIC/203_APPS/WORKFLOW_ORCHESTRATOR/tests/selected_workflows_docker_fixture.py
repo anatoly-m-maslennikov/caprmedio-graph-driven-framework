@@ -1,8 +1,9 @@
 """Disposable, source-pinned corpus for selected Workflow Docker evidence.
 
-The corpus is deliberately only a harness input.  It copies the reviewed
-manifest and its exact source pins into a throw-away Git Project; it never
-points a Docker worker at this repository's authority or an existing Run.
+The corpus is deliberately only a harness input.  It resolves the reviewed
+manifest's current definitions and copies their exact pins into a throw-away
+Git Project; it never points a Docker worker at this repository's authority
+or an existing Run.
 """
 from __future__ import annotations
 
@@ -915,6 +916,18 @@ class GoldenProject:
         expected_routes = MANIFEST_ROUTE_NAMES
         if actual_routes != expected_routes:
             raise GoldenCorpusError("selected workflow manifest is not the exact closed fifteen-route portfolio")
+        import sys
+
+        mcp = Path(__file__).resolve().parents[3] / "204_MCP"
+        if str(mcp) not in sys.path:
+            sys.path.insert(0, str(mcp))
+        from selected_routes import load_selected_manifest
+
+        try:
+            manifest = load_selected_manifest(self.source_root)
+        except (OSError, ValueError, RuntimeError) as error:
+            raise GoldenCorpusError("selected current definitions are unavailable or invalid") from error
+        manifest.pop("manifest_ref")
         freshness = manifest.get("source_freshness")
         if not isinstance(freshness, dict):
             raise GoldenCorpusError("selected workflow manifest omits source freshness")

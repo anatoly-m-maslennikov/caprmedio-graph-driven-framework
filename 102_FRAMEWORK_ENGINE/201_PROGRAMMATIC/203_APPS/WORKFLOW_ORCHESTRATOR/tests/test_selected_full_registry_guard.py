@@ -128,7 +128,7 @@ class CompleteSelectedRegistryQueueTest(unittest.TestCase):
     def test_unselected_native_source_drift_blocks_freeze_before_queue_write(self) -> None:
         request = self._request("unselected-freeze")
         self._drift_unselected_source()
-        with self.assertRaisesRegex(SelectedExecutionError, "complete selected definition manifest"):
+        with self.assertRaisesRegex(SelectedExecutionError, "selected definition manifest digest is stale or invalid"):
             self.runner.freeze(request)
         self.assertFalse(self.runner.run_directory(request["run_id"]).exists())
 
@@ -136,7 +136,7 @@ class CompleteSelectedRegistryQueueTest(unittest.TestCase):
         frozen = self.runner.freeze(self._request("unselected-dispatch"))
         self._drift_unselected_source()
         calls = []
-        with self.assertRaisesRegex(SelectedExecutionError, "complete selected definition manifest"):
+        with self.assertRaisesRegex(SelectedExecutionError, "selected definition manifest digest is stale or invalid"):
             self.runner.dispatch(frozen, run_support=lambda *args: calls.append(args))
         self.assertEqual([], calls)
         self.assertFalse((self.runner.run_directory("unselected-dispatch") / "dispatch-intent.json").exists())
