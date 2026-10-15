@@ -11,15 +11,15 @@ status: Active
 subjects:
   governs: "Step"
   depends_on: ["Action", "Step Run", "Workflow Run", "Step/Agentic Execution Context"]
-version: 4
-updated_at: "2026-10-13 18:55:32 +0400"
+version: 6
+updated_at: "2026-10-15 11:27:33 +0000"
 relations:
   relates_to: [CA-O-128, CA-O-145, CA-R-1509, CA-R-1511, CA-R-1527]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-lifecycle-change.md
   source_atom_id: CA-O-129
-  source_atom_revision: 4
-  source_sha256: fd95ab7ee49b96d9a33ceb951934e274e087ba47f349a0455b7654fc8ff546a1
+  source_atom_revision: 6
+  source_sha256: e4256392699807a10cc4893e67bcb62ef85252e395f9a8d5a7bad9052c3d1b21
   original_relations_sha256: 41d9553cc0bc459a76834b9b50abe0aa6d5b316e2164db5c1ab185ff63b9f658
 ---
 # Summary
@@ -36,10 +36,16 @@ Bind request kind, exactly one Create target or one existing current target/pred
 
 For a caller-composed containment cascade under R1521, bind only this Run's one explicit target and requested Status. Recheck its actual latest Revision, source pin, own qualified model, matching Directory Carrier when present, containment-preserving destination, history and permission immediately before its Action. Earlier successful placement changes do not authorize a stale locator or source pin. The caller retains the complete target set, independent ordering and overall completion; this Step neither discovers descendants nor dispatches another target, and its successful result does not prove the whole cascade complete.
 
-For Update, bind the exact identity-preserving assessment and target/proposal/evidence from the latest completed O145 Step Run in this Workflow whose O067 binding matches the current proposal; do not accept an arbitrary historical pass. For other kinds no Update assessment is fabricated. Bind prior effect/receipt evidence and actual Run/parent references from retained execution state, not guessed success.
+For ordinary Update outside the instructed Subjects-only batch branch, bind the exact identity-preserving assessment and target/proposal/evidence from the latest completed O145 Step Run in this Workflow whose O067 binding matches the current proposal; do not accept an arbitrary historical pass. For other kinds no Update assessment is fabricated. Bind prior effect/receipt evidence and actual Run/parent references from retained execution state, not guessed success.
 
 Return O128's result and evidence unchanged to the Workflow. This Step has no second Action reference, alternate classifier, routing decision or implicit retry.
 
 ## Details
 
 The Workflow decides whether to dispatch or terminate after this result. Every dispatch is a distinct Step Run with its exact O128 definition/input/context binding; completed effects are not replayed when a receipt is pending. Tool adapter calls are implementation details, not extra graph nodes or authority.
+
+### Instructed Subjects-only batch member
+
+Bind this one member's exact source/profile/patches and optional complete draft pins to the actual instructed operation and existing Initiative/Operator authorization. Pass that independent member to O128 without a separate form, review/pause response, content-review round, confirmation receipt or fabricated O145/O067/Analysis Report. Retain normal per-target source/draft/patch/layout, archive, Version/time and conditional-write/readback checks, not a redundant full-candidate validation or initial intent-metadata gate. Fresh native intent remains internal where needed.
+
+For draft-backed promotion restore canonical ID/original Status and materialize actual time without authorizing unrelated bytes; Active sources promote Active and generic non-Active semantics stay intact. Ordinary content-update and new-Atom Draft requirements remain unchanged. The caller commits current, creates/commits drafts, promotes and rebuilds graph after completion; stop first failure/uncertainty, retain completed effects, preserve held/remaining sources, keep native failed-write handling and never automatically roll back/replay/retry/resume the batch.
