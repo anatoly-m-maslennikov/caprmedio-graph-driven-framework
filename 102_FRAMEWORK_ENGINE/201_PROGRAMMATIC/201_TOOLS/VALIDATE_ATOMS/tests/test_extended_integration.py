@@ -18,7 +18,7 @@ sys.path.insert(0, str(TOOL))
 from validate_atoms_workers.authority import resolve_context  # noqa: E402
 from validate_atoms_workers.check_dispatch import ADAPTER_CODES  # noqa: E402
 from validate_atoms_workers.settings import CEILINGS  # noqa: E402
-from VALIDATE_ATOMS.tests.golden_authority import entries, frozen_sources, manifest  # noqa: E402
+from golden_authority import entries, frozen_sources, manifest  # noqa: E402
 
 
 def run_cli(

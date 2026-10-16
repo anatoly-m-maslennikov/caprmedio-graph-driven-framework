@@ -8,7 +8,7 @@ import test_proposed_carrier_admission_regressions as fixtures
 from project_selection import bind_selection
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier as admission
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_references as references
-from VALIDATE_ATOMS.tests.golden_authority import write_frozen_authority
+from golden_authority import write_frozen_authority
 
 
 PRMEDO = ("Plan", "Requirement", "Method", "Evaluation", "Delivery", "Operations")

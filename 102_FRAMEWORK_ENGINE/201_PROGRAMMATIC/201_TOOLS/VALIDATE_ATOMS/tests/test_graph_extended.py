@@ -18,7 +18,7 @@ from validate_atoms_workers.authority import AuthorityContext, Obligation, Recor
 from validate_atoms_workers.check_support import Check  # noqa: E402
 from validate_atoms_workers.check_graph_extended import ADAPTERS  # noqa: E402
 from validate_atoms_workers.parsing import parse_carrier  # noqa: E402
-from VALIDATE_ATOMS.tests.golden_authority import frozen_sources  # noqa: E402
+from golden_authority import frozen_sources  # noqa: E402
 
 
 @lru_cache(maxsize=1)

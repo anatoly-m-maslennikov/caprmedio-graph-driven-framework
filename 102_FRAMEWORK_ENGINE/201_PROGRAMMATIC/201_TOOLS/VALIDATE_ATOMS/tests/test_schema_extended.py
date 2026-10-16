@@ -18,7 +18,7 @@ from validate_atoms_workers.check_fields import _common  # noqa: E402
 from validate_atoms_workers.check_support import Check  # noqa: E402
 from validate_atoms_workers.parsing import parse_carrier  # noqa: E402
 from validate_atoms_workers.check_schema_extended import ADAPTERS  # noqa: E402
-from VALIDATE_ATOMS.tests.golden_authority import entries, frozen_sources  # noqa: E402
+from golden_authority import entries, frozen_sources  # noqa: E402
 
 
 def sources() -> list[dict[str, Any]]:

@@ -10,7 +10,7 @@ import yaml
 import test_proposed_reference_scope_independent as scoped_fixture
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
-from VALIDATE_ATOMS.tests.golden_authority import write_frozen_authority
+from golden_authority import write_frozen_authority
 
 
 BODY = ("# Summary\n\nInvoke one selected Action\n\n## Scope\n\nOne explicit input.\n\n"

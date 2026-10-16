@@ -15,7 +15,7 @@ sys.path.insert(0, str(TOOL))
 from validate_atoms_workers.authority import AuthorityContext, Obligation, Record  # noqa: E402
 from validate_atoms_workers.check_support import Check  # noqa: E402
 from validate_atoms_workers.check_structure_extended import ADAPTERS  # noqa: E402
-from VALIDATE_ATOMS.tests.golden_authority import frozen_sources  # noqa: E402
+from golden_authority import frozen_sources  # noqa: E402
 
 
 def sources() -> list[Record]:
