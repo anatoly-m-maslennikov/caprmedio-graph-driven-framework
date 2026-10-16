@@ -495,6 +495,8 @@ def atom_identity_lock(root: Path):
     parent = _raw_revision_parent(root, path, create=True)
     descriptor = None
     try:
+        # Guard concurrent secure opens before the file lock can serialize callers.
+        fcntl.flock(parent, fcntl.LOCK_EX)
         descriptor = os.open(path.name, os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW, 0o600, dir_fd=parent)
         if not stat.S_ISREG(os.fstat(descriptor).st_mode):
             raise OSError("identity lock is not a regular file")
