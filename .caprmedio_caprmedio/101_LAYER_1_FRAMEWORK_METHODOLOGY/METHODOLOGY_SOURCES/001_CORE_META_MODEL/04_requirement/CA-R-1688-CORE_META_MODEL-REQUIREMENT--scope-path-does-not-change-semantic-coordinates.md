@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "scope-topology"
+  governs: "Entity/Continuant/Object/Scope Unit.Path"
   depends_on: []
-version: 24
-updated_at: "2026-10-03 02:10:09 +0400"
+version: 25
+updated_at: "2026-10-16 12:08:38 +0000"
 relations:
   child_of:
     - CA-M-001

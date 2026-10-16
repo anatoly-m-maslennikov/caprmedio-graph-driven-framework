@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity.Identity"
   depends_on:
-    ["Entity", "CAPRMEDIO Graph", "Entity/Continuant/Projection"]
-version: 11
-updated_at: "2026-10-15 18:42:42 +0000"
+    ["Entity", "Entity/Continuant/Projection"]
+version: 12
+updated_at: "2026-10-16 12:08:24 +0000"
 relations:
   child_of:
     - CA-R-1248

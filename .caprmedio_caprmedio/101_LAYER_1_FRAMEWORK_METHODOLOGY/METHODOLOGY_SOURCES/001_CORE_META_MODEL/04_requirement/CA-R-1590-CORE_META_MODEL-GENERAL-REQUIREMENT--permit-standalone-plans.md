@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Carrier"
-version: 4
-updated_at: "2026-10-03 00:47:18 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom"]
+version: 5
+updated_at: "2026-10-16 12:08:35 +0000"
 relations: {"relates_to": ["CA-R-1574", "CA-R-1579"]}
 atom_id: "CA-R-1590"
 content_role: "Requirement"

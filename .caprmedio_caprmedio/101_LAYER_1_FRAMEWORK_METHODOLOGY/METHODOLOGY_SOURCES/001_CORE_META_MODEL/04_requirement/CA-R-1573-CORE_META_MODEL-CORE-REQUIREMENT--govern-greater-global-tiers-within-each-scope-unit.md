@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Atom.Global Tier"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Scope Unit", "Atom/Content Role"]
-version: 6
-updated_at: "2026-10-15 18:44:33 +0000"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role"]
+version: 7
+updated_at: "2026-10-16 12:08:32 +0000"
 relations: {"relates_to": ["CA-R-1444", "CA-R-917"]}
 atom_id: "CA-R-1573"
 content_role: "Requirement"

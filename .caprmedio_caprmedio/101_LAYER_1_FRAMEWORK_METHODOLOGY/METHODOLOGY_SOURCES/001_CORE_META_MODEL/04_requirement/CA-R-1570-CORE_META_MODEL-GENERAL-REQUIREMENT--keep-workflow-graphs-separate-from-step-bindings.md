@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Workflow"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Step", "Action", "Atom/Content Role: Operations/Type: Workflow", "Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result"]
-version: 5
-updated_at: "2026-10-15 12:22:39 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Relation/Type: On Result"]
+version: 6
+updated_at: "2026-10-16 12:08:31 +0000"
 relations: {"relates_to": ["CA-R-1508", "CA-R-1509", "CA-R-1513", "CA-R-1563", "CA-R-1569"]}
 atom_id: "CA-R-1570"
 content_role: "Requirement"

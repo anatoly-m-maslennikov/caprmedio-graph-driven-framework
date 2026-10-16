@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Authoritative Atom Carrier Bundle"
+  governs: "Entity/Continuant/Object/Atom"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Carrier", "Markdown Atom Carrier", "Entity/Continuant/Object/Atom.Property", "Entity/Continuant/Object/Project"]
-version: 7
-updated_at: "2026-10-15 18:52:07 +0000"
+    ["Entity/Continuant/Object/Atom", "Entity/Carrier", "Entity/Carrier/File Carrier", "Entity/Continuant/Object/Atom.Property", "Entity/Continuant/Object/Project"]
+version: 8
+updated_at: "2026-10-16 12:09:32 +0000"
 relations: {"relates_to": ["CA-D-258", "CA-D-259", "CA-D-416"]}
 atom_id: "CA-D-463"
 content_role: "Delivery"

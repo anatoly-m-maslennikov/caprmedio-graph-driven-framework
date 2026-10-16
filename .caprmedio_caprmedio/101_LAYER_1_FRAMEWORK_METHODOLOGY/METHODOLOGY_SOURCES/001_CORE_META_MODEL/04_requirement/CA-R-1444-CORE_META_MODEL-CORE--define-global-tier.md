@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Atom.Global Tier"
   depends_on:
-    ["Atom Scope", "Entity/Continuant/Object/Atom.Local Tier", "Structural Level"]
-version: 11
-updated_at: "2026-10-15 18:43:09 +0000"
+    ["Entity/Continuant/Object/Atom.Owning Scope Unit", "Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Scope Unit.Structural Level"]
+version: 12
+updated_at: "2026-10-16 12:08:25 +0000"
 relations: {}
 atom_id: "CA-R-1444"
 content_role: "Requirement"

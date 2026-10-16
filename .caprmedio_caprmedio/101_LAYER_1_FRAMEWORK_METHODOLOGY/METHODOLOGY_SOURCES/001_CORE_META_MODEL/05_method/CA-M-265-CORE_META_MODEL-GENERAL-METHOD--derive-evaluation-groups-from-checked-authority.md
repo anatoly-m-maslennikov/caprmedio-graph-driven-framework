@@ -2,10 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Atom/Content Role: Evaluation"
   depends_on:
-    - "Atom/Content Role"
-    - "Evaluation For Relation"
-version: 11
-updated_at: "2026-10-15 18:48:09 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role", "Entity/Continuant/Object/Relation/Type: evaluation_for"]
+version: 12
+updated_at: "2026-10-16 12:09:03 +0000"
 relations: {}
 atom_id: "CA-M-265"
 content_role: "Method"

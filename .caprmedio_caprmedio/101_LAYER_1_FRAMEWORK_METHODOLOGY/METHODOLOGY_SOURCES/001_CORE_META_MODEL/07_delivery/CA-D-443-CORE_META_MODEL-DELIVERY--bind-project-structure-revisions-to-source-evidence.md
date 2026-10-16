@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    ["Artifact/Revision", "Entity/Continuant/History/Journal", "Entity/Carrier"]
-version: 6
-updated_at: "2026-10-15 18:51:59 +0000"
+    ["Entity/Continuant/History/Revision", "Entity/Continuant/History/Journal", "Entity/Carrier"]
+version: 7
+updated_at: "2026-10-16 12:09:29 +0000"
 relations:
   child_of:
     - "CA-D-440"

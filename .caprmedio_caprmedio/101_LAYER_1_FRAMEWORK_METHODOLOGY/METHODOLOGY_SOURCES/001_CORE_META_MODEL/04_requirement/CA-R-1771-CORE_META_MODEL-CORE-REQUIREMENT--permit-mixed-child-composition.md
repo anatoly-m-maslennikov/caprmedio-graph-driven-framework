@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "scope-topology"
+  governs: "Entity/Continuant/Object/Scope Unit.Children"
   depends_on: []
-version: 15
-updated_at: "2026-10-03 03:43:11 +0400"
+version: 16
+updated_at: "2026-10-16 12:08:46 +0000"
 relations: {}
 atom_id: "CA-R-1771"
 content_role: "Requirement"

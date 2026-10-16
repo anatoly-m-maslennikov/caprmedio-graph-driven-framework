@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Revision"
+  governs: "Entity/Continuant/Projection.Updated At"
   depends_on:
     ["Entity/Continuant/Projection"]
-version: 7
-updated_at: "2026-10-15 18:43:42 +0000"
+version: 8
+updated_at: "2026-10-16 12:08:28 +0000"
 relations:
   child_of:
     - "CA-R-1708"

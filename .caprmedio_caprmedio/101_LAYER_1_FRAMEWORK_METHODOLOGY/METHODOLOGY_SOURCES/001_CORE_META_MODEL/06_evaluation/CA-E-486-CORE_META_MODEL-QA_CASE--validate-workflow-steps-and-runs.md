@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Relation/Type: On Result", "Entity/Continuant/History/Journal.Record"]
-version: 6
-updated_at: "2026-10-15 18:49:46 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Object/Relation/Type: On Result", "Entity/Continuant/History/Journal.Record"]
+version: 7
+updated_at: "2026-10-16 12:09:07 +0000"
 relations: {"evaluation_for": ["CA-R-1508", "CA-R-1509", "CA-R-1510", "CA-R-1511", "CA-R-1513"]}
 atom_id: "CA-E-486"
 content_role: "Evaluation"

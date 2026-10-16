@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Draft Atom.Revision Lineage"
+  governs: "Entity/Continuant/Object/Atom.Status: Draft"
   depends_on:
-    ["Entity/Continuant/Object/Atom.ID", "Atom State Identifier", "Draft Atom", "Atom History", "Entity/Continuant/Object/Atom.Version Number", "Atom/Content Role"]
-version: 8
-updated_at: "2026-10-15 23:52:59 +0400"
+    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/History/Revision.Identity", "Entity/Continuant/Object/Atom.Status: Draft", "Entity/Continuant/History/Revision", "Entity/Continuant/Object/Atom.Version Number", "Entity/Continuant/Object/Atom/Content Role"]
+version: 9
+updated_at: "2026-10-16 12:09:39 +0000"
 relations:
   relates_to:
     - CA-D-288

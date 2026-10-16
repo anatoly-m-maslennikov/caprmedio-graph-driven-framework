@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "scope-topology"
+  governs: "Entity/Continuant/Object/Scope Unit.Parent"
   depends_on:
-    - "authority"
-version: 17
-updated_at: "2026-10-03 01:42:39 +0400"
+    []
+version: 18
+updated_at: "2026-10-16 12:08:37 +0000"
 relations: {}
 atom_id: "CA-R-1658"
 content_role: "Requirement"

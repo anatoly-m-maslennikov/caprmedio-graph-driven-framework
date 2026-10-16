@@ -1,0 +1,19 @@
+{
+  "operation": "stage_subject_batch",
+  "preview": null,
+  "staging": null,
+  "errors": [],
+  "batch": {
+    "operation": "stage_subject_batch",
+    "state": "staging",
+    "stage_run_id": "subject-stage-90f09d7cff645e5377e8c22fb09e6f81ea580e40962ece00e8375a10852feb9a",
+    "count": 198,
+    "completed": 100,
+    "remaining": 98,
+    "reviewed_packet": null,
+    "automatic_retry": false,
+    "in_flight": null,
+    "inspection_required": false,
+    "diagnostic": null
+  }
+}

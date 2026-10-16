@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Navigational Order Number"
+  governs: "Entity/Continuant/Object/Scope Unit.Navigational Order Number"
   depends_on:
     ["Entity/Continuant/Object/Scope Unit"]
-version: 15
-updated_at: "2026-10-15 18:47:35 +0000"
+version: 16
+updated_at: "2026-10-16 12:08:59 +0000"
 relations: {}
 atom_id: "CA-R-981"
 content_role: "Requirement"

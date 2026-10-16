@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "scope-topology"
+  governs: "Entity/Continuant/Object/Scope Unit.Children"
   depends_on:
-    - "artifact-model"
-    - "authority"
-version: 22
-updated_at: "2026-10-03 02:55:28 +0400"
+    []
+version: 23
+updated_at: "2026-10-16 12:08:43 +0000"
 relations: {}
 atom_id: "CA-R-1756"
 content_role: "Requirement"

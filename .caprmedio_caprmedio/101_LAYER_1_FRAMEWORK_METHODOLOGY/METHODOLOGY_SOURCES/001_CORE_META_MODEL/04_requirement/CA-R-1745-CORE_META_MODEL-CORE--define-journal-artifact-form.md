@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/History/Journal"
   depends_on:
-    ["Artifact", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom.Substance"]
-version: 19
-updated_at: "2026-10-15 18:45:41 +0000"
+    ["Entity/Continuant/History", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom.Substance"]
+version: 20
+updated_at: "2026-10-16 12:08:42 +0000"
 relations: {}
 atom_id: "CA-R-1745"
 content_role: "Requirement"

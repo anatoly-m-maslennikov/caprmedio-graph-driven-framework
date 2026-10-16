@@ -1,0 +1,1585 @@
+[
+  {
+    "index": 86,
+    "subject": "Atom Scope",
+    "occurrences": [
+      {
+        "source_atom": "CA-D-283",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DELIVERY--serialize-project-owned-markdown-atom-filenames.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-D-291",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-291-CORE_META_MODEL-DELIVERY--serialize-the-current-scope-unit-in-atom-filenames.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-D-304",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-D-482",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-482-CORE_META_MODEL-DELIVERY--carry-the-resolved-claim-target-scope-unit.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-E-240",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-E-246",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance Scope"
+          }
+        ],
+        "reason": "The old composite Atom Scope combines ownership, governed Subject and applicability. No fourth scope entity; keep exact separate fields and preserve GOVERNS separately.",
+        "evidence": "R1014 includes current Scope Unit Scope, governed Subject and explicit Claim constraints; E246 explicitly retains that combined concept."
+      },
+      {
+        "source_atom": "CA-E-403",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--report-exact-claim-value-set-consolidation-candidates.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "The consolidation check lists ownership, governed Subject, target and textual scope separately; old Atom Scope supplies ownership.",
+        "evidence": "Contributors must share Atom Scope, Atom Governed Subject, Claim Target Scope Unit and textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-E-448",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-EVALUATION_APPROACH--validate-accidental-atom-id-reuse-repair.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-E-456",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-456-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-local-and-global-tiers.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-E-511",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-M-264",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-264-CORE_META_MODEL-METHOD--write-evaluations-with-reproducible-falsification.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance Scope"
+          }
+        ],
+        "reason": "The source is about the applicability of checked/complete content, not its structural owner.",
+        "evidence": "M264 identifies checked authority and Scope; R1287 distinguishes Local Tier from breadth of Claim Scope."
+      },
+      {
+        "source_atom": "CA-M-272",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-272-CORE_META_MODEL-METHOD--classify-an-atom-local-tier-from-its-complete-claim.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-M-276",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-METHOD--repair-accidental-atom-id-reuse.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-1014",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance Scope"
+          }
+        ],
+        "reason": "The old composite Atom Scope combines ownership, governed Subject and applicability. No fourth scope entity; keep exact separate fields and preserve GOVERNS separately.",
+        "evidence": "R1014 includes current Scope Unit Scope, governed Subject and explicit Claim constraints; E246 explicitly retains that combined concept."
+      },
+      {
+        "source_atom": "CA-R-1287",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance Scope"
+          }
+        ],
+        "reason": "The source is about the applicability of checked/complete content, not its structural owner.",
+        "evidence": "M264 identifies checked authority and Scope; R1287 distinguishes Local Tier from breadth of Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-1294",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1294-CORE_META_MODEL-CORE-REQUIREMENT--derive-demand-direction-without-another-relation-kind.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-1358",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1358-CORE_META_MODEL-GENERAL--consolidate-single-value-claims-as-one-value-set-claim.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-1443",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1443-CORE_META_MODEL-CORE--restrict-principle-to-project-scope.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-1444",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1444-CORE_META_MODEL-CORE--define-global-tier.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-794",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-794-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-evaluation-policy-and-concrete-cases.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation.Owning Scope Unit"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation.Substance Scope"
+          }
+        ],
+        "reason": "Both tier admission in the current Scope Unit and independence from Claim Scope breadth are explicit.",
+        "evidence": "General is admitted in its current Scope Unit; classification must not infer tier from Claim Scope breadth."
+      },
+      {
+        "source_atom": "CA-R-796",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-886",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-916",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-916-CORE_META_MODEL-CORE-REQUIREMENT--restrict-ordered-demands-to-earlier-producers.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-920",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-920-CORE_META_MODEL-CORE--give-every-atom-one-scope.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "The standalone one-Scope statement does not distinguish owner from the rejected combined concept. Align content with approved Owning/Target/Substance Scope definitions instead of asserting that three scopes are one.",
+        "evidence": "Every Atom must have exactly one Scope; no more specific distinction appears in its content."
+      },
+      {
+        "source_atom": "CA-R-927",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-932",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-935",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-944",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-945",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-947",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      },
+      {
+        "source_atom": "CA-R-992",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Here Atom Scope denotes where the Atom belongs, independently from the separately named target and textual applicability.",
+        "evidence": "The source distinguishes current/Consumer Atom Scope Unit from Claim Target Scope Unit or textual Claim Scope."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 89,
+    "subject": "Atom Tier Validation.Concrete Cases",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-447",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Local Tier"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom.Global Tier"
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom.Target Scope Unit"
+          },
+          {
+            "path": "Entity/Continuant/Selection",
+            "applicability": "Subtree-targeting Atoms in the explicit RMED fixture"
+          },
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "evaluation_for and tier-parent Relations"
+          },
+          {
+            "path": "Entity/Continuant/Project.Framework Settings",
+            "applicability": "exact mode/representation fixture"
+          }
+        ],
+        "reason": "The fixture checks these existing targets. Concrete Cases is not an entity; preserve all selected input/fixture restrictions. Other dependency Subjects remain independently mapped.",
+        "evidence": "Scope: three-tier classification, structural, scope and representation fixtures; cases test tier mappings, target groups, authority-mode encoding and source expansion."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 141,
+    "subject": "CAPRMEDIO Graph",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-382",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-terms-graph.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "CAPRMEDIO Graph repeats the graph-view meaning already represented by the source's precise Projection/graph-type Subjects. Remove only this redundant topic reference.",
+        "evidence": "The source already declares Projection or its exact graph Type and retains typed Relation/source-traceability constraints."
+      },
+      {
+        "source_atom": "CA-E-466",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-466-CORE_META_MODEL-QA_CASE--validate-single-source-of-truth-in-secondary-graphs.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Projection",
+            "applicability": "secondary graph representations of selected authoritative sources"
+          }
+        ],
+        "reason": "The governed secondary graph is explicitly a derived Projection, not a new Graph Object.",
+        "evidence": "Secondary CAPRMEDIO Graphs must be Projections; reject a Projection that acquires independent authority."
+      },
+      {
+        "source_atom": "CA-E-622",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "CAPRMEDIO Graph kind used to qualify Relation vocabulary ownership; not a new Object or independent definition Atom"
+          }
+        ],
+        "reason": "Here graph kind is vocabulary/meaning used to qualify Relation registration; preserve the declared graph domain without inventing a primary Graph entity.",
+        "evidence": "Relation identities/registry lookup use owning graph kind plus canonical name; matching names across graph kinds do not merge them."
+      },
+      {
+        "source_atom": "CA-M-120",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "CAPRMEDIO Graph kind used to qualify Relation vocabulary ownership; not a new Object or independent definition Atom"
+          }
+        ],
+        "reason": "Here graph kind is vocabulary/meaning used to qualify Relation registration; preserve the declared graph domain without inventing a primary Graph entity.",
+        "evidence": "Relation identities/registry lookup use owning graph kind plus canonical name; matching names across graph kinds do not merge them."
+      },
+      {
+        "source_atom": "CA-R-1246",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1246-CORE_META_MODEL-CORE-REQUIREMENT--keep-relation-vocabularies-graph-specific.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "CAPRMEDIO Graph kind used to qualify Relation vocabulary ownership; not a new Object or independent definition Atom"
+          }
+        ],
+        "reason": "Here graph kind is vocabulary/meaning used to qualify Relation registration; preserve the declared graph domain without inventing a primary Graph entity.",
+        "evidence": "Relation identities/registry lookup use owning graph kind plus canonical name; matching names across graph kinds do not merge them."
+      },
+      {
+        "source_atom": "CA-R-1248",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "Graph as possible node context in the existing Entity definition"
+          }
+        ],
+        "reason": "This is the shared meaning of graph in a generic Entity definition, not a particular generated view.",
+        "evidence": "An Entity is admitted as a possible node in at least one CAPRMEDIO Graph."
+      },
+      {
+        "source_atom": "CA-R-1281",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1281-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects-graph.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "CAPRMEDIO Graph repeats the graph-view meaning already represented by the source's precise Projection/graph-type Subjects. Remove only this redundant topic reference.",
+        "evidence": "The source already declares Projection or its exact graph Type and retains typed Relation/source-traceability constraints."
+      },
+      {
+        "source_atom": "CA-R-1335",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "CAPRMEDIO Graph repeats the graph-view meaning already represented by the source's precise Projection/graph-type Subjects. Remove only this redundant topic reference.",
+        "evidence": "The source already declares Projection or its exact graph Type and retains typed Relation/source-traceability constraints."
+      },
+      {
+        "source_atom": "CA-R-1406",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL-CORE--keep-entity-identity-independent-of-graph-materialization.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "CAPRMEDIO Graph repeats the graph-view meaning already represented by the source's precise Projection/graph-type Subjects. Remove only this redundant topic reference.",
+        "evidence": "The source already declares Projection or its exact graph Type and retains typed Relation/source-traceability constraints."
+      },
+      {
+        "source_atom": "CA-R-1408",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL-CORE--define-graph-of-graphs.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "CAPRMEDIO Graph repeats the graph-view meaning already represented by the source's precise Projection/graph-type Subjects. Remove only this redundant topic reference.",
+        "evidence": "The source already declares Projection or its exact graph Type and retains typed Relation/source-traceability constraints."
+      },
+      {
+        "source_atom": "CA-R-1409",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The General Artifact Graph depends on the retired Artifact/Structural Entity partition and construction containment. Keep this source pending its content disposition; do not admit another graph type.",
+        "evidence": "Defines a graph of Artifacts and Structural Entities connected through direct containment."
+      },
+      {
+        "source_atom": "CA-R-1437",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "CAPRMEDIO Graph repeats the graph-view meaning already represented by the source's precise Projection/graph-type Subjects. Remove only this redundant topic reference.",
+        "evidence": "The source already declares Projection or its exact graph Type and retains typed Relation/source-traceability constraints."
+      },
+      {
+        "source_atom": "CA-R-1438",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1438-CORE_META_MODEL-CORE--define-entities-graph.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "CAPRMEDIO Graph repeats the graph-view meaning already represented by the source's precise Projection/graph-type Subjects. Remove only this redundant topic reference.",
+        "evidence": "The source already declares Projection or its exact graph Type and retains typed Relation/source-traceability constraints."
+      },
+      {
+        "source_atom": "CA-R-1471",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1471-CORE_META_MODEL-CORE--keep-secondary-graphs-derived-from-source-authority.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Projection",
+            "applicability": "secondary graph representations of selected authoritative sources"
+          }
+        ],
+        "reason": "The governed secondary graph is explicitly a derived Projection, not a new Graph Object.",
+        "evidence": "Secondary CAPRMEDIO Graphs must be Projections; reject a Projection that acquires independent authority."
+      },
+      {
+        "source_atom": "CA-R-1472",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "CAPRMEDIO Graph repeats the graph-view meaning already represented by the source's precise Projection/graph-type Subjects. Remove only this redundant topic reference.",
+        "evidence": "The source already declares Projection or its exact graph Type and retains typed Relation/source-traceability constraints."
+      },
+      {
+        "source_atom": "CA-R-806",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "CAPRMEDIO Graph kind used to qualify Relation vocabulary ownership; not a new Object or independent definition Atom"
+          }
+        ],
+        "reason": "Here graph kind is vocabulary/meaning used to qualify Relation registration; preserve the declared graph domain without inventing a primary Graph entity.",
+        "evidence": "Relation identities/registry lookup use owning graph kind plus canonical name; matching names across graph kinds do not merge them."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 142,
+    "subject": "CAPRMEDIO Graph.Connectivity",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1410",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "Its compulsory General Artifact Graph connectivity is tied to the obsolete partition; defer the rule's content disposition rather than manufacturing a replacement Connectivity entity.",
+        "evidence": "Every graph must connect to General Artifact Graph through source Artifact or Structural Entity."
+      },
+      {
+        "source_atom": "CA-R-1472",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "graph-qualified typed connections in secondary graph Projections"
+          }
+        ],
+        "reason": "The actual governed thing is a typed Relation with admitted endpoint classes, graph context, direction and cardinality.",
+        "evidence": "Every connection must use one graph-qualified Relation Kind whose authority admits endpoints, direction and cardinality."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 195,
+    "subject": "DEPENDS_ON",
+    "occurrences": [
+      {
+        "source_atom": "CA-D-269",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-D-307",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-E-246",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-E-404",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-dependency-order-derivations.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Direct non-Plan prerequisite relation serialized as relations.depends_on; dependent to prerequisite, required_by inverse; not Subject mention DEPENDS_ON or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence explicitly means prerequisite ordering from authored relations.depends_on edges. Preserve its separate relation domain.",
+        "evidence": "Construct/check dependency graph only from relations.depends_on; Plan BLOCKS is checked separately."
+      },
+      {
+        "source_atom": "CA-M-228",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-M-232",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-M-239",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Direct non-Plan prerequisite relation serialized as relations.depends_on; dependent to prerequisite, required_by inverse; not Subject mention DEPENDS_ON or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence explicitly means prerequisite ordering from authored relations.depends_on edges. Preserve its separate relation domain.",
+        "evidence": "Construct/check dependency graph only from relations.depends_on; Plan BLOCKS is checked separately."
+      },
+      {
+        "source_atom": "CA-R-1198",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-R-1200",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-R-1202",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1202-CORE_META_MODEL-CORE-REQUIREMENT--resolve-every-direct-subject-target-once.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-R-1275",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1275-CORE_META_MODEL-CORE--define-subject.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-R-1276",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1276-CORE_META_MODEL-CORE-REQUIREMENT--type-every-direct-subject-reference.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-R-1278",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1278-CORE_META_MODEL-GENERAL--allow-zero-or-more-dependency-subjects.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-R-1280",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1280-CORE_META_MODEL-CORE-REQUIREMENT--reference-every-prerequisite-subject-through-depends-on.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-R-1281",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1281-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects-graph.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      },
+      {
+        "source_atom": "CA-R-1459",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1459-CORE_META_MODEL-CORE--define-extended-entities-graph.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; Atom to independently mentioned canonical Entity, not non-Plan prerequisite ordering or Plan BLOCKS"
+          }
+        ],
+        "reason": "This occurrence means a Subject mention link, not an execution prerequisite.",
+        "evidence": "Subject governs/depends_on encoding or direct mentioned-target coverage is explicit in the source."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 390,
+    "subject": "Relation Kind Metadata",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-622",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation/Type",
+            "applicability": "graph-qualified admitted Relation kinds and their canonical registration fields; owning graph, name, meaning, endpoints, direction, cardinality and other governed metadata"
+          }
+        ],
+        "reason": "Metadata is a constraint on registered Relation kinds, not a separate Metadata Object. M120's output remains its already-declared Direct Relation Registry Projection; this dependency names its input registration authority.",
+        "evidence": "R806 enumerates canonical registration fields; referring sources use those fields for compilation, admission and validity."
+      },
+      {
+        "source_atom": "CA-M-120",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation/Type",
+            "applicability": "graph-qualified admitted Relation kinds and their canonical registration fields; owning graph, name, meaning, endpoints, direction, cardinality and other governed metadata"
+          }
+        ],
+        "reason": "Metadata is a constraint on registered Relation kinds, not a separate Metadata Object. M120's output remains its already-declared Direct Relation Registry Projection; this dependency names its input registration authority.",
+        "evidence": "R806 enumerates canonical registration fields; referring sources use those fields for compilation, admission and validity."
+      },
+      {
+        "source_atom": "CA-R-1246",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1246-CORE_META_MODEL-CORE-REQUIREMENT--keep-relation-vocabularies-graph-specific.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation/Type",
+            "applicability": "graph-qualified admitted Relation kinds and their canonical registration fields; owning graph, name, meaning, endpoints, direction, cardinality and other governed metadata"
+          }
+        ],
+        "reason": "Metadata is a constraint on registered Relation kinds, not a separate Metadata Object. M120's output remains its already-declared Direct Relation Registry Projection; this dependency names its input registration authority.",
+        "evidence": "R806 enumerates canonical registration fields; referring sources use those fields for compilation, admission and validity."
+      },
+      {
+        "source_atom": "CA-R-1472",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation/Type",
+            "applicability": "graph-qualified admitted Relation kinds and their canonical registration fields; owning graph, name, meaning, endpoints, direction, cardinality and other governed metadata"
+          }
+        ],
+        "reason": "Metadata is a constraint on registered Relation kinds, not a separate Metadata Object. M120's output remains its already-declared Direct Relation Registry Projection; this dependency names its input registration authority.",
+        "evidence": "R806 enumerates canonical registration fields; referring sources use those fields for compilation, admission and validity."
+      },
+      {
+        "source_atom": "CA-R-806",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation/Type",
+            "applicability": "graph-qualified admitted Relation kinds and their canonical registration fields; owning graph, name, meaning, endpoints, direction, cardinality and other governed metadata"
+          }
+        ],
+        "reason": "Metadata is a constraint on registered Relation kinds, not a separate Metadata Object. M120's output remains its already-declared Direct Relation Registry Projection; this dependency names its input registration authority.",
+        "evidence": "R806 enumerates canonical registration fields; referring sources use those fields for compilation, admission and validity."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 438,
+    "subject": "Spec Content Roles",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-498",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Method",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Delivery",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          }
+        ],
+        "reason": "The content explicitly addresses all four RMED roles in this occurrence; preserve its status/applicability restriction without adding a Spec entity. Deferred Implementation clauses are not admitted by this mapping.",
+        "evidence": "Source uses RMED governing specification versus concrete change/implementation or its classification, output and authority."
+      },
+      {
+        "source_atom": "CA-E-499",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Method",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Delivery",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          }
+        ],
+        "reason": "The content explicitly addresses all four RMED roles in this occurrence; preserve its status/applicability restriction without adding a Spec entity. Deferred Implementation clauses are not admitted by this mapping.",
+        "evidence": "Source uses RMED governing specification versus concrete change/implementation or its classification, output and authority."
+      },
+      {
+        "source_atom": "CA-R-1431",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1431-CORE_META_MODEL-CORE--define-general-local-tier.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "Spec / Specification Content Roles / RMED: collective meaning of Requirement, Method, Evaluation and Delivery"
+          }
+        ],
+        "reason": "The collective specification meaning is a Term, not a fifth role/entity. Exact role references remain independent; no new authoritative Term definition layer.",
+        "evidence": "The source defines RMED as the set of four roles or uses Spec to explain Core/General tier meaning."
+      },
+      {
+        "source_atom": "CA-R-1548",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "Spec / Specification Content Roles / RMED: collective meaning of Requirement, Method, Evaluation and Delivery"
+          }
+        ],
+        "reason": "The collective specification meaning is a Term, not a fifth role/entity. Exact role references remain independent; no new authoritative Term definition layer.",
+        "evidence": "The source defines RMED as the set of four roles or uses Spec to explain Core/General tier meaning."
+      },
+      {
+        "source_atom": "CA-R-1550",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1550-CORE_META_MODEL-CORE-REQUIREMENT--keep-specification-in-rmed-regardless-of-its-subject.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Method",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Delivery",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          }
+        ],
+        "reason": "The content explicitly addresses all four RMED roles in this occurrence; preserve its status/applicability restriction without adding a Spec entity. Deferred Implementation clauses are not admitted by this mapping.",
+        "evidence": "Source uses RMED governing specification versus concrete change/implementation or its classification, output and authority."
+      },
+      {
+        "source_atom": "CA-R-1568",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL-GENERAL--permit-projections-as-implementation-outputs.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Method",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Delivery",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          }
+        ],
+        "reason": "The content explicitly addresses all four RMED roles in this occurrence; preserve its status/applicability restriction without adding a Spec entity. Deferred Implementation clauses are not admitted by this mapping.",
+        "evidence": "Source uses RMED governing specification versus concrete change/implementation or its classification, output and authority."
+      },
+      {
+        "source_atom": "CA-R-1610",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1610-CORE_META_MODEL-REQUIREMENT--keep-reverse-engineered-rmed-provisional.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "applicability": "RMED reconstructed from Implementation; Draft until accepted"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Method",
+            "applicability": "RMED reconstructed from Implementation; Draft until accepted"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation",
+            "applicability": "RMED reconstructed from Implementation; Draft until accepted"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Delivery",
+            "applicability": "RMED reconstructed from Implementation; Draft until accepted"
+          }
+        ],
+        "reason": "The content explicitly addresses all four RMED roles in this occurrence; preserve its status/applicability restriction without adding a Spec entity. Deferred Implementation clauses are not admitted by this mapping.",
+        "evidence": "Source uses RMED governing specification versus concrete change/implementation or its classification, output and authority."
+      },
+      {
+        "source_atom": "CA-R-1682",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "applicability": "Applicable Active RMED across governance loci"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Method",
+            "applicability": "Applicable Active RMED across governance loci"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation",
+            "applicability": "Applicable Active RMED across governance loci"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Delivery",
+            "applicability": "Applicable Active RMED across governance loci"
+          }
+        ],
+        "reason": "The content explicitly addresses all four RMED roles in this occurrence; preserve its status/applicability restriction without adding a Spec entity. Deferred Implementation clauses are not admitted by this mapping.",
+        "evidence": "Source uses RMED governing specification versus concrete change/implementation or its classification, output and authority."
+      },
+      {
+        "source_atom": "CA-R-1683",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Method",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Delivery",
+            "applicability": "Specification contribution, not the Content Role of the content specified"
+          }
+        ],
+        "reason": "The content explicitly addresses all four RMED roles in this occurrence; preserve its status/applicability restriction without adding a Spec entity. Deferred Implementation clauses are not admitted by this mapping.",
+        "evidence": "Source uses RMED governing specification versus concrete change/implementation or its classification, output and authority."
+      },
+      {
+        "source_atom": "CA-R-659",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-659-CORE_META_MODEL-CORE-REQUIREMENT--define-core-local-tier.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "Spec / Specification Content Roles / RMED: collective meaning of Requirement, Method, Evaluation and Delivery"
+          }
+        ],
+        "reason": "The collective specification meaning is a Term, not a fifth role/entity. Exact role references remain independent; no new authoritative Term definition layer.",
+        "evidence": "The source defines RMED as the set of four roles or uses Spec to explain Core/General tier meaning."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 448,
+    "subject": "Structural Entity Recursive Containment",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1498",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-CORE-REQUIREMENT--derive-recursive-containment-from-direct-containment.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "CONTAINS / CONTAINED_BY existing structural containment domain; recursive reachability is the transitive closure of direct edges"
+          }
+        ],
+        "reason": "Retain the existing containment Relation and its derived reachability; remove Structural Entity category wording in content pass. No construction graph implementation.",
+        "evidence": "Recursive containment must equal transitive closure of direct containment."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 459,
+    "subject": "Subject Relation Kind: DEPENDS_ON",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1580",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-blocking.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Subject Relation kind DEPENDS_ON defined by CA-R-1200; distinct from Plan BLOCKS"
+          }
+        ],
+        "reason": "This dependency names the contrast with Subject mention links, not Plan prerequisites or the non-Plan dependency relation.",
+        "evidence": "Subject DEPENDS_ON remains a different Relation Kind in the Plan-blocking claim."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 507,
+    "subject": "scope-topology",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1656",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1656-CORE_META_MODEL-CORE-REQUIREMENT--require-one-parent-scope-unit.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Parent",
+            "applicability": "non-root Scope Units"
+          }
+        ],
+        "reason": "The claim's exact target is one direct parent.",
+        "evidence": "Every Scope Unit except a root must have exactly one direct parent."
+      },
+      {
+        "source_atom": "CA-R-1658",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Parent"
+          }
+        ],
+        "reason": "The stored parent relation must represent immediate parentage; no skipped intermediate owner.",
+        "evidence": "Must not own a descendant through stored structural-parent relation when another active Scope Unit lies between."
+      },
+      {
+        "source_atom": "CA-R-1677",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Structural Level"
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Local Order",
+            "applicability": "ordered Scope Units; together encode the derived Structural Coordinate"
+          }
+        ],
+        "reason": "Encoded coordinate validation concerns these already-defined components, not a topology Object.",
+        "evidence": "Validate every encoded Structural coordinate and component against its defining active authority; parent R1932 defines level plus ordered Local Order."
+      },
+      {
+        "source_atom": "CA-R-1678",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1678-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-scale-operational-mechanisms-to-risk.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project",
+            "applicability": "CAPRMEDIO project operational mechanisms and declared authoritative-state boundaries"
+          }
+        ],
+        "reason": "This is the CAPRMEDIO project policy for proportional risk controls, not a Scope Unit topology rule. Rehome project-specific policy.",
+        "evidence": "CAPRMEDIO requires mechanisms proportional to failure risk and must not mandate one recovery/durability mechanism for every Project."
+      },
+      {
+        "source_atom": "CA-R-1686",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1686-CORE_META_MODEL-REQUIREMENT--propagate-caprmedio-change-forward.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project",
+            "applicability": "CAPRMEDIO project's accepted upstream changes through its ordered layer graph"
+          }
+        ],
+        "reason": "The project-specific change propagation policy governs the project; scope-topology is misleading. Preserve all downstream-type and history restrictions without adding an Implementation entity.",
+        "evidence": "Accepted upstream change propagates only forward, routes reconciliation to the owning layer and preserves historical Atoms."
+      },
+      {
+        "source_atom": "CA-R-1688",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-REQUIREMENT--scope-path-does-not-change-semantic-coordinates.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Path"
+          }
+        ],
+        "reason": "The scope path is the root-to-child chain, not a carrier path or authority-changing coordinate.",
+        "evidence": "Project-relative scopes are ordered broader parent to narrower child; path never changes stable identity, form, role or governance locus."
+      },
+      {
+        "source_atom": "CA-R-1690",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-CORE-REQUIREMENT--preserve-external-boundary-obligations.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom",
+            "applicability": "externally imposed accepted obligations"
+          }
+        ],
+        "reason": "The source governs Atoms carrying external-origin obligations and their role-independent source binding, not scope topology. Preserve origin qualification in applicability; this mapping does not add a new Governance Origin property to the candidate.",
+        "evidence": "An externally imposed obligation retains external Governance Origin and pins its applicable source version or digest."
+      },
+      {
+        "source_atom": "CA-R-1719",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1719-CORE_META_MODEL-CORE-REQUIREMENT--preserve-bounded-meaning-across-structural-scales.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "CAPRMEDIO meanings reused across Project and descendant scopes"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance Scope",
+            "applicability": "scope-bounded claims within the recursive meaning rule"
+          }
+        ],
+        "reason": "The rule preserves meaning and applicability across structural scales; do not make a new topology root or widen evidence/authority.",
+        "evidence": "Invariant, claim, relation or classification retains meaning recursively; every use remains bounded to declared scope and applicability."
+      },
+      {
+        "source_atom": "CA-R-1721",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1721-CORE_META_MODEL-CORE-REQUIREMENT--allow-scope-sets-to-vary-by-structural-owner.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "owner-specific declared structural scope sets; exact membership relation needs content clarification"
+          }
+        ],
+        "reason": "Use existing Scope Units, not a new scope-set Object. The source permits overlapping sets without identifying them as direct children, so do not silently replace that relation with Parent/Children. Clarify the old claim in the separate content pass under existing hierarchy/selection distinctions.",
+        "evidence": "The governing owner declares structural scope sets; sets may overlap/differ and correspondence cannot follow matching labels alone."
+      },
+      {
+        "source_atom": "CA-R-1732",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1732-CORE_META_MODEL-GENERAL--target-the-narrowest-capable-improvement-owner.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The source constrains an improvement proposal's governed owner but does not establish that the proposal is an Atom, that the owner is a Scope Unit, or that the target is Atom.Target Scope Unit. Preserve the full obligation for the content pass instead of inventing that bridge or a proposal Type.",
+        "evidence": "An improvement proposal must target the narrowest governed owner capable of resolving its evidence-backed cause."
+      },
+      {
+        "source_atom": "CA-R-1749",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL-CORE--preserve-source-scope-in-derived-views.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Projection",
+            "applicability": "derived views of declared source scopes"
+          }
+        ],
+        "reason": "This is a source-fidelity constraint on derived views, so RMED governs Projection.",
+        "evidence": "A derived view preserves every source's declared scope and must not inflate truth, completeness, evaluation or priority."
+      },
+      {
+        "source_atom": "CA-R-1751",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1751-CORE_META_MODEL-CORE--define-structural-level.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Path"
+          }
+        ],
+        "reason": "Ancestry is the precise dependency used to derive Structural Level. Obsolete outside-project Bootstrap clauses require the separate content pass.",
+        "evidence": "Structural Level means ancestry depth relative to the Project at zero; old negative Bootstrap levels remain in the source."
+      },
+      {
+        "source_atom": "CA-R-1756",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Children"
+          }
+        ],
+        "reason": "The claim restricts owning Scope Units to their immediate children.",
+        "evidence": "Every Scope Unit must own only its direct child Scope Units through the same recursive parent relation."
+      },
+      {
+        "source_atom": "CA-R-1771",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1771-CORE_META_MODEL-CORE-REQUIREMENT--permit-mixed-child-composition.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Children"
+          }
+        ],
+        "reason": "Mixed child classification is a constraint on direct children, not a new structural root.",
+        "evidence": "A Scope Unit may own both Ordered and Unordered Scope Units as direct children."
+      },
+      {
+        "source_atom": "CA-R-1932",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1932-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit/Type: Ordered"
+          }
+        ],
+        "reason": "The coordinate applies to ordered Scope Units, whose level and local order are explicitly named in the claim.",
+        "evidence": "Derived locator contains one Scope Unit's Structural Level and its Local Order when Type is Ordered."
+      },
+      {
+        "source_atom": "CA-R-837",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-837-CORE_META_MODEL-REQUIREMENT--derive-artifact-scope-inclusion.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The rule covers both Atoms with internally carried ownership and non-Atom Artifacts whose ownership comes from canonical Carrier authority, followed by inclusion along the ancestor path. Mapping only Atom.Owning Scope Unit and Scope Unit.Path would narrow that breadth. Preserve all cases for the content pass without restoring the obsolete Artifact root or inventing a replacement owner field.",
+        "evidence": "Resolve direct Scope Unit from carried Atom ownership or non-Atom carrier authority, then include along its complete ancestor path."
+      },
+      {
+        "source_atom": "CA-R-886",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+          }
+        ],
+        "reason": "Scope reference resolution uses the Atom's direct owning Scope Unit as its context.",
+        "evidence": "Every Scope Unit reference resolves relative to that Scope Unit when Atom Scope is a Scope Unit."
+      },
+      {
+        "source_atom": "CA-R-913",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-913-CORE_META_MODEL-CORE-REQUIREMENT--define-previous-unit.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Local Order"
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Parent",
+            "applicability": "ordered peers share their immediate parent"
+          }
+        ],
+        "reason": "Previous Unit depends on sibling ordering; retain the exact nearest-lower criterion.",
+        "evidence": "Previous Unit means ordered peer with nearest lower Local Order."
+      },
+      {
+        "source_atom": "CA-R-935",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Path",
+            "applicability": "ancestry comparison between Demand owning and target Scope Units"
+          }
+        ],
+        "reason": "The dependency is actual ancestor/descendant relation used by the Demand restriction.",
+        "evidence": "Demand target must not be an ancestor or descendant of Consumer Scope Unit."
+      },
+      {
+        "source_atom": "CA-R-960",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Children"
+          }
+        ],
+        "reason": "This dependency refers to the direct children being classified. Old LAYERS/FEATURES vocabulary remains a content issue.",
+        "evidence": "Child Composition classifies one Scope Unit's direct children as none, LAYERS, FEATURES or MIXED."
+      },
+      {
+        "source_atom": "CA-R-961",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The dedicated boundary-coordinate source is already a retirement candidate because Bootstrap Seeds are obsolete; do not invent a replacement dependency.",
+        "evidence": "PROJECT versus BOOTSTRAP_SEED is the entire Project Boundary Position definition."
+      },
+      {
+        "source_atom": "CA-R-964",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit"
+          }
+        ],
+        "reason": "The exact referent of the shorthand is Scope Unit, not generic topology.",
+        "evidence": "Unit means Scope Unit when used as the governed shorthand."
+      },
+      {
+        "source_atom": "CA-R-976",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Parent"
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Children"
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Local Order"
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit/Type"
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit.Structural Level"
+          }
+        ],
+        "reason": "The navigation-number independence rule explicitly names these structural facts. Replace the vague dependency with those facts; dependency Relations stay separately mapped.",
+        "evidence": "Navigational Order Number must not change Structural Coordinate, parent, child, Scope Unit Type, Local Order or dependency."
+      }
+    ],
+    "question": null
+  }
+]

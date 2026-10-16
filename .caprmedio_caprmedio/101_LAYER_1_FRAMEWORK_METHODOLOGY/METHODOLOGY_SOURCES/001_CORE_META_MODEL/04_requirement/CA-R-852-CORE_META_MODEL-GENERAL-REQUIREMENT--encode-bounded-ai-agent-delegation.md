@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "AI Agent Delegation"
+  governs: "Entity/Continuant/Actor/Type: AI Agent.Permissions"
   depends_on:
     ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent"]
-version: 17
-updated_at: "2026-10-15 18:46:40 +0000"
+version: 18
+updated_at: "2026-10-16 12:08:54 +0000"
 relations: {}
 atom_id: "CA-R-852"
 content_role: "Requirement"

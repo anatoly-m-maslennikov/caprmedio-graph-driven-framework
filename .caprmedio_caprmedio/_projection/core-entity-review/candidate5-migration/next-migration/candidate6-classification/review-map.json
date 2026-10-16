@@ -35,6 +35,33 @@
       "answer-reconciliation-d.json"
     ]
   },
+  "occurrence_review": {
+    "status": "reviewed_not_executable",
+    "review_date": "2026-10-16",
+    "subject_families": 48,
+    "source_subject_pairs": 546,
+    "subject_role_uses": 548,
+    "unique_source_atoms": 441,
+    "counts": {
+      "map": 314,
+      "content_deferred": 82,
+      "remove_reference": 94,
+      "deferred_ca": 58
+    },
+    "new_operator_questions": 0,
+    "mixed_source_atom_holds": ["CA-D-407","CA-E-246","CA-E-249","CA-E-379","CA-M-295","CA-M-298","CA-O-054","CA-R-1268","CA-R-1375","CA-R-1409","CA-R-1580","CA-R-1682","CA-R-1683"],
+    "previous_content_deferred_families": 19,
+    "report": "occurrence-review.md",
+    "files": [
+      "occurrence-map-execution.json",
+      "occurrence-map-artifact.json",
+      "occurrence-map-revision.json",
+      "occurrence-map-scope-relations.json",
+      "occurrence-map-config.json",
+      "occurrence-map-topics.json"
+    ],
+    "scope": "Supersedes pending occurrence assignment for the referenced 48 entries, not the initial classification counts. Holds are explicit; a mapped Subject does not authorize modifying an Atom held elsewhere. Source Atoms and contents are unchanged."
+  },
   "constraints": [
     "No authoritative Atom changed.",
     "Mapped means a candidate target, not occurrence-level migration approval; preserve scope and instance identity.",
@@ -204,6 +231,7 @@
     },
     {
       "index": 8,
+      "occurrence_review": {"file":"occurrence-map-execution.json","counts":{"map":35}},
       "subject": "Agentic Step Execution Context",
       "disposition": "unresolved",
       "target": null,
@@ -832,6 +860,7 @@
     },
     {
       "index": 30,
+      "occurrence_review": {"file":"occurrence-map-artifact.json","counts":{"content_deferred":20,"map":12,"remove_reference":36}},
       "subject": "Artifact",
       "disposition": "unresolved",
       "target": null,
@@ -1399,6 +1428,7 @@
     },
     {
       "index": 53,
+      "occurrence_review": {"file":"occurrence-map-revision.json","counts":{"content_deferred":5,"deferred_ca":56,"map":8,"remove_reference":5}},
       "subject": "Artifact/Revision",
       "disposition": "unresolved",
       "target": null,
@@ -1947,6 +1977,7 @@
     },
     {
       "index": 72,
+      "occurrence_review": {"file":"occurrence-map-execution.json","counts":{"map":3,"remove_reference":1}},
       "subject": "Atom Change Classification",
       "disposition": "unresolved",
       "target": null,
@@ -2304,6 +2335,7 @@
     },
     {
       "index": 86,
+      "occurrence_review": {"file":"occurrence-map-scope-relations.json","counts":{"content_deferred":3,"map":28}},
       "subject": "Atom Scope",
       "disposition": "unresolved",
       "target": null,
@@ -2425,6 +2457,7 @@
     },
     {
       "index": 89,
+      "occurrence_review": {"file":"occurrence-map-scope-relations.json","counts":{"map":1}},
       "subject": "Atom Tier Validation.Concrete Cases",
       "disposition": "unresolved",
       "target": null,
@@ -3627,6 +3660,7 @@
     },
     {
       "index": 138,
+      "occurrence_review": {"file":"occurrence-map-config.json","counts":{"content_deferred":1}},
       "subject": "CAPRMEDIO Framework Identity",
       "disposition": "unresolved",
       "target": null,
@@ -3650,6 +3684,7 @@
     },
     {
       "index": 139,
+      "occurrence_review": {"file":"occurrence-map-execution.json","counts":{"map":2,"remove_reference":8}},
       "subject": "CAPRMEDIO Framework Instance",
       "disposition": "unresolved",
       "target": null,
@@ -3725,6 +3760,7 @@
     },
     {
       "index": 141,
+      "occurrence_review": {"file":"occurrence-map-scope-relations.json","counts":{"content_deferred":1,"map":7,"remove_reference":8}},
       "subject": "CAPRMEDIO Graph",
       "disposition": "unresolved",
       "target": null,
@@ -3776,6 +3812,7 @@
     },
     {
       "index": 142,
+      "occurrence_review": {"file":"occurrence-map-scope-relations.json","counts":{"content_deferred":1,"map":1}},
       "subject": "CAPRMEDIO Graph.Connectivity",
       "disposition": "unresolved",
       "target": null,
@@ -3960,6 +3997,7 @@
     },
     {
       "index": 149,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"map":2}},
       "subject": "CCE Method",
       "disposition": "unresolved",
       "target": null,
@@ -5106,6 +5144,7 @@
     },
     {
       "index": 195,
+      "occurrence_review": {"file":"occurrence-map-scope-relations.json","counts":{"map":16}},
       "subject": "DEPENDS_ON",
       "disposition": "unresolved",
       "target": null,
@@ -5190,6 +5229,7 @@
     },
     {
       "index": 197,
+      "occurrence_review": {"file":"occurrence-map-config.json","counts":{"content_deferred":3,"map":15}},
       "subject": "Default Settings",
       "disposition": "unresolved",
       "target": null,
@@ -5996,6 +6036,7 @@
     },
     {
       "index": 229,
+      "occurrence_review": {"file":"occurrence-map-config.json","counts":{"content_deferred":8,"map":19,"remove_reference":2}},
       "subject": "Extension",
       "disposition": "unresolved",
       "target": null,
@@ -6619,6 +6660,7 @@
     },
     {
       "index": 253,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"content_deferred":8,"map":3,"remove_reference":10}},
       "subject": "Hub Atom",
       "disposition": "unresolved",
       "target": null,
@@ -6698,6 +6740,7 @@
     },
     {
       "index": 254,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"map":1}},
       "subject": "Hub Carrier.Navigation Entry",
       "disposition": "unresolved",
       "target": null,
@@ -7321,6 +7364,7 @@
     },
     {
       "index": 275,
+      "occurrence_review": {"file":"occurrence-map-execution.json","counts":{"map":6,"remove_reference":1}},
       "subject": "Implementation Workflow",
       "disposition": "unresolved",
       "target": null,
@@ -7743,6 +7787,7 @@
     },
     {
       "index": 291,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"map":6,"remove_reference":2}},
       "subject": "Markdown Atom Carrier.Main Content",
       "disposition": "unresolved",
       "target": null,
@@ -7840,6 +7885,7 @@
     },
     {
       "index": 294,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"map":3,"remove_reference":3}},
       "subject": "Markdown Atom Carrier.YAML Frontmatter",
       "disposition": "unresolved",
       "target": null,
@@ -8082,6 +8128,7 @@
     },
     {
       "index": 303,
+      "occurrence_review": {"file":"occurrence-map-config.json","counts":{"content_deferred":2,"map":16,"remove_reference":1}},
       "subject": "Methodology Source",
       "disposition": "unresolved",
       "target": null,
@@ -8166,6 +8213,7 @@
     },
     {
       "index": 305,
+      "occurrence_review": {"file":"occurrence-map-config.json","counts":{"content_deferred":2,"map":8}},
       "subject": "Methodology Source.Expansion Boundary",
       "disposition": "unresolved",
       "target": null,
@@ -8225,6 +8273,7 @@
     },
     {
       "index": 306,
+      "occurrence_review": {"file":"occurrence-map-config.json","counts":{"content_deferred":3}},
       "subject": "Methodology Source.Expansion Mapping",
       "disposition": "unresolved",
       "target": null,
@@ -9068,6 +9117,7 @@
     },
     {
       "index": 342,
+      "occurrence_review": {"file":"occurrence-map-config.json","counts":{"content_deferred":6,"map":17,"remove_reference":2}},
       "subject": "Project Configuration",
       "disposition": "unresolved",
       "target": null,
@@ -9121,6 +9171,7 @@
     },
     {
       "index": 343,
+      "occurrence_review": {"file":"occurrence-map-execution.json","counts":{"map":3}},
       "subject": "Project Lexicographic Selection",
       "disposition": "unresolved",
       "target": null,
@@ -9240,6 +9291,7 @@
     },
     {
       "index": 347,
+      "occurrence_review": {"file":"occurrence-map-execution.json","counts":{"map":5}},
       "subject": "Project Priority Model Application",
       "disposition": "unresolved",
       "target": null,
@@ -10493,6 +10545,7 @@
     },
     {
       "index": 390,
+      "occurrence_review": {"file":"occurrence-map-scope-relations.json","counts":{"map":5}},
       "subject": "Relation Kind Metadata",
       "disposition": "unresolved",
       "target": null,
@@ -10931,6 +10984,7 @@
     },
     {
       "index": 405,
+      "occurrence_review": {"file":"occurrence-map-execution.json","counts":{"map":1,"remove_reference":1}},
       "subject": "Runtime State",
       "disposition": "unresolved",
       "target": null,
@@ -11942,6 +11996,7 @@
     },
     {
       "index": 438,
+      "occurrence_review": {"file":"occurrence-map-scope-relations.json","counts":{"map":10}},
       "subject": "Spec Content Roles",
       "disposition": "unresolved",
       "target": null,
@@ -12089,6 +12144,7 @@
     },
     {
       "index": 443,
+      "occurrence_review": {"file":"occurrence-map-execution.json","counts":{"deferred_ca":1,"map":3}},
       "subject": "Step/Agentic Execution Context",
       "disposition": "unresolved",
       "target": null,
@@ -12226,6 +12282,7 @@
     },
     {
       "index": 448,
+      "occurrence_review": {"file":"occurrence-map-scope-relations.json","counts":{"map":1}},
       "subject": "Structural Entity Recursive Containment",
       "disposition": "unresolved",
       "target": null,
@@ -12523,6 +12580,7 @@
     },
     {
       "index": 459,
+      "occurrence_review": {"file":"occurrence-map-scope-relations.json","counts":{"map":1}},
       "subject": "Subject Relation Kind: DEPENDS_ON",
       "disposition": "unresolved",
       "target": null,
@@ -12820,6 +12878,7 @@
     },
     {
       "index": 471,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"content_deferred":1,"map":2}},
       "subject": "Translation",
       "disposition": "unresolved",
       "target": null,
@@ -13004,6 +13063,7 @@
     },
     {
       "index": 477,
+      "occurrence_review": {"file":"occurrence-map-execution.json","counts":{"content_deferred":3,"map":3}},
       "subject": "Verification",
       "disposition": "unresolved",
       "target": null,
@@ -13124,6 +13184,7 @@
     },
     {
       "index": 482,
+      "occurrence_review": {"file":"occurrence-map-execution.json","counts":{"deferred_ca":1}},
       "subject": "Workflow/Step binding ownership",
       "disposition": "unresolved",
       "target": null,
@@ -13249,6 +13310,7 @@
     },
     {
       "index": 486,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"content_deferred":2,"map":7,"remove_reference":3}},
       "subject": "artifact-model",
       "disposition": "unresolved",
       "target": null,
@@ -13347,6 +13409,7 @@
     },
     {
       "index": 488,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"content_deferred":2,"map":5,"remove_reference":5}},
       "subject": "authority",
       "disposition": "unresolved",
       "target": null,
@@ -13403,6 +13466,7 @@
     },
     {
       "index": 490,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"content_deferred":1,"map":3,"remove_reference":1}},
       "subject": "continuous-improvement",
       "disposition": "unresolved",
       "target": null,
@@ -13441,6 +13505,7 @@
     },
     {
       "index": 491,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"content_deferred":2,"map":3}},
       "subject": "development-flow",
       "disposition": "unresolved",
       "target": null,
@@ -13482,6 +13547,7 @@
     },
     {
       "index": 492,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"map":6}},
       "subject": "evaluation",
       "disposition": "unresolved",
       "target": null,
@@ -13521,6 +13587,7 @@
     },
     {
       "index": 493,
+      "occurrence_review": {"file":"occurrence-map-config.json","counts":{"content_deferred":2,"map":3}},
       "subject": "extension-model",
       "disposition": "unresolved",
       "target": null,
@@ -13553,6 +13620,7 @@
     },
     {
       "index": 494,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"map":2}},
       "subject": "external-boundary",
       "disposition": "unresolved",
       "target": null,
@@ -13591,6 +13659,7 @@
     },
     {
       "index": 495,
+      "occurrence_review": {"file":"occurrence-map-config.json","counts":{"map":1}},
       "subject": "framework-boundary",
       "disposition": "unresolved",
       "target": null,
@@ -13639,6 +13708,7 @@
     },
     {
       "index": 497,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"content_deferred":1,"map":5}},
       "subject": "language",
       "disposition": "unresolved",
       "target": null,
@@ -13698,6 +13768,7 @@
     },
     {
       "index": 499,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"map":10}},
       "subject": "lifecycle-traceability",
       "disposition": "unresolved",
       "target": null,
@@ -13741,6 +13812,7 @@
     },
     {
       "index": 500,
+      "occurrence_review": {"file":"occurrence-map-config.json","counts":{"map":1}},
       "subject": "principles",
       "disposition": "unresolved",
       "target": null,
@@ -13944,6 +14016,7 @@
     },
     {
       "index": 507,
+      "occurrence_review": {"file":"occurrence-map-scope-relations.json","counts":{"content_deferred":4,"map":19}},
       "subject": "scope-topology",
       "disposition": "unresolved",
       "target": null,
@@ -14007,6 +14080,7 @@
     },
     {
       "index": 508,
+      "occurrence_review": {"file":"occurrence-map-topics.json","counts":{"content_deferred":1,"map":5,"remove_reference":5}},
       "subject": "semantics",
       "disposition": "unresolved",
       "target": null,
@@ -14049,6 +14123,7 @@
     },
     {
       "index": 509,
+      "occurrence_review": {"file":"occurrence-map-config.json","counts":{"map":1}},
       "subject": "settings specification",
       "disposition": "unresolved",
       "target": null,

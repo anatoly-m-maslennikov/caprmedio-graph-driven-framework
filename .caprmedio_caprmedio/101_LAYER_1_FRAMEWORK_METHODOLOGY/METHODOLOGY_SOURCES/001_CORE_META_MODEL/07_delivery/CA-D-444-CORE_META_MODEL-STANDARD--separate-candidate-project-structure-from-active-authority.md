@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    ["Entity/Carrier", "Project Structure Maintenance", "Entity/Continuant/Actor/Type: Operator"]
-version: 7
-updated_at: "2026-10-15 18:52:00 +0000"
+    ["Entity/Carrier", "Entity/Continuant/Project.Structure", "Entity/Continuant/Actor/Type: Operator"]
+version: 8
+updated_at: "2026-10-16 12:09:29 +0000"
 relations:
   child_of:
     - "CA-D-440"

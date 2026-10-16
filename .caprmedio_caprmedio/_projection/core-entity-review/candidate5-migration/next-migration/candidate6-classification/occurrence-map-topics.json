@@ -1,0 +1,1484 @@
+[
+  {
+    "index": 149,
+    "subject": "CCE Method",
+    "occurrences": [
+      {
+        "source_atom": "CA-M-230",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-230-CORE_META_MODEL-METHOD--define-registered-cce-operators-through-cce-methods.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Selection",
+            "applicability": "Named selection CCE Method: active Method Atoms assigning canonical CCE operator functions, not all Method Atoms."
+          }
+        ],
+        "reason": "Preserve the existing bounded CCE Method selection; no new Object kind or universal Method dependency.",
+        "evidence": "within CCE, a CCE Operator **means** one canonical lowercase word-form token **or** token sequence **or** one canonical symbolic token that one active CCE Method assigns one syntactic **or** logical function."
+      },
+      {
+        "source_atom": "CA-M-234",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Selection",
+            "applicability": "Named selection CCE Method: active Method Atoms assigning canonical CCE operator functions, not all Method Atoms."
+          }
+        ],
+        "reason": "Preserve the existing bounded CCE Method selection; no new Object kind or universal Method dependency.",
+        "evidence": "the current canonical CCE Operator Registry **must** contain this expandable set:\n\n1. statement form: **to**, **means**.\n2. modality: **must**, **must not**, **may**.\n3. condition: **if**, **then**, **when**, **otherwise**.\n4. temporal condition: **before**, **after**, **until**, **unless**.\n5. quantification: **all**, **every**, **any**, **none**.\n6. logical/set: **and**, **or**, **not**, **without**, **where**.\n7. restriction: **only**.\n8. predicate: **in**, **not in**, **is empty**, **is not empty**, **contains**, **starts with**, **ends with**.\n9. comparison: **`=`**, **`!=`**, **`<`**, **`<=`**, **`>`**, **`>=`**."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 253,
+    "subject": "Hub Atom",
+    "occurrences": [
+      {
+        "source_atom": "CA-D-470",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-STANDARD--serialize-plan-file-sections.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Hub denotes a containing Plan here; the explicit Plan dependency already covers it. Remove only the redundant Subject, preserving file/folder, completion, assignee, navigation and target constraints.",
+        "evidence": "**every** Plan Markdown File Carrier **must** contain YAML Frontmatter followed by the Plan layout registered **in** CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties:\n\n1. `# Summary` carries the Summary value.\n2. `## Objective` carries the intended work **or** outcome Claim, including its applicability restrictions.\n3. `## Details` carries supporting information **and** **`=1`** nested `### Definition of Done` section with the Plan's falsifying Condition Expression.\n\nthe Definition of Done is the Plan's existing Property, **not** a second completion Claim **or** an optional detail. carry its value **only** **in** that nested section. **any** other supporting Details **must** stay within the Objective. use CA-D-479-CORE_"
+      },
+      {
+        "source_atom": "CA-D-472",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-STANDARD--serialize-explicit-plan-confidence-overrides.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Hub denotes a containing Plan here; the explicit Plan dependency already covers it. Remove only the redundant Subject, preserving file/folder, completion, assignee, navigation and target constraints.",
+        "evidence": "an explicit Plan Autonomous Confidence Threshold override **must** use the top-level integer frontmatter field `autonomous_confidence_threshold` **in** that Plan Atom's own mandatory Markdown File Carrier.\n\n- a Hub uses that same file, **not** a separately identified Objective **or** Epic settings file.\n- omit an unselected override **without** copying its inherited value; the mandatory file requirement does **not** turn inheritance into a local selection.\n- retain an explicit override even **when** it equals the inherited value.\n- `epic_overrides` is **not** an alternative canonical encoding."
+      },
+      {
+        "source_atom": "CA-E-240",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Containing Plan Atoms used as nesting fixtures; not Scope Units and not an additional Hub kind."
+          }
+        ],
+        "reason": "Preserve the negative distinction between Plan containment and Scope Unit ownership/targeting.",
+        "evidence": "### Claim checked\n\n**every** Atom resolves its ownership, **`=1`** GOVERNS Relation, **and** **`=1`** Claim Target Scope Unit independently of **any** applicability restrictions **in** its Main Content."
+      },
+      {
+        "source_atom": "CA-E-241",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Plan confidence override; remove the superseded extra Hub-chain precedence in the later content pass."
+          }
+        ],
+        "reason": "The source explicitly requires the rejected nearest-Hub confidence layer. Subjects-only replacement cannot repair that requirement; hold this Atom for content repair.",
+        "evidence": "**every** active **or** draft Atom **contains** **`=1`** human-readable precise CCE Claim **and** a source-faithful Summary. requested Translation **and** terminology Projections preserve their source meaning; their absence **when** **not** requested is **not** an Atom defect.\n\n### Test case\n\ncreate valid active **and** draft Atom Claims for **every** admitted Content Role. include fixtures with no requested Translation **or** terminology Projection **and** fixtures with requested Projections. derive a candidate Summary during Atom creation, **then** retain it for checks of subsequent Revisions under CA-E-463-CORE_META_MODEL-QA_CASE--validate-summary-identity-preservation. derive requested Translation **and** terminology Projections twice **without**"
+      },
+      {
+        "source_atom": "CA-E-443",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-QA_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Plan confidence override; remove the superseded extra Hub-chain precedence in the later content pass."
+          }
+        ],
+        "reason": "The source explicitly requires the rejected nearest-Hub confidence layer. Subjects-only replacement cannot repair that requirement; hold this Atom for content repair.",
+        "evidence": "the confidence-threshold Evaluation **must** preserve CA-M-271-CORE_META_MODEL-METHOD--resolve-confidence-thresholds-by-source-precedence precedence **and** CA-R-1591-CORE_META_MODEL-GENERAL-REQUIREMENT--apply-autonomous-confidence-thresholds-to-plan-execution authorization gates.\n\n- supply distinct valid values through Operator input, a Plan, nested Hubs, **and** Framework Instance Settings; omit sources successively **and** confirm nearest explicit source selection.\n- scope direct input **to** one execution; retain the unrelated execution's setting.\n- omit the inner Hub's optional confidence override while retaining its mandatory file **and** a retry override: inherit confidence **without** copying it. reject a missing mandatory file.\n- supply a Hu"
+      },
+      {
+        "source_atom": "CA-E-460",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-460-CORE_META_MODEL-QA_CASE--validate-atom-set-selection-and-the-spec-alias.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Containing Plan Atoms used as nesting fixtures; not Scope Units and not an additional Hub kind."
+          }
+        ],
+        "reason": "Preserve the negative distinction between Plan containment and Scope Unit ownership/targeting.",
+        "evidence": "### Claim checked\n\nownership **and** Claim targeting produce their respective direct **and** recursive Atom sets, **and** the alias `spec` selects **only** Active RMED Subtree-targeting Atoms."
+      },
+      {
+        "source_atom": "CA-E-501",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-QA_CASE--validate-common-plan-authoring.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Containing Plan Atoms inherit the common Plan model."
+          }
+        ],
+        "reason": "The fixture permits a Hub with an optional directory, while the accepted contained-Atom model requires its file plus folder; keep this content mismatch explicit.",
+        "evidence": "the Plan authoring Evaluation **must** reject **any** Plan that violates the common model."
+      },
+      {
+        "source_atom": "CA-E-504",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-QA_CASE--validate-plan-blocking-and-parallel-readiness.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Hub denotes a containing Plan here; the explicit Plan dependency already covers it. Remove only the redundant Subject, preserving file/folder, completion, assignee, navigation and target constraints.",
+        "evidence": "the blocking Evaluation **must** reject a start **unless** **all** explicit blockers are Done **and** the applicable execution permissions hold."
+      },
+      {
+        "source_atom": "CA-E-511",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Containing Plan Atoms used as nesting fixtures; not Scope Units and not an additional Hub kind."
+          }
+        ],
+        "reason": "Preserve the negative distinction between Plan containment and Scope Unit ownership/targeting.",
+        "evidence": "### Claim checked\n\n**every** Atom resolves **`=1`** Claim Target Scope Unit; its Claim Scope remains applicability restrictions **in** the body sections registered by CA-D-495, including Scope for RMED, **not** another structural target **or** frontmatter Property."
+      },
+      {
+        "source_atom": "CA-M-271",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-METHOD--resolve-confidence-thresholds-by-source-precedence.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Plan confidence override; remove the superseded extra Hub-chain precedence in the later content pass."
+          }
+        ],
+        "reason": "The source explicitly requires the rejected nearest-Hub confidence layer. Subjects-only replacement cannot repair that requirement; hold this Atom for content repair.",
+        "evidence": "**to** resolve an effective Confidence Threshold, select the first applicable explicit source **in** this precedence:\n\n1. direct Operator input for the current decision context.\n2. an explicit value on the current Plan.\n3. the nearest Hub with an explicit value, walking `IS_DECOMPOSITION_OF` from nearest **to** farthest; read its own current Plan File Carrier under `CA-D-472-CORE_META_MODEL-DELIVERY--serialize-explicit-plan-confidence-overrides`, **not** a separate Objective targeting a folder.\n4. the Framework Instance Settings default.\n\n### resolution constraints\n\n- an omitted optional override preserves inheritance; another explicit field does **not** stop lookup for the omitted field. a missing mandatory Plan file is invalid, **not** an inherited"
+      },
+      {
+        "source_atom": "CA-M-295",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL--resolve-implementation-retry-limits-by-source-precedence.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Plan retry limit on containing Plans; retry precedence is not settled by the confidence-threshold decision."
+          }
+        ],
+        "reason": "Retry precedence explicitly traverses the old decomposition/Hub chain. Preserve its separate retry policy for the content pass rather than silently applying the confidence decision.",
+        "evidence": "**to** resolve an effective Implementation Retry Limit, select the first applicable explicit source **in** this precedence:\n\n1. direct Operator input for the current execution context.\n2. the current Plan's explicit Implementation Retry Limit.\n3. the nearest Hub with an explicit limit, walking `IS_DECOMPOSITION_OF` from nearest **to** farthest **and** reading its own current Plan File Carrier under CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.\n4. Framework Instance Settings, resolving an omitted instance parameter through Default Settings under CA-M-279-CORE_META_MODEL-GENERAL-METHOD--resolve-missing-framework-parameters-from-default-settings.\n\n### resolution constraints\n\n- an omitted optional retry override pre"
+      },
+      {
+        "source_atom": "CA-R-1428",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Plan confidence override; remove the superseded extra Hub-chain precedence in the later content pass."
+          }
+        ],
+        "reason": "The source explicitly requires the rejected nearest-Hub confidence layer. Subjects-only replacement cannot repair that requirement; hold this Atom for content repair.",
+        "evidence": "a Confidence Threshold **must** take its value from applicable direct Operator input, an explicit Property on the current Plan, the nearest enclosing Hub Plan with an explicit Property, **or** the Framework Instance Settings default; the Hub chain follows `IS_DECOMPOSITION_OF`, **not** Label spelling."
+      },
+      {
+        "source_atom": "CA-R-1578",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-CORE-REQUIREMENT--define-hub-atom-as-a-derived-description.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Containing Plan Atoms; permitted CONTAINS relation, not a Hub Type."
+          }
+        ],
+        "reason": "The definition is built on DECOMPOSES_INTO. The accepted container model changes that defining relation; do not relabel this whole definition as already aligned.",
+        "evidence": "Hub Atom **means** a derived description of an Atom with **`>0`** outgoing `DECOMPOSES_INTO` Relations; it does **not** introduce another Type, Subtype, stored classification, identity, **or** authority tier. related Atoms retain their own Claims rather than becoming parts of the Hub Claim."
+      },
+      {
+        "source_atom": "CA-R-1580",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-blocking.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Plans sharing a containing Plan do not thereby block one another."
+          }
+        ],
+        "reason": "Hub reference itself is redundant with Plan, but the Atom explicitly admits Plan Graph native endpoints, whose projection/type admission is deferred. Preserve BLOCKS semantics for later content work.",
+        "evidence": "**in** the Plan Graph, `A BLOCKS B` **means** that Plan `B` **may** start **only** **after** Plan `A` is Done.\n\n- a Plan **may** block **>=0** other Plans **and** have **>=0** blockers.\n- **all** blockers **must** be Done **before** the blocked work starts.\n- navigation order, a shared Hub, **and** `DECOMPOSES_INTO` do **not** establish `BLOCKS`.\n- an inverse lookup is derived from the same explicit fact, **not** separately authored; Subject DEPENDS_ON remains a different Relation Kind."
+      },
+      {
+        "source_atom": "CA-R-1583",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1583-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-completion.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Hub denotes a containing Plan here; the explicit Plan dependency already covers it. Remove only the redundant Subject, preserving file/folder, completion, assignee, navigation and target constraints.",
+        "evidence": "Plan Status Done **means** that **all** applicable completion conditions hold:\n\n- the Plan satisfies CA-R-1575; absence of work **and** decomposition **must not** count as completion.\n- its own work, **if** present, is complete.\n- **every** directly decomposed Plan is Done.\n- its Definition of Done falsifying Condition Expression evaluates **to** false.\n\na Hub requires its own Definition of Done **and** completion of its decomposed Plans; Canceled **or** Archived work does **not** satisfy Done."
+      },
+      {
+        "source_atom": "CA-R-1584",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1584-CORE_META_MODEL-CORE-REQUIREMENT--require-an-effective-assignee-for-plan-work.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Hub denotes a containing Plan here; the explicit Plan dependency already covers it. Remove only the redundant Subject, preserving file/folder, completion, assignee, navigation and target constraints.",
+        "evidence": "**every** Plan Atom with its own work content **must** have **`=1`** effective Assignee; a pure Hub **without** its own work does **not** require an additional Assignee merely because it organizes other Plans."
+      },
+      {
+        "source_atom": "CA-R-1588",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1588-CORE_META_MODEL-CORE-REQUIREMENT--default-plan-target-to-the-enclosing-scope-unit.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Hub denotes a containing Plan here; the explicit Plan dependency already covers it. Remove only the redundant Subject, preserving file/folder, completion, assignee, navigation and target constraints.",
+        "evidence": "during authoring, a Plan with no separately selected Claim Target Scope Unit **must** select its owning Scope Unit as the target, independently of decomposition **or** Label; a Hub does **not** become that default target. carry the resolved target under CA-D-482."
+      },
+      {
+        "source_atom": "CA-R-1592",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1592-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-plan-completion-prerequisites-acyclic.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Hub denotes a containing Plan here; the explicit Plan dependency already covers it. Remove only the redundant Subject, preserving file/folder, completion, assignee, navigation and target constraints.",
+        "evidence": "Plan execution **must not** contain a cycle of completion prerequisites, including one formed jointly by `BLOCKS` **and** the requirement **to** complete decomposed work **before** its Hub can be Done."
+      },
+      {
+        "source_atom": "CA-R-1599",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1599-CORE_META_MODEL-GENERAL-REQUIREMENT--require-a-definition-of-done-for-every-plan.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Hub denotes a containing Plan here; the explicit Plan dependency already covers it. Remove only the redundant Subject, preserving file/folder, completion, assignee, navigation and target constraints.",
+        "evidence": "**every** Plan Atom **must** have **`=1`** Definition of Done, including a Hub with no own work."
+      },
+      {
+        "source_atom": "CA-R-991",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Hub denotes a containing Plan here; the explicit Plan dependency already covers it. Remove only the redundant Subject, preserving file/folder, completion, assignee, navigation and target constraints.",
+        "evidence": "a Work Sequence Number **means** a mutable ordinal navigation value for a Plan among Plans decomposing the same Hub **or** sharing a top-level Plan container; it does **not** establish execution order."
+      },
+      {
+        "source_atom": "CA-R-997",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Hub denotes a containing Plan here; the explicit Plan dependency already covers it. Remove only the redundant Subject, preserving file/folder, completion, assignee, navigation and target constraints.",
+        "evidence": "**every** supplied Work Sequence Number **must** be a unique positive ordinal among direct Plans decomposing the same Hub **or** sharing the same top-level Plan container."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 254,
+    "subject": "Hub Carrier.Navigation Entry",
+    "occurrences": [
+      {
+        "source_atom": "CA-D-331",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-331-CORE_META_MODEL--keep-durable-hub-navigation-at-folder-level.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Projection/Type: Hub",
+            "applicability": "Durable navigation presentation listing stable child folders and their Hubs; not a containing Plan Atom or permission to implement Plan projections."
+          }
+        ],
+        "reason": "This source governs a durable navigation rendering rather than Plan work. Preserve its folder-level-only navigation restriction; no separate Navigation Entry entity.",
+        "evidence": "a durable Hub Carrier **may** list stable child folders **and** their Hubs but **must not** enumerate individual Atom Carriers **or** Runtime State descendants."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 291,
+    "subject": "Markdown Atom Carrier.Main Content",
+    "occurrences": [
+      {
+        "source_atom": "CA-D-277",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-277-CORE_META_MODEL-DELIVERY--serialize-safe-frontmatter-scalars.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Carrier/File Carrier",
+            "applicability": "Markdown Atom file, specifically its body after YAML frontmatter."
+          }
+        ],
+        "reason": "Main Content names the representation region, not a separate primary entity; preserve body/frontmatter and section-boundary restrictions as general carrier policy.",
+        "evidence": "the YAML Frontmatter of a Markdown Atom Carrier **must** serialize registered YAML-safe controlled string values as plain scalars **and** **must** place uncontrolled human prose **in** Main Content."
+      },
+      {
+        "source_atom": "CA-D-356",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Both Main Content and frontmatter are parts of the already-governed Markdown file format. Remove the redundant component dependency; retain the complete ordering rule.",
+        "evidence": "**every** authoritative Markdown Atom Carrier **must** contain YAML Frontmatter followed by Main Content."
+      },
+      {
+        "source_atom": "CA-D-357",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Carrier/File Carrier",
+            "applicability": "Markdown Atom file, specifically its body after YAML frontmatter."
+          }
+        ],
+        "reason": "Main Content names the representation region, not a separate primary entity; preserve body/frontmatter and section-boundary restrictions as general carrier policy.",
+        "evidence": "the Main Content of a Markdown Atom Carrier **means** the content **after** its YAML Frontmatter."
+      },
+      {
+        "source_atom": "CA-D-479",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Carrier/File Carrier",
+            "applicability": "Markdown Atom file, specifically its body after YAML frontmatter."
+          }
+        ],
+        "reason": "Main Content names the representation region, not a separate primary entity; preserve body/frontmatter and section-boundary restrictions as general carrier policy.",
+        "evidence": "a Markdown Atom's Main Content **must** carry its body Properties under the following exact headings **in** the listed order, **after** **`=1`** literal `# Summary` heading with the Summary value below it:\n\n| Content Role | Required level-two headings, **in** order |\n|---|---|\n| Requirement, Method, Evaluation, Delivery | `## Scope`, `## Claim`, `## Details` |\n| Analysis | `## Question`, `## Scope`, `## Approach`, `## Results`, `## TLDR` |\n| Concern | `## Concern`, `## Evidences`, `## Blast radius` |\n| Plan | `## Objective`, `## Details` |\n| Operations | `## Operation`, `## Details` |\n\n- carry **`=1`** occurrence of **every** listed heading for the Atom's Content Role. the primary content block is Claim for RMED, Question for Analysis, Concern for Co"
+      },
+      {
+        "source_atom": "CA-D-495",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The existing Markdown Atom Carrier dependency covers the body representation; keep the explicit applicability-storage rule unchanged.",
+        "evidence": "a Markdown Atom Carrier **must** carry the Claim's applicability **in** the registered body sections, **not** as a duplicate frontmatter value:\n\n- for RMED, carry applicability **in** Scope, followed by the qualified contribution **in** Claim **and** supporting information **in** Details, using the exact headings registered by CA-D-479.\n- for other Content Roles, retain applicability **in** their registered primary content. this rule does **not** change their body-section layouts.\n- the RMED Scope section **must** contain an applicability description, **not** just a copy of `current_scope_unit` **or** `claim_target_scope_unit`. those fields remain the carried structural references under CA-D-482.\n- carry the applicability restrictions **=1** time. Cl"
+      },
+      {
+        "source_atom": "CA-R-1465",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1465-CORE_META_MODEL-CORE--define-summary-as-an-atom-property.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance Scope",
+            "applicability": "Applicability within which the primary contribution, Summary and Details are interpreted."
+          }
+        ],
+        "reason": "Substance is already a precise dependency; the remaining evidenced dependency is its applicability, not a new Main Content entity or a self-reference to Summary/Details.",
+        "evidence": "a Summary **means** a short, non-authoritative navigation Property of **`=1`** Atom, derived from the finalized primary contribution registered for its Content Role, read within its applicability. it belongs **to** that Atom **without** independent identity, lifecycle, **or** authority."
+      },
+      {
+        "source_atom": "CA-R-1624",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1624-CORE_META_MODEL-CORE-REQUIREMENT--keep-details-within-the-primary-contribution.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance Scope",
+            "applicability": "Applicability within which the primary contribution, Summary and Details are interpreted."
+          }
+        ],
+        "reason": "Substance is already a precise dependency; the remaining evidenced dependency is its applicability, not a new Main Content entity or a self-reference to Summary/Details.",
+        "evidence": "an Atom's Details **means** supporting information that expands its primary contribution **without** changing its intent, applicability, **or** required outcome. Details **must not** contradict that contribution **or** introduce another independently replaceable Claim. for RMED, the primary contribution is the Claim read within its Scope; Details **must not** introduce an additional obligation **or** alter those applicability restrictions."
+      },
+      {
+        "source_atom": "CA-R-718",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-718-CORE_META_MODEL-CORE--separate-atom-claim-scope-from-structural-ownership.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance Scope"
+          }
+        ],
+        "reason": "The referenced body content is expressly the Claim applicability restrictions; map to Substance Scope while preserving structural ownership separation.",
+        "evidence": "an Atom's Claim Target Scope Unit reference **and** applicability restrictions **in** its Main Content **must not**, by themselves, establish an additional edge **in** the Scope Unit tree **or** alter structural-parent ownership."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 294,
+    "subject": "Markdown Atom Carrier.YAML Frontmatter",
+    "occurrences": [
+      {
+        "source_atom": "CA-D-267",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-DELIVERY--derive-address-facts-without-duplicated-frontmatter.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Carrier/File Carrier",
+            "applicability": "Markdown carrier YAML frontmatter; D267 applies only to duplicate embedded address facts and its explicit Atom exception."
+          }
+        ],
+        "reason": "Represent frontmatter as the constrained file format region, not another entity hierarchy.",
+        "evidence": "that address **must** be its sole Carrier encoding **and** embedded metadata **must not** duplicate it. Atom Properties instead follow CA-D-478 **and** CA-D-480."
+      },
+      {
+        "source_atom": "CA-D-276",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Carrier/File Carrier",
+            "applicability": "YAML frontmatter of Markdown Atom carriers; all common and conditional encodings governed by D276."
+          }
+        ],
+        "reason": "Represent frontmatter as the constrained file format region, not another entity hierarchy.",
+        "evidence": "the YAML Frontmatter of a Markdown Atom Carrier **must** use the least syntax **and** nesting that preserves unambiguous deterministic parsing, validation, extensibility, **and** human readability."
+      },
+      {
+        "source_atom": "CA-D-356",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The Markdown file carrier is already governed or referenced. Drop the redundant frontmatter topic dependency; preserve its ordering, single-storage and field-policy constraints.",
+        "evidence": "**every** authoritative Markdown Atom Carrier **must** contain YAML Frontmatter followed by Main Content."
+      },
+      {
+        "source_atom": "CA-D-357",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The Markdown file carrier is already governed or referenced. Drop the redundant frontmatter topic dependency; preserve its ordering, single-storage and field-policy constraints.",
+        "evidence": "the Main Content of a Markdown Atom Carrier **means** the content **after** its YAML Frontmatter."
+      },
+      {
+        "source_atom": "CA-D-478",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-CORE-DELIVERY--store-every-atom-property-in-one-internal-location.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The Markdown file carrier is already governed or referenced. Drop the redundant frontmatter topic dependency; preserve its ordering, single-storage and field-policy constraints.",
+        "evidence": "**every** applicable Atom Property **must** have **`=1`** canonical internal location assigned by its Delivery authority:\n\n- use YAML Frontmatter **unless** that Property is assigned **to** a named Main Content section.\n- use the named section as the sole value source **when** Main Content carries the Property; do **not** maintain the same Property again **in** frontmatter.\n- names, filename tokens, **and** placement are representations checked against the internal value under CA-D-480, **not** alternative authority.\n- Atom-to-Atom Relations follow their registered owning direction under CA-D-268; do **not** copy inverse **or** transitive Relations **to** make an Atom self-sufficient.\n- the retired top-level fields `cce_version`, `cce_form`, **and** "
+      },
+      {
+        "source_atom": "CA-O-087",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Carrier/File Carrier",
+            "applicability": "Selected Markdown Atom carriers parsed for frontmatter conformance by the named Check Atoms Action."
+          }
+        ],
+        "reason": "The Action inspects physical frontmatter; retain this exact carrier dependency without introducing a YAML Frontmatter Object.",
+        "evidence": "Check Atoms **means** the Programmatic Action that checks a selected Atom set against applicable machine-checkable authority **and** returns findings **without** changing the Atoms.\n\n### Inputs and selection\n\n- inputs: a bounded source inventory, a selector, applicable methodology context, reference-resolution context, admitted read boundaries, **and** selected execution limits.\n- select by a Scope Unit's Owned Atoms, optionally including its descendant Scope Units; by Global Tier values; by Local Tier values; **or** by an explicit Atom list. **>=1** selection criterion is required.\n- values within a list are alternatives; supplied selection criteria intersect. Scope Unit selection uses the Atom's carried current Scope Unit; descendants use declared "
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 471,
+    "subject": "Translation",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-241",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Projection",
+            "applicability": "Requested translation of an Atom Substance; non-authoritative and optional."
+          }
+        ],
+        "reason": "Translation itself maps to the derived output, but this mixed Evaluation also enforces the superseded Hub confidence layer; hold the whole Atom for that content repair.",
+        "evidence": "**every** active **or** draft Atom **contains** **`=1`** human-readable precise CCE Claim **and** a source-faithful Summary. requested Translation **and** terminology Projections preserve their source meaning; their absence **when** **not** requested is **not** an Atom defect.\n\n### Test case\n\ncreate valid active **and** draft Atom Claims for **every** admitted Content Role. include fixtures with no requested Translation **or** terminology Projection **and** fixtures with requested Projections. derive a candidate Summary during Atom creation, **then** retain it for checks of subsequent Revisions under CA-E-463-CORE_META_MODEL-QA_CASE--validate-summary-identity-preservation. derive requested Translation **and** terminology Projections twice **without**"
+      },
+      {
+        "source_atom": "CA-M-116",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Projection",
+            "applicability": "Requested translation derived directly from Atom Substance, never from Summary."
+          }
+        ],
+        "reason": "Use the derived output with its bounded translation applicability, not a new Translation Type and not the Summary already governed/referenced.",
+        "evidence": "**to** derive navigation values from an Atom Claim, the Generator **must** derive the concise human-readable Summary **when** creating the Atom **and** derive requested Translations directly from the Claim, **without** adding authoritative meaning. choose wording under CA-M-294-CORE_META_MODEL-METHOD--use-simpler-words-without-losing-meaning. for an existing Atom identity, retain **and** check the Summary under CA-R-1273-CORE_META_MODEL-CORE-REQUIREMENT--keep-summary-source-faithful **and** CA-R-1464-CORE_META_MODEL-REQUIREMENT--keep-summary-fixed-for-atom-identity rather than regenerating it as an independent Projection."
+      },
+      {
+        "source_atom": "CA-R-1274",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1274-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-authority-derivation-from-summary.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Projection",
+            "applicability": "Requested translation derived directly from Atom Substance, never from Summary."
+          }
+        ],
+        "reason": "Use the derived output with its bounded translation applicability, not a new Translation Type and not the Summary already governed/referenced.",
+        "evidence": "an Atom's primary content block, remaining Main Content, Claim restrictions, **or** Translation **must not** be reconstructed **or** validated from its Summary. Summary is derived navigation, **not** authority for the content it abbreviates."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 486,
+    "subject": "artifact-model",
+    "occurrences": [
+      {
+        "source_atom": "CA-M-113",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The artifact-model tag is redundant with Substance, but the source also requires authoritative Definition Atoms, contrary to derived Terms. Hold the whole Atom for the content pass.",
+        "evidence": "**to** write one Claim **in** CAPRMEDIO Controlled English, the Author **must** satisfy **all** of the following:\n\n- use the controlled English subset of the identified CCE version.\n- name **every** necessary participant **and** relation explicitly.\n- state **every** necessary modality, quantity, condition, **and** boundary explicitly.\n- use exact canonical Terms owned by active Definition Atoms.\n- resolve the effective CCE Role Profile under CA-M-308-CORE_META_MODEL-CORE-METHOD--resolve-the-effective-cce-role-profile **and** satisfy that profile under CA-M-315-CORE_META_MODEL-CORE-METHOD--validate-claims-against-effective-cce-role-profiles.\n- choose wording under CA-M-294-CORE_META_MODEL-METHOD--use-simpler-words-without-losing-meaning.\n- exclude am"
+      },
+      {
+        "source_atom": "CA-R-118",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom"
+          }
+        ],
+        "reason": "The claim explicitly assigns a relation declaration to the dependent Atom; preserve that exact owner rather than the artifact-model tag.",
+        "evidence": "the dependent Atom **must** own the **`=1`** authoritative declaration of its direct semantic relation."
+      },
+      {
+        "source_atom": "CA-R-151",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-151-CORE_META_MODEL-CORE--admit-only-necessary-metamodel-constructs.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "CORE_META_MODEL Scope Unit; admission of durable model constructs in its governed model."
+          }
+        ],
+        "reason": "The actual owner is the existing Core Meta-model source Scope Unit, not an Artifact partition or invented Metamodel Object.",
+        "evidence": "the CAPRMEDIO Metamodel **must** admit a durable construct **only** **when** the existing Metamodel cannot preserve the required operational distinction."
+      },
+      {
+        "source_atom": "CA-R-1700",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-CORE-REQUIREMENT--admit-atoms-only-where-a-role-has-an-atomic-unit.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role",
+            "applicability": "Admission of role-qualified Atom Types; ordinary R/M/D need no placeholder Type."
+          }
+        ],
+        "reason": "The rule governs Content Role Type admission directly.",
+        "evidence": "a Content Role admits a Type value for an Atom **only** **when** that role has an independently governed atomic unit that benefits from stable identity, admission, **and** whole-unit lifecycle; CAPRMEDIO **must not** create a placeholder Type value merely **to** fill a semantic coordinate."
+      },
+      {
+        "source_atom": "CA-R-1705",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-create-rationale-after-its-subject.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Analysis",
+            "applicability": "Rationale Analyses explaining pre-existing specification Atoms; preserve the directed references and non-normative boundary."
+          }
+        ],
+        "reason": "Use the evidenced Analysis role with Rationale applicability, without inventing a new Type admission.",
+        "evidence": "a Rationale is an Analysis Atom created **only** **after** **every** specification Atom it explains already exists. the Rationale stores the directed relation **to** its subjects; specification Atoms contain **none** of (embedded Rationale, persisted Rationale backlink).\n\nRationale is explanatory rather than normative. Changing an obligation, boundary, Method, Evaluation condition, Delivery rule, **or** acceptance meaning requires a new applicable specification Atom rather than a Rationale.\n\n## Primary claim\n\na Rationale follows **and** points **to** its pre-existing specification subjects **without** modifying them."
+      },
+      {
+        "source_atom": "CA-R-1717",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1717-CORE_META_MODEL-CORE-REQUIREMENT--keep-data-stages-orthogonal-to-artifact-semantics.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "Meanings of generated-data stage names and their distinction from Content Role and authority coordinates."
+          }
+        ],
+        "reason": "This is a semantic distinction across owners, so it belongs to Terms, not an Artifact/model entity.",
+        "evidence": "Generated-data stage names **must** classify transformation position **without** becoming Artifact forms, Content roles, Governance origins, scope coordinates, **or** sources of authority."
+      },
+      {
+        "source_atom": "CA-R-1747",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The claim is the old Implementation-versus-Artifact partition. Implementation placement is deferred and the partition is retired; no safe Subjects-only replacement.",
+        "evidence": "a native project target is Implementation rather than a governed Artifact **unless** CAPRMEDIO separately admits an Artifact identity that represents **or** binds it."
+      },
+      {
+        "source_atom": "CA-R-1756",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The claim is entirely direct Scope Unit ownership; artifact-model adds no independently evidenced dependency.",
+        "evidence": "**every** Scope Unit **must** own **only** its direct child Scope Units through the same recursive structural-parent relation."
+      },
+      {
+        "source_atom": "CA-R-1766",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1766-CORE_META_MODEL-CORE--make-the-type-value-of-an-atom-identity-bearing.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role",
+            "applicability": "Identity-bearing role-qualified Type choice of an Atom."
+          }
+        ],
+        "reason": "Map the Type-admission context without interpreting Type as a separate Object; preserve the existing identity rule for its later content review.",
+        "evidence": "an Atom's Type value is identity-bearing. an ordinary change **to** that Type value creates a successor Atom rather than revising the existing Atom identity."
+      },
+      {
+        "source_atom": "CA-R-728",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-728-CORE_META_MODEL-REQUIREMENT--define-project-atom-id.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The claim already governs Atom identity; the artifact-model tag adds nothing beyond that precise governed identity and identity dependency.",
+        "evidence": "Project Atom ID **means** the immutable identity of one accepted Project-owned Atom."
+      },
+      {
+        "source_atom": "CA-R-829",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-829-CORE_META_MODEL-CORE-REQUIREMENT--keep-same-tier-requirements-as-authority-peers.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "applicability": "Active Current-scope Requirements within the same Local Tier."
+          }
+        ],
+        "reason": "The rule directly constrains peer Requirements; preserve its Status, scope and tier restrictions.",
+        "evidence": "**every** active Current-scope Requirement Atom is an authority peer of **every** other active Current-scope Requirement Atom **in** the same Local Tier."
+      },
+      {
+        "source_atom": "CA-R-941",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The claim precisely governs Atom Substance readability/interpretation; the broad artifact-model dependency is redundant.",
+        "evidence": "**every** Atom Claim **must** have **`=1`** precise interpretation."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 488,
+    "subject": "authority",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1656",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1656-CORE_META_MODEL-CORE-REQUIREMENT--require-one-parent-scope-unit.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source states its concrete ownership, Requirement-tier or Demand boundary directly. The vague authority tag identifies no additional dependency; removing it does not remove that protection.",
+        "evidence": "**every** Scope Unit except a Scope Unit root **must** have **`=1`** direct parent Scope Unit."
+      },
+      {
+        "source_atom": "CA-R-1658",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source states its concrete ownership, Requirement-tier or Demand boundary directly. The vague authority tag identifies no additional dependency; removing it does not remove that protection.",
+        "evidence": "a Scope Unit **must not** own a descendant Scope Unit through a stored structural-parent relation **when** another active Scope Unit lies between them."
+      },
+      {
+        "source_atom": "CA-R-1681",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "CORE_META_MODEL Scope Unit and admission of its reusable rules."
+          }
+        ],
+        "reason": "Core eligibility is a constraint on this existing source Scope Unit, not a universal Authority property.",
+        "evidence": "a reusable model rule belongs **in** CORE_META_MODEL **only** **when** it establishes reusable methodology authority **and** remains independent of implementation choices outside the Entity explicitly governed by its Claim. a Carrier format, mechanism, portability boundary, **or** external constraint **may** be named **when** that Entity itself is governed, but **must not** become a hidden prerequisite of unrelated Claims. project-specific implementation choices **must not** be imported as reusable methodology authority."
+      },
+      {
+        "source_atom": "CA-R-1682",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Selection",
+            "applicability": "Applicable Active RMED Atoms across governance loci; the source normative specification selection."
+          }
+        ],
+        "reason": "The precise selected RMED set is identifiable, but the mixed source also depends on deferred Implementation and old Change/Spec partitions. Hold until related content is reconciled.",
+        "evidence": "applicable Active Requirement, Method, Evaluation, **and** Delivery Atoms across **all** Governance loci collectively form the Project's normative Spec for governed Entities, including Change content **and** Implementation; particular Change content, actual realizations, **and** execution evidence remain distinct from the specification governing them."
+      },
+      {
+        "source_atom": "CA-R-1683",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "Authority versus evidence, execution and specification meaning."
+          }
+        ],
+        "reason": "The rule combines agreed distinctions with deferred Implementation and old Change/Spec classifications; do not widen a Subject to hide that mixed content.",
+        "evidence": "CAPRMEDIO **must** distinguish RMED Spec authority for governed Entities; CAPO Change content under CA-R-1549, including specific reusable Operations definitions under CA-R-1530; concrete Implementation; actual executions **and** their Journal Records carrying facts, state changes, **and** Claim-bound evidence; **and** Verification judgments about sufficiency **and** currentness. Evaluation results, evidence, dashboards, **and** Verification judgments **may** support, challenge, **or** invalidate reliance on a Claim, but **must not** themselves establish, edit, replace, **or** override semantic authority."
+      },
+      {
+        "source_atom": "CA-R-1689",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL--requirement-close-every-constitutional-amendment.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "CORE_META_MODEL Scope Unit; its semantic amendments only."
+          }
+        ],
+        "reason": "Preserve the concrete amendment policy and exact scope. This maps the rule, not a new Amendment entity or authorization to run the procedure.",
+        "evidence": "**every** semantic change **to** CORE_META_MODEL follows one closed amendment sequence:\n\n1. explore **without** changing governed truth;\n2. obtain explicit operator acceptance for one primary claim;\n3. map affected authority, layers, handoffs, Projections, Methods, Evaluation, Delivery, Implementations, **and** Operations;\n4. verify CORE_META_MODEL eligibility **and** acyclic layer placement;\n5. persist the accepted Atom **or** Atom Revision;\n6. archive **only** predecessors that are fully replaced;\n7. complete revision-bound lineage-impact review through **every** affected descendant;\n8. refresh **every** affected declared Projection required by the applicable gate; **and**\n9. verify the resulting authority **and** downstream fixed point."
+      },
+      {
+        "source_atom": "CA-R-1710",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-CORE-REQUIREMENT--route-priority-and-tier-by-content-role.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "Distinct meanings of Concern Priority, Plan blocking/Work Sequence Number and Atom Local Tier."
+          }
+        ],
+        "reason": "This is explicitly a cross-owner semantic distinction; it belongs in Terms, not a common Authority property.",
+        "evidence": "Concern priority, Plan blocking, **and** Atom Local Tier **must** remain distinct coordinates; **every** Atom's Local Tier cardinality follows CA-R-155-CORE_META_MODEL-CORE-REQUIREMENT--give-every-non-project-goal-atom-one-local-tier regardless of its Content Role, **without** turning a Concern priority **or** a Plan Work Sequence Number into a Local Tier."
+      },
+      {
+        "source_atom": "CA-R-1713",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-CORE-REQUIREMENT--keep-confidence-subordinate-to-authority.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Confidence",
+            "applicability": "Execution-related confidence does not grant or expand Operator authority."
+          }
+        ],
+        "reason": "Apply the accepted confidence owner while preserving the independent authority limit.",
+        "evidence": "Execution confidence **must** never create, extend, **or** replace operator authority."
+      },
+      {
+        "source_atom": "CA-R-1744",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1744-CORE_META_MODEL-CORE--keep-project-specific-substrates-out-of-the-reusable-core.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "PROJECT_CONFIGURATION versus CORE_META_MODEL source ownership for project-specific substrates."
+          }
+        ],
+        "reason": "The rule governs the boundary of the existing configuration/core source Scope Units, not another substrate or Authority root.",
+        "evidence": "an Operator-mandated Project-specific substrate **must** be governed by Project authority **or** PROJECT_CONFIGURATION **without** becoming an implicit prerequisite of the reusable CORE_META_MODEL."
+      },
+      {
+        "source_atom": "CA-R-1756",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source states its concrete ownership, Requirement-tier or Demand boundary directly. The vague authority tag identifies no additional dependency; removing it does not remove that protection.",
+        "evidence": "**every** Scope Unit **must** own **only** its direct child Scope Units through the same recursive structural-parent relation."
+      },
+      {
+        "source_atom": "CA-R-829",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-829-CORE_META_MODEL-CORE-REQUIREMENT--keep-same-tier-requirements-as-authority-peers.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source states its concrete ownership, Requirement-tier or Demand boundary directly. The vague authority tag identifies no additional dependency; removing it does not remove that protection.",
+        "evidence": "**every** active Current-scope Requirement Atom is an authority peer of **every** other active Current-scope Requirement Atom **in** the same Local Tier."
+      },
+      {
+        "source_atom": "CA-R-934",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source states its concrete ownership, Requirement-tier or Demand boundary directly. The vague authority tag identifies no additional dependency; removing it does not remove that protection.",
+        "evidence": "a Demand Atom **must not** constrain Producer authority outside the exact Implementation result named by the Demand Atom."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 490,
+    "subject": "continuous-improvement",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1734",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role",
+            "applicability": "Content-role meaning of Atoms representing self-improvement stages."
+          }
+        ],
+        "reason": "Preserve role meaning without creating an improvement-stage entity.",
+        "evidence": "**every** governed self-improvement stage **must** retain the canonical Content-role meaning of the artifact that represents it **without** absorbing the meaning of an earlier **or** later stage."
+      },
+      {
+        "source_atom": "CA-R-1735",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-GENERAL--relate-self-improvement-stages-explicitly.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Typed relations recording transitions between persisted self-improvement contributions; receiving contribution owns the declaration."
+          }
+        ],
+        "reason": "The governed thing is the typed transition relation, not the improvement topic.",
+        "evidence": "**every** persisted transition between self-improvement stages **must** be represented by a typed relation owned by the receiving artifact."
+      },
+      {
+        "source_atom": "CA-R-1741",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The recurrence-protection claim already identifies the bounded Evaluation contribution; continuous-improvement adds no further dependency.",
+        "evidence": "**every** concrete recurrence protection **must** be represented by an Evaluation Atom that defines one mechanism-neutral bounded check for the corrected failure class."
+      },
+      {
+        "source_atom": "CA-R-1742",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1742-CORE_META_MODEL-GENERAL-REQUIREMENT--realize-recurrence-evaluation-through-implementation.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The entire obligation governs native Implementation of recurrence checks. Do not invent an Implementation branch or falsely make the Evaluation definition the implementing actor.",
+        "evidence": "Implementation **must** realize a recurrence Evaluation Atom through an executable test, evaluation, monitor, alert, **or** other conforming mechanism."
+      },
+      {
+        "source_atom": "CA-R-1743",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL-CORE--record-recurrence-check-outcomes-in-the-journal.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Journal",
+            "applicability": "Records of recurrence-check execution outcomes, distinct from reusable Operations definitions."
+          }
+        ],
+        "reason": "The rule expressly requires Journal evidence; History is broader but does not erase this particular Journal requirement.",
+        "evidence": "**every** execution outcome of a recurrence-protection mechanism **must** be carried by a Journal Record as execution evidence, distinct from the reusable Operations definition."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 491,
+    "subject": "development-flow",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1685",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1685-CORE_META_MODEL-GENERAL--requirement-keep-product-framing-optional.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "User Story and intended Outcome as optional framing, distinct from measured facts and normative contributions."
+          }
+        ],
+        "reason": "The claim explicitly rejects mandatory artifact Types for these framing meanings; retain the distinction in Terms.",
+        "evidence": "User Stories **and** intended Outcomes remain optional framing, while measured **or** reported outcomes remain factual observations rather than reusable Operations definitions."
+      },
+      {
+        "source_atom": "CA-R-1691",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-REQUIREMENT--requirement-promote-active-backlog-candidates-into-atoms.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Backlog Plan candidates selected for current work."
+          }
+        ],
+        "reason": "The old non-authoritative backlog-line and separately required Task model conflicts with the accepted Plan/Labels model. Subject renaming alone cannot settle those entry rules.",
+        "evidence": "assigning a Development Backlog candidate **to** a current **or** future version does **not** establish governed truth. the candidate becomes active work **only** **when** the operator selects it **and** CAPRMEDIO creates **`=1`** bounded Task Atom for its action. execution **then** materializes the minimum Requirement, Method, Evaluation, Delivery, **or** future Operations Atoms needed **to** govern that work.\n\n**`=1`** backlog line **may** produce multiple Atoms. multiple closely related backlog lines **may** produce **`=1`** Concern **or** RMED Atom **only** **when** they resolve **to** **`=1`** independently replaceable claim. Analysis, Task, Implementation, **and** Operations use their separately governed atomicity models.\n\nthe backlog entry **m"
+      },
+      {
+        "source_atom": "CA-R-1714",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Persisted Plan Atoms, contrasted with ephemeral operative session planning."
+          }
+        ],
+        "reason": "The rule states the boundary of a Plan Atom; do not create an Operative Plan kind.",
+        "evidence": "an operative plan is ephemeral session control; a Plan is a persisted CAPRMEDIO artifact created **only** by governed entry criteria."
+      },
+      {
+        "source_atom": "CA-R-1715",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1715-CORE_META_MODEL-CORE-REQUIREMENT--preserve-unfinished-operative-work-as-plan.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+            "applicability": "Still-valid unfinished work reconciled from the live session."
+          }
+        ],
+        "reason": "The governed result is the persisted Plan carrying unfinished work.",
+        "evidence": "still-valid operative actions left unfinished by deferral, blocking, topic change, compaction, session end, **or** partial completion **must** be reconciled into the applicable governed Plan."
+      },
+      {
+        "source_atom": "CA-R-1716",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-CORE-REQUIREMENT--allow-proposal-of-prmedo-change-from-active-content-roles.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom",
+            "applicability": "Operator-approved changes to PRMEDO sources, not proposals treated as authority."
+          }
+        ],
+        "reason": "The mixed rule names old Task and native Implementation as semantic routing participants. Preserve its authorization boundary for separate content reconciliation.",
+        "evidence": "Concern, Analysis, Task, **and** native Implementation **may** propose a PRMEDO authority change, but **only** Operator-approved PRMEDO authority **may** establish that change."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 492,
+    "subject": "evaluation",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-620",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-620-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Registered typed relation vocabulary and representative endpoint pairs."
+          }
+        ],
+        "reason": "This Evaluation checks interpretation of Relation kinds, not an Evaluation procedure entity.",
+        "evidence": "the registered relation vocabulary lets an independent assessor select the governed relation for representative artifact pairs **without** inventing another kind."
+      },
+      {
+        "source_atom": "CA-E-623",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-623-CORE_META_MODEL-QA_CASE--effective-priority-selection.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Concern.Priority",
+            "applicability": "Concern-only stored priority and Operator-selected effective comparison; no ancestry bonus."
+          }
+        ],
+        "reason": "The check concerns Priority and its interpretation for Concern instances; preserve model-dependent selection constraints.",
+        "evidence": "conflict selection follows the admissible Operator-selected priority model **without** an implicit ancestry bonus **and** never chooses through a tie, incomparable scope, uncertainty, **or** ineligible external obligation."
+      },
+      {
+        "source_atom": "CA-R-1647",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1647-CORE_META_MODEL-REQUIREMENT--generate-the-proof-currentness-catalog.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Projection",
+            "applicability": "CAPRMEDIO proof-currentness Catalog derived from the named proof dependency frontier; not every Projection."
+          }
+        ],
+        "reason": "Keep the specific derived output and its current/stale/unknown semantics without creating another entity kind.",
+        "evidence": "CAPRMEDIO generates a non-authoritative proof-currentness Catalog from governed proof dependency frontiers encoded under GOV REQU 010 **and** their additional invalidation conditions. the Catalog reports **every** proof as `current`, `stale`, **or** `unknown`, marks **only** the smallest direct **and** transitive dependency closure affected by a change, never infers currentness from timestamps alone, **and** never mutates the historical proof record."
+      },
+      {
+        "source_atom": "CA-R-1679",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1679-CORE_META_MODEL-CORE--requirement-bound-effect-guarantees.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Occurrent/Execution",
+            "applicability": "Bounded CAPRMEDIO effects for which a guarantee is asserted; scope, assumptions, owner, time and enforcement remain explicit."
+          }
+        ],
+        "reason": "The rule bounds claims about actual execution effects; it does not define a universal exactly-once guarantee.",
+        "evidence": "CAPRMEDIO permits an effect guarantee **only** **when** its scope, assumptions, owner, temporal boundary, **and** enforcement conditions are explicit. a bounded local guarantee **must** never be presented as universal exactly-once execution."
+      },
+      {
+        "source_atom": "CA-R-1684",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL-CORE--separate-analysis-from-factual-execution-records.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "Factual execution records versus interpretive Analysis and reusable Operations definitions."
+          }
+        ],
+        "reason": "This cross-owner meaning distinction belongs to Terms; concrete Journal/Analysis identities remain separate.",
+        "evidence": "factual Journal Records carry what occurred, was measured, **or** was reported during execution **or** operation, with available provenance **and** context. their evidence **may** include logs, complaints, tickets, errors, execution outputs, measurements, delivery outcomes, **and** externally received operational reports.\n\na factual Record does **not** explain causes, justify a choice, synthesize implications, **or** prescribe Spec **or** Operations authority.\n\nAnalysis interprets Concerns, factual Records, Requirements, Methods, Evaluation, Delivery, Implementations, **or** Operations. it **may** compare alternatives, investigate causes, synthesize findings, explain implications, **and** provide rationale for a governed Claim.\n\n**when** one Carrier "
+      },
+      {
+        "source_atom": "CA-R-1687",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1687-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-provenance-separate-from-evidence.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "Provenance, Evidence and Verification meanings; historical origin alone is not claim assurance."
+          }
+        ],
+        "reason": "Preserve the semantic distinction across owners instead of making one new Evaluation or provenance entity.",
+        "evidence": "provenance establishes the origin, carrier identity, revision, sequence, **and** transformation history of a governed claim **or** Implementation. it does **not** by itself establish that the claim is correct, accepted, current, applicable, **or** sufficiently assured.\n\ncomplete governed provenance remains owned under CA-R-1720. a storage-history record, Author identity, session identifier, signature, hash, **or** intact Carrier proves **only** the bounded historical fact it records. **none** of those facts becomes evidence for the carrier's semantic claim **without** a separate, explicit claim-bound Evidence relation.\n\nEvidence used for reliance **must** identify the claim it supports, the relevant carrier **or** Journal Record, the producing **or**"
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 494,
+    "subject": "external-boundary",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1627",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-REQUIREMENT--requirement-exclude-secrets-from-caprmedio.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project",
+            "applicability": "Project caprmedio: secret handling across every enumerated project surface and authorized authentication boundary."
+          }
+        ],
+        "reason": "This is the project-wide secrecy policy; preserve its complete excluded-surface and storage constraints in Project Configuration.",
+        "evidence": "secret values **must** remain **in** the permitted secret storage defined by CA-D-452. secrets include passwords, API keys, access **or** refresh tokens, session cookies, private keys, signing **or** encryption keys, authentication certificates, one-time **or** recovery codes, **and** connection strings **or** URLs containing credentials.\n\n### authorized use\n\n- Tools **may** receive secrets from that storage, including through host injection, **and** use them for Operator-authorized authentication.\n- credential use **must** remain within the authorized transport **and** resource boundary. permission **to** authenticate does **not** authorize disclosure elsewhere.\n\n### excluded surfaces\n\n- secret values **must not** appear **in** Atoms, Project Settin"
+      },
+      {
+        "source_atom": "CA-R-1648",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1648-CORE_META_MODEL-REQUIREMENT--use-external-analysis-atoms-as-review-envelopes.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Analysis",
+            "applicability": "Imported External Analysis Report and the internal Analysis deriving the project interpretation."
+          }
+        ],
+        "reason": "Use the existing Analysis contribution with exact external/internal envelope applicability; do not invent a new review entity.",
+        "evidence": "an external review **must** be imported as an External Analysis Report Atom whose governed envelope identifies its source, provenance, reviewed scope, original body, **and** native attachments **without** requiring a provider-specific finding schema. one internal Analysis derives from that Atom, records the project's finding-level interpretation **and** dispositions, **and** becomes the **only** Analysis source from which project-owned Concern, Plan, Requirement, Method, Evaluation, **or** Delivery Atoms are derived. **every** accepted disposition that changes project meaning **or** work is materialized **in** its owning CAPRMEDIO Content Role; rejected **or** non-actionable findings remain **only** **in** the internal Analysis."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 497,
+    "subject": "language",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-472",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-472-CORE_META_MODEL-EVALUATION_APPROACH--check-simple-wording-without-meaning-loss.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom.Summary"
+          }
+        ],
+        "reason": "The checks explicitly concern wording fidelity of the Claim and its Summary; preserve exact Terms/operators, quantity and scope distinctions.",
+        "evidence": "wording evaluated under CA-M-294 fails **if** **any** of the following holds:\n\n- a demonstrated simpler, more familiar alternative preserves the intended meaning, but unnecessary jargon **or** specialized wording is retained.\n- a simplification removes **or** changes a necessary participant, obligation, permission, quantity, condition, boundary, **or** logical distinction.\n- a simplification adds ambiguity **or** substitutes an unregistered synonym for a canonical Term, CCE Operator, **or** reference.\n- a simplified Summary adds **to**, broadens, narrows, **or** contradicts its source Claim **or** Claim Scope."
+      },
+      {
+        "source_atom": "CA-M-112",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project",
+            "applicability": "Project caprmedio meaning expressed in English; project-local language policy."
+          }
+        ],
+        "reason": "The Claim applies to project meaning generally, not only Atom Substance; keep the project-specific boundary.",
+        "evidence": "**to** express CAPRMEDIO Project meaning, the Author **must** use English as the base language."
+      },
+      {
+        "source_atom": "CA-M-113",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance"
+          }
+        ],
+        "reason": "Claim authoring maps to Substance, but the source mandates canonical Terms owned by Definition Atoms. That conflicts with derived Terms and requires the content pass.",
+        "evidence": "**to** write one Claim **in** CAPRMEDIO Controlled English, the Author **must** satisfy **all** of the following:\n\n- use the controlled English subset of the identified CCE version.\n- name **every** necessary participant **and** relation explicitly.\n- state **every** necessary modality, quantity, condition, **and** boundary explicitly.\n- use exact canonical Terms owned by active Definition Atoms.\n- resolve the effective CCE Role Profile under CA-M-308-CORE_META_MODEL-CORE-METHOD--resolve-the-effective-cce-role-profile **and** satisfy that profile under CA-M-315-CORE_META_MODEL-CORE-METHOD--validate-claims-against-effective-cce-role-profiles.\n- choose wording under CA-M-294-CORE_META_MODEL-METHOD--use-simpler-words-without-losing-meaning.\n- exclude am"
+      },
+      {
+        "source_atom": "CA-M-294",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-294-CORE_META_MODEL--use-simpler-words-without-losing-meaning.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom",
+            "applicability": "All authored CAPRMEDIO Atom wording, including Substance, Summary and other supporting content."
+          },
+          {
+            "path": "Entity/Continuant/Projection",
+            "applicability": "CAPRMEDIO derived textual presentations when this wording policy applies."
+          }
+        ],
+        "reason": "The policy covers content wording broadly and specifically includes Summary; do not collapse it to Substance alone or invent a Language Object.",
+        "evidence": "**when** choosing wording for CAPRMEDIO content, the Author **must** choose words **and** phrases that are simpler **and** more familiar **to** the intended reader **when** they preserve the intended meaning **without** adding ambiguity."
+      },
+      {
+        "source_atom": "CA-R-940",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance"
+          }
+        ],
+        "reason": "The rule explicitly requires an Atom Claim to be readable or have one precise interpretation; Claim is the role label for Substance.",
+        "evidence": "**every** Atom Claim **must** be readable by its intended human reader."
+      },
+      {
+        "source_atom": "CA-R-941",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance"
+          }
+        ],
+        "reason": "The rule explicitly requires an Atom Claim to be readable or have one precise interpretation; Claim is the role label for Substance.",
+        "evidence": "**every** Atom Claim **must** have **`=1`** precise interpretation."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 499,
+    "subject": "lifecycle-traceability",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1032",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Analysis",
+            "applicability": "Lineage Impact Analysis of the revised Atom and every affected branch."
+          }
+        ],
+        "reason": "The actual prerequisite is explicitly named lineage-impact Analysis; preserve the gate requirement without a vague traceability topic.",
+        "evidence": "**every** release **or** downstream gate that requires a revised Atom **must** remain blocked **until** its Lineage Impact Analysis concludes that **every** affected branch has reached a fixed point."
+      },
+      {
+        "source_atom": "CA-R-1051",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1051-CORE_META_MODEL-CORE-REQUIREMENT--separate-active-authority-from-preserved-history.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History",
+            "applicability": "Historical states and transitions excluded from current RMED authority."
+          }
+        ],
+        "reason": "The rule separates historical preservation from current authority; no new lifecycle entity.",
+        "evidence": "the active RMED authority graph represents **only** current governed state. historical states **and** transitions are excluded from that graph **and** preserved through canonical lifecycle placement **and** append-only Journals; generated Projections **may** render history **without** making it active RMED authority."
+      },
+      {
+        "source_atom": "CA-R-1697",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1697-CORE_META_MODEL-CORE-REQUIREMENT--bind-traceability-to-exact-claims-and-revisions.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Relation",
+            "applicability": "Traceability assertions linking exact relied-upon revisions and receiving identities/locators."
+          }
+        ],
+        "reason": "Traceability here is a typed relationship with exact historical referents; preserve provenance and scope restrictions.",
+        "evidence": "**every** CAPRMEDIO traceability assertion **must** identify the exact governed claim revision on which a receiving artifact, implementation target, evaluation use, delivery action, operational observation, **or** other governed result relies."
+      },
+      {
+        "source_atom": "CA-R-1698",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1698-CORE_META_MODEL-CORE-REQUIREMENT--evolve-authority-through-governed-history.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision",
+            "applicability": "Recoverable historical states preserving the exact meanings accepted work relied on."
+          }
+        ],
+        "reason": "Govern the historical Revision rather than Atom.Revision or a lifecycle topic.",
+        "evidence": "CAPRMEDIO evolves governed authority through recoverable revisions that preserve the exact historical meaning on which accepted downstream work relied."
+      },
+      {
+        "source_atom": "CA-R-1699",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1699-CORE_META_MODEL-CORE-REQUIREMENT--bind-governed-transactions-to-stable-artifact-revisions.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History",
+            "applicability": "Records of actual governed changes from exact source revisions to created/revised outputs and native targets."
+          }
+        ],
+        "reason": "Use the existing history of change/provenance, not a Transaction root. Native target mentions do not create an Implementation entity.",
+        "evidence": "**every** governed change forms one directed provenance transaction from exact parent Artifact revisions **to** the governed Artifacts **or** native targets created **or** revised by that change."
+      },
+      {
+        "source_atom": "CA-R-1706",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1706-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-provide-lineage-impact-projections.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Projection",
+            "applicability": "CAPRMEDIO lineage-impact projection over changed, replaced or archived Atom revisions and affected descendants."
+          }
+        ],
+        "reason": "Retain the named derived view and its no-authority/no-mutation boundary, not a general lifecycle entity.",
+        "evidence": "CAPRMEDIO provides a non-authoritative lineage-impact Projection whenever an upstream Atom revision is changed, replaced, **or** archived. the Projection derives the reachable descendant set **without** modifying **or** retargeting **any** persisted relation.\n\nfor **every** affected descendant, the Projection identifies the exact earlier revision **in** its lineage, the upstream event that triggered review, **and** the current disposition: review required, update the existing Atom, create a new Atom, archive the Atom, **or** confirmed compatible **without** change. unresolved descendants remain visible **until** disposition is recorded through governed history.\n\nthe Projection **may** group **and** prioritize work, but it **must not** change an Atom,"
+      },
+      {
+        "source_atom": "CA-R-1726",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1726-CORE_META_MODEL-CORE--concerns-have-active-and-solved-states.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Concern.Status"
+          }
+        ],
+        "reason": "The governed property is Concern Status; this R rule can be mapped without mutating any C Atom.",
+        "evidence": "an admitted Concern is active while its independently resolvable matter still requires disposition **and** solved **after** that matter receives its terminal disposition. archival preserves a Concern that is obsolete, invalidated, duplicated, **or** absorbed **without** representing it as solved."
+      },
+      {
+        "source_atom": "CA-R-1727",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Analysis.Status"
+          }
+        ],
+        "reason": "The governed property is Analysis Status; preserve its completion/history distinction without mutating any A Atom.",
+        "evidence": "an admitted Analysis is draft while its bounded inquiry **or** interpretation product remains unfinished **and** done **when** that product is complete. a done Analysis remains a factual record of its completed reasoning rather than current normative authority; archival preserves one that is obsolete, invalidated, duplicated, **or** absorbed."
+      },
+      {
+        "source_atom": "CA-R-1728",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL-CORE--record-every-projection-rebuild-in-a-journal.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Journal",
+            "applicability": "Records of Projection rebuild attempts with source and outcome provenance."
+          }
+        ],
+        "reason": "The explicit output is Journal provenance; do not confuse the build execution with its records.",
+        "evidence": "**every** Projection rebuild attempt **must** produce append-only Journal provenance from its start through **`=1`** terminal outcome, binding the target Projection, exact source Atom revisions **and** Journal records, generator, configuration, **and** produced revision **when** successful. Programmatic generation **and** LLM generation are provenance facts **only**; the two generation forms grant the Projection no authority."
+      },
+      {
+        "source_atom": "CA-R-1729",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations.Status",
+            "applicability": "Currency of reusable Operations definitions, independent of retained execution history."
+          }
+        ],
+        "reason": "The rule constrains lifecycle of the definition; its historical records remain History rather than changing with definition Status.",
+        "evidence": "an Operations Atom lifecycle **must** govern admission **and** currency of its reusable operational behavior **or** Actor participation/authorization policy. historical execution facts **and** Journal Records remain preserved history regardless of whether that Operations Atom is Draft, Active, **or** Archived, **or** whether an operational response is complete."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 508,
+    "subject": "semantics",
+    "occurrences": [
+      {
+        "source_atom": "CA-M-123",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-METHOD--write-definitions-of-done.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done"
+          }
+        ],
+        "reason": "The Method governs authoring the Plan Definition of Done condition, not general semantics.",
+        "evidence": "**to** write one Definition of Done, the Author **must** perform **all** of:\n\n1. begin the falsification condition expression with: the Plan is **not** Done **if**.\n2. make **every** atomic condition observable **and** decidable.\n3. enclose **every** composite condition **and** **every** function argument **in** explicit parentheses.\n4. evaluate the condition expression according **to** CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions."
+      },
+      {
+        "source_atom": "CA-R-117",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source already governs a precise relation, ownership meaning, name expansion or shorthand. The semantics tag adds no separately evidenced dependency; keep the defining text.",
+        "evidence": "**every** semantic relation **must** have **`=1`** authoritative declaration."
+      },
+      {
+        "source_atom": "CA-R-121",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-121-CORE_META_MODEL-CORE--store-only-direct-semantic-relations.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source already governs a precise relation, ownership meaning, name expansion or shorthand. The semantics tag adds no separately evidenced dependency; keep the defining text.",
+        "evidence": "**every** declared semantic relation **must** connect its two named participants through one registered immediate meaning."
+      },
+      {
+        "source_atom": "CA-R-1702",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role"
+          }
+        ],
+        "reason": "The accepted role boundary is identifiable, but the mixed loop definition retains deferred Implementation and old Operations authorization ownership. Preserve it for content reconciliation.",
+        "evidence": "**every** transition through Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations produces **or** updates the meaning owned by the receiving Content Role **without** converting the source meaning into that role **or** implying completion of a later role.\n\n**in** particular:\n\n- Analysis owns findings, alternatives, explanation, **and** rationale;\n- Plan states intended work **without** realizing it; decomposition relates independent Plan Atoms **without** merging their Claims;\n- Requirement establishes model definitions, required properties, outcomes, **or** boundaries **without** selecting their Method;\n- Method provides authorship, construction, **and** Implementation conventions, Evaluation checks c"
+      },
+      {
+        "source_atom": "CA-R-1707",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1707-CORE_META_MODEL-CORE-REQUIREMENT--make-requirement-the-only-universally-mandatory-atom.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role",
+            "applicability": "RMED contribution admission for development changes: Requirement mandatory, M/E/D conditional."
+          }
+        ],
+        "reason": "This directly governs the required Content Role set, not a Semantics property.",
+        "evidence": "**every** governed development change that proceeds toward realization has **`>=1`** Requirement Atom, **and**, among Requirement, Method, Evaluation, **and** Delivery, Requirement is the **only** mandatory Content Role; Method, Evaluation, **and** Delivery Atoms are optional **unless** applicable authority requires them for the particular case."
+      },
+      {
+        "source_atom": "CA-R-1709",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source already governs a precise relation, ownership meaning, name expansion or shorthand. The semantics tag adds no separately evidenced dependency; keep the defining text.",
+        "evidence": "Governance Origin classifies **where** a governed Artifact's primary meaning is owned. Governance Origin has **`=2`** values:\n\n- `internal` **means** the current project establishes **and** owns the meaning;\n- `external` **means** an identified source outside the current project establishes **or** imposes the meaning, while the project records **and** binds itself **to** that source.\n\nGovernance Origin is independent of Artifact form, Content Role, structural scope, provenance, **and** graph relations. a typed graph relation does **not** create another Governance Origin; its Carrier encoding is governed by CA-D-268.\n\nthe current project boundary is ambient. Requirement authority defines these two values **and** the admitted Types; Delivery authority "
+      },
+      {
+        "source_atom": "CA-R-1712",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1712-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-enacted-release-and-runtime-facts-from-operations-authority.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Journal",
+            "applicability": "Records of actual release/deployment/runtime facts; not reusable Operations or specification authority."
+          }
+        ],
+        "reason": "Map the governed record boundary while preserving the distinction between facts and their records.",
+        "evidence": "successful **and** failed release **or** deployment events, deployed environment state, runtime health, **and** incidents **must** be treated as operational facts whose execution evidence **and** state changes are carried by Journal Records. these facts **and** Records are distinct from reusable Operations definitions **and** **must not** themselves establish **or** silently change Plan, Requirement, Method, Evaluation, Delivery, **or** Operations authority."
+      },
+      {
+        "source_atom": "CA-R-1718",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1718-CORE_META_MODEL-CORE-REQUIREMENT--preserve-strict-semantic-distinctions.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "applicability": "Distinct meanings across Entity/Carrier, Requirement/Method, criteria/results and fact/authority."
+          }
+        ],
+        "reason": "Cross-owner semantic distinctions belong to Terms, not Atom.Semantics or another Object.",
+        "evidence": "independently governed meanings **must** remain distinct even **when** ordinary language, one Carrier, one workflow, **or** one Implementation change presents them together:\n\n- an Entity is **not** its description **or** Carrier;\n- a Requirement is **not** its Method;\n- a Method is **not** its Implementation;\n- an Evaluation criterion is **not** its execution result;\n- provenance is **not** evidence; **and**\n- an observed fact is **not** authority for the desired state.\n\n**if** wording could resolve **to** multiple governed meanings, **then** the intended meaning **and** its owning Type **must** be resolved **before** the Claim is admitted. this is an admission condition, **not** a definition of the recovery Action **or** Workflow.\n\nco-location, read"
+      },
+      {
+        "source_atom": "CA-R-1725",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL-GENERAL--review-external-analysis-before-project-adoption.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Analysis",
+            "applicability": "External Analysis and internal review before project adoption."
+          }
+        ],
+        "reason": "The rule governs the Analysis adoption boundary; preserve the external source and internal interpretation distinction.",
+        "evidence": "**every** admitted external Analysis is reviewed by one internal Analysis **before** it can produce project-owned Concern, Plan, Requirement, Method, Evaluation, **or** Delivery Atoms. the external Analysis remains authoritative **only** for what its external source reported; the internal Analysis owns the project's interpretation **and** dispositions, **and** **every** resulting Atom owns its independently accepted meaning."
+      },
+      {
+        "source_atom": "CA-R-1736",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source already governs a precise relation, ownership meaning, name expansion or shorthand. The semantics tag adds no separately evidenced dependency; keep the defining text.",
+        "evidence": "CAPRMEDIO expands **to** Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations **in** that canonical order."
+      },
+      {
+        "source_atom": "CA-R-964",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source already governs a precise relation, ownership meaning, name expansion or shorthand. The semantics tag adds no separately evidenced dependency; keep the defining text.",
+        "evidence": "Unit **means** Scope Unit **when** CAPRMEDIO uses Unit as a governed shorthand."
+      }
+    ],
+    "question": null
+  }
+]

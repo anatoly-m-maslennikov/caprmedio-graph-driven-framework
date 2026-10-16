@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom State Identifier"
+  governs: "Entity/Continuant/History/Revision.Identity"
   depends_on:
-    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Version Number", "Draft Atom"]
-version: 11
-updated_at: "2026-10-15 23:52:59 +0400"
+    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Version Number", "Entity/Continuant/Object/Atom.Status: Draft"]
+version: 12
+updated_at: "2026-10-16 12:09:30 +0000"
 relations:
   relates_to:
     - CA-D-378

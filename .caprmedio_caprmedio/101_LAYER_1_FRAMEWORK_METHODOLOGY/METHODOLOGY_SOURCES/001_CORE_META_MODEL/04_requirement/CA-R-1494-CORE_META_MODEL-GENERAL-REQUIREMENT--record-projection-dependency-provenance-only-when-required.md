@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Projection"
   depends_on:
-    - "Artifact/Revision"
-version: 6
-updated_at: "2026-10-15 18:43:41 +0000"
+    []
+version: 7
+updated_at: "2026-10-16 12:08:28 +0000"
 relations: {"child_of":["CA-R-1746"]}
 atom_id: "CA-R-1494"
 content_role: "Requirement"

@@ -9,9 +9,9 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Entity/Continuant/Projection"
-  depends_on: ["Entity/Continuant/Projection.ID", "Projection/Type", "Entity/Continuant/Selection", "Entity/Continuant/Object/Scope Unit"]
-version: 2
-updated_at: "2026-10-15 18:52:38 +0000"
+  depends_on: ["Entity/Continuant/Projection.ID", "Entity/Continuant/Projection/Type", "Entity/Continuant/Selection", "Entity/Continuant/Object/Scope Unit"]
+version: 3
+updated_at: "2026-10-16 12:09:39 +0000"
 relations:
   depends_on: [CA-R-1943, CA-D-310, CA-D-550]
 ---

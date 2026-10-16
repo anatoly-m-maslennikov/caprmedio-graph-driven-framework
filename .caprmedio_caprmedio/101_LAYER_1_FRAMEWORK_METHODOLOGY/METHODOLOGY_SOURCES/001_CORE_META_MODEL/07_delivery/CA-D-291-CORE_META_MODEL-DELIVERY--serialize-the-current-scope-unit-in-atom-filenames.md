@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom Carrier.Filename.Owning Scope Unit"
+  governs: "Entity/Continuant/Object/Atom.Owning Scope Unit"
   depends_on:
-    ["Atom Scope", "Entity/Continuant/Object/Scope Unit"]
-version: 17
-updated_at: "2026-10-15 18:50:54 +0000"
+    ["Entity/Continuant/Object/Atom.Owning Scope Unit", "Entity/Continuant/Object/Scope Unit"]
+version: 18
+updated_at: "2026-10-16 12:09:14 +0000"
 relations: {}
 atom_id: "CA-D-291"
 content_role: "Delivery"

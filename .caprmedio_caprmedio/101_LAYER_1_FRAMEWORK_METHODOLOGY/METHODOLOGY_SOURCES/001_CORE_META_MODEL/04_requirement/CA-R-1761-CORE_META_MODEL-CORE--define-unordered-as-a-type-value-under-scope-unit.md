@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Scope Unit/Type: Unordered"
   depends_on:
-    ["Local Order", "Entity/Continuant/Object/Scope Unit"]
-version: 21
-updated_at: "2026-10-15 18:45:51 +0000"
+    ["Entity/Continuant/Object/Scope Unit.Local Order", "Entity/Continuant/Object/Scope Unit"]
+version: 22
+updated_at: "2026-10-16 12:08:44 +0000"
 relations: {}
 atom_id: "CA-R-1761"
 content_role: "Requirement"

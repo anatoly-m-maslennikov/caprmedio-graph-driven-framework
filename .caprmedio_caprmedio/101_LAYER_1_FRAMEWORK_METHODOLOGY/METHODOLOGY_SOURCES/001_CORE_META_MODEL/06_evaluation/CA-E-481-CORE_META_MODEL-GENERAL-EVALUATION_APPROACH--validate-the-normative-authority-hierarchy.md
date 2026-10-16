@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Project Normative Authority Graph"
+  governs: "Entity/Continuant/Selection"
   depends_on:
-    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Relation", "Normative Authority Relation Pair"]
-version: 7
-updated_at: "2026-10-15 18:49:43 +0000"
+    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Relation"]
+version: 8
+updated_at: "2026-10-16 12:09:07 +0000"
 relations: {"evaluation_for":["CA-R-833","CA-R-808","CA-R-879"]}
 atom_id: "CA-E-481"
 content_role: "Evaluation"

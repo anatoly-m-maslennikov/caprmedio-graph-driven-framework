@@ -1,6 +1,6 @@
 # Candidate #6 — Abstract Core and concrete Project Configuration
 
-Status: reconciled candidate and implementation plan. Operator answers are applied to this candidate; source Atom changes and relocation below are not yet applied.
+Status: reconciled candidate and implementation plan, partially applied. On 2026-10-16, the supported Subjects-only batch updated 198 source Atoms. Content changes, missing R definitions and Core/Project Configuration relocation remain pending.
 
 ## Decision
 
@@ -183,18 +183,39 @@ RMED governs these things directly: R states required outcomes, M how to produce
 
 ## Answer application — 2026-10-16
 
-All 204 remaining review entries were reconciled against the Operator's answers:
+At the answer-reconciliation stage, all 204 remaining review entries were reconciled against the Operator's answers:
 
 - 137 candidate dispositions resolved: 135 mappings and 2 removals.
-- 48 need per-occurrence mapping within already-approved distinctions.
+- 48 required per-occurrence mapping within already-approved distinctions; that review is now complete below.
 - 19 need the separate content pass because the old claim conflicts with the accepted model.
 - No new Operator questions were found. Ask only if further source inspection reveals a concrete conflict not covered by these answers.
 
 The [combined review map](../candidate5-migration/next-migration/candidate6-classification/review-map.json) records these applications and their remaining work. Compound targets and named instances retain separate kind paths, Atom IDs and source applicability; they are not flattened into one generic Subject. This is candidate data, not a new selector grammar.
 
-Reviewed normalization also uses `Project.Settings` consistently and keeps required execution context distinct from the actual Invocation Context payload. The [readable review](../candidate5-migration/next-migration/candidate6-classification/review.md) lists the 67 remaining source-detail/content tasks.
+Reviewed normalization also uses `Project.Settings` consistently and keeps required execution context distinct from the actual Invocation Context payload.
+
+### Source-occurrence review — complete
+
+The [occurrence report](../candidate5-migration/next-migration/candidate6-classification/occurrence-review.md) covers all 48 source-specific families: 546 Subject/source pairs across 441 current source Atoms, with 548 governs/depends_on uses.
+
+- 314 source-specific mappings and 94 redundant-reference removals.
+- 82 uses held for content work; 58 C/A uses left untouched.
+- No new Operator questions. Source Atoms remain unchanged.
+
+The six occurrence maps retain exact source paths, roles, targets and evidence. They supersede pending per-occurrence assignments in the earlier review, not the separately deferred content work. If an Atom has any held occurrence, its other mappings do not authorize a partial live update. No new entity kind, selector grammar or live migration is introduced by these records.
 
 ## Plan
+
+### Subjects-first execution — 2026-10-16
+
+The Operator requested Subject migration before missing R definitions and content work. This supersedes the earlier execution order for the supported Subjects-only batch, not the remaining model requirements.
+
+- [x] Checkpoint sources and 198 edit drafts; execute the existing MCP batch workflow.
+- [x] Apply 198 supported Atom updates, archive exact predecessors and consume edit drafts.
+- [x] Verify Subjects-only changes and rebuild the graph from current source Atoms.
+- [ ] Resolve the 708 whole-Atom holds; 84 other current Atoms needed no change.
+
+See the [execution result](../candidate5-migration/next-migration/candidate6-execution/result.md) and its exact exclusions. The broader steps below are not complete merely because this supported batch succeeded.
 
 ### 1. Classify the current Core Atoms
 
@@ -203,6 +224,7 @@ Reviewed normalization also uses `Project.Settings` consistently and keeps requi
 - [ ] Record each Atom's ID, current owner, proposed owner and reason.
 - [x] Apply the approved group decisions to the candidate and review map: distinguish candidate remapping, obsolete-reference removal, Terms handling, content conflict and deferred Implementation. This is not a completed source migration.
 - [x] Reconcile the currently flagged questions with the Operator's answers. Ask further questions one at a time only if a concrete uncovered conflict appears during remaining source work.
+- [x] Review all 48 source-specific Subject families against cited current sources; record mappings, redundant links and whole-Atom holds.
 
 Start with Applicable Methodology: CA-O-011, its Steps CA-O-152–CA-O-157, and related RMED such as CA-R-1316 and CA-E-379. Inspect their referenced Actions and dependencies. Move the project-specific rules too, not only the Workflow. Separate genuinely project-independent claims only where a mixed Atom contains them.
 

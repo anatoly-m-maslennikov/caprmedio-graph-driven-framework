@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Work Sequence Number"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Plan Blocking Relations", "Atom Scope", "Entity/Continuant/Object/Atom.Target Scope Unit"]
-version: 19
-updated_at: "2026-10-15 18:47:39 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom.Owning Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit"]
+version: 20
+updated_at: "2026-10-16 12:09:01 +0000"
 relations:
   child_of:
     - CA-R-991

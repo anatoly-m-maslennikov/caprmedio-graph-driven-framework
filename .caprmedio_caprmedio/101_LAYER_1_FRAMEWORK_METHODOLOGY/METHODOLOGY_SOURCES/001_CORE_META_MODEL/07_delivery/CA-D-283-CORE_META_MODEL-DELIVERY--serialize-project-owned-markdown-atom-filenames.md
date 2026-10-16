@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Project-Owned Markdown Atom Carrier.Filename"
+  governs: "Entity/Carrier/File Carrier.Filename"
   depends_on:
-    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Summary", "Atom Scope"]
-version: 15
-updated_at: "2026-10-15 18:50:50 +0000"
+    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Owning Scope Unit"]
+version: 16
+updated_at: "2026-10-16 12:09:12 +0000"
 relations: {}
 atom_id: "CA-D-283"
 content_role: "Delivery"

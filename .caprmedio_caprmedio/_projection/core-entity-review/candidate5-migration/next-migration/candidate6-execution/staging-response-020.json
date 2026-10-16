@@ -1,0 +1,22 @@
+{
+  "operation": "stage_subject_batch",
+  "preview": null,
+  "staging": null,
+  "errors": [],
+  "batch": {
+    "operation": "stage_subject_batch",
+    "state": "staged",
+    "stage_run_id": "subject-stage-90f09d7cff645e5377e8c22fb09e6f81ea580e40962ece00e8375a10852feb9a",
+    "count": 198,
+    "completed": 198,
+    "remaining": 0,
+    "reviewed_packet": {
+      "path": ".caprmedio_install/workflow_orchestrator/runs/subject-stage-90f09d7cff645e5377e8c22fb09e6f81ea580e40962ece00e8375a10852feb9a/reviewed_subject_packet.json",
+      "digest": "9fffcf2b69eff1a33e693082a10fc5bd7d88d2c45931ec5627f1b90a1b4c5f4d"
+    },
+    "automatic_retry": false,
+    "in_flight": null,
+    "inspection_required": false,
+    "diagnostic": null
+  }
+}

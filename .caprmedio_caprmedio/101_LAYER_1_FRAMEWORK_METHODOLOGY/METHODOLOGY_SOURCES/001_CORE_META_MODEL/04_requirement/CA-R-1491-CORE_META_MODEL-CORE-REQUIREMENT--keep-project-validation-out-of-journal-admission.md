@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/History/Journal"
   depends_on:
-    ["Entity/Continuant/History/Journal.Record", "Artifact Carrier", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
-version: 9
-updated_at: "2026-10-15 18:43:39 +0000"
+    ["Entity/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
+version: 10
+updated_at: "2026-10-16 12:08:27 +0000"
 relations:
   child_of:
     - CA-R-1490

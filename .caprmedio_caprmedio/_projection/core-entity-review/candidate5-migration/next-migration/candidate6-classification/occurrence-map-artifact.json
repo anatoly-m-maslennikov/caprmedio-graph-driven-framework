@@ -1,0 +1,687 @@
+[
+  {
+    "index": 30,
+    "subject": "Artifact",
+    "occurrences": [
+      {
+        "source_atom": "CA-D-296",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-296-CORE_META_MODEL--materialize-content-role-directories-on-first-artifact.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom"
+          }
+        ],
+        "reason": "Content Role folder placement is for current Atoms, whose Content Roles are already the named organizing axis. Map the obsolete generic dependency to Atom; do not add a folder entity.",
+        "evidence": "administrative Content Role directory **must** be materialized"
+      },
+      {
+        "source_atom": "CA-D-309",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The obsolete Artifact umbrella adds no exact source identity. The binding and selected authoritative source frontier remain in the rule; Atom-source specificity is explicitly supplied by D305 and the content, not this generic link.",
+        "evidence": "Applicable Methodology projected Atom Carriers"
+      },
+      {
+        "source_atom": "CA-D-311",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Carrier is already governed; Artifact adds only the removed generic category. Preserve the carried-content fidelity rule and actual carried-owner binding in content, without equating all carriers with Atoms.",
+        "evidence": "**every** governed Carrier **must** represent its carried Artifact Revision"
+      },
+      {
+        "source_atom": "CA-D-390",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL--configure-the-artifact-timestamp-timezone.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The exact Framework Settings timezone and Carrier dependencies already identify what this D rule uses. Artifact is a redundant generic superclass, not an independent timestamp owner.",
+        "evidence": "[artifact_timestamps].timezone"
+      },
+      {
+        "source_atom": "CA-D-464",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-464-CORE_META_MODEL-CORE--represent-one-governed-object-with-each-directory-carrier.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The Atom dependency already captures the permitted Atom case; the other old Structural Entity dependency is separately reviewed. Remove the Artifact superclass, retaining the one-object-per-carrier constraint.",
+        "evidence": "it **must not** establish a second object merely because it contains subordinate Carriers"
+      },
+      {
+        "source_atom": "CA-E-404",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-dependency-order-derivations.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "DEPENDS_ON and Atom Direct Relation already identify the graph's governing relation vocabulary. Remove the obsolete generic endpoint category reference; its old non-Plan Artifact endpoint wording needs the separate content pass, not an invented new endpoint kind.",
+        "evidence": "derived non-Plan Artifact dependency orders"
+      },
+      {
+        "source_atom": "CA-E-444",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-QA_CASE--validate-project-specific-term-meaning.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Explicit Atom, Scope Unit, Actor, Projection and Relation dependencies already name the source kinds relevant to this diagnostic. Artifact duplicates that coverage; preserve exact occurrence/version evidence.",
+        "evidence": "its exact source occurrence **and** Revision"
+      },
+      {
+        "source_atom": "CA-E-449",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-entities-graph.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The graph Evaluation explicitly depends on Atom, Scope Unit, Journal, Carrier and Projection already. Artifact adds the retired umbrella, not a distinct source fact.",
+        "evidence": "appropriate Scope Unit **or** Journal source"
+      },
+      {
+        "source_atom": "CA-E-522",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Atom, Journal/Record and Projection already identify the enumerated storage cases; Artifact is redundant. This removes no actual storage classification or historical record.",
+        "evidence": "Atoms, Journal Records, resumable checkpoints, generated caches"
+      },
+      {
+        "source_atom": "CA-E-523",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Journal/Record, Projection and Atom are explicit. Remove the umbrella dependency while preserving recorded change identity and the distinction between records and actual outcomes.",
+        "evidence": "the Artifact-change event **may** appear **in** the two views"
+      },
+      {
+        "source_atom": "CA-M-239",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "DEPENDS_ON, DERIVED_FROM and Atom Direct Relation identify the typed graph facts already. Drop the old generic endpoint label; do not narrow all legacy endpoint-domain content to Atom by this edit.",
+        "evidence": "non-Plan Artifact dependency order derivation from explicit edges"
+      },
+      {
+        "source_atom": "CA-M-277",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-277-CORE_META_MODEL-METHOD--report-in-silent-mode.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Reporting effects and mandatory information are already qualified under Framework Settings; the content describes affected durable outputs/Project state. Artifact is an unsupported blanket dependency, not an additional governed reporting target.",
+        "evidence": "durable Artifacts **or** Project state"
+      },
+      {
+        "source_atom": "CA-M-278",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-278-CORE_META_MODEL--report-in-verbose-mode.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The exact Reporting Mode properties already constrain this Method. Artifact repeats the generic noun for reported effects and contributes no separate dependency.",
+        "evidence": "planned **or** completed Artifact operations"
+      },
+      {
+        "source_atom": "CA-O-004",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-004-CORE_META_MODEL-ACTION--select-reconciliation-sources.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The Action uses an exact caller/governance-selected source frontier and already depends on Substance/Reconciled Projection. Remove the umbrella link; retain exact selected source identities and revisions rather than narrowing all source members.",
+        "evidence": "returns the exact selected source identities **and** Revisions"
+      },
+      {
+        "source_atom": "CA-O-007",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-007-CORE_META_MODEL-ACTION--obtain-source-correction-decisions.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source frontier is supplied with the exact proposal; Atom.Substance, Actors and Journal/Record already name the concrete dependencies. Artifact adds no distinct reference.",
+        "evidence": "exact source-frontier binding"
+      },
+      {
+        "source_atom": "CA-O-008",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-008-CORE_META_MODEL-ACTION--apply-approved-source-corrections.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Atom, Settings, Relation, Evaluation and Journal are explicit dependencies. Drop the generic Artifact link without changing authorized owner-specific source correction or archive content.",
+        "evidence": "resulting Claims remain **in** their owning source Atoms; resulting selections remain **in** their owning settings"
+      },
+      {
+        "source_atom": "CA-O-009",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-009-CORE_META_MODEL-ACTION--publish-reconciled-projections.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Reconciled Projection, Substance, Carrier and Delivery are explicit. Exact selected source revisions stay bound in the Action's scope; Artifact adds no unique source-kind constraint.",
+        "evidence": "preserve the selected source content, identities, **and** Revisions"
+      },
+      {
+        "source_atom": "CA-O-020",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-020-CORE_META_MODEL-ACTION--run-implementation-evaluations.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The source names Plan, E/M and Implementation as concrete inputs; Artifact supplies no additional input definition. Its removal does not admit the deferred Implementation ontology or alter the named Action.",
+        "evidence": "selected Plan, current candidate, admitted checks"
+      },
+      {
+        "source_atom": "CA-O-123",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-123-CORE_META_MODEL-ACTION--calibrate-evaluator-evidence.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Atom, Evaluation and Implementation are already named inputs; exact cases and evidence bindings remain in the Action. The generic Artifact dependency is redundant.",
+        "evidence": "ordered cases with stable case/occurrence references"
+      },
+      {
+        "source_atom": "CA-O-125",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-125-CORE_META_MODEL-ACTION--assess-scoped-operator-choice-applicability.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Actor, Atom and Journal dependencies already cover actual input authority/evidence; the caller packet provides proposal identity. Artifact is not an extra applicability owner.",
+        "evidence": "exact proposal, target, scope and current source/context frontier"
+      },
+      {
+        "source_atom": "CA-O-126",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-126-CORE_META_MODEL-ACTION--assess-prepared-result-conformance.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Selection"
+          }
+        ],
+        "reason": "The Action consumes an exact caller-selected set, not a universal Artifact kind. Preserve the named prepared-result selection and its members' identities; this is selection applicability, not a new object or execution grammar.",
+        "evidence": "one exact caller-selected prepared Artifact set"
+      },
+      {
+        "source_atom": "CA-O-131",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Atom, prior revisions, Journal and execution references are already explicit. The selected reversal packet binds any other actual target; Artifact supplies only the removed superclass.",
+        "evidence": "exact target identities, current Carrier/state preconditions"
+      },
+      {
+        "source_atom": "CA-O-158",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "This query family explicitly supports atom_id and artifact_id for other admitted Markdown objects. A generic Atom or Carrier substitution would conflate returned object identity with representation. Keep this occurrence for bounded input-domain content alignment; the concrete O instance remains mapped elsewhere, and no Artifact kind is retained in the candidate.",
+        "evidence": "Artifact"
+      },
+      {
+        "source_atom": "CA-O-159",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "This query family explicitly supports atom_id and artifact_id for other admitted Markdown objects. A generic Atom or Carrier substitution would conflate returned object identity with representation. Keep this occurrence for bounded input-domain content alignment; the concrete O instance remains mapped elsewhere, and no Artifact kind is retained in the candidate.",
+        "evidence": "Artifact"
+      },
+      {
+        "source_atom": "CA-O-160",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "This query family explicitly supports atom_id and artifact_id for other admitted Markdown objects. A generic Atom or Carrier substitution would conflate returned object identity with representation. Keep this occurrence for bounded input-domain content alignment; the concrete O instance remains mapped elsewhere, and no Artifact kind is retained in the candidate.",
+        "evidence": "Artifact"
+      },
+      {
+        "source_atom": "CA-R-1026",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The relation endpoint domain is explicitly all dependent/prerequisite Artifacts except Plan scheduling. Existing typed relation definitions do not identify which new-model non-Atom kinds are admissible. Preserve relation meaning for the content pass; do not silently restrict endpoints to Atoms or make all Entities admissible.",
+        "evidence": "direct dependency-ordering relation from a dependent Artifact"
+      },
+      {
+        "source_atom": "CA-R-1220",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1220-CORE_META_MODEL-REQUIREMENT--require-immutable-installed-extension-candidate-provenance.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit"
+          }
+        ],
+        "reason": "Installed extension provenance belongs to the extension's existing Scope Unit under decisions 14/23, not a Catalog Entry or Artifact entity. Preserve the particular extension identity and provenance fields.",
+        "evidence": "immutable Extension Candidate by stable Identity"
+      },
+      {
+        "source_atom": "CA-R-1249",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "This entire governing claim defines/classifies the removed Artifact category. Mark the dedicated rule for retirement under decision 1; do not remove a required governs field from a still-active Atom or invent a replacement entity.",
+        "evidence": "the Term Artifact **must** be NARROWER_THAN Primary Entity"
+      },
+      {
+        "source_atom": "CA-R-1262",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1262-CORE_META_MODEL-CORE-REQUIREMENT--keep-entity-and-artifact-distinct.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "This entire governing claim defines/classifies the removed Artifact category. Mark the dedicated rule for retirement under decision 1; do not remove a required governs field from a still-active Atom or invent a replacement entity.",
+        "evidence": "Artifact **must not** be equivalent **to** Entity"
+      },
+      {
+        "source_atom": "CA-R-1268",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "This entire governing claim defines/classifies the removed Artifact category. Mark the dedicated rule for retirement under decision 1; do not remove a required governs field from a still-active Atom or invent a replacement entity.",
+        "evidence": "an Artifact **means** a Primary Entity"
+      },
+      {
+        "source_atom": "CA-R-1306",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The actual topic is Status meaning across qualified owners. Artifact is only the removed superclass; retain owner-qualified Status models and route shared Status meaning to Terms in the governing-Subject mapping.",
+        "evidence": "allowed values resolve from the complete qualified path"
+      },
+      {
+        "source_atom": "CA-R-1307",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "Decision 9 retires the separate Activity concept and its dedicated rules. This Artifact dependency should disappear with that retirement, not be remapped to a new Activity owner.",
+        "evidence": "Activity **in** (Active, Inactive)"
+      },
+      {
+        "source_atom": "CA-R-1394",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "Decision 9 retires the separate Activity concept and its dedicated rules. This Artifact dependency should disappear with that retirement, not be remapped to a new Activity owner.",
+        "evidence": "the Artifact Property Activity **means**"
+      },
+      {
+        "source_atom": "CA-R-1402",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration"
+          }
+        ],
+        "reason": "Framework Settings is an authoritative governing configuration. Replace Artifact's superclass reference with Governing Configuration; its specific Project.Framework Settings governing Subject is handled separately.",
+        "evidence": "explicit Operator-selected behavior **and** configuration choices"
+      },
+      {
+        "source_atom": "CA-R-1405",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "This dedicated Artifact Type registry enforces the removed umbrella. Its listed Atom, Journal, Projection and Settings meanings survive under their existing branches; retire the umbrella registration rather than reclassifying those branches as one Type family.",
+        "evidence": "Core allowed values of Artifact Type **must** be (Atom, Journal, Projection"
+      },
+      {
+        "source_atom": "CA-R-1409",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Atom, Journal, Projection, Scope Unit, Carrier and Container Atom already express the source classes. Remove only the obsolete Artifact dependency; General Artifact Graph/CONTAINS projection content remains deferred, not implemented by this mapping.",
+        "evidence": "its Artifact nodes include Atoms, Journals, **and** Projections"
+      },
+      {
+        "source_atom": "CA-R-1410",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The claim requires every graph to connect through the obsolete General Artifact Graph partition. Keep the preserve-source-identity constraint for later content repair; no existing single entity target can preserve the old universal graph-connectivity prerequisite.",
+        "evidence": "through **`>=1`** shared **or** referenced source Artifact"
+      },
+      {
+        "source_atom": "CA-R-1439",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1439-CORE_META_MODEL-GENERAL--limit-reporting-mode-effects-to-presentation.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The exact Reporting Mode dependency governs presentation-only effects; Artifact merely supplies a generic example of creation effects. Its removal does not change authorization or create permission.",
+        "evidence": "**must** affect presentation **only**"
+      },
+      {
+        "source_atom": "CA-R-1441",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration"
+          }
+        ],
+        "reason": "Default Settings is an authoritative governing configuration in project_settings.default.toml; map its old superclass to Governing Configuration while retaining defaults versus explicit choices.",
+        "evidence": "reusable baseline values for registered"
+      },
+      {
+        "source_atom": "CA-R-1455",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The diagnostic already depends on Atom/Substance/Subjects, Scope Unit, Actor, Relation and Projection. Artifact is a redundant generic source label; exact occurrence and version evidence remains required.",
+        "evidence": "bound **to** its exact source occurrence"
+      },
+      {
+        "source_atom": "CA-R-1461",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1461-CORE_META_MODEL-CORE-REQUIREMENT--define-reconciled-projection.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Projection and Atom.Substance already identify the output and governed source content; the final selected source revisions are explicitly preserved. Artifact adds no precise source restriction.",
+        "evidence": "preserve selected source content, canonical identities"
+      },
+      {
+        "source_atom": "CA-R-1463",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-GENERAL-REQUIREMENT--derive-log-views-from-the-shared-journal.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Journal/Record and the two existing log Projection dependencies identify source and outputs. Artifact only repeats the change-event noun; remove it without creating a new history entity or resuming non-RMED projection work.",
+        "evidence": "same source event **may** appear **in** both views"
+      },
+      {
+        "source_atom": "CA-R-1467",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1467-CORE_META_MODEL--define-artifact-change-log-projection.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Journal/Record and Projection already govern source and output. The changed object's actual reference belongs to each event record, not to a generic Artifact type dependency.",
+        "evidence": "preserves their canonical Event identities **and** source record references"
+      },
+      {
+        "source_atom": "CA-R-1483",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration"
+          }
+        ],
+        "reason": "Project Structure is explicitly an authoritative non-Atom declaration source, so its superclass is Governing Configuration, not Projection or Atom.",
+        "evidence": "authoritative non-Atom Artifact containing a Project's accepted Scope Unit declarations"
+      },
+      {
+        "source_atom": "CA-R-1499",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1499-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact-authority.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The rule defines shared Authority meaning across owners, which belongs to Terms. Remove the obsolete Artifact owner dependency; its governing Subject must carry that exact Term applicability, not create a universal Artifact.Authority property.",
+        "evidence": "capacity **to** establish meaning"
+      },
+      {
+        "source_atom": "CA-R-1500",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1500-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact-applicability.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The rule defines shared Applicability meaning across owners, which belongs to Terms. Remove the obsolete Artifact owner dependency; its governing Subject must carry that exact Term applicability, not create a universal Artifact.Applicability property.",
+        "evidence": "applies **in** a particular declared context"
+      },
+      {
+        "source_atom": "CA-R-1501",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1501-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact-currentness.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The rule defines shared Currentness meaning across owners, which belongs to Terms. Remove the obsolete Artifact owner dependency; its governing Subject must carry that exact Term applicability, not create a universal Artifact.Currentness property.",
+        "evidence": "which exact applicable Artifact Revision is presently effective"
+      },
+      {
+        "source_atom": "CA-R-1502",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1502-CORE_META_MODEL-CORE--keep-authority-applicability-and-currentness-distinct.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Term",
+            "term": "Authority"
+          },
+          {
+            "path": "Entity/Continuant/Term",
+            "term": "Applicability"
+          },
+          {
+            "path": "Entity/Continuant/Term",
+            "term": "Currentness"
+          }
+        ],
+        "reason": "This is explicitly a cross-owner semantic distinction among three meanings. Decision 3 routes it to these Terms, not an Artifact entity or three new universal properties. Preserve the authoritative-but-inapplicable, historical-not-current and current-but-nonauthoritative cases.",
+        "evidence": "an Artifact's Authority, Applicability, **and** Currentness **must** remain distinct"
+      },
+      {
+        "source_atom": "CA-R-1521",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1521-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-lifecycle-changes-from-applicable-status-models.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Atom, Entity, Scope Unit and Carrier are already explicit in this qualified-status workflow rule. Artifact is redundant; removing it does not invent a Scope Unit Status model or universal lifecycle.",
+        "evidence": "a missing status model **must not** be replaced with an invented universal"
+      },
+      {
+        "source_atom": "CA-R-1558",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "Decision 16 removes Exploration Mode and its prescriptions; this is mixed participation/authorization content, so preserve valid explicit-request boundaries in the content pass rather than inventing an Artifact substitute.",
+        "evidence": "Exploration Mode permits brainstorming"
+      },
+      {
+        "source_atom": "CA-R-1568",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL-GENERAL--permit-projections-as-implementation-outputs.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Projection and Atom are already explicit and define the output/source distinction. Artifact adds only the removed superclass; Implementation entity placement remains deferred independently.",
+        "evidence": "its Artifact kind remains Projection"
+      },
+      {
+        "source_atom": "CA-R-1571",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1571-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-non-atom-implementation-outputs-at-standard.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "This rule classifies non-Atom native Implementation outputs, whose entity placement remains deferred. Do not convert their Standard classification into Atom.Local Tier or revive an Implementation root.",
+        "evidence": "non-Atom Implementation Artifact **must** resolve **to** Local Tier Standard"
+      },
+      {
+        "source_atom": "CA-R-1609",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-REQUIREMENT--distinguish-projected-representations-from-represented-entities.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Entity and Scope Unit already cover represented things, while Projection is governed. Artifact is only one obsolete example category; preserve source identity and non-authoritative representation boundaries.",
+        "evidence": "a representation inside a Projection **must** remain distinct"
+      },
+      {
+        "source_atom": "CA-R-1638",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "Implementation Overview/native-target placement is explicitly deferred and outside current RMED projection work. Preserve the existing rule for later disposition; do not admit its native target category or rebuild this view via Artifact removal.",
+        "evidence": "Implementation Overview"
+      },
+      {
+        "source_atom": "CA-R-1639",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "DERIVED_FROM is typed, but this old rule admits all derived/source Artifact Revisions. Preserve exact provenance semantics while aligning current-object versus historical Revision endpoints in the content pass; a blanket History/Revision replacement would misclassify current derived sources.",
+        "evidence": "one derived Artifact Revision **to** one exact source Artifact Revision"
+      },
+      {
+        "source_atom": "CA-R-1646",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom"
+          },
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration"
+          }
+        ],
+        "reason": "The named evidence inputs include applicable governing Atoms and configuration alongside separately listed native Implementation. Replace Artifact with those concrete source owners; keep exact versions in evidence, and do not claim the native Implementation ontology is resolved.",
+        "evidence": "relevant Artifact **and** Implementation Revisions, configuration"
+      },
+      {
+        "source_atom": "CA-R-1655",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom"
+          },
+          {
+            "path": "Entity/Continuant/History/Journal"
+          },
+          {
+            "path": "Entity/Continuant/Projection"
+          }
+        ],
+        "reason": "The claim itself identifies Atom, Journal and Projection as distinct classified things and forbids Content Role on the latter two. Replace the obsolete superclass with those stated owners without imposing Atom axes on all.",
+        "evidence": "do **not** require a Journal **or** Projection **to** have an Atom Content Role"
+      },
+      {
+        "source_atom": "CA-R-1703",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "Implementation Overview/native-target placement is explicitly deferred and outside current RMED projection work. Preserve the existing rule for later disposition; do not admit its native target category or rebuild this view via Artifact removal.",
+        "evidence": "Implementation Overview"
+      },
+      {
+        "source_atom": "CA-R-1708",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "Mandatory exactly-one Artifact Type depends on the retired Artifact registry. Keep candidate retirement/content alignment with R1405; do not require every Continuant or Entity to have an invented shared Type.",
+        "evidence": "an Artifact **must** have **`=1`** Type"
+      },
+      {
+        "source_atom": "CA-R-1720",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Journal/Record, runs, Project and Carrier already express actual provenance objects. Artifact is a generic event-example dependency; actual changed identities remain supplied record data and need no universal category.",
+        "evidence": "append supplied actual observations"
+      },
+      {
+        "source_atom": "CA-R-1738",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration"
+          }
+        ],
+        "reason": "Project Settings is authoritative governing configuration for project identity/initialization, not an Atom or derived Projection.",
+        "evidence": "Operator-selected initialization inputs for **`=1`** Project"
+      },
+      {
+        "source_atom": "CA-R-1745",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History"
+          }
+        ],
+        "reason": "Journal is the History branch's collection of event records. Map the old Artifact superclass to History, retaining records versus actual events and the governed Carrier independence.",
+        "evidence": "a record describes an event **and** its recorded evidence"
+      },
+      {
+        "source_atom": "CA-R-1746",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The rule explicitly lists Atom, Project Structure, Scope Unit and Journal sources and allows upstream Projections. Artifact contributes only the obsolete umbrella; preserve the declared source selection and traceability.",
+        "evidence": "does **not** require **every** Projection **to** consume **every** source kind"
+      },
+      {
+        "source_atom": "CA-R-1765",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "This dedicated old Artifact Type admission restriction conflicts with the removed registry and current narrower kind notation. Retire that category-specific rule in content migration, not a general NARROWER_THAN rule.",
+        "evidence": "an Artifact Type value **must not** use NARROWER_THAN"
+      },
+      {
+        "source_atom": "CA-R-1773",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1773-CORE_META_MODEL-CORE-REQUIREMENT--define-the-project-principle-universe.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Project, Principle-tier Atom, source Scope Units and Content Role already give the actual applicability. Artifact is a generic independence example, not an additional Principle source.",
+        "evidence": "independently of Structural Level, scope label, Content Role, Artifact form"
+      },
+      {
+        "source_atom": "CA-R-655",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-CORE--define-atom-artifact-form.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object"
+          }
+        ],
+        "reason": "Atom belongs under Object in the agreed backbone; replace the removed Artifact superclass dependency with Object, preserving the independently governed Atom meaning for the later wording pass.",
+        "evidence": "an Atom **means** the smallest independently governed Artifact"
+      },
+      {
+        "source_atom": "CA-R-834",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-834-CORE_META_MODEL-CORE-REQUIREMENT--partition-project-graph-nodes.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The entire claim imposes the retired Artifact/Structural Entity partition. Record retirement with its governing-rule disposition; removing one dependency from an otherwise active partition rule would leave contradictory content.",
+        "evidence": "partition"
+      },
+      {
+        "source_atom": "CA-R-836",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-836-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-project-graph-node-partitions.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The entire claim imposes the retired Artifact/Structural Entity partition. Record retirement with its governing-rule disposition; removing one dependency from an otherwise active partition rule would leave contradictory content.",
+        "evidence": "partition"
+      }
+    ],
+    "question": null
+  }
+]

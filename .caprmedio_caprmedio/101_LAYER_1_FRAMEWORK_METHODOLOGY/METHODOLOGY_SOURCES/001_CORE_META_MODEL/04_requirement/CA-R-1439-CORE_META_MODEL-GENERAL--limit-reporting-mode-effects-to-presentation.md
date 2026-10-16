@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Effects"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode", "Artifact"]
-version: 9
-updated_at: "2026-10-15 18:43:03 +0000"
+    ["Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode"]
+version: 10
+updated_at: "2026-10-16 12:08:24 +0000"
 relations:
   child_of:
     - "CA-R-1402"

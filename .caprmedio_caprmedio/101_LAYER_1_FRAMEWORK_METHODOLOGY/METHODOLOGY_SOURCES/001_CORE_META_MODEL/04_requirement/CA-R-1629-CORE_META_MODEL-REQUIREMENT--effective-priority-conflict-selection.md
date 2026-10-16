@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Priority"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Concern.Priority"
   depends_on:
     ["Entity/Continuant/Object/Atom/Content Role: Concern", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Actor/Type: Operator"]
-version: 24
-updated_at: "2026-10-15 18:45:06 +0000"
+version: 25
+updated_at: "2026-10-16 12:08:36 +0000"
 relations: {}
 atom_id: "CA-R-1629"
 content_role: "Requirement"

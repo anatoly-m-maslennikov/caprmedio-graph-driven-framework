@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Scope Unit"
   depends_on:
-    ["Structural Level", "Structural Parent Relation", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Structure"]
-version: 21
-updated_at: "2026-10-15 18:45:32 +0000"
+    ["Entity/Continuant/Object/Scope Unit.Structural Level", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Structure"]
+version: 22
+updated_at: "2026-10-16 12:08:40 +0000"
 relations:
   child_of:
     - CAPRMEDIO-REQU-031-CORE-REQUIREMENT--model-project-structure-as-numbered-levels

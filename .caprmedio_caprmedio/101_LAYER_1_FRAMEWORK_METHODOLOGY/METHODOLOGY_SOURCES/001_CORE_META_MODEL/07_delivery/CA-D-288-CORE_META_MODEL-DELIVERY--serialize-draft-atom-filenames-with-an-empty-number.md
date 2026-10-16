@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Draft Atom Carrier.Filename"
+  governs: "Entity/Carrier/File Carrier.Filename"
   depends_on:
     ["Entity/Continuant/Object/Atom.ID"]
-version: 16
-updated_at: "2026-10-15 23:42:04 +0400"
+version: 17
+updated_at: "2026-10-16 12:09:13 +0000"
 relations: {}
 atom_id: "CA-D-288"
 content_role: "Delivery"

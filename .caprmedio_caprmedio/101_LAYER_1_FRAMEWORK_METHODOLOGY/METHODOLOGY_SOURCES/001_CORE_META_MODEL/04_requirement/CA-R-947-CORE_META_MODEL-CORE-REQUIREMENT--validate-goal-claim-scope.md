@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Atom.Target Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Atom Scope", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project"]
-version: 22
-updated_at: "2026-10-15 18:47:18 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Atom.Owning Scope Unit", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project"]
+version: 23
+updated_at: "2026-10-16 12:08:57 +0000"
 relations:
   child_of:
     - CA-R-925

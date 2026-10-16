@@ -1,0 +1,1188 @@
+[
+  {
+    "index": 53,
+    "subject": "Artifact/Revision",
+    "occurrences": [
+      {
+        "source_atom": "CA-C-210",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-210-CORE_META_MODEL-QUESTION--how-should-the-target-scope-unit-set-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--define-claim-target-scope-unit-set@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-211",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-211-CORE_META_MODEL-QUESTION--how-should-the-claim-target-scope-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--define-claim-target-scope@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-212",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-212-CORE_META_MODEL-QUESTION--how-should-the-current-scope-atom-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--define-current-scope-atom-by-claim-target-scope@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-213",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-213-CORE_META_MODEL-QUESTION--how-should-the-natural-rendering-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--define-natural-rendering-of-a-qualified-subject-expression@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-214",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-214-CORE_META_MODEL-QUESTION--how-should-the-relational-atom-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--define-relational-atom-by-claim-target-scope@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-215",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-215-CORE_META_MODEL-QUESTION--how-should-the-narrowest-subject-path-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived proposal Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--end-every-subject-path-at-the-exact-semantic-locus@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-216",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-216-CORE_META_MODEL-QUESTION--how-should-the-one-target-scope-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--give-every-claim-one-target-scope@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-217",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-217-CORE_META_MODEL-QUESTION--how-should-the-one-subject-path-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived proposal Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--give-every-subject-one-subject-path@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-218",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-218-CORE_META_MODEL-QUESTION--how-should-the-dependent-entity-criteria-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived proposal Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--govern-dependent-entity-criteria-through-the-dependent-entity@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-219",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-219-CORE_META_MODEL-QUESTION--how-should-the-semantic-irreducibility-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--keep-each-atom-semantically-irreducible@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-220",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-220-CORE_META_MODEL-QUESTION--how-should-the-self-describing-artifacts-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L30: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--make-every-governed-artifact-self-describing@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-221",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-221-CORE_META_MODEL-QUESTION--how-should-the-property-bearers-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived proposal Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--permit-properties-on-base-and-dependent-entities@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-222",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-222-CORE_META_MODEL-QUESTION--how-should-the-embedded-address-agreement-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L30: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--require-embedded-metadata-and-carrier-address-to-agree@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-223",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-223-CORE_META_MODEL-QUESTION--how-should-the-omitted-target-default-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--resolve-omitted-claim-target-scope-to-current-scope-unit@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-224",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-224-CORE_META_MODEL-QUESTION--how-should-the-target-versus-ownership-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--separate-claim-target-scope-from-structural-ownership@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-225",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-225-CORE_META_MODEL-QUESTION--how-should-the-subjects-versus-scope-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived proposal Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--separate-subject-paths-from-scope-coordinates@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-226",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-226-CORE_META_MODEL-QUESTION--how-should-the-qualified-names-in-atoms-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-CORE-REQUIREMENT--use-canonical-qualified-entity-names-in-every-atom@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-227",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-227-CORE_META_MODEL-QUESTION--how-should-the-subtree-targeting-atoms-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-GENERAL-REQUIREMENT--define-subtree-targeting-atoms@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-228",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-228-CORE_META_MODEL-QUESTION--how-should-the-targeting-atoms-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-GENERAL-REQUIREMENT--define-targeting-atoms-by-claim-target-scope@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-229",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-229-CORE_META_MODEL-QUESTION--how-should-the-composite-target-scope-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-GENERAL-REQUIREMENT--permit-one-composite-claim-target-scope@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-230",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-230-CORE_META_MODEL-QUESTION--how-should-the-relation-derivation-classes-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-REQUIREMENT--classify-each-realization-graph-relation-by-derivation@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-231",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-231-CORE_META_MODEL-QUESTION--how-should-the-projection-element-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-REQUIREMENT--define-projection-element@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-232",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-232-CORE_META_MODEL-QUESTION--how-should-the-dependency-face-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-REQUIREMENT--define-realization-graph-dependency-face@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-233",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-233-CORE_META_MODEL-QUESTION--how-should-the-realization-graph-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-REQUIREMENT--define-realization-graph@5.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-234",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-234-CORE_META_MODEL-QUESTION--how-should-the-derivation-class-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-REQUIREMENT--define-relation-derivation-class@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-235",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-235-CORE_META_MODEL-QUESTION--how-should-the-two-graph-faces-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--MMODEL-REQUIREMENT--require-two-realization-graph-faces@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-236",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-236-CORE_META_MODEL-QUESTION--how-should-the-unit-names-versus-english-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--SEMNTC-CORE-REQUIREMENT--distinguish-unit-names-from-ordinary-english@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-237",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-237-CORE_META_MODEL-QUESTION--how-should-the-one-interpretation-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--SEMNTC-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-238",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-238-CORE_META_MODEL-QUESTION--how-should-the-human-readability-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--SEMNTC-CORE-REQUIREMENT--keep-every-atom-claim-human-readable@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-239",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-239-CORE_META_MODEL-QUESTION--how-should-the-pre-runtime-pass-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--SEMNTC-REQUIREMENT--allow-pre-runtime-pass-only-with-complete-relation-coverage@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-240",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-240-CORE_META_MODEL-QUESTION--how-should-the-inferred-possible-derivation-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--SEMNTC-REQUIREMENT--define-inferred-possible-relation-derivation@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-241",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-241-CORE_META_MODEL-QUESTION--how-should-the-pre-runtime-resolved-derivation-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--SEMNTC-REQUIREMENT--define-pre-runtime-resolved-relation-derivation@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-242",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-242-CORE_META_MODEL-QUESTION--how-should-the-runtime-observed-derivation-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--SEMNTC-REQUIREMENT--define-runtime-observed-relation-derivation@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-243",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-243-CORE_META_MODEL-QUESTION--how-should-the-source-declared-derivation-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--SEMNTC-REQUIREMENT--define-source-declared-relation-derivation@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-244",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-244-CORE_META_MODEL-QUESTION--how-should-the-graph-as-evaluation-evidence-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/archive/CA-R--SEMNTC-REQUIREMENT--use-realization-graphs-only-as-evaluation-evidence@5.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-245",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-245-CORE_META_MODEL-QUESTION--how-should-the-cce-migration-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--GOVERN-CORE-METHOD--migrate-atoms-to-a-current-cce-version@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-246",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-246-CORE_META_MODEL-QUESTION--how-should-the-author-target-scope-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--MMODEL-METHOD--author-one-claim-target-scope@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-247",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-247-CORE_META_MODEL-QUESTION--how-should-the-derive-four-atom-sets-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--MMODEL-METHOD--derive-ownership-and-claim-target-atom-sets@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-248",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-248-CORE_META_MODEL-QUESTION--how-should-the-atomic-metadata-reconciliation-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L30: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--MMODEL-METHOD--reconcile-artifact-metadata-and-carrier-address-atomically@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-249",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-249-CORE_META_MODEL-QUESTION--how-should-the-navigation-number-migration-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L30: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--MMODEL-METHOD--reconcile-navigation-numbers-during-project-structure-migration@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-250",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-250-CORE_META_MODEL-QUESTION--how-should-the-render-qualified-expressions-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--MMODEL-METHOD--render-qualified-subject-expressions-naturally@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-251",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-251-CORE_META_MODEL-QUESTION--how-should-the-condition-expressions-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--SEMNTC-CORE-METHOD--evaluate-condition-expressions@3.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-252",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-252-CORE_META_MODEL-QUESTION--how-should-the-set-membership-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--SEMNTC-CORE-METHOD--evaluate-set-valued-property-membership@3.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-253",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-253-CORE_META_MODEL-QUESTION--how-should-the-lowercase-sentence-starts-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--SEMNTC-CORE-METHOD--keep-ordinary-words-lowercase-at-cce-sentence-starts@3.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-254",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-254-CORE_META_MODEL-QUESTION--how-should-the-english-project-language-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--SEMNTC-CORE-METHOD--use-english-as-the-project-language@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-255",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-255-CORE_META_MODEL-QUESTION--how-should-the-write-cce-claims-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--SEMNTC-CORE-METHOD--write-claims-in-caprmedio-controlled-english@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-256",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-256-CORE_META_MODEL-QUESTION--how-should-the-write-dod-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L30: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/archive/CA-M--SEMNTC-CORE-METHOD--write-definitions-of-done@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-257",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-257-CORE_META_MODEL-QUESTION--how-should-the-cce-projection-validation-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/archive/CA-E--GOVERN-QA_CASE--validate-cce-claims-and-derived-projections@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-258",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-258-CORE_META_MODEL-QUESTION--how-should-the-lexical-case-qa-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/archive/CA-E--GOVERN-QA_CASE--validate-cce-lexical-case@4.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-259",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-259-CORE_META_MODEL-QUESTION--how-should-the-self-description-qa-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L30: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/archive/CA-E--MMODEL-QA_CASE--validate-artifact-self-description-and-carrier-agreement@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-260",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-260-CORE_META_MODEL-QUESTION--how-should-the-four-set-selection-qa-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Draft Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/archive/CA-E--CORE_META_MODEL-QA_CASE--validate-ownership-and-target-scope-unit-selections@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-261",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-261-CORE_META_MODEL-QUESTION--how-should-the-target-scope-qa-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L15: [\"Artifact/Revision\", \"Atom/Claim\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Project\"]",
+          "L33: - Draft Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/archive/CA-E--CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope@2.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-262",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-262-CORE_META_MODEL-QUESTION--how-should-the-natural-rendering-qa-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/archive/CA-E--MMODEL-QA_CASE--validate-natural-renderings-of-qualified-subject-expressions@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-263",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-263-CORE_META_MODEL-QUESTION--how-should-the-navigation-migration-qa-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L30: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/archive/CA-E--MMODEL-QA_CASE--validate-navigation-number-migration-evidence@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-264",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-264-CORE_META_MODEL-QUESTION--how-should-the-qualified-name-delivery-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/archive/CA-D--MMODEL-DELIVERY--deliver-qualified-entity-names-by-interaction-boundary@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-C-265",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-265-CORE_META_MODEL-QUESTION--how-should-the-target-scope-serialization-draft-be-reconciled.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "This Concern preserves a historical draft-review record and an archived proposal/source snapshot. History/Revision is the candidate meaning, but C/A repair remains deferred; retain its historical quotations, source locators and recorded outcome unchanged.",
+        "evidence": [
+          "L5: [\"Atom/Claim\", \"Artifact/Revision\", \"Entity/Continuant/Object/Project\", \"Entity/Continuant/Actor/Type: Operator\"]",
+          "L26: - archived Carrier: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/archive/CA-D--MMODEL-DELIVERY--serialize-claim-target-scope-only-when-needed@1.md`."
+        ]
+      },
+      {
+        "source_atom": "CA-D-256",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-256-CORE_META_MODEL-CORE-DELIVERY--define-carries.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "The exact carried historical state belongs to History/Revision, but this rule also treats every currently carried version as a Revision. Current carried entities remain their own kinds. Revise the universal binding wording in the content pass rather than silently equating every current entity with History.",
+        "evidence": [
+          "L9: - \"Artifact/Revision\"",
+          "L37: - **when** the carried Entity has Revisions, the binding identifies the exact carried Revision, such as an Artifact Revision."
+        ]
+      },
+      {
+        "source_atom": "CA-D-360",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project.Framework Settings"
+          }
+        ],
+        "reason": "This is the current Framework Settings file, not a historical Revision. The mandatory Journal receipt/baseline admission conflicts with the approved read-current-file rule and must be removed in content migration; do not preserve it through a renamed Revision node.",
+        "evidence": [
+          "L5: - \"Artifact/Revision\"",
+          "L31: the current caprmedio_framework_settings Revision **and** SHA-256 Digest **must** bind **to** its authoritative TOML Carrier through a canonical completed governed-change Work Journal receipt **or** an explicitly authorized canonical recovered-state Work Journal receipt registering its observed baseline; the receipt **must** match the selected Project, exact Carrier path, logical Artifact Revision, **and** Digest. absence, ambiguity, **or** mismatch **must** leave its currentness unknown."
+        ]
+      },
+      {
+        "source_atom": "CA-D-365",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project.Settings"
+          }
+        ],
+        "reason": "This is the current Project Settings file, not a historical Revision. Its Journal receipt/baseline admission is already rejected; content repair is required rather than mapping current Settings to History/Revision.",
+        "evidence": [
+          "L5: - \"Artifact/Revision\"",
+          "L31: the current Project Settings Revision **and** SHA-256 Digest **must** bind **to** its authoritative TOML Carrier through a canonical completed governed-change Work Journal receipt **or** an explicitly authorized canonical recovered-state Work Journal receipt registering its observed baseline; the receipt **must** match the selected Project, exact Carrier path, logical Artifact Revision, **and** Digest. absence, ambiguity, **or** mismatch **must** leave its currentness unknown."
+        ]
+      },
+      {
+        "source_atom": "CA-D-377",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL--exclude-atom-metadata-from-framework-instance-settings.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Version Number"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom.Updated At"
+          },
+          {
+            "path": "Entity/Continuant/Project.Framework Settings"
+          }
+        ],
+        "reason": "The excluded Atom revision metadata means Atom version/timestamp values, not a current Atom/Revision entity. Preserve the Atom-metadata exclusion; the separate CA-D-360 Settings receipt-binding clause is obsolete and needs the later content pass.",
+        "evidence": [
+          "L5: [\"Entity/Continuant/Object/Project.Framework Settings\", \"Entity/Continuant/Object/Atom\", \"Artifact/Revision\"]",
+          "L30: the Framework Instance Settings TOML Carrier **must not** contain Atom Frontmatter, Atom ID, Atom Revision metadata, Atom relations, rationale, **or** provenance; its Revision binding follows CA-D-360."
+        ]
+      },
+      {
+        "source_atom": "CA-D-443",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-443-CORE_META_MODEL-DELIVERY--bind-project-structure-revisions-to-source-evidence.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "The reference includes recorded pre-change and resulting states in change evidence. Map historical states to History/Revision; current Project Structure remains the governed Project.Structure, and its completed change event remains Journal evidence, not the Revision.",
+        "evidence": [
+          "L5: [\"Artifact/Revision\", \"Entity/Continuant/History/Journal\", \"Entity/Carrier\"]",
+          "L30: a Project Structure Revision binding **must** identify the exact authoritative TOML bytes by SHA-256 Digest **and** the completed change event **in** the canonical Event Log under applicable Journal authority. the binding **must** distinguish the selected pre-change state, resulting state, **and** actual completion **or** failure; missing **or** conflicting event evidence leaves provenance currentness unknown. the TOML Carrier **must not** duplicate Atom Revision fields **or** store its own self-referential digest. a consumer **may** parse **and** validate the selected bytes **without** claiming completed change provenance **when** that provenance is unresolved."
+        ]
+      },
+      {
+        "source_atom": "CA-O-124",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-124-CORE_META_MODEL-ACTION--prepare-legacy-evidence-and-provisional-rmed.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "The Action preserves a bounded legacy evidence snapshot and historical source identity. Those recorded states belong to History/Revision; the currently accepted R/M/E/D sources remain Atoms under the source's separate existing Atom dependency.",
+        "evidence": [
+          "L13: depends_on: [\"Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action\", \"Implementation\", \"Spec\", \"Entity/Continuant/Object/Atom\", \"Artifact/Revision\", \"Entity/Continuant/Object/Atom/Content Role: Evaluation\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Actor/Type: AI Agent\"]",
+          "L28: 2. preserve the exact source/evidence identity, Revision or snapshot binding, window, locators and available acquisition provenance needed to trace each observation. distinguish actual behavior observed in the bound evidence from historical requests, descriptions and assistant implementation reports. unavailable or unverified provenance remains explicit; neither a report nor a source's current presence proves historical execution."
+        ]
+      },
+      {
+        "source_atom": "CA-O-131",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "The reversal selects earlier accepted effects and original before/after evidence and explicitly preserves prior revisions. Those historical states belong to History/Revision; current targets remain their own kinds and action events remain Journal records.",
+        "evidence": [
+          "L13: depends_on: [\"Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/Object/Atom\", \"Artifact\", \"Artifact/Revision\", \"Entity/Continuant/History/Journal\", \"Workflow Run\", \"Step Run\"]",
+          "L29: 3. verify that the approved expected result is representable under current authority. preserve required prior Revisions, archives, accepted events **and** referenced identities; do **not** erase **or** rewrite history **to** make the past resemble the requested state. resolve lifecycle transitions from the actual Entity/qualified Atom status model. classify Atom effects under CA-R-1432; retain fixed Summary under CA-R-1464, **and** require approved new-identity replacement **when** needed rather than changing the existing identity's Summary. an admitted replacement reuses CA-O-051's ordered transition/history boundary. do **not** reuse an allocated identity for a different Atom, regress its Version, overwrite preserved prior Revision evidence, **or** invent active replacement-history Relations. an unresolved required reference, unsupported transition **or** unapproved dependent effect blocks the affected reversal."
+        ]
+      },
+      {
+        "source_atom": "CA-O-134",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom"
+          },
+          {
+            "path": "Entity/Continuant/Projection"
+          },
+          {
+            "path": "Entity/Continuant/Project.Structure"
+          }
+        ],
+        "reason": "Graph construction binds current source Atoms, upstream/current Projections and Project Structure. A versioned current source or just-produced Projection is not a historical Revision object. Preserve exact version references on those source kinds; do not retarget current input authority to History.",
+        "evidence": [
+          "L13: depends_on: [\"Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action\", \"Entity\", \"Property\", \"Entity/Continuant/Projection/Type: Entities Graph\", \"Entity/Continuant/Object/Project.Structure\", \"Relation Kind\", \"Artifact/Revision\", \"Entity/Continuant/History/Journal\"]",
+          "L29: require an admitted request, explicit source selection **and** any narrower display selection, the exact current source set **and** governing source/Relation Kind authority, representation configuration, target Projection/output destination, any existing Projection with source evidence, admitted realization/permissions **and** actual Run recording context. the source set identifies all required source kinds **and** their coverage, including the authoritative Project Structure under CA-R-1483/CA-D-440 **when** declared Scope Unit facts are selected. upstream Projections need their own identity/Revision **and** ultimate source traceability, **not** independent authority. an explicitly empty evidenced selection differs from an absent **or** unreadable selection."
+        ]
+      },
+      {
+        "source_atom": "CA-O-137",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom"
+          },
+          {
+            "path": "Entity/Continuant/Projection"
+          }
+        ],
+        "reason": "Terms construction binds current defining sources and upstream/current Projections. Citing their exact versions does not make them History/Revision. Preserve source version traceability on the Atom/Projection references; obsolete Definition-Atom requirements remain separate content work.",
+        "evidence": [
+          "L13: depends_on: [\"Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action\", \"Entity/Continuant/Term\", \"Governed Term\", \"Definition Atom\", \"Entity/Continuant/Projection/Type: Terms Graph\", \"Relation Kind\", \"Artifact/Revision\", \"Entity/Continuant/History/Journal\"]",
+          "L29: require an admitted request, explicit source selection **and** any narrower/governed-only view selection, exact current source set **and** governing Term/Relation Kind authority, representation configuration, target Projection/output destination, any existing Projection with source evidence, admitted realization/permissions **and** actual Run recording context. declared selection governs required source kinds; an upstream Projection needs its identity/Revision **and** ultimate source traceability, **not** defining authority. an explicitly empty evidenced selection differs from absent **or** unreadable selection."
+        ]
+      },
+      {
+        "source_atom": "CA-R-1268",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "The dependency concerns the earlier states across which an artifact's identity persists. Map historical states to History/Revision. The old Artifact partition governed by this Atom is separately tracked; this dependency edit does not recreate it.",
+        "evidence": [
+          "L5: - \"Artifact/Revision\"",
+          "L29: an Artifact **means** a Primary Entity whose governed identity persists across its Artifact Revisions."
+        ]
+      },
+      {
+        "source_atom": "CA-R-1371",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "Its immutable recorded-state definition maps to History/Revision, but its permission to change Status/Updated At without a new semantic Revision conflicts with every real Atom update incrementing version and exact archived bytes. Defer content correction; do not silently approve that exception.",
+        "evidence": [
+          "L3: governs: \"Artifact/Revision\"",
+          "L27: an Artifact/Revision **means** one immutable recorded state of one Artifact's governed meaning. lifecycle Status **and** Updated At serialize its current lifecycle metadata **and** **may** change **without** creating another semantic Revision."
+        ]
+      },
+      {
+        "source_atom": "CA-R-1419",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1419-CORE_META_MODEL-CORE--restrict-archived-status-to-non-current-revisions.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "The explicit prior or final state of a replaced/retired artifact is historical, so the dependency maps to History/Revision. Its longer governed Status path and removed Activity dependency are separate entries, not silently repaired here.",
+        "evidence": [
+          "L5: - \"Artifact/Revision\"",
+          "L29: an Artifact Revision **may** have Status Archived **only** **if** it is a prior Revision **or** the final Revision of a replaced, absorbed, **or** retired Artifact."
+        ]
+      },
+      {
+        "source_atom": "CA-R-1493",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1493-CORE_META_MODEL-GENERAL-REQUIREMENT--identify-how-each-projection-is-rebuilt.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The complete claim governs how a current Projection is rebuilt from its generator/procedure and declared configuration; it states no Revision dependency. Remove this unsupported broad reference rather than inventing a history prerequisite.",
+        "evidence": [
+          "L5: - \"Artifact/Revision\"",
+          "L28: a Projection's governed generator **or** generation procedure **and** declared configuration **must** identify how **to** rebuild that Projection."
+        ]
+      },
+      {
+        "source_atom": "CA-R-1494",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1494-CORE_META_MODEL-GENERAL-REQUIREMENT--record-projection-dependency-provenance-only-when-required.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The claim makes dependency provenance conditional and references separate traceability authority; it does not identify a Revision object. Remove the unsupported generic Artifact/Revision topic dependency, preserving all source traceability text.",
+        "evidence": [
+          "L5: - \"Artifact/Revision\"",
+          "L25: a Projection **must** record dependency provenance **only** **when** its registered job requires that information; no Projection is required **to** persist a blanket source frontier."
+        ]
+      },
+      {
+        "source_atom": "CA-R-1502",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1502-CORE_META_MODEL-CORE--keep-authority-applicability-and-currentness-distinct.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History/Revision"
+          }
+        ],
+        "reason": "The claim explicitly contrasts an applicable historical Revision with current Projection state. Map that historical state to History/Revision; do not map current Projection or all current authority to History.",
+        "evidence": [
+          "L5: [\"Artifact/Authority\", \"Artifact/Applicability\", \"Artifact/Currentness\", \"Artifact/Revision\", \"Entity/Continuant/Projection\", \"Provenance\", \"Atom/Content Role: Implementation\", \"Entity/Continuant/Object/Atom/Content Role: Evaluation\", \"Property\", \"Atom/Claim\", \"Entity/Continuant/Object/Atom/Content Role: Requirement\", \"Entity/Continuant/Object/Atom/Content Role: Method\", \"Entity/Continuant/Object/Atom/Content Role: Delivery\", \"Entity/Continuant/Object/Atom/Content Role: Operations\"]",
+          "L29: - an applicable historical Revision **may** no longer be current."
+        ]
+      },
+      {
+        "source_atom": "CA-R-1791",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1791-CORE_META_MODEL-GENERAL--keep-invocation-delivery-distinct-from-step-completion.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The full claim only distinguishes prompt/participation delivery from Step Run completion; it supplies no Revision dependency. Remove the unused topic reference, leaving operation/Run mappings to their respective entries.",
+        "evidence": [
+          "L5: [\"Step Run\", \"Workflow Run\", \"Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step\", \"Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action\", \"Action/Execution Kind\", \"Step/Agentic Execution Context\", \"Artifact/Revision\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/History/Journal\"]",
+          "L28: requesting participation **or** returning a prompt **must not** itself complete a Step Run."
+        ]
+      },
+      {
+        "source_atom": "CA-R-1792",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1792-CORE_META_MODEL-GENERAL--preserve-terminal-workflow-handoff-approval-boundaries.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The full claim governs predecessor/successor Run and approval boundaries, not historical source state. Remove the unsupported Revision reference; preserve the actual handoff rule for its separate content review.",
+        "evidence": [
+          "L5: [\"Step Run\", \"Workflow Run\", \"Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step\", \"Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action\", \"Action/Execution Kind\", \"Step/Agentic Execution Context\", \"Artifact/Revision\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/History/Journal\"]",
+          "L28: a terminal Workflow handoff **must** end the predecessor Run **and** let the executor admit a separate successor under `CA-R-1520-CORE_META_MODEL-GENERAL-REQUIREMENT--return-workflow-handoffs-through-terminal-results`. a session instruction **must not** silently resume an ended Run **or** bypass approval."
+        ]
+      },
+      {
+        "source_atom": "CA-R-1793",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1793-CORE_META_MODEL-GENERAL--preserve-agentic-invocation-results-without-replaying-effects.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The full claim prevents replaying completed effects after redelivery/reconnection; it supplies no Revision dependency. Remove this unused topic reference without inventing historical source requirements.",
+        "evidence": [
+          "L5: [\"Step Run\", \"Workflow Run\", \"Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step\", \"Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action\", \"Action/Execution Kind\", \"Step/Agentic Execution Context\", \"Artifact/Revision\", \"Entity/Continuant/Actor/Type: Operator\", \"Entity/Continuant/History/Journal\"]",
+          "L28: the receiving context **must** report actual results against the identified Invocation. redelivery **or** reconnection **must not** imply permission **to** repeat already performed effects."
+        ]
+      }
+    ],
+    "question": null
+  }
+]

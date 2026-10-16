@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Active Atom Carrier Discovery"
+  governs: "Entity/Continuant/Object/Atom"
   depends_on:
     ["Entity/Continuant/Object/Atom.ID", "Entity/Carrier.Canonical Address"]
-version: 14
-updated_at: "2026-10-15 18:51:17 +0000"
+version: 15
+updated_at: "2026-10-16 12:09:20 +0000"
 relations: {}
 atom_id: "CA-D-336"
 content_role: "Delivery"

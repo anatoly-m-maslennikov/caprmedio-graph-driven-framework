@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Plan Atom Carrier Bundle"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    ["Plan Atom Carrier.Stem", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier"]
-version: 8
-updated_at: "2026-10-15 18:52:05 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier"]
+version: 9
+updated_at: "2026-10-16 12:09:32 +0000"
 relations: {"relates_to": ["CA-R-1578", "CA-D-469"]}
 atom_id: "CA-D-460"
 content_role: "Delivery"

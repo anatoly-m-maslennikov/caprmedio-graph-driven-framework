@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Atom.Global Tier"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Local Tier: Core", "Entity/Continuant/Object/Scope Unit", "Structural Parent Relation"]
-version: 12
-updated_at: "2026-10-15 18:42:27 +0000"
+    ["Entity/Continuant/Object/Atom.Local Tier: Core", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children"]
+version: 13
+updated_at: "2026-10-16 12:08:22 +0000"
 relations: {}
 atom_id: "CA-R-1390"
 content_role: "Requirement"

@@ -1,0 +1,1205 @@
+[
+  {
+    "index": 8,
+    "subject": "Agentic Step Execution Context",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-495",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-QA_CASE--validate-action-kinds-and-step-contexts.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context"
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context"
+          }
+        ],
+        "reason": "Source covers both declared context binding and actual resolved Integrated/Isolated execution mode. Both subjects are needed; no separate Invocation entity or payload conflation.",
+        "evidence": "Details: check valid definition bindings and invocation evidence; distinguish unavailable required context from malformed definition. Internal-tool granularity case is a later decision-24 content repair."
+      },
+      {
+        "source_atom": "CA-O-091",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-091-CORE_META_MODEL-STEP--prepare-delegated-implementation-work.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-091",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Integrated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Integrated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-092",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-092-CORE_META_MODEL-STEP--prepare-tests-in-the-implementation-subagent.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-092",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Isolated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Isolated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-093",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-093-CORE_META_MODEL-STEP--implement-requirements-in-the-assigned-subagent.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-093",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Isolated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Isolated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-094",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-094-CORE_META_MODEL-STEP--run-the-selected-implementation-checks.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-094",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Integrated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Integrated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-095",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-095-CORE_META_MODEL-STEP--diagnose-failures-in-the-assigned-subagent.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-095",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Isolated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Isolated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-096",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-096-CORE_META_MODEL-STEP--admit-an-implementation-repair-retry.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-096",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Integrated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Integrated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-098",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-102-CORE_META_MODEL-WORKFLOW--learn-methods-from-verified-implementation-issues/CA-O-098-CORE_META_MODEL-STEP--verify-and-activate-corrective-method-drafts.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-098",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Integrated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Integrated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-099",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-099-CORE_META_MODEL-STEP--repair-code-and-retain-issue-evidence.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-099",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Isolated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Isolated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-101",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-102-CORE_META_MODEL-WORKFLOW--learn-methods-from-verified-implementation-issues/CA-O-101-CORE_META_MODEL-STEP--draft-methods-in-a-separate-learning-run.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-101",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Isolated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Isolated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-108",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-108-CORE_META_MODEL-STEP--select-the-rmed-review-batch.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-108",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Integrated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Integrated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-109",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-109",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Isolated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Isolated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-110",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-110-CORE_META_MODEL-STEP--repair-the-evaluated-rmed-review-batch.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-110",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Isolated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Isolated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-129",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-lifecycle-change.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-129",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Integrated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Integrated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-135",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-135-CORE_META_MODEL-STEP--construct-the-requested-entities-graph.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-135",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-135."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-138",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-138-CORE_META_MODEL-STEP--construct-the-requested-terms-graph.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-138",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-138."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-139",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-139-CORE_META_MODEL-STEP--select-project-structure-maintenance-sources.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-139",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-139."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-140",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-140-CORE_META_MODEL-STEP--prepare-project-structure-maintenance-change.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-140",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-140."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-141",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-141-CORE_META_MODEL-STEP--assess-project-structure-maintenance-candidate.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-141",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-141."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-142",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-142-CORE_META_MODEL-STEP--authorize-project-structure-maintenance-change.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-142",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-142."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-143",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-143-CORE_META_MODEL-STEP--apply-project-structure-maintenance-change.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-143",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-143."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-144",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-144-CORE_META_MODEL-STEP--assess-project-structure-maintenance-result.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-144",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-144."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-145",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-145-CORE_META_MODEL-STEP--assess-update-identity-for-atom-lifecycle.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-145",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          }
+        ],
+        "reason": "The named Step explicitly requires Integrated context. This is its definition's context requirement, not evidence of an executed Run; relocate the concrete Step to Project Configuration.",
+        "evidence": "Operation: invokes one named Action in Integrated context; missing required context blocks rather than silent substitution."
+      },
+      {
+        "source_atom": "CA-O-146",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources/CA-O-146-CORE_META_MODEL-STEP--select-the-reconciliation-source-frontier.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-146",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-146."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-147",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources/CA-O-147-CORE_META_MODEL-STEP--assess-the-reconciliation-source-frontier.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-147",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-147."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-148",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources/CA-O-148-CORE_META_MODEL-STEP--propose-the-reconciliation-source-corrections.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-148",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-148."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-149",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-149",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-149."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-150",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-150",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-150."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-O-151",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "atom_id": "CA-O-151",
+            "applicability": "Required context binding of this named Step; project-specific definition belongs in Project Configuration."
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context",
+            "applicability": "Actual selected Integrated/Isolated mode of an Agentic execution of CA-O-151."
+          }
+        ],
+        "reason": "The Step declares where the execution mode comes from and requires retaining the selected mode with its Run. Keep definition binding and actual mode distinct; not the Invocation Context input payload.",
+        "evidence": "Operation: bind exactly one Integrated or Isolated context from supplied runtime parameter before dispatch; retain resolved context with Step Run."
+      },
+      {
+        "source_atom": "CA-R-1508",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1508-CORE_META_MODEL-CORE-REQUIREMENT--define-workflow.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context"
+          }
+        ],
+        "reason": "The generic Workflow/Step definition refers to the Step-owned Agentic context binding, not a Workflow-wide mode or Action identity.",
+        "evidence": "Details: invocation context is selected per Agentic Step; mixed graph needs no Integrated/Isolated Workflow identity."
+      },
+      {
+        "source_atom": "CA-R-1509",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1509-CORE_META_MODEL-CORE-REQUIREMENT--define-step.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context"
+          }
+        ],
+        "reason": "The generic Workflow/Step definition refers to the Step-owned Agentic context binding, not a Workflow-wide mode or Action identity.",
+        "evidence": "Details: Agentic invocation selects Integrated or Isolated under R1527; Step owns parameter/input source binding."
+      },
+      {
+        "source_atom": "CA-R-1511",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1511-CORE_META_MODEL-CORE--define-step-run.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context"
+          }
+        ],
+        "reason": "This occurrence concerns the actual participating/separate execution context. Preserve the required-context property on the definition separately. R1789's governing Invocation Context payload is not this dependency.",
+        "evidence": "Claim: an Agentic Step Run records its resolved invocation context under R1527."
+      },
+      {
+        "source_atom": "CA-R-1527",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1527-CORE_META_MODEL-GENERAL-REQUIREMENT--define-agentic-step-execution-context.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context"
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context"
+          }
+        ],
+        "reason": "Source covers both declared context binding and actual resolved Integrated/Isolated execution mode. Both subjects are needed; no separate Invocation entity or payload conflation.",
+        "evidence": "Claim: selected by Step invocation binding; actual Step Run retains its selected context."
+      },
+      {
+        "source_atom": "CA-R-1789",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1789-CORE_META_MODEL-GENERAL--provide-self-contained-agentic-step-invocation-payloads.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context"
+          }
+        ],
+        "reason": "This occurrence concerns the actual participating/separate execution context. Preserve the required-context property on the definition separately. R1789's governing Invocation Context payload is not this dependency.",
+        "evidence": "Claim: Integrated delivery returns payload to session; Isolated delivery supplies it to a separate context."
+      },
+      {
+        "source_atom": "CA-R-1790",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1790-CORE_META_MODEL-GENERAL--retain-agentic-step-executor-state-and-routing.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context"
+          }
+        ],
+        "reason": "This occurrence concerns the actual participating/separate execution context. Preserve the required-context property on the definition separately. R1789's governing Invocation Context payload is not this dependency.",
+        "evidence": "Scope: executor and participating session or separate Agent context coordinate dispatch/resumption."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 72,
+    "subject": "Atom Change Classification",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-491",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The vague classification dependency is redundant with existing Atom.Summary and precise CA-O-067/CA-R-1432 references; retain those existing links.",
+        "evidence": "Details: changed proposed Summary requires replacement-required assessment and caller routing; evaluation_for includes R1432/O067."
+      },
+      {
+        "source_atom": "CA-O-067",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-067-CORE_META_MODEL-ACTION--assess-atom-update-identity.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.ID"
+          }
+        ],
+        "reason": "Change classification concerns identity preservation versus replacement; changed Summary requires new identity. No Atom Change Classification entity.",
+        "evidence": "Operation: compare existing Atom to proposed result and return whether update preserves identity; Summary is already separately listed."
+      },
+      {
+        "source_atom": "CA-R-1432",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.ID"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom.Summary"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom.Version Number"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom.Updated At"
+          }
+        ],
+        "reason": "Change classification concerns identity preservation versus replacement; changed Summary requires new identity. No Atom Change Classification entity.",
+        "evidence": "Claim table: same-ID updates increment Version; changed Summary requires replacement; exact no-op retains Version/Updated At."
+      },
+      {
+        "source_atom": "CA-R-1633",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.ID"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom.Summary"
+          }
+        ],
+        "reason": "Change classification concerns identity preservation versus replacement; changed Summary requires new identity. No Atom Change Classification entity.",
+        "evidence": "Scope/Claim: semantic_revision/replacement require impact analysis; carrier_only/refinement require equivalence verification."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 139,
+    "subject": "CAPRMEDIO Framework Instance",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-207",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Framework Instance is the same Project here, already present as a separate Project dependency. Remove this duplicate while the existing old Object/Project spelling is normalized to Entity/Continuant/Project.",
+        "evidence": "Scope: resolve priorities and select alternatives for affected Scope and Project stage; Project already in depends_on."
+      },
+      {
+        "source_atom": "CA-E-520",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVALUATION_APPROACH--check-rmed-atom-coherence.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The local coherence checklist does not name a distinct Framework Instance or actual execution instance. Remove this vague dependency, preserving its precise Operator/Workflow/Atom dependencies and capability-versus-authorization check.",
+        "evidence": "Details: distinguish capability Requirement from execution authorization; no distinct instance is identified."
+      },
+      {
+        "source_atom": "CA-O-022",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Framework Instance is the same Project here, already present as a separate Project dependency. Remove this duplicate while the existing old Object/Project spelling is normalized to Entity/Continuant/Project.",
+        "evidence": "Operation: activate resolved priorities for identified Scope and Project stage; Project already in depends_on."
+      },
+      {
+        "source_atom": "CA-R-1422",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Framework Instance is the same Project here, already present as a separate Project dependency. Remove this duplicate while the existing old Object/Project spelling is normalized to Entity/Continuant/Project.",
+        "evidence": "Claim: collective human Operator belongs to Project and its Framework Instance; Project is already a dependency."
+      },
+      {
+        "source_atom": "CA-R-1487",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1487-CORE_META_MODEL-REQUIREMENT--follow-the-operator-selected-priority-model.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Framework Instance is the same Project here, already present as a separate Project dependency. Remove this duplicate while the existing old Object/Project spelling is normalized to Entity/Continuant/Project.",
+        "evidence": "Scope/Claim: admissible Operator priority model for affected Scope and Project stage."
+      },
+      {
+        "source_atom": "CA-R-1772",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1772-CORE_META_MODEL-CORE-REQUIREMENT--minimal-default-project-model.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Framework Instance is the same Project here, already present as a separate Project dependency. Remove this duplicate while the existing old Object/Project spelling is normalized to Entity/Continuant/Project.",
+        "evidence": "Scope: Project models; minimum Project-scope Requirement plus native implementation."
+      },
+      {
+        "source_atom": "CA-R-1773",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1773-CORE_META_MODEL-CORE-REQUIREMENT--define-the-project-principle-universe.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Framework Instance is the same Project here, already present as a separate Project dependency. Remove this duplicate while the existing old Object/Project spelling is normalized to Entity/Continuant/Project.",
+        "evidence": "Claim: Principle universe applies across entire current Project."
+      },
+      {
+        "source_atom": "CA-R-1776",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1776-CORE_META_MODEL-CORE-REQUIREMENT--separate-graph-dimensions.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Framework Instance is the same Project here, already present as a separate Project dependency. Remove this duplicate while the existing old Object/Project spelling is normalized to Entity/Continuant/Project.",
+        "evidence": "Scope: Project graph dimensions; existing Project dependency covers the owner."
+      },
+      {
+        "source_atom": "CA-R-1777",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1777-CORE_META_MODEL-CORE-REQUIREMENT--use-one-global-tier-number-for-prmedo-authority.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project"
+          }
+        ],
+        "reason": "Framework Instance means the governed Project, not an Actor or an actual Run. Use the approved Project path, not another Framework Instance object.",
+        "evidence": "Scope: tier-classified PRMEDO Atoms across complete structural hierarchy; no particular runtime execution."
+      },
+      {
+        "source_atom": "CA-R-850",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-850-CORE_META_MODEL-CORE-REQUIREMENT--exclude-caprmedio-instance-from-actor-role.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project"
+          }
+        ],
+        "reason": "Framework Instance means the governed Project, not an Actor or an actual Run. Use the approved Project path, not another Framework Instance object.",
+        "evidence": "Claim: Framework Instance must not be classified as Actor."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 275,
+    "subject": "Implementation Workflow",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-473",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-473-CORE_META_MODEL-QA_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Occurrent/Execution/Workflow Run",
+            "applicability": "Executions of named Implementation Workflow CA-O-016."
+          }
+        ],
+        "reason": "The occurrence concerns execution-local retry accounting/completion/evidence, not an Implementation object. Preserve O016-specific applicability.",
+        "evidence": "Cases compare separate execution contexts, initial failure and consumed fix/evaluate rounds without resetting retry count."
+      },
+      {
+        "source_atom": "CA-E-519",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-519-CORE_META_MODEL-QA_CASE--check-delegated-test-first-implementation-and-method-learning.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+            "atom_id": "CA-O-016"
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Workflow Run",
+            "applicability": "Executions of CA-O-016 only."
+          }
+        ],
+        "reason": "Evaluation explicitly checks both definition and Run. Preserve the particular implementation workflow; Method-learning is separately O102.",
+        "evidence": "Claim rejects definition or Run conflating completion; Details explicitly complete O016 without M Atom and invoke O102 separately."
+      },
+      {
+        "source_atom": "CA-O-016",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+            "atom_id": "CA-O-016"
+          }
+        ],
+        "reason": "This is the concrete Workflow definition; preserve its Atom identity and relocate to Project Configuration.",
+        "evidence": "Operation: Implementation Workflow is the graph with entry O091 and named Step nodes/transitions."
+      },
+      {
+        "source_atom": "CA-O-024",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+            "atom_id": "CA-O-016"
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Workflow Run",
+            "applicability": "Executions of named Implementation Workflow CA-O-016."
+          }
+        ],
+        "reason": "The occurrence concerns execution-local retry accounting/completion/evidence, not an Implementation object. Preserve O016-specific applicability.",
+        "evidence": "Operation: current Implementation Workflow Run's retry allowance; accounting persists throughout that Run."
+      },
+      {
+        "source_atom": "CA-O-102",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-102-CORE_META_MODEL-WORKFLOW--learn-methods-from-verified-implementation-issues.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+            "atom_id": "CA-O-016"
+          },
+          {
+            "path": "Entity/Occurrent/Execution/Workflow Run",
+            "applicability": "Executions of named Implementation Workflow CA-O-016."
+          }
+        ],
+        "reason": "The occurrence concerns execution-local retry accounting/completion/evidence, not an Implementation object. Preserve O016-specific applicability.",
+        "evidence": "Operation: separate learning Run consumes implementation evidence; blocked learning does not retroactively fail verified implementation Run."
+      },
+      {
+        "source_atom": "CA-R-1488",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1488-CORE_META_MODEL-REQUIREMENT--define-implementation-retry-limit.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Occurrent/Execution/Workflow Run",
+            "applicability": "Executions of named Implementation Workflow CA-O-016."
+          }
+        ],
+        "reason": "The occurrence concerns execution-local retry accounting/completion/evidence, not an Implementation object. Preserve O016-specific applicability.",
+        "evidence": "Scope: retry-limit values in one Implementation Workflow Run."
+      },
+      {
+        "source_atom": "CA-R-1559",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The claim governs permissions to change RMED during implementation generally, not O016's graph or a particular Run. Remove the unsupported named-workflow dependency; existing AI Agent/Author/Operator dependencies retain the actual rule.",
+        "evidence": "Scope: governing RMED changes during implementation. Claim contains no CA-O-016 identity or graph-specific constraint."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 343,
+    "subject": "Project Lexicographic Selection",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-207",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Method",
+            "atom_id": "CA-M-297"
+          }
+        ],
+        "reason": "The QA case references the comparison Method as check authority; its governed execution behavior is separately mapped under Priority Model Application.",
+        "evidence": "Scope explicitly checks under CA-M-297; details first deciding criterion wins and later criteria cannot reverse preference."
+      },
+      {
+        "source_atom": "CA-M-297",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-297-CORE_META_MODEL-METHOD--compare-by-priority-order.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Selection",
+            "applicability": "Admissible alternatives compared under Operator-selected priority order."
+          }
+        ],
+        "reason": "M specifies how alternatives are compared; it explicitly is not priority activation or selection execution. Preserve named selection applicability without inventing a selector grammar.",
+        "evidence": "Scope: priority-order comparison of admissible alternatives; final paragraph excludes activation/execution/escalation."
+      },
+      {
+        "source_atom": "CA-O-023",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Method",
+            "atom_id": "CA-M-297"
+          }
+        ],
+        "reason": "The dependency refers precisely to the comparison Method used only when Operator selects priority order; retain its source Atom identity, not all selection Actions.",
+        "evidence": "Execution step 3: use CA-M-297 only for Operator-selected comparison by priority order."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 347,
+    "subject": "Project Priority Model Application",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-207",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Occurrent/Execution/Action Run",
+            "applicability": "Actual priority-resolution and alternative-selection behavior of CA-O-022 and CA-O-023 for affected Scope/Project stage."
+          }
+        ],
+        "reason": "Evaluation checks actual resolved-model and selection behavior, not a new application object.",
+        "evidence": "Claim: behavior passes only when evidence supports resolved Operator model, admissible alternatives and justified selection."
+      },
+      {
+        "source_atom": "CA-M-297",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-297-CORE_META_MODEL-METHOD--compare-by-priority-order.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project",
+            "applicability": "Affected Scope and Project stage under the Operator-selected priority model."
+          }
+        ],
+        "reason": "This dependency is the Project's effective priority policy, not an extra procedure entity. Preserve context/model restriction.",
+        "evidence": "Claim applies only when Operator selects comparison by priority order."
+      },
+      {
+        "source_atom": "CA-O-022",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project",
+            "applicability": "Affected Scope and Project stage under the Operator-selected priority model."
+          }
+        ],
+        "reason": "This dependency is the Project's effective priority policy, not an extra procedure entity. Preserve context/model restriction.",
+        "evidence": "Operation resolves and activates applicable Operator priorities for identified Scope and Project stage."
+      },
+      {
+        "source_atom": "CA-O-023",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project",
+            "applicability": "Affected Scope and Project stage under the Operator-selected priority model."
+          }
+        ],
+        "reason": "This dependency is the Project's effective priority policy, not an extra procedure entity. Preserve context/model restriction.",
+        "evidence": "Execution obtains effective priorities under O022 for affected context before comparing alternatives."
+      },
+      {
+        "source_atom": "CA-R-1487",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1487-CORE_META_MODEL-REQUIREMENT--follow-the-operator-selected-priority-model.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project"
+          }
+        ],
+        "reason": "Priority-model capability belongs to Project, scoped to affected Scope/stage and Operator-selected model. No application entity.",
+        "evidence": "Claim: support admissible Operator priority model for affected Scope and Project stage."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 405,
+    "subject": "Runtime State",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-522",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Carrier",
+            "applicability": "Runtime operational storage boundary for resumable checkpoints, generated caches and temporary working data, distinct from canonical source/history carriers."
+          }
+        ],
+        "reason": "Runtime State denotes storage placement in these cases, not a live execution or a new object kind. Preserve boundary applicability rather than treating every Carrier as runtime.",
+        "evidence": "Scope lists placement/retention for resumable checkpoints/caches/disposable workspaces; fail if Runtime State or scratch is treated as canonical truth."
+      },
+      {
+        "source_atom": "CA-E-523",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Runtime State does not occur in this Journal-view integrity claim; its precise Journal/Projection/Carrier dependencies already cover all test inputs. Remove stale topic link.",
+        "evidence": "Scope/Inputs: two views from same declared Journal selection and their source records; no Runtime State boundary case."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 443,
+    "subject": "Step/Agentic Execution Context",
+    "occurrences": [
+      {
+        "source_atom": "CA-C-426",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-426-CORE_META_MODEL-PROBLEM--bind-agentic-context-for-selected-workflow-steps.md",
+        "subject_role": "depends_on",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context",
+            "applicability": "Context bindings of O139-O144 and O146-O157."
+          }
+        ],
+        "reason": "Concern is resolved historical C material; retain it unchanged under C/A deferral. Candidate meaning is named Step context binding, not executed Runs.",
+        "evidence": "Concern/Resolution identify eighteen Steps with supplied agentic_execution_context binding and explicitly claim no dispatched Runs."
+      },
+      {
+        "source_atom": "CA-R-1791",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1791-CORE_META_MODEL-GENERAL--keep-invocation-delivery-distinct-from-step-completion.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context"
+          }
+        ],
+        "reason": "Agentic execution mode of the participating context is a dependency of actual dispatch/handoff/result behavior. It is not required definition context or the full Invocation Context payload.",
+        "evidence": "Scope requests participation/prompt delivery; claim says this alone does not complete Step Run."
+      },
+      {
+        "source_atom": "CA-R-1792",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1792-CORE_META_MODEL-GENERAL--preserve-terminal-workflow-handoff-approval-boundaries.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context"
+          }
+        ],
+        "reason": "Agentic execution mode of the participating context is a dependency of actual dispatch/handoff/result behavior. It is not required definition context or the full Invocation Context payload.",
+        "evidence": "Scope terminal handoff from Agentic execution; session instruction cannot resume ended Run."
+      },
+      {
+        "source_atom": "CA-R-1793",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1793-CORE_META_MODEL-GENERAL--preserve-agentic-invocation-results-without-replaying-effects.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Occurrent/Execution/Step Run.Execution Context"
+          }
+        ],
+        "reason": "Agentic execution mode of the participating context is a dependency of actual dispatch/handoff/result behavior. It is not required definition context or the full Invocation Context payload.",
+        "evidence": "Scope repeated delivery/reconnection; receiving context reports actual results without repeating effects."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 477,
+    "subject": "Verification",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1505",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1505-CORE_META_MODEL-CORE-REQUIREMENT--keep-evaluation-realization-chains-distinct.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History",
+            "applicability": "Retained verification judgments about sufficiency/currentness; distinguish them from raw execution facts and authoritative RMED."
+          }
+        ],
+        "reason": "Verification here denotes a judgment/result used as evidence, not new source authority or a standalone primary entity.",
+        "evidence": "Claim distinguishes factual execution result, Evidence and Verification judgment within each chain."
+      },
+      {
+        "source_atom": "CA-R-1633",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Occurrent/Execution",
+            "applicability": "Lossless-recoding or equivalence verification performed for carrier_only/refinement Atom changes."
+          }
+        ],
+        "reason": "This occurrence requires actual checking rather than another report or entity; resulting evidence belongs to History separately.",
+        "evidence": "Claim contrasts Lineage Impact Analysis for semantic changes with lossless-recoding/equivalence Verification for carrier_only/refinement."
+      },
+      {
+        "source_atom": "CA-R-1638",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History",
+            "applicability": "Retained verification judgments about sufficiency/currentness; distinguish them from raw execution facts and authoritative RMED."
+          }
+        ],
+        "reason": "Verification here denotes a judgment/result used as evidence, not new source authority or a standalone primary entity. This source's Implementation Overview/binding content remains deferred; do not admit a new Implementation entity or activate an out-of-scope projection through this dependency mapping.",
+        "evidence": "Claim: derived Implementation Overview cannot replace Verification or authoritative sources."
+      },
+      {
+        "source_atom": "CA-R-1683",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History",
+            "applicability": "Retained verification judgments about sufficiency/currentness; distinguish them from raw execution facts and authoritative RMED."
+          }
+        ],
+        "reason": "Verification here denotes a judgment/result used as evidence, not new source authority or a standalone primary entity.",
+        "evidence": "Claim: judgments may support/challenge reliance but do not establish/edit/override semantic authority."
+      },
+      {
+        "source_atom": "CA-R-1695",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History",
+            "applicability": "Retained verification judgments about sufficiency/currentness; distinguish them from raw execution facts and authoritative RMED."
+          }
+        ],
+        "reason": "Verification here denotes a judgment/result used as evidence, not new source authority or a standalone primary entity. This source's Implementation Overview/binding content remains deferred; do not admit a new Implementation entity or activate an out-of-scope projection through this dependency mapping.",
+        "evidence": "Claim distinguishes declared implementation relationship from evidence whether realization occurred/is sufficiently assured."
+      },
+      {
+        "source_atom": "CA-R-1703",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/History",
+            "applicability": "Retained verification judgments about sufficiency/currentness; distinguish them from raw execution facts and authoritative RMED."
+          }
+        ],
+        "reason": "Verification here denotes a judgment/result used as evidence, not new source authority or a standalone primary entity. This source's Implementation Overview/binding content remains deferred; do not admit a new Implementation entity or activate an out-of-scope projection through this dependency mapping.",
+        "evidence": "Claim: derived Implementation Overview cannot replace Verification or authoritative sources."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 482,
+    "subject": "Workflow/Step binding ownership",
+    "occurrences": [
+      {
+        "source_atom": "CA-C-425",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/resolved/CA-C-425-CORE_META_MODEL-PROBLEM--remove-duplicated-workflow-step-bindings.md",
+        "subject_role": "governs",
+        "status": "deferred_ca",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+            "atom_id": "CA-O-010"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+            "atom_id": "CA-O-011"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+            "atom_id": "CA-O-015"
+          },
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+            "applicability": "Referenced canonical Steps exclusively owning Action and input bindings."
+          }
+        ],
+        "reason": "Resolved Concern remains unchanged under C/A deferral. Its meaning is concrete Workflow graph ownership versus canonical Step binding ownership; not a new entity.",
+        "evidence": "Concern/Disposition: O010/O011/O015 duplicated Step-owned bindings; repaired while preserving eighteen Step identities and forty-five transitions."
+      }
+    ],
+    "question": null
+  }
+]

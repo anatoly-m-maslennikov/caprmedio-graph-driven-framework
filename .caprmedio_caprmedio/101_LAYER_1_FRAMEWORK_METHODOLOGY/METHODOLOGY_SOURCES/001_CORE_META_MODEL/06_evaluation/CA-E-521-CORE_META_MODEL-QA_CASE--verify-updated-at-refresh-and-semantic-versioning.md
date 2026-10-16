@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Atom.Updated At"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Artifact Carrier", "Entity/Continuant/Object/Atom.Version Number", "Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.ID", "Entity"]
-version: 4
-updated_at: "2026-10-15 18:50:30 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier", "Entity/Continuant/Object/Atom.Version Number", "Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.ID", "Entity"]
+version: 5
+updated_at: "2026-10-16 12:09:10 +0000"
 relations:
   evaluation_for:
     - CA-D-270

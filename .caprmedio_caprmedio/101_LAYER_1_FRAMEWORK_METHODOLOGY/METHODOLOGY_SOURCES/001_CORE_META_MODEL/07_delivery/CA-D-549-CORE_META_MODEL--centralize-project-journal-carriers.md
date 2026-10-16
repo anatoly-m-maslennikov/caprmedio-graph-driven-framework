@@ -8,10 +8,10 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Journal Carrier Root"
+  governs: "Entity/Continuant/History/Journal"
   depends_on: ["Entity/Continuant/Object/Project", "Entity/Continuant/History/Journal", "Entity/Carrier", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
-version: 5
-updated_at: "2026-10-15 18:52:30 +0000"
+version: 6
+updated_at: "2026-10-16 12:09:38 +0000"
 relations: {}
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Structural Level"
+  governs: "Entity/Continuant/Object/Scope Unit.Structural Level"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Structural Parent Relation"]
-version: 18
-updated_at: "2026-10-15 18:45:35 +0000"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children"]
+version: 19
+updated_at: "2026-10-16 12:08:40 +0000"
 relations:
   child_of:
     - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary

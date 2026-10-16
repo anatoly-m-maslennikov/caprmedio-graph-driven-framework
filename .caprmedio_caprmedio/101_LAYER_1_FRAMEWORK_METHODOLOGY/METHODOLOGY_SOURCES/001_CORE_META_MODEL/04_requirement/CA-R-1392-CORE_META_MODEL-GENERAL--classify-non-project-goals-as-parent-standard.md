@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Local Tier: Standard", "Structural Parent Relation"]
-version: 11
-updated_at: "2026-10-15 18:42:30 +0000"
+    ["Entity/Continuant/Object/Atom.Local Tier: Standard", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children"]
+version: 12
+updated_at: "2026-10-16 12:08:23 +0000"
 relations: {}
 atom_id: "CA-R-1392"
 content_role: "Requirement"

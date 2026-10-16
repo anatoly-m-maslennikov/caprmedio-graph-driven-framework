@@ -1,0 +1,1792 @@
+[
+  {
+    "index": 138,
+    "subject": "CAPRMEDIO Framework Identity",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1778",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1778-CORE_META_MODEL-REQUIREMENT--name-the-framework-caprmedio.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "R1778 names the delivered framework, not the Project or this Atom. Rehome to Project Configuration, but no approved candidate target expresses the framework result identity without inventing another kind. Hold for content/target realization; do not map to Project.Name.",
+        "evidence": "the Framework name must be CAPRMEDIO."
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 197,
+    "subject": "Default Settings",
+    "occurrences": [
+      {
+        "source_atom": "CA-D-361",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "encode explicit Operator-selected instance choices through sections and fields specified by Standard-tier Atoms"
+      },
+      {
+        "source_atom": "CA-D-407",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL--store-default-settings-with-the-core-meta-model-source.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Carrier/File Carrier",
+            "applicability": "The authoritative Default Settings TOML file, candidate filename project_settings.default.toml; directory unresolved."
+          }
+        ],
+        "reason": "D407 explicitly requires the superseded filename and Core directory. Its default-file referent is clear, but align the storage claim in the later content pass; do not silently pick the new directory.",
+        "evidence": "caprmedio_framework_default_settings.toml at the root of the CORE_META_MODEL source Scope Unit"
+      },
+      {
+        "source_atom": "CA-D-407",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL--store-default-settings-with-the-core-meta-model-source.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "D407 explicitly requires the superseded filename and Core directory. Its default-file referent is clear, but align the storage claim in the later content pass; do not silently pick the new directory.",
+        "evidence": "caprmedio_framework_default_settings.toml at the root of the CORE_META_MODEL source Scope Unit"
+      },
+      {
+        "source_atom": "CA-D-408",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL--reuse-framework-parameter-fields-in-default-settings.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "every parameter value in the Default Settings TOML Carrier must use the same registered section, field path, value type, and allowed domain"
+      },
+      {
+        "source_atom": "CA-D-408",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL--reuse-framework-parameter-fields-in-default-settings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "every parameter value in the Default Settings TOML Carrier must use the same registered section, field path, value type, and allowed domain"
+      },
+      {
+        "source_atom": "CA-D-447",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "Default Settings TOML: the same field under CA-D-408"
+      },
+      {
+        "source_atom": "CA-D-497",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-497-CORE_META_MODEL--encode-rmed-review-batch-limits.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "the rmed_review parameter group in Framework Instance Settings and Default Settings"
+      },
+      {
+        "source_atom": "CA-E-450",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-EVALUATION_APPROACH--validate-framework-parameter-fallback.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "a valid explicit parameter loses to a Default Settings value"
+      },
+      {
+        "source_atom": "CA-E-458",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-framework-settings-artifact.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "violates its Core content boundary ... after parameter resolution governed by CA-M-279"
+      },
+      {
+        "source_atom": "CA-E-473",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-473-CORE_META_MODEL-QA_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "resolve the limit from the actual Default Settings Carrier without hard-coding its value"
+      },
+      {
+        "source_atom": "CA-M-279",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-GENERAL-METHOD--resolve-missing-framework-parameters-from-default-settings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "otherwise, use the corresponding value from Default Settings"
+      },
+      {
+        "source_atom": "CA-M-295",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL--resolve-implementation-retry-limits-by-source-precedence.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "Framework Instance Settings, resolving an omitted instance parameter through Default Settings"
+      },
+      {
+        "source_atom": "CA-O-052",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "resolve that Project's effective Framework Instance Settings parameters according to CA-M-279"
+      },
+      {
+        "source_atom": "CA-R-1405",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Default Settings referent maps to Governing Configuration, but this Atom's closed Artifact Type partition conflicts with the accepted backbone; hold the mixed taxonomy claim for content review.",
+        "evidence": "Core allowed values of Artifact Type must be (Atom, Journal, Projection, Project Settings, Framework Instance Settings, Default Settings)"
+      },
+      {
+        "source_atom": "CA-R-1429",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "Core-tier Atoms for Project Settings, Framework Instance Settings, and Default Settings must define their purpose, content, and authority boundaries"
+      },
+      {
+        "source_atom": "CA-R-1441",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "authoritative Artifact containing reusable baseline values ... not ... a Project's explicit Operator selections"
+      },
+      {
+        "source_atom": "CA-R-1630",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "effective atomic admission strictness setting must be in (medium, high)"
+      },
+      {
+        "source_atom": "CA-R-1750",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Governing Configuration",
+            "applicability": "Default Settings: reusable defaults carried by project_settings.default.toml, distinct from current explicit Project/Framework Settings. Directory remains undecided."
+          }
+        ],
+        "reason": "Retain the named defaults configuration and its fallback/serialization applicability; do not merge it with explicit settings.",
+        "evidence": "Atoms define permitted parameters, constraints, and applicability without fixing or duplicating ... Default Settings values"
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 229,
+    "subject": "Extension",
+    "occurrences": [
+      {
+        "source_atom": "CA-D-262",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "Extensions and Project Configuration may register additional Carrier Formats"
+      },
+      {
+        "source_atom": "CA-D-361",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "Extension occurs only as an unexplained topic dependency; the claim governs explicit Settings serialization and supplies no specific Extension dependency.",
+        "evidence": "encode explicit Operator-selected instance choices through sections and fields specified by Standard-tier Atoms"
+      },
+      {
+        "source_atom": "CA-D-373",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-373-CORE_META_MODEL--serialize-instance-extension-selections.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The Extension referent is identified, but the actual claim requires separate Settings activation/selected revisions. Decision23 supersedes that layer; keep the Atom held for the later content pass.",
+        "evidence": "encode enabled or disabled Extensions with selected revisions"
+      },
+      {
+        "source_atom": "CA-E-249",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "source element, exact canonical target, mapping rule, intended Scope, or applicable Core Meta-Model distinction ... is missing"
+      },
+      {
+        "source_atom": "CA-E-379",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The Extension referent is identified, but the actual claim requires separate Settings activation/selected revisions. Decision23 supersedes that layer; keep the Atom held for the later content pass.",
+        "evidence": "an unselected or inactive Extension revision contributes"
+      },
+      {
+        "source_atom": "CA-E-464",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-EVALUATION_APPROACH--validate-journal-independence-from-git.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The Extension Scope Unit owning Git integration under INSTALLED_EXTENSIONS, when installed; preserve that specific capability boundary."
+          }
+        ],
+        "reason": "This is specifically Git integration authority, not every Extension. Map its existing owner without inventing a Git entity or changing Journal rules; selected wording follows later installation alignment.",
+        "evidence": "with no Git Extension selected ... with the Git Extension selected, its commit references may add provenance"
+      },
+      {
+        "source_atom": "CA-M-298",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-298-CORE_META_MODEL-GENERAL-METHOD--describe-methodology-expansion-mappings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "one explicit mapping description ... source element and its provenance; exact canonical target; mapping rule; intended scope"
+      },
+      {
+        "source_atom": "CA-O-011",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "exact Applicable Methodology parameters and input sources are carried by the respective Step Atoms"
+      },
+      {
+        "source_atom": "CA-O-054",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "obtain the mapping description under CA-M-298 before an Extension or Project Configuration relies on the mapped element"
+      },
+      {
+        "source_atom": "CA-O-152",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The Extension referent is identified, but the actual claim requires separate Settings activation/selected revisions. Decision23 supersedes that layer; keep the Atom held for the later content pass.",
+        "evidence": "using Framework Instance Settings for current Extension activation and selected Extension Revisions"
+      },
+      {
+        "source_atom": "CA-O-154",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "a prohibited Extension or Project Configuration override must not become conforming without an authorized change to its governing Core authority"
+      },
+      {
+        "source_atom": "CA-R-1206",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1206-CORE_META_MODEL-CORE-REQUIREMENT--separate-extension-installation-from-activation.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The Extension referent is identified, but the actual claim requires separate Settings activation/selected revisions. Decision23 supersedes that layer; keep the Atom held for the later content pass.",
+        "evidence": "installing an Extension ... without making the Extension authority applicable to the current Project"
+      },
+      {
+        "source_atom": "CA-R-1207",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1207-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-configuration-rules-from-current-settings.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The Extension referent is identified, but the actual claim requires separate Settings activation/selected revisions. Decision23 supersedes that layer; keep the Atom held for the later content pass.",
+        "evidence": "current Extension activation and selected Extension revisions must remain owned by the Framework Instance Settings Artifact"
+      },
+      {
+        "source_atom": "CA-R-1217",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1217-CORE_META_MODEL-CORE-REQUIREMENT--define-extension.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "immutable Methodology Source that adds authority within the Core Meta-Model's permitted expansion boundary under CA-R-1375"
+      },
+      {
+        "source_atom": "CA-R-1218",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1218-CORE_META_MODEL-CORE-REQUIREMENT--define-project-configuration.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "Project-owned Methodology Source authority ... Project-specific rules, constraints, and defaults"
+      },
+      {
+        "source_atom": "CA-R-1220",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1220-CORE_META_MODEL-REQUIREMENT--require-immutable-installed-extension-candidate-provenance.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "Installed Extensions Catalog Entry must identify one immutable Extension Candidate by stable Identity, Version, Author, Source, Source Version, Origin, and Content Digest"
+      },
+      {
+        "source_atom": "CA-R-1228",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1228-CORE_META_MODEL-GENERAL-REQUIREMENT--include-all-applicable-methodology-sources.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The Extension referent is identified, but the actual claim requires separate Settings activation/selected revisions. Decision23 supersedes that layer; keep the Atom held for the later content pass.",
+        "evidence": "every installed Extension Source applicable under the current Framework Instance Settings"
+      },
+      {
+        "source_atom": "CA-R-1286",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1286-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-type-domains-open.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "an Extension or Project Configuration may add Type values under one exact qualified Type Subject"
+      },
+      {
+        "source_atom": "CA-R-1313",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "an Extension or Project Configuration may add Status values and transition rules only under one exact complete qualified ... path"
+      },
+      {
+        "source_atom": "CA-R-1375",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "only where one active CORE_META_MODEL Atom permits the addition"
+      },
+      {
+        "source_atom": "CA-R-1434",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "Extensions map to their source Scope Units, but the governing claim places project-specific Applicable Methodology compilation in abstract Core, contrary to Candidate6; ownership/content repair remains separate.",
+        "evidence": "the Core Meta-Model must provide reusable ... authority for compiling Applicable Methodology"
+      },
+      {
+        "source_atom": "CA-R-1466",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1466-CORE_META_MODEL-CORE--keep-git-integration-in-an-extension.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The Extension Scope Unit owning Git integration under INSTALLED_EXTENSIONS, when installed; preserve that specific capability boundary."
+          }
+        ],
+        "reason": "This is specifically Git integration authority, not every Extension. Map its existing owner without inventing a Git entity or changing Journal rules; selected wording follows later installation alignment.",
+        "evidence": "Git commit policies, commit-message encodings, hooks, and event-to-commit references belong to that Extension"
+      },
+      {
+        "source_atom": "CA-R-1722",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "reusable, independently governed, optional package of capability contributions"
+      },
+      {
+        "source_atom": "CA-R-1723",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL-GENERAL--define-extension-identity-and-compatibility.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "every Extension declares stable identity, version boundary, explicit extension points, compatibility obligations"
+      },
+      {
+        "source_atom": "CA-R-1724",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The Extension referent is identified, but the actual claim requires separate Settings activation/selected revisions. Decision23 supersedes that layer; keep the Atom held for the later content pass.",
+        "evidence": "installation establishes availability, not activation ... installed Extension may remain disabled"
+      },
+      {
+        "source_atom": "CA-R-1748",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "Extension and Project Configuration additions must also preserve Core Meta-Model authority at every Local Tier under CA-R-1375"
+      },
+      {
+        "source_atom": "CA-R-1773",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1773-CORE_META_MODEL-CORE-REQUIREMENT--define-the-project-principle-universe.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The Principle universe is explicitly independent of any Extension; remove this redundant topic dependency without weakening the invariant claim.",
+        "evidence": "invariants ... independently of ... Extension, Project Configuration, or substrate"
+      },
+      {
+        "source_atom": "CA-R-1874",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-operations-status-values.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "unless an admitted Extension or Project Configuration establishes a more-specific Status domain under that exact Content Role and Type path"
+      },
+      {
+        "source_atom": "CA-R-1875",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The reference is to Extension-owned authority in its existing Scope Unit; preserve its particular provenance and source applicability.",
+        "evidence": "unless an admitted Extension or Project Configuration establishes a more-specific Status domain under that exact Content Role and Type path"
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 303,
+    "subject": "Methodology Source",
+    "occurrences": [
+      {
+        "source_atom": "CA-D-394",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-DELIVERY--bind-convenience-symlink-carriers-to-one-native-source.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The one native reusable framework-source Scope Unit selected by project-local authority; preserve the source binding rather than all source units."
+          }
+        ],
+        "reason": "The symlink rule refers to one selected native source. Keep that source applicability; no additional source Object or copied authority.",
+        "evidence": "one native reusable framework source governed by project-local authority"
+      },
+      {
+        "source_atom": "CA-D-407",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL--store-default-settings-with-the-core-meta-model-source.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          }
+        ],
+        "reason": "This source occurrence explicitly names CORE_META_MODEL as the default-file location; preserve that owner reference. The filename/location claim is separately held, not silently changed.",
+        "evidence": "caprmedio_framework_default_settings.toml at the root of the CORE_META_MODEL source Scope Unit"
+      },
+      {
+        "source_atom": "CA-D-550",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing Core, installed Extension and Project Configuration source Scope Units rather than broadening to every Scope Unit.",
+        "evidence": "Authoritative Atoms, Methodology Sources, Project Settings, and Project Structure retain their own authoritative locations"
+      },
+      {
+        "source_atom": "CA-E-249",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing Core, installed Extension and Project Configuration source Scope Units rather than broadening to every Scope Unit.",
+        "evidence": "source element, exact canonical target, mapping rule, intended Scope, or applicable Core Meta-Model distinction ... is missing"
+      },
+      {
+        "source_atom": "CA-M-272",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-272-CORE_META_MODEL-METHOD--classify-an-atom-local-tier-from-its-complete-claim.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The tier-classification procedure explicitly resolves the Atom's governing owner and current Scope Unit but gives no distinct Methodology Source dependency; remove this redundant broad tag.",
+        "evidence": "resolve ... authority owner ... current Scope Unit ... governing boundary"
+      },
+      {
+        "source_atom": "CA-M-298",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-298-CORE_META_MODEL-GENERAL-METHOD--describe-methodology-expansion-mappings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing Core, installed Extension and Project Configuration source Scope Units rather than broadening to every Scope Unit.",
+        "evidence": "one explicit mapping description ... source element and its provenance; exact canonical target; mapping rule; intended scope"
+      },
+      {
+        "source_atom": "CA-O-011",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing Core, installed Extension and Project Configuration source Scope Units rather than broadening to every Scope Unit.",
+        "evidence": "exact Applicable Methodology parameters and input sources are carried by the respective Step Atoms"
+      },
+      {
+        "source_atom": "CA-O-054",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing Core, installed Extension and Project Configuration source Scope Units rather than broadening to every Scope Unit.",
+        "evidence": "obtain the mapping description under CA-M-298 before an Extension or Project Configuration relies on the mapped element"
+      },
+      {
+        "source_atom": "CA-O-152",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "The three source owners are identified, but current source selection is conditioned on obsolete Settings activation. Hold for decision23 content alignment.",
+        "evidence": "using Framework Instance Settings for current Extension activation and selected Extension Revisions"
+      },
+      {
+        "source_atom": "CA-O-154",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing Core, installed Extension and Project Configuration source Scope Units rather than broadening to every Scope Unit.",
+        "evidence": "a prohibited Extension or Project Configuration override must not become conforming without an authorized change to its governing Core authority"
+      },
+      {
+        "source_atom": "CA-O-156",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing Core, installed Extension and Project Configuration source Scope Units rather than broadening to every Scope Unit.",
+        "evidence": "corrections are not compiler side effects or edits to projected Claims"
+      },
+      {
+        "source_atom": "CA-R-1213",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1213-CORE_META_MODEL-CORE-REQUIREMENT--define-applicable-methodology-as-a-compiled-projection.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing Core, installed Extension and Project Configuration source Scope Units rather than broadening to every Scope Unit.",
+        "evidence": "current active Atom Revisions in selected Methodology Source Scope Units"
+      },
+      {
+        "source_atom": "CA-R-1217",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1217-CORE_META_MODEL-CORE-REQUIREMENT--define-extension.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The source being described is Extension authority; preserve its existing Extension Scope Unit identity, not all methodology-source units.",
+        "evidence": "immutable Methodology Source that adds authority within the Core Meta-Model's permitted expansion boundary under CA-R-1375"
+      },
+      {
+        "source_atom": "CA-R-1218",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1218-CORE_META_MODEL-CORE-REQUIREMENT--define-project-configuration.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "This occurrence defines the Project-owned source; use the existing PROJECT_CONFIGURATION owner.",
+        "evidence": "Project-owned Methodology Source authority ... Project-specific rules, constraints, and defaults"
+      },
+      {
+        "source_atom": "CA-R-1219",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1219-CORE_META_MODEL-CORE-REQUIREMENT--define-methodology-source.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing Core, installed Extension and Project Configuration source Scope Units rather than broadening to every Scope Unit.",
+        "evidence": "a Methodology Source means a Scope Unit selected as input to Applicable Methodology compilation"
+      },
+      {
+        "source_atom": "CA-R-1228",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1228-CORE_META_MODEL-GENERAL-REQUIREMENT--include-all-applicable-methodology-sources.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "The three source owners are identified, but current source selection is conditioned on obsolete Settings activation. Hold for decision23 content alignment.",
+        "evidence": "every installed Extension Source applicable under the current Framework Instance Settings"
+      },
+      {
+        "source_atom": "CA-R-1284",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing Core, installed Extension and Project Configuration source Scope Units rather than broadening to every Scope Unit.",
+        "evidence": "allowed-value set ... expandable through governed Methodology Sources"
+      },
+      {
+        "source_atom": "CA-R-1722",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The source being described is Extension authority; preserve its existing Extension Scope Unit identity, not all methodology-source units.",
+        "evidence": "reusable, independently governed, optional package of capability contributions"
+      },
+      {
+        "source_atom": "CA-R-1748",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing Core, installed Extension and Project Configuration source Scope Units rather than broadening to every Scope Unit.",
+        "evidence": "Extension and Project Configuration additions must also preserve Core Meta-Model authority at every Local Tier under CA-R-1375"
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 305,
+    "subject": "Methodology Source.Expansion Boundary",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-379",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "atom_id": "CA-R-1375",
+            "applicability": "The source expansion constraints stated by this governing Requirement, not a new Expansion Boundary entity."
+          }
+        ],
+        "reason": "This occurrence relies on the concrete expansion Requirement R1375, not an independent boundary object; preserve the rule's exact applicability.",
+        "evidence": "an unselected or inactive Extension revision contributes"
+      },
+      {
+        "source_atom": "CA-E-447",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "atom_id": "CA-R-1375",
+            "applicability": "The source expansion constraints stated by this governing Requirement, not a new Expansion Boundary entity."
+          }
+        ],
+        "reason": "This occurrence relies on the concrete expansion Requirement R1375, not an independent boundary object; preserve the rule's exact applicability.",
+        "evidence": "attempt Project Configuration replacement of one CORE_META_MODEL Claim ... compare with an addition at one explicitly active source-authorized variation point"
+      },
+      {
+        "source_atom": "CA-O-011",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "atom_id": "CA-R-1375",
+            "applicability": "The source expansion constraints stated by this governing Requirement, not a new Expansion Boundary entity."
+          }
+        ],
+        "reason": "This occurrence relies on the concrete expansion Requirement R1375, not an independent boundary object; preserve the rule's exact applicability.",
+        "evidence": "exact Applicable Methodology parameters and input sources are carried by the respective Step Atoms"
+      },
+      {
+        "source_atom": "CA-O-153",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "atom_id": "CA-R-1375",
+            "applicability": "The source expansion constraints stated by this governing Requirement, not a new Expansion Boundary entity."
+          }
+        ],
+        "reason": "This occurrence relies on the concrete expansion Requirement R1375, not an independent boundary object; preserve the rule's exact applicability.",
+        "evidence": "check Core expansion-boundary conformance under CA-R-1375"
+      },
+      {
+        "source_atom": "CA-O-154",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "atom_id": "CA-R-1375",
+            "applicability": "The source expansion constraints stated by this governing Requirement, not a new Expansion Boundary entity."
+          }
+        ],
+        "reason": "This occurrence relies on the concrete expansion Requirement R1375, not an independent boundary object; preserve the rule's exact applicability.",
+        "evidence": "a prohibited Extension or Project Configuration override must not become conforming without an authorized change to its governing Core authority"
+      },
+      {
+        "source_atom": "CA-O-155",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "atom_id": "CA-R-1375",
+            "applicability": "The source expansion constraints stated by this governing Requirement, not a new Expansion Boundary entity."
+          }
+        ],
+        "reason": "This occurrence relies on the concrete expansion Requirement R1375, not an independent boundary object; preserve the rule's exact applicability.",
+        "evidence": "do not create an approval Atom in Project Configuration; approval must not itself bypass Core expansion boundaries"
+      },
+      {
+        "source_atom": "CA-R-1217",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1217-CORE_META_MODEL-CORE-REQUIREMENT--define-extension.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "atom_id": "CA-R-1375",
+            "applicability": "The source expansion constraints stated by this governing Requirement, not a new Expansion Boundary entity."
+          }
+        ],
+        "reason": "This occurrence relies on the concrete expansion Requirement R1375, not an independent boundary object; preserve the rule's exact applicability.",
+        "evidence": "immutable Methodology Source that adds authority within the Core Meta-Model's permitted expansion boundary under CA-R-1375"
+      },
+      {
+        "source_atom": "CA-R-1317",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "atom_id": "CA-R-1375",
+            "applicability": "The source expansion constraints stated by this governing Requirement, not a new Expansion Boundary entity."
+          }
+        ],
+        "reason": "This occurrence relies on the concrete expansion Requirement R1375, not an independent boundary object; preserve the rule's exact applicability.",
+        "evidence": "a Project Configuration approval Atom ... must not substitute for that decision or bypass the Core expansion boundary"
+      },
+      {
+        "source_atom": "CA-R-1375",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Substance",
+            "applicability": "Claims added by Extension and Project Configuration source Atoms within Core-authorized expansion; not every Atom Substance."
+          }
+        ],
+        "reason": "The governing thing is the added source Claims. The expansion constraints remain, but the Details still require separate Settings activation/revision selection; remove only that obsolete clause during the content pass.",
+        "evidence": "only where one active CORE_META_MODEL Atom permits the addition"
+      },
+      {
+        "source_atom": "CA-R-1434",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom/Content Role: Requirement",
+            "atom_id": "CA-R-1375",
+            "applicability": "The source expansion constraints stated by this governing Requirement, not a new Expansion Boundary entity."
+          }
+        ],
+        "reason": "The boundary reference is to R1375; the same Atom wrongly makes concrete Applicable Methodology compilation abstract Core authority, so hold its content/ownership repair.",
+        "evidence": "the Core Meta-Model must provide reusable ... authority for compiling Applicable Methodology"
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 306,
+    "subject": "Methodology Source.Expansion Mapping",
+    "occurrences": [
+      {
+        "source_atom": "CA-E-249",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The text requires an explicit mapping description with source, target, rule and scope, but never identifies its authored Atom or actual carrier. Neither the source Scope Unit nor Action O054 is the mapping itself. Preserve the unresolved representation for the later content pass; no invented Mapping entity or executable selector.",
+        "evidence": "source element, exact canonical target, mapping rule, intended Scope, or applicable Core Meta-Model distinction ... is missing"
+      },
+      {
+        "source_atom": "CA-M-298",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-298-CORE_META_MODEL-GENERAL-METHOD--describe-methodology-expansion-mappings.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The text requires an explicit mapping description with source, target, rule and scope, but never identifies its authored Atom or actual carrier. Neither the source Scope Unit nor Action O054 is the mapping itself. Preserve the unresolved representation for the later content pass; no invented Mapping entity or executable selector.",
+        "evidence": "one explicit mapping description ... source element and its provenance; exact canonical target; mapping rule; intended scope"
+      },
+      {
+        "source_atom": "CA-O-054",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [],
+        "reason": "The text requires an explicit mapping description with source, target, rule and scope, but never identifies its authored Atom or actual carrier. Neither the source Scope Unit nor Action O054 is the mapping itself. Preserve the unresolved representation for the later content pass; no invented Mapping entity or executable selector.",
+        "evidence": "obtain the mapping description under CA-M-298 before an Extension or Project Configuration relies on the mapped element"
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 342,
+    "subject": "Project Configuration",
+    "occurrences": [
+      {
+        "source_atom": "CA-D-262",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "Extensions and Project Configuration may register additional Carrier Formats"
+      },
+      {
+        "source_atom": "CA-D-302",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "stable uppercase token selected from its Scope Unit Name by Project Configuration"
+      },
+      {
+        "source_atom": "CA-E-249",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "source element, exact canonical target, mapping rule, intended Scope, or applicable Core Meta-Model distinction ... is missing"
+      },
+      {
+        "source_atom": "CA-E-379",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "The Project Configuration owner is clear, but the Atom also requires an obsolete Extension activation/selection layer. Hold the conflicting claim for decision23 content alignment.",
+        "evidence": "an unselected or inactive Extension revision contributes"
+      },
+      {
+        "source_atom": "CA-M-298",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-298-CORE_META_MODEL-GENERAL-METHOD--describe-methodology-expansion-mappings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "one explicit mapping description ... source element and its provenance; exact canonical target; mapping rule; intended scope"
+      },
+      {
+        "source_atom": "CA-O-011",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "exact Applicable Methodology parameters and input sources are carried by the respective Step Atoms"
+      },
+      {
+        "source_atom": "CA-O-054",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "obtain the mapping description under CA-M-298 before an Extension or Project Configuration relies on the mapped element"
+      },
+      {
+        "source_atom": "CA-O-152",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "The Project Configuration owner is clear, but the Atom also requires an obsolete Extension activation/selection layer. Hold the conflicting claim for decision23 content alignment.",
+        "evidence": "using Framework Instance Settings for current Extension activation and selected Extension Revisions"
+      },
+      {
+        "source_atom": "CA-O-154",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "a prohibited Extension or Project Configuration override must not become conforming without an authorized change to its governing Core authority"
+      },
+      {
+        "source_atom": "CA-O-155",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "do not create an approval Atom in Project Configuration; approval must not itself bypass Core expansion boundaries"
+      },
+      {
+        "source_atom": "CA-R-1206",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1206-CORE_META_MODEL-CORE-REQUIREMENT--separate-extension-installation-from-activation.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "The Project Configuration owner is clear, but the Atom also requires an obsolete Extension activation/selection layer. Hold the conflicting claim for decision23 content alignment.",
+        "evidence": "installing an Extension ... without making the Extension authority applicable to the current Project"
+      },
+      {
+        "source_atom": "CA-R-1207",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1207-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-configuration-rules-from-current-settings.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "The Project Configuration owner is clear, but the Atom also requires an obsolete Extension activation/selection layer. Hold the conflicting claim for decision23 content alignment.",
+        "evidence": "current Extension activation and selected Extension revisions must remain owned by the Framework Instance Settings Artifact"
+      },
+      {
+        "source_atom": "CA-R-1218",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1218-CORE_META_MODEL-CORE-REQUIREMENT--define-project-configuration.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "Project-owned Methodology Source authority ... Project-specific rules, constraints, and defaults"
+      },
+      {
+        "source_atom": "CA-R-1228",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1228-CORE_META_MODEL-GENERAL-REQUIREMENT--include-all-applicable-methodology-sources.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "The Project Configuration owner is clear, but the Atom also requires an obsolete Extension activation/selection layer. Hold the conflicting claim for decision23 content alignment.",
+        "evidence": "every installed Extension Source applicable under the current Framework Instance Settings"
+      },
+      {
+        "source_atom": "CA-R-1286",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1286-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-type-domains-open.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "an Extension or Project Configuration may add Type values under one exact qualified Type Subject"
+      },
+      {
+        "source_atom": "CA-R-1313",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "an Extension or Project Configuration may add Status values and transition rules only under one exact complete qualified ... path"
+      },
+      {
+        "source_atom": "CA-R-1375",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "only where one active CORE_META_MODEL Atom permits the addition"
+      },
+      {
+        "source_atom": "CA-R-1434",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+        "subject_role": "depends_on",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "The source owner is clear, but the claim assigns project-specific Applicable Methodology compilation authority to Core. Candidate6 requires separate content/ownership correction.",
+        "evidence": "the Core Meta-Model must provide reusable ... authority for compiling Applicable Methodology"
+      },
+      {
+        "source_atom": "CA-R-1466",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1466-CORE_META_MODEL-CORE--keep-git-integration-in-an-extension.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The claim places Git integration in its Extension and preserves Journal independence; no separate Project Configuration dependency is evidenced.",
+        "evidence": "Git commit policies, commit-message encodings, hooks, and event-to-commit references belong to that Extension"
+      },
+      {
+        "source_atom": "CA-R-1655",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "resolve every Artifact's applicable classification from Applicable Methodology and Project Configuration"
+      },
+      {
+        "source_atom": "CA-R-1722",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "reusable, independently governed, optional package of capability contributions"
+      },
+      {
+        "source_atom": "CA-R-1748",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "Extension and Project Configuration additions must also preserve Core Meta-Model authority at every Local Tier under CA-R-1375"
+      },
+      {
+        "source_atom": "CA-R-1773",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1773-CORE_META_MODEL-CORE-REQUIREMENT--define-the-project-principle-universe.md",
+        "subject_role": "depends_on",
+        "status": "remove_reference",
+        "targets": [],
+        "reason": "The claim is explicitly independent of Project Configuration; remove the redundant topic link rather than invent a structural dependency.",
+        "evidence": "invariants ... independently of ... Extension, Project Configuration, or substrate"
+      },
+      {
+        "source_atom": "CA-R-1874",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-operations-status-values.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "unless an admitted Extension or Project Configuration establishes a more-specific Status domain under that exact Content Role and Type path"
+      },
+      {
+        "source_atom": "CA-R-1875",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+        "subject_role": "depends_on",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Preserve the existing PROJECT_CONFIGURATION Scope Unit identity and its project-owned authority; this is not current Settings values.",
+        "evidence": "unless an admitted Extension or Project Configuration establishes a more-specific Status domain under that exact Content Role and Type path"
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 493,
+    "subject": "extension-model",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1733",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "Decision23 removes the mandatory application-binding Atom and activation layer; the remaining ownership/provenance meaning stays with the Extension Scope Unit. Hold the mixed claim, do not delete the whole Atom now.",
+        "evidence": "an Extension application is a separate binding Atom"
+      },
+      {
+        "source_atom": "CA-R-1752",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1752-CORE_META_MODEL-CORE--govern-project-adaptation-semantics.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          }
+        ],
+        "reason": "Project Adaptation here means project-owned PRMEDO authority; map it to the existing PROJECT_CONFIGURATION Scope Unit, not a new adaptation entity.",
+        "evidence": "Project Adaptation is project-owned PRMEDO authority ... without modifying ... authority it adapts"
+      },
+      {
+        "source_atom": "CA-R-1753",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1753-CORE_META_MODEL-CORE--keep-project-adaptation-authority-out-of-settings.md",
+        "subject_role": "governs",
+        "status": "content_deferred",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "Preserve ownership of Extension/Project Configuration definitions, but remove the superseded Settings select/disable layer in the later content pass.",
+        "evidence": "Framework Instance Settings Artifact may select, disable, and parameterize them"
+      },
+      {
+        "source_atom": "CA-R-1754",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1754-CORE_META_MODEL-GENERAL--promote-project-adaptation-authority-to-an-extension.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "PROJECT_CONFIGURATION",
+            "applicability": "The existing 003_PROJECT_CONFIGURATION source Scope Unit and the authority owned there."
+          },
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "The claim concerns provenance-preserving transfer from project-owned adaptation authority to a separately identified Extension; retain both existing source owners, no application binding.",
+        "evidence": "promote a coherent reusable subset of Project Adaptation authority into a separately identified Extension while preserving exact source provenance"
+      },
+      {
+        "source_atom": "CA-R-1755",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL-CORE--bound-extension-applicability.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "applicability": "The particular Extension Scope Unit(s) under METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS; retain each Extension identity, not the container as one Extension."
+          }
+        ],
+        "reason": "Replace the vague extension-model topic with the existing Extension Scope Unit(s), retaining the claimed applicability.",
+        "evidence": "every Extension must affect only its declared applicability boundary"
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 495,
+    "subject": "framework-boundary",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1680",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1680-CORE_META_MODEL--requirement-bound-recursive-self-hosting.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Project",
+            "applicability": "The named caprmedio Project whose repository is governed here; not the framework name and not every Project."
+          }
+        ],
+        "reason": "The Scope explicitly limits this self-hosting requirement to CAPRMEDIO's own repository. Rehome the rule to Project Configuration and preserve that project-instance restriction.",
+        "evidence": "CAPRMEDIO applies the same structural constitution and governance semantics to its own repository"
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 500,
+    "subject": "principles",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1696",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Scope Unit",
+            "scope_unit_name": "CORE_META_MODEL",
+            "applicability": "The existing Core Meta-model source Scope Unit."
+          }
+        ],
+        "reason": "R1696 directly governs the existing CORE_META_MODEL authority's implementation neutrality; no Principles entity and no blanket scope-unit rule.",
+        "evidence": "CORE_META_MODEL authority must define reusable model invariants and expansion boundaries without hidden dependence"
+      }
+    ],
+    "question": null
+  },
+  {
+    "index": 509,
+    "subject": "settings specification",
+    "occurrences": [
+      {
+        "source_atom": "CA-R-1429",
+        "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+        "subject_role": "governs",
+        "status": "map",
+        "targets": [
+          {
+            "path": "Entity/Continuant/Object/Atom.Local Tier",
+            "applicability": "Only Atoms specifying Project Settings, Framework Settings and Default Settings; purpose/boundary, shared specification and concrete field/carrier specifications remain distinct."
+          }
+        ],
+        "reason": "The claim classifies settings-governing Atom rules by Local Tier, not another Settings Object or universal Tier restriction. Preserve this restricted applicability; exact tier policies remain unchanged pending content review.",
+        "evidence": "Core-tier Atoms for Project Settings, Framework Instance Settings, and Default Settings must define their purpose, content, and authority boundaries"
+      }
+    ],
+    "question": null
+  }
+]

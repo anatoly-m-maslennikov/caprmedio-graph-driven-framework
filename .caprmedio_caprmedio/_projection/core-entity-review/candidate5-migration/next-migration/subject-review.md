@@ -6,6 +6,8 @@ Sequence: rebuild from current Atoms → review unmapped Subjects → approve ma
 
 ## Candidate #6 recalculation — 2026-10-16
 
+**Current follow-up:** the [source-occurrence review](candidate6-classification/occurrence-review.md) completes inspection of all 48 source-specific families: 548 role uses across 441 current Atoms. Results: 314 mappings, 94 redundant-reference removals, 82 content holds and 58 C/A holds. No new Operator questions; no source migration. Earlier classification counts below remain the input-stage snapshot.
+
 [Recalculated review](candidate6-classification/review.md) and [complete map](candidate6-classification/review-map.json): all 511 inventory Subjects classified by eight workers, with independent cross-slice review.
 
 - 330 candidate mappings; 80 Terms; 20 removal candidates; 14 deferred.
@@ -49,7 +51,7 @@ See [Candidate #6 — approved group decisions](../../presentation/operator.mode
 - Confidence Threshold precedence: Settings default → Plan override → direct Operator prompt override. No additional Hub-chain precedence layer.
 - Remove the separate Activity classification. Remap matching uses to Status; retire Activity-specific rules without removing valid Status rules.
 
-These are approved mapping policies. Per-Subject dispositions are not yet recalculated or applied.
+These are approved mapping policies. The recalculated candidate and occurrence dispositions are linked above; source changes are not applied.
 
 ## Current inventory
 

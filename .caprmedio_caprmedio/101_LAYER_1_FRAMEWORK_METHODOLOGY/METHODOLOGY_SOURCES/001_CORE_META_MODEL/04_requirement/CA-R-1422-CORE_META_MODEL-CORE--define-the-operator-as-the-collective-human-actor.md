@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Actor/Type: Operator"
   depends_on:
-    ["Entity/Continuant/Actor", "Entity/Continuant/Object/Project", "CAPRMEDIO Framework Instance"]
-version: 9
-updated_at: "2026-10-15 18:42:51 +0000"
+    ["Entity/Continuant/Actor", "Entity/Continuant/Object/Project"]
+version: 10
+updated_at: "2026-10-16 12:08:24 +0000"
 relations:
   child_of:
     - CA-P-032

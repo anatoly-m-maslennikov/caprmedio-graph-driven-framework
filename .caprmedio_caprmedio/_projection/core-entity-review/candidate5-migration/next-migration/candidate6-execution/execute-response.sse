@@ -1,0 +1,3 @@
+event: message
+data: {"jsonrpc":"2.0","id":202,"result":{"content":[{"text":"{\n  \"workflow_run_id\": \"subjects-candidate6-20261016-001\",\n  \"scheduler_status\": \"ENQUEUED\",\n  \"backend\": \"dbos\",\n  \"workflow_id\": \"CA-O-127\",\n  \"selected_route\": \"update_atom\",\n  \"outcome\": \"queued\",\n  \"disposition\": \"queued\"\n}","type":"text"}],"isError":false,"structuredContent":{"workflow_run_id":"subjects-candidate6-20261016-001","scheduler_status":"ENQUEUED","backend":"dbos","workflow_id":"CA-O-127","selected_route":"update_atom","outcome":"queued","disposition":"queued"}}}
+

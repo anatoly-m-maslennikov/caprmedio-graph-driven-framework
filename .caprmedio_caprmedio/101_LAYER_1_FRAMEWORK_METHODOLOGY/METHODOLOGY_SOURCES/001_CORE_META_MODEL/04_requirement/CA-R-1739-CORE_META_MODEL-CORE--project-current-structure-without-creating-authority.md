@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Project Scope Unit Graph Projection"
+  governs: "Entity/Continuant/Projection/Type: Scope Unit Graph"
   depends_on:
     ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Project.Framework Settings"]
-version: 23
-updated_at: "2026-10-15 18:45:39 +0000"
+version: 24
+updated_at: "2026-10-16 12:08:41 +0000"
 relations: {}
 atom_id: "CA-R-1739"
 content_role: "Requirement"

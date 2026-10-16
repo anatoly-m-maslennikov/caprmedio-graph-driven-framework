@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    ["Artifact", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator"]
-version: 12
-updated_at: "2026-10-15 18:42:40 +0000"
+    ["Entity/Continuant/Object/Governing Configuration", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator"]
+version: 13
+updated_at: "2026-10-16 12:08:23 +0000"
 relations: {}
 atom_id: "CA-R-1402"
 content_role: "Requirement"

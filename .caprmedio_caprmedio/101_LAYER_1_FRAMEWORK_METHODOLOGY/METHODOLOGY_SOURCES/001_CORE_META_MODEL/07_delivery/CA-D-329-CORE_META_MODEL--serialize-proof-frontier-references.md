@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Proof Dependency Frontier"
+  governs: "Entity/Continuant/History"
   depends_on: []
-version: 13
-updated_at: "2026-10-15 12:18:11 +0000"
+version: 14
+updated_at: "2026-10-16 12:09:19 +0000"
 relations: {}
 atom_id: "CA-D-329"
 content_role: "Delivery"

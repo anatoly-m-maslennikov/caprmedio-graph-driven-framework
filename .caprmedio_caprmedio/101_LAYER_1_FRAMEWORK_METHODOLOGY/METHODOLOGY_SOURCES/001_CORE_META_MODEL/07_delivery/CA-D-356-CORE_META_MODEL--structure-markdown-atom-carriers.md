@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier"
+  governs: "Entity/Carrier/File Carrier"
   depends_on:
-    ["Markdown Atom Carrier.YAML Frontmatter", "Markdown Atom Carrier.Main Content"]
-version: 10
-updated_at: "2026-10-15 12:18:16 +0000"
+    []
+version: 11
+updated_at: "2026-10-16 12:09:21 +0000"
 relations: {}
 atom_id: "CA-D-356"
 content_role: "Delivery"

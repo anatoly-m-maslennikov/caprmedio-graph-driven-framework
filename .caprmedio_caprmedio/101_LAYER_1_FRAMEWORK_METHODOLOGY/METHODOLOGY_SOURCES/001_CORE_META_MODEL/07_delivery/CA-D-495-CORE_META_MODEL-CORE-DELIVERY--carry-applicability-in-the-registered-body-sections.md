@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Atom.Substance"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Target Scope Unit", "Markdown Atom Carrier", "Atom/Content Role", "Markdown Atom Carrier.Main Content"]
-version: 3
-updated_at: "2026-10-15 18:52:23 +0000"
+    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Carrier/File Carrier", "Entity/Continuant/Object/Atom/Content Role"]
+version: 4
+updated_at: "2026-10-16 12:09:37 +0000"
 relations: {"relates_to": ["CA-D-479", "CA-D-482", "CA-R-1271"]}
 atom_id: "CA-D-495"
 content_role: "Delivery"

@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Structural Parent Relation", "Structural Level", "Navigational Order Number", "Entity/Carrier"]
-version: 6
-updated_at: "2026-10-15 18:43:35 +0000"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children", "Entity/Continuant/Object/Scope Unit.Structural Level", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Carrier"]
+version: 7
+updated_at: "2026-10-16 12:08:27 +0000"
 relations: {}
 atom_id: "CA-R-1485"
 content_role: "Requirement"

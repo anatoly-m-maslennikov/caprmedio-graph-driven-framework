@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier"
   depends_on:
-    ["Artifact"]
-version: 13
-updated_at: "2026-10-15 18:51:14 +0000"
+    []
+version: 14
+updated_at: "2026-10-16 12:09:18 +0000"
 relations: {}
 atom_id: "CA-D-311"
 content_role: "Delivery"
