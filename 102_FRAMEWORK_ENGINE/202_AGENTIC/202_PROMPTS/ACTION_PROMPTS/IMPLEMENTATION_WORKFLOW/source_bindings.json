@@ -94,93 +94,93 @@
     },
     {
       "atom_id": "CA-O-016",
-      "version": 11,
+      "version": 13,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior.md",
-      "sha256": "b9a90e2133152c136353baae7db9d98c163cb595897b5fe2e870e4ffb394e13a"
+      "sha256": "5bf5be0e5805fe73c1910bd9cca4e294f3c75f4b786accb9d345b15151133680"
     },
     {
       "atom_id": "CA-O-091",
-      "version": 5,
+      "version": 7,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-091-CORE_META_MODEL-STEP--prepare-delegated-implementation-work.md",
-      "sha256": "4d1096291c5c783f867988fa2056551e925eae83a868f6cebb0396e5eb348cab"
+      "sha256": "8f487d884f1dfc3a1770a0880aa4050879ca6f8a8f54b4738e611315c1a81dba"
     },
     {
       "atom_id": "CA-O-092",
-      "version": 4,
+      "version": 6,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-092-CORE_META_MODEL-STEP--prepare-tests-in-the-implementation-subagent.md",
-      "sha256": "c0d3978d4f406a5da4d5b342dfb0048aa955121c8ddb8a1d0f082616877dab59"
+      "sha256": "3cd40193b3374e32f89dd3f914998cd5d59ce474018a25148816efba066bc3bf"
     },
     {
       "atom_id": "CA-O-093",
-      "version": 4,
+      "version": 6,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-093-CORE_META_MODEL-STEP--implement-requirements-in-the-assigned-subagent.md",
-      "sha256": "a83edac4fb71f30162aa25cab9c76516b9febd917c4e032ece81089a257b301a"
+      "sha256": "d3d53fb4d38d906e1a6c50380c8ad52e42404c15e7a122544d3401cd0c8d54d8"
     },
     {
       "atom_id": "CA-O-094",
-      "version": 5,
+      "version": 7,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-094-CORE_META_MODEL-STEP--run-the-selected-implementation-checks.md",
-      "sha256": "0466dc2064d536b6edb0006b1018d8c580dc29442aa0c30a07578cf51824f494"
+      "sha256": "0e64b065f9fb1923aa83c639172cd7d832c7c1179fd17ae1dc8213f3c4e38258"
     },
     {
       "atom_id": "CA-O-095",
-      "version": 4,
+      "version": 6,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-095-CORE_META_MODEL-STEP--diagnose-failures-in-the-assigned-subagent.md",
-      "sha256": "3e1f7a5b3d9f06e002c8e23f5d5b2719a42886e62310012e74caa27e2b0e9c5c"
+      "sha256": "9906ec79d2f7fc14d7ab32eaab0f364abe225bea193357a3829fe249fe9c6c60"
     },
     {
       "atom_id": "CA-O-096",
-      "version": 4,
+      "version": 6,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-096-CORE_META_MODEL-STEP--admit-an-implementation-repair-retry.md",
-      "sha256": "4b8083b0f864dfdb4694b75dc807140ad612f70edacfee2b6bc591003934530e"
+      "sha256": "1ac355a9f28171feeef43df5282afbed8ec554422b7feab82053754282ee3e75"
     },
     {
       "atom_id": "CA-O-099",
-      "version": 3,
+      "version": 5,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-099-CORE_META_MODEL-STEP--repair-code-and-retain-issue-evidence.md",
-      "sha256": "c36568a6db7e2e6049059f1f7d5097b79a182258936c0ad9f0eb7a22351f0051"
+      "sha256": "58262e8ef1a1fe3ba4089c32e67ee1464d5af2a253e0dd1a37e1f6c89f841444"
     },
     {
       "atom_id": "CA-O-017",
-      "version": 6,
+      "version": 8,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-017-CORE_META_MODEL-ACTION--prepare-implementation-work.md",
-      "sha256": "02bdc37b110592f3171840bf995c4598af793d6679cc4261a075440aa9be943a"
+      "sha256": "121594c8d2d8ce54a8e96b5befd368259f189a1cc761cc7c73be534b891d8eec"
     },
     {
       "atom_id": "CA-O-018",
-      "version": 6,
+      "version": 8,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-018-CORE_META_MODEL-ACTION--implement-evaluations.md",
-      "sha256": "ee6a141167ae2a8d9b387f3a92633a02d64b91c7539b901b876a8391e2555f6c"
+      "sha256": "34e7155f05d54d79d47e1651e9660d4172cbe867c9d516ac54f2be2607174557"
     },
     {
       "atom_id": "CA-O-019",
-      "version": 4,
+      "version": 6,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-019-CORE_META_MODEL-ACTION--implement-requirements.md",
-      "sha256": "618eeb966ee41889d487d9ff1e48d4825aaa372bb2180e55688d446bdbc5065b"
+      "sha256": "4e559bdef07eb5bb682bce066512e4fcc9985cedb2a94438338709fcbdc8352d"
     },
     {
       "atom_id": "CA-O-020",
-      "version": 5,
+      "version": 7,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-020-CORE_META_MODEL-ACTION--run-implementation-evaluations.md",
-      "sha256": "13aea0488ac7b230becf1739bd7ad6f29e5f964f0db1e4e1b680aac3b5f59051"
+      "sha256": "3f18e6a110a9efc69fecb14f02e5deb08392afa7be705e795ee5badfc2a5c62f"
     },
     {
       "atom_id": "CA-O-089",
-      "version": 3,
+      "version": 5,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-089-CORE_META_MODEL-ACTION--diagnose-implementation-test-failures.md",
-      "sha256": "793f388c9972f222cb468c7fc01811391ba9e2c36003b59c6450e03c6d067486"
+      "sha256": "1a9c3441f9705d36a80bec5ba522d8cd182fe6eb1f800d28e32f425fe7683c1d"
     },
     {
       "atom_id": "CA-O-024",
-      "version": 11,
+      "version": 13,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md",
-      "sha256": "19bb9cbe0e7fdeb7ecd60dca272d3d23a6908c0b0c56f2454024ed7125898e58"
+      "sha256": "b7fee1d233fafc7f5bcdc094cfd8ca1b5a2699b72f6578531aeb7dbc6a537335"
     },
     {
       "atom_id": "CA-O-021",
-      "version": 9,
+      "version": 11,
       "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
-      "sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121"
+      "sha256": "9e403344575181a4e988048d131cdd8d5cbe91123f5958064f997ea1cce1e49c"
     }
   ]
 }

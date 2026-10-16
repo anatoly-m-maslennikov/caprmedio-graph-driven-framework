@@ -1,27 +1,23 @@
 """Selected-Project source admission checks for Implementation Workflow Actions."""
-import importlib.util
 import shutil
 import tempfile
 import unittest
 from pathlib import Path
 
+from frozen_inputs import FROZEN_PROJECT_ROOT, load_actions as load_frozen_actions
 
 HERE = Path(__file__).resolve().parents[1]
-ROOT = Path(__file__).resolve().parents[6]
 
 
 def load_actions():
-    spec = importlib.util.spec_from_file_location("implementation_actions", HERE / "implementation_actions.py")
-    actions = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(actions)
-    return actions
+    return load_frozen_actions()
 
 
 class SelectedProjectBindings(unittest.TestCase):
     def project_with_reviewed_sources(self, actions: object, directory: Path) -> Path:
         project = directory / "selected-project"
         for row in actions._reviewed_binding_rows():
-            source = ROOT / row["path"]
+            source = FROZEN_PROJECT_ROOT / row["path"]
             target = project / row["path"]
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, target)
@@ -119,7 +115,9 @@ class SelectedProjectBindings(unittest.TestCase):
             project = self.project_with_reviewed_sources(actions, Path(directory))
             packet = self.packet(actions, project)
             launches = []
-            agent = lambda *_: launches.append("launched")
+
+            def agent(*_):
+                launches.append("launched")
 
             stale_path = project / packet["source_bindings"][0]["path"]
             stale_path.write_text(stale_path.read_text(encoding="utf-8") + "\n", encoding="utf-8")
@@ -226,15 +224,15 @@ class SelectedProjectBindings(unittest.TestCase):
         actions = load_actions()
         packet = {
             "context": "Isolated", "selected_project": {"untrusted": "packet root"},
-            "source_bindings": actions.current_source_bindings(), "permissions": {"allowed": True},
-            "handoff_complete": True, "plan_item": {"estimated_minutes": 14},
-            "requirements": actions.prepare_input_bindings(["CA-R-1843"]),
-            "delivery": actions.prepare_input_bindings(["CA-D-544"]),
-            "evaluations": actions.prepare_input_bindings(["CA-E-563"]),
+            "source_bindings": actions.current_source_bindings(FROZEN_PROJECT_ROOT), "permissions": {"allowed": True},
+            "handoff_complete": True,
+            "requirements": actions.prepare_input_bindings(["CA-R-1843"], FROZEN_PROJECT_ROOT),
+            "delivery": actions.prepare_input_bindings(["CA-D-544"], FROZEN_PROJECT_ROOT),
+            "evaluations": actions.prepare_input_bindings(["CA-E-563"], FROZEN_PROJECT_ROOT),
             "method_projection": actions.prepare_method_projection([
-                row["path"] for row in actions.current_source_bindings()
+                row["path"] for row in actions.current_source_bindings(FROZEN_PROJECT_ROOT)
                 if row["atom_id"].startswith("CA-M-")
-            ]),
+            ], FROZEN_PROJECT_ROOT),
             "plan_item": {"plan_id": "plan-1", "item_id": "item-1",
                           "dod": ["implemented and checked"], "owned_paths": ["."],
                           "estimated_minutes": 14},

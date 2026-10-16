@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "atom_id": "CA-O-016",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/frozen-golden/CA-O-016.md",
+      "sha256": "d26d87f6397ea5eea265a048db3ef4d4c530bfcc3324299e69e84883f423904f"
+    },
+    {
+      "atom_id": "CA-R-1843",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/frozen-golden/CA-R-1843.md",
+      "sha256": "be20d78af68a495f26d0702a0ae4633dac6d8b22c8845d24c62829aedb9bc1a6"
+    },
+    {
+      "atom_id": "CA-D-544",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/frozen-golden/CA-D-544.md",
+      "sha256": "6d39c952ad5f273c21e60c792ad45bf6484c28ee394a018fabe21b1c44d33a84"
+    },
+    {
+      "atom_id": "CA-E-563",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/frozen-golden/CA-E-563.md",
+      "sha256": "c786aecdb9bca97c0854810bc7abf85a8342150ae83df03d2e1ac7c71db8c1ae"
+    },
+    {
+      "atom_id": "CA-M-326",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/frozen-golden/CA-M-326.md",
+      "sha256": "4bc9faaf2121366f8103ddf16de9339f516c7dee94d47b096a4988e86821bdf6"
+    }
+  ]
+}

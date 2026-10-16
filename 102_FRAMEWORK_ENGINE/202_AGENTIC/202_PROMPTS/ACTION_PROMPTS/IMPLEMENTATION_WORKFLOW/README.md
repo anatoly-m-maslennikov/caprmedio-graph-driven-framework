@@ -49,3 +49,5 @@ python3 -m unittest discover -s 102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACT
 ```
 
 These checks verify coverage, bindings, context, result labels, source freshness, prompt contracts, and mock-Agent action envelopes. Mock Agent tests are not live LLM proof.
+
+The golden behavior tests use a frozen input manifest and source fixture while exercising the current `implementation_actions.py`; they neither load an archived implementation nor relax source-pin checks. `test_current_project_bindings.py` separately verifies that the reviewed production frontier matches the current Project and refuses a stale copied source.

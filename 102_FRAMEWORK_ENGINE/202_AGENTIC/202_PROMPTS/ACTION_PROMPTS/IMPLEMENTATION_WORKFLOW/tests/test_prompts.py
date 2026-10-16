@@ -4,22 +4,21 @@ import subprocess
 import sys
 import tempfile
 import unittest
-import importlib.util
 from pathlib import Path
+
+from frozen_inputs import FROZEN_PROJECT_ROOT, load_actions
 
 
 HERE = Path(__file__).resolve().parents[1]
 class PromptContracts(unittest.TestCase):
     @staticmethod
     def actions():
-        spec = importlib.util.spec_from_file_location('implementation_actions', HERE / 'implementation_actions.py')
-        actions = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(actions)
-        return actions
+        return load_actions()
 
     @staticmethod
     def packet(actions, context='Isolated'):
-        methods = [row['path'] for row in actions.current_source_bindings()
+        sources = actions.current_source_bindings(FROZEN_PROJECT_ROOT)
+        methods = [row['path'] for row in sources
                    if row['atom_id'].startswith('CA-M-')]
         candidate = {'id': 'candidate-1'}
         phase = 'implementation'
@@ -38,7 +37,7 @@ class PromptContracts(unittest.TestCase):
                                  'selected_binding_digest': '1' * 64},
         }
         return {
-            'context': context, 'source_bindings': actions.current_source_bindings(),
+            'context': context, 'source_bindings': sources,
             'permissions': {
                 'allowed': True,
                 'retry': {'authorization_ref': authorization['authorization_ref'],
@@ -49,10 +48,10 @@ class PromptContracts(unittest.TestCase):
             'plan_item': {'plan_id': 'plan-1', 'item_id': 'item-1',
                           'dod': ['implemented and checked'], 'owned_paths': ['.'],
                           'estimated_minutes': 14},
-            'requirements': actions.prepare_input_bindings(['CA-R-1843']),
-            'delivery': actions.prepare_input_bindings(['CA-D-544']),
-            'evaluations': actions.prepare_input_bindings(['CA-E-563']),
-            'method_projection': actions.prepare_method_projection(methods),
+            'requirements': actions.prepare_input_bindings(['CA-R-1843'], FROZEN_PROJECT_ROOT),
+            'delivery': actions.prepare_input_bindings(['CA-D-544'], FROZEN_PROJECT_ROOT),
+            'evaluations': actions.prepare_input_bindings(['CA-E-563'], FROZEN_PROJECT_ROOT),
+            'method_projection': actions.prepare_method_projection(methods, FROZEN_PROJECT_ROOT),
             'red': {'expectation': 'ready is true', 'fixtures': ['fixture'],
                     'commands': ['python fixture_test.py'], 'scope': 'selected item'},
             'candidate': candidate, 'phase': phase,
@@ -261,7 +260,7 @@ class PromptContracts(unittest.TestCase):
         for case, evaluations in (
             ('missing', []),
             ('stale', [{**self.packet(actions)['evaluations'][0], 'sha256': '0' * 64}]),
-            ('wrong-role', actions.prepare_input_bindings(['CA-R-1843'])),
+            ('wrong-role', actions.prepare_input_bindings(['CA-R-1843'], FROZEN_PROJECT_ROOT)),
         ):
             with self.subTest(case=case):
                 packet = self.packet(actions, 'Integrated')
