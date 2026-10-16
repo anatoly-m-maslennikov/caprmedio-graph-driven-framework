@@ -26,7 +26,7 @@ from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_references import (
     ProposedReferenceError, inventory_proposed_references,
 )
-from golden_authority import (
+from VALIDATE_ATOMS.tests.golden_authority import (
     frozen_authority_fixture_bytes,
     frozen_entry,
     write_frozen_authority,
