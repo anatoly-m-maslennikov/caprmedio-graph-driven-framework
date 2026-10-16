@@ -1,0 +1,640 @@
+{
+  "groups": {
+    "context_authority": {
+      "CA-D-368": {
+        "fixture": "context_authority/CA-D-368.md",
+        "sha256": "225234e73165f21d820eaa20942457d961807796525f56cf74dd34fcf08cdbec",
+        "version": 9
+      },
+      "CA-D-369": {
+        "fixture": "context_authority/CA-D-369.md",
+        "sha256": "f59fe6f845a0e436e798ad577118321459c8737218b0f709d915be5f4213feb1",
+        "version": 8
+      },
+      "CA-D-494": {
+        "fixture": "context_authority/CA-D-494.md",
+        "sha256": "c4a4d8dfe1c899f378e10b5c9f66a09eab6e9ab694d358db3ce1320d944ad8af",
+        "version": 5
+      },
+      "CA-M-271": {
+        "fixture": "context_authority/CA-M-271.md",
+        "sha256": "b7b9c95148d370a6101412f359dcd0baff875c27655b02c2972fbb0236311de2",
+        "version": 8
+      },
+      "CA-M-279": {
+        "fixture": "context_authority/CA-M-279.md",
+        "sha256": "cbc6d089a575795e3d3e0cefa3ab8d4a2a2b3ab8608947e7675f51b042d5ec6b",
+        "version": 8
+      },
+      "CA-M-295": {
+        "fixture": "context_authority/CA-M-295.md",
+        "sha256": "575dc446280eea2d1b345d4d40368078ecdaf8dd342ab1a329e467e0ef36a1fb",
+        "version": 8
+      },
+      "CA-R-1427": {
+        "fixture": "context_authority/CA-R-1427.md",
+        "sha256": "23ff646d8981dd1ac164e9f053f5543c4d30d49b8add4be6c88e04033fd77a1a",
+        "version": 7
+      },
+      "CA-R-1488": {
+        "fixture": "context_authority/CA-R-1488.md",
+        "sha256": "9b09686d17b5b7b85e75de9037d64c9c8ef133c703cb24ba6036929ebc2ff269",
+        "version": 6
+      },
+      "CA-R-1585": {
+        "fixture": "context_authority/CA-R-1585.md",
+        "sha256": "c8058bf31fe092b80a81166e4d2bf79d5088220c53493e627e30b18d67018e5f",
+        "version": 4
+      }
+    },
+    "graph_authority": {
+      "CA-D-268": {
+        "fixture": "extended_authority/CA-D-268.md",
+        "sha256": "eba35171683bf9219f32d264cc3eaff985bd7939817114135c3a04faccf8df96",
+        "version": 13
+      },
+      "CA-D-269": {
+        "fixture": "extended_authority/CA-D-269.md",
+        "sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
+        "version": 12
+      },
+      "CA-D-305": {
+        "fixture": "extended_authority/CA-D-305.md",
+        "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+        "version": 10
+      },
+      "CA-D-460": {
+        "fixture": "extended_authority/CA-D-460.md",
+        "sha256": "7879c6dd77ac6eab1f6a5b80b9fab58112b9d7d6111b169d5038185597b53f23",
+        "version": 6
+      },
+      "CA-D-471": {
+        "fixture": "extended_authority/CA-D-471.md",
+        "sha256": "bc4762a7fe3c01b9f8750c31bc98c1e3acba0c4fc4b78b53ff27aebddb9230a3",
+        "version": 5
+      },
+      "CA-D-475": {
+        "fixture": "extended_authority/CA-D-475.md",
+        "sha256": "ca52f96efabd9dada8b13bb3e7a7ef52f21be88988d95d1b216069854122417e",
+        "version": 4
+      },
+      "CA-D-481": {
+        "fixture": "extended_authority/CA-D-481.md",
+        "sha256": "f9a0d601d76895e245c78765004c60cb4c4ffbb01bb578afc0ce6279c2cf2ccb",
+        "version": 4
+      },
+      "CA-R-1016": {
+        "fixture": "extended_authority/CA-R-1016.md",
+        "sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+        "version": 15
+      },
+      "CA-R-1017": {
+        "fixture": "extended_authority/CA-R-1017.md",
+        "sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+        "version": 15
+      },
+      "CA-R-1018": {
+        "fixture": "extended_authority/CA-R-1018.md",
+        "sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+        "version": 17
+      },
+      "CA-R-1019": {
+        "fixture": "extended_authority/CA-R-1019.md",
+        "sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+        "version": 15
+      },
+      "CA-R-1020": {
+        "fixture": "extended_authority/CA-R-1020.md",
+        "sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+        "version": 15
+      },
+      "CA-R-1021": {
+        "fixture": "extended_authority/CA-R-1021.md",
+        "sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+        "version": 15
+      },
+      "CA-R-1022": {
+        "fixture": "extended_authority/CA-R-1022.md",
+        "sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+        "version": 15
+      },
+      "CA-R-1026": {
+        "fixture": "extended_authority/CA-R-1026.md",
+        "sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+        "version": 16
+      },
+      "CA-R-1027": {
+        "fixture": "extended_authority/CA-R-1027.md",
+        "sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+        "version": 15
+      },
+      "CA-R-1040": {
+        "fixture": "extended_authority/CA-R-1040.md",
+        "sha256": "f713bc002eeaa0832f852337bbcc59e3640d389b376a7951aa140deadf574a44",
+        "version": 16
+      },
+      "CA-R-1194": {
+        "fixture": "extended_authority/CA-R-1194.md",
+        "sha256": "e3f84e61ce1003680aec086a459bb1c2a614dc9634840aa9fbeb7954fa93c9bc",
+        "version": 14
+      },
+      "CA-R-1199": {
+        "fixture": "extended_authority/CA-R-1199.md",
+        "sha256": "8bb4b41e54512de8445fd5ba0f09819664caec3f39f23d08b2efe985062651c1",
+        "version": 13
+      },
+      "CA-R-1202": {
+        "fixture": "extended_authority/CA-R-1202.md",
+        "sha256": "b0f4031c1441a6919b36d27813fd4dc162cad0c2b16727d5ee3f2c7666faf908",
+        "version": 14
+      },
+      "CA-R-1247": {
+        "fixture": "extended_authority/CA-R-1247.md",
+        "sha256": "bf1d5e0762428377cd67f28ae2bfcbc273355ea2e47dc081a99be23828b943ae",
+        "version": 11
+      },
+      "CA-R-1248": {
+        "fixture": "extended_authority/CA-R-1248.md",
+        "sha256": "4c60f413e0b1144c86c35e5e1a0bb5b8e52b67abddc3cf3274cbcb4d89004159",
+        "version": 12
+      },
+      "CA-R-1456": {
+        "fixture": "extended_authority/CA-R-1456.md",
+        "sha256": "9ce5552c492b0982a853e4448ce2c6d4e5eb78405eb1c8b04702c92f43af4e5e",
+        "version": 8
+      },
+      "CA-R-1538": {
+        "fixture": "extended_authority/CA-R-1538.md",
+        "sha256": "f2052faf837ca1ffac8f52fa105ff0560694bac58b0ce110e40ebb9fbd17860d",
+        "version": 5
+      },
+      "CA-R-1539": {
+        "fixture": "extended_authority/CA-R-1539.md",
+        "sha256": "ce1395908987e58b681c5f22f2f08cae5c89478d8184aa7ace97ad2a400d75e8",
+        "version": 4
+      },
+      "CA-R-1579": {
+        "fixture": "extended_authority/CA-R-1579.md",
+        "sha256": "54093503dbb876222ad8ee1429ebe30e5c8546a23cd52f70fa59a4886b8e43b5",
+        "version": 5
+      },
+      "CA-R-1580": {
+        "fixture": "extended_authority/CA-R-1580.md",
+        "sha256": "38611796a0d9565a222ef4b85c7ae833cf1a92184e377f026097db675f9b7284",
+        "version": 4
+      },
+      "CA-R-1592": {
+        "fixture": "extended_authority/CA-R-1592.md",
+        "sha256": "3c9178170eebdb7429db7564c3b7cb58dd59c2d2cb43d726dc0c1e4a47f56ed7",
+        "version": 4
+      },
+      "CA-R-1593": {
+        "fixture": "extended_authority/CA-R-1593.md",
+        "sha256": "e92bcedc80539fdd86b5a1ddd3dd019cd60d4b40df856afb56f57e7d4b274a9e",
+        "version": 5
+      },
+      "CA-R-1676": {
+        "fixture": "extended_authority/CA-R-1676.md",
+        "sha256": "c08978c43d93b0d8b0a04f10a9f2087d51ab1432431336ae169ab6e98e5cb275",
+        "version": 20
+      },
+      "CA-R-796": {
+        "fixture": "extended_authority/CA-R-796.md",
+        "sha256": "ae92a8bd0ca593b73a8ebf3f4e0c4eb85fbb8106de7483376b1f96bbb8228733",
+        "version": 18
+      },
+      "CA-R-879": {
+        "fixture": "extended_authority/CA-R-879.md",
+        "sha256": "81f1773a9c91d42edb267e3be146973d27f54c90966776edb0f79b59966ea6b3",
+        "version": 18
+      }
+    },
+    "registry": {
+      "CA-D-268": {
+        "fixture": "authority_checks/CA-D-268.md",
+        "sha256": "28697f406084684970bf988230fa293f59b1d7ba25aee22f9656cd8a411f61ad",
+        "version": 14
+      },
+      "CA-D-269": {
+        "fixture": "authority_checks/CA-D-269.md",
+        "sha256": "f6506099d7c264c7901a772b707fc88102c77d607bcf930b5d9bd2fd2aad78cd",
+        "version": 14
+      },
+      "CA-D-270": {
+        "fixture": "authority_checks/CA-D-270.md",
+        "sha256": "e7de622b7bacc8caca4c68225c5c8e6a6334a06ae60a0c2becae662aacb16768",
+        "version": 15
+      },
+      "CA-D-274": {
+        "fixture": "authority_checks/CA-D-274.md",
+        "sha256": "e0d850b0d10948bda665c8cfd850eb77e7a9a3b5525a4c2998f8237a99b62685",
+        "version": 19
+      },
+      "CA-D-276": {
+        "fixture": "authority_checks/CA-D-276.md",
+        "sha256": "265d617e1cbe3cc2301317c36f347b5012715f652fa118d8062f9342222b441f",
+        "version": 19
+      },
+      "CA-D-305": {
+        "fixture": "authority_checks/CA-D-305.md",
+        "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+        "version": 10
+      },
+      "CA-D-386": {
+        "fixture": "authority_checks/CA-D-386.md",
+        "sha256": "640baf0783b48b6508fbb168df54d21bb6d6c9cc5ced88d06e1d2c2479d54ed5",
+        "version": 8
+      },
+      "CA-D-446": {
+        "fixture": "authority_checks/CA-D-446.md",
+        "sha256": "c48ad404d8fafc60907ab79b790eaa3d6bd42ce7614ddb2d73f09405b663b7e6",
+        "version": 11
+      },
+      "CA-D-447": {
+        "fixture": "authority_checks/CA-D-447.md",
+        "sha256": "1f9a1088bf2f4e286215867ff7e716d8b97faedd1eafcb288979e05b0518b7ae",
+        "version": 8
+      },
+      "CA-D-470": {
+        "fixture": "authority_checks/CA-D-470.md",
+        "sha256": "b458276867cf49a3ad820ed3ce7f0ba163666bd7e7ddd77f4004c80321e3eda3",
+        "version": 7
+      },
+      "CA-D-471": {
+        "fixture": "authority_checks/CA-D-471.md",
+        "sha256": "bc4762a7fe3c01b9f8750c31bc98c1e3acba0c4fc4b78b53ff27aebddb9230a3",
+        "version": 5
+      },
+      "CA-D-472": {
+        "fixture": "authority_checks/CA-D-472.md",
+        "sha256": "b249e87abd68b2ddd11940e39ab48203c9e92056557e9a8e66b02ba6580e148f",
+        "version": 5
+      },
+      "CA-D-473": {
+        "fixture": "authority_checks/CA-D-473.md",
+        "sha256": "e8a66d72c1f145376dae42f0307e37317ad6f50f7d953db5550c639bed086a11",
+        "version": 4
+      },
+      "CA-D-478": {
+        "fixture": "authority_checks/CA-D-478.md",
+        "sha256": "4ffa523b70d01da2985d93e5d051cb274df5ab1317d35056e623cc25aedf8663",
+        "version": 5
+      },
+      "CA-D-479": {
+        "fixture": "authority_checks/CA-D-479.md",
+        "sha256": "427e309ef7ea9c49a4ba168cc1420df015366544ff0746b27a98ab39a8ab7feb",
+        "version": 8
+      },
+      "CA-D-480": {
+        "fixture": "authority_checks/CA-D-480.md",
+        "sha256": "ab08a6ddf2ff075ff30386bb90107017a0cb542d0b7c3df2d05c2008170ef21b",
+        "version": 4
+      },
+      "CA-D-481": {
+        "fixture": "authority_checks/CA-D-481.md",
+        "sha256": "f9a0d601d76895e245c78765004c60cb4c4ffbb01bb578afc0ce6279c2cf2ccb",
+        "version": 4
+      },
+      "CA-D-482": {
+        "fixture": "authority_checks/CA-D-482.md",
+        "sha256": "1b30b3971dcebeb8a3accc0ade3b9775bd22b890525824dc3e50bf059ec1ad75",
+        "version": 9
+      },
+      "CA-D-483": {
+        "fixture": "authority_checks/CA-D-483.md",
+        "sha256": "a626cb721dd45778a27f826ef4fbd85ad8ed771b8dbf67cfac7b2ffea227ea93",
+        "version": 7
+      },
+      "CA-R-1231": {
+        "fixture": "authority_checks/CA-R-1231.md",
+        "sha256": "caaf38a800f0f3f253a74b80d95950aa24e24550737bcee5f3658539dcf05e4e",
+        "version": 15
+      },
+      "CA-R-1232": {
+        "fixture": "authority_checks/CA-R-1232.md",
+        "sha256": "ca3e08b4b4aa5218a7be24e78377afa612e5b2aa4606ea7dde20dd62271499f4",
+        "version": 15
+      },
+      "CA-R-1283": {
+        "fixture": "authority_checks/CA-R-1283.md",
+        "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+        "version": 13
+      },
+      "CA-R-1309": {
+        "fixture": "authority_checks/CA-R-1309.md",
+        "sha256": "603e7e954ba83f21dc2f548e402a76f09f1cc39f4ac5cf619d0d5bc01b3cad7f",
+        "version": 12
+      },
+      "CA-R-1397": {
+        "fixture": "authority_checks/CA-R-1397.md",
+        "sha256": "b18023c1108023137f539703aec3812c3675c257ba154ac0a08cc087621669fb",
+        "version": 9
+      },
+      "CA-R-1398": {
+        "fixture": "authority_checks/CA-R-1398.md",
+        "sha256": "f7b33130be9d98abc56a2b0cdd15ea064e32ffa40fff12449fe6ec97b0ab3bf2",
+        "version": 9
+      },
+      "CA-R-1399": {
+        "fixture": "authority_checks/CA-R-1399.md",
+        "sha256": "bb45378bdbf9c9e840b603907977676eac9e657d170f9f60ac630605b1d2203f",
+        "version": 9
+      },
+      "CA-R-1539": {
+        "fixture": "authority_checks/CA-R-1539.md",
+        "sha256": "7a5a7638179edba26e740ea166dafac20a0517eba22a87bd9a9e11cb58e1926b",
+        "version": 6
+      },
+      "CA-R-155": {
+        "fixture": "authority_checks/CA-R-155.md",
+        "sha256": "10d9430644c9540d4afd014ec301d58848d8883857ad7c1dc1e47e2118297f55",
+        "version": 30
+      },
+      "CA-R-1565": {
+        "fixture": "authority_checks/CA-R-1565.md",
+        "sha256": "f4d71f3071765c4f66c321d6e2802812468c30f0bc5a0bd5b3d36c0e4da16352",
+        "version": 6
+      },
+      "CA-R-1574": {
+        "fixture": "authority_checks/CA-R-1574.md",
+        "sha256": "f2dd66abc3a0ebb509338a6ff2c1d5a633e50179d0480eea9a9d28cd5320cfba",
+        "version": 6
+      },
+      "CA-R-1608": {
+        "fixture": "authority_checks/CA-R-1608.md",
+        "sha256": "5bf01a8f1d27c69cddcc939e74f3b11325b376565281fdcb2054b77bd18ae672",
+        "version": 3
+      }
+    },
+    "schema_authority": {
+      "CA-D-289": {
+        "fixture": "schema_authority/CA-D-289.md",
+        "sha256": "8489ccfb75f951effff4b61a1abe97e4d52001524c6d1ce87192e290e5cb0efb",
+        "version": 12
+      },
+      "CA-D-378": {
+        "fixture": "schema_authority/CA-D-378.md",
+        "sha256": "9435f3abb5a56f46c37c43c3e758afa1e288a0af259f39a34237495d8fcf255f",
+        "version": 10
+      },
+      "CA-D-623": {
+        "fixture": "schema_authority/CA-D-623.md",
+        "sha256": "b97a8220c4639adceddc5bfa1d044ab556dca251247f18a1e36600f0fed3e8b0",
+        "version": 2
+      },
+      "CA-M-373": {
+        "fixture": "schema_authority/CA-M-373.md",
+        "sha256": "5444a9c6399dec1c9c7023acee5581067183a2595a470c0f6ac70f8157c21285",
+        "version": 3
+      },
+      "CA-R-1232": {
+        "fixture": "schema_authority/CA-R-1232.md",
+        "sha256": "d40415ebf2c7c07fccb5ea4a8b55cf670b6e292c6800eaee97ea308ea4ac9bd5",
+        "version": 14
+      },
+      "CA-R-1284": {
+        "fixture": "schema_authority/CA-R-1284.md",
+        "sha256": "f7f3e887eb38a6912a2c5178d1158ae7f51391d374e69ead438c6417ed816549",
+        "version": 11
+      },
+      "CA-R-1286": {
+        "fixture": "schema_authority/CA-R-1286.md",
+        "sha256": "44866e0a52e47af004ed19c33324162832acd8d27c3fbd4f908baefa8b002a36",
+        "version": 12
+      },
+      "CA-R-1506": {
+        "fixture": "schema_authority/CA-R-1506.md",
+        "sha256": "2ba96cf1e6f643b445bec93f02e52cbd12c91ef715b2cf336956366f59a2babe",
+        "version": 6
+      },
+      "CA-R-1662": {
+        "fixture": "schema_authority/CA-R-1662.md",
+        "sha256": "0baa7e3d84c87db43509a6f9f3c5a2d3aa49a4b22e03e5dec1164f4a0763d91b",
+        "version": 26
+      },
+      "CA-R-1665": {
+        "fixture": "schema_authority/CA-R-1665.md",
+        "sha256": "6281cf6e830f81f1dcc472a51903f4721e81aa69948a29a660c106db2c5e9f77",
+        "version": 21
+      },
+      "CA-R-1666": {
+        "fixture": "schema_authority/CA-R-1666.md",
+        "sha256": "7c693406f9f435d5aac909033d108c3384613487ee65c4ef940195fda337ccc0",
+        "version": 25
+      },
+      "CA-R-1667": {
+        "fixture": "schema_authority/CA-R-1667.md",
+        "sha256": "1dee9737b5cd1436b6b05bc7b6aba591ad2d675027aece2649fadaf48370acad",
+        "version": 21
+      },
+      "CA-R-1668": {
+        "fixture": "schema_authority/CA-R-1668.md",
+        "sha256": "355a65673d1c9c33b0a6a44f09a7eaae33ab08623e020c16b9318aaf14dd597f",
+        "version": 22
+      },
+      "CA-R-1673": {
+        "fixture": "schema_authority/CA-R-1673.md",
+        "sha256": "d3e7be671382c40955ca50c006b0bc4368d03ce5f4a8c7d4705d86207dafa191",
+        "version": 23
+      },
+      "CA-R-1674": {
+        "fixture": "schema_authority/CA-R-1674.md",
+        "sha256": "b62549531afe4eff423109fa45fb8f203031268dbe1509fda162f24484b608c3",
+        "version": 20
+      },
+      "CA-R-1675": {
+        "fixture": "schema_authority/CA-R-1675.md",
+        "sha256": "2ac1145885651a20ca7971d3dd64e21a40dfd1e6629790140d0800e142445cb3",
+        "version": 20
+      },
+      "CA-R-1700": {
+        "fixture": "schema_authority/CA-R-1700.md",
+        "sha256": "6df2206a5d6d534dead7d7d0a6994db1023345e515c40025a01004403cf25832",
+        "version": 21
+      },
+      "CA-R-1933": {
+        "fixture": "schema_authority/CA-R-1933.md",
+        "sha256": "d4085b56f48e3964ca099793747097cf9ffa986d38b6971a22edcb50f589c4d8",
+        "version": 2
+      },
+      "CA-R-825": {
+        "fixture": "schema_authority/CA-R-825.md",
+        "sha256": "ba454f1699398f7a69fdc3712a97798458baed68bdc34097f78f60983f991852",
+        "version": 20
+      },
+      "CA-R-925": {
+        "fixture": "schema_authority/CA-R-925.md",
+        "sha256": "614d48d0fe96e31d48ca27f14dbcc4614e6b37273e6e0faf0a3a6d7bbbd243e9",
+        "version": 21
+      },
+      "CA-R-932": {
+        "fixture": "schema_authority/CA-R-932.md",
+        "sha256": "8c5a6a91ffd4c5b233f849ad823c75991bfdcdc877fbebbab4674b62cd317565",
+        "version": 23
+      },
+      "CAPRMEDIO-R-793": {
+        "fixture": "schema_authority/CAPRMEDIO-R-793.md",
+        "sha256": "9d651d176ac1f0553bbd6f16bea9632249365dc54a43f5f361f5621bf2458c52",
+        "version": 22
+      }
+    },
+    "structure_authority": {
+      "CA-D-282": {
+        "fixture": "structure_authority/CA-D-282.md",
+        "sha256": "7fa4d6d9bcc9d78a8e202798a05f6406bd2241191845e1bd825f15ecf6730973",
+        "version": 11
+      },
+      "CA-D-283": {
+        "fixture": "structure_authority/CA-D-283.md",
+        "sha256": "edea95d6d6c4e80e42b5904b867c0affa1c3e1b00e6cccbb8cd0f88ac3748455",
+        "version": 13
+      },
+      "CA-D-284": {
+        "fixture": "structure_authority/CA-D-284.md",
+        "sha256": "e1014ed8122009bec4a4bae35520d207809584a7f0e82de8075357932f3aeb40",
+        "version": 11
+      },
+      "CA-D-285": {
+        "fixture": "structure_authority/CA-D-285.md",
+        "sha256": "79e2edd9bdaa702110dff500a5f3e0fbc6c0c9008d5ccf0ae1403e54edc5df6a",
+        "version": 13
+      },
+      "CA-D-291": {
+        "fixture": "structure_authority/CA-D-291.md",
+        "sha256": "ff1f52a2039c0a1fe0ecad1d134e7327c90d61ff4c6feae698a736b563537414",
+        "version": 15
+      },
+      "CA-D-302": {
+        "fixture": "structure_authority/CA-D-302.md",
+        "sha256": "37425cb82e6706f9c00c33b28b63f353a62878052f3e488c18c8f519f077fe0b",
+        "version": 13
+      },
+      "CA-D-324": {
+        "fixture": "structure_authority/CA-D-324.md",
+        "sha256": "2c3ac3c7a0b8165c61bc24b51c27102ee68061fec1e26537118cddb5f1b0c97d",
+        "version": 12
+      },
+      "CA-D-434": {
+        "fixture": "structure_authority/CA-D-434.md",
+        "sha256": "a14c02222a752dc3eef6bc662432918e6bf09108d08a44db97cbe7753cc3e2f8",
+        "version": 8
+      },
+      "CA-D-440": {
+        "fixture": "structure_authority/CA-D-440.md",
+        "sha256": "c1c169a39a975469001024c7fef1effc6a2b5938078fca5c4029894082dd4b23",
+        "version": 6
+      },
+      "CA-D-441": {
+        "fixture": "structure_authority/CA-D-441.md",
+        "sha256": "754b715c7253e602cd27be544e81d8ea641a2de261850413664e86a0229050b2",
+        "version": 6
+      },
+      "CA-D-442": {
+        "fixture": "structure_authority/CA-D-442.md",
+        "sha256": "909999b781021ed8ae985cb7ba8e1da04e184e0fa9a307d744adf4da4a97ae7d",
+        "version": 8
+      },
+      "CA-D-461": {
+        "fixture": "structure_authority/CA-D-461.md",
+        "sha256": "c536536b8525f7405b31883682aec1af1e9d403ef2ec52d728539d2a3fc09ed9",
+        "version": 9
+      },
+      "CA-D-466": {
+        "fixture": "structure_authority/CA-D-466.md",
+        "sha256": "4afececbe9b82f823de53769c80b6ff3acf7bd59bb919ee522fa32e46e0b6844",
+        "version": 6
+      },
+      "CA-D-467": {
+        "fixture": "structure_authority/CA-D-467.md",
+        "sha256": "66b1e31eefc3e13177279d880802ae5d99ddc82e32c65a94c7659bb96515cff2",
+        "version": 6
+      },
+      "CA-D-469": {
+        "fixture": "structure_authority/CA-D-469.md",
+        "sha256": "bf5a166f51a56360f6d9e46f2743f0094771c88b004d3ac4fef333efe25e304e",
+        "version": 4
+      },
+      "CA-R-1307": {
+        "fixture": "structure_authority/CA-R-1307.md",
+        "sha256": "2becec17a02198eb077cd3f4677447fef3493e3b7424f630b5f1afeb09555209",
+        "version": 12
+      },
+      "CA-R-1308": {
+        "fixture": "structure_authority/CA-R-1308.md",
+        "sha256": "61223d6c0422b9617562ef76e6c1ee090cb9eb548407fbfc89e0b5f119a93d76",
+        "version": 12
+      },
+      "CA-R-1313": {
+        "fixture": "structure_authority/CA-R-1313.md",
+        "sha256": "59b917b94425699091f707c1d949a5be3147520095998d4867167bee8dc98872",
+        "version": 13
+      },
+      "CA-R-1389": {
+        "fixture": "structure_authority/CA-R-1389.md",
+        "sha256": "813fbf92f6808add486c55a8e80b1d4d27f9c961de2192308a52a324da83ae03",
+        "version": 8
+      },
+      "CA-R-1390": {
+        "fixture": "structure_authority/CA-R-1390.md",
+        "sha256": "e152fa9937b54ea5c7c715041384d9a731ed3bfc60ad163d187c70705332d604",
+        "version": 10
+      },
+      "CA-R-1391": {
+        "fixture": "structure_authority/CA-R-1391.md",
+        "sha256": "e6eff850f0d92ffa8a44b12bee902b9d1a1cfe0805ba4fa134c7159401674743",
+        "version": 9
+      },
+      "CA-R-1393": {
+        "fixture": "structure_authority/CA-R-1393.md",
+        "sha256": "aacb1cdd172ad4e2088d152bcafbc4912d6311b57cfd0ece7851b061107dea89",
+        "version": 9
+      },
+      "CA-R-1395": {
+        "fixture": "structure_authority/CA-R-1395.md",
+        "sha256": "9ed8c3913c86abf35d07d0fe59b77995436f5f0017c15ac9af7e04849290645b",
+        "version": 10
+      },
+      "CA-R-1396": {
+        "fixture": "structure_authority/CA-R-1396.md",
+        "sha256": "3cb1809a6dce30372bcb33a5dbc38824e7423d40fa7f4acd3e2a0145532de43c",
+        "version": 10
+      },
+      "CA-R-1413": {
+        "fixture": "structure_authority/CA-R-1413.md",
+        "sha256": "228e99ee6e68bfc928244f48c3dfdb7e71393621d76325d282f3a778ab9036b4",
+        "version": 9
+      },
+      "CA-R-1442": {
+        "fixture": "structure_authority/CA-R-1442.md",
+        "sha256": "9ef3a06660a5ada4d9380dfd9db4cbe1ee886d37535cdfe6e3f0560bbc1b4296",
+        "version": 10
+      },
+      "CA-R-1566": {
+        "fixture": "structure_authority/CA-R-1566.md",
+        "sha256": "40938ac688e9e845685f73fbcb5950b49da56476ea3dfb2263a39ab1148a8d7b",
+        "version": 5
+      },
+      "CA-R-1874": {
+        "fixture": "structure_authority/CA-R-1874.md",
+        "sha256": "916f75193f373563730f84d8374a1ffd3d74a243fd0daa8c610b72c48935060a",
+        "version": 1
+      },
+      "CA-R-1875": {
+        "fixture": "structure_authority/CA-R-1875.md",
+        "sha256": "4e9729d9a86cfde040939429e31efea27f72cc7fe0bf9645d1b993181072905b",
+        "version": 1
+      },
+      "CA-R-680": {
+        "fixture": "structure_authority/CA-R-680.md",
+        "sha256": "e93348b452e56cac09dd258b198d636920ea918d3d1b5a021091df2aa7fb651e",
+        "version": 18
+      },
+      "CA-R-924": {
+        "fixture": "structure_authority/CA-R-924.md",
+        "sha256": "5225eb884a06485591d558fe347a2fde007ff110c08af0a9b01fc1df4998df2a",
+        "version": 20
+      }
+    }
+  },
+  "schema_version": 1
+}

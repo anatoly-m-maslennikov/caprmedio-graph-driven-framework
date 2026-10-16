@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 HERE = Path(__file__).resolve().parent
 TOOLS = HERE.parents[1]
@@ -17,12 +18,18 @@ from project_selection import bind_selection, resolve_project
 from VALIDATE_ATOMS.validate_atoms_workers.authority import Obligation
 from VALIDATE_ATOMS.validate_atoms_workers.check_structure_extended import ADAPTERS
 from VALIDATE_ATOMS.validate_atoms_workers.check_support import Check
+from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier as admission
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
-    ProposedCarrierError, _FRONTIER_IDS, _GRAPH_IDS, _REGISTRY_IDS, _SUPPORT_IDS, _entry,
+    ProposedCarrierError, _FRONTIER_IDS, _GRAPH_IDS, _REGISTRY_IDS, _SUPPORT_IDS,
     source_context_from_project, validate_proposed_carrier,
 )
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_references import (
     ProposedReferenceError, inventory_proposed_references,
+)
+from VALIDATE_ATOMS.tests.golden_authority import (
+    frozen_authority_fixture_bytes,
+    frozen_entry,
+    write_frozen_authority,
 )
 
 
@@ -35,12 +42,9 @@ def snapshot(root):
             for p in root.rglob("*") if p.is_file() and not p.is_symlink()}
 
 
-def authority_fixture_bytes(identifier, entry):
-    for path in sorted((HERE / "fixtures").glob(f"*/{identifier}.md")):
-        raw = path.read_bytes()
-        if hashlib.sha256(raw).hexdigest() == entry["sha256"]:
-            return raw
-    raise AssertionError("Missing exact fixture: " + identifier)
+def authority_fixture_bytes(identifier, entry=None, *, graph=False):
+    del entry
+    return frozen_authority_fixture_bytes(identifier, graph=graph)
 
 
 class ProposedCarrierAdmissionRegressions(unittest.TestCase):
@@ -49,6 +53,9 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         scratch.mkdir(parents=True, exist_ok=True)
         self.directory = tempfile.TemporaryDirectory(dir=scratch, ignore_cleanup_errors=True)
         self.addCleanup(self.directory.cleanup)
+        self.entry_patch = patch.object(admission, "_entry", frozen_entry)
+        self.entry_patch.start()
+        self.addCleanup(self.entry_patch.stop)
         self.root = Path(self.directory.name)
 
     def put(self, relative, raw):
@@ -138,12 +145,9 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         (control / "operators_registry.toml").write_text(
             '[[operators]]\nname = "Fixture Operator"\nrole = "project owner"\n', encoding="utf-8",
         )
-        for identifier in dict.fromkeys((*_REGISTRY_IDS, *_SUPPORT_IDS, "CA-R-1539", *source_ids)):
-            entry = _entry(identifier)
-            raw = authority_fixture_bytes(identifier, entry)
-            destination = control.joinpath(*Path(entry["source_path"]).parts[1:])
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            destination.write_bytes(raw)
+        write_frozen_authority(
+            root, control, tuple(dict.fromkeys((*_REGISTRY_IDS, *_SUPPORT_IDS, "CA-R-1539", *source_ids))),
+        )
         return resolve_project(root, control_name)
 
     @staticmethod
@@ -283,10 +287,10 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
     def test_relation_bearing_caller_uses_verified_whitelist_and_graph_authority(self):
         selection = self.project()
         control = selection.control_relative
-        for identifier in dict.fromkeys((*_FRONTIER_IDS, *_GRAPH_IDS)):
-            entry = _entry(identifier, graph=identifier in _GRAPH_IDS)
-            raw = authority_fixture_bytes(identifier, entry)
-            self.put(control.joinpath(*Path(entry["source_path"]).parts[1:]), raw)
+        write_frozen_authority(
+            self.root, control, tuple(dict.fromkeys((*_FRONTIER_IDS, *_GRAPH_IDS))),
+            graph_only_identifiers=frozenset(_GRAPH_IDS),
+        )
         structure = selection.structure_path.read_text()
         selection.structure_path.write_text(
             structure + '\n[[scope_units]]\nscope_unit_name = "TEST"\nparent = "PROJECT"\n'

@@ -29,7 +29,7 @@ class NestedOperationPlacementIndependentTests(unittest.TestCase):
         self.control = self.fixture.control
         for identifier in ("CA-D-289", "CA-D-378"):
             entry = scoped.admission._entry(identifier)
-            raw = (scoped.fixtures.REPOSITORY / entry["source_path"]).read_bytes()
+            raw = scoped.fixtures.authority_fixture_bytes(identifier, entry)
             self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
             self.fixture.fixture.put(
                 self.control.joinpath(*Path(entry["source_path"]).parts[1:]), raw,

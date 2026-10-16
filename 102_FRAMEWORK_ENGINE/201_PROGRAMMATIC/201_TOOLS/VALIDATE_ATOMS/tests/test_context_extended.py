@@ -1,7 +1,5 @@
 """Regression corpus for supported context-bound checks, not semantic review."""
 
-import hashlib
-import json
 from pathlib import Path
 import sys
 import unittest
@@ -13,28 +11,11 @@ sys.path.insert(0, str(TOOL))
 from validate_atoms_workers.authority import Obligation, resolve_context  # noqa: E402
 from validate_atoms_workers.check_support import Check  # noqa: E402
 from validate_atoms_workers.check_context_extended import ADAPTERS  # noqa: E402
-from validate_atoms_workers.parsing import parse_carrier  # noqa: E402
+from VALIDATE_ATOMS.tests.golden_authority import frozen_sources  # noqa: E402
 
 
 def sources() -> list[dict[str, Any]]:
-    entries = json.loads((TOOL / "validate_atoms_workers/context_authority.json").read_text())[
-        "sources"
-    ]
-    result = []
-    for identifier, row in entries.items():
-        path = TOOL / "tests/fixtures/context_authority" / (identifier + ".md")
-        text = path.read_text()
-        assert hashlib.sha256(text.encode()).hexdigest() == row["sha256"]
-        result.append(
-            dict(
-                binding=dict(
-                    atom_id=identifier, path=str(path), version=row["version"], sha256=row["sha256"]
-                ),
-                text=text,
-                metadata=parse_carrier(text.encode(), path).metadata,
-            )
-        )
-    return result
+    return frozen_sources(("context_authority",))
 
 
 def check(code: str, metadata: dict[str, Any], **inputs: Any) -> Check:

@@ -14,7 +14,6 @@ from project_selection import bind_selection
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
-from VALIDATE_ATOMS.validate_atoms_workers.support_authority import support_sources
 import test_proposed_carrier_admission_regressions as fixtures  # noqa: E402
 
 
@@ -40,7 +39,7 @@ class SectionAuthorityTests(unittest.TestCase):
                     source = proposed_carrier._source(
                         context.root, identifier, context._reader, report
                     )
-                    entry = support_sources()[identifier]
+                    entry = proposed_carrier._entry(identifier)
                     self.assertEqual(source["binding"]["sha256"], entry["sha256"])
                     path = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
                     self.assertEqual(source["binding"]["path"], str(path))
@@ -48,7 +47,7 @@ class SectionAuthorityTests(unittest.TestCase):
 
     def test_missing_and_wrong_identity_section_sources_refuse(self):
         for identifier in SECTION_SOURCES:
-            entry = support_sources()[identifier]
+            entry = proposed_carrier._entry(identifier)
             original = fixtures.authority_fixture_bytes(identifier, entry)
             with tempfile.TemporaryDirectory(dir=self.root) as directory:
                 root = Path(directory).resolve()

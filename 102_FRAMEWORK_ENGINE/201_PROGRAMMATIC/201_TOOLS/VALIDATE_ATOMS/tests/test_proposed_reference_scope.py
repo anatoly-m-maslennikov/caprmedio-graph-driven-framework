@@ -13,7 +13,7 @@ import test_proposed_carrier_admission_regressions as fixtures
 from project_selection import bind_selection
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier  # noqa: E402 - fixture path bootstrap
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
-    ProposedCarrierError, _entry, _FRONTIER_IDS, _GRAPH_IDS,
+    ProposedCarrierError, _FRONTIER_IDS, _GRAPH_IDS,
     source_context_from_project, validate_proposed_carrier,
 )
 
@@ -37,8 +37,8 @@ class ProposedReferenceScopeTests(unittest.TestCase):
         self.root = self.selection.root
         self.control = self.selection.control_relative
         for identifier in dict.fromkeys((*_FRONTIER_IDS, *_GRAPH_IDS)):
-            entry = _entry(identifier, graph=identifier in _GRAPH_IDS)
-            raw = (fixtures.REPOSITORY / entry["source_path"]).read_bytes()
+            entry = proposed_carrier._entry(identifier, graph=identifier in _GRAPH_IDS)
+            raw = fixtures.authority_fixture_bytes(identifier, entry, graph=identifier in _GRAPH_IDS)
             self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
             self.fixture.put(self.control.joinpath(*Path(entry["source_path"]).parts[1:]), raw)
         self.target = self.fixture.put(self.control / "09_operations/action.md", TARGET)
@@ -114,7 +114,7 @@ class ProposedReferenceScopeTests(unittest.TestCase):
         with self.assertRaises(ProposedCarrierError):
             self.validate(metadata=metadata, reference_roles=PRMEDO)
         for identifier, graph in (("CA-D-324", False), ("CA-R-1018", True)):
-            entry = _entry(identifier, graph=graph)
+            entry = proposed_carrier._entry(identifier, graph=graph)
             path = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
             original = path.read_bytes()
             # D324 is already captured; graph rules are first read during admission.
@@ -127,7 +127,7 @@ class ProposedReferenceScopeTests(unittest.TestCase):
                 path.write_bytes(original)
 
     def test_graph_authority_drift_after_capture_refuses(self):
-        entry = _entry("CA-R-1018", graph=True)
+        entry = proposed_carrier._entry("CA-R-1018", graph=True)
         path = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
         original = path.read_bytes()
         resolve = proposed_carrier.relations_resolution

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import hashlib
-import json
 import sys
 import unittest
 from pathlib import Path
@@ -19,39 +18,11 @@ from validate_atoms_workers.check_fields import _common  # noqa: E402
 from validate_atoms_workers.check_support import Check  # noqa: E402
 from validate_atoms_workers.parsing import parse_carrier  # noqa: E402
 from validate_atoms_workers.check_schema_extended import ADAPTERS  # noqa: E402
+from VALIDATE_ATOMS.tests.golden_authority import entries, frozen_sources  # noqa: E402
 
 
 def sources() -> list[dict[str, Any]]:
-    entries = {}
-    directories = {}
-    for name in ("registry.json", "schema_authority.json"):
-        group = json.loads((TOOL / "validate_atoms_workers" / name).read_text())["sources"]
-        entries.update(group)
-        directories.update(
-            {
-                atom_id: "schema_authority"
-                if name == "schema_authority.json"
-                else "authority_checks"
-                for atom_id in group
-            }
-        )
-    result = []
-    for atom_id, entry in entries.items():
-        path = TOOL / "tests/fixtures" / directories[atom_id] / (atom_id + ".md")
-        text = path.read_text()
-        result.append(
-            {
-                "binding": {
-                    "atom_id": atom_id,
-                    "version": entry["version"],
-                    "path": str(path),
-                    "sha256": hashlib.sha256(text.encode()).hexdigest(),
-                },
-                "text": text,
-                "metadata": yaml.safe_load(text.split("---", 2)[1]),
-            }
-        )
-    return result
+    return frozen_sources(("registry", "schema_authority"), retain_first=False)
 
 
 BODY = "# Summary\nDo work\n\n## Scope\nThe selected work.\n\n## Claim\nProduce the declared result.\n## Details\n"
@@ -102,17 +73,15 @@ class SchemaExtendedTest(unittest.TestCase):
         self.assertEqual(check.findings, [])
         self.assertEqual(check.gaps, [])
 
-    def test_fixture_digests_match_reviewed_authority(self) -> None:
-        entries = {}
-        for name in ("registry.json", "schema_authority.json"):
-            entries.update(
-                json.loads((TOOL / "validate_atoms_workers" / name).read_text())["sources"]
-            )
+    def test_fixture_digests_match_frozen_authority(self) -> None:
         for row in sources():
             with self.subTest(atom_id=row["binding"]["atom_id"]):
-                self.assertEqual(
-                    row["binding"]["sha256"], entries[row["binding"]["atom_id"]]["sha256"]
-                )
+                self.assertEqual(row["binding"]["sha256"], hashlib.sha256(row["text"].encode()).hexdigest())
+
+    def test_later_schema_fixture_wins_for_a_duplicate_authority(self) -> None:
+        source = next(row for row in sources() if row["binding"]["atom_id"] == "CA-R-1232")
+        self.assertEqual(source["binding"]["version"], entries("schema_authority")["CA-R-1232"]["version"])
+        self.assertEqual(source["binding"]["sha256"], entries("schema_authority")["CA-R-1232"]["sha256"])
 
     def test_updated_at_accepts_single_and_double_quotes(self) -> None:
         for quote in ('"', "'"):

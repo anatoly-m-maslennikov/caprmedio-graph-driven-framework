@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 import copy
-import hashlib
-import json
 import sys
 import unittest
 from functools import lru_cache
@@ -20,30 +18,12 @@ from validate_atoms_workers.authority import AuthorityContext, Obligation, Recor
 from validate_atoms_workers.check_support import Check  # noqa: E402
 from validate_atoms_workers.check_graph_extended import ADAPTERS  # noqa: E402
 from validate_atoms_workers.parsing import parse_carrier  # noqa: E402
+from VALIDATE_ATOMS.tests.golden_authority import frozen_sources  # noqa: E402
 
 
 @lru_cache(maxsize=1)
 def authorities() -> list[Record]:
-    manifest = json.loads((TOOL / "validate_atoms_workers/graph_authority.json").read_text())
-    result = []
-    for atom_id, pin in manifest["sources"].items():
-        path = TOOL / "tests/fixtures/extended_authority" / (atom_id + ".md")
-        text = path.read_text()
-        if hashlib.sha256(text.encode()).hexdigest() != pin["sha256"]:
-            raise AssertionError("Authority fixture no longer matches its reviewed pin: " + atom_id)
-        result.append(
-            {
-                "binding": {
-                    "atom_id": atom_id,
-                    "version": pin["version"],
-                    "sha256": hashlib.sha256(text.encode()).hexdigest(),
-                    "path": str(path),
-                },
-                "text": text,
-                "metadata": yaml.safe_load(text.split("---", 2)[1]),
-            }
-        )
-    return result
+    return frozen_sources(("graph_authority",))
 
 
 def atom(

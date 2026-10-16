@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 import subprocess
 import sys
 import unittest
+from unittest.mock import patch
 from typing import Any, cast
 
 from golden_fixtures import fingerprint, isolated_directory
@@ -17,54 +17,8 @@ sys.path.insert(0, str(TOOL))
 
 from validate_atoms_workers.authority import resolve_context  # noqa: E402
 from validate_atoms_workers.check_dispatch import ADAPTER_CODES  # noqa: E402
-from validate_atoms_workers.parsing import parse_carrier  # noqa: E402
 from validate_atoms_workers.settings import CEILINGS  # noqa: E402
-
-
-def frozen_sources() -> list[dict[str, Any]]:
-    entries: dict[str, Any] = {}
-    for name in (
-        "registry",
-        "schema_authority",
-        "graph_authority",
-        "structure_authority",
-        "context_authority",
-    ):
-        source_entries = json.loads(
-            (TOOL / "validate_atoms_workers" / (name + ".json")).read_text()
-        )["sources"]
-        # A graph or derived carrier can describe an existing atom, but it is
-        # not an independent authority replacement for the registry's canonical
-        # source. The combined CLI frontier has one binding per atom ID, so
-        # retain the first (registry) binding on a collision.
-        for identifier, entry in source_entries.items():
-            entries.setdefault(identifier, entry)
-    fixtures = TOOL / "tests/fixtures"
-    result = []
-    for identifier, entry in entries.items():
-        paths = sorted(fixtures.glob("*/" + identifier + ".md"))
-        matches = [
-            path
-            for path in paths
-            if hashlib.sha256(path.read_bytes()).hexdigest() == entry["sha256"]
-        ]
-        if not matches:
-            raise AssertionError("Missing exact fixture: " + identifier)
-        path = matches[0]
-        text = path.read_text()
-        result.append(
-            dict(
-                binding=dict(
-                    atom_id=identifier,
-                    version=entry["version"],
-                    path=str(path),
-                    sha256=entry["sha256"],
-                ),
-                text=text,
-                metadata=parse_carrier(text.encode(), path).metadata,
-            )
-        )
-    return result
+from VALIDATE_ATOMS.tests.golden_authority import entries, frozen_sources, manifest  # noqa: E402
 
 
 def run_cli(
@@ -149,18 +103,35 @@ the Plan is **not** Done **if** the work is missing.
 
 
 class ExtendedIntegration(unittest.TestCase):
-    def test_frozen_sources_retains_canonical_registry_binding_on_collision(self) -> None:
+    def test_frozen_sources_retain_static_registry_binding_on_collision(self) -> None:
         bindings = {
             source["binding"]["atom_id"]: source["binding"]
             for source in frozen_sources()
         }
-        registry = json.loads(
-            (TOOL / "validate_atoms_workers/registry.json").read_text()
-        )["sources"]
+        registry = entries("registry")
         for identifier in ("CA-D-268", "CA-D-269"):
             with self.subTest(identifier=identifier):
                 self.assertEqual(bindings[identifier]["sha256"], registry[identifier]["sha256"])
                 self.assertEqual(bindings[identifier]["version"], registry[identifier]["version"])
+
+    def test_frozen_profile_does_not_read_production_manifests(self) -> None:
+        production = {
+            (TOOL / "validate_atoms_workers" / f"{name}.json").resolve()
+            for name in ("registry", "schema_authority", "graph_authority", "structure_authority", "context_authority")
+        }
+        original = Path.read_text
+
+        def refuse_production_manifest(path: Path, *args: Any, **kwargs: Any) -> str:
+            if path.resolve() in production:
+                raise AssertionError("golden profile read a production manifest")
+            return original(path, *args, **kwargs)
+
+        manifest.cache_clear()
+        try:
+            with patch.object(Path, "read_text", refuse_production_manifest):
+                self.assertTrue(frozen_sources())
+        finally:
+            manifest.cache_clear()
 
     def test_twenty_additional_adapters_are_registered(self) -> None:
         expected = {

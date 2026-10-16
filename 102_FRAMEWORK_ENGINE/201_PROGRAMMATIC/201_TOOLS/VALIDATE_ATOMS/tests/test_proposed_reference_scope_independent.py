@@ -1,6 +1,5 @@
 """Independent controls for explicitly bounded reference admission, not Project validity."""
 
-import hashlib
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -9,6 +8,7 @@ import test_proposed_carrier_admission_regressions as fixtures
 from project_selection import bind_selection
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier as admission
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_references as references
+from VALIDATE_ATOMS.tests.golden_authority import write_frozen_authority
 
 
 PRMEDO = ("Plan", "Requirement", "Method", "Evaluation", "Delivery", "Operations")
@@ -25,14 +25,11 @@ class ExplicitReferenceScopeIndependentTests(unittest.TestCase):
         self.root = self.fixture.root
         self.selection = self.fixture.project()
         self.control = self.selection.control_relative
-        for identifier in dict.fromkeys((*admission._FRONTIER_IDS, *admission._GRAPH_IDS, "CA-D-378")):
-            entry = admission._entry(identifier, graph=identifier in admission._GRAPH_IDS)
-            source = fixtures.REPOSITORY / entry["source_path"]
-            if not source.is_file():
-                source = fixtures.HERE / "fixtures/extended_authority" / f"{identifier}.md"
-            raw = source.read_bytes()
-            self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
-            self.fixture.put(self.control.joinpath(*Path(entry["source_path"]).parts[1:]), raw)
+        write_frozen_authority(
+            self.root, self.control,
+            tuple(dict.fromkeys((*admission._FRONTIER_IDS, *admission._GRAPH_IDS, "CA-D-378"))),
+            graph_only_identifiers=frozenset(admission._GRAPH_IDS),
+        )
         self.target = self.fixture.put(self.control / "09_operations/action.md", (
             b"---\natom_id: CA-O-702\ncontent_role: Operations\ntype: Action\n"
             b"current_scope_unit: amber\nstatus: Active\nversion: 1\n---\n# Summary\n\nAction\n"

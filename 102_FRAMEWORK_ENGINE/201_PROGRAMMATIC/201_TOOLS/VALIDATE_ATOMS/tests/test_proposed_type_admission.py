@@ -10,10 +10,10 @@ TOOLS = TOOL.parent
 PROJECT = TOOLS.parents[2]
 sys.path[:0] = [str(TOOLS), str(TOOL)]
 
-from validate_atoms_workers import proposed_carrier
-from validate_atoms_workers.authority import Obligation
-from validate_atoms_workers.check_schema_extended import ADAPTERS
-from validate_atoms_workers.check_support import Check
+from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
+from VALIDATE_ATOMS.validate_atoms_workers.authority import Obligation
+from VALIDATE_ATOMS.validate_atoms_workers.check_schema_extended import ADAPTERS
+from VALIDATE_ATOMS.validate_atoms_workers.check_support import Check
 import test_proposed_carrier_admission_regressions as fixtures  # noqa: E402
 
 

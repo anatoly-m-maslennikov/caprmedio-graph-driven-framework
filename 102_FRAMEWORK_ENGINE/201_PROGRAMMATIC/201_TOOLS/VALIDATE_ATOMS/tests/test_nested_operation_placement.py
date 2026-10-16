@@ -1,7 +1,6 @@
 """Author controls for current Operations proposals inside authenticated bundles."""
 
 from copy import deepcopy
-import hashlib
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -11,6 +10,7 @@ import yaml
 import test_proposed_reference_scope_independent as scoped_fixture
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
+from VALIDATE_ATOMS.tests.golden_authority import write_frozen_authority
 
 
 BODY = ("# Summary\n\nInvoke one selected Action\n\n## Scope\n\nOne explicit input.\n\n"
@@ -22,13 +22,7 @@ class NestedOperationsPlacementTests(unittest.TestCase):
         self.fixture = scoped_fixture.ExplicitReferenceScopeIndependentTests()
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
-        for identifier in ("CA-D-289", "CA-D-378"):
-            pin = proposed_carrier._entry(identifier)
-            raw = (scoped_fixture.fixtures.REPOSITORY / pin["source_path"]).read_bytes()
-            self.assertEqual(hashlib.sha256(raw).hexdigest(), pin["sha256"])
-            self.fixture.fixture.put(
-                self.fixture.control.joinpath(*Path(pin["source_path"]).parts[1:]), raw,
-            )
+        write_frozen_authority(self.fixture.root, self.fixture.control, ("CA-D-289", "CA-D-378"))
 
     def metadata(self, **changes):
         value = self.fixture.fixture.metadata(

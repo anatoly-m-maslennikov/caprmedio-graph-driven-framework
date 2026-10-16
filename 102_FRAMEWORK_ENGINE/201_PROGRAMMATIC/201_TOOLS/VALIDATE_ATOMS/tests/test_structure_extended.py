@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 import copy
-import hashlib
-import json
 from pathlib import Path
 import sys
 from typing import ClassVar
@@ -17,41 +15,11 @@ sys.path.insert(0, str(TOOL))
 from validate_atoms_workers.authority import AuthorityContext, Obligation, Record  # noqa: E402
 from validate_atoms_workers.check_support import Check  # noqa: E402
 from validate_atoms_workers.check_structure_extended import ADAPTERS  # noqa: E402
-from validate_atoms_workers.parsing import parse_carrier  # noqa: E402
+from VALIDATE_ATOMS.tests.golden_authority import frozen_sources  # noqa: E402
 
 
 def sources() -> list[Record]:
-    rows: dict[str, tuple[Record, Path]] = {}
-    for name, fixture_folder in (
-        ("registry.json", "authority_checks"),
-        ("structure_authority.json", "structure_authority"),
-        ("schema_authority.json", "schema_authority"),
-    ):
-        manifest = json.loads((TOOL / "validate_atoms_workers" / name).read_text())["sources"]
-        rows.update(
-            {
-                identifier: (entry, HERE / "fixtures" / fixture_folder / f"{identifier}.md")
-                for identifier, entry in manifest.items()
-            }
-        )
-    found: list[Record] = []
-    for identifier, (entry, path) in rows.items():
-        raw = path.read_bytes()
-        if hashlib.sha256(raw).hexdigest() != entry["sha256"]:
-            raise AssertionError("Fixture must match its exact authority pin: " + identifier)
-        found.append(
-            dict(
-                binding=dict(
-                    atom_id=identifier,
-                    version=entry["version"],
-                    path=str(path),
-                    sha256=hashlib.sha256(raw).hexdigest(),
-                ),
-                text=raw.decode(),
-                metadata=parse_carrier(raw, path).metadata,
-            )
-        )
-    return found
+    return frozen_sources(("registry", "structure_authority", "schema_authority"), retain_first=False)
 
 
 def unit(name: str = "CORE", parent: str = "PROJECT", level: int = 1) -> Record:
@@ -226,9 +194,9 @@ class StructureExtendedTest(unittest.TestCase):
         self.assertFalse(checked.findings)
         self.assertFalse(checked.gaps)
 
-    def test_v7_target_rule_is_source_bound_and_rejects_duplicate_property(self) -> None:
+    def test_target_rule_is_source_bound_and_rejects_duplicate_property(self) -> None:
         authority = next(row for row in self.authorities if row["binding"]["atom_id"] == "CA-D-482")
-        self.assertEqual(authority["binding"]["version"], 7)
+        self.assertEqual(authority["binding"]["version"], 9)
         checked = self.check("target.resolution", metadata={**self.metadata, "claim_scope": "CORE"})
         self.assertTrue(checked.findings)
 

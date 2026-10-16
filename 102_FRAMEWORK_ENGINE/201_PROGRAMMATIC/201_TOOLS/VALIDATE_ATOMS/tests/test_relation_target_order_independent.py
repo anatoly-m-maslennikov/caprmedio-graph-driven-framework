@@ -65,7 +65,7 @@ class RelationTargetOrderIndependentTests(unittest.TestCase):
                     self.validate({"evaluation_for": targets})
 
     def test_stale_or_missing_authority_refuses(self):
-        entry = scoped.admission._entry("CA-D-268")
+        entry = scoped.admission._entry("CA-D-268", graph=True)
         path = self.fixture.root / self.fixture.control.joinpath(*Path(entry["source_path"]).parts[1:])
         original = path.read_bytes()
         self.assertEqual(hashlib.sha256(original).hexdigest(), entry["sha256"])

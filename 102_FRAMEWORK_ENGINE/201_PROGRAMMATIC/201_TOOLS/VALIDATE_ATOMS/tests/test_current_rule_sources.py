@@ -41,15 +41,11 @@ class CurrentRuleSourcesTests(unittest.TestCase):
 
     def source(self, identifier: str, *, graph_rule: bool = False) -> Path:
         entry = proposed._entry(identifier, graph=graph_rule)
-        matches = [
-            path
-            for path in (TOOL / "tests/fixtures").glob(f"*/{identifier}.md")
-            if sha(path.read_bytes()) == entry["sha256"]
-        ]
-        self.assertTrue(matches)
+        source = TOOL.parents[3] / entry["source_path"]
+        self.assertTrue(source.is_file())
         path: Path = self.root / entry["source_path"]
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(matches[0].read_bytes())
+        path.write_bytes(source.read_bytes())
         return path
 
     def revise(self, path: Path) -> int:

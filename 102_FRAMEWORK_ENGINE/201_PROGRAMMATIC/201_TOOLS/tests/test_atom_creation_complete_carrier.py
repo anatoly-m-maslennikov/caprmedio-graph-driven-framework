@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 import hashlib
 import sys
 import unittest
@@ -16,6 +15,7 @@ sys.path.insert(0, str(VALIDATE))
 
 from atom_operations import ToolError, prepare_create_atom_revision  # noqa: E402
 from project_selection import bind_selection  # noqa: E402
+from VALIDATE_ATOMS.tests.golden_authority import frozen_entry  # noqa: E402
 from VALIDATE_ATOMS.tests import test_proposed_carrier_admission_regressions as fixtures  # noqa: E402
 from validate_atoms_workers.registry_refresh import (  # noqa: E402
     APPROVED_REFRESH_IDS,
@@ -30,9 +30,10 @@ class RegistryRefreshTest(unittest.TestCase):
         self.addCleanup(fixture.doCleanups)
         self.root = fixture.root
         selection = fixture.project()
-        registry = VALIDATE / "validate_atoms_workers" / "registry.json"
-        sources = json.loads(registry.read_text(encoding="utf-8"))["sources"]
-        self.entries = {identity: sources[identity] for identity in ("CA-D-274", "CA-D-276")}
+        self.entries = {
+            identity: frozen_entry(identity)
+            for identity in ("CA-D-274", "CA-D-276")
+        }
         for entry in self.entries.values():
             entry["source_path"] = selection.control_relative.joinpath(
                 *Path(entry["source_path"]).parts[1:]
@@ -183,7 +184,7 @@ class CompleteCarrierPreflightTest(unittest.TestCase):
         )
         self.assertIn("version: 8", frontmatter)
         self.assertIn('updated_at: "2026-10-08 12:00:00 +0400"', frontmatter)
-        with self.assertRaisesRegex(ToolError, "incomplete, invalid, or unresolved"):
+        with self.assertRaisesRegex(ToolError, "Archived carrier requires its Revision suffix"):
             prepare_create_atom_revision(
                 self.root,
                 self.relative,
