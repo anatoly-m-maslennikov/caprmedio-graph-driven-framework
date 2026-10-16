@@ -12,30 +12,38 @@ Eight workers classified all **511** Subjects in the saved inventory. An indepen
 | Terms | 80 | Shared meaning belongs in Terms, not a new entity node |
 | Remove | 16 | Obsolete concept/reference or dedicated rule; not whole-Atom deletion |
 | Deferred | 13 | Explicitly outside current model work |
-| Unresolved | 209 | 190 mapping-work entries and 19 entries flagging possible Operator decisions |
+| Unresolved | 209 | 199 mapping-work entries and 10 entries flagging possible Operator decisions |
 | Total | 511 | Every inventory index appears exactly once |
 
-**209 unresolved does not mean 209 unanswered questions.** Most need per-source mapping, preserved instance identity, or handling of conflicting old content under already-approved decisions. The 19 candidate decision entries are grouped into nine families below; they remain review findings, not automatically required questions.
+**209 unresolved does not mean 209 unanswered questions.** Most need per-source mapping, preserved instance identity, or handling of conflicting old content under already-approved decisions. After the recorded Operator decisions, 10 candidate decision entries remain in seven open families below; they remain review findings, not automatically required questions.
 
-[Complete review map](review-map.json) includes each Subject, candidate target, reason, evidence, affected source IDs and follow-up. The eight part files retain the worker outputs.
+[Complete review map](review-map.json) includes each Subject, candidate target, reason, evidence, affected source IDs and follow-up, including subsequent Operator decisions. The eight part files retain the original worker outputs, not later decisions.
 
 ## Highest-impact decision families
 
-### Source collections and configuration
+### Resolved: methodology-source ownership
 
-Are Core, Extensions and Project Configuration named collections of source Atoms, while Settings/Structure remain the agreed Project properties? Placement in Project Configuration is already decided; this asks only how the collections themselves are represented.
+Core Meta-model, Extensions and Project Configuration are the existing Scope Units. No extra source Object or named Selection is needed. Bind references to the exact Scope Unit; this is mapping work, not another representation question.
 
-Subjects: `Default Settings`, `Extension`, `Installed Extensions Catalog Entry`, `Methodology Source`, `Methodology Source.Expansion Boundary`, `Project Configuration`.
+This resolves the ownership question for `Extension`, `Methodology Source`, `Methodology Source.Expansion Boundary` and `Project Configuration`, and guides Core source references.
 
-### Framework identity and installed instance
+### Resolved: Default Settings
 
-Does CAPRMEDIO Framework Identity mean the Project, its delivered product, or an installed instance? Split project/configuration/runtime uses before proposing another kind.
+Default Settings belongs in `project_settings.default.toml`, as specified by the Operator. Do not merge it into Framework Settings or infer a file location/rename. Per-source settings-versus-carrier mapping remains work.
 
-Subjects: `CAPRMEDIO Framework Identity`, `CAPRMEDIO Framework Instance`.
+### Resolved: installed-extension metadata
 
-### Evaluation outputs and evidence
+Extension metadata belongs to its existing Scope Unit; enabled-extension selection belongs to Project Settings. No separate `Installed Extensions Catalog Entry` entity. Exact field mapping remains work; mandatory metadata fields are not decided here.
 
-Which outputs are authored Analysis, derived Projections, or records of executions? Preserve their distinct identity; do not turn every report into Journal or Projection automatically.
+### Framework name ownership
+
+Framework Instance is resolved: normally Project (`Entity/Continuant/Project`, as supplied by the Operator), or the appropriate Execution for an actual run. No separate Framework Instance entity. Per-source assignment remains mapping work; older Project paths must be reconciled explicitly during migration.
+
+The remaining separate name-ownership check concerns `CAPRMEDIO Framework Identity`; do not reopen Framework Instance.
+
+### Resolved: execution outputs and evidence
+
+Records of what happened during any execution—results, failures and evidence references—belong to History, not necessarily Journal. Authored analysis with rationale/conclusions is an Analysis Atom; compiled views are Projections. No new History subtype is needed now. Per-source assignment remains mapping work.
 
 Subjects: `Evaluation Report`, `Proof Dependency Frontier`.
 

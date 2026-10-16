@@ -9,7 +9,7 @@ Sequence: rebuild from current Atoms → review unmapped Subjects → approve ma
 [Recalculated review](candidate6-classification/review.md) and [complete map](candidate6-classification/review-map.json): all 511 inventory Subjects classified by eight workers, with independent cross-slice review.
 
 - 193 candidate mappings; 80 Terms; 16 removal candidates; 13 deferred.
-- 209 unresolved: 190 source-specific mapping-work entries and 19 entries flagging possible Operator decisions, grouped into nine families.
+- 209 unresolved: 199 source-specific mapping-work entries and 10 entries flagging possible Operator decisions, grouped into seven families. Source collections and extension metadata use existing Scope Units; enabled extensions use Project Settings; Framework Instance means Project or actual Execution; execution-result records belong to History; Default Settings uses `project_settings.default.toml`.
 
 The original inventory and explicit-approval counts below are preserved as the input snapshot. Use the recalculated review for current disposition counts. These are review classifications, not an executable migration or source changes.
 

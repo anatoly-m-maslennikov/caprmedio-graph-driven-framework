@@ -15,36 +15,15 @@
     "deferred": 13,
     "unresolved": 209
   },
-  "unresolved_mapping_work": 190,
-  "candidate_operator_decision_entries": 19,
+  "unresolved_mapping_work": 199,
+  "candidate_operator_decision_entries": 10,
   "decision_groups": [
     {
-      "name": "Source collections and configuration",
+      "name": "Framework name ownership",
       "indices": [
-        197,
-        229,
-        277,
-        303,
-        305,
-        342
+        138
       ],
-      "question": "Are Core, Extensions and Project Configuration named collections of source Atoms, while Settings/Structure remain the agreed Project properties? Placement in Project Configuration is already decided; this asks only how the collections themselves are represented."
-    },
-    {
-      "name": "Framework identity and installed instance",
-      "indices": [
-        138,
-        139
-      ],
-      "question": "Does CAPRMEDIO Framework Identity mean the Project, its delivered product, or an installed instance? Split project/configuration/runtime uses before proposing another kind."
-    },
-    {
-      "name": "Evaluation outputs and evidence",
-      "indices": [
-        222,
-        368
-      ],
-      "question": "Which outputs are authored Analysis, derived Projections, or records of executions? Preserve their distinct identity; do not turn every report into Journal or Projection automatically."
+      "question": "Framework Instance is resolved to Project or actual Execution per source. The separate framework-name rule still needs its exact owner checked; do not reopen Framework Instance as another entity."
     },
     {
       "name": "Consumer goals and producer results",
@@ -3051,16 +3030,17 @@
       "subject": "CAPRMEDIO Framework Instance",
       "disposition": "unresolved",
       "target": null,
-      "reason": "The name covers installed framework context, methodology ownership and general project governance; it cannot be safely equated with Project or a running application.",
+      "reason": "Operator resolved Framework Instance primarily to Project (Entity/Continuant/Project), with actual-run uses mapped to the appropriate Execution. No separate Framework Instance entity is needed.",
       "evidence": [
         "CA-R-850",
         "CA-R-1422",
         "CA-R-1772",
         "CA-R-1773",
         "CA-R-1776",
-        "CA-R-1777"
+        "CA-R-1777",
+        "Operator decision 2026-10-16: Framework Instance mostly means Project; some uses mean executions."
       ],
-      "followup": "Operator question: does Framework Instance remain a distinct installed continuant, or should its uses split between Project, governing configuration and runtime occurrences?",
+      "followup": "Mapping work: classify each occurrence as Project or actual Execution and preserve applicability. Use the Operator's current Project direction; reconcile older Object/Project paths explicitly during migration, not by silently rewriting all source paths now.",
       "source_atoms": [
         "CA-E-207",
         "CA-E-520",
@@ -3074,7 +3054,7 @@
         "CA-R-850"
       ],
       "source_occurrences": 10,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 140,
@@ -3399,11 +3379,12 @@
       "subject": "CORE_META_MODEL",
       "disposition": "unresolved",
       "target": null,
-      "reason": "E459 refers to the Core source set providing definitions, not simply the textual term or one configuration object.",
+      "reason": "Operator resolved source representation: use the existing Core Meta-model, Extensions or Project Configuration Scope Unit, not a new Object or named Selection.",
       "evidence": [
-        "CA-E-459"
+        "CA-E-459",
+        "Operator decision 2026-10-16: Core Meta-model, Extensions and Project Configuration are existing Scope Units; no extra Object or Selection."
       ],
-      "followup": "Mapping work: preserve named source-set selection for Core Meta-model; distinguish this use from the abstract Core model Term.",
+      "followup": "Mapping work: bind each source reference to its existing Scope Unit identity; distinguish general Term usage where present. Do not replace every reference with an unrestricted generic Scope Unit or invent a new source-collection entity.",
       "source_atoms": [
         "CA-E-459"
       ],
@@ -4054,13 +4035,14 @@
       "subject": "Core Meta-Model",
       "disposition": "unresolved",
       "target": null,
-      "reason": "Uses mix abstract model meaning with selected source authority; mapping all to a Term or Selection would lose one meaning.",
+      "reason": "Operator resolved source representation: use the existing Core Meta-model, Extensions or Project Configuration Scope Unit, not a new Object or named Selection.",
       "evidence": [
         "CA-R-1434",
         "CA-R-1217",
-        "approved Core/config distinction"
+        "approved Core/config distinction",
+        "Operator decision 2026-10-16: Core Meta-model, Extensions and Project Configuration are existing Scope Units; no extra Object or Selection."
       ],
-      "followup": "Mapping work: use Term Core Meta-model for its general meaning and preserve an admitted named source-set Selection where actual source Atoms are referenced.",
+      "followup": "Mapping work: bind each source reference to its existing Scope Unit identity; distinguish general Term usage where present. Do not replace every reference with an unrestricted generic Scope Unit or invent a new source-collection entity.",
       "source_atoms": [
         "CA-E-249",
         "CA-E-464",
@@ -4228,12 +4210,13 @@
       "subject": "Default Settings",
       "disposition": "unresolved",
       "target": null,
-      "reason": "R1441 describes a separate authoritative baseline-values artifact, whereas Candidate #5 places current Framework Settings under Project. Merging the two would lose baseline versus selected-value meaning.",
+      "reason": "Operator specified project_settings.default.toml as the Default Settings carrier. Preserve default values separately from selected overrides; do not merge them into Framework Settings based on the earlier proposal.",
       "evidence": [
         "CA-R-1441",
-        "CA-R-1405"
+        "CA-R-1405",
+        "Operator decision: default settings belongs to project_settings.default.toml"
       ],
-      "followup": "Operator question: should reusable Default Settings remain a separate Governing Configuration, or should its baseline values become defaults declared by Project Configuration rules? Neither is the same as current Project.Framework Settings.",
+      "followup": "Mapping work: bind Default Settings uses to the approved file and distinguish settings meaning from carrier rules per occurrence. File location and field migrations are not inferred; no file creation or rename is authorized by this review update.",
       "source_atoms": [
         "CA-D-361",
         "CA-D-407",
@@ -4253,7 +4236,7 @@
         "CA-R-1750"
       ],
       "source_occurrences": 18,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 198,
@@ -4698,12 +4681,13 @@
       "subject": "Evaluation Report",
       "disposition": "unresolved",
       "target": null,
-      "reason": "The review workflow produces evidence reports, but these uses do not establish whether each report is an Analysis Atom, Projection or Journal record. Those are not interchangeable.",
+      "reason": "Operator resolved the category: records of what happened during any execution, including results, failures and evidence, belong to History. Journal is not mandatory for every historical artifact.",
       "evidence": [
         "CA-O-104",
-        "CA-O-106"
+        "CA-O-106",
+        "Operator approval: History for execution results; Analysis for rationale/conclusions; Projection for compiled views; no new History subtype required."
       ],
-      "followup": "Operator question: are these per-Atom evaluation reports authored Analysis Atoms, derived Projections or only temporary execution evidence? Preserve actual report identity and do not silently classify all as Journal.",
+      "followup": "Mapping work: distinguish recorded execution results (History), authored analysis (Analysis Atom) and compiled views (Projection) in the specific source. Preserve evidence references; do not invent an Evaluation Report/Proof entity or force every historical artifact into Journal.",
       "source_atoms": [
         "CA-O-104",
         "CA-O-108",
@@ -4711,7 +4695,7 @@
         "CA-O-110"
       ],
       "source_occurrences": 4,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 223,
@@ -4822,12 +4806,13 @@
       "subject": "Extension",
       "disposition": "unresolved",
       "target": null,
-      "reason": "R1217 defines an immutable methodology-source authority set. It is not a new agreed root and cannot safely be collapsed to a generic Configuration or Selection without preserving authority/lifecycle semantics.",
+      "reason": "Operator resolved source representation: use the existing Core Meta-model, Extensions or Project Configuration Scope Unit, not a new Object or named Selection.",
       "evidence": [
         "CA-R-1217",
-        "CA-R-1206"
+        "CA-R-1206",
+        "Operator decision 2026-10-16: Core Meta-model, Extensions and Project Configuration are existing Scope Units; no extra Object or Selection."
       ],
-      "followup": "Operator question: should an installed Extension be represented as a named collection of source Atoms plus Project settings selecting it, or as a Governing Configuration instance? Its CAPRMEDIO-specific rules move to Project Configuration either way.",
+      "followup": "Mapping work: bind each source reference to its existing Scope Unit identity; distinguish general Term usage where present. Do not replace every reference with an unrestricted generic Scope Unit or invent a new source-collection entity.",
       "source_atoms": [
         "CA-D-262",
         "CA-D-361",
@@ -4860,7 +4845,7 @@
         "CA-R-1875"
       ],
       "source_occurrences": 29,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 230,
@@ -5802,16 +5787,17 @@
       "subject": "Installed Extensions Catalog Entry",
       "disposition": "unresolved",
       "target": null,
-      "reason": "R1220 describes concrete installed-extension provenance, but its governing configuration owner is not settled by the Core/config placement decision.",
+      "reason": "Operator approved extension metadata on the extension's existing Scope Unit, with enabled-extension selection in Project Settings. No separate Catalog Entry entity.",
       "evidence": [
-        "CA-R-1220"
+        "CA-R-1220",
+        "Operator approval 2026-10-16: extension metadata -> its Scope Unit; enabled extensions -> Project Settings; no Catalog Entry entity."
       ],
-      "followup": "Operator question: Project Configuration placement is decided. Should the entry be a property of installed-extension Settings or a distinct configuration object? Do not invent a new root.",
+      "followup": "Mapping work: bind provenance rules to the particular extension Scope Unit and enabled-extension rules to Project Settings. Preserve metadata during remapping; this ownership decision does not determine mandatory fields or authorize deleting metadata.",
       "source_atoms": [
         "CA-R-1220"
       ],
       "source_occurrences": 1,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 278,
@@ -6277,12 +6263,13 @@
       "subject": "Methodology Source",
       "disposition": "unresolved",
       "target": null,
-      "reason": "The label covers Core, Extensions and Project Configuration but does not settle whether a source is a configuration object or a selected collection of Atoms.",
+      "reason": "Operator resolved source representation: use the existing Core Meta-model, Extensions or Project Configuration Scope Unit, not a new Object or named Selection.",
       "evidence": [
         "CA-R-1217",
-        "Candidate #6 Core/config decision"
+        "Candidate #6 Core/config decision",
+        "Operator decision 2026-10-16: Core Meta-model, Extensions and Project Configuration are existing Scope Units; no extra Object or Selection."
       ],
-      "followup": "Operator question: Define source representation without reviving Artifact or inventing a new root; concrete CAPRMEDIO source mechanisms belong in Project Configuration.",
+      "followup": "Mapping work: bind each source reference to its existing Scope Unit identity; distinguish general Term usage where present. Do not replace every reference with an unrestricted generic Scope Unit or invent a new source-collection entity.",
       "source_atoms": [
         "CA-D-394",
         "CA-D-407",
@@ -6305,7 +6292,7 @@
         "CA-R-1748"
       ],
       "source_occurrences": 19,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 304,
@@ -6328,12 +6315,13 @@
       "subject": "Methodology Source.Expansion Boundary",
       "disposition": "unresolved",
       "target": null,
-      "reason": "The boundary owner depends on the unsettled Methodology Source representation.",
+      "reason": "The methodology source is an existing Scope Unit. Expansion constraints remain in its governing Atoms; no new Methodology Source object is required.",
       "evidence": [
         "CA-R-1217",
-        "Candidate #6 Core/config decision"
+        "Candidate #6 Core/config decision",
+        "Operator decision 2026-10-16: Core Meta-model, Extensions and Project Configuration are existing Scope Units; no extra Object or Selection."
       ],
-      "followup": "Operator question: Determine whether the property belongs to Core Meta-model configuration or a source collection; do not invent a Methodology Source entity merely to retain the string.",
+      "followup": "Mapping work: identify the exact existing Scope Unit and governing expansion-rule Subjects per occurrence. Preserve constraints without inventing a generic Scope Unit property or asking again how sources are represented.",
       "source_atoms": [
         "CA-E-379",
         "CA-E-447",
@@ -6347,7 +6335,7 @@
         "CA-R-1434"
       ],
       "source_occurrences": 10,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 306,
@@ -7005,12 +6993,13 @@
       "subject": "Project Configuration",
       "disposition": "unresolved",
       "target": null,
-      "reason": "The boundary is approved, but this source-authority collection is not current Settings and lacks an agreed exact path in the Candidate #5 tree.",
+      "reason": "Operator resolved source representation: use the existing Core Meta-model, Extensions or Project Configuration Scope Unit, not a new Object or named Selection.",
       "evidence": [
         "CA-R-1218",
-        "Candidate #6 Core/configuration decision"
+        "Candidate #6 Core/configuration decision",
+        "Operator decision 2026-10-16: Core Meta-model, Extensions and Project Configuration are existing Scope Units; no extra Object or Selection."
       ],
-      "followup": "Operator question: represent Project Configuration as a named Selection of project-owned rule Atoms, or as Governing Configuration? The actual configuration Atoms remain Atoms.",
+      "followup": "Mapping work: bind each source reference to its existing Scope Unit identity; distinguish general Term usage where present. Do not replace every reference with an unrestricted generic Scope Unit or invent a new source-collection entity.",
       "source_atoms": [
         "CA-D-262",
         "CA-D-302",
@@ -7039,7 +7028,7 @@
         "CA-R-1875"
       ],
       "source_occurrences": 25,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 343,
@@ -7491,16 +7480,17 @@
       "subject": "Proof Dependency Frontier",
       "disposition": "unresolved",
       "target": null,
-      "reason": "D329 specifies references carried by proof but the new model has no admitted Proof kind or settled owner for this reference list.",
+      "reason": "Operator resolved the category: records of what happened during any execution, including results, failures and evidence, belong to History. Journal is not mandatory for every historical artifact.",
       "evidence": [
-        "CA-D-329"
+        "CA-D-329",
+        "Operator approval: History for execution results; Analysis for rationale/conclusions; Projection for compiled views; no new History subtype required."
       ],
-      "followup": "Operator question: are these proof references content of an Evaluation result record, or of a Projection? Do not create a Proof root.",
+      "followup": "Mapping work: distinguish recorded execution results (History), authored analysis (Analysis Atom) and compiled views (Projection) in the specific source. Preserve evidence references; do not invent an Evaluation Report/Proof entity or force every historical artifact into Journal.",
       "source_atoms": [
         "CA-D-329"
       ],
       "source_occurrences": 1,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 369,
