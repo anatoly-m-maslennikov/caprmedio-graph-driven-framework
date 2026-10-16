@@ -323,6 +323,10 @@ class _MemoryTracker:
         self.events.append(event)
         return None
 
+    def _record_run_event(self, *args: object) -> tuple[str | None, str | None]:
+        event = self._lazy_journal_event(*args)
+        return event["event_id"], self._append_one(event)
+
 
 if __name__ == "__main__":
     unittest.main()
