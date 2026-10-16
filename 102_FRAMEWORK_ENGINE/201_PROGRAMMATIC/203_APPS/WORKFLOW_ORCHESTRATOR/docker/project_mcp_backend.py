@@ -215,6 +215,7 @@ class ProjectMcpBackend:
         instance = self._safe_instance(selection)
         listing = _bounded_run([
             "docker", "ps", "--all", "--filter", f"label=org.caprmedio.project={instance}",
+            "--filter", "label=org.caprmedio.service=mcp-http",
             "--format", "{{.ID}}",
         ], timeout=remaining(), env=self._docker_client_environment())
         identifiers = [line.strip() for line in listing.splitlines() if line.strip()]
