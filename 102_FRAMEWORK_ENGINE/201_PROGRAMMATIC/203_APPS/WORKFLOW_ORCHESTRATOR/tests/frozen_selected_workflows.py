@@ -69,12 +69,18 @@ def _validate_source_pins(payload: dict[str, Any]) -> None:
 def _payload() -> dict[str, Any]:
     payload = json.loads(_CORPUS.read_text(encoding="utf-8"))
     if (payload.get("schema_version") != 1 or not isinstance(payload.get("files"), dict)
+            or not isinstance(payload.get("selected_root_paths"), list)
             or not isinstance(payload.get("complete_carrier_authority"), dict)
             or not isinstance(payload.get("graph_authority"), dict)
             or not isinstance(payload.get("publication_bindings"), dict)
             or not isinstance(payload.get("behavior_bindings"), dict)
             or any(identifier not in payload["behavior_bindings"] for identifier in _PREPARATION_BINDING_IDS)):
         raise AssertionError("selected-workflow frozen corpus is malformed")
+    selected_root_paths = payload["selected_root_paths"]
+    if (len(selected_root_paths) != 177
+            or not all(isinstance(path, str) and path in payload["files"] for path in selected_root_paths)
+            or len(set(selected_root_paths)) != 177):
+        raise AssertionError("selected-workflow frozen root is malformed")
     _validate_source_pins(payload)
     return payload
 
@@ -124,6 +130,11 @@ def frozen_source_paths() -> tuple[str, ...]:
     return tuple(_payload()["files"])
 
 
+def frozen_selected_root_paths() -> tuple[str, ...]:
+    """List the fixed selected-route root without supplemental behavior inputs."""
+    return tuple(_payload()["selected_root_paths"])
+
+
 def frozen_source_bytes(relative: str | Path, expected_digest: str | None = None) -> bytes:
     """Read one exact frozen carrier by its fixture-Project relative path."""
     path = Path(relative)
@@ -150,6 +161,6 @@ def write_frozen_source(root: Path, relative: str | Path, expected_digest: str |
 
 def frozen_source_root(root: Path) -> Path:
     """Populate and return a finite frozen authority root for a test Project."""
-    for relative in _payload()["files"]:
+    for relative in frozen_selected_root_paths():
         write_frozen_source(root, relative)
     return root

@@ -17,10 +17,20 @@ from mcp.client.stdio import stdio_client
 ROOT = Path(__file__).resolve().parents[4]
 SERVER = ROOT / '102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py'
 MCP = SERVER.parent
+MCP_TESTS = MCP / 'tests'
+WORKFLOW_TESTS = MCP.parent / '203_APPS/WORKFLOW_ORCHESTRATOR/tests'
 sys.path.insert(0, str(MCP))
+sys.path.insert(0, str(MCP_TESTS))
+sys.path.insert(0, str(WORKFLOW_TESTS))
 
 from selected_routes import QUERY_ROUTE_NAMES, SELECTED_ROUTE_NAMES  # noqa: E402
 from test_selected_routes_mcp import copy_complete_selected_guard_fixture  # noqa: E402
+from frozen_selected_workflows import (  # noqa: E402
+    frozen_behavior_bindings,
+    frozen_selected_root_paths,
+    frozen_source_bytes,
+    write_frozen_source,
+)
 
 
 # CA-D-548's eight stable helpers plus its gateway controls remain required.
@@ -45,16 +55,9 @@ D547_SELECTED_CONTROL_TOOLS = frozenset({
 })
 D547_DIRECT_RELEASE_TOOLS = frozenset({'release_version', 'public.release'})
 
-HELPER_DECLARATION_PATHS = (
-    'DISCOVER_TOOLS/07_delivery/CA-D-512-DISCOVER_TOOLS--encode-discover-tools-bindings.md',
-    'DISCOVER_OPERATIONS/07_delivery/CA-D-513-DISCOVER_OPERATIONS--encode-discover-operations-bindings.md',
-    'GET_EXECUTION_CONTEXT/07_delivery/CA-D-514-GET_EXECUTION_CONTEXT--encode-get-execution-context-bindings.md',
-    'GET_EXECUTION_STATUS/07_delivery/CA-D-515-GET_EXECUTION_STATUS--encode-get-execution-status-bindings.md',
-    'RESUME_EXECUTION_CONTEXT/07_delivery/CA-D-516-RESUME_EXECUTION_CONTEXT--encode-resume-execution-context-bindings.md',
-    'WATCH_EXECUTION/07_delivery/CA-D-517-WATCH_EXECUTION--encode-watch-execution-bindings.md',
-    '07_delivery/CA-D-518-TOOLS--register-rmed-atoms-base-revise-discovery-binding.md',
-    '07_delivery/CA-D-551-TOOLS-DELIVERY--place-artifact-query-tool-and-golden-test.md',
-    '07_delivery/CA-D-557-TOOLS-DELIVERY--bind-journal-query-source-route-to-one-tool.md',
+HELPER_DECLARATION_IDS = (
+    'CA-D-512', 'CA-D-513', 'CA-D-514', 'CA-D-515', 'CA-D-516', 'CA-D-517',
+    'CA-D-518', 'CA-D-551', 'CA-D-557',
 )
 
 # The stable gateway first boots an isolated implementation generation.  The
@@ -141,15 +144,14 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
             copy_complete_selected_guard_fixture(self.root)
         finally:
             settings.write_bytes(fixture_settings)
-        tools = Path('.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/'
-                     '201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS')
-        for declaration in HELPER_DECLARATION_PATHS:
-            relative = tools / declaration
-            source = ROOT / relative
-            self.assertTrue(source.is_file(), f'declared selected source is unavailable: {relative}')
-            destination = self.root / relative
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source, destination)
+        bindings = frozen_behavior_bindings()
+        for atom_id in HELPER_DECLARATION_IDS:
+            pin = bindings[atom_id]
+            write_frozen_source(self.root, pin['source_path'], pin['sha256'])
+        supplemental = bindings['CA-D-625']
+        self.assertNotIn(supplemental['source_path'], frozen_selected_root_paths())
+        self.assertTrue(frozen_source_bytes(supplemental['source_path'], supplemental['sha256']))
+        self.assertFalse((self.root / supplemental['source_path']).exists())
 
     def _server_parameters(self):
         telemetry = ({'CAPRMEDIO_STARTUP_TELEMETRY': '1'}
