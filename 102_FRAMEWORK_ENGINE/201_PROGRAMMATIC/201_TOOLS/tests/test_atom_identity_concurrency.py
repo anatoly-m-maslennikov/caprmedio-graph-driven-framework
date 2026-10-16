@@ -2,10 +2,13 @@
 from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor
+import errno
+import fcntl
 import json
 import os
 from pathlib import Path
 import signal
+import stat
 import subprocess
 import sys
 import threading
@@ -29,6 +32,51 @@ class AtomIdentityConcurrencyTest(unittest.TestCase):
 
     def tearDown(self) -> None:
         self.fixture.tearDown()
+
+    def test_concurrent_lock_admission_serializes_secure_creation(self) -> None:
+        together = threading.Barrier(2)
+        opening = threading.Lock()
+        overlap = threading.Event()
+        contender_ready = threading.Event()
+        parent_gates_ready = threading.Barrier(2, action=contender_ready.set)
+        original_open = os.open
+        original_flock = fcntl.flock
+
+        def synchronized_directory_gate(descriptor, operation):
+            if operation == fcntl.LOCK_EX and stat.S_ISDIR(os.fstat(descriptor).st_mode):
+                parent_gates_ready.wait(timeout=5)
+            return original_flock(descriptor, operation)
+
+        def refuse_overlapping_open(path, *args, **kwargs):
+            if path != "identity.lock":
+                return original_open(path, *args, **kwargs)
+            if not opening.acquire(blocking=False):
+                overlap.set()
+                contender_ready.set()
+                raise FileNotFoundError(errno.ENOENT, "concurrent secure lock creation", path)
+            try:
+                # Reproduce the host's overlapping-open failure on every platform.
+                self.assertTrue(contender_ready.wait(timeout=5), "second lock admission did not arrive")
+                return original_open(path, *args, **kwargs)
+            finally:
+                opening.release()
+
+        def acquire(_):
+            together.wait(timeout=5)
+            try:
+                with atom_identity_lock(self.fixture.root):
+                    return "acquired"
+            except ToolError as error:
+                return error.code
+
+        with (
+            patch("atom_operations.os.open", refuse_overlapping_open),
+            patch("atom_operations.fcntl.flock", synchronized_directory_gate),
+            ThreadPoolExecutor(max_workers=2) as pool,
+        ):
+            results = list(pool.map(acquire, range(2)))
+        self.assertEqual(["acquired", "acquired"], results)
+        self.assertFalse(overlap.is_set(), "secure lock opens overlapped before file locking")
 
     def test_concurrent_drafts_get_distinct_fresh_identities(self) -> None:
         drafts = [self.fixture.atom("Requirement", "Draft", draft=True, container=name)
