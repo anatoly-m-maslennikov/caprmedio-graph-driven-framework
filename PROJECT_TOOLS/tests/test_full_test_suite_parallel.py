@@ -5,6 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import subprocess
 import threading
+import time
 import unittest
 from unittest.mock import patch
 
@@ -90,13 +91,67 @@ class FullTestSuiteParallelTests(unittest.TestCase):
         for module in modules:
             relative = module.relative_to(self.case.root)
             self.assertIn(
-                f"Test module: {relative}\noutput:{module.name}\nModule time: {relative}: 0.250s\n",
+                f"Test module FINISH: {relative}\noutput:{module.name}\nModule time: {relative}: 0.250s\n",
                 self.case.output.getvalue(),
             )
             self.assertIn(f"errors:{module.name}\n", self.case.errors.getvalue())
         self.assertIn(
             "Modules: 12; tests run: 12; skipped: 0; failed modules: 0", self.case.output.getvalue()
         )
+
+    def test_interrupt_cancels_queued_modules_in_both_worker_lanes(self):
+        modules = [self.case.file(f"PROJECT_TOOLS/tests/test_unit_{number}.py") for number in range(4)]
+        modules += [
+            self.case.file(str(full.APP / f"tests/test_{number}_docker_e2e.py"))
+            for number in range(4)
+        ]
+        started, watchers = [], []
+        lock = threading.Lock()
+        ready, release, canceled = threading.Event(), threading.Event(), threading.Event()
+
+        def execute(_root, module, _environment):
+            with lock:
+                started.append(module)
+                if len(started) == 4:
+                    ready.set()
+            self.assertTrue(release.wait(10))
+            return True, 1, 0, "", "", 0.0, None
+
+        def interrupted(pending):
+            self.assertTrue(ready.wait(5))
+            queued = [future for future in pending if not future.running()]
+            self.assertEqual(4, len(queued))
+
+            def release_after_cancellation():
+                deadline = time.monotonic() + 3
+                while not all(future.cancelled() for future in queued) and time.monotonic() < deadline:
+                    time.sleep(0.01)
+                if all(future.cancelled() for future in queued):
+                    canceled.set()
+                release.set()
+
+            watcher = threading.Thread(target=release_after_cancellation)
+            watchers.append(watcher)
+            watcher.start()
+            raise KeyboardInterrupt
+
+        try:
+            with (
+                patch.object(full, "run_module", side_effect=execute),
+                patch.object(full, "as_completed", side_effect=interrupted),
+                patch.object(full, "current_code_test_image", return_value=nullcontext({})),
+                patch.object(full, "run_launcher") as launcher,
+            ):
+                with self.assertRaises(KeyboardInterrupt):
+                    self.case.run_suite()
+            self.assertTrue(canceled.is_set(), "queued work must be canceled before waiting for active modules")
+            self.assertEqual(4, len(started), "interruption must not start either lane's queued modules")
+            launcher.assert_not_called()
+        finally:
+            release.set()
+            for watcher in watchers:
+                watcher.join(timeout=5)
+                self.assertFalse(watcher.is_alive())
 
     def test_all_module_deadlines_remain_1800_seconds(self):
         result = subprocess.CompletedProcess([], 0, fixtures.PASSED_COUNT, "")

@@ -41,9 +41,35 @@ def run_recorded_release(
     run_id: str,
     invoke: Callable[[], dict[str, object]],
 ) -> dict[str, object]:
-    started, start_error = record_release_event(root, operation, run_id, "started", None)
+    try:
+        started, start_error = record_release_event(root, operation, run_id, "started", None)
+    except KeyboardInterrupt:
+        result: dict[str, object] = {
+            "outcome": "failed",
+            "failed_step": "invocation",
+            "error_type": "KeyboardInterrupt",
+            "run_id": run_id,
+            "project_root": str(root),
+        }
+        try:
+            _, terminal_error = record_release_event(
+                root, operation, run_id, "failed", None, "failed"
+            )
+        except KeyboardInterrupt:
+            terminal_error = "Release failed recording interrupted"
+        errors = ["Release started recording interrupted"]
+        if terminal_error is not None:
+            errors.append(terminal_error)
+        result["recording_error"] = "; ".join(errors)
+        return result
     try:
         result = invoke()
+    except KeyboardInterrupt:
+        result = {
+            "outcome": "failed",
+            "failed_step": "invocation",
+            "error_type": "KeyboardInterrupt",
+        }
     except (AttributeError, ImportError, OSError, RuntimeError, TypeError, ValueError) as error:
         result = {
             "outcome": "failed",
@@ -52,14 +78,14 @@ def run_recorded_release(
         }
     observed_outcome = result.get("outcome", "failed")
     outcome = observed_outcome if isinstance(observed_outcome, str) else "failed"
-    _, terminal_error = record_release_event(
-        root,
-        operation,
-        run_id,
-        "completed" if outcome == "completed" else "failed",
-        started,
-        outcome,
-    )
+    event = "completed" if outcome == "completed" else "failed"
+    try:
+        _, terminal_error = record_release_event(
+            root, operation, run_id, event, started, outcome
+        )
+    except KeyboardInterrupt:
+        terminal_error = f"Release {event} recording interrupted"
+        result["error_type"] = "KeyboardInterrupt"
     result.update(run_id=run_id, project_root=str(root))
     errors = [error for error in (start_error, terminal_error) if error is not None]
     if errors:

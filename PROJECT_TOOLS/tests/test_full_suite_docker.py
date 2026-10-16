@@ -30,10 +30,18 @@ class FullSuiteDockerTests(unittest.TestCase):
         with (
             patch.object(docker, "ImageManager", autospec=True) as factory,
             patch.object(docker, "_remove_owned_image") as cleanup,
+            redirect_stdout(self.output),
         ):
             manager = factory.return_value
-            manager._build.return_value = IMAGE
+
+            def build(_identity):
+                self.assertIn("Test image START:", self.output.getvalue())
+                self.assertNotIn("Test image FINISH:", self.output.getvalue())
+                return IMAGE
+
+            manager._build.side_effect = build
             with docker.current_code_test_image(self.root) as environment:
+                self.assertIn(f"Test image FINISH: {IMAGE}", self.output.getvalue())
                 self.assertEqual(IMAGE, environment["CAPRMEDIO_FIRST_CUT_HTTP_IMAGE"])
                 self.assertEqual(IMAGE, environment["CAPRMEDIO_DOCKER_QUERY_IMAGE"])
                 scratch = Path(environment["CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH"])
@@ -118,17 +126,26 @@ class FullSuiteDockerTests(unittest.TestCase):
             "CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH": str(self.root),
         }
         result = subprocess.CompletedProcess([], 1, "actual output", "actual error")
+
+        def execute(*_args, **_kwargs):
+            self.assertIn("Launcher integration START:", self.output.getvalue())
+            self.assertNotIn("Launcher integration FINISH:", self.output.getvalue())
+            return result
+
         with (
-            patch.object(docker.subprocess, "run", return_value=result) as execute,
+            patch.object(docker.subprocess, "run", side_effect=execute) as command,
             redirect_stdout(self.output),
             redirect_stderr(self.errors),
         ):
             self.assertFalse(docker.run_launcher(self.root, environment))
-            argv = execute.call_args.args[0]
+            argv = command.call_args.args[0]
             self.assertEqual(IMAGE, argv[argv.index("--image") + 1])
             self.assertEqual("all", argv[argv.index("--group") + 1])
             self.assertNotIn("--build-missing", argv)
-            self.assertEqual(1980, execute.call_args.kwargs["timeout"])
+            self.assertEqual(1980, command.call_args.kwargs["timeout"])
+            self.assertNotIn("start_new_session", command.call_args.kwargs)
+            self.assertNotIn("process_group", command.call_args.kwargs)
+        self.assertIn("Launcher integration FINISH: failed", self.output.getvalue())
         self.assertEqual("actual error", self.errors.getvalue())
 
     def test_full_suite_uses_image_environment_and_required_cli_result(self):

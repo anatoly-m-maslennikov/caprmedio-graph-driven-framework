@@ -114,6 +114,55 @@ class ReleaseCliTests(unittest.TestCase):
         self.assertNotIn("private payload", json.dumps(result))
         run.assert_called_once()
 
+    def test_interruption_returns_one_json_result_and_exit_130(self) -> None:
+        for returned in (
+            {"outcome": "failed", "error_type": "KeyboardInterrupt"},
+            KeyboardInterrupt(),
+        ):
+            with self.subTest(returned=type(returned).__name__):
+                side_effect = returned if isinstance(returned, BaseException) else None
+                with patch.object(
+                    release,
+                    "run_local_release",
+                    return_value=None if side_effect else returned,
+                    side_effect=side_effect,
+                ) as run:
+                    output = io.StringIO()
+                    with redirect_stdout(output):
+                        status = release.main(["local", "--run-id", "interrupted"])
+                self.assertEqual(status, 130)
+                self.assertEqual(output.getvalue().count("\n"), 1)
+                result = json.loads(output.getvalue())
+                self.assertEqual(result["error_type"], "KeyboardInterrupt")
+                self.assertEqual(result["outcome"], "failed")
+                run.assert_called_once_with(REPOSITORY, run_id="interrupted")
+
+    def test_main_interruption_fallback_returns_one_json_result_and_exit_130(self) -> None:
+        output = io.StringIO()
+        with patch.object(release, "_invoke", side_effect=KeyboardInterrupt):
+            with redirect_stdout(output):
+                status = release.main(["local", "--run-id", "interrupted"])
+        self.assertEqual(status, 130)
+        self.assertEqual(output.getvalue().count("\n"), 1)
+        self.assertEqual(
+            json.loads(output.getvalue()),
+            {
+                "outcome": "failed",
+                "failed_step": "invocation",
+                "error_type": "KeyboardInterrupt",
+            },
+        )
+
+    def test_terminal_record_interruption_preserves_completion_and_exits_130(self) -> None:
+        self.record.side_effect = [("start", None), KeyboardInterrupt]
+        with patch.object(
+            release, "run_local_release", return_value={"outcome": "completed"}):
+            status, result = self.invoke(["local", "--run-id", "interrupted"])
+        self.assertEqual(status, 130)
+        self.assertEqual(result["outcome"], "completed")
+        self.assertEqual(result["error_type"], "KeyboardInterrupt")
+        self.assertIn("completed recording interrupted", str(result["recording_error"]))
+
     def test_invalid_file_path_does_not_dispatch(self) -> None:
         with patch.object(release, "run_public_release") as run:
             status, result = self.invoke(

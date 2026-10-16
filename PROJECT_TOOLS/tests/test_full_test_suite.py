@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor
 from contextlib import redirect_stderr, redirect_stdout
 import io
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 from unittest.mock import patch
 
@@ -83,6 +85,33 @@ class FullTestSuiteTests(unittest.TestCase):
         self.assertIn("failed modules: 2", self.output.getvalue())
         self.assertIn("missing_fixture_dependency", self.errors.getvalue())
 
+    def test_module_start_is_visible_before_the_real_module_finishes(self) -> None:
+        ready, release = self.root / "child-ready", self.root / "release-child"
+        module = self.file(
+            "PROJECT_TOOLS/tests/test_waiting.py",
+            "import time, unittest\nfrom pathlib import Path\n"
+            "class Test(unittest.TestCase):\n def test_wait(self):\n"
+            f"  Path({str(ready)!r}).touch()\n"
+            "  deadline = time.monotonic() + 5\n"
+            f"  while not Path({str(release)!r}).exists() and time.monotonic() < deadline:\n"
+            "   time.sleep(0.01)\n"
+            f"  self.assertTrue(Path({str(release)!r}).exists())\n",
+        )
+        with ThreadPoolExecutor(max_workers=1) as driver:
+            future = driver.submit(self.run_suite)
+            try:
+                deadline = time.monotonic() + 5
+                while not ready.exists() and not future.done() and time.monotonic() < deadline:
+                    time.sleep(0.01)
+                self.assertTrue(ready.exists(), self.errors.getvalue())
+                self.assertFalse(future.done())
+                self.assertIn(f"Test module START: {module.relative_to(self.root)}", self.output.getvalue())
+                self.assertNotIn("Test module FINISH:", self.output.getvalue())
+            finally:
+                release.touch()
+            self.assertEqual(0, future.result(timeout=5), self.errors.getvalue())
+        self.assertIn(f"Test module FINISH: {module.relative_to(self.root)}", self.output.getvalue())
+
     def test_platform_skip_is_reported_without_claiming_every_test_passed(self) -> None:
         self.file(
             "PROJECT_TOOLS/tests/test_skip.py",
@@ -118,6 +147,8 @@ class FullTestSuiteTests(unittest.TestCase):
             self.assertGreaterEqual(observed[5], 0)
             self.assertIsNone(observed[6])
             environment = command.call_args.kwargs["env"]
+            self.assertNotIn("start_new_session", command.call_args.kwargs)
+            self.assertNotIn("process_group", command.call_args.kwargs)
             self.assertEqual("1", environment["CAPRMEDIO_DOCKER_E2E"])
             self.assertEqual("1", environment["CAPRMEDIO_DOCKER_QUERY_E2E"])
             self.assertEqual("actual-image", environment["CAPRMEDIO_DOCKER_QUERY_IMAGE"])

@@ -87,6 +87,12 @@ def main(argv: list[str] | None = None) -> int:
     try:
         with redirect_stdout(sys.stderr):
             result = _invoke(arguments)
+    except KeyboardInterrupt:
+        result = {
+            "outcome": "failed",
+            "failed_step": "invocation",
+            "error_type": "KeyboardInterrupt",
+        }
     except (OSError, ValueError, RuntimeError) as error:
         result = {
             "outcome": "failed",
@@ -94,6 +100,8 @@ def main(argv: list[str] | None = None) -> int:
             "error_type": type(error).__name__,
         }
     print(json.dumps(result, ensure_ascii=False))
+    if result.get("error_type") == "KeyboardInterrupt":
+        return 130
     return 0 if result.get("outcome") == "completed" else 1
 
 

@@ -20,6 +20,7 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from release_cleanup import cleanup_obsolete_images, cleanup_stopped_containers, image_has_current_code  # noqa: E402
 from release_image_provenance import release_image_provenance  # noqa: E402
+from PROJECT_TOOLS.local_release_test_process import run_logged_test_process  # noqa: E402
 
 
 class LocalReleaseError(RuntimeError):
@@ -382,9 +383,11 @@ def _read_version(root: Path) -> tuple[Path, str]:
     return version_path, version_text.replace(f'"{version}"', f'"{next_version}"', 1)
 
 
-def _failed_test_output(root: Path, run_id: str, result: Any) -> str:
+def _failed_test_output(root: Path, run_id: str, result: Any, *, log_path: str | None = None) -> str:
     """Retain complete failed-suite output separately from the bounded report."""
     streams = {name: str(getattr(result, name, "") or "") for name in ("stdout", "stderr")}
+    if log_path is not None:
+        return f"Complete test output: `{log_path}`\n{streams['stdout'][-8000:]}"
     try:
         temporary = _target(root, Path(".caprmedio_tmp/simple_local_release"), label="test-log")
         temporary.mkdir(parents=True, exist_ok=True)
@@ -414,6 +417,7 @@ def run_local_release(project_root: Path | str, *, run_id: str,
     except ProjectSelectionError as error:
         raise LocalReleaseError("local-release-project-selection-invalid") from error
     cleanup_runner = runner
+    default_runner = runner is None
     if runner is None:
         runner = lambda argv, cwd: subprocess.run(argv, cwd=cwd, text=True, capture_output=True, check=False)
 
@@ -436,6 +440,7 @@ def run_local_release(project_root: Path | str, *, run_id: str,
     failed_step = "validate_inputs"
     mcp: Any = None
     receipt_path: str | None = None
+    test_log_path: str | None = None
     cleanup_note = "No proven superseded Project-owned image identity was available; none was removed."
     cleanup_pending = False
     cleanup = None
@@ -445,6 +450,7 @@ def run_local_release(project_root: Path | str, *, run_id: str,
     )
     try:
         for phase in phases:
+            print(f"Local release phase START: {phase}", file=sys.stderr, flush=True)
             failed_step = f"git_before_{phase.replace(' ', '_')}"
             sensitive = runner((
                 "git", "diff", "--cached", "--name-only", "--", ":(glob)**/.env*", ":(glob)**/*.env",
@@ -504,16 +510,27 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                     raise LocalReleaseError("local-release-compiler-unavailable") from error
             elif phase == "tests":
                 failed_step = "tests"
-                try:
-                    result = runner((
-                        "uv", "run", "--project", str(root), "--locked", "--no-sync", "--python", "3.14",
-                        "--managed-python", "--no-env-file", "--all-groups", "python", "-B",
-                        str(Path(__file__).resolve().parents[1] / "run_full_test_suite.py"), "--project-root", str(root),
-                    ), root)
-                except OSError as error:
-                    raise LocalReleaseError("local-release-command-unavailable") from error
+                argv = (
+                    "uv", "run", "--project", str(root), "--locked", "--no-sync", "--python", "3.14",
+                    "--managed-python", "--no-env-file", "--all-groups", "python", "-B", "-u",
+                    str(Path(__file__).resolve().parents[1] / "run_full_test_suite.py"), "--project-root", str(root),
+                )
+                if default_runner:
+                    temporary = _target(root, Path(".caprmedio_tmp/simple_local_release"), label="test-log")
+                    temporary.mkdir(parents=True, exist_ok=True)
+                    with tempfile.NamedTemporaryFile(
+                        mode="w+b", prefix=f"{run_id}-tests-", suffix=".log", dir=temporary, delete=False,
+                    ) as log:
+                        test_log_path = Path(log.name).relative_to(root).as_posix()
+                        print(f"Local release tests; output log: {test_log_path}", file=sys.stderr, flush=True)
+                        result = run_logged_test_process(argv, root, log)
+                else:
+                    try:
+                        result = runner(argv, root)
+                    except OSError as error:
+                        raise LocalReleaseError("local-release-command-unavailable") from error
                 if getattr(result, "returncode", 0) != 0:
-                    detail = _failed_test_output(root, run_id, result)
+                    detail = _failed_test_output(root, run_id, result, log_path=test_log_path)
                     raise LocalReleaseError(f"local-release-command-failed: {detail}")
             elif phase == "copy active sources":
                 failed_step = "copy_active_sources"
@@ -711,11 +728,13 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                     "# Simple local release receipt\n\n"
                     f"Run: `{run_id}`\n\n"
                     f"Endpoint: `{endpoint.strip() if isinstance(endpoint, str) else 'not reported'}`\n\n"
+                    + (f"Complete test output: `{test_log_path}`\n\n" if test_log_path is not None else "")
+                    +
                     f"Image cleanup: {cleanup_note}\n\n{staging_note}",
                     encoding="utf-8",
                 )
                 receipt_path = receipt.relative_to(root).as_posix()
-    except Exception as error:
+    except (Exception, KeyboardInterrupt) as error:
         staging_note = _cleanup_staging(root, staging)
         relative = Path(".caprmedio_runtime/simple_local_release/reports") / f"{run_id}.md"
         report_path: str | None = None
@@ -727,6 +746,8 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 f"Run: `{run_id}`\n\nStopped at: `{failed_step}`\n\n"
                 f"Error class: `{type(error).__name__}`\n\n"
                 + (f"{str(error)[:8500]}\n\n" if failed_step == "tests" else "")
+                + (f"Complete test output: `{test_log_path}`\n\n" if test_log_path is not None else "")
+                + ("\n".join(getattr(error, "__notes__", ())) + "\n\n" if getattr(error, "__notes__", ()) else "")
                 +
                 "Manual action required: inspect the current project state before any retry.\n\n"
                 + ("Docker cleanup:\n" + "\n".join([cleanup_note, *cleanup.notes]) + "\n\n" if cleanup is not None else "")
@@ -737,11 +758,13 @@ def run_local_release(project_root: Path | str, *, run_id: str,
             report_path = relative.as_posix()
         except (LocalReleaseError, OSError):
             pass
-        return {"outcome": "failed", "failed_step": failed_step, "report_path": report_path, "endpoint": None}
+        return {"outcome": "failed", "failed_step": failed_step, "report_path": report_path,
+                "error_type": type(error).__name__, "test_log_path": test_log_path, "endpoint": None}
 
     endpoint = getattr(mcp, "stdout", None)
     return {
         "outcome": "completed_with_cleanup_pending" if cleanup_pending else "completed",
         "failed_step": None, "report_path": None, "receipt_path": receipt_path,
+        "test_log_path": test_log_path,
         "endpoint": endpoint.strip() if isinstance(endpoint, str) else None,
     }

@@ -85,6 +85,14 @@ Without `--content-draft`, Public returns `input_required` with the content prom
 and schema, without release effects. Supply the draft and rerun with the same
 run ID. Results are JSON on stdout; exit status is zero only for `completed`.
 
+Local release reports phase and test-module progress on stderr. Its full test
+output is streamed to a log under `.caprmedio_tmp/simple_local_release`, with
+the location printed before testing starts. Interruption during release execution
+retains that log and a failure report, attempts the terminal Journal event, and exits 130.
+It stops the owned test processes without retrying effects or rolling back
+earlier release changes. Interrupted Journal recording does not replace an
+already observed release outcome.
+
 Release effects run on the host, with its Git, GitHub and Docker tools; the
 ordinary MCP container has none of those host privileges. Both commands start
 only on Operator instruction and checkpoint safe, nonignored changes. Public

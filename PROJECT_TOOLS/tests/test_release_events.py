@@ -61,6 +61,61 @@ class ReleaseEventsTests(unittest.TestCase):
         self.assertEqual(record.call_args.args[3:], ("failed", "start", "failed"))
         invoke.assert_called_once_with()
 
+    def test_interruption_gets_terminal_failure_without_replay_when_recording_fails(self) -> None:
+        invoke = Mock(side_effect=KeyboardInterrupt)
+        with patch.object(
+            release_events,
+            "record_release_event",
+            side_effect=[("start", None), (None, "terminal unavailable")],
+        ) as record:
+            result = release_events.run_recorded_release(
+                REPOSITORY, "public.release", "run", invoke
+            )
+        self.assertEqual(
+            result,
+            {
+                "outcome": "failed",
+                "failed_step": "invocation",
+                "error_type": "KeyboardInterrupt",
+                "run_id": "run",
+                "project_root": str(REPOSITORY),
+                "recording_error": "terminal unavailable",
+            },
+        )
+        self.assertEqual(record.call_args_list[1].args[3:], ("failed", "start", "failed"))
+        invoke.assert_called_once_with()
+
+    def test_start_record_interruption_stops_before_invoke(self) -> None:
+        invoke = Mock(return_value={"outcome": "completed"})
+        with patch.object(
+            release_events,
+            "record_release_event",
+            side_effect=[KeyboardInterrupt, ("terminal", None)],
+        ) as record:
+            result = release_events.run_recorded_release(
+                REPOSITORY, "public.release", "run", invoke
+            )
+        self.assertEqual(result["outcome"], "failed")
+        self.assertEqual(result["error_type"], "KeyboardInterrupt")
+        self.assertIn("started recording interrupted", str(result["recording_error"]))
+        self.assertEqual(record.call_args_list[1].args, (REPOSITORY, "public.release", "run", "failed", None, "failed"))
+        invoke.assert_not_called()
+
+    def test_terminal_record_interruption_preserves_native_completion(self) -> None:
+        invoke = Mock(return_value={"outcome": "completed"})
+        with patch.object(
+            release_events,
+            "record_release_event",
+            side_effect=[("start", None), KeyboardInterrupt],
+        ):
+            result = release_events.run_recorded_release(
+                REPOSITORY, "public.release", "run", invoke
+            )
+        self.assertEqual(result["outcome"], "completed")
+        self.assertEqual(result["error_type"], "KeyboardInterrupt")
+        self.assertIn("completed recording interrupted", str(result["recording_error"]))
+        invoke.assert_called_once_with()
+
     def test_plain_event_schema_and_nonblocking_append_failure(self) -> None:
         journal = ModuleType("work_journal")
         event_record = Mock(return_value={"event_id": "event"})

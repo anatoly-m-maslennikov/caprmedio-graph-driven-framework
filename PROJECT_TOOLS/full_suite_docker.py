@@ -66,6 +66,7 @@ def _remove_owned_image(root: Path, image: str, attempt: str) -> None:
 
 @contextmanager
 def current_code_test_image(root: Path):
+    print("Test image START: preparing current source", flush=True)
     parent = root / ".caprmedio_tmp/tests/full-suite-integration"
     for component in (root / ".caprmedio_tmp", parent.parent, parent):
         if component.is_symlink():
@@ -77,6 +78,7 @@ def current_code_test_image(root: Path):
     attempt = uuid.uuid4().hex
     manager = ImageManager(root, executor=_executor(attempt), build_temp_root=scratch)
     image = manager._build(manager.identity())
+    print(f"Test image FINISH: {image}", flush=True)
     environment = {
         "CAPRMEDIO_IMAGE": image,
         "CAPRMEDIO_FIRST_CUT_HTTP_IMAGE": image,
@@ -93,6 +95,7 @@ def current_code_test_image(root: Path):
 
 def run_launcher(root: Path, environment: dict[str, str]) -> bool:
     """The launcher's real two-group CLI proof is not a unittest fixture case."""
+    print("Launcher integration START: all groups", flush=True)
     result = subprocess.run(
         [
             sys.executable,
@@ -116,4 +119,5 @@ def run_launcher(root: Path, environment: dict[str, str]) -> bool:
     )
     print(result.stdout, end="", flush=True)
     print(result.stderr, end="", file=sys.stderr, flush=True)
+    print(f"Launcher integration FINISH: {'passed' if result.returncode == 0 else 'failed'}", flush=True)
     return result.returncode == 0

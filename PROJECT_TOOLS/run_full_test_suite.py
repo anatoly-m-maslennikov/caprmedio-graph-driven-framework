@@ -82,6 +82,7 @@ def run_module(
         "CAPRMEDIO_DOCKER_E2E": "1",
         "CAPRMEDIO_DOCKER_QUERY_E2E": "1",
     }
+    print(f"Test module START: {module.relative_to(root)}", flush=True)
     try:
         result = subprocess.run(
             (sys.executable, "-B", "-c", CHILD, str(module.parent), module.stem),
@@ -147,40 +148,46 @@ def _run_modules(root: Path, modules: list[Path], environment: dict, integration
     failed = []
     tests = skipped = 0
     with ThreadPoolExecutor(max_workers=2) as ordinary, ThreadPoolExecutor(max_workers=2) as docker:
-        pending = {
-            (docker if _docker_module(root, module) else ordinary).submit(
-                run_module, root, module, environment
-            ): module
-            for module in sorted(
-                modules,
-                key=lambda module: (
-                    module
-                    not in (
-                        root / APP / "tests/test_selected_workflows_docker_e2e.py",
-                        root / APP / "tests/test_selected_subject_apply.py",
-                        root
-                        / APP.parents[1]
-                        / "204_MCP/tests/test_subject_publication_confirmation.py",
-                        root / APP.parents[1] / "204_MCP/tests/test_subject_publication_gateway.py",
-                    )
-                ),
-            )
-        }
-        for future in as_completed(pending):
-            module = pending.pop(future)
-            successful, count, skips, stdout, stderr, elapsed, diagnostic = future.result()
-            print(f"Test module: {module.relative_to(root)}", flush=True)
-            print(stdout, end="", flush=True)
-            print(stderr, end="", file=sys.stderr, flush=True)
-            if diagnostic is not None:
-                print(
-                    f"Test module failed: {module.relative_to(root)}: {diagnostic}", file=sys.stderr
+        try:
+            pending = {
+                (docker if _docker_module(root, module) else ordinary).submit(
+                    run_module, root, module, environment
+                ): module
+                for module in sorted(
+                    modules,
+                    key=lambda module: (
+                        module
+                        not in (
+                            root / APP / "tests/test_selected_workflows_docker_e2e.py",
+                            root / APP / "tests/test_selected_subject_apply.py",
+                            root
+                            / APP.parents[1]
+                            / "204_MCP/tests/test_subject_publication_confirmation.py",
+                            root / APP.parents[1] / "204_MCP/tests/test_subject_publication_gateway.py",
+                        )
+                    ),
                 )
-            print(f"Module time: {module.relative_to(root)}: {elapsed:.3f}s", flush=True)
-            tests += count
-            skipped += skips
-            if not successful:
-                failed.append(module.relative_to(root).as_posix())
+            }
+            for future in as_completed(pending):
+                module = pending.pop(future)
+                successful, count, skips, stdout, stderr, elapsed, diagnostic = future.result()
+                print(f"Test module FINISH: {module.relative_to(root)}", flush=True)
+                print(stdout, end="", flush=True)
+                print(stderr, end="", file=sys.stderr, flush=True)
+                if diagnostic is not None:
+                    print(
+                        f"Test module failed: {module.relative_to(root)}: {diagnostic}", file=sys.stderr,
+                        flush=True,
+                    )
+                print(f"Module time: {module.relative_to(root)}: {elapsed:.3f}s", flush=True)
+                tests += count
+                skipped += skips
+                if not successful:
+                    failed.append(module.relative_to(root).as_posix())
+        except KeyboardInterrupt:
+            for executor in (ordinary, docker):
+                executor.shutdown(wait=False, cancel_futures=True)
+            raise
     if integration:
         try:
             if not run_launcher(root, environment):

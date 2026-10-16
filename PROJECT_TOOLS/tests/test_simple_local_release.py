@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import subprocess
 from contextlib import AbstractContextManager
+import io
 import json
 import stat
 import sys
@@ -340,6 +341,60 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual(("failed", "tests"), (unsaved["outcome"], unsaved["failed_step"]))
         self.assertIn("Complete test output could not be saved (OSError)",
                       (self.root / unsaved["report_path"]).read_text())
+
+    def test_default_tests_log_is_retained_on_interrupt_with_actual_failed_step(self):
+        runner, calls = self._runner()
+
+        def interrupted(argv, cwd, log):
+            self.assertIn("-u", argv)
+            self.assertEqual(self.root, cwd)
+            log.write(b"partial test evidence\n")
+            log.flush()
+            raise KeyboardInterrupt
+
+        output = io.StringIO()
+        with patch("local_release.subprocess.run", side_effect=lambda argv, **kwargs: runner(argv, kwargs["cwd"])), \
+                patch("local_release.run_logged_test_process", side_effect=interrupted), \
+                patch("local_release.sys.stderr", output):
+            result = run_local_release(self.root, run_id="interrupted")
+
+        self.assertEqual(("failed", "tests", "KeyboardInterrupt"),
+                         (result["outcome"], result["failed_step"], result["error_type"]))
+        self.assertEqual("partial test evidence\n", (self.root / result["test_log_path"]).read_text())
+        report = (self.root / result["report_path"]).read_text()
+        self.assertIn("Stopped at: `tests`", report)
+        self.assertIn("Error class: `KeyboardInterrupt`", report)
+        self.assertIn(result["test_log_path"], report)
+        self.assertIn("Local release phase START: tests", output.getvalue())
+        self.assertIn(result["test_log_path"], output.getvalue())
+        for target in (self.product, self.installed):
+            self.assertEqual("obsolete", (target / "old.txt").read_text())
+        self.assertFalse(any(argv[-1:] == ("project-mcp",) for argv in calls))
+
+    def test_default_test_log_survives_later_failure_without_whole_output_capture(self):
+        runner, _ = self._runner()
+
+        def passed(argv, cwd, log):
+            log.write(b"complete test evidence\n")
+            return subprocess.CompletedProcess(argv, 0, "bounded tail", "")
+
+        with patch("local_release.subprocess.run", side_effect=lambda argv, **kwargs: runner(argv, kwargs["cwd"])), \
+                patch("local_release.run_logged_test_process", side_effect=passed), self._compiler(fail=True):
+            result = run_local_release(self.root, run_id="later-failed")
+
+        self.assertEqual(("failed", "compile_product"), (result["outcome"], result["failed_step"]))
+        self.assertEqual("complete test evidence\n", (self.root / result["test_log_path"]).read_text())
+        self.assertIn(result["test_log_path"], (self.root / result["report_path"]).read_text())
+
+    def test_interrupt_before_tests_reports_actual_git_step_without_claiming_log(self):
+        def interrupted(argv, cwd):
+            raise KeyboardInterrupt
+
+        result = run_local_release(self.root, run_id="git-interrupted", runner=interrupted)
+        self.assertEqual(("failed", "git_before_validate_inputs", "KeyboardInterrupt"),
+                         (result["outcome"], result["failed_step"], result["error_type"]))
+        self.assertIsNone(result["test_log_path"])
+        self.assertIn("git_before_validate_inputs", (self.root / result["report_path"]).read_text())
 
     def test_git_stages_everything_and_commits_before_steps_and_at_end(self):
         runner, calls = self._runner()
