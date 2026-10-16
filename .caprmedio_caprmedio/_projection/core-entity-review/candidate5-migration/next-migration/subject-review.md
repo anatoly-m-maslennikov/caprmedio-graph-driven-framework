@@ -8,8 +8,17 @@ Sequence: rebuild from current Atoms → review unmapped Subjects → approve ma
 
 [Recalculated review](candidate6-classification/review.md) and [complete map](candidate6-classification/review-map.json): all 511 inventory Subjects classified by eight workers, with independent cross-slice review.
 
-- 194 candidate mappings; 80 Terms; 18 removal candidates; 14 deferred.
-- 205 unresolved: 204 source-specific mapping-work entries and 1 entry flagging a possible Operator decision (Structural Path). Terms Graph is the newer name for the same terminology projection. Plan projections are deferred; current projection work is RMED only. Journal Revision and CA-R-1372 are approved for retirement, not yet applied. The project name `caprmedio` belongs in Project Settings TOML; the resulting framework name `CAPRMEDIO` belongs in a project-local Atom. Operations uses only Workflows, Steps/substeps and Actions; no extra Invocation/Tool Call layer. Earlier decisions remain recorded in Candidate #6.
+- 330 candidate mappings; 80 Terms; 20 removal candidates; 14 deferred.
+- All 204 remaining entries were reconciled with the Operator's answers: 137 candidate dispositions resolved; 48 per-occurrence mappings and 19 later content repairs remain. No new Operator questions were found. Candidate #6 now contains the consolidated model and applied mappings, not just the decision log.
+- Scope Unit hierarchy uses Path, Parent and Children. Terms Graph is the newer name for the same terminology projection. Plan projections are deferred; current projection work is RMED only. Journal Revision and CA-R-1372 are approved for retirement, not yet applied. The project name `caprmedio` belongs in Project Settings TOML; the resulting framework name `CAPRMEDIO` belongs in a project-local Atom. Operations uses only Workflows, Steps/substeps and Actions; no extra Invocation/Tool Call layer. Earlier decisions remain recorded in Candidate #6.
+
+Latest Extension decision: install all its Atoms under `METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS` → regenerate Applicable Methodology. No separate application-binding Atom or Settings activation/application selection layer. This supersedes earlier activation-selection proposals; sources remain unchanged.
+
+Tool-call granularity is not defined in methodology RMED: neither automatic substeps nor internal-only calls are required. Align the relevant R1528/M304 clauses in the later content pass; keep the generic operation model.
+
+Implementation Method and Implementation Decision are different M Types, not obsolete classifications. Types may strictly restrict Local Tier, but exact rules are deferred; the proposed Type/tier pairs are examples only. Existing tier and parent/child rules remain unchanged pending separate content review.
+
+Demands no longer require an accepted Goal connection in the candidate. Retire R951 and remove the corresponding R933 clause during content migration; preserve the single-result constraint, Goal/Demand Types and separate Scope Unit Goal coverage.
 
 The original inventory and explicit-approval counts below are preserved as the input snapshot. Use the recalculated review for current disposition counts. These are review classifications, not an executable migration or source changes.
 

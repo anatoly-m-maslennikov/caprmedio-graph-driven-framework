@@ -1,0 +1,1155 @@
+[
+  {
+    "index": 320,
+    "status": "resolved_candidate",
+    "decision": "Keep Persist Atom Replacement as concrete Action CA-O-051 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-051",
+        "source_atoms": [
+          "CA-O-051"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 324,
+    "status": "resolved_candidate",
+    "decision": "The D rule governs the Plan Atom and specifies its file plus optional matching folder representation; Carrier.Stem is not a separate entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+        "source_atoms": [
+          "CA-D-460"
+        ]
+      }
+    ],
+    "remaining_work": "Apply the Subject mapping; preserve the shared-stem constraint in Delivery content. Review older Hub wording in the later content pass.",
+    "question": null
+  },
+  {
+    "index": 332,
+    "status": "resolved_candidate",
+    "decision": "Keep Prepare Structural Change as concrete Action CA-O-012 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-012",
+        "source_atoms": [
+          "CA-O-012",
+          "CA-O-015"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 337,
+    "status": "resolved_candidate",
+    "decision": "Producer Result means the required result in the Demand's Substance, not the entire target Scope Unit. Source R933 constrains exactly that result; R951 checks its dependency.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand.Substance",
+        "source_atoms": [
+          "CA-R-933",
+          "CA-R-951"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve the exact required result and accepted dependency in Substance/Scope; do not create a Producer Result entity or mandatory Plan.",
+    "question": null
+  },
+  {
+    "index": 338,
+    "status": "resolved_candidate",
+    "decision": "R945's direction is from the Demand's Target Scope Unit to its Owning Scope Unit.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit",
+        "source_atoms": [
+          "CA-R-945"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand.Owning Scope Unit",
+        "source_atoms": [
+          "CA-R-945"
+        ]
+      }
+    ],
+    "remaining_work": "Replace the obsolete Result.Flow Direction reference; retain the directed relationship in the later content wording.",
+    "question": null
+  },
+  {
+    "index": 341,
+    "status": "content_deferred",
+    "decision": "The BOOTSTRAP_SEED boundary coordinate is obsolete; remove that coordinate without discarding independent Scope Unit Type/composition rules.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit",
+        "source_atoms": [
+          "CA-R-1762"
+        ]
+      }
+    ],
+    "remaining_work": "Retire the dedicated R961 coordinate rule and remove only that clause from mixed R1762 during content migration; do not create a replacement boundary entity.",
+    "question": null
+  },
+  {
+    "index": 342,
+    "status": "occurrence_work",
+    "decision": "Project Configuration is its existing methodology-source Scope Unit, not a new Object or Selection.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit"
+      }
+    ],
+    "remaining_work": "Bind each occurrence to the existing 003_PROJECT_CONFIGURATION Scope Unit identity; retain generic definitional meaning as Term usage when appropriate. Broad Scope Unit alone must not erase this instance restriction.",
+    "question": null
+  },
+  {
+    "index": 343,
+    "status": "occurrence_work",
+    "decision": "O023 is the concrete alternative-selection Action. M297 governs comparison of admissible alternatives; E207 evaluates the selection behavior, not a new lexicographic entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-023",
+        "source_atoms": [
+          "CA-O-023"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Selection",
+        "source_atoms": [
+          "CA-M-297"
+        ]
+      },
+      {
+        "path": "Entity/Occurrent/Execution/Action Run",
+        "source_atoms": [
+          "CA-E-207"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve the named admissible-alternatives selection and the O023 run restriction; comparison semantics remain in Method content/Terms. No new selector grammar.",
+    "question": null
+  },
+  {
+    "index": 345,
+    "status": "resolved_candidate",
+    "decision": "The normative-authority subgraph is a named Selection of active typed authority-bearing Relations; its acyclicity is a constraint on that selection.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Selection",
+        "source_atoms": [
+          "CA-R-833",
+          "CA-E-481"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve named selection Project Normative Authority Graph and its exact active authority-edge filter. Do not treat it as a new Object or graph Projection type.",
+    "question": null
+  },
+  {
+    "index": 347,
+    "status": "occurrence_work",
+    "decision": "Priority policy applies to Project; named resolution and selection Actions stay concrete Operations; actual evaluated application is an Action Run.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Project",
+        "source_atoms": [
+          "CA-R-1487"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Selection",
+        "source_atoms": [
+          "CA-M-297"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-022",
+        "source_atoms": [
+          "CA-O-022"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-023",
+        "source_atoms": [
+          "CA-O-023"
+        ]
+      },
+      {
+        "path": "Entity/Occurrent/Execution/Action Run",
+        "source_atoms": [
+          "CA-E-207"
+        ]
+      }
+    ],
+    "remaining_work": "Keep affected scope/stage and Operator-selected model restrictions per occurrence; do not invent a Priority Model Application entity. Concrete CAPRMEDIO rules move to Project Configuration.",
+    "question": null
+  },
+  {
+    "index": 351,
+    "status": "content_deferred",
+    "decision": "D365's receipt/baseline requirement contradicts read-current-file semantics. Settings currentness is not established by Journal admission.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Project.Settings",
+        "source_atoms": [
+          "CA-D-365"
+        ]
+      }
+    ],
+    "remaining_work": "Remove the obsolete read-admission/baseline requirement in content migration. Preserve genuine historical evidence separately only where needed; do not retain Settings.Revision Binding as a new entity.",
+    "question": null
+  },
+  {
+    "index": 352,
+    "status": "resolved_candidate",
+    "decision": "The concrete Workflow remains CA-O-015; its Delivery/Evaluation rules govern Project.Structure rather than a maintenance entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-015",
+        "source_atoms": [
+          "CA-O-015",
+          "CA-O-078"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Project.Structure",
+        "source_atoms": [
+          "CA-D-444",
+          "CA-E-471"
+        ]
+      }
+    ],
+    "remaining_work": "Keep candidate-vs-active authority and cutover scope in RMED; rehome concrete Workflow and bindings to Project Configuration.",
+    "question": null
+  },
+  {
+    "index": 353,
+    "status": "resolved_candidate",
+    "decision": "Keep Project Structure Maintenance Application Step as concrete Step CA-O-143 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-143",
+        "source_atoms": [
+          "CA-O-143"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 354,
+    "status": "resolved_candidate",
+    "decision": "Keep Project Structure Maintenance Authorization Step as concrete Step CA-O-142 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-142",
+        "source_atoms": [
+          "CA-O-142"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 355,
+    "status": "resolved_candidate",
+    "decision": "Keep Project Structure Maintenance Candidate Assessment Step as concrete Step CA-O-141 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-141",
+        "source_atoms": [
+          "CA-O-141"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 356,
+    "status": "resolved_candidate",
+    "decision": "Keep Project Structure Maintenance Preparation Step as concrete Step CA-O-140 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-140",
+        "source_atoms": [
+          "CA-O-140"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 357,
+    "status": "resolved_candidate",
+    "decision": "Keep Project Structure Maintenance Result Assessment Step as concrete Step CA-O-144 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-144",
+        "source_atoms": [
+          "CA-O-144"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 358,
+    "status": "resolved_candidate",
+    "decision": "Keep Project Structure Maintenance Selection Step as concrete Step CA-O-139 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-139",
+        "source_atoms": [
+          "CA-O-139"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 359,
+    "status": "content_deferred",
+    "decision": "C416 refers to the Step bindings of the specific Workflow CA-O-015, not all Workflow Steps.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-015",
+        "source_atoms": [
+          "CA-C-416"
+        ]
+      }
+    ],
+    "remaining_work": "Keep C/A repair deferred; preserve the exact Step-binding concern and Workflow identity when its Subject is migrated.",
+    "question": null
+  },
+  {
+    "index": 365,
+    "status": "resolved_candidate",
+    "decision": "Projection rebuild is an execution producing an Event; its record is in History/Journal, not the Event itself.",
+    "targets": [
+      {
+        "path": "Entity/Occurrent/Execution/Action Run",
+        "source_atoms": [
+          "CA-R-1649"
+        ]
+      },
+      {
+        "path": "Entity/Occurrent/Event",
+        "source_atoms": [
+          "CA-R-1649"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/History/Journal.Record",
+        "source_atoms": [
+          "CA-R-1649"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve the projection-rebuild restriction and outcome-record link. Correct old Work Journal Action wording during the content pass without inventing a rebuild entity.",
+    "question": null
+  },
+  {
+    "index": 368,
+    "status": "resolved_candidate",
+    "decision": "A proof's recorded evidence dependencies belong to History. D329 describes how those evidence references are serialized, not a new Proof Dependency Frontier Object.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/History",
+        "source_atoms": [
+          "CA-D-329"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve exact version/digest evidence references and the proof-record applicability boundary; defer YAML/content changes.",
+    "question": null
+  },
+  {
+    "index": 370,
+    "status": "resolved_candidate",
+    "decision": "Keep Propose Source Corrections as concrete Action CA-O-006 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-006",
+        "source_atoms": [
+          "CA-O-006",
+          "CA-O-010",
+          "CA-O-028",
+          "CA-O-154"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 372,
+    "status": "resolved_candidate",
+    "decision": "Keep Publish Reconciled Projection as concrete Action CA-O-009 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-009",
+        "source_atoms": [
+          "CA-O-009",
+          "CA-O-010",
+          "CA-O-157"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 373,
+    "status": "resolved_candidate",
+    "decision": "Keep RMED Atom Review Check Coverage Gate Step as concrete Step CA-O-120 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-120",
+        "source_atoms": [
+          "CA-O-120"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 374,
+    "status": "resolved_candidate",
+    "decision": "Keep RMED Atom Review Coverage Gate Action as concrete Action CA-O-118 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-118",
+        "source_atoms": [
+          "CA-O-118"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 375,
+    "status": "resolved_candidate",
+    "decision": "Keep RMED Atom Review Fix Coverage Gate Step as concrete Step CA-O-121 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-121",
+        "source_atoms": [
+          "CA-O-121"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 376,
+    "status": "resolved_candidate",
+    "decision": "Keep RMED Atom Review Gather Coverage Gate Step as concrete Step CA-O-119 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-119",
+        "source_atoms": [
+          "CA-O-119"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 377,
+    "status": "resolved_candidate",
+    "decision": "Keep RMED Atom Review Workflow as concrete Workflow CA-O-104 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-104",
+        "source_atoms": [
+          "CA-O-104"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 378,
+    "status": "resolved_candidate",
+    "decision": "Keep RMED Review Evaluation Step as concrete Step CA-O-109 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-109",
+        "source_atoms": [
+          "CA-O-109"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 379,
+    "status": "resolved_candidate",
+    "decision": "Keep RMED Review Repair Step as concrete Step CA-O-110 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-110",
+        "source_atoms": [
+          "CA-O-110"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 380,
+    "status": "resolved_candidate",
+    "decision": "Keep RMED Review Selection Step as concrete Step CA-O-108 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-108",
+        "source_atoms": [
+          "CA-O-108"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 381,
+    "status": "resolved_candidate",
+    "decision": "O028 is a concrete Workflow; E477 checks its actual resolution execution and retained Atom authority rather than a new procedure entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-028",
+        "source_atoms": [
+          "CA-O-028"
+        ]
+      },
+      {
+        "path": "Entity/Occurrent/Execution/Workflow Run",
+        "source_atoms": [
+          "CA-E-477"
+        ]
+      }
+    ],
+    "remaining_work": "Keep CA-O-028 applicability, selected Atoms and before/after authority comparison; recorded outcomes belong to History.",
+    "question": null
+  },
+  {
+    "index": 383,
+    "status": "resolved_candidate",
+    "decision": "Keep Reconcile Atom Properties and Addresses as concrete Action CA-O-077 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-077",
+        "source_atoms": [
+          "CA-O-077"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 384,
+    "status": "resolved_candidate",
+    "decision": "O078 is the navigation-reconciliation Action; E510 evaluates that Action's run and resulting evidence.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-078",
+        "source_atoms": [
+          "CA-O-078"
+        ]
+      },
+      {
+        "path": "Entity/Occurrent/Execution/Action Run",
+        "source_atoms": [
+          "CA-E-510"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/History",
+        "source_atoms": [
+          "CA-E-510"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve navigation-migration result restrictions and history references; do not replace the result with Scope Unit.Navigational Order Number alone.",
+    "question": null
+  },
+  {
+    "index": 385,
+    "status": "resolved_candidate",
+    "decision": "Keep Reconcile Unfinished Work as concrete Action CA-O-079 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-079",
+        "source_atoms": [
+          "CA-O-079"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 390,
+    "status": "occurrence_work",
+    "decision": "Relation registration fields belong to their owner-qualified Relation kind; the registry produced by M120 is a derived Projection, not a Metadata Object.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Relation/Type",
+        "source_atoms": [
+          "CA-R-806",
+          "CA-R-1246",
+          "CA-R-1472",
+          "CA-E-622"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Projection",
+        "source_atoms": [
+          "CA-M-120"
+        ]
+      }
+    ],
+    "remaining_work": "Resolve field-specific occurrences and graph-qualified kind applicability. Keep M120's registry output identity without inventing a new Projection type or a cross-owner Metadata entity.",
+    "question": null
+  },
+  {
+    "index": 395,
+    "status": "resolved_candidate",
+    "decision": "Use the admitted owner-qualified Goal, Demand and Plan kinds; relationality depends on owner/target references, not Labels or a new Relational Atom kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal",
+        "source_atoms": [
+          "CA-R-924",
+          "CA-E-425"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand",
+        "source_atoms": [
+          "CA-R-924",
+          "CA-E-425"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+        "source_atoms": [
+          "CA-R-924",
+          "CA-E-425"
+        ]
+      }
+    ],
+    "remaining_work": "Remove redundant Plan/Type: Plan according to the latest Plan model; retain target-based applicability and keep Labels distinct from Types.",
+    "question": null
+  },
+  {
+    "index": 396,
+    "status": "resolved_candidate",
+    "decision": "Keep Repair RMED Review Batch as concrete Action CA-O-111 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-111",
+        "source_atoms": [
+          "CA-O-111"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 399,
+    "status": "resolved_candidate",
+    "decision": "Keep Requirement Implementation as concrete Action CA-O-019 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-019",
+        "source_atoms": [
+          "CA-O-019"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 400,
+    "status": "resolved_candidate",
+    "decision": "Keep Requirement Implementation Step as concrete Step CA-O-093 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-093",
+        "source_atoms": [
+          "CA-O-093"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 401,
+    "status": "resolved_candidate",
+    "decision": "The named resolution Action is CA-O-022. O023 references that Action; E207 checks the actual priority-resolution behavior.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-022",
+        "source_atoms": [
+          "CA-O-022",
+          "CA-O-023"
+        ]
+      },
+      {
+        "path": "Entity/Occurrent/Execution/Action Run",
+        "source_atoms": [
+          "CA-E-207"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve the CA-O-022 execution restriction and Operator-selected model; do not promote the action name to a kind.",
+    "question": null
+  },
+  {
+    "index": 402,
+    "status": "resolved_candidate",
+    "decision": "Keep Resolve Project Initialization Inputs as concrete Action CA-O-052 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-052",
+        "source_atoms": [
+          "CA-O-052"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 403,
+    "status": "resolved_candidate",
+    "decision": "Keep Revert Changes Workflow as concrete Workflow CA-O-130 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-130",
+        "source_atoms": [
+          "CA-O-130"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 405,
+    "status": "occurrence_work",
+    "decision": "Runtime State is a storage boundary, not one entity kind. Persisted checkpoints/caches, live runs and historical records stay distinct.",
+    "targets": [
+      {
+        "path": "Entity/Carrier",
+        "source_atoms": [
+          "CA-E-522"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/History",
+        "source_atoms": [
+          "CA-E-522",
+          "CA-E-523"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Projection",
+        "source_atoms": [
+          "CA-E-523"
+        ]
+      }
+    ],
+    "remaining_work": "Resolve each dependency to the storage carrier, historical record or view actually meant; remove redundant Runtime State topic links. Journal views outside current RMED projection scope remain deferred, not new roots.",
+    "question": null
+  },
+  {
+    "index": 410,
+    "status": "resolved_candidate",
+    "decision": "E240 checks Atom ownership, Target Scope Unit and Substance Scope independently; validation is not an entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Owning Scope Unit",
+        "source_atoms": [
+          "CA-E-240"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Target Scope Unit",
+        "source_atoms": [
+          "CA-E-240"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Substance Scope",
+        "source_atoms": [
+          "CA-E-240"
+        ]
+      }
+    ],
+    "remaining_work": "Retain the separate GOVERNS relation check. Later content pass must align old universally mandatory target/Claim language without conflating ownership and applicability.",
+    "question": null
+  },
+  {
+    "index": 412,
+    "status": "content_deferred",
+    "decision": "Old Scope Unit Scope is not one new property. R1014 mixes owning Scope Unit, governed Subject and Substance Scope.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Owning Scope Unit",
+        "source_atoms": [
+          "CA-R-1014"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Substance Scope",
+        "source_atoms": [
+          "CA-R-1014"
+        ]
+      }
+    ],
+    "remaining_work": "Separate these references and preserve the governed Subject relation; repair old combined Atom Scope and Operator fallback text in content migration.",
+    "question": null
+  },
+  {
+    "index": 414,
+    "status": "resolved_candidate",
+    "decision": "Keep Scoped Operator-choice Applicability as concrete Action CA-O-125 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-125",
+        "source_atoms": [
+          "CA-O-125"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 415,
+    "status": "resolved_candidate",
+    "decision": "Keep Screen Short Names as concrete Action CA-O-065 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-065",
+        "source_atoms": [
+          "CA-O-065"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 417,
+    "status": "resolved_candidate",
+    "decision": "CA-O-023 is the selection Action; its behavior checked by E207 belongs to an Action Run restricted to that Action.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-023",
+        "source_atoms": [
+          "CA-O-023"
+        ]
+      },
+      {
+        "path": "Entity/Occurrent/Execution/Action Run",
+        "source_atoms": [
+          "CA-E-207"
+        ]
+      }
+    ],
+    "remaining_work": "Keep the selected alternatives and priority-model applicability; do not infer a new selected-result Object.",
+    "question": null
+  },
+  {
+    "index": 418,
+    "status": "resolved_candidate",
+    "decision": "Keep Select RMED Review Batch as concrete Action CA-O-105 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-105",
+        "source_atoms": [
+          "CA-O-105"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 419,
+    "status": "resolved_candidate",
+    "decision": "Keep Select Reconciliation Sources as concrete Action CA-O-004 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-004",
+        "source_atoms": [
+          "CA-O-004",
+          "CA-O-010",
+          "CA-O-015",
+          "CA-O-028",
+          "CA-O-152"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 420,
+    "status": "content_deferred",
+    "decision": "C415 is a resolved carrier-format concern about selected concrete Operations. Preserve those identities rather than invent Selected Operations/Carrier.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "source_atoms": [
+          "CA-C-415"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "source_atoms": [
+          "CA-C-415"
+        ]
+      }
+    ],
+    "remaining_work": "C/A stays deferred. Preserve selected IDs O007/O008/O017/O019/O021/O024/O089 and the explicitly referenced implementation Steps; do not broaden the issue to every Operation.",
+    "question": null
+  },
+  {
+    "index": 421,
+    "status": "content_deferred",
+    "decision": "C426 concerns required context binding in Step definitions, not an observed run failure.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Context",
+        "source_atoms": [
+          "CA-C-426"
+        ]
+      }
+    ],
+    "remaining_work": "Keep C/A deferred; preserve selected Step IDs CA-O-139..144, CA-O-146..151 and CA-O-152..157 and the conditional Agentic execution boundary.",
+    "question": null
+  },
+  {
+    "index": 422,
+    "status": "resolved_candidate",
+    "decision": "R1650 constrains the compact context supplied to the current Session. It does not define a durable carrier or a new envelope Object.",
+    "targets": [
+      {
+        "path": "Entity/Occurrent/Session.Context",
+        "source_atoms": [
+          "CA-R-1650"
+        ]
+      }
+    ],
+    "remaining_work": "Retain routing/current-scope/settings/reference limits in Substance Scope/content. If a future rule defines a persisted snapshot, classify that record separately.",
+    "question": null
+  },
+  {
+    "index": 427,
+    "status": "resolved_candidate",
+    "decision": "Keep Source Reconciliation as concrete Workflow CA-O-010 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-010",
+        "source_atoms": [
+          "CA-O-010",
+          "CA-O-011",
+          "CA-O-146",
+          "CA-O-147",
+          "CA-O-148",
+          "CA-O-149",
+          "CA-O-150",
+          "CA-O-151"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 428,
+    "status": "resolved_candidate",
+    "decision": "Keep Source Reconciliation Assessment Step as concrete Step CA-O-147 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-147",
+        "source_atoms": [
+          "CA-O-147"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 429,
+    "status": "resolved_candidate",
+    "decision": "Keep Source Reconciliation Correction Step as concrete Step CA-O-150 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-150",
+        "source_atoms": [
+          "CA-O-150"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 430,
+    "status": "resolved_candidate",
+    "decision": "Keep Source Reconciliation Decision Step as concrete Step CA-O-149 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-149",
+        "source_atoms": [
+          "CA-O-149"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 431,
+    "status": "resolved_candidate",
+    "decision": "Keep Source Reconciliation Proposal Step as concrete Step CA-O-148 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-148",
+        "source_atoms": [
+          "CA-O-148"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 432,
+    "status": "resolved_candidate",
+    "decision": "Keep Source Reconciliation Publication Step as concrete Step CA-O-151 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-151",
+        "source_atoms": [
+          "CA-O-151"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 433,
+    "status": "resolved_candidate",
+    "decision": "Keep Source Reconciliation Selection Step as concrete Step CA-O-146 in Project Configuration, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-146",
+        "source_atoms": [
+          "CA-O-146"
+        ]
+      }
+    ],
+    "remaining_work": "Apply relocation and Subject/reference mapping while preserving instance identity, existing bindings and content. The separate Atom ID here is candidate data, not invented executable Subject syntax.",
+    "question": null
+  },
+  {
+    "index": 434,
+    "status": "content_deferred",
+    "decision": "C350 concerns carrier layout of two named Workflows, not a new Carrier layout entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-010",
+        "source_atoms": [
+          "CA-C-350"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-011",
+        "source_atoms": [
+          "CA-C-350"
+        ]
+      }
+    ],
+    "remaining_work": "C/A repair remains deferred; keep both Workflow identities and the format-only concern.",
+    "question": null
+  }
+]

@@ -1,0 +1,1046 @@
+[
+  {
+    "index": 6,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-054 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-054",
+        "source_atoms": [
+          "CA-O-054"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 8,
+    "status": "occurrence_work",
+    "decision": "Definition-required context belongs to the Agentic Step; actual supplied context belongs to its Step Run. Never replace the mixed spelling globally.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context"
+      },
+      {
+        "path": "Entity/Occurrent/Execution/Step Run.Execution Context"
+      }
+    ],
+    "remaining_work": "Assign the 35 occurrences from their definition/run meaning; mixed sources may require both Subjects. Content repair remains separate.",
+    "question": null
+  },
+  {
+    "index": 10,
+    "status": "resolved_candidate",
+    "decision": "The compilation is CA-O-011 Workflow; its required result and evaluation govern Applicable Methodology Projection. All these concrete project rules belong in Project Configuration.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-011",
+        "source_atoms": [
+          "CA-O-011"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Projection/Type: Applicable Methodology",
+        "source_atoms": [
+          "CA-R-1316",
+          "CA-E-379"
+        ]
+      }
+    ],
+    "remaining_work": "Encode these per-source targets and relocate; preserve CA-O-011 references.",
+    "question": null
+  },
+  {
+    "index": 11,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Step CA-O-153 as an instance of the generic Operations Step kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-153",
+        "source_atoms": [
+          "CA-O-153"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 12,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Step CA-O-156 as an instance of the generic Operations Step kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-156",
+        "source_atoms": [
+          "CA-O-156"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 13,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Step CA-O-155 as an instance of the generic Operations Step kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-155",
+        "source_atoms": [
+          "CA-O-155"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 14,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Step CA-O-154 as an instance of the generic Operations Step kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-154",
+        "source_atoms": [
+          "CA-O-154"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 15,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Step CA-O-157 as an instance of the generic Operations Step kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-157",
+        "source_atoms": [
+          "CA-O-157"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 16,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Step CA-O-152 as an instance of the generic Operations Step kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-152",
+        "source_atoms": [
+          "CA-O-152"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 25,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-008 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-008",
+        "source_atoms": [
+          "CA-O-008",
+          "CA-O-010",
+          "CA-O-028",
+          "CA-O-156"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 26,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-014 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-014",
+        "source_atoms": [
+          "CA-O-014",
+          "CA-O-015"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 27,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-131 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-131",
+        "source_atoms": [
+          "CA-O-131"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 28,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Step CA-O-132 as an instance of the generic Operations Step kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-132",
+        "source_atoms": [
+          "CA-O-132"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 30,
+    "status": "occurrence_work",
+    "decision": "Remove the old Artifact umbrella. Use the actual Atom, Projection, History or Carrier owner; cross-owner shared meaning routes to Terms, unsupported generic links are removed, Implementation stays deferred.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom"
+      },
+      {
+        "path": "Entity/Continuant/Projection"
+      },
+      {
+        "path": "Entity/Continuant/History"
+      },
+      {
+        "path": "Entity/Carrier"
+      },
+      {
+        "path": "Entity/Continuant/Term"
+      }
+    ],
+    "remaining_work": "Resolve each of the 68 occurrences without narrowing valid claims or replacing all Artifact uses with Object. This is source assignment under an approved policy.",
+    "question": null
+  },
+  {
+    "index": 36,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Step CA-O-160 as an instance of the generic Operations Step kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-160",
+        "source_atoms": [
+          "CA-O-160"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 37,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-159 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-159",
+        "source_atoms": [
+          "CA-O-159"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 53,
+    "status": "occurrence_work",
+    "decision": "Historical prior states map to History/Revision. A currently governed Atom or Projection remains that current thing, with its own version/timestamp; it is not a Revision object merely because a version is cited.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/History/Revision"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom"
+      },
+      {
+        "path": "Entity/Continuant/Projection"
+      }
+    ],
+    "remaining_work": "Assign historical/current meaning per occurrence; preserve version references and do not rewrite Concern history.",
+    "question": null
+  },
+  {
+    "index": 55,
+    "status": "content_deferred",
+    "decision": "The approved Atom Archived value applies to archived Atoms. R1419's broader Artifact Revision claim cannot establish a universal History/Revision.Status; remove obsolete umbrella wording in the later content pass.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Status: Archived",
+        "source_atoms": [
+          "CA-R-1419"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve applicable Atom lifecycle constraints; review the broad content before changing its scope. Do not infer Status models for other History/Projection owners.",
+    "question": null
+  },
+  {
+    "index": 56,
+    "status": "content_deferred",
+    "decision": "For archived Atoms use Atom.Version Number; other versionless artifacts use their own ID and Updated At. D289's universal version-suffix claim is old content, not authority to add Version Number everywhere.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Version Number",
+        "source_atoms": [
+          "CA-D-289"
+        ]
+      }
+    ],
+    "remaining_work": "Split the broad archive naming content from the Atom-specific version mapping during the content pass; no universal Revision.Version field.",
+    "question": null
+  },
+  {
+    "index": 58,
+    "status": "resolved_candidate",
+    "decision": "All four occurrences refer to the same assessment Action CA-O-067. M303/E491 already govern Workflow and use this old name only as a dependency; do not replace their governing Workflow Subject.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-067",
+        "source_atoms": [
+          "CA-E-491",
+          "CA-M-303",
+          "CA-O-067",
+          "CA-O-145"
+        ]
+      }
+    ],
+    "remaining_work": "Encode the named Action dependency/reference and relocate its concrete definition. Preserve the caller-owned routing content for its separate review.",
+    "question": null
+  },
+  {
+    "index": 59,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-058 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-058",
+        "source_atoms": [
+          "CA-O-058"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 60,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-126 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-126",
+        "source_atoms": [
+          "CA-O-126"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 61,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-005 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-005",
+        "source_atoms": [
+          "CA-O-005",
+          "CA-O-010",
+          "CA-O-015",
+          "CA-O-028",
+          "CA-O-153"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 66,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Workflow CA-O-080 as an instance of the generic Operations Workflow kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-080",
+        "source_atoms": [
+          "CA-E-513",
+          "CA-O-080"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 72,
+    "status": "occurrence_work",
+    "decision": "Use Atom identity/Summary for the change policy and CA-O-067 for the concrete assessment Action; do not create Atom Change Classification as an entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.ID"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Summary"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-067",
+        "source_atoms": [
+          "CA-O-067"
+        ]
+      }
+    ],
+    "remaining_work": "Assign the RMED and Action occurrences separately, preserving the approved changed-Summary/new-ID rule.",
+    "question": null
+  },
+  {
+    "index": 76,
+    "status": "resolved_candidate",
+    "decision": "M116 governs Atom.Summary and requested Translation output separately; an existing Summary is an Atom property, not an independent Projection.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Summary",
+        "source_atoms": [
+          "CA-M-116"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Projection/Type: Translation",
+        "source_atoms": [
+          "CA-M-116"
+        ]
+      }
+    ],
+    "remaining_work": "Encode both governed targets with the source's new-Atom Summary versus requested Translation scopes; do not regenerate existing identity Summaries.",
+    "question": null
+  },
+  {
+    "index": 77,
+    "status": "content_deferred",
+    "decision": "Retire Atom Collection as a standalone Structural Entity. Genuine grouping without planning intent is a Selection; physical-only grouping is a Directory Carrier; Plan/Workflow containers remain Atoms.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Selection"
+      },
+      {
+        "path": "Entity/Carrier/Directory Carrier"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Plan"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
+      }
+    ],
+    "remaining_work": "R1381/R1567 contain obsolete non-Atom collection classifications; preserve any valid grouping/tier constraint when replacing that content.",
+    "question": null
+  },
+  {
+    "index": 78,
+    "status": "resolved_candidate",
+    "decision": "Valid Plan and Workflow tier constraints govern their inherited Local Tier. A carrier grouping has no independent Atom tier; Implementation-specific content remains deferred.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Plan.Local Tier",
+        "source_atoms": [
+          "CA-R-1567"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow.Local Tier",
+        "source_atoms": [
+          "CA-R-1567"
+        ]
+      }
+    ],
+    "remaining_work": "Remove obsolete separately-tiered collection wording in the content pass; do not apply a tier to a Directory Carrier or revive Implementation entities.",
+    "question": null
+  },
+  {
+    "index": 80,
+    "status": "content_deferred",
+    "decision": "Ad Hoc is an obsolete Atom Collection classification, not a new Atom kind. R1381 defines grouping without a planning boundary; preserve such groupings as Selections where used, without a new Ad Hoc kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Selection"
+      }
+    ],
+    "remaining_work": "Retire collection-type registration content in R1546; keep its valid prohibition on Plan Labels creating independent types. No source deletion now.",
+    "question": null
+  },
+  {
+    "index": 81,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-103 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-103",
+        "source_atoms": [
+          "CA-O-103"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 86,
+    "status": "occurrence_work",
+    "decision": "There are only Owning Scope Unit, Target Scope Unit and Substance Scope. Map each old Atom Scope use by meaning; no fourth generic Atom Scope entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Target Scope Unit"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Substance Scope"
+      }
+    ],
+    "remaining_work": "Classify 31 source occurrences; remove redundant references and keep exact applicability when multiple properties are required.",
+    "question": null
+  },
+  {
+    "index": 88,
+    "status": "resolved_candidate",
+    "decision": "E456 checks both inherited Atom tier properties, not a Validation entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Local Tier",
+        "source_atoms": [
+          "CA-E-456"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Global Tier",
+        "source_atoms": [
+          "CA-E-456"
+        ]
+      }
+    ],
+    "remaining_work": "Encode both governed properties; keep the Evaluation scope.",
+    "question": null
+  },
+  {
+    "index": 89,
+    "status": "occurrence_work",
+    "decision": "E447 is a multi-target QA fixture: govern the actual tier and scope properties and source Scope Units it checks. Concrete Cases is not an entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Local Tier"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Global Tier"
+      },
+      {
+        "path": "Entity/Continuant/Object/Scope Unit"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Target Scope Unit"
+      }
+    ],
+    "remaining_work": "Retain the explicitly tested relation/settings/selection targets from its complete source; separate CAPRMEDIO-specific fixtures from reusable constraints during relocation. No new policy decision.",
+    "question": null
+  },
+  {
+    "index": 91,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-067 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-067",
+        "source_atoms": [
+          "CA-C-423"
+        ]
+      }
+    ],
+    "remaining_work": "Historical Concern content stays unchanged; carry its reference to the same named Action during later source mapping.",
+    "question": null
+  },
+  {
+    "index": 105,
+    "status": "content_deferred",
+    "decision": "Remove Actor as an Operations Type. Actor participation and authorization constraints govern Actor/AI Agent permissions or the Step/Action participant binding, not an Actor Operations Atom kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Actor.Permissions"
+      },
+      {
+        "path": "Entity/Continuant/Actor/Type: AI Agent.Permissions"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action"
+      }
+    ],
+    "remaining_work": "Separate permission policies and concrete participant bindings in D457/M314/R1564/R1565; preserve their valid content without inventing a fourth Operations kind.",
+    "question": null
+  },
+  {
+    "index": 129,
+    "status": "resolved_candidate",
+    "decision": "D463 governs Atom representation; E502 governs Plan carrier pairing. File+folder representation does not create a Bundle entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom",
+        "source_atoms": [
+          "CA-D-463"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+        "source_atoms": [
+          "CA-E-502"
+        ]
+      }
+    ],
+    "remaining_work": "Encode per-source governed objects; keep D/E carrier constraints in content and defer obsolete Revision-wording repair.",
+    "question": null
+  },
+  {
+    "index": 132,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-013 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-013",
+        "source_atoms": [
+          "CA-O-013",
+          "CA-O-015"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 135,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Workflow CA-O-133 as an instance of the generic Operations Workflow kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-133",
+        "source_atoms": [
+          "CA-O-133"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 136,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Workflow CA-O-136 as an instance of the generic Operations Workflow kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-136",
+        "source_atoms": [
+          "CA-O-136"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 138,
+    "status": "occurrence_work",
+    "decision": "The caprmedio project name stays in Project Settings TOML. R1778 names its delivered framework CAPRMEDIO and belongs in Project Configuration, not Project.Name or abstract Core.",
+    "targets": [],
+    "remaining_work": "Retain R1778's framework-name applicability while encoding its concrete project-local Subject; the ownership decision is resolved. Do not fabricate a Product/Implementation root or map the requirement to the name of its own Atom.",
+    "question": null
+  },
+  {
+    "index": 139,
+    "status": "occurrence_work",
+    "decision": "Framework Instance is the existing Project except where a source means actual Execution. No extra Framework Instance object.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Project"
+      },
+      {
+        "path": "Entity/Occurrent/Execution"
+      }
+    ],
+    "remaining_work": "Assign Project or actual Run per source across ten uses, preserving context. Reconcile older Object/Project spelling explicitly.",
+    "question": null
+  },
+  {
+    "index": 140,
+    "status": "resolved_candidate",
+    "decision": "D317 governs the Project's framework-governance representation; following the resolved Framework Instance owner, use Project. A Carrier Root is not another object.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Project",
+        "source_atoms": [
+          "CA-D-317"
+        ]
+      }
+    ],
+    "remaining_work": "Align obsolete directory-placement content separately; the Subject mapping does not approve the old 000_CAPRMEDIO_framework path.",
+    "question": null
+  },
+  {
+    "index": 141,
+    "status": "occurrence_work",
+    "decision": "CAPRMEDIO Graph is not an extra object: graph meaning belongs to Terms, produced graph views to Projection, actual link constraints to Relation.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Term"
+      },
+      {
+        "path": "Entity/Continuant/Projection"
+      },
+      {
+        "path": "Entity/Continuant/Object/Relation"
+      }
+    ],
+    "remaining_work": "Assign the 16 occurrences and preserve projection type/source selection; remove obsolete General Artifact Graph assumptions only with their disposition recorded.",
+    "question": null
+  },
+  {
+    "index": 142,
+    "status": "occurrence_work",
+    "decision": "Connectivity constraints govern typed Relations and the affected Projection, not a standalone Connectivity object.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Relation"
+      },
+      {
+        "path": "Entity/Continuant/Projection"
+      }
+    ],
+    "remaining_work": "R1472's typed cross-graph relations map to Relation; R1410's obsolete General Artifact Graph requirement needs later content disposition.",
+    "question": null
+  },
+  {
+    "index": 146,
+    "status": "resolved_candidate",
+    "decision": "E241 checks actual Atom Substance, Summary and requested Translation/Terms Graph projections; Validation is not another entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Substance",
+        "source_atoms": [
+          "CA-E-241"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Summary",
+        "source_atoms": [
+          "CA-E-241"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Projection/Type: Translation",
+        "source_atoms": [
+          "CA-E-241"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Projection/Type: Terms Graph",
+        "source_atoms": [
+          "CA-E-241"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve which projection is requested; no extra terminology Catalog type and no content rewrite in Subjects migration.",
+    "question": null
+  },
+  {
+    "index": 149,
+    "status": "occurrence_work",
+    "decision": "CCE Method denotes the selected Method Atoms defining CCE operator meaning; preserve that selection rather than implying every Method. M234's output is derived and non-authoritative.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Selection",
+        "source_atoms": [
+          "CA-M-230",
+          "CA-M-234"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Method"
+      }
+    ],
+    "remaining_work": "Encode the existing CCE Method selection from Subject/scope/source identity, not a new CCE Method entity or universal Method dependency.",
+    "question": null
+  },
+  {
+    "index": 153,
+    "status": "resolved_candidate",
+    "decision": "CCE Operator Registry is a derived list of operators compiled from governing Methods, under Projection. Source Methods remain authoritative; a registry is not an extra authority root.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Projection",
+        "source_atoms": [
+          "CA-E-512",
+          "CA-M-234",
+          "CA-M-235",
+          "CA-M-236"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve the operator-registry named output/selection in the candidate and later projection carrier; generic Projection plus output identity suffices without inventing a new Type.",
+    "question": null
+  },
+  {
+    "index": 155,
+    "status": "resolved_candidate",
+    "decision": "Core Meta-model is the existing CORE_META_MODEL Scope Unit, not a Methodology Source object or a Selection. Preserve this instance, not all Scope Units.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit",
+        "source_atoms": [
+          "CA-E-459"
+        ]
+      }
+    ],
+    "remaining_work": "Bind the existing CORE_META_MODEL Scope Unit identity in the migration representation; use its existing name/path until its stable ID is read. General meaning uses remain Terms.",
+    "question": null
+  },
+  {
+    "index": 158,
+    "status": "resolved_candidate",
+    "decision": "Use the existing Canonical Signature Projection type already governed by D346. Derivation and Validation describe M/E behavior, not additional entities.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Projection/Type: Canonical Signature",
+        "source_atoms": [
+          "CA-M-240"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve source expression occurrences and report identity; no source rewrite or semantic-equivalence authority is introduced.",
+    "question": null
+  },
+  {
+    "index": 159,
+    "status": "resolved_candidate",
+    "decision": "Use the existing Canonical Signature Projection type already governed by D346. Derivation and Validation describe M/E behavior, not additional entities.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Projection/Type: Canonical Signature",
+        "source_atoms": [
+          "CA-E-405"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve source expression occurrences and report identity; no source rewrite or semantic-equivalence authority is introduced.",
+    "question": null
+  },
+  {
+    "index": 165,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-087 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-087",
+        "source_atoms": [
+          "CA-O-087",
+          "CA-O-088"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 166,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Step CA-O-088 as an instance of the generic Operations Step kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-088",
+        "source_atoms": [
+          "CA-O-080",
+          "CA-O-088"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 182,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-134 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-134",
+        "source_atoms": [
+          "CA-O-134"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  },
+  {
+    "index": 183,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-137 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-137",
+        "source_atoms": [
+          "CA-O-137"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject; obsolete Definition-Atom authority is deferred content repair, not adopted by this mapping.",
+    "question": null
+  },
+  {
+    "index": 184,
+    "status": "resolved_candidate",
+    "decision": "Consumer is the Demand's Owning Scope Unit, not an Actor or new Scope Unit subtype.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand.Owning Scope Unit",
+        "source_atoms": [
+          "CA-R-932",
+          "CA-R-945"
+        ]
+      }
+    ],
+    "remaining_work": "Encode the qualified owning-scope property and preserve the Demand applicability.",
+    "question": null
+  },
+  {
+    "index": 185,
+    "status": "content_deferred",
+    "decision": "Consumer Goal is old required-result notation. Required result goes in the Goal/Demand Substance, with Owning/Target Scope Unit and Substance Scope; no extra Consumer Goal entity or mandatory P Atom.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Substance"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Owning Scope Unit"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Target Scope Unit"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Substance Scope"
+      }
+    ],
+    "remaining_work": "R933/R951 currently require an accepted Goal before Demand. Resolve their obsolete dependency wording in the later content pass; do not invent an exact result link from a Subject-only rename.",
+    "question": null
+  },
+  {
+    "index": 186,
+    "status": "content_deferred",
+    "decision": "A Container Atom remains an Atom. Plan and permitted Operations kinds have contains/contained_by relations enabled; this is not an independently tiered non-Atom collection.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Enabled Relations.Container"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Plan"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
+      }
+    ],
+    "remaining_work": "Retire old Structural Entity/non-Atom collection claims while preserving valid carrier/containment rules. Container instances map to Atom/allowed kind, not to the enablement property itself.",
+    "question": null
+  },
+  {
+    "index": 189,
+    "status": "resolved_candidate",
+    "decision": "Core Meta-model is the existing CORE_META_MODEL Scope Unit, not a Methodology Source object or a Selection. Preserve this instance, not all Scope Units.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit",
+        "source_atoms": [
+          "CA-E-249",
+          "CA-E-464",
+          "CA-M-298",
+          "CA-O-054",
+          "CA-O-153",
+          "CA-O-154",
+          "CA-R-1217",
+          "CA-R-1228",
+          "CA-R-1261",
+          "CA-R-1375",
+          "CA-R-1434",
+          "CA-R-1466",
+          "CA-R-1722",
+          "CA-R-1748"
+        ]
+      }
+    ],
+    "remaining_work": "Bind the existing CORE_META_MODEL Scope Unit identity in the migration representation; use its existing name/path until its stable ID is read. General meaning uses remain Terms.",
+    "question": null
+  },
+  {
+    "index": 191,
+    "status": "resolved_candidate",
+    "decision": "Keep the named Action CA-O-090 as an instance of the generic Operations Action kind in Project Configuration; preserve its identity, bindings and containment, not a new entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-090",
+        "source_atoms": [
+          "CA-O-090"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate and encode the instance-qualified Subject in the existing migration format. No new model decision is needed.",
+    "question": null
+  }
+]

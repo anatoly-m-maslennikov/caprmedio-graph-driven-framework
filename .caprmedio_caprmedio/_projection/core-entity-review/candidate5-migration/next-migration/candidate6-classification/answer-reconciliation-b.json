@@ -1,0 +1,1103 @@
+[
+  {
+    "index": 192,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-098 as the named Step instance in Project Configuration under the generic Step kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-098",
+        "source_atoms": [
+          "CA-O-098"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 195,
+    "status": "occurrence_work",
+    "decision": "Retain typed Relation identity and distinguish Subject mention DEPENDS_ON from non-Plan prerequisite relations.depends_on. The two meanings do not become one relation merely because their names resemble each other.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Relation",
+        "source_atoms": [
+          "CA-D-269",
+          "CA-D-307",
+          "CA-E-246",
+          "CA-E-404",
+          "CA-M-228",
+          "CA-M-232",
+          "CA-M-239",
+          "CA-R-1198",
+          "CA-R-1200",
+          "CA-R-1202",
+          "CA-R-1275",
+          "CA-R-1276",
+          "CA-R-1278",
+          "CA-R-1280",
+          "CA-R-1281",
+          "CA-R-1459"
+        ]
+      }
+    ],
+    "remaining_work": "Partition each occurrence by relation domain; preserve the Subject relation defined by CA-R-1200 and dependency ordering in CA-M-239/CA-E-404 separately. No new Object root or untyped relation.",
+    "question": null
+  },
+  {
+    "index": 197,
+    "status": "occurrence_work",
+    "decision": "Default Settings are carried by project_settings.default.toml, separate from explicit overrides. General D policies govern the represented settings; actual format/location policies may govern its File Carrier.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Governing Configuration",
+        "source_atoms": [
+          "CA-D-361",
+          "CA-D-407",
+          "CA-D-408",
+          "CA-D-447",
+          "CA-D-497",
+          "CA-E-450",
+          "CA-E-458",
+          "CA-E-473",
+          "CA-M-279",
+          "CA-M-295",
+          "CA-O-052",
+          "CA-R-1405",
+          "CA-R-1429",
+          "CA-R-1441",
+          "CA-R-1630",
+          "CA-R-1750"
+        ]
+      },
+      {
+        "path": "Entity/Carrier/File Carrier",
+        "source_atoms": [
+          "CA-D-361",
+          "CA-D-407",
+          "CA-D-408",
+          "CA-D-497"
+        ]
+      }
+    ],
+    "remaining_work": "Bind the configuration and carrier to the named default file per occurrence. Do not merge into Framework Settings or invent its directory/field migration; preserve default-versus-override meaning.",
+    "question": null
+  },
+  {
+    "index": 203,
+    "status": "resolved_candidate",
+    "decision": "M239 and E404 govern the derived prerequisite order, represented as a Projection with non-Plan dependency-order applicability; O017 remains its named Action instance. No Dependency Order Derivation entity or new Projection type is required.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Projection",
+        "source_atoms": [
+          "CA-M-239",
+          "CA-E-404"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-017",
+        "source_atoms": [
+          "CA-O-017"
+        ]
+      }
+    ],
+    "remaining_work": "Retain non-Plan selection and explicit prerequisite-edge rules in applicability. Relocate the concrete Action, keep results distinct from operation definitions, and prepare exact occurrence changes.",
+    "question": null
+  },
+  {
+    "index": 204,
+    "status": "resolved_candidate",
+    "decision": "E404 governs the same derived non-Plan dependency-order Projection as M239, not an Evaluation-procedure entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Projection",
+        "source_atoms": [
+          "CA-E-404"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve the exact derived-order applicability, cycle checks and distinct typed prerequisite relations. No additional type or source mutation.",
+    "question": null
+  },
+  {
+    "index": 212,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-135 as the named Step instance in Project Configuration under the generic Step kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-135",
+        "source_atoms": [
+          "CA-O-135"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 213,
+    "status": "content_deferred",
+    "decision": "Do not register a Carrier property for every entity/property. Retain generic CARRIES/IS_CARRIED_BY relation semantics and Carrier model; D rules normally govern the thing represented. R1342 continues to define Delivery.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Delivery",
+        "source_atoms": [
+          "CA-R-1342",
+          "CA-M-313"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Relation",
+        "source_atoms": [
+          "CA-D-257"
+        ]
+      },
+      {
+        "path": "Entity/Carrier",
+        "source_atoms": [
+          "CA-D-505",
+          "CA-M-313"
+        ]
+      }
+    ],
+    "remaining_work": "D505's universal per-entity Carrier property and M313's matching authoring requirement conflict with the accepted general-D policy and need the later content pass. Do not delete D257's valid inverse relation or all storage rules.",
+    "question": null
+  },
+  {
+    "index": 217,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-106 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-106",
+        "source_atoms": [
+          "CA-O-106"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 220,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-018 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-018",
+        "source_atoms": [
+          "CA-O-018"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 221,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-092 as the named Step instance in Project Configuration under the generic Step kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-092",
+        "source_atoms": [
+          "CA-O-092"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 222,
+    "status": "resolved_candidate",
+    "decision": "These sources use Evaluation Report for saved evidence of RMED review execution. Map those records to History, keeping Journal event records separate where the same workflow records events. No Evaluation Report kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/History",
+        "source_atoms": [
+          "CA-O-104",
+          "CA-O-108",
+          "CA-O-109",
+          "CA-O-110"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve report/evidence references and named review-run applicability. A later occurrence showing authored rationale or a compiled view must use Analysis or Projection instead; no automatic conversion to Journal.",
+    "question": null
+  },
+  {
+    "index": 223,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-123 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-123",
+        "source_atoms": [
+          "CA-O-123"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 224,
+    "status": "resolved_candidate",
+    "decision": "Event/Type here classifies recorded Journal events, not the real Occurrent Event. Govern Journal records with the type-classification applicability retained in scope, not a new Event entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/History/Journal.Record",
+        "source_atoms": [
+          "CA-R-1643",
+          "CA-D-340"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve event records and observed type values. The candidate does not make current classification a retroactive admission rule for historical Journal data.",
+    "question": null
+  },
+  {
+    "index": 229,
+    "status": "occurrence_work",
+    "decision": "An Extension is represented by its existing Scope Unit, not a new Object or Selection. Preserve which extension is meant; general extension meaning belongs to Terms.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit",
+        "source_atoms": [
+          "CA-D-262",
+          "CA-D-361",
+          "CA-D-373",
+          "CA-E-249",
+          "CA-E-379",
+          "CA-E-464",
+          "CA-M-298",
+          "CA-O-011",
+          "CA-O-054",
+          "CA-O-152",
+          "CA-O-154",
+          "CA-R-1206",
+          "CA-R-1207",
+          "CA-R-1217",
+          "CA-R-1218",
+          "CA-R-1220",
+          "CA-R-1228",
+          "CA-R-1286",
+          "CA-R-1313",
+          "CA-R-1375",
+          "CA-R-1434",
+          "CA-R-1466",
+          "CA-R-1722",
+          "CA-R-1723",
+          "CA-R-1724",
+          "CA-R-1748",
+          "CA-R-1773",
+          "CA-R-1874",
+          "CA-R-1875"
+        ]
+      }
+    ],
+    "remaining_work": "Bind individual source references to existing extension Scope Unit identities and distinguish Term usages. Do not turn each restricted extension reference into every Scope Unit.",
+    "question": null
+  },
+  {
+    "index": 230,
+    "status": "resolved_candidate",
+    "decision": "R1206 governs extension availability and its separate activation selection. The available extension is its existing Scope Unit; activation is selected in Project Settings, not an Extension Installation entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit",
+        "source_atoms": [
+          "CA-R-1206"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Project.Settings",
+        "source_atoms": [
+          "CA-R-1206"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve the relevant extension's identity and the distinction between installed availability and enabled applicability. Reconcile Project path spelling with the latest approved Project placement during exact migration.",
+    "question": null
+  },
+  {
+    "index": 234,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-158 as the named Workflow instance in Project Configuration under the generic Workflow kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-158",
+        "source_atoms": [
+          "CA-O-158"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 235,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-161 as the named Workflow instance in Project Configuration under the generic Workflow kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-161",
+        "source_atoms": [
+          "CA-O-161"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 236,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-163 as the named Step instance in Project Configuration under the generic Step kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-163",
+        "source_atoms": [
+          "CA-O-163"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 245,
+    "status": "resolved_candidate",
+    "decision": "Generator is a procedure/topic name: M114 governs Terms Graph, the newer name for its terminology Catalog; M120 governs Direct Relation Registry.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Projection/Type: Terms Graph",
+        "source_atoms": [
+          "CA-M-114"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Projection/Type: Direct Relation Registry",
+        "source_atoms": [
+          "CA-M-120"
+        ]
+      }
+    ],
+    "remaining_work": "Prepare the two per-source replacements. M114's Definition-Atom compilation requirement belongs to later content repair; do not introduce a separate terminology Catalog.",
+    "question": null
+  },
+  {
+    "index": 251,
+    "status": "resolved_candidate",
+    "decision": "The Concern targets named graph-building Actions and their Workflows, not a generic Completion entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-134",
+        "source_atoms": [
+          "CA-C-420"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-137",
+        "source_atoms": [
+          "CA-C-420"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-133",
+        "source_atoms": [
+          "CA-C-420"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-136",
+        "source_atoms": [
+          "CA-C-420"
+        ]
+      }
+    ],
+    "remaining_work": "Retain the concerned named instance bindings in Project Configuration and verify each reference when preparing edits. This does not claim tested runtime completion.",
+    "question": null
+  },
+  {
+    "index": 253,
+    "status": "occurrence_work",
+    "decision": "Plan containment uses Plan with its enabled CONTAINS relation, not Hub Atom as a new kind. Remove the rejected Hub confidence-precedence layer. Distinguish actual Hub projections from containing Plan Atoms; Plan projections remain deferred.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Plan",
+        "source_atoms": [
+          "CA-D-470",
+          "CA-D-472",
+          "CA-E-240",
+          "CA-E-241",
+          "CA-E-443",
+          "CA-E-460",
+          "CA-E-501",
+          "CA-E-504",
+          "CA-E-511",
+          "CA-M-271",
+          "CA-M-295",
+          "CA-R-1428",
+          "CA-R-1578",
+          "CA-R-1580",
+          "CA-R-1583",
+          "CA-R-1584",
+          "CA-R-1588",
+          "CA-R-1592",
+          "CA-R-1599",
+          "CA-R-991",
+          "CA-R-997"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Plan.Enabled Relations.Contains"
+      },
+      {
+        "path": "Entity/Continuant/Projection/Type: Hub"
+      }
+    ],
+    "remaining_work": "Classify each occurrence among container Plan, unsupported Hub-chain rule and actual navigation Projection. Preserve explicit retry-policy content for separate review; the confidence answer alone does not silently rewrite unrelated retry semantics.",
+    "question": null
+  },
+  {
+    "index": 254,
+    "status": "occurrence_work",
+    "decision": "D331 governs durable navigation represented by a Hub carrier. Keep the distinction between a Hub Projection and a Plan's file/folder carrier; the carrier is not automatically an Atom property.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Projection/Type: Hub",
+        "source_atoms": [
+          "CA-D-331"
+        ]
+      },
+      {
+        "path": "Entity/Carrier/File Carrier",
+        "source_atoms": [
+          "CA-D-331"
+        ]
+      },
+      {
+        "path": "Entity/Carrier/Directory Carrier",
+        "source_atoms": [
+          "CA-D-331"
+        ]
+      }
+    ],
+    "remaining_work": "Bind the actual carrier/Projection in the exact scope before selecting its migration Subject. Plan projection admission is deferred; retain the stable-folder navigation restriction, not a new navigation entity.",
+    "question": null
+  },
+  {
+    "index": 260,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-020 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-020",
+        "source_atoms": [
+          "CA-O-020"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 261,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-094 as the named Step instance in Project Configuration under the generic Step kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-094",
+        "source_atoms": [
+          "CA-O-094"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 262,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-089 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-089",
+        "source_atoms": [
+          "CA-O-021",
+          "CA-O-089"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 263,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-095 as the named Step instance in Project Configuration under the generic Step kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-095",
+        "source_atoms": [
+          "CA-O-095"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 266,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-017 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-017",
+        "source_atoms": [
+          "CA-O-017"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 267,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-091 as the named Step instance in Project Configuration under the generic Step kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-091",
+        "source_atoms": [
+          "CA-O-091"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 270,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-021 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-021",
+        "source_atoms": [
+          "CA-O-021"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 271,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-099 as the named Step instance in Project Configuration under the generic Step kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-099",
+        "source_atoms": [
+          "CA-O-099"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 272,
+    "status": "resolved_candidate",
+    "decision": "Concrete retry control belongs to Action CA-O-024. Its execution policy governs the retry limit/accounting of the named Implementation Workflow Run, not a separate Retry Control entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-024",
+        "source_atoms": [
+          "CA-O-016",
+          "CA-O-021",
+          "CA-O-024"
+        ]
+      },
+      {
+        "path": "Entity/Occurrent/Execution/Workflow Run",
+        "source_atoms": [
+          "CA-R-1488",
+          "CA-E-441",
+          "CA-E-473"
+        ]
+      }
+    ],
+    "remaining_work": "Retain the specific CA-O-016 workflow-run applicability and required retry limit/accounting in scope. Do not silently generalize policy to every workflow or copy rejected confidence Hub precedence into this policy.",
+    "question": null
+  },
+  {
+    "index": 273,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-096 as the named Step instance in Project Configuration under the generic Step kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-096",
+        "source_atoms": [
+          "CA-O-096"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 275,
+    "status": "occurrence_work",
+    "decision": "Preserve CA-O-016 as the concrete Workflow. RMED targets its definition, actual Run or governing Atom permission as the source says; no Implementation Object.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-016",
+        "source_atoms": [
+          "CA-O-016",
+          "CA-O-024",
+          "CA-O-102",
+          "CA-E-519"
+        ]
+      },
+      {
+        "path": "Entity/Occurrent/Execution/Workflow Run",
+        "source_atoms": [
+          "CA-E-473",
+          "CA-E-519",
+          "CA-R-1488"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Actor/Type: AI Agent.Permissions",
+        "source_atoms": [
+          "CA-R-1559"
+        ]
+      }
+    ],
+    "remaining_work": "Assign each RMED occurrence precisely and preserve CA-O-016-specific applicability. The permission rule also depends on Author and confidence, but is not another implementation entity.",
+    "question": null
+  },
+  {
+    "index": 277,
+    "status": "resolved_candidate",
+    "decision": "Extension provenance belongs to the extension's existing Scope Unit; enabled selection belongs in Project Settings. No Installed Extensions Catalog Entry entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit",
+        "source_atoms": [
+          "CA-R-1220"
+        ]
+      }
+    ],
+    "remaining_work": "Bind the particular extension and preserve recorded provenance. The approved ownership decision does not add mandatory fields or approve deletion of existing provenance; R1220's old Catalog-entry wording is later content work.",
+    "question": null
+  },
+  {
+    "index": 279,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-162 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-162",
+        "source_atoms": [
+          "CA-O-162"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 282,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-124 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-124",
+        "source_atoms": [
+          "CA-O-124"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 283,
+    "status": "resolved_candidate",
+    "decision": "C419 concerns declared ownership of named lifecycle-tool operation Atoms, resolved to registered TOOLS ownership rather than folder-derived authority.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Owning Scope Unit",
+        "source_atoms": [
+          "CA-C-419"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Scope Unit",
+        "source_atoms": [
+          "CA-C-419"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve its resolved Concern state and the specific TOOLS Scope Unit identity. Remove the vague compound topic; do not invent four tool Scope Units or reopen its already-resolved defect.",
+    "question": null
+  },
+  {
+    "index": 284,
+    "status": "resolved_candidate",
+    "decision": "Lineage Impact Analysis is an Analysis Atom/report; performing the assessment is Action CA-O-058. The recorded report is not evidence of its own correctness.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Analysis",
+        "source_atoms": [
+          "CA-R-1432",
+          "CA-R-1497",
+          "CA-R-1633",
+          "CA-O-058"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-058",
+        "source_atoms": [
+          "CA-O-058"
+        ]
+      }
+    ],
+    "remaining_work": "Retain lineage-impact applicability on Analysis and the separate Action identity. Keep actual execution evidence under History as already approved; do not add an Analysis root.",
+    "question": null
+  },
+  {
+    "index": 291,
+    "status": "occurrence_work",
+    "decision": "Main Content is the Markdown file body, while Summary, Substance, Substance Scope and Details are Atom properties. Map per occurrence, not everything to Substance.",
+    "targets": [
+      {
+        "path": "Entity/Carrier/File Carrier",
+        "source_atoms": [
+          "CA-D-277",
+          "CA-D-356",
+          "CA-D-357",
+          "CA-D-479"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Summary",
+        "source_atoms": [
+          "CA-R-1465"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Details",
+        "source_atoms": [
+          "CA-R-1624"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Substance Scope",
+        "source_atoms": [
+          "CA-D-495",
+          "CA-R-718"
+        ]
+      }
+    ],
+    "remaining_work": "Keep the body-after-frontmatter restriction on the Markdown Atom file carrier and exact property-specific rules on their properties. Use general D policy rather than creating another body-property hierarchy; exact list/source replacement remains occurrence work.",
+    "question": null
+  },
+  {
+    "index": 294,
+    "status": "occurrence_work",
+    "decision": "General YAML frontmatter format/structure rules govern the Markdown Atom File Carrier; storage rules about a specific Atom property govern that property. Frontmatter is not an extra primary entity.",
+    "targets": [
+      {
+        "path": "Entity/Carrier/File Carrier",
+        "source_atoms": [
+          "CA-D-267",
+          "CA-D-276",
+          "CA-D-356",
+          "CA-D-357"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom",
+        "source_atoms": [
+          "CA-D-478",
+          "CA-O-087"
+        ]
+      }
+    ],
+    "remaining_work": "Retain the Markdown/frontmatter applicability of general D policy, and resolve specific property references individually. D478 covers applicable Atom properties as a policy, not a requirement to register a Carrier binding for each.",
+    "question": null
+  },
+  {
+    "index": 296,
+    "status": "resolved_candidate",
+    "decision": "D309 governs materialized Carriers and their source/regeneration binding; its Applicable Methodology case concerns carriers of that Projection. Carrier and Projection remain distinct.",
+    "targets": [
+      {
+        "path": "Entity/Carrier",
+        "source_atoms": [
+          "CA-D-309"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Projection/Type: Applicable Methodology",
+        "source_atoms": [
+          "CA-D-309"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve the restriction to derived materializations and the specific Applicable Methodology source link. Place the project-specific portion in Project Configuration without weakening generic regeneration constraints.",
+    "question": null
+  },
+  {
+    "index": 299,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-102 as the named Workflow instance in Project Configuration under the generic Workflow kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-102",
+        "source_atoms": [
+          "CA-O-102"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 300,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-100 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-100",
+        "source_atoms": [
+          "CA-O-100"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 301,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-101 as the named Step instance in Project Configuration under the generic Step kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-101",
+        "source_atoms": [
+          "CA-O-101"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 303,
+    "status": "occurrence_work",
+    "decision": "Methodology Source refers to the existing Core Meta-model, Extension or Project Configuration Scope Unit, not another source object or selection.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit",
+        "source_atoms": [
+          "CA-D-394",
+          "CA-D-407",
+          "CA-D-550",
+          "CA-E-249",
+          "CA-M-272",
+          "CA-M-298",
+          "CA-O-011",
+          "CA-O-054",
+          "CA-O-152",
+          "CA-O-154",
+          "CA-O-156",
+          "CA-R-1213",
+          "CA-R-1217",
+          "CA-R-1218",
+          "CA-R-1219",
+          "CA-R-1228",
+          "CA-R-1284",
+          "CA-R-1722",
+          "CA-R-1748"
+        ]
+      }
+    ],
+    "remaining_work": "Bind each occurrence to the existing source Scope Unit identity and preserve the relevant layer/extension scope. General source terminology belongs to Terms, not an unrestricted replacement with all Scope Units.",
+    "question": null
+  },
+  {
+    "index": 305,
+    "status": "occurrence_work",
+    "decision": "Expansion authority belongs to governing Atoms in the relevant existing source Scope Units. Do not invent Scope Unit.Expansion Boundary as a universal property.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit",
+        "source_atoms": [
+          "CA-E-379",
+          "CA-E-447",
+          "CA-O-011",
+          "CA-O-153",
+          "CA-O-154",
+          "CA-O-155",
+          "CA-R-1217",
+          "CA-R-1317",
+          "CA-R-1375",
+          "CA-R-1434"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom",
+        "source_atoms": [
+          "CA-R-1217",
+          "CA-R-1317",
+          "CA-R-1375",
+          "CA-R-1434"
+        ]
+      }
+    ],
+    "remaining_work": "Bind concrete source units and exact governing rule targets per occurrence; preserve permitted expansion constraints in source applicability. Relocate CAPRMEDIO-specific compilation rules to Project Configuration.",
+    "question": null
+  },
+  {
+    "index": 306,
+    "status": "occurrence_work",
+    "decision": "The mapping description is a project-specific contract about source elements, canonical targets and scope. Source ownership is already resolved to Scope Units, and O054 remains the named admission Action; no new Methodology Source Object.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit",
+        "source_atoms": [
+          "CA-E-249",
+          "CA-M-298",
+          "CA-O-054"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom",
+        "source_atoms": [
+          "CA-E-249",
+          "CA-M-298"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-054",
+        "source_atoms": [
+          "CA-O-054"
+        ]
+      }
+    ],
+    "remaining_work": "Identify each described mapping's actual authored source carrier/Atom and retain source/target bindings. Existing content does not identify one universal mapping Object or Atom role; do not invent one merely to finish the executable map.",
+    "question": null
+  },
+  {
+    "index": 307,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-053 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-053",
+        "source_atoms": [
+          "CA-O-053"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  },
+  {
+    "index": 309,
+    "status": "resolved_candidate",
+    "decision": "M231 governs two existing things: Atom.Summary and requested Projections derived from authoritative content. No Navigation Projection Derivation entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Summary",
+        "source_atoms": [
+          "CA-M-231"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Projection",
+        "source_atoms": [
+          "CA-M-231"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve the two separately scoped contributions in the migration candidate. Keep existing Summary identity constraints and RMED-only projection scope; later content separation must not be silently performed here.",
+    "question": null
+  },
+  {
+    "index": 315,
+    "status": "resolved_candidate",
+    "decision": "The normative-authority pair is two typed Relations, child_of and inverse-derived parent_of, not a third Pair entity or Scope Unit parentage.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Relation",
+        "source_atoms": [
+          "CA-R-879",
+          "CA-E-481"
+        ]
+      }
+    ],
+    "remaining_work": "Retain both relation identities and their normative-authority domain in candidate scope; prepare exact references without inventing new Subject grammar or conflating them with Scope Unit.Parent.",
+    "question": null
+  },
+  {
+    "index": 317,
+    "status": "resolved_candidate",
+    "decision": "Preserve CA-O-007 as the named Action instance in Project Configuration under the generic Action kind. Its title is not a new Core kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "atom_id": "CA-O-007",
+        "source_atoms": [
+          "CA-O-007",
+          "CA-O-010",
+          "CA-O-028",
+          "CA-O-155"
+        ]
+      }
+    ],
+    "remaining_work": "Relocate the defining Atom and update each reference without losing the named instance. The kind path plus separate Atom ID is candidate notation, not a new executable Subject grammar.",
+    "question": null
+  }
+]

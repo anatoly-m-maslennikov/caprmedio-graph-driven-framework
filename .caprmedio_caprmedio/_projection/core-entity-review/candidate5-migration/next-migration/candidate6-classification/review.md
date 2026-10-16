@@ -8,16 +8,16 @@ Eight workers classified all **511** Subjects in the saved inventory. An indepen
 
 | Disposition | Subjects | Meaning |
 | --- | ---: | --- |
-| Mapped | 194 | Candidate target identified; scope and source-specific checks may still be needed |
+| Mapped | 330 | Candidate target identified; scope and source-specific checks may still be needed |
 | Terms | 80 | Shared meaning belongs in Terms, not a new entity node |
-| Remove | 18 | Obsolete concept/reference or dedicated rule; not whole-Atom deletion |
+| Remove | 20 | Obsolete concept/reference or dedicated rule; not whole-Atom deletion |
 | Deferred | 14 | Explicitly outside current model work |
-| Unresolved | 205 | 204 mapping-work entries and 1 entry flagging a possible Operator decision |
+| Unresolved | 67 | 48 per-occurrence mappings and 19 later content repairs |
 | Total | 511 | Every inventory index appears exactly once |
 
-**205 unresolved does not mean 205 unanswered questions.** Most need per-source mapping, preserved instance identity, or handling of conflicting old content under already-approved decisions. After the recorded Operator decisions, 1 candidate decision entry remains: Structural Path. It remains a review finding, not automatically a required question.
+Your answers were applied to all 204 remaining review entries: **137 candidate dispositions resolved** (135 mappings and 2 removals), **48** still need per-occurrence assignment, and **19** need the later content pass. **No new Operator questions were found.** A resolved candidate is not an executable migration or a live source change.
 
-[Complete review map](review-map.json) includes each Subject, candidate target, reason, evidence, affected source IDs and follow-up, including subsequent Operator decisions. The eight part files retain the original worker outputs, not later decisions.
+[Complete review map](review-map.json) includes each Subject, candidate target, reason, evidence, affected source IDs and follow-up, including subsequent Operator decisions and `candidate_resolution` for the 204 reconciled entries. Use `targets` for compound or instance-qualified candidates: each keeps the kind path, specific Atom ID where needed, and source applicability. A null singular `target` does not erase those qualifications. The eight original part files and four `answer-reconciliation-*` files retain worker results; the combined map contains reviewed naming corrections.
 
 ## Highest-impact decision families
 
@@ -31,9 +31,9 @@ This resolves the ownership question for `Extension`, `Methodology Source`, `Met
 
 Default Settings belongs in `project_settings.default.toml`, as specified by the Operator. Do not merge it into Framework Settings or infer a file location/rename. Per-source settings-versus-carrier mapping remains work.
 
-### Resolved: installed-extension metadata
+### Resolved: Extension installation and metadata
 
-Extension metadata belongs to its existing Scope Unit; enabled-extension selection belongs to Project Settings. No separate `Installed Extensions Catalog Entry` entity. Exact field mapping remains work; mandatory metadata fields are not decided here.
+Install the Extension's Atoms under `METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS`, then regenerate Applicable Methodology. Metadata remains with the installed Scope Unit; no separate Catalog-entry entity, application-binding Atom or Settings activation/application selection is required. This later answer supersedes the earlier enabled-selection proposal. Align CA-R-1733 and conflicting activation clauses during the content pass; preserve provenance. Exact source mapping remains work.
 
 ### Resolved: project and framework names
 
@@ -50,6 +50,8 @@ Subjects: `Evaluation Report`, `Proof Dependency Frontier`.
 ### Resolved: Consumer goals and producer results
 
 These are old notation. Goals and Demands use Owning Scope Unit and Target Scope Unit; Substance states the result and Substance Scope limits applicability. No separate Consumer Goal / Producer Result entity or mandatory P objective is needed. Per-source field mapping remains work.
+
+The later Operator answer removes the mandatory accepted-Goal connection for Demands: retire CA-R-951 and remove that clause from CA-R-933 in the content pass, preserving the single-result constraint. Goal and Demand Types and separate Scope Unit Goal-coverage rules remain.
 
 Subjects: `Consumer Goal`, `Producer Result`.
 
@@ -79,219 +81,101 @@ Subjects: `Terminology Projection Derivation`.
 
 ### Resolved: Invocation and Tool Call identity
 
-Only Workflows, Steps, nested substeps and Actions are needed for operation definitions. Tool calls and prompts returned to the calling session fit that model; actual executions use existing Runs, and records belong to History. A later MCP call by the main session is optional. Do not add an Invocation/Tool Call entity layer or infer a completion protocol.
+Only Workflows, Steps, nested substeps and Actions are needed for operation definitions. Tool operations and prompts returned to the calling session fit that model; actual executions use existing Runs, and records belong to History. Methodology RMED does not decide whether internal tool calls become substeps or remain execution details. Remove that prescription from R1528/M304 in the later content pass without adding the opposite rule or a mandatory setting. A later MCP call by the main session is optional. Do not add an Invocation/Tool Call entity layer or infer a completion protocol.
 
 Subjects: `Step Run/Invocation`, `Tool Call`.
 
-### Structural path
+### Resolved: Scope Unit hierarchy names
 
-Is the ordered ancestry a derived Scope Unit property or a separate derived Selection/Projection?
+Use `Scope Unit.Path`, `Scope Unit.Parent` and `Scope Unit.Children`. Map Structural Path to `Entity/Continuant/Object/Scope Unit.Path`: ordered Scope Unit ancestry derived from parentage, not a filesystem path or separate primary entity. Parent and Children identify the corresponding Scope Units in the same hierarchy; do not add duplicate authored ancestry.
 
 Subjects: `Structural Path`.
 
-## Unresolved mapping work
+### Resolved: Method Types
 
-These entries need source-specific resolution, not renewed approval of the settled policies.
+Implementation Method and Implementation Decision are different Method Atom Types, inheriting Method/Atom rules. They are not a separate Implementation entity and are not collapsed into untyped Methods. R1669/R1670 map to the respective Type-qualified Local Tier; R1671/R1672 govern the respective Method Types' parent/child permissions. Types may impose strict Local Tier restrictions, including one allowed tier, but exact Type-to-tier rules are deferred. Method Policy/Core and Implementation Decision/Standard are examples, not adopted constraints. Existing source constraints remain unchanged pending separate review.
 
-| Index | Subject | Remaining work |
-| ---: | --- | --- |
-| 6 | Admit Methodology Expansion Mapping | Mapping work: Retain CA-O-054 as the specific Action binding; this kind-level Subject must not replace instance identity or authorize all Actions. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 8 | Agentic Step Execution Context | Mapping work: Apply the approved owner split per occurrence across the 35 uses; mixed governing statements need separate Subjects or a bounded content split, not a new Operator policy decision. |
-| 10 | Applicable Methodology Compilation | Mapping work: Create per-source replacements rather than one spelling-wide replacement; retain O011 identity and its workflow bindings. |
-| 11 | Applicable Methodology Compilation Assess Step | Mapping work: Move to Project Configuration and preserve O153 identity, O011 containment and CA-O-005 invocation. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 12 | Applicable Methodology Compilation Correct Step | Mapping work: Move to Project Configuration and preserve O156 identity, O011 containment and CA-O-008 invocation. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 13 | Applicable Methodology Compilation Decide Step | Mapping work: Preserve the named Step identity and invocation/containment bindings during relocation. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 14 | Applicable Methodology Compilation Propose Step | Mapping work: Move to Project Configuration and preserve O154 identity, O011 containment and CA-O-006 invocation. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 15 | Applicable Methodology Compilation Publish Step | Mapping work: Move to Project Configuration and preserve O157 identity, O011 containment and CA-O-009 invocation. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 16 | Applicable Methodology Compilation Select Step | Mapping work: Move to Project Configuration and preserve O152 identity, O011 containment and CA-O-004 invocation. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 25 | Apply Approved Source Corrections | Mapping work: Preserve the exact O008 invocation/reference binding; kind-level Subjects must not replace a reference to that specific Action. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 26 | Apply Structural Change | Mapping work: Preserve the named O014 binding and move the definition to Project Configuration. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 27 | Approved Change Reversal | Mapping work: Preserve O131 identity and move it to Project Configuration; do not adopt its old extra execution safeguards merely by mapping the Subject. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 28 | Approved Change Reversal Step | Mapping work: Preserve O132 containment and O131 invocation; place the definition in Project Configuration. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 30 | Artifact | Mapping work: Complete the per-source owner assignment for the remaining uses. Broad cross-owner meaning rules route to their relevant Terms; unsupported generic links are removed, without deleting valid claims. |
-| 36 | Artifact query and fetch execution | Mapping work: Preserve O160/O158 containment and O159 invocation in Project Configuration; actual runs remain Step Runs. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 37 | Artifact query and selected fetch | Mapping work: Retain O159 identity and its exact query semantics during relocation to Project Configuration. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 53 | Artifact/Revision | Mapping work: Assign historical versus current-source meaning per occurrence across the 74 uses. The History root decision is settled; remaining work is source-level classification, not another root question. |
-| 55 | Artifact/Revision/Status: Archived | Mapping work: identify the actual supported Status owners and split this broad reference; do not invent a universal History.Revision.Status or narrow the whole claim to Atoms by guess. |
-| 56 | Artifact/Revision/Version | Mapping work: separate the Atom version-number use from the broader archive naming rule before applying an owner-qualified mapping. |
-| 58 | Assess Atom Update Identity | Mapping work: Split the map by source and keep the exact O067 reference; do not replace the Method/Evaluation governing thing with a generic assessment-procedure entity. |
-| 59 | Assess Lineage Impact | Mapping work: Preserve O058 identity and its chosen lineage scope; move its concrete procedure to Project Configuration. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 60 | Assess Prepared Result Conformance | Mapping work: Preserve O126 identity and its caller-bound scope; relocate rather than broaden into a universal stage gate. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 61 | Assess Source Conflicts | Mapping work: Preserve the exact O005 invocation binding and move its procedure to Project Configuration; an Action-kind dependency alone does not identify O005. Resolve the exact kind-plus-instance Subject using that Atom ID; no new Core/configuration policy choice is needed. |
-| 66 | Atom Carrier Validation | Mapping work: target Workflow kind plus the CA-O-080 instance; relocate the concrete Workflow and its check to Project Configuration. |
-| 72 | Atom Change Classification | Mapping work: map RMED to the governed Atom/change meaning; keep CA-O-067 as a named Action instance in Project Configuration. |
-| 76 | Atom Claim Projection | Mapping work: address the governed Summary and Translation outputs separately; do not map all of this rule to Projection. |
-| 77 | Atom Collection | Mapping work: classify each use as named Selection, Directory Carrier, or Container Atom; remove the obsolete umbrella where no valid remap remains. |
-| 78 | Atom Collection/Local Tier | Mapping work: map valid Plan/Workflow uses to their Atom Local Tier; remove only independently tiered non-Atom collection uses that cannot be remapped. |
-| 80 | Atom Collection/Type: Ad Hoc | Mapping work: classify grouping occurrences as Selection or Directory Carrier where evidenced; remove only the obsolete classification with no valid remap. |
-| 81 | Atom Content Authoring | Mapping work: represent the CA-O-103 Action instance and move its concrete definition to Project Configuration. |
-| 86 | Atom Scope | Mapping work: assign each occurrence to Atom.Owning Scope Unit, Atom.Target Scope Unit, or Atom.Substance Scope from the source role. |
-| 88 | Atom Tier Validation | Mapping work: use both Atom.Local Tier and Atom.Global Tier as governed properties, without a Validation entity. |
-| 89 | Atom Tier Validation.Concrete Cases | Mapping work: map to each actual governed property/selection; move CAPRMEDIO-specific fixtures to Project Configuration. |
-| 91 | Atom lifecycle/Assessment scope | Mapping work: identify its named Action/Workflow instance references; preserve this resolved historical Concern without introducing lifecycle entities. |
-| 105 | Atom/Content Role: Operations/Type: Actor | Mapping work: split or remap permission-policy claims to appropriate RMED and Actor.Permissions; retain concrete participation details without an Actor Operations kind. The broad Actor permissions decision is already approved. |
-| 129 | Authoritative Atom Carrier Bundle | Mapping work: use the represented Atom or Plan as the D/E Subject, preserving carrier-pair constraints in content; reconcile obsolete Revision wording separately. |
-| 132 | Authorize Structural Change | Mapping work: preserve CA-O-013 identity under the Operations Action kind using admitted instance selection; relocate to Project Configuration. |
-| 135 | Build Entities Graph | Mapping work: retain CA-O-133 instance identity under Operations Workflow; move concrete definition to Project Configuration. |
-| 136 | Build Terms Graph | Mapping work: retain CA-O-136 instance identity under Operations Workflow; move concrete definition to Project Configuration. |
-| 138 | CAPRMEDIO Framework Identity | Mapping work: place the framework-name rule in Project Configuration and determine its precise project-local Subject. Project name stays in Project Settings TOML. |
-| 140 | CAPRMEDIO Framework Instance Carrier Root | Mapping work: resolve Framework Instance first, then govern that represented object/configuration rather than creating a Carrier Root entity; old directory placement needs separate content alignment. |
-| 141 | CAPRMEDIO Graph | Mapping work: separate Term Graph, Projection instances/types and Relation domain properties per source; do not map every use to a new CAPRMEDIO Graph entity. |
-| 142 | CAPRMEDIO Graph.Connectivity | Mapping work: map relation constraints to Relation and represented graph constraints to their Projection kinds; review obsolete General Artifact Graph assumptions separately. |
-| 146 | CCE Claim and Projection Validation | Mapping work: retain separate governed targets Atom.Substance, Atom.Summary and requested Projection kinds; remove the procedure-like Subject name. |
-| 149 | CCE Method | Mapping work: preserve the selected Method Atom applicability and separate the operator-registry target; generic Method kind alone would erase scope. |
-| 153 | CCE Operator Registry | Mapping work: represent the derived registry output under the existing Projection branch, preserving source Atom authority; resolve its exact output type from source evidence without reopening the approved authority decision. |
-| 155 | CORE_META_MODEL | Mapping work: preserve named source-set selection for Core Meta-model; distinguish this use from the abstract Core model Term. |
-| 158 | Canonical Signature Derivation | Mapping work: align with the separate Atom Claim Canonical Signature mapping; do not invent a second signature hierarchy. |
-| 159 | Canonical Signature Derivation Validation | Mapping work: reuse the resolved Atom Claim Canonical Signature target, dropping Validation as a separate entity. |
-| 165 | Check Atoms | Mapping work: preserve CA-O-087 instance under Operations Action and relocate to Project Configuration. |
-| 166 | Check Atoms Step | Mapping work: preserve CA-O-088 instance under Operations Step and relocate with its owning Workflow. |
-| 182 | Construct Entities Graph Projection | Mapping work: preserve CA-O-134 instance under Operations Action; relocate to Project Configuration. |
-| 183 | Construct Terms Graph Projection | Mapping work: preserve CA-O-137 instance under Operations Action; relocate to Project Configuration; old Definition Atom authority needs content correction. |
-| 184 | Consumer | Mapping work: in these sources qualify the Demand Atom's Owning Scope Unit, not a new Consumer Actor or Scope Unit subtype. |
-| 186 | Container Atom | Mapping work: map genuine container references to Atoms with enabled containment and retire obsolete Structural Entity collection claims only after preserving valid rules; do not map instances to the Container-enabled property. |
-| 189 | Core Meta-Model | Mapping work: use Term Core Meta-model for its general meaning and preserve an admitted named source-set Selection where actual source Atoms are referenced. |
-| 191 | Corrective Method Acceptance | Mapping work: preserve CA-O-090 instance under Operations Action; move to Project Configuration without duplicating its RMED rules. |
-| 192 | Corrective Method Acceptance Step | Mapping work: relocate CA-O-098 to Project Configuration and preserve its instance identity under the generic Operations Step kind; replacing its Subject by the kind alone loses specificity. |
-| 195 | DEPENDS_ON | Mapping work: separate Subject DEPENDS_ON from graph-qualified dependency-order depends_on per source and preserve each typed relation identity. |
-| 203 | Dependency Order Derivation | Mapping work: map M/E to the derived ordered view and O017 to its concrete Action instance in Project Configuration; preserve explicit dependency-edge semantics. |
-| 204 | Dependency Order Derivation Evaluation | Mapping work: reuse the output-side mapping for Dependency Order Derivation after separating it from O017; do not map the evaluated order to the Action definition. |
-| 212 | Entities Graph Construction Step | Mapping work: express the CA-O-135 instance under Operations/Type: Step rather than replacing its named Subject by the generic Step kind alone. |
-| 213 | Entity Carrier Binding | Mapping work: map Delivery-role content to Delivery, map actual storage rules to their stored thing, and retire the obsolete universal per-entity Carrier-binding property; inspect D257 rather than deleting the whole group. |
-| 217 | Evaluate RMED Review Batch | Mapping work: relocate and retain the CA-O-106 Action instance under the generic Operations Action kind. |
-| 220 | Evaluation Implementation | Mapping work: retain CA-O-018 as an Action instance in Project Configuration; do not create Object/Implementation or classify test preparation as a passing execution. |
-| 221 | Evaluation Implementation Step | Mapping work: retain the CA-O-092 Step instance in Project Configuration and its Action reference. |
-| 223 | Evaluator Evidence Calibration | Mapping work: relocate the CA-O-123 Action instance to Project Configuration and keep its evidence-calibration applicability. |
-| 224 | Event/Type | Mapping work: place record classification in the Journal model and inspect D340; do not map mechanically to Entity/Occurrent/Event/Type. |
-| 230 | Extension Installation | Mapping work: map the R to the Extension's resulting availability/selection under the decided representation; no Installation entity is needed. |
-| 234 | Find and Fetch Artifacts | Mapping work: relocate CA-O-158 to Project Configuration under the generic Workflow kind while preserving instance identity and its O160 Step. |
-| 235 | Find and Fetch Journal Events | Mapping work: relocate CA-O-161 to Project Configuration and retain its Workflow instance identity and O163 Step. |
-| 236 | Find and Fetch Journal Events Query Step | Mapping work: retain the CA-O-163 Step instance in Project Configuration with its inputs and Action reference, rather than introducing a Query Step subtype. |
-| 245 | Generator | Mapping work: map M114 to Terms Graph/terminology projection and M120 to Projection/Type: Direct Relation Registry; replace the obsolete mandatory Definition Atom compilation model in content later. |
-| 251 | Graph Projection construction/Completion | Mapping work: bind the Concern to the named project operation instances it discusses; do not rewrite it as a generic Projection property or claim the runtime builder was tested. |
-| 253 | Hub Atom | Mapping work: map Plan-container uses to Plan with Contains enabled, remove the extra Hub threshold precedence layer, and inspect navigation uses for Hub Projection rather than Hub Atom. |
-| 254 | Hub Carrier.Navigation Entry | Mapping work: inspect the actual Hub carrier model and select Hub Projection or Directory Carrier as the governed thing; preserve stable-child-folder navigation constraints. |
-| 260 | Implementation Evaluation | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 261 | Implementation Evaluation Step | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 262 | Implementation Failure Diagnosis | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 263 | Implementation Failure Diagnosis Step | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 266 | Implementation Preparation | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 267 | Implementation Preparation Step | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 270 | Implementation Repair | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 271 | Implementation Repair Step | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 272 | Implementation Retry Control | Mapping work: Map O definition references to the named Action; inspect R1488/E441/E473 uses for the actual retry property or governed Workflow. |
-| 273 | Implementation Retry Control Step | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 275 | Implementation Workflow | Mapping work: Preserve O016 as a concrete Workflow; split RMED references to their governed thing rather than blanket replacing every use by generic Workflow. |
-| 279 | Journal Event query | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 282 | Legacy Evidence and Provisional RMED Preparation | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 283 | Lifecycle Tool authority/Scope Unit | Mapping work: Read C419 to distinguish the Tool's owning Scope Unit from its allowed authority; remove unsupported topic linkage rather than guess. |
-| 284 | Lineage Impact Analysis | Mapping work: Keep the report under Analysis Atom applicability; distinguish the actual assessment Action. Review R1432/R1497/R1633 before one shared target. |
-| 291 | Markdown Atom Carrier.Main Content | Mapping work: Map uses per source to the actual body property, or retain a carrier-content property if the rule truly governs the whole body. |
-| 294 | Markdown Atom Carrier.YAML Frontmatter | Mapping work: Map property-specific uses to their Atom properties; decide one carrier-section target for genuinely general frontmatter rules rather than inventing a property hierarchy. |
-| 296 | Materialized Representation | Mapping work: Split per-source meaning between Projection and Carrier; preserve exact regeneration/source-binding applicability. |
-| 299 | Method Learning Workflow | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 300 | Method Lesson Drafting | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 301 | Method Lesson Drafting Step | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 306 | Methodology Source.Expansion Mapping | Mapping work: Inspect E249/M298/O054 and distinguish a mapping result from the admission Action; no blanket new entity. |
-| 307 | Migrate Atom CCE Representation | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 309 | Navigation Projection Derivation | Mapping work: Split governed targets into Atom.Summary and Projection or retain an explicitly bounded compound target; do not force both to one thing. |
-| 315 | Normative Authority Relation Pair | Mapping work: Represent both typed relations or direct child_of with inverse semantics in scope/content; choose per-source expression without dropping the inverse. |
-| 317 | Obtain Source Correction Decision | Mapping work: preserve the named instance in an exact supported Subject/scope expression and relocate it to Project Configuration; no new model decision is needed. |
-| 320 | Persist Atom Replacement | Mapping work: relocate CA-O-051 to Project Configuration and preserve its Action instance identity; generic Action alone is insufficient. |
-| 324 | Plan Atom Carrier.Stem | Mapping work: use Plan for its shared Delivery rule, or split file/directory filename references by source; do not invent a Carrier Bundle kind. |
-| 332 | Prepare Structural Change | Mapping work: relocate the Action to Project Configuration and bind references to CA-O-012, retaining the generic Action kind. |
-| 338 | Producer Result.Flow Direction | Mapping work: after resolving Producer Result, govern the evidenced directed relation or Demand's owner/target pair, not an invented Flow Direction root. |
-| 341 | Project Boundary Position | Mapping work: remove the obsolete bootstrap coordinate under the already approved retirement; retain or precisely remap any real project-membership claim after inspecting its remaining applicability. Do not reopen bootstrap-seed retirement. |
-| 343 | Project Lexicographic Selection | Mapping work: keep comparison meaning in Terms, map the O reference to its named Action instance, and qualify the governed selection/result for RMED. |
-| 345 | Project Normative Authority Graph | Mapping work: express this as a named Selection of governing authority relations, retaining its acyclicity requirement; check E481's exact selection before final target. |
-| 347 | Project Priority Model Application | Mapping work: separate priority-model meaning from named Action definitions and actual Action Run results; retain project-specific rules in Project Configuration. |
-| 351 | Project Settings/Revision Binding | Mapping work: separate retained historical revision links from obsolete read-admission checks; do not blindly keep Project.Settings.Revision Binding. |
-| 352 | Project Structure Maintenance | Mapping work: map RMED to Project.Structure, preserve CA-O-015 as a concrete Workflow instance in Project Configuration, and map actual runs separately. |
-| 353 | Project Structure Maintenance Application Step | Mapping work: relocate CA-O-143 to Project Configuration, preserving Step kind, instance ID and bindings. |
-| 354 | Project Structure Maintenance Authorization Step | Mapping work: relocate CA-O-142 to Project Configuration, preserving Step kind, instance ID and bindings. |
-| 355 | Project Structure Maintenance Candidate Assessment Step | Mapping work: relocate CA-O-141 to Project Configuration, preserving Step kind, instance ID and bindings. |
-| 356 | Project Structure Maintenance Preparation Step | Mapping work: relocate CA-O-140 to Project Configuration, preserving Step kind, instance ID and bindings. |
-| 357 | Project Structure Maintenance Result Assessment Step | Mapping work: relocate CA-O-144 to Project Configuration, preserving Step kind, instance ID and bindings. |
-| 358 | Project Structure Maintenance Selection Step | Mapping work: relocate CA-O-139 to Project Configuration, preserving Step kind, instance ID and bindings. |
-| 359 | Project Structure Maintenance/Step bindings | Mapping work: preserve CA-O-015 and its exact Step binding applicability; C/A content remains outside the migration repair scope. |
-| 365 | Projection Rebuild | Mapping work: separate Action Run, terminal Event and Journal record applicability without inventing a Rebuild entity or equating the event with its record. |
-| 370 | Propose Source Corrections | Mapping work: relocate to Project Configuration and preserve Action instance CA-O-006 in referring bindings. |
-| 372 | Publish Reconciled Projection | Mapping work: relocate to Project Configuration and preserve Action instance CA-O-009 and its publication target. |
-| 373 | RMED Atom Review Check Coverage Gate Step | Mapping work: preserve Step instance CA-O-120 and stage=check under Project Configuration. |
-| 374 | RMED Atom Review Coverage Gate Action | Mapping work: preserve Action instance CA-O-118 in Project Configuration; do not duplicate it per Step. |
-| 375 | RMED Atom Review Fix Coverage Gate Step | Mapping work: preserve Step instance CA-O-121 and stage=fix under Project Configuration. |
-| 376 | RMED Atom Review Gather Coverage Gate Step | Mapping work: preserve Step instance CA-O-119 and stage=gather under Project Configuration. |
-| 377 | RMED Atom Review Workflow | Mapping work: preserve Workflow instance CA-O-104 in Project Configuration; generic Workflow kind is not enough. |
-| 378 | RMED Review Evaluation Step | Mapping work: preserve Step instance CA-O-109 and required context in Project Configuration. |
-| 379 | RMED Review Repair Step | Mapping work: preserve Step instance CA-O-110 and required context in Project Configuration. |
-| 380 | RMED Review Selection Step | Mapping work: preserve Step instance CA-O-108 and required context in Project Configuration. |
-| 381 | RMEDO Conflict Resolution | Mapping work: preserve Workflow instance CA-O-028 in Project Configuration; map Evaluation to the affected Atom authority or selected run outcome rather than an invented procedure entity. |
-| 383 | Reconcile Atom Properties and Addresses | Mapping work: preserve Action instance CA-O-077 in Project Configuration and its governed Atom/carrier targets. |
-| 384 | Reconcile Navigation Numbers | Mapping work: O078 targets its own named Action; E510 governs navigation-migration results. Resolve the result versus Scope Unit.Navigational Order Number target per occurrence. |
-| 385 | Reconcile Unfinished Work | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 390 | Relation Kind Metadata | Mapping work: Map each governed field where evidenced; decide whether any remaining bundle is only a named Selection. |
-| 395 | Relational Atom/Type | Mapping work: Use the exact role-qualified types per source, or a named Selection of those kinds where the rule applies to the set. |
-| 396 | Repair RMED Review Batch | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 399 | Requirement Implementation | Mapping work: Rehome the named Operation in Project Configuration and express its kind plus Atom ID without inventing a new executable instance grammar. The implementation entity deferral does not defer this named Operation. |
-| 400 | Requirement Implementation Step | Mapping work: Rehome the named Operation in Project Configuration and express its kind plus Atom ID without inventing a new executable instance grammar. The implementation entity deferral does not defer this named Operation. |
-| 401 | Resolve Operator Priorities | Mapping work: Map O references to atom CA-O-022; determine the exact priority model/result Subject for E207. |
-| 402 | Resolve Project Initialization Inputs | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 403 | Revert Changes Workflow | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 405 | Runtime State | Mapping work: Distinguish stored checkpoints/caches from live execution and Journal records; select exact targets per source. |
-| 410 | Scope Reference Validation | Mapping work: Inspect E240 to choose Atom.Owning Scope Unit, Atom.Target Scope Unit, or another precise reference; do not blanket-map. |
-| 412 | Scope Unit Scope | Mapping work: Separate Owning Scope Unit from Substance Scope; do not treat the old combined Scope Unit Scope phrase as one property. |
-| 414 | Scoped Operator-choice Applicability | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 415 | Screen Short Names | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 417 | Select Priority-Governed Alternative | Mapping work: O023 may use its instance; E207 must govern the selected alternative/result, not the procedure name. |
-| 418 | Select RMED Review Batch | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 419 | Select Reconciliation Sources | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 420 | Selected Operations/Carrier | Mapping work: Inspect C415 to identify named Selection and carrier concern; do not collapse it into all Operations or Carrier. |
-| 421 | Selected Workflow Step/Agentic invocation context binding | Mapping work: Preserve the selected Step identities and their required context-binding responsibility under Agentic Step.Context; use Step Run.Context only for separately evidenced actual supplied context. |
-| 422 | Session-State Envelope | Mapping work: Is this the actual Session.Context or a persistent context package? Resolve without creating a new primary root. |
-| 427 | Source Reconciliation | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 428 | Source Reconciliation Assessment Step | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 429 | Source Reconciliation Correction Step | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 430 | Source Reconciliation Decision Step | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 431 | Source Reconciliation Proposal Step | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 432 | Source Reconciliation Publication Step | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 433 | Source Reconciliation Selection Step | Mapping work: Preserve the named Operation ID under its generic Operations kind in Project Configuration. The pseudocode instance target is not yet an executable full Subject grammar. |
-| 434 | Source Reconciliation Workflow Carrier layout | Mapping work: Inspect C350; proposed target atom CA-O-010, preserve carrier-layout issue without inventing a carrier property. |
-| 435 | Source Reconciliation/Step bindings | Mapping work: Inspect C417 to select the affected Step instances/binding property, not blanket-map to Workflow. |
-| 436 | Source verification evidence | Mapping work: Inspect C421 and distinguish the actual evidence artifact from required evidence. |
-| 438 | Spec Content Roles | Mapping work: Per source: use Term Spec for shared meaning, exact RMED role paths for rules, or a Selection only for an actual set. |
-| 443 | Step/Agentic Execution Context | Mapping work: Map required context to Agentic Step.Context and supplied context to Step Run.Context per occurrence; C426 also requires inspection. |
-| 448 | Structural Entity Recursive Containment | Mapping work: map to the agreed CONTAINS relation authority after separating direct and transitive meaning; do not invent a new relation-kind path. |
-| 450 | Structural Parent Relation | Mapping work: resolve the existing parent relation kind and its exact qualified path; preserve parentage rather than replacing with containment or a new property. |
-| 459 | Subject Relation Kind: DEPENDS_ON | Mapping work: use the canonical qualified DEPENDS_ON relation-kind path consistent with the relation lane; do not reduce it to generic Relation or invent grammar. |
-| 467 | Terms Graph Construction Step | Mapping work: relocate CA-O-138 to Project Configuration and encode its named instance applicability under Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step; generic Step alone loses identity. |
-| 470 | Tool/Workflow Operations/Atom Lifecycle/Request Parameters | Mapping work: bind the dependency to its actual lifecycle operation and parameter contract; the name alone cannot identify which Action/Workflow owns it. |
-| 471 | Translation | Mapping work: inspect M116/E241 with R1274 to distinguish translated Atom content from a derived Projection; no independent Translation Object invented. |
-| 473 | Type-Qualified Status Validation | Mapping work: remove Activity-specific clauses, retain applicable owner-qualified Status checks, and split or route cross-owner Status meaning to Terms; do not invent Artifact.Status. |
-| 477 | Verification | Mapping work: inspect each use to separate verification criteria, a real assessment execution, and the resulting judgment/record. |
-| 482 | Workflow/Step binding ownership | Mapping work: inspect C425's issue to identify its precise binding owner; do not replace with all Workflow definitions. |
-| 484 | applicability | Mapping work: target Method.Local Tier for R1669; resolve the old implementation_decision classification for R1670 before selecting its qualified Local Tier. No generic applicability entity. |
-| 486 | artifact-model | Mapping work: replace each governing occurrence with its evidenced role/type/Atom target; drop only redundant dependencies. No blanket topic node. |
-| 488 | authority | Mapping work: remove redundant dependencies and route source-specific authority rules to their exact owner; shared meaning belongs to Terms. |
-| 490 | continuous-improvement | Mapping work: map each source to its actual role, Plan, Concern or Operation target and relocate project-specific policies; no new process root. |
-| 491 | development-flow | Mapping work: classify individual source claims as Terms, role-specific governed targets or Journal records; split mixed rules only when needed. |
-| 492 | evaluation | Mapping work: map each E/R to its checked or required thing; retain the R1647 concrete Catalog selection rather than all Evaluation Atoms. |
-| 493 | extension-model | Mapping work: inspect per-source Extension and binding identity; relocate CAPRMEDIO-specific policies, keeping Settings activation separate. |
-| 494 | external-boundary | Mapping work: keep the secret policy in Project Configuration; identify its governed content or Terms scope and inspect R1648 separately. |
-| 495 | framework-boundary | Mapping work: relocate to Project Configuration and target the named CAPRMEDIO Project, not every Project or a new Framework Boundary entity. |
-| 497 | language | Mapping work: use Atom.Substance for claim-readability rules and precise representation/Terms targets for other sources. |
-| 499 | lifecycle-traceability | Mapping work: route individual rules to Relation, Journal.Record or exact governed property; do not invent a cross-owner traceability property. |
-| 500 | principles | Mapping work: use the Core Meta-model target adopted by Candidate #6 boundary definitions; do not invent a Principles entity or silently use all Objects. |
-| 501 | project-containment graph | Mapping work: retire R834's obsolete partition claim as approved; inspect R836 for remapping before removing its useful constraints. |
-| 505 | requirement-topology | Mapping work: inspect R1672 and resolve old Implementation Decision classification; defer genuinely Implementation-related uses rather than deleting valid M policies. |
-| 507 | scope-topology | Mapping work: use Scope Unit or its precise property/relation per governing claim and drop redundant topic dependencies. |
-| 508 | semantics | Mapping work: route shared meanings to Terms, exact owner-specific constraints to their targets, and remove redundant dependencies. |
-| 509 | settings specification | Mapping work: retain Local Tier constraints on concrete configuration specifications, relocate project-specific rules, and avoid inventing ownerless Settings. |
+## Remaining source work
+
+These are implementation/content tasks under accepted decisions, not unanswered model questions. Mixed source references are not blanket renames. The saved inventory remains the input snapshot; source Atoms are unchanged.
+
+| Index | Subject | Work | Remaining action |
+| ---: | --- | --- | --- |
+| 8 | Agentic Step Execution Context | Per-occurrence mapping | Assign the 35 occurrences from their definition/run meaning; mixed sources may require both Subjects. Content repair remains separate. |
+| 30 | Artifact | Per-occurrence mapping | Resolve each of the 68 occurrences without narrowing valid claims or replacing all Artifact uses with Object. This is source assignment under an approved policy. |
+| 53 | Artifact/Revision | Per-occurrence mapping | Assign historical/current meaning per occurrence; preserve version references and do not rewrite Concern history. |
+| 55 | Artifact/Revision/Status: Archived | Later content pass | Preserve applicable Atom lifecycle constraints; review the broad content before changing its scope. Do not infer Status models for other History/Projection owners. |
+| 56 | Artifact/Revision/Version | Later content pass | Split the broad archive naming content from the Atom-specific version mapping during the content pass; no universal Revision.Version field. |
+| 72 | Atom Change Classification | Per-occurrence mapping | Assign the RMED and Action occurrences separately, preserving the approved changed-Summary/new-ID rule. |
+| 77 | Atom Collection | Later content pass | R1381/R1567 contain obsolete non-Atom collection classifications; preserve any valid grouping/tier constraint when replacing that content. |
+| 80 | Atom Collection/Type: Ad Hoc | Later content pass | Retire collection-type registration content in R1546; keep its valid prohibition on Plan Labels creating independent types. No source deletion now. |
+| 86 | Atom Scope | Per-occurrence mapping | Classify 31 source occurrences; remove redundant references and keep exact applicability when multiple properties are required. |
+| 89 | Atom Tier Validation.Concrete Cases | Per-occurrence mapping | Retain the explicitly tested relation/settings/selection targets from its complete source; separate CAPRMEDIO-specific fixtures from reusable constraints during relocation. No new policy decision. |
+| 105 | Atom/Content Role: Operations/Type: Actor | Later content pass | Separate permission policies and concrete participant bindings in D457/M314/R1564/R1565; preserve their valid content without inventing a fourth Operations kind. |
+| 138 | CAPRMEDIO Framework Identity | Per-occurrence mapping | Retain R1778's framework-name applicability while encoding its concrete project-local Subject; the ownership decision is resolved. Do not fabricate a Product/Implementation root or map the requirement to the name of its own Atom. |
+| 139 | CAPRMEDIO Framework Instance | Per-occurrence mapping | Assign Project or actual Run per source across ten uses, preserving context. Reconcile older Object/Project spelling explicitly. |
+| 141 | CAPRMEDIO Graph | Per-occurrence mapping | Assign the 16 occurrences and preserve projection type/source selection; remove obsolete General Artifact Graph assumptions only with their disposition recorded. |
+| 142 | CAPRMEDIO Graph.Connectivity | Per-occurrence mapping | R1472's typed cross-graph relations map to Relation; R1410's obsolete General Artifact Graph requirement needs later content disposition. |
+| 149 | CCE Method | Per-occurrence mapping | Encode the existing CCE Method selection from Subject/scope/source identity, not a new CCE Method entity or universal Method dependency. |
+| 185 | Consumer Goal | Later content pass | Remove the mandatory accepted-Goal connection: retire R951 and remove the Goal-dependency clause from R933, preserving its single-result constraint and separate Goal-coverage rules. |
+| 186 | Container Atom | Later content pass | Retire old Structural Entity/non-Atom collection claims while preserving valid carrier/containment rules. Container instances map to Atom/allowed kind, not to the enablement property itself. |
+| 195 | DEPENDS_ON | Per-occurrence mapping | Partition each occurrence by relation domain; preserve the Subject relation defined by CA-R-1200 and dependency ordering in CA-M-239/CA-E-404 separately. No new Object root or untyped relation. |
+| 197 | Default Settings | Per-occurrence mapping | Bind the configuration and carrier to the named default file per occurrence. Do not merge into Framework Settings or invent its directory/field migration; preserve default-versus-override meaning. |
+| 213 | Entity Carrier Binding | Later content pass | D505's universal per-entity Carrier property and M313's matching authoring requirement conflict with the accepted general-D policy and need the later content pass. Do not delete D257's valid inverse relation or all storage rules. |
+| 229 | Extension | Per-occurrence mapping | Bind individual source references to existing extension Scope Unit identities and distinguish Term usages. Do not turn each restricted extension reference into every Scope Unit. |
+| 253 | Hub Atom | Per-occurrence mapping | Classify each occurrence among container Plan, unsupported Hub-chain rule and actual navigation Projection. Preserve explicit retry-policy content for separate review; the confidence answer alone does not silently rewrite unrelated retry semantics. |
+| 254 | Hub Carrier.Navigation Entry | Per-occurrence mapping | Bind the actual carrier/Projection in the exact scope before selecting its migration Subject. Plan projection admission is deferred; retain the stable-folder navigation restriction, not a new navigation entity. |
+| 275 | Implementation Workflow | Per-occurrence mapping | Assign each RMED occurrence precisely and preserve CA-O-016-specific applicability. The permission rule also depends on Author and confidence, but is not another implementation entity. |
+| 291 | Markdown Atom Carrier.Main Content | Per-occurrence mapping | Keep the body-after-frontmatter restriction on the Markdown Atom file carrier and exact property-specific rules on their properties. Use general D policy rather than creating another body-property hierarchy; exact list/source replacement remains occurrence work. |
+| 294 | Markdown Atom Carrier.YAML Frontmatter | Per-occurrence mapping | Retain the Markdown/frontmatter applicability of general D policy, and resolve specific property references individually. D478 covers applicable Atom properties as a policy, not a requirement to register a Carrier binding for each. |
+| 303 | Methodology Source | Per-occurrence mapping | Bind each occurrence to the existing source Scope Unit identity and preserve the relevant layer/extension scope. General source terminology belongs to Terms, not an unrestricted replacement with all Scope Units. |
+| 305 | Methodology Source.Expansion Boundary | Per-occurrence mapping | Bind concrete source units and exact governing rule targets per occurrence; preserve permitted expansion constraints in source applicability. Relocate CAPRMEDIO-specific compilation rules to Project Configuration. |
+| 306 | Methodology Source.Expansion Mapping | Per-occurrence mapping | Identify each described mapping's actual authored source carrier/Atom and retain source/target bindings. Existing content does not identify one universal mapping Object or Atom role; do not invent one merely to finish the executable map. |
+| 341 | Project Boundary Position | Later content pass | Retire the dedicated R961 coordinate rule and remove only that clause from mixed R1762 during content migration; do not create a replacement boundary entity. |
+| 342 | Project Configuration | Per-occurrence mapping | Bind each occurrence to the existing 003_PROJECT_CONFIGURATION Scope Unit identity; retain generic definitional meaning as Term usage when appropriate. Broad Scope Unit alone must not erase this instance restriction. |
+| 343 | Project Lexicographic Selection | Per-occurrence mapping | Preserve the named admissible-alternatives selection and the O023 run restriction; comparison semantics remain in Method content/Terms. No new selector grammar. |
+| 347 | Project Priority Model Application | Per-occurrence mapping | Keep affected scope/stage and Operator-selected model restrictions per occurrence; do not invent a Priority Model Application entity. Concrete CAPRMEDIO rules move to Project Configuration. |
+| 351 | Project Settings/Revision Binding | Later content pass | Remove the obsolete read-admission/baseline requirement in content migration. Preserve genuine historical evidence separately only where needed; do not retain Settings.Revision Binding as a new entity. |
+| 359 | Project Structure Maintenance/Step bindings | Later content pass | Keep C/A repair deferred; preserve the exact Step-binding concern and Workflow identity when its Subject is migrated. |
+| 390 | Relation Kind Metadata | Per-occurrence mapping | Resolve field-specific occurrences and graph-qualified kind applicability. Keep M120's registry output identity without inventing a new Projection type or a cross-owner Metadata entity. |
+| 405 | Runtime State | Per-occurrence mapping | Resolve each dependency to the storage carrier, historical record or view actually meant; remove redundant Runtime State topic links. Journal views outside current RMED projection scope remain deferred, not new roots. |
+| 412 | Scope Unit Scope | Later content pass | Separate these references and preserve the governed Subject relation; repair old combined Atom Scope and Operator fallback text in content migration. |
+| 420 | Selected Operations/Carrier | Later content pass | C/A stays deferred. Preserve selected IDs O007/O008/O017/O019/O021/O024/O089 and the explicitly referenced implementation Steps; do not broaden the issue to every Operation. |
+| 421 | Selected Workflow Step/Agentic invocation context binding | Later content pass | Keep C/A deferred; preserve selected Step IDs CA-O-139..144, CA-O-146..151 and CA-O-152..157 and the conditional Agentic execution boundary. |
+| 434 | Source Reconciliation Workflow Carrier layout | Later content pass | C/A repair remains deferred; keep both Workflow identities and the format-only concern. |
+| 438 | Spec Content Roles | Per-occurrence mapping | Assign each occurrence to its existing governed RMED role/property; remove redundant Spec-topic dependencies. Do not mechanically replace all uses with all four roles. |
+| 443 | Step/Agentic Execution Context | Per-occurrence mapping | Bind C426 to its O139-O144/O146-O157 Step identities and exact context property; use Step Run context only for actually supplied context. No extra Invocation kind. |
+| 448 | Structural Entity Recursive Containment | Per-occurrence mapping | Bind the existing qualified CONTAINS kind and distinguish authored direct edges from their transitive closure. This does not resume construction-graph implementation. |
+| 459 | Subject Relation Kind: DEPENDS_ON | Per-occurrence mapping | Use the existing canonical qualified relation-kind path during occurrence mapping; Plan Graph implementation remains deferred. |
+| 469 | Tool Call | Later content pass | Remove R1528/M304 prescriptions about whether internal calls become substeps. Methodology RMED leaves this unspecified; preserve unrelated valid clauses and do not add the opposite rule or mandatory configuration. |
+| 471 | Translation | Per-occurrence mapping | Map each occurrence to source content or derived output as appropriate; do not add a Translation root/type merely to retain the old name. |
+| 473 | Type-Qualified Status Validation | Later content pass | Content repair must remove Activity clauses and preserve valid type-qualified inherited Status validation; no Artifact.Status or universal Status field. |
+| 477 | Verification | Per-occurrence mapping | Assign per source. Keep Implementation Overview uses deferred rather than admitting that projection through this mapping; retain recorded evidence without promoting it to authority. |
+| 482 | Workflow/Step binding ownership | Per-occurrence mapping | Identify referenced canonical Steps per occurrence, retain their identities, and relocate named project procedures to Project Configuration. |
+| 484 | applicability | Later content pass | Use Type-qualified Local Tier targets. Strict per-Type restrictions are supported in principle; exact allowed tiers are deferred, not inferred from examples. Existing source constraints stay unchanged. |
+| 486 | artifact-model | Per-occurrence mapping | Complete per-source routing; preserve each claim's applicability rather than blanket-mapping every occurrence to Atom. |
+| 488 | authority | Per-occurrence mapping | Map each governing use to its actual owner and remove only redundant topic dependencies. Preserve existing permissions and source-authority distinctions. |
+| 490 | continuous-improvement | Per-occurrence mapping | Resolve per-source role/operation target and relocate CAPRMEDIO-specific process policies. No new improvement entity. |
+| 491 | development-flow | Per-occurrence mapping | Separate occurrence meanings using each source claim; preserve records and remove redundant topic dependencies. Mixed content repair stays separate. |
+| 492 | evaluation | Per-occurrence mapping | Map per source to checked owner or concrete projection selection. Do not create a new Evaluation entity or silently widen a named catalog to all Projections. |
+| 493 | extension-model | Per-occurrence mapping | Apply install → regenerate. Remove the mandatory application-binding Atom and extra activation/application selection requirements in the content pass; preserve governing constraints and provenance. |
+| 494 | external-boundary | Per-occurrence mapping | Keep R1627 project-specific with its full applicability and permitted-storage constraints; map R1648's exact admitted Analysis Type where available. |
+| 495 | framework-boundary | Per-occurrence mapping | Bind the named caprmedio Project instance from Project Settings; do not widen it to every Project or conflate the CAPRMEDIO framework name. |
+| 497 | language | Per-occurrence mapping | Map other sources to their actual content/representation targets and remove redundant dependencies; do not blindly map all language uses to Substance. |
+| 499 | lifecycle-traceability | Per-occurrence mapping | Resolve each existing relation or historical record target and drop redundant topic references; retain valid traceability claims for later content review. |
+| 500 | principles | Per-occurrence mapping | Bind the exact Core Meta-model Scope Unit identity from Project Structure and preserve its implementation-neutral applicability. |
+| 505 | requirement-topology | Later content pass | Use the respective Implementation Decision and Implementation Method Types. Preserve exact parent/child relation applicability; their special permissions were not removed by the Type decision. |
+| 507 | scope-topology | Per-occurrence mapping | Assign remaining sources by actual claim; keep Owning/Target Scope Unit references distinct from Scope Unit hierarchy and filesystem carriers. |
+| 508 | semantics | Per-occurrence mapping | Route by source and drop redundant alias/topic links; keep old content conflicts explicit instead of inventing a shared entity. |
+| 509 | settings specification | Per-occurrence mapping | Assign exact settings-governing Atom selections/owners during migration; relocate project-specific rules, do not turn default Settings into Project.Framework Settings. |
 
 ## Checks and limits
 
 - All 511 indices and exact Subject names match the saved inventory, with no duplicates or omissions.
 - The three explicitly approved mappings (Confidence, Permissions and Revision) are preserved.
 - No mapped target introduces Implementation or Activity, or converts a named Selection into a narrower-kind path.
-- Proposed named-Operation mappings retain their instance-specific work rather than silently broadening the rule to every Action or Step.
+- Named-Operation candidates retain their specific Atom IDs; generic kind paths are not a substitute for instance identity.
+- All 204 reconciliation inputs are covered exactly once. Candidate corrections use `Entity/Continuant/Project`, `Project.Settings` and a consistent Agentic Step.Execution Context name; the actual Invocation Context payload stays distinct.
+- General containment/typed parent relations are preserved. Deferring construction-graph implementation does not delete those relations.
 - Classification files are review data, not an executable migration batch. Removal and mixed-source mappings need occurrence-level dispositions.
 - No source Atom, current source graph, Git state or runtime was changed by this recalculation. No full test suite or full source-content audit was run.

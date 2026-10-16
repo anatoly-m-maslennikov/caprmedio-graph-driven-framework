@@ -1,0 +1,608 @@
+[
+  {
+    "index": 435,
+    "status": "resolved_candidate",
+    "decision": "Source Reconciliation's Step bindings refer to concrete Step definitions, not another entity kind. C417 identifies O146-O151 for that Workflow; preserve each identity in Project Configuration.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-146",
+        "source_atoms": [
+          "CA-C-417"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-147",
+        "source_atoms": [
+          "CA-C-417"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-148",
+        "source_atoms": [
+          "CA-C-417"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-149",
+        "source_atoms": [
+          "CA-C-417"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-150",
+        "source_atoms": [
+          "CA-C-417"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-151",
+        "source_atoms": [
+          "CA-C-417"
+        ]
+      }
+    ],
+    "remaining_work": "Record per-occurrence replacement and relocation; C417 also mentions Applicable Methodology's O152-O157, which must retain their distinct identities.",
+    "question": null
+  },
+  {
+    "index": 436,
+    "status": "resolved_candidate",
+    "decision": "C421 describes records of recovered verifier incidents, retained as Plan evidence. Map recorded verification evidence to History; the Concern describing it remains a Concern Atom.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/History",
+        "source_atoms": [
+          "CA-C-421"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve existing evidence references. Do not invent a Projection or claim a runtime failure.",
+    "question": null
+  },
+  {
+    "index": 438,
+    "status": "occurrence_work",
+    "decision": "RMED is the set of Requirement, Method, Evaluation and Delivery roles; rules use the relevant role-qualified governed thing. Shared meaning of Spec belongs to Terms, not another primary entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Requirement"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Method"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Delivery"
+      },
+      {
+        "path": "Entity/Continuant/Term"
+      }
+    ],
+    "remaining_work": "Assign each occurrence to its existing governed RMED role/property; remove redundant Spec-topic dependencies. Do not mechanically replace all uses with all four roles.",
+    "question": null
+  },
+  {
+    "index": 442,
+    "status": "resolved_candidate",
+    "decision": "Invocation is not an extra layer. These rules concern actual Step-run dispatch, completion, handoff and delivered results; map to Step Run.",
+    "targets": [
+      {
+        "path": "Entity/Occurrent/Execution/Step Run",
+        "source_atoms": [
+          "CA-R-1791",
+          "CA-R-1792",
+          "CA-R-1793"
+        ]
+      }
+    ],
+    "remaining_work": "Update obsolete Invocation wording in the separate content pass; preserve distinct attempts and existing approval boundaries without adding a callback protocol.",
+    "question": null
+  },
+  {
+    "index": 443,
+    "status": "occurrence_work",
+    "decision": "Separate definition context from actual execution context. C426 concerns bindings on named Step definitions; R1791-R1793 concern actual delivery and results.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic",
+        "source_atoms": [
+          "CA-C-426"
+        ]
+      },
+      {
+        "path": "Entity/Occurrent/Execution/Step Run",
+        "source_atoms": [
+          "CA-R-1791",
+          "CA-R-1792",
+          "CA-R-1793"
+        ]
+      }
+    ],
+    "remaining_work": "Bind C426 to its O139-O144/O146-O157 Step identities and exact context property; use Step Run context only for actually supplied context. No extra Invocation kind.",
+    "question": null
+  },
+  {
+    "index": 448,
+    "status": "occurrence_work",
+    "decision": "Recursive containment is derived reachability of the existing CONTAINS relation, not a Structural Entity kind.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Relation",
+        "source_atoms": [
+          "CA-R-1498"
+        ]
+      }
+    ],
+    "remaining_work": "Bind the existing qualified CONTAINS kind and distinguish authored direct edges from their transitive closure. This does not resume construction-graph implementation.",
+    "question": null
+  },
+  {
+    "index": 450,
+    "status": "resolved_candidate",
+    "decision": "The Operator's Scope Unit.Parent and Scope Unit.Children express hierarchy. Use the appropriate property direction for governed parentage; retain the existing typed parent relation where the source defines a relation. Do not substitute general containment or delete relation semantics because properties have clearer names.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit.Parent"
+      },
+      {
+        "path": "Entity/Continuant/Object/Scope Unit.Children"
+      }
+    ],
+    "remaining_work": "Choose property direction or the existing qualified typed-parent relation per occurrence and preserve its cardinality and identity. Scope Unit.Path is the derived ancestry chain.",
+    "question": null
+  },
+  {
+    "index": 459,
+    "status": "occurrence_work",
+    "decision": "Preserve Subject DEPENDS_ON as a typed relation distinct from Plan BLOCKS; no new operator or generic dependency meaning.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Relation",
+        "source_atoms": [
+          "CA-R-1580"
+        ]
+      }
+    ],
+    "remaining_work": "Use the existing canonical qualified relation-kind path during occurrence mapping; Plan Graph implementation remains deferred.",
+    "question": null
+  },
+  {
+    "index": 467,
+    "status": "resolved_candidate",
+    "decision": "Terms Graph Construction Step is the named Step CA-O-138 in Project Configuration, not a Core subtype.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "atom_id": "CA-O-138",
+        "source_atoms": [
+          "CA-O-138"
+        ]
+      }
+    ],
+    "remaining_work": "Preserve instance identity and relocate its project-specific rules.",
+    "question": null
+  },
+  {
+    "index": 469,
+    "status": "content_deferred",
+    "decision": "Tool calls do not require a new Tool Call entity. Definition uses refer to Steps/substeps and Actions; actual runs use existing execution kinds and their evidence belongs to History.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action",
+        "source_atoms": [
+          "CA-M-304"
+        ]
+      },
+      {
+        "path": "Entity/Occurrent/Execution/Step Run",
+        "source_atoms": [
+          "CA-R-1511"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/History/Journal",
+        "source_atoms": [
+          "CA-R-1528"
+        ]
+      }
+    ],
+    "remaining_work": "Reconcile old R1528/M304 wording that explicitly disallows automatic substeps with the approved small operation model during content migration. Do not fabricate new runs from historical call records.",
+    "question": null
+  },
+  {
+    "index": 470,
+    "status": "resolved_candidate",
+    "decision": "D568 governs Draft Atom identity continuity. Its generic lifecycle Request Parameters dependency does not identify an evidenced concrete operation contract; remove the vague topic link rather than invent one.",
+    "targets": [],
+    "remaining_work": "Preserve existing precise dependencies and all Draft identity/source safeguards. Source change is not applied here.",
+    "question": null
+  },
+  {
+    "index": 471,
+    "status": "occurrence_work",
+    "decision": "Translation is derived rendering of Atom content, not an independent authoritative Object. M116 explicitly derives translations from the Claim/Substance, never Summary.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Substance",
+        "source_atoms": [
+          "CA-M-116"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom.Summary",
+        "source_atoms": [
+          "CA-R-1274"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Projection",
+        "source_atoms": [
+          "CA-M-116",
+          "CA-E-241"
+        ]
+      }
+    ],
+    "remaining_work": "Map each occurrence to source content or derived output as appropriate; do not add a Translation root/type merely to retain the old name.",
+    "question": null
+  },
+  {
+    "index": 473,
+    "status": "content_deferred",
+    "decision": "Remove Activity checks under the explicit decision. Keep only applicable owner-qualified Status checks; shared Status meaning belongs to Terms.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Status",
+        "source_atoms": [
+          "CA-E-386"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Term",
+        "source_atoms": [
+          "CA-E-386"
+        ]
+      }
+    ],
+    "remaining_work": "Content repair must remove Activity clauses and preserve valid type-qualified inherited Status validation; no Artifact.Status or universal Status field.",
+    "question": null
+  },
+  {
+    "index": 477,
+    "status": "occurrence_work",
+    "decision": "Verification is not a primary entity. Distinguish evaluation criteria, actual checking, factual historical results and authored judgments/rationale. This is covered by the approved History/Analysis/Projection distinctions.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation"
+      },
+      {
+        "path": "Entity/Occurrent/Execution"
+      },
+      {
+        "path": "Entity/Continuant/History"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Analysis"
+      }
+    ],
+    "remaining_work": "Assign per source. Keep Implementation Overview uses deferred rather than admitting that projection through this mapping; retain recorded evidence without promoting it to authority.",
+    "question": null
+  },
+  {
+    "index": 482,
+    "status": "occurrence_work",
+    "decision": "C425 resolves duplicated Step-owned Action/input bindings in named Workflows O010/O011/O015. Preserve Workflow graph ownership and canonical Step binding ownership; no new binding-ownership entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-010",
+        "source_atoms": [
+          "CA-C-425"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-011",
+        "source_atoms": [
+          "CA-C-425"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow",
+        "atom_id": "CA-O-015",
+        "source_atoms": [
+          "CA-C-425"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step",
+        "source_atoms": [
+          "CA-C-425"
+        ]
+      }
+    ],
+    "remaining_work": "Identify referenced canonical Steps per occurrence, retain their identities, and relocate named project procedures to Project Configuration.",
+    "question": null
+  },
+  {
+    "index": 484,
+    "status": "content_deferred",
+    "decision": "R1669 already governs Method Local Tier. R1670 uses the old implementation_decision classification; do not create an Implementation entity to preserve it.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Method.Local Tier",
+        "source_atoms": [
+          "CA-R-1669"
+        ]
+      }
+    ],
+    "remaining_work": "Map R1669's qualified Method use; leave R1670's obsolete classification for the content pass without deleting valid local-tier constraints.",
+    "question": null
+  },
+  {
+    "index": 486,
+    "status": "occurrence_work",
+    "decision": "Remove artifact-model as a topic entity. Governed role/type/Atom claims map to their precise targets; redundant dependencies are removed. The retired Artifact partition is not restored.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role"
+      }
+    ],
+    "remaining_work": "Complete per-source routing; preserve each claim's applicability rather than blanket-mapping every occurrence to Atom.",
+    "question": null
+  },
+  {
+    "index": 488,
+    "status": "occurrence_work",
+    "decision": "Authority is shared meaning in Terms or a constraint on its particular owner. Vague dependency tags can be removed; no universal authority entity/property is introduced.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Term"
+      }
+    ],
+    "remaining_work": "Map each governing use to its actual owner and remove only redundant topic dependencies. Preserve existing permissions and source-authority distinctions.",
+    "question": null
+  },
+  {
+    "index": 490,
+    "status": "occurrence_work",
+    "decision": "Continuous improvement is a topic, not another process root. Map actual obligations to their content-role or Operation target; shared stage meanings belong to Terms.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations"
+      },
+      {
+        "path": "Entity/Continuant/Term"
+      }
+    ],
+    "remaining_work": "Resolve per-source role/operation target and relocate CAPRMEDIO-specific process policies. No new improvement entity.",
+    "question": null
+  },
+  {
+    "index": 491,
+    "status": "occurrence_work",
+    "decision": "Development-flow combines planning/framing, role meanings and factual records. Apply existing Terms, role-qualified Atom and History branches; never one blanket Workflow.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Term"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Plan"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Operations"
+      },
+      {
+        "path": "Entity/Continuant/History"
+      }
+    ],
+    "remaining_work": "Separate occurrence meanings using each source claim; preserve records and remove redundant topic dependencies. Mixed content repair stays separate.",
+    "question": null
+  },
+  {
+    "index": 492,
+    "status": "occurrence_work",
+    "decision": "Evaluation Subjects govern the checked thing, not a generic evaluation procedure. Shared meaning belongs to Terms; R1647's concrete currentness catalog must retain its selection identity if retained.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Evaluation"
+      },
+      {
+        "path": "Entity/Continuant/Projection"
+      },
+      {
+        "path": "Entity/Continuant/Term"
+      }
+    ],
+    "remaining_work": "Map per source to checked owner or concrete projection selection. Do not create a new Evaluation entity or silently widen a named catalog to all Projections.",
+    "question": null
+  },
+  {
+    "index": 493,
+    "status": "occurrence_work",
+    "decision": "Extensions are existing Scope Units. Extension metadata stays with its particular Scope Unit; activation belongs to Project Settings. No separate extension-model Object.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit"
+      },
+      {
+        "path": "Entity/Continuant/Project.Project Settings"
+      }
+    ],
+    "remaining_work": "Preserve each extension's identity and application binding; relocate project-specific policies and keep Settings values separate from governing Atoms.",
+    "question": null
+  },
+  {
+    "index": 494,
+    "status": "occurrence_work",
+    "decision": "Remove the external-boundary topic node, not its protections. R1627 governs secret handling across named project surfaces; R1648 governs Analysis review envelopes.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Project",
+        "source_atoms": [
+          "CA-R-1627"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role: Analysis",
+        "source_atoms": [
+          "CA-R-1648"
+        ]
+      }
+    ],
+    "remaining_work": "Keep R1627 project-specific with its full applicability and permitted-storage constraints; map R1648's exact admitted Analysis Type where available.",
+    "question": null
+  },
+  {
+    "index": 495,
+    "status": "occurrence_work",
+    "decision": "R1680 is the caprmedio Project's self-hosting rule and belongs in Project Configuration. It is not a Framework Boundary entity or a rule naming the resulting framework.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Project",
+        "source_atoms": [
+          "CA-R-1680"
+        ]
+      }
+    ],
+    "remaining_work": "Bind the named caprmedio Project instance from Project Settings; do not widen it to every Project or conflate the CAPRMEDIO framework name.",
+    "question": null
+  },
+  {
+    "index": 497,
+    "status": "occurrence_work",
+    "decision": "Language is a shared Term or a constraint on exact Atom content/derived rendering, not a Language Object.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Substance",
+        "source_atoms": [
+          "CA-R-940"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Term"
+      },
+      {
+        "path": "Entity/Continuant/Projection"
+      }
+    ],
+    "remaining_work": "Map other sources to their actual content/representation targets and remove redundant dependencies; do not blindly map all language uses to Substance.",
+    "question": null
+  },
+  {
+    "index": 499,
+    "status": "occurrence_work",
+    "decision": "Lifecycle traceability is a topic across typed Relations and History. Implementation-related entities remain deferred; no cross-owner traceability property.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Relation"
+      },
+      {
+        "path": "Entity/Continuant/History"
+      },
+      {
+        "path": "Entity/Continuant/History/Journal"
+      }
+    ],
+    "remaining_work": "Resolve each existing relation or historical record target and drop redundant topic references; retain valid traceability claims for later content review.",
+    "question": null
+  },
+  {
+    "index": 500,
+    "status": "occurrence_work",
+    "decision": "R1696 governs the existing Core Meta-model Scope Unit's authority boundary. No Principles entity or blanket Object target.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit",
+        "source_atoms": [
+          "CA-R-1696"
+        ]
+      }
+    ],
+    "remaining_work": "Bind the exact Core Meta-model Scope Unit identity from Project Structure and preserve its implementation-neutral applicability.",
+    "question": null
+  },
+  {
+    "index": 501,
+    "status": "resolved_candidate",
+    "decision": "Both R834 and R836 impose the obsolete Artifact/Structural Entity partition. R836's entire claim derives exactly that partition; there is no independent graph constraint to preserve in it.",
+    "targets": [],
+    "remaining_work": "Record both as retirement candidates under the approved removal decision. Do not delete source Atoms here or resume construction-graph work.",
+    "question": null
+  },
+  {
+    "index": 505,
+    "status": "content_deferred",
+    "decision": "Old implementation_decision and implementation_method topology is not a reason to introduce an Implementation entity. Preserve these rules pending the separate content-classification pass.",
+    "targets": [],
+    "remaining_work": "Reconcile R1671/R1672 with current Method/content-role types before selecting their exact target; no new Operator model choice is identified.",
+    "question": null
+  },
+  {
+    "index": 507,
+    "status": "occurrence_work",
+    "decision": "Use Scope Unit and its exact Parent, Children or Path property where the claim says so; remove redundant scope-topology dependencies. Do not add a topology entity.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Scope Unit.Parent",
+        "source_atoms": [
+          "CA-R-1656"
+        ]
+      },
+      {
+        "path": "Entity/Continuant/Object/Scope Unit.Children"
+      },
+      {
+        "path": "Entity/Continuant/Object/Scope Unit.Path"
+      },
+      {
+        "path": "Entity/Continuant/Object/Scope Unit"
+      }
+    ],
+    "remaining_work": "Assign remaining sources by actual claim; keep Owning/Target Scope Unit references distinct from Scope Unit hierarchy and filesystem carriers.",
+    "question": null
+  },
+  {
+    "index": 508,
+    "status": "occurrence_work",
+    "decision": "Shared meanings belong to Terms; exact Content Role/property constraints govern their owners. The semantics topic is not automatically Atom.Semantics.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Term"
+      },
+      {
+        "path": "Entity/Continuant/Object/Atom/Content Role"
+      }
+    ],
+    "remaining_work": "Route by source and drop redundant alias/topic links; keep old content conflicts explicit instead of inventing a shared entity.",
+    "question": null
+  },
+  {
+    "index": 509,
+    "status": "occurrence_work",
+    "decision": "R1429 governs Local Tier of specification Atoms, not another Settings Object. Preserve the separate default Settings carrier and project-specific configuration boundaries.",
+    "targets": [
+      {
+        "path": "Entity/Continuant/Object/Atom.Local Tier",
+        "source_atoms": [
+          "CA-R-1429"
+        ]
+      }
+    ],
+    "remaining_work": "Assign exact settings-governing Atom selections/owners during migration; relocate project-specific rules, do not turn default Settings into Project.Framework Settings.",
+    "question": null
+  }
+]
