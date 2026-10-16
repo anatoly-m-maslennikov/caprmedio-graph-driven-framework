@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import copy
-import hashlib
 import sys
 import unittest
 from pathlib import Path
@@ -16,11 +15,13 @@ sys.path.insert(0, str(TOOLS / "VALIDATE_ATOMS/tests"))
 import test_connector_bindings as binding_fixtures
 import test_proposed_carrier_admission_regressions as project_fixtures
 import connector_section_prepare as prepare_module
+from golden_authority import frozen_entry, write_frozen_authority
 from connector_bindings import ConnectorBindingError, ConnectorBindings, SelectedOperationAdmission, capture_source
 from connector_section_parse import SectionError
 from project_selection import bind_selection
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
-from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import _entry, source_context_from_project, validate_proposed_carrier
+from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import source_context_from_project, validate_proposed_carrier  # noqa: E402
 from workflow_run_support import _canonical_digest
 
 
@@ -37,14 +38,11 @@ class IndependentSectionPreparationTests(unittest.TestCase):
         self.binding_fixture.setUp()
         self.addCleanup(self.binding_fixture.doCleanups)
         self.root = self.binding_fixture.root
+        self.entry_patch = patch.object(proposed_carrier, "_entry", frozen_entry)
+        self.entry_patch.start()
+        self.addCleanup(self.entry_patch.stop)
         self.selection = project_fixtures.ProposedCarrierAdmissionRegressions.project(self)
-        for identifier in ("CA-R-1933", "CA-M-373", "CA-D-623"):
-            entry = _entry(identifier)
-            raw = (project_fixtures.REPOSITORY / entry["source_path"]).read_bytes()
-            self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
-            destination = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            destination.write_bytes(raw)
+        write_frozen_authority(self.root, self.selection.control_relative, ("CA-R-1933", "CA-M-373", "CA-D-623"))
         self.path = self.selection.control_root / "03_plan/CA-P-701--independent-plan.md"
         self.identity = "CA-P-701"
         self.path.parent.mkdir()
@@ -152,12 +150,7 @@ class IndependentSectionPreparationTests(unittest.TestCase):
             ("Delivery", "D", "07_delivery", "CA-R-1399"),
         ):
             with self.subTest(role=role):
-                entry = _entry(status_source)
-                raw = (project_fixtures.REPOSITORY / entry["source_path"]).read_bytes()
-                self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
-                destination = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
-                destination.parent.mkdir(parents=True, exist_ok=True)
-                destination.write_bytes(raw)
+                write_frozen_authority(self.root, self.selection.control_relative, (status_source,))
                 self.identity = f"CA-{code}-701"
                 self.path = self.selection.control_root / folder / f"{self.identity}--ordinary.md"
                 self.path.parent.mkdir(exist_ok=True)
@@ -210,7 +203,7 @@ class IndependentSectionPreparationTests(unittest.TestCase):
                     path.write_bytes(original)
 
     def test_missing_or_changed_type_authority_refuses_even_noop(self):
-        entry = _entry("CA-R-1700")
+        entry = frozen_entry("CA-R-1700")
         path = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
         original = path.read_bytes()
         for missing in (False, True):

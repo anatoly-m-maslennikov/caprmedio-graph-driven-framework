@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-import shutil
 import sys
 import tempfile
 from types import SimpleNamespace
@@ -15,29 +14,24 @@ import jsonschema
 MCP_ROOT = Path(__file__).resolve().parents[1]
 PROGRAMMATIC_ROOT = MCP_ROOT.parent
 TOOLS_ROOT = PROGRAMMATIC_ROOT / "201_TOOLS"
-REPOSITORY_ROOT = PROGRAMMATIC_ROOT.parents[1]
-for directory in (MCP_ROOT, TOOLS_ROOT, TOOLS_ROOT / "VALIDATE_ATOMS", TOOLS_ROOT / "RELEASE_VERSION"):
+WORKFLOW_TESTS = PROGRAMMATIC_ROOT / "203_APPS" / "WORKFLOW_ORCHESTRATOR" / "tests"
+for directory in (
+    MCP_ROOT,
+    TOOLS_ROOT,
+    TOOLS_ROOT / "VALIDATE_ATOMS",
+    TOOLS_ROOT / "RELEASE_VERSION",
+    WORKFLOW_TESTS,
+):
     if str(directory) not in sys.path:
         sys.path.insert(0, str(directory))
 
 from capability_discovery.service import Context, Service as DiscoveryService  # noqa: E402
+from frozen_selected_workflows import frozen_behavior_bindings, write_frozen_source  # noqa: E402
 import implementation_server  # noqa: E402
 from ATOM_UPDATE.atom_update import (  # noqa: E402
     SubjectPreparationRequest,
     describe_tool as describe_subject_preparation_tool,
 )
-
-DISCOVERY_DELIVERY = Path(
-    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
-    "201_FEATURE_TOOLS/DISCOVER_TOOLS/07_delivery/"
-    "CA-D-512-DISCOVER_TOOLS--encode-discover-tools-bindings.md"
-)
-DISCOVERY_ACTION = Path(
-    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/"
-    "003_PROJECT_CONFIGURATION/09_operations/"
-    "CA-O-112-PROJECT_CONFIGURATION-ACTION--discover-tools.md"
-)
-
 
 class _Server:
     instances: list["_Server"] = []
@@ -82,14 +76,6 @@ class ImplementationServerTests(unittest.TestCase):
         _Server.instances.clear()
         _CapturingService.instances.clear()
 
-
-    def _copy(self, relative: Path) -> None:
-        destination = self.root / relative
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(REPOSITORY_ROOT / relative, destination)
-
-
-
     def _create_server(self) -> tuple[_Server, _CapturingService]:
         with (
             patch.object(implementation_server, "MCPServer", _Server),
@@ -111,8 +97,10 @@ class ImplementationServerTests(unittest.TestCase):
 
 
     def test_startup_uses_one_catalog_snapshot_for_optional_direct_adapters(self):
-        self._copy(DISCOVERY_DELIVERY)
-        self._copy(DISCOVERY_ACTION)
+        bindings = frozen_behavior_bindings()
+        for atom_id in ("CA-D-512", "CA-O-112"):
+            pin = bindings[atom_id]
+            write_frozen_source(self.root, pin["source_path"], pin["sha256"])
 
         server, discovery = self._create_server()
 

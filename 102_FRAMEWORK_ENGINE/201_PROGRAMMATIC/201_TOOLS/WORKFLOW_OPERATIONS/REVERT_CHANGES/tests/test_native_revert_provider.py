@@ -16,6 +16,9 @@ STRUCTURE = TOOLS / "WORKFLOW_OPERATIONS" / "PROJECT_STRUCTURE"
 for path in (PACKAGE, TOOLS, STRUCTURE):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
+APP_TESTS = TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"
+sys.path.insert(0, str(APP_TESTS))
+from frozen_selected_workflows import frozen_source_bytes  # noqa: E402
 
 import lifecycle_intents  # noqa: E402
 from work_journal import canonical_json_bytes  # noqa: E402
@@ -30,14 +33,13 @@ from native_revert_provider import (  # noqa: E402
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 
-
 def canonical_digest(value: object) -> str:
     encoded = json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
 
 
 def bind_actual_evidence(root: Path, request: dict[str, object]) -> dict[str, object]:
-    """Create current records only in a disposable Project, using D536@2 pins."""
+    """Create current records only in a disposable Project."""
     request = json.loads(json.dumps(request))
     evidence = root / ".caprmedio_caprmedio/evidence"
     evidence.mkdir(parents=True, exist_ok=True)
@@ -69,12 +71,12 @@ def bind_actual_evidence(root: Path, request: dict[str, object]) -> dict[str, ob
         observed = {**value, "ordered_effects": request["ordered_effects"]} if name == "operator_decision" else value
         request[name] = {**value, **record(name + ".json", observed)}
     relative = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
-    source = PACKAGE.parents[4] / relative
     path = root / relative
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(source.read_bytes())
+    path.write_bytes(frozen_source_bytes(relative))
     digest = hashlib.sha256(path.read_bytes()).hexdigest()
-    request.update(governing_definition={"atom_id": "CA-O-131", "revision": 2, "evidence_ref": relative, "evidence_hash": digest},
+    governing = lifecycle_intents.carrier_descriptor(root, relative)
+    request.update(governing_definition={"atom_id": governing["atom_id"], "revision": governing["version"], "evidence_ref": relative, "evidence_hash": digest},
                    governing_definition_hash=digest)
     return request
 
@@ -448,7 +450,10 @@ class NativeRevertProviderTests(unittest.TestCase):
                 admitted = service.admit(request)
                 self.assertEqual("admitted", admitted["outcome"])
                 if name == "governing_definition":
-                    path.write_bytes(before_bytes.replace(b"version: 2", b"version: 3"))
+                    revision = request[name]["revision"]
+                    path.write_bytes(before_bytes.replace(
+                        f"version: {revision}".encode(), f"version: {revision + 1}".encode(), 1
+                    ))
                 else:
                     data = json.loads(before_bytes)
                     data[field] = value

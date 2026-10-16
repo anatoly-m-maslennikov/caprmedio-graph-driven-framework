@@ -13,16 +13,15 @@ from unittest.mock import patch
 
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"))
 from connector_bindings import FileSource, capture_source
 from connector_toml_parse import render_document
 from project_settings_reader import SCHEMA_IDS, read_project_settings
 from project_settings_schema import _SchemaError, _parse_settings, mcp_tool_blacklist
+from frozen_selected_workflows import frozen_behavior_bindings, frozen_source_bytes  # noqa: E402
 
 
 REPOSITORY = TOOLS.parents[2]
-CONTROL = REPOSITORY / ".caprmedio_caprmedio"
-CORE = CONTROL / "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"
-ENGINE = CONTROL / "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC"
 DOCUMENT = {"schema_version": "2.0", "project": {"name": "reader"},
             "artifacts": {"identity": {"project_prefix": "READ"}},
             "paths": {"control_root": ".caprmedio_reader"}}
@@ -42,12 +41,11 @@ class ProjectSettingsReaderTests(unittest.TestCase):
         self.schemas = []
         authority = self.root / "authority"
         authority.mkdir()
+        bindings = frozen_behavior_bindings()
         for identity in SCHEMA_IDS:
-            base = ENGINE if identity in {"CA-M-284", "CA-D-520"} else CORE
-            candidates = [path for path in base.rglob(identity + "-*.md") if "archive" not in path.parts]
-            self.assertEqual(1, len(candidates), identity)
-            target = authority / candidates[0].name
-            target.write_bytes(candidates[0].read_bytes())
+            binding = bindings[identity]
+            target = authority / Path(binding["source_path"]).name
+            target.write_bytes(frozen_source_bytes(binding["source_path"], binding["sha256"]))
             self.schemas.append(capture_source(self.root, target.relative_to(self.root)))
         self.source = capture_source(self.root, self.path.relative_to(self.root))
 

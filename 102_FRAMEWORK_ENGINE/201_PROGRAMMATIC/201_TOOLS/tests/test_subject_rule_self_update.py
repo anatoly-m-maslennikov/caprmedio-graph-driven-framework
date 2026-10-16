@@ -58,6 +58,7 @@ class SubjectRuleSelfUpdateTests(unittest.TestCase):
         fixture.before_mode = path.stat().st_mode & 0o777
         fixture.target = carrier_descriptor(self.root, path.relative_to(self.root).as_posix())
         metadata = operations.parse_carrier(fixture.before, path).metadata
+        self.assertNotEqual(metadata["subjects"]["governs"], new_subject)
         fixture.patches = [
             {"field": "governs", "old": metadata["subjects"]["governs"], "new": new_subject}
         ]
@@ -72,9 +73,9 @@ class SubjectRuleSelfUpdateTests(unittest.TestCase):
         }
         fixture.parameters["semantic_assessment_report"] = self.assessment()
         fixture.golden._semantic_update_parameters = fixture.parameters
-        fixture.archive = (
-            self.root / fixture.prepared["subject_intent"]["predecessorArchive"]["path"]
-        )
+        archive = fixture.prepared["subject_intent"]["predecessorArchive"]
+        self.assertIsNotNone(archive)
+        fixture.archive = self.root / archive["path"]
 
     def assessment(self):
         fixture = self.fixture
@@ -134,7 +135,7 @@ class SubjectRuleSelfUpdateTests(unittest.TestCase):
         return after
 
     def test_approved_rule_change_persists_and_next_publication_uses_current_rule(self):
-        self.select_target(self.rule, "Markdown Atom Carrier.YAML Frontmatter")
+        self.select_target(self.rule, "Atom.State")
         after = self.publish("updater-rule-subject-change")
         rule_bytes = self.rule.read_bytes()
         rule_archive = self.fixture.archive

@@ -11,12 +11,20 @@ import unittest
 TOOLS = Path(__file__).resolve().parents[1]
 REPOSITORY = TOOLS.parents[2]
 sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"))
 
 from connector_bindings import capture_source
 from connector_toml_parse import render_document
 from project_selection import resolve_project
 from workflow_run_support import LazyRunTracker, RunExecutionSession, _canonical_digest
+from frozen_selected_workflows import frozen_behavior_bindings, frozen_source_bytes  # noqa: E402
 import test_project_settings_reader_independent as settings_fixtures
+
+
+SCOPE_QUERY_RECEIVER_AUTHORITY_IDS = (
+    "CA-D-625", "CA-D-441", "CA-D-442", "CA-D-626", "CA-R-1937", "CA-M-377", "CA-E-629",
+    "CA-R-1936", "CA-M-376", "CA-E-628", "CA-O-211", "CA-O-212",
+)
 
 
 class ScopeQueryReceivingIndependentTests(unittest.TestCase):
@@ -35,15 +43,11 @@ class ScopeQueryReceivingIndependentTests(unittest.TestCase):
         self.selection = resolve_project(self.root)
         self.schemas = list(self.fixture.authorities)
         self.sources = {}
-        for identity in ("CA-D-625", "CA-D-441", "CA-D-442", "CA-D-626",
-                         "CA-R-1937", "CA-M-377", "CA-E-629", "CA-R-1936", "CA-M-376", "CA-E-628",
-                         "CA-O-211", "CA-O-212"):
-            matches = [p for p in (REPOSITORY / ".caprmedio_caprmedio").rglob(identity + "-*.md")
-                       if "archive" not in p.parts and "_projection" not in p.parts
-                       and "000_CAPRMEDIO_framework" not in p.parts]
-            self.assertEqual(1, len(matches), identity)
+        bindings = frozen_behavior_bindings()
+        for identity in SCOPE_QUERY_RECEIVER_AUTHORITY_IDS:
+            binding = bindings[identity]
             target = self.root / "accepted-authority" / (identity + ".md")
-            target.write_bytes(matches[0].read_bytes())
+            target.write_bytes(frozen_source_bytes(binding["source_path"], binding["sha256"]))
             self.sources[identity] = capture_source(self.root, target.relative_to(self.root))
             if identity not in {"CA-O-211", "CA-O-212"}:
                 self.schemas.append(self.sources[identity])

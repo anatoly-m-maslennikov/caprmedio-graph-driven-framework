@@ -4,9 +4,7 @@ from __future__ import annotations
 
 from contextlib import asynccontextmanager
 import copy
-import hashlib
 from pathlib import Path
-import shutil
 import sys
 
 from mcp.client._memory import InMemoryTransport
@@ -16,36 +14,35 @@ from mcp.server import MCPServer
 
 MCP_ROOT = Path(__file__).resolve().parents[1]
 TOOLS_ROOT = MCP_ROOT.parent / "201_TOOLS"
-REPOSITORY = MCP_ROOT.parents[2]
 NATIVE_TESTS = TOOLS_ROOT / "APPEND_CHANGE_RECORDS/tests"
-for directory in (MCP_ROOT, TOOLS_ROOT, NATIVE_TESTS, TOOLS_ROOT / "VALIDATE_ATOMS"):
+WORKFLOW_TESTS = MCP_ROOT.parent / "203_APPS" / "WORKFLOW_ORCHESTRATOR" / "tests"
+for directory in (
+    MCP_ROOT,
+    TOOLS_ROOT,
+    NATIVE_TESTS,
+    TOOLS_ROOT / "VALIDATE_ATOMS",
+    WORKFLOW_TESTS,
+):
     if str(directory) not in sys.path:
         sys.path.insert(0, str(directory))
 
 import registered_tool_registry as registry  # noqa: E402
 from capability_discovery.service import Service  # noqa: E402
+from frozen_selected_workflows import frozen_behavior_bindings, write_frozen_source  # noqa: E402
 import test_append_change_records as native_fixture  # noqa: E402
 import work_journal as work_journal  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier  # noqa: E402
 
 
-AUTHORITY = (
-    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS"
-)
-SOURCE_PINS = (
+BEHAVIOR_BINDINGS = frozen_behavior_bindings()
+SOURCE_PINS = tuple(
     (
-        "CA-D-009",
-        20,
-        AUTHORITY
-        + "/07_delivery/CA-D-009-TOOLS-DELIVERY--deliver-the-change-record-appender-script.md",
-        "05b410f6c6f2ef4abffd4672758d37b9f60f79fa3ff9ee21f331b06769ee4cb0",
-    ),
-    (
-        "CA-O-222",
-        1,
-        AUTHORITY + "/09_operations/CA-O-222-TOOLS-ACTION--append-journal-change-records.md",
-        "da05d24d9f35804b15c8038aaafaecd19e1d637d44c755f11a08fe5af9a82206",
-    ),
+        atom_id,
+        BEHAVIOR_BINDINGS[atom_id]["version"],
+        BEHAVIOR_BINDINGS[atom_id]["source_path"],
+        BEHAVIOR_BINDINGS[atom_id]["sha256"],
+    )
+    for atom_id in ("CA-D-009", "CA-O-222")
 )
 
 
@@ -63,12 +60,8 @@ class AppendChangeRecordsProtocolFixture:
         self.addCleanup(self.fixture.tearDown)
         self.root = self.fixture.root.resolve()
         for identity, version, relative, digest in SOURCE_PINS:
-            source = REPOSITORY / relative
-            raw = source.read_bytes()
-            self.assertEqual(
-                digest, hashlib.sha256(raw).hexdigest(), "reviewed source pin is stale"
-            )
-            metadata = parse_carrier(raw, source).metadata
+            source = write_frozen_source(self.root, relative, digest)
+            metadata = parse_carrier(source.read_bytes(), source).metadata
             self.assertEqual(
                 (identity, version, "TOOLS", "Active"),
                 (
@@ -78,9 +71,6 @@ class AppendChangeRecordsProtocolFixture:
                     metadata["status"],
                 ),
             )
-            destination = self.root / relative
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source, destination)
         self.context = self.fixture.context()
 
     @asynccontextmanager

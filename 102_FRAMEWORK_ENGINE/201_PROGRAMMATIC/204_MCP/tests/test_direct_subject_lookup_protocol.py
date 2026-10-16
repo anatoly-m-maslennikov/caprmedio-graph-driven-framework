@@ -7,7 +7,6 @@ import copy
 import hashlib
 import json
 from pathlib import Path
-import shutil
 import sys
 import tempfile
 import unittest
@@ -20,14 +19,17 @@ from mcp.client.session import ClientSession
 MCP_ROOT = Path(__file__).resolve().parents[1]
 TOOLS_ROOT = MCP_ROOT.parent / "201_TOOLS"
 REPOSITORY = MCP_ROOT.parents[2]
-for directory in (MCP_ROOT, TOOLS_ROOT, TOOLS_ROOT / "VALIDATE_ATOMS"):
+APP_TESTS = MCP_ROOT.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"
+for directory in (MCP_ROOT, TOOLS_ROOT, TOOLS_ROOT / "VALIDATE_ATOMS", TOOLS_ROOT / "ATOM_UPDATE/tests", APP_TESTS):
     if str(directory) not in sys.path:
         sys.path.insert(0, str(directory))
 
 import implementation_server  # noqa: E402
 import atom_subject_lookup as lookup  # noqa: E402
 from ATOM_SEARCH import atom_search as provider  # noqa: E402
+from frozen_selected_workflows import frozen_behavior_bindings, frozen_source_bytes  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
+from subject_grammar_corpus import grammar_carriers  # noqa: E402
 
 
 PRMEDO = ["Plan", "Requirement", "Method", "Evaluation", "Delivery", "Operations"]
@@ -94,12 +96,17 @@ class DirectSubjectLookupProtocolTests(unittest.IsolatedAsyncioTestCase):
             structure += (f'[[scope_units]]\nscope_unit_name = "{name}"\nauthority_path = "{relative}"\n'
                           f'delivery_path = "{relative}"\n')
         (control / "project_structure.toml").write_text(structure, encoding="utf-8")
-        # Copy each current selected authority without substituting freshness.
+        # Copy each frozen selected authority into the disposable Project.
+        behavior_bindings = frozen_behavior_bindings()
         for pin in provider.SOURCE_PINS:
-            self._copy_pin(pin["path"], hashlib.sha256((REPOSITORY / pin["path"]).read_bytes()).hexdigest())
+            binding = behavior_bindings[pin["atom_id"]]
+            self.assertEqual(pin["path"], binding["source_path"])
+            self._copy_pin(pin["path"], frozen_source_bytes(pin["path"], binding["sha256"]), binding["sha256"])
+        grammar = grammar_carriers()
         for name in ("legacy", "approved"):
             for pin in get_profile(name).grammar_pins:
-                self._copy_pin(pin.path, hashlib.sha256((REPOSITORY / pin.path).read_bytes()).hexdigest())
+                raw = grammar[pin.path]
+                self._copy_pin(pin.path, raw, _digest(raw))
         self.paths = {}
         for role, kind in KINDS.items():
             atom_id = f"CA-{kind}-9200"
@@ -118,12 +125,12 @@ class DirectSubjectLookupProtocolTests(unittest.IsolatedAsyncioTestCase):
             "content_roles": PRMEDO.copy(), "lifecycle": "active",
         }
 
-    def _copy_pin(self, relative: str, expected: str) -> None:
-        source = REPOSITORY / relative
-        self.assertEqual(expected, _digest(source.read_bytes()), f"accepted fixture pin stale: {relative}")
+    def _copy_pin(self, relative: str, raw: bytes, expected: str) -> None:
+        self.assertEqual(expected, _digest(raw), f"frozen fixture pin stale: {relative}")
         destination = self.root / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(source, destination)
+        destination.write_bytes(raw)
+        self.assertEqual(raw, destination.read_bytes())
 
     def _write_atom(self, atom_id, role, *, governs="Atom.Status", dependencies=None,
                     owner="TEST_LOOKUP", parent=None):

@@ -47,6 +47,8 @@ class SubjectBatchSelfRuleTests(unittest.TestCase):
         before = rule.read_bytes()
         target = carrier_descriptor(project.root, rule.relative_to(project.root).as_posix())
         old = operations.parse_carrier(before, rule).metadata["subjects"]["governs"]
+        new = "Atom.State"
+        self.assertNotEqual(old, new)
         project.packet["atoms"].insert(
             0,
             {
@@ -55,7 +57,7 @@ class SubjectBatchSelfRuleTests(unittest.TestCase):
                     {
                         "field": "governs",
                         "old": old,
-                        "new": "Markdown Atom Carrier.YAML Frontmatter",
+                        "new": new,
                     }
                 ],
             },

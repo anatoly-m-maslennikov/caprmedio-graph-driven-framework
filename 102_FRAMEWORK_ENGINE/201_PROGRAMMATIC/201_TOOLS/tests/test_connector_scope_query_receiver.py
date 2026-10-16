@@ -12,6 +12,7 @@ import unittest
 
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"))
 
 from connector_bindings import capture_source
 from connector_scope_receiver import SCOPE_QUERY_IDS, make_scope_query_receiver
@@ -20,12 +21,14 @@ from project_selection import resolve_project
 from project_settings_reader import SCHEMA_IDS
 from test_connector_scope_parsing import filters, rows, serialize_project_structure
 from workflow_run_support import RunExecutionSession, RunTracker, _canonical_digest
+from frozen_selected_workflows import frozen_behavior_bindings, frozen_source_bytes  # noqa: E402
 
 
-REPOSITORY = TOOLS.parents[2]
-CONTROL = REPOSITORY / ".caprmedio_caprmedio"
-CORE = CONTROL / "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"
-ENGINE = CONTROL / "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC"
+SCOPE_QUERY_AUTHORITY_IDS = (
+    "CA-D-364", "CA-D-366", "CA-D-375", "CA-D-376", "CA-D-378", "CA-D-392", "CA-D-520",
+    "CA-E-459", "CA-M-284", "CA-D-625", "CA-D-626", "CA-D-441", "CA-D-442", "CA-R-1936",
+    "CA-R-1937", "CA-M-376", "CA-M-377", "CA-E-628", "CA-E-629", "CA-O-211",
+)
 SETTINGS = {"schema_version": "2.0", "project": {"name": "demo", "obsolete_names": ["old"]},
             "artifacts": {"identity": {"project_prefix": "DEMO"}},
             "paths": {"control_root": ".caprmedio_demo"}}
@@ -48,12 +51,12 @@ class ScopeQueryReceiverTests(unittest.TestCase):
         authority = self.root / "authority"
         authority.mkdir()
         self.sources = {}
-        for identity in SCHEMA_IDS | SCOPE_QUERY_IDS:
-            candidates = [path for base in (CORE, ENGINE) for path in base.rglob(identity + "-*.md")
-                          if "archive" not in path.parts]
-            self.assertEqual(1, len(candidates), identity)
-            target = authority / candidates[0].name
-            target.write_bytes(candidates[0].read_bytes())
+        self.assertEqual(set(SCOPE_QUERY_AUTHORITY_IDS), SCHEMA_IDS | SCOPE_QUERY_IDS)
+        bindings = frozen_behavior_bindings()
+        for identity in SCOPE_QUERY_AUTHORITY_IDS:
+            binding = bindings[identity]
+            target = authority / Path(binding["source_path"]).name
+            target.write_bytes(frozen_source_bytes(binding["source_path"], binding["sha256"]))
             self.sources[identity] = capture_source(self.root, target.relative_to(self.root))
         self.action = self.sources["CA-O-211"]
         self.action_version = 3

@@ -19,6 +19,7 @@ import atom_subject_patch as subject_patch  # noqa: E402
 from atom_subject_lookup import run_subject_search  # noqa: E402
 from atom_subject_patch import preview_subject_patches  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
+from subject_grammar_corpus import grammar_carriers  # noqa: E402
 import test_selected_atom_lifecycle as lifecycle_fixture  # noqa: E402
 
 
@@ -32,17 +33,14 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.tearDown)
         self.root = self.fixture.root
-        plan_status = lifecycle_fixture.REQUIREMENT_STATUS_AUTHORITY.with_name(
-            "CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md"
-        )
-        destination = self.root / plan_status.relative_to(lifecycle_fixture.REPOSITORY)
-        shutil.copyfile(plan_status, destination)
+        self.fixture._copy_frozen_atom("CA-R-1539")
+        grammar = grammar_carriers()
         for profile in ("legacy", "approved"):
             for pin in get_profile(profile).grammar_pins:
                 destination = self.root / pin.path
                 destination.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(lifecycle_fixture.REPOSITORY / pin.path, destination)
-                self.assertEqual((lifecycle_fixture.REPOSITORY / pin.path).read_bytes(), destination.read_bytes())
+                destination.write_bytes(grammar[pin.path])
+                self.assertEqual(grammar[pin.path], destination.read_bytes())
 
     def _plan(self, status: str, *, number: int = 501, folder: str | None = None) -> Path:
         directory = self.fixture.requirements.parent / "03_plan"

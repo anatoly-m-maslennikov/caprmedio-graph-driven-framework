@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-import shutil
 import sys
 import tempfile
 import unittest
@@ -25,6 +24,7 @@ import work_journal  # noqa: E402
 from selected_execution import SelectedExecution  # noqa: E402
 from selected_routes import SelectedRouteAdapter  # noqa: E402
 from selected_workflows_docker_fixture import FixtureLease, GoldenCase, GoldenProject  # noqa: E402
+from frozen_selected_workflows import frozen_implementation_bindings, write_frozen_source  # noqa: E402
 
 
 class SelectedStepInputsTest(unittest.TestCase):
@@ -140,11 +140,8 @@ class SelectedStepInputsTest(unittest.TestCase):
     def test_o016_wrapper_supplies_its_selected_project_root(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             project = Path(temporary) / "selected-project"
-            for binding in implementation_actions._reviewed_binding_rows():
-                source = ROOT / binding["path"]
-                target = project / binding["path"]
-                target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(source, target)
+            for binding in frozen_implementation_bindings():
+                write_frozen_source(project, binding["path"], binding["sha256"])
             workspace = project / "disposable-workspace"
             workspace.mkdir()
             sources = implementation_actions.current_source_bindings(project)

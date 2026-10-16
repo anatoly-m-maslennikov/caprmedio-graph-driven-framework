@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import copy
 from pathlib import Path
-import shutil
 import sys
 import tempfile
 from types import SimpleNamespace
@@ -16,14 +15,17 @@ from mcp.client._memory import InMemoryTransport
 from mcp.client.session import ClientSession
 
 MCP_ROOT = Path(__file__).resolve().parents[1]
+MCP_TESTS = MCP_ROOT / "tests"
 TOOLS_ROOT = MCP_ROOT.parent / "201_TOOLS"
-for path in (MCP_ROOT, TOOLS_ROOT, TOOLS_ROOT / "ATOM_UPDATE/tests", TOOLS_ROOT / "tests"):
+WORKFLOW_TESTS = TOOLS_ROOT.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"
+for path in (MCP_TESTS, MCP_ROOT, TOOLS_ROOT, TOOLS_ROOT / "ATOM_UPDATE/tests", TOOLS_ROOT / "tests", WORKFLOW_TESTS):
     sys.path.insert(0, str(path))
 
 import hot_reload  # noqa: E402
 from ATOM_UPDATE import atom_update as preparation  # noqa: E402
 from test_direct_subject_preparation_protocol import PREPARATION_PINS  # noqa: E402
-from test_subject_apply_portfolio import REPOSITORY, SubjectApplyProject  # noqa: E402
+from test_subject_apply_portfolio import SubjectApplyProject  # noqa: E402
+from frozen_selected_workflows import frozen_source_bytes  # noqa: E402
 
 
 class SubjectPublicationGatewayTests(unittest.IsolatedAsyncioTestCase):
@@ -31,10 +33,10 @@ class SubjectPublicationGatewayTests(unittest.IsolatedAsyncioTestCase):
         directory = tempfile.TemporaryDirectory()
         self.addCleanup(directory.cleanup)
         self.fixture = SubjectApplyProject(Path(directory.name).resolve())
-        for pin in PREPARATION_PINS:
-            destination = self.fixture.root / pin["path"]
+        for pin in PREPARATION_PINS.values():
+            destination = self.fixture.root / pin["source_path"]
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(REPOSITORY / pin["path"], destination)
+            destination.write_bytes(frozen_source_bytes(pin["source_path"], pin["sha256"]))
         self.runner, self.frozen = self.fixture.execution("gateway-subject-fixture")
         self.request = self.frozen["request"]["execution"]
         self.preparation_request = {

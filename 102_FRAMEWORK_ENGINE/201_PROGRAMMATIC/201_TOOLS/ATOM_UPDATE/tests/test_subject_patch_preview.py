@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import copy
 import hashlib
-import shutil
 import sys
 import tempfile
 import unittest
@@ -11,7 +10,6 @@ from unittest.mock import patch
 
 
 TOOLS = Path(__file__).resolve().parents[2]
-REPOSITORY = TOOLS.parents[2]
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 if str(TOOLS) not in sys.path:
@@ -20,6 +18,7 @@ if str(TOOLS) not in sys.path:
 import atom_operations as operations  # noqa: E402
 import atom_subject_patch as subject_patch  # noqa: E402
 from subject_notation import SubjectNotationError, get_profile, parse_subject  # noqa: E402
+from subject_grammar_corpus import grammar_carriers  # noqa: E402
 
 
 class SubjectPatchPreviewTests(unittest.TestCase):
@@ -37,12 +36,12 @@ class SubjectPatchPreviewTests(unittest.TestCase):
         self.path = self.requirements / "CA-R-501-FRAMEWORK_METHODOLOGY-REQUIREMENT--subject-fixture.md"
         self.path.write_bytes(self._carrier("\n"))
         self.selector = self.path.relative_to(self.root).as_posix()
+        grammar = grammar_carriers()
         for profile in ("legacy", "approved"):
             for pin in get_profile(profile).grammar_pins:
                 destination = self.root / pin.path
                 destination.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(REPOSITORY / pin.path, destination)
-                self.assertEqual((REPOSITORY / pin.path).read_bytes(), destination.read_bytes())
+                destination.write_bytes(grammar[pin.path])
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
@@ -208,9 +207,12 @@ class SubjectPatchPreviewTests(unittest.TestCase):
         self.assertEqual(old, change["patches"][0]["old"])
         self.assertEqual(new, change["patches"][0]["new"])
         self.assertIn("The exact body mentions Atom/Status and must not be changed.", change["proposed_carrier"])
+        expected_pins = [
+            (pin.atom_id, operations.parse_carrier((self.root / pin.path).read_bytes(), self.root / pin.path).metadata["version"])
+            for pin in get_profile("approved").grammar_pins
+        ]
         self.assertEqual(
-            [("CA-R-1931", 1), ("CA-R-1321", 14), ("CA-R-1324", 12),
-             ("CA-M-228", 16), ("CA-E-383", 16)],
+            expected_pins,
             [(pin["atom_id"], pin["version"])
              for pin in preview["subject_profile_evidence"]["grammar_pins"]],
         )

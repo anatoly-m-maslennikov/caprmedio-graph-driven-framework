@@ -14,10 +14,15 @@ import unittest
 TOOLS = Path(__file__).resolve().parents[1]
 REPOSITORY = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"))
 
 from connector_bindings import ConnectorBindingError, capture_source
 from project_selection import resolve_project
 from workflow_run_support import LazyRunTracker, RunExecutionSession, _canonical_digest
+from frozen_selected_workflows import frozen_behavior_bindings, frozen_source_bytes  # noqa: E402
+
+
+RECEIVER_AUTHORITY_IDS = ("CA-D-625", "CA-D-527", "CA-D-441", "CA-D-442", "CA-O-212", "CA-O-218")
 
 
 class ConnectorReceivingIndependentTests(unittest.TestCase):
@@ -48,14 +53,12 @@ class ConnectorReceivingIndependentTests(unittest.TestCase):
         self.selection = resolve_project(self.root)
         self.expected_settings = tomllib.loads(self.settings.read_text())
         self.sources = {}
-        for identifier in ("CA-D-625", "CA-D-527", "CA-D-441", "CA-D-442", "CA-O-212", "CA-O-218"):
-            candidates = [path for path in (REPOSITORY / ".caprmedio_caprmedio").rglob(identifier + "-*.md")
-                          if "archive" not in path.parts and "archived" not in path.parts and "_projection" not in path.parts
-                          and "/000_CAPRMEDIO_framework/" not in path.as_posix()]
-            self.assertEqual(len(candidates), 1, identifier)
+        bindings = frozen_behavior_bindings()
+        for identifier in RECEIVER_AUTHORITY_IDS:
+            binding = bindings[identifier]
             path = self.root / "definitions" / (identifier + ".md")
             path.parent.mkdir(exist_ok=True)
-            path.write_bytes(candidates[0].read_bytes())
+            path.write_bytes(frozen_source_bytes(binding["source_path"], binding["sha256"]))
             self.sources[identifier] = capture_source(self.root, path.relative_to(self.root))
         permission = self.root / "permission.md"
         permission.write_text("Read one exact fixture target through the selected Action.", encoding="utf-8")

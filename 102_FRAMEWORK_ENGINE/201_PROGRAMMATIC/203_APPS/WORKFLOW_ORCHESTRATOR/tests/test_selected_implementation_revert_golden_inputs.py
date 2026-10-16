@@ -24,6 +24,7 @@ import implementation_actions  # noqa: E402
 import lifecycle_intents  # noqa: E402
 from native_revert_provider import NativeRevertProviderError, make_native_revert_service  # noqa: E402
 from selected_workflows_docker_fixture import FixtureLease, GoldenCase, GoldenProject  # noqa: E402
+from frozen_selected_workflows import frozen_source_bytes  # noqa: E402
 
 
 def digest(value: object) -> str:
@@ -104,7 +105,7 @@ class SelectedImplementationRevertGoldenInputsTest(unittest.TestCase):
             definition = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
             definition_target = fixture.root / definition
             definition_target.parent.mkdir(parents=True, exist_ok=True)
-            definition_target.write_bytes(fixture._fixture_source(Path(definition)).read_bytes())
+            definition_target.write_bytes(frozen_source_bytes(definition))
             definition_pin = hashlib.sha256(definition_target.read_bytes()).hexdigest()
             request["governing_definition"] = {"atom_id": "CA-O-131", "revision": 2, "evidence_ref": definition, "evidence_hash": definition_pin}
             request["governing_definition_hash"] = definition_pin

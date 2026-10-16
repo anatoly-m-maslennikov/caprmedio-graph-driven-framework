@@ -4,20 +4,22 @@ from __future__ import annotations
 import copy
 import hashlib
 from pathlib import Path
-import shutil
 import sys
 import unittest
 from unittest.mock import patch
 import yaml
 
 TOOLS = Path(__file__).resolve().parents[2]
-REPOSITORY = TOOLS.parents[2]
-sys.path.insert(0, str(TOOLS))
-sys.path.insert(0, str(TOOLS / "ATOM_SEARCH"))
+APP_TESTS = TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"
+for directory in (TOOLS, TOOLS / "ATOM_SEARCH", TOOLS / "ATOM_UPDATE/tests", APP_TESTS):
+    if str(directory) not in sys.path:
+        sys.path.insert(0, str(directory))
 
 import atom_search as provider
+from frozen_selected_workflows import frozen_behavior_bindings, frozen_source_bytes  # noqa: E402
 from project_selection import bind_selection, resolve_project
 from subject_notation import get_profile
+from subject_grammar_corpus import grammar_carriers  # noqa: E402
 import test_subject_lookup as fixtures
 
 
@@ -31,12 +33,22 @@ class SubjectLookupProviderTests(unittest.TestCase):
         self.settings.write_text('[project]\nname = "Lookup fixture"\n' + self.settings.read_text(), encoding="utf-8")
         self.structure = self.root / ".caprmedio_caprmedio/project_structure.toml"
         self.structure.write_text(self.structure.read_text() + 'delivery_path = ".caprmedio_caprmedio/core"\n', encoding="utf-8")
-        for pin in (*provider.SOURCE_PINS, *(vars(pin) for profile in ("legacy", "approved")
-                                            for pin in get_profile(profile).grammar_pins)):
+        behavior_bindings = frozen_behavior_bindings()
+        for pin in provider.SOURCE_PINS:
+            binding = behavior_bindings[pin["atom_id"]]
+            self.assertEqual(pin["path"], binding["source_path"])
             destination = self.root / pin["path"]
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(REPOSITORY / pin["path"], destination)
-            self.assertEqual((REPOSITORY / pin["path"]).read_bytes(), destination.read_bytes())
+            raw = frozen_source_bytes(pin["path"], binding["sha256"])
+            destination.write_bytes(raw)
+            self.assertEqual(raw, destination.read_bytes())
+        grammar = grammar_carriers()
+        for profile in ("legacy", "approved"):
+            for pin in get_profile(profile).grammar_pins:
+                destination = self.root / pin.path
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes(grammar[pin.path])
+                self.assertEqual(grammar[pin.path], destination.read_bytes())
         self.adapter = provider.create_adapter(self.root)
         self.request = {"subject": "Core/Atom", "subject_field": "both", "subject_match": "prefix",
                         "subject_profile": "legacy", "scope_unit": "CORE",

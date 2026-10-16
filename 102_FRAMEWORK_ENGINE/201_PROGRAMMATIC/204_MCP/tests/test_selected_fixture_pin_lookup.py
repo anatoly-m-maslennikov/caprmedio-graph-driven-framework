@@ -3,15 +3,23 @@
 from __future__ import annotations
 
 import hashlib
-import json
+import sys
 import tempfile
 import types
 import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-import test_selected_routes_mcp as fixture
-from validate_atoms_workers.parsing import parse_carrier
+MCP_TESTS = Path(__file__).resolve().parent
+VALIDATE_ATOMS = Path(__file__).resolve().parents[2] / "201_TOOLS" / "VALIDATE_ATOMS"
+if str(MCP_TESTS) not in sys.path:
+    sys.path.insert(0, str(MCP_TESTS))
+if str(VALIDATE_ATOMS) not in sys.path:
+    sys.path.insert(0, str(VALIDATE_ATOMS))
+
+import test_selected_routes_mcp as fixture  # noqa: E402
+from validate_atoms_workers.parsing import parse_carrier  # noqa: E402
+from frozen_selected_workflows import frozen_manifest, frozen_source_bytes  # noqa: E402
 
 
 class SelectedFixturePinLookupTests(unittest.TestCase):
@@ -34,19 +42,19 @@ class SelectedFixturePinLookupTests(unittest.TestCase):
                 *fixture.selected_routes._definition_sequence(route),
                 *route["native_action_calls"],
             ]:
-                source = fixture.ROOT / pin["source_path"]
-                raw = source.read_bytes()
-                metadata = parse_carrier(raw, source).metadata
+                raw = frozen_source_bytes(pin["source_path"], pin["digest"])
+                metadata = parse_carrier(raw, Path(pin["source_path"])).metadata
                 self.assertEqual(metadata["atom_id"], pin["atom_id"])
                 self.assertEqual(metadata["version"], pin["version"])
                 self.assertEqual(hashlib.sha256(raw).hexdigest(), pin["digest"])
                 self.assertEqual(raw, (self.root / pin["source_path"]).read_bytes())
 
-    def test_wrong_source_identity_status_and_version_fail_before_copy(self) -> None:
-        manifest = json.loads(
-            (fixture.ROOT / fixture.selected_manifest_ref(fixture.ROOT)).read_text()
-        )
+    def test_wrong_source_identity_status_and_version_preserve_existing_fixture(self) -> None:
+        manifest = frozen_manifest()
         identity = manifest["routes"][0]["workflow"]["atom_id"]
+        fixture.frozen_project(self.root)
+        before = {path.relative_to(self.root): path.read_bytes()
+                  for path in self.root.rglob("*") if path.is_file()}
         for field, value in (
             ("atom_id", "CA-O-WRONG"),
             ("status", "Inactive"),
@@ -61,24 +69,21 @@ class SelectedFixturePinLookupTests(unittest.TestCase):
                 ):
                     with self.assertRaises(AssertionError):
                         fixture.copy_complete_selected_guard_fixture(self.root)
-                self.assertEqual([], list(self.root.iterdir()))
+                self.assertEqual(before, {path.relative_to(self.root): path.read_bytes()
+                                          for path in self.root.rglob("*") if path.is_file()})
 
     def test_missing_exact_source_is_not_found_through_another_path(self) -> None:
-        manifest = json.loads(
-            (fixture.ROOT / fixture.selected_manifest_ref(fixture.ROOT)).read_text()
-        )
-        source = fixture.ROOT / manifest["routes"][0]["workflow"]["source_path"]
-        original = Path.read_bytes
+        path = frozen_manifest()["routes"][0]["workflow"]["source_path"]
+        original = frozen_source_bytes
 
-        def missing(path: Path) -> bytes:
-            if path == source:
+        def missing(relative, expected_digest=None):
+            if str(relative) == path:
                 raise FileNotFoundError("exact fixture source is unavailable")
-            return original(path)
+            return original(relative, expected_digest)
 
-        with patch.object(Path, "read_bytes", missing):
+        with patch("frozen_selected_workflows.frozen_source_bytes", missing):
             with self.assertRaises(FileNotFoundError):
                 fixture.copy_complete_selected_guard_fixture(self.root)
-        self.assertEqual([], list(self.root.iterdir()))
 
 
 if __name__ == "__main__":

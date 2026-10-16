@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import copy
-import hashlib
 from pathlib import Path
 import sys
 import unittest
@@ -16,11 +15,12 @@ sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(TOOLS / "VALIDATE_ATOMS/tests"))
 import test_connector_bindings as bindings_fixture
 import test_proposed_carrier_admission_regressions as carrier_fixture
+from golden_authority import frozen_entry, write_frozen_authority
 from connector_bindings import ConnectorBindings, SelectedOperationAdmission, capture_source
 from connector_section_parse import SectionError
 from connector_section_prepare import SECTION_AUTHORITY_IDS, prepare_section
 from project_selection import bind_selection
-from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import _entry, source_context_from_project
+from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import source_context_from_project  # noqa: E402
 from workflow_run_support import _canonical_digest
 
 
@@ -36,13 +36,7 @@ class SectionPreparationTests(unittest.TestCase):
         self.addCleanup(self.carriers.doCleanups)
         self.root = self.io.root
         self.selection = self.carriers.project(root=self.root)
-        for identifier in SECTION_AUTHORITY_IDS:
-            entry = _entry(identifier)
-            raw = (carrier_fixture.REPOSITORY / entry["source_path"]).read_bytes()
-            self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
-            destination = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            destination.write_bytes(raw)
+        write_frozen_authority(self.root, self.selection.control_relative, SECTION_AUTHORITY_IDS)
         self.path = self.selection.control_root / "03_plan/CA-P-701--independent-plan.md"
         self.path.parent.mkdir(parents=True)
         self.raw = ("---\n" + yaml.safe_dump(self.carriers.metadata(), sort_keys=False) + "---\n"
@@ -136,7 +130,7 @@ class SectionPreparationTests(unittest.TestCase):
             prepare_section(self.bound(), self.context)
 
     def test_missing_section_authority_refuses(self):
-        entry = _entry(SECTION_AUTHORITY_IDS[0])
+        entry = frozen_entry(SECTION_AUTHORITY_IDS[0])
         self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:]).unlink()
         with self.assertRaisesRegex(SectionError, "source authority"):
             prepare_section(self.bound(), self.context)
@@ -148,12 +142,7 @@ class SectionPreparationTests(unittest.TestCase):
             ("Delivery", "D", "07_delivery", "CA-R-1399"),
         ):
             with self.subTest(role=role):
-                entry = _entry(status_id)
-                source_raw = (carrier_fixture.REPOSITORY / entry["source_path"]).read_bytes()
-                self.assertEqual(hashlib.sha256(source_raw).hexdigest(), entry["sha256"])
-                destination = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
-                destination.parent.mkdir(parents=True, exist_ok=True)
-                destination.write_bytes(source_raw)
+                write_frozen_authority(self.root, self.selection.control_relative, (status_id,))
                 identity = f"CA-{letter}-701"
                 metadata = self.carriers.metadata(atom_id=identity, content_role=role)
                 metadata.pop("type")

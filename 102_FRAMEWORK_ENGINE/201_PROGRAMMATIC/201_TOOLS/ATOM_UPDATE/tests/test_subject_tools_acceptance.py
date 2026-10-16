@@ -13,7 +13,6 @@ import copy
 import datetime as dt
 import hashlib
 import json
-import shutil
 import sys
 import subprocess
 import tempfile
@@ -27,12 +26,13 @@ TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 
 TOOLS = Path(__file__).resolve().parents[2]
-REPOSITORY = TOOLS.parents[2]
-if str(TOOLS) not in sys.path:
-    sys.path.insert(0, str(TOOLS))
+for directory in (TOOLS, TOOLS / "ATOM_UPDATE/tests"):
+    if str(directory) not in sys.path:
+        sys.path.insert(0, str(directory))
 
 import atom_operations as operations  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
+from subject_grammar_corpus import grammar_carriers  # noqa: E402
 
 
 class SubjectToolsAcceptanceTest(unittest.TestCase):
@@ -44,12 +44,13 @@ class SubjectToolsAcceptanceTest(unittest.TestCase):
         (self.root / ".git").mkdir()
         self.control = self.root / ".caprmedio_caprmedio"
         self.control.mkdir()
+        grammar = grammar_carriers()
         for profile in ("legacy", "approved"):
             for pin in get_profile(profile).grammar_pins:
                 destination = self.root / pin.path
                 destination.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(REPOSITORY / pin.path, destination)
-                self.assertEqual((REPOSITORY / pin.path).read_bytes(), destination.read_bytes())
+                destination.write_bytes(grammar[pin.path])
+                self.assertEqual(grammar[pin.path], destination.read_bytes())
         self.methodology = self.control / "101_LAYER_1_FRAMEWORK_METHODOLOGY"
         self.engine = self.control / "102_LAYER_2_FRAMEWORK_ENGINE"
         self.requirements = self.methodology / "04_requirement"

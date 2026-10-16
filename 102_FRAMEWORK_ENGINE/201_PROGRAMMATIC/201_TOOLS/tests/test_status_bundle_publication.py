@@ -1,6 +1,5 @@
 """One real identified-Atom status publication, not cascade/Run acceptance."""
 from pathlib import Path
-import hashlib
 import sys
 import unittest
 from unittest.mock import patch
@@ -9,10 +8,10 @@ import yaml
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(TOOLS), str(TOOLS / "VALIDATE_ATOMS/tests")]
 import test_proposed_reference_scope as fixtures
+from golden_authority import write_frozen_authority
 from project_selection import bind_selection
 import atom_operations as operations
 import lifecycle_intents as lifecycle
-from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
 
 
 class StatusBundlePublicationTests(unittest.TestCase):
@@ -21,11 +20,7 @@ class StatusBundlePublicationTests(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
         self.root, self.control = self.fixture.root, self.fixture.control
-        for identifier in ("CA-D-289", "CA-D-378"):
-            pin = proposed_carrier._entry(identifier)
-            raw = (fixtures.fixtures.REPOSITORY / pin["source_path"]).read_bytes()
-            self.assertEqual(hashlib.sha256(raw).hexdigest(), pin["sha256"])
-            self.fixture.fixture.put(self.control.joinpath(*Path(pin["source_path"]).parts[1:]), raw)
+        write_frozen_authority(self.root, self.control, ("CA-D-289", "CA-D-378"))
         self.binding = bind_selection(self.fixture.selection)
         self.binding.__enter__()
         self.addCleanup(self.binding.__exit__, None, None, None)

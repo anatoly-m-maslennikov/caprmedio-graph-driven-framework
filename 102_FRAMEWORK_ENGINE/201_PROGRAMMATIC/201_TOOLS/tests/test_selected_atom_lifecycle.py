@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import copy
 import json
+import re
 import shutil
 import subprocess
 import tempfile
@@ -18,7 +19,9 @@ import sys
 
 TOOLS = Path(__file__).resolve().parents[1]
 REPOSITORY = TOOLS.parents[2]
+APP_TESTS = TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"
 sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(APP_TESTS))
 
 _VALIDATE_WORKERS = TOOLS / "VALIDATE_ATOMS" / "validate_atoms_workers"
 _FIXTURE_SCOPE = "LIFECYCLE_FIXTURE"
@@ -26,6 +29,12 @@ _FIXTURE_RELATIVE_PATH = "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/
 _FIXTURE_AUTHORITY_PATH = f".caprmedio_caprmedio/{_FIXTURE_RELATIVE_PATH}"
 
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier  # noqa: E402
+from frozen_selected_workflows import (  # noqa: E402
+    frozen_complete_carrier_authority,
+    frozen_graph_authority,
+    frozen_source_bytes,
+    frozen_source_root,
+)
 
 REQUIREMENT_STATUS_AUTHORITY = (
     REPOSITORY
@@ -71,6 +80,17 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.root = Path(self.temporary.name)
         (self.root / ".git").mkdir()
+        self.input_root = frozen_source_root(self.root / "_frozen_authority")
+        self.frozen_by_id: dict[str, Path] = {}
+        for path in self.input_root.rglob("*.md"):
+            match = re.search(r"(?m)^atom_id:\s*[\"']?([^\s\"']+)", path.read_text(encoding="utf-8"))
+            if match:
+                existing = self.frozen_by_id.setdefault(match[1], path)
+                self.assertEqual(
+                    hashlib.sha256(existing.read_bytes()).hexdigest(),
+                    hashlib.sha256(path.read_bytes()).hexdigest(),
+                    f"frozen authority aliases diverge: {match[1]}",
+                )
         self.requirements = (
             self.root
             / ".caprmedio_caprmedio"
@@ -86,14 +106,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             "[artifact_timestamps]\ntimezone = \"UTC\"\n", encoding="utf-8"
         )
         self._copy_complete_carrier_authority()
-        for authority in (REQUIREMENT_STATUS_AUTHORITY, DELIVERY_STATUS_AUTHORITY):
-            destination = self.root / authority.relative_to(REPOSITORY)
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(authority, destination)
-        for authority in SEMANTIC_ASSESSMENT_AUTHORITIES:
-            destination = self.root / authority.relative_to(REPOSITORY)
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(authority, destination)
+        for atom_id in ("CA-R-1309", "CA-R-1399", "CA-R-1875", "CA-R-1432", "CA-R-1464"):
+            self._copy_frozen_atom(atom_id)
         self.target = self._atom("CA-R-100", "target", "Stable summary")
         self.successor_one = self._atom("CA-R-101", "first-successor", "First successor")
         self.successor_two = self._atom("CA-R-102", "second-successor", "Second successor")
@@ -109,44 +123,77 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
 
     def _copy_complete_carrier_authority(self) -> None:
         """Mirror the finite source closure used by proposed-carrier admission."""
-        sources: dict[str, dict[str, object]] = {}
-        for name in (
-            "registry.json", "schema_authority.json", "graph_authority.json",
-            "structure_authority.json", "context_authority.json",
-        ):
-            sources.update(json.loads((_VALIDATE_WORKERS / name).read_text(encoding="utf-8"))["sources"])
-        for atom_id in (*proposed_carrier._REGISTRY_IDS, *proposed_carrier._SUPPORT_IDS):
-            source_path = sources[atom_id]["source_path"]
-            self.assertIsInstance(source_path, str)
-            source = REPOSITORY / source_path
-            if not source.is_file():
-                legacy_sources = Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources")
-                current_sources = Path(".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES")
-                source = REPOSITORY / current_sources / Path(source_path).relative_to(legacy_sources)
+        for entry in {**frozen_complete_carrier_authority(), **frozen_graph_authority()}.values():
+            source_path = entry["source_path"]
             destination = self.root / source_path
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source, destination)
+            destination.write_bytes(frozen_source_bytes(source_path, entry["sha256"]))
+            self.assertEqual(entry["sha256"], hashlib.sha256(destination.read_bytes()).hexdigest())
         for relative in (
             ".caprmedio_caprmedio/project_structure.toml",
             ".caprmedio_caprmedio/operators_registry.toml",
         ):
             destination = self.root / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(REPOSITORY / relative, destination)
-        structure = self.root / ".caprmedio_caprmedio/project_structure.toml"
-        structure.write_text(
-            structure.read_text(encoding="utf-8")
-            + "\n[[scope_units]]\n"
-            + f'scope_unit_name = "{_FIXTURE_SCOPE}"\n'
-            + 'parent = "TOOLS"\n'
-            + 'scope_unit_type = "Unordered"\n'
-            + 'scope_unit_label = "TOOL"\n'
-            + "structural_level = 4\n"
-            + "navigational_order_number = 999\n"
-            + f'authority_path = "{_FIXTURE_AUTHORITY_PATH}"\n'
-            + f'delivery_path = "{_FIXTURE_AUTHORITY_PATH}"\n',
+        (self.root / ".caprmedio_caprmedio/operators_registry.toml").write_text(
+            '[[operators]]\nname = "Anatoly Maslennikov"\n'
+            'role = "project owner"\njournal_author = "anatoly-m-maslennikov"\n', encoding="utf-8",
+        )
+        (self.root / ".caprmedio_caprmedio/project_structure.toml").write_text(
+            'schema_version = 1\n\n'
+            '[[scope_units]]\nscope_unit_name = "FRAMEWORK_METHODOLOGY"\n'
+            'parent = "PROJECT"\nscope_unit_type = "Unordered"\nscope_unit_label = "METHODOLOGY"\n'
+            'structural_level = 1\nnavigational_order_number = 0\n'
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY"\n'
+            'delivery_path = "framework-product"\n\n'
+            '[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\nscope_unit_type = "Unordered"\nscope_unit_label = "METHODOLOGY"\n'
+            'structural_level = 2\nnavigational_order_number = 0\n'
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"\n'
+            'delivery_path = "framework-product/sources"\n\n'
+            '[[scope_units]]\nscope_unit_name = "APPLICABLE_METHODOLOGY"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\nscope_unit_type = "Unordered"\nscope_unit_label = "METHODOLOGY"\n'
+            'structural_level = 2\nnavigational_order_number = 1\n'
+            'authority_path = ".caprmedio_caprmedio/fixture/applicable"\n'
+            'delivery_path = "framework-product/applicable"\n\n'
+            '[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
+            'parent = "METHODOLOGY_SOURCES"\nscope_unit_type = "Unordered"\nscope_unit_label = "METHODOLOGY"\n'
+            'structural_level = 3\nnavigational_order_number = 0\n'
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"\n'
+            'delivery_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"\n\n'
+            '[[scope_units]]\nscope_unit_name = "ENGINE"\n'
+            'parent = "PROJECT"\nscope_unit_type = "Unordered"\nscope_unit_label = "ENGINE"\n'
+            'structural_level = 1\nnavigational_order_number = 1\n'
+            'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE"\n'
+            'delivery_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE"\n\n'
+            '[[scope_units]]\nscope_unit_name = "PROGRAMMATIC"\n'
+            'parent = "ENGINE"\nscope_unit_type = "Unordered"\nscope_unit_label = "FEATURE"\n'
+            'structural_level = 2\nnavigational_order_number = 1\n'
+            'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC"\n'
+            'delivery_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC"\n\n'
+            '[[scope_units]]\nscope_unit_name = "TOOLS"\n'
+            'parent = "PROGRAMMATIC"\nscope_unit_type = "Unordered"\nscope_unit_label = "TOOL"\n'
+            'structural_level = 3\nnavigational_order_number = 1\n'
+            'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS"\n'
+            'delivery_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS"\n\n'
+            f'[[scope_units]]\nscope_unit_name = "{_FIXTURE_SCOPE}"\n'
+            'parent = "TOOLS"\nscope_unit_type = "Unordered"\nscope_unit_label = "TOOL"\n'
+            'structural_level = 4\nnavigational_order_number = 999\n'
+            f'authority_path = "{_FIXTURE_AUTHORITY_PATH}"\n'
+            f'delivery_path = "{_FIXTURE_AUTHORITY_PATH}"\n',
             encoding="utf-8",
         )
+
+    def _copy_frozen_atom(self, atom_id: str) -> Path:
+        source = self.frozen_by_id[atom_id]
+        relative = source.relative_to(self.input_root)
+        legacy = Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources")
+        if relative.is_relative_to(legacy):
+            relative = Path(".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES") / relative.relative_to(legacy)
+        destination = self.root / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, destination)
+        return destination
 
     def _atom(
         self,
@@ -346,9 +393,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self._assert_configured_timestamp(self.target)
 
     def test_identified_nonactive_current_carrier_retains_exact_history(self) -> None:
-        status_authority = REQUIREMENT_STATUS_AUTHORITY.with_name(
-            "CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md")
-        shutil.copyfile(status_authority, self.root / status_authority.relative_to(REPOSITORY))
+        self._copy_frozen_atom("CA-R-1539")
         current = self.requirements.parent / "03_plan/done/01-CA-P-200-TASK--completed-fixture-plan.md"
         current.parent.mkdir(parents=True)
         current.write_text(
@@ -786,7 +831,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             update_atom_action(self.root, parameters, execute=True)
         result = update_atom_action(self.root, parameters, execute=True, authorized=True)
         self.assertEqual(result["observed"]["atom_id"], "CA-D-560")
-        self.assertEqual(result["observed"]["version"], 8)
+        self.assertEqual(result["observed"]["version"], parameters["target"]["version"] + 1)
         self.assertFalse(source.exists())
         self.assertEqual(atom_from_path(self.root, destination).atom_id, "CA-D-560")
         self.assertEqual(result["history"]["identity_mapping"], parameters["legacy_identity_mapping"])

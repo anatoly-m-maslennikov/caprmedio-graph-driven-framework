@@ -1,27 +1,28 @@
-"""Historical fixture paths still require exact original source bytes."""
+"""The selected-workflow golden Project is a closed checked-in corpus."""
 
 from __future__ import annotations
 
 import hashlib
 from pathlib import Path
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
 
-from selected_workflows_docker_fixture import (
-    GoldenCase,
-    GoldenCorpusError,
-    GoldenProject,
-    SEMANTIC_ASSESSMENT_AUTHORITIES,
-    STATUS_DOMAINS,
-    _CA_O_030_PATH,
-    _CURRENT_METHODOLOGY_SOURCES,
-    _HISTORICAL_CA_O_030_DIGEST,
-    _HISTORICAL_METHODOLOGY_SOURCES,
+from frozen_selected_workflows import (
+    frozen_complete_carrier_authority,
+    frozen_source_bytes,
+    frozen_source_paths,
+    frozen_source_root,
 )
+from selected_workflows_docker_fixture import GoldenCase, GoldenCorpusError, GoldenProject
 
 
 REPOSITORY = Path(__file__).resolve().parents[5]
+LIVE_AUTHORITY = REPOSITORY / ".caprmedio_caprmedio"
+MCP = REPOSITORY / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP"
+if str(MCP) not in sys.path:
+    sys.path.insert(0, str(MCP))
 
 
 class SelectedFixtureSourcesTests(unittest.TestCase):
@@ -30,18 +31,14 @@ class SelectedFixtureSourcesTests(unittest.TestCase):
         parent.mkdir(parents=True, exist_ok=True)
         temporary = tempfile.TemporaryDirectory(dir=parent)
         self.addCleanup(temporary.cleanup)
-        self.source = Path(temporary.name) / "source"
         self.root = Path(temporary.name) / "fixture"
-        self.source.mkdir()
         self.root.mkdir()
-        self.project = GoldenProject(self.source, self.root, GoldenCase("W02", "update_atom"))
+        self.project = GoldenProject(REPOSITORY, self.root, GoldenCase("W02", "update_atom"))
 
     def test_w02_prepared_parameters_are_deep_copied_without_a_descriptor_scan(self) -> None:
         prepared = {"target": {"path": "prepared-subject.md"}}
         self.project._semantic_update_parameters = prepared
-        with patch.object(
-            self.project, "_descriptor", side_effect=AssertionError("unused scan")
-        ) as descriptor:
+        with patch.object(self.project, "_descriptor", side_effect=AssertionError("unused scan")) as descriptor:
             first = self.project.native_parameters()
             self.assertEqual(prepared, first)
             first["target"]["path"] = "caller-change.md"
@@ -50,129 +47,92 @@ class SelectedFixtureSourcesTests(unittest.TestCase):
         descriptor.assert_not_called()
 
     def test_w02_missing_preparation_still_refuses_without_a_descriptor_scan(self) -> None:
-        with patch.object(
-            self.project, "_descriptor", side_effect=AssertionError("unused scan")
-        ) as descriptor:
-            with self.assertRaisesRegex(
-                GoldenCorpusError, "semantic assessment carrier was not prepared"
-            ):
+        with patch.object(self.project, "_descriptor", side_effect=AssertionError("unused scan")) as descriptor:
+            with self.assertRaisesRegex(GoldenCorpusError, "semantic assessment carrier was not prepared"):
                 self.project.native_parameters()
         descriptor.assert_not_called()
 
-    def test_other_target_route_reopens_current_descriptor_and_propagates_failure(self) -> None:
-        project = GoldenProject(self.source, self.root, GoldenCase("W04", "change_atom_status"))
-        observations = [
-            {"path": "first.md"},
-            {"path": "changed.md"},
-            GoldenCorpusError("missing current target"),
-        ]
+    def test_other_target_route_reopens_disposable_descriptor_and_propagates_failure(self) -> None:
+        project = GoldenProject(REPOSITORY, self.root, GoldenCase("W04", "change_atom_status"))
+        observations = [{"path": "first.md"}, {"path": "changed.md"}, GoldenCorpusError("missing target")]
         with patch.object(project, "_descriptor", side_effect=observations) as descriptor:
-            self.assertEqual(
-                {"target": observations[0], "status": "Archived"}, project.native_parameters()
-            )
-            self.assertEqual(
-                {"target": observations[1], "status": "Archived"}, project.native_parameters()
-            )
-            with self.assertRaisesRegex(GoldenCorpusError, "missing current target"):
+            self.assertEqual({"target": observations[0], "status": "Archived"}, project.native_parameters())
+            self.assertEqual({"target": observations[1], "status": "Archived"}, project.native_parameters())
+            with self.assertRaisesRegex(GoldenCorpusError, "missing target"):
                 project.native_parameters()
         self.assertEqual([("CA-R-100",)] * 3, [call.args for call in descriptor.call_args_list])
 
-    def test_relocated_source_keeps_exact_pin_and_historical_fixture_path(self) -> None:
-        suffix = Path("001_CORE_META_MODEL/07_delivery/CA-D-276--fixture.md")
-        relative = _HISTORICAL_METHODOLOGY_SOURCES / suffix
-        original = self.source / _CURRENT_METHODOLOGY_SOURCES / suffix
-        original.parent.mkdir(parents=True)
-        original.write_bytes(b"reviewed source")
-        obsolete = self.source / relative
-        obsolete.parent.mkdir(parents=True)
-        obsolete.write_bytes(b"obsolete leftover")
-        expected = hashlib.sha256(original.read_bytes()).hexdigest()
+    def test_every_complete_carrier_pin_has_exact_checked_in_bytes(self) -> None:
+        closure = frozen_complete_carrier_authority()
+        self.assertGreater(len(closure), 30)
+        for atom_id, entry in closure.items():
+            with self.subTest(atom_id=atom_id):
+                self.assertEqual(entry["sha256"], hashlib.sha256(
+                    frozen_source_bytes(entry["source_path"])
+                ).hexdigest())
 
-        self.project._copy_pinned(relative, expected)
-        self.assertEqual(original.read_bytes(), (self.root / relative).read_bytes())
-        original.write_bytes(b"changed source")
-        with self.assertRaisesRegex(GoldenCorpusError, "unavailable or stale"):
-            self.project._copy_pinned(relative, expected)
+    def test_shared_frozen_root_materializes_each_advertised_authority(self) -> None:
+        with tempfile.TemporaryDirectory(dir=self.root) as temporary:
+            frozen_root = frozen_source_root(Path(temporary))
+            for atom_id, entry in frozen_complete_carrier_authority().items():
+                with self.subTest(atom_id=atom_id):
+                    actual = frozen_root / entry["source_path"]
+                    self.assertEqual(entry["sha256"], hashlib.sha256(actual.read_bytes()).hexdigest())
 
-    def test_only_the_exact_historical_update_action_is_copied_from_archive(self) -> None:
-        current = self.source / _CA_O_030_PATH
-        current.parent.mkdir(parents=True)
-        current.write_bytes(b"new update action")
-        archive = current.parent / "archive" / f"{current.stem}@7.md"
-        archive.parent.mkdir()
-        reviewed = REPOSITORY / _CA_O_030_PATH.parent / "archive" / archive.name
-        archive.write_bytes(reviewed.read_bytes())
+    def test_prepare_never_reads_or_scans_real_project_authority(self) -> None:
+        def forbid(method):
+            def guarded(path: Path, *args: object, **kwargs: object):
+                if path == LIVE_AUTHORITY or LIVE_AUTHORITY in path.parents:
+                    raise AssertionError(f"golden fixture read real authority: {path}")
+                return method(path, *args, **kwargs)
+            return guarded
 
-        self.project._copy_pinned(_CA_O_030_PATH, _HISTORICAL_CA_O_030_DIGEST)
-        self.assertEqual(reviewed.read_bytes(), (self.root / _CA_O_030_PATH).read_bytes())
-        archive.write_bytes(b"changed archive")
-        with self.assertRaisesRegex(GoldenCorpusError, "unavailable or stale"):
-            self.project._copy_pinned(_CA_O_030_PATH, _HISTORICAL_CA_O_030_DIGEST)
-        with self.assertRaisesRegex(GoldenCorpusError, "unavailable or stale"):
-            self.project._copy_pinned(_CA_O_030_PATH, "0" * 64)
-
-    def compiler_sources(self) -> dict[str, Path]:
-        source = self.source / _CURRENT_METHODOLOGY_SOURCES / "001_CORE_META_MODEL"
-        source.mkdir(parents=True)
-        (source / "caprmedio_framework_default_settings.toml").write_text("[query]\n")
-        required = [row[3] for row in STATUS_DOMAINS] + list(SEMANTIC_ASSESSMENT_AUTHORITIES)
-        paths = {}
-        for atom_id in required:
-            path = source / "04_requirement" / f"{atom_id}--fixture.md"
-            path.parent.mkdir(exist_ok=True)
-            path.write_bytes(f"exact source bytes for {atom_id}\n".encode())
-            paths[atom_id] = path
-        return paths
-
-    def test_compiler_authorities_use_one_walk_and_preserve_ten_exact_copies(self) -> None:
-        paths = self.compiler_sources()
-        archived = next(iter(paths.values())).parent / "archive"
-        archived.mkdir()
-        (archived / next(iter(paths.values())).name).write_bytes(b"archived duplicate")
-        unrelated = archived.parent / "CA-R-13090--not-the-status-model.md"
-        unrelated.write_bytes(b"different identity")
-        with patch.object(Path, "rglob", autospec=True, side_effect=Path.rglob) as walking:
-            self.project._write_compiler_authority()
-        original = self.source / _CURRENT_METHODOLOGY_SOURCES
-        walking.assert_called_once_with(original, "*.md")
-        self.assertEqual(10, len(paths))
-        for source in paths.values():
-            target = self.project.compiler_source_dir / source.relative_to(original)
-            self.assertEqual(source.read_bytes(), target.read_bytes())
-        self.assertFalse(
-            (self.project.compiler_source_dir / unrelated.relative_to(original)).exists()
-        )
-
-    def test_missing_or_duplicate_authority_remains_refused(self) -> None:
-        paths = self.compiler_sources()
-        for atom_id in (STATUS_DOMAINS[0][3], SEMANTIC_ASSESSMENT_AUTHORITIES[0]):
-            source = paths[atom_id]
-            original = source.read_bytes()
-            with self.subTest(atom_id=atom_id, missing=True):
-                source.unlink()
-                with self.assertRaisesRegex(
-                    GoldenCorpusError, f"current {atom_id} .* unavailable or ambiguous"
-                ):
-                    self.project._write_compiler_authority()
-                source.write_bytes(original)
-            with self.subTest(atom_id=atom_id, duplicate=True):
-                duplicate = source.with_name(f"{atom_id}--duplicate.md")
-                duplicate.write_bytes(original)
-                with self.assertRaisesRegex(
-                    GoldenCorpusError, f"current {atom_id} .* unavailable or ambiguous"
-                ):
-                    self.project._write_compiler_authority()
-                duplicate.unlink()
-
-    def test_later_preparation_observes_new_duplicate_without_a_cache(self) -> None:
-        source = self.compiler_sources()[STATUS_DOMAINS[0][3]]
-        self.project._write_compiler_authority()
-        duplicate = source.with_name(f"{STATUS_DOMAINS[0][3]}--later.md")
-        duplicate.write_bytes(source.read_bytes())
-        with self.assertRaisesRegex(
-            GoldenCorpusError, "status-model source is unavailable or ambiguous"
+        with (
+            patch.object(Path, "read_bytes", forbid(Path.read_bytes)),
+            patch.object(Path, "read_text", forbid(Path.read_text)),
+            patch.object(Path, "glob", forbid(Path.glob)),
+            patch.object(Path, "rglob", forbid(Path.rglob)),
+            patch.object(Path, "iterdir", forbid(Path.iterdir)),
         ):
-            self.project._write_compiler_authority()
+            for case, route in (("W01", "create_atom"), ("W09", "run_implementation_workflow"),
+                                ("W10", "revert_changes")):
+                with self.subTest(case=case), tempfile.TemporaryDirectory(dir=self.root) as temporary:
+                    project = GoldenProject(REPOSITORY, Path(temporary), GoldenCase(case, route))
+                    self.assertEqual(15, len(project.prepare()["routes"]))
+
+    def test_fixture_mutation_does_not_change_the_next_golden_project(self) -> None:
+        relative = next(path for path in frozen_source_paths() if path.endswith("CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior.md"))
+        with tempfile.TemporaryDirectory(dir=self.root) as first, tempfile.TemporaryDirectory(dir=self.root) as second:
+            one = GoldenProject(REPOSITORY, Path(first), GoldenCase("W09", "run_implementation_workflow"))
+            one.prepare()
+            copied = one.root / relative
+            copied.write_text("mutated disposable source", encoding="utf-8")
+            two = GoldenProject(REPOSITORY, Path(second), GoldenCase("W09", "run_implementation_workflow"))
+            two.prepare()
+            self.assertEqual(frozen_source_bytes(relative), (two.root / relative).read_bytes())
+
+    def test_disposable_source_change_rejects_a_held_preview_receipt(self) -> None:
+        from selected_routes import SelectedRouteAdapter, load_selected_manifest
+
+        self.project.prepare()
+        adapter = SelectedRouteAdapter(self.root)
+        preview_request = self.project.request(request_id="sealed-preview")
+        preview = adapter.invoke("update_atom", preview_request)
+        self.assertEqual("preview", preview["disposition"], preview)
+        execute = self.project.request(
+            request_id="sealed-preview", mode="execute",
+            receipt=preview["proposal_receipt"], receipt_digest=preview["proposal_receipt_digest"],
+        )
+        route = next(row for row in self.project.manifest["routes"] if row["route"] == "update_atom")
+        pin = next(item for item in route["native_action_calls"] if item["atom_id"] == "CA-O-030")
+        source = self.root / pin["source_path"]
+        source.write_text(source.read_text(encoding="utf-8") + "\ntampered\n", encoding="utf-8")
+        refreshed = load_selected_manifest(self.root)
+        self.assertNotEqual(preview_request["definition_manifest"]["manifest_digest"],
+                            refreshed["canonical_manifest_sha256"])
+        rejected = adapter.invoke("update_atom", execute)
+        self.assertEqual("rejected", rejected["disposition"], rejected)
+        self.assertIn("stale", rejected["diagnostics"][0])
 
 
 if __name__ == "__main__":

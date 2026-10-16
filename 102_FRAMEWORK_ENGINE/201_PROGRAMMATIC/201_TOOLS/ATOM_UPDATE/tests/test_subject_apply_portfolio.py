@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import copy
 import hashlib
-import shutil
 import sys
 import tempfile
 import unittest
@@ -15,7 +14,8 @@ from unittest.mock import patch
 TOOLS = Path(__file__).resolve().parents[2]
 REPOSITORY = TOOLS.parents[2]
 APP = TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR"
-for location in (TOOLS, APP, APP / "tests", TOOLS.parent / "204_MCP/tests"):
+ATOM_UPDATE_TESTS = TOOLS / "ATOM_UPDATE/tests"
+for location in (TOOLS, APP, APP / "tests", TOOLS.parent / "204_MCP/tests", ATOM_UPDATE_TESTS):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))
 
@@ -24,8 +24,11 @@ import atom_subject_apply as native  # noqa: E402
 import atom_subject_patch as subject_patch  # noqa: E402
 from lifecycle_intents import LifecycleError, carrier_descriptor, update_assessment_seal  # noqa: E402
 from selected_workflows_docker_fixture import GoldenCase, GoldenProject, digest  # noqa: E402
+from frozen_selected_workflows import frozen_source_bytes  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
+from subject_grammar_corpus import grammar_carriers  # noqa: E402
 from test_selected_routes_mcp import copy_complete_selected_guard_fixture  # noqa: E402
+from selected_routes import load_selected_manifest  # noqa: E402
 
 
 TEST_TEMP_ROOT = REPOSITORY / ".caprmedio_tmp/tests/test_subject_apply_portfolio"
@@ -58,6 +61,12 @@ class CurrentSubjectGoldenProject(GoldenProject):
             manifest = copy_complete_selected_guard_fixture(self.root)
         finally:
             settings.write_bytes(fixture_settings)
+        grammar = grammar_carriers()
+        for pin in get_profile(self.subject_profile).grammar_pins:
+            target = self.root / pin.path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(grammar[pin.path])
+        manifest = load_selected_manifest(self.root)
         route = next(row for row in manifest["routes"] if row["route"] == "update_atom")
         pins = [route["workflow"], *route["ordered_actions"], *route["native_action_calls"]]
         pins.extend(pin for pair in route["ordered_steps"] for pin in pair.values())
@@ -65,13 +74,13 @@ class CurrentSubjectGoldenProject(GoldenProject):
         assert {pin["atom_id"] for pin in pins} == set(current)
         for pin in pins:
             path = current[pin["atom_id"]]
-            raw = (REPOSITORY / path).read_bytes()
+            raw = frozen_source_bytes(path)
             frontmatter, _ = operations.split_frontmatter(raw.decode("utf-8"))
             version = int(operations.frontmatter_scalar(frontmatter, "version"))
             sha256 = hashlib.sha256(raw).hexdigest()
             assert (pin["source_path"], pin["version"], pin["digest"]) == (path, version, sha256)
         for atom_id, path in PUBLICATION_PINS.items():
-            raw = (REPOSITORY / path).read_bytes()
+            raw = frozen_source_bytes(path)
             sha256 = hashlib.sha256(raw).hexdigest()
             self._copy_pinned(Path(path), sha256)
             frontmatter, _ = operations.split_frontmatter((self.root / path).read_text())
@@ -86,15 +95,15 @@ class SubjectApplyProject:
                  role: str = "Requirement", status: str = "Active") -> None:
         self.root = root
         self.golden = CurrentSubjectGoldenProject(REPOSITORY, root, GoldenCase("W02", "update_atom"))
+        self.golden.subject_profile = subject_profile
         self.manifest = self.golden.prepare()
         self.golden._write_complete_carrier_project_structure()
         self.golden._copy_complete_carrier_authority()
+        grammar = grammar_carriers()
         for grammar_pin in get_profile(subject_profile).grammar_pins:
-            original = REPOSITORY / grammar_pin.path
+            original = grammar[grammar_pin.path]
             destination = root / grammar_pin.path
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(original, destination)
-            assert destination.read_bytes() == original.read_bytes()
+            assert destination.read_bytes() == original
         self.path = self.golden.status_atom(role, status, number=8100)
         assert newline in {"\n", "\r\n"}
         if newline == "\r\n":

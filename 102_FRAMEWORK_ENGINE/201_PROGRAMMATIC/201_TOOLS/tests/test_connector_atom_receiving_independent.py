@@ -15,12 +15,19 @@ import unittest
 TOOLS = Path(__file__).resolve().parents[1]
 REPOSITORY = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"))
+sys.path.insert(0, str(TOOLS / "ATOM_UPDATE/tests"))
 
 from connector_atom_read import AtomSourceView  # noqa: E402
 from connector_bindings import capture_source  # noqa: E402
 from project_selection import resolve_project  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
 from workflow_run_support import LazyRunTracker, RunExecutionSession, _canonical_digest  # noqa: E402
+from frozen_selected_workflows import frozen_behavior_bindings, frozen_source_bytes  # noqa: E402
+from subject_grammar_corpus import grammar_carriers  # noqa: E402
+
+
+ATOM_RECEIVER_AUTHORITY_IDS = ("CA-D-625", "CA-R-1936", "CA-M-376", "CA-O-047", "CA-O-046")
 
 
 class AtomReceivingIndependentTests(unittest.TestCase):
@@ -52,23 +59,20 @@ class AtomReceivingIndependentTests(unittest.TestCase):
         self.frontier = tuple(capture_source(self.root, path.relative_to(self.root))
                               for path in (self.first, self.second, self.third))
         self.definitions = {}
-        canonical = REPOSITORY / ".caprmedio_caprmedio"
-        for atom_id in ("CA-D-625", "CA-R-1936", "CA-M-376", "CA-O-047", "CA-O-046"):
-            candidates = [path for path in canonical.rglob(atom_id + "-*.md")
-                          if "archive" not in path.parts and "_projection" not in path.parts
-                          and "000_CAPRMEDIO_framework" not in path.parts]
-            self.assertEqual(1, len(candidates), atom_id)
-            path = self.root / "definitions" / candidates[0].name
+        bindings = frozen_behavior_bindings()
+        for atom_id in ATOM_RECEIVER_AUTHORITY_IDS:
+            binding = bindings[atom_id]
+            path = self.root / "definitions" / Path(binding["source_path"]).name
             path.parent.mkdir(exist_ok=True)
-            path.write_bytes(candidates[0].read_bytes())
+            path.write_bytes(frozen_source_bytes(binding["source_path"], binding["sha256"]))
             self.definitions[atom_id] = capture_source(self.root, path.relative_to(self.root))
         self.schemas = tuple(self.definitions[key] for key in ("CA-D-625", "CA-R-1936", "CA-M-376"))
         grammar = []
+        grammar_carrier_bytes = grammar_carriers()
         for pin in get_profile("approved").grammar_pins:
-            raw = (REPOSITORY / pin.path).read_bytes()
             path = self.root / pin.path
             path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_bytes(raw)
+            path.write_bytes(grammar_carrier_bytes[pin.path])
             grammar.append(capture_source(self.root, path.relative_to(self.root)))
         self.query_schemas = (*self.schemas, *grammar)
         self.manifest_path = self.root / "manifest.json"

@@ -6,19 +6,20 @@ import hashlib
 import json
 from pathlib import Path
 import re
-import shutil
 import sys
 import unittest
 from unittest.mock import patch
 
 TOOLS = Path(__file__).resolve().parents[2]
-REPOSITORY = TOOLS.parents[2]
-sys.path.insert(0, str(TOOLS))
-sys.path.insert(0, str(TOOLS / "ATOM_UPDATE"))
+APP_TESTS = TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"
+for directory in (TOOLS, TOOLS / "ATOM_UPDATE", APP_TESTS):
+    if str(directory) not in sys.path:
+        sys.path.insert(0, str(directory))
 
 import atom_update as provider
 import atom_operations as operations
 import atom_subject_patch as subjects
+from frozen_selected_workflows import frozen_preparation_bindings, frozen_source_bytes  # noqa: E402
 import test_nonarchived_subject_preview as fixtures
 
 
@@ -30,14 +31,17 @@ class DirectSubjectPreparationProviderTests(unittest.TestCase):
         self.root = self.fixture.root
         self.path = self.fixture._plan("Done", number=7801)
         self.original = self.path.read_bytes()
+        preparation_bindings = frozen_preparation_bindings()
+        self.assertEqual({pin["atom_id"] for pin in provider.SOURCE_PINS}, set(preparation_bindings))
         for pin in provider.SOURCE_PINS:
+            binding = preparation_bindings[pin["atom_id"]]
+            self.assertEqual(pin["path"], binding["source_path"])
             destination = self.root / pin["path"]
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(REPOSITORY / pin["path"], destination)
+            destination.write_bytes(frozen_source_bytes(pin["path"], binding["sha256"]))
             metadata = operations.parse_carrier(destination.read_bytes(), destination).metadata
             self.assertEqual(pin["atom_id"], metadata["atom_id"])
-            self.assertIs(type(metadata["version"]), int)
-            self.assertGreater(metadata["version"], 0)
+            self.assertEqual(binding["version"], metadata["version"])
         self.adapter = provider.create_adapter(self.root)
         self.item = {"atom_id": "CA-P-7801", "version": 7, "sha256": hashlib.sha256(self.original).hexdigest(),
                      "subject_patches": [{"field": "governs", "old": "Atom/Status", "new": "Atom/State"}]}

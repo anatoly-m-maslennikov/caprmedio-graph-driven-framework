@@ -15,10 +15,12 @@ MCP = Path(__file__).resolve().parents[1]
 ROOT = MCP.parents[2]
 ORCHESTRATOR = MCP.parent / "203_APPS" / "WORKFLOW_ORCHESTRATOR"
 TOOLS_TESTS = MCP.parent / "201_TOOLS" / "tests"
+WORKFLOW_TESTS = ORCHESTRATOR / "tests"
 TEST_TEMP_ROOT = ROOT / ".caprmedio_tmp" / "tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(MCP))
 sys.path.insert(0, str(TOOLS_TESTS))
+sys.path.insert(0, str(WORKFLOW_TESTS))
 
 from selected_routes import (  # noqa: E402
     ORIGINAL_SELECTED_ROUTE_NAMES,
@@ -33,6 +35,26 @@ from selected_routes import (  # noqa: E402
 )
 import test_model_driven_status_lifecycle as status_goldens  # noqa: E402
 import selected_routes  # noqa: E402
+from frozen_selected_workflows import frozen_manifest, frozen_source_root  # noqa: E402
+
+
+def frozen_project(root: Path) -> Path:
+    """Materialize the checked-in selected-route authority, never live Atoms."""
+    root = root.resolve()
+    frozen_source_root(root)
+    settings = root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
+    if not settings.exists():
+        settings.parent.mkdir(parents=True, exist_ok=True)
+        settings.write_text(
+            '[project]\nkey = "golden-fixture"\nname = "caprmedio"\nrepository_slug = "golden-fixture"\n'
+            '[artifacts.identity]\nproject_prefix = "CA"\n\n[paths]\n'
+            'control_root = ".caprmedio_caprmedio"\njournal_root = ".caprmedio_caprmedio/_journal"\n',
+            encoding="utf-8",
+        )
+    manifest_path = root / selected_manifest_ref(root)
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(json.dumps(frozen_manifest()), encoding="utf-8")
+    return root
 
 
 class FakeRunSupport:
@@ -98,21 +120,14 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
     def setUp(self) -> None:
         temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.addCleanup(temporary.cleanup)
-        self.root = Path(temporary.name)
-        self.admissions = list(selected_routes._query_admission_specs(ROOT))
-        manifest = json.loads((ROOT / selected_manifest_ref(ROOT)).read_text())
+        self.root = frozen_project(Path(temporary.name))
+        self.admissions = list(selected_routes._query_admission_specs(self.root))
+        manifest = frozen_manifest()
         self.routes = [copy.deepcopy(route) for route in manifest["routes"]
                        if route["route"] in QUERY_ROUTE_NAMES]
         for admission, route in zip(self.admissions, self.routes, strict=True):
             for field in ("workflow", "ordered_steps", "ordered_actions"):
                 route[field] = copy.deepcopy(admission[field])
-            pins = [admission["acceptance_frontier"], admission["workflow"],
-                    *admission["ordered_actions"],
-                    *[pin for step in admission["ordered_steps"] for pin in step.values()]]
-            for pin in pins:
-                destination = self.root / pin["source_path"]
-                destination.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(ROOT / pin["source_path"], destination)
 
     def test_query_source_admissions_and_read_only_routes_validate(self) -> None:
         self.assertEqual(self.admissions, selected_routes._validate_query_source_admissions(
@@ -152,11 +167,10 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
                 path = self.root / pin["source_path"]
                 original_contents = path.read_bytes()
                 if mutation in {"predecessor", "superseded-step"}:
-                    current = ROOT / pin["source_path"]
                     version = 2 if mutation == "predecessor" else 3
-                    contents = (
-                        current.parent / "archived" / (current.stem + f"@{version}.md")
-                    ).read_bytes()
+                    contents = original_contents.replace(
+                        f"version: {pin['version']}".encode(), f"version: {version}".encode(), 1
+                    )
                     pin["version"] = version
                 else:
                     contents = original_contents
@@ -166,8 +180,13 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
                         )
                         pin.update(atom_id="CA-P-1532", version=2)
                     elif mutation == "newer-step":
-                        contents = contents.replace(b"version: 4", b"version: 5")
-                        pin["version"] = 5
+                        prior_version = pin["version"]
+                        contents = contents.replace(
+                            f"version: {prior_version}".encode(),
+                            f"version: {prior_version + 1}".encode(),
+                            1,
+                        )
+                        pin["version"] = prior_version + 1
                     else:
                         contents += b"\nUnadmitted changed query body.\n"
                 pin["digest"] = hashlib.sha256(contents).hexdigest()
@@ -190,11 +209,9 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
                     path.write_bytes(original_contents)
 
     def test_query_only_manifest_still_rejects_before_shared_support(self) -> None:
-        manifest = json.loads((ROOT / selected_manifest_ref(ROOT)).read_text())
+        manifest = frozen_manifest()
         registry_ref = manifest["source_freshness"]["selected_source_registry_ref"]
-        destination = self.root / registry_ref
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(ROOT / registry_ref, destination)
+        self.assertTrue((self.root / registry_ref).is_file())
         manifest["routes"], manifest["query_source_admissions"] = self.routes, self.admissions
         manifest["source_freshness"]["selected_binding_digest"] = canonical_digest(self.routes)
         manifest["canonical_manifest_sha256"] = canonical_digest(
@@ -211,19 +228,20 @@ class QueryAdmissionPhysicalProofTest(unittest.TestCase):
 
 
 def copy_complete_selected_guard_fixture(project: Path) -> dict:
-    """Current-source fifteen-route fixture; not a seventeen-route repair receipt."""
+    """Frozen fifteen-route fixture; not a seventeen-route repair receipt."""
     tools = MCP.parent / "201_TOOLS"
     sys.path.insert(0, str(tools / "VALIDATE_ATOMS"))
     from validate_atoms_workers.parsing import parse_carrier
 
-    manifest = json.loads((ROOT / selected_manifest_ref(ROOT)).read_text())
+    project = frozen_project(project)
+    manifest = frozen_manifest()
     assert tuple(row["route"] for row in manifest["routes"]) == SELECTED_ROUTE_NAMES
-    manifest["query_source_admissions"] = copy.deepcopy(list(selected_routes._query_admission_specs(ROOT)))
+    manifest["query_source_admissions"] = copy.deepcopy(list(selected_routes._query_admission_specs(project)))
     query = {row["route"]: row for row in manifest["query_source_admissions"]}
 
     def current_pin(pin):
         # Fixture inputs are the exact selected paths, not a whole Project catalog.
-        path = selected_routes._safe_path(ROOT, pin["source_path"])
+        path = selected_routes._safe_path(project, pin["source_path"])
         raw = path.read_bytes()
         metadata = parse_carrier(raw, path).metadata
         assert metadata.get("atom_id") == pin["atom_id"], "fixture source identity differs"
@@ -250,18 +268,6 @@ def copy_complete_selected_guard_fixture(project: Path) -> dict:
     freshness["selected_binding_digest"] = canonical_digest(manifest["routes"])
     manifest["canonical_manifest_sha256"] = canonical_digest(
         {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"})
-    pins = {registry["source_path"]}
-    for route in manifest["routes"]:
-        pins.update(pin["source_path"] for pin in selected_routes._definition_sequence(route))
-        pins.update(pin["source_path"] for pin in route["native_action_calls"])
-    for admission in manifest["query_source_admissions"]:
-        pins.add(admission["acceptance_frontier"]["source_path"])
-    for relative in pins:
-        destination = project / relative
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(ROOT / relative, destination)
-    settings = project / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
-    shutil.copyfile(ROOT / settings.relative_to(project), settings)
     path = project / selected_manifest_ref(project)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(manifest))
@@ -383,16 +389,11 @@ class WholeRegistryGuardTest(unittest.TestCase):
 
 
 class SelectedRoutesMCPTest(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls) -> None:
-        # One real load proves the live source pins.  The route-contract tests
-        # below deliberately exercise the same immutable snapshot instead of
-        # re-reading every source graph once per route.
-        cls._verified_manifest = load_selected_manifest(ROOT)
-        status_goldens.ModelDrivenStatusLifecycleTest.setUpClass()
-
     def setUp(self) -> None:
-        self.manifest = copy.deepcopy(self._verified_manifest)
+        temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
+        self.addCleanup(temporary.cleanup)
+        self.frozen_root = frozen_project(Path(temporary.name))
+        self.manifest = load_selected_manifest(self.frozen_root)
         self.status_fixture = status_goldens.ModelDrivenStatusLifecycleTest()
         self.status_fixture.setUp()
         self.addCleanup(self.status_fixture.tearDown)
@@ -506,17 +507,7 @@ class SelectedRoutesMCPTest(unittest.TestCase):
                 encoding="utf-8",
             )
             status_parameters = self._copy_status_bindings(project)
-            pins = {self.manifest["manifest_ref"], self.manifest["source_freshness"]["selected_source_registry_ref"]}
-            for route in self.manifest["routes"]:
-                pins.add(route["workflow"]["source_path"])
-                pins.update(item["step"]["source_path"] for item in route["ordered_steps"])
-                pins.update(item["action"]["source_path"] for item in route["ordered_steps"])
-                pins.update(item["source_path"] for item in route["native_action_calls"])
-            for relative in pins:
-                source = ROOT / relative
-                destination = project / relative
-                destination.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(source, destination)
+            frozen_project(project)
 
             queue = SelectedExecution(project, handlers={})
             original_routes = [route for route in self.manifest["routes"]
@@ -552,7 +543,7 @@ class SelectedRoutesMCPTest(unittest.TestCase):
                 self.assertEqual(graph["entry_step"], frozen["graph"]["entry_step"])
 
     def test_manifest_is_closed_fifteen_ordinary_routes(self) -> None:
-        contract = selected_manifest_contract(ROOT)
+        contract = selected_manifest_contract(self.frozen_root)
         self.assertEqual(self.manifest["manifest_ref"], contract["manifest_ref"])
         self.assertEqual(list(SELECTED_ROUTE_NAMES), contract["route_names"])
         self.assertTrue(contract["canonical_digest"]["self_field_omitted_from_digest"])
@@ -599,25 +590,7 @@ class SelectedRoutesMCPTest(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True) as temporary:
             project = Path(temporary)
             (project / ".git").mkdir()
-            control = project / ".caprmedio_caprmedio"
-            control.mkdir()
-            (control / "caprmedio_project_settings.toml").write_text(
-                '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
-                'journal_root = ".caprmedio_caprmedio/_journal"\n', encoding="utf-8",
-            )
-            pins = {self.manifest["manifest_ref"], self.manifest["source_freshness"]["selected_source_registry_ref"]}
-            for route in self.manifest["routes"]:
-                pins.add(route["workflow"]["source_path"])
-                pins.update(item["step"]["source_path"] for item in route["ordered_steps"])
-                pins.update(item["action"]["source_path"] for item in route["ordered_steps"])
-                pins.update(item["source_path"] for item in route["native_action_calls"])
-            for admission in self.manifest["query_source_admissions"]:
-                pins.add(admission["acceptance_frontier"]["source_path"])
-            for relative in pins:
-                source = ROOT / relative
-                destination = project / relative
-                destination.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(source, destination)
+            frozen_project(project)
 
             old_frontier = {
                 "atom_id": "CA-P-1532", "version": 2,
@@ -650,7 +623,6 @@ class SelectedRoutesMCPTest(unittest.TestCase):
                         admission = candidate["query_source_admissions"][0]
                         admission["acceptance_frontier"] = old_frontier
                         self.assertEqual("CA-O-158", admission["workflow"]["atom_id"])
-                        self.assertEqual(4, admission["workflow"]["version"])
                         self.assertEqual(candidate["routes"][13]["workflow"], admission["workflow"])
                     candidate["canonical_manifest_sha256"] = canonical_digest(candidate)
                     (project / self.manifest["manifest_ref"]).write_text(
@@ -670,7 +642,7 @@ class SelectedRoutesMCPTest(unittest.TestCase):
         self.assertEqual(15, len(self.support.calls))
 
     def test_default_adapter_uses_shared_preview_support_without_an_executor(self) -> None:
-        result = SelectedRouteAdapter(ROOT).invoke("create_atom", self.request("create_atom"))
+        result = SelectedRouteAdapter(self.frozen_root).invoke("create_atom", self.request("create_atom"))
         self.assertEqual("preview", result["disposition"])
         self.assertIn("proposal_receipt", result)
         self.assertNotIn("run_ids", result)
@@ -688,7 +660,7 @@ class SelectedRoutesMCPTest(unittest.TestCase):
 
     def test_execute_accepts_manifest_in_the_shared_supports_real_preview_receipt(self) -> None:
         route = "create_atom"
-        preview = SelectedRouteAdapter(ROOT).invoke(route, self.request(route))
+        preview = SelectedRouteAdapter(self.frozen_root).invoke(route, self.request(route))
         self.assertEqual("preview", preview["disposition"])
         request = self.request(route, mode="execute")
         request["proposal_receipt"] = preview["proposal_receipt"]

@@ -5,7 +5,6 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-import shutil
 import subprocess
 import sys
 import tempfile
@@ -13,10 +12,10 @@ from unittest.mock import patch
 
 TOOLS = Path(__file__).resolve().parents[1]
 APP = TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR"
-for location in (TOOLS, APP, TOOLS / "ATOM_UPDATE/tests"):
+for location in (TOOLS, APP, APP / "tests", TOOLS / "ATOM_UPDATE/tests"):
     sys.path.insert(0, str(location))
 
-from ATOM_UPDATE.atom_update import SOURCE_PINS  # noqa: E402
+from frozen_selected_workflows import frozen_preparation_bindings, write_frozen_source  # noqa: E402
 from lifecycle_intents import carrier_descriptor  # noqa: E402
 from selected_execution import SelectedExecution  # noqa: E402
 from subject_batch import build_subject_batch_requested_runs  # noqa: E402
@@ -35,10 +34,8 @@ class SubjectBatchProject:
         self.root, self.golden = self.fixture.root, self.fixture.golden
         report = self.fixture.parameters["semantic_assessment_report"]
         (self.root / report["path"]).unlink()
-        for pin in SOURCE_PINS:
-            destination = self.root / pin["path"]
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(REPOSITORY / pin["path"], destination)
+        for pin in frozen_preparation_bindings().values():
+            write_frozen_source(self.root, pin["source_path"], pin["sha256"])
         self.paths = [self.fixture.path]
         self.paths.extend(
             self.golden.status_atom(role, status, number=8100 + ordinal)

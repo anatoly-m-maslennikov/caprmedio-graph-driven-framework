@@ -20,7 +20,8 @@ MCP_ROOT = Path(__file__).resolve().parents[1]
 TOOLS_ROOT = MCP_ROOT.parent / "201_TOOLS"
 REPOSITORY = MCP_ROOT.parents[2]
 NATIVE_TESTS = TOOLS_ROOT / "ATOM_UPDATE/tests"
-for directory in (MCP_ROOT, TOOLS_ROOT, NATIVE_TESTS, TOOLS_ROOT / "VALIDATE_ATOMS"):
+WORKFLOW_TESTS = TOOLS_ROOT.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"
+for directory in (MCP_ROOT, TOOLS_ROOT, NATIVE_TESTS, TOOLS_ROOT / "VALIDATE_ATOMS", WORKFLOW_TESTS):
     if str(directory) not in sys.path:
         sys.path.insert(0, str(directory))
 
@@ -30,28 +31,11 @@ import atom_subject_patch as subject_patch  # noqa: E402
 import atom_subject_stage as staging  # noqa: E402
 import test_nonarchived_subject_preview as native_fixture  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
+from frozen_selected_workflows import frozen_preparation_bindings, frozen_source_bytes  # noqa: E402
 
 
 STAGE_PREFIX = Path(".caprmedio_tmp/subject-preview")
-TOOL_WORKFLOWS = (
-    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/"
-)
-# Capture the current same-ID rules; retain their observed bytes in each fixture.
-PREPARATION_PINS = tuple({"atom_id": atom_id, "path": TOOL_WORKFLOWS + relative}
-                            for atom_id, relative in (
-    ("CA-R-866",
-     "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md"),
-    ("CA-R-1093",
-     "04_requirement/CA-R-1093-TOOL_WORKFLOWS-CORE-REQUIREMENT--separate-generic-and-atom-specific-tool-authority.md"),
-    ("CA-O-030",
-     "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md"),
-    ("CA-M-371",
-     "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md"),
-    ("CA-D-425",
-     "07_delivery/CA-D-425-TOOL_WORKFLOWS-STANDARD-DELIVERY--deliver-atom-update-tool.md"),
-    ("CA-E-304",
-     "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md"),
-))
+PREPARATION_PINS = frozen_preparation_bindings()
 
 
 def _digest(raw: bytes) -> str:
@@ -85,14 +69,14 @@ class DirectSubjectPreparationProtocolTests(unittest.IsolatedAsyncioTestCase):
         self.addCleanup(self.fixture.doCleanups)
         self.root = self.fixture.root
         self.assertTrue(self.root.is_relative_to(REPOSITORY / ".caprmedio_tmp"))
-        for pin in PREPARATION_PINS:
-            source = REPOSITORY / pin["path"]
-            raw = source.read_bytes()
-            metadata = operations.parse_carrier(raw, source).metadata
-            self.assertEqual(pin["atom_id"], metadata["atom_id"])
+        for atom_id, pin in PREPARATION_PINS.items():
+            raw = frozen_source_bytes(pin["source_path"], pin["sha256"])
+            metadata = operations.parse_carrier(raw, Path(pin["source_path"])).metadata
+            self.assertEqual(atom_id, metadata["atom_id"])
             self.assertIs(type(metadata["version"]), int)
             self.assertGreater(metadata["version"], 0)
-            destination = self.root / pin["path"]
+            self.assertEqual(pin["version"], metadata["version"])
+            destination = self.root / pin["source_path"]
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(raw)
         self.path = self.fixture._plan("Done", number=9500)

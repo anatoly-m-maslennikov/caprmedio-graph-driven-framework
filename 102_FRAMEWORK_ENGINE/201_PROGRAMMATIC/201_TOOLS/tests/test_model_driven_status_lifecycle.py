@@ -14,16 +14,21 @@ from unittest.mock import patch
 
 TOOLS = Path(__file__).resolve().parents[1]
 REPOSITORY = TOOLS.parents[2]
+APP_TESTS = TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"
 CONTROL = Path(".caprmedio_caprmedio")
 SOURCE = CONTROL / "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
 sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(APP_TESTS))
 
 from atom_operations import atom_from_path, frontmatter_scalar, ToolError  # noqa: E402
 from authoritative_status_models import resolve_status_model, StatusModelError  # noqa: E402
 import lifecycle_intents  # noqa: E402
-import test_selected_atom_lifecycle as lifecycle_fixture  # noqa: E402
-import test_proposed_relation_admission as reference_fixture  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.check_sections import ROLE_SECTIONS  # noqa: E402
+from frozen_selected_workflows import (  # noqa: E402
+    frozen_complete_carrier_authority,
+    frozen_graph_authority,
+    frozen_source_root,
+)
 from lifecycle_intents import (  # noqa: E402
     carrier_descriptor,
     change_status_atom_action,
@@ -48,24 +53,11 @@ AUTHORITY_IDS = tuple(row[3] for row in DOMAINS) + (
     "CA-D-461", "CA-D-466", "CA-D-565", "CA-D-289", "CA-D-434",
     "CA-D-446", "CA-D-288", "CA-D-483", "CA-D-324",
 )
+FRONTIER_IDS = ("CA-D-434", "CA-D-467", "CA-D-460", "CA-D-481")
 
 
 class ModelDrivenStatusLifecycleTest(unittest.TestCase):
     """Only fresh disposable Projects are writable by these native invocations."""
-
-    @classmethod
-    def setUpClass(cls) -> None:
-        cls.authority_paths: dict[str, Path] = {}
-        for path in (REPOSITORY / SOURCE).rglob("*.md"):
-            if "archive" in path.parts or "archived" in path.parts:
-                continue
-            match = re.match(r"^(CA-[A-Z]+-\d+)-", path.name)
-            if match and match[1] in AUTHORITY_IDS:
-                if match[1] in cls.authority_paths:
-                    raise AssertionError(f"current authority is ambiguous: {match[1]}")
-                cls.authority_paths[match[1]] = path
-        if set(cls.authority_paths) != set(AUTHORITY_IDS):
-            raise AssertionError(f"missing current authorities: {set(AUTHORITY_IDS) - set(cls.authority_paths)}")
 
     def setUp(self) -> None:
         temporary_root = REPOSITORY / ".caprmedio_tmp/tests/model-driven-status-lifecycle"
@@ -73,14 +65,38 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(dir=temporary_root, ignore_cleanup_errors=True)
         self.root = Path(self.temporary.name)
         (self.root / ".git").mkdir()
+        self.input_root = frozen_source_root(self.root / "_frozen_authority")
+        frozen_by_id: dict[str, Path] = {}
+        for path in self.input_root.rglob("*.md"):
+            match = re.search(r"(?m)^atom_id:\s*[\"']?([^\s\"']+)", path.read_text(encoding="utf-8"))
+            if match:
+                existing = frozen_by_id.setdefault(match[1], path)
+                self.assertEqual(
+                    hashlib.sha256(existing.read_bytes()).hexdigest(),
+                    hashlib.sha256(path.read_bytes()).hexdigest(),
+                    f"frozen authority aliases diverge: {match[1]}",
+                )
+        missing = set((*AUTHORITY_IDS, *FRONTIER_IDS)) - set(frozen_by_id)
+        if missing:
+            raise AssertionError(f"frozen authority is incomplete: {missing}")
         control = self.root / CONTROL
         control.mkdir()
-        lifecycle_fixture.SelectedAtomLifecycleTest._copy_complete_carrier_authority(self)
+        for entry in {**frozen_complete_carrier_authority(), **frozen_graph_authority()}.values():
+            source = self.input_root / entry["source_path"]
+            destination = self.root / entry["source_path"]
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(source, destination)
+            self.assertEqual(entry["sha256"], hashlib.sha256(destination.read_bytes()).hexdigest())
         (control / "caprmedio_project_settings.toml").write_text(
             '[project]\nkey = "status-fixture"\nname = "caprmedio"\nrepository_slug = "status-fixture"\n'
             '[artifacts.identity]\nproject_prefix = "CA"\n'
             '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
             'journal_root = ".caprmedio_caprmedio/_journal"\n', encoding="utf-8",
+        )
+        (control / "operators_registry.toml").write_text(
+            '[[operators]]\nname = "Anatoly Maslennikov"\n'
+            'role = "project owner"\njournal_author = "anatoly-m-maslennikov"\n',
+            encoding="utf-8",
         )
         (control / "project_structure.toml").write_text(
             'schema_version = 1\n\n'
@@ -103,13 +119,14 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             'authority_path = ".caprmedio_caprmedio/fixture"\n'
             'delivery_path = ".caprmedio_caprmedio/fixture"\n', encoding="utf-8",
         )
-        closure = reference_fixture.ProposedRelationAdmissionTest("run")
-        closure.root = self.root
-        closure._copy_verified_authority_closure()
         self.sources: dict[str, Path] = {}
-        for atom_id in AUTHORITY_IDS:
-            source = self.authority_paths[atom_id]
-            destination = self.root / source.relative_to(REPOSITORY)
+        for atom_id in (*AUTHORITY_IDS, *FRONTIER_IDS):
+            source = frozen_by_id[atom_id]
+            relative = source.relative_to(self.input_root)
+            legacy_source = CONTROL / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
+            if relative.is_relative_to(legacy_source):
+                relative = SOURCE / relative.relative_to(legacy_source)
+            destination = self.root / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, destination)
             self.assertEqual(source.read_bytes(), destination.read_bytes())

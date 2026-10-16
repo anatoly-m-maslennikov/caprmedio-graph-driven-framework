@@ -238,6 +238,7 @@ class SharedSourceDrivenStatusTest(unittest.TestCase):
         self.prepare_route()
         path = self.fixture.atom("Requirement", "Active")
         before = native_goldens.atom_from_path(self.root, path)
+        before_version = int(native_goldens.frontmatter_scalar(before.frontmatter, "version"))
         before_raw = path.read_bytes()
         legacy = path.parent / "archive" / f"{path.stem}@2.md"
         legacy.parent.mkdir()
@@ -253,7 +254,7 @@ class SharedSourceDrivenStatusTest(unittest.TestCase):
         after = native_goldens.atom_from_path(self.root, destination)
         self.assertEqual(before.content, after.content)
         self.assertIsNone(native_goldens.frontmatter_scalar(after.frontmatter, "atom_id"))
-        self.assertEqual(3, native["observed"]["version"])
+        self.assertEqual(before_version + 1, native["observed"]["version"])
         history = native["history"]["prior_revision"]
         self.assertEqual("CA-R-8000", history["atom_id"])
         self.assertEqual(before_raw, (self.root / history["path"]).read_bytes())
