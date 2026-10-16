@@ -8,14 +8,14 @@ Eight workers classified all **511** Subjects in the saved inventory. An indepen
 
 | Disposition | Subjects | Meaning |
 | --- | ---: | --- |
-| Mapped | 193 | Candidate target identified; scope and source-specific checks may still be needed |
+| Mapped | 194 | Candidate target identified; scope and source-specific checks may still be needed |
 | Terms | 80 | Shared meaning belongs in Terms, not a new entity node |
-| Remove | 16 | Obsolete concept/reference or dedicated rule; not whole-Atom deletion |
-| Deferred | 13 | Explicitly outside current model work |
-| Unresolved | 209 | 199 mapping-work entries and 10 entries flagging possible Operator decisions |
+| Remove | 18 | Obsolete concept/reference or dedicated rule; not whole-Atom deletion |
+| Deferred | 14 | Explicitly outside current model work |
+| Unresolved | 205 | 204 mapping-work entries and 1 entry flagging a possible Operator decision |
 | Total | 511 | Every inventory index appears exactly once |
 
-**209 unresolved does not mean 209 unanswered questions.** Most need per-source mapping, preserved instance identity, or handling of conflicting old content under already-approved decisions. After the recorded Operator decisions, 10 candidate decision entries remain in seven open families below; they remain review findings, not automatically required questions.
+**205 unresolved does not mean 205 unanswered questions.** Most need per-source mapping, preserved instance identity, or handling of conflicting old content under already-approved decisions. After the recorded Operator decisions, 1 candidate decision entry remains: Structural Path. It remains a review finding, not automatically a required question.
 
 [Complete review map](review-map.json) includes each Subject, candidate target, reason, evidence, affected source IDs and follow-up, including subsequent Operator decisions. The eight part files retain the original worker outputs, not later decisions.
 
@@ -35,11 +35,11 @@ Default Settings belongs in `project_settings.default.toml`, as specified by the
 
 Extension metadata belongs to its existing Scope Unit; enabled-extension selection belongs to Project Settings. No separate `Installed Extensions Catalog Entry` entity. Exact field mapping remains work; mandatory metadata fields are not decided here.
 
-### Framework name ownership
+### Resolved: project and framework names
 
 Framework Instance is resolved: normally Project (`Entity/Continuant/Project`, as supplied by the Operator), or the appropriate Execution for an actual run. No separate Framework Instance entity. Per-source assignment remains mapping work; older Project paths must be reconciled explicitly during migration.
 
-The remaining separate name-ownership check concerns `CAPRMEDIO Framework Identity`; do not reopen Framework Instance.
+The project is `caprmedio`, named in Project Settings TOML. Its result is the framework `CAPRMEDIO`, named by a project-local Atom in Project Configuration. The framework-name rule is not `Project.Name` and does not belong in universal Core. Its exact project-local Subject remains mapping work; do not reopen the ownership decision.
 
 ### Resolved: execution outputs and evidence
 
@@ -47,33 +47,39 @@ Records of what happened during any execution—results, failures and evidence r
 
 Subjects: `Evaluation Report`, `Proof Dependency Frontier`.
 
-### Consumer goals and producer results
+### Resolved: Consumer goals and producer results
 
-Do these name Plan objectives, required outcomes, or Selections of results? Preserve the consumer/producer applicability and do not invent a new root.
+These are old notation. Goals and Demands use Owning Scope Unit and Target Scope Unit; Substance states the result and Substance Scope limits applicability. No separate Consumer Goal / Producer Result entity or mandatory P objective is needed. Per-source field mapping remains work.
 
 Subjects: `Consumer Goal`, `Producer Result`.
 
-### Exploration mode
+### Resolved: drop Exploration Mode
 
-Is this mode still needed, and if so is it execution context or a permission policy?
+Drop the separate mode concept and mode-specific rules; no replacement mode or field. Existing permission rules retain the distinction between discussion and authorization. Source cleanup has not run.
 
 Subjects: `Exploration Mode`.
 
-### Journal snapshot history
+### Resolved: retire Journal Revision
 
-Does this old use mean a historical Journal snapshot or the current Journal's Updated At? Revision belongs under History either way.
+Retire the separate Journal snapshot/revision concept and archive CA-R-1372 during migration. Journal contains event records with their own timestamps; no replacement Journal revision or Journal.Updated At rule is needed. The existing History/Revision branch remains. Source retirement has not run.
 
 Subjects: `Journal/Revision`.
 
-### Projection output kinds
+### Resolved: defer Plan projections
 
-Are Plan Graph and terminology Catalog named uses of existing Projection kinds or distinct kinds? Do not reopen the already-deferred CONTAINS graph.
+Current projection work is RMED only. Defer Plan Graph mapping/type admission and implementation. Do not reopen the deferred CONTAINS graph or retire Plan Atoms, relations or governing rules through this decision.
 
-Subjects: `Plan Graph`, `Terminology Projection Derivation`.
+Subjects: `Plan Graph`.
 
-### Invocation and Tool Call identity
+### Resolved: terminology projection name
 
-Do these need distinguishable execution occurrences beneath a Step Run or generic Execution, or can the run itself represent them? Actual context versus required context is already settled.
+Terms Graph is the newer name for the same terminology projection, not a separate output kind. M114's Subject maps to `Entity/Continuant/Projection/Type: Terms Graph`. Its obsolete Definition-Atom requirement stays for the later content repair using source Atoms and their Semantics. Do not add another Catalog type for this output or retire the generic Catalog type through this decision.
+
+Subjects: `Terminology Projection Derivation`.
+
+### Resolved: Invocation and Tool Call identity
+
+Only Workflows, Steps, nested substeps and Actions are needed for operation definitions. Tool calls and prompts returned to the calling session fit that model; actual executions use existing Runs, and records belong to History. A later MCP call by the main session is optional. Do not add an Invocation/Tool Call entity layer or infer a completion protocol.
 
 Subjects: `Step Run/Invocation`, `Tool Call`.
 
@@ -128,6 +134,7 @@ These entries need source-specific resolution, not renewed approval of the settl
 | 132 | Authorize Structural Change | Mapping work: preserve CA-O-013 identity under the Operations Action kind using admitted instance selection; relocate to Project Configuration. |
 | 135 | Build Entities Graph | Mapping work: retain CA-O-133 instance identity under Operations Workflow; move concrete definition to Project Configuration. |
 | 136 | Build Terms Graph | Mapping work: retain CA-O-136 instance identity under Operations Workflow; move concrete definition to Project Configuration. |
+| 138 | CAPRMEDIO Framework Identity | Mapping work: place the framework-name rule in Project Configuration and determine its precise project-local Subject. Project name stays in Project Settings TOML. |
 | 140 | CAPRMEDIO Framework Instance Carrier Root | Mapping work: resolve Framework Instance first, then govern that represented object/configuration rather than creating a Carrier Root entity; old directory placement needs separate content alignment. |
 | 141 | CAPRMEDIO Graph | Mapping work: separate Term Graph, Projection instances/types and Relation domain properties per source; do not map every use to a new CAPRMEDIO Graph entity. |
 | 142 | CAPRMEDIO Graph.Connectivity | Mapping work: map relation constraints to Relation and represented graph constraints to their Projection kinds; review obsolete General Artifact Graph assumptions separately. |

@@ -77,6 +77,20 @@ Approved mapping: `AI Agent Delegation` → `Entity/Continuant/Actor/Type: AI Ag
 
 14. **Extension metadata and activation:** extension metadata belongs to the extension's existing Scope Unit. Project Settings selects which extensions are enabled. Do not create a separate Installed Extensions Catalog Entry entity. Preserve metadata when remapping; which fields are mandatory is not decided by this ownership change.
 
+15. **Goals and Demands use existing scope references:** Consumer Goal / Producer Result is old notation, not additional entities. Goals and Demands use Owning Scope Unit and Target Scope Unit. Substance states the required result; Substance Scope limits its exact applicability. For a Demand, the owning Scope Unit is the consumer and the target Scope Unit is the producer. Do not confuse a result with its whole Scope Unit or require a separate P objective merely to express a Demand.
+
+16. **Drop Exploration Mode:** remove the separate mode concept and mode-specific rules. Do not introduce a replacement mode, field or mandatory replacement Atom. Discussion versus authorization remains governed by existing permission rules.
+
+17. **Keep the operation model small:** use Workflows, Steps, nested substeps and Actions. A tool call or a prompt given to the calling session is handled as a Step/substep using an Action, not another Invocation/Tool Call entity layer. Actual executions use the existing Runs; records belong to History. The main session may optionally submit another MCP call. Do not infer an automatic continuation, mandatory callback, new lifecycle states or a completion protocol from this decision. Substeps are nested Steps, not an additional root.
+
+18. **Project and framework names are different:** the project is `caprmedio`; its name belongs in Project Settings TOML. The project's result is the framework named `CAPRMEDIO`; that name is defined by a project-local Atom in Project Configuration, not by a universal Core rule. Do not map the framework-name rule to `Project.Name` or duplicate the project-name setting in an Atom. The exact project-local Subject remains mapping work.
+
+19. **Retire Journal Revision:** Journal contains event records with their own timestamps. Retire the separate Journal snapshot/revision concept and archive CA-R-1372 during migration, without a replacement Journal revision or Journal.Updated At rule. This does not remove the existing History/Revision branch or Journal event records. Source retirement has not run.
+
+20. **Projection scope is RMED only for now:** Plan projections are not needed now. Defer Plan Graph mapping/type admission and implementation; do not resume the deferred CONTAINS graph. This does not retire Plan Atoms or their relations, or authorize archiving their governing rules. Existing source Atoms remain unchanged pending later disposition.
+
+21. **Terms Graph is the newer name:** the terminology Catalog/projection and Terms Graph are the same output, not separate kinds. Map M114's `Terminology Projection Derivation` Subject to `Entity/Continuant/Projection/Type: Terms Graph`, following RMED governs the thing. Its obsolete Definition-Atom requirement is a separate content repair: derive meanings from source Atoms and their Semantics under the already-approved model. Do not add another Catalog type for this output. This decision does not retire the generic Catalog type or change source Atoms now.
+
 These decisions supersede the review proposals to create cross-owner property Selections or an `Object/Implementation` branch. They resolve group policy, not every per-Atom mapping.
 
 ## Plan
@@ -140,7 +154,7 @@ Saving this plan alone does not meet that condition.
 
 ## Inputs and limits
 
-- [Candidate #6 recalculated Subject review](../candidate5-migration/next-migration/candidate6-classification/review.md): 511 entries classified; 193 mapped candidates, 80 Terms, 16 removal candidates, 13 deferred, 209 unresolved. This completes inventory triage, not per-occurrence source migration or authoritative adoption.
+- [Candidate #6 recalculated Subject review](../candidate5-migration/next-migration/candidate6-classification/review.md): 511 entries classified; 193 mapped candidates, 80 Terms, 17 removal candidates, 13 deferred, 208 unresolved. This completes inventory triage, not per-occurrence source migration or authoritative adoption.
 
 - [Candidate #5](CA-PROJ-001-CORE_META_MODEL--Entities-Graph-Candidate--Primary-Entities-Candidate-5.md).
 - [Current unmapped Subject review](../candidate5-migration/next-migration/subject-review.md).

@@ -8,8 +8,8 @@ Sequence: rebuild from current Atoms → review unmapped Subjects → approve ma
 
 [Recalculated review](candidate6-classification/review.md) and [complete map](candidate6-classification/review-map.json): all 511 inventory Subjects classified by eight workers, with independent cross-slice review.
 
-- 193 candidate mappings; 80 Terms; 16 removal candidates; 13 deferred.
-- 209 unresolved: 199 source-specific mapping-work entries and 10 entries flagging possible Operator decisions, grouped into seven families. Source collections and extension metadata use existing Scope Units; enabled extensions use Project Settings; Framework Instance means Project or actual Execution; execution-result records belong to History; Default Settings uses `project_settings.default.toml`.
+- 194 candidate mappings; 80 Terms; 18 removal candidates; 14 deferred.
+- 205 unresolved: 204 source-specific mapping-work entries and 1 entry flagging a possible Operator decision (Structural Path). Terms Graph is the newer name for the same terminology projection. Plan projections are deferred; current projection work is RMED only. Journal Revision and CA-R-1372 are approved for retirement, not yet applied. The project name `caprmedio` belongs in Project Settings TOML; the resulting framework name `CAPRMEDIO` belongs in a project-local Atom. Operations uses only Workflows, Steps/substeps and Actions; no extra Invocation/Tool Call layer. Earlier decisions remain recorded in Candidate #6.
 
 The original inventory and explicit-approval counts below are preserved as the input snapshot. Use the recalculated review for current disposition counts. These are review classifications, not an executable migration or source changes.
 

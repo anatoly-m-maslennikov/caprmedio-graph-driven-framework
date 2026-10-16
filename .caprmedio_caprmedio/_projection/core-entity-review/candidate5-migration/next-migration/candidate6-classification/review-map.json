@@ -9,60 +9,15 @@
     "scope": "Reclassification of the saved 511-Subject inventory; representative current source inspection, not a fresh full inventory or content audit."
   },
   "counts": {
-    "mapped": 193,
+    "mapped": 194,
     "terms": 80,
-    "remove": 16,
-    "deferred": 13,
-    "unresolved": 209
+    "remove": 18,
+    "deferred": 14,
+    "unresolved": 205
   },
-  "unresolved_mapping_work": 199,
-  "candidate_operator_decision_entries": 10,
+  "unresolved_mapping_work": 204,
+  "candidate_operator_decision_entries": 1,
   "decision_groups": [
-    {
-      "name": "Framework name ownership",
-      "indices": [
-        138
-      ],
-      "question": "Framework Instance is resolved to Project or actual Execution per source. The separate framework-name rule still needs its exact owner checked; do not reopen Framework Instance as another entity."
-    },
-    {
-      "name": "Consumer goals and producer results",
-      "indices": [
-        185,
-        337
-      ],
-      "question": "Do these name Plan objectives, required outcomes, or Selections of results? Preserve the consumer/producer applicability and do not invent a new root."
-    },
-    {
-      "name": "Exploration mode",
-      "indices": [
-        228
-      ],
-      "question": "Is this mode still needed, and if so is it execution context or a permission policy?"
-    },
-    {
-      "name": "Journal snapshot history",
-      "indices": [
-        280
-      ],
-      "question": "Does this old use mean a historical Journal snapshot or the current Journal's Updated At? Revision belongs under History either way."
-    },
-    {
-      "name": "Projection output kinds",
-      "indices": [
-        331,
-        466
-      ],
-      "question": "Are Plan Graph and terminology Catalog named uses of existing Projection kinds or distinct kinds? Do not reopen the already-deferred CONTAINS graph."
-    },
-    {
-      "name": "Invocation and Tool Call identity",
-      "indices": [
-        442,
-        469
-      ],
-      "question": "Do these need distinguishable execution occurrences beneath a Step Run or generic Execution, or can the run itself represent them? Actual context versus required context is already settled."
-    },
     {
       "name": "Structural path",
       "indices": [
@@ -3014,16 +2969,16 @@
       "subject": "CAPRMEDIO Framework Identity",
       "disposition": "unresolved",
       "target": null,
-      "reason": "R1778 names the framework CAPRMEDIO, but a framework/product name is not necessarily the current Project.Name.",
+      "reason": "Operator confirmed: caprmedio is the project name in Project Settings TOML; CAPRMEDIO is the resulting framework name defined by a project-local Atom, not Project.Name or universal Core.",
       "evidence": [
         "CA-R-1778"
       ],
-      "followup": "Operator question: is the named CAPRMEDIO framework the CAPRMEDIO Project itself, or its delivered product? This determines the owner of its Name.",
+      "followup": "Mapping work: place the framework-name rule in Project Configuration and determine its precise project-local Subject. Preserve the separate project-name setting; do not map this rule to Project.Name.",
       "source_atoms": [
         "CA-R-1778"
       ],
       "source_occurrences": 1,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 139,
@@ -3954,18 +3909,19 @@
       "subject": "Consumer Goal",
       "disposition": "unresolved",
       "target": null,
-      "reason": "The accepted Goal is owned by a Consumer Scope Unit but sources do not establish whether it maps to a Plan Atom or that Atom's Substance.",
+      "reason": "Operator identifies Consumer Goal / Producer Result as old notation. Goals and Demands use Owning Scope Unit and Target Scope Unit; the required result and exact applicability remain Substance and Substance Scope, not separate entities.",
       "evidence": [
         "CA-R-933",
-        "CA-R-951"
+        "CA-R-951",
+        "Operator approval: old notation; now Owning Scope Unit and Target Scope Unit for Goals and Demands."
       ],
-      "followup": "Operator question: is Consumer Goal an accepted Plan Atom/objective, or a different result criterion? Retain owner and dependency until resolved.",
+      "followup": "Mapping work: resolve each old reference to the relevant Goal/Demand Atom's Owning Scope Unit, Target Scope Unit, Substance or Substance Scope. Do not turn Goal into a mandatory Plan, add a result entity, or replace a specific required result with the entire target Scope Unit.",
       "source_atoms": [
         "CA-R-933",
         "CA-R-951"
       ],
       "source_occurrences": 2,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 186,
@@ -4787,19 +4743,20 @@
     {
       "index": 228,
       "subject": "Exploration Mode",
-      "disposition": "unresolved",
+      "disposition": "remove",
       "target": null,
-      "reason": "R1557 constrains when Agent-discovered conflicts are persisted. The owner of this mode is not specified as Agent, Step or Session.",
+      "reason": "Operator approved dropping Exploration Mode. No separate mode entity or replacement mode/field is needed.",
       "evidence": [
-        "CA-R-1557"
+        "CA-R-1557",
+        "Operator approval: yes, we can just drop it."
       ],
-      "followup": "Operator question: is Exploration Mode still needed as a distinct mode? If yes, is it a Step execution/context choice or merely a permission to persist work under AI Agent.Permissions?",
+      "followup": "Mapping work: remove Exploration Mode terminology and mode-specific rules during source migration. Preserve the general distinction between discussion and authorization through existing permission rules; do not add a new mode, field or mandatory replacement Atom.",
       "source_atoms": [
         "CA-R-1557",
         "CA-R-1558"
       ],
       "source_occurrences": 2,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 229,
@@ -5835,19 +5792,19 @@
     {
       "index": 280,
       "subject": "Journal/Revision",
-      "disposition": "unresolved",
+      "disposition": "remove",
       "target": null,
-      "reason": "The Revision root is agreed, but R1372 describes a whole Journal snapshot timestamp rather than an event record.",
+      "reason": "Operator approved retiring the separate Journal snapshot/revision concept and CA-R-1372. Journal contains event records with their own timestamps; the existing History/Revision branch remains.",
       "evidence": [
         "CA-R-1372",
         "Candidate #6 approved Revision mapping"
       ],
-      "followup": "Operator question: Should this become History/Revision scoped to Journal snapshots, or Journal.Updated At? Keep records distinct from snapshots.",
+      "followup": "Retirement approved for migration: archive CA-R-1372 without a replacement Journal revision or Journal.Updated At rule. Source Atom remains unchanged until migration.",
       "source_atoms": [
         "CA-R-1372"
       ],
       "source_occurrences": 1,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 281,
@@ -6784,14 +6741,14 @@
     {
       "index": 331,
       "subject": "Plan Graph",
-      "disposition": "unresolved",
+      "disposition": "deferred",
       "target": null,
-      "reason": "R1593 defines a Projection of Plan relations, but Candidate #5 does not admit a Plan Graph Type.",
+      "reason": "Operator deferred Plan projections: current projection work is RMED only. No Plan Graph Type is admitted by this decision.",
       "evidence": [
         "CA-R-1593",
         "CA-R-1579"
       ],
-      "followup": "Operator question: should Plan Graph be a named Map projection of Plans, or an additional Projection Type? Do not invent the Type during migration.",
+      "followup": "Leave Plan projection sources unchanged for now. Do not implement Plan Graph or resume CONTAINS work; preserve existing Plan rules and references for later disposition.",
       "source_atoms": [
         "CA-E-507",
         "CA-R-1579",
@@ -6799,7 +6756,7 @@
         "CA-R-1593"
       ],
       "source_occurrences": 4,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 332,
@@ -6907,18 +6864,19 @@
       "subject": "Producer Result",
       "disposition": "unresolved",
       "target": null,
-      "reason": "Demand targets a specific producer result, not the whole target Scope Unit; no result representation is fixed here.",
+      "reason": "Operator identifies Consumer Goal / Producer Result as old notation. Goals and Demands use Owning Scope Unit and Target Scope Unit; the required result and exact applicability remain Substance and Substance Scope, not separate entities.",
       "evidence": [
         "CA-R-933",
-        "CA-R-945"
+        "CA-R-945",
+        "Operator approval: old notation; now Owning Scope Unit and Target Scope Unit for Goals and Demands."
       ],
-      "followup": "Operator question: should the constrained result be represented only by Demand.Substance Scope, or remain a named Selection of the target Scope Unit's results?",
+      "followup": "Mapping work: resolve each old reference to the relevant Goal/Demand Atom's Owning Scope Unit, Target Scope Unit, Substance or Substance Scope. Do not turn Goal into a mandatory Plan, add a result entity, or replace a specific required result with the entire target Scope Unit.",
       "source_atoms": [
         "CA-R-933",
         "CA-R-951"
       ],
       "source_occurrences": 2,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 338,
@@ -8893,20 +8851,21 @@
       "subject": "Step Run/Invocation",
       "disposition": "unresolved",
       "target": null,
-      "reason": "Invocation is an actual Step Run occurrence, but sources may require identifying individual deliveries separately.",
+      "reason": "Operator limits the operation model to Workflows, Steps, nested substeps and Actions. A tool call or a prompt returned to the calling session is handled through this model, not another Invocation/Tool Call entity layer.",
       "evidence": [
         "CA-R-1791",
         "CA-R-1792",
-        "CA-R-1793"
+        "CA-R-1793",
+        "Operator decision: all steps, possibly substeps; only workflows, steps, substeps and actions. Main session may optionally submit another MCP call."
       ],
-      "followup": "Operator question: Can Invocation fold into Step Run with invocation identity retained, or is a distinct per-run occurrence necessary? Do not invent Step Run/Invocation.",
+      "followup": "Mapping work: map definition uses to the applicable Step/substep or Action, actual execution uses to the existing Run, and records to History. Preserve parentage and distinguish attempts. Do not add Invocation/Tool Call entities, mandatory callback/continuation, new states or an assumed completion protocol. The main session's later MCP call is optional.",
       "source_atoms": [
         "CA-R-1791",
         "CA-R-1792",
         "CA-R-1793"
       ],
       "source_occurrences": 3,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 443,
@@ -9426,19 +9385,19 @@
     {
       "index": 466,
       "subject": "Terminology Projection Derivation",
-      "disposition": "unresolved",
-      "target": null,
-      "reason": "M114 explicitly builds a terminology Catalog while newer decisions describe a Terms Graph; these cannot be silently equated.",
+      "disposition": "mapped",
+      "target": "Entity/Continuant/Projection/Type: Terms Graph",
+      "reason": "Operator confirmed Terms Graph is the newer name for the same terminology projection, not another output kind. The Method governs that projection, not a derivation procedure entity.",
       "evidence": [
         "CA-M-114",
         "approved RMED governs thing"
       ],
-      "followup": "Operator question: retain terminology Catalog as a distinct Projection type/use, or replace this source's output with Terms Graph? Its Definition-Atom requirement also conflicts with derived Semantics.",
+      "followup": "Map the Subject to Terms Graph during migration. Separately repair M114's obsolete Definition-Atom requirement using the approved source-Atom/Semantics derivation model in the later content migration; do not add a separate Catalog type for this output.",
       "source_atoms": [
         "CA-M-114"
       ],
       "source_occurrences": 1,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 467,
@@ -9495,19 +9454,20 @@
       "subject": "Tool Call",
       "disposition": "unresolved",
       "target": null,
-      "reason": "Actual invocation is an Occurrent; evidence is Journal content and calls are not automatically Step Runs.",
+      "reason": "Operator limits the operation model to Workflows, Steps, nested substeps and Actions. A tool call or a prompt returned to the calling session is handled through this model, not another Invocation/Tool Call entity layer.",
       "evidence": [
         "CA-R-1528",
-        "CA-R-1511"
+        "CA-R-1511",
+        "Operator decision: all steps, possibly substeps; only workflows, steps, substeps and actions. Main session may optionally submit another MCP call."
       ],
-      "followup": "Operator question: model Tool Call under generic Execution without a new kind, or admit a Tool Call execution subtype? Keep record Subjects separate.",
+      "followup": "Mapping work: map definition uses to the applicable Step/substep or Action, actual execution uses to the existing Run, and records to History. Preserve parentage and distinguish attempts. Do not add Invocation/Tool Call entities, mandatory callback/continuation, new states or an assumed completion protocol. The main session's later MCP call is optional.",
       "source_atoms": [
         "CA-M-304",
         "CA-R-1511",
         "CA-R-1528"
       ],
       "source_occurrences": 3,
-      "followup_kind": "candidate_operator_decision"
+      "followup_kind": "mapping_or_content_work"
     },
     {
       "index": 470,
