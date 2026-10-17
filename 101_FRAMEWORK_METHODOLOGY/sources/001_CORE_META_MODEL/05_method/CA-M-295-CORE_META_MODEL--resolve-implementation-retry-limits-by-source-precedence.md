@@ -1,22 +1,15 @@
 ---
-version: 9
-updated_at: "2026-09-28 15:12:22 +0400"
+version: 11
+updated_at: "2026-10-15 18:48:24 +0000"
 relations:
   child_of:
     - CA-R-1489
   depends_on:
     - CA-M-279
 subjects:
-  governs: "Implementation Retry Limit/resolution"
+  governs: "Implementation Retry Limit"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Implementation Retry Limit"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Hub Atom"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Atom/Content Role: Plan/Type: Plan/Carrier"
+    ["Atom/Content Role: Plan/Type: Plan", "Implementation Retry Limit", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Hub Atom", "Plan Atom Carrier"]
 atom_id: "CA-M-295"
 content_role: "Method"
 current_scope_unit: "CORE_META_MODEL"

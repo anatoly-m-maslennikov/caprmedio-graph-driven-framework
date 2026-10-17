@@ -2,13 +2,9 @@
 subjects:
   governs: "Atom/Content Role"
   depends_on:
-    - "Atom/Claim"
-    - "Spec Content Roles"
-    - "Change Content Roles"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Subjects"
-version: 4
-updated_at: "2026-10-03 00:06:54 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Spec Content Roles", "Change Content Roles", "Implementation", "Entity/Continuant/Object/Atom.Subjects"]
+version: 6
+updated_at: "2026-10-15 18:44:13 +0000"
 relations: {"relates_to": ["CA-R-1531", "CA-R-1548", "CA-R-1549", "CA-R-1343"]}
 atom_id: "CA-R-1550"
 content_role: "Requirement"

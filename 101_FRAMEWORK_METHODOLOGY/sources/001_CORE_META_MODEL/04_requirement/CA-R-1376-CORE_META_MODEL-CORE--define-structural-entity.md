@@ -2,11 +2,9 @@
 subjects:
   governs: "Structural Entity"
   depends_on:
-    - "Entity"
-    - "Primary Entity"
-    - "Structural Entity/Direct Containment"
-version: 12
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Entity", "Primary Entity", "Structural Entity Direct Containment"]
+version: 13
+updated_at: "2026-10-15 12:21:36 +0000"
 relations: {}
 atom_id: "CA-R-1376"
 content_role: "Requirement"

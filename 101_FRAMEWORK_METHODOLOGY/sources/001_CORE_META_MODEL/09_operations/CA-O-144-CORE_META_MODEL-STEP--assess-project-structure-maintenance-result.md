@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Project Structure Maintenance Result Assessment Step"
-  depends_on: [Step, Action, Workflow, Workflow Run, Step Run, "Step/Agentic Execution Context"]
-version: 2
-updated_at: "2026-10-04 17:42:12 +0000"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Agentic Step Execution Context"]
+version: 4
+updated_at: "2026-10-15 18:53:34 +0000"
 relations:
   relates_to: [CA-O-015, CA-O-005, CA-O-143, CA-R-1509, CA-R-1510, CA-R-1511, CA-R-1527]
 ---

@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "File Carrier"
+  governs: "Entity/Carrier/File Carrier"
   depends_on:
-    - "Project"
-    - "Project-Owned Carrier Root"
-version: 4
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Entity/Continuant/Object/Project", "Entity/Carrier/Directory Carrier"]
+version: 6
+updated_at: "2026-10-16 12:09:31 +0000"
 relations: {}
 atom_id: "CA-D-452"
 content_role: "Delivery"

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Hub/Carrier/Navigation Entry"
+  governs: "Hub Carrier.Navigation Entry"
   depends_on: []
-version: 11
-updated_at: "2026-10-02 19:18:22 +0400"
+version: 12
+updated_at: "2026-10-15 12:18:12 +0000"
 relations: {}
 atom_id: "CA-D-331"
 content_role: "Delivery"

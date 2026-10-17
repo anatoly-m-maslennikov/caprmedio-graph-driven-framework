@@ -2,14 +2,9 @@
 subjects:
   governs: "Dependency Order Derivation"
   depends_on:
-    - "DEPENDS_ON"
-    - "DERIVED_FROM"
-    - "Atom/Direct Relation Serialization"
-    - "Artifact/Revision"
-    - "Artifact"
-    - "Atom/Content Role: Plan/Type: Plan"
-version: 11
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["DEPENDS_ON", "DERIVED_FROM", "Atom Direct Relation", "Artifact", "Atom/Content Role: Plan/Type: Plan"]
+version: 12
+updated_at: "2026-10-15 12:19:48 +0000"
 relations:
   child_of:
     - CA-M-120

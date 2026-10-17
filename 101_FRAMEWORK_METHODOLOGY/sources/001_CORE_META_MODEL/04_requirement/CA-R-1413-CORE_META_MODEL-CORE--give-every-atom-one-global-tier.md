@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Global Tier"
+  governs: "Entity/Continuant/Object/Atom.Global Tier"
   depends_on:
-    - "Atom"
-version: 9
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Entity/Continuant/Object/Atom"]
+version: 11
+updated_at: "2026-10-15 18:42:47 +0000"
 relations: {}
 atom_id: "CA-R-1413"
 content_role: "Requirement"

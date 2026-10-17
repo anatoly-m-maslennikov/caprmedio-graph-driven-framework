@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/framework control-root locator"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Framework Control-Root Locator"
   depends_on:
-    - "Framework Instance Settings"
-    - "Project"
-    - "Directory Carrier"
-version: 8
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project", "Entity/Carrier/Directory Carrier"]
+version: 10
+updated_at: "2026-10-15 18:51:36 +0000"
 relations:
   child_of:
     - "CA-D-361"

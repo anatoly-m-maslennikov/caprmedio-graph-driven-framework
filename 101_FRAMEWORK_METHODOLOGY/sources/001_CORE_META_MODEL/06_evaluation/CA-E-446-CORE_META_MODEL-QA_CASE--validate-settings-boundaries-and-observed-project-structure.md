@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Project Structure"
+  governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    - "Project Settings"
-    - "Framework Instance Settings"
-    - "Project"
-    - "Scope Unit"
-    - "Goal"
-    - "Carrier"
-    - "Applicable Methodology"
-version: 12
-updated_at: "2026-10-02 20:09:13 +0400"
+    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Projection/Type: Applicable Methodology"]
+version: 14
+updated_at: "2026-10-15 18:49:20 +0000"
 relations:
   evaluation_for:
     - "CA-R-1483"

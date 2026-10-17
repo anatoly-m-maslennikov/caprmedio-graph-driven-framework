@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Member Selection"
+  governs: "Applicable Methodology Membership Selection"
   depends_on:
-    - "Atom/Content Role"
-    - "Entity/Type/Status"
-version: 16
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Atom/Content Role", "Atom/Type.Status"]
+version: 17
+updated_at: "2026-10-15 12:21:28 +0000"
 relations: {}
 atom_id: "CA-R-1315"
 content_role: "Requirement"

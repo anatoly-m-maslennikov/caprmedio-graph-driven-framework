@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Implementation"
+  governs: "Implementation"
   depends_on:
     - "Atom/Content Role"
     - "Claim"
-version: 11
-updated_at: "2026-10-04 22:08:39 +0000"
+version: 12
+updated_at: "2026-10-15 12:21:31 +0000"
 relations: {}
 atom_id: "CA-R-1343"
 content_role: "Requirement"

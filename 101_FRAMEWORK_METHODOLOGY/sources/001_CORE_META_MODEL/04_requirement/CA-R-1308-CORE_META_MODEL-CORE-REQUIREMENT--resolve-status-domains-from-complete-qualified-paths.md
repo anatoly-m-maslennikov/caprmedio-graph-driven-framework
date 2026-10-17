@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Artifact/Revision/Status"
+  governs: "Artifact.Status"
   depends_on:
     - "Artifact/Type"
     - "Atom/Content Role"
     - "Type"
-version: 11
-updated_at: "2026-10-02 21:52:05 +0400"
+version: 12
+updated_at: "2026-10-15 12:21:24 +0000"
 relations: {}
 atom_id: "CA-R-1308"
 content_role: "Requirement"

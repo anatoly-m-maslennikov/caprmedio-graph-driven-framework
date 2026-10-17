@@ -8,21 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 5
+updated_at: "2026-10-15 18:53:53 +0000"
 subjects:
-  governs: "Applicable Methodology Compilation/Step: correct"
+  governs: "Applicable Methodology Compilation Correct Step"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Applicable Methodology"
-    - "Apply Approved Source Corrections"
-    - "Operator"
-    - "Journal/Record"
-    - "Methodology Source"
-    - "Atom/Claim"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Apply Approved Source Corrections", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal.Record", "Methodology Source", "Entity/Continuant/Object/Atom.Substance"]
 relations:
   relates_to: [CA-O-011, CA-O-008]
 ---

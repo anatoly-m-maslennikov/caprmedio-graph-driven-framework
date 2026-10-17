@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Carrier"
+  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    - "Applicable Methodology"
-    - "Applicable Methodology/Sources"
-version: 12
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set"]
+version: 14
+updated_at: "2026-10-15 18:50:38 +0000"
 relations: {}
 atom_id: "CA-D-253"
 content_role: "Delivery"

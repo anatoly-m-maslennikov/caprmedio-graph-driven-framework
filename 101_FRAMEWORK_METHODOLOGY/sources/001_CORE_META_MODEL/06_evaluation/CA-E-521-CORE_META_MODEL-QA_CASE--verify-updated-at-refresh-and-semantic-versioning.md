@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Updated At"
+  governs: "Entity/Continuant/Object/Atom.Updated At"
   depends_on:
-    - "Evaluation"
-    - "Atom/Revision"
-    - "Artifact/Carrier"
-    - "Atom/Revision/Version"
-    - "Atom/Revision/Status"
-    - "Atom/Summary"
-    - "Atom/Identifier"
-    - "Entity"
-version: 2
-updated_at: "2026-10-13 04:51:40 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier", "Entity/Continuant/Object/Atom.Version Number", "Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.ID", "Entity"]
+version: 5
+updated_at: "2026-10-16 12:09:10 +0000"
 relations:
   evaluation_for:
     - CA-D-270

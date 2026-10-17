@@ -2,14 +2,9 @@
 subjects:
   governs: "Apply Structural Change"
   depends_on:
-    - "Action"
-    - "Project Structure"
-    - "Operator"
-    - "Carrier"
-    - "Goal"
-    - "Journal"
-version: 5
-updated_at: "2026-10-04 15:08:26 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Actor/Type: Operator", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/History/Journal"]
+version: 6
+updated_at: "2026-10-15 18:52:48 +0000"
 relations: {}
 atom_id: "CA-O-014"
 content_role: "Operations"

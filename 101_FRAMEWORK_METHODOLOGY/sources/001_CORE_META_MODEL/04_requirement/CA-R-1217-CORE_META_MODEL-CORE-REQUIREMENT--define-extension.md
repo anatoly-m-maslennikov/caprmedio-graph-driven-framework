@@ -2,11 +2,9 @@
 subjects:
   governs: "Extension"
   depends_on:
-    - "Methodology Source"
-    - "Core Meta-Model"
-    - "Methodology Source/Expansion Boundary"
-version: 11
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["Methodology Source", "Core Meta-Model", "Methodology Source.Expansion Boundary"]
+version: 12
+updated_at: "2026-10-15 12:21:12 +0000"
 relations: {}
 atom_id: "CA-R-1217"
 content_role: "Requirement"

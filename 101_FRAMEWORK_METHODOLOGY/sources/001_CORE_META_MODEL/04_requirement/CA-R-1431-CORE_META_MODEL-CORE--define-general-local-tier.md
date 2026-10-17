@@ -1,18 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Local Tier: General"
+  governs: "Entity/Continuant/Object/Atom.Local Tier: General"
   depends_on:
-    - "Atom/Local Tier"
-    - "Atom/Global Tier"
-    - "Atom/Claim"
-    - "Atom/Content Role"
-    - "Spec Content Roles"
-    - "Atom/Local Tier: Core"
-    - "Atom/Local Tier: Standard"
-    - "Entity"
-    - "Scope Unit"
-version: 10
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Atom.Substance", "Atom/Content Role", "Spec Content Roles", "Entity/Continuant/Object/Atom.Local Tier: Core", "Entity/Continuant/Object/Atom.Local Tier: Standard", "Entity", "Entity/Continuant/Object/Scope Unit"]
+version: 12
+updated_at: "2026-10-15 18:42:55 +0000"
 relations: {"relates_to": ["CA-R-1573"]}
 atom_id: "CA-R-1431"
 content_role: "Requirement"

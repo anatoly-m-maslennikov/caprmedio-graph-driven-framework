@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Metamodel/Fractality"
+  governs: "Entity/Continuant/Object/Scope Unit"
   depends_on:
-    - "Scope Unit"
-version: 17
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Entity/Continuant/Object/Scope Unit"]
+version: 20
+updated_at: "2026-10-16 12:08:55 +0000"
 relations:
   child_of:
     - CA-R-1719

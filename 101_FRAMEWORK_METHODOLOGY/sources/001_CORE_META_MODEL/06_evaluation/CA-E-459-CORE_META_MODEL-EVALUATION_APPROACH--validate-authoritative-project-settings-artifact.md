@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings Validation"
+  governs: "Entity/Continuant/Project.Settings"
   depends_on:
-    - "Project Settings"
-    - "Project Settings/Authoritative Carrier"
-    - "Project Settings/Revision Binding"
-    - "Project Name"
-    - "Atom/Identifier/Project Prefix"
-    - "Framework Instance Settings"
-    - "CORE_META_MODEL"
-version: 19
-updated_at: "2026-10-13 22:52:30 +0400"
+    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Settings.Revision Binding", "Entity/Continuant/Project.Settings.Project Name", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Scope Unit"]
+version: 22
+updated_at: "2026-10-16 12:09:05 +0000"
 relations:
   evaluation_for:
     - CA-R-1738

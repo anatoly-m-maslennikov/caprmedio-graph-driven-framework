@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Carrier"
+  governs: "Entity/Carrier"
   depends_on:
     - "Primary Entity"
-version: 14
-updated_at: "2026-10-02 19:36:21 +0400"
+version: 15
+updated_at: "2026-10-15 18:51:54 +0000"
 relations: {}
 atom_id: "CA-D-414"
 content_role: "Delivery"

@@ -2,11 +2,9 @@
 subjects:
   governs: "Content Role Naming"
   depends_on:
-    - "Atom/Content Role/Name"
-    - "Author"
-    - "Status"
-version: 10
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Atom/Content Role", "Author", "Status"]
+version: 11
+updated_at: "2026-10-15 12:19:57 +0000"
 relations: {}
 atom_id: "CA-M-287"
 content_role: "Method"

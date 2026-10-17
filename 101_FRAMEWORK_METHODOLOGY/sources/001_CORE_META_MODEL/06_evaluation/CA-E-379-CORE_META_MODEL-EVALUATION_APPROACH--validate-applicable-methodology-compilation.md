@@ -2,18 +2,9 @@
 subjects:
   governs: "Applicable Methodology Compilation"
   depends_on:
-    - "Applicable Methodology"
-    - "Applicable Methodology/Sources"
-    - "Project Configuration"
-    - "Extension"
-    - "Framework Instance Settings"
-    - "Methodology Source/Expansion Boundary"
-    - "Atom/Revision"
-    - "Atom/Claim"
-    - "Operator"
-    - "Journal/Record"
-version: 21
-updated_at: "2026-10-02 19:57:02 +0400"
+    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set", "Project Configuration", "Extension", "Entity/Continuant/Object/Project.Framework Settings", "Methodology Source.Expansion Boundary", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal.Record"]
+version: 23
+updated_at: "2026-10-15 18:49:00 +0000"
 relations:
   evaluation_for:
     - CA-D-305

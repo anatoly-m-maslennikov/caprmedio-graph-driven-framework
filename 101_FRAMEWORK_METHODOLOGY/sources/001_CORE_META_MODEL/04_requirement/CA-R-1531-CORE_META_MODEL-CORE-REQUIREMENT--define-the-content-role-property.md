@@ -2,11 +2,9 @@
 subjects:
   governs: "Atom/Content Role"
   depends_on:
-    - "Atom"
-    - "Property"
-    - "Atom/Claim"
-version: 4
-updated_at: "2026-10-03 00:05:13 +0400"
+    ["Entity/Continuant/Object/Atom", "Property", "Entity/Continuant/Object/Atom.Substance"]
+version: 6
+updated_at: "2026-10-15 18:44:02 +0000"
 relations: {}
 atom_id: "CA-R-1531"
 content_role: "Requirement"

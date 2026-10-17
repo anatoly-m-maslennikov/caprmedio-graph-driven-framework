@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Project-Owned Markdown Atom Carrier/Filename"
+  governs: "Entity/Carrier/File Carrier.Filename"
   depends_on:
-    - "Atom/Identifier"
-    - "Atom/Revision"
-    - "Atom/Summary"
-    - "Atom/Scope"
-version: 13
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Owning Scope Unit"]
+version: 16
+updated_at: "2026-10-16 12:09:12 +0000"
 relations: {}
 atom_id: "CA-D-283"
 content_role: "Delivery"

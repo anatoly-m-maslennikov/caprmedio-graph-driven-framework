@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Delivery/Status"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Delivery.Status"
   depends_on:
-    - "Atom/Content Role: Delivery"
-version: 9
-updated_at: "2026-10-02 22:41:14 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Delivery"]
+version: 11
+updated_at: "2026-10-15 18:42:37 +0000"
 relations: {}
 atom_id: "CA-R-1399"
 content_role: "Requirement"

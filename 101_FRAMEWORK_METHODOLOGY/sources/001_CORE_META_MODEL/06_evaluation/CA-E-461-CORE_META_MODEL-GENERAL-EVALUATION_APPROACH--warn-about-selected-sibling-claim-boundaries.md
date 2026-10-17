@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim"
+  governs: "Entity/Continuant/Object/Atom.Substance"
   depends_on:
-    - "Atom"
-    - "Atom/Content Role: Evaluation"
-    - "Scope Unit"
-    - "Atom/Claim/Target Scope Unit"
-version: 9
-updated_at: "2026-10-01 21:31:46 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit"]
+version: 11
+updated_at: "2026-10-15 18:49:31 +0000"
 relations: {}
 atom_id: "CA-E-461"
 content_role: "Evaluation"

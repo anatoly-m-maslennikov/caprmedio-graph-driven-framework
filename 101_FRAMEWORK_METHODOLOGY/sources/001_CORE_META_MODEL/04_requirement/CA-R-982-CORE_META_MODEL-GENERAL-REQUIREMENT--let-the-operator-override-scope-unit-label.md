@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Label"
+  governs: "Entity/Continuant/Object/Scope Unit.Label"
   depends_on:
-    - "Operator"
-    - "Scope Unit/Type"
-version: 15
-updated_at: "2026-10-02 21:09:50 +0400"
+    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Scope Unit/Type"]
+version: 18
+updated_at: "2026-10-16 12:09:00 +0000"
 relations:
   child_of:
     - CA-R-972

@@ -9,10 +9,10 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Step"
-  depends_on: ["Assess Atom Update Identity", "Step Run", "Workflow Run", "Step/Agentic Execution Context"]
-version: 2
-updated_at: "2026-10-04 17:12:08 +0000"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"
+  depends_on: ["Assess Atom Update Identity", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Agentic Step Execution Context"]
+version: 4
+updated_at: "2026-10-15 18:53:36 +0000"
 relations:
   relates_to: [CA-O-067, CA-M-303, CA-R-1509, CA-R-1511, CA-R-1527]
 ---

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Scope"
+  governs: "Atom Scope"
   depends_on:
-    - "Atom"
-version: 18
-updated_at: "2026-09-29 17:10:13 +0000"
+    ["Entity/Continuant/Object/Atom"]
+version: 20
+updated_at: "2026-10-15 18:46:49 +0000"
 relations: {}
 atom_id: "CA-R-920"
 content_role: "Requirement"

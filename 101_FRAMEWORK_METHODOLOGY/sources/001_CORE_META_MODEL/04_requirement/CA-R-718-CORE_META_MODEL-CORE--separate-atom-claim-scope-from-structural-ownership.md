@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim/Target Scope Unit"
+  governs: "Entity/Continuant/Object/Atom.Target Scope Unit"
   depends_on:
-    - "Atom/Claim"
-    - "Scope Unit"
-    - "Project Structure"
-    - "Markdown Atom Carrier/Main Content"
-version: 22
-updated_at: "2026-09-29 04:08:45 +0000"
+    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Atom.Substance Scope"]
+version: 25
+updated_at: "2026-10-16 12:08:51 +0000"
 relations:
   child_of:
     - CA-R-1776

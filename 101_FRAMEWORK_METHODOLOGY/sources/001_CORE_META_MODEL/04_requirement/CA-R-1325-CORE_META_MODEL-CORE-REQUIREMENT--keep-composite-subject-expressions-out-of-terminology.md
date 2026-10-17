@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Catalog"
+  governs: "Entity/Continuant/Projection/Type: Catalog"
   depends_on:
-    - "Subject Expression"
-    - "Term"
-version: 8
-updated_at: "2026-10-02 22:05:04 +0400"
+    ["Subject Expression", "Entity/Continuant/Term"]
+version: 9
+updated_at: "2026-10-15 18:41:53 +0000"
 relations: {}
 atom_id: "CA-R-1325"
 content_role: "Requirement"

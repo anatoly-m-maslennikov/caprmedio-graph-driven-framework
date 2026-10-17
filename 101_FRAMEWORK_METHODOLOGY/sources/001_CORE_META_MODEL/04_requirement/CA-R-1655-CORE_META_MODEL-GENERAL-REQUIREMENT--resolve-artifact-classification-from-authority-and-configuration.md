@@ -2,19 +2,9 @@
 subjects:
   governs: "Artifact Classification Resolution"
   depends_on:
-    - "Artifact"
-    - "Atom"
-    - "Atom/Content Role"
-    - "Type"
-    - "Applicable Methodology"
-    - "Project Configuration"
-    - "Project Structure"
-    - "Scope Unit Graph"
-    - "Journal"
-    - "Projection"
-    - "Authority Mode"
-version: 25
-updated_at: "2026-10-03 01:41:15 +0400"
+    ["Artifact", "Entity/Continuant/Object/Atom", "Atom/Content Role", "Type", "Entity/Continuant/Projection/Type: Applicable Methodology", "Project Configuration", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Projection/Type: Scope Unit Graph", "Entity/Continuant/History/Journal", "Entity/Continuant/Projection", "Authority Mode"]
+version: 26
+updated_at: "2026-10-15 18:45:18 +0000"
 relations: {}
 atom_id: "CA-R-1655"
 content_role: "Requirement"

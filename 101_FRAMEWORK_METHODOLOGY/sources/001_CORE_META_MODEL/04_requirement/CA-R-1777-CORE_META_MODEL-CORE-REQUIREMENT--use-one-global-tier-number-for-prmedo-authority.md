@@ -1,22 +1,14 @@
 ---
-version: 20
-updated_at: "2026-10-03 03:44:15 +0400"
+version: 23
+updated_at: "2026-10-16 12:08:46 +0000"
 relations:
   child_of:
     - "CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary"
     - "CA-R-1407"
 subjects:
-  governs: "Atom/Global Tier"
+  governs: "Entity/Continuant/Object/Atom.Global Tier"
   depends_on:
-    - "Atom"
-    - "CAPRMEDIO Framework Instance"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Plan"
-    - "Atom/Content Role: Operations"
-
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Project", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Operations"]
 atom_id: "CA-R-1777"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"

@@ -2,14 +2,9 @@
 subjects:
   governs: "Single Source of Truth"
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Project Structure"
-    - "Structural Entity"
-    - "Journal"
-    - "Projection"
-version: 7
-updated_at: "2026-10-04 22:02:40 +0000"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Project.Structure", "Structural Entity", "Entity/Continuant/History/Journal", "Entity/Continuant/Projection"]
+version: 9
+updated_at: "2026-10-15 18:43:27 +0000"
 relations: {}
 atom_id: "CA-R-1470"
 content_role: "Requirement"

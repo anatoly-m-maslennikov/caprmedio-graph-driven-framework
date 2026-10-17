@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Updated At"
+  governs: "Entity/Continuant/Object/Atom.Updated At"
   depends_on:
-    - "Atom/Revision"
-    - "Artifact/Carrier"
-    - "Entity"
-    - "Atom/Revision/Status"
-    - "Artifact/Carrier Placement"
-version: 3
-updated_at: "2026-10-13 19:53:16 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier", "Entity", "Entity/Continuant/Object/Atom.Status", "Entity/Carrier.Canonical Address"]
+version: 6
+updated_at: "2026-10-16 12:08:47 +0000"
 claim_target_scope_unit: "CORE_META_MODEL"
 relations:
   child_of:

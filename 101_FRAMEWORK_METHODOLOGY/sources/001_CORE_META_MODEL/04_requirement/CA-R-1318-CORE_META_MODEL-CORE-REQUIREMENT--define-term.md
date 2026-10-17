@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Term"
+  governs: "Entity/Continuant/Term"
   depends_on:
-    - "Project"
-version: 11
-updated_at: "2026-09-27 21:59:50 +0000"
+    ["Entity/Continuant/Object/Project"]
+version: 12
+updated_at: "2026-10-15 18:41:50 +0000"
 relations: {}
 atom_id: "CA-R-1318"
 content_role: "Requirement"

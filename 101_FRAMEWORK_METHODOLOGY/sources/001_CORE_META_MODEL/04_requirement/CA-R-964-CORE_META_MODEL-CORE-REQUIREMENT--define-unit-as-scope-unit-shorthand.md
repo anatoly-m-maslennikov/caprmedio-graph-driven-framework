@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Unit"
+  governs: "Entity/Continuant/Object/Scope Unit"
   depends_on:
-    - "semantics"
-    - "scope-topology"
-version: 14
-updated_at: "2026-10-02 21:09:50 +0400"
+    ["Entity/Continuant/Object/Scope Unit"]
+version: 15
+updated_at: "2026-10-16 12:08:58 +0000"
 relations: {}
 atom_id: "CA-R-964"
 content_role: "Requirement"

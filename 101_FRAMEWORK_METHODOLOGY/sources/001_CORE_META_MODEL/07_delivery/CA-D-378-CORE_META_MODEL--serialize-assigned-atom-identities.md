@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Identifier"
+  governs: "Entity/Continuant/Object/Atom.ID"
   depends_on:
-    - "Atom/Content Role"
-    - "Project"
-    - "Atom/Content Role: Plan/Type: Plan/Identifier"
-version: 10
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom/Content Role: Plan.ID"]
+version: 13
+updated_at: "2026-10-16 12:09:22 +0000"
 relations: {}
 atom_id: "CA-D-378"
 content_role: "Delivery"

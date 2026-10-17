@@ -1,16 +1,11 @@
 ---
-version: 13
-updated_at: "2026-10-01 21:31:46 +0400"
+version: 15
+updated_at: "2026-10-15 18:49:16 +0000"
 relations: {"child_of":["CA-E-001"],"evaluation_for":["CA-O-024","CA-O-016","CA-R-1559","CA-M-295"]}
 subjects:
   governs: "Implementation Retry Control"
   depends_on:
-    - "Operator"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold"
-    - "Project"
-    - "Implementation Retry Limit"
+    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Plan.Autonomous Confidence Threshold", "Entity/Continuant/Object/Project", "Implementation Retry Limit"]
 atom_id: "CA-E-441"
 content_role: "Evaluation"
 current_scope_unit: "CORE_META_MODEL"

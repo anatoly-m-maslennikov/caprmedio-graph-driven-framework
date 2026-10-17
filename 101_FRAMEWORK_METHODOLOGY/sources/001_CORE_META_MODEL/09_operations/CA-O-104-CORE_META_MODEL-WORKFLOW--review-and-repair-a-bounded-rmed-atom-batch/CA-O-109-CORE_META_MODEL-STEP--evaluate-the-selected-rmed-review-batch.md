@@ -8,18 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 9
+updated_at: "2026-10-15 18:54:05 +0000"
 subjects:
   governs: "RMED Review Evaluation Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Step/Agentic Execution Context"
-    - "Workflow Run"
-    - "Step Run"
-    - "Journal"
-    - "Evaluation/Report"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/History/Journal", "Evaluation Report"]
 relations: {"relates_to":["CA-O-106"]}
 ---
 # Summary

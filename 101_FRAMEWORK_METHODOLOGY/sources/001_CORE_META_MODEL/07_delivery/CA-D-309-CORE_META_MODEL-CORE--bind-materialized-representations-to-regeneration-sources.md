@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Materialized Representation/Carrier"
+  governs: "Materialized Representation"
   depends_on:
-    - "Artifact/Revision"
-version: 12
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Artifact"]
+version: 13
+updated_at: "2026-10-15 12:18:08 +0000"
 relations: {}
 atom_id: "CA-D-309"
 content_role: "Delivery"

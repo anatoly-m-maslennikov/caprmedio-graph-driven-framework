@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Confidence.Semantic Resolution Threshold"
   depends_on:
-    - "Framework Instance Settings"
-    - "Confidence Threshold"
-version: 8
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Confidence Threshold"]
+version: 10
+updated_at: "2026-10-15 18:51:36 +0000"
 relations:
   child_of:
     - "CA-D-361"

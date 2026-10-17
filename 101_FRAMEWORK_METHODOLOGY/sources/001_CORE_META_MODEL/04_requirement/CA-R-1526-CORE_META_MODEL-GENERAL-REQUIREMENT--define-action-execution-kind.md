@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Action/Execution Kind"
+  governs: "Atom/Content Role: Operations/Type: Action/Execution Kind"
   depends_on:
-    - "Action"
-    - "AI Agent"
-    - "Tool"
-    - "Operator"
-version: 4
-updated_at: "2026-10-03 00:06:54 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: AI Agent", "Tool", "Entity/Continuant/Actor/Type: Operator"]
+version: 6
+updated_at: "2026-10-15 18:43:58 +0000"
 relations: {"relates_to": ["CA-R-1452"]}
 atom_id: "CA-R-1526"
 content_role: "Requirement"

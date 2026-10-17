@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Framework Instance"
+  governs: "Entity/Continuant/Project"
   depends_on:
-    - "Actor"
-version: 14
-updated_at: "2026-10-02 20:52:00 +0400"
+    ["Entity/Continuant/Actor"]
+version: 16
+updated_at: "2026-10-16 12:08:54 +0000"
 relations:
   child_of:
     - CA-P-032

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Structural Coordinate"
+  governs: "Entity/Continuant/Object/Scope Unit/Type: Ordered.Structural Coordinate"
   depends_on:
-    - "scope-topology"
-version: 16
-updated_at: "2026-10-11 17:56:31 +0400"
+    ["Entity/Continuant/Object/Scope Unit/Type: Ordered"]
+version: 17
+updated_at: "2026-10-16 12:08:49 +0000"
 relations: {}
 atom_id: "CA-R-1932"
 content_role: "Requirement"

@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Step Run/Invocation"
+  governs: "Agentic Action Instruction"
   depends_on:
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Operator"
-    - "Tool"
-    - "Action/Execution Kind: Agentic"
-    - "Step Run/Tool Call"
-version: 4
-updated_at: "2026-09-30 15:26:58 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Actor/Type: Operator", "Tool", "Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic", "Tool Call"]
+version: 6
+updated_at: "2026-10-15 18:48:30 +0000"
 relations: {"method_for": ["CA-R-1789", "CA-R-1790", "CA-R-1791", "CA-R-1792", "CA-R-1793"]}
 atom_id: "CA-M-304"
 content_role: "Method"

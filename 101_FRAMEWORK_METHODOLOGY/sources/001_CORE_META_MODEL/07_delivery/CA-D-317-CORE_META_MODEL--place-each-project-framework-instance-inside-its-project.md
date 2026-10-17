@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Framework Instance/Carrier Root"
+  governs: "Entity/Continuant/Project"
   depends_on: []
-version: 12
-updated_at: "2026-10-05 00:25:37 +0400"
+version: 14
+updated_at: "2026-10-16 12:09:18 +0000"
 relations: {}
 atom_id: "CA-D-317"
 content_role: "Delivery"

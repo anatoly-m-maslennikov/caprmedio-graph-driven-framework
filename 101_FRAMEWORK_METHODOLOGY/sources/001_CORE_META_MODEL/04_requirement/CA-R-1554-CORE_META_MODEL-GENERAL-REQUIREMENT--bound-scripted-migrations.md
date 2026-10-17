@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "AI Agent/authorization"
+  governs: "Entity/Continuant/Actor/Type: AI Agent"
   depends_on:
-    - "Step"
-    - "AI Agent"
-    - "Scripted Migration"
-    - "Target Set"
-version: 4
-updated_at: "2026-10-03 00:22:56 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Actor/Type: AI Agent", "Scripted Migration", "Target Set"]
+version: 6
+updated_at: "2026-10-15 18:44:18 +0000"
 relations: {}
 atom_id: "CA-R-1554"
 content_role: "Requirement"

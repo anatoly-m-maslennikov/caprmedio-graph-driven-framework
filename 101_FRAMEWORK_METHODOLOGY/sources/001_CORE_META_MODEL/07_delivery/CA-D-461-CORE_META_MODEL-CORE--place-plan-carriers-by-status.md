@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Carrier Placement"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Status"
   depends_on:
-    - "Atom/Content Role: Plan/Status"
-    - "Atom/Content Role: Plan/Authoritative Carrier Bundle"
-version: 7
-updated_at: "2026-10-13 18:23:23 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Entity/Continuant/Object/Atom/Content Role: Plan"]
+version: 10
+updated_at: "2026-10-16 12:09:32 +0000"
 relations: {"relates_to": ["CA-R-1539", "CA-D-483", "CA-R-1541"]}
 atom_id: "CA-D-461"
 content_role: "Delivery"

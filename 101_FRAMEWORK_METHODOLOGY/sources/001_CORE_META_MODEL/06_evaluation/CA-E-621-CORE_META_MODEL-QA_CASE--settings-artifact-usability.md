@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    - "Project Settings"
-    - "Project Structure"
-    - "Authority Mode"
-    - "Operator"
-version: 22
-updated_at: "2026-10-11 17:56:31 +0400"
+    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Structure", "Authority Mode", "Entity/Continuant/Actor/Type: Operator"]
+version: 24
+updated_at: "2026-10-15 18:50:35 +0000"
 relations:
   evaluation_for:
     - CA-R-1052

@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Project Scope Unit Graph Projection"
+  governs: "Entity/Continuant/Projection/Type: Scope Unit Graph"
   depends_on:
-    - "Project Structure"
-    - "Scope Unit"
-    - "Projection"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Framework Instance Settings"
-version: 23
-updated_at: "2026-10-02 20:35:16 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Project.Framework Settings"]
+version: 26
+updated_at: "2026-10-16 12:08:50 +0000"
 relations:
   child_of:
     - CA-R-843

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Identifier"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Identifier"
   depends_on:
-    - "Framework Instance Settings"
-version: 10
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings"]
+version: 12
+updated_at: "2026-10-15 18:51:28 +0000"
 relations:
   child_of:
     - CA-R-1402

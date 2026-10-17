@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/parameter resolution validation"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution Validation"
   depends_on:
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Project"
-    - "Carrier"
-    - "Atom/Content Role: Evaluation"
-version: 8
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
+version: 10
+updated_at: "2026-10-15 18:49:24 +0000"
 relations:
   evaluation_for:
     - "CA-D-407"

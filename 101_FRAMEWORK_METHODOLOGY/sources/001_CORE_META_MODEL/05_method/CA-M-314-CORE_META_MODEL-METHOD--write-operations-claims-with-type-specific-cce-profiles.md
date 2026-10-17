@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "CCE/Role Profile: Operations"
+  governs: "Operations Type-specific CCE Profiles"
   depends_on:
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Operations/Type: Action"
-    - "Atom/Content Role: Operations/Type: Workflow"
-    - "Atom/Content Role: Operations/Type: Step"
-    - "Atom/Content Role: Operations/Type: Actor"
-    - "CCE Operator"
-version: 4
-updated_at: "2026-10-01 21:41:08 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Atom/Content Role: Operations/Type: Actor", "CCE Operator"]
+version: 6
+updated_at: "2026-10-15 18:48:46 +0000"
 relations:
   child_of:
     - CA-M-307

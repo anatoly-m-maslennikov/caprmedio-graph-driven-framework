@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Carrier/Ownership Class"
+  governs: "Entity/Carrier.Ownership Class"
   depends_on: []
-version: 11
-updated_at: "2026-10-02 19:05:39 +0400"
+version: 13
+updated_at: "2026-10-15 18:51:15 +0000"
 relations: {}
 atom_id: "CA-D-316"
 content_role: "Delivery"

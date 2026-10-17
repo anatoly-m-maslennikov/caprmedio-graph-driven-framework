@@ -1,20 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Identity/collision repair"
+  governs: "Entity/Continuant/Object/Atom.ID"
   depends_on:
-    - "Atom/Identity"
-    - "Atom/Content Role"
-    - "Atom/Claim"
-    - "Atom/Scope"
-    - "Artifact/Revision"
-    - "Carrier/Canonical Address"
-    - "Project"
-    - "Operator"
-    - "AI Agent"
-    - "Confidence Threshold"
-    - "Work Journal"
-version: 9
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Entity/Continuant/Object/Atom.ID", "Atom/Content Role", "Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier.Canonical Address", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Confidence Threshold", "Entity/Continuant/History/Journal"]
+version: 11
+updated_at: "2026-10-15 18:48:15 +0000"
 relations: {"method_for":["CA-R-728"]}
 atom_id: "CA-M-276"
 content_role: "Method"

@@ -2,13 +2,9 @@
 subjects:
   governs: "settings specification"
   depends_on:
-    - "Project Settings"
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Atom/Local Tier"
-    - "Scope Unit"
-version: 10
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Scope Unit"]
+version: 12
+updated_at: "2026-10-15 18:42:53 +0000"
 relations: {}
 atom_id: "CA-R-1429"
 content_role: "Requirement"

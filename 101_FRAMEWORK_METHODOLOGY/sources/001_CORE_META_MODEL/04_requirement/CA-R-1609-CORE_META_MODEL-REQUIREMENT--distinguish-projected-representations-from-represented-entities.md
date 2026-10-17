@@ -7,14 +7,11 @@ local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Projection"
+  governs: "Entity/Continuant/Projection"
   depends_on:
-    - "Artifact"
-    - "Entity"
-    - "Scope Unit"
-    - "Single Source of Truth"
-version: 4
-updated_at: "2026-10-03 00:55:03 +0400"
+    ["Artifact", "Entity", "Entity/Continuant/Object/Scope Unit", "Single Source of Truth"]
+version: 5
+updated_at: "2026-10-15 18:45:01 +0000"
 relations:
   relates_to:
     - CA-R-1470

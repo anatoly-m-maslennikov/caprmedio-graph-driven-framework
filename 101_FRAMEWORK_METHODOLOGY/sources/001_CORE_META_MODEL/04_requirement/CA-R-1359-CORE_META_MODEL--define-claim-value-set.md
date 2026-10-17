@@ -2,11 +2,9 @@
 subjects:
   governs: "Claim Value Set"
   depends_on:
-    - "Atom/Claim"
-    - "Property"
-    - "IS_ALLOWED_VALUE_OF"
-version: 9
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Property", "IS_ALLOWED_VALUE_OF"]
+version: 11
+updated_at: "2026-10-15 18:42:10 +0000"
 relations:
   child_of:
     - CA-R-1270

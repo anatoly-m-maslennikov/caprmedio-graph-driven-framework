@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Local Tier"
+  governs: "Entity/Continuant/Object/Atom.Local Tier"
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Scope"
-    - "Property"
-    - "Scope Unit"
-version: 12
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Property", "Entity/Continuant/Object/Scope Unit"]
+version: 14
+updated_at: "2026-10-15 18:41:39 +0000"
 relations: {}
 atom_id: "CA-R-1287"
 content_role: "Requirement"

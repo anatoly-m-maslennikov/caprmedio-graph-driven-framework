@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Autonomous Confidence Threshold"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Autonomous Confidence Threshold"
-    - "Operator"
-    - "Framework Instance Settings"
-version: 4
-updated_at: "2026-10-03 00:40:46 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Autonomous Confidence Threshold", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Framework Settings"]
+version: 6
+updated_at: "2026-10-15 18:44:45 +0000"
 relations: {"relates_to": ["CA-M-271", "CA-R-1044"]}
 atom_id: "CA-R-1587"
 content_role: "Requirement"

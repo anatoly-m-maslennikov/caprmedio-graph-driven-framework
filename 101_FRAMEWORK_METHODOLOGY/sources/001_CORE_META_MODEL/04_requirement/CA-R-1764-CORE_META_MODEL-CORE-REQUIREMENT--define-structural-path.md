@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Structural Path"
+  governs: "Entity/Continuant/Object/Scope Unit.Path"
   depends_on:
-    - "Scope Unit"
-    - "Structural Parent Relation"
-version: 18
-updated_at: "2026-10-01 21:46:54 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children"]
+version: 20
+updated_at: "2026-10-16 12:08:45 +0000"
 relations: {}
 atom_id: "CA-R-1764"
 content_role: "Requirement"

@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Revision/Status"
+  governs: "Artifact.Status"
   depends_on:
-    - "Action"
-    - "Workflow"
-    - "Step"
-version: 14
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"]
+version: 16
+updated_at: "2026-10-15 18:41:46 +0000"
 relations: {}
 atom_id: "CA-R-1312"
 content_role: "Requirement"

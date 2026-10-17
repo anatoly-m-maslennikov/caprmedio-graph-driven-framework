@@ -2,14 +2,9 @@
 subjects:
   governs: "Publish Reconciled Projection"
   depends_on:
-    - "Action"
-    - "Projection/Type: Reconciled Projection"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "Carrier"
-    - "Atom/Content Role: Delivery"
-version: 5
-updated_at: "2026-10-04 15:08:16 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Projection/Type: Reconciled Projection", "Artifact", "Entity/Continuant/Object/Atom.Substance", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Delivery"]
+version: 7
+updated_at: "2026-10-15 18:52:43 +0000"
 relations: {}
 atom_id: "CA-O-009"
 content_role: "Operations"

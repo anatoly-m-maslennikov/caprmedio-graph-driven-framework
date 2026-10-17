@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Entities Graph Construction Step"
-  depends_on: ["Step", "Action", "Workflow Run", "Step Run", "Step/Agentic Execution Context", "Projection/Type: Entities Graph"]
-version: 1
-updated_at: "2026-10-04 16:48:42 +0000"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Agentic Step Execution Context", "Entity/Continuant/Projection/Type: Entities Graph"]
+version: 3
+updated_at: "2026-10-15 18:53:27 +0000"
 relations:
   relates_to: [CA-O-133, CA-O-134, CA-R-1509, CA-R-1525, CA-R-1526, CA-R-1527]
 ---

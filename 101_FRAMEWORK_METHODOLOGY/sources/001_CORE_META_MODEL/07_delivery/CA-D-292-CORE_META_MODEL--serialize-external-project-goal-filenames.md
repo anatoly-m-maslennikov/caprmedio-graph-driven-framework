@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Goal/Filename"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    - "Operator"
-    - "Project/Scope Unit"
-    - "Project"
-    - "Project Name"
-version: 15
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Project.Settings.Project Name", "Entity/Continuant/Object/Project"]
+version: 17
+updated_at: "2026-10-16 12:09:14 +0000"
 relations: {}
 atom_id: "CA-D-292"
 content_role: "Delivery"

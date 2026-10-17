@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Evaluation"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Evaluation"
   depends_on:
-    - "Atom/Content Role: Implementation"
-    - "Implementation Binding"
-    - "Evidence"
-    - "Journal/Record"
-    - "Verification"
-    - "Atom/Content Role: Operations"
-version: 6
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Implementation", "Implementation Binding", "Evidence", "Entity/Continuant/History/Journal.Record", "Verification", "Entity/Continuant/Object/Atom/Content Role: Operations"]
+version: 8
+updated_at: "2026-10-15 18:43:47 +0000"
 relations: {}
 atom_id: "CA-R-1505"
 content_role: "Requirement"

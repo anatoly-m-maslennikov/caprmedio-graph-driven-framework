@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Delivery"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Delivery"
   depends_on:
-    - "Atom/Content Role"
-    - "Atom/Claim"
-    - "Carrier"
-    - "Entity"
-    - "Entity/Carrier"
-version: 11
-updated_at: "2026-09-28 22:47:05 +0000"
+    ["Atom/Content Role", "Entity/Continuant/Object/Atom.Substance", "Entity/Carrier", "Entity", "Entity Carrier Binding"]
+version: 13
+updated_at: "2026-10-15 18:42:02 +0000"
 relations: {}
 atom_id: "CA-R-1342"
 content_role: "Requirement"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Name"
+  governs: "Entity/Continuant/Object/Scope Unit.Name"
   depends_on:
     - "CCE Operator"
-version: 11
-updated_at: "2026-10-02 21:52:05 +0400"
+version: 13
+updated_at: "2026-10-15 18:41:44 +0000"
 relations: {}
 atom_id: "CA-R-1297"
 content_role: "Requirement"

@@ -8,24 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 5
+updated_at: "2026-10-15 18:53:54 +0000"
 subjects:
-  governs: "Applicable Methodology Compilation/Step: publish"
+  governs: "Applicable Methodology Compilation Publish Step"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Applicable Methodology"
-    - "Publish Reconciled Projection"
-    - "Atom"
-    - "Atom/Revision"
-    - "Atom/Claim"
-    - "Applicable Methodology/Conflict"
-    - "Applicable Methodology/Source Frontier Digest"
-    - "Carrier"
-    - "Projection/Type: Reconciled Projection"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Publish Reconciled Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Entity/Carrier", "Entity/Continuant/Projection/Type: Reconciled Projection"]
 relations:
   relates_to: [CA-O-011, CA-O-009]
 ---

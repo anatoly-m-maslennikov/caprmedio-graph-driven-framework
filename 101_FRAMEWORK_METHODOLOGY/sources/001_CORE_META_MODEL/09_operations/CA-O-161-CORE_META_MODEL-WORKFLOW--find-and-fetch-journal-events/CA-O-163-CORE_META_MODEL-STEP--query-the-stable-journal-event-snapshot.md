@@ -8,11 +8,11 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-14 18:44:20 +0400"
+version: 6
+updated_at: "2026-10-15 18:54:10 +0000"
 subjects:
-  governs: "Find and Fetch Journal Events/Step: query"
-  depends_on: [Workflow, Step, Action, Journal, Event, Workflow Run, Action Run]
+  governs: "Find and Fetch Journal Events Query Step"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/History/Journal", "Entity/Occurrent/Event", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Action Run"]
 relations:
   relates_to: [CA-O-161, CA-O-162, CA-R-1861, CA-R-1866, CA-R-1867]
 ---

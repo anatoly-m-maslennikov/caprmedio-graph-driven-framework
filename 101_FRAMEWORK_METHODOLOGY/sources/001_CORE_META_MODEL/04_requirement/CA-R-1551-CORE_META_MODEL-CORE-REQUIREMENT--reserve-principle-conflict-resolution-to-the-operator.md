@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Actor"
+  governs: "Entity/Continuant/Actor"
   depends_on:
-    - "Operator"
-    - "AI Agent"
-    - "Project"
-    - "Atom/Local Tier: Principle"
-    - "AI Agent Delegation"
-    - "Autonomous Confidence Threshold"
-version: 4
-updated_at: "2026-10-03 00:06:54 +0400"
+    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom.Local Tier: Principle", "AI Agent Delegation", "Autonomous Confidence Threshold"]
+version: 6
+updated_at: "2026-10-15 18:44:14 +0000"
 relations:
   child_of:
     - CA-R-1058

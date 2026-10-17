@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Authoritative Carrier/Content"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    - "Framework Instance Settings"
-version: 9
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings"]
+version: 11
+updated_at: "2026-10-15 18:51:46 +0000"
 relations:
   child_of:
     - CA-D-361

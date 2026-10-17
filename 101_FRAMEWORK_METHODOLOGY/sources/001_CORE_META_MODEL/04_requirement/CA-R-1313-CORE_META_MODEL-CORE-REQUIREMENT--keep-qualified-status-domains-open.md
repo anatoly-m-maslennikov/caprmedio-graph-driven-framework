@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: "Artifact/Revision/Status"
+  governs: "Artifact.Status"
   depends_on:
     - "Extension"
     - "Project Configuration"
-version: 12
-updated_at: "2026-10-02 21:52:05 +0400"
+version: 13
+updated_at: "2026-10-15 12:21:26 +0000"
 relations: {}
 atom_id: "CA-R-1313"
 content_role: "Requirement"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Actor"
+  governs: "Entity/Continuant/Actor"
   depends_on:
     - "Primary Entity"
-version: 12
-updated_at: "2026-10-02 21:45:33 +0400"
+version: 13
+updated_at: "2026-10-15 18:41:23 +0000"
 relations: {}
 atom_id: "CA-R-1250"
 content_role: "Requirement"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Local Tier: Core"
+  governs: "Entity/Continuant/Object/Atom.Local Tier: Core"
   depends_on:
-    - "Applicable Methodology/Sources/CORE_META_MODEL"
-version: 12
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["Core Meta-model"]
+version: 14
+updated_at: "2026-10-15 18:41:20 +0000"
 relations: {}
 atom_id: "CA-R-1234"
 content_role: "Requirement"

@@ -2,10 +2,9 @@
 subjects:
   governs: "Type"
   depends_on:
-    - "Atom/Content Role"
-    - "Carrier"
-version: 8
-updated_at: "2026-10-02 19:36:21 +0400"
+    ["Atom/Content Role", "Entity/Carrier"]
+version: 9
+updated_at: "2026-10-15 18:51:50 +0000"
 relations:
   child_of:
     - "CA-R-1690"

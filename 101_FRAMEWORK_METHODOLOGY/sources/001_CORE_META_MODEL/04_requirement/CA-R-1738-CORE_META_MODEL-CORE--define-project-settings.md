@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings"
+  governs: "Entity/Continuant/Object/Project.Settings"
   depends_on:
-    - "Artifact"
-    - "Project"
-    - "Operator"
-    - "Atom"
-    - "Implementation"
-    - "Projection"
-    - "Project Name"
-    - "Atom/Identifier/Project Prefix"
-version: 21
-updated_at: "2026-10-03 02:53:00 +0400"
+    ["Artifact", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Implementation", "Entity/Continuant/Projection", "Project Name", "Entity/Continuant/Object/Project.Settings.Atom Prefix"]
+version: 23
+updated_at: "2026-10-15 18:45:38 +0000"
 relations:
   child_of:
     - "CA-R-1708"

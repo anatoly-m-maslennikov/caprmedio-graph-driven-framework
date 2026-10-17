@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom Carrier Replacement"
+  governs: "Entity/Continuant/Object/Atom"
   depends_on:
-    - "Atom/Revision"
-version: 11
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom"]
+version: 14
+updated_at: "2026-10-16 12:09:17 +0000"
 relations: {}
 atom_id: "CA-D-303"
 content_role: "Delivery"

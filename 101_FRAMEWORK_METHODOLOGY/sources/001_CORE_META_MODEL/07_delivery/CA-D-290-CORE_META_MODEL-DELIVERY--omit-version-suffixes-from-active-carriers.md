@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Artifact/Activity: Active/Carrier Basename"
+  governs: "Entity/Carrier.Canonical Address.Segment"
   depends_on: []
-version: 11
-updated_at: "2026-10-01 21:24:59 +0400"
+version: 13
+updated_at: "2026-10-16 12:09:14 +0000"
 relations: {}
 atom_id: "CA-D-290"
 content_role: "Delivery"

@@ -9,8 +9,8 @@ subjects:
     - "Atom/Revision/Version"
     - "Atom/Revision/History"
     - "Tool/Workflow Operations/Atom Lifecycle/Request Parameters"
-version: 6
-updated_at: "2026-10-15 10:01:40 +0000"
+version: 7
+updated_at: "2026-10-15 23:52:59 +0400"
 relations:
   relates_to:
     - CA-D-288
@@ -35,22 +35,21 @@ Bind Draft Identity Continuity Evidence
 
 ## Scope
 
-the required identity basis for a Draft Atom when a later Revision becomes non-Draft.
+identity continuity when a Draft Atom is created, updated or admitted to a non-Draft Status.
 
 ## Claim
 
-Outside the explicit Subjects-only edit-draft exception below, an operation that identifies a Draft Atom **must** read and validate **`=1`** `revision_lineage.history_entry_ref` from the actual target Draft Carrier under CA-D-570 before assigning an Atom ID. That pre-addressable reference resolves only through the exclusive admitted lifecycle writer's append-only retained Atom-history entry; the entry must bind this exact current Draft locator and digest, origin, direct parent lineage, and any identified direct predecessor. It must also be the unique live Draft-head leaf for that canonical Draft locator: every declared parent resolves, no later child or branch names it, and no competing entry binds that locator/digest. Caller parameters may report the resulting reference but **must not** provide, select, alter, or override the identity basis.
+Draft identity continuity **must** follow the exact admitted target and the applicable identity rules; retained Draft history **must not** be a prerequisite for Create, Update, promotion, another admitted Status change or their success.
 
-- `origin.kind: demoted_identified` is valid only when the resolved matching entry's `direct_predecessor` exactly resolves to the target Draft's own immediate retained identified predecessor. It **must** match that predecessor's `atom_id`, `version`, `content_role`, `summary`, digest, and immutable locator; the target Draft's Summary **must** equal the predecessor Summary. Only then the later non-Draft Revision **must** use that same Atom Identity and **must not** allocate another number.
-- `origin.kind: never_identified` is valid only when the matching entry was appended by the admitted Create effect and has no identified direct predecessor. Only then, when the Draft becomes non-Draft, it **must** receive the next unreused Content Role number under CA-D-508.
-- `origin.kind: draft_update` is valid only when its matching entry binds the new Draft output and directly names the immediately prior matching Draft-history entry. That parent entry supplies the same validated origin and, for a demoted Draft, the same direct predecessor; an update therefore preserves the original identity basis without converting it to `never_identified`.
-
-Outside that exception, a Draft Carrier **must not** carry an `atom_id`; `revision_lineage` is retained-history provenance, not the Draft's own assigned identity. A filename, path, Summary, temporary locator, arbitrary historical archive, Journal record, unsigned caller evidence, or a Draft whose current bytes have no matching unique history head **must not** infer, establish, or replace that provenance. Those conditions fail closed without an identity effect. An admitted non-Draft promotion must append the entry's retained-history successor that consumes this Draft head; restored older Draft bytes then have a child and cannot reuse the origin. A changed Summary requires the separately admitted Replace/fresh-identity path. A verified prior Atom Identity **must not** be assigned to a different Atom. Fully authoritative Operator reauthoring of both Draft and retained history is outside this untrusted-request boundary.
+- do **not** require, reconstruct, register, resolve or validate a `revision_lineage.history_entry_ref`, unique Draft head, origin chain, direct retained-history parent, pending head reservation or consuming successor before an otherwise admitted effect. A manually authored Draft is not refused merely because those records are absent, incomplete, malformed or unavailable.
+- **every** ID-free Draft leaving Draft receives a fresh next-unreused Atom Identity under CA-D-508, including a Draft produced by demoting a previously identified Atom. Do **not** restore its former assigned Identity from an archive, lineage/origin metadata, Journal, prior tool demotion or another historical record. Preserve real historical identities without releasing them for reuse. Ordinary Content Role, Summary/replacement, identity/collision, expected-target/currentness, permission and Carrier/schema checks remain applicable; absence of retained Draft history is not itself an identity conflict.
+- retain exact actual predecessor bytes and real historical records under their applicable Delivery rules. Do **not** fabricate a Create event, origin, earlier Draft admission, head, parent or successor to make the current operation admissible. A Summary change still follows the admitted replacement rule.
+- Journal existence, completeness, continuity, baseline, prior entry or receipt **must not** gate these effects or their success. Attempt to append supplied actual observations independently; report an actual append failure as a diagnostic without invalidating a completed mutation or replaying its effects.
 
 ## Details
 
-this Delivery binds carried Draft provenance and its validation before implementation. It preserves CA-D-446's same-Atom Draft transition and CA-D-288's ID-free Draft filename. The lifecycle history writer is the sole trust boundary for these entries; Journal records and request evidence may report but are not a second identity authority, Events writer, identity registry, signature scheme, or history basis.
+Existing retained-history records remain actual history, not an admission capability or a required identity registry. Their absence does not require retrospective Operator reauthoring or a manual-Draft exception. The source-pinned Subjects-only proposal below remains a derived edit of its explicitly bound canonical target.
 
 ### Subjects-only edit-draft exception
 
-CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry the temporary `atom_id: <canonical-ID>@draft`, `status: Draft`, and matching temporary-ID filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest; this is the narrow provenance basis for this proposal, not ordinary Draft identity allocation or retained-head promotion. No additional `revision_lineage` or demotion history is created just to stage it. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. New-Atom Drafts and ordinary lifecycle Drafts remain ID-free and subject to their existing lineage rules; canonical ID grammar is unchanged.
+CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry the temporary `atom_id: <canonical-ID>@draft`, `status: Draft`, and matching temporary-ID filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts remain ID-free; canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.

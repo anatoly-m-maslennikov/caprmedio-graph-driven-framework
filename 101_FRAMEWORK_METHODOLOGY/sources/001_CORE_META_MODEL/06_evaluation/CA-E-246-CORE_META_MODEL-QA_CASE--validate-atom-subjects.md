@@ -1,30 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Subjects"
+  governs: "Entity/Continuant/Object/Atom.Subjects"
   depends_on:
-    - "Atom"
-    - "Subject"
-    - "Subject Path"
-    - "GOVERNS"
-    - "DEPENDS_ON"
-    - "Entity"
-    - "Action"
-    - "Workflow"
-    - "Term"
-    - "Projection/Type: Atom Subjects Graph"
-    - "Concern"
-    - "Atom/Claim"
-    - "Atom/Content Role: Evaluation"
-    - "Evaluation For Relation"
-    - "Property"
-    - "Primary Entity"
-    - "Dependent Entity"
-    - "Scope Unit"
-    - "Atom/Scope"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Summary"
-version: 25
-updated_at: "2026-10-01 21:25:33 +0400"
+    ["Entity/Continuant/Object/Atom", "Subject", "Subject Path", "GOVERNS", "DEPENDS_ON", "Entity", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Term", "Entity/Continuant/Projection/Type: Atom Subjects Graph", "Entity/Continuant/Object/Atom/Content Role: Concern", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Evaluation For Relation", "Property", "Primary Entity", "Dependent Entity", "Entity/Continuant/Object/Scope Unit", "Atom Scope", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Atom.Summary"]
+version: 27
+updated_at: "2026-10-15 18:48:57 +0000"
 relations:
   evaluation_for:
     - CA-R-1275

@@ -2,9 +2,9 @@
 subjects:
   governs: "extension-model"
   depends_on:
-    - "Framework Instance Settings"
-version: 17
-updated_at: "2026-10-03 02:41:52 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings"]
+version: 19
+updated_at: "2026-10-15 18:45:36 +0000"
 relations:
   child_of:
     - "CA-R-1709"

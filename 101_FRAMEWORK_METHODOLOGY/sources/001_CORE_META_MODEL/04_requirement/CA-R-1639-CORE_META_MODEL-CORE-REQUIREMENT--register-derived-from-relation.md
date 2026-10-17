@@ -2,9 +2,9 @@
 subjects:
   governs: "DERIVED_FROM"
   depends_on:
-    - "Artifact/Revision"
-version: 20
-updated_at: "2026-10-03 01:23:33 +0400"
+    ["Artifact"]
+version: 21
+updated_at: "2026-10-15 12:23:00 +0000"
 relations: {}
 atom_id: "CA-R-1639"
 content_role: "Requirement"

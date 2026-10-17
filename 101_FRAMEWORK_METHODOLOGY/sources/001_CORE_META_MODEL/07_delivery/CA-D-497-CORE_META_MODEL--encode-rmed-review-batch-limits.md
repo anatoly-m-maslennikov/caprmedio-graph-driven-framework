@@ -7,15 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-02 19:54:46 +0400"
+version: 5
+updated_at: "2026-10-15 18:52:25 +0000"
 subjects:
-  governs: "Framework Instance Settings"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    - "Workflow Run"
-    - "Default Settings"
-    - "Operator"
-    - "Atom"
+    ["Entity/Occurrent/Execution/Workflow Run", "Default Settings", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom"]
 relations: {}
 ---
 # Summary

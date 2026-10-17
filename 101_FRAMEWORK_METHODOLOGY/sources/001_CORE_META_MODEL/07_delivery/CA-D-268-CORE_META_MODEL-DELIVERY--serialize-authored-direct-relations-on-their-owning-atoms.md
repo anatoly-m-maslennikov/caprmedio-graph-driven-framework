@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Direct Relation Serialization"
+  governs: "Entity/Continuant/Object/Relation"
   depends_on:
-    - "Atom/Relation Owner"
-version: 13
-updated_at: "2026-10-13 19:56:49 +0400"
+    ["Entity/Continuant/Object/Relation.Source Reference"]
+version: 15
+updated_at: "2026-10-16 12:09:11 +0000"
 relations: {}
 atom_id: "CA-D-268"
 content_role: "Delivery"

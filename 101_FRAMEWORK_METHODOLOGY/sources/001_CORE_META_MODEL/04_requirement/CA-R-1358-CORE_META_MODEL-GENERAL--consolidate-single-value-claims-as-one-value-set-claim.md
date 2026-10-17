@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim"
+  governs: "Entity/Continuant/Object/Atom.Substance"
   depends_on:
-    - "Atom/Scope"
-    - "Atom/Claim"
-    - "Claim Value Set"
-    - "Property"
-    - "IS_ALLOWED_VALUE_OF"
-version: 13
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Atom Scope", "Entity/Continuant/Object/Atom.Substance", "Claim Value Set", "Property", "IS_ALLOWED_VALUE_OF"]
+version: 15
+updated_at: "2026-10-15 18:42:08 +0000"
 relations:
   child_of:
     - CA-R-918

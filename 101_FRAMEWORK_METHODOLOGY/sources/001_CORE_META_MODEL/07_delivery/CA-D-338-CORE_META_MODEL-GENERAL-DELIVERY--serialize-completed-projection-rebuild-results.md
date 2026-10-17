@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Work Journal/Projection Rebuild/Completed Event"
+  governs: "Entity/Continuant/History/Journal.Record"
   depends_on: []
-version: 12
-updated_at: "2026-10-14 13:43:03 +0400"
+version: 14
+updated_at: "2026-10-15 18:51:18 +0000"
 relations: {}
 atom_id: "CA-D-338"
 content_role: "Delivery"

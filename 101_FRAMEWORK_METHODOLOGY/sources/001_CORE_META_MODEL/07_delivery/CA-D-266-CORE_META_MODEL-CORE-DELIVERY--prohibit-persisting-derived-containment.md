@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Structural Entity/Containment"
+  governs: "Structural Entity Containment Relations"
   depends_on:
-    - "Containment Relation Pair"
-    - "Directory Carrier/Nesting"
-version: 13
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Containment Relation Pair", "Directory Carrier Nesting"]
+version: 14
+updated_at: "2026-10-15 12:17:53 +0000"
 relations: {}
 atom_id: "CA-D-266"
 content_role: "Delivery"
