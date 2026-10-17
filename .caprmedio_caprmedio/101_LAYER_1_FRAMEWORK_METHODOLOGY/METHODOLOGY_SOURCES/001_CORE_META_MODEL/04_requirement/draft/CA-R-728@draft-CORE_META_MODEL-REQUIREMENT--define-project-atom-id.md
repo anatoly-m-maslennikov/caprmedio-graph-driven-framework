@@ -1,0 +1,30 @@
+---
+subjects:
+  governs: "Entity/Continuant/Node/Atom.ID"
+  depends_on:
+    ["Entity/Continuant/Node/Atom.ID"]
+version: 25
+updated_at: "2026-10-17 23:26:17 +0000"
+relations: {}
+atom_id: "CA-R-728@draft"
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "Standard"
+status: "Draft"
+author: "Anatoly Maslennikov"
+global_tier: 11
+---
+# Summary
+
+Define Project Atom ID
+
+## Scope
+
+Project Atom IDs.
+
+## Claim
+
+Project Atom ID **means** the immutable identity of one accepted Project-owned Atom.
+
+## Details
