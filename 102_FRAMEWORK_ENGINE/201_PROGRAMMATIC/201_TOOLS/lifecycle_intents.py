@@ -360,8 +360,10 @@ def _resolve_legacy_descriptor(root: Path, value: object, proof_value: object, *
 
 def _legacy_summary(content: str) -> str:
     headings = re.findall(r"(?m)^# (.+?)\s*$", content)
-    if len(headings) != 1 or headings[0] == "Summary":
+    if len(headings) != 1:
         raise LifecycleError("legacy-summary-ambiguous", "legacy migration requires one exact first-H1 Summary")
+    if headings[0] == "Summary":
+        return _summary(content)
     return headings[0]
 
 

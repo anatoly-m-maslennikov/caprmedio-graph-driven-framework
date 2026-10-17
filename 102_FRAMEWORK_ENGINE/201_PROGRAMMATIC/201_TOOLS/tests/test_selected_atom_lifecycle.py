@@ -704,10 +704,13 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(before, self.target.read_bytes())
         self.assertEqual(replacement, prior.read_bytes())
 
-    def _legacy_update(self, *, legacy_status: str | None = None) -> tuple[dict[str, object], bytes]:
+    def _legacy_update(self, *, legacy_status: str | None = None,
+                       current_summary_layout: bool = False) -> tuple[dict[str, object], bytes]:
         original = self.target.read_text(encoding="utf-8").replace("atom_id: CA-R-100\n", "").replace(
             "status: Active\n", ""
-        ).replace("# Summary\n\nStable summary", "# Stable summary")
+        )
+        if not current_summary_layout:
+            original = original.replace("# Summary\n\nStable summary", "# Stable summary")
         if legacy_status is not None:
             original = original.replace("version: 1\n", f"status: {legacy_status}\nversion: 1\n")
         self.target.write_text(original, encoding="utf-8")
@@ -722,7 +725,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                     "CA-R-100", "active", "04_requirement", fm, content)
         target = carrier_descriptor(self.root, atom)
         proposed = {"frontmatter": fm + "\natom_id: CA-R-100\nstatus: Active",
-                    "content": content.replace("# Stable summary", "# Summary\n\nStable summary", 1)}
+                    "content": (content if current_summary_layout
+                                else content.replace("# Stable summary", "# Summary\n\nStable summary", 1))}
         return {"target": target, "proposed": proposed, "change_class": "carrier_only",
                 "legacy_identity_proof": {"atom_id": "CA-R-100", "commit": commit,
                                           "path": atom.relative, "digest": target["digest"]}}, original.encode()
@@ -756,6 +760,21 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual("no-op", noop["outcome"])
         self.assertEqual(2, noop["observed"]["version"])
         self.assertEqual(normalized, self.target.read_bytes())
+
+    def test_historical_migration_accepts_current_summary_layout_without_metadata(self) -> None:
+        parameters, before = self._legacy_update(current_summary_layout=True)
+        preview = update_atom_action(self.root, parameters)
+        self.assertEqual("preview", preview["outcome"])
+        self.assertEqual(before, self.target.read_bytes())
+        result = update_atom_action(self.root, parameters, execute=True, authorized=True)
+        self.assertEqual("applied", result["outcome"])
+        self.assertEqual("CA-R-100", result["observed"]["atom_id"])
+        self.assertEqual(parameters["target"]["version"] + 1, result["observed"]["version"])
+        self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
+        normalized = atom_from_path(self.root, self.target)
+        self.assertEqual("CA-R-100", normalized.atom_id)
+        self.assertIn("status: Active", normalized.frontmatter)
+        self.assertEqual("Stable summary", normalized.content.split("\n", 3)[2])
 
     def test_historical_migration_rejects_forged_stale_or_nonhistorical_identity(self) -> None:
         parameters, before = self._legacy_update()
