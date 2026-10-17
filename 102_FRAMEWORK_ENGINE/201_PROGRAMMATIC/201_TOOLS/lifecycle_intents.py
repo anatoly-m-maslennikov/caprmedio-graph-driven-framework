@@ -1002,7 +1002,7 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
         admitted_evidence = _mechanical_update_evidence(
             target, prior, proposed, admitted_change_class="carrier_only", exact_carrier=False,
         )
-    elif not legacy:
+    elif not legacy or "semantic_assessment_report" in request:
         report = request.get("semantic_assessment_report")
         try:
             admitted_evidence = _semantic_assessment_evidence(root, target, prior, proposed, report)

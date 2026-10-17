@@ -469,12 +469,13 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(applied["outcome"], "applied")
         self.assertEqual(applied["assessment"], assessment)
 
-    def _semantic_assessment_report(self, proposed: dict[str, str], *, change_class: str = "semantic_revision") -> dict[str, str]:
+    def _semantic_assessment_report(self, proposed: dict[str, str], *, change_class: str = "semantic_revision",
+                                    target_descriptor: dict[str, object] | None = None) -> dict[str, str]:
         authority_root = SEMANTIC_ASSESSMENT_AUTHORITIES[0].parent
         def pin(path: Path) -> dict[str, str]:
             return {"path": path.relative_to(self.root).as_posix(), "digest": hashlib.sha256(path.read_bytes()).hexdigest()}
 
-        target = carrier_descriptor(self.root, "CA-R-100")
+        target = target_descriptor or carrier_descriptor(self.root, "CA-R-100")
         report = self.root / ".caprmedio_caprmedio/02_analysis/done/CA-A-400--semantic-update-assessment.md"
         report.parent.mkdir(parents=True, exist_ok=True)
         evidence = {
@@ -775,6 +776,37 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual("CA-R-100", normalized.atom_id)
         self.assertIn("status: Active", normalized.frontmatter)
         self.assertEqual("Stable summary", normalized.content.split("\n", 3)[2])
+
+    def test_historical_migration_consumes_bound_semantic_assessment_evidence(self) -> None:
+        parameters, before = self._legacy_update()
+        parameters["change_class"] = "semantic_revision"
+        parameters["semantic_assessment_report"] = self._semantic_assessment_report(
+            parameters["proposed"], target_descriptor=parameters["target"]
+        )
+        preview = update_atom_action(self.root, parameters)
+        self.assertEqual("preview", preview["outcome"])
+        self.assertEqual("semantic_revision", preview["assessment_evidence"]["admitted_change_class"])
+        malformed = copy.deepcopy(parameters)
+        malformed["semantic_assessment_report"]["digest"] = "0" * 64
+        invalid = update_atom_action(self.root, malformed, execute=True, authorized=True)
+        self.assertEqual("unresolved", invalid["outcome"])
+        self.assertEqual(before, self.target.read_bytes())
+        assessment = update_assessment_seal(parameters, preview["assessment_evidence"])
+        report_path = self.root / parameters["semantic_assessment_report"]["path"]
+        report_path.write_text(report_path.read_text(encoding="utf-8") + "\nstale\n", encoding="utf-8")
+        stale = update_atom_action(self.root, parameters, execute=True, authorized=True, assessment=assessment)
+        self.assertEqual("unresolved", stale["outcome"])
+        self.assertEqual(before, self.target.read_bytes())
+
+        parameters["semantic_assessment_report"] = self._semantic_assessment_report(
+            parameters["proposed"], target_descriptor=parameters["target"]
+        )
+        preview = update_atom_action(self.root, parameters)
+        assessment = update_assessment_seal(parameters, preview["assessment_evidence"])
+        result = update_atom_action(self.root, parameters, execute=True, authorized=True, assessment=assessment)
+        self.assertEqual("applied", result["outcome"])
+        self.assertEqual(parameters["target"]["version"] + 1, result["observed"]["version"])
+        self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
 
     def test_historical_migration_rejects_forged_stale_or_nonhistorical_identity(self) -> None:
         parameters, before = self._legacy_update()
