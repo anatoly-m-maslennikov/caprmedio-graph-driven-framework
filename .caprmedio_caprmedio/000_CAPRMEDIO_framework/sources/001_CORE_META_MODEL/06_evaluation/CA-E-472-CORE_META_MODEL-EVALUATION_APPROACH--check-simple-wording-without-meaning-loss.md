@@ -1,17 +1,13 @@
 ---
-version: 7
-updated_at: "2026-10-02 20:09:13 +0400"
+version: 9
+updated_at: "2026-10-15 18:49:39 +0000"
 relations:
   evaluation_for:
     - CA-M-294
 subjects:
   governs: "language"
   depends_on:
-    - "Author"
-    - "Atom/Claim"
-    - "Atom/Summary"
-    - "Governed Term"
-    - "CCE Operator"
+    ["Author", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Governed Term", "CCE Operator"]
 atom_id: "CA-E-472"
 content_role: "Evaluation"
 current_scope_unit: "CORE_META_MODEL"

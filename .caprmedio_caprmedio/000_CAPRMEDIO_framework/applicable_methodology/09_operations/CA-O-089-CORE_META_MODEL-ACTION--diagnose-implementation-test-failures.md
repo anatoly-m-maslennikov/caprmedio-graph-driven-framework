@@ -10,16 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Failure Diagnosis"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "AI Agent"
-    - "Operator"
-    - "Spec"
-version: 3
-updated_at: "2026-10-04 16:53:23 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Method", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Spec"]
+version: 5
+updated_at: "2026-10-15 18:53:08 +0000"
 relations:
   relates_to:
     - CA-O-020
@@ -31,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-089-CORE_META_MODEL-ACTION--diagnose-implementation-test-failures.md
   source_atom_id: CA-O-089
-  source_atom_revision: 3
-  source_sha256: 793f388c9972f222cb468c7fc01811391ba9e2c36003b59c6450e03c6d067486
+  source_atom_revision: 5
+  source_sha256: 1a9c3441f9705d36a80bec5ba522d8cd182fe6eb1f800d28e32f425fe7683c1d
   original_relations_sha256: 2c7563002a8140c179818cba02a5dbc75b861e40205e525f40337e0a0ef96f18
 ---
 # Summary

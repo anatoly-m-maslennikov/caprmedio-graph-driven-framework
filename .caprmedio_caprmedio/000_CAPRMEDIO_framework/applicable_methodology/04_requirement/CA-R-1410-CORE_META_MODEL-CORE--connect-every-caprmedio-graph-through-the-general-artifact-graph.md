@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Graph/Connectivity"
+  governs: "CAPRMEDIO Graph.Connectivity"
   depends_on:
     - "General Artifact Graph"
     - "Artifact"
     - "Structural Entity"
-version: 7
-updated_at: "2026-10-02 22:41:14 +0400"
+version: 8
+updated_at: "2026-10-15 12:21:47 +0000"
 relations: {}
 atom_id: "CA-R-1410"
 content_role: "Requirement"
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md
   source_atom_id: CA-R-1410
-  source_atom_revision: 7
-  source_sha256: 4cba155ea2ec0fdc6d5425e85e6590c2d63cc6c8653c325975a4ff74123ec1b9
+  source_atom_revision: 8
+  source_sha256: ec04ba2510a066c176f6cf9f930a8b61d92dc764a98189aab2b88904ecac5e9f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

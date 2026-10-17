@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology Retrieval"
+  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    - "Applicable Methodology"
-    - "Atom/Subjects"
-version: 15
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Object/Atom.Subjects"]
+version: 18
+updated_at: "2026-10-16 12:09:02 +0000"
 relations: {}
 atom_id: "CA-M-225"
 content_role: "Method"
@@ -18,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-225-CORE_META_MODEL--retrieve-applicable-methodology-mechanically.md
   source_atom_id: CA-M-225
-  source_atom_revision: 15
-  source_sha256: a5b42abbafdd7458d70e4282e6912f1ac3073ab697caca67d2d262c85d66b4b5
+  source_atom_revision: 18
+  source_sha256: 9214b8708f139f175f61c8347dab0c8c578e1d8360effb13cf35b3bb2a9b88c5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

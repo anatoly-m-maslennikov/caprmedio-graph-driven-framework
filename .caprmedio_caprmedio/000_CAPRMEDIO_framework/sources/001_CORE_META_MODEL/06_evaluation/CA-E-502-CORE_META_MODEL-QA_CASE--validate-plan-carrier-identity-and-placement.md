@@ -1,19 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Carrier"
+  governs: "Entity/Carrier"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "File Carrier"
-    - "Directory Carrier"
-    - "Atom/Revision/Authoritative Carrier Bundle"
-    - "Atom/Identity"
-    - "Atom/Summary"
-    - "Atom/Content Role: Plan/Type: Plan/Work Sequence Number"
-    - "Atom/Content Role: Plan/Type: Plan/Label"
-    - "Atom/Content Role: Plan/Type: Plan/Status"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-version: 6
-updated_at: "2026-10-13 18:23:23 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done"]
+version: 9
+updated_at: "2026-10-16 12:09:09 +0000"
 relations: {"evaluation_for": ["CA-D-460", "CA-D-461", "CA-D-469", "CA-D-470", "CA-D-472", "CA-D-475", "CA-R-1534", "CA-R-1599", "CA-R-997"]}
 atom_id: "CA-E-502"
 content_role: "Evaluation"

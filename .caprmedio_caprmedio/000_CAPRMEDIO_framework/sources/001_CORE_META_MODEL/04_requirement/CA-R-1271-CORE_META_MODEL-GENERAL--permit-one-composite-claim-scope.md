@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim"
+  governs: "Entity/Continuant/Object/Atom.Substance"
   depends_on:
-    - "Scope Expression"
-    - "Atom/Claim/Target Scope Unit"
-version: 13
-updated_at: "2026-10-02 21:45:33 +0400"
+    ["Scope Expression", "Entity/Continuant/Object/Atom.Target Scope Unit"]
+version: 15
+updated_at: "2026-10-15 18:41:30 +0000"
 relations: {}
 atom_id: "CA-R-1271"
 content_role: "Requirement"

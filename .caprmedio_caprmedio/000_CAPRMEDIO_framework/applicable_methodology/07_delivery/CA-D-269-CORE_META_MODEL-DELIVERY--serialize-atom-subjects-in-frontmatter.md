@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Subjects/Frontmatter"
+  governs: "Entity/Continuant/Object/Atom.Subjects"
   depends_on:
-    - "Atom/Subjects"
-    - "GOVERNS"
-    - "DEPENDS_ON"
-    - "Subject Path"
-    - "Subject"
-    - "Relation Kind"
-version: 12
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Entity/Continuant/Object/Atom.Subjects", "GOVERNS", "DEPENDS_ON", "Subject Path", "Subject", "Relation Kind"]
+version: 14
+updated_at: "2026-10-15 18:50:44 +0000"
 relations: {}
 atom_id: "CA-D-269"
 content_role: "Delivery"
@@ -22,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md
   source_atom_id: CA-D-269
-  source_atom_revision: 12
-  source_sha256: eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3
+  source_atom_revision: 14
+  source_sha256: f6506099d7c264c7901a772b707fc88102c77d607bcf930b5d9bd2fd2aad78cd
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Carrier"
+  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    - "Applicable Methodology"
-    - "Applicable Methodology/Sources"
-version: 12
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set"]
+version: 14
+updated_at: "2026-10-15 18:50:38 +0000"
 relations: {}
 atom_id: "CA-D-253"
 content_role: "Delivery"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-253-CORE_META_MODEL-CORE-DELIVERY--place-applicable-methodology-and-its-sources.md
   source_atom_id: CA-D-253
-  source_atom_revision: 12
-  source_sha256: 6c7aa690c203c38d7443fa1385f3d2e600651060e6ff083d8e5c9a33bef1e5f6
+  source_atom_revision: 14
+  source_sha256: d2296cbc2d23e2f47076bec94c998567a34b735dbdbc177c271f2172461c767b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

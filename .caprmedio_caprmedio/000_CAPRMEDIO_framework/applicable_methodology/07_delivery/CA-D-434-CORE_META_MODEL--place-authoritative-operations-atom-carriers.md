@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Carrier"
+  governs: "Entity/Carrier"
   depends_on:
-    - "Atom/Content Role: Operations"
-    - "Scope Unit"
-version: 8
-updated_at: "2026-10-02 19:36:21 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations", "Entity/Continuant/Object/Scope Unit"]
+version: 9
+updated_at: "2026-10-15 18:51:55 +0000"
 relations: {}
 atom_id: "CA-D-434"
 content_role: "Delivery"
@@ -18,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-434-CORE_META_MODEL--place-authoritative-operations-atom-carriers.md
   source_atom_id: CA-D-434
-  source_atom_revision: 8
-  source_sha256: a14c02222a752dc3eef6bc662432918e6bf09108d08a44db97cbe7753cc3e2f8
+  source_atom_revision: 9
+  source_sha256: 20aff3f2318978d247c04e1ae3d1df46ad61979243cdfd5129f9f9070f7b3ce0
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

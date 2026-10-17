@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Subjects/Frontmatter"
+  governs: "Entity/Continuant/Object/Atom.Subjects"
   depends_on:
-    - "Atom/Subjects"
-    - "GOVERNS"
-    - "DEPENDS_ON"
-    - "Subject Path"
-    - "Subject"
-    - "Relation Kind"
-version: 12
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Entity/Continuant/Object/Atom.Subjects", "GOVERNS", "DEPENDS_ON", "Subject Path", "Subject", "Relation Kind"]
+version: 14
+updated_at: "2026-10-15 18:50:44 +0000"
 relations: {}
 atom_id: "CA-D-269"
 content_role: "Delivery"

@@ -8,10 +8,10 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Projection/Carrier Root"
-  depends_on: ["Project","Projection","Carrier","Applicable Methodology","Journal","Atom","Methodology Source","Project Settings","Project Structure"]
-version: 4
-updated_at: "2026-10-14 13:43:03 +0400"
+  governs: "Projection Carrier Root"
+  depends_on: ["Entity/Continuant/Object/Project", "Entity/Continuant/Projection", "Entity/Carrier", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/History/Journal", "Entity/Continuant/Object/Atom", "Methodology Source", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Structure"]
+version: 6
+updated_at: "2026-10-15 18:52:31 +0000"
 relations: {}
 ---
 # Summary

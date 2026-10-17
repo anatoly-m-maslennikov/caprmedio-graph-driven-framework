@@ -10,14 +10,9 @@ status: Active
 subjects:
   governs: "Source Reconciliation Selection Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Source Reconciliation"
-    - "Step/Agentic Execution Context"
-    - "Workflow Run"
-    - "Step Run"
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Source Reconciliation", "Agentic Step Execution Context", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
+version: 5
+updated_at: "2026-10-15 18:53:42 +0000"
 relations:
   relates_to:
     - CA-O-010

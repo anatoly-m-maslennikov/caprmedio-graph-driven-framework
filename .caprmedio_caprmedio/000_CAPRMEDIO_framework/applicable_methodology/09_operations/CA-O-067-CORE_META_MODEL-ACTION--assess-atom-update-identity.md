@@ -2,17 +2,9 @@
 subjects:
   governs: "Assess Atom Update Identity"
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Atom/Summary"
-    - "Atom/Claim"
-    - "Atom Change Classification"
-    - "Artifact/Revision"
-    - "Workflow"
-    - "Workflow Run"
-    - "Operator"
-version: 7
-updated_at: "2026-10-13 04:46:56 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Substance", "Atom Change Classification", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Actor/Type: Operator"]
+version: 9
+updated_at: "2026-10-15 18:53:04 +0000"
 relations: {"relates_to": ["CA-R-1432", "CA-R-1464", "CA-M-303", "CA-R-1520"]}
 atom_id: "CA-O-067"
 content_role: "Operations"
@@ -26,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-067-CORE_META_MODEL-ACTION--assess-atom-update-identity.md
   source_atom_id: CA-O-067
-  source_atom_revision: 7
-  source_sha256: 5c2098027094df1837b3b48b112a56866e3bee927699a58156e51b53925e998d
+  source_atom_revision: 9
+  source_sha256: b367c4f5485d1356564b9c1eb9956b92b256c6842884d412beaf8558645c5943
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

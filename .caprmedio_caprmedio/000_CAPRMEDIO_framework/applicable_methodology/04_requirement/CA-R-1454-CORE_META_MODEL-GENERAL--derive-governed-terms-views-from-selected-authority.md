@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Terms Graph"
+  governs: "Entity/Continuant/Projection/Type: Terms Graph"
   depends_on:
-    - "Governed Term"
-    - "Term"
-    - "Definition Atom"
-    - "Atom/Claim"
-    - "Artifact/Revision"
-    - "Relation"
-    - "Relation Kind"
-    - "Projection"
-version: 7
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Governed Term", "Entity/Continuant/Term", "Definition Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation", "Relation Kind", "Entity/Continuant/Projection"]
+version: 9
+updated_at: "2026-10-15 18:43:14 +0000"
 relations:
   child_of:
     - CA-R-1335
@@ -28,8 +21,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL-GENERAL--derive-governed-terms-views-from-selected-authority.md
   source_atom_id: CA-R-1454
-  source_atom_revision: 7
-  source_sha256: bab78ca52edb070123af5d40dd61fe4f44cf70941253aeb6aaf9deab0a5283f5
+  source_atom_revision: 9
+  source_sha256: 84760d449cc494421c996990965f0eb05ccda484a47e3f48e7daacb7a1c7f772
   original_relations_sha256: e1b78d5732a22f1a249523c8a80f9e751fb887dee7a89eaec9dd1b3fc06664b1
 ---
 # Summary

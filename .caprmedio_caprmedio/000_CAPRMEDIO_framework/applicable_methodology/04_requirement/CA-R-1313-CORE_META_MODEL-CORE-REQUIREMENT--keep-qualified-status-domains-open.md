@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: "Artifact/Revision/Status"
+  governs: "Artifact.Status"
   depends_on:
     - "Extension"
     - "Project Configuration"
-version: 12
-updated_at: "2026-10-02 21:52:05 +0400"
+version: 13
+updated_at: "2026-10-15 12:21:26 +0000"
 relations: {}
 atom_id: "CA-R-1313"
 content_role: "Requirement"
@@ -18,8 +18,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md
   source_atom_id: CA-R-1313
-  source_atom_revision: 12
-  source_sha256: 8691f06ec8fb80a7b8faff2cb4a4b86a6f041399da572a4b73bfe9097d5dd949
+  source_atom_revision: 13
+  source_sha256: 59b917b94425699091f707c1d949a5be3147520095998d4867167bee8dc98872
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

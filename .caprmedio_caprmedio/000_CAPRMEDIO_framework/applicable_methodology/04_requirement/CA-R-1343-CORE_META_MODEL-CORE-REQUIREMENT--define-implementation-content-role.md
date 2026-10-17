@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Implementation"
+  governs: "Implementation"
   depends_on:
     - "Atom/Content Role"
     - "Claim"
-version: 11
-updated_at: "2026-10-04 22:08:39 +0000"
+version: 12
+updated_at: "2026-10-15 12:21:31 +0000"
 relations: {}
 atom_id: "CA-R-1343"
 content_role: "Requirement"
@@ -18,8 +18,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1343-CORE_META_MODEL-CORE-REQUIREMENT--define-implementation-content-role.md
   source_atom_id: CA-R-1343
-  source_atom_revision: 11
-  source_sha256: ae94de81b2b492632e1dfff2a0adb43bc3587e049e5e0798e23d04aa1e489f1c
+  source_atom_revision: 12
+  source_sha256: aa34d89dfd400674a6d12b58a65d4272388aee64f522ee8ce7b4631c22f4d82d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

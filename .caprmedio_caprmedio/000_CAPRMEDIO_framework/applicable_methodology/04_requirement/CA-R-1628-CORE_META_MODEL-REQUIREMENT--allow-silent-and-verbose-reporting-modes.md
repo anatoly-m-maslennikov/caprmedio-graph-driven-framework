@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/interaction/reporting mode"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode"
   depends_on:
-    - "Framework Instance Settings"
-version: 25
-updated_at: "2026-10-03 01:07:45 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings"]
+version: 27
+updated_at: "2026-10-15 18:45:05 +0000"
 relations: {"child_of":["CA-R-1402"],"relates_to":["CA-R-1750","CA-O-052"]}
 atom_id: "CA-R-1628"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1628-CORE_META_MODEL-REQUIREMENT--allow-silent-and-verbose-reporting-modes.md
   source_atom_id: CA-R-1628
-  source_atom_revision: 25
-  source_sha256: 380ed6f08059eb3ed09ab72242e85798a550863b107c107dbee0e8bc89ad8a35
+  source_atom_revision: 27
+  source_sha256: 5214b53d9d9dcc9d94c6388724361fa5f65fbca44298f068b4429101b32bb8cb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

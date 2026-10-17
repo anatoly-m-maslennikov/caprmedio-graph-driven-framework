@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "CCE/Role Profile: Delivery"
+  governs: "Delivery CCE Role Profile"
   depends_on:
-    - "Atom/Content Role: Delivery"
-    - "CCE Operator"
-    - "Carrier"
-    - "Entity/Carrier"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Relation Type"
-version: 5
-updated_at: "2026-09-28 22:47:05 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Delivery", "CCE Operator", "Entity/Carrier", "Entity Carrier Binding", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Subjects", "Relation Type"]
+version: 7
+updated_at: "2026-10-15 18:48:44 +0000"
 relations:
   child_of:
     - CA-M-307
@@ -27,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md
   source_atom_id: CA-M-313
-  source_atom_revision: 5
-  source_sha256: 570884157745cc3016065c683188b6b80ad0376bba2f76948c279562edc0f947
+  source_atom_revision: 7
+  source_sha256: 1a68b8dc50f69a6d2945f88c304340f6bb855608843fc1a466ec1523e21e57f1
   original_relations_sha256: df4e705715370cdf548abfbeba9ae0eed904bc3f2977ebc87988f011e0ad7418
 ---
 # Summary

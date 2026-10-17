@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings/Authoritative Carrier/Content"
+  governs: "Entity/Continuant/Object/Project.Settings"
   depends_on:
-    - "Project"
-    - "Atom/Identifier/Project Prefix"
-    - "Framework Instance Settings"
-    - "Projection"
-version: 11
-updated_at: "2026-10-15 00:35:00 +0000"
+    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Projection"]
+version: 13
+updated_at: "2026-10-15 18:51:34 +0000"
 relations:
   child_of:
     - CA-D-364
@@ -22,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md
   source_atom_id: CA-D-366
-  source_atom_revision: 11
-  source_sha256: 403fe1b43a9ae7eb8a7976d126c0796bb7bd545ac6febd7eb1f696ecefbd134f
+  source_atom_revision: 13
+  source_sha256: 332bcfd6b54054e2f28df0121adc7f3afb65341166a77f1eb138dbe7a1d2fc21
   original_relations_sha256: 1362486b734d90918b1d2949ab26e315125674e562b6b82d60abc7b3350f9e84
 ---
 # Summary

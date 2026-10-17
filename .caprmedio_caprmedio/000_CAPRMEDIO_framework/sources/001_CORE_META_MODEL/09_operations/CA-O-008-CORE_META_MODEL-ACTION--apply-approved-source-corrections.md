@@ -2,20 +2,9 @@
 subjects:
   governs: "Apply Approved Source Corrections"
   depends_on:
-    - "Action"
-    - "Operator"
-    - "AI Agent"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "Journal"
-    - "Journal/Record"
-    - "Atom"
-    - "Relation"
-    - "Atom/Content Role: Evaluation"
-    - "Framework Instance Settings"
-    - "Project Settings"
-version: 12
-updated_at: "2026-10-13 04:46:56 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Artifact", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project.Settings"]
+version: 14
+updated_at: "2026-10-15 18:52:42 +0000"
 relations: {}
 atom_id: "CA-O-008"
 content_role: "Operations"

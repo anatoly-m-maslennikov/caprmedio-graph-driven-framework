@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Blocking"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Status: Done"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Atom/Content Role: Plan/Type: Plan/Work Sequence Number"
-    - "Hub Atom"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Done", "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number"]
+version: 8
+updated_at: "2026-10-16 12:09:09 +0000"
 relations: {"evaluation_for": ["CA-R-1580", "CA-R-1583", "CA-R-1592", "CA-D-471", "CA-D-481"]}
 atom_id: "CA-E-504"
 content_role: "Evaluation"
@@ -22,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-QA_CASE--validate-plan-blocking-and-parallel-readiness.md
   source_atom_id: CA-E-504
-  source_atom_revision: 5
-  source_sha256: c2f9b7d5ffcaea593698480c7c8ad7d4d4d2b90fb0395e9a09680f468f115894
+  source_atom_revision: 8
+  source_sha256: 0c41fe4306fb1b020b815c222ab5c15b2fbfef2fea73d9bb2bf6fb1209d05df7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

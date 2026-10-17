@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/parameter resolution"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution"
   depends_on:
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Project"
-    - "Operator"
-version: 8
-updated_at: "2026-09-29 22:34:37 +0000"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator"]
+version: 10
+updated_at: "2026-10-15 18:48:19 +0000"
 relations:
   relates_to:
     - "CA-R-1402"
@@ -26,8 +23,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-GENERAL-METHOD--resolve-missing-framework-parameters-from-default-settings.md
   source_atom_id: CA-M-279
-  source_atom_revision: 8
-  source_sha256: a7168156a9c28bb73462090e158d8d7ece430a8db561dbe0ceadfd7873d170b3
+  source_atom_revision: 10
+  source_sha256: 374bf3d8c12437b6cf343ca12ccfe116a01a29405a3db662dd0a2a52dcb21829
   original_relations_sha256: cddde851356103178bde399ce5d8445877ace80e10c9a74c6f296891f8818c2d
 ---
 # Summary

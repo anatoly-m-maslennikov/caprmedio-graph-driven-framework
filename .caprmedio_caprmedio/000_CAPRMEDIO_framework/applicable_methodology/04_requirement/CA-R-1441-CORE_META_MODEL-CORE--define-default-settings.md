@@ -2,12 +2,9 @@
 subjects:
   governs: "Default Settings"
   depends_on:
-    - "Artifact"
-    - "Framework Instance Settings"
-    - "Project"
-    - "Operator"
-version: 8
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Artifact", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator"]
+version: 10
+updated_at: "2026-10-15 18:43:05 +0000"
 relations:
   relates_to:
     - "CA-R-1402"
@@ -23,8 +20,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md
   source_atom_id: CA-R-1441
-  source_atom_revision: 8
-  source_sha256: 8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928
+  source_atom_revision: 10
+  source_sha256: bf32644a75cf1c243945ea8cb0ee3600037efb344574561a4f8dc702254fd313
   original_relations_sha256: 2c606f535e0d20717b23884a525e183e5e07608a63b1ee0a77ece93514af7b3d
 ---
 # Summary

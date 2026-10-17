@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Workflow"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    - "Author"
-    - "Action"
-    - "Step"
-    - "Workflow Run"
-    - "Atom"
-    - "Atom/Summary"
-    - "Artifact/Revision"
-    - "Assess Atom Update Identity"
-version: 4
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Author", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Summary", "Assess Atom Update Identity"]
+version: 6
+updated_at: "2026-10-15 18:48:29 +0000"
 relations: {"relates_to": ["CA-M-301", "CA-O-067", "CA-R-1432", "CA-R-1464", "CA-R-1520"]}
 atom_id: "CA-M-303"
 content_role: "Method"
@@ -24,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-303-CORE_META_MODEL--declare-update-routing-in-the-calling-workflow.md
   source_atom_id: CA-M-303
-  source_atom_revision: 4
-  source_sha256: 2f4c60f6dfc4a019614c0e04a185fc53cf06b88a3a6ddbd580497ff4bb7cf7db
+  source_atom_revision: 6
+  source_sha256: 3e3a60630d67059a95cdb23e49bfaeef97cb5c3daedd0b81a642a348be8ddbae
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

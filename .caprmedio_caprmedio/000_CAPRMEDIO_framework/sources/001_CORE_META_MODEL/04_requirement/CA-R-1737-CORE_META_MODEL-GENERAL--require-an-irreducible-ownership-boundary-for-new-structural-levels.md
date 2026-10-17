@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Structural Level"
+  governs: "Entity/Continuant/Object/Scope Unit.Structural Level"
   depends_on:
-    - "Scope Unit"
-    - "Structural Parent Relation"
-    - "Relation"
-version: 16
-updated_at: "2026-10-03 02:52:00 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children", "Entity/Continuant/Object/Relation"]
+version: 18
+updated_at: "2026-10-16 12:08:41 +0000"
 relations:
   child_of:
     - "CA-R-1731"

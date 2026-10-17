@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Delivery"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Delivery"
   depends_on:
-    - "Atom/Content Role"
-    - "Atom/Claim"
-    - "Carrier"
-    - "Entity"
-    - "Entity/Carrier"
-version: 11
-updated_at: "2026-09-28 22:47:05 +0000"
+    ["Atom/Content Role", "Entity/Continuant/Object/Atom.Substance", "Entity/Carrier", "Entity", "Entity Carrier Binding"]
+version: 13
+updated_at: "2026-10-15 18:42:02 +0000"
 relations: {}
 atom_id: "CA-R-1342"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md
   source_atom_id: CA-R-1342
-  source_atom_revision: 11
-  source_sha256: b6df26c513024ef68bb89cb117cc6ea835e9c584a79a50b2f191dda40ab1d326
+  source_atom_revision: 13
+  source_sha256: fff67a2bec7543060e1efb359fff77be76e4b287387dadecad3c051fdb99cdea
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

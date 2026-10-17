@@ -10,16 +10,16 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Build Terms Graph"
-  depends_on: ["Workflow", "Step", "Workflow Run", "Projection/Type: Terms Graph"]
-version: 2
-updated_at: "2026-10-04 16:51:32 +0000"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Terms Graph"]
+version: 4
+updated_at: "2026-10-15 18:53:28 +0000"
 relations:
   relates_to: [CA-O-138, CA-R-1508, CA-R-1519, CA-R-1525, CA-R-1335, CA-R-1728]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-136-CORE_META_MODEL-WORKFLOW--build-terms-graph.md
   source_atom_id: CA-O-136
-  source_atom_revision: 2
-  source_sha256: 60a2d8abbed65e00b376608c39ed01ae8d1960566f49a60ef498c694f508d3ff
+  source_atom_revision: 4
+  source_sha256: 7f61e432096ecafedcb9ff3f8ee6d5a1f7c3ce85eafa71b62c1d5e5e4b42948f
   original_relations_sha256: 4beb7ce48cdc13fb9a69fe659b45a195b2c6e77d34bf11db7e92819af78da500
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Claim"
+  governs: "Entity/Continuant/Object/Atom.Substance"
   depends_on:
-    - "Atom"
-version: 11
-updated_at: "2026-10-02 21:45:33 +0400"
+    ["Entity/Continuant/Object/Atom"]
+version: 13
+updated_at: "2026-10-16 12:08:18 +0000"
 relations: {}
 atom_id: "CA-R-1269"
 content_role: "Requirement"

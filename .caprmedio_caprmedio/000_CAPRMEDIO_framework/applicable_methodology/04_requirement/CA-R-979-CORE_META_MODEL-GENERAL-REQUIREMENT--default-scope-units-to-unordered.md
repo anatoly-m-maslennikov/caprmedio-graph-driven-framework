@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Scope Unit/Type"
+  governs: "Entity/Continuant/Object/Scope Unit/Type"
   depends_on: []
-version: 16
-updated_at: "2026-10-02 21:09:50 +0400"
+version: 17
+updated_at: "2026-10-16 12:08:59 +0000"
 relations:
   child_of:
     - CA-R-1758
@@ -19,8 +19,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-979-CORE_META_MODEL-GENERAL-REQUIREMENT--default-scope-units-to-unordered.md
   source_atom_id: CA-R-979
-  source_atom_revision: 16
-  source_sha256: 3f17b0012af73d9f8720916da5ca304fd846474e4f17754d0b957bfa79ca8ec1
+  source_atom_revision: 17
+  source_sha256: 3dea76c012382e8684af91de2dcde86bc1db1aa69b6dc5d0b268e6b8c3225e81
   original_relations_sha256: c54729b05f92992762a001f7173803c1757d25c6f598efc052f71d7d56b0f312
 ---
 # Summary

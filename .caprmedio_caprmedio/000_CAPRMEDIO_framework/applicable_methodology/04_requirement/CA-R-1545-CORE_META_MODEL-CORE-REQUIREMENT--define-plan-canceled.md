@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Status: Canceled"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Canceled"
   depends_on:
-    - "Atom/Content Role: Plan"
-    - "Artifact/Revision/Status"
-version: 4
-updated_at: "2026-10-03 00:05:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom.Status"]
+version: 6
+updated_at: "2026-10-15 18:44:09 +0000"
 relations: {"relates_to": ["CA-R-1539"]}
 atom_id: "CA-R-1545"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1545-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-canceled.md
   source_atom_id: CA-R-1545
-  source_atom_revision: 4
-  source_sha256: 65cf9da39d6e426da65ebb4f4dd8d9a945d8e9ce7e09e13115a84ae6f339985a
+  source_atom_revision: 6
+  source_sha256: 6aca2ef31b6d0d4d2b0bcbe6d31167751726e13ba59f19b70122780fc3a64bf5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

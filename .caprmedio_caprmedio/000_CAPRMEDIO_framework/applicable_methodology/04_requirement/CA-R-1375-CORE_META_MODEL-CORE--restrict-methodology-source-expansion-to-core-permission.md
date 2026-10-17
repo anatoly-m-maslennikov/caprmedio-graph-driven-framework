@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Methodology Source/Expansion Boundary"
+  governs: "Methodology Source.Expansion Boundary"
   depends_on:
-    - "Core Meta-Model"
-    - "Extension"
-    - "Project Configuration"
-    - "Atom/Claim"
-    - "Framework Instance Settings"
-version: 13
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Core Meta-Model", "Extension", "Project Configuration", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Project.Framework Settings"]
+version: 15
+updated_at: "2026-10-15 18:42:20 +0000"
 relations: {}
 atom_id: "CA-R-1375"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md
   source_atom_id: CA-R-1375
-  source_atom_revision: 13
-  source_sha256: 2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75
+  source_atom_revision: 15
+  source_sha256: a239dcb6f3994b118a4dc7d7817a8aff51f019712a053608c05fe1df81b863ee
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

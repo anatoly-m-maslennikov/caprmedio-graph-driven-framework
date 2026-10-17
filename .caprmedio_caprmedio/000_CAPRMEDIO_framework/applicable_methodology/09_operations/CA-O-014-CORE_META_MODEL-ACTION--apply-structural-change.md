@@ -2,14 +2,9 @@
 subjects:
   governs: "Apply Structural Change"
   depends_on:
-    - "Action"
-    - "Project Structure"
-    - "Operator"
-    - "Carrier"
-    - "Goal"
-    - "Journal"
-version: 5
-updated_at: "2026-10-04 15:08:26 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Actor/Type: Operator", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/History/Journal"]
+version: 6
+updated_at: "2026-10-15 18:52:48 +0000"
 relations: {}
 atom_id: "CA-O-014"
 content_role: "Operations"
@@ -23,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-014-CORE_META_MODEL-ACTION--apply-structural-change.md
   source_atom_id: CA-O-014
-  source_atom_revision: 5
-  source_sha256: e93407e53b5d5a436d8b6589b044b32bfa25b6166adcb79d3343dc7663713d7d
+  source_atom_revision: 6
+  source_sha256: 98d669eec9c538d8a994f9a72c166d3778120d8d96bdee4d12d80eec2ed0a6f3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

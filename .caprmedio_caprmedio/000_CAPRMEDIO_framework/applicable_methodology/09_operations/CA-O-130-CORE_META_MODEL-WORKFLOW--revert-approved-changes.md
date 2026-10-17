@@ -10,16 +10,16 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Revert Changes Workflow"
-  depends_on: [Workflow, Step, Workflow Run, Step Run, Journal, Operator]
-version: 1
-updated_at: "2026-10-04 16:45:06 +0000"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/History/Journal", "Entity/Continuant/Actor/Type: Operator"]
+version: 3
+updated_at: "2026-10-15 18:53:22 +0000"
 relations:
   relates_to: [CA-O-132, CA-R-1525, CA-R-1720, CA-R-1643]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-130-CORE_META_MODEL-WORKFLOW--revert-approved-changes.md
   source_atom_id: CA-O-130
-  source_atom_revision: 1
-  source_sha256: ad98bde116ba178edae132b6fbc91376354b1b2d02c15a4ef58038e54f00bee3
+  source_atom_revision: 3
+  source_sha256: 6eb60667a907e4b6717a456cdf51b00779dbaab26e1e59c3153432de0cb82fb7
   original_relations_sha256: 7ebbd5345a3d72e0062da4e83a158b371d4e601ba06e88ea54f72f518f566af1
 ---
 # Summary

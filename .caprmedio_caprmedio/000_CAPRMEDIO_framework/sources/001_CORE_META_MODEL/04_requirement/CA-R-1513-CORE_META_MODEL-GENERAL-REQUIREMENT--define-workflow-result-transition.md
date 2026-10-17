@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Workflow/Relation Kind: On Result"
+  governs: "Relation/Type: On Result"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Step Run"
-    - "Workflow Run"
-    - "Relation Kind"
-version: 4
-updated_at: "2026-10-02 23:53:38 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Relation Kind"]
+version: 6
+updated_at: "2026-10-15 18:43:53 +0000"
 relations: {}
 atom_id: "CA-R-1513"
 content_role: "Requirement"

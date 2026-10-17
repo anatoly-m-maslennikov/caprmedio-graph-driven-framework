@@ -9,18 +9,11 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Action"
-    - "Atom/Revision"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-    - "Atom/Content Role: Plan/Status"
-    - "Relation"
-    - "Operator"
-    - "Workflow Run"
-    - "Journal"
-version: 1
-updated_at: "2026-10-04 15:12:11 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Entity/Continuant/Object/Relation", "Entity/Continuant/Actor/Type: Operator", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/History/Journal"]
+version: 4
+updated_at: "2026-10-16 12:09:39 +0000"
 relations:
   relates_to: [CA-R-1583, CA-R-1599, CA-R-1520, CA-R-1580, CA-O-079, CA-O-017, CA-O-077, CA-O-090]
 ---

@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "CCE/Role Profile: Evaluation"
+  governs: "Evaluation CCE Role Profile"
   depends_on:
-    - "Atom/Content Role: Evaluation"
-    - "CCE Operator"
-    - "Condition Expression"
-version: 5
-updated_at: "2026-10-04 04:27:08 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "CCE Operator", "Condition Expression"]
+version: 7
+updated_at: "2026-10-15 18:48:42 +0000"
 relations:
   child_of:
     - CA-M-307

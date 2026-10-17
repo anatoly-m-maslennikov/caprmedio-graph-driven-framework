@@ -1,23 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Catalog"
+  governs: "Entity/Continuant/Projection/Type: Catalog"
   depends_on:
-    - "General Term"
-    - "Term"
-    - "Governed Term"
-    - "Definition Atom"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Artifact/Revision"
-    - "Scope Unit"
-    - "Actor"
-    - "Subject Path"
-    - "Projection"
-    - "Relation"
-    - "Relation Kind"
-    - "Projection/Type: Terms Graph"
-version: 7
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["General Term", "Entity/Continuant/Term", "Governed Term", "Definition Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Subjects", "Artifact", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Actor", "Subject Path", "Entity/Continuant/Projection", "Entity/Continuant/Object/Relation", "Relation Kind", "Entity/Continuant/Projection/Type: Terms Graph"]
+version: 9
+updated_at: "2026-10-15 18:43:15 +0000"
 relations:
   child_of:
     - CA-R-1318

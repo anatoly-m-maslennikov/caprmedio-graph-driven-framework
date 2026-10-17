@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "File Carrier/GitHub Preview"
+  governs: "Entity/Carrier/File Carrier"
   depends_on:
     - "Markdown"
     - "TOML"
     - "YAML"
-version: 11
-updated_at: "2026-10-02 19:18:22 +0400"
+version: 13
+updated_at: "2026-10-15 18:51:16 +0000"
 relations: {}
 atom_id: "CA-D-330"
 content_role: "Delivery"
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md
   source_atom_id: CA-D-330
-  source_atom_revision: 11
-  source_sha256: 5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804
+  source_atom_revision: 13
+  source_sha256: 568a6d4e9c3a0a5e1cdf3d4dbc242613842eaeda69a20706b619e3cf3ae152a5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

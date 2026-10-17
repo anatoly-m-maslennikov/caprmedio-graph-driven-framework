@@ -2,11 +2,9 @@
 subjects:
   governs: "Atom Claim Authoring"
   depends_on:
-    - "Atom/Claim"
-    - "CCE"
-    - "Atom/Summary"
-version: 25
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "CCE", "Entity/Continuant/Object/Atom.Summary"]
+version: 27
+updated_at: "2026-10-15 18:47:42 +0000"
 relations: {"relates_to": ["CA-R-1624", "CA-O-103", "CA-D-479", "CA-R-1465"]}
 atom_id: "CA-M-111"
 content_role: "Method"
@@ -19,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md
   source_atom_id: CA-M-111
-  source_atom_revision: 25
-  source_sha256: c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5
+  source_atom_revision: 27
+  source_sha256: efe75e01d4c063a5504a9f03d97dff18c813f4320267e797c4a6c59f4330997b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

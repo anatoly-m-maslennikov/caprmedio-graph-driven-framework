@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "AI Agent/authorization"
+  governs: "Entity/Continuant/Actor/Type: AI Agent"
   depends_on:
-    - "AI Agent"
-    - "Operator"
-    - "AI Agent Delegation"
-version: 4
-updated_at: "2026-10-03 00:22:56 +0400"
+    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent.Permissions"]
+version: 7
+updated_at: "2026-10-16 12:08:31 +0000"
 relations:
   child_of:
     - CA-P-034
@@ -21,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md
   source_atom_id: CA-R-1552
-  source_atom_revision: 4
-  source_sha256: 9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961
+  source_atom_revision: 7
+  source_sha256: be778c629e3f1edc99f440a97b73cf3abc7d4c4367251381dd6c315ff8fa1a92
   original_relations_sha256: b47bf49353063d138eaaafb2507e53893b8f65ed84f88d6c603da43b611c30d9
 ---
 # Summary

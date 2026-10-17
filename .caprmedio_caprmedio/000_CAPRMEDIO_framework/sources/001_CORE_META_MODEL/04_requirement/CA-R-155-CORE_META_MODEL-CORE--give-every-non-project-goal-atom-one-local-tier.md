@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Local Tier"
+  governs: "Entity/Continuant/Object/Atom.Local Tier"
   depends_on:
-    - "Atom"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Project"
-    - "Atom/Local Tier: Principle"
-    - "Atom/Local Tier: Core"
-    - "Atom/Local Tier: General"
-    - "Atom/Local Tier: Standard"
-version: 30
-updated_at: "2026-09-29 17:41:03 +0000"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Atom.Local Tier: Core", "Entity/Continuant/Object/Atom.Local Tier: General", "Entity/Continuant/Object/Atom.Local Tier: Standard"]
+version: 32
+updated_at: "2026-10-15 18:44:12 +0000"
 relations: {}
 atom_id: "CA-R-155"
 content_role: "Requirement"

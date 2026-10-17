@@ -10,16 +10,16 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Construct Entities Graph Projection"
-  depends_on: ["Action", "Entity", "Property", "Projection/Type: Entities Graph", "Project Structure", "Relation Kind", "Artifact/Revision", "Journal"]
-version: 3
-updated_at: "2026-10-09 19:23:34 +0400"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity", "Property", "Entity/Continuant/Projection/Type: Entities Graph", "Entity/Continuant/Object/Project.Structure", "Relation Kind", "Artifact/Revision", "Entity/Continuant/History/Journal"]
+version: 4
+updated_at: "2026-10-15 18:53:26 +0000"
 relations:
   relates_to: [CA-R-1438, CA-R-1456, CA-R-1746, CA-R-1471, CA-R-1246, CA-R-806, CA-R-1472, CA-R-1437, CA-R-1483, CA-D-440, CA-E-449, CA-R-1720, CA-R-1728]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md
   source_atom_id: CA-O-134
-  source_atom_revision: 3
-  source_sha256: 8a3dcb7cfdb3369ec268726cc54f3f0e0c1bfbc947841792deb87bb844245414
+  source_atom_revision: 4
+  source_sha256: a2f4a88265b0f80fab4d3e663d5a5d9b07f11a6e1eb3398843c5b5a1c42e8bf3
   original_relations_sha256: ac36765e1b190631480b15fed82caf160f8d24bd192a49b6f5b35ac616ba55fb
 ---
 # Summary

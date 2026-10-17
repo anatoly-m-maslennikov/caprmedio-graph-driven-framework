@@ -2,20 +2,9 @@
 subjects:
   governs: "Apply Approved Source Corrections"
   depends_on:
-    - "Action"
-    - "Operator"
-    - "AI Agent"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "Journal"
-    - "Journal/Record"
-    - "Atom"
-    - "Relation"
-    - "Atom/Content Role: Evaluation"
-    - "Framework Instance Settings"
-    - "Project Settings"
-version: 12
-updated_at: "2026-10-13 04:46:56 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Artifact", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project.Settings"]
+version: 14
+updated_at: "2026-10-15 18:52:42 +0000"
 relations: {}
 atom_id: "CA-O-008"
 content_role: "Operations"
@@ -29,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-008-CORE_META_MODEL-ACTION--apply-approved-source-corrections.md
   source_atom_id: CA-O-008
-  source_atom_revision: 12
-  source_sha256: 38a0893fab501647e544e892a70cfa52b23df4cdc1fcd3a96090190c2e10f9af
+  source_atom_revision: 14
+  source_sha256: 219103ca11bc8786fa8527742af0f81c650658ac985c0bb6cad5ee41349310ee
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

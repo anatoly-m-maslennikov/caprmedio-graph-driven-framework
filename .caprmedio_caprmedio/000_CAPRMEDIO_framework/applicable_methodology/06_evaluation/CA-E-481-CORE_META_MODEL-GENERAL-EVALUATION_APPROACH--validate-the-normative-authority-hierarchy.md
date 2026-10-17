@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Project/normative authority graph"
+  governs: "Entity/Continuant/Selection"
   depends_on:
-    - "Project"
-    - "Relation"
-    - "Normative Authority Relation Pair"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Relation"]
+version: 8
+updated_at: "2026-10-16 12:09:07 +0000"
 relations: {"evaluation_for":["CA-R-833","CA-R-808","CA-R-879"]}
 atom_id: "CA-E-481"
 content_role: "Evaluation"
@@ -20,8 +18,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-481-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-the-normative-authority-hierarchy.md
   source_atom_id: CA-E-481
-  source_atom_revision: 5
-  source_sha256: b1a06f071e884ebc30afade384f08d25f228f4730ff705def5b7a60f98cfdd71
+  source_atom_revision: 8
+  source_sha256: d6661fad1f584dae660fac4b5b40fb4c60d86c00c9e7281932fe15583d7a4dee
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

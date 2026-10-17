@@ -10,22 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Preparation"
   depends_on:
-    - "Action"
-    - "Spec"
-    - "Projection"
-    - "Atom"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-    - "AI Agent"
-    - "Operator"
-    - "Dependency Order Derivation"
-    - "Scope Unit"
-version: 6
-updated_at: "2026-10-04 16:53:23 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Spec", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Dependency Order Derivation", "Entity/Continuant/Object/Scope Unit"]
+version: 8
+updated_at: "2026-10-15 18:52:51 +0000"
 relations:
   relates_to:
     - CA-M-239
@@ -41,8 +28,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-017-CORE_META_MODEL-ACTION--prepare-implementation-work.md
   source_atom_id: CA-O-017
-  source_atom_revision: 6
-  source_sha256: 02bdc37b110592f3171840bf995c4598af793d6679cc4261a075440aa9be943a
+  source_atom_revision: 8
+  source_sha256: 121594c8d2d8ce54a8e96b5befd368259f189a1cc761cc7c73be534b891d8eec
   original_relations_sha256: db26a746a5f120fd963437de61c26fc65671b305457db4f648a9ea144b54f80a
 ---
 # Summary

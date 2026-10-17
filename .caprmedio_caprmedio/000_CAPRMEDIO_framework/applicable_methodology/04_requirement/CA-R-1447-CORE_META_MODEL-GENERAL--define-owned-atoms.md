@@ -2,11 +2,9 @@
 subjects:
   governs: "Owned Atoms"
   depends_on:
-    - "Atom"
-    - "Scope Unit"
-    - "Atom Collection"
-version: 8
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Scope Unit", "Entity/Carrier"]
+version: 10
+updated_at: "2026-10-15 18:43:10 +0000"
 relations: {}
 atom_id: "CA-R-1447"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1447-CORE_META_MODEL-GENERAL--define-owned-atoms.md
   source_atom_id: CA-R-1447
-  source_atom_revision: 8
-  source_sha256: 71013a2f3d4d646ea0b9d5b54db1bb903d9308bc13ee9df121940c36905af514
+  source_atom_revision: 10
+  source_sha256: 4b0fde74b25faedc66359e70415174f8de1b2de0f58ed74a4363484d0eb8e246
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

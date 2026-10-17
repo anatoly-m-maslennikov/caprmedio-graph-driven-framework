@@ -8,17 +8,17 @@ global_tier: 11
 status: "Active"
 author: "Anatoly Maslennikov"
 type: "Workflow"
-version: 4
-updated_at: "2026-10-05 05:14:43 +0400"
+version: 5
+updated_at: "2026-10-15 18:53:37 +0000"
 subjects:
   governs: "Find and Fetch Artifacts"
-  depends_on: [Workflow, Step, Action, Artifact, Markdown, Journal, Tool]
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Artifact", "Markdown", "Entity/Continuant/History/Journal", "Tool"]
 relations: {}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md
   source_atom_id: CA-O-158
-  source_atom_revision: 4
-  source_sha256: d7fdaebdd1d0c6ca7dac9aced25552c487336f2a51f18c0f03ef65d16ff4618a
+  source_atom_revision: 5
+  source_sha256: df9461f9094dcdd719595dba67843f21f805a5577227f3870f4c5784f95d4f55
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Artifact Timestamp Timezone"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Artifact Timestamp Timezone"
   depends_on:
-    - "Framework Instance Settings"
-    - "Artifact/Revision"
-    - "Carrier"
-version: 9
-updated_at: "2026-10-11 18:10:42 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Entity/Carrier"]
+version: 12
+updated_at: "2026-10-16 12:09:26 +0000"
 relations:
   child_of:
     - "CA-D-311"

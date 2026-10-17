@@ -2,12 +2,9 @@
 subjects:
   governs: "Plan Graph"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Projection"
-    - "Relation Kind"
-    - "Carrier"
-version: 5
-updated_at: "2026-10-03 00:48:37 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Projection", "Relation Kind", "Entity/Carrier"]
+version: 6
+updated_at: "2026-10-15 18:44:53 +0000"
 relations: {"relates_to": ["CA-R-1574", "CA-R-1579", "CA-R-1580", "CA-R-806"]}
 atom_id: "CA-R-1593"
 content_role: "Requirement"
@@ -20,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1593-CORE_META_MODEL-CORE-REQUIREMENT--define-the-plan-graph.md
   source_atom_id: CA-R-1593
-  source_atom_revision: 5
-  source_sha256: e92bcedc80539fdd86b5a1ddd3dd019cd60d4b40df856afb56f57e7d4b274a9e
+  source_atom_revision: 6
+  source_sha256: cddd9828ba08a01a9037203998256663afb3814e6e8de7cc8f82fb092054fdb7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

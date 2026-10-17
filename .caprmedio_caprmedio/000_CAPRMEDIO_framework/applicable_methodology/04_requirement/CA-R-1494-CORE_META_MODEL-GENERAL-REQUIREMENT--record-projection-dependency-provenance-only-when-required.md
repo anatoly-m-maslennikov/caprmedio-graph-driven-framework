@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Projection"
+  governs: "Entity/Continuant/Projection"
   depends_on:
-    - "Artifact/Revision"
-version: 5
-updated_at: "2026-09-30 13:09:08 +0000"
+    []
+version: 7
+updated_at: "2026-10-16 12:08:28 +0000"
 relations: {"child_of":["CA-R-1746"]}
 atom_id: "CA-R-1494"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1494-CORE_META_MODEL-GENERAL-REQUIREMENT--record-projection-dependency-provenance-only-when-required.md
   source_atom_id: CA-R-1494
-  source_atom_revision: 5
-  source_sha256: 54ce1946822c742abb2e43664ad239ee21dc78b79648d4aa18d4bfa3fe917a16
+  source_atom_revision: 7
+  source_sha256: 351e9cbddea33a54c06f840ad87f8d3c7a5c9cdc7602e3e0b0cfd45f915842e9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

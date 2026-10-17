@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Relation/authority"
+  governs: "Entity/Continuant/Object/Relation.Authority"
   depends_on:
-    - "Relation"
-    - "Relation Kind"
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Single Source of Truth"
-    - "Atom/Claim"
-    - "Structural Entity"
-    - "Journal"
-version: 6
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Entity/Continuant/Object/Relation", "Relation Kind", "CAPRMEDIO Graph", "Entity/Continuant/Projection", "Single Source of Truth", "Entity/Continuant/Object/Atom.Substance", "Structural Entity", "Entity/Continuant/History/Journal"]
+version: 8
+updated_at: "2026-10-15 18:43:01 +0000"
 relations: {}
 atom_id: "CA-R-1437"
 content_role: "Requirement"

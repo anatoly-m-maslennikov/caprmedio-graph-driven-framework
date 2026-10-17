@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "subject"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Concern.Owning Scope Unit"
   depends_on: []
-version: 16
-updated_at: "2026-10-03 03:43:00 +0400"
+version: 17
+updated_at: "2026-10-16 12:08:45 +0000"
 relations: {}
 atom_id: "CA-R-1770"
 content_role: "Requirement"
@@ -16,8 +16,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1770-CORE_META_MODEL-GENERAL-REQUIREMENT--place-concerns-at-the-narrowest-owning-scope.md
   source_atom_id: CA-R-1770
-  source_atom_revision: 16
-  source_sha256: 6800ad61c2c2eb4b4deb9353ab3167975edd129ddfaf447d471c330c82091c16
+  source_atom_revision: 17
+  source_sha256: e14b4865e2b55790b9c765109cbf9996c010148f191bc7e00bf9b632108ea01e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

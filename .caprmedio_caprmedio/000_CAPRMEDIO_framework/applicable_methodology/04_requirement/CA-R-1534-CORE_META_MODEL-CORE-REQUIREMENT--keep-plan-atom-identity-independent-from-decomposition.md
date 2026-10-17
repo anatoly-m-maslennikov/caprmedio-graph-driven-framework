@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Identity"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-version: 5
-updated_at: "2026-10-03 00:06:54 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan"]
+version: 8
+updated_at: "2026-10-16 12:08:29 +0000"
 relations: {"relates_to": ["CA-R-1578"]}
 atom_id: "CA-R-1534"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1534-CORE_META_MODEL-CORE-REQUIREMENT--keep-plan-atom-identity-independent-from-decomposition.md
   source_atom_id: CA-R-1534
-  source_atom_revision: 5
-  source_sha256: 7890baac4c6f692b7fb7fcec9ca37de399455182bff017c9e40d5b8576b7afb7
+  source_atom_revision: 8
+  source_sha256: 03b2199993e3fc0851e86bcd512730ce16b378561924dc4417a8aa34831081b7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

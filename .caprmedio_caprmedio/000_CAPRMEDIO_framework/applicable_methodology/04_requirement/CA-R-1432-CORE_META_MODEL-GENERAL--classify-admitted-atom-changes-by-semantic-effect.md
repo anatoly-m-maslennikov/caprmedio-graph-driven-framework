@@ -2,15 +2,9 @@
 subjects:
   governs: "Atom Change Classification"
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Summary"
-    - "Artifact/Revision"
-    - "Carrier-Only Recoding"
-    - "Lineage Impact Analysis"
-    - "Tool"
-version: 11
-updated_at: "2026-10-13 19:53:16 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/History/Revision/Type: Atom", "Carrier-Only Recoding", "Lineage Impact Analysis", "Tool"]
+version: 13
+updated_at: "2026-10-15 18:42:57 +0000"
 relations: {}
 atom_id: "CA-R-1432"
 content_role: "Requirement"
@@ -23,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md
   source_atom_id: CA-R-1432
-  source_atom_revision: 11
-  source_sha256: 91f4b7c5600e775ae357230792fafe2e5e64433714dec1839a73553361a41202
+  source_atom_revision: 13
+  source_sha256: 38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

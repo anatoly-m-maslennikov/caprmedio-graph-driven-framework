@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Demand/Admission"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand"
   depends_on:
-    - "Consumer/Goal"
-    - "Producer/Result"
-version: 17
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Consumer Goal", "Producer Result"]
+version: 19
+updated_at: "2026-10-15 18:47:19 +0000"
 relations:
   child_of:
     - CA-R-933

@@ -2,22 +2,9 @@
 subjects:
   governs: "Atom/Content Role"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Local Tier: Principle"
-    - "Atom/Content Role: Plan"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Actor"
-    - "Action"
-    - "Workflow"
-    - "Artifact/Carrier"
-version: 11
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Atom/Content Role: Operations", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Actor", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Artifact Carrier"]
+version: 13
+updated_at: "2026-10-15 18:49:44 +0000"
 relations:
   evaluation_for:
     - CA-R-1531
@@ -41,8 +28,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-482-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-principle-content-role-semantics.md
   source_atom_id: CA-E-482
-  source_atom_revision: 11
-  source_sha256: 63074cf1df61acaee8b72785316a000db1b1d4a5b893591c789fa2d88706683f
+  source_atom_revision: 13
+  source_sha256: 1b54dfeed4e9ddaef91fff58cf2b76f63efb15e4779c1e23f2fa393de64f40c8
   original_relations_sha256: d63238eff976077a998317d0a36e32fdc3e09e703d6f3a9cee15c60755964d5c
 ---
 # Summary

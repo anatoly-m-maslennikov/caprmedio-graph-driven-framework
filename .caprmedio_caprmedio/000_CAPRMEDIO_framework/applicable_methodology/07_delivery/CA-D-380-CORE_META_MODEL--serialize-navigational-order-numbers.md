@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Navigational Order Number"
+  governs: "Entity/Continuant/Object/Scope Unit.Navigational Order Number"
   depends_on:
-    - "Carrier"
-    - "Scope Unit"
-    - "Project Structure"
-version: 6
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Carrier", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure"]
+version: 8
+updated_at: "2026-10-16 12:09:23 +0000"
 relations: {}
 atom_id: "CA-D-380"
 content_role: "Delivery"
@@ -19,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-380-CORE_META_MODEL--serialize-navigational-order-numbers.md
   source_atom_id: CA-D-380
-  source_atom_revision: 6
-  source_sha256: 11aec9e9581f3bd43033b8ca506edd9613eeaf2cce7f7d7d7d4ea85deb423005
+  source_atom_revision: 8
+  source_sha256: ea6daf57e0c66bcd6ac42d4c3424e58802cf29c4ed891de12b7b0da462a8e562
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

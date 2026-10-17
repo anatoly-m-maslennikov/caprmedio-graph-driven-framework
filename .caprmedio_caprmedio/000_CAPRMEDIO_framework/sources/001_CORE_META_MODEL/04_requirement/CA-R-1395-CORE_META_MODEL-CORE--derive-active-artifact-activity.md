@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Activity: Active"
+  governs: "Artifact.Activity: Active"
   depends_on:
-    - "Artifact/Activity"
-    - "Artifact/Revision/Status"
-version: 10
-updated_at: "2026-10-02 22:50:34 +0400"
+    ["Artifact.Activity", "Artifact.Status"]
+version: 11
+updated_at: "2026-10-15 12:21:42 +0000"
 relations: {}
 atom_id: "CA-R-1395"
 content_role: "Requirement"

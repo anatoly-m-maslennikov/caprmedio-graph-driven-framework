@@ -2,15 +2,9 @@
 subjects:
   governs: "semantics"
   depends_on:
-    - "Atom/Content Role"
-    - "Implementation"
-    - "Action"
-    - "Workflow"
-    - "Actor"
-    - "Journal/Record"
-    - "Relation"
-version: 26
-updated_at: "2026-10-03 02:24:19 +0400"
+    ["Atom/Content Role", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Actor", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Relation"]
+version: 28
+updated_at: "2026-10-15 18:45:27 +0000"
 relations:
   child_of:
     - CA-M-001
@@ -25,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md
   source_atom_id: CA-R-1702
-  source_atom_revision: 26
-  source_sha256: 54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96
+  source_atom_revision: 28
+  source_sha256: 5491b465e8f4a605e96bef219ac036a74d458b7eb8065c5d605df29a0787e485
   original_relations_sha256: 2f95e55e3d0a844c858c40eeab601ef29e88bfb9f5c8b9fd17a85ccd2af662a7
 ---
 # Summary

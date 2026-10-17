@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Evaluation Implementation"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Implementation"
-version: 6
-updated_at: "2026-10-04 15:15:47 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Implementation"]
+version: 8
+updated_at: "2026-10-15 18:52:51 +0000"
 relations:
   relates_to:
     - CA-O-017
@@ -27,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-018-CORE_META_MODEL-ACTION--implement-evaluations.md
   source_atom_id: CA-O-018
-  source_atom_revision: 6
-  source_sha256: ee6a141167ae2a8d9b387f3a92633a02d64b91c7539b901b876a8391e2555f6c
+  source_atom_revision: 8
+  source_sha256: 34e7155f05d54d79d47e1651e9660d4172cbe867c9d516ac54f2be2607174557
   original_relations_sha256: 95f6c99d1efc99d7004ab8a8f29dde5c29b2e88c3e0dc4ba5902eff79acf5b23
 ---
 # Summary

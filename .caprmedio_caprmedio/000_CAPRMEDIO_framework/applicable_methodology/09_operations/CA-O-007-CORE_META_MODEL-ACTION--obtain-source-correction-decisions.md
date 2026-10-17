@@ -2,15 +2,9 @@
 subjects:
   governs: "Obtain Source Correction Decision"
   depends_on:
-    - "Action"
-    - "Operator"
-    - "AI Agent"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "Journal"
-    - "Journal/Record"
-version: 6
-updated_at: "2026-10-04 16:46:08 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Artifact", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record"]
+version: 8
+updated_at: "2026-10-15 18:52:41 +0000"
 relations: {}
 atom_id: "CA-O-007"
 content_role: "Operations"
@@ -24,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-007-CORE_META_MODEL-ACTION--obtain-source-correction-decisions.md
   source_atom_id: CA-O-007
-  source_atom_revision: 6
-  source_sha256: c567988819dd8200975186d1581bb7249fb9ac88dd850e466d0cfe76eda5b311
+  source_atom_revision: 8
+  source_sha256: d8521f7fb8af02fd3dd4e07cf2aa53bf2dae10a067b1aab3cc01ec170a44a09d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

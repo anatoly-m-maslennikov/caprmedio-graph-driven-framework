@@ -2,11 +2,9 @@
 subjects:
   governs: "Claim Value Set"
   depends_on:
-    - "Atom/Claim"
-    - "Property"
-    - "IS_ALLOWED_VALUE_OF"
-version: 9
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Property", "IS_ALLOWED_VALUE_OF"]
+version: 11
+updated_at: "2026-10-15 18:42:10 +0000"
 relations:
   child_of:
     - CA-R-1270
@@ -21,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1359-CORE_META_MODEL--define-claim-value-set.md
   source_atom_id: CA-R-1359
-  source_atom_revision: 9
-  source_sha256: 26bc473af5b1108bfa751991a56c236437fedc84a0a0cb7e588db0b4eadc0c7c
+  source_atom_revision: 11
+  source_sha256: 30e617fa75340f159b37d9c09983545838c34ff39b60c1a6a066900667ec8080
   original_relations_sha256: 996c38138f0d740a10abf989aca106cdb625bece78fb86564be33d4c8432969d
 ---
 # Summary

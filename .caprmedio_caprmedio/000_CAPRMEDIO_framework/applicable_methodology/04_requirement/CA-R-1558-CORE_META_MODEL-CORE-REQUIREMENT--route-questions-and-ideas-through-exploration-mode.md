@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "AI Agent/authorization"
+  governs: "Entity/Continuant/Actor/Type: AI Agent"
   depends_on:
-    - "AI Agent"
-    - "Operator"
-    - "Exploration Mode"
-    - "Artifact"
-    - "Atom/Claim"
-version: 4
-updated_at: "2026-10-03 00:22:56 +0400"
+    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Exploration Mode", "Artifact", "Entity/Continuant/Object/Atom.Substance"]
+version: 6
+updated_at: "2026-10-15 18:44:22 +0000"
 relations: {}
 atom_id: "CA-R-1558"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md
   source_atom_id: CA-R-1558
-  source_atom_revision: 4
-  source_sha256: 02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5
+  source_atom_revision: 6
+  source_sha256: 6d47964cb1bbfe6cb62fc9adb4b485e5b48428041802101c8a2c0a8164eb52dc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Project Scope Unit Graph Projection"
+  governs: "Entity/Continuant/Projection/Type: Scope Unit Graph"
   depends_on:
-    - "Project Structure"
-    - "Framework Instance Settings"
-    - "Project Settings"
-    - "Carrier"
-version: 12
-updated_at: "2026-10-02 19:18:22 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project.Settings", "Entity/Carrier"]
+version: 15
+updated_at: "2026-10-16 12:09:20 +0000"
 relations: {}
 atom_id: "CA-D-333"
 content_role: "Delivery"
@@ -20,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md
   source_atom_id: CA-D-333
-  source_atom_revision: 12
-  source_sha256: bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0
+  source_atom_revision: 15
+  source_sha256: 7a75c7fbf1d1e1601f4cf7c8a7fe80663bcebfa7abbf628123614d056769df15
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

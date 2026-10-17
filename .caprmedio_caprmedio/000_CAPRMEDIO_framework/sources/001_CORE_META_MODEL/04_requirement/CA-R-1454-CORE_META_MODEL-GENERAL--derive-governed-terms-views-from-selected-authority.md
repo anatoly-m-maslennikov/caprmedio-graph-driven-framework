@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Terms Graph"
+  governs: "Entity/Continuant/Projection/Type: Terms Graph"
   depends_on:
-    - "Governed Term"
-    - "Term"
-    - "Definition Atom"
-    - "Atom/Claim"
-    - "Artifact/Revision"
-    - "Relation"
-    - "Relation Kind"
-    - "Projection"
-version: 7
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Governed Term", "Entity/Continuant/Term", "Definition Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation", "Relation Kind", "Entity/Continuant/Projection"]
+version: 9
+updated_at: "2026-10-15 18:43:14 +0000"
 relations:
   child_of:
     - CA-R-1335

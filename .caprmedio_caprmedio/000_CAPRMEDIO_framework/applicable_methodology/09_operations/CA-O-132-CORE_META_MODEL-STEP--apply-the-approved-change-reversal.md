@@ -10,16 +10,16 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Approved Change Reversal Step"
-  depends_on: [Step, Action, Workflow Run, Step Run, Journal, Operator]
-version: 1
-updated_at: "2026-10-04 16:45:06 +0000"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/History/Journal", "Entity/Continuant/Actor/Type: Operator"]
+version: 3
+updated_at: "2026-10-15 18:53:24 +0000"
 relations:
   relates_to: [CA-O-131, CA-R-1509, CA-R-1511, CA-R-1525]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-132-CORE_META_MODEL-STEP--apply-the-approved-change-reversal.md
   source_atom_id: CA-O-132
-  source_atom_revision: 1
-  source_sha256: b37744bcb2f191e04344485d440242e8f879321e66a55f01f89fb9bef7a6bfd5
+  source_atom_revision: 3
+  source_sha256: efda4c859a30332f7ea17e9a8b10d63b9868a3a3d9deb6c17fcc2d2d44dc02e0
   original_relations_sha256: 6f7f7cc249c91076c76d7f2d48c992dd9d3cd18f48aeaf727f6b21263d16a98b
 ---
 # Summary

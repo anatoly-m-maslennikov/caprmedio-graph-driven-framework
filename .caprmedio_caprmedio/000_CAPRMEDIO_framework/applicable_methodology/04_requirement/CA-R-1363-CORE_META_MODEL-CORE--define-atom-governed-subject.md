@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Governed Subject"
+  governs: "Entity/Continuant/Object/Atom.Governed Subject"
   depends_on:
-    - "Atom/Subjects"
-    - "GOVERNS"
-    - "Subject"
-    - "Relation Kind"
-    - "Entity"
-    - "Atom/Claim"
-version: 12
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Entity/Continuant/Object/Atom.Subjects", "GOVERNS", "Subject", "Relation Kind", "Entity", "Entity/Continuant/Object/Atom.Substance"]
+version: 14
+updated_at: "2026-10-15 18:42:13 +0000"
 relations:
   child_of:
     - CA-R-1269
@@ -27,8 +22,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md
   source_atom_id: CA-R-1363
-  source_atom_revision: 12
-  source_sha256: f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12
+  source_atom_revision: 14
+  source_sha256: f4fd8ab2a9565478e800702a53f2a2fbe5a2d3da846587111925eae5fbfb4d39
   original_relations_sha256: cf083fc6909c16047a4a2a96c9a50e03f91fdb6be24a2277a01fa5beff61e7ca
 ---
 # Summary

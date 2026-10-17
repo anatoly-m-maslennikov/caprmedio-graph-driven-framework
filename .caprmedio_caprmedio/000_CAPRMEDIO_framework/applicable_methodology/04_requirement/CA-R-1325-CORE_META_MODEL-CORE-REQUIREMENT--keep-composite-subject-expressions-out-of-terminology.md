@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Catalog"
+  governs: "Entity/Continuant/Projection/Type: Catalog"
   depends_on:
-    - "Subject Expression"
-    - "Term"
-version: 8
-updated_at: "2026-10-02 22:05:04 +0400"
+    ["Subject Expression", "Entity/Continuant/Term"]
+version: 9
+updated_at: "2026-10-15 18:41:53 +0000"
 relations: {}
 atom_id: "CA-R-1325"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md
   source_atom_id: CA-R-1325
-  source_atom_revision: 8
-  source_sha256: c98ea34d029dfa6f5c2b828e13e61156c316da8dfaa8fdc56adbdeb8ebcf504d
+  source_atom_revision: 9
+  source_sha256: a88059642c87aeea2538abb528edc888ca7b6644563a7e029ea5a186a1bef653
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

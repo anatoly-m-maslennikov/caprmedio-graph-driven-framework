@@ -2,12 +2,9 @@
 subjects:
   governs: "Carrier-Only Recoding"
   depends_on:
-    - "Atom/Identity"
-    - "Atom/Claim"
-    - "Atom/Scope"
-    - "Atom/Direct Relation"
-version: 12
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Atom Direct Relation"]
+version: 14
+updated_at: "2026-10-15 18:51:08 +0000"
 relations: {}
 atom_id: "CA-D-304"
 content_role: "Delivery"
@@ -20,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md
   source_atom_id: CA-D-304
-  source_atom_revision: 12
-  source_sha256: d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a
+  source_atom_revision: 14
+  source_sha256: 1a10f22ca9939d6ac77810ba6772689163e8d02c07255824ac93d3d628d2063a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

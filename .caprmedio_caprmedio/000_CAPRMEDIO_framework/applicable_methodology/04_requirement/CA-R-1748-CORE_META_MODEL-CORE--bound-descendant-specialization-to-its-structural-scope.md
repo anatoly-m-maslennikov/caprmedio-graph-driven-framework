@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit"
+  governs: "Entity/Continuant/Object/Scope Unit"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Local Tier"
-    - "Methodology Source"
-    - "Core Meta-Model"
-    - "Extension"
-    - "Project Configuration"
-version: 16
-updated_at: "2026-10-03 02:57:13 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Local Tier", "Methodology Source", "Core Meta-Model", "Extension", "Project Configuration"]
+version: 18
+updated_at: "2026-10-15 18:45:43 +0000"
 relations:
   child_of:
     - CAPRMEDIO-REQU-033-REQUIREMENT--preserve-ancestor-core-authority-across-structural-levels
@@ -24,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md
   source_atom_id: CA-R-1748
-  source_atom_revision: 16
-  source_sha256: 568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585
+  source_atom_revision: 18
+  source_sha256: 051bac8f31b34f26170e2b8cce53b0111b75e09972f54f49daeb0a00e32c9491
   original_relations_sha256: 25cf0b2d0152002964c2cf0fb51830ae0c3aeec207d6ed401d90de60ad84e0a9
 ---
 # Summary

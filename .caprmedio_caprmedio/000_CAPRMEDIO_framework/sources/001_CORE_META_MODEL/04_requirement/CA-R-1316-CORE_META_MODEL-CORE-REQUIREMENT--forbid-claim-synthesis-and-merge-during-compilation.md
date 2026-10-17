@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology Compilation/Claim Transformation"
+  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    - "Atom/Claim"
-version: 11
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Entity/Continuant/Object/Atom.Substance"]
+version: 14
+updated_at: "2026-10-16 12:08:20 +0000"
 relations: {}
 atom_id: "CA-R-1316"
 content_role: "Requirement"

@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Project Structure"
+  governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    - "Scope Unit"
-    - "Goal"
-    - "Carrier"
-    - "Project Scope Unit Graph Projection"
-version: 6
-updated_at: "2026-10-02 20:09:13 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Projection/Type: Scope Unit Graph"]
+version: 8
+updated_at: "2026-10-16 12:09:06 +0000"
 relations:
   evaluation_for:
     - "CA-R-1483"
@@ -27,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-470-CORE_META_MODEL-EVALUATION_APPROACH--distinguish-project-structure-declarations-from-observations.md
   source_atom_id: CA-E-470
-  source_atom_revision: 6
-  source_sha256: 6cd2ed50a7948a526743f51046bbca330cac1edcb2490a960cc753a10c58d717
+  source_atom_revision: 8
+  source_sha256: 0a311cbf5352591fc344e1c5e88f57249936685d6f21b60db0fef9920a5822f9
   original_relations_sha256: f08ba948cc2ba7f8eea17bcf97b9637ebce595a5ae98937f17144c65700649be
 ---
 # Summary

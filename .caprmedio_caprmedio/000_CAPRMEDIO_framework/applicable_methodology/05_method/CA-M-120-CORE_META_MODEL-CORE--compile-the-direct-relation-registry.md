@@ -1,19 +1,10 @@
 ---
 subjects:
-  governs: "Relation Kind/registry compilation"
+  governs: "Entity/Continuant/Projection/Type: Direct Relation Registry"
   depends_on:
-    - "Relation Kind"
-    - "Relation Kind/Metadata"
-    - "CAPRMEDIO Graph"
-    - "Applicable Methodology"
-    - "Relation/authority"
-    - "Atom/Content Role: Requirement"
-    - "Projection"
-    - "Generator"
-    - "Relation"
-    - "Single Source of Truth"
-version: 14
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Relation Kind", "Relation Kind Metadata", "CAPRMEDIO Graph", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Object/Relation.Authority", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Projection", "Generator", "Entity/Continuant/Object/Relation", "Single Source of Truth"]
+version: 16
+updated_at: "2026-10-15 18:47:52 +0000"
 relations:
   child_of:
     - CA-R-295
@@ -34,8 +25,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md
   source_atom_id: CA-M-120
-  source_atom_revision: 14
-  source_sha256: 4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db
+  source_atom_revision: 16
+  source_sha256: f370518914283c9070850bc5c13c8464651c87192279210af1753990613e51f8
   original_relations_sha256: 0ee5848e38173afc3aa73f55b419962fa9b6f19cedd32210873fd1d71efaa5fa
 ---
 # Summary

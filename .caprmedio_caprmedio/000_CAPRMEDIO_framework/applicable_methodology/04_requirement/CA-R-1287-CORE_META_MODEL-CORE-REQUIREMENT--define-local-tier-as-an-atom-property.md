@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Local Tier"
+  governs: "Entity/Continuant/Object/Atom.Local Tier"
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Scope"
-    - "Property"
-    - "Scope Unit"
-version: 12
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Property", "Entity/Continuant/Object/Scope Unit"]
+version: 14
+updated_at: "2026-10-15 18:41:39 +0000"
 relations: {}
 atom_id: "CA-R-1287"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md
   source_atom_id: CA-R-1287
-  source_atom_revision: 12
-  source_sha256: 56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762
+  source_atom_revision: 14
+  source_sha256: 9ebb3eab75872243c2eb148c84432c96a2b3fab8ff534a68e6b8d8e167f17ea2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

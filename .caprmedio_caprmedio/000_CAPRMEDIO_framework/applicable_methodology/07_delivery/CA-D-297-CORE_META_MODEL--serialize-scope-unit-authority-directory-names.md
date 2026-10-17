@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Directory Carrier/Name"
+  governs: "Entity/Carrier/Directory Carrier.Name"
   depends_on:
-    - "Scope Unit/Name"
-    - "Scope Unit/Label"
-    - "Structural Level"
-    - "Navigational Order Number"
-    - "Local Order"
-version: 11
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Entity/Continuant/Object/Scope Unit.Name", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Continuant/Object/Scope Unit.Structural Level", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Continuant/Object/Scope Unit.Local Order"]
+version: 14
+updated_at: "2026-10-16 12:09:15 +0000"
 relations: {}
 atom_id: "CA-D-297"
 content_role: "Delivery"
@@ -21,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-297-CORE_META_MODEL--serialize-scope-unit-authority-directory-names.md
   source_atom_id: CA-D-297
-  source_atom_revision: 11
-  source_sha256: bbca04b8201b0ef46d375e416bbb8ee290743577b3106e898fbaf8a59a44c5c3
+  source_atom_revision: 14
+  source_sha256: 0f18dfab8d05fba26a7935056d9df153e7b802c7ea32b77436acb6c070ddfb26
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

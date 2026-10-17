@@ -2,16 +2,9 @@
 subjects:
   governs: "CAPRMEDIO Graph"
   depends_on:
-    - "Single Source of Truth"
-    - "Projection"
-    - "Atom"
-    - "Atom/Claim"
-    - "Structural Entity"
-    - "Journal"
-    - "Relation"
-    - "Relation Kind"
-version: 7
-updated_at: "2026-09-30 19:57:23 +0000"
+    ["Single Source of Truth", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Structural Entity", "Entity/Continuant/History/Journal", "Entity/Continuant/Object/Relation", "Relation Kind"]
+version: 9
+updated_at: "2026-10-15 18:49:35 +0000"
 relations:
   evaluation_for:
     - CA-R-1437
@@ -30,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-466-CORE_META_MODEL-QA_CASE--validate-single-source-of-truth-in-secondary-graphs.md
   source_atom_id: CA-E-466
-  source_atom_revision: 7
-  source_sha256: fbd793ad409812ff54bfa84a596493181b9444abda65a2cd9641be63f678c06b
+  source_atom_revision: 9
+  source_sha256: f2e7e053f8ace01d3b85fcf32aafca38727c7df57d7777914d27114794a840d2
   original_relations_sha256: 1f641957f8b24374747c60ccf6d83cb8981e57e81ec8f35b43570b46ac17c66b
 ---
 # Summary

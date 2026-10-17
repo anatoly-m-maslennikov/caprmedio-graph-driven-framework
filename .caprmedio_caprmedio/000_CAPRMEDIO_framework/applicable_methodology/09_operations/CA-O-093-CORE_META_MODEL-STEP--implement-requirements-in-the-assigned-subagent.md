@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Requirement Implementation Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Step/Agentic Execution Context"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Workflow Run"
-    - "Step Run"
-version: 4
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
+version: 6
+updated_at: "2026-10-15 18:53:57 +0000"
 relations:
   relates_to:
     - CA-O-019
@@ -28,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-093-CORE_META_MODEL-STEP--implement-requirements-in-the-assigned-subagent.md
   source_atom_id: CA-O-093
-  source_atom_revision: 4
-  source_sha256: a83edac4fb71f30162aa25cab9c76516b9febd917c4e032ece81089a257b301a
+  source_atom_revision: 6
+  source_sha256: d3d53fb4d38d906e1a6c50380c8ad52e42404c15e7a122544d3401cd0c8d54d8
   original_relations_sha256: b3d2f873746220ae988ed15cfa2e21ae9d85f8447183565fc5bf5be6dcd64c7a
 ---
 # Summary

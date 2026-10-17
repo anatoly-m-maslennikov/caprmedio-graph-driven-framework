@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Assignee/Carrier"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Assignee"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Assignee"
-    - "File Carrier"
-version: 4
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Assignee", "Entity/Carrier/File Carrier"]
+version: 7
+updated_at: "2026-10-16 12:09:35 +0000"
 relations: {"relates_to": ["CA-R-1584", "CA-R-1585"]}
 atom_id: "CA-D-473"
 content_role: "Delivery"
@@ -19,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-473-CORE_META_MODEL-STANDARD--serialize-explicit-plan-assignees.md
   source_atom_id: CA-D-473
-  source_atom_revision: 4
-  source_sha256: 455da0a987be070e4f4c2a2034c2fcebef3d1eeeb3d3576b3d248fbab4897fab
+  source_atom_revision: 7
+  source_sha256: de5314e439839e74a2900fe6166ae4519f922be3590ea81b61f84fbbea16095f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

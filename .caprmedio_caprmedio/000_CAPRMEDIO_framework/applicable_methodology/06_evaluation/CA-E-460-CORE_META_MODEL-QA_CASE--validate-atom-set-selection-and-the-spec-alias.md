@@ -10,26 +10,16 @@ status: Active
 subjects:
   governs: "Atom selection"
   depends_on:
-    - "Atom Collection"
-    - "Atom/Claim"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Content Role"
-    - "Atom/Status"
-    - "Hub Atom"
-    - "Owned Atoms"
-    - "Scope Unit"
-    - "Subtree-owned Atoms"
-    - "Subtree-targeting Atoms"
-    - "Targeting Atoms"
-version: 12
-updated_at: "2026-10-01 21:46:55 +0400"
+    ["Entity/Carrier", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Target Scope Unit", "Atom/Content Role", "Entity/Continuant/Object/Atom.Status", "Hub Atom", "Owned Atoms", "Entity/Continuant/Object/Scope Unit", "Subtree-owned Atoms", "Subtree-targeting Atoms", "Targeting Atoms"]
+version: 14
+updated_at: "2026-10-15 18:49:29 +0000"
 relations: {"evaluation_for": ["CA-D-482", "CA-D-495", "CA-M-273", "CA-M-288", "CA-R-1271", "CA-R-1447", "CA-R-1448", "CA-R-1449", "CA-R-1595", "CA-R-1596", "CA-R-942"]}
 global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-460-CORE_META_MODEL-QA_CASE--validate-atom-set-selection-and-the-spec-alias.md
   source_atom_id: CA-E-460
-  source_atom_revision: 12
-  source_sha256: 630a6a8c3588ce3372c8543c8cc303db8a79ce911f7b144c645e5c7832c39fe5
+  source_atom_revision: 14
+  source_sha256: 360d990f3f993e7ea28b3b4258a57753c4724d17bc9f16c3349f1f222c7ff2fd
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

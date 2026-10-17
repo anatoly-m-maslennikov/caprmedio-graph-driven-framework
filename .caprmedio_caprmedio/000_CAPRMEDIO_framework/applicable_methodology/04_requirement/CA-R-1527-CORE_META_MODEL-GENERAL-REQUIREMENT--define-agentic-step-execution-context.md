@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Step/Agentic Execution Context"
+  governs: "Agentic Step Execution Context"
   depends_on:
-    - "Step"
-    - "Action/Execution Kind"
-    - "Workflow"
-    - "Step Run"
-    - "AI Agent"
-    - "Operator"
-version: 4
-updated_at: "2026-10-01 21:44:50 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator"]
+version: 6
+updated_at: "2026-10-15 18:43:59 +0000"
 relations: {"relates_to": ["CA-R-1509", "CA-R-1526", "CA-R-1525"]}
 atom_id: "CA-R-1527"
 content_role: "Requirement"
@@ -22,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1527-CORE_META_MODEL-GENERAL-REQUIREMENT--define-agentic-step-execution-context.md
   source_atom_id: CA-R-1527
-  source_atom_revision: 4
-  source_sha256: 54d5849f0b4603b0947e9232ba46f7be0a077f84d30a448fe4f8ba4780b587b5
+  source_atom_revision: 6
+  source_sha256: f144103f1a475202313c0feb0ac43d322c75ae6d60395f843f9c4bd74607e4bc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

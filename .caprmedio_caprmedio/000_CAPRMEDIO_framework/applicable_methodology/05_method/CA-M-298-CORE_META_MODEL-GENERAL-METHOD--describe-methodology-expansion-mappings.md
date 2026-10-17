@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: "Methodology Source/expansion mapping"
+  governs: "Methodology Source.Expansion Mapping"
   depends_on:
     - "Methodology Source"
     - "Extension"
     - "Project Configuration"
     - "Core Meta-Model"
-version: 5
-updated_at: "2026-10-01 21:40:53 +0400"
+version: 6
+updated_at: "2026-10-15 12:20:00 +0000"
 relations: {child_of: [CA-M-006], method_for: [CA-R-1375]}
 atom_id: "CA-M-298"
 content_role: "Method"
@@ -20,8 +20,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-298-CORE_META_MODEL-GENERAL-METHOD--describe-methodology-expansion-mappings.md
   source_atom_id: CA-M-298
-  source_atom_revision: 5
-  source_sha256: bff7275f00c0dd59032ad72aa017ed209dbb9cb8250e203a8863fb05d2963886
+  source_atom_revision: 6
+  source_sha256: 1a651f5cfa58b453cc9a1d038274e518bc36c8b7e5f37786404debd6bad83f1d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

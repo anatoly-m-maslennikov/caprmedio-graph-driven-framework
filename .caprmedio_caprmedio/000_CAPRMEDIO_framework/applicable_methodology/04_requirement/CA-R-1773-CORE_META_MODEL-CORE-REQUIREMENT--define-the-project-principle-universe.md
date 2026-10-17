@@ -1,21 +1,13 @@
 ---
-version: 16
-updated_at: "2026-10-03 03:43:32 +0400"
+version: 18
+updated_at: "2026-10-15 18:45:59 +0000"
 relations:
   child_of:
     - CA-M-001
 subjects:
-  governs: "Project/Principle universe"
+  governs: "Project Principle Universe"
   depends_on:
-    - "Project"
-    - "Atom/Local Tier: Principle"
-    - "Structural Level"
-    - "Atom/Content Role"
-    - "Artifact"
-    - "Extension"
-    - "Project Configuration"
-    - "CAPRMEDIO Framework Instance"
-
+    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Structural Level", "Atom/Content Role", "Artifact", "Extension", "Project Configuration", "CAPRMEDIO Framework Instance"]
 atom_id: "CA-R-1773"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
@@ -27,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1773-CORE_META_MODEL-CORE-REQUIREMENT--define-the-project-principle-universe.md
   source_atom_id: CA-R-1773
-  source_atom_revision: 16
-  source_sha256: b8dbe8b639932dc98a00fd6d8d861f255b21ddaafec0c77da68f590aac8c60ba
+  source_atom_revision: 18
+  source_sha256: 5b864e48e4f801083a93498a4b5e5cb5d0e8dee7bb845292f14ca43112c45cf0
   original_relations_sha256: 2f95e55e3d0a844c858c40eeab601ef29e88bfb9f5c8b9fd17a85ccd2af662a7
 ---
 # Summary

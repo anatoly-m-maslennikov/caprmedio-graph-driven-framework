@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/code-root locators"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Code-Root Locators"
   depends_on:
-    - "Framework Instance Settings"
-version: 7
-updated_at: "2026-10-01 21:24:33 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings"]
+version: 9
+updated_at: "2026-10-15 18:51:37 +0000"
 relations:
   child_of:
     - "CA-D-361"
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-371-CORE_META_MODEL-DELIVERY--serialize-framework-code-root-locators.md
   source_atom_id: CA-D-371
-  source_atom_revision: 7
-  source_sha256: d25b5cfaf0ce649faba1f1c2661a87a83a339f3118b358a1c95a0a4f7733b21e
+  source_atom_revision: 9
+  source_sha256: c42c42fd6772f92ab9f42d6ca072e034000c2c331e16b709cedebe848d993cc7
   original_relations_sha256: dbd41c990ca96026d80a7c6e36e3203724208ce3569ca634233af924bbbfab2f
 ---
 # Summary

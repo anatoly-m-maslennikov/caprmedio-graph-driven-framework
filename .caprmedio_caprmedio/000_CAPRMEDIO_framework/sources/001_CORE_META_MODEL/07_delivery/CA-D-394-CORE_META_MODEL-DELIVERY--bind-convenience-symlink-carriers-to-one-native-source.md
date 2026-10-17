@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Carrier"
+  governs: "Entity/Carrier"
   depends_on:
-    - "Methodology Source"
-    - "Project"
-version: 7
-updated_at: "2026-10-01 21:24:33 +0400"
+    ["Methodology Source", "Entity/Continuant/Object/Project"]
+version: 8
+updated_at: "2026-10-15 18:51:51 +0000"
 relations: {}
 atom_id: "CA-D-394"
 content_role: "Delivery"

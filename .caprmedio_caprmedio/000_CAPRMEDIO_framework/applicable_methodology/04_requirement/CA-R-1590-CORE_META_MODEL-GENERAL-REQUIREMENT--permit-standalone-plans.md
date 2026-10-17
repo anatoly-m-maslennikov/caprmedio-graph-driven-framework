@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Carrier"
-version: 4
-updated_at: "2026-10-03 00:47:18 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom"]
+version: 5
+updated_at: "2026-10-16 12:08:35 +0000"
 relations: {"relates_to": ["CA-R-1574", "CA-R-1579"]}
 atom_id: "CA-R-1590"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1590-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-standalone-plans.md
   source_atom_id: CA-R-1590
-  source_atom_revision: 4
-  source_sha256: 38b8d2288aab37581afe93b2f207a55d141cfc3b0a06673ef791c7963b2eb35f
+  source_atom_revision: 5
+  source_sha256: 80e0c4fcac9e7036e6072971fb5cf5f020d62ce1890dbf5525cd91565256eef2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

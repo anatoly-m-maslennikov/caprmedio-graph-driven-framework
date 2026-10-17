@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Unit"
+  governs: "Entity/Continuant/Object/Scope Unit"
   depends_on:
-    - "semantics"
-    - "scope-topology"
-version: 14
-updated_at: "2026-10-02 21:09:50 +0400"
+    ["Entity/Continuant/Object/Scope Unit"]
+version: 15
+updated_at: "2026-10-16 12:08:58 +0000"
 relations: {}
 atom_id: "CA-R-964"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md
   source_atom_id: CA-R-964
-  source_atom_revision: 14
-  source_sha256: e6e4df66b66aea2a5c71699793ba3b517fa5e974b9910184b29d2049982e11dc
+  source_atom_revision: 15
+  source_sha256: 1886ea4042580f24c51e808a5edb06ce37ae6a67d2dd20445db06f8f988c985e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

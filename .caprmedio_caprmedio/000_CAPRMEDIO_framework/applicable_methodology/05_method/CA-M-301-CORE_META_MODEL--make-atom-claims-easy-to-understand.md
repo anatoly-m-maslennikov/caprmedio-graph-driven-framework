@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim"
+  governs: "Entity/Continuant/Object/Atom.Substance"
   depends_on:
-    - "Term"
-    - "Workflow/Relation Kind: On Result"
-    - "Step"
-    - "Atom"
-    - "Author"
-    - "CCE"
-    - "Action"
-    - "Workflow"
-version: 6
-updated_at: "2026-10-04 15:08:16 +0000"
+    ["Entity/Continuant/Term", "Relation/Type: On Result", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom", "Author", "CCE", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
+version: 8
+updated_at: "2026-10-15 18:48:27 +0000"
 relations:
   child_of:
     - CA-M-113
@@ -31,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-301-CORE_META_MODEL--make-atom-claims-easy-to-understand.md
   source_atom_id: CA-M-301
-  source_atom_revision: 6
-  source_sha256: 5b5d8a498e87e2f377eea0593235af7fd642d21006e9a34ab6358787a8769a41
+  source_atom_revision: 8
+  source_sha256: c2d9d8b31cc0babd59c14d05dfee58e953ad5a6d17d86d88ad1f7c6295b1bdc6
   original_relations_sha256: f469ff7efb70ffb6ea732b5fd14ab4a693061692e4687f0c129a6b4ea6b83bfa
 ---
 # Summary

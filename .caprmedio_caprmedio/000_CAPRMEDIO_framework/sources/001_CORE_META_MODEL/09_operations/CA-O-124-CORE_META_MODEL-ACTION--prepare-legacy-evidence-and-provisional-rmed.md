@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Legacy Evidence and Provisional RMED Preparation"
-  depends_on: [Action, Implementation, Spec, Atom, Artifact/Revision, Evaluation, Operator, AI Agent]
-version: 1
-updated_at: "2026-10-04 15:07:31 +0000"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Implementation", "Spec", "Entity/Continuant/Object/Atom", "Artifact/Revision", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent"]
+version: 2
+updated_at: "2026-10-15 18:53:18 +0000"
 relations:
   relates_to: [CA-O-006, CA-O-007, CA-O-008, CA-O-017, CA-O-019, CA-O-103]
 ---

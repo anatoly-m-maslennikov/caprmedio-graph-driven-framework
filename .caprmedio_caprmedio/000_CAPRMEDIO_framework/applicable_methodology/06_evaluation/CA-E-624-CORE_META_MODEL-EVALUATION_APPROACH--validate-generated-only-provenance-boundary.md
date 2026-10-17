@@ -2,11 +2,9 @@
 subjects:
   governs: "Generated-Only Provenance Validation"
   depends_on:
-    - "Journal/Record"
-    - "Implementation Relation"
-    - "Projection"
-version: 18
-updated_at: "2026-10-11 17:56:31 +0400"
+    ["Entity/Continuant/History/Journal.Record", "Implementation Relation", "Entity/Continuant/Projection"]
+version: 20
+updated_at: "2026-10-15 18:50:37 +0000"
 relations:
   evaluation_for:
     - CA-M-135
@@ -23,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-624-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md
   source_atom_id: CA-E-624
-  source_atom_revision: 18
-  source_sha256: ec129b8b68c794ccc57960f97c57809a3e2c07501185d09590d1c2bba664d5fe
+  source_atom_revision: 20
+  source_sha256: 8af8ba9ac73c7ee1f9ef4c12cf06c4645a3ccbe94d452f553da17df305d7b867
   original_relations_sha256: 5c9a4949804f5766c1d28c00f18c57177f447286d4f477f6d0d8cad8ab4acfb7
 ---
 # Summary

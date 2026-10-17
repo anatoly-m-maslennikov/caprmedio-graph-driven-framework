@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Step Run/Invocation"
+  governs: "Entity/Occurrent/Execution/Step Run.Invocation Context"
   depends_on:
-    - "Step Run"
-    - "Workflow Run"
-    - "Step"
-    - "Action"
-    - "Operator"
-    - "Artifact/Revision"
-version: 4
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom"]
+version: 7
+updated_at: "2026-10-16 12:09:08 +0000"
 relations: {"evaluation_for": ["CA-M-304", "CA-R-1789", "CA-R-1790", "CA-R-1791", "CA-R-1792", "CA-R-1793"]}
 atom_id: "CA-E-497"
 content_role: "Evaluation"
@@ -23,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-QA_CASE--validate-self-contained-agentic-invocations.md
   source_atom_id: CA-E-497
-  source_atom_revision: 4
-  source_sha256: 17de1ecc22b82359e2ebf18c4a3c447de634dd1fd169a79b2a36b059c6da5a60
+  source_atom_revision: 7
+  source_sha256: e32978e693b72c26994841bdf4f45e706565bef530f21df29027fb54d276c57f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

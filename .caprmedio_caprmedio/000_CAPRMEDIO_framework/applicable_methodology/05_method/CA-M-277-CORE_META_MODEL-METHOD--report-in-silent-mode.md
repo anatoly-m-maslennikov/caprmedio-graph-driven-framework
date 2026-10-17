@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/interaction/reporting mode: silent"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode: silent"
   depends_on:
-    - "Framework Instance Settings/interaction/reporting mode"
-    - "Framework Instance Settings/interaction/reporting mode/effects"
-    - "Framework Instance Settings/interaction/reporting mode/mandatory information"
-    - "Artifact"
-    - "Skill"
-    - "Project"
-version: 11
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode", "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Effects", "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information", "Artifact", "Skill", "Entity/Continuant/Object/Project"]
+version: 13
+updated_at: "2026-10-15 18:48:16 +0000"
 relations: {"relates_to":["CA-R-1628","CA-R-1439","CA-R-1440","CA-R-1558","CA-O-052","CA-R-1750"]}
 atom_id: "CA-M-277"
 content_role: "Method"
@@ -22,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-277-CORE_META_MODEL-METHOD--report-in-silent-mode.md
   source_atom_id: CA-M-277
-  source_atom_revision: 11
-  source_sha256: e34f632c28b8450bee6689e3c76bd752feeb6106c32fea1e14656ca1ac656170
+  source_atom_revision: 13
+  source_sha256: d423876ed08513155e81bbd5444bf3ec0c8aa97e3027e33e5b88883332fe1bf6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

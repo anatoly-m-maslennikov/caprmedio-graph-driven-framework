@@ -10,22 +10,16 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Atom Content Authoring"
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Details"
-    - "Atom/Summary"
-    - "Atom/Content Role"
-    - "Author"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Details", "Entity/Continuant/Object/Atom.Summary", "Atom/Content Role", "Author"]
 relations: {"relates_to": ["CA-M-111", "CA-D-479", "CA-R-1465", "CA-R-1464", "CA-E-384"]}
-version: 2
-updated_at: "2026-09-25 20:51:44 +0000"
+version: 4
+updated_at: "2026-10-15 18:53:11 +0000"
 global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-103-CORE_META_MODEL-ACTION--author-atom-content-before-summary.md
   source_atom_id: CA-O-103
-  source_atom_revision: 2
-  source_sha256: d76750e7aae02fff73f089cc142514f3dc000396df81b97100c6017a33b1ddb8
+  source_atom_revision: 4
+  source_sha256: 7a29e99a9f2f39e5b72bfa66947e952d549f943c2d829e0d0c955c2791263109
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

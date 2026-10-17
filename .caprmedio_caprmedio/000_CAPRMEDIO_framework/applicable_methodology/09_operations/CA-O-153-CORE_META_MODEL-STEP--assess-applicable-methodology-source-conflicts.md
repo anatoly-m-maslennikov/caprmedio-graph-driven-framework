@@ -8,29 +8,19 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 5
+updated_at: "2026-10-15 18:53:51 +0000"
 subjects:
-  governs: "Applicable Methodology Compilation/Step: assess"
+  governs: "Applicable Methodology Compilation Assess Step"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Applicable Methodology"
-    - "Assess Source Conflicts"
-    - "Methodology Source/Expansion Boundary"
-    - "Core Meta-Model"
-    - "Atom"
-    - "Applicable Methodology/Conflict"
-    - "Applicable Methodology/Source Frontier Digest"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Assess Source Conflicts", "Methodology Source.Expansion Boundary", "Core Meta-Model", "Entity/Continuant/Object/Atom", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest"]
 relations:
   relates_to: [CA-O-011, CA-O-005]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md
   source_atom_id: CA-O-153
-  source_atom_revision: 3
-  source_sha256: daab4626602f7c28938e937badc433d826d8a6f311c3093045a2849a4228fc0c
+  source_atom_revision: 5
+  source_sha256: 8c6631f7b8bb0963ab02d8cefd8ebe01ed09ffb7648cc77417c9012ed0effc11
   original_relations_sha256: 9e53cce5969842350ce25539597bb1bfbc787ff9378d7f40487b722802818257
 ---
 # Summary

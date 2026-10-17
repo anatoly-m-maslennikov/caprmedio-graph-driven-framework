@@ -2,20 +2,9 @@
 subjects:
   governs: "Project Structure Maintenance"
   depends_on:
-    - "Workflow/Relation Kind: On Result"
-    - "Step Run"
-    - "Workflow Run"
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Project Structure"
-    - "Select Reconciliation Sources"
-    - "Prepare Structural Change"
-    - "Assess Source Conflicts"
-    - "Authorize Structural Change"
-    - "Apply Structural Change"
-version: 8
-updated_at: "2026-10-04 17:31:25 +0000"
+    ["Relation/Type: On Result", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Project.Structure", "Select Reconciliation Sources", "Prepare Structural Change", "Assess Source Conflicts", "Authorize Structural Change", "Apply Structural Change"]
+version: 10
+updated_at: "2026-10-15 18:52:49 +0000"
 relations:
   relates_to:
     - "CA-R-1483"
@@ -43,8 +32,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-015-CORE_META_MODEL-WORKFLOW--maintain-project-structure.md
   source_atom_id: CA-O-015
-  source_atom_revision: 8
-  source_sha256: 707f8a77e17fd93e6370b23516f81f9ed668fd199c3da23ea03f24e7fd377ebe
+  source_atom_revision: 10
+  source_sha256: 9d7b0918c1c375404cc5535733a30f34853676aac5216c5cb7cf570a54c4cd1b
   original_relations_sha256: 569e3438c37c00da6868cfa4d3d012142a4a3163bb9330450903e1ae5e11062c
 ---
 # Summary

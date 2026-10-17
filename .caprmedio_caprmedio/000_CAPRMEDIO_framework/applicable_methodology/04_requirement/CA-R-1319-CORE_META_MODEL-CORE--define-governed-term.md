@@ -2,11 +2,9 @@
 subjects:
   governs: "Governed Term"
   depends_on:
-    - "Definition Atom"
-    - "Term"
-    - "Project"
-version: 10
-updated_at: "2026-10-02 22:05:04 +0400"
+    ["Definition Atom", "Entity/Continuant/Term", "Entity/Continuant/Object/Project"]
+version: 11
+updated_at: "2026-10-15 18:41:51 +0000"
 relations: {}
 atom_id: "CA-R-1319"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md
   source_atom_id: CA-R-1319
-  source_atom_revision: 10
-  source_sha256: 9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58
+  source_atom_revision: 11
+  source_sha256: c0afd232fdf0ab6ccb014d9fec73079e441a2644dd3ccfae22f97eedda9f3efe
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

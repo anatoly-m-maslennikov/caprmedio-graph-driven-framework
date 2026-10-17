@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Tool selections"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Tool Selections"
   depends_on:
-    - "Framework Instance Settings"
-    - "Tool"
-version: 7
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Tool"]
+version: 9
+updated_at: "2026-10-15 18:51:38 +0000"
 relations:
   child_of:
     - "CA-D-361"

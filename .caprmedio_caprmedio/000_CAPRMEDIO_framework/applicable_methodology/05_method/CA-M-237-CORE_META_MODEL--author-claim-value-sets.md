@@ -2,14 +2,9 @@
 subjects:
   governs: "Claim Value Set Authoring"
   depends_on:
-    - "Atom/Claim"
-    - "Author"
-    - "Claim Value Set"
-    - "Property"
-    - "Subject Expression"
-    - "IS_ALLOWED_VALUE_OF"
-version: 10
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Author", "Claim Value Set", "Property", "Subject Expression", "IS_ALLOWED_VALUE_OF"]
+version: 12
+updated_at: "2026-10-15 18:48:04 +0000"
 relations:
   child_of:
     - CA-M-115
@@ -24,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL--author-claim-value-sets.md
   source_atom_id: CA-M-237
-  source_atom_revision: 10
-  source_sha256: f9293974e41c66ef9e209c37203fa8135d012b1a62acdc28c31d116a34891b92
+  source_atom_revision: 12
+  source_sha256: f17db364ce1c6d2efb448ff5a23182d2a921c0fe4b366421ba4120bd83b8e6b9
   original_relations_sha256: 8560a14f5d40024180f49119ad6216bc8babc0722610186fff08e9b20d081299
 ---
 # Summary

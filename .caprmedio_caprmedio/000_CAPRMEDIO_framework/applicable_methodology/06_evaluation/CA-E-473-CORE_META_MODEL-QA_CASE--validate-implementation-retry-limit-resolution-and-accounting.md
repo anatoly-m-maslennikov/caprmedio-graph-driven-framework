@@ -1,6 +1,6 @@
 ---
-version: 10
-updated_at: "2026-10-02 20:09:13 +0400"
+version: 12
+updated_at: "2026-10-15 18:49:40 +0000"
 relations:
   evaluation_for:
     - CA-R-1488
@@ -11,12 +11,7 @@ relations:
 subjects:
   governs: "Implementation Retry Limit"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Implementation Retry Control"
-    - "Implementation Workflow"
-    - "Operator"
-    - "Framework Instance Settings"
-    - "Default Settings"
+    ["Atom/Content Role: Plan/Type: Plan", "Implementation Retry Control", "Implementation Workflow", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Framework Settings", "Default Settings"]
 atom_id: "CA-E-473"
 content_role: "Evaluation"
 current_scope_unit: "CORE_META_MODEL"
@@ -29,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-473-CORE_META_MODEL-QA_CASE--validate-implementation-retry-limit-resolution-and-accounting.md
   source_atom_id: CA-E-473
-  source_atom_revision: 10
-  source_sha256: 0e7ea664a2466237d9a42a983e36805316c23066c6cf74b9d612b3fc8a56d605
+  source_atom_revision: 12
+  source_sha256: cb5a536698779ee53d9067ef96b272eda04c1a58708ba3572a4c3d81dfc46f2a
   original_relations_sha256: 7f41ee48533e1558206583e38b2cb3eb618df5c1924ef6b685abd6f58ed17040
 ---
 # Summary

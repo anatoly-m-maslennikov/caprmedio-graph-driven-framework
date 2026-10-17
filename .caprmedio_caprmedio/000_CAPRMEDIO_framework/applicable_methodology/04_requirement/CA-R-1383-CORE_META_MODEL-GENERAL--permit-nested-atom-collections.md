@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom Collection/Direct Containment"
+  governs: "Container Atom"
   depends_on:
-    - "Atom Collection"
-    - "Structural Entity/Direct Containment"
-version: 10
-updated_at: "2026-10-02 22:41:14 +0400"
+    ["Container Atom", "Structural Entity Direct Containment"]
+version: 11
+updated_at: "2026-10-15 12:21:38 +0000"
 relations: {}
 atom_id: "CA-R-1383"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md
   source_atom_id: CA-R-1383
-  source_atom_revision: 10
-  source_sha256: 9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d
+  source_atom_revision: 11
+  source_sha256: eee5af5fbebd1750356d8b952a7c95755871cac862a6e5a979a268186b6985c3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

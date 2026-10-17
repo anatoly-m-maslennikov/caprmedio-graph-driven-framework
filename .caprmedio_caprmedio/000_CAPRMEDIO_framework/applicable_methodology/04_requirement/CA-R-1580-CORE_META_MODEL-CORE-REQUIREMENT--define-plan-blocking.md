@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Blocking"
+  governs: "Plan Blocking Relations"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Plan Graph"
-    - "Atom/Content Role: Plan/Type: Plan/Status: Done"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Hub Atom"
-    - "Subject Relation Kind: DEPENDS_ON"
-version: 4
-updated_at: "2026-10-03 00:34:47 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Plan Graph", "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Done", "Hub Atom", "Subject Relation Kind: DEPENDS_ON"]
+version: 6
+updated_at: "2026-10-15 18:44:41 +0000"
 relations: {"relates_to": ["CA-R-1583", "CA-D-471", "CA-R-1200"]}
 atom_id: "CA-R-1580"
 content_role: "Requirement"
@@ -22,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-blocking.md
   source_atom_id: CA-R-1580
-  source_atom_revision: 4
-  source_sha256: 38611796a0d9565a222ef4b85c7ae833cf1a92184e377f026097db675f9b7284
+  source_atom_revision: 6
+  source_sha256: e2fd1c4f7b6b172549dbe55eb263f8e138392808323bb5f3b30adda83c0e2c62
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

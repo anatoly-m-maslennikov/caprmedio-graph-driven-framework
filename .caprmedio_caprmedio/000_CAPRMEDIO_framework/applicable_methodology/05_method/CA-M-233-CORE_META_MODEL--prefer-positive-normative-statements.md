@@ -2,11 +2,9 @@
 subjects:
   governs: "Normative Atom Prose Authoring"
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "CCE"
-version: 12
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "CCE"]
+version: 14
+updated_at: "2026-10-15 18:48:03 +0000"
 relations: {}
 atom_id: "CA-M-233"
 content_role: "Method"
@@ -19,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-233-CORE_META_MODEL--prefer-positive-normative-statements.md
   source_atom_id: CA-M-233
-  source_atom_revision: 12
-  source_sha256: c377b64f94f41a68f97151370042bc08ec743ef7068ac723475acbe61b62e167
+  source_atom_revision: 14
+  source_sha256: 90868201d1708bd50eef967125b8008ec98919f34a12a054fe9406afa09bf5a8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

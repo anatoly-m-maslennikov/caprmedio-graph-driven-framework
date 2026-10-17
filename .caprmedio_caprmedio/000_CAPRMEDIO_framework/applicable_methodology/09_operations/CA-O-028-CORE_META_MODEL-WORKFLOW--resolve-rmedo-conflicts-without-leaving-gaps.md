@@ -2,29 +2,9 @@
 subjects:
   governs: "RMEDO Conflict Resolution"
   depends_on:
-    - "Workflow/Relation Kind: On Result"
-    - "Step Run"
-    - "Workflow Run"
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Select Reconciliation Sources"
-    - "Assess Source Conflicts"
-    - "Propose Source Corrections"
-    - "Obtain Source Correction Decision"
-    - "Apply Approved Source Corrections"
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Global Tier"
-    - "Atom/Revision/Updated At"
-    - "Atom/Local Tier: Principle"
-    - "Relation"
-    - "Operator"
-    - "AI Agent"
-    - "Autonomous Confidence Threshold"
-    - "Journal"
-version: 8
-updated_at: "2026-10-04 15:07:08 +0000"
+    ["Relation/Type: On Result", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Select Reconciliation Sources", "Assess Source Conflicts", "Propose Source Corrections", "Obtain Source Correction Decision", "Apply Approved Source Corrections", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Atom.Updated At", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Relation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Autonomous Confidence Threshold", "Entity/Continuant/History/Journal"]
+version: 10
+updated_at: "2026-10-15 18:52:58 +0000"
 relations: {"relates_to":["CA-O-004","CA-O-005","CA-O-006","CA-O-007","CA-O-008","CA-R-1551","CA-R-807"]}
 atom_id: "CA-O-028"
 content_role: "Operations"
@@ -38,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md
   source_atom_id: CA-O-028
-  source_atom_revision: 8
-  source_sha256: 05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47
+  source_atom_revision: 10
+  source_sha256: d18b26f06b79fa485990f66fa813023fc846700c168ae7b760562c94890d6f53
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

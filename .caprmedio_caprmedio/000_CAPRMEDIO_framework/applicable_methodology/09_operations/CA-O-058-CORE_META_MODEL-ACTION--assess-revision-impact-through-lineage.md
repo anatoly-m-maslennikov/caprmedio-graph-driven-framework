@@ -2,15 +2,9 @@
 subjects:
   governs: "Assess Lineage Impact"
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Artifact/Revision"
-    - "Relation"
-    - "Lineage Impact Analysis"
-    - "Operator"
-    - "AI Agent"
-version: 6
-updated_at: "2026-10-04 15:11:59 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Continuant/Object/Relation", "Lineage Impact Analysis", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent"]
+version: 8
+updated_at: "2026-10-15 18:53:02 +0000"
 relations: {"child_of":["CA-E-002"]}
 atom_id: "CA-O-058"
 content_role: "Operations"
@@ -24,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-058-CORE_META_MODEL-ACTION--assess-revision-impact-through-lineage.md
   source_atom_id: CA-O-058
-  source_atom_revision: 6
-  source_sha256: 9a8d53c9f6d16a8a17675de50828fee6bf2e4bff15efc749cbecd0ed6857d22f
+  source_atom_revision: 8
+  source_sha256: eb544528a55d2f780fe5add2c8fb66623723b84a18ab39b76ebb3b98fc03b3dc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

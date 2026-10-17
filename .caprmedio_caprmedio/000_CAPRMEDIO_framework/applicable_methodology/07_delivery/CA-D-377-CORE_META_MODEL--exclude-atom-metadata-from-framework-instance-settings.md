@@ -2,11 +2,9 @@
 subjects:
   governs: "Framework Instance Settings/Carrier/Atom metadata exclusion"
   depends_on:
-    - "Framework Instance Settings"
-    - "Atom"
-    - "Artifact/Revision"
-version: 7
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Atom", "Artifact/Revision"]
+version: 8
+updated_at: "2026-10-15 18:51:42 +0000"
 relations:
   child_of:
     - "CA-D-361"
@@ -21,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL--exclude-atom-metadata-from-framework-instance-settings.md
   source_atom_id: CA-D-377
-  source_atom_revision: 7
-  source_sha256: 1eb64a26f700a11193563752a1d25cd1fcc715ede996b59d2cd6cb58208d2faa
+  source_atom_revision: 8
+  source_sha256: 4f59f1abe604aa0126a0722cbb8875183fcffb1c550dfddbd2b813f615bea78a
   original_relations_sha256: dbd41c990ca96026d80a7c6e36e3203724208ce3569ca634233af924bbbfab2f
 ---
 # Summary

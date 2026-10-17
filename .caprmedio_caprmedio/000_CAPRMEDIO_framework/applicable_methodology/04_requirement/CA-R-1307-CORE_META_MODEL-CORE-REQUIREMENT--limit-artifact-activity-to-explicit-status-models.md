@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Activity"
+  governs: "Artifact.Activity"
   depends_on:
-    - "Artifact"
-    - "Artifact/Revision/Status"
-version: 12
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Artifact", "Artifact.Status"]
+version: 13
+updated_at: "2026-10-15 12:21:24 +0000"
 relations: {}
 atom_id: "CA-R-1307"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models.md
   source_atom_id: CA-R-1307
-  source_atom_revision: 12
-  source_sha256: 89cf0cde999fac4e6c9697936637d05a39be30675f1f305caa9e029bd7154285
+  source_atom_revision: 13
+  source_sha256: 10fb045b3e12f0642f29c08ea49d9c4d4213d9dc70ecdb3edb2403aa99cf5d5f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

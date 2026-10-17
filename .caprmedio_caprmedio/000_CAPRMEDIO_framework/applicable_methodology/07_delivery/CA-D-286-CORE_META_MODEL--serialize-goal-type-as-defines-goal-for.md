@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Goal/Filename Token"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal"
   depends_on: []
-version: 14
-updated_at: "2026-10-02 18:57:51 +0400"
+version: 16
+updated_at: "2026-10-15 18:50:52 +0000"
 relations: {}
 atom_id: "CA-D-286"
 content_role: "Delivery"
@@ -16,8 +16,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-286-CORE_META_MODEL--serialize-goal-type-as-defines-goal-for.md
   source_atom_id: CA-D-286
-  source_atom_revision: 14
-  source_sha256: 112ac3bcecc7b5d47269a0c0e6ce2db5997cd51b71333c2a89687a871673998a
+  source_atom_revision: 16
+  source_sha256: 035de3bb7fc4c089bf6419c3e75c9ebd00480c5cf65aa7dbd07aa104c5bc0c28
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

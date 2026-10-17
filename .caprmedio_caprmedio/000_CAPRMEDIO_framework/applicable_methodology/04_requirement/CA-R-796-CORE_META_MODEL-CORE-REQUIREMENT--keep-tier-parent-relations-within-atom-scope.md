@@ -2,12 +2,9 @@
 subjects:
   governs: "relation-model"
   depends_on:
-    - "Atom/Scope"
-    - "Atom"
-    - "Atom/Local Tier"
-    - "Relation"
-version: 18
-updated_at: "2026-10-02 20:52:00 +0400"
+    ["Atom Scope", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Relation"]
+version: 20
+updated_at: "2026-10-15 18:46:34 +0000"
 relations:
   child_of:
     - CA-R-917
@@ -23,8 +20,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md
   source_atom_id: CA-R-796
-  source_atom_revision: 18
-  source_sha256: ae92a8bd0ca593b73a8ebf3f4e0c4eb85fbb8106de7483376b1f96bbb8228733
+  source_atom_revision: 20
+  source_sha256: 87b14c64eb59f914af6e74fcbfb4938048bca57ca90431522325404a908708cf
   original_relations_sha256: c6d1a936c74a52f1d4f770eb15844db07e6ce44a7a75320ef4f439519f19d5a5
 ---
 # Summary

@@ -8,28 +8,19 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 5
+updated_at: "2026-10-15 18:53:53 +0000"
 subjects:
-  governs: "Applicable Methodology Compilation/Step: correct"
+  governs: "Applicable Methodology Compilation Correct Step"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Applicable Methodology"
-    - "Apply Approved Source Corrections"
-    - "Operator"
-    - "Journal/Record"
-    - "Methodology Source"
-    - "Atom/Claim"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Apply Approved Source Corrections", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal.Record", "Methodology Source", "Entity/Continuant/Object/Atom.Substance"]
 relations:
   relates_to: [CA-O-011, CA-O-008]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md
   source_atom_id: CA-O-156
-  source_atom_revision: 3
-  source_sha256: 188f6248126a04464334b8372336f362c4d8d0ed68e08ec8597105a4eb5b8e60
+  source_atom_revision: 5
+  source_sha256: e0de7252e180b90579fb453e99e501f7c59885e4c32b967fb293904a754019a4
   original_relations_sha256: 096b0599580a28c8c6f7e0bdc2d9f2defb1fb2b6089cf791e3f3adfc1be1f947
 ---
 # Summary

@@ -1,18 +1,10 @@
 ---
 subjects:
-  governs: "Project Structure"
+  governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    - "Scope Unit"
-    - "Scope Unit/Name"
-    - "Scope Unit/Type"
-    - "Scope Unit/Label"
-    - "Scope Unit/Local Order"
-    - "Scope Unit/Navigational Order Number"
-    - "Goal"
-    - "Framework Instance Settings"
-    - "Carrier"
-version: 5
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Name", "Entity/Continuant/Object/Scope Unit/Type", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Continuant/Object/Scope Unit.Local Order", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Carrier"]
+version: 8
+updated_at: "2026-10-16 12:09:03 +0000"
 relations:
   relates_to:
     - "CA-R-1483"

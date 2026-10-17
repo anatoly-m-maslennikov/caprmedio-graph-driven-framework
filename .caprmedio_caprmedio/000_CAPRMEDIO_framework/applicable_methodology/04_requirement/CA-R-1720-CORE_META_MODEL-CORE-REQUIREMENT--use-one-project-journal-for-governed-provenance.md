@@ -1,20 +1,10 @@
 ---
 subjects:
-  governs: "Journal"
+  governs: "Entity/Continuant/History/Journal"
   depends_on:
-    - "Step Run"
-    - "Workflow Run"
-    - "Project"
-    - "Artifact"
-    - "Implementation"
-    - "Action"
-    - "Workflow"
-    - "Work Journal/Event"
-    - "Projection"
-    - "Carrier"
-    - "Atom/Content Role: Delivery"
-version: 19
-updated_at: "2026-10-14 18:37:38 +0400"
+    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Project", "Artifact", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Projection", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Delivery"]
+version: 21
+updated_at: "2026-10-15 18:45:30 +0000"
 relations:
   child_of:
     - CAPRMEDIO-REQU-007-CORE-REQUIREMENT--full-minimal-traceability
@@ -29,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md
   source_atom_id: CA-R-1720
-  source_atom_revision: 19
-  source_sha256: 8797c94d0a27db28a8b9388a32678cec7bebf773e04a86a9b7873a410864ac44
+  source_atom_revision: 21
+  source_sha256: 21565d3ab4c680df1b7c36ef22a779fbe41f231045675d63d8da0deb774ae557
   original_relations_sha256: 4db6cfcf06eed514b4ef8628dc09a64f173b7b3e68b6692583e0c8383d2a593c
 ---
 # Summary

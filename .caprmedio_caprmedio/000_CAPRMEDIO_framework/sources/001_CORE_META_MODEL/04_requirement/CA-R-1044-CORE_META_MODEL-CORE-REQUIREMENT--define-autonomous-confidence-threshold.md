@@ -2,11 +2,9 @@
 subjects:
   governs: "Autonomous Confidence Threshold"
   depends_on:
-    - "Confidence Threshold"
-    - "AI Agent/Confidence"
-    - "Atom/Content Role: Plan/Type: Plan"
-version: 15
-updated_at: "2026-10-02 21:26:39 +0400"
+    ["Confidence Threshold", "AI Agent Confidence", "Atom/Content Role: Plan/Type: Plan"]
+version: 16
+updated_at: "2026-10-15 12:21:05 +0000"
 relations: {}
 atom_id: "CA-R-1044"
 content_role: "Requirement"

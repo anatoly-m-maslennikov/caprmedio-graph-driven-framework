@@ -2,18 +2,9 @@
 subjects:
   governs: "RMEDO Conflict Resolution"
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Revision"
-    - "Atom/Global Tier"
-    - "Atom/Revision/Updated At"
-    - "Atom/Local Tier: Principle"
-    - "Relation"
-    - "Operator"
-    - "Autonomous Confidence Threshold"
-    - "Journal/Record"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Atom.Updated At", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Relation", "Entity/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Entity/Continuant/History/Journal.Record"]
+version: 7
+updated_at: "2026-10-15 18:49:42 +0000"
 relations:
   evaluation_for:
     - CA-O-028

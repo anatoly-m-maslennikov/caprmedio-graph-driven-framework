@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier/Main Content/CCE Operator"
+  governs: "Markdown Atom Carrier.Main Content.CCE Operator"
   depends_on:
     - "CCE Operator"
-version: 12
-updated_at: "2026-10-02 18:57:51 +0400"
+version: 13
+updated_at: "2026-10-15 12:17:58 +0000"
 relations: {}
 atom_id: "CA-D-280"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-280-CORE_META_MODEL-DELIVERY--serialize-cce-operators-in-bold.md
   source_atom_id: CA-D-280
-  source_atom_revision: 12
-  source_sha256: 1f4289f4d3c0e0b832b4017edf7dac48f505802c8e65daafe7383c8264f68849
+  source_atom_revision: 13
+  source_sha256: c6dae13664d3e224d3213276949a7c653cbd2a01fdc481ab439e403b15b3b045
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

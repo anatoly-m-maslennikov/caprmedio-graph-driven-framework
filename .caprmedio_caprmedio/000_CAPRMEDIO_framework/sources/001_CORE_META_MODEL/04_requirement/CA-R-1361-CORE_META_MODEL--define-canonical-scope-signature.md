@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Scope Expression/Canonical Scope Signature"
+  governs: "Entity/Continuant/Projection/Type: Canonical Scope Signature"
   depends_on:
-    - "Scope Expression"
-    - "Atom"
-    - "Atom/Identifier"
-    - "Artifact/Carrier"
-    - "CCE Operator"
-version: 13
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Scope Expression", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.ID", "Artifact Carrier", "CCE Operator"]
+version: 15
+updated_at: "2026-10-15 18:42:12 +0000"
 relations: {}
 atom_id: "CA-R-1361"
 content_role: "Requirement"

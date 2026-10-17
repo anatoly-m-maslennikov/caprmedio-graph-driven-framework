@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/interaction/reporting mode: verbose"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode: verbose"
   depends_on:
-    - "Framework Instance Settings/interaction/reporting mode"
-    - "Framework Instance Settings/interaction/reporting mode/effects"
-    - "Framework Instance Settings/interaction/reporting mode/mandatory information"
-    - "Artifact"
-    - "Skill"
-version: 9
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode", "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Effects", "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information", "Artifact", "Skill"]
+version: 11
+updated_at: "2026-10-15 18:48:18 +0000"
 relations: {"relates_to":["CA-R-1628","CA-R-1439","CA-R-1440","CA-O-052","CA-R-1750"]}
 atom_id: "CA-M-278"
 content_role: "Method"

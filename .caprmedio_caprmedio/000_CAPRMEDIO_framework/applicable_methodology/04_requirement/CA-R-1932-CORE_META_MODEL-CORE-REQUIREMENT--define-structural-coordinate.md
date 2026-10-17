@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Structural Coordinate"
+  governs: "Entity/Continuant/Object/Scope Unit/Type: Ordered.Structural Coordinate"
   depends_on:
-    - "scope-topology"
-version: 16
-updated_at: "2026-10-11 17:56:31 +0400"
+    ["Entity/Continuant/Object/Scope Unit/Type: Ordered"]
+version: 17
+updated_at: "2026-10-16 12:08:49 +0000"
 relations: {}
 atom_id: "CA-R-1932"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1932-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md
   source_atom_id: CA-R-1932
-  source_atom_revision: 16
-  source_sha256: 10b5817c8e356d80bc95723910cdd450bfa2bb206b0f50cd16046dfd3a543260
+  source_atom_revision: 17
+  source_sha256: 5bc6d007d83f19730dcd2d3df0016c06b5e94a3bb249b161358aacac1b2ec6cf
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Content Role"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Operations"
-version: 21
-updated_at: "2026-10-03 02:10:09 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Atom/Content Role", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Operations"]
+version: 23
+updated_at: "2026-10-15 18:45:25 +0000"
 relations: {}
 atom_id: "CA-R-1694"
 content_role: "Requirement"

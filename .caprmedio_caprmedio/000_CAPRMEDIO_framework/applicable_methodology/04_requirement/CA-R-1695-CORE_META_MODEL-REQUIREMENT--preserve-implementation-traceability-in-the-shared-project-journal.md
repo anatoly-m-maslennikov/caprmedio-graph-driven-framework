@@ -2,14 +2,9 @@
 subjects:
   governs: "Implementation Binding"
   depends_on:
-    - "Work Journal"
-    - "Scope Unit"
-    - "Atom/Revision"
-    - "Implementation"
-    - "Projection"
-    - "Verification"
-version: 19
-updated_at: "2026-10-03 02:10:09 +0400"
+    ["Entity/Continuant/History/Journal", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom", "Implementation", "Entity/Continuant/Projection", "Verification"]
+version: 21
+updated_at: "2026-10-15 18:45:26 +0000"
 relations:
   child_of:
     - "CA-R-1682"
@@ -26,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md
   source_atom_id: CA-R-1695
-  source_atom_revision: 19
-  source_sha256: 38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e
+  source_atom_revision: 21
+  source_sha256: b634a376ec46f7a6c49e01660221a3fdd9137bede1c8a1d6a5d75933abcb3ccc
   original_relations_sha256: 830908b23d84a3a303303619975907f9aebe6f50499cd71d882d014336f089e7
 ---
 # Summary

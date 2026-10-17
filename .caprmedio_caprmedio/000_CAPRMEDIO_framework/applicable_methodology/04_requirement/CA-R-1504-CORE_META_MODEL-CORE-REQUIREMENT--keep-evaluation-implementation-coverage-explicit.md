@@ -2,11 +2,9 @@
 subjects:
   governs: "Implementation Binding"
   depends_on:
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Claim"
-version: 5
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Entity/Continuant/Object/Atom.Substance"]
+version: 7
+updated_at: "2026-10-15 18:43:46 +0000"
 relations: {}
 atom_id: "CA-R-1504"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1504-CORE_META_MODEL-CORE-REQUIREMENT--keep-evaluation-implementation-coverage-explicit.md
   source_atom_id: CA-R-1504
-  source_atom_revision: 5
-  source_sha256: 036ff4c6b8e0ef57df3b74a1f009dd5ed0850c613e1ab2919d3d66aee2b3337f
+  source_atom_revision: 7
+  source_sha256: bdc26f50b1a6023ef67c62f91fc676d15830549e76c577e6e42b6709b4bc1c6a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

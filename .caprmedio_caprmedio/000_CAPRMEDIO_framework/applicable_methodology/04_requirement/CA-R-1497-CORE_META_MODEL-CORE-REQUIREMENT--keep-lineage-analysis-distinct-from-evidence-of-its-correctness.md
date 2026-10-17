@@ -2,11 +2,9 @@
 subjects:
   governs: "Lineage Impact Analysis"
   depends_on:
-    - "Atom/Content Role: Analysis"
-    - "Journal/Record"
-    - "Evidence"
-version: 5
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Analysis", "Entity/Continuant/History/Journal.Record", "Evidence"]
+version: 7
+updated_at: "2026-10-15 18:43:43 +0000"
 relations: {}
 atom_id: "CA-R-1497"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1497-CORE_META_MODEL-CORE-REQUIREMENT--keep-lineage-analysis-distinct-from-evidence-of-its-correctness.md
   source_atom_id: CA-R-1497
-  source_atom_revision: 5
-  source_sha256: 7aa5551e9ab639629c70a99d683426bae259b36a8993e159c4cba28943bc11f8
+  source_atom_revision: 7
+  source_sha256: 946c82ae94c6d12e7a4d006b848d52678783354a97ff92175e3c306dee887e90
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

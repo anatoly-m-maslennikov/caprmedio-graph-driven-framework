@@ -2,12 +2,9 @@
 subjects:
   governs: "IS_BORNE_BY"
   depends_on:
-    - "Entity"
-    - "Dependent Entity"
-    - "Entities Graph"
-    - "Relation"
-version: 13
-updated_at: "2026-10-09 19:47:28 +0400"
+    ["Entity", "Dependent Entity", "Entity/Continuant/Projection/Type: Entities Graph", "Entity/Continuant/Object/Relation"]
+version: 14
+updated_at: "2026-10-15 18:41:26 +0000"
 relations: {}
 atom_id: "CA-R-1260"
 content_role: "Requirement"
@@ -20,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md
   source_atom_id: CA-R-1260
-  source_atom_revision: 13
-  source_sha256: ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d
+  source_atom_revision: 14
+  source_sha256: b6ce2ed1272e7ca6b2868c1fb000da11488f1cd2cf3bf69089b493598d994b47
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

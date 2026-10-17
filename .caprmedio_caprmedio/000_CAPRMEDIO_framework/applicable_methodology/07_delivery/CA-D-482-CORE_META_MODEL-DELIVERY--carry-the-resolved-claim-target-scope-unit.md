@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim/Target Scope Unit/Carrier"
+  governs: "Entity/Continuant/Object/Atom.Target Scope Unit"
   depends_on:
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Scope Unit"
-    - "Project"
-    - "Atom/Revision/Author"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Scope"
-    - "Current-scope Atom"
-    - "Relational Atom"
-version: 7
-updated_at: "2026-10-02 19:54:46 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Object/Atom.Target Scope Unit", "Atom Scope", "Current-scope Atom", "Relational Atom"]
+version: 9
+updated_at: "2026-10-15 18:52:19 +0000"
 relations: {"relates_to": ["CA-R-1595", "CA-R-1596", "CA-R-922", "CA-R-923", "CA-D-478"]}
 atom_id: "CA-D-482"
 content_role: "Delivery"
@@ -24,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-482-CORE_META_MODEL-DELIVERY--carry-the-resolved-claim-target-scope-unit.md
   source_atom_id: CA-D-482
-  source_atom_revision: 7
-  source_sha256: 234720c3b8aafb19a9befc3a934155959b49ec876897370b1ae16adf290e4065
+  source_atom_revision: 9
+  source_sha256: 1b30b3971dcebeb8a3accc0ade3b9775bd22b890525824dc3e50bf059ec1ad75
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

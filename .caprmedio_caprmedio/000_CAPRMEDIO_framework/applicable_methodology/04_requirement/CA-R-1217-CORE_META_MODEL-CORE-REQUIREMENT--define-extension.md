@@ -2,11 +2,9 @@
 subjects:
   governs: "Extension"
   depends_on:
-    - "Methodology Source"
-    - "Core Meta-Model"
-    - "Methodology Source/Expansion Boundary"
-version: 11
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["Methodology Source", "Core Meta-Model", "Methodology Source.Expansion Boundary"]
+version: 12
+updated_at: "2026-10-15 12:21:12 +0000"
 relations: {}
 atom_id: "CA-R-1217"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1217-CORE_META_MODEL-CORE-REQUIREMENT--define-extension.md
   source_atom_id: CA-R-1217
-  source_atom_revision: 11
-  source_sha256: df0242fdb57efd78122a09f42335a5e41b0fe5ea5485f7179d9d02581248bfa7
+  source_atom_revision: 12
+  source_sha256: e8797374a99237e2f1af22abf7cd219c180c4e795a44eef7fb2daee22fb11493
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "interaction"
+  governs: "Entity/Occurrent/Execution/Action Run"
   depends_on: []
-version: 14
-updated_at: "2026-10-02 20:52:00 +0400"
+version: 15
+updated_at: "2026-10-16 12:08:55 +0000"
 relations: {}
 atom_id: "CA-R-853"
 content_role: "Requirement"
@@ -16,8 +16,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-853-CORE_META_MODEL-CORE-REQUIREMENT--attribute-each-governed-action-to-its-actor.md
   source_atom_id: CA-R-853
-  source_atom_revision: 14
-  source_sha256: ea9e3ad670deb1bb76852a3589efe4d07237961d1db93697dbc2fcc76b4eefe2
+  source_atom_revision: 15
+  source_sha256: 1c3e80b995ac3fefc549b13225cf175005f1487bc61376530fc71acef1eb2337
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -8,31 +8,19 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 5
+updated_at: "2026-10-15 18:53:54 +0000"
 subjects:
-  governs: "Applicable Methodology Compilation/Step: publish"
+  governs: "Applicable Methodology Compilation Publish Step"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Applicable Methodology"
-    - "Publish Reconciled Projection"
-    - "Atom"
-    - "Atom/Revision"
-    - "Atom/Claim"
-    - "Applicable Methodology/Conflict"
-    - "Applicable Methodology/Source Frontier Digest"
-    - "Carrier"
-    - "Projection/Type: Reconciled Projection"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Publish Reconciled Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Entity/Carrier", "Entity/Continuant/Projection/Type: Reconciled Projection"]
 relations:
   relates_to: [CA-O-011, CA-O-009]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md
   source_atom_id: CA-O-157
-  source_atom_revision: 3
-  source_sha256: 27b4f0c822dd7b2ff0cbe5b9b85a70bac1a061e5c15897fee834b5f65fcc215c
+  source_atom_revision: 5
+  source_sha256: ed80d8939b3f3eb1c141bf32264372bae285ae504db047dd715c90f8d020eace
   original_relations_sha256: 3d58154a85585cabe11495d37bd8fd0904c638157cd48404ac517de5e5709123
 ---
 # Summary

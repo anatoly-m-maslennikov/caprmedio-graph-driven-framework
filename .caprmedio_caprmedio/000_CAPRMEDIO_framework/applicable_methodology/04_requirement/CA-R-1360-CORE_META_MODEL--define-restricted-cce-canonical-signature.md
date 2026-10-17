@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim/Canonical Signature"
+  governs: "Atom Claim Canonical Signature"
   depends_on:
-    - "Atom/Claim"
-    - "CCE Operator"
-    - "Subject Path"
-version: 9
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "CCE Operator", "Subject Path"]
+version: 11
+updated_at: "2026-10-15 18:42:11 +0000"
 relations:
   child_of:
     - CA-R-918
@@ -21,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1360-CORE_META_MODEL--define-restricted-cce-canonical-signature.md
   source_atom_id: CA-R-1360
-  source_atom_revision: 9
-  source_sha256: 3baad57dd68218df5bc969b97bbca90296d177f0669f277a32c1d8c1c537b5fc
+  source_atom_revision: 11
+  source_sha256: f8278e30980236d3bd1594f9ba0da0e95ae742e323c6b8c538fe3b09cd00be92
   original_relations_sha256: 33e20e2e1769e02a63159d23b72e52fbce54f31ee1cf24d437c9d3bcc4fd118c
 ---
 # Summary

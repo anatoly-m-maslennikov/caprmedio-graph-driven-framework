@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Journal"
+  governs: "Entity/Continuant/History/Journal"
   depends_on:
-    - "Artifact"
-    - "Journal/Record"
-    - "Atom/Claim"
-version: 17
-updated_at: "2026-10-04 22:04:35 +0000"
+    ["Entity/Continuant/History", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom.Substance"]
+version: 20
+updated_at: "2026-10-16 12:08:42 +0000"
 relations: {}
 atom_id: "CA-R-1745"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md
   source_atom_id: CA-R-1745
-  source_atom_revision: 17
-  source_sha256: 0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90
+  source_atom_revision: 20
+  source_sha256: d803035fbd0407e284c3da68c11486118dc05c466d6e2f99127701dcd4ead02b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

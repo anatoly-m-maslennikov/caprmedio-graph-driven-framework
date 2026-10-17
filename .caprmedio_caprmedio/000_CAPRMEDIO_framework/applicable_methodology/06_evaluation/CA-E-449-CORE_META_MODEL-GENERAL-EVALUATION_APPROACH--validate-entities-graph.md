@@ -1,29 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Entities Graph"
+  governs: "Entity/Continuant/Projection/Type: Entities Graph"
   depends_on:
-    - "Entity"
-    - "Property"
-    - "Term"
-    - "IS_BORNE_BY"
-    - "IS_ALLOWED_VALUE_OF"
-    - "BEARS"
-    - "Relation Kind"
-    - "Subject Path"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Artifact/Revision"
-    - "Projection"
-    - "Action"
-    - "Workflow"
-    - "Scope Unit"
-    - "Journal"
-    - "Carrier"
-    - "Atom"
-    - "Relation"
-    - "Atom/Content Role: Evaluation"
-version: 12
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Entity", "Property", "Entity/Continuant/Term", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Relation Kind", "Subject Path", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Subjects", "Artifact", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/History/Journal", "Entity/Carrier", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
+version: 16
+updated_at: "2026-10-15 18:49:23 +0000"
 relations:
   evaluation_for:
     - CA-R-1192
@@ -51,8 +32,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-entities-graph.md
   source_atom_id: CA-E-449
-  source_atom_revision: 12
-  source_sha256: 29db3bbff5744963c4fc7960042e6267a826b2fe16198e954039f5b223f3b00a
+  source_atom_revision: 16
+  source_sha256: b4b70b024916244694dabbce6a69d1af33a6549baad6ceb47d580173ca38bffb
   original_relations_sha256: 32d176e115b397a9556f35dcb173e1b97416c5ccc8322632b2dcfa8de293a29c
 ---
 # Summary
@@ -96,3 +77,19 @@ the Evaluation **must** reject a graph **or** filtered view **if**
 a source-faithful view derived through an upstream Entities Graph Projection **must** pass these Projection-specific checks **when** the remaining applicable source, display-selection **and** graph constraints pass.
 
 ## Details
+
+### Readable tree-view acceptance
+
+For the readable view specified by CA-R-1456 and delivered under CA-D-634, check that:
+
+- the output is a Markdown file with YAML frontmatter identifying Projection form, Entities Graph Type, completed rebuild time and every contributing source Atom as ID plus Version;
+- the Inherency view uses only its selected NARROWER_THAN, IS_BORNE_BY and IS_ALLOWED_VALUE_OF relations;
+- the main Inherency tree excludes dependent entities; each primary entity with dependents has exactly one detail section, in first-appearance order, including qualified properties and their allowed values;
+- a shared entity appears under every applicable parent without creating new identities or repeated detail sections;
+- declared sibling order is preserved; unordered siblings are alphabetical with deterministic ties; tree indentation uses literal tabs in fenced text blocks, while YAML uses spaces;
+- repeated generation from the same sources produces the same tree body and source list; updated_at records the actual completed rebuild;
+- missing source facts and cycles are reported without invented facts or endless expansion.
+
+These checks exercise the generator with controlled inputs. They do not add an unrelated whole-project Atom-validation gate.
+
+Construction/CONTAINS projection is deferred to the adjacent `draft/` RMED. It is not required by this active readable-view specification.

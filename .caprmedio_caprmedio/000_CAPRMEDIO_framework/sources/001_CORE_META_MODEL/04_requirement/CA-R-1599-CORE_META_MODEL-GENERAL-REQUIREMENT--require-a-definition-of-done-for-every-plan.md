@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Definition of Done"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Hub Atom"
-version: 4
-updated_at: "2026-10-03 00:55:03 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan"]
+version: 7
+updated_at: "2026-10-16 12:08:36 +0000"
 relations: {"relates_to": ["CA-R-1581", "CA-D-460", "CA-D-470"]}
 atom_id: "CA-R-1599"
 content_role: "Requirement"

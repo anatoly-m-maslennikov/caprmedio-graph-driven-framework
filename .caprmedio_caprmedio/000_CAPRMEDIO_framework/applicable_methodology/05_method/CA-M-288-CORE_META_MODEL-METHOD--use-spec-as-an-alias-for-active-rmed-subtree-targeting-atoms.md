@@ -2,11 +2,9 @@
 subjects:
   governs: "Subtree-targeting Atoms"
   depends_on:
-    - "Atom/Content Role"
-    - "Atom/Status"
-    - "Author"
-version: 7
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Atom/Content Role", "Entity/Continuant/Object/Atom.Status", "Author"]
+version: 9
+updated_at: "2026-10-15 18:48:20 +0000"
 relations: {}
 atom_id: "CA-M-288"
 content_role: "Method"
@@ -19,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-288-CORE_META_MODEL-METHOD--use-spec-as-an-alias-for-active-rmed-subtree-targeting-atoms.md
   source_atom_id: CA-M-288
-  source_atom_revision: 7
-  source_sha256: 3543b6ea429b92783e9f357be927e0157488f1bfadbf097a275279f447a64e5f
+  source_atom_revision: 9
+  source_sha256: 3f217b042ad882da8387c84de946601e44f3c852d44ec631e55f467d714a9308
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

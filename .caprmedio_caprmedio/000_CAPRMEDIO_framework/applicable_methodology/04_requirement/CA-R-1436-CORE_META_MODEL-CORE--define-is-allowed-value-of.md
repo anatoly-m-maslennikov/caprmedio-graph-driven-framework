@@ -2,11 +2,9 @@
 subjects:
   governs: "IS_ALLOWED_VALUE_OF"
   depends_on:
-    - "Property"
-    - "Entities Graph"
-    - "Relation"
-version: 8
-updated_at: "2026-10-09 19:47:28 +0400"
+    ["Property", "Entity/Continuant/Projection/Type: Entities Graph", "Entity/Continuant/Object/Relation"]
+version: 9
+updated_at: "2026-10-15 18:43:00 +0000"
 relations: {}
 atom_id: "CA-R-1436"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1436-CORE_META_MODEL-CORE--define-is-allowed-value-of.md
   source_atom_id: CA-R-1436
-  source_atom_revision: 8
-  source_sha256: a33bdc582beb140647e6012022730abf531f6311923edf80ed7d1fe1614dabad
+  source_atom_revision: 9
+  source_sha256: 9a494e876cab699c92b1f193da05a903178594f63af54dba230c9e7a9d477377
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

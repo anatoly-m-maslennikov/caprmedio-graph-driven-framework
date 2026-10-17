@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim/Target Scope Unit"
+  governs: "Entity/Continuant/Object/Atom.Target Scope Unit"
   depends_on:
-    - "Atom/Claim"
-    - "Scope Unit"
-version: 4
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Scope Unit"]
+version: 6
+updated_at: "2026-10-15 18:44:56 +0000"
 relations: {"depends_on": ["CA-R-1595"]}
 atom_id: "CA-R-1596"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1596-CORE_META_MODEL-CORE--give-every-claim-one-target-scope-unit.md
   source_atom_id: CA-R-1596
-  source_atom_revision: 4
-  source_sha256: d75adb910e9168c5d3190373252efce3dd809b55f5dc4241c5a916d27eb4301c
+  source_atom_revision: 6
+  source_sha256: a55dd144c74fa2d975d157fd3905f6db5d7013a34429a42efb895315a0e34156
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

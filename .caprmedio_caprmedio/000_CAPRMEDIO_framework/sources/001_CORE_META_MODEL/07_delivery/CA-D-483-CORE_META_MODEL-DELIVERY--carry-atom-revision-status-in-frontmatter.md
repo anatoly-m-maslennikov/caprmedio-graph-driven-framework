@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Status/Carrier"
+  governs: "Entity/Continuant/Object/Atom.Status"
   depends_on:
-    - "Atom/Revision/Status"
-    - "Atom/Content Role"
-    - "Atom/Type"
-    - "Artifact/Carrier Placement"
-version: 5
-updated_at: "2026-10-02 19:54:46 +0400"
+    ["Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Atom/Content Role", "Entity/Continuant/Object/Atom/Type", "Entity/Carrier.Canonical Address"]
+version: 8
+updated_at: "2026-10-16 12:09:37 +0000"
 relations: {"relates_to": ["CA-D-478", "CA-D-480", "CA-D-466", "CA-D-461"]}
 atom_id: "CA-D-483"
 content_role: "Delivery"

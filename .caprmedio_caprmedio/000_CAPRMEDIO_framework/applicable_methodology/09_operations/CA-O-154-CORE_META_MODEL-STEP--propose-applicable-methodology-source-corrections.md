@@ -8,30 +8,19 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 5
+updated_at: "2026-10-15 18:53:51 +0000"
 subjects:
-  governs: "Applicable Methodology Compilation/Step: propose"
+  governs: "Applicable Methodology Compilation Propose Step"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Applicable Methodology"
-    - "Propose Source Corrections"
-    - "Methodology Source"
-    - "Atom/Claim"
-    - "Extension"
-    - "Project Configuration"
-    - "Core Meta-Model"
-    - "Methodology Source/Expansion Boundary"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Propose Source Corrections", "Methodology Source", "Entity/Continuant/Object/Atom.Substance", "Extension", "Project Configuration", "Core Meta-Model", "Methodology Source.Expansion Boundary"]
 relations:
   relates_to: [CA-O-011, CA-O-006]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md
   source_atom_id: CA-O-154
-  source_atom_revision: 3
-  source_sha256: 77829c9a4b71cea40e931d5a4430db064bd792066d84eaace1104fbe24821aee
+  source_atom_revision: 5
+  source_sha256: 082cdd8c39fc9bc6bfb4d9cb6c0879ba4f6283ba4ac3b352a346047b3be277b2
   original_relations_sha256: e461ce9c32c592c86076b731943e0b9b8cd2bacf10bc9c4c9ba0b53088f9841c
 ---
 # Summary

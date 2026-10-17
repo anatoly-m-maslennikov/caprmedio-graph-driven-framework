@@ -1,17 +1,13 @@
 ---
-version: 6
-updated_at: "2026-10-02 23:35:16 +0400"
+version: 8
+updated_at: "2026-10-15 18:43:38 +0000"
 relations:
   child_of:
     - CA-R-1488
 subjects:
-  governs: "Implementation Retry Limit/source"
+  governs: "Implementation Retry Limit"
   depends_on:
-    - "Implementation Retry Limit"
-    - "Operator"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Framework Instance Settings"
-    - "Property"
+    ["Implementation Retry Limit", "Entity/Continuant/Actor/Type: Operator", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Project.Framework Settings", "Property"]
 atom_id: "CA-R-1489"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "scope-topology"
+  governs: "Entity/Continuant/Object/Atom.Owning Scope Unit"
   depends_on:
-    - "Atom/Scope"
-version: 22
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Entity/Continuant/Object/Atom.Owning Scope Unit"]
+version: 24
+updated_at: "2026-10-16 12:08:55 +0000"
 relations:
   child_of:
     - CA-R-858

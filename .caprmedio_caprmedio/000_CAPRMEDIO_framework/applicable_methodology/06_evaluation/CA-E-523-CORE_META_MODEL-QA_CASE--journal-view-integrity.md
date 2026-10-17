@@ -1,20 +1,10 @@
 ---
 subjects:
-  governs: "Carrier"
+  governs: "Entity/Carrier"
   depends_on:
-    - "Atom"
-    - "Artifact"
-    - "Journal"
-    - "Journal/Record"
-    - "Work Journal/Event"
-    - "Projection"
-    - "Workflow"
-    - "Scope Unit"
-    - "Atom/Content Role"
-    - "Operator"
-    - "Runtime State"
-version: 1
-updated_at: "2026-09-30 14:54:00 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role", "Entity/Continuant/Actor/Type: Operator"]
+version: 4
+updated_at: "2026-10-16 12:09:11 +0000"
 relations: {"evaluation_for": ["CA-D-308", "CA-D-341", "CA-R-1463", "CA-R-1467", "CA-R-1468", "CA-R-1720", "CA-R-1745"]}
 atom_id: "CA-E-523"
 content_role: "Evaluation"
@@ -28,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md
   source_atom_id: CA-E-523
-  source_atom_revision: 1
-  source_sha256: afa851cac9bc169ee46e90e98fe0deb5646a210881bb50a712fa8cc656d7d931
+  source_atom_revision: 4
+  source_sha256: 26222cc089fa81a8db41cd0bec29139004e22b83fe1ec661d07f37ca0da10793
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

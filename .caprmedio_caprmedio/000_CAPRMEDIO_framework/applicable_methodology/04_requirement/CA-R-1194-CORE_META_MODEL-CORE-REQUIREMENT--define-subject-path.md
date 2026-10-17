@@ -2,13 +2,9 @@
 subjects:
   governs: "Subject Path"
   depends_on:
-    - "Subject Expression"
-    - "Entity"
-    - "Relation"
-    - "Subject"
-    - "Term"
-version: 14
-updated_at: "2026-10-02 21:29:19 +0400"
+    ["Subject Expression", "Entity", "Entity/Continuant/Object/Relation", "Subject", "Entity/Continuant/Term"]
+version: 15
+updated_at: "2026-10-15 18:41:07 +0000"
 relations: {}
 atom_id: "CA-R-1194"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md
   source_atom_id: CA-R-1194
-  source_atom_revision: 14
-  source_sha256: 159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e
+  source_atom_revision: 15
+  source_sha256: e62a74110de6e7932c18d48ffec11ed560896b93a039043c6946ed4c4785adb6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

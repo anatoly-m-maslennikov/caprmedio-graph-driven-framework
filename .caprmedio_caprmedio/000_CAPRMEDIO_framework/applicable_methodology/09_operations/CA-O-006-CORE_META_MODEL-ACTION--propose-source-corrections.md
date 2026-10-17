@@ -2,19 +2,9 @@
 subjects:
   governs: "Propose Source Corrections"
   depends_on:
-    - "Action"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "Atom/Global Tier"
-    - "Atom/Revision/Updated At"
-    - "Atom/Local Tier: Principle"
-    - "Atom"
-    - "Relation"
-    - "Atom/Content Role: Evaluation"
-    - "Operator"
-    - "Autonomous Confidence Threshold"
-version: 6
-updated_at: "2026-10-04 15:07:08 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Atom.Updated At", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold"]
+version: 8
+updated_at: "2026-10-15 18:52:40 +0000"
 relations: {}
 atom_id: "CA-O-006"
 content_role: "Operations"
@@ -28,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-006-CORE_META_MODEL-ACTION--propose-source-corrections.md
   source_atom_id: CA-O-006
-  source_atom_revision: 6
-  source_sha256: c4481d4af8744e326568a4fc3c84ce91d0974605851d7dc589dee8ed31eda677
+  source_atom_revision: 8
+  source_sha256: 93259a94c15ddcd6dfc5c9e76475d3eae943c0fa94fb7289e4b3c943cb53e20d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

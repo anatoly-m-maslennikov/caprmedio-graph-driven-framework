@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit"
+  governs: "Entity/Continuant/Object/Scope Unit"
   depends_on:
-    - "Structural Level"
-    - "Structural Parent Relation"
-    - "Scope Unit/Label"
-    - "Operator"
-    - "Project Structure"
-version: 19
-updated_at: "2026-10-03 02:39:08 +0400"
+    ["Entity/Continuant/Object/Scope Unit.Structural Level", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Structure"]
+version: 22
+updated_at: "2026-10-16 12:08:40 +0000"
 relations:
   child_of:
     - CAPRMEDIO-REQU-031-CORE-REQUIREMENT--model-project-structure-as-numbered-levels
@@ -24,8 +20,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md
   source_atom_id: CA-R-1730
-  source_atom_revision: 19
-  source_sha256: 6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a
+  source_atom_revision: 22
+  source_sha256: 64a4620c08edc01a02fa9b6c45646514529f2d46bf780af83fc3a5ae66dc7db4
   original_relations_sha256: 02c44ffab5879f586ba20d0b697b30c3f316b274fe3e1c202318d46502c49370
 ---
 # Summary

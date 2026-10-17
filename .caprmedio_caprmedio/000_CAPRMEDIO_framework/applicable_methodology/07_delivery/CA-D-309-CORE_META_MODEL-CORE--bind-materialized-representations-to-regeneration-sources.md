@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Materialized Representation/Carrier"
+  governs: "Materialized Representation"
   depends_on:
-    - "Artifact/Revision"
-version: 12
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Artifact"]
+version: 13
+updated_at: "2026-10-15 12:18:08 +0000"
 relations: {}
 atom_id: "CA-D-309"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md
   source_atom_id: CA-D-309
-  source_atom_revision: 12
-  source_sha256: 08d9a70a3f6edc6ad973af0c23f47639b9fa1e299a258e068a0cf12aa18f59ee
+  source_atom_revision: 13
+  source_sha256: 591e7b7cf4728a776b9b35e9ae51ccef79155afee71703e247a6896c807e2d37
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

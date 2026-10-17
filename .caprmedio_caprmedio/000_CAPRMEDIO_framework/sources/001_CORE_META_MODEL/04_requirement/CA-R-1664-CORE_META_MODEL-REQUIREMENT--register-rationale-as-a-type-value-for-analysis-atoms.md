@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Analysis/Type: Rationale"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Analysis/Type: Rationale"
   depends_on:
     - "artifact-catalog"
-version: 22
-updated_at: "2026-10-03 01:51:15 +0400"
+version: 23
+updated_at: "2026-10-15 18:45:21 +0000"
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type

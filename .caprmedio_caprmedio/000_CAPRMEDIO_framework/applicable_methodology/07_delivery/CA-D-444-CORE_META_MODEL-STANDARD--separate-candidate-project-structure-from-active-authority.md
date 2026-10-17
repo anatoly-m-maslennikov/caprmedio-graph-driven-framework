@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Project Structure"
+  governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    - "Carrier"
-    - "Project Structure Maintenance"
-    - "Operator"
-version: 6
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Entity/Carrier", "Entity/Continuant/Project.Structure", "Entity/Continuant/Actor/Type: Operator"]
+version: 8
+updated_at: "2026-10-16 12:09:29 +0000"
 relations:
   child_of:
     - "CA-D-440"
@@ -23,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-444-CORE_META_MODEL-STANDARD--separate-candidate-project-structure-from-active-authority.md
   source_atom_id: CA-D-444
-  source_atom_revision: 6
-  source_sha256: 18651eac6973724eacc0f5034fd7742b848dddb7560dcc4d858a718d7042e95a
+  source_atom_revision: 8
+  source_sha256: e4f7756ce4460143d039f2caf65342c01baec8f717b3768b8307d852fe608a20
   original_relations_sha256: b3dc811146ee62c18ef50f82ff64aab425c31a30946049ab1ef214daa4b99a41
 ---
 # Summary

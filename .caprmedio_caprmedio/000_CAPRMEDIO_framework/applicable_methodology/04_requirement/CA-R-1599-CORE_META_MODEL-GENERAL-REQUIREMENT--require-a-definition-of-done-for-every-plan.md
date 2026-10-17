@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Definition of Done"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Hub Atom"
-version: 4
-updated_at: "2026-10-03 00:55:03 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan"]
+version: 7
+updated_at: "2026-10-16 12:08:36 +0000"
 relations: {"relates_to": ["CA-R-1581", "CA-D-460", "CA-D-470"]}
 atom_id: "CA-R-1599"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1599-CORE_META_MODEL-GENERAL-REQUIREMENT--require-a-definition-of-done-for-every-plan.md
   source_atom_id: CA-R-1599
-  source_atom_revision: 4
-  source_sha256: 5ed4b7c6ce39087e59023533d10a03144180bfef4a0b6b36fff362c27f66bb91
+  source_atom_revision: 7
+  source_sha256: 08d0288bffcce3c24d95f2b73f375980e8627992a951db01acd82a441a1efd0e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

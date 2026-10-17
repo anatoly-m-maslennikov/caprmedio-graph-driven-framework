@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "interaction"
+  governs: "Entity/Occurrent/Execution/Action Run"
   depends_on: []
-version: 14
-updated_at: "2026-10-02 20:52:00 +0400"
+version: 15
+updated_at: "2026-10-16 12:08:55 +0000"
 relations: {}
 atom_id: "CA-R-853"
 content_role: "Requirement"

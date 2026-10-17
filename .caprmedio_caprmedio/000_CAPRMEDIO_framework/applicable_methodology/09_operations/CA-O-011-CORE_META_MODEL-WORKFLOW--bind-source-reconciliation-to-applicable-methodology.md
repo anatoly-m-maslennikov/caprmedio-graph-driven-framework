@@ -2,27 +2,9 @@
 subjects:
   governs: "Applicable Methodology Compilation"
   depends_on:
-    - "Workflow/Relation Kind: On Result"
-    - "Step Run"
-    - "Workflow Run"
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Source Reconciliation"
-    - "Applicable Methodology"
-    - "Methodology Source"
-    - "Scope Unit"
-    - "Framework Instance Settings"
-    - "Extension"
-    - "Project Configuration"
-    - "Methodology Source/Expansion Boundary"
-    - "Atom/Revision"
-    - "Atom/Claim"
-    - "Operator"
-    - "Applicable Methodology/Source Frontier Digest"
-    - "Journal/Record"
-version: 12
-updated_at: "2026-10-04 17:31:25 +0000"
+    ["Relation/Type: On Result", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Source Reconciliation", "Entity/Continuant/Projection/Type: Applicable Methodology", "Methodology Source", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Framework Settings", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Actor/Type: Operator", "Applicable Methodology Source Frontier Digest", "Entity/Continuant/History/Journal.Record"]
+version: 14
+updated_at: "2026-10-15 18:52:45 +0000"
 relations: {}
 atom_id: "CA-O-011"
 content_role: "Operations"
@@ -36,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md
   source_atom_id: CA-O-011
-  source_atom_revision: 12
-  source_sha256: a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124
+  source_atom_revision: 14
+  source_sha256: 0c2fa4c296ea00054039ebe29d2f84bbe968806fca505086a5db41bac770780e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

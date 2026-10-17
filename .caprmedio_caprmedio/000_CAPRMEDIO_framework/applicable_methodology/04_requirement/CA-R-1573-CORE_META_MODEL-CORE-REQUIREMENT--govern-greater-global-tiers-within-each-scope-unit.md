@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Global Tier"
+  governs: "Entity/Continuant/Object/Atom.Global Tier"
   depends_on:
-    - "Atom"
-    - "Scope Unit"
-    - "Atom/Content Role"
-version: 4
-updated_at: "2026-10-03 00:37:21 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role"]
+version: 7
+updated_at: "2026-10-16 12:08:32 +0000"
 relations: {"relates_to": ["CA-R-1444", "CA-R-917"]}
 atom_id: "CA-R-1573"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1573-CORE_META_MODEL-CORE-REQUIREMENT--govern-greater-global-tiers-within-each-scope-unit.md
   source_atom_id: CA-R-1573
-  source_atom_revision: 4
-  source_sha256: 85d7736ffb21a618b4da6d503a15317a6679f7407082c2cfd4965a18daf01db7
+  source_atom_revision: 7
+  source_sha256: d299091f8667c8750221c3477a94a1aee72eada2cf2d2590138f54603109f47f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

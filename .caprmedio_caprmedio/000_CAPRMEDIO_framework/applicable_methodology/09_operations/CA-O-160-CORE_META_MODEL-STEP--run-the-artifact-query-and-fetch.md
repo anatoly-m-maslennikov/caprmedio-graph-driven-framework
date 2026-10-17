@@ -8,19 +8,19 @@ global_tier: 11
 status: "Active"
 author: "Anatoly Maslennikov"
 type: "Step"
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 3
+updated_at: "2026-10-15 18:53:39 +0000"
 subjects:
   governs: "Artifact query and fetch execution"
-  depends_on: [Workflow, Action, Artifact, Markdown, Journal]
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Artifact", "Markdown", "Entity/Continuant/History/Journal"]
 relations:
   part_of: [CA-O-158]
   invokes: [CA-O-159]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md
   source_atom_id: CA-O-160
-  source_atom_revision: 2
-  source_sha256: a743a84fd24db32123ac8162e7a2178e6d83b1b727cbe54477b6020914537384
+  source_atom_revision: 3
+  source_sha256: 45304b375babe3f70e7141fe57f87b296afa6364d990f24e0784a58220c6857e
   original_relations_sha256: e21b741a859af8b94c5d0468112727616d8819fc53b5399c17403d15fb10fcf5
 ---
 # Summary

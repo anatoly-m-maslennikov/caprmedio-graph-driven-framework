@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings/Atom Prefix/Carrier"
+  governs: "Entity/Continuant/Object/Project.Settings.Atom Prefix"
   depends_on:
-    - "Project Settings"
-    - "Atom"
-    - "Operator"
-version: 9
-updated_at: "2026-10-13 22:23:39 +0400"
+    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator"]
+version: 11
+updated_at: "2026-10-15 18:51:41 +0000"
 relations:
   child_of:
     - "CA-D-366"
@@ -21,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md
   source_atom_id: CA-D-376
-  source_atom_revision: 9
-  source_sha256: f03248c4d66a550d2c2ad6018b1a42a5cf2ac6aba0488e1d3c38c388ecedb321
+  source_atom_revision: 11
+  source_sha256: 523048d6cf8b7f50ac2ce3d835e4376fd6587c6bb8dfc1b0d310800751bc1cd6
   original_relations_sha256: 60d285f0b5eadc5cfe0417918004395017eb1104d02fc3179cd56cf1f1493577
 ---
 # Summary

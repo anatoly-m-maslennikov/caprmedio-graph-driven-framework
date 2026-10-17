@@ -2,12 +2,9 @@
 subjects:
   governs: "Select Reconciliation Sources"
   depends_on:
-    - "Action"
-    - "Projection/Type: Reconciled Projection"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-version: 5
-updated_at: "2026-10-04 15:08:16 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Projection/Type: Reconciled Projection", "Artifact", "Entity/Continuant/Object/Atom.Substance"]
+version: 7
+updated_at: "2026-10-15 18:52:39 +0000"
 relations: {}
 atom_id: "CA-O-004"
 content_role: "Operations"
@@ -21,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-004-CORE_META_MODEL-ACTION--select-reconciliation-sources.md
   source_atom_id: CA-O-004
-  source_atom_revision: 5
-  source_sha256: c707d01c61cd00b811260a1e144b811b61f9f42778eddbc5368263aeb4723f4d
+  source_atom_revision: 7
+  source_sha256: d95638d1864bd27a0d10d8990e97c97020b52f1ebb7dc2d7d094300d17836dbe
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

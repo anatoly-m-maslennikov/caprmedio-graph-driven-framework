@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Carrier/Representation"
+  governs: "Entity/Carrier"
   depends_on:
-    - "Project"
-    - "Scope Unit"
-version: 7
-updated_at: "2026-10-02 19:36:21 +0400"
+    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit"]
+version: 9
+updated_at: "2026-10-15 18:51:52 +0000"
 relations: {}
 atom_id: "CA-D-395"
 content_role: "Delivery"

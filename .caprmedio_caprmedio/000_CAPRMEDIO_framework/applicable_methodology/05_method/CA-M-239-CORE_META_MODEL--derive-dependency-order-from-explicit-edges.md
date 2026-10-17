@@ -2,14 +2,9 @@
 subjects:
   governs: "Dependency Order Derivation"
   depends_on:
-    - "DEPENDS_ON"
-    - "DERIVED_FROM"
-    - "Atom/Direct Relation Serialization"
-    - "Artifact/Revision"
-    - "Artifact"
-    - "Atom/Content Role: Plan/Type: Plan"
-version: 11
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["DEPENDS_ON", "DERIVED_FROM", "Atom Direct Relation", "Artifact", "Atom/Content Role: Plan/Type: Plan"]
+version: 12
+updated_at: "2026-10-15 12:19:48 +0000"
 relations:
   child_of:
     - CA-M-120
@@ -24,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md
   source_atom_id: CA-M-239
-  source_atom_revision: 11
-  source_sha256: 287f47cd2fcf0ed1b4090a376b3924a6aa3e45838d837fbcea306b8e46a81ad6
+  source_atom_revision: 12
+  source_sha256: 810706e2d476ab294188bf036a7b073a49b8b9abda5dddf065fafe857d56c37a
   original_relations_sha256: 6caffda397ba31ac9d7c64190643f433aa17c7879565aa7ba74ffaca9b33bc94
 ---
 # Summary

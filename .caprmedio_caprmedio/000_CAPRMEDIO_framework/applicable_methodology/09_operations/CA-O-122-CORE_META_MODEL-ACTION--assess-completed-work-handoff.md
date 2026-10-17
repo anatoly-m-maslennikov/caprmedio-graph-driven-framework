@@ -9,25 +9,18 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Action"
-    - "Atom/Revision"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-    - "Atom/Content Role: Plan/Status"
-    - "Relation"
-    - "Operator"
-    - "Workflow Run"
-    - "Journal"
-version: 1
-updated_at: "2026-10-04 15:12:11 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Entity/Continuant/Object/Relation", "Entity/Continuant/Actor/Type: Operator", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/History/Journal"]
+version: 4
+updated_at: "2026-10-16 12:09:39 +0000"
 relations:
   relates_to: [CA-R-1583, CA-R-1599, CA-R-1520, CA-R-1580, CA-O-079, CA-O-017, CA-O-077, CA-O-090]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-122-CORE_META_MODEL-ACTION--assess-completed-work-handoff.md
   source_atom_id: CA-O-122
-  source_atom_revision: 1
-  source_sha256: e4099e0498f664d6f5179247a14fadb619c47ae70a7541dc4d1ba94a71f7c9e7
+  source_atom_revision: 4
+  source_sha256: ac1b10fd5fcc6e2d0277aebb2d50b2acf31d00908b3da3e6d58f9473c842ce99
   original_relations_sha256: 7038b731397220a891683e692ecd42be19539b02fa491c4738bc20910feef073
 ---
 # Summary

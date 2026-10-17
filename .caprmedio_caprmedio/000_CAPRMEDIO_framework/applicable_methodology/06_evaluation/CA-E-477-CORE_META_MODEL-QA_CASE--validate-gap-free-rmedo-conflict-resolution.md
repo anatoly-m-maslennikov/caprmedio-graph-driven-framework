@@ -2,18 +2,9 @@
 subjects:
   governs: "RMEDO Conflict Resolution"
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Revision"
-    - "Atom/Global Tier"
-    - "Atom/Revision/Updated At"
-    - "Atom/Local Tier: Principle"
-    - "Relation"
-    - "Operator"
-    - "Autonomous Confidence Threshold"
-    - "Journal/Record"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Atom.Updated At", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Relation", "Entity/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Entity/Continuant/History/Journal.Record"]
+version: 7
+updated_at: "2026-10-15 18:49:42 +0000"
 relations:
   evaluation_for:
     - CA-O-028
@@ -32,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md
   source_atom_id: CA-E-477
-  source_atom_revision: 5
-  source_sha256: 5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232
+  source_atom_revision: 7
+  source_sha256: 0c53b2e0d030e960aaeb1b026a0366564c57a41532663093700fda4b9b2913c7
   original_relations_sha256: c89c4833648d15ecb2dff81226c071a52a398c71a6cb1dfdb244369ed98cc694
 ---
 # Summary

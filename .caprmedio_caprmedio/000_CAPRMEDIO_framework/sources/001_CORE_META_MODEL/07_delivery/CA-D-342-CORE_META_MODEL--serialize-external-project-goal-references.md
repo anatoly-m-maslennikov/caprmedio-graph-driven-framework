@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Goal/Reference"
+  governs: "External Project Goal Reference"
   depends_on:
-    - "Atom/Content Role: Requirement/Type: Goal/Filename"
-version: 15
-updated_at: "2026-10-02 19:18:22 +0400"
+    ["External Project Goal File Carrier.Filename"]
+version: 16
+updated_at: "2026-10-15 12:18:14 +0000"
 relations: {}
 atom_id: "CA-D-342"
 content_role: "Delivery"

@@ -1,17 +1,13 @@
 ---
-version: 16
-updated_at: "2026-10-03 03:43:56 +0400"
+version: 17
+updated_at: "2026-10-15 18:46:01 +0000"
 relations:
   child_of:
     - CA-M-001
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Goal"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    - "Scope Unit"
-    - "Atom"
-    - "Owned Atoms"
-    - "Targeting Atoms"
-
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom", "Owned Atoms", "Targeting Atoms"]
 atom_id: "CA-R-1775"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
@@ -23,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1775-CORE_META_MODEL-CORE-REQUIREMENT--let-parents-own-immediate-child-goals.md
   source_atom_id: CA-R-1775
-  source_atom_revision: 16
-  source_sha256: cff47475dc22afd5423709d4c31cbdf4bcd91e5cb639260fa0a04c41497e7510
+  source_atom_revision: 17
+  source_sha256: c66b9cb2aa6ca0122c104ef2db1aee34a6a4eff3e3d3f22e250022a17db07257
   original_relations_sha256: 2f95e55e3d0a844c858c40eeab601ef29e88bfb9f5c8b9fd17a85ccd2af662a7
 ---
 # Summary

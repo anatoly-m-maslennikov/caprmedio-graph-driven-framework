@@ -2,14 +2,9 @@
 subjects:
   governs: "Persist Atom Replacement"
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Artifact/Revision"
-    - "Atom/Carrier"
-    - "Journal"
-    - "Artifact/Revision/Archive Carrier Basename"
-version: 7
-updated_at: "2026-10-13 04:46:56 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Atom Carrier", "Entity/Continuant/History/Journal", "Artifact Archive Carrier Basename"]
+version: 9
+updated_at: "2026-10-15 18:52:58 +0000"
 relations: {relates_to: [CA-R-1432, CA-R-807]}
 atom_id: "CA-O-051"
 content_role: "Operations"
@@ -23,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md
   source_atom_id: CA-O-051
-  source_atom_revision: 7
-  source_sha256: 1499a694baed52fd6e2b032179de8fc3009ede795947e6efea382e77a0068023
+  source_atom_revision: 9
+  source_sha256: 0b11d05af15b1a700bf3f0428ae08c2bdf0da1813cafa3cf6f5ace0f8b7c12c9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

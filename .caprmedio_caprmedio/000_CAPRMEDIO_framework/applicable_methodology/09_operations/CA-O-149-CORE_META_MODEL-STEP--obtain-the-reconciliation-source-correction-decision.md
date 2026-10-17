@@ -10,14 +10,9 @@ status: Active
 subjects:
   governs: "Source Reconciliation Decision Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Source Reconciliation"
-    - "Step/Agentic Execution Context"
-    - "Workflow Run"
-    - "Step Run"
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Source Reconciliation", "Agentic Step Execution Context", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
+version: 5
+updated_at: "2026-10-15 18:53:46 +0000"
 relations:
   relates_to:
     - CA-O-010
@@ -29,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md
   source_atom_id: CA-O-149
-  source_atom_revision: 3
-  source_sha256: bca39c23d20c40f1df4f3428c191dcbc530ccd882e93712ae351b1fea6790a35
+  source_atom_revision: 5
+  source_sha256: 3152efbbe1741167dd99dea0ddceee95c7f9156440dd7c5c3aad6b47ddf44b13
   original_relations_sha256: 07439921cb32775a07a69bc62f82b516a5aa7a6902bb51502fc1321f8643212d
 ---
 # Summary

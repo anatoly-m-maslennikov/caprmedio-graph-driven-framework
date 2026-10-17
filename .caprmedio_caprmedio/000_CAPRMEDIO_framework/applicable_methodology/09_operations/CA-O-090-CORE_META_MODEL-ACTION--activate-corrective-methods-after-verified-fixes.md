@@ -10,20 +10,9 @@ status: Active
 subjects:
   governs: "Corrective Method Acceptance"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Summary"
-    - "Atom/Revision/Author"
-    - "Local Tier"
-    - "Projection"
-    - "AI Agent"
-    - "Operator"
-    - "Autonomous Confidence Threshold"
-    - "Spec"
-version: 4
-updated_at: "2026-10-04 15:14:54 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Author", "Local Tier", "Entity/Continuant/Projection", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Spec"]
+version: 6
+updated_at: "2026-10-15 18:53:09 +0000"
 relations:
   relates_to:
     - CA-O-021
@@ -36,8 +25,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-090-CORE_META_MODEL-ACTION--activate-corrective-methods-after-verified-fixes.md
   source_atom_id: CA-O-090
-  source_atom_revision: 4
-  source_sha256: 2597f1ee55db765569b57cde7c88d6a28abc462c0f3353b37b296a71d5a4ebdc
+  source_atom_revision: 6
+  source_sha256: 15d20a683e5e80c7d5df5a75fd32ce1e99dd24eed5b60a4aecd6ceba66a5af18
   original_relations_sha256: 055477a4851f7fa791bab976c6be1395ee6c13ed05be6399a8e324bbfea2bd27
 ---
 # Summary

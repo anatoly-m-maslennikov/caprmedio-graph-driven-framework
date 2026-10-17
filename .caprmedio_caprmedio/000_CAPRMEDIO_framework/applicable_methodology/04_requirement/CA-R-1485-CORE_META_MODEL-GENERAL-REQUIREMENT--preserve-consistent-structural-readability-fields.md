@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Project Structure"
+  governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    - "Scope Unit"
-    - "Structural Parent Relation"
-    - "Structural Level"
-    - "Navigational Order Number"
-    - "Carrier"
-version: 5
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children", "Entity/Continuant/Object/Scope Unit.Structural Level", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Carrier"]
+version: 7
+updated_at: "2026-10-16 12:08:27 +0000"
 relations: {}
 atom_id: "CA-R-1485"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1485-CORE_META_MODEL-GENERAL-REQUIREMENT--preserve-consistent-structural-readability-fields.md
   source_atom_id: CA-R-1485
-  source_atom_revision: 5
-  source_sha256: e58b909c4ef55a69b3426e23e936c0fd4bc2d63f17714e206581e8a3e22b1e4c
+  source_atom_revision: 7
+  source_sha256: 65474f9490ebbc31deb837bdb3605f61372a8e26ec5717d9b91667445e143dde
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

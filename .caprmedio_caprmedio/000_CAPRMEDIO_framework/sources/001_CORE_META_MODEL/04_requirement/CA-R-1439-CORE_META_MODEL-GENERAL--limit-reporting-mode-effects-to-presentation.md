@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/interaction/reporting mode/effects"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Effects"
   depends_on:
-    - "Framework Instance Settings/interaction/reporting mode"
-    - "Artifact"
-version: 7
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode"]
+version: 10
+updated_at: "2026-10-16 12:08:24 +0000"
 relations:
   child_of:
     - "CA-R-1402"

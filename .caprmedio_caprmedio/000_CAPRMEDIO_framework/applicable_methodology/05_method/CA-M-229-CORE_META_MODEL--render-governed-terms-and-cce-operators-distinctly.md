@@ -2,14 +2,9 @@
 subjects:
   governs: "Governed Term Rendering"
   depends_on:
-    - "CCE Operator"
-    - "General Term"
-    - "Governed Term"
-    - "Scope Unit/Name"
-    - "Author"
-    - "Markdown Atom Carrier/Main Content/CCE Operator"
-version: 12
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["CCE Operator", "General Term", "Governed Term", "Entity/Continuant/Object/Scope Unit.Name", "Author", "Markdown Atom Carrier.Main Content.CCE Operator"]
+version: 14
+updated_at: "2026-10-15 18:47:57 +0000"
 relations:
   relates_to:
     - CA-D-280
@@ -25,8 +20,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md
   source_atom_id: CA-M-229
-  source_atom_revision: 12
-  source_sha256: 5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84
+  source_atom_revision: 14
+  source_sha256: e2581b74908cc1c9872c43a7d427322b9a3c960b4620e9b794287de79d7ff995
   original_relations_sha256: 1688c39b708a59bcad7890b4c32f25bce023d273ed253b9cb7eff3c5e5ab7c49
 ---
 # Summary

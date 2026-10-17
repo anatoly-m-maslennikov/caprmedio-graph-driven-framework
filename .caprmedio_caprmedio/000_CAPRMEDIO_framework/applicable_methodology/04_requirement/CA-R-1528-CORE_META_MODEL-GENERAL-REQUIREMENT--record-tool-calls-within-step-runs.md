@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Step Run/Tool Call"
+  governs: "Tool Call"
   depends_on:
-    - "Step Run"
-    - "Workflow Run"
-    - "Step"
-    - "Action"
-    - "Tool"
-    - "Journal"
-    - "Journal/Record"
-version: 5
-updated_at: "2026-10-03 00:05:13 +0400"
+    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Tool", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record"]
+version: 7
+updated_at: "2026-10-15 18:44:00 +0000"
 relations: {"relates_to": ["CA-R-1452", "CA-R-1509", "CA-R-1511", "CA-R-1720"]}
 atom_id: "CA-R-1528"
 content_role: "Requirement"
@@ -23,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-GENERAL-REQUIREMENT--record-tool-calls-within-step-runs.md
   source_atom_id: CA-R-1528
-  source_atom_revision: 5
-  source_sha256: 6f0398d693b75a32af5778be51539da934a79e25492b73d88a82284b70fda17d
+  source_atom_revision: 7
+  source_sha256: 1f55be7bfd830b201130356be2ff164257b5d4086f55a964115c0a35d3520d18
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

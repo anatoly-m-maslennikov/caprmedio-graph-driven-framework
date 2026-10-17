@@ -8,18 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-04 15:09:20 +0000"
+version: 3
+updated_at: "2026-10-15 18:53:19 +0000"
 subjects:
   governs: "Assess Prepared Result Conformance"
-  depends_on: [Action, Artifact, Artifact/Revision, Atom/Claim, Evaluation, Operator, AI Agent]
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Artifact", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent"]
 relations:
   relates_to: [CA-O-005, CA-O-104, CA-O-106, CA-O-111, CA-O-118]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-126-CORE_META_MODEL-ACTION--assess-prepared-result-conformance.md
   source_atom_id: CA-O-126
-  source_atom_revision: 1
-  source_sha256: 1eeed6cea1959038258602755e72e5060acf3bf94fda95fa1c2233e0b80ab0a6
+  source_atom_revision: 3
+  source_sha256: 55ddcb92dfd3b7f9850bb90cf8ab0a6193c8f49368fb487143124921f4ee996a
   original_relations_sha256: bcc31f577cd7f39c9381f0a44ee9c75b747e7f598b8eff68adb11593d5e2f9b3
 ---
 # Summary

@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Carrier Placement"
+  governs: "Artifact Carrier Placement"
   depends_on:
-    - "Artifact/Activity"
-    - "Artifact/Revision/Status"
-    - "Atom/Content Role: Delivery"
-version: 4
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Artifact.Activity", "Artifact.Status", "Entity/Continuant/Object/Atom/Content Role: Delivery"]
+version: 6
+updated_at: "2026-10-15 18:52:09 +0000"
 relations: {"relates_to": ["CA-D-461"]}
 atom_id: "CA-D-466"
 content_role: "Delivery"
@@ -19,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-466-CORE_META_MODEL-STANDARD--place-carriers-by-applicable-status-delivery.md
   source_atom_id: CA-D-466
-  source_atom_revision: 4
-  source_sha256: d3336f3ff4e75dbe2d02729c0442bdc59e102cbf12f73a0e5fd29539eaad6263
+  source_atom_revision: 6
+  source_sha256: 4afececbe9b82f823de53769c80b6ff3acf7bd59bb919ee522fa32e46e0b6844
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,22 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Plan/Type: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Claim"
-    - "Atom/Summary"
-    - "Atom/Author"
-    - "Atom/Content Role: Plan/Type: Plan/Assignee"
-    - "Atom/Content Role: Plan/Type: Plan/Label"
-    - "Atom/Content Role: Plan/Type: Plan/Subtype"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Atom/Content Role: Plan/Type: Plan/Blocking"
-    - "Autonomous Confidence Threshold"
-    - "Implementation Retry Limit"
-    - "Scope Unit"
-    - "File Carrier"
-version: 7
-updated_at: "2026-10-02 20:35:16 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Object/Atom/Content Role: Plan.Assignee", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Plan Blocking Relations", "Autonomous Confidence Threshold", "Implementation Retry Limit", "Entity/Continuant/Object/Scope Unit", "Entity/Carrier/File Carrier"]
+version: 9
+updated_at: "2026-10-15 18:48:32 +0000"
 relations: {"relates_to": ["CA-R-1574", "CA-R-1575", "CA-R-1576", "CA-R-1577", "CA-R-1599", "CA-R-1584", "CA-R-1588", "CA-R-1589", "CA-R-1591", "CA-R-1418", "CA-M-123", "CA-M-271", "CA-M-295", "CA-D-470", "CA-D-471", "CA-D-481"]}
 atom_id: "CA-M-306"
 content_role: "Method"
@@ -30,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL-GENERAL--author-plan-atoms.md
   source_atom_id: CA-M-306
-  source_atom_revision: 7
-  source_sha256: b20340474959f2b3e19417b6d7de7398e62bd6d556c341edec7d3ae64011092d
+  source_atom_revision: 9
+  source_sha256: af04c859565429b6e8ce8836a8d853611d65869022a951117ae724d80c9b638c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

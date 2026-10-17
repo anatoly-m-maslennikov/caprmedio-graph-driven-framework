@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "CCE/Role Profile: Operations"
+  governs: "Operations Type-specific CCE Profiles"
   depends_on:
-    - "Atom/Content Role: Operations"
-    - "Atom/Content Role: Operations/Type: Action"
-    - "Atom/Content Role: Operations/Type: Workflow"
-    - "Atom/Content Role: Operations/Type: Step"
-    - "Atom/Content Role: Operations/Type: Actor"
-    - "CCE Operator"
-version: 4
-updated_at: "2026-10-01 21:41:08 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Atom/Content Role: Operations/Type: Actor", "CCE Operator"]
+version: 6
+updated_at: "2026-10-15 18:48:46 +0000"
 relations:
   child_of:
     - CA-M-307
@@ -32,8 +27,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-314-CORE_META_MODEL-METHOD--write-operations-claims-with-type-specific-cce-profiles.md
   source_atom_id: CA-M-314
-  source_atom_revision: 4
-  source_sha256: a3f8c559979f66d1130dc199f1a842fff3e77e1e589fca77ff32e3276d61bbbc
+  source_atom_revision: 6
+  source_sha256: 60856a5b3cbd807b497a66bc568e3686c2e9d9f0616f4fde8c0cc9eb9a366f9f
   original_relations_sha256: 3433384006fce9f2b11a1b99e5e37de2b9ede1c7d33967e50399bef16b0a52de
 ---
 # Summary

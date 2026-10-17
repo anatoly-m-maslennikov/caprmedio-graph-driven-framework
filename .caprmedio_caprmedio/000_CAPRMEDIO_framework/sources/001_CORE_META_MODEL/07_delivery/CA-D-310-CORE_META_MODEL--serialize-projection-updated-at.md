@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Projection/Carrier/Updated At"
+  governs: "Entity/Continuant/Projection.Updated At"
   depends_on: []
-version: 11
-updated_at: "2026-10-02 19:05:39 +0400"
+version: 13
+updated_at: "2026-10-15 18:51:13 +0000"
 relations: {}
 atom_id: "CA-D-310"
 content_role: "Delivery"

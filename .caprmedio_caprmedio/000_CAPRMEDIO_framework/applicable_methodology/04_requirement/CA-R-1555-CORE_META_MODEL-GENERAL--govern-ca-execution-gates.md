@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "AI Agent/authorization"
+  governs: "Entity/Continuant/Actor/Type: AI Agent"
   depends_on:
-    - "AI Agent"
-    - "Operator"
-    - "AI Agent Delegation"
-    - "Confidence Threshold"
-version: 5
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "AI Agent Delegation", "Confidence Threshold"]
+version: 7
+updated_at: "2026-10-15 18:44:19 +0000"
 relations: {"child_of":["CA-R-1713"]}
 atom_id: "CA-R-1555"
 content_role: "Requirement"
@@ -20,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md
   source_atom_id: CA-R-1555
-  source_atom_revision: 5
-  source_sha256: 301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563
+  source_atom_revision: 7
+  source_sha256: 4b5f3cd834932e43d7c2fa25b8afd5b25723c0e245241a5ee9a1d797fdfae130
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

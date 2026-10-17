@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Term/name"
+  governs: "Term.Name"
   depends_on:
     - "Subject Expression"
-version: 12
-updated_at: "2026-10-11 18:04:47 +0400"
+version: 13
+updated_at: "2026-10-15 12:23:50 +0000"
 relations: {}
 atom_id: "CA-R-1324"
 content_role: "Requirement"

@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Demand/Producer Result"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand"
   depends_on:
-    - "Consumer/Goal"
-    - "Producer/Result"
-version: 17
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Consumer Goal", "Producer Result"]
+version: 19
+updated_at: "2026-10-15 18:47:03 +0000"
 relations:
   child_of:
     - CA-R-932
@@ -20,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md
   source_atom_id: CA-R-933
-  source_atom_revision: 17
-  source_sha256: b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f
+  source_atom_revision: 19
+  source_sha256: 510cd3e9583699736d0d1b8efb4acff3085375152953fde7276347d5c3574778
   original_relations_sha256: 986ab56d61737841b77ed4fc4f1a391a0c8ad370d896e576cf2be7bdd2bdf459
 ---
 # Summary

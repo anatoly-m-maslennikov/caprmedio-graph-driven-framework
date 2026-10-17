@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Member"
+  governs: "Entity/Continuant/Projection/Type: Applicable Methodology.Member"
   depends_on:
-    - "Atom/Revision"
-    - "DERIVED_FROM"
-version: 13
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation/Type: DERIVED_FROM"]
+version: 16
+updated_at: "2026-10-16 12:08:19 +0000"
 relations: {}
 atom_id: "CA-R-1314"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md
   source_atom_id: CA-R-1314
-  source_atom_revision: 13
-  source_sha256: 053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88
+  source_atom_revision: 16
+  source_sha256: 33da2c6f778b073c364134afc5721db2aebba6d3f37eca01104400a61300a500
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

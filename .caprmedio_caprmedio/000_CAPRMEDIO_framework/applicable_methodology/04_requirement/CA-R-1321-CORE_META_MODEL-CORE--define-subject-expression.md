@@ -2,13 +2,9 @@
 subjects:
   governs: "Subject Expression"
   depends_on:
-    - "Entity"
-    - "Term"
-    - "Property"
-    - "Subject"
-    - "Atom"
-version: 14
-updated_at: "2026-10-11 18:04:47 +0400"
+    ["Entity", "Entity/Continuant/Term", "Property", "Subject", "Entity/Continuant/Object/Atom"]
+version: 15
+updated_at: "2026-10-15 18:41:52 +0000"
 relations: {}
 atom_id: "CA-R-1321"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md
   source_atom_id: CA-R-1321
-  source_atom_revision: 14
-  source_sha256: d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df
+  source_atom_revision: 15
+  source_sha256: 1f7a874e519fdfad031c2adc4ab5f2d17b5ad618cb14651efb7ebb9661c39954
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Step/Agentic Execution Context"
+  governs: "Agentic Step Execution Context"
   depends_on:
-    - "Action/Execution Kind"
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Step Run"
-    - "Operator"
-version: 4
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Actor/Type: Operator"]
+version: 6
+updated_at: "2026-10-15 18:49:55 +0000"
 relations: {"evaluation_for": ["CA-R-1526", "CA-R-1527", "CA-R-1509"]}
 atom_id: "CA-E-495"
 content_role: "Evaluation"
@@ -23,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-QA_CASE--validate-action-kinds-and-step-contexts.md
   source_atom_id: CA-E-495
-  source_atom_revision: 4
-  source_sha256: 4c986410371e9625333364147ca0dfec120378ec5d61c525cc69e99be53512f5
+  source_atom_revision: 6
+  source_sha256: a8b8c83999b5a61dff09f0a5e9eaa2bf987bfd7d13d121188235898acd59b77a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

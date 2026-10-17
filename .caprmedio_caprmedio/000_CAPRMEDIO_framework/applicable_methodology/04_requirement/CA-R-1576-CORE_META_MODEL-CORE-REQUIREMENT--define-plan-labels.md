@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Label"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Label"
   depends_on:
-    - "Label"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Subtype"
-version: 5
-updated_at: "2026-10-03 00:34:47 +0400"
+    ["Label", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Label"]
+version: 7
+updated_at: "2026-10-15 18:44:37 +0000"
 relations: {"relates_to": ["CA-R-1594", "CA-R-1574"]}
 atom_id: "CA-R-1576"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1576-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-labels.md
   source_atom_id: CA-R-1576
-  source_atom_revision: 5
-  source_sha256: 4918f02e671d20191dd455d40ccaa4e2e62c9a9988f508a2bfceb841b2744666
+  source_atom_revision: 7
+  source_sha256: 5a6407e8df272e233d6bb3ac0b8d3d145a5236e94ba146059ca71664b27b0134
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

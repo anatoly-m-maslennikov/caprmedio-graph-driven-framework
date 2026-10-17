@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Carrier/Validation"
+  governs: "Entity/Carrier/File Carrier"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Atom"
-    - "Atom/Property"
-    - "Atom/Claim"
-    - "Atom/Summary"
-    - "Atom/Revision/Status"
-    - "Relation"
-    - "Markdown Atom Carrier"
-version: 7
-updated_at: "2026-10-01 21:33:03 +0400"
+    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Property", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Relation", "Entity/Carrier/File Carrier"]
+version: 10
+updated_at: "2026-10-16 12:09:10 +0000"
 relations: {"evaluation_for": ["CA-R-1598", "CA-R-1599", "CA-D-478", "CA-D-479", "CA-D-480", "CA-D-481", "CA-D-482", "CA-D-483", "CA-D-485", "CA-D-460", "CA-D-470"]}
 atom_id: "CA-E-506"
 content_role: "Evaluation"
@@ -25,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md
   source_atom_id: CA-E-506
-  source_atom_revision: 7
-  source_sha256: 0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709
+  source_atom_revision: 10
+  source_sha256: 786a8e9ef1b0ee83d30a030ff822446108b556585b4f676b082be2b17e23e210
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

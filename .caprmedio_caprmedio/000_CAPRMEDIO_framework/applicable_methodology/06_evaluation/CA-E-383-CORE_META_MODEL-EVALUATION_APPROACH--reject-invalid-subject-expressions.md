@@ -2,20 +2,9 @@
 subjects:
   governs: "Subject Expression Evaluation"
   depends_on:
-    - "General Term"
-    - "Governed Term"
-    - "Subject Expression"
-    - "Dependent Entity"
-    - "Property"
-    - "IS_BORNE_BY"
-    - "IS_ALLOWED_VALUE_OF"
-    - "Term"
-    - "CCE Operator"
-    - "Scope Unit/Name"
-    - "Subject"
-    - "Subject Path"
-version: 16
-updated_at: "2026-10-14 13:43:24 +0400"
+    ["General Term", "Governed Term", "Subject Expression", "Dependent Entity", "Property", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "Entity/Continuant/Term", "CCE Operator", "Entity/Continuant/Object/Scope Unit.Name", "Subject", "Subject Path"]
+version: 18
+updated_at: "2026-10-15 18:49:04 +0000"
 relations:
   evaluation_for:
     - CA-R-1194
@@ -40,8 +29,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md
   source_atom_id: CA-E-383
-  source_atom_revision: 16
-  source_sha256: a356617c341cd1d3c723e3e3ddbf9852c720781c8f22dd31f07cf33dfa4ec512
+  source_atom_revision: 18
+  source_sha256: 6c9e1ed32a33f493fd39be930d5944622b58983ae53330fa4c2b97443f4d4157
   original_relations_sha256: 5dcebe2528d98c527a3c9c7a2a2d6a914f6023c06cffde0da4b4eccb8a1d8728
 ---
 # Summary

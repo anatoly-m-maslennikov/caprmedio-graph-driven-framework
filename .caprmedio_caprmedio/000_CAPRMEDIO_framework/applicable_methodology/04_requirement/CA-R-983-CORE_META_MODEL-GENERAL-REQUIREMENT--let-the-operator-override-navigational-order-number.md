@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Navigational Order Number"
+  governs: "Entity/Continuant/Object/Scope Unit.Navigational Order Number"
   depends_on:
-    - "Operator"
-version: 14
-updated_at: "2026-10-02 21:09:50 +0400"
+    ["Entity/Continuant/Actor/Type: Operator"]
+version: 16
+updated_at: "2026-10-15 18:47:37 +0000"
 relations: {}
 atom_id: "CA-R-983"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md
   source_atom_id: CA-R-983
-  source_atom_revision: 14
-  source_sha256: 40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4
+  source_atom_revision: 16
+  source_sha256: 862abe9bcec99b92a1f3347ca45818ca6c8725b5b76c9210c6e9c62a8527c5ae
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

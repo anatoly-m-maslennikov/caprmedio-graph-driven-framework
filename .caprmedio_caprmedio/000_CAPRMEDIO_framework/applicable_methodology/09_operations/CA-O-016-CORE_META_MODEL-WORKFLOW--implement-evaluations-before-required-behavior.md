@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Workflow"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Workflow/Relation Kind: On Result"
-    - "Workflow Run"
-    - "Step Run"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Implementation Retry Control"
-version: 11
-updated_at: "2026-10-04 16:11:58 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Atom/Content Role: Plan/Type: Plan", "Implementation Retry Control"]
+version: 13
+updated_at: "2026-10-15 18:52:50 +0000"
 relations:
   relates_to:
     - CA-R-1509
@@ -37,8 +31,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior.md
   source_atom_id: CA-O-016
-  source_atom_revision: 11
-  source_sha256: b9a90e2133152c136353baae7db9d98c163cb595897b5fe2e870e4ffb394e13a
+  source_atom_revision: 13
+  source_sha256: 5bf5be0e5805fe73c1910bd9cca4e294f3c75f4b786accb9d345b15151133680
   original_relations_sha256: afd8ad0085bd98fa6ee05fc161e797d8d95dcc19dedfe5a9834816e6ac9f4c9f
 ---
 # Summary

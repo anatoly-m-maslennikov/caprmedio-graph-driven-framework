@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Status"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Status"
   depends_on:
-    - "Atom/Content Role: Plan"
-    - "Artifact/Revision/Status"
-version: 4
-updated_at: "2026-10-03 00:05:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom.Status"]
+version: 6
+updated_at: "2026-10-15 18:44:05 +0000"
 relations: {"relates_to": ["CA-R-1412"]}
 atom_id: "CA-R-1539"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md
   source_atom_id: CA-R-1539
-  source_atom_revision: 4
-  source_sha256: ce1395908987e58b681c5f22f2f08cae5c89478d8184aa7ace97ad2a400d75e8
+  source_atom_revision: 6
+  source_sha256: 7a5a7638179edba26e740ea166dafac20a0517eba22a87bd9a9e11cb58e1926b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

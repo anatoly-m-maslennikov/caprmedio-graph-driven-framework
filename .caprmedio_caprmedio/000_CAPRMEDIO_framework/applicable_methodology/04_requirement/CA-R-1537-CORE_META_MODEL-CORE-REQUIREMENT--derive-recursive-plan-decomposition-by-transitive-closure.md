@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Recursive Decomposition"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Direct Work Decomposition"
-version: 5
-updated_at: "2026-10-03 00:05:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan"]
+version: 8
+updated_at: "2026-10-16 12:08:30 +0000"
 relations: {"relates_to": ["CA-R-1536", "CA-R-1579"]}
 atom_id: "CA-R-1537"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1537-CORE_META_MODEL-CORE-REQUIREMENT--derive-recursive-plan-decomposition-by-transitive-closure.md
   source_atom_id: CA-R-1537
-  source_atom_revision: 5
-  source_sha256: 9946d54db9817a4f8e38bdb152cd3495b331d1b5878aeae1ba3c71803332d74b
+  source_atom_revision: 8
+  source_sha256: 4a16ad8e315d878ae03c2a33633e7d39035a96cb8f486ee6d2d48fecb841fd07
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

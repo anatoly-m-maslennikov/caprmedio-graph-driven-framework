@@ -2,19 +2,9 @@
 subjects:
   governs: "relation validation"
   depends_on:
-    - "Atom"
-    - "Atom/Content Role"
-    - "Atom/Status"
-    - "Journal"
-    - "Relation Kind"
-    - "Relation Kind/Metadata"
-    - "CAPRMEDIO Graph"
-    - "Applicable Methodology"
-    - "Relation/authority"
-    - "Projection"
-    - "Single Source of Truth"
-version: 24
-updated_at: "2026-10-11 17:56:31 +0400"
+    ["Entity/Continuant/Object/Atom", "Atom/Content Role", "Entity/Continuant/Object/Atom.Status", "Entity/Continuant/History/Journal", "Relation Kind", "Relation Kind Metadata", "CAPRMEDIO Graph", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Object/Relation.Authority", "Entity/Continuant/Projection", "Single Source of Truth"]
+version: 26
+updated_at: "2026-10-15 18:50:36 +0000"
 relations: {"evaluation_for":["CA-R-806","CA-R-1246","CA-R-1437","CA-R-1472","CA-M-120","CA-R-1676","CA-R-1580","CA-R-807","CA-D-268","CA-R-1040","CA-D-483", "CA-D-466"]}
 atom_id: "CA-E-622"
 content_role: "Evaluation"
@@ -28,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md
   source_atom_id: CA-E-622
-  source_atom_revision: 24
-  source_sha256: 0a90f5256bf71fde5f7b8c975b1d4e93dd2d90335754ff9d888d035218dcf23d
+  source_atom_revision: 26
+  source_sha256: 47a7886f739815bf0a05aaa30a2bcf888af79285c00a01ae33201ac19ba1f1a4
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

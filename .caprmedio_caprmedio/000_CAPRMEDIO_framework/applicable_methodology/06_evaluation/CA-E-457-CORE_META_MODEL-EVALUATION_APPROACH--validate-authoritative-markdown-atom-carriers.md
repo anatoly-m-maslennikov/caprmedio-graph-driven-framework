@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier Validation"
+  governs: "Entity/Carrier/File Carrier"
   depends_on:
-    - "Atom/Revision"
-    - "Markdown Atom Carrier"
-    - "Project"
-version: 15
-updated_at: "2026-10-01 21:31:46 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Carrier/File Carrier", "Entity/Continuant/Object/Project"]
+version: 18
+updated_at: "2026-10-16 12:09:05 +0000"
 relations:
   evaluation_for:
     - CA-D-463
@@ -25,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-457-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-markdown-atom-carriers.md
   source_atom_id: CA-E-457
-  source_atom_revision: 15
-  source_sha256: 6b15aa7babab0ec60edbcb3d494e0efe2186773454a83f03b830933f73b87130
+  source_atom_revision: 18
+  source_sha256: 29fac1294a57bbd2ac466d6484fbe16434f85ee1450d43a1491db6e47bc85696
   original_relations_sha256: 985229bd73135cc5ecf9deb9dcaf2077cf135f25209490f45e32f0ff0573db57
 ---
 # Summary

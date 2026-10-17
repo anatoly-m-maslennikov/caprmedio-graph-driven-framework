@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Carrier/Storage Boundary"
+  governs: "Entity/Carrier.Storage Boundary"
   depends_on:
     - "Framework-Owned Carrier"
     - "Project-Owned Carrier"
     - "Runtime State Carrier"
-version: 11
-updated_at: "2026-10-02 19:18:22 +0400"
+version: 13
+updated_at: "2026-10-15 18:51:20 +0000"
 relations: {}
 atom_id: "CA-D-341"
 content_role: "Delivery"

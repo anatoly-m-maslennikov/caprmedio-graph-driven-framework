@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Implementation Overview"
+  governs: "Entity/Continuant/Projection/Type: Implementation Overview"
   depends_on:
-    - "Projection"
-    - "Atom"
-    - "Artifact/Revision"
-    - "Implementation Binding"
-    - "Journal"
-    - "Implementation"
-    - "Verification"
-    - "Atom/Content Role"
-version: 18
-updated_at: "2026-10-03 02:24:19 +0400"
+    ["Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Artifact", "Implementation Binding", "Entity/Continuant/History/Journal", "Implementation", "Verification", "Atom/Content Role"]
+version: 20
+updated_at: "2026-10-15 18:45:28 +0000"
 relations: {}
 atom_id: "CA-R-1703"
 content_role: "Requirement"
@@ -24,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md
   source_atom_id: CA-R-1703
-  source_atom_revision: 18
-  source_sha256: 5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2
+  source_atom_revision: 20
+  source_sha256: 551ba6f64e4036650a7adc83b3f20cd4809f6d56a083a1a0e2c289a9f91ec0a4
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

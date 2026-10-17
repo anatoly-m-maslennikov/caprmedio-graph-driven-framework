@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Identifier"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Identifier"
   depends_on:
-    - "Framework Instance Settings"
-version: 10
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings"]
+version: 12
+updated_at: "2026-10-15 18:51:28 +0000"
 relations:
   child_of:
     - CA-R-1402
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md
   source_atom_id: CA-D-358
-  source_atom_revision: 10
-  source_sha256: 29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087
+  source_atom_revision: 12
+  source_sha256: e32c398d96638e02dbe2468e6e18690b49ad848c739b8d3802e59894967fa8bb
   original_relations_sha256: 38708f16dd77150e0d936e990252d505419a7b98236993a5a460e158af3b81c0
 ---
 # Summary

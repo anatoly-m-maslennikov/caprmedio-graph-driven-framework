@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier/YAML Frontmatter/Scalar"
+  governs: "Markdown Atom Carrier.YAML Frontmatter.Scalar"
   depends_on:
-    - "Markdown Atom Carrier/Main Content"
-version: 12
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Markdown Atom Carrier.Main Content"]
+version: 13
+updated_at: "2026-10-15 12:17:57 +0000"
 relations: {}
 atom_id: "CA-D-277"
 content_role: "Delivery"

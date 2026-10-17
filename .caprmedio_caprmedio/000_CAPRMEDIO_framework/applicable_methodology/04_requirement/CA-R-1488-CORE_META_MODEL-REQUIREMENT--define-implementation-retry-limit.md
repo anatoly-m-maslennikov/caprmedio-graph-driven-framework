@@ -1,14 +1,11 @@
 ---
-version: 6
-updated_at: "2026-10-02 23:35:16 +0400"
+version: 8
+updated_at: "2026-10-15 18:43:37 +0000"
 relations: {}
 subjects:
   governs: "Implementation Retry Limit"
   depends_on:
-    - "Workflow Run"
-    - "Implementation Workflow"
-    - "Implementation Retry Control"
-    - "Atom/Content Role: Evaluation"
+    ["Entity/Occurrent/Execution/Workflow Run", "Implementation Workflow", "Implementation Retry Control", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
 atom_id: "CA-R-1488"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
@@ -20,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1488-CORE_META_MODEL-REQUIREMENT--define-implementation-retry-limit.md
   source_atom_id: CA-R-1488
-  source_atom_revision: 6
-  source_sha256: bb0cf786c7048e414a4f9bed02714f906c6828d7969544bb68c3be042a16ca81
+  source_atom_revision: 8
+  source_sha256: 2ef8fc8f31b6aea16ac23847a0f9116b6f239f22b117a1f2b618ea2637ec6b4a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

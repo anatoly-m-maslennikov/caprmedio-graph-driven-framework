@@ -2,13 +2,9 @@
 subjects:
   governs: "Type-Qualified Status Validation"
   depends_on:
-    - "Artifact/Revision/Status"
-    - "Artifact/Activity"
-    - "Atom/Content Role"
-    - "Type"
-    - "Atom/Content Role: Plan/Type: Plan/Status"
-version: 19
-updated_at: "2026-10-02 20:03:51 +0400"
+    ["Artifact.Status", "Artifact.Activity", "Atom/Content Role", "Type", "Entity/Continuant/Object/Atom/Content Role: Plan.Status"]
+version: 21
+updated_at: "2026-10-15 18:49:07 +0000"
 relations: {}
 atom_id: "CA-E-386"
 content_role: "Evaluation"
@@ -22,8 +18,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-386-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-type-qualified-status-and-artifact-activity.md
   source_atom_id: CA-E-386
-  source_atom_revision: 19
-  source_sha256: 716b8601f26158d51281729d18c7b19c76bb2d5c6430d8b1f887b333c92de113
+  source_atom_revision: 21
+  source_sha256: 33a9cbdef15b7a4063a5d9726d72cf33dda6793f05a6697911cc4d52deb1718a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,11 +2,9 @@
 subjects:
   governs: "Atom/Content Role"
   depends_on:
-    - "Atom"
-    - "Property"
-    - "Atom/Claim"
-version: 4
-updated_at: "2026-10-03 00:05:13 +0400"
+    ["Entity/Continuant/Object/Atom", "Property", "Entity/Continuant/Object/Atom.Substance"]
+version: 6
+updated_at: "2026-10-15 18:44:02 +0000"
 relations: {}
 atom_id: "CA-R-1531"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md
   source_atom_id: CA-R-1531
-  source_atom_revision: 4
-  source_sha256: ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114
+  source_atom_revision: 6
+  source_sha256: 796908e4d4117f59e21a45dd4d0e21b84ca99b53689e7a70871b779c532b965a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

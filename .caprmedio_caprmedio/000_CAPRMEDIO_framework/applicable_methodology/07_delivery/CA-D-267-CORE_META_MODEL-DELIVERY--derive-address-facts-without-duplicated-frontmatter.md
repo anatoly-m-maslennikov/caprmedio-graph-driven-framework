@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Carrier/Canonical Address"
+  governs: "Entity/Carrier.Canonical Address"
   depends_on:
-    - "Artifact/Property"
-    - "Atom/Frontmatter"
-version: 12
-updated_at: "2026-10-01 21:24:59 +0400"
+    ["Artifact.Property", "Markdown Atom Carrier.YAML Frontmatter"]
+version: 14
+updated_at: "2026-10-15 18:50:43 +0000"
 relations: {}
 atom_id: "CA-D-267"
 content_role: "Delivery"
@@ -18,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-DELIVERY--derive-address-facts-without-duplicated-frontmatter.md
   source_atom_id: CA-D-267
-  source_atom_revision: 12
-  source_sha256: 533c87f928032d8a8049ee4acdc0a34822aa8731a37a5f79964e66e7183b74c6
+  source_atom_revision: 14
+  source_sha256: f8a7ada7f1e6250e40c57c5223c1575773c6ad0254838ee775fb038146603b25
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

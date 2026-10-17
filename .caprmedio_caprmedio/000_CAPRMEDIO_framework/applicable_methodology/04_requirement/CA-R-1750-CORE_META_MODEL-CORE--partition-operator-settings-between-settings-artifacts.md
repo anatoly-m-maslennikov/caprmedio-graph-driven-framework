@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    - "Operator"
-    - "Project Settings"
-    - "Project Structure"
-    - "Default Settings"
-    - "Project Name"
-    - "Atom/Identifier/Project Prefix"
-    - "Atom"
-version: 21
-updated_at: "2026-10-03 02:55:28 +0400"
+    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Structure", "Default Settings", "Project Name", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Atom"]
+version: 23
+updated_at: "2026-10-15 18:45:44 +0000"
 relations:
   relates_to:
     - "CA-R-1740"
@@ -25,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md
   source_atom_id: CA-R-1750
-  source_atom_revision: 21
-  source_sha256: ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab
+  source_atom_revision: 23
+  source_sha256: 57c636884b0f47b243d54871de567d5744762a80212bd5d255cd2782116090e5
   original_relations_sha256: 4e823082688e17e42d7889dacdc356b5f8822d57bcf2f4501c09225f60722871
 ---
 # Summary

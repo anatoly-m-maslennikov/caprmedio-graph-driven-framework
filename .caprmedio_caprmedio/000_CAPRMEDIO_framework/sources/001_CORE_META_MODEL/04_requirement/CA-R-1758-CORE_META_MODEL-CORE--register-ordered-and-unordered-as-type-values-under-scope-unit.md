@@ -2,10 +2,9 @@
 subjects:
   governs: "Scope Unit/Type"
   depends_on:
-    - "Scope Unit"
-    - "Type"
-version: 20
-updated_at: "2026-10-03 03:35:10 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Type"]
+version: 21
+updated_at: "2026-10-15 18:45:46 +0000"
 relations: {}
 atom_id: "CA-R-1758"
 content_role: "Requirement"

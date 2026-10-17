@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Decomposition"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-version: 5
-updated_at: "2026-10-03 00:05:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan"]
+version: 7
+updated_at: "2026-10-16 12:08:30 +0000"
 relations: {"relates_to": ["CA-R-1576", "CA-R-1579", "CA-R-1590"]}
 atom_id: "CA-R-1536"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1536-CORE_META_MODEL-GENERAL-REQUIREMENT--restrict-direct-plan-decomposition.md
   source_atom_id: CA-R-1536
-  source_atom_revision: 5
-  source_sha256: c7804dc0ef3ba6b3a1439203182b33aa21e83d84d82e7a1c84cc5da37590044a
+  source_atom_revision: 7
+  source_sha256: cf69cf3898d7506bb76b1f1507478660304b796edcdf96c88e8268c81afc5fff
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Sources"
+  governs: "Applicable Methodology Source Set"
   depends_on:
-    - "Methodology Source"
-    - "Core Meta-Model"
-    - "Project Configuration"
-    - "Extension"
-    - "Framework Instance Settings"
-version: 16
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["Methodology Source", "Core Meta-Model", "Project Configuration", "Extension", "Entity/Continuant/Object/Project.Framework Settings"]
+version: 18
+updated_at: "2026-10-15 18:41:17 +0000"
 relations: {}
 atom_id: "CA-R-1228"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1228-CORE_META_MODEL-GENERAL-REQUIREMENT--include-all-applicable-methodology-sources.md
   source_atom_id: CA-R-1228
-  source_atom_revision: 16
-  source_sha256: 06af68c2f1621383253f78769706a5351bc7a0c6100895ef9d59a95634c07ceb
+  source_atom_revision: 18
+  source_sha256: 4e1b8fb61ff8ebffe50e3e56de57dc75aa86aa5062cb9d0efcf869bec827ff8d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

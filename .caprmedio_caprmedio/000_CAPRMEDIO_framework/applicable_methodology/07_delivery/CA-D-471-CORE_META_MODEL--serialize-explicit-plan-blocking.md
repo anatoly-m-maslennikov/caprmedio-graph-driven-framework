@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Blocking/Carrier"
+  governs: "Entity/Continuant/Object/Relation"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Blocking"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Atom/Identifier"
-    - "Atom/Subjects"
-    - "Relation"
-version: 5
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Subjects"]
+version: 8
+updated_at: "2026-10-16 12:09:34 +0000"
 relations: {"delivery_for": ["CA-R-1580"]}
 atom_id: "CA-D-471"
 content_role: "Delivery"
@@ -22,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL--serialize-explicit-plan-blocking.md
   source_atom_id: CA-D-471
-  source_atom_revision: 5
-  source_sha256: bc4762a7fe3c01b9f8750c31bc98c1e3acba0c4fc4b78b53ff27aebddb9230a3
+  source_atom_revision: 8
+  source_sha256: e6cc522f95242b5e3ee602309b874c9a6fd2392c97f399a840b998f7f9a13fd8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

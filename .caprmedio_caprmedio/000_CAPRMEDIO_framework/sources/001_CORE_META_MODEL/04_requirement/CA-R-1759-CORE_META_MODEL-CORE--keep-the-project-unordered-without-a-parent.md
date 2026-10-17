@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Project"
+  governs: "Entity/Continuant/Object/Project"
   depends_on:
-    - "Scope Unit"
-    - "Scope Unit/Type"
-version: 21
-updated_at: "2026-10-03 03:35:10 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit/Type"]
+version: 23
+updated_at: "2026-10-16 12:08:43 +0000"
 relations: {}
 atom_id: "CA-R-1759"
 content_role: "Requirement"

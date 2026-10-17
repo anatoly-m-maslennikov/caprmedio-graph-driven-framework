@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Carrier/Canonical Address/Segment"
+  governs: "Entity/Carrier.Canonical Address.Segment"
   depends_on: []
-version: 15
-updated_at: "2026-10-02 19:05:39 +0400"
+version: 17
+updated_at: "2026-10-15 18:51:04 +0000"
 relations: {}
 atom_id: "CA-D-301"
 content_role: "Delivery"
@@ -16,8 +16,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL--require-portable-safe-carrier-addresses.md
   source_atom_id: CA-D-301
-  source_atom_revision: 15
-  source_sha256: 40fa41c8ff9abdd81a39689a3b95284a2240cf567113bbf794fa874b8e61a691
+  source_atom_revision: 17
+  source_sha256: a4d4e32328eaa1f3f4a9ee2a7275710b00f7e87aa337af2e1b36f2ee1d3d7cb3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

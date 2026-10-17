@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Authoritative Carrier/Content"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    - "Framework Instance Settings"
-version: 9
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings"]
+version: 11
+updated_at: "2026-10-15 18:51:46 +0000"
 relations:
   child_of:
     - CA-D-361
@@ -21,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-387-CORE_META_MODEL--serialize-atomic-admission-strictness.md
   source_atom_id: CA-D-387
-  source_atom_revision: 9
-  source_sha256: bf5cc85740830e28421b31913823bcdcff18c4a5ee7b47590c4b39d0a3137083
+  source_atom_revision: 11
+  source_sha256: cbb1a8a5b7a1bbacd764d25e309732e0255318ce736d77e4cd9bf204ca17cb20
   original_relations_sha256: 4f8fca2057373dee7e1934385c6ad655c38a428a7dc3d670e9844c9f996ddbfb
 ---
 # Summary

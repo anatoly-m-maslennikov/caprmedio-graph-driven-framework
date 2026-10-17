@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Carrier/Storage Boundary"
+  governs: "Entity/Carrier.Storage Boundary"
   depends_on:
     - "Framework-Owned Carrier"
     - "Project-Owned Carrier"
     - "Runtime State Carrier"
-version: 11
-updated_at: "2026-10-02 19:18:22 +0400"
+version: 13
+updated_at: "2026-10-15 18:51:20 +0000"
 relations: {}
 atom_id: "CA-D-341"
 content_role: "Delivery"
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md
   source_atom_id: CA-D-341
-  source_atom_revision: 11
-  source_sha256: a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9
+  source_atom_revision: 13
+  source_sha256: cd3146dfff71babbd03c9586d8f53f478ac359a35a0531582f780321f5fb69e2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

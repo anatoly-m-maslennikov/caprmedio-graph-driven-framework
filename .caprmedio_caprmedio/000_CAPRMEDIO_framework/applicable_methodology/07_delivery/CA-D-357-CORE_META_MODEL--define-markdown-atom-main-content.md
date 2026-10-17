@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier/Main Content"
+  governs: "Markdown Atom Carrier.Main Content"
   depends_on:
-    - "Markdown Atom Carrier/YAML Frontmatter"
-version: 9
-updated_at: "2026-10-02 19:18:22 +0400"
+    ["Markdown Atom Carrier.YAML Frontmatter"]
+version: 10
+updated_at: "2026-10-15 12:18:16 +0000"
 relations: {}
 atom_id: "CA-D-357"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md
   source_atom_id: CA-D-357
-  source_atom_revision: 9
-  source_sha256: 0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e
+  source_atom_revision: 10
+  source_sha256: 090132a71052827b84ac0a80acb1e24f61cd81e3a7d41060149780e6ad9c61d9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

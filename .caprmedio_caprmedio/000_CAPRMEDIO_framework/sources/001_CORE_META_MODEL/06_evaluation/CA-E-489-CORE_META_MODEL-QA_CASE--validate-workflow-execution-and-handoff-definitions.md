@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Workflow"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    - "Workflow Run"
-    - "Step"
-    - "Action"
-    - "Workflow/Relation Kind: On Result"
-    - "Artifact/Revision"
-    - "Operator"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Relation/Type: On Result", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator"]
+version: 8
+updated_at: "2026-10-16 12:09:08 +0000"
 relations: {"evaluation_for": ["CA-R-1519", "CA-R-1520"]}
 atom_id: "CA-E-489"
 content_role: "Evaluation"

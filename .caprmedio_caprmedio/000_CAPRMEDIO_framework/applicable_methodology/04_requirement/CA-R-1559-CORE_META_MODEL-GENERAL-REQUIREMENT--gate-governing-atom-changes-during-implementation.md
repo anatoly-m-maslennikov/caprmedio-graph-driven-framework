@@ -1,23 +1,10 @@
 ---
 subjects:
-  governs: "AI Agent/authorization"
+  governs: "Entity/Continuant/Actor/Type: AI Agent"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Operator"
-    - "AI Agent"
-    - "AI Agent/Confidence"
-    - "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold"
-    - "Spec"
-    - "Atom"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Project"
-    - "Implementation Workflow"
-version: 5
-updated_at: "2026-10-03 00:22:56 +0400"
+    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "AI Agent Confidence", "Entity/Continuant/Object/Atom/Content Role: Plan.Autonomous Confidence Threshold", "Spec", "Entity/Continuant/Object/Atom", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Project", "Implementation Workflow"]
+version: 7
+updated_at: "2026-10-15 18:44:23 +0000"
 relations: {"child_of":["CA-M-261"],"relates_to":["CA-R-1591","CA-R-1552","CA-R-1080","CA-M-262"]}
 atom_id: "CA-R-1559"
 content_role: "Requirement"
@@ -30,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md
   source_atom_id: CA-R-1559
-  source_atom_revision: 5
-  source_sha256: 6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd
+  source_atom_revision: 7
+  source_sha256: 9e971e9c736d9697cceac5df15dc0dcc6550565fe68e4c18814551c87bf83380
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

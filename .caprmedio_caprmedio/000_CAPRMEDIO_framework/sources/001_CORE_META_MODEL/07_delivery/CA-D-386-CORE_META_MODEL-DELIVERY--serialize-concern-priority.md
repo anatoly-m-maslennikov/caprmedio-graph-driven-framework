@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Carrier"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Concern.Priority"
   depends_on:
-    - "Atom/Content Role"
-    - "Priority"
-    - "Atom/Content Role: Plan/Type: Plan"
-version: 8
-updated_at: "2026-10-01 21:24:33 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role", "Entity/Continuant/Object/Atom/Content Role: Concern.Priority", "Entity/Continuant/Object/Atom/Content Role: Plan"]
+version: 10
+updated_at: "2026-10-16 12:09:24 +0000"
 relations: {}
 atom_id: "CA-D-386"
 content_role: "Delivery"

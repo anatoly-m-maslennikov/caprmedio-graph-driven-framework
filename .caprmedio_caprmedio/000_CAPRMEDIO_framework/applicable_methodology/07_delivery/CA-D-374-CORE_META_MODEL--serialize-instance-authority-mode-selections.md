@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    - "Project Structure"
-    - "Authority Mode"
-    - "Project"
-    - "Scope Unit"
-version: 7
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Authority Mode", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit"]
+version: 9
+updated_at: "2026-10-15 18:51:39 +0000"
 relations:
   child_of:
     - "CA-D-361"
@@ -22,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-374-CORE_META_MODEL--serialize-instance-authority-mode-selections.md
   source_atom_id: CA-D-374
-  source_atom_revision: 7
-  source_sha256: e532c697123854d6588e8d016670f63728474e48480ed239413133d54108f1da
+  source_atom_revision: 9
+  source_sha256: e00c3da14fdce0376a89e0319eb032da06c8913a6ba9c43894caa62890f17e31
   original_relations_sha256: dbd41c990ca96026d80a7c6e36e3203724208ce3569ca634233af924bbbfab2f
 ---
 # Summary

@@ -10,18 +10,9 @@ status: Active
 subjects:
   governs: "Governed Term Rendering"
   depends_on:
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "CCE"
-    - "CCE Operator"
-    - "CCE Operator Registry"
-    - "Concern"
-    - "General Term"
-    - "Governed Term"
-    - "Markdown Atom Carrier/Main Content/CCE Operator"
-    - "Scope Unit/Name"
-version: 3
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "CCE", "CCE Operator", "CCE Operator Registry", "Entity/Continuant/Object/Atom/Content Role: Concern", "General Term", "Governed Term", "Markdown Atom Carrier.Main Content.CCE Operator", "Entity/Continuant/Object/Scope Unit.Name"]
+version: 5
+updated_at: "2026-10-15 18:50:23 +0000"
 relations:
   evaluation_for:
     - CA-D-280
@@ -31,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md
   source_atom_id: CA-E-512
-  source_atom_revision: 3
-  source_sha256: f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e
+  source_atom_revision: 5
+  source_sha256: 8f42c28e285a22f735de7feebffe3e0ce66f7b43dfc65451575e1c5cc1bb32d4
   original_relations_sha256: ad09a21da9ece59c317f2f1187e6d9854462c43cbaac7a77b5ca450bea6d1a3f
 ---
 # Summary

@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/interaction/reporting mode/mandatory information"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information"
   depends_on:
-    - "Framework Instance Settings/interaction/reporting mode"
-    - "Operator"
-version: 7
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode", "Entity/Continuant/Actor/Type: Operator"]
+version: 9
+updated_at: "2026-10-15 18:43:04 +0000"
 relations:
   child_of:
     - "CA-R-1402"

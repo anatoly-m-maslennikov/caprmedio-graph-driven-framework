@@ -1,18 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Local Tier/classification"
+  governs: "Entity/Continuant/Object/Atom.Local Tier"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Scope"
-    - "Atom/Content Role"
-    - "Atom/Local Tier"
-    - "Atom/Global Tier"
-    - "Scope Unit"
-    - "Type"
-    - "Methodology Source"
-    - "Autonomous Confidence Threshold"
-version: 12
-updated_at: "2026-10-01 21:38:15 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Atom/Content Role", "Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Scope Unit", "Type", "Methodology Source", "Autonomous Confidence Threshold"]
+version: 14
+updated_at: "2026-10-15 18:48:11 +0000"
 relations: {"method_for": ["CA-R-1566", "CA-R-659", "CA-R-1431", "CA-R-1573"]}
 atom_id: "CA-M-272"
 content_role: "Method"
@@ -25,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-272-CORE_META_MODEL-METHOD--classify-an-atom-local-tier-from-its-complete-claim.md
   source_atom_id: CA-M-272
-  source_atom_revision: 12
-  source_sha256: 1aaf2686d62ef1346ad2cb06d69e9208d19e4a2e872ee5496df91ac70352a8bc
+  source_atom_revision: 14
+  source_sha256: 53963e18ae37c774fda708f344a5b240c156d73c683e429b41256ede11357f12
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,23 +1,11 @@
 ---
-version: 14
-updated_at: "2026-10-02 20:03:51 +0400"
+version: 16
+updated_at: "2026-10-15 18:49:15 +0000"
 relations: {"child_of":["CA-E-001"],"evaluation_for":["CA-R-1559","CA-R-1591","CA-R-1552","CA-R-1080"]}
 subjects:
-  governs: "AI Agent/authorization"
+  governs: "Entity/Continuant/Actor/Type: AI Agent"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Operator"
-    - "AI Agent"
-    - "AI Agent/Confidence"
-    - "Atom/Content Role: Plan/Type: Plan/Autonomous Confidence Threshold"
-    - "Spec"
-    - "Atom"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Project"
+    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "AI Agent Confidence", "Entity/Continuant/Object/Atom/Content Role: Plan.Autonomous Confidence Threshold", "Spec", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Project"]
 atom_id: "CA-E-440"
 content_role: "Evaluation"
 current_scope_unit: "CORE_META_MODEL"
@@ -30,8 +18,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md
   source_atom_id: CA-E-440
-  source_atom_revision: 14
-  source_sha256: 04cf2c957d5cba0f777d0d9c4ecab39e816bed26bce872a9a5eae74224e10a4a
+  source_atom_revision: 16
+  source_sha256: 864da24d51d01e58a7de02661434658eb0cdfb8d6a9636798ce35cf1bdc83ba5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

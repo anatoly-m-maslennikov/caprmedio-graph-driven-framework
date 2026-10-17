@@ -1,16 +1,13 @@
 ---
-version: 5
-updated_at: "2026-10-02 23:35:16 +0400"
+version: 7
+updated_at: "2026-10-15 18:43:36 +0000"
 relations:
   child_of:
     - CA-R-815
 subjects:
-  governs: "Project/priority model application"
+  governs: "Project Priority Model Application"
   depends_on:
-    - "Operator"
-    - "Project"
-    - "Scope"
-    - "CAPRMEDIO Framework Instance"
+    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project", "Scope", "CAPRMEDIO Framework Instance"]
 atom_id: "CA-R-1487"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"

@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Entities Graph"
+  governs: "Entity/Continuant/Projection/Type: Entities Graph"
   depends_on:
-    - "Projection"
-    - "Entity"
-    - "Relation Kind"
-    - "Relation"
-    - "CAPRMEDIO Graph"
-version: 8
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Entity/Continuant/Projection", "Entity", "Relation Kind", "Entity/Continuant/Object/Relation", "CAPRMEDIO Graph"]
+version: 9
+updated_at: "2026-10-15 18:43:02 +0000"
 relations: {}
 atom_id: "CA-R-1438"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1438-CORE_META_MODEL-CORE--define-entities-graph.md
   source_atom_id: CA-R-1438
-  source_atom_revision: 8
-  source_sha256: d8eea5e569edc4fe12d24b987724901091a1129e894586b2fe875b62af27ab71
+  source_atom_revision: 9
+  source_sha256: d6490125a3a8b5065609d9056114d0476152feef91f4928d76fa00bd27d753e6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

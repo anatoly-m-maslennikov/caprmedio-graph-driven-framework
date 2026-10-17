@@ -8,30 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-03 06:11:33 +0400"
+version: 7
+updated_at: "2026-10-15 18:50:29 +0000"
 subjects:
-  governs: "Atom"
+  governs: "Entity/Continuant/Object/Atom"
   depends_on:
-    - "Atom/Subjects"
-    - "Atom/Claim"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Details"
-    - "Atom/Summary"
-    - "Atom/Content Role"
-    - "Property"
-    - "Entity"
-    - "CCE"
-    - "Atom/Local Tier: Principle"
-    - "Operator"
-    - "CAPRMEDIO Framework Instance"
-    - "Workflow"
+    ["Entity/Continuant/Object/Atom.Subjects", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Atom.Details", "Entity/Continuant/Object/Atom.Summary", "Atom/Content Role", "Property", "Entity", "CCE", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Actor/Type: Operator", "CAPRMEDIO Framework Instance", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
 relations: {"evaluation_for":["CA-D-269","CA-D-478","CA-D-479","CA-D-495","CA-M-113","CA-M-125","CA-R-1269","CA-R-1270","CA-R-1271","CA-R-1273","CA-R-1465","CA-R-1624","CA-R-1799"]}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVALUATION_APPROACH--check-rmed-atom-coherence.md
   source_atom_id: CA-E-520
-  source_atom_revision: 5
-  source_sha256: 9e3cdee5027c3e24cb91e1ce9fe009dc281b499a49a45aaacea38f3ff59fcada
+  source_atom_revision: 7
+  source_sha256: 4da76fb28c94f3620f8665a762130f2bb22ab6a4f6b82c1e2b984dc061d03403
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

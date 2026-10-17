@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/parameter resolution"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution"
   depends_on:
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Project"
-    - "Operator"
-version: 8
-updated_at: "2026-09-29 22:34:37 +0000"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator"]
+version: 10
+updated_at: "2026-10-15 18:48:19 +0000"
 relations:
   relates_to:
     - "CA-R-1402"

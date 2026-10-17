@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Reconciled Projection"
+  governs: "Entity/Continuant/Projection/Type: Reconciled Projection"
   depends_on:
-    - "Projection"
-    - "Type"
-    - "Artifact/Revision"
-    - "Atom/Claim"
-    - "Carrier"
-    - "Operator"
-version: 5
-updated_at: "2026-10-01 21:41:08 +0400"
+    ["Entity/Continuant/Projection", "Type", "Artifact", "Entity/Continuant/Object/Atom.Substance", "Entity/Carrier", "Entity/Continuant/Actor/Type: Operator"]
+version: 7
+updated_at: "2026-10-15 18:43:19 +0000"
 relations: {}
 atom_id: "CA-R-1461"
 content_role: "Requirement"
@@ -22,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1461-CORE_META_MODEL-CORE-REQUIREMENT--define-reconciled-projection.md
   source_atom_id: CA-R-1461
-  source_atom_revision: 5
-  source_sha256: d6120a84090d11d326f41ebe06fb3a780400f4e74e9043e0fc68396027bd2dea
+  source_atom_revision: 7
+  source_sha256: a5abe00228c29e789745199758a4e86e7882e6ac977a55c9a06dbfc8db3acdc7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

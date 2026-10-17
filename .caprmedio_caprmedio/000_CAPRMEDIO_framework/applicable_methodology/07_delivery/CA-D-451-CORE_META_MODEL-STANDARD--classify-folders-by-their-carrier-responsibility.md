@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Directory Carrier"
+  governs: "Entity/Carrier/Directory Carrier"
   depends_on:
-    - "Structural Entity"
-    - "Artifact/Carrier Placement"
-    - "Atom/Content Role"
-version: 4
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Structural Entity", "Artifact Carrier Placement", "Atom/Content Role"]
+version: 6
+updated_at: "2026-10-15 18:52:03 +0000"
 relations: {}
 atom_id: "CA-D-451"
 content_role: "Delivery"
@@ -19,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-451-CORE_META_MODEL-STANDARD--classify-folders-by-their-carrier-responsibility.md
   source_atom_id: CA-D-451
-  source_atom_revision: 4
-  source_sha256: b213375c53de3490d767e8cdfde2f84cd5bea8392d5f4f515afda50610a87e67
+  source_atom_revision: 6
+  source_sha256: 131cbe8e391ab6e76f92d1d8f4f3dade5396f84c7d2c63a5ee9e4256dd60f7ba
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

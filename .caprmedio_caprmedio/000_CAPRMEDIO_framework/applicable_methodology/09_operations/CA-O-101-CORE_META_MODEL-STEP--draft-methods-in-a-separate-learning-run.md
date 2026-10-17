@@ -10,14 +10,9 @@ status: Active
 subjects:
   governs: "Method Lesson Drafting Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Step/Agentic Execution Context"
-    - "AI Agent"
-    - "Workflow Run"
-    - "Step Run"
-version: 3
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
+version: 5
+updated_at: "2026-10-15 18:54:04 +0000"
 relations:
   relates_to:
     - CA-O-100
@@ -27,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-102-CORE_META_MODEL-WORKFLOW--learn-methods-from-verified-implementation-issues/CA-O-101-CORE_META_MODEL-STEP--draft-methods-in-a-separate-learning-run.md
   source_atom_id: CA-O-101
-  source_atom_revision: 3
-  source_sha256: 4031288d0ffdf62f6b9747204f8235745ee4c150359b3c8aac89acb9f9c30bf2
+  source_atom_revision: 5
+  source_sha256: c6cebd6977d31945270c539673aa908132fe1ef9ff21e63a954d94e77e821de7
   original_relations_sha256: a0977c00fef855cb75511ef588cc370e664b81c980df0701e9805008dbd3288c
 ---
 # Summary

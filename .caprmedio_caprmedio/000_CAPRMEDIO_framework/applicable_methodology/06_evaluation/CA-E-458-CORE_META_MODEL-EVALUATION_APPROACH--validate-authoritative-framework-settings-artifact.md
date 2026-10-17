@@ -2,12 +2,9 @@
 subjects:
   governs: "Framework Instance Settings Validation"
   depends_on:
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Framework Instance Settings/Authoritative Carrier"
-    - "Framework Instance Settings/Revision Binding"
-version: 17
-updated_at: "2026-10-13 21:22:41 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project.Framework Settings.Revision Binding"]
+version: 19
+updated_at: "2026-10-15 18:49:27 +0000"
 relations:
   evaluation_for:
     - CA-R-1402
@@ -32,8 +29,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-framework-settings-artifact.md
   source_atom_id: CA-E-458
-  source_atom_revision: 17
-  source_sha256: 37e183dac3858e4cc53e995d734534a8d29354d807d201dbad12f6d14cc5f4ca
+  source_atom_revision: 19
+  source_sha256: 398a47789cf4eaf2a27add24ef96203bd2f8c37f4bf8fad28cbb179162b2288e
   original_relations_sha256: c43710a24ba9609df14ffa1948ef1b7800e193bfc80ab2f310b1715a02cb8616
 ---
 # Summary

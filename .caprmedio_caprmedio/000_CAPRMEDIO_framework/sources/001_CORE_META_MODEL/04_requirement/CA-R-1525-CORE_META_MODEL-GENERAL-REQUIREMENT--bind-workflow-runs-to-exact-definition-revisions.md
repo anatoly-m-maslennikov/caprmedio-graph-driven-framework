@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Workflow Run"
+  governs: "Entity/Occurrent/Execution/Workflow Run"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Step Run"
-    - "Artifact/Revision"
-    - "Journal"
-    - "Operator"
-version: 7
-updated_at: "2026-10-14 18:37:38 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Journal", "Entity/Continuant/Actor/Type: Operator"]
+version: 9
+updated_at: "2026-10-15 18:43:57 +0000"
 relations: {"relates_to": ["CA-R-1510", "CA-R-1511", "CA-R-1519", "CA-R-1520", "CA-R-1720"]}
 atom_id: "CA-R-1525"
 content_role: "Requirement"

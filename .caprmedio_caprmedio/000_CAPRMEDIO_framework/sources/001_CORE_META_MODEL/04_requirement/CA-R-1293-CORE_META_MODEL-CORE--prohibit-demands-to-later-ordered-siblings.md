@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Demand/Direction"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit"
   depends_on:
-    - "Local Order"
-    - "Scope Unit/Type: Ordered"
-version: 12
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Entity/Continuant/Object/Scope Unit.Local Order", "Entity/Continuant/Object/Scope Unit/Type: Ordered"]
+version: 15
+updated_at: "2026-10-16 12:08:19 +0000"
 relations: {}
 atom_id: "CA-R-1293"
 content_role: "Requirement"

@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Workflow Run"
+  governs: "Entity/Occurrent/Execution/Workflow Run"
   depends_on:
-    - "Workflow"
-    - "Step Run"
-    - "Journal/Record"
-version: 4
-updated_at: "2026-10-02 23:53:38 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/History/Journal.Record"]
+version: 6
+updated_at: "2026-10-15 18:43:52 +0000"
 relations: {}
 atom_id: "CA-R-1510"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1510-CORE_META_MODEL-CORE-REQUIREMENT--define-workflow-run.md
   source_atom_id: CA-R-1510
-  source_atom_revision: 4
-  source_sha256: df438330aa3b5e466eb347b17b935e2fbf426c258223eba7e6f53610864be562
+  source_atom_revision: 6
+  source_sha256: e6de84632ad412759cf41db46790dd68c64c17471064f7055baa033190b520f5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

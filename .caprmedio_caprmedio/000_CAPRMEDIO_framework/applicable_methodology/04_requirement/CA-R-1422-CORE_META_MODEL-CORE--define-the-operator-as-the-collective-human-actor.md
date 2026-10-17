@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Operator"
+  governs: "Entity/Continuant/Actor/Type: Operator"
   depends_on:
-    - "Actor"
-    - "Project"
-    - "CAPRMEDIO Framework Instance"
-version: 8
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Entity/Continuant/Actor", "Entity/Continuant/Object/Project"]
+version: 10
+updated_at: "2026-10-16 12:08:24 +0000"
 relations:
   child_of:
     - CA-P-032
@@ -21,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md
   source_atom_id: CA-R-1422
-  source_atom_revision: 8
-  source_sha256: fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38
+  source_atom_revision: 10
+  source_sha256: d8b4130627e843a3d27cfc46eabea63c8bd1c4783386fbae317de5e30faedf88
   original_relations_sha256: 78cfd319918db937dbc88bae53e0aa825eb011aaec69c68133dbd83ef0bc22b5
 ---
 # Summary

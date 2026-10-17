@@ -2,10 +2,9 @@
 subjects:
   governs: "Subtree-targeting Atoms"
   depends_on:
-    - "Targeting Atoms"
-    - "Scope Unit"
-version: 7
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Targeting Atoms", "Entity/Continuant/Object/Scope Unit"]
+version: 8
+updated_at: "2026-10-15 18:43:12 +0000"
 relations: {}
 atom_id: "CA-R-1449"
 content_role: "Requirement"

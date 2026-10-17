@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Evaluation/authoring"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Evaluation"
   depends_on:
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Method"
-    - "Atom/Scope"
-    - "Atom/Local Tier"
-    - "Evaluation For Relation"
-version: 8
-updated_at: "2026-10-01 21:38:15 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom.Substance Scope", "Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Relation/Type: evaluation_for"]
+version: 11
+updated_at: "2026-10-16 12:09:02 +0000"
 relations: {}
 atom_id: "CA-M-264"
 content_role: "Method"
@@ -21,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-264-CORE_META_MODEL-METHOD--write-evaluations-with-reproducible-falsification.md
   source_atom_id: CA-M-264
-  source_atom_revision: 8
-  source_sha256: 49351d2882bbc07435ca189e3779a60259852306923820dbf99c9f5ce76f1584
+  source_atom_revision: 11
+  source_sha256: 704708fbc7ac10c3379b36d339ab09a6904468df9585896c5aca1d99d6e86b32
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

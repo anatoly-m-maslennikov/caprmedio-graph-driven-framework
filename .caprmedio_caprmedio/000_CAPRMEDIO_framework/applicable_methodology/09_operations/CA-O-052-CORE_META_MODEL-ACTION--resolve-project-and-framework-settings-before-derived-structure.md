@@ -2,16 +2,9 @@
 subjects:
   governs: "Resolve Project Initialization Inputs"
   depends_on:
-    - "Action"
-    - "Project"
-    - "Project Settings"
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Project Structure"
-    - "Projection"
-    - "Artifact/Carrier"
-version: 4
-updated_at: "2026-10-04 15:08:22 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Projection", "Artifact Carrier"]
+version: 6
+updated_at: "2026-10-15 18:52:59 +0000"
 relations:
   child_of:
     - CA-R-1052
@@ -29,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md
   source_atom_id: CA-O-052
-  source_atom_revision: 4
-  source_sha256: d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b
+  source_atom_revision: 6
+  source_sha256: 19f4844f7dbd059ca2da1d63ffb7f04ee9855e7e8b809214068805feefa79e78
   original_relations_sha256: db9b6e148783ad3c9cd838e93ac305b0292907f8e82639cd9fc0e62c97bf061c
 ---
 # Summary

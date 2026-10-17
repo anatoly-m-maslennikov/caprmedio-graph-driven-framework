@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Structural Level"
+  governs: "Entity/Continuant/Object/Scope Unit.Structural Level"
   depends_on:
-    - "Scope Unit"
-    - "Structural Parent Relation"
-version: 17
-updated_at: "2026-10-03 02:39:08 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children"]
+version: 19
+updated_at: "2026-10-16 12:08:40 +0000"
 relations:
   child_of:
     - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
@@ -21,8 +20,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md
   source_atom_id: CA-R-1731
-  source_atom_revision: 17
-  source_sha256: 701b5ff6d4f2240e630a89ea9dc3e048ea1038e2f6153224d9172529f008b273
+  source_atom_revision: 19
+  source_sha256: a660b3a73147f236df57abec353a27eb13b596aee87381ae45e7413e45f22897
   original_relations_sha256: 7c772170d1d0798dddc02d4fab6bc077026236f37480101802d46502d55e568c
 ---
 # Summary

@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Process Log"
+  governs: "Entity/Continuant/Projection/Type: Process Log"
   depends_on:
-    - "Step Run"
-    - "Workflow Run"
-    - "Projection"
-    - "Journal"
-    - "Journal/Record"
-    - "Action"
-    - "Workflow"
-version: 6
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
+version: 8
+updated_at: "2026-10-15 18:43:26 +0000"
 relations: {}
 atom_id: "CA-R-1468"
 content_role: "Requirement"
@@ -23,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1468-CORE_META_MODEL--define-process-log-projection.md
   source_atom_id: CA-R-1468
-  source_atom_revision: 6
-  source_sha256: 91312f138e6492934f089b0c2ed62f3d8f24d079215ee8dc8d57d4121d222ab6
+  source_atom_revision: 8
+  source_sha256: f1f149e89cae72db56d2d7b64db1a83eecda63c24bb325beb0adf141fc456f4d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

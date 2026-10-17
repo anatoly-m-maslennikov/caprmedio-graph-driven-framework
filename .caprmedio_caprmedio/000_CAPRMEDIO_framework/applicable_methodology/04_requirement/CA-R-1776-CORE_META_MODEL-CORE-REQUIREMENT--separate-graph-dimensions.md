@@ -1,17 +1,14 @@
 ---
-version: 19
-updated_at: "2026-10-03 03:44:05 +0400"
+version: 21
+updated_at: "2026-10-15 18:46:02 +0000"
 relations:
   child_of:
     - "CA-M-001"
     - "CA-R-1407"
 subjects:
-  governs: "Project/graph dimensions"
+  governs: "Entity/Continuant/Object/Project.Graph Dimensions"
   depends_on:
-    - "Subject"
-    - "CAPRMEDIO Framework Instance"
-    - "Project"
-
+    ["Subject", "CAPRMEDIO Framework Instance", "Entity/Continuant/Object/Project"]
 atom_id: "CA-R-1776"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
@@ -23,8 +20,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1776-CORE_META_MODEL-CORE-REQUIREMENT--separate-graph-dimensions.md
   source_atom_id: CA-R-1776
-  source_atom_revision: 19
-  source_sha256: 048ef443a0803f8d028f54326767993e2bd3fdf69406ffd608eebf60fd3cfdef
+  source_atom_revision: 21
+  source_sha256: 0bb8724f202670c88bfa316b7bc4fd7221854b9b25d589d1d2fd64d3a0356b5b
   original_relations_sha256: 62b1ff22b994acf8a675c909ab0c1a64fb49914ba74f229ef8165bc1e2969a7d
 ---
 # Summary

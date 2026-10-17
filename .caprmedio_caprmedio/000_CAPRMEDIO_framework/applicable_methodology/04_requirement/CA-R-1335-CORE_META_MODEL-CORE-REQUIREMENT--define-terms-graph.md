@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Terms Graph"
+  governs: "Entity/Continuant/Projection/Type: Terms Graph"
   depends_on:
-    - "Projection"
-    - "Term"
-    - "Relation Kind"
-    - "Relation"
-    - "CAPRMEDIO Graph"
-version: 13
-updated_at: "2026-10-02 22:05:04 +0400"
+    ["Entity/Continuant/Projection", "Entity/Continuant/Term", "Relation Kind", "Entity/Continuant/Object/Relation", "CAPRMEDIO Graph"]
+version: 14
+updated_at: "2026-10-15 18:41:54 +0000"
 relations: {}
 atom_id: "CA-R-1335"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md
   source_atom_id: CA-R-1335
-  source_atom_revision: 13
-  source_sha256: 98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1
+  source_atom_revision: 14
+  source_sha256: cc5f7db6446290fdf993c5138a5c3d17b703bee6047f5163a2d8ffe22e40ae0c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

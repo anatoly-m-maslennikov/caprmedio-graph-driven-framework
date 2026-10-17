@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Structural Level"
+  governs: "Entity/Continuant/Object/Scope Unit.Structural Level"
   depends_on:
-    - "Scope Unit"
-    - "Structural Parent Relation"
-    - "Relation"
-version: 16
-updated_at: "2026-10-03 02:52:00 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children", "Entity/Continuant/Object/Relation"]
+version: 18
+updated_at: "2026-10-16 12:08:41 +0000"
 relations:
   child_of:
     - "CA-R-1731"
@@ -23,8 +21,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md
   source_atom_id: CA-R-1737
-  source_atom_revision: 16
-  source_sha256: 954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38
+  source_atom_revision: 18
+  source_sha256: ff27fd78a6757667ee7feecf7323a899296cdb0a6b07067f90a41729b438c469
   original_relations_sha256: b717e6ecb786917fa3508f8655a97c6be2b455eb23c44d93f537e0745c06644e
 ---
 # Summary

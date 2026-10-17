@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit"
+  governs: "Entity/Continuant/Object/Scope Unit"
   depends_on:
-    - "Project Structure"
-    - "Project Settings"
-    - "Project"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Structural Parent Relation"
-version: 5
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children"]
+version: 7
+updated_at: "2026-10-16 12:08:26 +0000"
 relations: {}
 atom_id: "CA-R-1484"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1484-CORE_META_MODEL-GENERAL-REQUIREMENT--establish-scope-units-through-project-structure-declarations.md
   source_atom_id: CA-R-1484
-  source_atom_revision: 5
-  source_sha256: 968be06ce2fd2645b1071b6125492cef58ee789f15e96d44c15991c685e279c5
+  source_atom_revision: 7
+  source_sha256: 80c80cf224a82ae977a2f57aac951cdae297532d4d5c66080d47c02ce792143c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

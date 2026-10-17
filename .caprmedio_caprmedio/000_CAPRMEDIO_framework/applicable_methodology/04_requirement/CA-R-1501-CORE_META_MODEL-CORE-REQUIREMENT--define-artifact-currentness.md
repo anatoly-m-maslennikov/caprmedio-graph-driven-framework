@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Currentness"
+  governs: "Artifact.Currentness"
   depends_on:
-    - "Artifact"
-    - "Artifact/Revision"
-    - "Artifact/Applicability"
-version: 5
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Artifact", "Artifact.Applicability"]
+version: 6
+updated_at: "2026-10-15 12:22:14 +0000"
 relations: {child_of: [CA-M-001]}
 atom_id: "CA-R-1501"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1501-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact-currentness.md
   source_atom_id: CA-R-1501
-  source_atom_revision: 5
-  source_sha256: 2913e51627a634ef841141511b7afe962059fdd7a273fb918b6ce66cdf1f0151
+  source_atom_revision: 6
+  source_sha256: cb0d133c31f100af96319115ffff0d8dbf3cb042287f9ead810998f88b93bed1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

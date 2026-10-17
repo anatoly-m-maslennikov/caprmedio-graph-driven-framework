@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Corrective Method Acceptance Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Step/Agentic Execution Context"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Workflow Run"
-    - "Step Run"
-version: 5
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
+version: 7
+updated_at: "2026-10-15 18:54:03 +0000"
 relations:
   relates_to:
     - CA-O-090
@@ -28,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-102-CORE_META_MODEL-WORKFLOW--learn-methods-from-verified-implementation-issues/CA-O-098-CORE_META_MODEL-STEP--verify-and-activate-corrective-method-drafts.md
   source_atom_id: CA-O-098
-  source_atom_revision: 5
-  source_sha256: f8fd8abc902f2c2160d2518566aa5157a807af930083fed6d61eb42c3ee96af6
+  source_atom_revision: 7
+  source_sha256: d4b786d6c7021d36bea9b9024ae7ee49242f53ee78d16ac31e79a9afc5b64ecd
   original_relations_sha256: 6c05b0491f90ce42dacccbc1fe094328e13701a15a3952f2aa74e7b0c7afb7cd
 ---
 # Summary

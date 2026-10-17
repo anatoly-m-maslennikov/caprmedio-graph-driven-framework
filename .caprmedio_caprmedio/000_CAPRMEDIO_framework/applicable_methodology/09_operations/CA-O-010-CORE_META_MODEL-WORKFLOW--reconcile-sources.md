@@ -2,24 +2,9 @@
 subjects:
   governs: "Source Reconciliation"
   depends_on:
-    - "Workflow/Relation Kind: On Result"
-    - "Step Run"
-    - "Workflow Run"
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Select Reconciliation Sources"
-    - "Assess Source Conflicts"
-    - "Propose Source Corrections"
-    - "Obtain Source Correction Decision"
-    - "Apply Approved Source Corrections"
-    - "Publish Reconciled Projection"
-    - "Operator"
-    - "AI Agent"
-    - "Autonomous Confidence Threshold"
-    - "Projection/Type: Reconciled Projection"
-version: 9
-updated_at: "2026-10-04 17:31:25 +0000"
+    ["Relation/Type: On Result", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Select Reconciliation Sources", "Assess Source Conflicts", "Propose Source Corrections", "Obtain Source Correction Decision", "Apply Approved Source Corrections", "Publish Reconciled Projection", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Autonomous Confidence Threshold", "Entity/Continuant/Projection/Type: Reconciled Projection"]
+version: 11
+updated_at: "2026-10-15 18:52:44 +0000"
 relations: {}
 atom_id: "CA-O-010"
 content_role: "Operations"
@@ -33,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources.md
   source_atom_id: CA-O-010
-  source_atom_revision: 9
-  source_sha256: 0f20146444637ca38de69f97931c4a45c663c9a6dd2d759c3599e9864acfc7da
+  source_atom_revision: 11
+  source_sha256: 29c5564593b301e4c7ba8dd4d80e819c136cf33208b1de8a47ab41236d8a643e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

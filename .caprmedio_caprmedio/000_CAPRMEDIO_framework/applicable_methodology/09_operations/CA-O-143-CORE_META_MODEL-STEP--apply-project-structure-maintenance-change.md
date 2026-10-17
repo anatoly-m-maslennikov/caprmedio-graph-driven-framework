@@ -10,16 +10,16 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Project Structure Maintenance Application Step"
-  depends_on: [Step, Action, Workflow, Workflow Run, Step Run, "Step/Agentic Execution Context"]
-version: 2
-updated_at: "2026-10-04 17:42:12 +0000"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Agentic Step Execution Context"]
+version: 4
+updated_at: "2026-10-15 18:53:34 +0000"
 relations:
   relates_to: [CA-O-015, CA-O-014, CA-O-142, CA-R-1509, CA-R-1510, CA-R-1511, CA-R-1527]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-143-CORE_META_MODEL-STEP--apply-project-structure-maintenance-change.md
   source_atom_id: CA-O-143
-  source_atom_revision: 2
-  source_sha256: 53f1fdf91b2613e2f1c0da6feb0850ca0d49c535cf6a72df3c11ad2a39694a7c
+  source_atom_revision: 4
+  source_sha256: e398d154cc104cad2f563f8ac1d003e39c17d219604fa0064d8ba4011b058d8b
   original_relations_sha256: b09c465d404df265b613170609c20cd5357a0e059eb79ca0f094db2bb9b7ea8c
 ---
 # Summary

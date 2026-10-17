@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Carrier Placement"
+  governs: "Entity/Carrier.Canonical Address"
   depends_on:
-    - "Atom/Content Role"
-    - "Scope Unit"
-    - "Artifact"
-    - "Directory Carrier"
-version: 13
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom", "Entity/Carrier/Directory Carrier"]
+version: 16
+updated_at: "2026-10-16 12:09:15 +0000"
 relations: {}
 atom_id: "CA-D-296"
 content_role: "Delivery"

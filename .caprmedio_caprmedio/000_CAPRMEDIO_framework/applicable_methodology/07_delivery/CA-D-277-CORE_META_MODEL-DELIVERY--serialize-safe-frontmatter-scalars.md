@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier/YAML Frontmatter/Scalar"
+  governs: "Markdown Atom Carrier.YAML Frontmatter.Scalar"
   depends_on:
-    - "Markdown Atom Carrier/Main Content"
-version: 12
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Markdown Atom Carrier.Main Content"]
+version: 13
+updated_at: "2026-10-15 12:17:57 +0000"
 relations: {}
 atom_id: "CA-D-277"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-277-CORE_META_MODEL-DELIVERY--serialize-safe-frontmatter-scalars.md
   source_atom_id: CA-D-277
-  source_atom_revision: 12
-  source_sha256: 3f725da058e785dcb62fd2ff25bdcf55e20c1df6ad906c3d471024aae9398ee9
+  source_atom_revision: 13
+  source_sha256: 82d0f3cd568672994d7019a98148a644e17cb1b2f4ad5456441d87183e7ed13a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

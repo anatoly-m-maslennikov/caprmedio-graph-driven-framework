@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Proof Carrier/Dependency Frontier"
+  governs: "Entity/Continuant/History"
   depends_on: []
-version: 12
-updated_at: "2026-10-02 19:18:22 +0400"
+version: 14
+updated_at: "2026-10-16 12:09:19 +0000"
 relations: {}
 atom_id: "CA-D-329"
 content_role: "Delivery"
@@ -16,8 +16,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-329-CORE_META_MODEL--serialize-proof-frontier-references.md
   source_atom_id: CA-D-329
-  source_atom_revision: 12
-  source_sha256: 965f664d842c8633f356944fdb9b3fd899da2e5aff2fa2999ac72581677345ca
+  source_atom_revision: 14
+  source_sha256: 6e5aabc2470f014a2290f3fc76b1bf7dbda34ecb42ebb6c071e7def65a37b301
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

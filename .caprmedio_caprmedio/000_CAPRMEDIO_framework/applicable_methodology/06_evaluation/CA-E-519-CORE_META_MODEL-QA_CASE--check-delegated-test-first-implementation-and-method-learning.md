@@ -10,20 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Workflow"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Implementation"
-    - "Projection"
-    - "Operator"
-    - "Implementation Retry Limit"
-    - "Autonomous Confidence Threshold"
-version: 6
-updated_at: "2026-10-04 03:52:53 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Entity/Continuant/Projection", "Entity/Continuant/Actor/Type: Operator", "Implementation Retry Limit", "Autonomous Confidence Threshold"]
+version: 8
+updated_at: "2026-10-15 18:50:27 +0000"
 relations:
   evaluation_for:
     - CA-O-016
@@ -55,8 +44,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-519-CORE_META_MODEL-QA_CASE--check-delegated-test-first-implementation-and-method-learning.md
   source_atom_id: CA-E-519
-  source_atom_revision: 6
-  source_sha256: 86cc0beb50d1b06fc7fa58eff2ce90525cb299cd33cfaa125a7b70b5a5665c53
+  source_atom_revision: 8
+  source_sha256: 5ef92d865a0f3612d24f875068ed8f6d1f3916367fbcdedbf7ccb37fbc10f2dc
   original_relations_sha256: f43677645d2ff56c603c3982cbf1aa01657d4b6612d66cbcf94ac476a799eadd
 ---
 # Summary

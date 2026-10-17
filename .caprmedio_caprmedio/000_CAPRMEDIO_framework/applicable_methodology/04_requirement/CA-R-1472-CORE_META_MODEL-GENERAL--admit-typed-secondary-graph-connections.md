@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Graph/Connectivity"
+  governs: "CAPRMEDIO Graph.Connectivity"
   depends_on:
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Atom"
-    - "Structural Entity"
-    - "Journal"
-    - "Relation"
-    - "Relation Kind"
-    - "Relation Kind/Metadata"
-version: 5
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["CAPRMEDIO Graph", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Structural Entity", "Entity/Continuant/History/Journal", "Entity/Continuant/Object/Relation", "Relation Kind", "Relation Kind Metadata"]
+version: 7
+updated_at: "2026-10-15 18:43:30 +0000"
 relations: {}
 atom_id: "CA-R-1472"
 content_role: "Requirement"
@@ -24,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections.md
   source_atom_id: CA-R-1472
-  source_atom_revision: 5
-  source_sha256: c4ae524cad97b270246272ec9604e243318a8eba5cdd32bae80e4c8e13cacd5e
+  source_atom_revision: 7
+  source_sha256: 41166f4d1f2c3daefaa67435a6453326d56f9ef4fc0c50333bdf4f418354e914
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

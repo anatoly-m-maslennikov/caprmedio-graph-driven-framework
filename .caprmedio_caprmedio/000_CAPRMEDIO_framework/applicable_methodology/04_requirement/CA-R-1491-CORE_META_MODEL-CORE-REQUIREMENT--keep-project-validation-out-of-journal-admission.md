@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Journal"
+  governs: "Entity/Continuant/History/Journal"
   depends_on:
-    - "Journal/Record"
-    - "Artifact/Carrier"
-    - "Atom"
-    - "Project"
-    - "Applicable Methodology"
-    - "Atom/Content Role: Evaluation"
-version: 7
-updated_at: "2026-10-14 18:37:38 +0400"
+    ["Entity/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
+version: 10
+updated_at: "2026-10-16 12:08:27 +0000"
 relations:
   child_of:
     - CA-R-1490
@@ -26,8 +21,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-CORE-REQUIREMENT--keep-project-validation-out-of-journal-admission.md
   source_atom_id: CA-R-1491
-  source_atom_revision: 7
-  source_sha256: 43ba33e397f1aa46adcd5d45343099005b50819d4cf8891c797f3662e6d5cc88
+  source_atom_revision: 10
+  source_sha256: e38023831eac289be5befc842c6cc3117162ad68faf94e6542034cc86345b952
   original_relations_sha256: 9924b6ff7c6932dfffb0d4989dcbbd73519db955518463bb61a9ef1a4be43d59
 ---
 # Summary

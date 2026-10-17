@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Direct Relation Serialization"
+  governs: "Entity/Continuant/Object/Relation"
   depends_on:
-    - "Atom/Relation Owner"
-version: 13
-updated_at: "2026-10-13 19:56:49 +0400"
+    ["Entity/Continuant/Object/Relation.Source Reference"]
+version: 15
+updated_at: "2026-10-16 12:09:11 +0000"
 relations: {}
 atom_id: "CA-D-268"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md
   source_atom_id: CA-D-268
-  source_atom_revision: 13
-  source_sha256: eba35171683bf9219f32d264cc3eaff985bd7939817114135c3a04faccf8df96
+  source_atom_revision: 15
+  source_sha256: 519ae6c3a9f268c1a935525350769db8b7079d9d4afe5e8d4f40027da1ca8bd8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

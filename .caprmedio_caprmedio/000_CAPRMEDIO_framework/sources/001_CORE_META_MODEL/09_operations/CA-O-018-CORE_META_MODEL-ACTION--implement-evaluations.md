@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Evaluation Implementation"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Implementation"
-version: 6
-updated_at: "2026-10-04 15:15:47 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Implementation"]
+version: 8
+updated_at: "2026-10-15 18:52:51 +0000"
 relations:
   relates_to:
     - CA-O-017

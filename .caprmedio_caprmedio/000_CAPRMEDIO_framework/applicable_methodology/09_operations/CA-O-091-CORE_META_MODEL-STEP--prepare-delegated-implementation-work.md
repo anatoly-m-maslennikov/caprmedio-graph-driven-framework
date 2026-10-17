@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Preparation Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Step/Agentic Execution Context"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Workflow Run"
-    - "Step Run"
-version: 5
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
+version: 7
+updated_at: "2026-10-15 18:53:55 +0000"
 relations:
   relates_to:
     - CA-O-017
@@ -28,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-091-CORE_META_MODEL-STEP--prepare-delegated-implementation-work.md
   source_atom_id: CA-O-091
-  source_atom_revision: 5
-  source_sha256: 4d1096291c5c783f867988fa2056551e925eae83a868f6cebb0396e5eb348cab
+  source_atom_revision: 7
+  source_sha256: 8f487d884f1dfc3a1770a0880aa4050879ca6f8a8f54b4738e611315c1a81dba
   original_relations_sha256: 8cbf084aa689e9d8440dbe92835bfd968046bbcaca8ef0b90054af291cae77df
 ---
 # Summary

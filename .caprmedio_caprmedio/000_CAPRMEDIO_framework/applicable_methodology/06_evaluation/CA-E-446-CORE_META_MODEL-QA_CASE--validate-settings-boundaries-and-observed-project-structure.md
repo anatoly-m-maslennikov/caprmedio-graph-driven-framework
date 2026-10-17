@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Project Structure"
+  governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    - "Project Settings"
-    - "Framework Instance Settings"
-    - "Project"
-    - "Scope Unit"
-    - "Goal"
-    - "Carrier"
-    - "Applicable Methodology"
-version: 12
-updated_at: "2026-10-02 20:09:13 +0400"
+    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Projection/Type: Applicable Methodology"]
+version: 14
+updated_at: "2026-10-15 18:49:20 +0000"
 relations:
   evaluation_for:
     - "CA-R-1483"
@@ -40,8 +34,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-446-CORE_META_MODEL-QA_CASE--validate-settings-boundaries-and-observed-project-structure.md
   source_atom_id: CA-E-446
-  source_atom_revision: 12
-  source_sha256: f5e70780f96e2dcd733fe4895b80c17fca06893d87f62db6f41fa21949cd147c
+  source_atom_revision: 14
+  source_sha256: c6db3113f635142acd609e26d2bc631304d8cf329161917f9360fcd51c34bd72
   original_relations_sha256: 5b513e54cd74d69f9ff194112df4589c8ccd5efc50c0275bc0be2f0582063614
 ---
 # Summary

@@ -2,12 +2,9 @@
 subjects:
   governs: "language"
   depends_on:
-    - "artifact-model"
-    - "CCE"
-    - "Author"
-    - "Atom/Claim"
-version: 17
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["artifact-model", "CCE", "Author", "Entity/Continuant/Object/Atom.Substance"]
+version: 19
+updated_at: "2026-10-15 18:47:43 +0000"
 relations:
   child_of:
     - CA-M-111
@@ -31,8 +28,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md
   source_atom_id: CA-M-113
-  source_atom_revision: 17
-  source_sha256: 81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77
+  source_atom_revision: 19
+  source_sha256: 0a91fbca1b8b224ab757ba7f9a89ff754e587a356794b5a475979208f34e0847
   original_relations_sha256: 1aedbaa25b502bd6d097474e4f004e2f4fd8a026d5d1021207106edaf3bbb4b0
 ---
 # Summary

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "lifecycle-traceability"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Concern.Status"
   depends_on: []
-version: 16
-updated_at: "2026-10-03 02:39:08 +0400"
+version: 17
+updated_at: "2026-10-16 12:08:39 +0000"
 relations: {}
 atom_id: "CA-R-1726"
 content_role: "Requirement"

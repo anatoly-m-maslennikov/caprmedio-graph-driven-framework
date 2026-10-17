@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Projection"
+  governs: "Entity/Continuant/Projection"
   depends_on:
-    - "Implementation"
-    - "Spec Content Roles"
-    - "Artifact"
-    - "Atom"
-    - "Projection/Authority"
-version: 6
-updated_at: "2026-10-04 22:07:54 +0000"
+    ["Implementation", "Spec Content Roles", "Artifact", "Entity/Continuant/Object/Atom", "Entity/Continuant/Projection.Authority"]
+version: 8
+updated_at: "2026-10-15 18:44:30 +0000"
 relations: {"relates_to": ["CA-R-1548", "CA-R-1571", "CA-R-1703"]}
 atom_id: "CA-R-1568"
 content_role: "Requirement"
@@ -21,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL-GENERAL--permit-projections-as-implementation-outputs.md
   source_atom_id: CA-R-1568
-  source_atom_revision: 6
-  source_sha256: 91c4576fa27eb3fbec01af55767468bff2de5e91f7f006a9c4cff067ed6fc699
+  source_atom_revision: 8
+  source_sha256: 699cf7c57baa0cafb402e75ff8162b372203639b60fbce4f40abbbca43a521fc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

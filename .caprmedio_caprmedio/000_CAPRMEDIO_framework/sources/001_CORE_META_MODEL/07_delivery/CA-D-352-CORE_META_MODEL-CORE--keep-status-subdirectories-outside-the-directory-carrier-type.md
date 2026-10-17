@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Carrier Placement/Status Subdirectory"
+  governs: "Entity/Carrier.Canonical Address.Segment"
   depends_on:
-    - "Directory Carrier"
-version: 10
-updated_at: "2026-10-02 19:18:22 +0400"
+    ["Entity/Carrier/Directory Carrier"]
+version: 13
+updated_at: "2026-10-16 12:09:21 +0000"
 relations: {}
 atom_id: "CA-D-352"
 content_role: "Delivery"

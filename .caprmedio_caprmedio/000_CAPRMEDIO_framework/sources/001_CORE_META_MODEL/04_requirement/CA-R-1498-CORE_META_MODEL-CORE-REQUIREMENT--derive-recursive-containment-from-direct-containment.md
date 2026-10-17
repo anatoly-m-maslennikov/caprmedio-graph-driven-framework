@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Structural Entity/Recursive Containment"
+  governs: "Structural Entity Recursive Containment"
   depends_on:
-    - "Structural Entity/Direct Containment"
-version: 4
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Structural Entity Direct Containment"]
+version: 5
+updated_at: "2026-10-15 12:22:12 +0000"
 relations: {}
 atom_id: "CA-R-1498"
 content_role: "Requirement"

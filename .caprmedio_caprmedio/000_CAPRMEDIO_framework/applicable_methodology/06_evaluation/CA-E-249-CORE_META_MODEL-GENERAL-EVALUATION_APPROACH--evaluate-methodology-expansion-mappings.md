@@ -1,16 +1,11 @@
 ---
-version: 12
-updated_at: "2026-10-02 19:57:02 +0400"
+version: 14
+updated_at: "2026-10-15 18:48:58 +0000"
 relations: {"child_of":["CA-E-001"],"evaluation_for":["CA-M-298","CA-O-054","CA-R-1375"]}
 subjects:
-  governs: "Methodology Source/expansion mapping"
+  governs: "Methodology Source.Expansion Mapping"
   depends_on:
-    - "Methodology Source"
-    - "Core Meta-Model"
-    - "Extension"
-    - "Project Configuration"
-    - "Operator"
-    - "Entity"
+    ["Methodology Source", "Core Meta-Model", "Extension", "Project Configuration", "Entity/Continuant/Actor/Type: Operator", "Entity"]
 atom_id: "CA-E-249"
 content_role: "Evaluation"
 current_scope_unit: "CORE_META_MODEL"
@@ -23,8 +18,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md
   source_atom_id: CA-E-249
-  source_atom_revision: 12
-  source_sha256: fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965
+  source_atom_revision: 14
+  source_sha256: f8eb702fbadac496508e2c1c216a26c79f4075d8bb774090669d5fbcc95edd63
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

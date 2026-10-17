@@ -8,31 +8,19 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 5
+updated_at: "2026-10-15 18:53:52 +0000"
 subjects:
-  governs: "Applicable Methodology Compilation/Step: decide"
+  governs: "Applicable Methodology Compilation Decide Step"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Applicable Methodology"
-    - "Obtain Source Correction Decision"
-    - "Operator"
-    - "Journal"
-    - "Journal/Record"
-    - "Applicable Methodology/Conflict"
-    - "Applicable Methodology/Source Frontier Digest"
-    - "Project Configuration"
-    - "Methodology Source/Expansion Boundary"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Obtain Source Correction Decision", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Project Configuration", "Methodology Source.Expansion Boundary"]
 relations:
   relates_to: [CA-O-011, CA-O-007]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md
   source_atom_id: CA-O-155
-  source_atom_revision: 3
-  source_sha256: ff550ed228c4dc06d4cd76235bb91ee8d58d588beb4ac56cc974ad0ecaef6693
+  source_atom_revision: 5
+  source_sha256: e4b615bbe3f7ff4346516decf5d74b50ec0ce1c714b72fe021d40d8bb1f5806d
   original_relations_sha256: 0327527080511193852b3621512152c3c6601254c66c43323355c91d8fe7ea35
 ---
 # Summary

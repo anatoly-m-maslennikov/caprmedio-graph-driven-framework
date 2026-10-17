@@ -1,22 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Atom Subjects Graph"
+  governs: "Entity/Continuant/Projection/Type: Atom Subjects Graph"
   depends_on:
-    - "Projection"
-    - "Atom"
-    - "Atom/Subjects"
-    - "Subject Path"
-    - "Entity"
-    - "GOVERNS"
-    - "DEPENDS_ON"
-    - "Relation"
-    - "Relation Kind"
-    - "CAPRMEDIO Graph"
-    - "Artifact/Revision"
-    - "Subject"
-    - "Term"
-version: 12
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Subjects", "Subject Path", "Entity", "GOVERNS", "DEPENDS_ON", "Entity/Continuant/Object/Relation", "Relation Kind", "CAPRMEDIO Graph", "Subject", "Entity/Continuant/Term"]
+version: 14
+updated_at: "2026-10-15 18:41:38 +0000"
 relations: {}
 atom_id: "CA-R-1281"
 content_role: "Requirement"
@@ -29,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1281-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects-graph.md
   source_atom_id: CA-R-1281
-  source_atom_revision: 12
-  source_sha256: 7630a993ef9c9f370f0c8e56a5721ae6cb5589ad643beb35f78fecb6ad67dfcc
+  source_atom_revision: 14
+  source_sha256: 065cd5897fd0ce31f3549f4c354a2da2dc7f02f065ff991719207bde6acdef8f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

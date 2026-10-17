@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Implementation Overview"
+  governs: "Entity/Continuant/Projection/Type: Implementation Overview"
   depends_on:
-    - "Projection"
-    - "Atom"
-    - "Artifact/Revision"
-    - "Implementation Binding"
-    - "Journal"
-    - "Implementation"
-    - "Verification"
-version: 27
-updated_at: "2026-10-03 01:23:33 +0400"
+    ["Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Artifact", "Implementation Binding", "Entity/Continuant/History/Journal", "Implementation", "Verification"]
+version: 29
+updated_at: "2026-10-15 18:45:11 +0000"
 relations:
   relates_to:
     - CA-R-1634
@@ -26,8 +20,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md
   source_atom_id: CA-R-1638
-  source_atom_revision: 27
-  source_sha256: b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099
+  source_atom_revision: 29
+  source_sha256: a25c810b7fb47a4dbec175f6e266c5ff8deed66329cf82a9e2dca385bb4a0ae8
   original_relations_sha256: ca8e30248bc494e61dbfca5dfc464cb2cac735cd10ec843d8b815405c124319c
 ---
 # Summary

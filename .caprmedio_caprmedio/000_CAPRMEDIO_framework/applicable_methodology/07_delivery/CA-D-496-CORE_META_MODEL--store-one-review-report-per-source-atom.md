@@ -7,22 +7,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-03 06:11:33 +0400"
+version: 9
+updated_at: "2026-10-15 18:52:24 +0000"
 subjects:
-  governs: "Workflow Run"
+  governs: "Entity/Occurrent/Execution/Workflow Run"
   depends_on:
-    - "Atom"
-    - "Atom/Revision"
-    - "Evaluation"
-    - "File Carrier"
-    - "Projection"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Carrier/File Carrier", "Entity/Continuant/Projection"]
 relations: {"relates_to":["CA-E-520"]}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-496-CORE_META_MODEL--store-one-review-report-per-source-atom.md
   source_atom_id: CA-D-496
-  source_atom_revision: 7
-  source_sha256: 29708a515544e1acb402420264e5160c722dc386e435d84f4a821843b7d587ae
+  source_atom_revision: 9
+  source_sha256: a7cb68e03ac49e30d22512fc3164b11b7ac17a39bae8df7db3597a0c6708527e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Confidence/Semantic Resolution Threshold"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Confidence.Semantic Resolution Threshold"
   depends_on:
-    - "Confidence Threshold"
-    - "Framework Instance Settings"
-    - "Operator"
-version: 24
-updated_at: "2026-10-02 20:35:16 +0400"
+    ["Confidence Threshold", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Actor/Type: Operator"]
+version: 26
+updated_at: "2026-10-15 18:46:19 +0000"
 relations:
   child_of:
     - CA-M-115

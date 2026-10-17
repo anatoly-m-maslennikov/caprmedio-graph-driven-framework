@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Local Tier"
+  governs: "Entity/Continuant/Object/Atom.Local Tier"
   depends_on:
-    - "Change Content Roles"
-    - "Atom/Content Role: Implementation"
-    - "Atom"
-    - "Atom/Local Tier: Standard"
-version: 5
-updated_at: "2026-10-01 21:44:50 +0400"
+    ["Change Content Roles", "Implementation", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Local Tier: Standard"]
+version: 7
+updated_at: "2026-10-15 18:44:28 +0000"
 relations: {"relates_to": ["CA-R-1549", "CA-R-1343", "CA-R-660"]}
 atom_id: "CA-R-1566"
 content_role: "Requirement"
@@ -20,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1566-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-change-and-implementation-content-at-standard.md
   source_atom_id: CA-R-1566
-  source_atom_revision: 5
-  source_sha256: cc61247d4acc05e59d324f07457582d6f98e11280b75f91799b57d7aea365039
+  source_atom_revision: 7
+  source_sha256: b552c7ca1500bdc13f83f8a998be6bbfa9a6f0796bd406e7dad74d1a4f44e5a7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

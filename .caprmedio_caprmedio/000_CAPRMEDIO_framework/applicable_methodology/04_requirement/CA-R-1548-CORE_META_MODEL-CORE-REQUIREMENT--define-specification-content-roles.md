@@ -2,15 +2,9 @@
 subjects:
   governs: "Spec Content Roles"
   depends_on:
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Delivery"
-    - "Change Content Roles"
-    - "Implementation"
-    - "Entity"
-version: 5
-updated_at: "2026-10-03 00:05:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Change Content Roles", "Implementation", "Entity"]
+version: 6
+updated_at: "2026-10-15 18:44:10 +0000"
 relations: {"relates_to": ["CA-R-1339", "CA-R-1340", "CA-R-1341", "CA-R-1342"]}
 atom_id: "CA-R-1548"
 content_role: "Requirement"
@@ -23,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md
   source_atom_id: CA-R-1548
-  source_atom_revision: 5
-  source_sha256: 25f7ff661e45ceef86a3a54aa0e02fcd273c32ae4ddac63b10a000cebe1efe5f
+  source_atom_revision: 6
+  source_sha256: 30f51bd0aacaabd089e76430d813820090483b29f1255c82a16f98d2789696ec
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

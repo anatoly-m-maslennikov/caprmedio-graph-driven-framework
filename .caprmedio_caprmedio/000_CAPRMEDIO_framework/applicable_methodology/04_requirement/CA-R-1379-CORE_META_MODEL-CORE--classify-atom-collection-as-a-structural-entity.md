@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom Collection"
+  governs: "Container Atom"
   depends_on:
     - "Structural Entity"
-version: 10
-updated_at: "2026-10-02 22:23:29 +0400"
+version: 11
+updated_at: "2026-10-15 12:21:37 +0000"
 relations: {}
 atom_id: "CA-R-1379"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md
   source_atom_id: CA-R-1379
-  source_atom_revision: 10
-  source_sha256: 50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e
+  source_atom_revision: 11
+  source_sha256: af44f7bf3aa9df7612989958f25355e822cb165be58c1f3c0bd02e4868f8bdc1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

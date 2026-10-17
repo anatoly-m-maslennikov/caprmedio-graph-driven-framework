@@ -8,17 +8,17 @@ global_tier: 11
 status: "Active"
 author: "Anatoly Maslennikov"
 type: "Action"
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 3
+updated_at: "2026-10-15 18:53:38 +0000"
 subjects:
   governs: "Artifact query and selected fetch"
-  depends_on: [Artifact, Markdown, Action, Tool, Journal]
+  depends_on: ["Artifact", "Markdown", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Tool", "Entity/Continuant/History/Journal"]
 relations: {}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md
   source_atom_id: CA-O-159
-  source_atom_revision: 2
-  source_sha256: 3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08
+  source_atom_revision: 3
+  source_sha256: 37ff9ac48de893d35b29fedcd2c9d333bc2b35e49cad5530afb81a80afe922d3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

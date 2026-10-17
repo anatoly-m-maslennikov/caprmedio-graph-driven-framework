@@ -8,30 +8,19 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 5
+updated_at: "2026-10-15 18:53:50 +0000"
 subjects:
-  governs: "Applicable Methodology Compilation/Step: select"
+  governs: "Applicable Methodology Compilation Select Step"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Applicable Methodology"
-    - "Select Reconciliation Sources"
-    - "Methodology Source"
-    - "Scope Unit"
-    - "Framework Instance Settings"
-    - "Extension"
-    - "Project Configuration"
-    - "Atom/Revision"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Select Reconciliation Sources", "Methodology Source", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Framework Settings", "Extension", "Project Configuration", "Entity/Continuant/Object/Atom"]
 relations:
   relates_to: [CA-O-011, CA-O-004]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md
   source_atom_id: CA-O-152
-  source_atom_revision: 3
-  source_sha256: 1d9f1192496a2c42692ffe9d9628ac2b6b1ef4e362bde2eb2d7832694ac0f850
+  source_atom_revision: 5
+  source_sha256: 216bc454bcb80b708b0febe1e64a6ee5a9be8148666f41a1da9d2c353db69bf3
   original_relations_sha256: 311198b9d39fd208f3cb18f1176254443ffa87a8577be8789b9988599e51e0f9
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Label"
+  governs: "Entity/Continuant/Object/Scope Unit.Label"
   depends_on:
-    - "Scope Unit/Type: Ordered"
-version: 9
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Entity/Continuant/Object/Scope Unit/Type: Ordered"]
+version: 11
+updated_at: "2026-10-15 18:42:23 +0000"
 relations: {}
 atom_id: "CA-R-1382"
 content_role: "Requirement"

@@ -1,23 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Catalog"
+  governs: "Entity/Continuant/Projection/Type: Catalog"
   depends_on:
-    - "General Term"
-    - "Term"
-    - "Governed Term"
-    - "Definition Atom"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Artifact/Revision"
-    - "Scope Unit"
-    - "Actor"
-    - "Subject Path"
-    - "Projection"
-    - "Relation"
-    - "Relation Kind"
-    - "Projection/Type: Terms Graph"
-version: 7
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["General Term", "Entity/Continuant/Term", "Governed Term", "Definition Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Subjects", "Artifact", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Actor", "Subject Path", "Entity/Continuant/Projection", "Entity/Continuant/Object/Relation", "Relation Kind", "Entity/Continuant/Projection/Type: Terms Graph"]
+version: 9
+updated_at: "2026-10-15 18:43:15 +0000"
 relations:
   child_of:
     - CA-R-1318
@@ -35,8 +22,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md
   source_atom_id: CA-R-1455
-  source_atom_revision: 7
-  source_sha256: a373608bb8bcfefc91ea4d5dd836ac5aea2f347c3711cc38aaa86d643d861c96
+  source_atom_revision: 9
+  source_sha256: 1fe988027996eaeb1ca77bdd9776b6e76618a4fa613db2b582ce256974d30de4
   original_relations_sha256: af9665670e08557ac5e66f5e4fc8ff9188127ed71311d9954d642d5cbc3dfdf2
 ---
 # Summary

@@ -2,20 +2,9 @@
 subjects:
   governs: "Terminology Projection Derivation"
   depends_on:
-    - "Projection/Type: Catalog"
-    - "Generator"
-    - "Definition Atom"
-    - "Governed Term"
-    - "Project"
-    - "Atom/Claim"
-    - "Subject"
-    - "Subject Path"
-    - "Entity"
-    - "Term"
-    - "Action"
-    - "Workflow"
-version: 20
-updated_at: "2026-10-01 21:33:03 +0400"
+    ["Entity/Continuant/Projection/Type: Catalog", "Generator", "Definition Atom", "Governed Term", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom.Substance", "Subject", "Subject Path", "Entity", "Entity/Continuant/Term", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
+version: 22
+updated_at: "2026-10-15 18:47:46 +0000"
 relations: {}
 atom_id: "CA-M-114"
 content_role: "Method"

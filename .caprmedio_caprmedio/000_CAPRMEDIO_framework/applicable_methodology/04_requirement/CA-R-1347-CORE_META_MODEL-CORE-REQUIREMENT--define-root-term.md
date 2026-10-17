@@ -2,11 +2,9 @@
 subjects:
   governs: "Root Term"
   depends_on:
-    - "Term"
-    - "Terms Graph"
-    - "NARROWER_THAN"
-version: 11
-updated_at: "2026-10-02 22:05:04 +0400"
+    ["Entity/Continuant/Term", "Entity/Continuant/Projection/Type: Terms Graph", "NARROWER_THAN"]
+version: 12
+updated_at: "2026-10-15 18:42:05 +0000"
 relations: {}
 atom_id: "CA-R-1347"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1347-CORE_META_MODEL-CORE-REQUIREMENT--define-root-term.md
   source_atom_id: CA-R-1347
-  source_atom_revision: 11
-  source_sha256: 8d74cf6b7af6a0738844b4d17054fe713a55773c6bed88cf0e48981eec6f9138
+  source_atom_revision: 12
+  source_sha256: e7368a4e89e140633e66b19368f27531b78265b84cf36804a861895401fb1b05
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

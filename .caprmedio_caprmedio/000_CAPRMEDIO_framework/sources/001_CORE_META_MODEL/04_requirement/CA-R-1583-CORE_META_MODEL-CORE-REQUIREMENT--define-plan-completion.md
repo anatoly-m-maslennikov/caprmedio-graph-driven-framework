@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Status: Done"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Done"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-    - "File Carrier"
-    - "Hub Atom"
-version: 5
-updated_at: "2026-10-03 00:34:47 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Entity/Carrier/File Carrier"]
+version: 8
+updated_at: "2026-10-16 12:08:33 +0000"
 relations: {"relates_to": ["CA-R-1575", "CA-R-1579", "CA-R-1599", "CA-R-1539"]}
 atom_id: "CA-R-1583"
 content_role: "Requirement"

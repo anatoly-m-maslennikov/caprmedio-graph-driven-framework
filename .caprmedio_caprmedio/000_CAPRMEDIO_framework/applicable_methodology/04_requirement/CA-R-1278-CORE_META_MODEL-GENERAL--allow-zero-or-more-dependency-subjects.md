@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Subjects"
+  governs: "Entity/Continuant/Object/Atom.Subjects"
   depends_on:
     - "DEPENDS_ON"
-version: 10
-updated_at: "2026-10-02 21:45:33 +0400"
+version: 12
+updated_at: "2026-10-15 18:41:34 +0000"
 relations: {}
 atom_id: "CA-R-1278"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1278-CORE_META_MODEL-GENERAL--allow-zero-or-more-dependency-subjects.md
   source_atom_id: CA-R-1278
-  source_atom_revision: 10
-  source_sha256: 3f5c14f16c07a1d446b242c2d8f152f1865bc62d388efac94ad50962bff15400
+  source_atom_revision: 12
+  source_sha256: 6dea3b8766b1608ef251702d4a543617b3d804f0f7a5ce30cdaeed688ae961a5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

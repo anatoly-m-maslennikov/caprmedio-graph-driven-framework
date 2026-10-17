@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Project Scope Unit Graph Projection"
+  governs: "Entity/Continuant/Projection/Type: Scope Unit Graph"
   depends_on:
-    - "Project Structure"
-    - "Scope Unit"
-    - "Projection"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Framework Instance Settings"
-version: 23
-updated_at: "2026-10-02 20:35:16 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Project.Framework Settings"]
+version: 26
+updated_at: "2026-10-16 12:08:50 +0000"
 relations:
   child_of:
     - CA-R-843
@@ -26,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-626-CORE_META_MODEL--project-the-current-scope-unit-graph-without-owning-authority.md
   source_atom_id: CA-R-626
-  source_atom_revision: 23
-  source_sha256: c7c976354f6808eaa5df542a3058d941990992328035cf60b7ffae0dc157cd0b
+  source_atom_revision: 26
+  source_sha256: 7aca0627f5e3736349804380c05eec0a791a80d827492234cc635055e0675ec3
   original_relations_sha256: fdcff71931cab6291573c3ef3ef6557f0f840e14ab089f37a36ccb79e65e2cf2
 ---
 # Summary

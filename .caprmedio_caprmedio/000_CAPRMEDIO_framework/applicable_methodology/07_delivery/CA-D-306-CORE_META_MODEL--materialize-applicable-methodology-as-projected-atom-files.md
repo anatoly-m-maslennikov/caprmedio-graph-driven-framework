@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Carrier Set"
+  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    - "Applicable Methodology/Member"
-version: 11
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Entity/Continuant/Projection/Type: Applicable Methodology.Member"]
+version: 14
+updated_at: "2026-10-16 12:09:18 +0000"
 relations: {}
 atom_id: "CA-D-306"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md
   source_atom_id: CA-D-306
-  source_atom_revision: 11
-  source_sha256: af41d7cc169cf18ec430fce7275661b97184a781adda47455aac84704324ae71
+  source_atom_revision: 14
+  source_sha256: 91ef297bad54a38d92f23909b87331801c806f571f2e9f4b4f3bb57558037a79
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

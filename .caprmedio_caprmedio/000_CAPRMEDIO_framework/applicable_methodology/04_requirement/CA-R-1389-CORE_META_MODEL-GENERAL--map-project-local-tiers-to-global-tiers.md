@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: Atom/Global Tier
+  governs: "Entity/Continuant/Object/Atom.Global Tier"
   depends_on:
-    - Atom/Local Tier
-    - Project
-version: 8
-updated_at: "2026-10-02 22:41:14 +0400"
+    ["Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Project"]
+version: 10
+updated_at: "2026-10-15 18:42:26 +0000"
 relations: {}
 atom_id: "CA-R-1389"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1389-CORE_META_MODEL-GENERAL--map-project-local-tiers-to-global-tiers.md
   source_atom_id: CA-R-1389
-  source_atom_revision: 8
-  source_sha256: e07e85b3270ca172062cabc170f4d7bc66989b0766bc31d717ddc80f76faa0c9
+  source_atom_revision: 10
+  source_sha256: c1012f12629574885050d10eae268a9350f4368a02e6e32ddf3a087ce40ce297
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

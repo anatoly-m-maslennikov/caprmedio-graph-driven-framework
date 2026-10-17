@@ -1,20 +1,10 @@
 ---
 subjects:
-  governs: "Carrier"
+  governs: "Entity/Carrier"
   depends_on:
-    - "Atom"
-    - "Artifact"
-    - "Journal"
-    - "Journal/Record"
-    - "Work Journal/Event"
-    - "Projection"
-    - "Workflow"
-    - "Scope Unit"
-    - "Atom/Content Role"
-    - "Operator"
-    - "Runtime State"
-version: 1
-updated_at: "2026-09-30 14:54:00 +0400"
+    ["Entity/Continuant/Object/Atom", "Artifact", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Scope Unit", "Atom/Content Role", "Entity/Continuant/Actor/Type: Operator", "Runtime State"]
+version: 3
+updated_at: "2026-10-15 18:50:33 +0000"
 relations: {"evaluation_for": ["CA-D-308", "CA-D-341", "CA-R-1463", "CA-R-1467", "CA-R-1468", "CA-R-1720", "CA-R-1745"]}
 atom_id: "CA-E-522"
 content_role: "Evaluation"
@@ -28,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md
   source_atom_id: CA-E-522
-  source_atom_revision: 1
-  source_sha256: 3d311421cf753721b84da36b1cb5f67c70bcaa766baa5636bc95453cdf005d62
+  source_atom_revision: 3
+  source_sha256: 4a018f5d8c37cdc0bdd7f08081b00c33ab3f82901bec7a32d17c7566449b9d48
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

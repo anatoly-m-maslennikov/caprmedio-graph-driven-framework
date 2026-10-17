@@ -1,14 +1,13 @@
 ---
-version: 12
-updated_at: "2026-10-03 03:43:44 +0400"
+version: 14
+updated_at: "2026-10-15 18:46:00 +0000"
 relations:
   child_of:
     - CA-R-1773
 subjects:
-  governs: "Project/Principle universe"
+  governs: "Project Principle Universe"
   depends_on:
-    - "Atom/Local Tier: Principle"
-    - "Project"
+    ["Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Project"]
 atom_id: "CA-R-1774"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
@@ -20,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1774-CORE_META_MODEL--give-every-project-wide-invariant-one-principle-owner.md
   source_atom_id: CA-R-1774
-  source_atom_revision: 12
-  source_sha256: 04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c
+  source_atom_revision: 14
+  source_sha256: e77c0af4f73864d90320701579e150c512baa7093bf7e8843072bd1aaf926add
   original_relations_sha256: 459198466a86293485f3d0266936427437b082bd75488a6a478ab4fafa39c493
 ---
 # Summary

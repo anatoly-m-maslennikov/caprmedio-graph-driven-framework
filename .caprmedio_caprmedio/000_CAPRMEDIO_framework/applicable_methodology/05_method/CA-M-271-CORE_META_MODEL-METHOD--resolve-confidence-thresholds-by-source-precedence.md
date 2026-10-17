@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Confidence Threshold/resolution"
+  governs: "Confidence Threshold.Resolution"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Confidence Threshold"
-    - "Operator"
-    - "Hub Atom"
-    - "Framework Instance Settings"
-    - "Property"
-    - "AI Agent"
-version: 8
-updated_at: "2026-09-29 22:34:37 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Confidence Threshold", "Entity/Continuant/Actor/Type: Operator", "Hub Atom", "Entity/Continuant/Object/Project.Framework Settings", "Property", "Entity/Continuant/Actor/Type: AI Agent"]
+version: 10
+updated_at: "2026-10-15 18:48:10 +0000"
 relations:
   child_of:
     - "CA-R-1428"
@@ -25,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-METHOD--resolve-confidence-thresholds-by-source-precedence.md
   source_atom_id: CA-M-271
-  source_atom_revision: 8
-  source_sha256: 1a8af9646ed7959358cfc6e67c77a3efabc242f989719fa9e8ce8fd81ecda79b
+  source_atom_revision: 10
+  source_sha256: 51a2d1bacb1370b48a905c038e365be6586b0ccbd716a9d62986b1846cc23f13
   original_relations_sha256: 497953542e013d49a96769c3dc96da367586703dea19f14dab294a1757de06d4
 ---
 # Summary

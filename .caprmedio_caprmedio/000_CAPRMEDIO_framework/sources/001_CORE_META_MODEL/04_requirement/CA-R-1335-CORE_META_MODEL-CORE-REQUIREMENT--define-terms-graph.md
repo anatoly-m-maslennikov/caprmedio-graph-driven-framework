@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Terms Graph"
+  governs: "Entity/Continuant/Projection/Type: Terms Graph"
   depends_on:
-    - "Projection"
-    - "Term"
-    - "Relation Kind"
-    - "Relation"
-    - "CAPRMEDIO Graph"
-version: 13
-updated_at: "2026-10-02 22:05:04 +0400"
+    ["Entity/Continuant/Projection", "Entity/Continuant/Term", "Relation Kind", "Entity/Continuant/Object/Relation", "CAPRMEDIO Graph"]
+version: 14
+updated_at: "2026-10-15 18:41:54 +0000"
 relations: {}
 atom_id: "CA-R-1335"
 content_role: "Requirement"

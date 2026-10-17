@@ -8,18 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 4
+updated_at: "2026-10-15 18:53:15 +0000"
 subjects:
-  governs: "RMED Atom Review Workflow/coverage/Action: 118"
-  depends_on: [Workflow, Step, Action, Atom, Operator, Journal]
+  governs: "RMED Atom Review Coverage Gate Action"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
 relations:
   relates_to: [CA-O-104]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-118-CORE_META_MODEL-ACTION--review-base-revise-result-coverage.md
   source_atom_id: CA-O-118
-  source_atom_revision: 2
-  source_sha256: 0bf320787f9c0f9f05ae2407eae8aa8d99f3495938f1f7119e563a81a4aef550
+  source_atom_revision: 4
+  source_sha256: a8e116b4a6750d6776b8a7dc7f07fde2bc0891c5625247788634956509916cf0
   original_relations_sha256: 0e0a2445b2c035e0671f11f830da82891997aa34348962a7fd52c6d1de7ad708
 ---
 # Summary

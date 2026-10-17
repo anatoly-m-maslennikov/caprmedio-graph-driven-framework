@@ -2,10 +2,9 @@
 subjects:
   governs: "lifecycle"
   depends_on:
-    - "Framework Instance Settings"
-    - "Default Settings"
-version: 26
-updated_at: "2026-10-03 01:07:45 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings"]
+version: 28
+updated_at: "2026-10-15 18:45:07 +0000"
 relations:
   relates_to:
     - "CA-R-1439"

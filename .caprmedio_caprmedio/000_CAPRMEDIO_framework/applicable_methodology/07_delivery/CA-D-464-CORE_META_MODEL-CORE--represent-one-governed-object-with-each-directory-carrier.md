@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Directory Carrier"
+  governs: "Entity/Carrier/Directory Carrier"
   depends_on:
-    - "Artifact"
-    - "Structural Entity"
-    - "Atom/Revision"
-version: 4
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Artifact", "Structural Entity", "Entity/Continuant/Object/Atom"]
+version: 6
+updated_at: "2026-10-15 18:52:08 +0000"
 relations: {"relates_to": ["CA-D-259", "CA-D-460"]}
 atom_id: "CA-D-464"
 content_role: "Delivery"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-464-CORE_META_MODEL-CORE--represent-one-governed-object-with-each-directory-carrier.md
   source_atom_id: CA-D-464
-  source_atom_revision: 4
-  source_sha256: bcfbd39ca730c0c59a5360afa48f714e947ec6fcd0146d636642ddf808c7310a
+  source_atom_revision: 6
+  source_sha256: 5a94b21c7066ec56eccb2a09e4a7c16ed18a5824021190caa937f76348d58988
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

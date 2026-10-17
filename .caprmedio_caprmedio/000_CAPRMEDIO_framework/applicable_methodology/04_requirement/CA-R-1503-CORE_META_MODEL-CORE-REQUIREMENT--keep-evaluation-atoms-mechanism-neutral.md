@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Evaluation"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Evaluation"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Content Role: Implementation"
-version: 4
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Implementation"]
+version: 6
+updated_at: "2026-10-15 18:43:45 +0000"
 relations: {}
 atom_id: "CA-R-1503"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1503-CORE_META_MODEL-CORE-REQUIREMENT--keep-evaluation-atoms-mechanism-neutral.md
   source_atom_id: CA-R-1503
-  source_atom_revision: 4
-  source_sha256: 43b778daccde29fa3f98dee0441bb99013cf976f85b3064b29e995583ec83df2
+  source_atom_revision: 6
+  source_sha256: fdb0d8c27e44915053a5d2dbe1eded1a0b53215963b38609d0d887551720658f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

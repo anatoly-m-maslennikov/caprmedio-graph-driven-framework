@@ -1,20 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Identity/collision repair"
+  governs: "Entity/Continuant/Object/Atom.ID"
   depends_on:
-    - "Atom/Identity"
-    - "Atom/Content Role"
-    - "Atom/Claim"
-    - "Atom/Scope"
-    - "Artifact/Revision"
-    - "Carrier/Canonical Address"
-    - "Project"
-    - "Operator"
-    - "AI Agent"
-    - "Confidence Threshold"
-    - "Work Journal"
-version: 9
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Entity/Continuant/Object/Atom.ID", "Atom/Content Role", "Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier.Canonical Address", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Confidence Threshold", "Entity/Continuant/History/Journal"]
+version: 11
+updated_at: "2026-10-15 18:48:15 +0000"
 relations: {"method_for":["CA-R-728"]}
 atom_id: "CA-M-276"
 content_role: "Method"
@@ -27,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-METHOD--repair-accidental-atom-id-reuse.md
   source_atom_id: CA-M-276
-  source_atom_revision: 9
-  source_sha256: 99bb048b7aabaaadab2bab139acaaba852fe8df1bc7e75bff898f063cedd5249
+  source_atom_revision: 11
+  source_sha256: f9e8eaaf3792191562d8094e2e51864aa20203d38a06a8a47ff472a9df47e6fc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

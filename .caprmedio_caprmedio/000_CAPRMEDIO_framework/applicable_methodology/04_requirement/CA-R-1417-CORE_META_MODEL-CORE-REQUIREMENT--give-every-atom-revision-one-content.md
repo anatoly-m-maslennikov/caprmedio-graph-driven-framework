@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Content"
+  governs: "Entity/Continuant/Object/Atom.Content"
   depends_on:
-    - "Atom/Revision"
-    - "Atom/Claim"
-version: 9
-updated_at: "2026-10-01 21:41:08 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance"]
+version: 11
+updated_at: "2026-10-15 18:42:49 +0000"
 relations: {}
 atom_id: "CA-R-1417"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1417-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-content.md
   source_atom_id: CA-R-1417
-  source_atom_revision: 9
-  source_sha256: 19192b48227e151e5fd3b092447fd95a3a59e964e7fea20769c7a928cbf91ee0
+  source_atom_revision: 11
+  source_sha256: a49134656e27b3cf19ccae57d9d210c7f61eb8e9c3464452f2fc0567e7d2c894
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

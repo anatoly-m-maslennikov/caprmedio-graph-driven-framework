@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings Validation"
+  governs: "Entity/Continuant/Project.Settings"
   depends_on:
-    - "Project Settings"
-    - "Project Settings/Authoritative Carrier"
-    - "Project Settings/Revision Binding"
-    - "Project Name"
-    - "Atom/Identifier/Project Prefix"
-    - "Framework Instance Settings"
-    - "CORE_META_MODEL"
-version: 19
-updated_at: "2026-10-13 22:52:30 +0400"
+    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Settings.Revision Binding", "Entity/Continuant/Project.Settings.Project Name", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Scope Unit"]
+version: 22
+updated_at: "2026-10-16 12:09:05 +0000"
 relations:
   evaluation_for:
     - CA-R-1738
@@ -36,8 +30,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md
   source_atom_id: CA-E-459
-  source_atom_revision: 19
-  source_sha256: c20f5a68f2d2299e44651f68348605447cad6095b06b898c3cb135994dfc2c38
+  source_atom_revision: 22
+  source_sha256: bfa5a24810d0d7a1aeeb901b279b3d95c557fdaab1876fa631fb1172c078ed35
   original_relations_sha256: 393f148e2b59b1216f1f67b1640ec419876b3c17c08b001942511f86652805be
 ---
 # Summary

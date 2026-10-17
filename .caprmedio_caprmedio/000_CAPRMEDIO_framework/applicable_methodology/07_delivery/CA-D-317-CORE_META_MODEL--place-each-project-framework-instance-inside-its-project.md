@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Framework Instance/Carrier Root"
+  governs: "Entity/Continuant/Project"
   depends_on: []
-version: 12
-updated_at: "2026-10-05 00:25:37 +0400"
+version: 14
+updated_at: "2026-10-16 12:09:18 +0000"
 relations: {}
 atom_id: "CA-D-317"
 content_role: "Delivery"
@@ -16,8 +16,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md
   source_atom_id: CA-D-317
-  source_atom_revision: 12
-  source_sha256: c93ede85518a750816c36cff62d6f7e1ec3a66377f31ae221d17296cac30c8ef
+  source_atom_revision: 14
+  source_sha256: bc9d76f301d7efb404dd7835173cd3a0fc3afd3ab9ff9a4a1721f8ad0741f9be
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

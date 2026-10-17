@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Project Settings"
+  governs: "Entity/Continuant/Object/Project.Settings"
   depends_on:
-    - "Project Structure"
-    - "Framework Instance Settings"
-    - "Project Scope Unit Graph Projection"
-    - "Projection"
-version: 21
-updated_at: "2026-10-02 21:26:39 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Projection/Type: Scope Unit Graph", "Entity/Continuant/Projection"]
+version: 24
+updated_at: "2026-10-16 12:08:17 +0000"
 relations:
   child_of:
     - CA-R-832-CORE-REQUIREMENT--select-optional-capabilities-through-configuration
@@ -22,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1052-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-settings-from-the-project-scope-unit-graph.md
   source_atom_id: CA-R-1052
-  source_atom_revision: 21
-  source_sha256: 72a4cdf281f42c5be6bbd12801c4f44e530e088e5c760a300e2a52b656217640
+  source_atom_revision: 24
+  source_sha256: e13f1fe35aac6b5a153ac403a70ed1c0e00d8c44856645f288b8ad9686369da9
   original_relations_sha256: c351dfbf884c81781c8f171ed08ed979d97c0b72bbf895d7f7d811439b28c7af
 ---
 # Summary

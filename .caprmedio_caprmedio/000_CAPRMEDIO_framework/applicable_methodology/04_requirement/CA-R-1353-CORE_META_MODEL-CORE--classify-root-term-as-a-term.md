@@ -2,9 +2,9 @@
 subjects:
   governs: "Root Term"
   depends_on:
-    - "Term"
-version: 10
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Entity/Continuant/Term"]
+version: 11
+updated_at: "2026-10-15 18:42:07 +0000"
 relations: {}
 atom_id: "CA-R-1353"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1353-CORE_META_MODEL-CORE--classify-root-term-as-a-term.md
   source_atom_id: CA-R-1353
-  source_atom_revision: 10
-  source_sha256: 720bb73c4c85272b0a9a374187f63fe974476a39c9f12e05c184ecb75e6d60a6
+  source_atom_revision: 11
+  source_sha256: 092287850de75e6abd20449b4d214ec359b6833065abbdac4b050e3864a7930d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Atom/Subjects"
+  governs: "Entity/Continuant/Object/Atom.Subjects"
   depends_on:
     - "GOVERNS"
     - "DEPENDS_ON"
     - "Entity"
-version: 14
-updated_at: "2026-10-02 21:30:43 +0400"
+version: 16
+updated_at: "2026-10-15 18:41:12 +0000"
 relations: {}
 atom_id: "CA-R-1202"
 content_role: "Requirement"
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1202-CORE_META_MODEL-CORE-REQUIREMENT--resolve-every-direct-subject-target-once.md
   source_atom_id: CA-R-1202
-  source_atom_revision: 14
-  source_sha256: a92e1fc6be791e4fa7f5400efde58cd2d07e5b5e5d6f20a65125acb2ddb9de07
+  source_atom_revision: 16
+  source_sha256: 79ed6f1b284e043af4c40992bc482293ccfade6b828bc5b7ad95c30cbe2713fb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

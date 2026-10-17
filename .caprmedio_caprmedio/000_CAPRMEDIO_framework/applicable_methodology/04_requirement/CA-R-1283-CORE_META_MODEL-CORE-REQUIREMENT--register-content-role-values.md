@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role"
+  governs: "Entity/Continuant/Object/Atom/Content Role"
   depends_on: []
-version: 13
-updated_at: "2026-10-02 21:52:05 +0400"
+version: 14
+updated_at: "2026-10-16 12:08:18 +0000"
 relations: {}
 atom_id: "CA-R-1283"
 content_role: "Requirement"
@@ -16,8 +16,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md
   source_atom_id: CA-R-1283
-  source_atom_revision: 13
-  source_sha256: 499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0
+  source_atom_revision: 14
+  source_sha256: 6a09879ca5a91af042723c36b6aa1faf9add295e5a145003514cdc6159154299
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

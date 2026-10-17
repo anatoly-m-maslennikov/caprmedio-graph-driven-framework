@@ -2,14 +2,9 @@
 subjects:
   governs: "Prepare Structural Change"
   depends_on:
-    - "Action"
-    - "Project Structure"
-    - "Scope Unit"
-    - "Goal"
-    - "Carrier"
-    - "Artifact/Revision"
-version: 5
-updated_at: "2026-10-04 15:08:26 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier"]
+version: 7
+updated_at: "2026-10-15 18:52:46 +0000"
 relations:
   relates_to:
     - "CA-M-291"
@@ -26,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-012-CORE_META_MODEL-ACTION--prepare-structural-change.md
   source_atom_id: CA-O-012
-  source_atom_revision: 5
-  source_sha256: 1da87c16ad132d2f90695621d82de8fa340496961950abb5acc8c3e42ba6e11a
+  source_atom_revision: 7
+  source_sha256: eb8154f6a7d2ddaff36afcca89b319bd0ce2c20afa398e4c1138ac876de11180
   original_relations_sha256: 08dceb7951a19459d315b2a173b7f929ab36215f5b2a5295c1defac06f5086a7
 ---
 # Summary

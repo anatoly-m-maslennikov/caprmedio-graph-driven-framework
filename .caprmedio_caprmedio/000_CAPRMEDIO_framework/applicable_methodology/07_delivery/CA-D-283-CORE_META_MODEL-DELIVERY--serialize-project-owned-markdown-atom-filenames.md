@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Project-Owned Markdown Atom Carrier/Filename"
+  governs: "Entity/Carrier/File Carrier.Filename"
   depends_on:
-    - "Atom/Identifier"
-    - "Atom/Revision"
-    - "Atom/Summary"
-    - "Atom/Scope"
-version: 13
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Owning Scope Unit"]
+version: 16
+updated_at: "2026-10-16 12:09:12 +0000"
 relations: {}
 atom_id: "CA-D-283"
 content_role: "Delivery"
@@ -20,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DELIVERY--serialize-project-owned-markdown-atom-filenames.md
   source_atom_id: CA-D-283
-  source_atom_revision: 13
-  source_sha256: b4fcef9aac710426b5e27af779df4f6ab459fba9746c6a720abb3deb5ec1faf9
+  source_atom_revision: 16
+  source_sha256: 870b762b38e31adf32f8e0de098c86af7961f7836a1326971d5d52fe80a5c040
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Evaluation"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Evaluation"
   depends_on:
-    - "Atom/Content Role"
-    - "Claim"
-version: 10
-updated_at: "2026-10-02 22:05:04 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role", "Entity/Continuant/Object/Atom.Substance"]
+version: 12
+updated_at: "2026-10-16 12:08:21 +0000"
 relations: {}
 atom_id: "CA-R-1341"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md
   source_atom_id: CA-R-1341
-  source_atom_revision: 10
-  source_sha256: d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7
+  source_atom_revision: 12
+  source_sha256: 1ddf0a0874f4e72302aa7dc668efc905240518dc631126cf31cb41192ec789cc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim"
+  governs: "Entity/Continuant/Object/Atom.Substance"
   depends_on:
-    - "Atom/Scope"
-    - "Atom/Claim"
-    - "Claim Value Set"
-    - "Property"
-    - "IS_ALLOWED_VALUE_OF"
-version: 13
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Atom Scope", "Entity/Continuant/Object/Atom.Substance", "Claim Value Set", "Property", "IS_ALLOWED_VALUE_OF"]
+version: 15
+updated_at: "2026-10-15 18:42:08 +0000"
 relations:
   child_of:
     - CA-R-918
@@ -24,8 +20,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1358-CORE_META_MODEL-GENERAL--consolidate-single-value-claims-as-one-value-set-claim.md
   source_atom_id: CA-R-1358
-  source_atom_revision: 13
-  source_sha256: b75db4adf78238bff327cee6eb85f75983a6b407e56f4f3298be6136a478e407
+  source_atom_revision: 15
+  source_sha256: 5e2263b087db5c4014c790eaae1b6beb4b1126bd7b362d49e3cf08301eaf222a
   original_relations_sha256: 76c3beb05ab71c7f3fb555e25cf340c6946d6ed275fb430f9bb136e49c7be086
 ---
 # Summary

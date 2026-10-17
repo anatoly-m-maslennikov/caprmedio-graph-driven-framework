@@ -8,24 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 9
+updated_at: "2026-10-15 18:54:05 +0000"
 subjects:
   governs: "RMED Review Evaluation Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Step/Agentic Execution Context"
-    - "Workflow Run"
-    - "Step Run"
-    - "Journal"
-    - "Evaluation/Report"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/History/Journal", "Evaluation Report"]
 relations: {"relates_to":["CA-O-106"]}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch.md
   source_atom_id: CA-O-109
-  source_atom_revision: 7
-  source_sha256: 6a099bf156baeda2532a22dd09f7c6128177b1b9304ed9cf9ecf1264d780c189
+  source_atom_revision: 9
+  source_sha256: b246cd7109f97673b0b3f8c3672f283f0607e348aab0cbfb8c09a88fa26e1318
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,6 +1,6 @@
 ---
-version: 6
-updated_at: "2026-10-14 13:43:24 +0400"
+version: 8
+updated_at: "2026-10-15 18:52:56 +0000"
 relations:
   child_of:
     - CA-R-1487
@@ -10,11 +10,7 @@ relations:
 subjects:
   governs: "Select Priority-Governed Alternative"
   depends_on:
-    - "Action"
-    - "Operator"
-    - "Resolve Operator Priorities"
-    - "Project/priority model application"
-    - "Project/lexicographic selection"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Resolve Operator Priorities", "Project Priority Model Application", "Project Lexicographic Selection"]
 atom_id: "CA-O-023"
 content_role: "Operations"
 current_scope_unit: "CORE_META_MODEL"
@@ -27,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md
   source_atom_id: CA-O-023
-  source_atom_revision: 6
-  source_sha256: 99a2b34eaefb887afa8b62daefb52e559a0992d2b73e7448388cc50cfe74e099
+  source_atom_revision: 8
+  source_sha256: 69617af05774c36232122eae261b2dcb0c2b5ce7b183fddb7449981be95b196e
   original_relations_sha256: 047cd938435fe8ff2d4107ef1a67b8ae794bce6978dda89e63efeacb3951c6b3
 ---
 # Summary

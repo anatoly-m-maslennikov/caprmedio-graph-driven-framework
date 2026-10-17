@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Structural Entity/Direct Containment"
+  governs: "Structural Entity Direct Containment"
   depends_on:
-    - "Containment Relation Pair"
-    - "Directory Carrier/Nesting"
-version: 14
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Containment Relation Pair", "Directory Carrier Nesting"]
+version: 15
+updated_at: "2026-10-15 12:17:53 +0000"
 relations: {}
 atom_id: "CA-D-264"
 content_role: "Delivery"
@@ -18,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md
   source_atom_id: CA-D-264
-  source_atom_revision: 14
-  source_sha256: 0f19e5fd28ed760867d261ad14aa29e0bed6b95d7482ad8a0bd196483f144f36
+  source_atom_revision: 15
+  source_sha256: 496602f9a01e801b3a6528bc77075ee80244c649ba91704048e7f854c3d06a8a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

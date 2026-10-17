@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Framework Instance"
+  governs: "Entity/Continuant/Project"
   depends_on:
-    - "Actor"
-version: 14
-updated_at: "2026-10-02 20:52:00 +0400"
+    ["Entity/Continuant/Actor"]
+version: 16
+updated_at: "2026-10-16 12:08:54 +0000"
 relations:
   child_of:
     - CA-P-032
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-850-CORE_META_MODEL-CORE-REQUIREMENT--exclude-caprmedio-instance-from-actor-role.md
   source_atom_id: CA-R-850
-  source_atom_revision: 14
-  source_sha256: 0d5cffdb03482b9ed3b16d4fe277216e92fd3b8044227694fd653d3417df66be
+  source_atom_revision: 16
+  source_sha256: f9ea23f481a36da44027e6bb9d38f39daf0d56a9a5006e50c5d1d525e0e8a7e8
   original_relations_sha256: 78cfd319918db937dbc88bae53e0aa825eb011aaec69c68133dbd83ef0bc22b5
 ---
 # Summary

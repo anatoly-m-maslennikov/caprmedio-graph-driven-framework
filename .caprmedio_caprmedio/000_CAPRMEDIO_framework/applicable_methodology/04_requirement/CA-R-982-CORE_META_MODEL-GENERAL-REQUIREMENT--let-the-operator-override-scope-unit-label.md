@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Label"
+  governs: "Entity/Continuant/Object/Scope Unit.Label"
   depends_on:
-    - "Operator"
-    - "Scope Unit/Type"
-version: 15
-updated_at: "2026-10-02 21:09:50 +0400"
+    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Scope Unit/Type"]
+version: 18
+updated_at: "2026-10-16 12:09:00 +0000"
 relations:
   child_of:
     - CA-R-972
@@ -20,8 +19,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md
   source_atom_id: CA-R-982
-  source_atom_revision: 15
-  source_sha256: ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f
+  source_atom_revision: 18
+  source_sha256: 8fd3727937030e92c39d0868ca562e8556368447a1b3bf82a9fb0df05ac4103d
   original_relations_sha256: ab511b4c40a9a7855cf5a5afc557e88ecc2a5cf85f7ac01ce80b93150b247e03
 ---
 # Summary

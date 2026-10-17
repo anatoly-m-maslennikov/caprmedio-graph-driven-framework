@@ -2,22 +2,9 @@
 subjects:
   governs: "Artifact"
   depends_on:
-    - "Artifact/Authority"
-    - "Artifact/Applicability"
-    - "Artifact/Currentness"
-    - "Artifact/Revision"
-    - "Projection"
-    - "Provenance"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Evaluation"
-    - "Property"
-    - "Atom/Claim"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Operations"
-version: 5
-updated_at: "2026-10-02 23:35:16 +0400"
+    ["Artifact/Authority", "Artifact/Applicability", "Artifact/Currentness", "Artifact/Revision", "Entity/Continuant/Projection", "Provenance", "Atom/Content Role: Implementation", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Property", "Atom/Claim", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Atom/Content Role: Operations"]
+version: 6
+updated_at: "2026-10-15 18:43:44 +0000"
 relations: {child_of: [CA-M-001]}
 atom_id: "CA-R-1502"
 content_role: "Requirement"
@@ -30,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1502-CORE_META_MODEL-CORE--keep-authority-applicability-and-currentness-distinct.md
   source_atom_id: CA-R-1502
-  source_atom_revision: 5
-  source_sha256: 8c54eace3e0a0cf12594572dd0b3fd3011f9c04b7224f0f74db4e47edcf95c96
+  source_atom_revision: 6
+  source_sha256: 9320d383dd9208db76c1928a557c024b46ce0479f8d54fe6041c6161a0651a09
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Keep Authority, Applicability, and Currentness distinct

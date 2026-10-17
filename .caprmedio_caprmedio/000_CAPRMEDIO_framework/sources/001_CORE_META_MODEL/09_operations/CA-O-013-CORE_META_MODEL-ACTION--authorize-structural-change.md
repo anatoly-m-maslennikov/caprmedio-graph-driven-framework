@@ -2,13 +2,9 @@
 subjects:
   governs: "Authorize Structural Change"
   depends_on:
-    - "Action"
-    - "Project Structure"
-    - "Operator"
-    - "AI Agent"
-    - "Autonomous Confidence Threshold"
-version: 5
-updated_at: "2026-10-04 15:08:26 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Autonomous Confidence Threshold"]
+version: 6
+updated_at: "2026-10-15 18:52:47 +0000"
 relations: {}
 atom_id: "CA-O-013"
 content_role: "Operations"

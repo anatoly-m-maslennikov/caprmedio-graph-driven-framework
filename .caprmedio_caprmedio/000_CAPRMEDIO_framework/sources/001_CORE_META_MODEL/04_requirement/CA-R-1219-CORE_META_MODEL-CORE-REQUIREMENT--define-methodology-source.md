@@ -2,10 +2,9 @@
 subjects:
   governs: "Methodology Source"
   depends_on:
-    - "Applicable Methodology"
-    - "Scope Unit"
-version: 16
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Object/Scope Unit"]
+version: 17
+updated_at: "2026-10-15 18:41:16 +0000"
 relations: {}
 atom_id: "CA-R-1219"
 content_role: "Requirement"

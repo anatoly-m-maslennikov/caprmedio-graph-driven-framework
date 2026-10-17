@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom Carrier/Filename/Token Case"
+  governs: "Entity/Carrier/File Carrier.Filename"
   depends_on: []
-version: 11
-updated_at: "2026-09-29 22:20:38 +0000"
+version: 13
+updated_at: "2026-10-16 12:09:12 +0000"
 relations: {}
 atom_id: "CA-D-284"
 content_role: "Delivery"

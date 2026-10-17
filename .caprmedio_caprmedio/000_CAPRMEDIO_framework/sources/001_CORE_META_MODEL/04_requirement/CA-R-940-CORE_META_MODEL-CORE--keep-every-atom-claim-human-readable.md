@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "language"
+  governs: "Entity/Continuant/Object/Atom.Substance"
   depends_on:
-    - "Atom/Claim"
-version: 15
-updated_at: "2026-09-29 05:38:16 +0000"
+    ["Entity/Continuant/Object/Atom.Substance"]
+version: 18
+updated_at: "2026-10-16 12:08:57 +0000"
 relations:
   child_of:
     - CA-R-918

@@ -1,18 +1,13 @@
 ---
-version: 7
-updated_at: "2026-10-14 13:43:24 +0400"
+version: 9
+updated_at: "2026-10-15 18:52:55 +0000"
 relations:
   child_of:
     - CA-R-1487
 subjects:
   governs: "Resolve Operator Priorities"
   depends_on:
-    - "Action"
-    - "Operator"
-    - "Project"
-    - "Scope"
-    - "CAPRMEDIO Framework Instance"
-    - "Project/priority model application"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project", "Scope", "CAPRMEDIO Framework Instance", "Project Priority Model Application"]
 atom_id: "CA-O-022"
 content_role: "Operations"
 current_scope_unit: "CORE_META_MODEL"
@@ -25,8 +20,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md
   source_atom_id: CA-O-022
-  source_atom_revision: 7
-  source_sha256: 6643c934ef9db15bd993884d0315928fdc984c237f37cdb5dcd4f8e5fe6b162c
+  source_atom_revision: 9
+  source_sha256: ca1223692405caeb781ddabf4cbd5306b3ee0340366b8534b7bfc901a617e23c
   original_relations_sha256: 6bed8d41cbd7d52168cdd7e51dd4f6908abe8e316b7f83b5bc478ba64412d785
 ---
 # Summary

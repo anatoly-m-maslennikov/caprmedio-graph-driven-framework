@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Project Scope Unit Graph Projection"
+  governs: "Entity/Continuant/Projection/Type: Scope Unit Graph"
   depends_on:
-    - "Project Structure"
-    - "Artifact/Revision"
-    - "Framework Instance Settings"
-    - "Atom"
-    - "Scope Unit"
-    - "Journal"
-version: 21
-updated_at: "2026-10-03 02:55:00 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/History/Journal"]
+version: 24
+updated_at: "2026-10-16 12:08:41 +0000"
 relations:
   child_of:
     - CA-R-1052
@@ -25,8 +20,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md
   source_atom_id: CA-R-1740
-  source_atom_revision: 21
-  source_sha256: 746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384
+  source_atom_revision: 24
+  source_sha256: 303810e6ab1e2af1f0c04352bf59513ee42637cbad9527ce0d6901353a0d6637
   original_relations_sha256: b834e9326a485a1e4a12ec129726eef004d439dd95deddb120393490b0dd1d5c
 ---
 # Summary

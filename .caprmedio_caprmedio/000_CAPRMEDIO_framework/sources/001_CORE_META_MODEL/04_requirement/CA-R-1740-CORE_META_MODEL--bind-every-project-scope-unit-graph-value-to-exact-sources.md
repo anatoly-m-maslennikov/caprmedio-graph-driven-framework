@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Project Scope Unit Graph Projection"
+  governs: "Entity/Continuant/Projection/Type: Scope Unit Graph"
   depends_on:
-    - "Project Structure"
-    - "Artifact/Revision"
-    - "Framework Instance Settings"
-    - "Atom"
-    - "Scope Unit"
-    - "Journal"
-version: 21
-updated_at: "2026-10-03 02:55:00 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/History/Journal"]
+version: 24
+updated_at: "2026-10-16 12:08:41 +0000"
 relations:
   child_of:
     - CA-R-1052

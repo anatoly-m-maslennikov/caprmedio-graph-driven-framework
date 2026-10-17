@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Name"
+  governs: "Entity/Continuant/Object/Scope Unit.Name"
   depends_on:
-    - "Scope Unit"
-version: 7
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Entity/Continuant/Object/Scope Unit"]
+version: 9
+updated_at: "2026-10-15 18:48:14 +0000"
 relations:
   method_for:
     - "CA-R-962"

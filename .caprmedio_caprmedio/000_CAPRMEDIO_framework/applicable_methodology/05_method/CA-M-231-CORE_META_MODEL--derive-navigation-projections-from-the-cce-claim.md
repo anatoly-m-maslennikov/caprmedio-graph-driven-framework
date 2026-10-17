@@ -2,10 +2,9 @@
 subjects:
   governs: "Navigation Projection Derivation"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Summary"
-version: 18
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary"]
+version: 20
+updated_at: "2026-10-15 18:47:59 +0000"
 relations: {}
 atom_id: "CA-M-231"
 content_role: "Method"
@@ -18,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-231-CORE_META_MODEL--derive-navigation-projections-from-the-cce-claim.md
   source_atom_id: CA-M-231
-  source_atom_revision: 18
-  source_sha256: 8bf9e52af16c589304cfc952b90467fb9819411a2ee7d917675a2464c987d09a
+  source_atom_revision: 20
+  source_sha256: add30e69ad4541be7a0111a177226de0b2c34054f3d806f3b3c69709a2ad276d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

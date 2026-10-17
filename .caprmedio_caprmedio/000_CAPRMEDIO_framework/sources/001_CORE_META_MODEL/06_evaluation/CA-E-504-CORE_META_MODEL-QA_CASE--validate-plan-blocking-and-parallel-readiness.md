@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Blocking"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Status: Done"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Atom/Content Role: Plan/Type: Plan/Work Sequence Number"
-    - "Hub Atom"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Done", "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number"]
+version: 8
+updated_at: "2026-10-16 12:09:09 +0000"
 relations: {"evaluation_for": ["CA-R-1580", "CA-R-1583", "CA-R-1592", "CA-D-471", "CA-D-481"]}
 atom_id: "CA-E-504"
 content_role: "Evaluation"

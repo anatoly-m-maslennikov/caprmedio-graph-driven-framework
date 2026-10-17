@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier/Main Content/Paragraph"
+  governs: "Markdown Atom Carrier.Main Content.Paragraph"
   depends_on: []
-version: 12
-updated_at: "2026-10-02 18:57:51 +0400"
+version: 13
+updated_at: "2026-10-15 12:17:57 +0000"
 relations: {}
 atom_id: "CA-D-279"
 content_role: "Delivery"

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Project-Owned Carrier Root"
+  governs: "Entity/Carrier/Directory Carrier"
   depends_on: []
-version: 11
-updated_at: "2026-10-04 22:09:10 +0000"
+version: 12
+updated_at: "2026-10-16 12:09:19 +0000"
 relations: {}
 atom_id: "CA-D-318"
 content_role: "Delivery"
@@ -16,8 +16,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-318-CORE_META_MODEL--place-project-owned-persistent-carriers.md
   source_atom_id: CA-D-318
-  source_atom_revision: 11
-  source_sha256: 03e49c2ba9f28aecfcfca3899d40f5bd9a3131e0220613f88b83badc4deb51ea
+  source_atom_revision: 12
+  source_sha256: 92ad5d4f11d2a618607479f5e4a0db76b8b852bd45de5acd31905973240ae304
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

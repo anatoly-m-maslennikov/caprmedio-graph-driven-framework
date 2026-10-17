@@ -2,16 +2,9 @@
 subjects:
   governs: "CCE Claim and Projection Validation"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Summary"
-    - "Translation"
-    - "Confidence Threshold"
-    - "Operator"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Hub Atom"
-    - "Framework Instance Settings"
-version: 22
-updated_at: "2026-10-02 19:59:59 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Translation", "Confidence Threshold", "Entity/Continuant/Actor/Type: Operator", "Atom/Content Role: Plan/Type: Plan", "Hub Atom", "Entity/Continuant/Object/Project.Framework Settings"]
+version: 24
+updated_at: "2026-10-15 18:48:54 +0000"
 relations: {"evaluation_for":["CA-M-111","CA-M-115","CA-M-114","CA-M-271","CA-R-1591","CA-R-940","CA-R-941","CA-R-1273"]}
 atom_id: "CA-E-241"
 content_role: "Evaluation"
@@ -25,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md
   source_atom_id: CA-E-241
-  source_atom_revision: 22
-  source_sha256: 14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955
+  source_atom_revision: 24
+  source_sha256: b3348b9e71a038ee41a32c23419e39cf91ad7aa737ac3d2341864cb88dc4542b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

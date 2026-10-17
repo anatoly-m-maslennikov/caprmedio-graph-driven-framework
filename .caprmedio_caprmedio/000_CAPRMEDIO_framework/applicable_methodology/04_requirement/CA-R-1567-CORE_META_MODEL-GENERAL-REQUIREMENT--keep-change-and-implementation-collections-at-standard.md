@@ -2,14 +2,9 @@
 subjects:
   governs: "Atom Collection/Local Tier"
   depends_on:
-    - "Atom Collection"
-    - "Change Content Roles"
-    - "Implementation"
-    - "Atom/Local Tier: Standard"
-    - "Workflow"
-    - "Atom/Content Role: Plan/Type: Plan"
-version: 5
-updated_at: "2026-10-03 00:22:56 +0400"
+    ["Atom Collection", "Change Content Roles", "Implementation", "Atom/Local Tier: Standard", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Atom/Content Role: Plan/Type: Plan"]
+version: 6
+updated_at: "2026-10-15 18:44:29 +0000"
 relations: {"relates_to": ["CA-R-1378", "CA-R-1566", "CA-R-1578"]}
 atom_id: "CA-R-1567"
 content_role: "Requirement"
@@ -22,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1567-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-change-and-implementation-collections-at-standard.md
   source_atom_id: CA-R-1567
-  source_atom_revision: 5
-  source_sha256: 54e7d5529fae55e8ce0e815ee4587ec9aca562911937e89f2ca089bebbadbeac
+  source_atom_revision: 6
+  source_sha256: f3e82206eaa6a2de3c8145ee6c2039460900c950038b988500be780144fd7619
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,14 +2,9 @@
 subjects:
   governs: "Projection/Type"
   depends_on:
-    - "Projection"
-    - "Type"
-    - "Projection/Type: Catalog"
-    - "Projection/Type: Map"
-    - "Projection/Type: Hub"
-    - "Atom/Claim"
-version: 26
-updated_at: "2026-10-03 01:23:33 +0400"
+    ["Entity/Continuant/Projection", "Type", "Entity/Continuant/Projection/Type: Catalog", "Entity/Continuant/Projection/Type: Map", "Entity/Continuant/Projection/Type: Hub", "Entity/Continuant/Object/Atom.Substance"]
+version: 28
+updated_at: "2026-10-15 18:45:10 +0000"
 relations: {}
 atom_id: "CA-R-1634"
 content_role: "Requirement"
@@ -22,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md
   source_atom_id: CA-R-1634
-  source_atom_revision: 26
-  source_sha256: bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8
+  source_atom_revision: 28
+  source_sha256: f547d2e74c9138aad7cdd2f8e0f040c3b23bd2defa2fcc9e0ecbc9df19175958
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

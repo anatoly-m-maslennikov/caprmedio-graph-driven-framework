@@ -10,16 +10,16 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Construct Terms Graph Projection"
-  depends_on: ["Action", "Term", "Governed Term", "Definition Atom", "Projection/Type: Terms Graph", "Relation Kind", "Artifact/Revision", "Journal"]
-version: 3
-updated_at: "2026-10-09 19:23:34 +0400"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Term", "Governed Term", "Definition Atom", "Entity/Continuant/Projection/Type: Terms Graph", "Relation Kind", "Artifact/Revision", "Entity/Continuant/History/Journal"]
+version: 4
+updated_at: "2026-10-15 18:53:28 +0000"
 relations:
   relates_to: [CA-R-1335, CA-R-1454, CA-R-1318, CA-R-1279, CA-M-114, CA-R-1746, CA-R-1471, CA-R-1246, CA-R-806, CA-R-1472, CA-R-1437, CA-E-382, CA-R-1720, CA-R-1728]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md
   source_atom_id: CA-O-137
-  source_atom_revision: 3
-  source_sha256: 8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd
+  source_atom_revision: 4
+  source_sha256: 9bb3f9591828785cdb90d17fba47282439c6fbbbe345ab3095d22404796518a0
   original_relations_sha256: cb6c860a6ef1c4a2b657d35221abc1ac16d6c8207c2ac974f36e9b296884ef07
 ---
 # Summary

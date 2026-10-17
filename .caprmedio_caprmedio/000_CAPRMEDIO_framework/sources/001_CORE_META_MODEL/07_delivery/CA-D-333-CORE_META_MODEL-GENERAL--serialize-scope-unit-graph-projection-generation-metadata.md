@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Project Scope Unit Graph Projection"
+  governs: "Entity/Continuant/Projection/Type: Scope Unit Graph"
   depends_on:
-    - "Project Structure"
-    - "Framework Instance Settings"
-    - "Project Settings"
-    - "Carrier"
-version: 12
-updated_at: "2026-10-02 19:18:22 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project.Settings", "Entity/Carrier"]
+version: 15
+updated_at: "2026-10-16 12:09:20 +0000"
 relations: {}
 atom_id: "CA-D-333"
 content_role: "Delivery"

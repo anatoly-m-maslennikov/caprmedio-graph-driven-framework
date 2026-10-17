@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Authority"
+  governs: "Artifact.Authority"
   depends_on:
     - "Artifact"
-version: 5
-updated_at: "2026-10-02 23:35:16 +0400"
+version: 6
+updated_at: "2026-10-15 12:22:13 +0000"
 relations: {child_of: [CA-M-001]}
 atom_id: "CA-R-1499"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1499-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact-authority.md
   source_atom_id: CA-R-1499
-  source_atom_revision: 5
-  source_sha256: a33d6fa638ab1015468269601a852704c5de2985f71241a7912b34a56d8b42e3
+  source_atom_revision: 6
+  source_sha256: 1d4de8b96b3ff1b3afe7f6283bbdf683806129940ddb7a55e7e7d766358df128
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

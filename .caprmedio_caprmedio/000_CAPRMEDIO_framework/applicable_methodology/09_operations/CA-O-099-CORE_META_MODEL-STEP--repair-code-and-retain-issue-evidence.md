@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Repair Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Step/Agentic Execution Context"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Workflow Run"
-    - "Step Run"
-version: 3
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
+version: 5
+updated_at: "2026-10-15 18:54:01 +0000"
 relations:
   relates_to:
     - CA-O-021
@@ -28,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-099-CORE_META_MODEL-STEP--repair-code-and-retain-issue-evidence.md
   source_atom_id: CA-O-099
-  source_atom_revision: 3
-  source_sha256: c36568a6db7e2e6049059f1f7d5097b79a182258936c0ad9f0eb7a22351f0051
+  source_atom_revision: 5
+  source_sha256: 58262e8ef1a1fe3ba4089c32e67ee1464d5af2a253e0dd1a37e1f6c89f841444
   original_relations_sha256: 1ea5c7fc0c690b75607075f32f2d9552decfced01b385e0f28a6205f30651f72
 ---
 # Summary

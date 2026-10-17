@@ -2,15 +2,9 @@
 subjects:
   governs: "DEPENDS_ON"
   depends_on:
-    - "Relation Kind"
-    - "Atom"
-    - "Subject"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Entity"
-    - "Atom/Claim"
-    - "Workflow"
-version: 16
-updated_at: "2026-10-02 21:30:43 +0400"
+    ["Relation Kind", "Entity/Continuant/Object/Atom", "Subject", "Atom/Content Role: Plan/Type: Plan", "Entity", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
+version: 18
+updated_at: "2026-10-15 18:41:10 +0000"
 relations: {}
 atom_id: "CA-R-1200"
 content_role: "Requirement"
@@ -23,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md
   source_atom_id: CA-R-1200
-  source_atom_revision: 16
-  source_sha256: baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f
+  source_atom_revision: 18
+  source_sha256: bf69dc257dbacf4cc18dad33aa4ad966c0113c5c7cf720dcb032038795e2350d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

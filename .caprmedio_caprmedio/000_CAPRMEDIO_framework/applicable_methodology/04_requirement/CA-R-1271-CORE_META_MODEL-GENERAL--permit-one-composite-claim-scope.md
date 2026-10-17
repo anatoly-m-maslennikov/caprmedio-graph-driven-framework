@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim"
+  governs: "Entity/Continuant/Object/Atom.Substance"
   depends_on:
-    - "Scope Expression"
-    - "Atom/Claim/Target Scope Unit"
-version: 13
-updated_at: "2026-10-02 21:45:33 +0400"
+    ["Scope Expression", "Entity/Continuant/Object/Atom.Target Scope Unit"]
+version: 15
+updated_at: "2026-10-15 18:41:30 +0000"
 relations: {}
 atom_id: "CA-R-1271"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1271-CORE_META_MODEL-GENERAL--permit-one-composite-claim-scope.md
   source_atom_id: CA-R-1271
-  source_atom_revision: 13
-  source_sha256: e40e3c7c67da096674fb6f23c534141816ef04a92bb6a4385d3312e0625c0ed6
+  source_atom_revision: 15
+  source_sha256: 0f6817d8e79391388aae73b9d6e0e10e5ec3e408990e64e0f0fff6a52b9a7e1a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

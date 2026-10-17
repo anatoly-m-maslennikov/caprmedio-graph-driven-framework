@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Structural Level"
+  governs: "Entity/Continuant/Object/Scope Unit.Structural Level"
   depends_on:
-    - "scope-topology"
-version: 21
-updated_at: "2026-10-03 02:55:28 +0400"
+    ["Entity/Continuant/Object/Scope Unit.Path"]
+version: 22
+updated_at: "2026-10-16 12:08:43 +0000"
 relations: {}
 atom_id: "CA-R-1751"
 content_role: "Requirement"

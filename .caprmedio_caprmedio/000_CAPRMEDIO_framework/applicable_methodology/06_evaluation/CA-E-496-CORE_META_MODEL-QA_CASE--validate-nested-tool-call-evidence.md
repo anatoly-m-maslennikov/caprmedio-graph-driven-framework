@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Step Run/Tool Call"
+  governs: "Entity/Continuant/History/Journal.Record"
   depends_on:
-    - "Step Run"
-    - "Workflow Run"
-    - "Step"
-    - "Action"
-    - "Tool"
-    - "Journal"
-    - "Projection"
-version: 4
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Tool", "Entity/Continuant/History/Journal", "Entity/Continuant/Projection"]
+version: 6
+updated_at: "2026-10-15 18:49:56 +0000"
 relations: {"evaluation_for": ["CA-R-1528", "CA-R-1511"]}
 atom_id: "CA-E-496"
 content_role: "Evaluation"
@@ -24,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-496-CORE_META_MODEL-QA_CASE--validate-nested-tool-call-evidence.md
   source_atom_id: CA-E-496
-  source_atom_revision: 4
-  source_sha256: 7122717a9d94a903bd4268393ebf9dacfac2da9450b55cbf6a800fb7ec311b31
+  source_atom_revision: 6
+  source_sha256: 9da498385836162af379fe1a3d4690d1e329aaf1a2d9d92f952578bd291aec8c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

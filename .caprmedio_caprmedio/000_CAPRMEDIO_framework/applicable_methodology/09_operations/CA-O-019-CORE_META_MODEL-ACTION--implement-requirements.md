@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Requirement Implementation"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Delivery"
-    - "Atom/Content Role: Implementation"
-version: 4
-updated_at: "2026-10-04 16:53:23 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Implementation"]
+version: 6
+updated_at: "2026-10-15 18:52:52 +0000"
 relations:
   relates_to:
     - CA-O-017
@@ -28,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-019-CORE_META_MODEL-ACTION--implement-requirements.md
   source_atom_id: CA-O-019
-  source_atom_revision: 4
-  source_sha256: 618eeb966ee41889d487d9ff1e48d4825aaa372bb2180e55688d446bdbc5065b
+  source_atom_revision: 6
+  source_sha256: 4e559bdef07eb5bb682bce066512e4fcc9985cedb2a94438338709fcbdc8352d
   original_relations_sha256: f32f02a87f378bf1c5f8847914dbb7f72760d6fa62b0a6b252dcf643fdd8422d
 ---
 # Summary

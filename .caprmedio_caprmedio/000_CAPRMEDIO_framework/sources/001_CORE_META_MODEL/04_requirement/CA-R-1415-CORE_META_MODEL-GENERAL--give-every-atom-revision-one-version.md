@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Version"
+  governs: "Entity/Continuant/Object/Atom.Version Number"
   depends_on:
-    - "Atom/Revision"
-    - "Atom"
-version: 10
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Entity/Continuant/Object/Atom"]
+version: 12
+updated_at: "2026-10-15 18:42:48 +0000"
 relations: {}
 atom_id: "CA-R-1415"
 content_role: "Requirement"

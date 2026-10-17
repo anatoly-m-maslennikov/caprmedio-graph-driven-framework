@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Navigational Order Number"
+  governs: "Entity/Continuant/Object/Scope Unit.Navigational Order Number"
   depends_on:
-    - "Carrier"
-    - "Scope Unit"
-    - "Project Structure"
-version: 6
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Carrier", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure"]
+version: 8
+updated_at: "2026-10-16 12:09:23 +0000"
 relations: {}
 atom_id: "CA-D-380"
 content_role: "Delivery"

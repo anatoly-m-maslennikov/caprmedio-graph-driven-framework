@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Sources/Installed Extensions/Catalog Entry"
+  governs: "Installed Extensions Catalog Entry"
   depends_on:
-    - "Extension"
-    - "Artifact/Revision"
-version: 11
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["Extension", "Artifact"]
+version: 12
+updated_at: "2026-10-15 12:21:13 +0000"
 relations: {}
 atom_id: "CA-R-1220"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1220-CORE_META_MODEL-REQUIREMENT--require-immutable-installed-extension-candidate-provenance.md
   source_atom_id: CA-R-1220
-  source_atom_revision: 11
-  source_sha256: e2d321b77e2249bfebeac59d2bfed861b0937bb695fc48983d231ba4bdacb2bc
+  source_atom_revision: 12
+  source_sha256: 34cfc3327c21646ee737f20b4f6c26a85bb150f7a49b21a52031235384b29835
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

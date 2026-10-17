@@ -2,11 +2,9 @@
 subjects:
   governs: "Autonomous Confidence Threshold"
   depends_on:
-    - "Confidence Threshold"
-    - "AI Agent/Confidence"
-    - "Atom/Content Role: Plan/Type: Plan"
-version: 15
-updated_at: "2026-10-02 21:26:39 +0400"
+    ["Confidence Threshold", "AI Agent Confidence", "Atom/Content Role: Plan/Type: Plan"]
+version: 16
+updated_at: "2026-10-15 12:21:05 +0000"
 relations: {}
 atom_id: "CA-R-1044"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1044-CORE_META_MODEL-CORE-REQUIREMENT--define-autonomous-confidence-threshold.md
   source_atom_id: CA-R-1044
-  source_atom_revision: 15
-  source_sha256: 50f83d3f12961961999d3f7d9ff7cc61cd8bbc58c6b6b198d3cf138d21969422
+  source_atom_revision: 16
+  source_sha256: 9c29d5012c5d994e2b13a4b2a3664f439169ce9f82413c46b5f9ba493850685b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

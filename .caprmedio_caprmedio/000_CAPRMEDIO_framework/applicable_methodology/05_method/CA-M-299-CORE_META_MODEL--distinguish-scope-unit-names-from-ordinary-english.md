@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Name"
+  governs: "Entity/Continuant/Object/Scope Unit.Name"
   depends_on:
-    - "Scope Unit"
-    - "CCE"
-version: 4
-updated_at: "2026-10-02 20:35:16 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "CCE"]
+version: 6
+updated_at: "2026-10-15 18:48:26 +0000"
 relations: {}
 atom_id: "CA-M-299"
 content_role: "Method"
@@ -18,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-299-CORE_META_MODEL--distinguish-scope-unit-names-from-ordinary-english.md
   source_atom_id: CA-M-299
-  source_atom_revision: 4
-  source_sha256: bd094829b8aaf2e5bc69ea104346c8c7578a46002c1746ae7b1f22f1263dd9ba
+  source_atom_revision: 6
+  source_sha256: cd8f12021abd3e37676ea2410609c94305317acfe3a26cf57a3aeb4699f668e1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Carrier/Ownership Class"
+  governs: "Entity/Carrier.Ownership Class"
   depends_on: []
-version: 11
-updated_at: "2026-10-02 19:05:39 +0400"
+version: 13
+updated_at: "2026-10-15 18:51:15 +0000"
 relations: {}
 atom_id: "CA-D-316"
 content_role: "Delivery"
@@ -16,8 +16,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-316-CORE_META_MODEL-GENERAL--classify-carriers-by-ownership.md
   source_atom_id: CA-D-316
-  source_atom_revision: 11
-  source_sha256: 8df0a6f78eac1e3fa92bde5f9c0800b360fbf937d43ceba5daf2033471522be7
+  source_atom_revision: 13
+  source_sha256: 304698fcee6ad26153ac647bd5ddcfadb9b018b5efde36f32652e81826587da3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

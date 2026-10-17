@@ -2,10 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Analysis/Type"
   depends_on:
-    - "Atom/Content Role: Analysis"
-    - "Type"
-version: 14
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Analysis", "Type"]
+version: 15
+updated_at: "2026-10-15 18:41:19 +0000"
 relations: {}
 atom_id: "CA-R-1232"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1232-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-analysis-atoms.md
   source_atom_id: CA-R-1232
-  source_atom_revision: 14
-  source_sha256: d40415ebf2c7c07fccb5ea4a8b55cf670b6e292c6800eaee97ea308ea4ac9bd5
+  source_atom_revision: 15
+  source_sha256: ca3e08b4b4aa5218a7be24e78377afa612e5b2aa4606ea7dde20dd62271499f4
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -8,11 +8,11 @@ global_tier: 11
 status: "Active"
 author: "Anatoly Maslennikov"
 type: "Step"
-version: 2
-updated_at: "2026-10-05 01:20:00 +0400"
+version: 3
+updated_at: "2026-10-15 18:53:39 +0000"
 subjects:
   governs: "Artifact query and fetch execution"
-  depends_on: [Workflow, Action, Artifact, Markdown, Journal]
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Artifact", "Markdown", "Entity/Continuant/History/Journal"]
 relations:
   part_of: [CA-O-158]
   invokes: [CA-O-159]

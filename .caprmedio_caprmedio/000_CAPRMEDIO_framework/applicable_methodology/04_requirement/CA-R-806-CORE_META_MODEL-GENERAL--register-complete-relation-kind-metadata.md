@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Relation Kind/Metadata"
+  governs: "Relation Kind Metadata"
   depends_on:
-    - "Relation Kind"
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Atom"
-version: 21
-updated_at: "2026-10-02 20:52:00 +0400"
+    ["Relation Kind", "CAPRMEDIO Graph", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom"]
+version: 23
+updated_at: "2026-10-15 18:46:36 +0000"
 relations: {}
 atom_id: "CA-R-806"
 content_role: "Requirement"
@@ -20,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md
   source_atom_id: CA-R-806
-  source_atom_revision: 21
-  source_sha256: 933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0
+  source_atom_revision: 23
+  source_sha256: 23148e68fe210cceb6e0b8e34ab57e1ff33fc66c3b519633c14e0ce6438074e6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,18 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Local Tier: Core"
+  governs: "Entity/Continuant/Object/Atom.Local Tier: Core"
   depends_on:
-    - "Atom/Local Tier"
-    - "Atom/Global Tier"
-    - "Atom/Claim"
-    - "Atom/Content Role"
-    - "Spec Content Roles"
-    - "Atom/Local Tier: General"
-    - "Atom/Local Tier: Standard"
-    - "Entity"
-    - "Scope Unit"
-version: 19
-updated_at: "2026-10-02 20:52:00 +0400"
+    ["Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Atom.Substance", "Atom/Content Role", "Spec Content Roles", "Entity/Continuant/Object/Atom.Local Tier: General", "Entity/Continuant/Object/Atom.Local Tier: Standard", "Entity", "Entity/Continuant/Object/Scope Unit"]
+version: 21
+updated_at: "2026-10-15 18:46:28 +0000"
 relations: {"relates_to": ["CA-R-1573"]}
 atom_id: "CA-R-659"
 content_role: "Requirement"
@@ -25,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-659-CORE_META_MODEL-CORE-REQUIREMENT--define-core-local-tier.md
   source_atom_id: CA-R-659
-  source_atom_revision: 19
-  source_sha256: b9a1f3e8806d68ba60b29cac19021f321f95c49f234cea8224ef60d7863f37ba
+  source_atom_revision: 21
+  source_sha256: 564b1575f53a91e47cebb6553750b68901c2d5d85a21378d9c1e8bd5bf50406a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,18 +2,9 @@
 subjects:
   governs: "Migrate Atom CCE Representation"
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Atom/Claim"
-    - "Atom/Revision"
-    - "Atom/Summary"
-    - "Projection"
-    - "CCE"
-    - "Confidence Threshold"
-    - "Operator"
-    - "AI Agent"
-version: 5
-updated_at: "2026-10-04 15:11:59 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Projection", "CCE", "Confidence Threshold", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent"]
+version: 7
+updated_at: "2026-10-15 18:53:00 +0000"
 relations:
   child_of:
     - CA-M-115
@@ -30,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md
   source_atom_id: CA-O-053
-  source_atom_revision: 5
-  source_sha256: 0a6fb268305299de993722f2f3984e8edae990938e3c76c02f29baf29bb1fc82
+  source_atom_revision: 7
+  source_sha256: d94889a298a728823a5e78110d64d87a9d211ce6d4f2c3f2a88fa2489dd1b797
   original_relations_sha256: e96ce022b6ca9ebedf6f1896049d977e7cbcf98c15a6cf9d8a6fdd4fb67b6a60
 ---
 # Summary

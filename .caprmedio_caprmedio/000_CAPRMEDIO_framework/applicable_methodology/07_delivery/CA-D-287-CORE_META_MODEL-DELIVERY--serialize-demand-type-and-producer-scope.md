@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Demand/filename"
+  governs: "Entity/Carrier/File Carrier.Filename"
   depends_on:
-    - "Producer/Scope Unit"
-version: 12
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit"]
+version: 14
+updated_at: "2026-10-16 12:09:13 +0000"
 relations: {}
 atom_id: "CA-D-287"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-287-CORE_META_MODEL-DELIVERY--serialize-demand-type-and-producer-scope.md
   source_atom_id: CA-D-287
-  source_atom_revision: 12
-  source_sha256: 37266df833541eb74622e915ab28e73dd2bf4e4651ac207c435727f415411eae
+  source_atom_revision: 14
+  source_sha256: a450db6f5e99c45c349e76c23303fd2e96407048221f9d0931807a48efacb049
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

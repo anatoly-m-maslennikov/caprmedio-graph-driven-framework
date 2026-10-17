@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Step Run/Invocation"
+  governs: "Agentic Action Instruction"
   depends_on:
-    - "Action"
-    - "Step"
-    - "Workflow"
-    - "Operator"
-    - "Tool"
-    - "Action/Execution Kind: Agentic"
-    - "Step Run/Tool Call"
-version: 4
-updated_at: "2026-09-30 15:26:58 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Actor/Type: Operator", "Tool", "Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic", "Tool Call"]
+version: 6
+updated_at: "2026-10-15 18:48:30 +0000"
 relations: {"method_for": ["CA-R-1789", "CA-R-1790", "CA-R-1791", "CA-R-1792", "CA-R-1793"]}
 atom_id: "CA-M-304"
 content_role: "Method"
@@ -23,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md
   source_atom_id: CA-M-304
-  source_atom_revision: 4
-  source_sha256: 42bac0554e085881c7902a8477792c052a4abda9c8538efc0751410f71044aac
+  source_atom_revision: 6
+  source_sha256: 19bc1f7cc931b584e1bf7e6d5410988d002f73434041bf216512bed9e9549d1e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,15 +2,9 @@
 subjects:
   governs: "Subject Expression Writing"
   depends_on:
-    - "Subject Path"
-    - "Entity"
-    - "Relation"
-    - "Term"
-    - "Subject"
-    - "GOVERNS"
-    - "DEPENDS_ON"
-version: 16
-updated_at: "2026-10-11 18:04:47 +0400"
+    ["Subject Path", "Entity", "Entity/Continuant/Object/Relation", "Entity/Continuant/Term", "Subject", "GOVERNS", "DEPENDS_ON"]
+version: 17
+updated_at: "2026-10-15 18:47:55 +0000"
 relations: {}
 atom_id: "CA-M-228"
 content_role: "Method"
@@ -23,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md
   source_atom_id: CA-M-228
-  source_atom_revision: 16
-  source_sha256: 0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d
+  source_atom_revision: 17
+  source_sha256: 449870d73fb2dc5b3a8b2e00a3eb732b904a58e131736116469ce9f7eee0a727
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

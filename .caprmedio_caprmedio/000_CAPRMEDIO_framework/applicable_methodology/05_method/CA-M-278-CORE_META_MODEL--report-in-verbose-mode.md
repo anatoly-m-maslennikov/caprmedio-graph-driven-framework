@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/interaction/reporting mode: verbose"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode: verbose"
   depends_on:
-    - "Framework Instance Settings/interaction/reporting mode"
-    - "Framework Instance Settings/interaction/reporting mode/effects"
-    - "Framework Instance Settings/interaction/reporting mode/mandatory information"
-    - "Artifact"
-    - "Skill"
-version: 9
-updated_at: "2026-10-02 20:25:13 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode", "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Effects", "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information", "Artifact", "Skill"]
+version: 11
+updated_at: "2026-10-15 18:48:18 +0000"
 relations: {"relates_to":["CA-R-1628","CA-R-1439","CA-R-1440","CA-O-052","CA-R-1750"]}
 atom_id: "CA-M-278"
 content_role: "Method"
@@ -21,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-278-CORE_META_MODEL--report-in-verbose-mode.md
   source_atom_id: CA-M-278
-  source_atom_revision: 9
-  source_sha256: 28a9c6a6e3143994fa1219f196480063245a917ac0917bcb4e54d331a98c3d0d
+  source_atom_revision: 11
+  source_sha256: b8333c90e4cfdb24fc11469a376ba81a3f225847aefdda2a0139969563614f4e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

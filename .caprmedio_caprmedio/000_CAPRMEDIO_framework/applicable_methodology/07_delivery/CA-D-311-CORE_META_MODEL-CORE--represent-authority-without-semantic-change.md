@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Carrier/Representation"
+  governs: "Entity/Carrier"
   depends_on:
-    - "Artifact/Revision"
-version: 11
-updated_at: "2026-10-02 19:05:39 +0400"
+    []
+version: 14
+updated_at: "2026-10-16 12:09:18 +0000"
 relations: {}
 atom_id: "CA-D-311"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md
   source_atom_id: CA-D-311
-  source_atom_revision: 11
-  source_sha256: a049829113f02daa2df65f2daa3e23ad685b157d1bf64155ead647cc54097b4a
+  source_atom_revision: 14
+  source_sha256: 144a7eb6ff738890c71a1e1ec5ed16a974b8b48008a9ca32b95a115c468d1949
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

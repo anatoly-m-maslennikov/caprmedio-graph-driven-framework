@@ -2,9 +2,9 @@
 subjects:
   governs: "Journal/Revision"
   depends_on:
-    - "Journal"
-version: 10
-updated_at: "2026-10-02 22:23:29 +0400"
+    ["Entity/Continuant/History/Journal"]
+version: 11
+updated_at: "2026-10-15 18:42:18 +0000"
 relations: {}
 atom_id: "CA-R-1372"
 content_role: "Requirement"

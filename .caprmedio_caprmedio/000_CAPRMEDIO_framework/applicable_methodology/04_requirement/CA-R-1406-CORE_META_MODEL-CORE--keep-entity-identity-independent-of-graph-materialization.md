@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Identity"
+  governs: "Entity.Identity"
   depends_on:
-    - "Entity"
-    - "CAPRMEDIO Graph"
-    - "Projection"
-version: 9
-updated_at: "2026-10-02 22:41:14 +0400"
+    ["Entity", "Entity/Continuant/Projection"]
+version: 12
+updated_at: "2026-10-16 12:08:24 +0000"
 relations:
   child_of:
     - CA-R-1248
@@ -21,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL-CORE--keep-entity-identity-independent-of-graph-materialization.md
   source_atom_id: CA-R-1406
-  source_atom_revision: 9
-  source_sha256: 9f02a3b4585c3c9debced436702c083bf7b4d626d1c28705783d63cb303b8898
+  source_atom_revision: 12
+  source_sha256: f701f1247cb209828638ea4528467612ecb6583744bd128f3e15a86a03e3dee7
   original_relations_sha256: 0f1e5f7c7498d6b33c2ed22fb4783b2833b7862d1dd85cabba8ed0441099db31
 ---
 # Summary

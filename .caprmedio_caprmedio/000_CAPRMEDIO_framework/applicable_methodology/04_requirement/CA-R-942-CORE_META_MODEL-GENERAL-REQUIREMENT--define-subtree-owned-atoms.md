@@ -2,10 +2,9 @@
 subjects:
   governs: "Subtree-owned Atoms"
   depends_on:
-    - "Owned Atoms"
-    - "Scope Unit"
-version: 17
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Owned Atoms", "Entity/Continuant/Object/Scope Unit"]
+version: 18
+updated_at: "2026-10-15 18:47:10 +0000"
 relations: {}
 atom_id: "CA-R-942"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md
   source_atom_id: CA-R-942
-  source_atom_revision: 17
-  source_sha256: 1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb
+  source_atom_revision: 18
+  source_sha256: 4227f1425e4e3d2c80bc33f529b32d9f321eff80d761824a910f04c7d6905340
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

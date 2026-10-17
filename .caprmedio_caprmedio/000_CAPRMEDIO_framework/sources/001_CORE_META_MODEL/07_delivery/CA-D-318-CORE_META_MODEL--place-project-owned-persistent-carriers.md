@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Project-Owned Carrier Root"
+  governs: "Entity/Carrier/Directory Carrier"
   depends_on: []
-version: 11
-updated_at: "2026-10-04 22:09:10 +0000"
+version: 12
+updated_at: "2026-10-16 12:09:19 +0000"
 relations: {}
 atom_id: "CA-D-318"
 content_role: "Delivery"

@@ -10,30 +10,16 @@ status: Active
 subjects:
   governs: "Reconcile Navigation Numbers"
   depends_on:
-    - "Project Structure"
-    - "Scope Unit"
-    - "Scope Unit/Navigational Order Number"
-    - "Scope Unit/Local Order"
-    - "Scope Unit/Structural Level"
-    - "Scope Unit/Type"
-    - "Scope Unit/Label"
-    - "Carrier"
-    - "Directory Carrier/Numeric Prefix"
-    - "Implementation Folder"
-    - "Operator"
-    - "Atom"
-    - "Action"
-    - "Project Structure Maintenance"
-
-version: 3
-updated_at: "2026-10-04 15:16:04 +0000"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Continuant/Object/Scope Unit.Local Order", "Entity/Continuant/Object/Scope Unit.Structural Level", "Scope Unit/Type", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Carrier", "Entity/Carrier/Directory Carrier.Numeric Prefix", "Implementation Folder", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Project Structure Maintenance"]
+version: 5
+updated_at: "2026-10-15 18:53:05 +0000"
 relations: {"relates_to": ["CA-R-1483", "CA-R-1484", "CA-R-976", "CA-R-981", "CA-R-983", "CA-M-291", "CA-D-440", "CA-D-442", "CA-D-444", "CA-D-445", "CA-D-297", "CA-D-299", "CA-D-300", "CA-D-380", "CA-O-012", "CA-O-015"]}
 global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-078-CORE_META_MODEL-ACTION--reconcile-navigation-numbers-during-project-structure-migration.md
   source_atom_id: CA-O-078
-  source_atom_revision: 3
-  source_sha256: 021771bd4094074d36294390318dd23fd16619c098f8dbd3bed2dfb59e5eb014
+  source_atom_revision: 5
+  source_sha256: dcce7f96b1f80dadfd61fcac4ff9c3fc5997bb1229ad65e7c733a6abad3b0dbd
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

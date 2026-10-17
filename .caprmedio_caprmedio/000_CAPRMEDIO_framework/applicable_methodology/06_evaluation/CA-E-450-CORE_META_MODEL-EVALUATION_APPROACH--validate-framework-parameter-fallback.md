@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/parameter resolution validation"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution Validation"
   depends_on:
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Project"
-    - "Carrier"
-    - "Atom/Content Role: Evaluation"
-version: 8
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
+version: 10
+updated_at: "2026-10-15 18:49:24 +0000"
 relations:
   evaluation_for:
     - "CA-D-407"
@@ -27,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-EVALUATION_APPROACH--validate-framework-parameter-fallback.md
   source_atom_id: CA-E-450
-  source_atom_revision: 8
-  source_sha256: b0e3b69ee1f90356ad48bbac35c6e881b63b0d84c8ff2a0297ab55340e2fa8df
+  source_atom_revision: 10
+  source_sha256: 8c2322569d8e9025af26b9806f207ecdd052793893e8e5ba3dcf454f8b4654f6
   original_relations_sha256: 409cd0ddae186a760d023362a08732d9e508a42cadb874a1215ae50444cbc9a7
 ---
 # Summary

@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Work Sequence Number"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Work Sequence Number"
-    - "Hub Atom"
-version: 17
-updated_at: "2026-10-02 21:09:50 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number"]
+version: 20
+updated_at: "2026-10-16 12:09:01 +0000"
 relations:
   child_of:
     - CA-R-991
@@ -22,8 +20,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md
   source_atom_id: CA-R-997
-  source_atom_revision: 17
-  source_sha256: fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56
+  source_atom_revision: 20
+  source_sha256: f053ad55f710612f9c6fef26005e7c1355458bbf15d3fb7095b0a6a7b8b1ca3b
   original_relations_sha256: 84d32a87616b0ba20eb7e61228c75eef35f9218c63f3b6b448b4cf6624bb5430
 ---
 # Summary

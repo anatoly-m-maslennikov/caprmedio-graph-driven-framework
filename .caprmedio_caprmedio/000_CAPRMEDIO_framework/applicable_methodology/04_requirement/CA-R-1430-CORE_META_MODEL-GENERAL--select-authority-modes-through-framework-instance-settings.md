@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Authority Modes"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Authority Modes"
   depends_on:
-    - "Framework Instance Settings"
-    - "Project Structure"
-    - "Authority Mode"
-    - "Project"
-    - "Scope Unit"
-    - "Atom"
-version: 8
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project.Structure", "Authority Mode", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom"]
+version: 10
+updated_at: "2026-10-15 18:42:54 +0000"
 relations:
   child_of:
     - "CA-R-1402"
@@ -26,8 +21,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md
   source_atom_id: CA-R-1430
-  source_atom_revision: 8
-  source_sha256: ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263
+  source_atom_revision: 10
+  source_sha256: 0c4bddac50aeadb374f61ab797d49fb49b9276a028809025e76e322428ce236e
   original_relations_sha256: be5cc3030b7779b3445d3df040c85d6952a487441c36cfe1927e563974c04f18
 ---
 # Summary

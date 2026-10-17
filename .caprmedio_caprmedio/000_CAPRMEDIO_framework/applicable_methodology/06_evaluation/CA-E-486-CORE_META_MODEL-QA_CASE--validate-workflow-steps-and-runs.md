@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Workflow"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Step Run"
-    - "Workflow/Relation Kind: On Result"
-    - "Journal/Record"
-version: 4
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Object/Relation/Type: On Result", "Entity/Continuant/History/Journal.Record"]
+version: 7
+updated_at: "2026-10-16 12:09:07 +0000"
 relations: {"evaluation_for": ["CA-R-1508", "CA-R-1509", "CA-R-1510", "CA-R-1511", "CA-R-1513"]}
 atom_id: "CA-E-486"
 content_role: "Evaluation"
@@ -23,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-QA_CASE--validate-workflow-steps-and-runs.md
   source_atom_id: CA-E-486
-  source_atom_revision: 4
-  source_sha256: 051c30b75fbb740681b93ec65f81982fa7dc1f7b542117a5b0a9fa36a994023c
+  source_atom_revision: 7
+  source_sha256: dd0f452537453dde213bb8a0ba24e3c54ddae633f4c113dca214ed04a1ac052e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

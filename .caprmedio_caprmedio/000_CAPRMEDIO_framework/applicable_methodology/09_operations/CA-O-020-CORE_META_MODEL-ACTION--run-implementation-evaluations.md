@@ -10,14 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Evaluation"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Implementation"
-    - "Artifact/Revision"
-version: 5
-updated_at: "2026-10-04 15:15:47 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Method", "Implementation", "Artifact"]
+version: 7
+updated_at: "2026-10-15 18:52:53 +0000"
 relations:
   relates_to:
     - CA-O-018
@@ -27,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-020-CORE_META_MODEL-ACTION--run-implementation-evaluations.md
   source_atom_id: CA-O-020
-  source_atom_revision: 5
-  source_sha256: 13aea0488ac7b230becf1739bd7ad6f29e5f964f0db1e4e1b680aac3b5f59051
+  source_atom_revision: 7
+  source_sha256: 3f18e6a110a9efc69fecb14f02e5deb08392afa7be705e795ee5badfc2a5c62f
   original_relations_sha256: 2146528c15a6ec96b4d49adc2b754f10d06b1d499506b67dafcf2d217de4758d
 ---
 # Summary

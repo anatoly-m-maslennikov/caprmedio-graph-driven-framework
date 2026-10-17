@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "scope-topology"
+  governs: "Entity/Continuant/Object/Scope Unit.Children"
   depends_on:
-    - "artifact-model"
-    - "authority"
-version: 22
-updated_at: "2026-10-03 02:55:28 +0400"
+    []
+version: 23
+updated_at: "2026-10-16 12:08:43 +0000"
 relations: {}
 atom_id: "CA-R-1756"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md
   source_atom_id: CA-R-1756
-  source_atom_revision: 22
-  source_sha256: a87c17733a8f726c431c2d7cda78e60f13723cec4efcb344cf1146ace92a7b8c
+  source_atom_revision: 23
+  source_sha256: ffb5a745ab5a45ff437ea0fa9d1789218bf16ac98ff8e8fc3ccfb4ed39b20bd1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

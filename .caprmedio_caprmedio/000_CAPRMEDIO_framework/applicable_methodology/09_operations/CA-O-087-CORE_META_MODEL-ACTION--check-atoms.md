@@ -10,27 +10,9 @@ status: Active
 subjects:
   governs: "Check Atoms"
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Atom/Property"
-    - "Atom/Frontmatter"
-    - "Atom/Claim"
-    - "Atom/Summary"
-    - "Atom/Revision"
-    - "Owned Atoms"
-    - "Subtree-owned Atoms"
-    - "Scope Unit"
-    - "Project Structure"
-    - "Global Tier"
-    - "Local Tier"
-    - "Applicable Methodology"
-    - "Projection"
-    - "Relation"
-    - "Evaluation"
-    - "Operator"
-    - "Journal"
-version: 6
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Property", "Markdown Atom Carrier.YAML Frontmatter", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/History/Revision/Type: Atom", "Owned Atoms", "Subtree-owned Atoms", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Global Tier", "Local Tier", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Projection", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
+version: 8
+updated_at: "2026-10-15 18:53:08 +0000"
 relations:
   relates_to:
     - CA-R-1598
@@ -49,8 +31,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md
   source_atom_id: CA-O-087
-  source_atom_revision: 6
-  source_sha256: 5c1af47364de5f266b48bd1aaed03cf4bc08f855ad934702628c5eae9d950efb
+  source_atom_revision: 8
+  source_sha256: adab61f8ddaccc857c01f01bd7f1d6dedd381df43fd612780f90894186d1ef70
   original_relations_sha256: 2dc986c40a8906cb9501be88b2d0cee5617d887bd2450c8e21e2652ae24615d2
 ---
 # Summary

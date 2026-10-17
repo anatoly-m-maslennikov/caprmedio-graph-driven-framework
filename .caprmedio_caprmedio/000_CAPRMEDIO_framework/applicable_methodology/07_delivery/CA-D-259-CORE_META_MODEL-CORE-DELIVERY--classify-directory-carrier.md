@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Directory Carrier"
+  governs: "Entity/Carrier/Directory Carrier"
   depends_on:
-    - "Carrier"
-version: 11
-updated_at: "2026-10-02 18:57:51 +0400"
+    ["Entity/Carrier"]
+version: 12
+updated_at: "2026-10-15 18:50:41 +0000"
 relations: {}
 atom_id: "CA-D-259"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-259-CORE_META_MODEL-CORE-DELIVERY--classify-directory-carrier.md
   source_atom_id: CA-D-259
-  source_atom_revision: 11
-  source_sha256: 129e0c585b8df61d8d94b314cec83245d3bff042374f00a3b9b8fc97a6127996
+  source_atom_revision: 12
+  source_sha256: f55d16585c6673e4bb3b36cb46147ca69f4347eefa0b2ed6594c4360b25da5ab
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

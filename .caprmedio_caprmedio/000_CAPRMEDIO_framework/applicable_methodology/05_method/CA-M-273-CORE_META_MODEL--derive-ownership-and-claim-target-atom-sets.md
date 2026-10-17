@@ -2,20 +2,9 @@
 subjects:
   governs: "Atom selection"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Owned Atoms"
-    - "Targeting Atoms"
-    - "Subtree-owned Atoms"
-    - "Subtree-targeting Atoms"
-    - "Scope Unit"
-    - "Atom Collection"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Content Role"
-    - "Atom/Status"
-    - "Artifact/Revision"
-    - "Directory Carrier"
-version: 13
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Entity/Continuant/Object/Atom.Author", "Owned Atoms", "Targeting Atoms", "Subtree-owned Atoms", "Subtree-targeting Atoms", "Entity/Continuant/Object/Scope Unit", "Entity/Carrier", "Entity/Continuant/Object/Atom.Target Scope Unit", "Atom/Content Role", "Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Atom", "Entity/Carrier/Directory Carrier"]
+version: 15
+updated_at: "2026-10-15 18:48:13 +0000"
 relations: {}
 atom_id: "CA-M-273"
 content_role: "Method"
@@ -28,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL--derive-ownership-and-claim-target-atom-sets.md
   source_atom_id: CA-M-273
-  source_atom_revision: 13
-  source_sha256: 2f2a40037201679c18e7b0722f1d1fa26796758b7f797b575df0574c0a4e26ef
+  source_atom_revision: 15
+  source_sha256: 52cfc20ffb24e2f9c3525617e27a96984af0d42f9cdb1330cddd73d6f258c472
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Assignee"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Assignee"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "AI Agent"
-version: 4
-updated_at: "2026-10-03 00:34:47 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Actor/Type: AI Agent"]
+version: 7
+updated_at: "2026-10-16 12:08:34 +0000"
 relations: {"relates_to": ["CA-R-1584"]}
 atom_id: "CA-R-1585"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1585-CORE_META_MODEL-GENERAL-REQUIREMENT--default-plan-work-assignment-to-an-ai-agent.md
   source_atom_id: CA-R-1585
-  source_atom_revision: 4
-  source_sha256: 5998a90d15aedb5aa923b5ec90394a387ee5ece7489340e2dc9e1785699640ae
+  source_atom_revision: 7
+  source_sha256: f363c1c3d57bd8ddc872a2dd1a55831879c6149fb35c9e6771bda0b4c4da5baf
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

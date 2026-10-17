@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Evaluation Implementation Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Step/Agentic Execution Context"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Workflow Run"
-    - "Step Run"
-version: 4
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
+version: 6
+updated_at: "2026-10-15 18:53:56 +0000"
 relations:
   relates_to:
     - CA-O-018
@@ -28,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-092-CORE_META_MODEL-STEP--prepare-tests-in-the-implementation-subagent.md
   source_atom_id: CA-O-092
-  source_atom_revision: 4
-  source_sha256: c0d3978d4f406a5da4d5b342dfb0048aa955121c8ddb8a1d0f082616877dab59
+  source_atom_revision: 6
+  source_sha256: 3cd40193b3374e32f89dd3f914998cd5d59ce474018a25148816efba066bc3bf
   original_relations_sha256: 448ba3c15da49ccd06c81fa8cd26197d03e7a028c39316876d239b601145db74
 ---
 # Summary

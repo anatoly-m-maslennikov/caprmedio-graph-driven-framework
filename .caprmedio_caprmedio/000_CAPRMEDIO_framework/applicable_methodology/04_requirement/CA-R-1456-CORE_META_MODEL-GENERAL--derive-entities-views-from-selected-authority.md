@@ -1,24 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Entities Graph"
+  governs: "Entity/Continuant/Projection/Type: Entities Graph"
   depends_on:
-    - "Entity"
-    - "Subject Path"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Artifact/Revision"
-    - "Relation"
-    - "Relation Kind"
-    - "IS_BORNE_BY"
-    - "IS_ALLOWED_VALUE_OF"
-    - "BEARS"
-    - "Projection"
-    - "Term"
-    - "Scope Unit"
-    - "Journal"
-    - "Carrier"
-version: 8
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Entity", "Subject Path", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Subjects", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation", "Relation Kind", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Entity/Continuant/Projection", "Entity/Continuant/Term", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/History/Journal", "Entity/Carrier"]
+version: 12
+updated_at: "2026-10-15 18:43:16 +0000"
 relations:
   child_of:
     - CA-R-1438
@@ -36,8 +22,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL-GENERAL--derive-entities-views-from-selected-authority.md
   source_atom_id: CA-R-1456
-  source_atom_revision: 8
-  source_sha256: 3e389c9c223a5200e8fd7a1f3929dfa800f107e2b4e9a606a4eaf70247094fc8
+  source_atom_revision: 12
+  source_sha256: 2911f37146924b3dfc215b21deda156670e980b0ee43bb68ee7daac272a0e5f5
   original_relations_sha256: b71798924d8d8f30ddfdd11ed855b490e51668fe8e5a86fb0dc719fee2c5a57e
 ---
 # Summary
@@ -61,3 +47,15 @@ the view **may** be derived from an upstream Entities Graph Projection **when** 
 these node **and** internal-Relation selection rules do **not** require importing the endpoints of separately admitted external references as native graph members. **if** the view includes cross-graph **or** source references under CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections, it **must** keep them distinguishable from its native node **and** internal-Relation selection **and** preserve their admitted endpoint classes, graph-qualified Relation authority, **and** source traceability. such references **must not** silently enlarge the selected native graph **or** bypass an explicit source-declaration requirement for its internal Relations.
 
 ## Details
+
+### Readable tree view
+
+The readable Entities Graph view **must** present the Inherency tree:
+
+**Inherency tree:** use NARROWER_THAN, IS_BORNE_BY and IS_ALLOWED_VALUE_OF. First show the primary-entity tree without dependent entities. Then show one detail tree for each primary entity with one or more dependent entities, including its properties, further dependents and allowed values. Detail sections follow the primary entities' first-appearance order in the main tree.
+
+An entity with multiple broader parents **must** appear under every applicable parent, with the same identity at every placement. Its dependent-entity detail section appears once at its first-appearance position. The view **must** preserve relation meaning and any declared cardinality; repeated display does not create another entity.
+
+The Inherency view **must** be generated programmatically. Use declared sibling order when available; otherwise use alphabetical order. Keep shared identities, dependent qualification and the declared source selection. This is a readable view of the graph, not a replacement for the source model or a claim that the entire graph is a tree.
+
+Construction/CONTAINS projection is deferred to the adjacent `draft/` RMED. It is not required by this active readable-view specification.

@@ -10,16 +10,16 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Build Entities Graph"
-  depends_on: ["Workflow", "Step", "Workflow Run", "Projection/Type: Entities Graph"]
-version: 2
-updated_at: "2026-10-04 16:51:32 +0000"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Entities Graph"]
+version: 4
+updated_at: "2026-10-15 18:53:25 +0000"
 relations:
   relates_to: [CA-O-135, CA-R-1508, CA-R-1519, CA-R-1525, CA-R-1438, CA-R-1728]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-133-CORE_META_MODEL-WORKFLOW--build-entities-graph.md
   source_atom_id: CA-O-133
-  source_atom_revision: 2
-  source_sha256: 17a2d268d16603d53bc963fdbfdac860eaa978bb78ea0d1096a4b29ebf12f780
+  source_atom_revision: 4
+  source_sha256: 72584875253077c804e5e7337cdceabf2d1d7cc59fce98b502c3dea78fee9974
   original_relations_sha256: 62ad6908f682e6a52ba0b7df9c1b962e3e1b8cb23b4cca4bbe96e49cfb6156d1
 ---
 # Summary

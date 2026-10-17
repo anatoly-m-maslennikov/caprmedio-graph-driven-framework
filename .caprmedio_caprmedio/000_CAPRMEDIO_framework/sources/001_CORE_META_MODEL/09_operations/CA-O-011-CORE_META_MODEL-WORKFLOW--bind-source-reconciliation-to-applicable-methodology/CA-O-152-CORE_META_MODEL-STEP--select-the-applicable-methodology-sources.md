@@ -8,23 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 5
+updated_at: "2026-10-15 18:53:50 +0000"
 subjects:
-  governs: "Applicable Methodology Compilation/Step: select"
+  governs: "Applicable Methodology Compilation Select Step"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Applicable Methodology"
-    - "Select Reconciliation Sources"
-    - "Methodology Source"
-    - "Scope Unit"
-    - "Framework Instance Settings"
-    - "Extension"
-    - "Project Configuration"
-    - "Atom/Revision"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Select Reconciliation Sources", "Methodology Source", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Framework Settings", "Extension", "Project Configuration", "Entity/Continuant/Object/Atom"]
 relations:
   relates_to: [CA-O-011, CA-O-004]
 ---

@@ -1,18 +1,10 @@
 ---
 subjects:
-  governs: "Applicable Methodology"
+  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    - "Methodology Source"
-    - "Atom/Revision"
-    - "Projection"
-    - "Projection/Type: Reconciled Projection"
-    - "Scope Unit"
-    - "Atom/Claim"
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Carrier"
-    - "Atom/Content Role: Delivery"
-version: 17
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["Methodology Source", "Entity/Continuant/Object/Atom", "Entity/Continuant/Projection", "Entity/Continuant/Projection/Type: Reconciled Projection", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Delivery"]
+version: 19
+updated_at: "2026-10-15 18:41:14 +0000"
 relations: {}
 atom_id: "CA-R-1213"
 content_role: "Requirement"

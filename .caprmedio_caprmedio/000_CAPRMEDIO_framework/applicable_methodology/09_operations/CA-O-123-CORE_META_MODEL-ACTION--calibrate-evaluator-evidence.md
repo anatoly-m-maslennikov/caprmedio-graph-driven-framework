@@ -10,16 +10,16 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Evaluator Evidence Calibration"
-  depends_on: [Action, Evaluation, Operator, Atom/Revision, Artifact/Revision, Implementation]
-version: 1
-updated_at: "2026-10-04 15:12:43 +0000"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Artifact", "Implementation"]
+version: 3
+updated_at: "2026-10-15 18:53:17 +0000"
 relations:
   relates_to: [CA-O-018, CA-O-020, CA-O-104, CA-O-105, CA-O-106, CA-O-111, CA-O-118]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-123-CORE_META_MODEL-ACTION--calibrate-evaluator-evidence.md
   source_atom_id: CA-O-123
-  source_atom_revision: 1
-  source_sha256: 2f9d49699c4ca1a700caa594fccec0eeb63825eb8096b05b178e65a54f6190e8
+  source_atom_revision: 3
+  source_sha256: 9cd05a7dd46cc93b3ef43cda0d86f05060e63bf4c3125674ec82e44a3a211ffc
   original_relations_sha256: 8ace5e8c1a4db5fb3dc0c84fd049eb9d8fdd6ae14c6c3db5e9bd96f0ed636fcd
 ---
 # Summary

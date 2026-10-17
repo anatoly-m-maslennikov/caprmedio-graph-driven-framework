@@ -2,17 +2,9 @@
 subjects:
   governs: "Scope Reference Validation"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Atom/Scope"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Claim"
-    - "Atom/Subjects"
-    - "Scope Unit"
-    - "Project Structure"
-    - "Operator"
-    - "Hub Atom"
-version: 30
-updated_at: "2026-10-01 21:25:33 +0400"
+    ["Entity/Continuant/Object/Atom.Author", "Atom Scope", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Subjects", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Actor/Type: Operator", "Hub Atom"]
+version: 32
+updated_at: "2026-10-15 18:48:52 +0000"
 relations: {"evaluation_for": ["CA-R-1595", "CA-R-1596", "CA-R-922", "CA-R-923", "CA-R-1588", "CA-R-1271", "CA-R-947", "CA-R-944", "CA-R-1201", "CA-R-1202", "CA-D-482", "CA-D-495"]}
 atom_id: "CA-E-240"
 content_role: "Evaluation"
@@ -26,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md
   source_atom_id: CA-E-240
-  source_atom_revision: 30
-  source_sha256: 861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498
+  source_atom_revision: 32
+  source_sha256: f7566a7b83a83b807a1a2d93a074f12fa72a845bdb0f3c9773a7d77193fa20a9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

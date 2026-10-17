@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom Carrier/Filename/Token Case"
+  governs: "Entity/Carrier/File Carrier.Filename"
   depends_on: []
-version: 11
-updated_at: "2026-09-29 22:20:38 +0000"
+version: 13
+updated_at: "2026-10-16 12:09:12 +0000"
 relations: {}
 atom_id: "CA-D-284"
 content_role: "Delivery"
@@ -16,8 +16,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-284-CORE_META_MODEL-DELIVERY--serialize-filename-token-case.md
   source_atom_id: CA-D-284
-  source_atom_revision: 11
-  source_sha256: e86d9f3632b1f9981a19d9dc5fb2897ed14e3b7e81ba7cb66eeb261788749a56
+  source_atom_revision: 13
+  source_sha256: 69f31383ac2db5ba18ca745db3dea1267fcc54cde2bf81a22533b9b4201388ac
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Goal/Filename"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    - "Operator"
-    - "Project/Scope Unit"
-    - "Project"
-    - "Project Name"
-version: 15
-updated_at: "2026-10-02 19:05:39 +0400"
+    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Project.Settings.Project Name", "Entity/Continuant/Object/Project"]
+version: 17
+updated_at: "2026-10-16 12:09:14 +0000"
 relations: {}
 atom_id: "CA-D-292"
 content_role: "Delivery"
@@ -20,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-292-CORE_META_MODEL--serialize-external-project-goal-filenames.md
   source_atom_id: CA-D-292
-  source_atom_revision: 15
-  source_sha256: c74244f64debf60de21bcba55d0321f3f8339b13409ad7deb25ecadeebefb8e6
+  source_atom_revision: 17
+  source_sha256: 0c4a5342a06aa0383fbb2680e14277107a263d937b6580e0f155d70856cd561a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

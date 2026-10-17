@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Project Structure"
+  governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    - "Scope Unit"
-    - "Scope Unit/Name"
-    - "Scope Unit/Type"
-    - "Scope Unit/Label"
-    - "Scope Unit/Local Order"
-    - "Navigational Order Number"
-    - "Framework Instance Settings"
-    - "Carrier"
-version: 6
-updated_at: "2026-10-02 19:36:21 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Name", "Entity/Continuant/Object/Scope Unit/Type", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Continuant/Object/Scope Unit.Local Order", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Carrier"]
+version: 9
+updated_at: "2026-10-16 12:09:28 +0000"
 relations:
   child_of:
     - "CA-D-441"
@@ -30,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL--encode-scope-unit-declaration-fields.md
   source_atom_id: CA-D-442
-  source_atom_revision: 6
-  source_sha256: caa3df94215a7ae1e3e516c0bf94cae1295c79270f0f521e6f75a1eb51d70a2f
+  source_atom_revision: 9
+  source_sha256: 2d10c88088220dbb35c906813a2b43db15040163072c2dba345aa8e2abd64fdb
   original_relations_sha256: b298d3adff28f28e914311750b71b0096e049a5c88cb4f2f4b7341ebe0d569fb
 ---
 # Summary

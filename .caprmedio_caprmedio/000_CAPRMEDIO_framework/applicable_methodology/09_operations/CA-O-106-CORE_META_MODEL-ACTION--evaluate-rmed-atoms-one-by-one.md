@@ -8,21 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: "2026-10-03 06:11:33 +0400"
+version: 10
+updated_at: "2026-10-15 18:53:14 +0000"
 subjects:
   governs: "Evaluate RMED Review Batch"
   depends_on:
-    - "Action"
-    - "Atom"
-    - "Evaluation"
-    - "Workflow Run"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Occurrent/Execution/Workflow Run"]
 relations: {"relates_to":["CA-D-496","CA-E-520"]}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-106-CORE_META_MODEL-ACTION--evaluate-rmed-atoms-one-by-one.md
   source_atom_id: CA-O-106
-  source_atom_revision: 8
-  source_sha256: 28a8db9853d189bd07a2f65e5b8aa68171366e0b6dcb552151eda55302ba25c0
+  source_atom_revision: 10
+  source_sha256: 0607916914482dbc92c0a7859df8def4ca360ba7bbca02489424b01e53a81d57
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

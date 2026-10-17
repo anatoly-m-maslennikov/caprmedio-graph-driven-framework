@@ -1,18 +1,10 @@
 ---
 subjects:
-  governs: "Projection"
+  governs: "Entity/Continuant/Projection"
   depends_on:
-    - "Journal"
-    - "Journal/Record"
-    - "Work Journal/Event"
-    - "Artifact"
-    - "Action"
-    - "Workflow"
-    - "Project"
-    - "Projection/Type: Artifact Change Log"
-    - "Projection/Type: Process Log"
-version: 7
-updated_at: "2026-10-01 21:44:50 +0400"
+    ["Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection/Type: Artifact Change Log", "Entity/Continuant/Projection/Type: Process Log"]
+version: 10
+updated_at: "2026-10-16 12:08:25 +0000"
 relations: {}
 atom_id: "CA-R-1463"
 content_role: "Requirement"

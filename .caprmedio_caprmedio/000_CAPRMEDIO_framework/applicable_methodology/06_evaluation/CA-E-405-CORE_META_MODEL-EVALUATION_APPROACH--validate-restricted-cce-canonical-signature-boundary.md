@@ -2,11 +2,9 @@
 subjects:
   governs: "Canonical Signature Derivation Validation"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Claim/Canonical Signature"
-    - "CCE Operator"
-version: 10
-updated_at: "2026-10-01 21:25:33 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Atom Claim Canonical Signature", "CCE Operator"]
+version: 12
+updated_at: "2026-10-15 18:49:12 +0000"
 relations:
   evaluation_for:
     - CA-R-1360
@@ -23,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-405-CORE_META_MODEL-EVALUATION_APPROACH--validate-restricted-cce-canonical-signature-boundary.md
   source_atom_id: CA-E-405
-  source_atom_revision: 10
-  source_sha256: 1e237a88f00238545747d71e7a1022445c404accb5dcc8235ca08bc941880a5d
+  source_atom_revision: 12
+  source_sha256: 1bd532485ec8c47302ce2fabfa6783d34453199b8d23bf38163bbe8be3b43cfb
   original_relations_sha256: 7dd373415c940e6e37f65dd1259b1a506ecf9af8fcf83fd941c984daf3095a31
 ---
 # Summary

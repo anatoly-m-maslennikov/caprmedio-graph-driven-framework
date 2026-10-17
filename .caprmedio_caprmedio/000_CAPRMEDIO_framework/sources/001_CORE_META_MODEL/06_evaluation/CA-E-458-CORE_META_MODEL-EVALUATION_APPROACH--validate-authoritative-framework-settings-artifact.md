@@ -2,12 +2,9 @@
 subjects:
   governs: "Framework Instance Settings Validation"
   depends_on:
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Framework Instance Settings/Authoritative Carrier"
-    - "Framework Instance Settings/Revision Binding"
-version: 17
-updated_at: "2026-10-13 21:22:41 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project.Framework Settings.Revision Binding"]
+version: 19
+updated_at: "2026-10-15 18:49:27 +0000"
 relations:
   evaluation_for:
     - CA-R-1402

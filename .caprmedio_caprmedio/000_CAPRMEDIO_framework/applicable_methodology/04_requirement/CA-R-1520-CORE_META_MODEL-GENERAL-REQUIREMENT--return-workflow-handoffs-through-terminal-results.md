@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Workflow Run"
+  governs: "Entity/Occurrent/Execution/Workflow Run"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Artifact/Revision"
-    - "Operator"
-    - "Journal"
-    - "Status"
-version: 5
-updated_at: "2026-10-03 00:01:28 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal", "Status"]
+version: 7
+updated_at: "2026-10-15 18:43:55 +0000"
 relations: {"relates_to": ["CA-R-1510", "CA-R-1513", "CA-R-1519", "CA-R-1720"]}
 atom_id: "CA-R-1520"
 content_role: "Requirement"
@@ -23,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1520-CORE_META_MODEL-GENERAL-REQUIREMENT--return-workflow-handoffs-through-terminal-results.md
   source_atom_id: CA-R-1520
-  source_atom_revision: 5
-  source_sha256: 04bb2d029a169948a60b06d9a2f49736ce0f4e57029ee2791fa725aca8edb294
+  source_atom_revision: 7
+  source_sha256: abd5777d560022a91f8622ad40295e4676cd443982b1bf741e17f2191ac70918
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

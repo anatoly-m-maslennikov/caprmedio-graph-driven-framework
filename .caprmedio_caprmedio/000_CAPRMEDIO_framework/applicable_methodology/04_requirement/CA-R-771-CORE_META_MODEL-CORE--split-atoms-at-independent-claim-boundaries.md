@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom"
+  governs: "Entity/Continuant/Object/Atom"
   depends_on:
-    - "Claim"
-version: 16
-updated_at: "2026-09-29 04:58:54 +0000"
+    ["Entity/Continuant/Object/Atom.Substance"]
+version: 18
+updated_at: "2026-10-16 12:08:53 +0000"
 relations: {}
 atom_id: "CA-R-771"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-771-CORE_META_MODEL-CORE--split-atoms-at-independent-claim-boundaries.md
   source_atom_id: CA-R-771
-  source_atom_revision: 16
-  source_sha256: 55587bb779c1f882997208c63da9cd3254017ff084d08da239fd4b1953c35d15
+  source_atom_revision: 18
+  source_sha256: 59780988e1ec5b8dd02e02a66347d79ce8ac38c1d3758c9c94e879b6fc7cc9bb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

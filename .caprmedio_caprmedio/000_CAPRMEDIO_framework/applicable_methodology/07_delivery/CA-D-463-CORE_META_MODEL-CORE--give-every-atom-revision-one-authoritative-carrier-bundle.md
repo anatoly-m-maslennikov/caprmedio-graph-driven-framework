@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Authoritative Carrier Bundle"
+  governs: "Entity/Continuant/Object/Atom"
   depends_on:
-    - "Atom/Revision"
-    - "Carrier"
-    - "Markdown Atom Carrier"
-    - "Atom/Property"
-    - "Project"
-version: 5
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Carrier", "Entity/Carrier/File Carrier", "Entity/Continuant/Object/Atom.Property", "Entity/Continuant/Object/Project"]
+version: 8
+updated_at: "2026-10-16 12:09:32 +0000"
 relations: {"relates_to": ["CA-D-258", "CA-D-259", "CA-D-416"]}
 atom_id: "CA-D-463"
 content_role: "Delivery"
@@ -21,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md
   source_atom_id: CA-D-463
-  source_atom_revision: 5
-  source_sha256: 8b5a10d78d72d18256a9a00bc6350fe472489fe5247d97827b57d0f216b6b48e
+  source_atom_revision: 8
+  source_sha256: 49e285195ec8d1003820af2129c71f54a910369875e25a3ff4e6d781a6edc7b7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

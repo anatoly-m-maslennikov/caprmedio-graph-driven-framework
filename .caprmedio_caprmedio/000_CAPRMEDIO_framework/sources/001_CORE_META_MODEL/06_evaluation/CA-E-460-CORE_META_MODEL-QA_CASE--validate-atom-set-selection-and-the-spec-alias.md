@@ -10,19 +10,9 @@ status: Active
 subjects:
   governs: "Atom selection"
   depends_on:
-    - "Atom Collection"
-    - "Atom/Claim"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Content Role"
-    - "Atom/Status"
-    - "Hub Atom"
-    - "Owned Atoms"
-    - "Scope Unit"
-    - "Subtree-owned Atoms"
-    - "Subtree-targeting Atoms"
-    - "Targeting Atoms"
-version: 12
-updated_at: "2026-10-01 21:46:55 +0400"
+    ["Entity/Carrier", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Target Scope Unit", "Atom/Content Role", "Entity/Continuant/Object/Atom.Status", "Hub Atom", "Owned Atoms", "Entity/Continuant/Object/Scope Unit", "Subtree-owned Atoms", "Subtree-targeting Atoms", "Targeting Atoms"]
+version: 14
+updated_at: "2026-10-15 18:49:29 +0000"
 relations: {"evaluation_for": ["CA-D-482", "CA-D-495", "CA-M-273", "CA-M-288", "CA-R-1271", "CA-R-1447", "CA-R-1448", "CA-R-1449", "CA-R-1595", "CA-R-1596", "CA-R-942"]}
 global_tier: 11
 ---

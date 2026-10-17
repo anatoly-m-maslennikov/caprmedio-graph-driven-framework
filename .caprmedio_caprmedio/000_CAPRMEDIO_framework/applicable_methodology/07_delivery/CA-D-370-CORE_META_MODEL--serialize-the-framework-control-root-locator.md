@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/framework control-root locator"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Framework Control-Root Locator"
   depends_on:
-    - "Framework Instance Settings"
-    - "Project"
-    - "Directory Carrier"
-version: 8
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project", "Entity/Carrier/Directory Carrier"]
+version: 10
+updated_at: "2026-10-15 18:51:36 +0000"
 relations:
   child_of:
     - "CA-D-361"
@@ -21,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-370-CORE_META_MODEL--serialize-the-framework-control-root-locator.md
   source_atom_id: CA-D-370
-  source_atom_revision: 8
-  source_sha256: 69e3f575cb2373de175ff1407ad953f7d7ee42e105551c6da58de9c66b2c9177
+  source_atom_revision: 10
+  source_sha256: 8eb496f6126fe17b32b1f948380b7816f19a12f30b6170ddb28c50ed31f4e34a
   original_relations_sha256: dbd41c990ca96026d80a7c6e36e3203724208ce3569ca634233af924bbbfab2f
 ---
 # Summary

@@ -1,18 +1,10 @@
 ---
 subjects:
-  governs: "Workflow"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    - "Action"
-    - "Step"
-    - "Assess Atom Update Identity"
-    - "Atom"
-    - "Atom/Summary"
-    - "Artifact/Revision"
-    - "Atom Change Classification"
-    - "Workflow Run"
-    - "Operator"
-version: 5
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Assess Atom Update Identity", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Summary", "Atom Change Classification", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Actor/Type: Operator"]
+version: 7
+updated_at: "2026-10-15 18:49:52 +0000"
 relations: {"evaluation_for": ["CA-O-067", "CA-M-303", "CA-R-1432", "CA-R-1464", "CA-R-1520"]}
 atom_id: "CA-E-491"
 content_role: "Evaluation"
@@ -26,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md
   source_atom_id: CA-E-491
-  source_atom_revision: 5
-  source_sha256: 687b3d30d85e0ca910a82f6688bc0f14dc3424f25f48ba8ac444d644f226ddc6
+  source_atom_revision: 7
+  source_sha256: 509823e51130733c06fb47ccc595136b895511ff523a10ee893f4f42591831a5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

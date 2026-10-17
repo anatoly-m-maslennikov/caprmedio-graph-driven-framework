@@ -8,26 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: "2026-10-04 02:57:00 +0400"
+version: 11
+updated_at: "2026-10-15 18:53:12 +0000"
 subjects:
   governs: "RMED Atom Review Workflow"
   depends_on:
-    - "Workflow"
-    - "Step"
-    - "Action"
-    - "Workflow Run"
-    - "Workflow/Relation Kind: On Result"
-    - "Atom"
-    - "Journal"
-    - "Journal/Record"
-    - "Evaluation/Report"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Relation/Type: On Result", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Evaluation Report"]
 relations: {"relates_to":["CA-D-340","CA-O-108","CA-O-109","CA-O-110","CA-R-1643","CA-R-1720"]}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md
   source_atom_id: CA-O-104
-  source_atom_revision: 9
-  source_sha256: 44f09c0cc44ff08b03200c21e88d8e7f36ab0d3b10b037b17d0b22a20badea79
+  source_atom_revision: 11
+  source_sha256: c9024d3e2995df0d80532c89c02b207d573da517e862815dbe2dab6851a1880a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

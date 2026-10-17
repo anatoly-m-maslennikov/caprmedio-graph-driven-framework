@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier/YAML Frontmatter"
+  governs: "Markdown Atom Carrier.YAML Frontmatter"
   depends_on:
-    - "Atom/Revision/Author"
-    - "Operator"
-    - "Scope Unit"
-    - "Actor"
-version: 16
-updated_at: "2026-10-15 10:01:40 +0000"
+    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Actor"]
+version: 19
+updated_at: "2026-10-15 23:42:04 +0400"
 relations: {}
 atom_id: "CA-D-276"
 content_role: "Delivery"
@@ -65,4 +62,4 @@ use the following field encodings for the applicable Atom Properties. presence f
 
 ### Subjects-only edit-draft exception
 
-CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry the temporary `atom_id: <canonical-ID>@draft`, `status: Draft`, and matching temporary-ID filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest; this is the narrow provenance basis for this proposal, not ordinary Draft identity allocation or retained-head promotion. No additional `revision_lineage` or demotion history is created just to stage it. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. New-Atom Drafts and ordinary lifecycle Drafts remain ID-free and subject to their existing lineage rules; canonical ID grammar is unchanged.
+CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry the temporary `atom_id: <canonical-ID>@draft`, `status: Draft`, and matching temporary-ID filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts remain ID-free; canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.

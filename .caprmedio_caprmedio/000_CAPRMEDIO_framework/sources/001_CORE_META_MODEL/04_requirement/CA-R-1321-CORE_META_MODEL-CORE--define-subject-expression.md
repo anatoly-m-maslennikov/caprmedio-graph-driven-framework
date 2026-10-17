@@ -2,13 +2,9 @@
 subjects:
   governs: "Subject Expression"
   depends_on:
-    - "Entity"
-    - "Term"
-    - "Property"
-    - "Subject"
-    - "Atom"
-version: 14
-updated_at: "2026-10-11 18:04:47 +0400"
+    ["Entity", "Entity/Continuant/Term", "Property", "Subject", "Entity/Continuant/Object/Atom"]
+version: 15
+updated_at: "2026-10-15 18:41:52 +0000"
 relations: {}
 atom_id: "CA-R-1321"
 content_role: "Requirement"

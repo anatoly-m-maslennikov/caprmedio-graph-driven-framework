@@ -2,11 +2,9 @@
 subjects:
   governs: "Structural Parent Relation"
   depends_on:
-    - "Scope Unit"
-    - "Project Structure"
-    - "Structural Entity"
-version: 17
-updated_at: "2026-10-03 01:43:51 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Structural Entity"]
+version: 18
+updated_at: "2026-10-15 18:45:19 +0000"
 relations: {}
 atom_id: "CA-R-1660"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md
   source_atom_id: CA-R-1660
-  source_atom_revision: 17
-  source_sha256: 5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1
+  source_atom_revision: 18
+  source_sha256: 4a87624f2a2f1e8a9f6f7920511e5f97f2930e316f4da719ebbcf50b825a9392
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

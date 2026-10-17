@@ -1,19 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Identity/collision repair"
+  governs: "Entity/Continuant/Object/Atom.ID"
   depends_on:
-    - "Atom/Identity"
-    - "Atom/Content Role"
-    - "Atom/Claim"
-    - "Atom/Scope"
-    - "Artifact/Revision"
-    - "Carrier/Canonical Address"
-    - "Project"
-    - "Operator"
-    - "Confidence Threshold"
-    - "Work Journal"
-version: 9
-updated_at: "2026-10-02 20:09:13 +0400"
+    ["Entity/Continuant/Object/Atom.ID", "Atom/Content Role", "Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier.Canonical Address", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator", "Confidence Threshold", "Entity/Continuant/History/Journal"]
+version: 11
+updated_at: "2026-10-15 18:49:22 +0000"
 relations:
   evaluation_for:
     - CA-M-276
@@ -29,8 +20,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-EVALUATION_APPROACH--validate-accidental-atom-id-reuse-repair.md
   source_atom_id: CA-E-448
-  source_atom_revision: 9
-  source_sha256: 1504f5ef8fda49372abf4f637712bc84e8a77dfb93cca49089ffcddb46412ace
+  source_atom_revision: 11
+  source_sha256: f53fe90403c4f649e44e106a995043a7bd2e2b368d5a6f61eda9be2306b9abe4
   original_relations_sha256: bac80633f7ceae4c33d069bb745b62b44460833c47bbcf9f7f698fad1015abce
 ---
 # Summary

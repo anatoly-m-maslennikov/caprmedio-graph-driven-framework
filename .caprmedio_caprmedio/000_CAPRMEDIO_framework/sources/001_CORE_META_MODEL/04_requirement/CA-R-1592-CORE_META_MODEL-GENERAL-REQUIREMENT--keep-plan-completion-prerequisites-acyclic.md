@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Blocking"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Atom/Content Role: Plan/Type: Plan/Status: Done"
-    - "Hub Atom"
-version: 4
-updated_at: "2026-10-03 00:48:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Done"]
+version: 7
+updated_at: "2026-10-16 12:08:36 +0000"
 relations: {"relates_to": ["CA-R-1580", "CA-R-1583", "CA-R-1538"]}
 atom_id: "CA-R-1592"
 content_role: "Requirement"

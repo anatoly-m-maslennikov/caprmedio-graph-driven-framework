@@ -2,14 +2,9 @@
 subjects:
   governs: "Single Source of Truth"
   depends_on:
-    - "Atom"
-    - "Atom/Claim"
-    - "Project Structure"
-    - "Structural Entity"
-    - "Journal"
-    - "Projection"
-version: 7
-updated_at: "2026-10-04 22:02:40 +0000"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Project.Structure", "Structural Entity", "Entity/Continuant/History/Journal", "Entity/Continuant/Projection"]
+version: 9
+updated_at: "2026-10-15 18:43:27 +0000"
 relations: {}
 atom_id: "CA-R-1470"
 content_role: "Requirement"
@@ -22,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1470-CORE_META_MODEL-CORE--define-single-source-of-truth.md
   source_atom_id: CA-R-1470
-  source_atom_revision: 7
-  source_sha256: fdd8765be6618a53fd491a48907f6cf297398066efa9da9055bc54fdea47a017
+  source_atom_revision: 9
+  source_sha256: a3235955586e05ec2151ed66206f1039d11cd5e2ee67f6ff3c42697d29aeaed6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

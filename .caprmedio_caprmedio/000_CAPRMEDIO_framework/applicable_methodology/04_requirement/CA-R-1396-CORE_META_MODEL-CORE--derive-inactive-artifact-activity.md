@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Activity: Inactive"
+  governs: "Artifact.Activity: Inactive"
   depends_on:
-    - "Artifact/Activity"
-    - "Artifact/Revision/Status"
-version: 10
-updated_at: "2026-10-02 22:41:14 +0400"
+    ["Artifact.Activity", "Artifact.Status"]
+version: 11
+updated_at: "2026-10-15 12:21:43 +0000"
 relations: {}
 atom_id: "CA-R-1396"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md
   source_atom_id: CA-R-1396
-  source_atom_revision: 10
-  source_sha256: 683c9054bbab9d98fa980f496267f7195fc7158487a8c59944203b12970c8f3c
+  source_atom_revision: 11
+  source_sha256: a575e58ac085b353519051ca230cd7ada0db8df19f6bacbba51fcf34e36512f5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

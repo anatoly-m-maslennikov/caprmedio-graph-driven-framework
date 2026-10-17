@@ -1,15 +1,10 @@
 ---
 subjects:
-  governs: "Markdown Atom Carrier/Main Content"
+  governs: "Markdown Atom Carrier.Main Content"
   depends_on:
-    - "Atom/Summary"
-    - "Atom/Claim"
-    - "Atom/Content Role"
-    - "Atom/Details"
-    - "Property"
-    - "Markdown Atom Carrier/Structure"
-version: 6
-updated_at: "2026-10-02 19:54:46 +0400"
+    ["Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Substance", "Atom/Content Role", "Entity/Continuant/Object/Atom.Details", "Property", "Markdown Atom Carrier"]
+version: 8
+updated_at: "2026-10-15 18:52:17 +0000"
 relations: {"relates_to": ["CA-D-356", "CA-D-478"]}
 atom_id: "CA-D-479"
 content_role: "Delivery"
@@ -22,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties.md
   source_atom_id: CA-D-479
-  source_atom_revision: 6
-  source_sha256: 0819f8433cde89484e21a200466504a9fdcad31b58958c777a761637fbb45ff1
+  source_atom_revision: 8
+  source_sha256: 427e309ef7ea9c49a4ba168cc1420df015366544ff0746b27a98ab39a8ab7feb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -10,20 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Repair"
   depends_on:
-    - "Action"
-    - "Implementation Failure Diagnosis"
-    - "Implementation Retry Control"
-    - "Operator"
-    - "AI Agent"
-    - "Spec"
-    - "Atom/Content Role: Evaluation"
-    - "Atom/Content Role: Method"
-    - "Atom/Content Role: Implementation"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Revision/Author"
-    - "Local Tier"
-version: 9
-updated_at: "2026-10-04 16:53:23 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Implementation Failure Diagnosis", "Implementation Retry Control", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Spec", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Method", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom.Author", "Local Tier"]
+version: 11
+updated_at: "2026-10-15 18:52:54 +0000"
 relations:
   relates_to:
     - CA-R-1559

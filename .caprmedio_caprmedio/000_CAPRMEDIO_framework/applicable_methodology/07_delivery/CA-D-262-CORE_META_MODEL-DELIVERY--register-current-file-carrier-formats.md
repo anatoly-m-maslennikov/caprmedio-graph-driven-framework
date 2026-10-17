@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: "File Carrier/Format"
+  governs: "Entity/Carrier/File Carrier.Format"
   depends_on:
     - "Extension"
     - "Project Configuration"
-version: 12
-updated_at: "2026-09-29 22:20:38 +0000"
+version: 14
+updated_at: "2026-10-15 18:50:42 +0000"
 relations: {}
 atom_id: "CA-D-262"
 content_role: "Delivery"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md
   source_atom_id: CA-D-262
-  source_atom_revision: 12
-  source_sha256: 5d420859be25a05194d5f62fe00504dd4ac5a8bb83fde0ac4cac8249c22b07fe
+  source_atom_revision: 14
+  source_sha256: 25330f9a6e693d0e88526bdd4ce952461fb0eb0fcd9ca8d7362e7c49408554ae
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

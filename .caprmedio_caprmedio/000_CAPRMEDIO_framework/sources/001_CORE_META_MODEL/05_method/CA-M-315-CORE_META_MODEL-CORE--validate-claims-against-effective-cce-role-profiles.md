@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "CCE/Role Profile/validation"
+  governs: "Entity/Continuant/Object/Atom.Substance"
   depends_on:
-    - "CCE/Role Profile"
-    - "CCE Operator"
-    - "Atom/Claim"
-    - "Atom/Content Role"
-    - "Type"
-version: 4
-updated_at: "2026-10-02 20:35:16 +0400"
+    ["CCE Role Profile", "CCE Operator", "Entity/Continuant/Object/Atom.Substance", "Atom/Content Role", "Type"]
+version: 6
+updated_at: "2026-10-15 18:48:47 +0000"
 relations:
   child_of:
     - CA-M-307

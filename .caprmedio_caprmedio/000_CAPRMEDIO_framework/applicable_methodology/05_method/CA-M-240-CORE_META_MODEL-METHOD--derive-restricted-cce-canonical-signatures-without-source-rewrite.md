@@ -2,11 +2,9 @@
 subjects:
   governs: "Canonical Signature Derivation"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Claim/Canonical Signature"
-    - "CCE Operator"
-version: 9
-updated_at: "2026-10-01 21:38:15 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Atom Claim Canonical Signature", "CCE Operator"]
+version: 11
+updated_at: "2026-10-15 18:48:06 +0000"
 relations:
   child_of:
     - CA-M-115
@@ -21,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md
   source_atom_id: CA-M-240
-  source_atom_revision: 9
-  source_sha256: 03b8fab73bd3a910adeac50371d62fea8a5833836671fb9e3d502ff0062e654c
+  source_atom_revision: 11
+  source_sha256: 6638ed5e274fff2773930a589d8263350142167b5e50af7bc40ffdf49d9f3408
   original_relations_sha256: 8560a14f5d40024180f49119ad6216bc8babc0722610186fff08e9b20d081299
 ---
 # Summary

@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Step"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"
   depends_on:
-    - "Workflow"
-    - "Action"
-    - "Atom/Content Role: Operations/Type: Step"
-    - "Step Run"
-    - "Action/Execution Kind"
-    - "Step/Agentic Execution Context"
-    - "Tool"
-version: 6
-updated_at: "2026-10-02 23:53:38 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Step Run", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Agentic Step Execution Context", "Tool"]
+version: 8
+updated_at: "2026-10-15 18:43:51 +0000"
 relations: {"relates_to": ["CA-R-1569"]}
 atom_id: "CA-R-1509"
 content_role: "Requirement"
@@ -23,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1509-CORE_META_MODEL-CORE-REQUIREMENT--define-step.md
   source_atom_id: CA-R-1509
-  source_atom_revision: 6
-  source_sha256: 29969fbadae10b18096c356dca721982b60e256dbf186301a065210cfbce3083
+  source_atom_revision: 8
+  source_sha256: b7eccf3900954c94a064f721b057f6b5543224d1dd0f4e5032e005938645b3c4
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

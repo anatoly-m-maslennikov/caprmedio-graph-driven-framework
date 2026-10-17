@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Carrier/Canonical Address"
+  governs: "Entity/Continuant/Object/Atom.Property"
   depends_on:
-    - "Atom/Property"
-    - "Atom/Summary"
-    - "Atom/Identifier"
-    - "Atom/Revision/Status"
-    - "Markdown Atom Carrier"
-version: 4
-updated_at: "2026-10-02 19:57:02 +0400"
+    ["Entity/Continuant/Object/Atom.Property", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Status", "Entity/Carrier/File Carrier"]
+version: 7
+updated_at: "2026-10-16 12:09:36 +0000"
 relations: {"relates_to": ["CA-D-478", "CA-D-282", "CA-D-466"]}
 atom_id: "CA-D-480"
 content_role: "Delivery"
@@ -21,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-480-CORE_META_MODEL--keep-atom-addresses-consistent-with-carried-properties.md
   source_atom_id: CA-D-480
-  source_atom_revision: 4
-  source_sha256: b5bb0b3b11a8ac86964c39680b87158380d6c1da1c02173d0876957580ea6698
+  source_atom_revision: 7
+  source_sha256: a73f2ed9a3773ee775c74edff404d8e34b6e08110d014eb855fb45d077dbf027
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

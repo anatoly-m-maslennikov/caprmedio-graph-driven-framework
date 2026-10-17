@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Activity: Active"
+  governs: "Artifact.Activity: Active"
   depends_on:
-    - "Artifact/Activity"
-    - "Artifact/Revision/Status"
-version: 10
-updated_at: "2026-10-02 22:50:34 +0400"
+    ["Artifact.Activity", "Artifact.Status"]
+version: 11
+updated_at: "2026-10-15 12:21:42 +0000"
 relations: {}
 atom_id: "CA-R-1395"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md
   source_atom_id: CA-R-1395
-  source_atom_revision: 10
-  source_sha256: 9491c0a5c6b7c2b3c51f593941b3bf6e2430c82b59027cb36bf0b7610401a1b0
+  source_atom_revision: 11
+  source_sha256: 00b0130a6272dd570dd085129083059145ed603b341883dbeb3dd050bd62155f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

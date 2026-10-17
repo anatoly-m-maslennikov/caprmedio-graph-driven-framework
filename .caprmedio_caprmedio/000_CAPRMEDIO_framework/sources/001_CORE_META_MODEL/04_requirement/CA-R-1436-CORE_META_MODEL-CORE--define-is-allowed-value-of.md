@@ -2,11 +2,9 @@
 subjects:
   governs: "IS_ALLOWED_VALUE_OF"
   depends_on:
-    - "Property"
-    - "Entities Graph"
-    - "Relation"
-version: 8
-updated_at: "2026-10-09 19:47:28 +0400"
+    ["Property", "Entity/Continuant/Projection/Type: Entities Graph", "Entity/Continuant/Object/Relation"]
+version: 9
+updated_at: "2026-10-15 18:43:00 +0000"
 relations: {}
 atom_id: "CA-R-1436"
 content_role: "Requirement"

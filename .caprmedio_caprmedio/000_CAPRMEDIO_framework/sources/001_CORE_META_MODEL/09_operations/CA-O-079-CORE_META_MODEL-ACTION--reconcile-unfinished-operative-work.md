@@ -10,26 +10,9 @@ status: Active
 subjects:
   governs: "Reconcile Unfinished Work"
   depends_on:
-    - "Action"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Claim"
-    - "Atom/Summary"
-    - "Atom/Revision"
-    - "Atom/Content Role: Plan/Type: Plan/Definition of Done"
-    - "Atom/Content Role: Plan/Status"
-    - "Atom/Content Role: Plan/Type: Plan/Label"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Scope Unit"
-    - "Atom/Claim/Target Scope Unit"
-    - "Relation"
-    - "Journal"
-    - "Journal/Record"
-    - "Carrier"
-    - "Operator"
-    - "Workflow Run"
-
-version: 4
-updated_at: "2026-10-04 15:16:04 +0000"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Relation", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Continuant/Actor/Type: Operator", "Entity/Occurrent/Execution/Workflow Run"]
+version: 6
+updated_at: "2026-10-15 18:53:06 +0000"
 relations: {"relates_to": ["CA-R-1715", "CA-M-306", "CA-R-1574", "CA-R-1576", "CA-R-1577", "CA-R-1579", "CA-R-1580", "CA-R-1583", "CA-R-1599", "CA-R-1539", "CA-R-1464", "CA-D-461", "CA-D-470", "CA-D-481", "CA-R-1490", "CA-R-1720"]}
 global_tier: 11
 ---

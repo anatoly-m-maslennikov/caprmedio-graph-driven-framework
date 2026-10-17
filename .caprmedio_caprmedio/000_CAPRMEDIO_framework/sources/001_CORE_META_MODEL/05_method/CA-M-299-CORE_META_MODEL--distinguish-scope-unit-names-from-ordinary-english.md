@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Name"
+  governs: "Entity/Continuant/Object/Scope Unit.Name"
   depends_on:
-    - "Scope Unit"
-    - "CCE"
-version: 4
-updated_at: "2026-10-02 20:35:16 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "CCE"]
+version: 6
+updated_at: "2026-10-15 18:48:26 +0000"
 relations: {}
 atom_id: "CA-M-299"
 content_role: "Method"

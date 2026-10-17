@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Demand/Admission"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand"
   depends_on:
-    - "Consumer/Goal"
-    - "Producer/Result"
-version: 17
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Consumer Goal", "Producer Result"]
+version: 19
+updated_at: "2026-10-15 18:47:19 +0000"
 relations:
   child_of:
     - CA-R-933
@@ -20,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md
   source_atom_id: CA-R-951
-  source_atom_revision: 17
-  source_sha256: 6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7
+  source_atom_revision: 19
+  source_sha256: 08ae97634c69d5f092152b0846d0bf3a68b27b27e3a4f84b254158f8e5feee85
   original_relations_sha256: 5463f7bebc49570104b47556da8a5785c8b62028d2d02be2df820f960444ce29
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Decomposition"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan/Recursive Decomposition"
-version: 5
-updated_at: "2026-10-03 00:06:54 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan"]
+version: 7
+updated_at: "2026-10-16 12:08:30 +0000"
 relations: {"relates_to": ["CA-R-1537"]}
 atom_id: "CA-R-1538"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1538-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-plan-decomposition-cycles.md
   source_atom_id: CA-R-1538
-  source_atom_revision: 5
-  source_sha256: f2052faf837ca1ffac8f52fa105ff0560694bac58b0ce110e40ebb9fbd17860d
+  source_atom_revision: 7
+  source_sha256: 4c5f8dd3a772567e00d4289f91b120327ab3a99b80b24a51c1e1d709f0705986
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

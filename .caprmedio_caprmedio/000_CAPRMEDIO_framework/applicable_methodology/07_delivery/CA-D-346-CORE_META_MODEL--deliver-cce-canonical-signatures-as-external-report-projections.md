@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Claim/Canonical Signature/Projection"
+  governs: "Entity/Continuant/Projection/Type: Canonical Signature"
   depends_on:
-    - "Atom/Claim/Canonical Signature"
-    - "Carrier"
-    - "Atom/Identity"
-    - "Atom/Revision"
-    - "Atom/Claim"
-    - "Atom/Carrier"
-    - "CCE"
-version: 12
-updated_at: "2026-10-05 00:25:37 +0400"
+    ["Atom Claim Canonical Signature", "Entity/Carrier", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Atom Carrier", "CCE"]
+version: 14
+updated_at: "2026-10-15 18:51:21 +0000"
 relations:
   child_of:
     - CA-D-266
@@ -25,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md
   source_atom_id: CA-D-346
-  source_atom_revision: 12
-  source_sha256: 33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c
+  source_atom_revision: 14
+  source_sha256: 5a099b0650dd5272fd811ae3825d4ddde59086d74a4811e7f474df3641efb527
   original_relations_sha256: 27960d084ae992c89042523b783c283ce26a91ac1b1473d8e6f3ba8c73dade11
 ---
 # Summary

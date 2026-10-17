@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Extension selections"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Extension Selections"
   depends_on:
-    - "Framework Instance Settings"
-    - "Extension"
-version: 7
-updated_at: "2026-10-01 21:24:33 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Extension"]
+version: 9
+updated_at: "2026-10-15 18:51:39 +0000"
 relations:
   child_of:
     - "CA-D-361"
@@ -20,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-373-CORE_META_MODEL--serialize-instance-extension-selections.md
   source_atom_id: CA-D-373
-  source_atom_revision: 7
-  source_sha256: 73be5d05e33b682bb2f00dc1aec8e08da4ac0ef67b3a6201f8ef96863d7c1fff
+  source_atom_revision: 9
+  source_sha256: ced79a7b614dcefc0236c925bf83552ee24232c396a16024f127b24a637f087b
   original_relations_sha256: dbd41c990ca96026d80a7c6e36e3203724208ce3569ca634233af924bbbfab2f
 ---
 # Summary

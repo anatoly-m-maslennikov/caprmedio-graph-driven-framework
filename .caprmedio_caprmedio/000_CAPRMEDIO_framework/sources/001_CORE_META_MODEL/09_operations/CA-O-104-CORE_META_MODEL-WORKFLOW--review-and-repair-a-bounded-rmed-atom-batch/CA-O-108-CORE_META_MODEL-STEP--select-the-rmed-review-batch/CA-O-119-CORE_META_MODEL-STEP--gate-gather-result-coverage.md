@@ -8,11 +8,11 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-14 13:44:47 +0400"
+version: 4
+updated_at: "2026-10-15 18:54:07 +0000"
 subjects:
-  governs: "RMED Atom Review Workflow/coverage/Step: 119"
-  depends_on: [Workflow, Step, Action, Atom, Operator, Journal]
+  governs: "RMED Atom Review Gather Coverage Gate Step"
+  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
 relations:
   relates_to: [CA-O-104, CA-O-118]
 ---

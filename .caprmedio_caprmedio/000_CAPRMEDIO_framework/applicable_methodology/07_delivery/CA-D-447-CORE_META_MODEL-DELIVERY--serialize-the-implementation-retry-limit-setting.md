@@ -1,15 +1,11 @@
 ---
-version: 8
-updated_at: "2026-10-01 21:24:33 +0400"
+version: 10
+updated_at: "2026-10-15 18:52:02 +0000"
 relations: {"relates_to": ["CA-D-361", "CA-R-1488", "CA-R-1489", "CA-D-408", "CA-D-460", "CA-D-470", "CA-M-295"]}
 subjects:
-  governs: "Implementation Retry Limit/Carrier"
+  governs: "Implementation Retry Limit"
   depends_on:
-    - "Framework Instance Settings"
-    - "Default Settings"
-    - "Implementation Retry Limit"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Carrier"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Implementation Retry Limit", "Atom/Content Role: Plan/Type: Plan", "Entity/Carrier"]
 atom_id: "CA-D-447"
 content_role: "Delivery"
 current_scope_unit: "CORE_META_MODEL"
@@ -21,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md
   source_atom_id: CA-D-447
-  source_atom_revision: 8
-  source_sha256: 6b39f117ff6b90a81b3553bbf97b183587fda4f8be55a5701c7c62fbe6785475
+  source_atom_revision: 10
+  source_sha256: 9c5444959c389513dea3c00079c3dfa619007eaad9ad82bc011fc72cc075df18
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

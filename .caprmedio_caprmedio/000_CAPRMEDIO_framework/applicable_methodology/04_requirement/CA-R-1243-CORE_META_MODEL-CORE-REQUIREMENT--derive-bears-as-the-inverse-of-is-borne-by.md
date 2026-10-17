@@ -2,11 +2,9 @@
 subjects:
   governs: "BEARS"
   depends_on:
-    - "IS_BORNE_BY"
-    - "Entities Graph"
-    - "Relation Kind"
-version: 11
-updated_at: "2026-10-02 21:35:09 +0400"
+    ["IS_BORNE_BY", "Entity/Continuant/Projection/Type: Entities Graph", "Relation Kind"]
+version: 12
+updated_at: "2026-10-15 18:41:21 +0000"
 relations: {}
 atom_id: "CA-R-1243"
 content_role: "Requirement"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1243-CORE_META_MODEL-CORE-REQUIREMENT--derive-bears-as-the-inverse-of-is-borne-by.md
   source_atom_id: CA-R-1243
-  source_atom_revision: 11
-  source_sha256: 1ec0984a964162ea6fed2fec8f2428942c508c702a7879cd82c185a2632e2255
+  source_atom_revision: 12
+  source_sha256: 8b6fa9dc8bca13e70dd0d34b88b454b8eb40828d938ae7eb39f7e1dcd82ed857
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

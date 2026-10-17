@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "New Archived Revision Markdown Carrier Binding"
+  governs: "Entity/Continuant/History/Revision"
   depends_on:
-    - "Artifact/Revision/Status"
-    - "Artifact/Revision/Archive Carrier"
-    - "Artifact/Carrier Placement"
-version: 1
-updated_at: "2026-10-05 00:00:00 +0000"
+    ["Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Atom.Status: Archived", "Entity/Carrier.Canonical Address"]
+version: 4
+updated_at: "2026-10-16 12:09:38 +0000"
 relations: {"relates_to": ["CA-D-289", "CA-D-466"]}
 atom_id: "CA-D-565"
 content_role: "Delivery"
@@ -19,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md
   source_atom_id: CA-D-565
-  source_atom_revision: 1
-  source_sha256: cb58f4cef97a55839daf29f2b3ef14562e9d5cf413291d900ff31334402e9f8a
+  source_atom_revision: 4
+  source_sha256: c427a51e2e9dc0b9314dc829ca85122e20d961e29577e702e9c62c73857d6f81
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Demand/Direction"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit"
   depends_on:
-    - "Atom/Scope"
-    - "Atom/Claim/Target Scope Unit"
-version: 15
-updated_at: "2026-10-02 21:52:05 +0400"
+    ["Entity/Continuant/Object/Atom.Owning Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit"]
+version: 18
+updated_at: "2026-10-16 12:08:19 +0000"
 relations: {}
 atom_id: "CA-R-1294"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1294-CORE_META_MODEL-CORE-REQUIREMENT--derive-demand-direction-without-another-relation-kind.md
   source_atom_id: CA-R-1294
-  source_atom_revision: 15
-  source_sha256: 1a4fb4af2ce6389a6545c2e29a7958d8f7eb9807772ceaf60c627728828ecc01
+  source_atom_revision: 18
+  source_sha256: 22e9229037165d3aa62c20fa19afc9dac462f085103fc7978fcc48b4b8fba7ed
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

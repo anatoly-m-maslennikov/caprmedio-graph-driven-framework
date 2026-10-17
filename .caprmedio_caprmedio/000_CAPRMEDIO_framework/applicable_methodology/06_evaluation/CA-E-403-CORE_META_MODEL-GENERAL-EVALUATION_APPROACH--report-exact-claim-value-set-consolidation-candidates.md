@@ -2,14 +2,9 @@
 subjects:
   governs: "Claim Value Set Consolidation Candidate Evaluation"
   depends_on:
-    - "Atom/Claim"
-    - "Atom/Scope"
-    - "Atom/Governed Subject"
-    - "Claim Value Set"
-    - "Property"
-    - "IS_ALLOWED_VALUE_OF"
-version: 12
-updated_at: "2026-10-02 20:03:51 +0400"
+    ["Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Entity/Continuant/Object/Atom.Governed Subject", "Claim Value Set", "Property", "IS_ALLOWED_VALUE_OF"]
+version: 14
+updated_at: "2026-10-15 18:49:10 +0000"
 relations:
   evaluation_for:
     - CA-R-1358
@@ -26,8 +21,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--report-exact-claim-value-set-consolidation-candidates.md
   source_atom_id: CA-E-403
-  source_atom_revision: 12
-  source_sha256: 3aa9a341876eee5a153e923a4a7d4fadc400d69b2925ff11a7c25c278fa444c9
+  source_atom_revision: 14
+  source_sha256: 061705cdeeb724845dd4a5ef0264aeddf96d5b76dc282c15942ed45641bc97ac
   original_relations_sha256: 520fb5ded33b8149da4371614ad71a1b5b9bfed9da1d8e54cedf4ae9c0eacd52
 ---
 # Summary

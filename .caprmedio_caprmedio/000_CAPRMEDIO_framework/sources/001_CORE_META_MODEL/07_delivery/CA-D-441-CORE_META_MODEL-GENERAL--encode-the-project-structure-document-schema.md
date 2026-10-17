@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Project Structure"
+  governs: "Entity/Continuant/Object/Project.Structure"
   depends_on:
-    - "Scope Unit"
-    - "Carrier"
-    - "Project"
-    - "Project Settings"
-version: 5
-updated_at: "2026-09-28 15:12:22 +0400"
+    ["Entity/Continuant/Object/Scope Unit", "Entity/Carrier", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Project.Settings"]
+version: 6
+updated_at: "2026-10-15 18:51:57 +0000"
 relations:
   child_of:
     - "CA-D-440"

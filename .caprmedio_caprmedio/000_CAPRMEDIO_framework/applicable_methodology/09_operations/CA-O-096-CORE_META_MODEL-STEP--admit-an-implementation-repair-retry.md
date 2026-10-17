@@ -10,15 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Retry Control Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Step/Agentic Execution Context"
-    - "AI Agent"
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Workflow Run"
-    - "Step Run"
-version: 4
-updated_at: "2026-10-14 13:43:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
+version: 6
+updated_at: "2026-10-15 18:53:59 +0000"
 relations:
   relates_to:
     - CA-O-024
@@ -28,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-096-CORE_META_MODEL-STEP--admit-an-implementation-repair-retry.md
   source_atom_id: CA-O-096
-  source_atom_revision: 4
-  source_sha256: 4b8083b0f864dfdb4694b75dc807140ad612f70edacfee2b6bc591003934530e
+  source_atom_revision: 6
+  source_sha256: 1ac355a9f28171feeef43df5282afbed8ec554422b7feab82053754282ee3e75
   original_relations_sha256: de2ef28b17f0e68d88249e9195dc3743b7a006804a21d505b52acfb938123324
 ---
 # Summary

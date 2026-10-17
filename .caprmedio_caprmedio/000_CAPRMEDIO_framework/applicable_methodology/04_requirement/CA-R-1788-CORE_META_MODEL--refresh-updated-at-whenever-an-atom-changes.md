@@ -1,14 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Revision/Updated At"
+  governs: "Entity/Continuant/Object/Atom.Updated At"
   depends_on:
-    - "Atom/Revision"
-    - "Artifact/Carrier"
-    - "Entity"
-    - "Atom/Revision/Status"
-    - "Artifact/Carrier Placement"
-version: 3
-updated_at: "2026-10-13 19:53:16 +0400"
+    ["Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier", "Entity", "Entity/Continuant/Object/Atom.Status", "Entity/Carrier.Canonical Address"]
+version: 6
+updated_at: "2026-10-16 12:08:47 +0000"
 claim_target_scope_unit: "CORE_META_MODEL"
 relations:
   child_of:
@@ -23,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL--refresh-updated-at-whenever-an-atom-changes.md
   source_atom_id: CA-R-1788
-  source_atom_revision: 3
-  source_sha256: 5053076d854d591f834032a3d17f3ea56d4cfc3d76e4bb5a54cea09bfd23bea7
+  source_atom_revision: 6
+  source_sha256: c527261ec0dce068f975c05e6ffcd93fa55b11054217b9f44323711c39d71f48
   original_relations_sha256: 4847fb4582248044a24be63c7b8943ad429a2717d1a91a92e578a6a7656a08d0
 ---
 # Summary

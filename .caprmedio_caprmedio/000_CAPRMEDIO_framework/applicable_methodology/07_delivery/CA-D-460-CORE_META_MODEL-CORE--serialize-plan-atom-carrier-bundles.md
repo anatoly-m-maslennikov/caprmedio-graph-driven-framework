@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Authoritative Carrier Bundle"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan/Carrier/Stem"
-    - "File Carrier"
-    - "Directory Carrier"
-version: 6
-updated_at: "2026-10-02 19:44:54 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier"]
+version: 9
+updated_at: "2026-10-16 12:09:32 +0000"
 relations: {"relates_to": ["CA-R-1578", "CA-D-469"]}
 atom_id: "CA-D-460"
 content_role: "Delivery"
@@ -19,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-460-CORE_META_MODEL-CORE--serialize-plan-atom-carrier-bundles.md
   source_atom_id: CA-D-460
-  source_atom_revision: 6
-  source_sha256: 7879c6dd77ac6eab1f6a5b80b9fab58112b9d7d6111b169d5038185597b53f23
+  source_atom_revision: 9
+  source_sha256: 461ccda26aaddf0673b1ef1a1d9fed0f1ca3bb4391857ad389b1c03f80fe2194
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

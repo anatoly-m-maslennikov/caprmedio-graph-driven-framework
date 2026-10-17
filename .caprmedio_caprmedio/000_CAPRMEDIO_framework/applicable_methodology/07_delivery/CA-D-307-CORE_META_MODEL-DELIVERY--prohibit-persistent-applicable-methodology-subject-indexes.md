@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: "Applicable Methodology/Subject Index Carrier"
+  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
     - "GOVERNS"
     - "DEPENDS_ON"
-version: 12
-updated_at: "2026-10-14 13:43:03 +0400"
+version: 14
+updated_at: "2026-10-15 18:51:11 +0000"
 relations: {}
 atom_id: "CA-D-307"
 content_role: "Delivery"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md
   source_atom_id: CA-D-307
-  source_atom_revision: 12
-  source_sha256: 8a704fbcbfc2a1c79c435d8549f9b3d08f1708d2e34463f7b333d6643e69dc9e
+  source_atom_revision: 14
+  source_sha256: 38f5bcfb993ddea753c213992d2182cba9dbf73745d0b892af229d22509fa5fa
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

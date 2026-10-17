@@ -1,19 +1,13 @@
 ---
-version: 14
-updated_at: "2026-10-03 03:43:22 +0400"
+version: 16
+updated_at: "2026-10-15 18:45:58 +0000"
 relations:
   child_of:
     - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
 subjects:
-  governs: "Project/minimum model"
+  governs: "Entity/Continuant/Object/Project.Minimum Model"
   depends_on:
-    - "Project"
-    - "Atom/Content Role: Requirement"
-    - "Atom/Content Role: Implementation"
-    - "Atom"
-    - "Structural Level"
-    - "CAPRMEDIO Framework Instance"
-
+    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Implementation", "Entity/Continuant/Object/Atom", "Structural Level", "CAPRMEDIO Framework Instance"]
 atom_id: "CA-R-1772"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"

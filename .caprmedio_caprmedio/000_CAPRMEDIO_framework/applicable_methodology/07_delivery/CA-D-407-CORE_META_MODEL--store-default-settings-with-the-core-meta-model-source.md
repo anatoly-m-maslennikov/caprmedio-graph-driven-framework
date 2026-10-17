@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Default Settings/Carrier"
+  governs: "Default Settings"
   depends_on:
-    - "Default Settings"
-    - "File Carrier"
-    - "Scope Unit"
-    - "Methodology Source"
-version: 7
-updated_at: "2026-10-02 19:36:21 +0400"
+    ["Default Settings", "Entity/Carrier/File Carrier", "Entity/Continuant/Object/Scope Unit", "Methodology Source"]
+version: 9
+updated_at: "2026-10-15 18:51:53 +0000"
 relations:
   child_of:
     - "CA-R-1441"
@@ -22,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL--store-default-settings-with-the-core-meta-model-source.md
   source_atom_id: CA-D-407
-  source_atom_revision: 7
-  source_sha256: e1f38f4569fd99cac8207191d46e2d332b5635795a75141cc7c54cf0896d962d
+  source_atom_revision: 9
+  source_sha256: 680ac0ae97014cfc73b37285c79908473e30763e7fc74d41503c624be03b6f0e
   original_relations_sha256: adcd5f37a417426e98fa71a748e8c7ae57d289af75f231f6392f838cf84dd0f2
 ---
 # Summary

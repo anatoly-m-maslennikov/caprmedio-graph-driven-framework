@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Blocking"
+  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Atom/Content Role: Plan/Type: Plan/Decomposition"
-    - "Atom/Content Role: Plan/Type: Plan/Status: Done"
-    - "Hub Atom"
-version: 4
-updated_at: "2026-10-03 00:48:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Done"]
+version: 7
+updated_at: "2026-10-16 12:08:36 +0000"
 relations: {"relates_to": ["CA-R-1580", "CA-R-1583", "CA-R-1538"]}
 atom_id: "CA-R-1592"
 content_role: "Requirement"
@@ -20,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1592-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-plan-completion-prerequisites-acyclic.md
   source_atom_id: CA-R-1592
-  source_atom_revision: 4
-  source_sha256: 3c9178170eebdb7429db7564c3b7cb58dd59c2d2cb43d726dc0c1e4a47f56ed7
+  source_atom_revision: 7
+  source_sha256: ca7e462deb95186684c9e4e8aac6b06c9b26d5e5c322d2bcfe88cf41adfa5ec5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

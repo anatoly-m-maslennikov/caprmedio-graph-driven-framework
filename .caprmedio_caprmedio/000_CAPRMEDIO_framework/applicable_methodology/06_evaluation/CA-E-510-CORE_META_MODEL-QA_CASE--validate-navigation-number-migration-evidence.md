@@ -10,32 +10,16 @@ status: Active
 subjects:
   governs: "Reconcile Navigation Numbers"
   depends_on:
-    - "Project Structure"
-    - "Scope Unit"
-    - "Scope Unit/Navigational Order Number"
-    - "Scope Unit/Local Order"
-    - "Scope Unit/Structural Level"
-    - "Scope Unit/Type"
-    - "Scope Unit/Label"
-    - "Carrier"
-    - "Directory Carrier/Numeric Prefix"
-    - "Implementation Folder"
-    - "Operator"
-    - "Atom"
-    - "Action"
-    - "Evaluation"
-    - "Atom/Revision"
-    - "Concern"
-
-version: 3
-updated_at: "2026-10-02 20:16:06 +0400"
+    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Continuant/Object/Scope Unit.Local Order", "Entity/Continuant/Object/Scope Unit.Structural Level", "Scope Unit/Type", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Carrier", "Entity/Carrier/Directory Carrier.Numeric Prefix", "Implementation Folder", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Concern"]
+version: 5
+updated_at: "2026-10-15 18:50:19 +0000"
 relations: {"evaluation_for": ["CA-O-078", "CA-R-1483", "CA-R-976", "CA-R-981", "CA-R-983", "CA-D-300", "CA-D-380", "CA-D-442", "CA-D-444", "CA-D-445"], "relates_to": ["CA-E-469"]}
 global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md
   source_atom_id: CA-E-510
-  source_atom_revision: 3
-  source_sha256: cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108
+  source_atom_revision: 5
+  source_sha256: d2918c96aea19dc9fbb933397f6c84e711bff421f0ff54eeefb7b85637019a4c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Relational Atom/Qualified Type"
+  governs: "Relational Atom/Type"
   depends_on:
-    - "Atom/Content Role: Requirement/Type: Goal"
-    - "Atom/Content Role: Requirement/Type: Demand"
-    - "Atom/Content Role: Plan/Type: Plan"
-version: 20
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand", "Atom/Content Role: Plan/Type: Plan"]
+version: 22
+updated_at: "2026-10-15 18:46:53 +0000"
 relations:
   child_of:
     - CA-R-923
@@ -21,8 +19,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-relational-atom-classifications.md
   source_atom_id: CA-R-924
-  source_atom_revision: 20
-  source_sha256: aa5a683e5c2b49cd8e56ef1cde4c6561c853e7f8a617c9a624709ee227400b11
+  source_atom_revision: 22
+  source_sha256: 4f1cbfeb1ed8c10a20968b5d4e9ed58df7a392922fdd1f7c2e1c82a70bfe8301
   original_relations_sha256: 8c48d07682f7742193d2b400e5432116c42c0465013e1dadd3b1b1dfc4e3d146
 ---
 # Summary

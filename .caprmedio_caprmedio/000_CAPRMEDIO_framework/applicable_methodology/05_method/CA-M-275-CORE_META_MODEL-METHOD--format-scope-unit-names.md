@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Scope Unit/Name"
+  governs: "Entity/Continuant/Object/Scope Unit.Name"
   depends_on:
-    - "Scope Unit"
-version: 7
-updated_at: "2026-10-01 21:40:53 +0400"
+    ["Entity/Continuant/Object/Scope Unit"]
+version: 9
+updated_at: "2026-10-15 18:48:14 +0000"
 relations:
   method_for:
     - "CA-R-962"
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-275-CORE_META_MODEL-METHOD--format-scope-unit-names.md
   source_atom_id: CA-M-275
-  source_atom_revision: 7
-  source_sha256: 8f594812eb0ff5144de3b84bca79ec243f40c4636ba10e1006fc7a784999e042
+  source_atom_revision: 9
+  source_sha256: 7faf0627dbf56e1d2be1ae1cd965100758d36a16220c10468f61e1ae18c3c91a
   original_relations_sha256: e31c6da07252496f6e9601462219471b6a242d692b62903e5ae95c1b7bdfde24
 ---
 # Summary

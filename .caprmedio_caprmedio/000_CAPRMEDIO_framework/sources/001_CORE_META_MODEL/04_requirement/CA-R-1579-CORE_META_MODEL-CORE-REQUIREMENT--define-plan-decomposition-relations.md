@@ -1,16 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Type: Plan/Decomposition"
+  governs: "Atom/Content Role: Plan/Type: Plan"
   depends_on:
-    - "Atom/Content Role: Plan/Type: Plan"
-    - "Plan Graph"
-    - "Atom/Content Role: Plan/Type: Plan/Label"
-    - "Relation Kind"
-    - "Atom/Content Role: Plan/Type: Plan/Status"
-    - "Scope Unit"
-    - "Atom/Claim"
-version: 5
-updated_at: "2026-10-03 00:34:47 +0400"
+    ["Atom/Content Role: Plan/Type: Plan", "Plan Graph", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Relation Kind", "Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Substance"]
+version: 7
+updated_at: "2026-10-15 18:44:40 +0000"
 relations: {"relates_to": ["CA-D-481", "CA-R-1574", "CA-R-1583"]}
 atom_id: "CA-R-1579"
 content_role: "Requirement"

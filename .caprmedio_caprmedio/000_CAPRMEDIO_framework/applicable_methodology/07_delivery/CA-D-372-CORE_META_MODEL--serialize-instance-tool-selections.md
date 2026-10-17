@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Tool selections"
+  governs: "Entity/Continuant/Object/Project.Framework Settings.Tool Selections"
   depends_on:
-    - "Framework Instance Settings"
-    - "Tool"
-version: 7
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Entity/Continuant/Object/Project.Framework Settings", "Tool"]
+version: 9
+updated_at: "2026-10-15 18:51:38 +0000"
 relations:
   child_of:
     - "CA-D-361"
@@ -20,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-372-CORE_META_MODEL--serialize-instance-tool-selections.md
   source_atom_id: CA-D-372
-  source_atom_revision: 7
-  source_sha256: cd5f93b752e15615a092d9869e673d8c017f36f85f50aa0610f6bf093c4aec6a
+  source_atom_revision: 9
+  source_sha256: 047d14dcb8a0a3bb4514642c75c60f31b1aafe6cc4c5b3361d87fac4e3a2b111
   original_relations_sha256: dbd41c990ca96026d80a7c6e36e3203724208ce3569ca634233af924bbbfab2f
 ---
 # Summary

@@ -2,10 +2,9 @@
 subjects:
   governs: "Subtree-targeting Atoms"
   depends_on:
-    - "Targeting Atoms"
-    - "Scope Unit"
-version: 7
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Targeting Atoms", "Entity/Continuant/Object/Scope Unit"]
+version: 8
+updated_at: "2026-10-15 18:43:12 +0000"
 relations: {}
 atom_id: "CA-R-1449"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1449-CORE_META_MODEL-GENERAL--define-subtree-targeting-atoms.md
   source_atom_id: CA-R-1449
-  source_atom_revision: 7
-  source_sha256: 8a18e82f15f3462ef32d0a3060da0e0a098df57ab6284f7da4da135fafc5a06c
+  source_atom_revision: 8
+  source_sha256: e96eb8e4e229855007b53bdfd86ee25cc3952b1f96bfe28e0be54fc3691be6b3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

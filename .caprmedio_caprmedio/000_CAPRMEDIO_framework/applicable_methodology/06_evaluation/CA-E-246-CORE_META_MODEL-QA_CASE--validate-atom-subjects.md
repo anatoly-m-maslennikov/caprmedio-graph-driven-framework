@@ -1,30 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Subjects"
+  governs: "Entity/Continuant/Object/Atom.Subjects"
   depends_on:
-    - "Atom"
-    - "Subject"
-    - "Subject Path"
-    - "GOVERNS"
-    - "DEPENDS_ON"
-    - "Entity"
-    - "Action"
-    - "Workflow"
-    - "Term"
-    - "Projection/Type: Atom Subjects Graph"
-    - "Concern"
-    - "Atom/Claim"
-    - "Atom/Content Role: Evaluation"
-    - "Evaluation For Relation"
-    - "Property"
-    - "Primary Entity"
-    - "Dependent Entity"
-    - "Scope Unit"
-    - "Atom/Scope"
-    - "Atom/Claim/Target Scope Unit"
-    - "Atom/Summary"
-version: 25
-updated_at: "2026-10-01 21:25:33 +0400"
+    ["Entity/Continuant/Object/Atom", "Subject", "Subject Path", "GOVERNS", "DEPENDS_ON", "Entity", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Term", "Entity/Continuant/Projection/Type: Atom Subjects Graph", "Entity/Continuant/Object/Atom/Content Role: Concern", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Evaluation For Relation", "Property", "Primary Entity", "Dependent Entity", "Entity/Continuant/Object/Scope Unit", "Atom Scope", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Atom.Summary"]
+version: 27
+updated_at: "2026-10-15 18:48:57 +0000"
 relations:
   evaluation_for:
     - CA-R-1275
@@ -57,8 +37,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md
   source_atom_id: CA-E-246
-  source_atom_revision: 25
-  source_sha256: 6d5e65915b857be8e399aee9b32364dde2caa56ec6757bd8e69282b4ffee0098
+  source_atom_revision: 27
+  source_sha256: 2c134dd964fe55094375fb6eca1aab7d81266269086b4534047b2adaac637c9d
   original_relations_sha256: 68d28ba08fb50df96dd32a7900690a5c93ecc09bd54c537d4754d46ad67a5446
 ---
 # Summary

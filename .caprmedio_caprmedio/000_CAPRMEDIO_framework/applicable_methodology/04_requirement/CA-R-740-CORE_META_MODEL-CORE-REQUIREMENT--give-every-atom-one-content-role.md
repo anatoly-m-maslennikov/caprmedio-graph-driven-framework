@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role"
+  governs: "Entity/Continuant/Object/Atom/Content Role"
   depends_on: []
-version: 19
-updated_at: "2026-10-02 20:52:00 +0400"
+version: 20
+updated_at: "2026-10-16 12:08:52 +0000"
 relations:
   child_of:
     - CA-M-001
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-740-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-one-content-role.md
   source_atom_id: CA-R-740
-  source_atom_revision: 19
-  source_sha256: 1d823c93d7928ca3a040b6448c6de51b605d9e201ebf6c59e71c8676228a23f7
+  source_atom_revision: 20
+  source_sha256: 4013e0520f1e29cab4820965408dbb9998e6f11ca4aad0b9a3da70c70f8ea70e
   original_relations_sha256: 398feee9875ed9db93695621375478435f267eb4d0e379bc417a0c8705a4806b
 ---
 # Summary

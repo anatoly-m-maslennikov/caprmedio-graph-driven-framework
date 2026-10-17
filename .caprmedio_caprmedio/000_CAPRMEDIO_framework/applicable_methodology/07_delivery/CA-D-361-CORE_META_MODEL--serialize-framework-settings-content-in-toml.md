@@ -1,13 +1,10 @@
 ---
 subjects:
-  governs: "Framework Instance Settings/Authoritative Carrier/Content"
+  governs: "Entity/Continuant/Object/Project.Framework Settings"
   depends_on:
-    - "Tool"
-    - "Extension"
-    - "Framework Instance Settings"
-    - "Default Settings"
-version: 10
-updated_at: "2026-10-02 19:27:36 +0400"
+    ["Tool", "Extension", "Entity/Continuant/Object/Project.Framework Settings", "Default Settings"]
+version: 12
+updated_at: "2026-10-15 18:51:30 +0000"
 relations:
   child_of:
     - CA-D-359
@@ -25,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md
   source_atom_id: CA-D-361
-  source_atom_revision: 10
-  source_sha256: 08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68
+  source_atom_revision: 12
+  source_sha256: 96ef719f76a16d16dc972e279807d9516b9344a4919fe7750cf70f4ac5b35cc6
   original_relations_sha256: c721615c7983c0a76470a5c52c89f21a22517496a3a90da9fb26001e4e66f71f
 ---
 # Summary

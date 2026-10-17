@@ -1,17 +1,15 @@
 ---
-version: 5
-updated_at: "2026-10-14 13:43:24 +0400"
+version: 7
+updated_at: "2026-10-15 18:48:25 +0000"
 relations:
   child_of:
     - CA-R-1487
   method_for:
     - CA-R-1487
 subjects:
-  governs: "Project/lexicographic selection"
+  governs: "Project Lexicographic Selection"
   depends_on:
-    - "Operator"
-    - "Project/priority model application"
-    - "Atom/Content Role: Method"
+    ["Entity/Continuant/Actor/Type: Operator", "Project Priority Model Application", "Entity/Continuant/Object/Atom/Content Role: Method"]
 atom_id: "CA-M-297"
 content_role: "Method"
 current_scope_unit: "CORE_META_MODEL"
@@ -23,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-297-CORE_META_MODEL-METHOD--compare-by-priority-order.md
   source_atom_id: CA-M-297
-  source_atom_revision: 5
-  source_sha256: d0876b921ff057c06f8afa643c9a9480752c88bb9d0b87f97ace55f704971518
+  source_atom_revision: 7
+  source_sha256: b68095025df3b46c829b6b47d0c120cef4887815afe1f93ca91fe7be8815b479
   original_relations_sha256: 281ec85f44ff131b99377546943617cbfcfbf23e636c242eb0d23f43d42db629
 ---
 # Summary

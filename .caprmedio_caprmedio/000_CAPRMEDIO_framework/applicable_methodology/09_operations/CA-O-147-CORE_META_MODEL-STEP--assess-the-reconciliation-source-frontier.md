@@ -10,14 +10,9 @@ status: Active
 subjects:
   governs: "Source Reconciliation Assessment Step"
   depends_on:
-    - "Step"
-    - "Action"
-    - "Source Reconciliation"
-    - "Step/Agentic Execution Context"
-    - "Workflow Run"
-    - "Step Run"
-version: 3
-updated_at: "2026-10-14 13:44:47 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Source Reconciliation", "Agentic Step Execution Context", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
+version: 5
+updated_at: "2026-10-15 18:53:43 +0000"
 relations:
   relates_to:
     - CA-O-010
@@ -29,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources/CA-O-147-CORE_META_MODEL-STEP--assess-the-reconciliation-source-frontier.md
   source_atom_id: CA-O-147
-  source_atom_revision: 3
-  source_sha256: 70819bfe63a1cf0d5a6e9ea30bfd3f52463a30898f2322f34142c069231efc3f
+  source_atom_revision: 5
+  source_sha256: 53cff46c517cebc67e23fb1771e0e9632a6bfd7a28764e4091ccbfb862bf3f68
   original_relations_sha256: f478176d8bd72d7a6bf44b10c21b9db6ed4f997897c6e33e4ee733d7183c131d
 ---
 # Summary

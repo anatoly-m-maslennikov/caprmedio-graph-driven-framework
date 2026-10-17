@@ -1,6 +1,6 @@
 ---
-version: 13
-updated_at: "2026-10-02 19:57:02 +0400"
+version: 15
+updated_at: "2026-10-15 18:48:50 +0000"
 relations:
   child_of:
     - CA-R-815
@@ -10,15 +10,9 @@ relations:
     - CA-O-022
     - CA-O-023
 subjects:
-  governs: "Project/priority model application"
+  governs: "Project Priority Model Application"
   depends_on:
-    - "Operator"
-    - "Scope"
-    - "Project"
-    - "CAPRMEDIO Framework Instance"
-    - "Resolve Operator Priorities"
-    - "Select Priority-Governed Alternative"
-    - "Project/lexicographic selection"
+    ["Entity/Continuant/Actor/Type: Operator", "Scope", "Entity/Continuant/Object/Project", "CAPRMEDIO Framework Instance", "Resolve Operator Priorities", "Select Priority-Governed Alternative", "Project Lexicographic Selection"]
 atom_id: "CA-E-207"
 content_role: "Evaluation"
 current_scope_unit: "CORE_META_MODEL"
@@ -31,8 +25,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md
   source_atom_id: CA-E-207
-  source_atom_revision: 13
-  source_sha256: d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c
+  source_atom_revision: 15
+  source_sha256: a2c83b2fe141595ac59cac0b4168e6e6f80ae278d42b61c2c80f204555ea3750
   original_relations_sha256: e2be46359af7cbd5714136dddbc8fa3c5ca2d5156bc6d596b2921d2bb081b0f2
 ---
 # Summary

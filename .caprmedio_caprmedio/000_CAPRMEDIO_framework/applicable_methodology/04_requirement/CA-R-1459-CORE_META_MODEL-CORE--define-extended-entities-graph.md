@@ -1,20 +1,10 @@
 ---
 subjects:
-  governs: "Projection/Type: Extended Entities Graph"
+  governs: "Entity/Continuant/Projection/Type: Extended Entities Graph"
   depends_on:
-    - "Projection"
-    - "Projection/Type: Entities Graph"
-    - "Entity"
-    - "Atom"
-    - "Atom/Subjects"
-    - "Subject Path"
-    - "GOVERNS"
-    - "DEPENDS_ON"
-    - "Relation"
-    - "Relation Kind"
-    - "Artifact/Revision"
-version: 5
-updated_at: "2026-10-02 23:17:53 +0400"
+    ["Entity/Continuant/Projection", "Entity/Continuant/Projection/Type: Entities Graph", "Entity", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Subjects", "Subject Path", "GOVERNS", "DEPENDS_ON", "Entity/Continuant/Object/Relation", "Relation Kind"]
+version: 7
+updated_at: "2026-10-15 18:43:17 +0000"
 relations: {}
 atom_id: "CA-R-1459"
 content_role: "Requirement"
@@ -27,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1459-CORE_META_MODEL-CORE--define-extended-entities-graph.md
   source_atom_id: CA-R-1459
-  source_atom_revision: 5
-  source_sha256: c83c42a9741b5a3fce20499a52b01ae5ff9442943acf4fce4c09160c19ed78c7
+  source_atom_revision: 7
+  source_sha256: 61b73b94a825cd2f5121566f4dd95e9c62adcab592b12df70165caf99aea34fa
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

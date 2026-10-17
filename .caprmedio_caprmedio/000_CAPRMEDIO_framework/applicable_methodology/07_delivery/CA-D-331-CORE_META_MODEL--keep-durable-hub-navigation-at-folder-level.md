@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Hub/Carrier/Navigation Entry"
+  governs: "Hub Carrier.Navigation Entry"
   depends_on: []
-version: 11
-updated_at: "2026-10-02 19:18:22 +0400"
+version: 12
+updated_at: "2026-10-15 12:18:12 +0000"
 relations: {}
 atom_id: "CA-D-331"
 content_role: "Delivery"
@@ -16,8 +16,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-331-CORE_META_MODEL--keep-durable-hub-navigation-at-folder-level.md
   source_atom_id: CA-D-331
-  source_atom_revision: 11
-  source_sha256: 4164a0e480deed49d8bb569559941e8b7822bac09c8a88cf02205982c532e6a2
+  source_atom_revision: 12
+  source_sha256: e3e80de5c5e4a1f9b93f050a3330739314b1ab0913b4223035090c714beb84f0
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

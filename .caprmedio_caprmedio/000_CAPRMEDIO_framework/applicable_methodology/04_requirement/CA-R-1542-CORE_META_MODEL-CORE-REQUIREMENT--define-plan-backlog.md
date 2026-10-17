@@ -1,11 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Plan/Backlog"
+  governs: "Plan Backlog"
   depends_on:
-    - "Atom/Content Role: Plan/Status: Backlog"
-    - "Atom/Content Role: Plan/Type: Plan"
-version: 5
-updated_at: "2026-10-03 00:05:13 +0400"
+    ["Entity/Continuant/Object/Atom/Content Role: Plan.Status: Backlog", "Atom/Content Role: Plan/Type: Plan"]
+version: 7
+updated_at: "2026-10-15 18:44:08 +0000"
 relations: {"relates_to": ["CA-R-1539", "CA-R-1541"]}
 atom_id: "CA-R-1542"
 content_role: "Requirement"
@@ -18,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1542-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-backlog.md
   source_atom_id: CA-R-1542
-  source_atom_revision: 5
-  source_sha256: acd39db26bf3e686049b315c540c16efcba49cd0e43ca243a9dde8d9402ad06f
+  source_atom_revision: 7
+  source_sha256: 8136684ae44a3d6c867527f3d3c453b171317d3668f34c83cd990288a361f3ac
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

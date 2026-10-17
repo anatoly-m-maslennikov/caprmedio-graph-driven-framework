@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "NARROWER_THAN"
+  governs: "Entity/Continuant/Object/Relation/Type: NARROWER_THAN"
   depends_on:
-    - "Terms Graph"
-version: 11
-updated_at: "2026-10-02 22:05:04 +0400"
+    ["Entity/Continuant/Projection/Type: Terms Graph"]
+version: 13
+updated_at: "2026-10-16 12:08:22 +0000"
 relations: {}
 atom_id: "CA-R-1345"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1345-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-narrower-than-graph-acyclic.md
   source_atom_id: CA-R-1345
-  source_atom_revision: 11
-  source_sha256: 85ae2a06eea0735c9ab7e0c4116e996c4686567e846619f604427d2e5e5700c0
+  source_atom_revision: 13
+  source_sha256: ba38616e763d84d0c9d7a14354ef34797f02411f3374bb63540d48b5dd93a038
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

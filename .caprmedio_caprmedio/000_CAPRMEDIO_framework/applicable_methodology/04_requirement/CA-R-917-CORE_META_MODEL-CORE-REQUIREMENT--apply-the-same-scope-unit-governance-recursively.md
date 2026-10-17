@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "CAPRMEDIO Metamodel/Fractality"
+  governs: "Entity/Continuant/Object/Scope Unit"
   depends_on:
-    - "Scope Unit"
-version: 17
-updated_at: "2026-10-02 21:01:00 +0400"
+    ["Entity/Continuant/Object/Scope Unit"]
+version: 20
+updated_at: "2026-10-16 12:08:55 +0000"
 relations:
   child_of:
     - CA-R-1719
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-917-CORE_META_MODEL-CORE-REQUIREMENT--apply-the-same-scope-unit-governance-recursively.md
   source_atom_id: CA-R-917
-  source_atom_revision: 17
-  source_sha256: 07fd52c63b8cf47016fe78c322013592a8e42e8867f862513f8737241ef98c4a
+  source_atom_revision: 20
+  source_sha256: 823de7052276a59040a81f440c1adfb800c38d7416b5cedb68805476be84d3ca
   original_relations_sha256: 6b80419ef321cb6645a87b25b97ff86d302f645a5af90d5905db0dbeab7a7ae8
 ---
 # Summary

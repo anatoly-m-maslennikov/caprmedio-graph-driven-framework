@@ -1,17 +1,10 @@
 ---
 subjects:
-  governs: "Relation/authority"
+  governs: "Entity/Continuant/Object/Relation.Authority"
   depends_on:
-    - "Relation"
-    - "Relation Kind"
-    - "CAPRMEDIO Graph"
-    - "Projection"
-    - "Single Source of Truth"
-    - "Atom/Claim"
-    - "Structural Entity"
-    - "Journal"
-version: 6
-updated_at: "2026-10-02 22:59:46 +0400"
+    ["Entity/Continuant/Object/Relation", "Relation Kind", "CAPRMEDIO Graph", "Entity/Continuant/Projection", "Single Source of Truth", "Entity/Continuant/Object/Atom.Substance", "Structural Entity", "Entity/Continuant/History/Journal"]
+version: 8
+updated_at: "2026-10-15 18:43:01 +0000"
 relations: {}
 atom_id: "CA-R-1437"
 content_role: "Requirement"
@@ -24,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md
   source_atom_id: CA-R-1437
-  source_atom_revision: 6
-  source_sha256: 31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf
+  source_atom_revision: 8
+  source_sha256: 3c8209efbcf0a3a37cea5315215e0ae5a72df046cd10c02087c655d553b26acb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
