@@ -1,9 +1,8 @@
-"""Independent real-source single-Atom Status publication checks, not Run admission."""
+"""Independent frozen-authority single-Atom Status publication checks, not Run admission."""
 
 from __future__ import annotations
 
 import datetime
-import hashlib
 import os
 import re
 import stat
@@ -20,6 +19,7 @@ import atom_operations
 import lifecycle_intents
 from atom_operations import atom_from_path
 from lifecycle_intents import carrier_descriptor, change_status_atom_action, LifecycleError
+from VALIDATE_ATOMS.tests.golden_authority import write_frozen_authority  # noqa: E402
 
 
 class IndependentStatusBundlePublicationTests(unittest.TestCase):
@@ -29,11 +29,7 @@ class IndependentStatusBundlePublicationTests(unittest.TestCase):
         self.addCleanup(self.fixture.tearDown)
         self.root, self.authority = self.fixture.root, self.fixture.authority
         (self.root / ".git").mkdir()
-        for identifier in ("CA-D-289", "CA-D-378"):
-            entry = fixtures.proposed_carrier._entry(identifier)
-            raw = (fixtures.PROJECT / entry["source_path"]).read_bytes()
-            self.assertEqual(hashlib.sha256(raw).hexdigest(), entry["sha256"])
-            self.fixture._copy_source(entry)
+        write_frozen_authority(self.root, fixtures.CONTROL, ("CA-D-289", "CA-D-378"))
 
     def put(self, relative, identity, *, role="Plan", kind="Plan", parent=None, status="Active", version=3):
         path = self.authority / relative

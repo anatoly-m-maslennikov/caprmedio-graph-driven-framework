@@ -8,9 +8,7 @@ fixture root.
 
 from __future__ import annotations
 
-import json
 import os
-import shutil
 import sys
 import tempfile
 import threading
@@ -34,9 +32,12 @@ from atom_operations import ToolError, prepare_create_atom_revision  # noqa: E40
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier  # noqa: E402
 from validate_atoms_workers.graph_authority_refresh import (  # noqa: E402
     APPROVED_GRAPH_AUTHORITY_IDS,
-    verify_entries,
 )
-from project_selection import resolve_project  # noqa: E402
+from VALIDATE_ATOMS.tests.golden_authority import (  # noqa: E402
+    frozen_authority_fixture_bytes,
+    frozen_entry,
+    write_frozen_authority,
+)
 
 
 FIXTURE_SCOPE = "PARENT"
@@ -44,7 +45,17 @@ FIXTURE_AUTHORITY = (
     ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/"
     "201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/PARENT"
 )
+METHODOLOGY_AUTHORITY = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+FROZEN_AUTHORITY = f"{METHODOLOGY_AUTHORITY}/frozen-authority"
+CONTROL = Path(".caprmedio_caprmedio")
 REGISTERED_AUTHOR = "Anatoly Maslennikov"
+
+
+def _frozen_entry(identifier: str, *, graph: bool = False) -> dict[str, object]:
+    entry = frozen_entry(identifier, graph=graph)
+    if graph:
+        entry["source_path"] = f".caprmedio_caprmedio/frozen-graph-authority/{identifier}.md"
+    return entry
 
 
 class ProposedRelationAdmissionTest(unittest.TestCase):
@@ -55,10 +66,14 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
         self.root = Path(self.temporary.name)
         self.authority = self.root / FIXTURE_AUTHORITY
         self.authority.mkdir(parents=True)
+        self.entry_patch = patch.object(proposed_carrier, "_entry", _frozen_entry)
+        self.entry_patch.start()
+        self.addCleanup(self.entry_patch.stop)
         self._write_project_context()
         self._copy_verified_authority_closure()
 
     def tearDown(self) -> None:
+        self.doCleanups()
         self.temporary.cleanup()
         if self.root.exists():
             warnings.warn(
@@ -79,11 +94,6 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
             'role = "project owner"\n',
             encoding="utf-8",
         )
-        core_owner = next(
-            row["authority_path"]
-            for row in resolve_project(PROJECT).structure["scope_units"]
-            if row["scope_unit_name"] == "CORE_META_MODEL"
-        )
         (control / "project_structure.toml").write_text(
             "schema_version = 1\n\n"
             "[[scope_units]]\n"
@@ -101,51 +111,45 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
             'parent = "PROJECT"\nscope_unit_type = "Unordered"\n'
             'scope_unit_label = "LAYER"\nstructural_level = 1\n'
             'navigational_order_number = 2\n'
-            f'authority_path = "{Path(core_owner).parent.as_posix()}"\n'
+            f'authority_path = "{METHODOLOGY_AUTHORITY}"\n'
             'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources"\n'
             'authority_mode = "strict"\n\n'
             '[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
             'parent = "METHODOLOGY_SOURCES"\nscope_unit_type = "Unordered"\n'
             'scope_unit_label = "LAYER"\nstructural_level = 2\n'
             'navigational_order_number = 1\n'
-            f'authority_path = "{core_owner}"\n'
+            f'authority_path = "{FROZEN_AUTHORITY}"\n'
             'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources/001_CORE_META_MODEL"\n'
             'authority_mode = "strict"\n',
             encoding="utf-8",
         )
 
-    def _copy_source(self, entry: dict[str, object]) -> None:
-        source_path = entry["source_path"]
-        self.assertIsInstance(source_path, str)
-        self._copy_project_file(Path(source_path))
-
-    def _copy_project_file(self, relative: Path) -> None:
-        source = PROJECT / relative
-        self.assertTrue(source.is_file(), source)
-        destination = self.root / relative
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(source, destination)
-
     def _copy_verified_authority_closure(self) -> None:
-        """Copy exact current source bytes, then independently verify graph pins."""
+        """Materialize the finite checked-in authority closure for this Project."""
 
-        for identifier in (
-            *proposed_carrier._REGISTRY_IDS, *proposed_carrier._SUPPORT_IDS,
-            *proposed_carrier._FRONTIER_IDS,
-        ):
-            entry = proposed_carrier._entry(identifier)
-            self.assertIsInstance(entry, dict)
-            self._copy_source(entry)
-
-        graph_entries = json.loads((WORKERS / "graph_authority.json").read_text(encoding="utf-8"))["sources"]
+        write_frozen_authority(
+            self.root,
+            CONTROL,
+            tuple(
+                dict.fromkeys(
+                    (
+                        *proposed_carrier._REGISTRY_IDS,
+                        *proposed_carrier._SUPPORT_IDS,
+                        *proposed_carrier._FRONTIER_IDS,
+                    )
+                )
+            ),
+        )
         self.assertEqual(26, len(APPROVED_GRAPH_AUTHORITY_IDS))
-        self.assertTrue(set(APPROVED_GRAPH_AUTHORITY_IDS).issubset(graph_entries))
+        self.graph_entries = {}
         for identifier in APPROVED_GRAPH_AUTHORITY_IDS:
-            entry = graph_entries[identifier]
-            self.assertIsInstance(entry, dict)
-            self._copy_source(entry)
-        verify_entries(self.root, graph_entries)
-        self.graph_entries = graph_entries
+            entry = _frozen_entry(identifier, graph=True)
+            source_path = entry["source_path"]
+            self.assertIsInstance(source_path, str)
+            destination = self.root / source_path
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(frozen_authority_fixture_bytes(identifier, graph=True))
+            self.graph_entries[identifier] = entry
 
     @property
     def _authority_relative(self) -> Path:
@@ -399,8 +403,6 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
         # A fresh isolated Project proves target-currentness separately.  The
         # writer uses atomic replacements of valid carriers; it neither patches
         # the resolver nor manufactures a pin.
-        self.temporary.cleanup()
-        self.setUp()
         target = self._target("CA-R-950003")
         proposal = self._evaluation("CA-E-950004", ["CA-R-950003"])
         original = target.read_text(encoding="utf-8")
