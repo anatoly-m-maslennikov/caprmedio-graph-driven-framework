@@ -13,7 +13,7 @@ import yaml
 TOOLS = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(TOOLS))
 
-from authoritative_status_models import StatusModelIndex, declarations_from_sources  # noqa: E402
+from authoritative_status_models import StatusModelError, StatusModelIndex, declarations_from_sources  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers import authority, proposed_carrier  # noqa: E402
 from VALIDATE_ATOMS.tests import test_proposed_carrier_admission_regressions as fixtures  # noqa: E402
 from project_selection import bind_selection  # noqa: E402
@@ -38,7 +38,7 @@ PLAN = source("CA-R-1539", "Entity/Continuant/Object/Atom/Content Role: Plan.Sta
 
 
 class InheritedStatusAuthorityTests(unittest.TestCase):
-    def test_full_proposed_carrier_with_plan_reference_after_status_source_alignment(self):
+    def inherited_fixture(self):
         fixture = fixtures.ProposedCarrierAdmissionRegressions()
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
@@ -50,10 +50,27 @@ class InheritedStatusAuthorityTests(unittest.TestCase):
                          "## Claim\n\n" + PLAN["text"].split("## Claim\n", 1)[1], before, flags=re.S)
         self.assertNotEqual(before, updated)
         source_path.write_text(updated, encoding="utf-8")
-        (source_path.parent / "CA-R-999001--base-status.md").write_text(BASE["text"], encoding="utf-8")
+        base_path = source_path.parent / "CA-R-999001--base-status.md"
+        base_path.write_text(BASE["text"], encoding="utf-8")
         delivery = next(fixture.root.rglob("CA-D-461*.md"))
         delivery.write_text(delivery.read_text().replace(
             "- Active:", "- Draft: **in** its `draft` subdirectory.\n- Active:", 1), encoding="utf-8")
+        return fixture, selection, base_path
+
+    def test_scoped_inherited_base_drift_uses_carrier_error_boundary(self):
+        fixture, selection, base_path = self.inherited_fixture()
+        scope = proposed_carrier.CarrierValidationScope(fixture.root)
+        with bind_selection(selection):
+            scope.validate(fixture.root, fixture.metadata(), fixtures.PLAN_BODY,
+                           Path("03_plan/CA-P-701--candidate.md"), allow_existing_relations=True)
+        base_path.write_text(BASE["text"].replace("version: 1", "version: 2"), encoding="utf-8")
+        with self.assertRaises(proposed_carrier.ProposedCarrierError) as raised:
+            scope.revalidate()
+        self.assertIsInstance(raised.exception.__cause__, StatusModelError)
+        self.assertEqual(raised.exception.__cause__.code, "source-stale")
+
+    def test_full_proposed_carrier_with_plan_reference_after_status_source_alignment(self):
+        fixture, selection, _ = self.inherited_fixture()
         target = fixture.metadata(atom_id="CA-P-702")
         fixture.put(selection.control_relative / "03_plan/CA-P-702--target.md",
                     ("---\n" + yaml.safe_dump(target) + "---\n" + fixtures.PLAN_BODY).encode())

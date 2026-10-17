@@ -95,11 +95,18 @@ class CarrierValidationScope:
     def revalidate(self) -> None:
         if self._context is not None:
             _current(self._context._reader, self._context._selection)
-            with bind_selection(self._context._selection):
-                if self._status_index is None:
-                    raise ProposedCarrierError("status-model validation scope is incomplete")
-                revalidate_status_models(self._status_index, self._context._reader)
+            if self._status_index is None:
+                raise ProposedCarrierError("status-model validation scope is incomplete")
+            _status_current(self._context, self._status_index)
             _current(self._context._reader, self._context._selection)
+
+
+def _status_current(context: VerifiedSourceContext, index: StatusModelIndex) -> None:
+    try:
+        with bind_selection(context._selection):
+            revalidate_status_models(index, context._reader)
+    except StatusModelError as error:
+        raise ProposedCarrierError("status-model sources changed during admission") from error
 
 
 def _entry(identifier: str, *, graph: bool = False) -> Record:
@@ -467,8 +474,7 @@ def validate_proposed_carrier(
                               authority_path, _status_index)
         _current(verified_source_context._reader, verified_source_context._selection)
         if owns_status_index:
-            with bind_selection(verified_source_context._selection):
-                revalidate_status_models(_status_index, verified_source_context._reader)
+            _status_current(verified_source_context, _status_index)
         if inventory is not None:
             try:
                 inventory.assert_current()
@@ -482,8 +488,7 @@ def validate_proposed_carrier(
         raise ProposedCarrierError("carrier path disagrees with its carried status")
     _current(verified_source_context._reader, verified_source_context._selection)
     if owns_status_index:
-        with bind_selection(verified_source_context._selection):
-            revalidate_status_models(_status_index, verified_source_context._reader)
+        _status_current(verified_source_context, _status_index)
     if inventory is not None:
         try:
             inventory.assert_current()
