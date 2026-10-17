@@ -3,8 +3,8 @@ subjects:
   governs: "Lineage Impact Analysis"
   depends_on:
     ["Entity/Continuant/Object/Atom", "Atom Change Classification", "Carrier-Only Recoding", "Verification"]
-version: 22
-updated_at: "2026-10-15 18:45:09 +0000"
+version: 23
+updated_at: "2026-10-17 18:51:07 +0400"
 relations:
   relates_to:
     - CA-R-1632
@@ -28,6 +28,6 @@ Record one Lineage Impact Analysis per changed atom revision
 
 ## Claim
 
-**every** `semantic_revision` **or** `replacement` of an admitted Atom **must** produce **`=1`** Lineage Impact Analysis Atom whose primary conclusion is the impact state of that exact changed parent Revision, while a `carrier_only` **or** equivalent `refinement` change **must** require lossless-recoding **or** equivalence Verification instead.
+**every** `semantic_revision` **or** `replacement` of an admitted Atom **must** retain **`=1`** identifiable Lineage Impact Analysis whose primary conclusion is the impact state of that exact changed parent Revision. The assessment **may** be part of an existing completed shared review package; a separate Analysis Atom for each changed Atom is not required. A `carrier_only` **or** equivalent `refinement` change **must** require lossless-recoding **or** equivalence Verification instead.
 
 ## Details

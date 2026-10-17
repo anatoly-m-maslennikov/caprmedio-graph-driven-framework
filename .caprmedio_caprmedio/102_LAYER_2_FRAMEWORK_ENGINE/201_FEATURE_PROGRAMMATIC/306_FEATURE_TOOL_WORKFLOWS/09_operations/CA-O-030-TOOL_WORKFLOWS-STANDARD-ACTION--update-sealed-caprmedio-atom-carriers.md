@@ -19,8 +19,8 @@ subjects:
     - "Atom/Revision/Updated At"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 22
-updated_at: "2026-10-15 11:27:33 +0000"
+version: 23
+updated_at: "2026-10-17 18:53:06 +0400"
 relations: {}
 ---
 # Summary
@@ -72,7 +72,7 @@ The caller commits current state, creates and commits edit drafts, then invokes 
 
 ### Ordinary one-target Subject effect
 
-The existing selected update route retains its completed current Analysis Report and exact O067/O145 assessment, O129 lineage, actual selected Session and actual O030 Action start retained in the selected Run. Reopen those persisted bindings; a matching assessment hash alone is insufficient. For the one admitted target, bind deterministic intended Subject bytes with old Version/time, execution-time metadata rule and exact predecessor destination; no-op preserves them. Effect-time materialization and actual current/history readback remain distinct from illustrative preview and intent.
+The existing selected update route retains its current completed assessment evidence from a shared review package or a Done Analysis Report and exact O067/O145 assessment, O129 lineage, actual selected Session and actual O030 Action start retained in the selected Run. Reopen those persisted bindings; a matching assessment hash alone is insufficient. For the one admitted target, bind deterministic intended Subject bytes with old Version/time, execution-time metadata rule and exact predecessor destination; no-op preserves them. Effect-time materialization and actual current/history readback remain distinct from illustrative preview and intent.
 
 ### Selected staged-review publication access
 

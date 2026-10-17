@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Artifact/Carrier", "Atom Change Classification", "Atom/Revision/Updated At"]
-version: 28
-updated_at: "2026-10-15 11:27:33 +0000"
+version: 29
+updated_at: "2026-10-17 18:52:58 +0400"
 relations:
   relates_to: [CA-O-030, CA-E-304, CA-O-067, CA-R-1432, CA-R-1788, CA-R-1464, CA-R-1415, CA-R-1371]
 ---
@@ -104,7 +104,7 @@ No separate full-candidate validation, content-review or confirmation round foll
 
 The existing Project-local MCP `update_atom` route **must** also accept the closed Subject-only parameter variant defined by CA-D-531: `{target, subject_patches, subject_intent_sha256, subject_profile?, semantic_assessment_report?}`. It selects exactly one complete current original Carrier and reuses the preview's eligibility, exact scalar-patch, same-profile, complete-carrier and byte-preservation checks. Reject mixed generic replacement fields, unknown fields, projection or delivered copies, owner/path mismatch, competing non-archived originals, and an unsafe or unverifiable claimed competing owner. Bulk preview does not authorize bulk lifecycle execution.
 
-The mutation-free preparation **must** return CA-D-425's deterministic `subject_intent` and `subject_intent_sha256`. For a value change, derive the complete intended proposal by changing only Subjects while retaining the old Version and Updated At for CA-O-067's assessment. Reuse the current completed Analysis Report and exact CA-O-145 assessment under CA-R-1892 and CA-D-585; syntax validation and a caller-supplied class are not identity or lineage evidence. An unresolved, replacement-required, stale, or mismatched assessment prevents this effect.
+The mutation-free preparation **must** return CA-D-425's deterministic `subject_intent` and `subject_intent_sha256`. For a value change, derive the complete intended proposal by changing only Subjects while retaining the old Version and Updated At for CA-O-067's assessment. Reuse current completed assessment evidence from a shared review package or a Done Analysis Report, and the exact CA-O-145 assessment under CA-R-1892 and CA-D-585; syntax validation and a caller-supplied class are not identity or lineage evidence. An unresolved, replacement-required, stale, or mismatched assessment prevents this effect.
 
 Application **must** consume CA-D-527's exact authorized execute envelope through the existing selected route, actual selected execution session and actual CA-O-030 Action start retained in the selected Run, with the exact completed CA-O-145 assessment. A caller Boolean, adapter envelope, local preview, candidate acceptance, or direct internal call grants no apply authority. Recheck all source, grammar, report, validation, definition, permission and destination evidence before effects.
 

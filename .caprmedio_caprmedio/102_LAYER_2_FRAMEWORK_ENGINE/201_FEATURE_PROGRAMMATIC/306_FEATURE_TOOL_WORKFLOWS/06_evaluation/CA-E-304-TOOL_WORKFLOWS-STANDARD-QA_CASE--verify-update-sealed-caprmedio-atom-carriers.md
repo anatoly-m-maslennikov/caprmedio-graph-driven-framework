@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Atom/Revision/Updated At", "Update Sealed Atom Carriers", "Artifact/Carrier", "Journal/Record"]
-version: 27
-updated_at: "2026-10-15 11:27:33 +0000"
+version: 28
+updated_at: "2026-10-17 18:52:43 +0400"
 relations:
   evaluation_for: [CA-R-866, CA-O-030, CA-R-1464, CA-R-1415, CA-R-1371]
   relates_to: [CA-O-067, CA-R-1432, CA-R-1788, CA-R-1662]
@@ -78,7 +78,7 @@ The report/form cases in this section and Selected publication access cases appl
 
 Exercise CA-D-531's exact Subject variant through the existing selected `update_atom` envelope and real shared Run/lifecycle composition, retaining generic-route regression cases. Use CA-D-425's deterministic intent and real complete-carrier/status validation with independently authored LF/CRLF before/intended/actual/history byte ledgers. Include Active, correctly placed non-Active current originals and no-op. Reject multiple independent targets, extra or mixed fields, caller authorization Booleans, fabricated starts/assessment, stale intent, grammar/report/definition/source drift, owner/path mismatch, projection/delivered copies, duplicate non-archived originals including unsafe or malformed competing claims, symlink/ancestor/inode swaps and archive collision.
 
-For a non-no-op, verify the existing Done Analysis Report binds the Subject-only intended proposal with old Version/time, and O145/O129 independently reopen exact evidence. Missing, non-Done, malformed, stale, replacement-required, uncertain or wrong-class assessment prevents publication. Changing only illustrative preview time leaves the intent hash unchanged; changing a target/patch/profile pin/history destination or metadata rule changes it or refuses the request. Wrong expected intent or output must fail an independently authored check.
+For a non-no-op, verify completed bound assessment evidence from a shared review package or a Done Analysis Report binds the Subject-only intended proposal with old Version/time, and O145/O129 independently reopen exact evidence. A separate Analysis Atom is not required. Missing, malformed, stale, replacement-required, uncertain or wrong-class assessment prevents publication; Done/type checks apply only when an Analysis Report is supplied. Changing only illustrative preview time leaves the intent hash unchanged; changing a target/patch/profile pin/history destination or metadata rule changes it or refuses the request. Wrong expected intent or output must fail an independently authored check.
 
 Verify actual O030 start retained in the selected Run and exact selected execute authorization precede effects; no direct call with an authorization Boolean can write. Require current Version `N+1`, one actual Project-time Updated At within the observed effect interval, exact intended Status/placement/identity/Summary/unrelated-byte preservation, exact predecessor bytes at `N` classified archived by placement, no second predecessor bump/time/status edit, and actual readback hashes bound to the intended hash. Require actual selected Run observations and independently verified current/history effect references, not prior Journal records or canonical receipts; queue acceptance or a log entry alone is not completion.
 
