@@ -19,8 +19,9 @@ class CarrierTests(unittest.TestCase):
         self.assertNotIn("atom_id", parsed.metadata)
 
     def test_duplicate_nested_key(self) -> None:
-        with self.assertRaises(CarrierError):
+        with self.assertRaises(CarrierError) as caught:
             parse_carrier(b"---\nsubjects: {governs: A, governs: B}\n---\nx", Path("/a.md"))
+        self.assertEqual(caught.exception.code, "YAML_DUPLICATE_KEY")
 
     def test_unsafe_tag(self) -> None:
         with self.assertRaises(CarrierError):
@@ -39,8 +40,9 @@ class CarrierTests(unittest.TestCase):
 
     def test_deep_yaml_is_bounded(self) -> None:
         data = b"---\nx: " + b"[" * 100 + b"0" + b"]" * 100 + b"\n---\nx"
-        with self.assertRaises(CarrierError):
+        with self.assertRaises(CarrierError) as caught:
             parse_carrier(data, Path("/a.md"))
+        self.assertEqual(caught.exception.code, "YAML_UNSUPPORTED")
 
 
 class ReadTests(unittest.TestCase):

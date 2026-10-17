@@ -14,13 +14,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from artifact_metadata import split_frontmatter  # type: ignore[import-not-found]
 
 
+_SAFE_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
+
+
 class CarrierError(ValueError):
     def __init__(self, code: str, reason: str) -> None:
         super().__init__(reason)
         self.code = code
 
 
-class UniqueSafeLoader(yaml.SafeLoader):
+class UniqueSafeLoader(_SAFE_LOADER):
     def construct_mapping(self, node: MappingNode, deep: bool = False) -> dict[Any, Any]:
         result: dict[Any, Any] = {}
         for key_node, value_node in node.value:
@@ -46,7 +49,7 @@ class ParsedCarrier:
 def check_yaml_resources(frontmatter: str) -> None:
     """Hard parser safety ceilings, not configurable assessment-budget defaults."""
     depth = 0
-    for count, event in enumerate(yaml.parse(frontmatter, Loader=yaml.SafeLoader), 1):
+    for count, event in enumerate(yaml.parse(frontmatter, Loader=_SAFE_LOADER), 1):
         if isinstance(event, AliasEvent):
             raise CarrierError("YAML_UNSUPPORTED", "YAML aliases require an unsupported adapter.")
         if isinstance(event, (MappingStartEvent, SequenceStartEvent)):
