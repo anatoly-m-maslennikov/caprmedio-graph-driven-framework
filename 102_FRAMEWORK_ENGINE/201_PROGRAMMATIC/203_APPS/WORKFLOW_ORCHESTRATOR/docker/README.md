@@ -210,7 +210,7 @@ package or the explicitly selected development checkout.
 `--output url` prints only the URL on success. Failures still return JSON with
 `disposition` and `condition`, exit nonzero, and contain no success URL. Use
 `--no-build` to refuse a missing compatible image. `--startup-timeout` defaults
-to 60 seconds and accepts at most 60; `--build-timeout` defaults to 600 seconds
+to 120 seconds and accepts at most 120; `--build-timeout` defaults to 600 seconds
 and accepts at most 600. Build source is independent of the selected Project.
 
 Docker client commands preserve configured HTTP/HTTPS/SOCKS proxy routing,

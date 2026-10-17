@@ -45,7 +45,7 @@ _DISPOSITIONS = {
     "READINESS_FAILED": "failed",
 }
 _LOCK_RETRY_SECONDS = 0.01
-_DEFAULT_STARTUP_TIMEOUT = 60.0
+_DEFAULT_STARTUP_TIMEOUT = 120.0
 _DEFAULT_BUILD_TIMEOUT = 600.0
 _SAFE_RESULT_KEYS = (
     "disposition", "condition", "project_root", "control_root", "project_id",
@@ -507,7 +507,7 @@ class Launcher:
                                          fingerprint, candidate))
 
     def launch(self, project_root, token=None, control_root=None, image=None, source_root=None,
-               timeout=60, *, port=None, build_if_missing=True, build_timeout=600):
+               timeout=120, *, port=None, build_if_missing=True, build_timeout=600):
         """Return one safe result; never stop, replace, or retry a live runtime."""
         try:
             requested_port = _requested_port(port)

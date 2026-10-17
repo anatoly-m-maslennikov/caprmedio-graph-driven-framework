@@ -82,7 +82,7 @@ class ImplementationStartupTelemetryTests(unittest.TestCase):
         self.assertNotIn(str(self.root), rendered)
         with patch.dict(os.environ, {"CAPRMEDIO_STARTUP_TELEMETRY": "0"}):
             self.assertEqual(self._create()[0], "")
-        self.assertEqual(GENERATION_READY_TIMEOUT_SECONDS, 20)
+        self.assertEqual(GENERATION_READY_TIMEOUT_SECONDS, 90)
 
     def test_catalog_failure_retains_exception_without_sensitive_telemetry(self) -> None:
         secret = "PRIVATE_CONTENT_MUST_NOT_ESCAPE"

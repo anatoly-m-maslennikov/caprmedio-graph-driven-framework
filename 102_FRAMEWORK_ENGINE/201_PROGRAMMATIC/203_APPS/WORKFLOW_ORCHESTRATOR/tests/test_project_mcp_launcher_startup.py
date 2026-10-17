@@ -172,6 +172,18 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assertEqual([56317], self.backend.start_ports)
         self.assertEqual(56317, result["port"])
 
+    def test_ninety_second_generation_budget_fits_outer_startup_bound(self):
+        result = self.launch(timeout=90)
+        self.assertEqual("READY_STARTED", result["condition"])
+        self.assertGreater(self.backend.health_calls[0][1], 0)
+        self.assertLessEqual(self.backend.health_calls[0][1], 90)
+
+    def test_startup_timeout_ceiling_is_120_seconds(self):
+        result = self.launch(timeout=120)
+        self.assertEqual("READY_STARTED", result["condition"])
+        too_high = self.launch(timeout=121)
+        self.assert_public_failure(too_high, "failed", "READINESS_FAILED")
+
     def test_invalid_port_values_refuse_before_selection_or_runtime_effects(self):
         for port in (True, False, "8099", 8099.0, 0, 65536):
             with self.subTest(port=port), patch("project_mcp_launcher.resolve_project") as resolve:

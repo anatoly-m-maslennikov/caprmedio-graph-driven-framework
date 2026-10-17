@@ -259,7 +259,7 @@ def main():
     parser.add_argument("--mock", action="store_true")
     parser.add_argument("--control-root", help="Direct .caprmedio_<project> folder, when explicit selection is needed")
     parser.add_argument("--source-root", type=Path, help="Explicit Framework checkout with image build inputs; required for project-mcp")
-    parser.add_argument("--startup-timeout", type=float, default=60, help="Bound startup/readiness seconds (maximum 60)")
+    parser.add_argument("--startup-timeout", type=float, default=120, help="Bound startup/readiness seconds (maximum 120)")
     parser.add_argument("--build-timeout", type=float, default=600, help="Bound image build seconds (maximum 600)")
     parser.add_argument("--no-build", action="store_true", help="Refuse a missing compatible image instead of building")
     parser.add_argument("--port", type=_project_mcp_port,

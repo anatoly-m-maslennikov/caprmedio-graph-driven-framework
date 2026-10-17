@@ -100,7 +100,7 @@ reconnect; installed dependencies are never changed by a reload.
 Receipts live in `.caprmedio_install/mcp_hot_reload/`; they are not Atom authority.
 The DBOS worker is independent and is not restarted by MCP reload.
 
-Candidate startup is bounded to 20 seconds. Retired generations with calls still
+Candidate startup is bounded to 90 seconds. Retired generations with calls still
 running after 60 seconds are marked `drain_limit_reached`; they are not forcibly
 killed or replayed. A generation's `process_available` reports observed lifecycle,
 not successful completion of its calls. This first slice sends legacy negotiated

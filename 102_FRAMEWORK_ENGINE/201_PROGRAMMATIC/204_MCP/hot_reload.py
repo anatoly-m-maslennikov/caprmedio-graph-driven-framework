@@ -65,9 +65,9 @@ def result(value, error=False):
                                 structured_content=value, is_error=error)
 
 
-GENERATION_READY_TIMEOUT_SECONDS = 20
-# Read-only catalog scans have their own sixty-second bound and watch calls may
-# wait thirty seconds.  The child's startup budget must not truncate either.
+# Read-only catalog scans are bounded at sixty seconds; imports and registration
+# add startup work before readiness is observed, so leave a ninety-second window.
+GENERATION_READY_TIMEOUT_SECONDS = 90
 IMPLEMENTATION_CALL_TIMEOUT_SECONDS = 90
 # Full Subject previews are bounded by the native reader's five-minute budget.
 SUBJECT_PREVIEW_CALL_TIMEOUT_SECONDS = 300
@@ -275,10 +275,9 @@ class Generation:
         phase = 'child_handshake'
         started = time.monotonic()
         try:
-            # This is a known local implementation subprocess.  Its cold
-            # import can exceed the client's fixed ten-second auto-discover
-            # probe, whereas the gateway already owns a bounded readiness
-            # deadline.  Negotiate the stable legacy handshake directly.
+            # This is a known local implementation subprocess. Its cold import
+            # can exceed the client's fixed ten-second auto-discover probe.
+            # Negotiate the stable legacy handshake directly.
             async with Client(self.params, cache=None, mode='legacy',
                               read_timeout_seconds=GENERATION_READY_TIMEOUT_SECONDS) as client:
                 _startup_timing(self.startup_telemetry, phase, started)

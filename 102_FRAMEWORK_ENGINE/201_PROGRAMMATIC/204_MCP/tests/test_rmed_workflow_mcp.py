@@ -167,7 +167,7 @@ class MCPWorkflow(unittest.IsolatedAsyncioTestCase):
                 # ClientSession.send_discover deliberately uses its own ten-second
                 # probe constant, rather than Client.read_timeout_seconds.  The
                 # gateway's initial child-generation preparation is separately
-                # bounded at twenty seconds, so give this cold-start-only probe
+                # bounded at ninety seconds, so give this cold-start-only probe
                 # the existing bounded test startup allowance.
                 with (patch.dict(os.environ, {'CAPRMEDIO_STARTUP_TELEMETRY': '1'}),
                       patch('mcp.client.session.DISCOVER_TIMEOUT_SECONDS',

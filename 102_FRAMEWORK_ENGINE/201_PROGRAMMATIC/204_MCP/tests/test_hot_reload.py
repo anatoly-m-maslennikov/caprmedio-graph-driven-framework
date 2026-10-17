@@ -195,11 +195,11 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
             self.assertTrue(invalid.is_error)
             self.assertEqual([], list(storage.glob('*.json')))
 
-    async def test_cold_generation_bootstraps_before_the_legacy_deadline(self):
-        """The gateway must not spend the child startup budget on auto-discovery."""
+    async def test_cold_generation_bootstraps_after_the_former_legacy_deadline(self):
+        """A 21-second cold start exceeds the former 20-second readiness bound."""
         self.source.write_text(
             'import time\n'
-            'time.sleep(11)\n'
+            'time.sleep(21)\n'
             'from mcp.server import MCPServer\n'
             'server=MCPServer("slow")\n'
             '@server.tool(name="echo", structured_output=True)\n'
@@ -221,7 +221,7 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
         completed = {phase for phase, outcome, _ in records if outcome == 'completed'}
         self.assertTrue({'initial_fingerprint', 'child_handshake', 'list_tools',
                          'generation_ready', 'schema_validation', 'fingerprint_verify'} <= completed)
-        self.assertEqual(GENERATION_READY_TIMEOUT_SECONDS, 20)
+        self.assertEqual(GENERATION_READY_TIMEOUT_SECONDS, 90)
         self.assertNotIn(str(self.root), stderr.getvalue())
         self.assertNotIn(str(self.source), stderr.getvalue())
 
@@ -308,7 +308,7 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
         self.assertIs(actual, response)
         self.assertEqual(observed, [('discover_tools', arguments, 90)])
         self.assertEqual(IMPLEMENTATION_CALL_TIMEOUT_SECONDS, 90)
-        self.assertEqual(GENERATION_READY_TIMEOUT_SECONDS, 20)
+        self.assertEqual(GENERATION_READY_TIMEOUT_SECONDS, 90)
         self.assertEqual(generation.in_flight, 0)
 
     async def test_completed_metadata_marker_forces_parent_generation_refresh(self):

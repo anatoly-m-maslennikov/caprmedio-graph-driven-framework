@@ -140,7 +140,7 @@ def _launch(fixture, token, source_root, image, *, deadline, port=None, command_
     assert remaining > 30, "proof deadline exhausted before launch"
     command = [sys.executable, str(DOCKER / "runtime.py"), "--project-root", str(fixture.root),
                "--control-root", fixture.control, "--source-root", str(source_root),
-               "--startup-timeout", str(min(60, remaining - 20)), "--build-timeout", "600"]
+               "--startup-timeout", str(min(120, remaining - 20)), "--build-timeout", "600"]
     if image is not None:
         command.extend(("--image", image, "--no-build"))
     if port is not None:

@@ -32,6 +32,7 @@ class ProjectMcpCommandTests(unittest.TestCase):
         self.assertEqual(result, json.loads(output))
         self.assertEqual(Path('/project'), launch.call_args.args[0])
         self.assertIsNone(launch.call_args.args[1])
+        self.assertEqual(120, launch.call_args.kwargs['timeout'])
         code, output, _ = self.invoke(result, '--output', 'url')
         self.assertEqual(0, code)
         self.assertEqual(result['url'], output.strip())

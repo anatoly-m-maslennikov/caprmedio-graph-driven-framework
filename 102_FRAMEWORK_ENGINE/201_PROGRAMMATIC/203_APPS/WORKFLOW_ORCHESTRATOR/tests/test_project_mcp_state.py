@@ -39,6 +39,7 @@ class ProjectStateTests(unittest.TestCase):
         spec = yaml.safe_load((APP / 'docker/project-mcp.compose.yaml').read_text())
         self.assertEqual({'mcp-http'}, set(spec['services']))
         service = spec['services']['mcp-http']
+        self.assertEqual('90s', service['healthcheck']['start_period'])
         self.assertEqual(['mcp-http'], service['command'])
         self.assertEqual(['127.0.0.1:${CAPRMEDIO_MCP_HTTP_PORT:?Project Settings HTTP port is required}:8092'], service['ports'])
         self.assertEqual([{'type': 'bind', 'source': '${CAPRMEDIO_PROJECT_ROOT}',
