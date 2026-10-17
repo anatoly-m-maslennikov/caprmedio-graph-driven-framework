@@ -485,7 +485,16 @@ class Service:
                     "context_complete": True, "coverage_issues": issues}
         return None
 
-    def context(self, request):
+    def _named_selected_route_context(self, request):
+        """Resolve an admitted route name without scanning unrelated carriers."""
+        issues = []
+        routes = self._admitted_selected_route_tools(issues)
+        matches = [route for route in routes if route["name"] == request.id]
+        if len(matches) != 1:
+            return None
+        return self._route_context(request, matches[0], routes, issues)
+
+    def _catalog_context(self, request):
         atoms, tools, issues = self.catalog()
         row = atoms.get(request.id)
         if row is None:
@@ -549,6 +558,9 @@ class Service:
                 'output_schema': output_schema, 'tool_description': tool_description,
                 'context_complete': len(selected) == len(related) and used <= budget,
                 'coverage_issues': issues}
+
+    def context(self, request):
+        return self._named_selected_route_context(request) or self._catalog_context(request)
 
     def status(self, request):
         import re

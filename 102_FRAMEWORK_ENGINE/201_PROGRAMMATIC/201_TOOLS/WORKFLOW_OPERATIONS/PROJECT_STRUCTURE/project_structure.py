@@ -20,7 +20,8 @@ import tomllib
 from typing import Any, Callable, Iterable, Mapping
 
 from atom_operations import ToolError as AtomToolError
-from atom_operations import frontmatter_scalar
+from atom_operations import _lifecycle as atom_lifecycle
+from atom_operations import atom_from_path, frontmatter_scalar
 from project_selection import ProjectSelectionError, _DeclarationBoundaryProof, _declaration_boundary_proof, bound_selection
 
 
@@ -473,6 +474,22 @@ def _replace_frontmatter_line(source: str, old: str, new: str, relative_path: st
     return source[:4] + frontmatter.replace(old, new, 1) + source[boundary:]
 
 
+def _require_non_atom_reference(root: Path, path: Path, relative_path: str) -> None:
+    """Keep this route out of Atom lifecycle publication."""
+    try:
+        atom_from_path(root, path)
+    except AtomToolError as error:
+        if error.code == "not-markdown-atom":
+            return
+        raise StructuralConflict(
+            "authoritative Atom replacement requires the canonical Atom lifecycle update owner: "
+            + relative_path
+        ) from error
+    raise StructuralConflict(
+        "authoritative Atom replacement requires the canonical Atom lifecycle update owner: " + relative_path
+    )
+
+
 def _reference_changes(
     root: Path, references: list[dict[str, Any]], *, mechanical_repairs: Iterable[AtomScopeReference] = (),
 ) -> list[SourceChange]:
@@ -486,6 +503,8 @@ def _reference_changes(
         path = entry["path"]
         if not path.is_file() or path.is_symlink():
             raise StructuralConflict(f"reference frontier path is not a regular file: {entry['relative_path']}")
+        if entry["replacements"]:
+            _require_non_atom_reference(root, path, entry["relative_path"])
         _reject_secret_reference_path(entry["relative_path"])
         try:
             before = path.read_text(encoding="utf-8")
@@ -559,6 +578,8 @@ def _active_authoritative_atom_frontmatters(root: Path) -> list[tuple[str, str]]
         relative = path.relative_to(root).as_posix()
         parts = path.relative_to(control).parts
         if path.is_symlink() or "_projection" in parts:
+            continue
+        if atom_lifecycle(path, control) != "active":
             continue
         try:
             source = path.read_text(encoding="utf-8")

@@ -13,7 +13,7 @@ sys.path.insert(0, str(TOOLS / 'VALIDATE_ATOMS'))
 sys.path.insert(0, str(TOOLS.parent / '204_MCP'))
 TESTS_ROOT = TOOLS / 'tests'
 sys.path.insert(0, str(TESTS_ROOT))
-from capability_discovery.service import Service, Query, Observation, Watch
+from capability_discovery.service import Context, Service, Query, Observation, Watch
 from unittest.mock import patch
 
 
@@ -268,6 +268,51 @@ class ServiceTests(unittest.TestCase):
         self.assertEqual([], context['related_definitions'])
         self.assertTrue(context['context_complete'])
         self.assertEqual('create_atom', context['input_schema']['properties']['operation_route']['const'])
+
+    def test_named_selected_route_context_skips_unrelated_catalog_scan(self):
+        manifest = {
+            'manifest_ref': '.caprmedio_caprmedio/_projection/selected_workflow_bindings.json',
+            'canonical_manifest_sha256': 'a' * 64,
+            'source_freshness': {'selected_binding_digest': 'b' * 64},
+            'routes': [{'route': 'create_atom', 'workflow': {'atom_id': 'CA-O-127'},
+                        'ordered_actions': [{'atom_id': 'CA-O-128'}]}],
+        }
+        self.service.exposed.add('create_atom')
+
+        with (
+            patch('selected_routes.load_selected_manifest', return_value=manifest),
+            patch.object(self.service, 'catalog', side_effect=AssertionError('catalog scan')),
+        ):
+            context = self.service.context(Context(id='create_atom'))
+
+        self.assertTrue(context['context_complete'])
+        self.assertEqual('create_atom', context['definition']['name'])
+        self.assertEqual(
+            'create_atom', context['input_schema']['properties']['operation_route']['const'],
+        )
+
+    def test_named_selected_route_context_revalidates_source_pins_per_call(self):
+        manifest = {
+            'manifest_ref': '.caprmedio_caprmedio/_projection/selected_workflow_bindings.json',
+            'canonical_manifest_sha256': 'a' * 64,
+            'source_freshness': {'selected_binding_digest': 'b' * 64},
+            'routes': [{'route': 'create_atom', 'workflow': {'atom_id': 'CA-O-127'},
+                        'ordered_actions': [{'atom_id': 'CA-O-128'}]}],
+        }
+        self.service.exposed.add('create_atom')
+
+        with (
+            patch('selected_routes.load_selected_manifest', side_effect=(
+                manifest, ValueError('source pin is stale'),
+            )) as load_manifest,
+            patch.object(self.service, 'catalog', return_value=({}, [], [])) as catalog,
+        ):
+            self.assertTrue(self.service.context(Context(id='create_atom'))['context_complete'])
+            with self.assertRaisesRegex(ValueError, 'Unknown or ambiguous capability'):
+                self.service.context(Context(id='create_atom'))
+
+        self.assertEqual(2, load_manifest.call_count)
+        self.assertEqual(1, catalog.call_count)
 
     def test_admitted_selected_routes_keep_route_and_workflow_context_exact(self):
         control = self.root / '.caprmedio_caprmedio'

@@ -396,19 +396,20 @@ class ProjectStructureActions(unittest.TestCase):
         self.assertEqual("ROOT\n", self.reference.read_text(encoding="utf-8"))
         self.assertEqual("PROJECT", moved["resulting_scope_unit"]["parent"])
 
-    def test_rename_requires_exact_frontmatter_repairs_for_active_atom_scope_references(self) -> None:
-        """A caller's claimed Goal/carrier coverage cannot replace source coverage."""
+    def test_rename_refuses_unversioned_atom_scope_repairs(self) -> None:
+        """Scope cutover cannot bypass the Atom lifecycle owner."""
         self.assertEqual(
             "completed",
             project_structure.create_scope_unit(
                 self.root, self.parameters("Create", declaration=declaration("CHILD", parent="PARENT", level=2)),
             )["state"],
         )
-        atom = self.root / ".caprmedio_caprmedio" / "04_requirement" / "archive" / "CA-R-999--test-child-reference.md"
+        atom = self.root / ".caprmedio_caprmedio" / "04_requirement" / "CA-R-999--test-child-reference.md"
         atom.parent.mkdir(parents=True)
         atom.write_text(
             "---\n"
             "atom_id: CA-R-999\n"
+            "version: 2\n"
             "status: Active\n"
             "type: Requirement\n"
             "current_scope_unit: CHILD\n"
@@ -419,7 +420,23 @@ class ProjectStructureActions(unittest.TestCase):
             "claim_target_scope_unit: CHILD\n",
             encoding="utf-8",
         )
+        predecessor = atom.parent / "archive" / "CA-R-999--test-child-reference@1.md"
+        predecessor.parent.mkdir(parents=True)
+        predecessor.write_text(
+            "---\n"
+            "atom_id: CA-R-999\n"
+            "version: 1\n"
+            "status: Active\n"
+            "type: Requirement\n"
+            "current_scope_unit: CHILD\n"
+            "claim_target_scope_unit: CHILD\n"
+            "---\n"
+            "# Historical body\n",
+            encoding="utf-8",
+        )
         before_toml = self.toml.read_bytes()
+        before_atom = atom.read_bytes()
+        before_predecessor = predecessor.read_bytes()
         parameters = self.parameters(
             "Rename",
             target_name="CHILD",
@@ -436,6 +453,8 @@ class ProjectStructureActions(unittest.TestCase):
         prepared = handlers["CA-O-012"](context)
         self.assertEqual("conflict", prepared["result"])
         self.assertIn("authoritative Atom scope references", prepared["native_result"]["validation_errors"][0])
+        self.assertIn(atom.relative_to(self.root).as_posix(), prepared["native_result"]["validation_errors"][0])
+        self.assertNotIn(predecessor.relative_to(self.root).as_posix(), prepared["native_result"]["validation_errors"][0])
         refused = handlers["CA-O-014"](context)
         self.assertEqual("conflict", refused["result"])
         self.assertEqual(before_toml, self.toml.read_bytes())
@@ -454,14 +473,40 @@ class ProjectStructureActions(unittest.TestCase):
         })
         self.assertEqual("conflict", project_structure.rename_scope_unit(self.root, semantic_rewrite)["state"])
         self.assertEqual(before_toml, self.toml.read_bytes())
-        applied = project_structure.rename_scope_unit(self.root, parameters)
-        self.assertEqual("completed", applied["state"])
-        atom_text = atom.read_text(encoding="utf-8")
-        self.assertIn("current_scope_unit: RENAMED", atom_text)
-        self.assertIn("claim_target_scope_unit: RENAMED", atom_text)
-        self.assertIn("# Body\n\ncurrent_scope_unit: CHILD\nclaim_target_scope_unit: CHILD\n", atom_text)
+        refused = project_structure.rename_scope_unit(self.root, parameters)
+        self.assertEqual("conflict", refused["state"])
+        self.assertIn("canonical Atom lifecycle update owner", refused["validation_errors"][0])
+        self.assertEqual(before_toml, self.toml.read_bytes())
+        self.assertEqual(before_atom, atom.read_bytes())
+        self.assertEqual(before_predecessor, predecessor.read_bytes())
 
-    def test_remove_refuses_lowercase_active_concern_scope_references_even_under_archive_folder(self) -> None:
+    def test_rename_refuses_malformed_atom_carrier_replacement(self) -> None:
+        self.assertEqual(
+            "completed",
+            project_structure.create_scope_unit(
+                self.root, self.parameters("Create", declaration=declaration("CHILD", parent="PARENT", level=2)),
+            )["state"],
+        )
+        atom = self.root / ".caprmedio_caprmedio" / "04_requirement" / "malformed.md"
+        atom.parent.mkdir(parents=True, exist_ok=True)
+        atom.write_text("---\nstatus: Active\ncurrent_scope_unit: CHILD\n---\n# Body\n", encoding="utf-8")
+        before_toml, before_atom = self.toml.read_bytes(), atom.read_bytes()
+        refused = project_structure.rename_scope_unit(
+            self.root,
+            self.parameters(
+                "Rename", target_name="CHILD", declaration=declaration("RENAMED", parent="PARENT", level=2),
+                reference_frontier=[{
+                    "path": atom.relative_to(self.root).as_posix(), "expected_sha256": digest(atom),
+                    "replacements": [{"old": "current_scope_unit: CHILD", "new": "current_scope_unit: RENAMED"}],
+                }],
+            ),
+        )
+        self.assertEqual("conflict", refused["state"])
+        self.assertIn("canonical Atom lifecycle update owner", refused["validation_errors"][0])
+        self.assertEqual(before_toml, self.toml.read_bytes())
+        self.assertEqual(before_atom, atom.read_bytes())
+
+    def test_remove_ignores_immutable_active_predecessor_under_archive_folder(self) -> None:
         self.assertEqual(
             "completed",
             project_structure.create_scope_unit(
@@ -475,19 +520,18 @@ class ProjectStructureActions(unittest.TestCase):
             "current_scope_unit: CHILD\nclaim_target_scope_unit: CHILD\n---\n# Atom\n",
             encoding="utf-8",
         )
-        before = self.toml.read_bytes()
-        refused = project_structure.remove_scope_unit(
+        before_toml = self.toml.read_bytes()
+        before_atom = atom.read_bytes()
+        removed = project_structure.remove_scope_unit(
             self.root,
             self.parameters(
                 "Remove", target_name="CHILD",
                 preservation_disposition={"preserved": [atom.relative_to(self.root).as_posix()]},
             ),
         )
-        self.assertEqual("conflict", refused["state"])
-        self.assertIn("separately authorized exact disposition", refused["validation_errors"][0])
-        self.assertIn("current_scope_unit", refused["validation_errors"][0])
-        self.assertIn("claim_target_scope_unit", refused["validation_errors"][0])
-        self.assertEqual(before, self.toml.read_bytes())
+        self.assertEqual("completed", removed["state"])
+        self.assertNotEqual(before_toml, self.toml.read_bytes())
+        self.assertEqual(before_atom, atom.read_bytes())
 
     def test_rename_reparents_declared_descendants_in_the_authoritative_toml(self) -> None:
         self.assertEqual(
