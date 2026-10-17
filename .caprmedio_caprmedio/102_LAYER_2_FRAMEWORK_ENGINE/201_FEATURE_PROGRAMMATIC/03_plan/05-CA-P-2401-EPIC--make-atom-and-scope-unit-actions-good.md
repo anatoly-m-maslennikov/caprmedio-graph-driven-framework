@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 1
-updated_at: "2026-10-18 00:07:57 +0400"
+version: 2
+updated_at: "2026-10-18 01:26:07 +0400"
 ---
 # Summary
 
@@ -26,6 +26,31 @@ Make Atom and Scope Unit Actions Good
 Make the PROGRAMMATIC Atom and Scope Unit actions complete, coherent and usable through the existing connectors, Workflows and MCP. This Epic records the Operator's decisions from this session; it is not evidence that the implementation already provides them.
 
 ## Details
+
+### Agreed PROGRAMMATIC structure
+
+The target structure is:
+
+```text
+PROGRAMMATIC
+├── TOOLS
+│   ├── CONNECTORS
+│   └── CAPRMEDIO_TOOLS
+├── PROJECT_TOOLS
+└── APPS
+    ├── WORKFLOW_ORCHESTRATOR
+    └── MCP
+```
+
+All shown Scope Units are unordered; individual Tool Scope Units belong under the appropriate Tool group.
+
+- TOOLS contains reusable capabilities delivered with the framework, rather than maintenance specific to this repository.
+- CONNECTORS contains logical storage access and file/folder mechanics. Backend-specific implementations are adapters within CONNECTORS, not another peer feature group. Connectors do not choose Atom identity, lifecycle or Workflow sequencing.
+- CAPRMEDIO_TOOLS contains reusable CAPRMEDIO domain actions, including the Atom and Scope Unit actions in this Epic, usable in any CAPRMEDIO-managed project.
+- PROJECT_TOOLS contains only the build, test, release and maintenance operations specific to developing the caprmedio framework repository itself. It is a sibling of TOOLS, not a child of CAPRMEDIO_TOOLS.
+- APPS contains WORKFLOW_ORCHESTRATOR and MCP as peers. The orchestrator owns Workflow execution and coordination using Tools. MCP owns discovery and transport for Tools and Workflows; it does not own orchestration or duplicate domain behavior. Preserve other existing Apps; this tree highlights the agreed boundary.
+
+The implementation tasks must reconcile existing TOOLS, CONNECTOR_TOOLS, TOOL_WORKFLOWS, PROJECT_TOOLS, APPS and MCP declarations and contents with this target, reusing capabilities rather than creating duplicate owners. Align applicable RMEDO, project_structure.toml and both governing/delivery bindings during that migration. This Epic update records the target only; it does not itself rename or move folders, change scope declarations, or implement Tools.
 
 ### Atom actions
 
@@ -67,4 +92,4 @@ Creation of this Epic and its task records does not start implementation, a full
 
 ### Definition of Done
 
-False if any scoped Atom or Scope Unit operation, validation invariant or reconciliation policy lacks aligned current contracts and implemented, independently checked functional evidence; or if container/ordinary Atom behavior diverges, predecessor content is lost, empty-only deletion is violated, or required relation/filename/folder/property coherence remains unreported.
+False if any scoped Atom or Scope Unit operation, validation invariant or reconciliation policy lacks aligned current contracts and implemented, independently checked functional evidence; or if container/ordinary Atom behavior diverges, predecessor content is lost, empty-only deletion is violated, or required relation/filename/folder/property coherence remains unreported; or the agreed framework/project Tool separation and App hierarchy are not reflected coherently in governing declarations and delivery carriers.
