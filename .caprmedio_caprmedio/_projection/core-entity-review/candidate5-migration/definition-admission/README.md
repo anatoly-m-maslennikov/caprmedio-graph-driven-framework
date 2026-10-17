@@ -1,6 +1,8 @@
 # Candidate #6 — definition admission package
 
-Status: prepared review package, not an executed migration. No source Atom IDs are allocated and no active sources are changed by these files.
+Status: the bounded activation completed on 2026-10-17. All 79 operations passed independent readback: 51 creations (CA-R-1944–1993 and CA-D-636), 15 updates and 13 retirements. The 28 predecessors retain exact old bytes. The preparation notes below describe the earlier review state, not current pending deployment or identity allocation.
+
+Current-source [Core](../../../CA-PROJ-002-CORE_META_MODEL--Entities-Graph--Current-Atoms.md) and [Project Configuration](../../../CA-PROJ-003-PROJECT_CONFIGURATION--Entities-Graph--Current-Atoms.md) projections were rebuilt. All 45 definitions and five supporting Rs passed the reviewed Claim/Subject/ownership check. Older Subject and model-wide semantic-definition gaps remain visible; this result does not claim complete graph acceptance or broad content migration. See the actual result in CA-P-1959 and [the executed plan](activation/execution-plan.json).
 
 ## Contents
 

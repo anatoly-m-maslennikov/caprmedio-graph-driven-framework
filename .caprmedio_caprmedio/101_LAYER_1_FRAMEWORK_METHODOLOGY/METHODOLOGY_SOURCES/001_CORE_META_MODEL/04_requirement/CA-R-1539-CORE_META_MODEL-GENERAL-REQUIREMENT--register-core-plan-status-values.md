@@ -3,8 +3,8 @@ subjects:
   governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Status"
   depends_on:
     ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom.Status"]
-version: 6
-updated_at: "2026-10-15 18:44:05 +0000"
+version: 7
+updated_at: "2026-10-17 13:00:36 +0000"
 relations: {"relates_to": ["CA-R-1412"]}
 atom_id: "CA-R-1539"
 content_role: "Requirement"
@@ -25,6 +25,6 @@ Core Plan Status values.
 
 ## Claim
 
-the Core Plan Status values **must** be exactly (Active, Backlog, Done, Canceled, Archived); Planned **must not** be a distinct Plan Status.
+the Core Plan Status model **must** inherit the allowed values of Atom.Status and add (Backlog, Done, Canceled). Planned **must not** be a distinct Plan Status.
 
 ## Details

@@ -3,9 +3,9 @@ subjects:
   governs: "Entity/Continuant/Object/Atom"
   depends_on:
     ["Entity/Continuant/Object/Atom", "Entity/Carrier", "Entity/Carrier/File Carrier", "Entity/Continuant/Object/Atom.Property", "Entity/Continuant/Object/Project"]
-version: 8
-updated_at: "2026-10-16 12:09:32 +0000"
-relations: {"relates_to": ["CA-D-258", "CA-D-259", "CA-D-416"]}
+version: 9
+updated_at: "2026-10-17 18:05:45 +0400"
+relations: {"relates_to": ["CA-R-1957", "CA-R-1956", "CA-D-416"]}
 atom_id: "CA-D-463"
 content_role: "Delivery"
 current_scope_unit: "CORE_META_MODEL"

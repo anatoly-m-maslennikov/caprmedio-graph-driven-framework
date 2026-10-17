@@ -1,10 +1,14 @@
 ---
 subjects:
-  governs: "Delivery CCE Role Profile"
+  governs: 'Entity/Continuant/Object/Atom/Content Role: Delivery.Substance'
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Delivery", "CCE Operator", "Entity/Carrier", "Entity Carrier Binding", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Subjects", "Relation Type"]
-version: 7
-updated_at: "2026-10-15 18:48:44 +0000"
+  - 'Entity/Continuant/Object/Atom/Content Role: Delivery'
+  - Entity/Carrier
+  - Entity/Continuant/Object/Atom.Subjects
+  - Entity/Continuant/Term
+  - Entity/Continuant/Object/Relation
+version: 8
+updated_at: "2026-10-17 12:52:16 +0000"
 relations:
   child_of:
     - CA-M-307
@@ -25,18 +29,19 @@ Write Delivery Claims with the Delivery CCE Profile
 
 ## Scope
 
-authoring Delivery Claims with the Delivery CCE Role Profile.
+authoring Delivery Substance with the applicable Delivery CCE Role Profile.
 
 ## Claim
 
-a Delivery Claim **must** use the Delivery CCE Role Profile **to** express its Carrier contribution with the following authoring conventions:
+a Delivery Substance **must** use the applicable Delivery CCE Role Profile with these authoring conventions:
 
-1. name the governed Carrier **or** Entity/Carrier binding **and** state its definition, classification, **or** constraint directly.
-2. include format, content, address, placement, **or** lifecycle conditions **when** they are relevant **to** that contribution.
-3. choose CCE Operators **to** express the applicable modality, conditions, quantities, **and** comparisons.
-4. use **means** for a definition; express a classification **or** binding through its admitted Relation Type.
-5. keep the Claim about the governed Subject; use references for separately governed contributions.
+1. name the governed Entity or Carrier and state its representation, storage or placement constraint directly.
+2. include format, content, address, placement or lifecycle conditions **when** they are relevant to that contribution.
+3. choose CCE Operators to express the applicable modality, conditions, quantities and comparisons.
+4. use admitted typed Relations when the contribution expresses a representation binding.
+5. keep the Substance about its governed Subject; reference separately governed contributions instead of redefining them.
 
 ## Details
 
-Carrier definitions **and** classifications need **only** the details relevant **to** their own contribution. they do **not** require an invented filename, format, **or** lifecycle condition.
+Entity, property and Carrier-kind definitions belong to Requirement. Delivery uses those definitions to specify representation. Do not invent a filename, format or lifecycle condition merely to fill a template. YAML fields and Markdown sections can represent properties inside one File Carrier without a separate binding record for each property.
+

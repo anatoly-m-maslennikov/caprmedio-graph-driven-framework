@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 89
-updated_at: "2026-10-17 11:25:36 +0000"
+version: 90
+updated_at: "2026-10-17 18:17:06 +0400"
 relations: {}
 ---
 # Summary
@@ -33,11 +33,24 @@ The Operator approved the following remaining sequence. This section supersedes 
 
 - [x] Reconcile 54 review placeholders: 45 populated definitions, two covered by existing Rs, seven superseded. Resolve tiers, proposed identities and parent links for all 45.
 - [x] Fix bounded reference lookup and ancestor-parent validation. Preserve the existing equal-tier ancestor case. New regressions and related focused tests pass; a real Continuant creation preview passes without creating a source.
-- [ ] Run the complete runtime/scripts test suite, including required current-code Docker integrations. Stop on failure and repair the concrete cause before deployment.
-- [ ] Perform the host local release and verify the connected MCP uses the tested fixes, with the current configured port retained.
-- [ ] Apply the prepared source-rule corrections for Status, containment, Revision, Carrier and R796 parent applicability. Preserve predecessors and reuse IDs only where the existing Summary/contribution is retained.
-- [ ] Activate the 45 definitions and the five supporting Rs plus D successor. Recheck unused identity candidates at creation. Covered/superseded placeholders remain excluded.
-- [ ] Rebuild the Entities graph from current source Atoms; verify defining-R coverage, intended Core/project separation and remaining explicit holds.
+- [x] Run the complete runtime/scripts test suite, including required current-code Docker integrations. Stop on failure and repair the concrete cause before deployment.
+- [x] Deploy the tested code through the host local-release path and the authorized startup recovery. Verify the connected MCP, retaining port 56317.
+- [x] Apply the prepared source-rule corrections for Status, containment, Revision, Carrier and R796 parent applicability. Preserve predecessors and reuse IDs only where the existing Summary/contribution is retained.
+- [x] Activate the 45 definitions and the five supporting Rs plus D successor. Recheck unused identity candidates at creation. Covered/superseded placeholders remain excluded.
+- [x] Rebuild separate Core and Project Configuration Entities graphs from current source Atoms. Verify all 50 reviewed new Rs and source separation; retain the remaining diagnostics.
+- [ ] Resolve the remaining older Subject and model-wide defining-R coverage holds. Exact Subject incidence alone does not prove or disprove a semantic definition; do not hide these nodes or repair content under this activation approval.
+
+#### Actual result — 2026-10-17
+
+The second full-suite run passed: 396 modules, 3,503 tests, zero skips and zero failed modules, including required current-code Docker integrations and the final launcher integration. The earlier release attempt failed its test gate; those failures were fixed and rerun. The second local-release command then stopped at startup because two old containers made ownership ambiguous. Its original report remains failed at `start_mcp`; it is not relabeled as a successful command. Following the Operator's container-replacement authorization, the old MCP and stopped legacy worker were removed and the already-tested image was started through the existing launcher without rebuilding or rerunning the suite. The replacement MCP is healthy and serving at `http://127.0.0.1:56317/mcp`; a fresh read-only MCP status call passed.
+
+Deployment evidence: `.caprmedio_runtime/simple_local_release/reports/local-20261017-candidate6-readers-002.md`, `.caprmedio_tmp/verification/candidate6-activation-20261017/deployment-recovery.json` and the configured launcher's `last_launch.json`. Tested implementation fingerprint: `115ee752a2c61b2e8994cc39a5d1425a94663f97d11442ecf3f3a38782727288`.
+
+All 79 prepared operations completed and were accepted: 51 creations (CA-R-1944 through CA-R-1993 and CA-D-636), 15 updates and 13 retirements. Independent readback passed 79/79 with no discrepancies. All 28 predecessor archives retain exact old bytes; current identities, Versions, Statuses, reviewed bodies, actual terminal results and matching Journal records were checked. Execution plan: `../_projection/core-entity-review/candidate5-migration/definition-admission/activation/execution-plan.json`. Actual runs: `.caprmedio_install/workflow_orchestrator/runs/candidate6-activation-NNN-95173ba72eb22d73/`, where NNN is 001 through 079. Readback receipts: `.caprmedio_tmp/verification/candidate6-activation-20261017/activation-readback-receipt.json` and `.caprmedio_tmp/scratch79-activation-readback.json`. No failed effect, uncertain result, automatic replay or batch rollback occurred.
+
+The resulting current-source projections are [Core Meta-model](../_projection/CA-PROJ-002-CORE_META_MODEL--Entities-Graph--Current-Atoms.md) (1,021 sources; 674 nodes) and [Project Configuration](../_projection/CA-PROJ-003-PROJECT_CONFIGURATION--Entities-Graph--Current-Atoms.md) (118 sources; 174 nodes). All 45 defining Rs and five supporting Rs match their accepted Claims, Subjects, ownership and Active state. Source separation passed with no cross-root leakage. The supporting permissions are not mislabeled as entity definitions.
+
+This is not full semantic/model-wide graph acceptance. The projections still show 464 Core and 163 Project nodes outside `Entity/…` notation, and 366 Core and 112 Project nodes without an exact governing-R Subject. Those are incidence findings, not proof that each node lacks a semantic definition. Core CA-C-290 has no Subjects mapping; Project Configuration has no parse/selection diagnostic. Detailed coverage is `.caprmedio_tmp/verification/candidate6-activation-20261017/graph-coverage.json`. Older Subjects remain visible and unchanged; C/A instance migration, broad content migration, CONTAINS and Terms semantic work remain deferred. Keep this Epic Active; do not cascade completion to its descendants.
 
 The exact reviewed proposals and identity/parent inventory are in [the definition-admission package](../_projection/core-entity-review/candidate5-migration/definition-admission/README.md). Local code changes and review drafts do not establish deployment, source activation or graph acceptance.
 

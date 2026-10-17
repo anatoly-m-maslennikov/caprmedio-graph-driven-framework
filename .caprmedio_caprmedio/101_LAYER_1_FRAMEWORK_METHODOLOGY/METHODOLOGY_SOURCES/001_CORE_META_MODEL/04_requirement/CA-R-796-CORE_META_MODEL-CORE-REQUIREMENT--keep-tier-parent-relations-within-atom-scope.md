@@ -1,14 +1,16 @@
 ---
 subjects:
-  governs: "relation-model"
+  governs: 'Entity/Continuant/Object/Relation/Type: child_of'
   depends_on:
-    ["Atom Scope", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Relation"]
-version: 20
-updated_at: "2026-10-15 18:46:34 +0000"
+  - Entity/Continuant/Object/Atom.Global Tier
+  - Entity/Continuant/Object/Atom.Owning Scope Unit
+  - Entity/Continuant/Object/Atom.Target Scope Unit
+  - Entity/Continuant/Object/Atom.Substance Scope
+version: 21
+updated_at: "2026-10-17 12:51:29 +0000"
 relations:
   child_of:
-    - CA-R-917
-    - CA-R-920
+    - CA-R-1174
 atom_id: "CA-R-796"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
@@ -24,10 +26,13 @@ Keep tier-parent relations within Atom Scope
 
 ## Scope
 
-tier-parent relations between Atoms.
+Tier-parent relations between tier-classified Atoms.
 
 ## Claim
 
-**every** tier-parent relation between Atoms **must** connect Atoms with the same Atom Scope.
+a tier-parent relation **must** point from a child Atom to an applicable parent Atom permitted by the Global Tier topology. a parent in the child's Owning Scope Unit **must** have a lower Global Tier. a parent in a declared ancestor Scope Unit **may** have an equal or lower Global Tier. the parent's Substance, Target Scope Unit when applicable, and Substance Scope **must** support the authority claimed by that relation.
 
 ## Details
+
+Structural eligibility alone does not establish parenthood. Different Subjects are allowed when the parent actually governs the child's contribution; equal Subjects do not establish that governance. An ancestor-owned Goal may govern definitions that fulfill its result in the targeted child Scope Unit without changing either Atom's owner. A relational Atom's Target Scope Unit does not replace its Owning Scope Unit in the structural test. Preserve the admitted Project Goal-to-Project Principle case, Type-specific restrictions, orphan permissions, and the acyclic normative-authority boundary. Do not turn a dependency, classification, containment, or source-layer relation into `child_of` merely to fill parent coverage.
+
