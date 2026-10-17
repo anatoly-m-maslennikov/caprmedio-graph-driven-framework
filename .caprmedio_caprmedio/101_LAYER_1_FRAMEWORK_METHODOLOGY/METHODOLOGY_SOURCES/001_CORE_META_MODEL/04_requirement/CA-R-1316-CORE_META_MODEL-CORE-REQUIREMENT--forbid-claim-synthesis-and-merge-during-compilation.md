@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
+  governs: "Entity/Continuant/Node/Projection/Type: Applicable Methodology"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance"]
-version: 14
-updated_at: "2026-10-16 12:08:20 +0000"
+    ["Entity/Continuant/Node/Atom.Substance"]
+version: 15
+updated_at: "2026-10-18 03:33:21 +0400"
 relations: {}
 atom_id: "CA-R-1316"
 content_role: "Requirement"

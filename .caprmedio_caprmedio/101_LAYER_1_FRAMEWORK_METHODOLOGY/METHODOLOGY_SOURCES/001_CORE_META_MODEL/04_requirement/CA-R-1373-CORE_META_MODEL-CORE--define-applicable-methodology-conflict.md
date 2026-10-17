@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Applicable Methodology.Conflict"
+  governs: "Entity/Continuant/Node/Projection/Type: Applicable Methodology.Conflict"
   depends_on:
-    ["Entity/Continuant/Projection/Type: Applicable Methodology"]
-version: 12
-updated_at: "2026-10-16 12:08:22 +0000"
+    ["Entity/Continuant/Node/Projection/Type: Applicable Methodology"]
+version: 13
+updated_at: "2026-10-18 03:33:24 +0400"
 relations: {}
 atom_id: "CA-R-1373"
 content_role: "Requirement"

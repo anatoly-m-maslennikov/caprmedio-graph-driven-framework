@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit.Path"
+  governs: "Entity/Continuant/Node/Scope Unit.Path"
   depends_on: []
-version: 25
-updated_at: "2026-10-16 12:08:38 +0000"
+version: 26
+updated_at: "2026-10-18 03:33:48 +0400"
 relations:
   child_of:
     - CA-M-001

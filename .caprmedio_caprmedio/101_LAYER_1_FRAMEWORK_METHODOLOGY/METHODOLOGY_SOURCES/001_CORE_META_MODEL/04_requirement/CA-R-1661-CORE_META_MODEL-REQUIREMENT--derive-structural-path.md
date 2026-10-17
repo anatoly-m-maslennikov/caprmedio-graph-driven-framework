@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit.Path"
+  governs: "Entity/Continuant/Node/Scope Unit.Path"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children", "Entity/Continuant/Object/Project.Structure"]
-version: 19
-updated_at: "2026-10-16 12:08:38 +0000"
+    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit.Parent", "Entity/Continuant/Node/Scope Unit.Children", "Entity/Continuant/Node/Project.Structure"]
+version: 20
+updated_at: "2026-10-18 03:33:48 +0400"
 relations:
   child_of:
     - CA-R-1764

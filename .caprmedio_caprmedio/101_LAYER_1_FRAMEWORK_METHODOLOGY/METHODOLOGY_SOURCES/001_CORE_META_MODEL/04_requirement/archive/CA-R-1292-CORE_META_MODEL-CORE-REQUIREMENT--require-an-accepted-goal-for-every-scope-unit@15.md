@@ -1,0 +1,30 @@
+---
+subjects:
+  governs: "Entity/Continuant/Object/Scope Unit"
+  depends_on:
+    ["Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Atom.Substance"]
+version: 15
+updated_at: "2026-10-15 18:41:41 +0000"
+relations: {}
+atom_id: "CA-R-1292"
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "Core"
+status: "Active"
+author: "Anatoly Maslennikov"
+global_tier: 9
+---
+# Summary
+
+Require an Accepted Goal for Every Scope Unit
+
+## Scope
+
+Scope Units and their Claim Target Scope Unit references.
+
+## Claim
+
+**every** Scope Unit **must** remain the Claim Target Scope Unit of **`>=1`** accepted Goal Atom.
+
+## Details

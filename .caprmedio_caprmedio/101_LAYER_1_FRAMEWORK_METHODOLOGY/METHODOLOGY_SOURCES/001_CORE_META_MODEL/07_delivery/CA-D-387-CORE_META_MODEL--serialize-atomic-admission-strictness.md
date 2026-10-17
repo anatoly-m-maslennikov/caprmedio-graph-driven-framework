@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings"
+  governs: "Entity/Continuant/Node/Project.Framework Settings"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings"]
-version: 11
-updated_at: "2026-10-15 18:51:46 +0000"
+    ["Entity/Continuant/Node/Project.Framework Settings"]
+version: 12
+updated_at: "2026-10-18 03:34:45 +0400"
 relations:
   child_of:
     - CA-D-361

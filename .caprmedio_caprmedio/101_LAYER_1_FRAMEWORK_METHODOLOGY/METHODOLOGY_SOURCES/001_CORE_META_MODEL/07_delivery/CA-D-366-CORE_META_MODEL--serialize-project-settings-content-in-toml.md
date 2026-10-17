@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Settings"
+  governs: "Entity/Continuant/Node/Project.Settings"
   depends_on:
-    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Projection"]
-version: 13
-updated_at: "2026-10-15 18:51:34 +0000"
+    ["Entity/Continuant/Node/Project", "Entity/Continuant/Node/Project.Settings.Atom Prefix", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Projection"]
+version: 14
+updated_at: "2026-10-18 03:34:42 +0400"
 relations:
   child_of:
     - CA-D-364

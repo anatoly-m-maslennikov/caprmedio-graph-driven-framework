@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Project.Settings"
+  governs: "Entity/Continuant/Node/Project.Settings"
   depends_on:
-    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Settings.Revision Binding", "Entity/Continuant/Project.Settings.Project Name", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Scope Unit"]
-version: 22
-updated_at: "2026-10-16 12:09:05 +0000"
+    ["Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Project.Settings.Revision Binding", "Entity/Continuant/Node/Project.Settings.Project Name", "Entity/Continuant/Node/Project.Settings.Atom Prefix", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Scope Unit"]
+version: 23
+updated_at: "2026-10-18 03:34:22 +0400"
 relations:
   evaluation_for:
     - CA-R-1738

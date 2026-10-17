@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Evaluation"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Evaluation"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom.Substance Scope", "Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Relation/Type: evaluation_for"]
-version: 11
-updated_at: "2026-10-16 12:09:02 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Evaluation", "Entity/Continuant/Node/Atom/Content Role: Method", "Entity/Continuant/Node/Atom.Substance Scope", "Entity/Continuant/Node/Atom.Local Tier", "Entity/Continuant/Relation/Type: evaluation_for"]
+version: 12
+updated_at: "2026-10-18 03:34:18 +0400"
 relations: {}
 atom_id: "CA-M-264"
 content_role: "Method"

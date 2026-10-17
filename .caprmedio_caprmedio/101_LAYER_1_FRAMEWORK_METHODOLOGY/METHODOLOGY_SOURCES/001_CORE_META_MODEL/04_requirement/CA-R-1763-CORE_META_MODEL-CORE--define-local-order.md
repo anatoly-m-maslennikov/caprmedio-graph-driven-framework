@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit.Local Order"
+  governs: "Entity/Continuant/Node/Scope Unit.Local Order"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit/Type", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children", "Entity/Continuant/Object/Relation"]
-version: 20
-updated_at: "2026-10-16 12:08:45 +0000"
+    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit/Type", "Entity/Continuant/Node/Scope Unit.Parent", "Entity/Continuant/Node/Scope Unit.Children", "Entity/Continuant/Relation"]
+version: 21
+updated_at: "2026-10-18 03:33:55 +0400"
 relations: {}
 atom_id: "CA-R-1763"
 content_role: "Requirement"

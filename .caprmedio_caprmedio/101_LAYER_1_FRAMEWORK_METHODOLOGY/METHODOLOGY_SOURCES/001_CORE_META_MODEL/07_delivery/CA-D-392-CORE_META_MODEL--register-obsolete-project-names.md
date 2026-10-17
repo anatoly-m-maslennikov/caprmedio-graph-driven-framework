@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Scope Unit Graph"
+  governs: "Entity/Continuant/Node/Projection/Type: Scope Unit Graph"
   depends_on:
-    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Project.Settings.Project Name", "Entity/Continuant/Project.Settings.Obsolete Names"]
-version: 10
-updated_at: "2026-10-16 12:09:28 +0000"
+    ["Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Project.Settings.Project Name", "Entity/Continuant/Node/Project.Settings.Obsolete Names"]
+version: 11
+updated_at: "2026-10-18 03:34:45 +0400"
 relations:
   child_of:
     - "CA-R-1052"

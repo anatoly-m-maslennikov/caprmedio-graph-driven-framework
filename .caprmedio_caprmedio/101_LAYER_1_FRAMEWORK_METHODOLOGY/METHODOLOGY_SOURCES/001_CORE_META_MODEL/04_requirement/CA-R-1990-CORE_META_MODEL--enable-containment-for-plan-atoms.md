@@ -8,14 +8,14 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: 'Entity/Continuant/Object/Atom/Content Role: Plan.Enabled Relations.Contains'
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Enabled Relations.Contains"
   depends_on:
-  - Entity/Continuant/Object/Atom.Enabled Relations.Contains
+  - "Entity/Continuant/Node/Atom.Enabled Relations.Contains"
 relations:
   child_of:
   - CA-R-1945
-version: 1
-updated_at: "2026-10-17 17:59:30 +0400"
+version: 2
+updated_at: "2026-10-18 03:34:07 +0400"
 ---
 # Summary
 

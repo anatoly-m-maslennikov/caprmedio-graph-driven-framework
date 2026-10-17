@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Structure"
+  governs: "Entity/Continuant/Node/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Projection/Type: Applicable Methodology"]
-version: 14
-updated_at: "2026-10-15 18:49:20 +0000"
+    ["Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Node/Projection/Type: Applicable Methodology"]
+version: 15
+updated_at: "2026-10-18 03:34:22 +0400"
 relations:
   evaluation_for:
     - "CA-R-1483"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Updated At"
+  governs: "Entity/Continuant/Node/Atom.Updated At"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier", "Entity/Continuant/Object/Atom.Version Number", "Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.ID", "Entity"]
-version: 5
-updated_at: "2026-10-16 12:09:10 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Evaluation", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/History/Revision/Type: Atom", "Entity/Carrier", "Entity/Continuant/Node/Atom.Version Number", "Entity/Continuant/Node/Atom.Status", "Entity/Continuant/Node/Atom.Summary", "Entity/Continuant/Node/Atom.ID", "Entity"]
+version: 6
+updated_at: "2026-10-18 03:34:31 +0400"
 relations:
   evaluation_for:
     - CA-D-270

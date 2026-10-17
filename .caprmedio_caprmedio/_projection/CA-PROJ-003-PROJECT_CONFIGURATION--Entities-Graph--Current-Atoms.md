@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-17 18:53:32 +0400
+updated_at: 2026-10-18 03:35:35 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2
@@ -22,8 +22,8 @@ sources:
 - CA-D-397@11
 - CA-D-398@10
 - CA-D-399@9
-- CA-D-400@9
-- CA-D-401@9
+- CA-D-400@10
+- CA-D-401@10
 - CA-D-402@9
 - CA-D-404@9
 - CA-D-405@8
@@ -31,12 +31,12 @@ sources:
 - CA-D-453@5
 - CA-D-454@5
 - CA-D-498@1
-- CA-D-499@1
+- CA-D-499@2
 - CA-D-500@1
 - CA-D-501@1
-- CA-D-502@1
-- CA-D-503@1
-- CA-D-504@2
+- CA-D-502@2
+- CA-D-503@2
+- CA-D-504@3
 - CA-D-581@1
 - CA-E-465@7
 - CA-E-474@8
@@ -84,8 +84,8 @@ sources:
 - CA-R-1642@20
 - CA-R-1645@21
 - CA-R-1651@20
-- CA-R-1662@26
-- CA-R-1663@23
+- CA-R-1662@27
+- CA-R-1663@24
 - CA-R-1665@21
 - CA-R-1666@25
 - CA-R-1667@21
@@ -111,25 +111,21 @@ sources:
 - CA-R-1800@1
 - CA-R-1888@1
 - CA-R-1889@1
-- CA-R-1977@1
-- CA-R-1978@1
-- CA-R-1979@1
-- CA-R-1980@1
-- CA-R-1981@1
-- CA-R-1982@1
-- CA-R-1983@1
+- CA-R-1977@2
+- CA-R-1978@2
+- CA-R-1979@2
+- CA-R-1980@2
+- CA-R-1981@2
+- CA-R-1982@2
+- CA-R-1983@2
 - CA-R-825@20
 - CAPRMEDIO-GOV-EVAL-006@27
 - CAPRMEDIO-R-793@22
-projection_id: CA-PROJ-003
-named_selection: Current Atoms
-source_of_truth:
-- .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION
 ---
 
 ## Inherency tree
 
-Source selection: Current Atoms in .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION; draft and archived folders excluded; all Content Roles retained.
+Source selection: Current Atoms in .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION; draft and archived folders excluded. Subjects and Versions read from the Atom files.
 
 Display selection: supplied graph nodes and Inherency relations; dependent entities appear in detail sections.
 
@@ -163,12 +159,9 @@ Atom
 	/ Atom/Content Role: Analysis
 		/ Atom/Content Role: Analysis/Type
 		/ Atom/Content Role: Analysis/Type: FPF Analysis Report
-	/ Atom/Content Role: Concern
-		/ Atom/Content Role: Concern/Type
 	/ Atom/Content Role: Delivery
 		/ Atom/Content Role: Delivery/Type
 	/ Atom/Content Role: Evaluation
-		/ Atom/Content Role: Evaluation/Type
 		/ Atom/Content Role: Evaluation/Type: Evaluation Approach
 	/ Atom/Content Role: Implementation
 	/ Atom/Content Role: Method
@@ -226,8 +219,17 @@ Development Backlog Splitting
 Directory Carrier
 Docker Image
 Entity
+	/ Entity/Carrier
 	/ Entity/Continuant
-		/ Entity/Continuant/Project
+		/ Entity/Continuant/Node
+			/ Entity/Continuant/Node/Atom
+				/ Entity/Continuant/Node/Atom/Content Role: Concern
+					/ Entity/Continuant/Node/Atom/Content Role: Concern/Type
+				/ Entity/Continuant/Node/Atom/Content Role: Evaluation
+					/ Entity/Continuant/Node/Atom/Content Role: Evaluation/Type
+			/ Entity/Continuant/Node/History
+				/ Entity/Continuant/Node/History/Journal
+			/ Entity/Continuant/Node/Project
 Evaluation
 Evaluation Control
 Evaluation For Relation
@@ -308,18 +310,18 @@ evaluation
 lifecycle-traceability
 ```
 
-### Entity/Continuant/Project
+### Entity/Continuant/Node/Project
 
 ```text
-Entity/Continuant/Project
-	. Entity/Continuant/Project.Framework Settings
-		. Entity/Continuant/Project.Framework Settings.Artifact Timestamp Timezone
-		. Entity/Continuant/Project.Framework Settings.Code-Root Locators
-		. Entity/Continuant/Project.Framework Settings.Confidence
-		. Entity/Continuant/Project.Framework Settings.Framework Control-Root Locator
-		. Entity/Continuant/Project.Framework Settings.Identifier
-		. Entity/Continuant/Project.Framework Settings.Interaction
-		. Entity/Continuant/Project.Framework Settings.Parameter Resolution
+Entity/Continuant/Node/Project
+	. Entity/Continuant/Node/Project.Framework Settings
+		. Entity/Continuant/Node/Project.Framework Settings.Artifact Timestamp Timezone
+		. Entity/Continuant/Node/Project.Framework Settings.Code-Root Locators
+		. Entity/Continuant/Node/Project.Framework Settings.Confidence
+		. Entity/Continuant/Node/Project.Framework Settings.Framework Control-Root Locator
+		. Entity/Continuant/Node/Project.Framework Settings.Identifier
+		. Entity/Continuant/Node/Project.Framework Settings.Interaction
+		. Entity/Continuant/Node/Project.Framework Settings.Parameter Resolution
 ```
 
 Source limitations:

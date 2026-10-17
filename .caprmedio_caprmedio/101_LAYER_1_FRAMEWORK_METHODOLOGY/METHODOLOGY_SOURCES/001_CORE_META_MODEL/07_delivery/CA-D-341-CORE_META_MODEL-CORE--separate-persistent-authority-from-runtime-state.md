@@ -2,9 +2,9 @@
 subjects:
   governs: Entity/Carrier
   depends_on:
-  - Entity/Continuant/History
-version: 14
-updated_at: "2026-10-17 12:52:27 +0000"
+  - "Entity/Continuant/Node/History"
+version: 15
+updated_at: "2026-10-18 03:34:40 +0400"
 relations: {}
 atom_id: "CA-D-341"
 content_role: "Delivery"

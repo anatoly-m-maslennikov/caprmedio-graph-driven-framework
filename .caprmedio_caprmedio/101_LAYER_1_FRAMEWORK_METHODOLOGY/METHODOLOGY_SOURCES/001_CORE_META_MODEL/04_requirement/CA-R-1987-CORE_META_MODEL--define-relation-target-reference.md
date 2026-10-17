@@ -8,12 +8,12 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Continuant/Object/Relation.Target Reference
+  governs: "Entity/Continuant/Relation.Target Reference"
 relations:
   child_of:
   - CA-R-1174
-version: 1
-updated_at: "2026-10-17 17:55:52 +0400"
+version: 2
+updated_at: "2026-10-18 03:34:06 +0400"
 ---
 # Summary
 

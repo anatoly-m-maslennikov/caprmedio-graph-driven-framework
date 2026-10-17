@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Author"
+  governs: "Entity/Continuant/Node/Atom.Author"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Actor"]
-version: 17
-updated_at: "2026-10-15 18:41:05 +0000"
+    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Actor"]
+version: 18
+updated_at: "2026-10-18 03:33:17 +0400"
 relations:
   child_of:
     - CA-R-1574

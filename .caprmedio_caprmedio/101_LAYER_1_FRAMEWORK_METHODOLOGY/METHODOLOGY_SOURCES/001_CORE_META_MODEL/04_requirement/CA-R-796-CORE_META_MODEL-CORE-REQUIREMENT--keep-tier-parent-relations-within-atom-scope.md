@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: 'Entity/Continuant/Object/Relation/Type: child_of'
+  governs: "Entity/Continuant/Relation/Type: child_of"
   depends_on:
-  - Entity/Continuant/Object/Atom.Global Tier
-  - Entity/Continuant/Object/Atom.Owning Scope Unit
-  - Entity/Continuant/Object/Atom.Target Scope Unit
-  - Entity/Continuant/Object/Atom.Substance Scope
-version: 21
-updated_at: "2026-10-17 12:51:29 +0000"
+  - "Entity/Continuant/Node/Atom.Global Tier"
+  - "Entity/Continuant/Node/Atom.Owning Scope Unit"
+  - "Entity/Continuant/Node/Atom.Target Scope Unit"
+  - "Entity/Continuant/Node/Atom.Substance Scope"
+version: 22
+updated_at: "2026-10-18 03:34:11 +0400"
 relations:
   child_of:
     - CA-R-1174

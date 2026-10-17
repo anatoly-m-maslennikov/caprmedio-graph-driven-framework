@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit.Children"
+  governs: "Entity/Continuant/Node/Scope Unit.Children"
   depends_on: []
-version: 16
-updated_at: "2026-10-16 12:08:46 +0000"
+version: 17
+updated_at: "2026-10-18 03:33:57 +0400"
 relations: {}
 atom_id: "CA-R-1771"
 content_role: "Requirement"

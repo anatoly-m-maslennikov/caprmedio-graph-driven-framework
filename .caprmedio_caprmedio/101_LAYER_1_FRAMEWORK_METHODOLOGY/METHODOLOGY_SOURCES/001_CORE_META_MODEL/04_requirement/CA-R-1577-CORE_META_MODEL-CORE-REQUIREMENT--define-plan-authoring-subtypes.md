@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Label"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Label"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Projection/Type: Applicable Methodology"]
-version: 7
-updated_at: "2026-10-16 12:08:32 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom/Content Role: Plan.Label", "Entity/Continuant/Node/Projection/Type: Applicable Methodology"]
+version: 8
+updated_at: "2026-10-18 03:33:41 +0400"
 relations: {"relates_to": ["CA-R-1574", "CA-R-1576"]}
 atom_id: "CA-R-1577"
 content_role: "Requirement"

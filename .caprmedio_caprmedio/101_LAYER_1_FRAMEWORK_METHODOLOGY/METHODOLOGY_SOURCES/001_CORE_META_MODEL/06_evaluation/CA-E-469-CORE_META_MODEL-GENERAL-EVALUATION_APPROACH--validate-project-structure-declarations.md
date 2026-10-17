@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Structure"
+  governs: "Entity/Continuant/Node/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Carrier"]
-version: 10
-updated_at: "2026-10-15 18:49:36 +0000"
+    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Carrier"]
+version: 11
+updated_at: "2026-10-18 03:34:23 +0400"
 relations:
   evaluation_for:
     - "CA-R-1483"

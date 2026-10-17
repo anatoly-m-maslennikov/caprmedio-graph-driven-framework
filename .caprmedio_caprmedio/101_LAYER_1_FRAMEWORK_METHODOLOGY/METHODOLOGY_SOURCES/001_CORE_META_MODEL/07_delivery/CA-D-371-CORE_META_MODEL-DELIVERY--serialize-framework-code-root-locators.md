@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings.Code-Root Locators"
+  governs: "Entity/Continuant/Node/Project.Framework Settings.Code-Root Locators"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings"]
-version: 9
-updated_at: "2026-10-15 18:51:37 +0000"
+    ["Entity/Continuant/Node/Project.Framework Settings"]
+version: 10
+updated_at: "2026-10-18 03:34:43 +0400"
 relations:
   child_of:
     - "CA-D-361"

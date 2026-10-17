@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Substance"
+  governs: "Entity/Continuant/Node/Atom.Substance"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit"]
-version: 11
-updated_at: "2026-10-15 18:49:31 +0000"
+    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Atom/Content Role: Evaluation", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Atom.Target Scope Unit"]
+version: 12
+updated_at: "2026-10-18 03:34:22 +0400"
 relations: {}
 atom_id: "CA-E-461"
 content_role: "Evaluation"

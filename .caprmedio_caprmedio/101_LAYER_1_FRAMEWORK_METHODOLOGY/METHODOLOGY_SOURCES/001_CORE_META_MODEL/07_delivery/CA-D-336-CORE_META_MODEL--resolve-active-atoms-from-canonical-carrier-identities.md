@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom"
+  governs: "Entity/Continuant/Node/Atom"
   depends_on:
-    ["Entity/Continuant/Object/Atom.ID", "Entity/Carrier.Canonical Address"]
-version: 15
-updated_at: "2026-10-16 12:09:20 +0000"
+    ["Entity/Continuant/Node/Atom.ID", "Entity/Carrier.Canonical Address"]
+version: 16
+updated_at: "2026-10-18 03:34:39 +0400"
 relations: {}
 atom_id: "CA-D-336"
 content_role: "Delivery"

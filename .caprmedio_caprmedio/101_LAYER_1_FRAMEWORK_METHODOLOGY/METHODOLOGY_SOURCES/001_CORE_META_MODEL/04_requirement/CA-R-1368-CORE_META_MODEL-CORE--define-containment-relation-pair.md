@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: 'Entity/Continuant/Object/Relation/Type: CONTAINS'
+  governs: "Entity/Continuant/Relation/Type: CONTAINS"
   depends_on:
-  - Entity/Continuant/Object/Atom.Enabled Relations.Contains
-  - Entity/Continuant/Object/Scope Unit
-version: 11
-updated_at: "2026-10-17 12:52:37 +0000"
+  - "Entity/Continuant/Node/Atom.Enabled Relations.Contains"
+  - "Entity/Continuant/Node/Scope Unit"
+version: 12
+updated_at: "2026-10-18 03:33:24 +0400"
 relations: {}
 atom_id: "CA-R-1368"
 content_role: "Requirement"

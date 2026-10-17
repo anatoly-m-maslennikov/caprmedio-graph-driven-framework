@@ -8,12 +8,12 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Continuant/Object/Relation.Source Reference
+  governs: "Entity/Continuant/Relation.Source Reference"
 relations:
   child_of:
   - CA-R-1174
-version: 1
-updated_at: "2026-10-17 17:54:42 +0400"
+version: 2
+updated_at: "2026-10-18 03:34:05 +0400"
 ---
 # Summary
 

@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/Directory Carrier.Name"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit/Type: Ordered", "Entity/Continuant/Object/Scope Unit/Type: Unordered", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Continuant/Object/Scope Unit.Local Order"]
-version: 14
-updated_at: "2026-10-16 12:09:16 +0000"
+    ["Entity/Continuant/Node/Scope Unit/Type: Ordered", "Entity/Continuant/Node/Scope Unit/Type: Unordered", "Entity/Continuant/Node/Scope Unit.Label", "Entity/Continuant/Node/Scope Unit.Local Order"]
+version: 15
+updated_at: "2026-10-18 03:34:36 +0400"
 relations: {}
 atom_id: "CA-D-298"
 content_role: "Delivery"

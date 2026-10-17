@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Relation/Type: NARROWER_THAN"
+  governs: "Entity/Continuant/Relation/Type: NARROWER_THAN"
   depends_on:
-    ["Entity/Continuant/Projection/Type: Terms Graph"]
-version: 13
-updated_at: "2026-10-16 12:08:22 +0000"
+    ["Entity/Continuant/Node/Projection/Type: Terms Graph"]
+version: 14
+updated_at: "2026-10-18 03:33:23 +0400"
 relations: {}
 atom_id: "CA-R-1345"
 content_role: "Requirement"

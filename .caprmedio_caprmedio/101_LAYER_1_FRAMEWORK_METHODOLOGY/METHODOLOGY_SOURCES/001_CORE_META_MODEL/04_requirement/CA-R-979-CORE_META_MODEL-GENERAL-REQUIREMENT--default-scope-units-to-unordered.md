@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit/Type"
+  governs: "Entity/Continuant/Node/Scope Unit/Type"
   depends_on: []
-version: 17
-updated_at: "2026-10-16 12:08:59 +0000"
+version: 18
+updated_at: "2026-10-18 03:34:15 +0400"
 relations:
   child_of:
     - CA-R-1758

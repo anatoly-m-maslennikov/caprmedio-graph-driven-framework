@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/File Carrier.Filename"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit"]
-version: 14
-updated_at: "2026-10-16 12:09:13 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit"]
+version: 15
+updated_at: "2026-10-18 03:34:34 +0400"
 relations: {}
 atom_id: "CA-D-287"
 content_role: "Delivery"

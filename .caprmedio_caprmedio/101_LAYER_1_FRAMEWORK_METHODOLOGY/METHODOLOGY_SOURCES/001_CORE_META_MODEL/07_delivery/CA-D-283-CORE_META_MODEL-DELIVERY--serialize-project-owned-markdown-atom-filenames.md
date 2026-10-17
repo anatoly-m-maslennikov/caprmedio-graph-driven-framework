@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/File Carrier.Filename"
   depends_on:
-    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Owning Scope Unit"]
-version: 16
-updated_at: "2026-10-16 12:09:12 +0000"
+    ["Entity/Continuant/Node/Atom.ID", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Atom.Summary", "Entity/Continuant/Node/Atom.Owning Scope Unit"]
+version: 17
+updated_at: "2026-10-18 03:34:33 +0400"
 relations: {}
 atom_id: "CA-D-283"
 content_role: "Delivery"

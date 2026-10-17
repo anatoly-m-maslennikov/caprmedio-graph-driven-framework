@@ -8,12 +8,12 @@ global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Continuant/Object/Atom.Status
+  governs: "Entity/Continuant/Node/Atom.Status"
 relations:
   child_of:
   - CA-R-1174
-version: 1
-updated_at: "2026-10-17 12:58:06 +0000"
+version: 2
+updated_at: "2026-10-18 03:34:02 +0400"
 ---
 # Summary
 

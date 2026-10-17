@@ -8,12 +8,12 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Continuant/Project.Settings.Identifier
+  governs: "Entity/Continuant/Node/Project.Settings.Identifier"
 relations:
   child_of:
   - CA-R-1174
-version: 1
-updated_at: "2026-10-17 17:51:06 +0400"
+version: 2
+updated_at: "2026-10-18 03:34:05 +0400"
 ---
 # Summary
 

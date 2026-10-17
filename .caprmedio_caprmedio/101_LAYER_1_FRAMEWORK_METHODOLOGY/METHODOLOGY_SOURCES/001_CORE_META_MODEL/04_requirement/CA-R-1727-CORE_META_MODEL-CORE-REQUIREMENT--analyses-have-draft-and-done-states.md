@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Analysis.Status"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Analysis.Status"
   depends_on: []
-version: 18
-updated_at: "2026-10-17 12:53:11 +0000"
+version: 19
+updated_at: "2026-10-18 03:33:49 +0400"
 relations: {}
 atom_id: "CA-R-1727"
 content_role: "Requirement"
