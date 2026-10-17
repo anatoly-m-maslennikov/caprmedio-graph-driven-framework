@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 88
-updated_at: "2026-10-15 12:26:16 +0000"
+version: 89
+updated_at: "2026-10-17 11:25:36 +0000"
 relations: {}
 ---
 # Summary
@@ -23,9 +23,27 @@ Improve entity model — Stage 2
 
 ## Objective
 
-Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
+Complete the accepted entity model through the Subject map and migration, the missing defining Requirements and the bounded source-rule alignment needed for those definitions. Rebuild the Entities projection from the resulting sources. General content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Current execution — Candidate #6, 2026-10-17
+
+The Operator approved the following remaining sequence. This section supersedes older pending gates and candidate checkpoints for this bounded increment; historical results below remain evidence of their own runs.
+
+- [x] Reconcile 54 review placeholders: 45 populated definitions, two covered by existing Rs, seven superseded. Resolve tiers, proposed identities and parent links for all 45.
+- [x] Fix bounded reference lookup and ancestor-parent validation. Preserve the existing equal-tier ancestor case. New regressions and related focused tests pass; a real Continuant creation preview passes without creating a source.
+- [ ] Run the complete runtime/scripts test suite, including required current-code Docker integrations. Stop on failure and repair the concrete cause before deployment.
+- [ ] Perform the host local release and verify the connected MCP uses the tested fixes, with the current configured port retained.
+- [ ] Apply the prepared source-rule corrections for Status, containment, Revision, Carrier and R796 parent applicability. Preserve predecessors and reuse IDs only where the existing Summary/contribution is retained.
+- [ ] Activate the 45 definitions and the five supporting Rs plus D successor. Recheck unused identity candidates at creation. Covered/superseded placeholders remain excluded.
+- [ ] Rebuild the Entities graph from current source Atoms; verify defining-R coverage, intended Core/project separation and remaining explicit holds.
+
+The exact reviewed proposals and identity/parent inventory are in [the definition-admission package](../_projection/core-entity-review/candidate5-migration/definition-admission/README.md). Local code changes and review drafts do not establish deployment, source activation or graph acceptance.
+
+Concerns and Analysis instance migration remains deferred. The authorized governing-R corrections about their inherited Status domains do not migrate C/A instances. Keep general content migration in CA-P-1970 and the CONTAINS graph deferred.
+
+Completion for this increment requires the recorded full-suite result, deployment result, actual source changes and rebuilt-graph/R-coverage result. Do not infer any of these from the prepared package or a preview.
 
 ### Actual Subjects-only migration and graph result — 2026-10-15
 

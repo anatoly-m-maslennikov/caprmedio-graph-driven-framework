@@ -536,6 +536,27 @@ def _pinned_project_file(root: Path, value: object, name: str, *, atom_id: str |
     return path, {"path": relative, "digest": digest}
 
 
+def _assessment_object(raw: str) -> dict[str, Any]:
+    """Reject ambiguous JSON in both individual reports and review packages."""
+    def no_duplicates(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+        output: dict[str, Any] = {}
+        for key, value in pairs:
+            if key in output:
+                raise LifecycleError("assessment-evidence-invalid", "Update assessment evidence has duplicate JSON keys")
+            output[key] = value
+        return output
+
+    try:
+        evidence = json.loads(raw, object_pairs_hook=no_duplicates)
+    except (json.JSONDecodeError, LifecycleError) as error:
+        if isinstance(error, LifecycleError):
+            raise
+        raise LifecycleError("assessment-evidence-invalid", "Update assessment evidence JSON is invalid") from error
+    if not isinstance(evidence, dict):
+        raise LifecycleError("assessment-evidence-invalid", "Update assessment evidence must be an object")
+    return evidence
+
+
 def _assessment_json(content: str) -> dict[str, Any]:
     """Read the one canonical external evidence block without interpreting prose."""
 
@@ -550,45 +571,68 @@ def _assessment_json(content: str) -> dict[str, Any]:
     fenced = re.fullmatch(r"\s*```json\n(?P<json>.*?)\n```\s*", body, re.DOTALL)
     if fenced is None:
         raise LifecycleError("assessment-evidence-invalid", "Update assessment evidence must be one JSON block")
+    return _assessment_object(fenced.group("json"))
 
-    def no_duplicates(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
-        output: dict[str, Any] = {}
-        for key, value in pairs:
-            if key in output:
-                raise LifecycleError("assessment-evidence-invalid", "Update assessment evidence has duplicate JSON keys")
-            output[key] = value
-        return output
 
+_ASSESSMENT_FIELDS = frozenset({
+    "target", "proposal", "authorityPins", "admittedChangeClass", "primaryClaimIdentityPreserved",
+    "declaredDelta", "lineageEvidencePins",
+})
+
+
+def _package_assessment(path: Path, atom_id: str) -> dict[str, Any]:
     try:
-        evidence = json.loads(fenced.group("json"), object_pairs_hook=no_duplicates)
-    except (json.JSONDecodeError, LifecycleError) as error:
-        if isinstance(error, LifecycleError):
-            raise
-        raise LifecycleError("assessment-evidence-invalid", "Update assessment evidence JSON is invalid") from error
-    if not isinstance(evidence, dict):
-        raise LifecycleError("assessment-evidence-invalid", "Update assessment evidence must be an object")
-    return evidence
+        package = _assessment_object(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError) as error:
+        raise LifecycleError("assessment-evidence-invalid", "Review package is unreadable") from error
+    _exact_fields(package, frozenset({"assessments"}), "Review package")
+    records = package["assessments"]
+    if not isinstance(records, list) or not records:
+        raise LifecycleError("assessment-evidence-invalid", "Review package assessments must be a nonempty list")
+    matches = []
+    for record in records:
+        record = _mapping(record, "Review package assessment")
+        _exact_fields(record, _ASSESSMENT_FIELDS, "Review package assessment")
+        target = _mapping(record["target"], "Review package target")
+        _exact_fields(target, frozenset({"atom_id", "path", "digest"}), "Review package target")
+        _exact_fields(_mapping(record["proposal"], "Review package proposal"),
+                      frozenset({"frontmatter_digest", "content_digest"}), "Review package proposal")
+        authority = _mapping(record["authorityPins"], "Review package authority pins")
+        _exact_fields(authority, frozenset({"r1432", "r1464"}), "Review package authority pins")
+        lineage = record["lineageEvidencePins"]
+        if not isinstance(lineage, list) or not lineage:
+            raise LifecycleError("assessment-evidence-invalid", "Review package lineage review is incomplete")
+        for pin in [*authority.values(), *lineage]:
+            _exact_fields(_mapping(pin, "Review package evidence pin"),
+                          frozenset({"path", "digest"}), "Review package evidence pin")
+        if target["atom_id"] == atom_id:
+            matches.append(record)
+    if len(matches) != 1:
+        raise LifecycleError("assessment-evidence-invalid", "Review package must contain exactly one assessment for the target")
+    return dict(matches[0])
 
 
 def _semantic_assessment_evidence(root: Path, target: Atom, prior: Mapping[str, Any],
                                   proposed: Mapping[str, str], reference: object) -> dict[str, Any]:
-    """Verify a completed Analysis Report; it is evidence, never authorization."""
+    """Verify bound assessment evidence; a report/package never authorizes edits."""
 
     report_path, report_pin = _pinned_project_file(root, reference, "semantic_assessment_report")
-    try:
-        report = atom_from_path(root, report_path)
-        if (frontmatter_scalar(report.frontmatter, "content_role") != "Analysis"
-                or frontmatter_scalar(report.frontmatter, "type") != "Analysis Report"
-                or frontmatter_scalar(report.frontmatter, "status") != "Done"):
-            raise LifecycleError("assessment-evidence-invalid", "assessment report is not a Done Analysis Report")
-        resolve_status_model(root, report, "Done")
-    except (AtomToolError, StatusModelError) as error:
-        raise LifecycleError("assessment-evidence-invalid", "assessment report lacks current Analysis authority") from error
-    evidence = _assessment_json(report.content)
-    _exact_fields(evidence, frozenset({
-        "target", "proposal", "authorityPins", "admittedChangeClass", "primaryClaimIdentityPreserved",
-        "declaredDelta", "lineageEvidencePins",
-    }), "Update assessment evidence")
+    report_identity = dict(report_pin)
+    if report_path.suffix == ".json":
+        evidence = _package_assessment(report_path, target.atom_id)
+    else:
+        try:
+            report = atom_from_path(root, report_path)
+            if (frontmatter_scalar(report.frontmatter, "content_role") != "Analysis"
+                    or frontmatter_scalar(report.frontmatter, "type") != "Analysis Report"
+                    or frontmatter_scalar(report.frontmatter, "status") != "Done"):
+                raise LifecycleError("assessment-evidence-invalid", "assessment report is not a Done Analysis Report")
+            resolve_status_model(root, report, "Done")
+        except (AtomToolError, StatusModelError) as error:
+            raise LifecycleError("assessment-evidence-invalid", "assessment report lacks current Analysis authority") from error
+        evidence = _assessment_json(report.content)
+        report_identity["atom_id"] = report.atom_id
+    _exact_fields(evidence, _ASSESSMENT_FIELDS, "Update assessment evidence")
     target_pin = _mapping(evidence["target"], "Update assessment target")
     _exact_fields(target_pin, frozenset({"atom_id", "path", "digest"}), "Update assessment target")
     if target_pin != {"atom_id": target.atom_id, "path": target.relative, "digest": prior["digest"]}:
@@ -618,7 +662,7 @@ def _semantic_assessment_evidence(root: Path, target: Atom, prior: Mapping[str, 
         "comparison": {
             "target": target_pin,
             "proposal": proposal_pin,
-            "report": {**report_pin, "atom_id": report.atom_id},
+            "report": report_identity,
             "authority_pins": {"r1432": r1432, "r1464": r1464},
             "primary_claim_identity_preserved": True,
             "declared_delta": evidence["declaredDelta"],
@@ -966,7 +1010,7 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
                 "operation": "update", "outcome": "unresolved", "observed": prior,
                 "classification": {
                     "requested": change_class, "reason": "semantic-assessment-unverified",
-                    "required": "current bound Analysis Report evidence with declared delta and completed lineage-impact review",
+                    "required": "current bound assessment evidence with declared delta and completed lineage-impact review",
                     "diagnostic": error.code,
                 },
                 "effects": [_effect("unchanged", carrier=prior, reason="semantic-assessment-unverified")],

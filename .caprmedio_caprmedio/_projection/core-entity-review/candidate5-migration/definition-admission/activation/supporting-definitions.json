@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "status": "prepared_not_executed",
+  "prepared_at": "2026-10-17 11:31:35 +0000",
+  "execution_authorization": null,
+  "no_active_sources_changed": true,
+  "creates": [
+    {
+      "operation": "create",
+      "proposed_atom_id": "CA-R-1989",
+      "basis": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/revision-alignment.md",
+      "request": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1989-CORE_META_MODEL--define-atom-status.md",
+          "frontmatter": "atom_id: CA-R-1989\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Object/Atom.Status\n  depends_on:\n  - Entity/Continuant/Object/Atom\n  - Entity/Continuant/Object/Atom/Content Role\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Atom Status\n\n## Scope\n\nStatus borne by an Atom, including the recorded value preserved in an archived Atom.\n\n## Claim\n\nAtom.Status **means** the Atom's lifecycle classification under its applicable Status model. Status is a dependent property of the Atom; its allowed values resolve under the applicable Atom, Content Role and Type rules.\n\n## Details\n\nIS_BORNE_BY expresses the property-to-Atom relation. A current Atom is not a historical Revision merely because it has a Version Number. An archived Atom preserves its recorded Status; preserving history does not rewrite that value. CA-R-1412 supplies the one-Status requirement. The separate allowed-value rules define inherited and additional values; this definition adds no values, transition procedure or mandatory history record. Shared Status meanings are derived in the Terms graph from source usage, not independently authored here for every owner.\n"
+        }
+      },
+      "requires_created_ids": [],
+      "tier_parent_review": {
+        "parent": "CA-R-1174",
+        "reason": "Atom lifecycle classification supplies the canonical methodology model required by this ancestor Goal.",
+        "native_admission_verified": false,
+        "parent_source": {
+          "atom_id": "CA-R-1174",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/04_requirement/CA-R-1174-METHODOLOGY_SOURCES-DEFINES_GOAL_FOR-CORE_META_MODEL--provide-the-minimal-self-applicable-canonical-methodology-model.md",
+          "filename": "CA-R-1174-METHODOLOGY_SOURCES-DEFINES_GOAL_FOR-CORE_META_MODEL--provide-the-minimal-self-applicable-canonical-methodology-model.md",
+          "version": 13,
+          "digest": "102c4f0bb5894be88a7ec92d1b3170388071bd0c0ff2408ccce045781a654cd1",
+          "lifecycle": "active",
+          "status": "Active",
+          "updated_at": "2026-10-02 21:28:02 +0400",
+          "content_role": "Requirement",
+          "type": "Goal"
+        }
+      },
+      "initial_revision_metadata": "Existing creation route sets Version1 and actual Updated At; review edit counters are not source versions.",
+      "identity_status": "proposed_not_allocated",
+      "missing_inputs": [
+        "Fresh identity history recheck and native creation preview; execution authorization is separate."
+      ]
+    },
+    {
+      "operation": "create",
+      "proposed_atom_id": "CA-R-1990",
+      "basis": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/containment-alignment.md",
+      "request": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1990-CORE_META_MODEL--enable-containment-for-plan-atoms.md",
+          "frontmatter": "atom_id: CA-R-1990\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: 'Entity/Continuant/Object/Atom/Content Role: Plan.Enabled Relations.Contains'\n  depends_on:\n  - Entity/Continuant/Object/Atom.Enabled Relations.Contains\nrelations:\n  child_of:\n  - CA-R-1945",
+          "content": "# Summary\n\nEnable containment for Plan Atoms\n\n## Scope\n\nContainment capability of Plan Atoms.\n\n## Claim\n\n`Atom/Content Role: Plan.Enabled Relations.Contains` **must** be True. a Plan Atom **may** contain other Plan Atoms.\n\n## Details\n\nPlan labels such as Epic, Task and Version do not create different containment Types. Containment is optional and can nest. This permission does not implement a Plan projection or replace other typed relations between Plans.\n"
+        }
+      },
+      "requires_created_ids": [
+        "CA-R-1945"
+      ],
+      "tier_parent_review": {
+        "parent": "CA-R-1945",
+        "reason": "Specializes the default-False kind capability for the approved Plan case; General10 to Standard11 same-owner edge.",
+        "native_admission_verified": false,
+        "parent_source": {
+          "proposed_id": "CA-R-1945",
+          "inventory": "identity-proposal.json"
+        }
+      },
+      "initial_revision_metadata": "Existing creation route sets Version1 and actual Updated At; review edit counters are not source versions.",
+      "identity_status": "proposed_not_allocated",
+      "missing_inputs": [
+        "Fresh identity history recheck and native creation preview; execution authorization is separate."
+      ]
+    },
+    {
+      "operation": "create",
+      "proposed_atom_id": "CA-R-1991",
+      "basis": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/containment-alignment.md",
+      "request": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1991-CORE_META_MODEL--enable-containment-for-workflow-atoms.md",
+          "frontmatter": "atom_id: CA-R-1991\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: 'Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow.Enabled\n    Relations.Contains'\n  depends_on:\n  - Entity/Continuant/Object/Atom.Enabled Relations.Contains\n  - 'Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step'\nrelations:\n  child_of:\n  - CA-R-1945",
+          "content": "# Summary\n\nEnable containment for Workflow Atoms\n\n## Scope\n\nContainment capability of Workflow Atoms.\n\n## Claim\n\n`Atom/Content Role: Operations/Type: Workflow.Enabled Relations.Contains` **must** be True. a Workflow Atom **may** contain Step Atoms.\n\n## Details\n\nThe Workflow remains an Atom. Its Steps retain their own definitions and Action references. This permission does not copy shared Actions into a Workflow or replace its declared control flow with folder order.\n"
+        }
+      },
+      "requires_created_ids": [
+        "CA-R-1945"
+      ],
+      "tier_parent_review": {
+        "parent": "CA-R-1945",
+        "reason": "Specializes the default-False kind capability for the approved Workflow case; General10 to Standard11 same-owner edge.",
+        "native_admission_verified": false,
+        "parent_source": {
+          "proposed_id": "CA-R-1945",
+          "inventory": "identity-proposal.json"
+        }
+      },
+      "initial_revision_metadata": "Existing creation route sets Version1 and actual Updated At; review edit counters are not source versions.",
+      "identity_status": "proposed_not_allocated",
+      "missing_inputs": [
+        "Fresh identity history recheck and native creation preview; execution authorization is separate."
+      ]
+    },
+    {
+      "operation": "create",
+      "proposed_atom_id": "CA-R-1992",
+      "basis": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/containment-alignment.md",
+      "request": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1992-CORE_META_MODEL--enable-containment-for-step-atoms.md",
+          "frontmatter": "atom_id: CA-R-1992\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: 'Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step.Enabled\n    Relations.Contains'\n  depends_on:\n  - Entity/Continuant/Object/Atom.Enabled Relations.Contains\nrelations:\n  child_of:\n  - CA-R-1945",
+          "content": "# Summary\n\nEnable containment for Step Atoms\n\n## Scope\n\nContainment capability of Step Atoms, including nested substeps.\n\n## Claim\n\n`Atom/Content Role: Operations/Type: Step.Enabled Relations.Contains` **must** be True. a Step Atom **may** contain other Step Atoms.\n\n## Details\n\nA substep is a nested Step, not a separate Type. Containment is optional and can nest. This permission does not change a Step's Action reference or input bindings, prescribe how internal tool calls are modeled, or introduce a storage layout or execution protocol.\n"
+        }
+      },
+      "requires_created_ids": [
+        "CA-R-1945"
+      ],
+      "tier_parent_review": {
+        "parent": "CA-R-1945",
+        "reason": "Specializes the default-False kind capability for the approved Step case; General10 to Standard11 same-owner edge.",
+        "native_admission_verified": false,
+        "parent_source": {
+          "proposed_id": "CA-R-1945",
+          "inventory": "identity-proposal.json"
+        }
+      },
+      "initial_revision_metadata": "Existing creation route sets Version1 and actual Updated At; review edit counters are not source versions.",
+      "identity_status": "proposed_not_allocated",
+      "missing_inputs": [
+        "Fresh identity history recheck and native creation preview; execution authorization is separate."
+      ]
+    },
+    {
+      "operation": "create",
+      "proposed_atom_id": "CA-R-1993",
+      "basis": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/revision-alignment.md",
+      "request": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1993-CORE_META_MODEL--define-carries.md",
+          "frontmatter": "atom_id: CA-R-1993\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: 'Entity/Continuant/Object/Relation/Type: CARRIES'\n  depends_on:\n  - Entity/Carrier\n  - Entity\n  - Entity/Continuant/Object/Relation\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine CARRIES\n\n## Scope\n\nCarrier bindings of non-ephemeral Entities.\n\n## Claim\n\nCARRIES **means** the directed Relation from a Carrier **to** the non-ephemeral Entity that it stores **or** represents.\n\n## Details\n\nIS_CARRIED_BY **means** the inverse of CARRIES, directed from a non-ephemeral Entity to its Carrier. The Entity/Carrier binding exposes this inverse direction; it is not a separately authored primitive Relation fact. This preserves the existing meaning defined by CA-D-257. Neither direction requires a separately registered binding for each YAML field or Markdown section, a new Carrier, a snapshot or a historical record. The applicable D policy specifies how the represented Entity is bound and represented. No additional endpoint class, graph ownership, cardinality or inference permission is introduced by moving this definition to R.\n"
+        }
+      },
+      "requires_created_ids": [],
+      "tier_parent_review": {
+        "parent": "CA-R-1174",
+        "reason": "Existing Carrier-to-Entity relation meaning supplies the minimal canonical methodology model.",
+        "native_admission_verified": false,
+        "parent_source": {
+          "atom_id": "CA-R-1174",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/04_requirement/CA-R-1174-METHODOLOGY_SOURCES-DEFINES_GOAL_FOR-CORE_META_MODEL--provide-the-minimal-self-applicable-canonical-methodology-model.md",
+          "filename": "CA-R-1174-METHODOLOGY_SOURCES-DEFINES_GOAL_FOR-CORE_META_MODEL--provide-the-minimal-self-applicable-canonical-methodology-model.md",
+          "version": 13,
+          "digest": "102c4f0bb5894be88a7ec92d1b3170388071bd0c0ff2408ccce045781a654cd1",
+          "lifecycle": "active",
+          "status": "Active",
+          "updated_at": "2026-10-02 21:28:02 +0400",
+          "content_role": "Requirement",
+          "type": "Goal"
+        }
+      },
+      "initial_revision_metadata": "Existing creation route sets Version1 and actual Updated At; review edit counters are not source versions.",
+      "identity_status": "proposed_not_allocated",
+      "missing_inputs": [
+        "Fresh identity history recheck and native creation preview; execution authorization is separate."
+      ]
+    },
+    {
+      "operation": "create",
+      "proposed_atom_id": "CA-D-636",
+      "basis": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/revision-alignment.md",
+      "request": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-636-CORE_META_MODEL--bind-carriers-to-their-represented-current-or-historical-entities.md",
+          "frontmatter": "atom_id: CA-D-636\ncontent_role: Delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier\n  depends_on:\n  - Entity\n  - 'Entity/Continuant/Object/Relation/Type: CARRIES'\n  - Entity/Continuant/History/Revision\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nBind Carriers to their represented current or historical Entities\n\n## Scope\n\nCarrier bindings of non-ephemeral Entities.\n\n## Claim\n\na Carrier binding **must** identify the Entity actually represented by that Carrier. a current Entity's Carrier binds that current Entity; a preserved historical state's Carrier binds that Revision. citing a current Entity's Version **must not** reclassify the current Entity as a historical Revision.\n\n## Details\n\nUse the separately defined CARRIES meaning. Its IS_CARRIED_BY inverse exposes the same binding with the endpoints reversed; neither direction substitutes a historical Revision for the current Entity actually represented. The applicable Carrier policy determines the representation. General representation rules may carry dependent properties inside one File Carrier; this policy does not require a separately registered binding for each field or section. It creates no additional Carrier, snapshot, Journal record or history gate.\n"
+        }
+      },
+      "requires_created_ids": [
+        "CA-R-1993"
+      ],
+      "tier_parent_review": {
+        "parent": "CA-R-1174",
+        "reason": "Canonical representation bindings distinguish current Entities from historical states, contributing to the ancestor model Goal.",
+        "native_admission_verified": false,
+        "parent_source": {
+          "atom_id": "CA-R-1174",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/04_requirement/CA-R-1174-METHODOLOGY_SOURCES-DEFINES_GOAL_FOR-CORE_META_MODEL--provide-the-minimal-self-applicable-canonical-methodology-model.md",
+          "filename": "CA-R-1174-METHODOLOGY_SOURCES-DEFINES_GOAL_FOR-CORE_META_MODEL--provide-the-minimal-self-applicable-canonical-methodology-model.md",
+          "version": 13,
+          "digest": "102c4f0bb5894be88a7ec92d1b3170388071bd0c0ff2408ccce045781a654cd1",
+          "lifecycle": "active",
+          "status": "Active",
+          "updated_at": "2026-10-02 21:28:02 +0400",
+          "content_role": "Requirement",
+          "type": "Goal"
+        }
+      },
+      "initial_revision_metadata": "Existing creation route sets Version1 and actual Updated At; review edit counters are not source versions.",
+      "identity_status": "proposed_not_allocated",
+      "missing_inputs": [
+        "Fresh identity history recheck and native creation preview; execution authorization is separate."
+      ]
+    }
+  ],
+  "counts": {
+    "requirements": 5,
+    "delivery": 1
+  },
+  "identity_check": {
+    "retained_source_collisions": [],
+    "scope": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES",
+    "historical_evidence_reference": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/identity-proposal.json",
+    "git_history_rechecked_in_this_lane": false,
+    "recheck_before_execution": true
+  },
+  "unresolved_execution_inputs": [
+    "Native previews of complete carriers and fresh identity-history recheck.",
+    "Supporting tier/parent choices are evidence-backed proposals; no successful admission is claimed."
+  ],
+  "filename_convention_check": {
+    "authority": "CA-D-285@15",
+    "checked_ids": [
+      "CA-R-1990",
+      "CA-R-1991",
+      "CA-R-1992"
+    ],
+    "result": "All three filenames omit Standard/STD tier tokens; frontmatter retains local_tier Standard and global_tier11."
+  }
+}

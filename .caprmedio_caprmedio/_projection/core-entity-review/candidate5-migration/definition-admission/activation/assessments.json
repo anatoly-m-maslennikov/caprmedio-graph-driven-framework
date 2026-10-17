@@ -1,0 +1,514 @@
+{
+  "assessments": [
+    {
+      "target": {
+        "atom_id": "CA-R-796",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md",
+        "digest": "87b14c64eb59f914af6e74fcbfb4938048bca57ca90431522325404a908708cf"
+      },
+      "proposal": {
+        "frontmatter_digest": "2aa5501826531acc107aacccb2cacedb0276a7bb17b6ad0687d73db6566f0ded",
+        "content_digest": "cbfe2e9758c6becf9e8c86f2a175ffac24a30abf466260ec6914817cc3a389f6"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "The same primary rule bounds normative tier-parent eligibility. Scope expands from equal Atom Scope to declared same-owner/ancestor topology; equal-or-lower ancestor ranks are preserved, and substantive applicability remains required.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-R-1539",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
+        "digest": "7a5a7638179edba26e740ea166dafac20a0517eba22a87bd9a9e11cb58e1926b"
+      },
+      "proposal": {
+        "frontmatter_digest": "67bf98a025e53593a12f31e00e0b6db164eee01eba2184e0efb1fea0f55784ca",
+        "content_digest": "b502578521087ae7644c970326d03219a25dc57f940aa0aabf0d756059089213"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Same Plan Status-domain claim; inherit Atom base values, add Backlog/Done/Canceled, retain no distinct Planned.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-R-1875",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+        "digest": "539a86522e1b99a2198631de7f167790f9751e69ffea91120402951c5f9f9504"
+      },
+      "proposal": {
+        "frontmatter_digest": "1fd7d525a672245feb2b9206a9f9c2aa055eb0e57a809f065b0a0cc6c826604d",
+        "content_digest": "b2e65a41092a9bcbf92898eaa1fe007ab2a75ee2a2456b00c4ef5faea1305485"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Same Analysis Status-domain claim and same AnalysisReport/Rationale applicability; inherited Active becomes available, extensions add without removing inherited values, Status belongs to the Atom rather than an Artifact Revision.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-R-1608",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
+        "digest": "b1b21b03fd1e58169979b2e379c45e1fa22b8aa32759ca21bdb68c9779526151"
+      },
+      "proposal": {
+        "frontmatter_digest": "bda1b31e92964463fce0b0acfeadf9fe5c043931084d63fa97f720da14f17a25",
+        "content_digest": "d84fc0c67ee54ea6d41d7affdbe1868c140d2ec3dd8e6f5eb3709dd64bac4197"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Same Concern Status-domain claim; inherited Draft/Active/Archived plus Resolved/Canceled replaces lowercase exclusive domain.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-R-1727",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+        "digest": "5b94a683148d322aa48e8e135f1b49c6b5f76a2f0d8df5cb3af4d6a5e0a8479a"
+      },
+      "proposal": {
+        "frontmatter_digest": "5f308461c7cdcca769370946a1d9a59c5eaf8ac4708a5c27fff1a5ecb062a80b",
+        "content_digest": "2d3ceba2cc8842f4d55230472fe7dd3c29648d8959280d9d4a39f673ac1ee22a"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Same unfinished/completed Analysis meanings and archival disposition; Scope/wording now define Draft/Done meanings without exhausting every allowed state.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-R-1308",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md",
+        "digest": "61223d6c0422b9617562ef76e6c1ee090cb9eb548407fbfc89e0b5f119a93d76"
+      },
+      "proposal": {
+        "frontmatter_digest": "aaebbf9a06572799818f08317d8ba477a884df42e0f30cce10636d9b4e127457",
+        "content_digest": "bcb0713dc7a2030ec3f443f2380c797c97afb913d624ef97083e47b78325964d"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Same qualified Status-domain resolution claim; Details explicitly combine inherited base values with narrower additions and prohibit removing inherited values.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-R-1368",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1368-CORE_META_MODEL-CORE--define-containment-relation-pair.md",
+        "digest": "ed02fa6f13ef49e3a3ee1ed8969fa545081f241b599e38e04927bbd62361ef76"
+      },
+      "proposal": {
+        "frontmatter_digest": "f0587b027a0df152ce9aaa8905d7a28fb5c014b097b5fb76c82d237cdc87a91b",
+        "content_digest": "dbacd12b8808dd2d071c850122f1273c3bc0804b9d5b94e2153a86115460aa0a"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Same direct CONTAINS/inverse pair; domain expands from old Structural Entities to Scope Units and Atom kinds with enabled containment.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-R-1371",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md",
+        "digest": "5d784abf1c82906ad8cb8d84e216f956fabf295523f15113ca9706032130c992"
+      },
+      "proposal": {
+        "frontmatter_digest": "4ffcb2bc2ff09a06fb23251b2e1462b2db1bc23b387341d9e996ced6ae99524a",
+        "content_digest": "c5c2101d2aa3802af6eab62da2fa557ac4bcd8b3689aaec15a22a63ad6a39ab3"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Same preserved immutable historical-state definition; rejects current-Artifact dependent-property treatment and metadata-only no-version exception.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-R-1342",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md",
+        "digest": "fff67a2bec7543060e1efb359fff77be76e4b287387dadecad3c051fdb99cdea"
+      },
+      "proposal": {
+        "frontmatter_digest": "75e41fd09cbb9fb0a6c3e343a2941fe9be8094333daa065a02a371b5eaf9dcfc",
+        "content_digest": "ae277084e2e8eca952232ced6883839e6e9b230bdc6930c03ae95795548d5fe9"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Same Delivery-role boundary; exclude Entity/property/classification definitions and retain representation/storage/placement constraints.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-M-313",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+        "digest": "1a68b8dc50f69a6d2945f88c304340f6bb855608843fc1a466ec1523e21e57f1"
+      },
+      "proposal": {
+        "frontmatter_digest": "8a978e0e36b6908487204b91be6e1516624c5875860d62deaa0f28d130d9a57d",
+        "content_digest": "b9364f249a235ae6217fc618837942be6100c733e17d1323f951b01ac16d23d7"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Same Delivery CCE authoring-method contribution; govern representation rather than define Carrier kinds, preserve modality/conditions/references and avoid invented template data.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-D-341",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+        "digest": "cd3146dfff71babbd03c9586d8f53f478ac359a35a0531582f780321f5fb69e2"
+      },
+      "proposal": {
+        "frontmatter_digest": "499f7246718ab094323eb59644d6c62eab4cd2bedf7f8d0bb1f0ee6b533d3e90",
+        "content_digest": "ee0b6fb6fff1d9df3aaf2609118e8570b1f6e6573703af8ba980345e67347e10"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Same cleanup-protection outcome; expand from named ownership classes/outside-runtime placement to all persistent authority/history excluded from cleanup.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-D-463",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md",
+        "digest": "49e285195ec8d1003820af2129c71f54a910369875e25a3ff4e6d781a6edc7b7"
+      },
+      "proposal": {
+        "frontmatter_digest": "dabbe48ad84e07457e1a91fa509429ad942e7cea0c1d722425f3b22d19ac8f66",
+        "content_digest": "39023a705964653696e5cd3a5894d62392aaaf0edcef78b099b7f955e7e771dc"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "equivalent_refinement",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Equivalent refinement: only contextual classifier endpoints change; unchanged carrier-bundle Claim/Scope/Subjects/cardinality still refer to the same File/Directory Carrier kinds.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-D-464",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-464-CORE_META_MODEL-CORE--represent-one-governed-object-with-each-directory-carrier.md",
+        "digest": "5a94b21c7066ec56eccb2a09e4a7c16ed18a5824021190caa937f76348d58988"
+      },
+      "proposal": {
+        "frontmatter_digest": "576b3e037bed4b0904570dbfb36b8ea48801b2081a683acb76c478d445d1cc87",
+        "content_digest": "920e4442863bf7e0a680e98e1c8e621edc08558bd4089ce405b6a0f1a4f9f5e6"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "equivalent_refinement",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Equivalent refinement: only contextual DirectoryCarrier classifier endpoint changes; one-governed-object obligation and all body/Subjects remain byte-identical.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-D-465",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-465-CORE_META_MODEL-STANDARD--carry-each-materialized-structural-entity-with-a-directory-carrier.md",
+        "digest": "23f270528030e44a1bc8f34d9edb060f1fbd55eca2463cabbeb19de2305d7235"
+      },
+      "proposal": {
+        "frontmatter_digest": "4ff096a909bc20147b78c8986f854883836df85064677b102377052138f3ea0c",
+        "content_digest": "1a82be533b888d21b7b6c9017904d667ca10f6d8923cd29516f2745e5e768788"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "equivalent_refinement",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Equivalent refinement: only contextual DirectoryCarrier classifier endpoint changes; materialization/location obligation and all body/Subjects remain byte-identical.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    },
+    {
+      "target": {
+        "atom_id": "CA-D-461",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-CORE--place-plan-carriers-by-status.md",
+        "digest": "aa3f0ecbc94b6b94d8e12ad9eb16a5c0f1dbb331b7f3b5d99931ed2d6a719074"
+      },
+      "proposal": {
+        "frontmatter_digest": "fd06fe1718972eaf64bb60fda4f7f01f2c6f855637a201b80f95716b2868dcb5",
+        "content_digest": "1cec22e40c51e993d5ae1f8244aabe18595ef862bb9b39cd8370968cea258bf6"
+      },
+      "authorityPins": {
+        "r1432": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "digest": "38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7"
+        },
+        "r1464": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md",
+          "digest": "886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558"
+        }
+      },
+      "admittedChangeClass": "semantic_revision",
+      "primaryClaimIdentityPreserved": true,
+      "declaredDelta": "Same Plan carrier Status-placement mapping; add only Draft→draft subdirectory; retain every other mapping, own-Status read, containment cascade and archived-byte policy.",
+      "lineageEvidencePins": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/semantic-review.md",
+          "digest": "5458d0a16c029dc7fa3e843032ca150d82e35cf0caf35c417dc56ec2f6ff8d26"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/lineage-review.json",
+          "digest": "8dc3c02c45094db1543d0f96dfef9ce8c75064d30563a6fdad9f5c8a16e4f77c"
+        }
+      ]
+    }
+  ]
+}

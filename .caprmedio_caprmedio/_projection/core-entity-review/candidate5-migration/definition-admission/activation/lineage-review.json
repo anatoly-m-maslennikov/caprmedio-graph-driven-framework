@@ -1,0 +1,942 @@
+{
+  "schema_version": 1,
+  "review_status": "completed",
+  "reviewer": "candidate6_reconcile_a",
+  "scope": "Semantic and lineage-impact review of exact15 source-alignment update proposals, not execution authorization or global conformance",
+  "source_packet": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/definition-admission/activation/source-alignment.json",
+  "source_packet_sha256": "0d4d3969ace1fecd035191f27e689b3828191e6f2a7b5c21fcfca41dea979a91",
+  "governing_review_rules": [
+    {
+      "atom_id": "CA-R-1432",
+      "version": 13
+    },
+    {
+      "atom_id": "CA-R-1464",
+      "version": 7
+    }
+  ],
+  "proposal_hash_encoding": "SHA256 UTF-8 JSON of proposed {frontmatter,content}; sorted keys, compact separators, ensure_ascii=false",
+  "entries": [
+    {
+      "atom_id": "CA-R-796",
+      "source": {
+        "atom_id": "CA-R-796",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md",
+        "filename": "CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md",
+        "version": 20,
+        "digest": "87b14c64eb59f914af6e74fcbfb4938048bca57ca90431522325404a908708cf",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-15 18:46:34 +0000",
+        "content_role": "Requirement",
+        "type": null
+      },
+      "proposal_sha256": "4b9ab39b34d46d3e836078b9e703008c41564692bbd2cb586bc1a4d35e84dd08",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {
+        "child_of": [
+          "CA-R-917",
+          "CA-R-920"
+        ]
+      },
+      "outbound_after": {
+        "child_of": [
+          "CA-R-1174"
+        ]
+      },
+      "requires_created_ids": [],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "The same primary rule bounds normative tier-parent eligibility. Scope expands from equal Atom Scope to declared same-owner/ancestor topology; equal-or-lower ancestor ranks are preserved, and substantive applicability remains required.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "Replace child_of R917/R920 with applicable ancestor Goal R1174@13 (Global8, targets Core Meta-model; governs representing/governing/validating methodology authority). Historical links remain in prior bytes. Inbound R829→R796 is an existing same-ownerCore9 peer edge: deferred content-lineage repair, not a batch-wide gate."
+    },
+    {
+      "atom_id": "CA-R-1539",
+      "source": {
+        "atom_id": "CA-R-1539",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
+        "filename": "CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
+        "version": 6,
+        "digest": "7a5a7638179edba26e740ea166dafac20a0517eba22a87bd9a9e11cb58e1926b",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-15 18:44:05 +0000",
+        "content_role": "Requirement",
+        "type": null
+      },
+      "proposal_sha256": "d414fd08dcadffccc14b9fc3a3ddc6d66e972f5f28172870ec555f743402fb91",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {
+        "relates_to": [
+          "CA-R-1412"
+        ]
+      },
+      "outbound_after": {
+        "relates_to": [
+          "CA-R-1412"
+        ]
+      },
+      "requires_created_ids": [],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Same Plan Status-domain claim; inherit Atom base values, add Backlog/Done/Canceled, retain no distinct Planned.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "D461's added Draft placement completes the bounded carrier consequence. Plan Status meaning consumers retain their existing targets; no Plan instances/statuses are migrated."
+    },
+    {
+      "atom_id": "CA-R-1875",
+      "source": {
+        "atom_id": "CA-R-1875",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+        "filename": "CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+        "version": 3,
+        "digest": "539a86522e1b99a2198631de7f167790f9751e69ffea91120402951c5f9f9504",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-15 18:46:12 +0000",
+        "content_role": "Requirement",
+        "type": null
+      },
+      "proposal_sha256": "5094d697a7432890cb43c6f9d3784074dfdcf686936b083d8d6c57c55da5f2b4",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {
+        "relates_to": [
+          "CA-R-1232",
+          "CA-R-1337",
+          "CA-R-1664",
+          "CA-R-1727",
+          "CA-R-1306",
+          "CA-R-1308",
+          "CA-R-1312",
+          "CA-R-1313"
+        ]
+      },
+      "outbound_after": {
+        "relates_to": [
+          "CA-R-1232",
+          "CA-R-1337",
+          "CA-R-1664",
+          "CA-R-1727",
+          "CA-R-1308",
+          "CA-R-1312",
+          "CA-R-1313"
+        ]
+      },
+      "requires_created_ids": [],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Same Analysis Status-domain claim and same AnalysisReport/Rationale applicability; inherited Active becomes available, extensions add without removing inherited values, Status belongs to the Atom rather than an Artifact Revision.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "Remove only obsolete contextual relates_to R1306; remaining references unchanged. No redirect to another owner or fabricated typed dependency. R1727 meanings remain linked; C/A instances unchanged."
+    },
+    {
+      "atom_id": "CA-R-1608",
+      "source": {
+        "atom_id": "CA-R-1608",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
+        "filename": "CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
+        "version": 5,
+        "digest": "b1b21b03fd1e58169979b2e379c45e1fa22b8aa32759ca21bdb68c9779526151",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-15 18:45:00 +0000",
+        "content_role": "Requirement",
+        "type": null
+      },
+      "proposal_sha256": "7810b5f041b6495ec13ff5e2109b7812f312184ead85b4acf70b10e70be0bd91",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {
+        "relates_to": [
+          "CA-R-1308",
+          "CA-R-1313",
+          "CA-R-1336"
+        ]
+      },
+      "outbound_after": {
+        "relates_to": [
+          "CA-R-1308",
+          "CA-R-1313",
+          "CA-R-1336"
+        ]
+      },
+      "requires_created_ids": [],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Same Concern Status-domain claim; inherited Draft/Active/Archived plus Resolved/Canceled replaces lowercase exclusive domain.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "Existing contextual status-model references remain. No Concern instance casing or carrier migration is authorized."
+    },
+    {
+      "atom_id": "CA-R-1727",
+      "source": {
+        "atom_id": "CA-R-1727",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+        "filename": "CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+        "version": 17,
+        "digest": "5b94a683148d322aa48e8e135f1b49c6b5f76a2f0d8df5cb3af4d6a5e0a8479a",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-16 12:08:39 +0000",
+        "content_role": "Requirement",
+        "type": null
+      },
+      "proposal_sha256": "0b3654b6b210f94cddec39a69c838634880c893926af7d54078e3e9f1c683a16",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {},
+      "outbound_after": {},
+      "requires_created_ids": [],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Same unfinished/completed Analysis meanings and archival disposition; Scope/wording now define Draft/Done meanings without exhausting every allowed state.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "R1875 retains its reference to these meanings; FPF Analysis definition R1889 remains a narrower consumer. No Analysis instance rewrite."
+    },
+    {
+      "atom_id": "CA-R-1308",
+      "source": {
+        "atom_id": "CA-R-1308",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md",
+        "filename": "CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md",
+        "version": 12,
+        "digest": "61223d6c0422b9617562ef76e6c1ee090cb9eb548407fbfc89e0b5f119a93d76",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-15 12:21:24 +0000",
+        "content_role": "Requirement",
+        "type": null
+      },
+      "proposal_sha256": "e1f2bddbd0a222e73c1c73393a9c20dde778812a3302e00c4be2d67120c90f8c",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {},
+      "outbound_after": {},
+      "requires_created_ids": [],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Same qualified Status-domain resolution claim; Details explicitly combine inherited base values with narrower additions and prohibit removing inherited values.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "R1608/R1874/R1875 contextual consumers remain qualified models. Legacy E129 evaluation remains a caller-specific currentness concern, not evidence of a new global Status list."
+    },
+    {
+      "atom_id": "CA-R-1368",
+      "source": {
+        "atom_id": "CA-R-1368",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1368-CORE_META_MODEL-CORE--define-containment-relation-pair.md",
+        "filename": "CA-R-1368-CORE_META_MODEL-CORE--define-containment-relation-pair.md",
+        "version": 10,
+        "digest": "ed02fa6f13ef49e3a3ee1ed8969fa545081f241b599e38e04927bbd62361ef76",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-02 22:23:29 +0400",
+        "content_role": "Requirement",
+        "type": null
+      },
+      "proposal_sha256": "0f80555a5743eb59cb5e6cf0b59341259b24516cfc17c53da90f0c70d3382894",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {},
+      "outbound_after": {},
+      "requires_created_ids": [],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Same direct CONTAINS/inverse pair; domain expands from old Structural Entities to Scope Units and Atom kinds with enabled containment.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "Explicit replacement/retirement dependencies cover old non-Atom collections. Do not infer child_of from containment. Construction projection remains deferred."
+    },
+    {
+      "atom_id": "CA-R-1371",
+      "source": {
+        "atom_id": "CA-R-1371",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md",
+        "filename": "CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md",
+        "version": 10,
+        "digest": "5d784abf1c82906ad8cb8d84e216f956fabf295523f15113ca9706032130c992",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-02 22:23:29 +0400",
+        "content_role": "Requirement",
+        "type": null
+      },
+      "proposal_sha256": "fef95b94190b565b2216da83a7c5ce1f397b935c0381b950ae542e23528a60c5",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {},
+      "outbound_after": {},
+      "requires_created_ids": [],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Same preserved immutable historical-state definition; rejects current-Artifact dependent-property treatment and metadata-only no-version exception.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "R866/E304/R1826 still concern native revision preservation/results. Their unchanged broader or legacy clauses are not silently certified. Retire separate Journal Revision R1372; no new wrapper/baseline/recording gate."
+    },
+    {
+      "atom_id": "CA-R-1342",
+      "source": {
+        "atom_id": "CA-R-1342",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md",
+        "filename": "CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md",
+        "version": 13,
+        "digest": "fff67a2bec7543060e1efb359fff77be76e4b287387dadecad3c051fdb99cdea",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-15 18:42:02 +0000",
+        "content_role": "Requirement",
+        "type": null
+      },
+      "proposal_sha256": "d9926af8737ab7577e62568d4747456a9b1b72bc5663f81c88c2a0d98f11eb3f",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {},
+      "outbound_after": {},
+      "requires_created_ids": [],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Same Delivery-role boundary; exclude Entity/property/classification definitions and retain representation/storage/placement constraints.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "M313 is aligned in this batch; R1548 and E482 preserve RMED role distinctions. Old Carrier classifiers retire only after required successor coverage."
+    },
+    {
+      "atom_id": "CA-M-313",
+      "source": {
+        "atom_id": "CA-M-313",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+        "filename": "CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+        "version": 7,
+        "digest": "1a68b8dc50f69a6d2945f88c304340f6bb855608843fc1a466ec1523e21e57f1",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-15 18:48:44 +0000",
+        "content_role": "Method",
+        "type": null
+      },
+      "proposal_sha256": "2cbb8aabf7c91a389ee05ae289c2831a53565a046ccd32a1d8ad6c9211c546be",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {
+        "child_of": [
+          "CA-M-307"
+        ],
+        "relates_to": [
+          "CA-R-1342"
+        ]
+      },
+      "outbound_after": {
+        "child_of": [
+          "CA-M-307"
+        ],
+        "relates_to": [
+          "CA-R-1342"
+        ]
+      },
+      "requires_created_ids": [],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Same Delivery CCE authoring-method contribution; govern representation rather than define Carrier kinds, preserve modality/conditions/references and avoid invented template data.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "Existing contextual R1342/M308 route remains valid for the same role profile. No new typed relation inferred from old relates_to."
+    },
+    {
+      "atom_id": "CA-D-341",
+      "source": {
+        "atom_id": "CA-D-341",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+        "filename": "CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+        "version": 13,
+        "digest": "cd3146dfff71babbd03c9586d8f53f478ac359a35a0531582f780321f5fb69e2",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-15 18:51:20 +0000",
+        "content_role": "Delivery",
+        "type": null
+      },
+      "proposal_sha256": "e8938c0aadbecadc9dc13804ea7d600f6a6daee689e28c437a9c7462bc125445",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {},
+      "outbound_after": {},
+      "requires_created_ids": [],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Same cleanup-protection outcome; expand from named ownership classes/outside-runtime placement to all persistent authority/history excluded from cleanup.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "E522/E523 remain visible evaluation consumers; this delta grants no permission to treat disposable runtime data as canonical and does not certify their broader fixtures. Ownership-class/StorageBoundary properties are not introduced."
+    },
+    {
+      "atom_id": "CA-D-463",
+      "source": {
+        "atom_id": "CA-D-463",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md",
+        "filename": "CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md",
+        "version": 8,
+        "digest": "49e285195ec8d1003820af2129c71f54a910369875e25a3ff4e6d781a6edc7b7",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-16 12:09:32 +0000",
+        "content_role": "Delivery",
+        "type": null
+      },
+      "proposal_sha256": "13e9354a95cf9dc64e0da5cb21a6ed6e8c37663f4f9202c55b93a6ed06a9154b",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "equivalent_refinement",
+      "outbound_before": {
+        "relates_to": [
+          "CA-D-258",
+          "CA-D-259",
+          "CA-D-416"
+        ]
+      },
+      "outbound_after": {
+        "relates_to": [
+          "CA-R-1957",
+          "CA-R-1956",
+          "CA-D-416"
+        ]
+      },
+      "requires_created_ids": [
+        "CA-R-1956",
+        "CA-R-1957"
+      ],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Equivalent refinement: only contextual classifier endpoints change; unchanged carrier-bundle Claim/Scope/Subjects/cardinality still refer to the same File/Directory Carrier kinds.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "Create R1956/R1957 first; map old D259/D258 contextual references respectively; retire old definitions afterward. New definitions retain the Carrier subclass used by this unchanged obligation, not a new cardinality or permission."
+    },
+    {
+      "atom_id": "CA-D-464",
+      "source": {
+        "atom_id": "CA-D-464",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-464-CORE_META_MODEL-CORE--represent-one-governed-object-with-each-directory-carrier.md",
+        "filename": "CA-D-464-CORE_META_MODEL-CORE--represent-one-governed-object-with-each-directory-carrier.md",
+        "version": 6,
+        "digest": "5a94b21c7066ec56eccb2a09e4a7c16ed18a5824021190caa937f76348d58988",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-15 18:52:08 +0000",
+        "content_role": "Delivery",
+        "type": null
+      },
+      "proposal_sha256": "e1d0cff83d0fdeb6922592b6e948151c3eaaad1c8a6323845298bcfe979083d5",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "equivalent_refinement",
+      "outbound_before": {
+        "relates_to": [
+          "CA-D-259",
+          "CA-D-460"
+        ]
+      },
+      "outbound_after": {
+        "relates_to": [
+          "CA-R-1956",
+          "CA-D-460"
+        ]
+      },
+      "requires_created_ids": [
+        "CA-R-1956"
+      ],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Equivalent refinement: only contextual DirectoryCarrier classifier endpoint changes; one-governed-object obligation and all body/Subjects remain byte-identical.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "Create R1956 before reference replacement; retire D259 afterward. Existing StructuralEntity/Revision wording remains explicit deferred content work, not recertified."
+    },
+    {
+      "atom_id": "CA-D-465",
+      "source": {
+        "atom_id": "CA-D-465",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-465-CORE_META_MODEL-STANDARD--carry-each-materialized-structural-entity-with-a-directory-carrier.md",
+        "filename": "CA-D-465-CORE_META_MODEL-STANDARD--carry-each-materialized-structural-entity-with-a-directory-carrier.md",
+        "version": 6,
+        "digest": "23f270528030e44a1bc8f34d9edb060f1fbd55eca2463cabbeb19de2305d7235",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-15 18:52:08 +0000",
+        "content_role": "Delivery",
+        "type": null
+      },
+      "proposal_sha256": "b3066aa3fc88e49e3e2fbfaaec241e9403ea6af77f39a5675621033b253ce08b",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "equivalent_refinement",
+      "outbound_before": {
+        "relates_to": [
+          "CA-D-259",
+          "CA-D-312",
+          "CA-R-1484"
+        ]
+      },
+      "outbound_after": {
+        "relates_to": [
+          "CA-R-1956",
+          "CA-D-312",
+          "CA-R-1484"
+        ]
+      },
+      "requires_created_ids": [
+        "CA-R-1956"
+      ],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Equivalent refinement: only contextual DirectoryCarrier classifier endpoint changes; materialization/location obligation and all body/Subjects remain byte-identical.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "Create R1956 before reference replacement; retire D259 afterward. Existing StructuralEntity terminology remains deferred, not renamed by this update."
+    },
+    {
+      "atom_id": "CA-D-461",
+      "source": {
+        "atom_id": "CA-D-461",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-CORE--place-plan-carriers-by-status.md",
+        "filename": "CA-D-461-CORE_META_MODEL-CORE--place-plan-carriers-by-status.md",
+        "version": 10,
+        "digest": "aa3f0ecbc94b6b94d8e12ad9eb16a5c0f1dbb331b7f3b5d99931ed2d6a719074",
+        "lifecycle": "active",
+        "status": "Active",
+        "updated_at": "2026-10-16 12:09:32 +0000",
+        "content_role": "Delivery",
+        "type": null
+      },
+      "proposal_sha256": "b9f689a7b92bd0104f6a50e30afaaaa68042adb1dcd62027c7e7479fe5e9a046",
+      "summary_unchanged": true,
+      "source_matches": true,
+      "declared_change_class": "semantic_revision",
+      "outbound_before": {
+        "relates_to": [
+          "CA-R-1539",
+          "CA-D-483",
+          "CA-R-1541"
+        ]
+      },
+      "outbound_after": {
+        "relates_to": [
+          "CA-R-1539",
+          "CA-D-483",
+          "CA-R-1541"
+        ]
+      },
+      "requires_created_ids": [
+        "CA-R-1947"
+      ],
+      "semantic_review": "pass",
+      "primary_claim_recognizable": true,
+      "identity_result": "same_id_next_version",
+      "declared_delta": "Same Plan carrier Status-placement mapping; add only Draft→draft subdirectory; retain every other mapping, own-Status read, containment cascade and archived-byte policy.",
+      "lineage_review": "completed_with_explicit_dependencies_and_deferred_repairs",
+      "lineage_conclusion": "Completes carrier handling for inherited Draft introduced by R1539. No existing Plans move. Existing contextual R1539 reference and other links unchanged."
+    }
+  ],
+  "inbound_source_evidence": [
+    {
+      "atom_id": "CA-R-1889",
+      "version": 1,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-GENERAL--define-fpf-analysis-report.md",
+      "sha256": "55468cf1af8437390b658a0e72c02822fd6da1e04e4aa4bad0084f7199114ca6",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1727",
+          "CA-R-1875"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-D-464",
+      "version": 6,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-464-CORE_META_MODEL-CORE--represent-one-governed-object-with-each-directory-carrier.md",
+      "sha256": "5a94b21c7066ec56eccb2a09e4a7c16ed18a5824021190caa937f76348d58988",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-D-259"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-D-461",
+      "version": 10,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-CORE--place-plan-carriers-by-status.md",
+      "sha256": "aa3f0ecbc94b6b94d8e12ad9eb16a5c0f1dbb331b7f3b5d99931ed2d6a719074",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1539"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-D-463",
+      "version": 8,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md",
+      "sha256": "49e285195ec8d1003820af2129c71f54a910369875e25a3ff4e6d781a6edc7b7",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-D-258",
+          "CA-D-259"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-D-465",
+      "version": 6,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-465-CORE_META_MODEL-STANDARD--carry-each-materialized-structural-entity-with-a-directory-carrier.md",
+      "sha256": "23f270528030e44a1bc8f34d9edb060f1fbd55eca2463cabbeb19de2305d7235",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-D-259"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-E-457",
+      "version": 18,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-457-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-markdown-atom-carriers.md",
+      "sha256": "29fac1294a57bbd2ac466d6484fbe16434f85ee1450d43a1491db6e47bc85696",
+      "incoming_to_reviewed_targets": {
+        "evaluation_for": [
+          "CA-D-463"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-E-447",
+      "version": 19,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md",
+      "sha256": "7cd802d4dd5ac5b5052375da646ce0c1ee50f58dda6ef10a3355cfe8ec4f1b9e",
+      "incoming_to_reviewed_targets": {
+        "evaluation_for": [
+          "CA-R-796"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-E-523",
+      "version": 4,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md",
+      "sha256": "26222cc089fa81a8db41cd0bec29139004e22b83fe1ec661d07f37ca0da10793",
+      "incoming_to_reviewed_targets": {
+        "evaluation_for": [
+          "CA-D-341"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-E-522",
+      "version": 3,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md",
+      "sha256": "4a018f5d8c37cdc0bdd7f08081b00c33ab3f82901bec7a32d17c7566449b9d48",
+      "incoming_to_reviewed_targets": {
+        "evaluation_for": [
+          "CA-D-341"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-E-482",
+      "version": 13,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-482-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-principle-content-role-semantics.md",
+      "sha256": "1b54dfeed4e9ddaef91fff58cf2b76f63efb15e4779c1e23f2fa393de64f40c8",
+      "incoming_to_reviewed_targets": {
+        "evaluation_for": [
+          "CA-R-1342"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-M-308",
+      "version": 6,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL-CORE--resolve-the-effective-cce-role-profile.md",
+      "sha256": "9fcf6afd0bf38b1034abdda663088f503ec1d0aea63413b9bd16caf65ffd68dd",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-M-313"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-M-313",
+      "version": 7,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+      "sha256": "1a68b8dc50f69a6d2945f88c304340f6bb855608843fc1a466ec1523e21e57f1",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1342"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-O-079",
+      "version": 6,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-079-CORE_META_MODEL-ACTION--reconcile-unfinished-operative-work.md",
+      "sha256": "fc288328f74b27317d25c765d26a8af62f60e4ff750e0f10b4257f385300c3ba",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1539"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1545",
+      "version": 6,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1545-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-canceled.md",
+      "sha256": "6aca2ef31b6d0d4d2b0bcbe6d31167751726e13ba59f19b70122780fc3a64bf5",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1539"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-829",
+      "version": 19,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-829-CORE_META_MODEL-CORE-REQUIREMENT--keep-same-tier-requirements-as-authority-peers.md",
+      "sha256": "b1b74722a316049da93f0ba921415047952a8e77998227eefe5cc135f6d4ac7f",
+      "incoming_to_reviewed_targets": {
+        "child_of": [
+          "CA-R-796"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1567",
+      "version": 6,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1567-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-change-and-implementation-collections-at-standard.md",
+      "sha256": "f3e82206eaa6a2de3c8145ee6c2039460900c950038b988500be780144fd7619",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1378"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1583",
+      "version": 8,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1583-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-completion.md",
+      "sha256": "50f2b8502fd9abe499dc78a754d753ca7b1eeb69bed55bc55c24d992e8e4bc98",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1539"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1542",
+      "version": 7,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1542-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-backlog.md",
+      "sha256": "8136684ae44a3d6c867527f3d3c453b171317d3668f34c83cd990288a361f3ac",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1539"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1548",
+      "version": 6,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md",
+      "sha256": "30f51bd0aacaabd089e76430d813820090483b29f1255c82a16f98d2789696ec",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1342"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1608",
+      "version": 5,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
+      "sha256": "b1b21b03fd1e58169979b2e379c45e1fa22b8aa32759ca21bdb68c9779526151",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1308"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1874",
+      "version": 3,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-operations-status-values.md",
+      "sha256": "0a7aa953a3390350de3d35501fea1de12f66db37f015fa866d00d67ccec568d0",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1306",
+          "CA-R-1308"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1541",
+      "version": 7,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1541-CORE_META_MODEL-CORE-REQUIREMENT--define-current-plan-scope.md",
+      "sha256": "314530b4f8ffe9b0198fdf2f59e0b5b4e4001e3fbb010be80d3e2b8e1cbf9c70",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1539"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1875",
+      "version": 3,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+      "sha256": "539a86522e1b99a2198631de7f167790f9751e69ffea91120402951c5f9f9504",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1727",
+          "CA-R-1306",
+          "CA-R-1308"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1546",
+      "version": 5,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1546-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-atom-collection-type-values.md",
+      "sha256": "f64a0f9b8fd156af219a0243ca885a2ebce4c77be88a5590c22f0d4f1ef273e3",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1381"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-E-304",
+      "version": 27,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
+      "sha256": "d017347a8c349fd0f0cc46289a488509e1df569c72284e5fe6e61f3e70db2b1f",
+      "incoming_to_reviewed_targets": {
+        "evaluation_for": [
+          "CA-R-1371"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-866",
+      "version": 28,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
+      "sha256": "175e986897124aba016788ed08cd4f8f6406e139d8208eba0fd9c274f11ea69c",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1371"
+        ]
+      }
+    },
+    {
+      "atom_id": null,
+      "version": 11,
+      "status": null,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/06_evaluation/CA-E-129-TOOLS-QA_CASE--reject-unknown-lifecycle-directory.md",
+      "sha256": "7eee09ae64fba0a31a8d3787963acae0caa5454b0fc1b07c816bba948c490b87",
+      "incoming_to_reviewed_targets": {
+        "evaluation_for": [
+          "CA-R-1308"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1826",
+      "version": 1,
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/04_requirement/CA-R-1826-ATOM_LIFECYCLE-REQUIREMENT--preserve-semantic-revision-and-history.md",
+      "sha256": "5a547ba6fada738af8069d03eb1210e83e92c80d14f4fec4b16c1a889e4e9910",
+      "incoming_to_reviewed_targets": {
+        "relates_to": [
+          "CA-R-1371"
+        ]
+      }
+    }
+  ],
+  "reference_scan_boundary": "Current non-draft/non-archived original Markdown sources under control root, excluding projection and000framework copies; YAML frontmatter relations inspected, PRMEDO literal references to retirement targets additionally searched. Legacy relates_to is recorded as context, not admitted typed graph authority. This is not full current-source validation.",
+  "deferred_lineage_repairs": [
+    {
+      "source": "CA-R-829",
+      "relation": "child_of",
+      "target": "CA-R-796",
+      "kind": "typed_normative_edge",
+      "disposition": "deferred_content_lineage_repair",
+      "reason": "Both current sources are Core9 in CORE_META_MODEL. Same-owner peer edge violates lower-parent rule; repairing sourceR829 is outside this exact15 update batch. Do not reinterpret it as valid or add an all-project gate."
+    },
+    {
+      "source": "CA-R-1874",
+      "relation": "relates_to",
+      "target": "CA-R-1306",
+      "kind": "legacy_contextual_not_admitted_typed_graph_truth",
+      "disposition": "deferred_content_lineage_repair",
+      "reason": "Operations Status scope is Atom-local, but Details still say ArtifactRevision Property. After R1306 retirement, review/drop obsolete context alongside that content; no blanket cross-owner redirect."
+    },
+    {
+      "source": "CA-R-1567",
+      "relation": "relates_to",
+      "target": "CA-R-1378",
+      "kind": "legacy_contextual_not_admitted_typed_graph_truth",
+      "disposition": "deferred_content_lineage_repair",
+      "reason": "Old AtomCollection content remains outside batch while target collection definition retires. Do not retarget to Container Atom without changing/reviewing its own Claim."
+    },
+    {
+      "source": "CA-R-1546",
+      "relation": "relates_to",
+      "target": "CA-R-1381",
+      "kind": "legacy_contextual_not_admitted_typed_graph_truth",
+      "disposition": "deferred_content_lineage_repair",
+      "reason": "Old AtomCollection Type/AdHoc model remains outside batch; target retirement leaves obsolete context. No new Type or mapping invented."
+    }
+  ],
+  "retirement_boundary": "13 retirements are dependencies assessed for impacts here, not executed or certified by these update reviews. Preserve snapshots and actual lifecycle diagnostics; later unsupported consumer work is explicit, not an invented all-project gate.",
+  "execution_authorized_by_this_report": false,
+  "active_sources_changed": false,
+  "unresolved_per_target_semantic_holds": []
+}

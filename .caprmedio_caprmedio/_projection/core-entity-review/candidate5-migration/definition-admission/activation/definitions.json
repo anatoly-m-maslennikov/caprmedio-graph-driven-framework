@@ -1,0 +1,787 @@
+{
+  "schema_version": 1,
+  "purpose": "Candidate6 definition activation preparation; no source writes or ID reservation",
+  "operation": "create_atom_action",
+  "revision_policy": {
+    "initial_version": 1,
+    "updated_at": "actual creation time supplied by native writer; not prepared timestamp",
+    "request_omits": [
+      "version",
+      "updated_at"
+    ]
+  },
+  "identity_check": {
+    "observed_head": "c136fa6522d630e690aaebb352ff4a3c85a37b2e",
+    "retained_sources_and_archives": "no declared-ID or filename collision",
+    "all_local_git_ref_governing_filenames": "no collision",
+    "journal_references": "no proposed ID found in current NDJSON/JSONL Journal batches",
+    "ids_reserved": false,
+    "recheck_before_execution": true
+  },
+  "definitions": [
+    {
+      "atom_id": "CA-R-1944",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-actor-name.md",
+      "draft_version": 2,
+      "draft_sha256": "b2bb4a7f47b6ca3618d7b52b5eea5e65e60fccb7ffabcdab8d7d505d57ae6b14",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "bca0ee514dfe589ed3dcd20d8e3879482db62ff6e4cc8ea3f32602a611723f7a",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1944-CORE_META_MODEL--define-actor-name.md",
+          "frontmatter": "atom_id: CA-R-1944\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Actor.Name\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Actor.Name\n\n## Scope\n\nActor names.\n\n## Claim\n\nActor.Name **means** the optional name of an Actor.\n\n## Details\n\nCandidate #5 makes Actor.Name optional and inherited by Actor Types; Candidate #6 retains Actor as a Continuant. CA-R-1422 defines Operator and CA-R-1552 governs AI Agent permissions, but neither defines this shared property. This draft does not make Name mandatory or prescribe its storage.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1945",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-atom-enabled-relations-contains.md",
+      "draft_version": 3,
+      "draft_sha256": "3fc08638fd6f861c58af3d4345a860e26a76d915f94756388d9306eb74f98e7b",
+      "removed_review_state_sentences": [
+        "Review disposition: missing generic R definition; proposed Claim only. This Draft is not active authority."
+      ],
+      "preserved_substance_sha256": "d8f9dd9103e91eab57d8dbecfed0c98a16b836ddcd5bbaee8e4fdd0974e94bc1",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1945-CORE_META_MODEL-GENERAL--define-atom-enabled-relations-contains.md",
+          "frontmatter": "atom_id: CA-R-1945\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: General\nglobal_tier: 10\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Object/Atom.Enabled Relations.Contains\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Atom.Enabled Relations.Contains\n\n## Scope\n\nContainment capability of Atom kinds, qualified by Content Role and Type.\n\n## Claim\n\nAtom.Enabled Relations.Contains **means** whether an Atom kind **may** contain other Atoms through `CONTAINS`. Its allowed values **are** (False, True), with default False. The applicable Content Role or Type **may** enable this capability. It belongs to the kind, **not** to a required Boolean field on every Atom instance. True permits containment; it does **not** require children.\n\n## Details\n\nThe Operator approved the default-False kind capability and containment for Plan and Workflow kinds. Their particular enabling rules remain separate. Container capability does not replace Owning Scope Unit or Target Scope Unit references, including Goal and Demand targets.\n\nExisting evidence: CA-R-1368 defines `CONTAINS` and its derived inverse `IS_CONTAINED_BY`, but not this capability or its default. CA-R-1378, CA-R-1379 and CA-R-1265 still describe the old non-Atom collection model; their conflicting content needs the later content pass. This draft neither retires those sources nor resumes the deferred construction graph.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1946",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-atom-semantics.md",
+      "draft_version": 4,
+      "draft_sha256": "3e91481a2bc8c8bf0ad26e21c176583ca69196e182a05e90e76865d6783a53d0",
+      "removed_review_state_sentences": [
+        "Review disposition: missing R definition; proposed Claim only. This Draft is not active authority."
+      ],
+      "preserved_substance_sha256": "34aadf4f2be0278259122c40c1ef9cc798540772df25ff7212b9660d6a5be5e8",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1946-CORE_META_MODEL-GENERAL--define-atom-semantics.md",
+          "frontmatter": "atom_id: CA-R-1946\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: General\nglobal_tier: 10\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Object/Atom.Semantics\nrelations:\n  child_of:\n  - CA-R-1746",
+          "content": "# Summary\n\nDefine Atom.Semantics\n\n## Scope\n\nMeanings expressed in an Atom's content and their applicability.\n\n## Claim\n\nAtom.Semantics **means** the dependent property of an Atom that explains the meanings used in that Atom and their applicability. It is distinct from general Details. Terms Graph Projections derive meanings from source usage and Semantics; their derived definitions do **not** become a separate source of authority.\n\n## Details\n\nThe Operator confirmed Semantics is an Atom property represented by a content section. Like a YAML metadata field, a Markdown section represents a property inside the File Carrier. D defines its representation; M governs how it is written. Candidate #6 decision 29 records this distinction without adding a separate Carrier for each property.\n\nBasis: the Operator approved Semantics as meaning-specific Atom content and definitions derived from real uses, not a separate layer of definition Atoms. Candidate #6 decisions 3 and 21 retain that distinction. Different meanings may coexist in different scopes; a Projection flags conflicts where those meanings apply to the same case.\n\nNo current R definition of Atom.Semantics was found. Generic uses of the word semantics are not coverage. This draft does not require the section on every Atom, add storage fields, or repair CA-M-114's old Definition-Atom requirement. Corrections belong in source Atoms, followed by rebuilding the derived view.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1947",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-atom-status-allowed-values.md",
+      "draft_version": 3,
+      "draft_sha256": "77cd8bcf9471a763321fe1c9a637dc131cd278d30bb19b388e94c3f76475223a",
+      "removed_review_state_sentences": [
+        "Review disposition: missing base allowed-value R rule; proposed Claim only. This Draft is not active authority."
+      ],
+      "preserved_substance_sha256": "5f8de308c3e7a5eafb0c3eee24d881df52bc6347ab0f00c4aaab8df478c8b1a7",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL-GENERAL--define-atom-status-allowed-values.md",
+          "frontmatter": "atom_id: CA-R-1947\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: General\nglobal_tier: 10\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Object/Atom.Status\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Atom.Status allowed values\n\n## Scope\n\nThe base allowed values inherited by narrower Atom kinds.\n\n## Claim\n\nAtom.Status **must** admit (Draft, Active, Archived). Narrower Atom kinds inherit these values and **may** add allowed values under their applicable Content Role or Type. An inherited value does **not** require a separate declaration for every narrower kind.\n\n## Details\n\nCA-R-1412 requires exactly one Status but does not declare the base allowed values. CA-R-1309 declares Draft, Active and Archived only for Requirements; it must not be retargeted to all Atoms as a Subjects-only change.\n\nLater content alignment is needed: CA-R-1539's exact Plan set excludes inherited Draft, CA-R-1875's Analysis set excludes inherited Active, and CA-R-1608 uses a different Concern spelling/domain. C/A content remains deferred. CA-R-1308 and CA-R-1313 also need alignment with additive inheritance. This draft does not change transition procedures, existing Status values or any active source.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1948",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-canonical-address-segment.md",
+      "draft_version": 2,
+      "draft_sha256": "04ef9d8f1154204c184f654e2951255eadcc454a37366cec6aea9fb6a6ad490c",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "623bece8830e3e752b4bd606ae207786a6973fdecdaff83f93e042592acc49a9",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1948-CORE_META_MODEL--define-carrier-canonical-address-segment.md",
+          "frontmatter": "atom_id: CA-R-1948\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier.Canonical Address.Segment\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Carrier.Canonical Address.Segment\n\n## Scope\n\nCarriers whose canonical address format has component segments.\n\n## Claim\n\nA Canonical Address Segment **means** one component of a Carrier's Canonical Address under its applicable address format.\n\n## Details\n\nCA-D-301 governs project-owned address segments; CA-D-352 treats status subdirectories as placement components. Filesystem separators and portable-name restrictions are not imposed on every database address by this definition.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1949",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-canonical-address.md",
+      "draft_version": 2,
+      "draft_sha256": "62466e034fd3e53e4338aa6496d4ff5a3036177971318d7642f7cdb874782aa1",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "261548bfffb7f892233e4d2330209d0a52c6c97f76868d83923e8c78e8ef344f",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1949-CORE_META_MODEL--define-carrier-canonical-address.md",
+          "frontmatter": "atom_id: CA-R-1949\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier.Canonical Address\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Carrier.Canonical Address\n\n## Scope\n\nCanonical locators of Carriers.\n\n## Claim\n\nA Carrier's Canonical Address **means** its designated locator under the applicable addressing rules. It is **not** the Carrier's ID.\n\n## Details\n\nCA-D-267 refers to registered canonical Carrier addresses; CA-D-301 governs address segments. The Operator distinguishes Carrier ID from filename/path. CA-D-267's non-Atom property-derivation policy is not made universal here.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1950",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-format.md",
+      "draft_version": 2,
+      "draft_sha256": "181494c83c84b2348d6faca30d30f0bebb5cf5f822c3f36d1bd59eddecc1a1dd",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "e620f5a8057652a00a6fef95b0d026e0d58c577f347507f04254bfc5796a4c0f",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1950-CORE_META_MODEL--define-carrier-format.md",
+          "frontmatter": "atom_id: CA-R-1950\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier.Format\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Carrier.Format\n\n## Scope\n\nCarriers with an applicable representation format.\n\n## Claim\n\nA Carrier's Format **means** the rules for encoding and interpreting its represented content.\n\n## Details\n\nCA-D-262 admits registered File Carrier formats including Markdown, TOML, YAML and JSON; CA-D-507 distinguishes format from identity. This definition does not require a format value for every Directory Carrier.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1951",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-id.md",
+      "draft_version": 3,
+      "draft_sha256": "4c9f0ed3d3f0a41af042d22c028f95bd76f9ac7e1a003e692ab88dbcc1106833",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "257a350166f63c53ba60c85e35b4717725d211528f37db24861d99b63ea99a86",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1951-CORE_META_MODEL-CORE--define-carrier-id.md",
+          "frontmatter": "atom_id: CA-R-1951\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier.ID\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Carrier.ID\n\n## Scope\n\nIdentifiers of individual Carriers.\n\n## Claim\n\nA Carrier ID identifies one Carrier. Its filename and path are **not** its ID.\n\n## Details\n\nThe Operator explicitly distinguished Carrier ID from filename and path. CA-D-507 separates Entity identity from Carrier format but does not define Carrier ID. This draft introduces no ID syntax, allocator or registry.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1952",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-directory-carrier-name.md",
+      "draft_version": 2,
+      "draft_sha256": "9253af83bb643bba286f766114f9b5c61a08d967ec04cec7ecdc815f2db86c62",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "a5b57f10d6b9cfa3c8d22efb090a19e27b0911863c8676b92bd3f14aa3ef9a18",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1952-CORE_META_MODEL--define-directory-carrier-name.md",
+          "frontmatter": "atom_id: CA-R-1952\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier/Directory Carrier.Name\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Directory Carrier.Name\n\n## Scope\n\nDirectory Carrier names within their parent directories.\n\n## Claim\n\nA Directory Carrier's Name **means** the name of its directory within its parent directory, excluding the parent path.\n\n## Details\n\nCA-D-297 and CA-D-299 constrain authority and Delivery directory names. CA-D-445 permits explicit native layouts. The directory name is not universally identical to the carried Scope Unit's Name.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1953",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-directory-carrier-numeric-prefix.md",
+      "draft_version": 2,
+      "draft_sha256": "9d60e4086aeae6bada00b3783416cdfaa126d25b071bc3b6e1868f16cd5f281b",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "b2240c2eb4a054c7cae626af8984777fd11843dfcaf6f19ba88a95ffcc4e91ab",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1953-CORE_META_MODEL--define-directory-carrier-numeric-prefix.md",
+          "frontmatter": "atom_id: CA-R-1953\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier/Directory Carrier.Numeric Prefix\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Directory Carrier.Numeric Prefix\n\n## Scope\n\nDirectory Carrier names whose applicable naming convention uses a numeric prefix.\n\n## Claim\n\nA Directory Carrier's Numeric Prefix **means** the leading numeric part of its Name when the applicable naming convention uses one.\n\n## Details\n\nCA-D-300 specifies the default-convention encoding from Structural Level and Navigational Order Number. CA-D-445 allows explicit native bindings. This definition does not require a prefix for every directory.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1954",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-directory-carrier-path.md",
+      "draft_version": 2,
+      "draft_sha256": "2bc09f9b3c486ac175dc00ba34c28772d1b161513410656d5c5d0f890e6c252e",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "c4d6a3cd650d9bbbb7d3707a546cc5171c1e4ad3463a50723a847d295c560838",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1954-CORE_META_MODEL--define-directory-carrier-path.md",
+          "frontmatter": "atom_id: CA-R-1954\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier/Directory Carrier.Path\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Directory Carrier.Path\n\n## Scope\n\nDirectory Carrier filesystem locators.\n\n## Claim\n\nA Directory Carrier's Path **means** the locator of its directory within a filesystem, absolute or relative to a stated base. It does **not** define Scope Unit parentage or Carrier identity.\n\n## Details\n\nCA-D-445 separates physical layout from declared hierarchy; CA-R-1660 says physical containment must not silently replace logical parentage. The Operator distinguishes Carrier ID from path.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1955",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier-database-carrier.md",
+      "draft_version": 2,
+      "draft_sha256": "0b61d98571410b2dcfedce79daa6962cb2518620e22d025d49cd8ed56fcbd277",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "9569739aac55bacc4f10f82006b0c3cf137eac8317920a47274c8f38fd130c0b",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1955-CORE_META_MODEL--define-entity-carrier-database-carrier.md",
+          "frontmatter": "atom_id: CA-R-1955\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier/Database Carrier\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Carrier/Database Carrier\n\n## Scope\n\nDatabase Carriers.\n\n## Claim\n\nA Database Carrier **means** a Carrier that represents content in a database.\n\n## Details\n\nCandidate #6 explicitly admits Database Carrier. CA-R-1745 permits local or remote databases as Journal storage. This draft selects no database technology or table/row granularity.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1956",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier-directory-carrier.md",
+      "draft_version": 2,
+      "draft_sha256": "9547742fbe5aadc85195053a09a9262e90ea12a229c22044d126140558561700",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "4b5e87777d70dbac5450e59c4fcc17bf4502b6583963a7cc22ec65a1bdf13abe",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1956-CORE_META_MODEL--define-entity-carrier-directory-carrier.md",
+          "frontmatter": "atom_id: CA-R-1956\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier/Directory Carrier\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Carrier/Directory Carrier\n\n## Scope\n\nDirectories that represent a carried Continuant.\n\n## Claim\n\nA Directory Carrier **means** a Carrier that uses a directory to represent its carried Continuant. Merely containing files does **not** make a directory a Directory Carrier.\n\n## Details\n\nCA-D-259 classifies Directory Carrier as narrower than Carrier. CA-D-451 distinguishes carrying directories from administrative placement; CA-D-464 permits a directory to represent an Atom. Their old Structural Entity and Revision wording remains for content migration.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1957",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier-file-carrier.md",
+      "draft_version": 2,
+      "draft_sha256": "ca3d951b06ad51e089f9e588a6c7836b089e29aff1901bfbec963190538d4a51",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "86d11375ccbc7a23282b9843ff11730aeb7322809beeaf5cdcb86f290fd280b8",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1957-CORE_META_MODEL--define-entity-carrier-file-carrier.md",
+          "frontmatter": "atom_id: CA-R-1957\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier/File Carrier\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Carrier/File Carrier\n\n## Scope\n\nFile Carriers.\n\n## Claim\n\nA File Carrier **means** a Carrier that represents content in a file.\n\n## Details\n\nCA-D-258 classifies File Carrier as narrower than Carrier; CA-D-283 and CA-D-356 specify file representations. Filename and format conventions remain Delivery rules.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1958",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier.md",
+      "draft_version": 3,
+      "draft_sha256": "acec0226e6dd80f5ee53720b7608afec178e1e82881dd8ba82ade864922646dd",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "ab8acec9dde822c535796ec519210663c697e069f3f970bf6e8aa793e80e234d",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1958-CORE_META_MODEL-CORE--define-entity-carrier.md",
+          "frontmatter": "atom_id: CA-R-1958\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Carrier\n\n## Scope\n\nCarrier representations of Continuants.\n\n## Claim\n\nA Carrier **means** a storage representation of a Continuant, distinct from what it represents. A Carrier can represent a record of an Occurrent, **not** the Occurrent itself.\n\n## Details\n\nCandidate #6 retains Carrier as a separate root. CA-D-256 describes storage or representation of non-ephemeral Entities; CA-D-414 classifies Carrier. This draft does not adopt CA-D-505's obsolete binding-property notation.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1959",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-actor-type-ai-agent.md",
+      "draft_version": 2,
+      "draft_sha256": "ac4f012497cb17c83cfabc2df5d1f67fcf42e636a872e466a0e3e07e8c3f9a78",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "4aa12c665cf236050f87d1da19dbd0fc9c09b5dbd87ff2b55505df6f899b6a20",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1959-CORE_META_MODEL--define-entity-continuant-actor-type-ai-agent.md",
+          "frontmatter": "atom_id: CA-R-1959\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: 'Entity/Continuant/Actor/Type: AI Agent'\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Continuant/Actor/Type: AI Agent\n\n## Scope\n\nAI Agents.\n\n## Claim\n\nan AI Agent **means** an Actor that performs delegated work using an AI model.\n\n## Details\n\nCandidate #6 retains AI Agent under Actor and maps its permission limits to Actor/Type: AI Agent.Permissions. CA-R-852 and CA-R-1552 govern those permissions but do not define the Actor kind. This definition grants no additional authority.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1960",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-history-revision-type-atom.md",
+      "draft_version": 2,
+      "draft_sha256": "a2e55a24b35b790d2703b7d8df277fac348c931ed7804477d6debbfe0139f585",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "8fee16b6c56203a135ee2fb65114d98eaaae619acfa9b345f6cdb0239cc8b7d1",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1960-CORE_META_MODEL--define-entity-continuant-history-revision-type-atom.md",
+          "frontmatter": "atom_id: CA-R-1960\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: 'Entity/Continuant/History/Revision/Type: Atom'\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Continuant/History/Revision/Type: Atom\n\n## Scope\n\npreserved earlier states of Atoms.\n\n## Claim\n\nan Atom Revision **means** a preserved earlier state of an Atom, represented by the archived Atom itself. it is **not** a dependent property of the current Atom or another current Atom.\n\n## Details\n\nCandidate #5 explicitly retains Revision/Type: Atom with preserved historical Atom properties; Candidate #6 keeps History/Revision separate from Atom. CA-R-1371 defines recorded state but also permits metadata changes without a new semantic Revision; that clause needs separate alignment with the accepted every-update Version rule. This draft neither changes CA-R-1371 nor prescribes a new history mechanism.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1961",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-history.md",
+      "draft_version": 3,
+      "draft_sha256": "1c839c5e82734d262166ef6b69d3ee6f12bb40f572e79cfd867b01d0a3c5cb53",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "6710e75cc1922ec28a20a45495a500e713115d44135160afbb78c3bdeb8add6b",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1961-CORE_META_MODEL-CORE--define-entity-continuant-history.md",
+          "frontmatter": "atom_id: CA-R-1961\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/History\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Continuant/History\n\n## Scope\n\npreserved historical states and records.\n\n## Claim\n\nHistory **means** preserved earlier state or records of what happened. Revisions and Journals belong to History; the events or executions they record do **not**.\n\n## Details\n\nCandidate #6 decisions 12 and 19 distinguish historical state, event records and actual occurrences. CA-R-1051 separates current authority from history; CA-R-1371 and CA-R-1745 define Revision and Journal. They do not define the shared History kind. Journal is not required for every historical artifact.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1962",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-object-governing-configuration.md",
+      "draft_version": 3,
+      "draft_sha256": "df63bb4f8b625c97b7abbe88f4d8c3ee29770b02eca5806d792d03168e6d7d06",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "cbda901e52499abeed6b49d34334b862aa221857d69b52d250e21f4ea56cba27",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1962-CORE_META_MODEL-CORE--define-entity-continuant-object-governing-configuration.md",
+          "frontmatter": "atom_id: CA-R-1962\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Object/Governing Configuration\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Continuant/Object/Governing Configuration\n\n## Scope\n\nauthoritative non-Atom configuration.\n\n## Claim\n\nGoverning Configuration **means** authoritative non-Atom content that supplies declared structural facts or selected configuration values for a Project. it is **not** a derived Projection.\n\n## Details\n\nCandidate #5 retains Governing Configuration while placing Settings and Structure under Project properties; Candidate #6 retains that distinction. CA-R-1402, CA-R-1738 and CA-R-1483 define specific configurations, not this general kind. No selected Settings values are copied into this draft.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1963",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-object-relation.md",
+      "draft_version": 3,
+      "draft_sha256": "98dfe9c89a730ac47a8ffe0206cfac60583f006b37deb879394011703333cad2",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "227b5b90f47a3901b619aa49f008bf001677cd1d7eb33da4e91e59be0acd5efe",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1963-CORE_META_MODEL-CORE--define-entity-continuant-object-relation.md",
+          "frontmatter": "atom_id: CA-R-1963\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Object/Relation\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Continuant/Object/Relation\n\n## Scope\n\ntyped connections between identified endpoints.\n\n## Claim\n\na Relation **means** a typed connection between identified endpoints. its admitted kind determines the connection's meaning and direction.\n\n## Details\n\nCandidate #6 retains Relation under Object. CA-R-806 and CA-R-1246 govern Relation Kind metadata and graph-qualified identity; CA-R-1437 governs source authority; CA-R-1472 governs admitted endpoint contexts. This definition adds no Relation Kind, inferred connection or endpoint permission.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1964",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-object.md",
+      "draft_version": 3,
+      "draft_sha256": "5ab38fba399f2d7b0f23e235e06e6355d38788eee5a189cd49ba0b655b0f8b36",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "a44f90f949249ac27c771dc45af983779b37e1bfcd4f9910f00ee642d97ed7e8",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1964-CORE_META_MODEL-CORE--define-entity-continuant-object.md",
+          "frontmatter": "atom_id: CA-R-1964\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Object\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Continuant/Object\n\n## Scope\n\nObjects in the Entity model.\n\n## Claim\n\nan Object **means** a Continuant representing what is governed or described, rather than who acts.\n\n## Details\n\nCandidate #6 retains Object separately from Actor, History, Projection, Selection and Term. Atom, Governing Configuration, Scope Unit and Relation are examples from its agreed backbone, not a closed list imposed by this draft. CA-R-1248 defines Entity and CA-R-1191 defines Primary Entity; neither defines this Object branch. The old Artifact / Structural Entity partition remains separate content-migration work.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1965",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-projection-type-direct-relation-registry.md",
+      "draft_version": 2,
+      "draft_sha256": "084ce5e32d11dc1fed893a642227ad90846c7efd56fec1e69c3d446fd0d2a217",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "d0f09bf9551145b37b5a4370ed0ee0f42d236eb882c26e9349c81aa785a6711f",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1965-CORE_META_MODEL--define-entity-continuant-projection-type-direct-relation-registry.md",
+          "frontmatter": "atom_id: CA-R-1965\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: 'Entity/Continuant/Projection/Type: Direct Relation Registry'\nrelations:\n  child_of:\n  - CA-R-1746",
+          "content": "# Summary\n\nDefine Entity/Continuant/Projection/Type: Direct Relation Registry\n\n## Scope\n\nDirect Relation Registry Projections.\n\n## Claim\n\na Direct Relation Registry **means** a non-authoritative Projection of admitted Relation Kinds and their governing metadata, grouped by owning graph kind and traceable to their governing sources.\n\n## Details\n\nCA-M-120 specifies compilation of this Projection. CA-R-806 supplies required Relation Kind metadata, CA-R-1246 its graph ownership and CA-R-1437 its source-authority distinction. These rules support the kind but do not provide its R definition. This draft adds no registry workflow or independently authored authority.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1966",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-selection.md",
+      "draft_version": 3,
+      "draft_sha256": "801bdc3b71ee79c3006cba0cbab942bc391aa9639297ecaf4146c90888e8a949",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "94821f334aeddd3655ee70e3dae080322d2baac0d1128fd6da188e30e5b7af90",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1966-CORE_META_MODEL-CORE--define-entity-continuant-selection.md",
+          "frontmatter": "atom_id: CA-R-1966\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Selection\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Continuant/Selection\n\n## Scope\n\nSelections and named Selections.\n\n## Claim\n\na Selection **means** criteria for choosing members. a named Selection gives those criteria a name; it does **not** create another Object or independent copies of the selected members.\n\n## Details\n\nCandidate #6 preserves Selection separately from Object and concrete named selections separately from abstract Core kinds. CA-R-1447 defines Owned Atoms and CA-R-1448 defines Targeting Atoms; they define particular selections, not the general kind. This draft adds no selector syntax or mandatory materialization.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1967",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant.md",
+      "draft_version": 3,
+      "draft_sha256": "2d7bbfd3894829f621e561c8e9a18b9ffe163367e01982c0b6d8a76ad1686eae",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "0d60bac2289b42e2feb3cfcee7cd11ba6a3780841428f9db5e1804f827f90967",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1967-CORE_META_MODEL-CORE--define-entity-continuant.md",
+          "frontmatter": "atom_id: CA-R-1967\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Continuant\n\n## Scope\n\nContinuants.\n\n## Claim\n\na Continuant **means** an Entity that persists as an identifiable thing, rather than an actual occurrence unfolding in time.\n\n## Details\n\nCandidate #6 places Object, Project, Actor, History, Projection, Selection and Term under Continuant. CA-R-1248 defines Entity but does not define this distinction. Continuance does not make content immutable or make every Continuant a source of current authority.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1968",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-event.md",
+      "draft_version": 2,
+      "draft_sha256": "3b41caa43c43ad6e90e13c63e7c0e8e9fa3f6249419042da4f501e2b866848b0",
+      "removed_review_state_sentences": [
+        "This review draft is not active R-definition coverage."
+      ],
+      "preserved_substance_sha256": "2955c75d05284030db0d1304e5803adb20fa48f57fb67c654c5bb1b8a9e393c8",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1968-CORE_META_MODEL--define-entity-occurrent-event.md",
+          "frontmatter": "atom_id: CA-R-1968\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Occurrent/Event\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Occurrent/Event\n\n## Scope\n\nEvents as Occurrents.\n\n## Claim\n\nan Event **means** an actual occurrence. a record describing the Event is **not** the Event itself.\n\n## Details\n\nCandidate #6 distinguishes actual occurrences from historical records. CA-R-1745 makes the same distinction for Journal records, but does not define Event itself.\n\n No active Event definition was found in the reviewed sources.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1969",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-execution-action-run.md",
+      "draft_version": 2,
+      "draft_sha256": "8a83517184cfd20905b47f0a4a15059a08a3ac327b6fca34b4b4d8720787b936",
+      "removed_review_state_sentences": [
+        "This review draft is not active R-definition coverage."
+      ],
+      "preserved_substance_sha256": "b22e8377650a6a4df07b30e0d50bdf9294b696300e1a81ae5c6f34df0917d9fd",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1969-CORE_META_MODEL--define-entity-occurrent-execution-action-run.md",
+          "frontmatter": "atom_id: CA-R-1969\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Occurrent/Execution/Action Run\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Occurrent/Execution/Action Run\n\n## Scope\n\nActual executions of Actions.\n\n## Claim\n\nan Action Run **means** **`=1`** actual execution of **`=1`** Action. it is distinct from the Action definition **and** from records describing the execution.\n\n## Details\n\nCandidate #6 keeps Action definitions and actual Action Runs separate. CA-R-1452 defines the reusable Action. CA-R-853 governs Action Run attribution and authorization, but does not define Action Run itself.\n\n Action Run already has a governing R constraint in CA-R-853; the missing part is its substantive definition.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1970",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-execution.md",
+      "draft_version": 2,
+      "draft_sha256": "530d44826038d3b6b1c3f666cdac32a515607d7c58ad9b6bbbf0ec7e4f81d7a0",
+      "removed_review_state_sentences": [
+        "This review draft is not active R-definition coverage."
+      ],
+      "preserved_substance_sha256": "d0a20b42eae7f20e5d1420fc301b89415ad678fed51f2191c98dcd8eb1438f79",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1970-CORE_META_MODEL--define-entity-occurrent-execution.md",
+          "frontmatter": "atom_id: CA-R-1970\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Occurrent/Execution\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Occurrent/Execution\n\n## Scope\n\nExecutions as Occurrents.\n\n## Claim\n\nan Execution **means** the actual performance of work. it is distinct from its reusable definition **and** from records describing what happened.\n\n## Details\n\nCandidate #6 distinguishes definitions, actual runs and records. CA-R-1510 defines Workflow Run and CA-R-1511 defines Step Run as narrower actual executions; neither defines Execution generally.\n\n No active generic Execution definition was found in the reviewed sources.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1971",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-session.md",
+      "draft_version": 2,
+      "draft_sha256": "11d1ea7e1d10a144d2661957cb53673b4bc7a3e8c2673c956e08991aeddf7ee6",
+      "removed_review_state_sentences": [
+        "This review draft is not active R-definition coverage."
+      ],
+      "preserved_substance_sha256": "a0c734453eb1d16e2229c032a3bd76106203f01c69f649bb46cd77e5a99433a2",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1971-CORE_META_MODEL--define-entity-occurrent-session.md",
+          "frontmatter": "atom_id: CA-R-1971\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Occurrent/Session\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Occurrent/Session\n\n## Scope\n\nSessions as Occurrents.\n\n## Claim\n\na Session **means** actual ongoing interaction, **not** a session log **or** a stored session-state envelope.\n\n## Details\n\nThe approved model places actual Sessions under Occurrent and distinguishes them from their logs. Candidate #6 preserves that branch. CA-R-1650 governs the bounded session-state envelope, not the actual Session.\n\n No active Session definition was found in the reviewed sources.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1972",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent.md",
+      "draft_version": 3,
+      "draft_sha256": "f9b561f62efb5b0ddd7ff55b04a99e78a337fbfdcbb13a04ddc1befd2a39f556",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "4342396c3fac06fd2da82cc876738ffc45896af20ba57066403afad8f7a0683f",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1972-CORE_META_MODEL-CORE--define-entity-occurrent.md",
+          "frontmatter": "atom_id: CA-R-1972\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Occurrent\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Entity/Occurrent\n\n## Scope\n\nactual occurrences.\n\n## Claim\n\nan Occurrent **means** an actual occurrence, such as an Event, Execution or Session. a stored record describes the occurrence; it is **not** the occurrence itself.\n\n## Details\n\nCandidate #6 separates runs from definitions and historical records. CA-R-1510 and CA-R-1511 define particular Run kinds; CA-R-1745 distinguishes Journal records from events. These support the distinction but do not define the general Occurrent kind. This draft adds no Run or Session lifecycle.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1973",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-execution-execution-id.md",
+      "draft_version": 2,
+      "draft_sha256": "fe72d415f398bed2906ba343175955317b19a6e16d2975813963a5487e888d20",
+      "removed_review_state_sentences": [
+        "This review draft is not active R-definition coverage."
+      ],
+      "preserved_substance_sha256": "4944e2b9100d86fad5691ae2cfeb768a03476dee793ffaf2ad82db5a183f5152",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1973-CORE_META_MODEL--define-execution-execution-id.md",
+          "frontmatter": "atom_id: CA-R-1973\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Occurrent/Execution.Execution ID\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Execution.Execution ID\n\n## Scope\n\nThe identifier of an Execution.\n\n## Claim\n\nExecution ID identifies an Execution.\n\n## Details\n\nThe Operator identified executions by Execution ID. The accepted candidate includes this property under Execution. This draft adds no identifier format or uniqueness domain.\n\n No active Execution ID definition was found in the reviewed sources.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1974",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-file-carrier-extension.md",
+      "draft_version": 2,
+      "draft_sha256": "91b14084be6e68a69c91d8fc3a735fafbcc4658760b5d1d0bdff00487f83f1a7",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "097cbcd2af1a5ef3999d7c2d9bc6c291e4c89ac4973bbaa13ac0d46716c0976b",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1974-CORE_META_MODEL--define-file-carrier-extension.md",
+          "frontmatter": "atom_id: CA-R-1974\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier/File Carrier.Extension\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine File Carrier.Extension\n\n## Scope\n\nFile Carriers whose filename uses an extension.\n\n## Claim\n\nA File Carrier's Extension **means** the filename suffix used to indicate its format. The extension does **not** establish the carried Entity's identity.\n\n## Details\n\nCA-D-283 uses an extension segment; CA-D-284 constrains its case; CA-D-507 explicitly separates changes of extension from Entity identity. This draft does not require every file to have an extension.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1975",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-file-carrier-filename.md",
+      "draft_version": 2,
+      "draft_sha256": "0d0360cc177ed938ae57ad13b627430df2f2a7a5b640e85da484d05499a4fbe2",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "ebe399c32548c7ee3bbfa9f1ed9885ba76d3c025bb723c807f26c1446f674a32",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1975-CORE_META_MODEL--define-file-carrier-filename.md",
+          "frontmatter": "atom_id: CA-R-1975\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier/File Carrier.Filename\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine File Carrier.Filename\n\n## Scope\n\nFile Carrier names within their containing directories.\n\n## Claim\n\nA File Carrier's Filename **means** the name of its file within its containing directory, including any extension. It does **not** include the directory path.\n\n## Details\n\nCA-D-283 specifies filenames; CA-D-284 distinguishes filename tokens, Summary Slug and extension. Their concrete serialization patterns remain Delivery rules.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1976",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-file-carrier-path.md",
+      "draft_version": 2,
+      "draft_sha256": "49a67dfbfad2cbf961a07e0322af4c59a99deb19c09d057a7a34a22d5c141352",
+      "removed_review_state_sentences": [
+        "Disposition: proposed R definition; Draft only, without an assigned Atom ID."
+      ],
+      "preserved_substance_sha256": "d8516819daadb9fd5914a2fe1468f412d8c9a3c8cf42f2bcbbedef60b643dea7",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1976-CORE_META_MODEL--define-file-carrier-path.md",
+          "frontmatter": "atom_id: CA-R-1976\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Carrier/File Carrier.Path\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine File Carrier.Path\n\n## Scope\n\nFile Carrier filesystem locators.\n\n## Claim\n\nA File Carrier's Path **means** the locator of its file within a filesystem, absolute or relative to a stated base. It is a locator, **not** the Carrier's ID.\n\n## Details\n\nThe Operator distinguishes Carrier ID from path. CA-D-445 requires unambiguous bindings inside authorized path boundaries. Path is the filesystem representation of the locator, not a second independently maintained identity.\n\nActive CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1977",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-artifact-timestamp-timezone.md",
+      "draft_version": 2,
+      "draft_sha256": "0b3bbd8f82c0c1a99b20fe3bace6d217953a9856a998f37f37eda8a687be7039",
+      "removed_review_state_sentences": [
+        "This is an unassigned Draft in a non-authoritative review package.",
+        "PROJECT_CONFIGURATION is its intended owner; the historical CORE_META_MODEL filename is retained for lineage.",
+        "No file relocation, source Atom creation or admission is performed.",
+        "This proposed Claim is not active R coverage and does not close the source-definition gap."
+      ],
+      "preserved_substance_sha256": "72153a97befcd2d3935535dbe1ac82d07e5ed4837019db2dd2c4bb6cc5934a76",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1977-PROJECT_CONFIGURATION--define-project-framework-settings-artifact-timestamp-timezone.md",
+          "frontmatter": "atom_id: CA-R-1977\ncontent_role: Requirement\ncurrent_scope_unit: PROJECT_CONFIGURATION\nclaim_target_scope_unit: PROJECT_CONFIGURATION\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Project.Framework Settings.Artifact Timestamp Timezone\nrelations:\n  child_of:\n  - CA-R-1176",
+          "content": "# Summary\n\nDefine Project.Framework Settings.Artifact Timestamp Timezone\n\n## Scope\n\nthe Artifact timestamp timezone setting in Framework Settings.\n\n## Claim\n\nArtifact Timestamp Timezone **means** the Framework Settings value that supplies the timezone interpretation used when emitting Artifact timestamps.\n\n## Details\n\nEvidence: CA-D-390 supplies the timezone interpretation and its concrete encoding. Candidate #6 keeps Settings attached to Project and keeps concrete CAPRMEDIO mechanisms in Project Configuration. This definition adds no format, allowed value or default; those remain separate Delivery rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1978",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-code-root-locators.md",
+      "draft_version": 2,
+      "draft_sha256": "0e6e7033868b900096aecc665071db70d03f9c354a35d78cefbe6103f2c95d03",
+      "removed_review_state_sentences": [
+        "This is an unassigned Draft in a non-authoritative review package.",
+        "PROJECT_CONFIGURATION is its intended owner; the historical CORE_META_MODEL filename is retained for lineage.",
+        "No file relocation, source Atom creation or admission is performed.",
+        "This proposed Claim is not active R coverage and does not close the source-definition gap."
+      ],
+      "preserved_substance_sha256": "da926734d2db507b007ae1e1ba2882038f38685b1a629da4965b8443233f5994",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1978-PROJECT_CONFIGURATION--define-project-framework-settings-code-root-locators.md",
+          "frontmatter": "atom_id: CA-R-1978\ncontent_role: Requirement\ncurrent_scope_unit: PROJECT_CONFIGURATION\nclaim_target_scope_unit: PROJECT_CONFIGURATION\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Project.Framework Settings.Code-Root Locators\nrelations:\n  child_of:\n  - CA-R-1176",
+          "content": "# Summary\n\nDefine Project.Framework Settings.Code-Root Locators\n\n## Scope\n\nthe code-root references in the Project's Framework Settings.\n\n## Claim\n\nCode-Root Locators **means** the Framework Settings references to the framework code roots used by the Project.\n\n## Details\n\nEvidence: CA-D-371 requires code-root locators in Framework Settings. Candidate #6 keeps concrete CAPRMEDIO mechanisms in Project Configuration. This definition adds no discovery procedure, new root or locator count.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1979",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-confidence.md",
+      "draft_version": 2,
+      "draft_sha256": "f3c1094abda14ed9cb1fd5e4137b7dde2d309caf35998917cb02ef09ec5cbcc0",
+      "removed_review_state_sentences": [
+        "This is an unassigned Draft in a non-authoritative review package.",
+        "PROJECT_CONFIGURATION is its intended owner; the historical CORE_META_MODEL filename is retained for lineage.",
+        "No file relocation, source Atom creation or admission is performed.",
+        "This proposed Claim is not active R coverage and does not close the source-definition gap."
+      ],
+      "preserved_substance_sha256": "eb33babfc0606cd87da2e92f9ccc06686646974c99101d1317f0aefd448e492a",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1979-PROJECT_CONFIGURATION--define-project-framework-settings-confidence.md",
+          "frontmatter": "atom_id: CA-R-1979\ncontent_role: Requirement\ncurrent_scope_unit: PROJECT_CONFIGURATION\nclaim_target_scope_unit: PROJECT_CONFIGURATION\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Project.Framework Settings.Confidence\nrelations:\n  child_of:\n  - CA-R-1176",
+          "content": "# Summary\n\nDefine Project.Framework Settings.Confidence\n\n## Scope\n\nthe Confidence grouping in the Project's Framework Settings.\n\n## Claim\n\nConfidence **means** the group of Framework Settings defaults for the declared Confidence Thresholds.\n\n## Details\n\nEvidence: CA-R-1652 defines the necessary-information threshold default; CA-R-380 defines the semantic-resolution threshold default. These define the child settings, not the parent grouping. Candidate #6 decision 8 retains Settings as the default source, and decision 18 distinguishes Project settings from the framework's name. This grouping adds no threshold, override layer or mandatory value. Concrete CAPRMEDIO setting definitions belong in Project Configuration.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1980",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-framework-control-root-locator.md",
+      "draft_version": 2,
+      "draft_sha256": "00e53212961ee09e0463123393d21796abfe50ab33d48a0d808d572fe94706fb",
+      "removed_review_state_sentences": [
+        "This is an unassigned Draft in a non-authoritative review package.",
+        "PROJECT_CONFIGURATION is its intended owner; the historical CORE_META_MODEL filename is retained for lineage.",
+        "No file relocation, source Atom creation or admission is performed.",
+        "This proposed Claim is not active R coverage and does not close the source-definition gap."
+      ],
+      "preserved_substance_sha256": "21686315f183d03137041f03fe7837d73ebafabb558ad2cada56e50484ac6f71",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1980-PROJECT_CONFIGURATION--define-project-framework-settings-framework-control-root-locator.md",
+          "frontmatter": "atom_id: CA-R-1980\ncontent_role: Requirement\ncurrent_scope_unit: PROJECT_CONFIGURATION\nclaim_target_scope_unit: PROJECT_CONFIGURATION\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Project.Framework Settings.Framework Control-Root Locator\nrelations:\n  child_of:\n  - CA-R-1176",
+          "content": "# Summary\n\nDefine Project.Framework Settings.Framework Control-Root Locator\n\n## Scope\n\nthe Project's framework control-root reference in Framework Settings.\n\n## Claim\n\nFramework Control-Root Locator **means** the Framework Settings reference to the Project's governed framework control directory.\n\n## Details\n\nEvidence: CA-D-370 requires the locator to resolve to the Directory Carrier prescribed by CA-D-317 without selecting another authority root. Candidate #6 keeps concrete CAPRMEDIO mechanisms in Project Configuration. This definition adds no path or alternative authority root; those remain Delivery rules.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1981",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-identifier.md",
+      "draft_version": 2,
+      "draft_sha256": "5e613ae788f74383fbcf0676ffcceec42aa4c4bdb7c6557499aaf94a7b7a833f",
+      "removed_review_state_sentences": [
+        "This is an unassigned Draft in a non-authoritative review package.",
+        "PROJECT_CONFIGURATION is its intended owner; the historical CORE_META_MODEL filename is retained for lineage.",
+        "No file relocation, source Atom creation or admission is performed.",
+        "This proposed Claim is not active R coverage and does not close the source-definition gap."
+      ],
+      "preserved_substance_sha256": "380eeac29b9d200aaa102018865a278a3c6dce086f27ba23f46cd2ea0477f9b9",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1981-PROJECT_CONFIGURATION--define-project-framework-settings-identifier.md",
+          "frontmatter": "atom_id: CA-R-1981\ncontent_role: Requirement\ncurrent_scope_unit: PROJECT_CONFIGURATION\nclaim_target_scope_unit: PROJECT_CONFIGURATION\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Project.Framework Settings.Identifier\nrelations:\n  child_of:\n  - CA-R-1176",
+          "content": "# Summary\n\nDefine Project.Framework Settings.Identifier\n\n## Scope\n\nthe identifier of the Project's authoritative Framework Settings configuration.\n\n## Claim\n\nFramework Settings Identifier identifies the Project's authoritative Framework Settings configuration, **not** an Atom.\n\n## Details\n\nEvidence: CA-R-1402 defines the owning configuration; CA-R-1404 keeps it outside the Atom type; CA-D-358 supplies its concrete identifier. Candidate #6 decision 11 places Project under Continuant; concrete CAPRMEDIO identity encodings belong in Project Configuration. This definition does not duplicate the concrete identifier spelling or create an Atom ID.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1982",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-interaction.md",
+      "draft_version": 2,
+      "draft_sha256": "e671e09be0816a27c40f98b8a150b32a913e245d14eb41944b2d4ef83ecfc959",
+      "removed_review_state_sentences": [
+        "This is an unassigned Draft in a non-authoritative review package.",
+        "PROJECT_CONFIGURATION is its intended owner; the historical CORE_META_MODEL filename is retained for lineage.",
+        "No file relocation, source Atom creation or admission is performed.",
+        "This proposed Claim is not active R coverage and does not close the source-definition gap."
+      ],
+      "preserved_substance_sha256": "f1c55c0cd3417036b5611555d3d7ae853d3dc86db6940c4b20b1a690de6257e2",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1982-PROJECT_CONFIGURATION--define-project-framework-settings-interaction.md",
+          "frontmatter": "atom_id: CA-R-1982\ncontent_role: Requirement\ncurrent_scope_unit: PROJECT_CONFIGURATION\nclaim_target_scope_unit: PROJECT_CONFIGURATION\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Project.Framework Settings.Interaction\nrelations:\n  child_of:\n  - CA-R-1176",
+          "content": "# Summary\n\nDefine Project.Framework Settings.Interaction\n\n## Scope\n\nthe Interaction grouping in the Project's Framework Settings.\n\n## Claim\n\nInteraction **means** the group of Framework Settings choices that govern presentation of information to the Operator.\n\n## Details\n\nEvidence: CA-R-1628 defines reporting-mode values; CA-R-1439 limits effects to presentation; CA-R-1440 preserves mandatory information. These define the child setting and its constraints, not the parent grouping. Candidate #6 keeps concrete CAPRMEDIO mechanisms in Project Configuration. This grouping adds no authorization, workflow, validation or safety behavior.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1983",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-parameter-resolution.md",
+      "draft_version": 2,
+      "draft_sha256": "fd08903f6a7c6d44cc9e0a01fd23006c9bef60d4743af43cf1a20e04025d3272",
+      "removed_review_state_sentences": [
+        "This is an unassigned Draft in a non-authoritative review package.",
+        "PROJECT_CONFIGURATION is its intended owner; the historical CORE_META_MODEL filename is retained for lineage.",
+        "No file relocation, source Atom creation or admission is performed.",
+        "This proposed Claim is not active R coverage and does not close the source-definition gap."
+      ],
+      "preserved_substance_sha256": "819e0904cd5894da715803b8cb14e76173882bcfa15113efd05e1078a21fbe31",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1983-PROJECT_CONFIGURATION--define-project-framework-settings-parameter-resolution.md",
+          "frontmatter": "atom_id: CA-R-1983\ncontent_role: Requirement\ncurrent_scope_unit: PROJECT_CONFIGURATION\nclaim_target_scope_unit: PROJECT_CONFIGURATION\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Project.Framework Settings.Parameter Resolution\nrelations:\n  child_of:\n  - CA-R-1176",
+          "content": "# Summary\n\nDefine Project.Framework Settings.Parameter Resolution\n\n## Scope\n\nresolution of one framework parameter from explicit Framework Settings or Default Settings.\n\n## Claim\n\nParameter Resolution **means** selecting the effective framework parameter value from explicit Framework Settings **or** Default Settings under the parameter's governing rules.\n\n## Details\n\nEvidence: CA-M-279 defines the existing resolution method; CA-R-1402 and CA-R-1441 define its two configurations. Candidate #6 decisions 2 and 13 retain the governed setting and distinguish defaults from explicit selections. This definition adds no receipt, history-admission gate, stored result or fallback rule. Detailed precedence and invalid-value handling remain in the governing Method. The concrete CAPRMEDIO mechanism belongs in Project Configuration.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1984",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-project-operator-registry.md",
+      "draft_version": 2,
+      "draft_sha256": "fb4383ce8848b0ea9894721d34fa0e41c9c830211fdcc087c4412e970c46ab7a",
+      "removed_review_state_sentences": [
+        "This is an unassigned Draft in a non-authoritative review package.",
+        "CORE_META_MODEL is the intended owner for this generic definition or historical stub.",
+        "No source Atom creation or admission is performed.",
+        "This proposed Claim is not active R coverage and does not close the source-definition gap."
+      ],
+      "preserved_substance_sha256": "df9f2639f772206895f7c5891726a402f35137e653a010be40cc46ea1e508c9e",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1984-CORE_META_MODEL--define-project-operator-registry.md",
+          "frontmatter": "atom_id: CA-R-1984\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Project.Operator Registry\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Project.Operator Registry\n\n## Scope\n\nthe authoritative Operator registry of a Project.\n\n## Claim\n\nOperator Registry **means** the Project's authoritative registry of its Operators **and** their declared identifying information. Registry membership does **not** itself grant execution permission.\n\n## Details\n\nEvidence: CA-D-494 defines registered Operator names and roles, exact membership and the no-permission distinction. Candidate #6 keeps Actor distinct from Project and permits abstract, project-independent Core definitions. File format, filename, location and concrete Operator identities remain separate Delivery/configuration concerns; this definition adds none.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1985",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-project-settings-identifier.md",
+      "draft_version": 2,
+      "draft_sha256": "cbfb31354755f8af4b8a8852e33f6500b075b9216ccc57679769743b13c50535",
+      "removed_review_state_sentences": [
+        "This is an unassigned Draft in a non-authoritative review package.",
+        "CORE_META_MODEL is the intended owner for this generic definition or historical stub.",
+        "No source Atom creation or admission is performed.",
+        "This proposed Claim is not active R coverage and does not close the source-definition gap."
+      ],
+      "preserved_substance_sha256": "8ab9fafa929bd3a8cbcb594148d12736d59ee8287f7d24da0c4e8a1a6b276f42",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1985-CORE_META_MODEL--define-project-settings-identifier.md",
+          "frontmatter": "atom_id: CA-R-1985\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Project.Settings.Identifier\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Project.Settings.Identifier\n\n## Scope\n\nthe identifier of a Project's authoritative Settings configuration.\n\n## Claim\n\nProject Settings Identifier identifies the Project's authoritative Settings configuration, **not** an Atom.\n\n## Details\n\nEvidence: CA-R-1738 defines Project Settings, CA-R-1401 keeps it outside the Atom type, and CA-D-362 supplies concrete identification. Candidate #6 decisions 11 and 18 preserve the Project path and distinguish Project identity from the delivered framework's name. This generic definition adds no filename, identifier spelling or duplicate Project Name setting.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1986",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-relation-source-reference.md",
+      "draft_version": 2,
+      "draft_sha256": "e5a6dbb876145ee5b03da4863dff7847098ce738505b77f21d52c64012c7961c",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "5cd69341fbe0cce94233dc893b15149d891e91c3d5557b4d075cacb8734afcbc",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1986-CORE_META_MODEL--define-relation-source-reference.md",
+          "frontmatter": "atom_id: CA-R-1986\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Object/Relation.Source Reference\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Relation.Source Reference\n\n## Scope\n\nthe source endpoint of a Relation.\n\n## Claim\n\nRelation.Source Reference **means** the reference to the endpoint from which the Relation's declared direction starts.\n\n## Details\n\nCandidate #5 includes Source Reference and Target Reference as Relation properties. CA-R-1017 gives a concrete directed relation; CA-R-118 and CA-D-268 establish directional ownership and serialized target references for authored Atom relations. Source Reference identifies an endpoint, not the evidence or authority supporting the relation. No reference encoding is prescribed here.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1987",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-relation-target-reference.md",
+      "draft_version": 2,
+      "draft_sha256": "46f0fcc95f6330f52a097ea0fd851af70cb41d2b49bff09bdd755b8c6dc40a32",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "cdf9246a9a12424e6670e16fa672819340c964aff35da4dc8f2de27a644814fd",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1987-CORE_META_MODEL--define-relation-target-reference.md",
+          "frontmatter": "atom_id: CA-R-1987\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Standard\nglobal_tier: 11\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Object/Relation.Target Reference\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Relation.Target Reference\n\n## Scope\n\nthe target endpoint of a Relation.\n\n## Claim\n\nRelation.Target Reference **means** the reference to the endpoint to which the Relation's declared direction points.\n\n## Details\n\nCandidate #5 includes Source Reference and Target Reference as Relation properties. CA-R-1017 gives a concrete directed relation; CA-R-1472 governs endpoint admission and CA-D-268 governs target serialization for authored Atom relations. This definition changes no endpoint eligibility, direction, cardinality or storage syntax.\n"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1988",
+      "draft_path": ".caprmedio_caprmedio/_projection/core-entity-review/candidate5-migration/empty-r-drafts/CA-R--CORE_META_MODEL--define-scope-unit-id.md",
+      "draft_version": 3,
+      "draft_sha256": "3d2e3b3d76bd20ae04b84514db2877e23f8b15a6f75a617ed91ecf23cee73c76",
+      "removed_review_state_sentences": [],
+      "preserved_substance_sha256": "d54acb6b36a6be49623276294188c97e12e800e2fd405f6cd205acf7d7ffa81c",
+      "parameters": {
+        "carrier": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1988-CORE_META_MODEL-CORE--define-scope-unit-id.md",
+          "frontmatter": "atom_id: CA-R-1988\ncontent_role: Requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\nlocal_tier: Core\nglobal_tier: 9\nstatus: Active\nauthor: Anatoly Maslennikov\nsubjects:\n  governs: Entity/Continuant/Object/Scope Unit.ID\nrelations:\n  child_of:\n  - CA-R-1174",
+          "content": "# Summary\n\nDefine Scope Unit.ID\n\n## Scope\n\nScope Unit identifiers.\n\n## Claim\n\nScope Unit.ID **means** the identifier of one Scope Unit, distinct from its Name, Label and Path.\n\n## Details\n\nThe Operator accepted a separate Scope Unit ID, and Candidate #5 includes it as an inherited property of Scope Unit Types. Candidate #6 decision 22 defines Path from parentage. CA-R-962 and CA-R-970 govern Name and its uniqueness; they do not define ID. This draft adds no new storage field or rename procedure.\n"
+        }
+      }
+    }
+  ]
+}

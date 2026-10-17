@@ -112,7 +112,8 @@ def _domain(text: str) -> tuple[str, ...]:
 
 
 def _source_obligations(
-    atom_id: str, entry: Record, candidates: list[Record], adapters: frozenset[str]
+    atom_id: str, entry: Record, candidates: list[Record], adapters: frozenset[str],
+    sources: list[Record],
 ) -> tuple[list[Obligation], list[Record], dict[str, tuple[str, ...]]]:
     bindings = sorted((s["binding"] for s in candidates), key=_binding_key)
     verified = len(candidates) == 1 and _verified(candidates[0], entry)
@@ -123,6 +124,21 @@ def _source_obligations(
         supported = verified and code in adapters
         if supported and code.startswith("domain."):
             values = _domain(candidates[0]["text"])
+            if not values and code.startswith("domain.status."):
+                from authoritative_status_models import (
+                    StatusModelError, declarations_from_sources, resolve_status_domain,
+                )
+                try:
+                    identities = [s["binding"]["atom_id"] for s in sources]
+                    declarations = declarations_from_sources([
+                        s for s in sources if _verified(s, {})
+                        and identities.count(s["binding"]["atom_id"]) == 1
+                    ])
+                    domain = resolve_status_domain(declarations, code.rsplit(".", 1)[1].capitalize())
+                    values = tuple(domain["statuses"])
+                    bindings = sorted(domain["model_sources"], key=_binding_key)
+                except StatusModelError:
+                    values = ()
             supported = bool(values)
             domains[code] = values
         why = "Verified exact source-bound adapter." if supported else reason
@@ -158,7 +174,7 @@ def resolve_context(sources: list[Record]) -> AuthorityContext:
         candidates = grouped.pop(atom_id, [])
         if not candidates and not entry["required"]:
             continue
-        items, missing, values = _source_obligations(atom_id, entry, candidates, ADAPTER_CODES)
+        items, missing, values = _source_obligations(atom_id, entry, candidates, ADAPTER_CODES, sources)
         obligations.extend(items)
         gaps.extend(missing)
         domains.update(values)
@@ -168,6 +184,14 @@ def resolve_context(sources: list[Record]) -> AuthorityContext:
         candidates = grouped.get(atom_id, [])
         if len(candidates) == 1 and _verified(candidates[0], entry):
             grouped.pop(atom_id)
+    # A composed Status domain has already classified its verified base source.
+    domain_dependencies = {
+        binding["atom_id"] for obligation in obligations
+        if obligation.supported and obligation.code.startswith("domain.status.")
+        for binding in obligation.authority
+    }
+    for atom_id in domain_dependencies:
+        grouped.pop(atom_id, None)
     for atom_id, candidates in sorted(grouped.items()):
         bindings = sorted((s["binding"] for s in candidates), key=_binding_key)
         why = "Unclassified source obligations require review: " + atom_id + "."

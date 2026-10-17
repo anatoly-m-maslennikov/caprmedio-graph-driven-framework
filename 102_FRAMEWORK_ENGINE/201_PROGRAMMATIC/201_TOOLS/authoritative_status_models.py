@@ -18,6 +18,11 @@ _SOURCE_TAIL = Path(
     "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
 )
 _VALUES = re.compile(r"(?:(?:the\s+)?Core\s+allowed values of|Core)\s+(?:`?Atom/Content Role:\s*)?([^/`\n]+?)(?:/Status|\s+Status)(?:\s+values)?`?\s*\*\*must\*\* be exactly\s*\(([^)]*)\)", re.I)
+_BASE_VALUES = re.compile(r"(?<![\w.])Atom\.Status\s+\*\*must\*\* admit\s*\(([^)]*)\)")
+_INHERITED_VALUES = re.compile(
+    r"\bCore\s+([^/`\n]+?)\s+Status model\s+\*\*must\*\* inherit the allowed values of "
+    r"Atom\.Status and add\s+(?:\(([^)]*)\)|([A-Za-z][A-Za-z ]*)\.)"
+)
 _ROLE = re.compile(r"Atom/Content Role:\s*([^/.`\n]+)")
 _TYPE = re.compile(
     r"Atom/Content Role:\s*[^/`\n]+/Type:\s*`?([A-Za-z][A-Za-z0-9 _-]*)`?"
@@ -114,12 +119,14 @@ def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[s
     if closing < 0:
         return None
     frontmatter, body = text[4:closing], text[closing + 5:]
-    declarations = list(_VALUES.finditer(body))
+    declarations = [("exact", match) for match in _VALUES.finditer(body)]
+    declarations += [("base", match) for match in _BASE_VALUES.finditer(body)]
+    declarations += [("inherited", match) for match in _INHERITED_VALUES.finditer(body)]
     if not declarations:
         return None
     if len(declarations) != 1:
         raise StatusModelError("source-invalid", f"ambiguous status-domain declarations: {path}")
-    match = declarations[0]
+    mode, match = declarations[0]
     try:
         meta = _load_frontmatter(frontmatter)
     except Exception as error:
@@ -137,17 +144,25 @@ def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[s
             or not isinstance(subjects, Mapping)
             or not isinstance(subjects.get("governs"), str)):
         raise StatusModelError("source-invalid", f"invalid status-model authority: {path}")
-    declared_role = match.group(1).strip()
+    declared_role = None if mode == "base" else match.group(1).strip()
     governed = subjects["governs"].strip()
     role_match = _ROLE.search(governed)
-    if role_match is None or role_match.group(1).strip() != declared_role:
+    if mode == "base":
+        qualified = governed == "Atom.Status" or governed.endswith("/Atom.Status")
+    else:
+        qualified = role_match is not None and role_match.group(1).strip() == declared_role
+    if not qualified:
         raise StatusModelError("source-invalid", f"status-model authority does not govern its declared role: {path}")
-    values = [item.strip().strip("`\"'") for item in match.group(2).split(",")]
+    raw_values = match.group(1) if mode == "base" else match.group(2)
+    if mode == "inherited" and raw_values is None:
+        raw_values = match.group(3)
+    values = [item.strip().strip("`\"'") for item in raw_values.split(",")]
     if not values or any(not item for item in values) or len(values) != len(set(values)):
         raise StatusModelError("source-invalid", f"invalid status domain in {path}")
     type_match = _TYPE.search(governed)
     return {
         "role": declared_role,
+        "mode": mode,
         "statuses": values,
         "type": type_match.group(1).strip() if type_match else None,
         "source": {
@@ -226,8 +241,7 @@ def _models(root: Path, role: str, atom_type: str | None,
     if index is not None:
         if root != index.root:
             raise StatusModelError("source-invalid", "status-model index belongs to another Project")
-        return [{"statuses": list(row["statuses"]), "type": row["type"], "source": dict(row["source"])}
-                for row in index.declarations if row["role"] == role
+        return [row for row in index.declarations if row["role"] in (None, role)
                 and (row["type"] is None or row["type"] == atom_type)]
     base = _methodology_source_root(root)
     if not base.is_dir():
@@ -237,13 +251,50 @@ def _models(root: Path, role: str, atom_type: str | None,
         if "archive" in path.parts:
             continue
         snapshot = _source_snapshot(path, root)
-        if snapshot is None or snapshot["role"] != role:
+        if snapshot is None or snapshot["role"] not in (None, role):
             continue
         declared_type = snapshot["type"]
         if declared_type is not None and declared_type != atom_type:
             continue
-        found.append({"statuses": snapshot["statuses"], "type": declared_type, "source": snapshot["source"]})
+        found.append(snapshot)
     return found
+
+
+def declarations_from_sources(sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Parse already-read source rows; retain their caller's binding format."""
+    declarations = []
+    for source in sources:
+        path = Path("/") / source["binding"]["path"]
+        declaration = _source_snapshot(path, Path("/"), source["text"].encode("utf-8"))
+        if declaration is not None:
+            declaration["source"] = dict(source["binding"])
+            declarations.append(declaration)
+    return declarations
+
+
+def resolve_status_domain(declarations: list[dict[str, Any]] | tuple[dict[str, Any], ...],
+                          role: str, atom_type: str | None = None) -> dict[str, Any]:
+    """Compose only the selected declaration's explicit inheritance."""
+    candidates = [row for row in declarations if row["role"] == role
+                  and row["type"] in (None, atom_type)]
+    specific = [row for row in candidates if row["type"] is not None]
+    selected = specific if specific else [row for row in candidates if row["type"] is None]
+    if not selected:
+        raise StatusModelError("model-missing", f"no current status model for {role!r}")
+    if len(selected) != 1:
+        raise StatusModelError("model-ambiguous", f"ambiguous current status model for {role!r}")
+    selected_model = selected[0]
+    dependencies = [selected_model]
+    if selected_model.get("mode") == "inherited":
+        bases = [row for row in declarations if row["role"] is None and row.get("mode") == "base"]
+        if len(bases) != 1:
+            code = "model-missing" if not bases else "model-ambiguous"
+            raise StatusModelError(code, "inheritance requires one current Atom.Status declaration")
+        dependencies = [bases[0], selected_model]
+    return {
+        "statuses": list(dict.fromkeys(value for row in dependencies for value in row["statuses"])),
+        "model_sources": [dict(row["source"]) for row in dependencies],
+    }
 
 
 def resolve_status_model(root: str | Path, atom: object, requested_status: str,
@@ -256,15 +307,8 @@ def resolve_status_model(root: str | Path, atom: object, requested_status: str,
         raise StatusModelError("target-invalid", "target lacks carried content_role")
     if not isinstance(requested_status, str) or not requested_status:
         raise StatusModelError("status-invalid", "requested_status must be a non-empty string")
-    candidates = _models(project, role, atom_type, _index)
-    specific = [row for row in candidates if row["type"] is not None]
-    selected = specific if specific else [row for row in candidates if row["type"] is None]
-    if not selected:
-        raise StatusModelError("model-missing", f"no current status model for {role!r}")
-    if len(selected) != 1:
-        raise StatusModelError("model-ambiguous", f"ambiguous current status model for {role!r}")
-    model = {"content_role": role, "type": atom_type, "statuses": selected[0]["statuses"],
-             "model_sources": [selected[0]["source"]], "requested_status": requested_status}
+    domain = resolve_status_domain(_models(project, role, atom_type, _index), role, atom_type)
+    model = {"content_role": role, "type": atom_type, **domain, "requested_status": requested_status}
     if requested_status not in model["statuses"]:
         raise StatusModelError("status-unadmitted", "requested status is not admitted by the current model")
     if supplied_model is not None:

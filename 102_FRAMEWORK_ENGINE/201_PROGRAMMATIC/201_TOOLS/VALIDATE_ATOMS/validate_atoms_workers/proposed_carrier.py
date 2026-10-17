@@ -9,7 +9,7 @@ import tomllib
 from dataclasses import dataclass
 from pathlib import Path
 
-from .authority import AuthorityContext, Obligation, Record, _domain, _verified, resolve_context
+from .authority import AuthorityContext, Obligation, Record, _verified, resolve_context
 from .check_operators import load_operators_registry
 from .checks import validate_carrier
 from .context import load_source
@@ -25,7 +25,7 @@ from .graph_authority_refresh import APPROVED_GRAPH_AUTHORITY_IDS
 from artifact_metadata import project_identity
 from authoritative_status_models import (
     StatusModelError, StatusModelIndex, capture_status_models,
-    resolve_status_model, revalidate_status_models,
+    declarations_from_sources, resolve_status_domain, resolve_status_model, revalidate_status_models,
 )
 from project_selection import ProjectSelection, active_selection, bind_selection, bound_selection
 
@@ -173,7 +173,8 @@ def _current(reader: ReadContext, selection: ProjectSelection | None = None) -> 
         raise ProposedCarrierError("selected Project inputs are unavailable") from error
 
 
-def _frontier_status_folders(context: VerifiedSourceContext, plan_mapping: dict[str, str]) -> dict[str, dict[str, str]]:
+def _frontier_status_folders(context: VerifiedSourceContext, plan_mapping: dict[str, str],
+                             status_index: StatusModelIndex | None = None) -> dict[str, dict[str, str]]:
     report: Record = {"bindings": {}, "coverage": {"gaps": []}}
     with bind_selection(context._selection):
         sources = {
@@ -181,10 +182,13 @@ def _frontier_status_folders(context: VerifiedSourceContext, plan_mapping: dict[
             for identifier in _FRONTIER_IDS
         }
     mappings = {}
+    declarations = (status_index.declarations if status_index is not None
+                    else declarations_from_sources(list(sources.values())))
     for role, identifier in _FRONTIER_STATUS_IDS.items():
-        statuses = _domain(sources[identifier]["text"])
-        if not statuses:
-            raise ProposedCarrierError("reference status-directory authority is unavailable")
+        try:
+            statuses = resolve_status_domain(declarations, role)["statuses"]
+        except StatusModelError as error:
+            raise ProposedCarrierError("reference status-directory authority is unavailable") from error
         mappings[role] = {status: "" if status.casefold() == "active" else status.lower() for status in statuses}
     if set(plan_mapping) != set(mappings["Plan"]):
         raise ProposedCarrierError("reference Plan status-directory authority is incomplete")
@@ -208,7 +212,7 @@ def _assigned_identity(context: VerifiedSourceContext, metadata: Record) -> None
 
 def _operations_placement(
     context: VerifiedSourceContext, metadata: Record, path: Path, role_root: Path,
-    owner: str, rows: list[Record], owner_authority: Path,
+    owner: str, rows: list[Record], owner_authority: Path, status_index: StatusModelIndex | None = None,
 ) -> None:
     """Authenticate only the Workflow/Step ancestors named by this carrier path."""
     report: Record = {"bindings": {}, "coverage": {"gaps": []}}
@@ -218,9 +222,9 @@ def _operations_placement(
                 identifier: _source(context.root, identifier, context._reader, report)
                 for identifier in ("CA-D-467", "CA-R-1874")
             }
-        statuses = _domain(sources["CA-R-1874"]["text"])
-        if not statuses:
-            raise ProposedCarrierError("Operations status-directory authority is unavailable")
+        declarations = (status_index.declarations if status_index is not None
+                        else declarations_from_sources(list(sources.values())))
+        statuses = resolve_status_domain(declarations, "Operations")["statuses"]
         folders = {status: "" if status == "Active" else status.lower() for status in statuses}
         current, local, nested = role_root, "", False
         for part in path.relative_to(role_root).parts[:-1]:
@@ -276,19 +280,21 @@ def validate_proposed_carrier(
     if relative_path.is_absolute() or ".." in relative_path.parts:
         raise ProposedCarrierError("carrier path is outside the selected Project")
     _current(verified_source_context._reader, verified_source_context._selection)
+    owns_status_index = _status_index is None
     selected = tuple(item for item in verified_source_context.authority.obligations if item.code in _CODES)
     if {item.code for item in selected} != _CODES or any(not item.supported for item in selected):
         raise ProposedCarrierError("complete-carrier authority is unsupported or incomplete")
     try:
         with bind_selection(verified_source_context._selection):
+            if _status_index is None:
+                _status_index = capture_status_models(verified_source_context.root, verified_source_context._reader)
             status_model = resolve_status_model(
                 verified_source_context.root, metadata, metadata.get("status"), _index=_status_index,
             )
     except StatusModelError as error:
         raise ProposedCarrierError("status model is missing, ambiguous, or unadmitted") from error
     domains = dict(verified_source_context.authority.domains)
-    if metadata.get("content_role") == "Concern":
-        domains["domain.status.concern"] = tuple(status_model["statuses"])
+    domains["domain.status." + status_model["content_role"].lower()] = tuple(status_model["statuses"])
     context = AuthorityContext(
         bindings=verified_source_context.authority.bindings,
         required=len(selected),
@@ -355,7 +361,7 @@ def validate_proposed_carrier(
     inventory = None
     if relations and (not allow_existing_relations or plan_deep or reference_roles is not None):
         targets = list(dict.fromkeys(target for values in relations.values() if isinstance(values, list) for target in values))
-        status_folders = _frontier_status_folders(verified_source_context, plan_mapping)
+        status_folders = _frontier_status_folders(verified_source_context, plan_mapping, _status_index)
         try:
             inventory = inventory_proposed_references(
                 verified_source_context.root,
@@ -412,7 +418,7 @@ def validate_proposed_carrier(
             (source for source in graph_sources if source["binding"]["atom_id"] == "CA-R-1539"), None
         )
         domains = (
-            {"domain.status.plan": _domain(plan_status_source["text"])}
+            {"domain.status.plan": tuple(resolve_status_domain(_status_index.declarations, "Plan")["statuses"])}
             if plan_status_source is not None
             else {}
         )
@@ -458,8 +464,11 @@ def validate_proposed_carrier(
     if role == "Operations" and len(tail) > (0 if status == "Active" else 1):
         role_root = control / Path(*relative_path.parts[:role_index + 1])
         _operations_placement(verified_source_context, metadata, project_relative_path, role_root, owner, rows,
-                              authority_path)
+                              authority_path, _status_index)
         _current(verified_source_context._reader, verified_source_context._selection)
+        if owns_status_index:
+            with bind_selection(verified_source_context._selection):
+                revalidate_status_models(_status_index, verified_source_context._reader)
         if inventory is not None:
             try:
                 inventory.assert_current()
@@ -472,6 +481,9 @@ def validate_proposed_carrier(
     if expected_status_directory is None or actual_status_directory != expected_status_directory:
         raise ProposedCarrierError("carrier path disagrees with its carried status")
     _current(verified_source_context._reader, verified_source_context._selection)
+    if owns_status_index:
+        with bind_selection(verified_source_context._selection):
+            revalidate_status_models(_status_index, verified_source_context._reader)
     if inventory is not None:
         try:
             inventory.assert_current()
