@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 90
-updated_at: "2026-10-17 18:17:06 +0400"
+version: 92
+updated_at: "2026-10-18 02:41:00 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,38 @@ Improve entity model — Stage 2
 Complete the accepted entity model through the Subject map and migration, the missing defining Requirements and the bounded source-rule alignment needed for those definitions. Rebuild the Entities projection from the resulting sources. General content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Apply Candidate #6 — revised order, 2026-10-18
+
+Target: [Candidate #6](../_projection/core-entity-review/presentation/operator.model.candidate-6.plan.md). This order supersedes older definition-first sequences. Updating this Epic records work; it does not execute or authorize the migration, runtime changes or release. The earlier 79 accepted operations remain completed. This Epic stays Active; child statuses do not cascade.
+
+#### Phase 1 — migrate Subjects first
+
+- [ ] Record the complete current-source Subject map, including supported, unchanged, held and unsupported cases, then apply the approved supported Subject changes. Preserve ordinary content, ownership, Status and existing Types; only Subjects and required Version/time metadata change. Track missing R definitions without making them a prerequisite. Use existing checkpoint/draft/archive workflows and record the actual result and any holds.
+
+#### Phase 2 — separate Core and Project Configuration
+
+- [ ] After Phase 1, separate the abstract, project-independent Core Meta-model from CAPRMEDIO Project Configuration, which contains concrete project definitions, rules and choices. Apply the approved ownership and carrier relocations, preserving source evidence and typed links. Split mixed Core/project content only where needed and approved, without a blanket rewrite. Record the actual separation result and holds.
+
+#### Phase 3 — classify and retype source R Atoms
+
+- [ ] After Phase 2, classify every current source R Atom by Substance, excluding Drafts, archived predecessors and derived copies. Run the read-only 20-R pilot here, review its classifications, then scale up; it is not a Phase 1 prerequisite. Record ID, Version, current/proposed Type and reason, with explicit Operator decisions for ambiguous, mixed or neither cases. Retype definitions as `R/Type: Definition` and rules as `R/Type: Rule`; keep already-correct Types unchanged and admit needed Type definitions here. A Type change requires a new ID, predecessor archive and approved reference updates under the current identity rule. Record the actual inventory/retyping result and holds.
+
+#### Phase 4 — add what is missing
+
+- [ ] After Phase 3, add missing definitions and rules to their correct Core or Project Configuration scopes, reusing existing definitions and avoiding duplicates. Cover the Node / Relation / Rule structure, Properties and relation-entry Subjects. Define the smallest readable, machine-readable Substance schema before implementing it; undefined schema, carrier, defaults, whitelist or inheritance details go to the Operator. Keep general content migration separate under CA-P-1970. Record the actual additions and holds.
+
+#### Phase 5 — review the unmigrated remainder
+
+- [ ] After Phase 4, review all remaining unmigrated Atoms and Subjects: migrate valid cases, archive only genuinely obsolete ones, and ask about unclear cases. Do not equate unmigrated with obsolete. Rebuild as-is current-source Core and Project projections after source effects, exposing gaps rather than hiding them. Record actual results, defining-R coverage and remaining holds before closing the Epic.
+
+#### Luna delegation — effort: high
+
+Use Luna as much as possible for bounded inventory, source-based classification, Subject maps, relocation/replacement drafts, approved reference updates and deterministic checks. Set Luna's reasoning effort to **high**, not max. Each task has explicit inputs, ownership, output and an acceptance check. Run independent lanes in parallel, without quotas or filler; use scripts for deterministic mechanics. The lead Agent and Operator retain model decisions, ambiguity resolution and final review. Keep the same acceptance bar regardless of model; worker reports do not grant publication authority.
+
+#### Execution limits
+
+Reuse existing workflows and checkpoints; stop at the first failure or unknown result, preserving completed effects without automatic replay or batch rollback. Split own-work leaves exceeding 15 minutes into bounded child Tasks. Change tools only for a concrete blocker governed by active RMEDO, using the PROGRAMMATIC M projection and relevant runtime/script tests; any needed release retains its full-suite requirement. Add no speculative tools or security machinery. C/A instance migration, broad content migration, semantic Terms and CONTAINS graph implementation remain deferred. Unresolved Rule/Relation identity, storage and whitelist choices remain questions, not invented policy.
 
 ### Current execution — Candidate #6, 2026-10-17
 
