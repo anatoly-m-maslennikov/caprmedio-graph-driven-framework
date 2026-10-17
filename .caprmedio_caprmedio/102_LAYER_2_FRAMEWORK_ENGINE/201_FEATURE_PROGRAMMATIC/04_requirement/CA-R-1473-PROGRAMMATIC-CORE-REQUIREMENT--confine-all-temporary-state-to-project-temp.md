@@ -1,19 +1,28 @@
 ---
-cce_version: cce_1
-cce_form: obligation
 subjects:
-  governs: "PROGRAMMATIC/temporary execution state"
+  governs: PROGRAMMATIC/temporary execution state
   depends_on:
-    - "Temporary State"
-    - "Project Settings"
-llm_session_ids:
-  - codex:01a0263a-7510-7672-bce4-58830bc4d184
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 9
-updated_at: "2026-10-04 04:23:29 +0400"
+  - Temporary State
+  - Project Settings
+version: 10
+updated_at: "2026-10-18 03:45:09 +0400"
 relations: {}
+atom_id: CA-R-1473
+content_role: Requirement
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Core
+global_tier: 6
+status: Active
+author: Anatoly Maslennikov
 ---
-# Confine all temporary state to project temp
+# Summary
+
+Confine all temporary state to project temp
+
+## Scope
+
+## Claim
 
 **every** temporary File **or** Directory Carrier created by a CAPRMEDIO-controlled
 PROGRAMMATIC execution **must** be located below the configured Project
@@ -43,3 +52,5 @@ Deleting `.caprmedio_tmp/` **may** discard caches, diagnostics, disposable
 workspaces, **or** interrupted-cleanup remnants, but **must not** discard a governed
 Artifact, Project Journal history, an installed release, **or** resumable runtime
 progress.
+
+## Details

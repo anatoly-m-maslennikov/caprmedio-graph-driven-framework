@@ -1,28 +1,40 @@
 ---
-cce_version: cce_1
-cce_form: method
 subjects:
-  governs: "programmatic-mutation"
+  governs: programmatic-mutation
   depends_on:
-    - "programmatic software"
-version: 11
-updated_at: 2026-09-01 02:40:00 +0400
+  - programmatic software
+version: 12
+updated_at: "2026-10-18 03:49:41 +0400"
 relations:
   method_for:
-    - CA-R-1094
+  - CA-R-1094
   derived_from:
-    - CA-A-058
-llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+  - CA-A-058
+atom_id: CA-M-191
+content_role: Method
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+status: Active
+author: Anatoly Maslennikov
 ---
-# Bind one programmatic mutation to its Initiative
+# Summary
 
-## Applicable when
+Bind one programmatic mutation to its Initiative
+
+## Scope
+
+## Claim
+
+## Details
+
+### Applicable when
 
 apply **before** accepting **or** dispatching a programmatic mutation governed by
 CA-R-1094.
 
-## Procedure
+### Procedure
 
 1. resolve **or** create **=1** sealed Initiative from the accepted human
    instruction. it **may** bind **to** a persisted Plan **or** Task **or** remain an ephemeral
@@ -37,17 +49,17 @@ CA-R-1094.
 5. return an explicit blocked outcome **before** mutation **when** either identity is
    missing, ambiguous, changed, **or** bound **to** more than one Initiative.
 
-## Outcome
+### Outcome
 
 **every** accepted mutation remains attributable **to** one human-origin Initiative
 **and** one stable action across asynchronous execution **and** provenance systems.
 
-## Failure or stop
+### Failure or stop
 
 stop **before** mutation **when** the Initiative is unsealed, the action identity is
 absent **or** reused for another Initiative, **or** a handoff cannot preserve both
 identities.
 
-## Sources
+### Sources
 
 - [CA-A-058 — Validate PROGRAMMATIC Method and Evaluation closure](../02_analysis/CA-A-058-PROGRAMMATIC-ANALYSIS_RPRT--validate-programmatic-method-and-evaluation-closure.md)

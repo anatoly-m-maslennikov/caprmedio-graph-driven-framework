@@ -1,13 +1,29 @@
 ---
 subjects:
-  governs: "scope-topology"
+  governs: scope-topology
   depends_on: []
-version: 9
-updated_at: 2026-08-30 16:44:07 +0400
-llm_session_ids:
-  - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+version: 10
+updated_at: "2026-10-18 03:48:21 +0400"
+atom_id: CA-R-1096
+content_role: Requirement
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: MCP
+local_tier: Standard
+global_tier: 8
+status: Active
+author: Anatoly Maslennikov
+relations: {}
 ---
-# Supply active TOOLS to MCP
+# Summary
 
-TOOLS supplies MCP with the complete current set of active immediate Tool units **and** **every** Tool's machine-invocation contract. MCP **must** deterministically project **=1** callable endpoint for **every** valid active Tool, omit inactive **or** disabled Tools, report **every** invalid active Tool explicitly, **and** delegate execution **without** duplicating **or** changing Tool meaning **or** mechanics.
+Supply active TOOLS to MCP
+
+## Scope
+
+PROGRAMMATIC behavior governing MCP.
+
+## Claim
+
+MCP **must** project one callable frontier for active declared CAPRMEDIO Tools and declared Workflows, validate their machine-invocation contracts, omit inactive or disabled declarations, report invalid declared capability explicitly, and delegate unchanged. Internal CONNECTORS/adapters and PROJECT_TOOLS are not callable frontier members. Direct read or query calls do not require a Workflow Orchestrator wrapper.
+
+## Details
