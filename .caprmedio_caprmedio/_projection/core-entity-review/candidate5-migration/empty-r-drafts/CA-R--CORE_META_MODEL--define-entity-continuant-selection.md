@@ -2,14 +2,14 @@
 content_role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
+local_tier: Core
+global_tier: 9
 status: Draft
 author: Anatoly Maslennikov
 subjects:
   governs: "Entity/Continuant/Selection"
-version: 1
-updated_at: "2026-10-15 21:48:31 +0400"
+version: 3
+updated_at: "2026-10-16 20:49:09 +0000"
 ---
 # Summary
 
@@ -17,6 +17,12 @@ Define Entity/Continuant/Selection
 
 ## Scope
 
+Selections and named Selections.
+
 ## Claim
 
+a Selection **means** criteria for choosing members. a named Selection gives those criteria a name; it does **not** create another Object or independent copies of the selected members.
+
 ## Details
+
+Candidate #6 preserves Selection separately from Object and concrete named selections separately from abstract Core kinds. CA-R-1447 defines Owned Atoms and CA-R-1448 defines Targeting Atoms; they define particular selections, not the general kind. This draft adds no selector syntax or mandatory materialization.

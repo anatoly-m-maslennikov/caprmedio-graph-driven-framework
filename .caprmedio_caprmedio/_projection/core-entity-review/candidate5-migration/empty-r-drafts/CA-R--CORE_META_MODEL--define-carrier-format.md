@@ -8,8 +8,8 @@ status: Draft
 author: Anatoly Maslennikov
 subjects:
   governs: "Entity/Carrier.Format"
-version: 1
-updated_at: "2026-10-15 21:48:31 +0400"
+version: 2
+updated_at: "2026-10-16 13:07:45 +0000"
 ---
 # Summary
 
@@ -17,6 +17,16 @@ Define Carrier.Format
 
 ## Scope
 
+Carriers with an applicable representation format.
+
 ## Claim
 
+A Carrier's Format **means** the rules for encoding and interpreting its represented content.
+
 ## Details
+
+Disposition: proposed R definition; Draft only, without an assigned Atom ID.
+
+CA-D-262 admits registered File Carrier formats including Markdown, TOML, YAML and JSON; CA-D-507 distinguishes format from identity. This definition does not require a format value for every Directory Carrier.
+
+Active CA-R-1342 currently assigns Carrier definitions and classification to Delivery. That conflict remains for the later content migration; this draft does not change or supersede active rules.

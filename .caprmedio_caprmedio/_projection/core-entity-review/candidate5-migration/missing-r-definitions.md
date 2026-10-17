@@ -1,5 +1,7 @@
 # Candidate #5 — missing R definitions
 
+Historical coverage snapshot. The draft files are now being reconciled against Candidate #6; see the [current draft review](candidate6-definition-drafts.md). The original counts and paths below describe the Candidate #5 assessment, not current admission or completed R coverage.
+
 Status: supported Subjects-only migration completed: 750 Atoms. R definition gaps remain open; empty drafts do not close them. See [execution outcome](execution/outcome.md).
 
 Updated: 2026-10-15 21:48:31 +0400.

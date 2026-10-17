@@ -14,7 +14,8 @@ from pathlib import Path
 from typing import cast
 
 from .authority import Record, _verified, diagnostic
-from .check_support import Check, _plan, _string, _strings
+from .check_support import Check, _integer, _plan, _string, _strings
+from .check_structure_extended import _project_name, _structure
 from .read_io import ReadContext
 
 
@@ -349,8 +350,34 @@ def _tier_parent(check: Check, metadata: Record, target: Record, field: str) -> 
     owner_scope, target_scope = metadata.get("current_scope_unit"), target.get("current_scope_unit")
     if not _string(owner_scope) or not _string(target_scope):
         _gap(check, field, "Tier-parent scope comparison requires both carried Scope Units.")
-    elif owner_scope != target_scope:
-        _fail(check, field, "Tier-parent endpoints must share the same Atom Scope.")
+        return
+    child_tier, parent_tier = metadata.get("global_tier"), target.get("global_tier")
+    if not _integer(child_tier) or not _integer(parent_tier):
+        _gap(check, field, "Tier-parent ordering requires both carried Global Tiers.")
+        return
+    if parent_tier > child_tier:
+        _fail(check, field, "A tier parent must not have a greater Global Tier than its child.")
+        return
+    if owner_scope == target_scope:
+        if parent_tier == child_tier:
+            _fail(check, field, "A same-scope tier parent must have a lower Global Tier than its child.")
+        return
+    units = _structure(check)
+    if units is None:
+        return
+    project_name = _project_name(check)
+    if any(scope not in units and scope != project_name for scope in (owner_scope, target_scope)):
+        _gap(check, field, "Tier-parent ownership must resolve to declared Scope Units.")
+        return
+    owner = "PROJECT" if owner_scope == project_name else owner_scope
+    parent = "PROJECT" if target_scope == project_name else target_scope
+    # _structure has already rejected unknown, duplicate and cyclic parentage.
+    while owner != "PROJECT":
+        _checkpoint(check)
+        owner = units[owner]["parent"]
+        if owner == parent:
+            return
+    _fail(check, field, "A tier parent must belong to the same or an ancestor Scope Unit.")
 
 
 def _relation(

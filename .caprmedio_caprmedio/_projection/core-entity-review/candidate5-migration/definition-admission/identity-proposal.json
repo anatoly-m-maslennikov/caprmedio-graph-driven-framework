@@ -1,0 +1,591 @@
+{
+  "status": "proposal_only_not_reserved",
+  "reviewed_on": "2026-10-17",
+  "identity_evidence": {
+    "observed_head": "3fd20e7894c71dcd5ed6cdbea01e5b23ef85a0a8",
+    "max_requirement": 1943,
+    "max_delivery": 635,
+    "checked": [
+      "retained filenames and declared IDs including archives",
+      "Journal references",
+      "historical governing-path filenames across all local Git refs",
+      "pending draft-promotion reservation absent"
+    ],
+    "recheck_before_creation": true
+  },
+  "definitions": [
+    {
+      "proposed_id": "CA-R-1944",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-actor-name.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Actor.Name",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1945",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-atom-enabled-relations-contains.md",
+      "review_version": 3,
+      "subject": "Entity/Continuant/Object/Atom.Enabled Relations.Contains",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "General",
+      "global_tier": 10,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1946",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-atom-semantics.md",
+      "review_version": 4,
+      "subject": "Entity/Continuant/Object/Atom.Semantics",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "General",
+      "global_tier": 10,
+      "proposed_child_of": [
+        "CA-R-1746"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1947",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-atom-status-allowed-values.md",
+      "review_version": 3,
+      "subject": "Entity/Continuant/Object/Atom.Status",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "General",
+      "global_tier": 10,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1948",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-canonical-address-segment.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier.Canonical Address.Segment",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1949",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-canonical-address.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier.Canonical Address",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1950",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-format.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier.Format",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1951",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-carrier-id.md",
+      "review_version": 3,
+      "subject": "Entity/Carrier.ID",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Core",
+      "global_tier": 9,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1952",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-directory-carrier-name.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier/Directory Carrier.Name",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1953",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-directory-carrier-numeric-prefix.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier/Directory Carrier.Numeric Prefix",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1954",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-directory-carrier-path.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier/Directory Carrier.Path",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1955",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier-database-carrier.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier/Database Carrier",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1956",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier-directory-carrier.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier/Directory Carrier",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1957",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier-file-carrier.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier/File Carrier",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1958",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-carrier.md",
+      "review_version": 3,
+      "subject": "Entity/Carrier",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Core",
+      "global_tier": 9,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1959",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-actor-type-ai-agent.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Actor/Type: AI Agent",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1960",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-history-revision-type-atom.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/History/Revision/Type: Atom",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1961",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-history.md",
+      "review_version": 3,
+      "subject": "Entity/Continuant/History",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Core",
+      "global_tier": 9,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1962",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-object-governing-configuration.md",
+      "review_version": 3,
+      "subject": "Entity/Continuant/Object/Governing Configuration",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Core",
+      "global_tier": 9,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1963",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-object-relation.md",
+      "review_version": 3,
+      "subject": "Entity/Continuant/Object/Relation",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Core",
+      "global_tier": 9,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1964",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-object.md",
+      "review_version": 3,
+      "subject": "Entity/Continuant/Object",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Core",
+      "global_tier": 9,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1965",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-projection-type-direct-relation-registry.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Projection/Type: Direct Relation Registry",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1746"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1966",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant-selection.md",
+      "review_version": 3,
+      "subject": "Entity/Continuant/Selection",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Core",
+      "global_tier": 9,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1967",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-continuant.md",
+      "review_version": 3,
+      "subject": "Entity/Continuant",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Core",
+      "global_tier": 9,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1968",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-event.md",
+      "review_version": 2,
+      "subject": "Entity/Occurrent/Event",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1969",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-execution-action-run.md",
+      "review_version": 2,
+      "subject": "Entity/Occurrent/Execution/Action Run",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1970",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-execution.md",
+      "review_version": 2,
+      "subject": "Entity/Occurrent/Execution",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1971",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent-session.md",
+      "review_version": 2,
+      "subject": "Entity/Occurrent/Session",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1972",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-entity-occurrent.md",
+      "review_version": 3,
+      "subject": "Entity/Occurrent",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Core",
+      "global_tier": 9,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1973",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-execution-execution-id.md",
+      "review_version": 2,
+      "subject": "Entity/Occurrent/Execution.Execution ID",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1974",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-file-carrier-extension.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier/File Carrier.Extension",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1975",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-file-carrier-filename.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier/File Carrier.Filename",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1976",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-file-carrier-path.md",
+      "review_version": 2,
+      "subject": "Entity/Carrier/File Carrier.Path",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1977",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-artifact-timestamp-timezone.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Project.Framework Settings.Artifact Timestamp Timezone",
+      "owner": "PROJECT_CONFIGURATION",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1176"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1978",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-code-root-locators.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Project.Framework Settings.Code-Root Locators",
+      "owner": "PROJECT_CONFIGURATION",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1176"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1979",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-confidence.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Project.Framework Settings.Confidence",
+      "owner": "PROJECT_CONFIGURATION",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1176"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1980",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-framework-control-root-locator.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Project.Framework Settings.Framework Control-Root Locator",
+      "owner": "PROJECT_CONFIGURATION",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1176"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1981",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-identifier.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Project.Framework Settings.Identifier",
+      "owner": "PROJECT_CONFIGURATION",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1176"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1982",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-interaction.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Project.Framework Settings.Interaction",
+      "owner": "PROJECT_CONFIGURATION",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1176"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1983",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-project-framework-settings-parameter-resolution.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Project.Framework Settings.Parameter Resolution",
+      "owner": "PROJECT_CONFIGURATION",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1176"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1984",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-project-operator-registry.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Project.Operator Registry",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1985",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-project-settings-identifier.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Project.Settings.Identifier",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1986",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-relation-source-reference.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Object/Relation.Source Reference",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1987",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-relation-target-reference.md",
+      "review_version": 2,
+      "subject": "Entity/Continuant/Object/Relation.Target Reference",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Standard",
+      "global_tier": 11,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    },
+    {
+      "proposed_id": "CA-R-1988",
+      "draft": "../empty-r-drafts/CA-R--CORE_META_MODEL--define-scope-unit-id.md",
+      "review_version": 3,
+      "subject": "Entity/Continuant/Object/Scope Unit.ID",
+      "owner": "CORE_META_MODEL",
+      "local_tier": "Core",
+      "global_tier": 9,
+      "proposed_child_of": [
+        "CA-R-1174"
+      ]
+    }
+  ],
+  "supporting": [
+    {
+      "proposed_id": "CA-R-1989",
+      "summary": "Define Atom Status",
+      "proposal": "revision-alignment.md"
+    },
+    {
+      "proposed_id": "CA-R-1990",
+      "summary": "Enable containment for Plan Atoms",
+      "proposal": "containment-alignment.md"
+    },
+    {
+      "proposed_id": "CA-R-1991",
+      "summary": "Enable containment for Workflow Atoms",
+      "proposal": "containment-alignment.md"
+    },
+    {
+      "proposed_id": "CA-R-1992",
+      "summary": "Enable containment for Step Atoms",
+      "proposal": "containment-alignment.md"
+    },
+    {
+      "proposed_id": "CA-R-1993",
+      "summary": "Define CARRIES",
+      "proposal": "revision-alignment.md"
+    },
+    {
+      "proposed_id": "CA-D-636",
+      "purpose": "Representation/binding policy successor to D256/D257",
+      "proposal": "revision-alignment.md"
+    }
+  ],
+  "parent_status": "proposal_only_pending_R796_alignment_and_native_validation"
+}

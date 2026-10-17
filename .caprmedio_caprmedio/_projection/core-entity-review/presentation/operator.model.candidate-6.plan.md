@@ -103,6 +103,14 @@ Approved mapping: `AI Agent Delegation` → `Entity/Continuant/Actor/Type: AI Ag
 
 27. **Remove the mandatory Goal connection for Demands:** a Demand does not need an accepted Goal to authorize its required result. Retire CA-R-951's dedicated prerequisite rule and remove that clause from CA-R-933 during content migration, preserving the single-result constraint. Keep the Demand and Goal Types, Owning/Target Scope Unit references and separate Scope Unit Goal-coverage rules. Do not introduce a replacement mandatory link or authorization layer. Source Atoms remain unchanged until migration.
 
+28. **Governance Origin is Internal or External:** reuse CA-R-1709 rather than adding a second definition under the old name Governance Locus. Relational is not a third value. Container nodes use the separately defined containment capability and CONTAINS relations. This does not remove the already retained Owning/Target Scope Unit references for Goals and Demands. Source-content alignment remains separate.
+
+29. **Metadata fields and content sections represent properties:** Atom.Status, Atom.Substance and Atom.Semantics are dependent properties of the Atom. Their bearer relation is IS_BORNE_BY. YAML fields and Markdown sections are different representations inside the same File Carrier; D defines that representation. M governs how content is written, not whether Semantics is a property. Keep Semantics as a meaning-specific content section. Do not add an extra Atom.Property field or container for all properties; retain that old placeholder only as superseded review material. This does not make every property mandatory or introduce a separate Carrier entity for each field or section.
+
+30. **Drop Carrier.Ownership Class:** do not admit this generic property or its proposed Framework-Owned / Project-Owned / Runtime State values. They mix ownership with storage purpose. Retain the empty placeholder only as superseded review material. Review actual project-specific storage rules separately in Project Configuration during content migration; do not delete useful storage protections or change active CA-D-316 in this candidate-only update.
+
+31. **Drop Carrier.Storage Boundary:** this name labels a storage policy, not a value-bearing property. Do not admit it as a generic property. Preserve CA-D-341's protection against cleanup deleting authoritative content or history, and review its Subject and old ownership terminology during the content pass. Keep the empty placeholder only as superseded review material; active CA-D-341 remains unchanged here.
+
 These decisions supersede the review proposals to create cross-owner property Selections or an `Object/Implementation` branch. They resolve group policy, not every per-Atom mapping.
 
 ## Effective candidate model
@@ -205,6 +213,22 @@ The [occurrence report](../candidate5-migration/next-migration/candidate6-classi
 The six occurrence maps retain exact source paths, roles, targets and evidence. They supersede pending per-occurrence assignments in the earlier review, not the separately deferred content work. If an Atom has any held occurrence, its other mappings do not authorize a partial live update. No new entity kind, selector grammar or live migration is introduced by these records.
 
 ## Plan
+
+### Definition draft reconciliation — 2026-10-16
+
+- [x] Reconcile all 54 review placeholders against this candidate and current defining R evidence.
+- [x] Prepare 45 minimal definition Claims; retain 2 existing-definition pointers and 7 superseded placeholders without duplicate Claims.
+- [x] Resolve Atom.Property and Atom.Semantics: concrete metadata/content properties remain; the aggregate Atom.Property placeholder is superseded.
+- [x] Drop Carrier.Ownership Class from the candidate; defer actual storage-rule review to the content migration.
+- [x] Drop Carrier.Storage Boundary from the candidate; retain its storage-protection policy for the content pass. All 54 placeholder dispositions are resolved.
+- [x] Prepare exact Status, containment, Revision and Carrier source-alignment proposals and a 45-definition inventory in the [admission package](../candidate5-migration/definition-admission/README.md).
+- [x] Resolve Local Tiers: 10 Core, 3 General and 32 Standard; update 13 review drafts' metadata only.
+- [x] Propose all 45 parent links with applicability evidence and a narrow R796 correction; audit fresh IDs without reserving them.
+- [x] Fix local reference lookup and ancestor-parent validation with regression coverage; verify a real Continuant creation preview without publishing it. C/A migration remains deferred.
+- [ ] Deploy the local fixes and apply the bounded R796 source correction. Parent proposals, passing previews and unused-ID evidence are not successful admission.
+- [ ] Align conflicting source content and admit approved definitions separately. Draft Claims do not close active R coverage.
+
+See the [draft reconciliation](../candidate5-migration/candidate6-definition-drafts.md). No source Atoms were changed by this preparation.
 
 ### Subjects-first execution — 2026-10-16
 

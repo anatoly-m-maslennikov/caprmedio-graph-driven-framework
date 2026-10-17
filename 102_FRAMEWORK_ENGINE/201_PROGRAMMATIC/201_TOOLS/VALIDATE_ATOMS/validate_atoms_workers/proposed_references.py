@@ -11,6 +11,7 @@ It does *not* claim to inventory the project's complete graph.
 from __future__ import annotations
 
 import os
+import tomllib
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Iterable, Mapping
@@ -18,6 +19,7 @@ from typing import Any, Iterable, Mapping
 from .parsing import CarrierError, parse_carrier
 from .read_io import LimitReached, ReadContext, ReadFailure, open_regular, protected
 from .settings import CEILINGS
+from artifact_metadata import split_frontmatter
 
 
 class ProposedReferenceError(ValueError):
@@ -69,10 +71,13 @@ class _ReferenceEvidence:
     statuses: dict[str, dict[str, str]]
     paths: frozenset[Path]
     directories: tuple[str, ...]
+    requested: frozenset[str]
 
     def assert_current(self) -> None:
         try:
-            carriers, directories = _frontier(self.reader, self.roots, self.roles, self.statuses)
+            carriers, directories = _frontier(
+                self.reader, self.roots, self.roles, self.statuses, requested=self.requested,
+            )
             current = self.reader.currentness()
         except (OSError, CarrierError, ReadFailure, LimitReached) as error:
             raise ProposedReferenceError("authoritative target frontier changed during admission") from error
@@ -141,9 +146,29 @@ def _container_id(metadata: Mapping[str, Any], role: str, owner: str, statuses: 
     return None
 
 
+def _unrelated_legacy(raw: bytes, path: Path, requested: frozenset[str]) -> bool:
+    """Recognize an unrelated legacy identity without admitting it as a target."""
+    if not raw.startswith(b"+++"):
+        return False
+    try:
+        delimiter, frontmatter, _ = split_frontmatter(raw.decode("utf-8").replace("\r\n", "\n"), path)
+        if delimiter != "+++":
+            return False
+        metadata = tomllib.loads(frontmatter)
+    except (UnicodeError, ValueError, RuntimeError):
+        return False
+    identities = [metadata[key] for key in ("atom_id", "semantic_id") if key in metadata]
+    if not identities or any(not isinstance(value, str) or not value for value in identities):
+        return False
+    if len(set(identities)) != 1:
+        return False
+    return not any(identity in identities or identity in path.name for identity in requested)
+
+
 def _frontier(
     reader: ReadContext, roots: Mapping[Path, str], roles: Mapping[str, str],
     statuses: Mapping[str, Mapping[str, str]],
+    *, requested: frozenset[str] | None = None,
 ) -> tuple[dict[Path, _FrontierCarrier], tuple[str, ...]]:
     """Read only exact role/status directories and authenticated sibling bundles."""
     if not roles or any(not isinstance(role, str) or not role for role in roles):
@@ -203,6 +228,9 @@ def _frontier(
             )
         for child in sorted(files):
             raw = reader.read(child)
+            # Legacy non-targets cannot invalidate a bounded lookup; containers still need validation.
+            if requested is not None and child.stem not in containers and _unrelated_legacy(raw, child, requested):
+                continue
             metadata = parse_carrier(raw, child).metadata
             status = metadata.get("status")
             found[child] = _FrontierCarrier(
@@ -328,7 +356,9 @@ def inventory_proposed_references(
     reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
     try:
         roots = _authority_roots(root, project_structure, project_authority_paths, project_name)
-        carriers, directories = _frontier(reader, roots, admitted_role_folders, admitted_status_folders)
+        carriers, directories = _frontier(
+            reader, roots, admitted_role_folders, admitted_status_folders, requested=frozenset(ids),
+        )
     except (OSError, CarrierError, ReadFailure, LimitReached) as error:
         raise ProposedReferenceError("authoritative carrier frontier is unavailable") from error
 
@@ -485,6 +515,7 @@ def inventory_proposed_references(
         reader, dict(roots), dict(admitted_role_folders),
         {role: dict(mapping) for role, mapping in admitted_status_folders.items()},
         frozenset(carriers), directories,
+        frozenset(requested | {item.atom_id for item in closure} | set(prerequisites)),
     )
     evidence.assert_current()
     return ProposedReferenceInventory(
