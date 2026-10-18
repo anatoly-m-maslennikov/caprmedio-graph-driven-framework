@@ -400,7 +400,7 @@ class FirstCutCorpusTests(unittest.TestCase):
                 async with selected_harness._stdio_client("fixture-parameters") as client:
                     self.assertIs(context.__aenter__.return_value, client)
                 factory.assert_called_once_with(
-                    "fixture-parameters", cache=None, mode="legacy", read_timeout_seconds=60
+                    "fixture-parameters", cache=None, mode="legacy", read_timeout_seconds=120
                 )
                 context.__aexit__.assert_awaited_once()
 

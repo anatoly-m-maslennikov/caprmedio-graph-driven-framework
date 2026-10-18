@@ -44,8 +44,10 @@ from selected_workflows_docker_fixture import (  # noqa: E402
 E2E_CONTEXT = load_test_context(os.environ, ROOT / ".caprmedio_tmp")
 # Native mutation and read-only query cover the shared reconnect transport.
 _RECONNECT_CASES = {"W01", "W15"}
-MCP_STARTUP_TIMEOUT_SECONDS = 60
-MCP_CALL_TIMEOUT_SECONDS = 20
+# The gateway allows 90s for generation readiness and ordinary Tool calls.
+# Keep client bounds above that allowance for process/transport overhead.
+MCP_STARTUP_TIMEOUT_SECONDS = 120
+MCP_CALL_TIMEOUT_SECONDS = 120
 
 
 def _structured_tool_result(response: Any) -> dict[str, Any]:
