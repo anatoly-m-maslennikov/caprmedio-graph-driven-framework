@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor/Type: AI Agent"
+  governs: "Entity/Continuant/Node/Actor/Type: AI Agent"
   depends_on:
-    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent.Permissions"]
-version: 7
-updated_at: "2026-10-16 12:08:31 +0000"
+    ["Entity/Continuant/Node/Actor/Type: AI Agent", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Actor/Type: AI Agent.Permissions"]
+version: 8
+updated_at: "2026-10-18 03:33:40 +0400"
 relations:
   child_of:
     - CA-P-034

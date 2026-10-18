@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Backlog"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Status: Backlog"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Entity/Carrier/Directory Carrier"]
-version: 7
-updated_at: "2026-10-16 12:09:35 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom/Content Role: Plan.Label", "Entity/Continuant/Node/Atom/Content Role: Plan.Status", "Entity/Carrier/Directory Carrier"]
+version: 8
+updated_at: "2026-10-18 03:34:52 +0400"
 relations: {"relates_to": ["CA-D-469", "CA-R-1542", "CA-R-1576"]}
 atom_id: "CA-D-475"
 content_role: "Delivery"

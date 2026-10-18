@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Relation/Type: evaluation_for"
+  governs: "Entity/Continuant/Relation/Type: evaluation_for"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Atom/Content Role: Operations", "Entity/Continuant/Object/Atom.Local Tier"]
-version: 20
-updated_at: "2026-10-16 12:08:16 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Evaluation", "Entity/Continuant/Node/Atom/Content Role: Requirement", "Entity/Continuant/Node/Atom/Content Role: Method", "Entity/Continuant/Node/Atom/Content Role: Delivery", "Entity/Continuant/Node/Atom/Content Role: Operations", "Entity/Continuant/Node/Atom.Local Tier"]
+version: 21
+updated_at: "2026-10-18 03:33:16 +0400"
 relations: {}
 atom_id: "CA-R-1018"
 content_role: "Requirement"

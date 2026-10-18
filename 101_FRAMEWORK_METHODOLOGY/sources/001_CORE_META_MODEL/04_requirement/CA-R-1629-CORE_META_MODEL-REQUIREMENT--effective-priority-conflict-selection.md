@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Concern.Priority"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Concern.Priority"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Concern", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Actor/Type: Operator"]
-version: 25
-updated_at: "2026-10-16 12:08:36 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Concern", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Actor/Type: Operator"]
+version: 26
+updated_at: "2026-10-18 03:33:46 +0400"
 relations: {}
 atom_id: "CA-R-1629"
 content_role: "Requirement"

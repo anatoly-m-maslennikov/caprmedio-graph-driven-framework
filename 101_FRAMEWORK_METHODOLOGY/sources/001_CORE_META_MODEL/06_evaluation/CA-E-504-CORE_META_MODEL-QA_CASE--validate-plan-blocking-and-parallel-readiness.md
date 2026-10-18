@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Done", "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number"]
-version: 8
-updated_at: "2026-10-16 12:09:09 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom/Content Role: Plan.Status: Done", "Entity/Continuant/Node/Atom/Content Role: Plan.Work Sequence Number"]
+version: 9
+updated_at: "2026-10-18 03:34:30 +0400"
 relations: {"evaluation_for": ["CA-R-1580", "CA-R-1583", "CA-R-1592", "CA-D-471", "CA-D-481"]}
 atom_id: "CA-E-504"
 content_role: "Evaluation"

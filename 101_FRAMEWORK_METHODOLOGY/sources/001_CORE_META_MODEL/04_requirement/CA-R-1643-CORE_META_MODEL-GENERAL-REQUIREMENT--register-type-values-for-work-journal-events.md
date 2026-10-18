@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/History/Journal.Record"
+  governs: "Entity/Continuant/Node/History/Journal.Record"
   depends_on:
-    ["Entity/Continuant/History/Journal.Record"]
-version: 25
-updated_at: "2026-10-16 12:08:37 +0000"
+    ["Entity/Continuant/Node/History/Journal.Record"]
+version: 26
+updated_at: "2026-10-18 03:33:46 +0400"
 relations: {}
 atom_id: "CA-R-1643"
 content_role: "Requirement"

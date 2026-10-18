@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Demand"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit.Local Order"]
-version: 24
-updated_at: "2026-10-16 12:09:04 +0000"
+    ["Entity/Continuant/Node/Scope Unit.Local Order"]
+version: 25
+updated_at: "2026-10-18 03:34:21 +0400"
 relations:
   evaluation_for:
     - CA-R-932

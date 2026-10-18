@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Method"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Method"
   depends_on: []
-version: 17
-updated_at: "2026-10-15 18:45:57 +0000"
+version: 18
+updated_at: "2026-10-18 03:33:56 +0400"
 relations: {}
 atom_id: "CA-R-1768"
 content_role: "Requirement"

@@ -4,15 +4,15 @@ subjects:
   depends_on:
     - "Artifact/Revision"
     - "Work Journal/Record"
-version: 13
-updated_at: "2026-10-13 21:22:41 +0400"
+version: 15
+updated_at: "2026-10-18 07:31:21 +0400"
 relations:
   child_of:
     - CA-D-359
 atom_id: "CA-D-360"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Status"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Status"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Entity/Continuant/Object/Atom/Content Role: Plan"]
-version: 10
-updated_at: "2026-10-16 12:09:32 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan.Status", "Entity/Continuant/Node/Atom/Content Role: Plan"]
+version: 12
+updated_at: "2026-10-18 03:34:49 +0400"
 relations: {"relates_to": ["CA-R-1539", "CA-D-483", "CA-R-1541"]}
 atom_id: "CA-D-461"
 content_role: "Delivery"
@@ -27,6 +27,7 @@ Plan Carrier Bundle placement by carried Status.
 
 **every** Plan Carrier Bundle **must** represent its carried Status **in** its local Plan container under the following mapping:
 
+- Draft: **in** its `draft` subdirectory.
 - Active: directly **in** that local container.
 - Backlog: **in** its `001_backlog` subdirectory.
 - Done: **in** its `done` subdirectory.

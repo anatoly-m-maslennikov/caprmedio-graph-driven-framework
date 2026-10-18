@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Assignee"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Assignee"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Actor"]
-version: 7
-updated_at: "2026-10-16 12:08:33 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Actor"]
+version: 8
+updated_at: "2026-10-18 03:33:42 +0400"
 relations: {"relates_to": ["CA-R-1575"]}
 atom_id: "CA-R-1584"
 content_role: "Requirement"

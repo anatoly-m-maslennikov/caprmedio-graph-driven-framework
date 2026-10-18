@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Local Tier"
+  governs: "Entity/Continuant/Node/Atom.Local Tier"
   depends_on:
-    ["Entity/Continuant/Object/Project"]
-version: 20
-updated_at: "2026-10-15 18:46:30 +0000"
+    ["Entity/Continuant/Node/Project"]
+version: 21
+updated_at: "2026-10-18 03:34:09 +0400"
 relations:
   child_of:
     - CA-R-917

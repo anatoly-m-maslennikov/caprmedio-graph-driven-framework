@@ -7,11 +7,11 @@ local_tier: General
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Concern.Status"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Concern.Status"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Concern", "Entity/Continuant/Object/Atom.Status"]
-version: 5
-updated_at: "2026-10-15 18:45:00 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Concern", "Entity/Continuant/Node/Atom.Status"]
+version: 7
+updated_at: "2026-10-18 03:33:45 +0400"
 relations:
   relates_to:
     - CA-R-1308
@@ -25,10 +25,10 @@ Register Core Concern Status Values
 
 ## Scope
 
-`Atom/Content Role: Concern/Status`.
+the Core Concern Status model.
 
 ## Claim
 
-the Core allowed values of `Atom/Content Role: Concern/Status` **must** be exactly (`draft`, `active`, `resolved`, `canceled`).
+the Core Concern Status model **must** inherit the allowed values of Atom.Status and add (Resolved, Canceled).
 
 ## Details

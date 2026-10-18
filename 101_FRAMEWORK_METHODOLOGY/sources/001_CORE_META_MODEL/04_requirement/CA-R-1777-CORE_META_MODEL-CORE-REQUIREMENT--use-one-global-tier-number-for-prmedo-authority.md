@@ -1,14 +1,14 @@
 ---
-version: 23
-updated_at: "2026-10-16 12:08:46 +0000"
+version: 24
+updated_at: "2026-10-18 03:33:57 +0400"
 relations:
   child_of:
     - "CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary"
     - "CA-R-1407"
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Global Tier"
+  governs: "Entity/Continuant/Node/Atom.Global Tier"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Project", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Operations"]
+    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Atom/Content Role: Requirement", "Entity/Continuant/Node/Atom/Content Role: Method", "Entity/Continuant/Node/Atom/Content Role: Evaluation", "Entity/Continuant/Node/Atom/Content Role: Delivery", "Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom/Content Role: Operations"]
 atom_id: "CA-R-1777"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"

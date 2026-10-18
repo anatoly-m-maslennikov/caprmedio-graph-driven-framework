@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit/Type: Unordered"
+  governs: "Entity/Continuant/Node/Scope Unit/Type: Unordered"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit.Local Order", "Entity/Continuant/Object/Scope Unit"]
-version: 22
-updated_at: "2026-10-16 12:08:44 +0000"
+    ["Entity/Continuant/Node/Scope Unit.Local Order", "Entity/Continuant/Node/Scope Unit"]
+version: 23
+updated_at: "2026-10-18 03:33:55 +0400"
 relations: {}
 atom_id: "CA-R-1761"
 content_role: "Requirement"

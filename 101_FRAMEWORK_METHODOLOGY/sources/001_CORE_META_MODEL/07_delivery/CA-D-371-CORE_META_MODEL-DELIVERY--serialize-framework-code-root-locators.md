@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings.Code-Root Locators"
+  governs: "Entity/Continuant/Node/Project.Framework Settings.Code-Root Locators"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings"]
-version: 9
-updated_at: "2026-10-15 18:51:37 +0000"
+    ["Entity/Continuant/Node/Project.Framework Settings"]
+version: 12
+updated_at: "2026-10-18 07:38:47 +0400"
 relations:
   child_of:
     - "CA-D-361"
 atom_id: "CA-D-371"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Content"
+  governs: "Entity/Continuant/Node/Atom.Content"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance"]
-version: 11
-updated_at: "2026-10-15 18:42:49 +0000"
+    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Atom.Substance"]
+version: 12
+updated_at: "2026-10-18 03:33:30 +0400"
 relations: {}
 atom_id: "CA-R-1417"
 content_role: "Requirement"

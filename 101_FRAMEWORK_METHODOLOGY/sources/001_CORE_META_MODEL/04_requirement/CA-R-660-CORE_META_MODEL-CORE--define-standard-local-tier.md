@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Local Tier: Standard"
+  governs: "Entity/Continuant/Node/Atom.Local Tier: Standard"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Scope Unit"]
-version: 17
-updated_at: "2026-10-15 18:46:29 +0000"
+    ["Entity/Continuant/Node/Atom.Local Tier", "Entity/Continuant/Node/Scope Unit"]
+version: 18
+updated_at: "2026-10-18 03:34:09 +0400"
 relations: {}
 atom_id: "CA-R-660"
 content_role: "Requirement"

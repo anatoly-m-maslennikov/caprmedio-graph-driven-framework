@@ -1,9 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Revision"
-  depends_on: []
-version: 10
-updated_at: "2026-10-02 22:23:29 +0400"
+  governs: "Entity/Continuant/Node/History/Revision"
+  depends_on:
+  - "Entity/Continuant/Node/History"
+version: 12
+updated_at: "2026-10-18 03:33:24 +0400"
 relations: {}
 atom_id: "CA-R-1371"
 content_role: "Requirement"
@@ -20,10 +21,13 @@ Define Artifact Revision
 
 ## Scope
 
-Artifact Revisions.
+Preserved historical states of Artifacts.
 
 ## Claim
 
-an Artifact/Revision **means** one immutable recorded state of one Artifact's governed meaning. lifecycle Status **and** Updated At serialize its current lifecycle metadata **and** **may** change **without** creating another semantic Revision.
+a Revision **means** a preserved historical state of an Artifact. it belongs to History; it is **not** a dependent property of the current Artifact. the preserved state **must not** be edited as though it were the current state.
 
 ## Details
+
+A current Atom remains an Atom with its own Version Number and Updated At. Its accepted updates follow CA-R-1432 and CA-R-1788. An archived Atom itself represents the earlier Atom state; no additional Revision wrapper is required. This definition does not require a separate snapshot operation, Journal record, historical baseline or permission check. Journal records describe events, not Journal snapshots.
+

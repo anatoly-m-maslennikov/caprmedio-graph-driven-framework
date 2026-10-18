@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role", "Entity/Continuant/Actor/Type: Operator"]
-version: 4
-updated_at: "2026-10-16 12:09:11 +0000"
+    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/History/Journal", "Entity/Continuant/Node/History/Journal.Record", "Entity/Continuant/Node/Projection", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Atom/Content Role", "Entity/Continuant/Node/Actor/Type: Operator"]
+version: 5
+updated_at: "2026-10-18 03:34:31 +0400"
 relations: {"evaluation_for": ["CA-D-308", "CA-D-341", "CA-R-1463", "CA-R-1467", "CA-R-1468", "CA-R-1720", "CA-R-1745"]}
 atom_id: "CA-E-523"
 content_role: "Evaluation"

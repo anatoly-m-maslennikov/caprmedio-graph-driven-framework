@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Target Scope Unit"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Target Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role: Plan.Label"]
-version: 9
-updated_at: "2026-10-16 12:08:34 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom.Target Scope Unit", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Atom/Content Role: Plan.Label"]
+version: 10
+updated_at: "2026-10-18 03:33:43 +0400"
 relations: {"relates_to": ["CA-R-1574", "CA-D-482"]}
 atom_id: "CA-R-1588"
 content_role: "Requirement"

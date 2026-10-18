@@ -1,10 +1,13 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Delivery"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Delivery"
   depends_on:
-    ["Atom/Content Role", "Entity/Continuant/Object/Atom.Substance", "Entity/Carrier", "Entity", "Entity Carrier Binding"]
-version: 13
-updated_at: "2026-10-15 18:42:02 +0000"
+  - "Entity/Continuant/Node/Atom/Content Role"
+  - "Entity/Continuant/Node/Atom.Substance"
+  - Entity/Carrier
+  - Entity
+version: 15
+updated_at: "2026-10-18 03:33:23 +0400"
 relations: {}
 atom_id: "CA-R-1342"
 content_role: "Requirement"
@@ -25,15 +28,9 @@ the Delivery Content Role.
 
 ## Claim
 
-Delivery **means** the Content Role of an Atom Claim that defines the Carrier model **or** constrains how an Entity is carried.
+Delivery **means** the Content Role of an Atom Substance that specifies how an Entity is represented, serialized, stored or placed in a Carrier.
 
 ## Details
 
-the Carrier model includes:
+Delivery governs representation formats, contents, addresses, placement, Entity/Carrier bindings and constraints on changes to those representations. Requirement defines the Entities, their dependent properties and their classification, including Carrier kinds. A statement defining what a Carrier or property is remains a Requirement; a statement specifying how its representation is encoded or placed is Delivery. A property stored in YAML or a Markdown section does not require its own Carrier entity or separately registered binding.
 
-- Carrier definitions **and** classification.
-- the Entity/Carrier binding **and** its identity-preservation constraints.
-- Carrier format, storage, representation, **and** placement.
-- constraints on Carrier changes.
-
-a Carrier definition **or** classification is a Delivery contribution even **when** it does **not** prescribe a concrete format **or** location.

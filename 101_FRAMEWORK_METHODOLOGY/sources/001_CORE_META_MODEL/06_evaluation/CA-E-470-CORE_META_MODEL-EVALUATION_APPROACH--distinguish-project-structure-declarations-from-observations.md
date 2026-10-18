@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Structure"
+  governs: "Entity/Continuant/Node/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Projection/Type: Scope Unit Graph"]
-version: 8
-updated_at: "2026-10-16 12:09:06 +0000"
+    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Node/Projection/Type: Scope Unit Graph"]
+version: 9
+updated_at: "2026-10-18 03:34:24 +0400"
 relations:
   evaluation_for:
     - "CA-R-1483"

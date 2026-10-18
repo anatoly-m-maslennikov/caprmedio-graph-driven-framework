@@ -1,12 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Carrier.Storage Boundary"
+  governs: Entity/Carrier
   depends_on:
-    - "Framework-Owned Carrier"
-    - "Project-Owned Carrier"
-    - "Runtime State Carrier"
-version: 13
-updated_at: "2026-10-15 18:51:20 +0000"
+  - "Entity/Continuant/Node/History"
+version: 15
+updated_at: "2026-10-18 03:34:40 +0400"
 relations: {}
 atom_id: "CA-D-341"
 content_role: "Delivery"
@@ -23,10 +21,13 @@ Separate Persistent Authority from Runtime State
 
 ## Scope
 
-persistent Framework-Owned and Project-Owned Carriers.
+persistent Carriers holding canonical authority or retained history, in relation to runtime cleanup.
 
 ## Claim
 
-Framework-Owned **and** Project-Owned persistent Carriers **must** remain outside Runtime State so Runtime State cleanup cannot remove canonical authority **or** Journal history.
+runtime cleanup **must not** remove persistent Carriers holding canonical authority or retained history.
 
 ## Details
+
+Delivery placement and retention rules must keep that content outside the cleanup target set. This protection does not require a Carrier.Ownership Class or Carrier.Storage Boundary property, and it does not classify a Carrier as disposable merely because a runtime uses it.
+

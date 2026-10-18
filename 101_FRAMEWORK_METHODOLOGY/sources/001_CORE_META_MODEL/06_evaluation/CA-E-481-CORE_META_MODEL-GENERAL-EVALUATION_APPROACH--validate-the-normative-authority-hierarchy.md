@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Selection"
+  governs: "Entity/Continuant/Node/Selection"
   depends_on:
-    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Relation"]
-version: 8
-updated_at: "2026-10-16 12:09:07 +0000"
+    ["Entity/Continuant/Node/Project", "Entity/Continuant/Relation"]
+version: 9
+updated_at: "2026-10-18 03:34:24 +0400"
 relations: {"evaluation_for":["CA-R-833","CA-R-808","CA-R-879"]}
 atom_id: "CA-E-481"
 content_role: "Evaluation"

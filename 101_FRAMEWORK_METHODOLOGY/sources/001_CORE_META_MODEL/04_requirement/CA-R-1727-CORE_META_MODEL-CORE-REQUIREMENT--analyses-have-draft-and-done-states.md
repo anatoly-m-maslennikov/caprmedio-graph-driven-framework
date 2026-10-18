@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Analysis.Status"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Analysis.Status"
   depends_on: []
-version: 17
-updated_at: "2026-10-16 12:08:39 +0000"
+version: 19
+updated_at: "2026-10-18 03:33:49 +0400"
 relations: {}
 atom_id: "CA-R-1727"
 content_role: "Requirement"
@@ -20,10 +20,10 @@ Analyses have draft **and** done states
 
 ## Scope
 
-admitted Analyses **and** their bounded inquiry **or** interpretation products.
+Draft, Done and archival meanings for admitted Analyses and their bounded inquiry or interpretation products.
 
 ## Claim
 
-an admitted Analysis is draft while its bounded inquiry **or** interpretation product remains unfinished **and** done **when** that product is complete. a done Analysis remains a factual record of its completed reasoning rather than current normative authority; archival preserves one that is obsolete, invalidated, duplicated, **or** absorbed.
+Draft on an Analysis **means** its bounded inquiry or interpretation product remains unfinished. Done on an Analysis **means** that product is complete. A Done Analysis remains a factual record of its completed reasoning rather than current normative authority; archival preserves one that is obsolete, invalidated, duplicated, or absorbed.
 
 ## Details
