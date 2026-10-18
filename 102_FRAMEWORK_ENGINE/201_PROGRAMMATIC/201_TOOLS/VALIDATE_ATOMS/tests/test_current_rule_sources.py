@@ -218,6 +218,12 @@ class CurrentRuleSourcesTests(unittest.TestCase):
             for identifier in ("CA-R-1666", "CAPRMEDIO-R-793")
         }
         locators: list[CurrentAtomLocator] = []
+        currentness_readers: list[ReadContext] = []
+        original_currentness = ReadContext.currentness
+
+        def currentness(reader: ReadContext) -> dict[str, Any]:
+            currentness_readers.append(reader)
+            return original_currentness(reader)
 
         class CountingLocator(CurrentAtomLocator):
             def __init__(self, root: Path, *, reader: ReadContext) -> None:
@@ -234,13 +240,17 @@ class CurrentRuleSourcesTests(unittest.TestCase):
                 self.revalidate_calls += 1
                 super().revalidate()
 
-        with patch.object(current_atom_locator, "CurrentAtomLocator", CountingLocator):
+        with (
+            patch.object(current_atom_locator, "CurrentAtomLocator", CountingLocator),
+            patch.object(ReadContext, "currentness", currentness),
+        ):
             with proposed.bind_selection(selection):
                 result = proposed.source_context_from_project(selection.root)
 
         self.assertEqual(1, len(locators))
         self.assertEqual(2, locators[0].locate_calls)
         self.assertEqual(1, locators[0].revalidate_calls)
+        self.assertEqual([locators[0].reader], currentness_readers)
         for identifier, destination in destinations.items():
             with self.subTest(identifier=identifier):
                 row = next(

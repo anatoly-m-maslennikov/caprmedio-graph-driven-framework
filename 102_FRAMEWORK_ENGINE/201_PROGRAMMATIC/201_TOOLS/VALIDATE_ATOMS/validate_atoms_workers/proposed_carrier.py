@@ -172,7 +172,6 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
                 _source(root, identifier, reader, report, locator=locator)
                 for identifier in (*_REGISTRY_IDS, *_SUPPORT_IDS)
             ]
-            locator.revalidate()
     except (OSError, RuntimeError, UnicodeError, ValueError) as error:
         raise ProposedCarrierError("required Project context is unreadable") from error
     inputs: Record = {
@@ -185,8 +184,13 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
             reader,
         ),
     }
-    _current(reader, selection)
-    return VerifiedSourceContext(root, resolve_context(sources), inputs, selection, reader)
+    authority = resolve_context(sources)
+    try:
+        selection._revalidate_boundary(reader=reader)
+        locator.revalidate()
+    except (OSError, RuntimeError, ValueError) as error:
+        raise ProposedCarrierError("selected Project inputs are unavailable") from error
+    return VerifiedSourceContext(root, authority, inputs, selection, reader)
 
 
 def _current(reader: ReadContext, selection: ProjectSelection | None = None) -> None:
