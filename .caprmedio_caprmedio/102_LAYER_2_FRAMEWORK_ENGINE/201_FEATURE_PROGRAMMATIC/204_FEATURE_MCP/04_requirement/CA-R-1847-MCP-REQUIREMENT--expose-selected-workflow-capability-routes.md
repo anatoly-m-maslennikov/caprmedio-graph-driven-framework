@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 13
-updated_at: "2026-10-15 11:27:33 +0000"
+version: 14
+updated_at: "2026-10-18 13:31:41 +0400"
 subjects:
   governs: "MCP/selected Workflow capability routes"
   depends_on: [MCP, Tool, Workflow, Action, Operator, Run, Journal]
@@ -50,7 +50,7 @@ Workflow graph or source authority.
 
 The original thirteen entries resolve their current selected source registry by CA-A-1142's identity and declared authoritative location. The two query entries use `query_source_admissions` in that same canonical manifest, resolving CA-P-1618 and CA-P-1535 by their identities at the declared current acceptance-carrier locations and the corresponding current CA-O-158/159/160 and CA-O-161/162/163 definitions. Historical acceptance carriers and their predecessor evidence remain unchanged provenance; their old Versions or digests are not executable current-rule gates.
 
-Keep the existing acceptance-carrier identity/path bindings: CA-P-1618 at `.caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/08-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/29-CA-P-1618-TASK--accept-current-artifact-query-source-frontier.md`, and CA-P-1535 at the same declared parent with basename `15-CA-P-1535-TASK--accept-final-journal-query-source.md`. Resolve the named Operations from their current declared Core Operations authority; this policy changes neither their identity nor their existing safe source locations.
+Keep the existing acceptance-carrier identity/path bindings: CA-P-1618 at `.caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/08-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/29-CA-P-1618-TASK--accept-current-artifact-query-source-frontier.md`, and CA-P-1535 at the same declared parent with basename `15-CA-P-1535-TASK--accept-final-journal-query-source.md`. Resolve the named Operations definitions by their stable Atom IDs within the selected Project's registered Scope Unit authority paths and admitted content-role folders, including after a Core-to-Project Configuration move. On a fresh observation, a genuinely missing prior Carrier path may be resolved to the unique current original with that same ID. Do not substitute for an existing wrong-identity or unsafe Carrier, admit ambiguous identity claims, follow archived/draft/projected copies, or refresh a captured source inside an already admitted operation. Capture the actual resolved safe path, Version and SHA-256 for that observation. The acceptance Plan locations above remain fixed; this lookup grants no relocation or source-write authority.
 
 Read and validate each current source's canonical identity, owning authority, safe declared path and supported contract. Capture its actual Version and SHA-256 as per-operation evidence and use those captured values consistently in the canonical manifest, route definitions and dispatch. Do not compare current sources to compiled historical Version/hash constants or infer semantic compatibility from a newer Version alone. Missing, ambiguous, malformed, unsupported or contradictory current authority refuses admission. No caller-provided rule bundle, guessed relocation or arbitrary path may replace that authority.
 
