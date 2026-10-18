@@ -3,15 +3,15 @@ subjects:
   governs: "Entity/Continuant/Node/Projection/Type: Scope Unit Graph"
   depends_on:
     ["Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Project.Settings.Project Name", "Entity/Continuant/Node/Project.Settings.Obsolete Names"]
-version: 11
-updated_at: "2026-10-18 03:34:45 +0400"
+version: 13
+updated_at: "2026-10-18 07:33:11 +0400"
 relations:
   child_of:
     - "CA-R-1052"
 atom_id: "CA-D-392"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

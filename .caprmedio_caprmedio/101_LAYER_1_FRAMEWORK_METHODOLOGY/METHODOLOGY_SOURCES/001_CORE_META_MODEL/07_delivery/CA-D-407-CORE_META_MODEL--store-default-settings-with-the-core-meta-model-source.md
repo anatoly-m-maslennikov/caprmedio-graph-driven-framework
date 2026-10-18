@@ -3,15 +3,15 @@ subjects:
   governs: "Default Settings"
   depends_on:
     ["Default Settings", "Entity/Carrier/File Carrier", "Entity/Continuant/Object/Scope Unit", "Methodology Source"]
-version: 9
-updated_at: "2026-10-15 18:51:53 +0000"
+version: 11
+updated_at: "2026-10-18 07:33:41 +0400"
 relations:
   child_of:
     - "CA-R-1441"
 atom_id: "CA-D-407"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

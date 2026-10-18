@@ -3,15 +3,15 @@ subjects:
   governs: "Framework Instance Settings/Carrier/Atom metadata exclusion"
   depends_on:
     ["Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Atom", "Artifact/Revision"]
-version: 8
-updated_at: "2026-10-15 18:51:42 +0000"
+version: 10
+updated_at: "2026-10-18 07:32:23 +0400"
 relations:
   child_of:
     - "CA-D-361"
 atom_id: "CA-D-377"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

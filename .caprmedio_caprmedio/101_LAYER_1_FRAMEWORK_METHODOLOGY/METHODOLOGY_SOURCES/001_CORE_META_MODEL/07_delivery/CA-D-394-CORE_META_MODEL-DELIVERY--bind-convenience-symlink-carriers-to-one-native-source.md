@@ -3,13 +3,13 @@ subjects:
   governs: "Entity/Carrier"
   depends_on:
     ["Methodology Source", "Entity/Continuant/Object/Project"]
-version: 8
-updated_at: "2026-10-15 18:51:51 +0000"
+version: 10
+updated_at: "2026-10-18 07:33:21 +0400"
 relations: {}
 atom_id: "CA-D-394"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

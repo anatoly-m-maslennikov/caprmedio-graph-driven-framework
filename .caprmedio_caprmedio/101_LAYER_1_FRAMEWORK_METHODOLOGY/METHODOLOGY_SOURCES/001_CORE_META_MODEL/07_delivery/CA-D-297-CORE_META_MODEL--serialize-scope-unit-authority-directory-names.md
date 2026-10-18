@@ -3,13 +3,13 @@ subjects:
   governs: "Entity/Carrier/Directory Carrier.Name"
   depends_on:
     ["Entity/Continuant/Node/Scope Unit.Name", "Entity/Continuant/Node/Scope Unit.Label", "Entity/Continuant/Node/Scope Unit.Structural Level", "Entity/Continuant/Node/Scope Unit.Navigational Order Number", "Entity/Continuant/Node/Scope Unit.Local Order"]
-version: 15
-updated_at: "2026-10-18 03:34:36 +0400"
+version: 17
+updated_at: "2026-10-18 07:30:23 +0400"
 relations: {}
 atom_id: "CA-D-297"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

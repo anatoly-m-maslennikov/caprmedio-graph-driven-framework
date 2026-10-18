@@ -3,13 +3,13 @@ subjects:
   governs: "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal"
   depends_on:
     ["Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Project.Settings.Project Name", "Entity/Continuant/Node/Project"]
-version: 18
-updated_at: "2026-10-18 03:34:35 +0400"
+version: 20
+updated_at: "2026-10-18 07:30:14 +0400"
 relations: {}
 atom_id: "CA-D-292"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"
