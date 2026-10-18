@@ -30,6 +30,11 @@ ORIGINAL_SELECTED_ROUTE_NAMES = (
 )
 QUERY_ROUTE_NAMES = ("find_and_fetch_artifacts", "find_and_fetch_journal_events")
 SELECTED_ROUTE_NAMES = (*ORIGINAL_SELECTED_ROUTE_NAMES, *QUERY_ROUTE_NAMES)
+OPTIONAL_SELECTED_ROUTE_NAMES = ("move_atom",)
+ADMITTED_SELECTED_ROUTE_NAMES = (
+    *ORIGINAL_SELECTED_ROUTE_NAMES[:4], *OPTIONAL_SELECTED_ROUTE_NAMES,
+    *ORIGINAL_SELECTED_ROUTE_NAMES[4:], *QUERY_ROUTE_NAMES,
+)
 _OPTIONAL_RELEASE_ROUTE_NAME = "release_version"
 _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME = "public.release"
 
@@ -232,6 +237,7 @@ def selected_manifest_contract(root: str | Path | None = None) -> dict[str, Any]
         "on_result_fields": ["from", "condition", "to"],
         "on_result_terminal_target": "complete",
         "route_names": list(SELECTED_ROUTE_NAMES),
+        "optional_route_names": list(OPTIONAL_SELECTED_ROUTE_NAMES),
     }
 
 
@@ -295,7 +301,7 @@ def _validate_route(root: Path, entry: Any, sources: CurrentDefinitionSources | 
                 "entry_step", "on_result", "mutation_capable"}
     if not isinstance(entry, Mapping) or set(entry) != required:
         raise SelectedRouteError("route binding has an incomplete or unknown schema")
-    if entry["route"] not in SELECTED_ROUTE_NAMES or not isinstance(entry["entry_step"], str):
+    if entry["route"] not in ADMITTED_SELECTED_ROUTE_NAMES or not isinstance(entry["entry_step"], str):
         raise SelectedRouteError("route binding has an unsupported route or entry step")
     if not isinstance(entry["mutation_capable"], bool) or not isinstance(entry["ordered_steps"], list) or not entry["ordered_steps"]:
         raise SelectedRouteError("route binding has no ordered step graph")
@@ -416,9 +422,11 @@ def validate_selected_manifest_document(root: str | Path, manifest: Any) -> dict
     registry = _current_pin(project_root, {'atom_id': 'CA-A-1142',
         'source_path': freshness['selected_source_registry_ref']}, sources, 'Analysis Report')
     routes = manifest["routes"]
-    if not isinstance(routes, list) or len(routes) != len(SELECTED_ROUTE_NAMES):
-        raise SelectedRouteError("selected workflow binding manifest must contain fifteen routes")
+    if not isinstance(routes, list) or len(routes) not in {len(SELECTED_ROUTE_NAMES), len(ADMITTED_SELECTED_ROUTE_NAMES)}:
+        raise SelectedRouteError("selected workflow binding manifest must contain fifteen routes or sixteen with move_atom")
     expected_names = SELECTED_ROUTE_NAMES
+    if len(routes) == len(ADMITTED_SELECTED_ROUTE_NAMES):
+        expected_names = ADMITTED_SELECTED_ROUTE_NAMES
     if canonical_digest(routes) != freshness["selected_binding_digest"]:
         raise SelectedRouteError("selected workflow route binding digest differs")
     validated = [_validate_route(project_root, entry, sources) for entry in routes]
@@ -435,7 +443,7 @@ def validate_selected_manifest_document(root: str | Path, manifest: Any) -> dict
 
 
 def load_selected_manifest(root: str | Path) -> dict[str, Any]:
-    """Verify all fifteen ordinary route source bindings without dispatch."""
+    """Verify the baseline route bindings and an optional move_atom binding."""
     project_root = Path(root).resolve(strict=True)
     try:
         source = capture_source(project_root, selected_manifest_ref(project_root))
@@ -928,7 +936,7 @@ def register_selected_routes(
     try:
         adapter.manifest = load_selected_manifest(adapter.root)
         adapter.routes = {entry["route"]: entry for entry in adapter.manifest["routes"]
-                          if entry["route"] in SELECTED_ROUTE_NAMES}
+                          if entry["route"] in ADMITTED_SELECTED_ROUTE_NAMES}
     except (OSError, ValueError):
         pass
     selected_annotations = ToolAnnotations(read_only_hint=False, destructive_hint=False, idempotent_hint=True, open_world_hint=False)

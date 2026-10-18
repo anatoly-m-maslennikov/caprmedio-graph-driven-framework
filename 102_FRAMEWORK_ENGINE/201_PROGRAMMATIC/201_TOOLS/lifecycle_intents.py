@@ -16,7 +16,7 @@ from typing import Any
 import yaml
 
 from authoritative_status_models import StatusModelError, resolve_status_model
-from artifact_metadata import current_timestamp
+from artifact_metadata import current_timestamp, project_identity
 from atom_operations import (
     Atom,
     _atomic_write,
@@ -33,6 +33,7 @@ from atom_operations import (
     demote_atom_to_draft,
     frontmatter_scalar,
     migrate_atom_identity_revision,
+    move_atom_revision,
     prepare_create_atom_revision,
     preserve_atom_revision,
     project_identity_prefix,
@@ -41,6 +42,7 @@ from atom_operations import (
     status_bundle_snapshot,
     require_current_atom,
     remove_frontmatter_scalar,
+    render,
     replace_frontmatter_scalar,
     resolve_repository,
     resolve_selector,
@@ -469,6 +471,30 @@ def _refresh_frontmatter(root: Path, frontmatter: str, *, version: int | None = 
         result = replace_frontmatter_scalar(result, "version", str(version))
     stamp = current_timestamp(root)
     return replace_frontmatter_scalar(result, "updated_at", f'"{stamp}"')
+
+
+def _raw_carrier_body(raw: bytes) -> bytes:
+    """Return the exact bytes after a Markdown carrier's closing YAML fence."""
+
+    closing = re.search(br"\r?\n---\r?\n", raw[4:])
+    if closing is None:
+        raise LifecycleError("carrier-frontmatter-invalid", "Markdown carrier frontmatter is not closed")
+    return raw[4 + closing.end():]
+
+
+def _typed_relation_snapshot(frontmatter: str) -> str:
+    try:
+        metadata = yaml.safe_load(frontmatter) or {}
+    except yaml.YAMLError as error:
+        raise LifecycleError("carrier-frontmatter-invalid", "Atom frontmatter is not valid YAML") from error
+    if not isinstance(metadata, dict):
+        raise LifecycleError("carrier-frontmatter-invalid", "Atom frontmatter must be a mapping")
+    return canonical_json(metadata.get("relations", {}))
+
+
+def _move_link_evidence(outward: str) -> dict[str, Any]:
+    return {"outward": {"before": outward, "after": outward, "changed": False},
+            "inward": {"retargeted": False, "changed": False}}
 
 
 def _effect(state: str, *, carrier: Mapping[str, Any], reason: str | None = None) -> dict[str, Any]:
@@ -1295,6 +1321,226 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
             "effects": effects,
             "history": history,
             **assessment_evidence}
+
+
+def _validate_move_filename_scope(root: Path, destination: Path, atom_id: str | None,
+                                  owner: str) -> None:
+    """Require the destination filename's current-scope token to match its owner."""
+
+    if atom_id is None:
+        raise LifecycleError("atom-identity-changed", "moved carrier must retain the current atom_id")
+    head = destination.name.split("--", 1)[0]
+    tokens = head.split("-")
+    identity = atom_id.split("-")
+    try:
+        index = next(i for i in range(len(tokens) - len(identity) + 1)
+                     if tokens[i:i + len(identity)] == identity)
+    except StopIteration as error:
+        raise LifecycleError("filename-scope-mismatch", "destination filename does not carry the current atom_id") from error
+    suffix = tokens[index + len(identity):]
+    try:
+        project_name = project_identity(root)["project"]["name"]
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        raise LifecycleError("project-identity-invalid", "project identity is unavailable for filename validation") from error
+    if owner == project_name:
+        if suffix and suffix[0] == owner:
+            raise LifecycleError("filename-scope-mismatch", "Project-owned filename must omit its current Scope Unit token")
+    elif not suffix or suffix[0] != owner:
+        raise LifecycleError("filename-scope-mismatch", "destination filename must begin with its owning Scope Unit token")
+
+
+def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool = False,
+                     authorized: bool = False) -> dict[str, Any]:
+    """Apply one identity-preserving Atom rehome with a sealed placement."""
+
+    root = root.resolve()
+    request = _mapping(parameters, "parameters")
+    _exact_fields(request, frozenset({"target", "placement"}), "parameters")
+    placement = _mapping(request["placement"], "placement")
+    _exact_fields(placement, frozenset({"destination_path", "owning_scope_unit", "claim_target_scope_unit"}),
+                  "placement")
+    if any(not isinstance(placement[field], str) or not placement[field].strip()
+           for field in placement):
+        raise LifecycleError("placement-invalid", "placement fields must be non-empty strings")
+    destination_value = Path(placement["destination_path"])
+    if destination_value.is_absolute() or ".." in destination_value.parts:
+        raise LifecycleError("placement-invalid", "destination_path must be project-relative")
+    target = _resolve_descriptor(root, request["target"], name="target", active=False)
+    prior = carrier_descriptor(root, target)
+    destination_path = placement["destination_path"]
+    current_owner = frontmatter_scalar(target.frontmatter, "current_scope_unit")
+    current_claim_target = frontmatter_scalar(target.frontmatter, "claim_target_scope_unit")
+    if current_owner is None or current_claim_target is None:
+        raise LifecycleError("placement-invalid", "current Atom must carry both Scope Unit fields")
+    outward_links = _typed_relation_snapshot(target.frontmatter)
+
+    proposed_frontmatter = replace_frontmatter_scalar(
+        replace_frontmatter_scalar(target.frontmatter, "current_scope_unit", placement["owning_scope_unit"]),
+        "claim_target_scope_unit", placement["claim_target_scope_unit"],
+    )
+    # prepare_create_atom_revision performs the complete destination, filename,
+    # owner/path, status, relation, and collision preflight without mutation.
+    try:
+        destination, normalized, destination_id = prepare_create_atom_revision(
+            root, destination_path, proposed_frontmatter, target.content, creating=False,
+        )
+    except AtomToolError as error:
+        raise _translate(error) from error
+    if destination_id != target.atom_id:
+        raise LifecycleError("atom-identity-changed", "moved carrier must retain the current atom_id")
+    if destination != target.path and destination.exists():
+        raise LifecycleError("destination-collision", "Atom destination already exists")
+    same_placement = (
+        destination == target.path
+        and placement["owning_scope_unit"] == current_owner
+        and placement["claim_target_scope_unit"] == current_claim_target
+    )
+    if not same_placement:
+        _validate_move_filename_scope(root, destination, target.atom_id, placement["owning_scope_unit"])
+    if frontmatter_scalar(normalized, "content_role") != frontmatter_scalar(target.frontmatter, "content_role"):
+        raise LifecycleError("atom-role-changed", "move must retain the current Content Role")
+    if frontmatter_scalar(normalized, "type") != frontmatter_scalar(target.frontmatter, "type"):
+        raise LifecycleError("atom-type-changed", "move must retain the current Type")
+    try:
+        bundle = status_bundle_snapshot(root, target)
+    except AtomToolError as error:
+        raise _translate(error) from error
+    if "directory" in bundle:
+        raise LifecycleError("status-bundle-unsupported", "move does not relocate matching carrier directories")
+    destination_bundle = destination.with_suffix("")
+    if destination != target.path and (destination_bundle.exists() or destination_bundle.is_symlink()):
+        raise LifecycleError("destination-collision", "matching destination directory already exists")
+    if same_placement:
+        return {"operation": "move", "outcome": "no-op", "observed": prior,
+                "placement": {"before": {"path": prior["path"], "owner": current_owner,
+                                            "claim_target_scope_unit": current_claim_target},
+                               "after": {"path": prior["path"], "owner": current_owner,
+                                          "claim_target_scope_unit": current_claim_target}},
+                "typed_links": _move_link_evidence(outward_links),
+                "effects": [_effect("unchanged", carrier=prior, reason="placement-already-current")],
+                "history": {"prior": prior, "preserved": True}}
+    if not _execute_allowed(execute=execute, authorized=authorized):
+        return {"operation": "move", "outcome": "preview", "observed": prior,
+                "placement": {"before": {"path": prior["path"], "owner": current_owner,
+                                            "claim_target_scope_unit": current_claim_target},
+                               "after": {"path": destination.relative_to(root).as_posix(),
+                                          "owner": placement["owning_scope_unit"],
+                                          "claim_target_scope_unit": placement["claim_target_scope_unit"]}},
+                "typed_links": _move_link_evidence(outward_links),
+                "effects": [_effect("unchanged", carrier=prior, reason="preview")],
+                "history": {"prior": prior}}
+
+    before_bytes = target.path.read_bytes()
+    before_mode = target.path.stat().st_mode & 0o777
+    if hashlib.sha256(before_bytes).hexdigest() != prior["digest"]:
+        raise LifecycleError("carrier-stale", "move source bytes changed before publication")
+    raw_body = _raw_carrier_body(before_bytes)
+    try:
+        body_for_publication = raw_body.decode("utf-8")
+    except UnicodeDecodeError as error:
+        raise LifecycleError("carrier-encoding-invalid", "move source body is not valid UTF-8") from error
+    prior_revision: Atom | None = None
+    prior_revision_owner: tuple[int, int] | None = None
+    observed_atom: Atom | None = None
+    attempted_destination_bytes: bytes | None = None
+    try:
+        revised_frontmatter = _refresh_frontmatter(root, normalized, version=atom_version(target) + 1)
+        attempted_destination_bytes = render(revised_frontmatter, body_for_publication)
+        prior_revision = preserve_atom_revision(root, target, allow_nonactive=True)
+        owned = prior_revision.path.lstat()
+        prior_revision_owner = (owned.st_dev, owned.st_ino)
+        observed_atom = move_atom_revision(
+            root, target, destination.relative_to(root).as_posix(), revised_frontmatter, body_for_publication,
+        )
+        observed = carrier_descriptor(root, observed_atom)
+        if (observed["path"] != destination.relative_to(root).as_posix()
+                or observed["filename"] != destination.name
+                or observed["atom_id"] != prior["atom_id"] or observed["version"] != prior["version"] + 1
+                or observed["status"] != prior["status"] or observed["content_role"] != prior["content_role"]
+                or observed["type"] != prior["type"] or observed_atom.content != target.content
+                or _typed_relation_snapshot(observed_atom.frontmatter) != outward_links
+                or frontmatter_scalar(observed_atom.frontmatter, "current_scope_unit") != placement["owning_scope_unit"]
+                or frontmatter_scalar(observed_atom.frontmatter, "claim_target_scope_unit") != placement["claim_target_scope_unit"]
+                or (destination != target.path and target.path.exists())
+                or destination.read_bytes() != attempted_destination_bytes
+                or _raw_carrier_body(destination.read_bytes()) != raw_body
+                or prior_revision.path.read_bytes() != before_bytes):
+            raise LifecycleError("move-verification-failed", "moved carrier failed independent readback")
+    except BaseException as error:
+        recovery_phase = "restore-current"
+        try:
+            if destination != target.path and destination.exists():
+                if destination.is_symlink() or not destination.is_file():
+                    raise OSError("destination ownership could not be verified")
+                if attempted_destination_bytes is None or destination.read_bytes() != attempted_destination_bytes:
+                    raise OSError("destination ownership could not be verified")
+                recovery_phase = "remove-new-destination"
+                destination.unlink()
+            if target.path.is_symlink():
+                raise OSError("current carrier became a symlink")
+            if target.path.exists() and (not target.path.is_file() or target.path.read_bytes() != before_bytes):
+                raise OSError("current source ownership could not be verified")
+            if not target.path.exists():
+                _atomic_write(target.path, before_bytes)
+            if target.path.stat().st_mode & 0o777 != before_mode:
+                target.path.chmod(before_mode)
+            if target.path.read_bytes() != before_bytes or target.path.stat().st_mode & 0o777 != before_mode:
+                raise OSError("current before-state could not be verified")
+            if prior_revision is not None:
+                recovery_phase = "verify-history-ownership"
+                owned = prior_revision.path.lstat()
+                if (prior_revision.path.is_symlink() or not prior_revision.path.is_file()
+                        or (owned.st_dev, owned.st_ino) != prior_revision_owner
+                        or prior_revision.path.read_bytes() != before_bytes):
+                    raise OSError("new prior-revision carrier ownership could not be verified")
+                recovery_phase = "remove-new-history"
+                prior_revision.path.unlink()
+        except BaseException as recovery_error:
+            current_ref = {"path": target.relative, "verification": "unknown"}
+            destination_ref = None
+            if destination != target.path:
+                destination_ref = {
+                    "path": destination.relative_to(root).as_posix(),
+                    "verification": "unknown" if destination.exists() else "absent",
+                }
+            retained_history = ({"path": prior_revision.relative, "creation": "attempt-created",
+                                 "ownership_verification": "unverified"}
+                                if prior_revision is not None else None)
+            effects = [_effect("unknown", carrier=current_ref, reason="move-rollback-uncertain")]
+            if destination_ref is not None and destination_ref["verification"] == "unknown":
+                effects.append(_effect("unknown", carrier=destination_ref,
+                                       reason="retained-destination-ownership-unverified"))
+            history = {"prior": prior}
+            if retained_history is not None:
+                history["prior_revision"] = retained_history
+                effects.append(_effect("unknown", carrier=retained_history,
+                                       reason="retained-prior-ownership-unverified"))
+            return {"operation": "move", "outcome": "partial",
+                    "failure": {"code": "move-rollback-uncertain",
+                                "original": {"type": type(error).__name__, "code": getattr(error, "code", None)},
+                                "recovery": {"type": type(recovery_error).__name__,
+                                              "code": getattr(recovery_error, "code", None),
+                                              "phase": recovery_phase}},
+                    "effects": effects, "history": history,
+                    "recovery": {"before": prior, "current": current_ref,
+                                 "destination": destination_ref, "prior_revision": retained_history,
+                                 "automatic_retry": False}}
+        if isinstance(error, AtomToolError):
+            raise _translate(error) from error
+        raise
+    observed = carrier_descriptor(root, observed_atom)
+    prior_revision_carrier = carrier_descriptor(root, prior_revision) if prior_revision is not None else None
+    history: dict[str, Any] = {"prior": prior, "prior_revision": prior_revision_carrier}
+    return {"operation": "move", "outcome": "applied", "observed": observed,
+            "placement": {"before": {"path": prior["path"], "owner": current_owner,
+                                        "claim_target_scope_unit": current_claim_target},
+                           "after": {"path": observed["path"], "owner": placement["owning_scope_unit"],
+                                      "claim_target_scope_unit": placement["claim_target_scope_unit"]}},
+            "typed_links": _move_link_evidence(outward_links),
+            "effects": [_effect("changed", carrier=observed),
+                        _effect("changed", carrier=prior_revision_carrier)] if prior_revision_carrier else
+                       [_effect("changed", carrier=observed)],
+            "history": history}
 
 
 def change_status_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool = False, authorized: bool = False) -> dict[str, Any]:

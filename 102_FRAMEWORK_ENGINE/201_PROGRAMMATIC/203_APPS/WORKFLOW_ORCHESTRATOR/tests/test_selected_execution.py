@@ -530,6 +530,37 @@ class SelectedExecutionTests(unittest.TestCase):
         self.assertEqual(result["outcome"], "completed")
         self.assertEqual(len(result["step_results"]), 2)
 
+    def test_move_atom_uses_the_canonical_lifecycle_handler(self) -> None:
+        expected = {"operation": "move", "outcome": "preview", "effects": []}
+        with patch("lifecycle_intents.move_atom_action", return_value=expected) as move:
+            selected = SelectedExecution(self.root)
+            result = selected.handlers["CA-O-128"]({
+                "route": "move_atom",
+                "parameters": {
+                    "target": {"path": "source.md"},
+                    "placement": {
+                        "destination_path": "destination.md",
+                        "owning_scope_unit": "CORE",
+                        "claim_target_scope_unit": "CORE",
+                    },
+                },
+            })
+
+        self.assertEqual(result["result"], "preview")
+        move.assert_called_once_with(
+            selected.root,
+            {
+                "target": {"path": "source.md"},
+                "placement": {
+                    "destination_path": "destination.md",
+                    "owning_scope_unit": "CORE",
+                    "claim_target_scope_unit": "CORE",
+                },
+            },
+            execute=True,
+            authorized=True,
+        )
+
     def test_o016_selects_manifest_step_packets_and_carries_actual_prior_results(self) -> None:
         """Exercise all seven real prompt handlers through their injected Agent."""
         import implementation_actions

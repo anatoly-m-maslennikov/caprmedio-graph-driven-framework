@@ -298,6 +298,7 @@ class SelectedExecution:
                 "update_atom": lifecycle_intents.update_atom_action,
                 "replace_atom": lifecycle_intents.replace_atom_action,
                 "change_atom_status": lifecycle_intents.change_status_atom_action,
+                "move_atom": lifecycle_intents.move_atom_action,
             }
 
             def admitted_update_assessment(context: Mapping[str, Any]) -> dict[str, Any] | None:
