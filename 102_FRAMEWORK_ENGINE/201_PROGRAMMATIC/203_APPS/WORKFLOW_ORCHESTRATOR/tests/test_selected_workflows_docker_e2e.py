@@ -293,6 +293,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
 
     async def _execute_create_case(
         self, runtime: Runtime, root: Path, fixture: GoldenProject, carrier: Mapping[str, Any], request_id: str,
+        *, reconnect: bool = True,
     ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
         """Exercise W01 through the same preview, selected enqueue, and reconnect boundary."""
         preview = await self._call(
@@ -308,7 +309,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             {"operation": "enqueue_selected", "run_id": request_id, "execution": execute},
         )
         self.assertIn(admitted.get("outcome"), {"queued", "admitted", "started", "running", "pending", "completed"}, admitted)
-        terminal = await self._terminal_status(runtime, root, request_id)
+        terminal = await self._terminal_status(runtime, root, request_id, reconnect=reconnect)
         self.assertEqual("terminal", terminal.get("disposition"), terminal)
         self.assertEqual("completed", terminal.get("outcome"), terminal)
         selected = terminal.get("selected_result")
@@ -881,6 +882,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                         native, _graph, _selected = await self._execute_create_case(
                             runtime, root, fixture, carrier,
                             f"p2385-w01-{role.casefold()}-{status.casefold()}-{number}",
+                            reconnect=False,
                         )
                         self.assertEqual("applied", native.get("outcome"), native)
                         observed = root / native["observed"]["path"]
