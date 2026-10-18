@@ -218,8 +218,9 @@ class Runtime:
     def mcp_http_start(self):
         self.prepare(require_auth=False)
         port = self._http_port()
-        self.call("up", "-d", "--wait", "--wait-timeout", "60", "--force-recreate", "mcp-http",
-                  http=True, timeout=90)
+        # Generation readiness can take 90s; keep Compose and the caller outside that budget.
+        self.call("up", "-d", "--wait", "--wait-timeout", "120", "--force-recreate", "mcp-http",
+                  http=True, timeout=150)
         if not self._http_publisher_admitted(self.mcp_http_status(), port):
             raise RuntimeError("HTTP MCP published listener admission failed")
         return {"runtime": "docker", "service": "mcp-http", "outcome": "ready",

@@ -32,6 +32,7 @@ services:
       interval: 2s
       timeout: 5s
       retries: 20
+      start_period: 90s
 
 networks:
   http_publication:

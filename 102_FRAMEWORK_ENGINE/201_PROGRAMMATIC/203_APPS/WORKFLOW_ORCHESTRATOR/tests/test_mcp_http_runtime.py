@@ -1,6 +1,7 @@
 """HTTP MCP compose/lifecycle boundary tests; no Docker daemon is invoked."""
 import os
 from pathlib import Path
+import re
 import sys
 import tempfile
 import unittest
@@ -48,6 +49,23 @@ class MCPHTTPRuntimeTests(unittest.TestCase):
         self.assertEqual("http://127.0.0.1:8099/mcp", result["url"])
         self.assertIn("mcp-http", call.call_args.args)
         self.assertTrue(call.call_args.kwargs["http"])
+
+    def test_startup_deadlines_cover_generation_readiness_budget(self):
+        runtime = Runtime(self.root())
+        with patch.dict(os.environ, {"CAPRMEDIO_MCP_HTTP_PORT": "8099"}, clear=True), \
+                patch.object(runtime, "call", return_value="") as call, \
+                patch.object(runtime, "mcp_http_status", return_value=self._published_status()):
+            runtime.mcp_http_start()
+
+        args = call.call_args.args
+        compose_wait = int(args[args.index("--wait-timeout") + 1])
+        outer_timeout = call.call_args.kwargs["timeout"]
+        health_start_period = int(re.search(
+            r"start_period:\s*(\d+)s", (APP / "docker/mcp-http.compose.yaml").read_text()
+        ).group(1))
+        self.assertGreaterEqual(compose_wait, 90)
+        self.assertGreater(outer_timeout, compose_wait)
+        self.assertGreaterEqual(health_start_period, 90)
 
     def test_start_requires_exact_loopback_publisher_admission(self):
         cases = {
