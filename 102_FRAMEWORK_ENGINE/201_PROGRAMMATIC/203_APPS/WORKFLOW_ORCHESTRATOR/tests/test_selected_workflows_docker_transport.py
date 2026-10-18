@@ -68,7 +68,7 @@ class SelectedDockerHarnessTransportTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(first["connection_id"], second["connection_id"])
         self.assertNotEqual(first["connection_id"], reconnected["connection_id"])
 
-    async def test_shared_call_and_listing_keep_twenty_second_budgets(self) -> None:
+    async def test_shared_call_and_listing_keep_120_second_budgets(self) -> None:
         client = SimpleNamespace(
             call_tool=AsyncMock(
                 return_value=types.CallToolResult(content=[], structured_content={})
@@ -79,10 +79,10 @@ class SelectedDockerHarnessTransportTests(unittest.IsolatedAsyncioTestCase):
         context.__aenter__.return_value = client
         with patch.object(harness, "_stdio_client", return_value=context):
             self.assertEqual({}, await _stdio_tool_call("fixture", "echo", {}))
-        client.call_tool.assert_awaited_once_with("echo", {"request": {}}, read_timeout_seconds=20)
+        client.call_tool.assert_awaited_once_with("echo", {"request": {}}, read_timeout_seconds=120)
         with patch.object(asyncio, "timeout", wraps=asyncio.timeout) as timeout:
             self.assertEqual(set(), await _stdio_tool_names(client))
-        timeout.assert_called_once_with(20)
+        timeout.assert_called_once_with(120)
         client.list_tools.assert_awaited_once_with()
 
     async def test_harness_reconnects_once_before_polling_and_refuses_cross_fixture_client(
@@ -96,7 +96,7 @@ class SelectedDockerHarnessTransportTests(unittest.IsolatedAsyncioTestCase):
             connections.append(parameters)
 
             async def call_tool(tool, arguments, *, read_timeout_seconds):
-                self.assertEqual(20, read_timeout_seconds)
+                self.assertEqual(120, read_timeout_seconds)
                 calls.append((identity, tool, arguments))
                 statuses = [call for call in calls if call[1] == "workflow_orchestrator"]
                 outcome = "running" if len(statuses) == 1 else "completed"

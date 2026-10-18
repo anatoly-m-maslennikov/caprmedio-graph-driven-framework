@@ -41,7 +41,7 @@ class SelectedWorkflowsPreviewBoundaryTests(unittest.IsolatedAsyncioTestCase):
                     async def call_tool(
                         tool: str, arguments: dict[str, Any], *, read_timeout_seconds: float
                     ) -> types.CallToolResult:
-                        self.assertEqual(20, read_timeout_seconds)
+                        self.assertEqual(120, read_timeout_seconds)
                         if mutate[0]:
                             (journal / "unrequested.ndjson").write_text('{"event":"unrequested"}\n')
                         return types.CallToolResult(
