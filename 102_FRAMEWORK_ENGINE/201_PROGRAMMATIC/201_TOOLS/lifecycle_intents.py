@@ -28,6 +28,8 @@ from atom_operations import (
     atom_from_path,
     atom_version,
     canonical_json,
+    carrier_directory_snapshot,
+    carrier_directory_snapshot_matches,
     control_root,
     create_atom_revision,
     demote_atom_to_draft,
@@ -1405,8 +1407,6 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
         bundle = status_bundle_snapshot(root, target)
     except AtomToolError as error:
         raise _translate(error) from error
-    if "directory" in bundle:
-        raise LifecycleError("status-bundle-unsupported", "move does not relocate matching carrier directories")
     destination_bundle = destination.with_suffix("")
     if destination != target.path and (destination_bundle.exists() or destination_bundle.is_symlink()):
         raise LifecycleError("destination-collision", "matching destination directory already exists")
@@ -1451,8 +1451,10 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
         prior_revision_owner = (owned.st_dev, owned.st_ino)
         observed_atom = move_atom_revision(
             root, target, destination.relative_to(root).as_posix(), revised_frontmatter, body_for_publication,
+            expected_bundle=bundle,
         )
         observed = carrier_descriptor(root, observed_atom)
+        moved_bundle = status_bundle_snapshot(root, observed_atom)
         if (observed["path"] != destination.relative_to(root).as_posix()
                 or observed["filename"] != destination.name
                 or observed["atom_id"] != prior["atom_id"] or observed["version"] != prior["version"] + 1
@@ -1464,11 +1466,52 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
                 or (destination != target.path and target.path.exists())
                 or destination.read_bytes() != attempted_destination_bytes
                 or _raw_carrier_body(destination.read_bytes()) != raw_body
-                or prior_revision.path.read_bytes() != before_bytes):
+                or prior_revision.path.read_bytes() != before_bytes
+                or not carrier_directory_snapshot_matches(
+                    {key: value for key, value in bundle.items() if key != "markdown"},
+                    {key: value for key, value in moved_bundle.items() if key != "markdown"},
+                    renamed=True,
+                )):
             raise LifecycleError("move-verification-failed", "moved carrier failed independent readback")
     except BaseException as error:
         recovery_phase = "restore-current"
         try:
+            source_directory = target.path.with_suffix("")
+            destination_directory = destination.with_suffix("")
+            if "directory" in bundle:
+                expected_directory = bundle["directory"][1][:2]
+                if destination_directory == source_directory:
+                    recovery_phase = "verify-source-directory"
+                    if (destination_directory.is_symlink() or not destination_directory.is_dir()
+                            or (destination_directory.stat().st_dev, destination_directory.stat().st_ino)
+                            != expected_directory):
+                        raise OSError("source directory ownership could not be verified")
+                    source_bundle = carrier_directory_snapshot(root, source_directory)
+                    if not carrier_directory_snapshot_matches(
+                            {key: value for key, value in bundle.items() if key != "markdown"}, source_bundle):
+                        raise OSError("source directory contents changed during recovery")
+                elif destination_directory.exists() or destination_directory.is_symlink():
+                    recovery_phase = "verify-directory-ownership"
+                    if (destination_directory.is_symlink() or not destination_directory.is_dir()
+                            or source_directory.exists() or source_directory.is_symlink()
+                            or (destination_directory.stat().st_dev, destination_directory.stat().st_ino)
+                            != expected_directory):
+                        raise OSError("moved directory ownership could not be verified")
+                    moved_bundle = carrier_directory_snapshot(root, destination_directory)
+                    if not carrier_directory_snapshot_matches(
+                            {key: value for key, value in bundle.items() if key != "markdown"},
+                            moved_bundle, renamed=True):
+                        raise OSError("moved directory contents changed during recovery")
+                    recovery_phase = "restore-directory"
+                    destination_directory.rename(source_directory)
+                elif (not source_directory.is_dir() or source_directory.is_symlink()
+                      or (source_directory.stat().st_dev, source_directory.stat().st_ino) != expected_directory):
+                    raise OSError("source directory ownership could not be verified")
+                else:
+                    source_bundle = carrier_directory_snapshot(root, source_directory)
+                    if not carrier_directory_snapshot_matches(
+                            {key: value for key, value in bundle.items() if key != "markdown"}, source_bundle):
+                        raise OSError("source directory contents changed during recovery")
             if destination != target.path and destination.exists():
                 if destination.is_symlink() or not destination.is_file():
                     raise OSError("destination ownership could not be verified")
@@ -1503,6 +1546,14 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
                     "path": destination.relative_to(root).as_posix(),
                     "verification": "unknown" if destination.exists() else "absent",
                 }
+            bundle_ref = None
+            if "directory" in bundle:
+                bundle_ref = {
+                    "source": {"path": source_directory.relative_to(root).as_posix(),
+                               "verification": "unknown" if source_directory.exists() else "absent"},
+                    "destination": {"path": destination_directory.relative_to(root).as_posix(),
+                                    "verification": "unknown" if destination_directory.exists() else "absent"},
+                }
             retained_history = ({"path": prior_revision.relative, "creation": "attempt-created",
                                  "ownership_verification": "unverified"}
                                 if prior_revision is not None else None)
@@ -1515,6 +1566,11 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
                 history["prior_revision"] = retained_history
                 effects.append(_effect("unknown", carrier=retained_history,
                                        reason="retained-prior-ownership-unverified"))
+            if bundle_ref is not None:
+                for endpoint in (bundle_ref["source"], bundle_ref["destination"]):
+                    if endpoint["verification"] == "unknown":
+                        effects.append(_effect("unknown", carrier=endpoint,
+                                               reason="retained-bundle-ownership-unverified"))
             return {"operation": "move", "outcome": "partial",
                     "failure": {"code": "move-rollback-uncertain",
                                 "original": {"type": type(error).__name__, "code": getattr(error, "code", None)},
@@ -1524,6 +1580,7 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
                     "effects": effects, "history": history,
                     "recovery": {"before": prior, "current": current_ref,
                                  "destination": destination_ref, "prior_revision": retained_history,
+                                 "bundle": bundle_ref,
                                  "automatic_retry": False}}
         if isinstance(error, AtomToolError):
             raise _translate(error) from error
@@ -1531,15 +1588,18 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
     observed = carrier_descriptor(root, observed_atom)
     prior_revision_carrier = carrier_descriptor(root, prior_revision) if prior_revision is not None else None
     history: dict[str, Any] = {"prior": prior, "prior_revision": prior_revision_carrier}
+    effects = [_effect("changed", carrier=observed)]
+    if "directory" in bundle and destination_bundle != target.path.with_suffix(""):
+        effects.append(_effect("changed", carrier={"path": destination_bundle.relative_to(root).as_posix()}))
+    if prior_revision_carrier is not None:
+        effects.append(_effect("changed", carrier=prior_revision_carrier))
     return {"operation": "move", "outcome": "applied", "observed": observed,
             "placement": {"before": {"path": prior["path"], "owner": current_owner,
                                         "claim_target_scope_unit": current_claim_target},
                            "after": {"path": observed["path"], "owner": placement["owning_scope_unit"],
                                       "claim_target_scope_unit": placement["claim_target_scope_unit"]}},
             "typed_links": _move_link_evidence(outward_links),
-            "effects": [_effect("changed", carrier=observed),
-                        _effect("changed", carrier=prior_revision_carrier)] if prior_revision_carrier else
-                       [_effect("changed", carrier=observed)],
+            "effects": effects,
             "history": history}
 
 

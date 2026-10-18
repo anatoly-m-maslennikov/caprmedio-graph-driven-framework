@@ -32,6 +32,8 @@ PROJECT_REQUIREMENTS = Path(
 )
 CORE_PLANS = CORE_REQUIREMENTS.parent / "03_plan"
 PROJECT_PLANS = PROJECT_REQUIREMENTS.parent / "03_plan"
+CORE_OPERATIONS = CORE_REQUIREMENTS.parent / "09_operations"
+PROJECT_OPERATIONS = PROJECT_REQUIREMENTS.parent / "09_operations"
 
 
 class AtomMoveLifecycleTest(unittest.TestCase):
@@ -97,16 +99,49 @@ class AtomMoveLifecycleTest(unittest.TestCase):
     def _snapshot(self, *extra: Path) -> dict[str, bytes]:
         """Snapshot only the current carrier, destination, and their history areas."""
         paths = {self.core_path, *extra}
-        paths.update({path.parent / "archive" for path in paths})
+        paths.update({path.parent / name for path in tuple(paths) for name in ("archive", "archived")})
         result: dict[str, bytes] = {}
         for path in paths:
             if path.is_file():
                 result[path.relative_to(self.root).as_posix()] = path.read_bytes()
             elif path.is_dir():
-                for child in path.iterdir():
+                for child in path.rglob("*"):
                     if child.is_file():
                         result[child.relative_to(self.root).as_posix()] = child.read_bytes()
         return result
+
+    def _workflow_bundle(self) -> tuple[Path, Path, dict[str, bytes]]:
+        self.fixture._copy_frozen_atom("CA-R-1874")
+        source = self.root / CORE_OPERATIONS / "CA-O-010-CORE_META_MODEL-WORKFLOW--bundle-move.md"
+        source.parent.mkdir(parents=True, exist_ok=True)
+        source.write_text(
+            "---\natom_id: CA-O-010\ncontent_role: Operations\ntype: Workflow\n"
+            "current_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n"
+            "local_tier: Standard\nglobal_tier: 11\nauthor: Anatoly Maslennikov\n"
+            "status: Active\nversion: 1\nupdated_at: \"2026-01-01 00:00:00 +0000\"\n"
+            "subjects:\n  governs: Tool\n  depends_on: [Plan]\nrelations: {}\n---\n"
+            "# Summary\n\nBundle move fixture\n\n## Scope\n\nOne explicitly selected Workflow.\n\n"
+            "## Operation\n\nKeep this workflow unchanged.\n\n## Details\n\nMove only this carrier.\n",
+            encoding="utf-8",
+        )
+        bundle = source.with_suffix("")
+        bundle.mkdir()
+        (bundle / "CA-O-146-CORE_META_MODEL-STEP--child.md").write_bytes(
+            b"---\natom_id: CA-O-146\ncurrent_scope_unit: CORE_META_MODEL\nversion: 5\n---\nchild\r\n"
+        )
+        nested = bundle / "CA-O-146-CORE_META_MODEL-STEP--child"
+        nested.mkdir()
+        (nested / "CA-O-147-CORE_META_MODEL-STEP--nested.md").write_bytes(b"nested child bytes\n")
+        (bundle / "archived").mkdir()
+        (bundle / "archived" / "CA-O-146-CORE_META_MODEL-STEP--child@4.md").write_bytes(
+            b"exact historical child bytes\n"
+        )
+        destination = self.root / PROJECT_OPERATIONS / "CA-O-010-PROJECT_CONFIGURATION-WORKFLOW--bundle-move.md"
+        contents = {
+            path.relative_to(bundle).as_posix(): path.read_bytes()
+            for path in bundle.rglob("*") if path.is_file()
+        }
+        return source, destination, contents
 
     @staticmethod
     def _raw_body(payload: bytes) -> bytes:
@@ -360,6 +395,131 @@ class AtomMoveLifecycleTest(unittest.TestCase):
         ))
         self.assertIn("prior_revision", result["history"])
         self.assertIn("prior_revision", result["recovery"])
+
+    def test_workflow_bundle_moves_with_exact_nested_and_historical_bytes(self) -> None:
+        source, destination, contents = self._workflow_bundle()
+        bundle = source.with_suffix("")
+        before = atom_operations.atom_from_path(self.root, source)
+        before_bytes = source.read_bytes()
+        history = source.parent / "archive" / f"{source.stem}@{atom_operations.atom_version(before)}.md"
+
+        result = move_atom_action(
+            self.root, self._request(source, destination, "PROJECT_CONFIGURATION"),
+            execute=True, authorized=True,
+        )
+
+        moved_bundle = destination.with_suffix("")
+        self.assertEqual(result["outcome"], "applied")
+        self.assertFalse(source.exists())
+        self.assertFalse(bundle.exists())
+        self.assertEqual(history.read_bytes(), before_bytes)
+        self.assertEqual(
+            {path.relative_to(moved_bundle).as_posix(): path.read_bytes()
+             for path in moved_bundle.rglob("*") if path.is_file()},
+            contents,
+        )
+        moved = atom_operations.atom_from_path(self.root, destination)
+        self.assertEqual(atom_operations.atom_version(moved), atom_operations.atom_version(before) + 1)
+        self.assertEqual(atom_operations.frontmatter_scalar(moved.frontmatter, "current_scope_unit"), "PROJECT_CONFIGURATION")
+        self.assertEqual(
+            (moved_bundle / "CA-O-146-CORE_META_MODEL-STEP--child.md").read_bytes(),
+            contents["CA-O-146-CORE_META_MODEL-STEP--child.md"],
+        )
+
+    def test_matching_destination_directory_collision_is_no_effect(self) -> None:
+        source, destination, _ = self._workflow_bundle()
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.with_suffix("").mkdir()
+        (destination.with_suffix("") / "keep.md").write_bytes(b"do not overwrite\n")
+        before = self._snapshot(destination, source.with_suffix(""), destination.with_suffix(""))
+
+        with self.assertRaisesRegex(LifecycleError, "collision"):
+            move_atom_action(
+                self.root, self._request(source, destination, "PROJECT_CONFIGURATION"),
+                execute=True, authorized=True,
+            )
+
+        self.assertEqual(before, self._snapshot(destination, source.with_suffix(""), destination.with_suffix("")))
+
+    def test_nested_bundle_drift_during_action_is_not_overwritten(self) -> None:
+        source, destination, _ = self._workflow_bundle()
+        child = source.with_suffix("") / "CA-O-146-CORE_META_MODEL-STEP--child.md"
+        original = child.read_bytes()
+        changed = original + b"changed during action\n"
+        real_move_atom_revision = lifecycle_intents.move_atom_revision
+
+        def change_child_before_publication(*args, **kwargs):
+            child.write_bytes(changed)
+            return real_move_atom_revision(*args, **kwargs)
+
+        with patch.object(lifecycle_intents, "move_atom_revision", side_effect=change_child_before_publication):
+            result = move_atom_action(
+                self.root, self._request(source, destination, "PROJECT_CONFIGURATION"),
+                execute=True, authorized=True,
+            )
+
+        self.assertEqual(result["outcome"], "partial")
+        self.assertFalse(result["recovery"]["automatic_retry"])
+        self.assertEqual(child.read_bytes(), changed)
+        self.assertTrue(source.exists())
+        self.assertTrue(source.with_suffix("").exists())
+        self.assertFalse(destination.exists())
+        self.assertFalse(destination.with_suffix("").exists())
+
+    def test_directory_move_failure_restores_source_and_exact_history(self) -> None:
+        source, destination, _ = self._workflow_bundle()
+        source_bundle, destination_bundle = source.with_suffix(""), destination.with_suffix("")
+        before = self._snapshot(source, source_bundle, destination, destination_bundle)
+        real_atom_from_path = atom_operations.atom_from_path
+
+        def fail_after_bundle_move(root: Path, path: Path):
+            if Path(path).resolve() == destination.resolve():
+                raise OSError("injected readback failure")
+            return real_atom_from_path(root, path)
+
+        with patch.object(atom_operations, "atom_from_path", side_effect=fail_after_bundle_move):
+            with self.assertRaises((LifecycleError, OSError)):
+                move_atom_action(
+                    self.root, self._request(source, destination, "PROJECT_CONFIGURATION"),
+                    execute=True, authorized=True,
+                )
+
+        self.assertEqual(before, self._snapshot(source, source_bundle, destination, destination_bundle))
+        self.assertTrue(source.exists())
+        self.assertTrue(source_bundle.exists())
+        self.assertFalse(destination.exists())
+        self.assertFalse(destination_bundle.exists())
+
+    def test_same_byte_nested_mode_drift_during_readback_is_foreign(self) -> None:
+        source, destination, _ = self._workflow_bundle()
+        child = source.with_suffix("") / "CA-O-146-CORE_META_MODEL-STEP--child.md"
+        child_bytes = child.read_bytes()
+        real_snapshot = lifecycle_intents.status_bundle_snapshot
+        calls = 0
+
+        def change_child_mode_after_move(root: Path, atom):
+            nonlocal calls
+            calls += 1
+            if calls == 2:
+                child_at_destination = destination.with_suffix("") / child.name
+                child_at_destination.chmod(0o600)
+            return real_snapshot(root, atom)
+
+        with patch.object(lifecycle_intents, "status_bundle_snapshot", side_effect=change_child_mode_after_move):
+            result = move_atom_action(
+                self.root, self._request(source, destination, "PROJECT_CONFIGURATION"),
+                execute=True, authorized=True,
+            )
+
+        moved_child = destination.with_suffix("") / child.name
+        self.assertEqual(result["outcome"], "partial")
+        self.assertFalse(result["recovery"]["automatic_retry"])
+        self.assertEqual(moved_child.read_bytes(), child_bytes)
+        self.assertEqual(moved_child.stat().st_mode & 0o777, 0o600)
+        self.assertFalse(source.exists())
+        self.assertFalse(source.with_suffix("").exists())
+        self.assertTrue(destination.exists())
+        self.assertTrue(destination.with_suffix("").exists())
 
     def test_unsupported_bundle_is_rejected_without_orphan_effect(self) -> None:
         bundle = self.core_path.with_suffix("")

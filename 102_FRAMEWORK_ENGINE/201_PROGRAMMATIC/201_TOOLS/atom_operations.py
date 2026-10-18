@@ -721,8 +721,9 @@ def require_current_atom(root: Path, atom: Atom) -> None:
             raise ToolError("atom-not-current", "a later Atom revision is already current")
 
 
-def move_atom_revision(root: Path, atom: Atom, relative_path: str, frontmatter: str, content: str) -> Atom:
-    """Atomically relocate one current carrier while retaining its identity."""
+def move_atom_revision(root: Path, atom: Atom, relative_path: str, frontmatter: str, content: str,
+                       *, expected_bundle: Mapping) -> Atom:
+    """Atomically relocate one current carrier bundle while retaining its identity."""
 
     root = root.resolve()
     target, normalized, atom_id = prepare_create_atom_revision(
@@ -732,14 +733,16 @@ def move_atom_revision(root: Path, atom: Atom, relative_path: str, frontmatter: 
         raise ToolError("atom-frontmatter-id-mismatch", "moved carrier must retain the current Atom ID")
     if target != atom.path and target.exists():
         raise ToolError("destination-collision", f"Atom destination already exists: {target.relative_to(root)}")
-    snapshots = {atom.path: atom.path.read_bytes(), target: None if target != atom.path else atom.path.read_bytes()}
-    try:
-        _atomic_write(target, render(normalized, content))
-        if target != atom.path:
-            atom.path.unlink()
-    except BaseException:
-        _restore(snapshots)
-        raise
+    source_directory, destination_directory = atom.path.with_suffix(""), target.with_suffix("")
+    if target != atom.path and (destination_directory.exists() or destination_directory.is_symlink()):
+        raise ToolError("destination-collision", "matching destination directory already exists")
+    if status_bundle_snapshot(root, atom) != expected_bundle:
+        raise ToolError("status-bundle-stale", "move carrier bundle changed after admission")
+    _atomic_write(target, render(normalized, content))
+    if "directory" in expected_bundle and target != atom.path:
+        source_directory.rename(destination_directory)
+    if target != atom.path:
+        atom.path.unlink()
     return atom_from_path(root, target)
 
 
@@ -755,13 +758,49 @@ def status_bundle_snapshot(root: Path, atom: Atom) -> dict[str, tuple[bytes, tup
         role, kind = frontmatter_scalar(atom.frontmatter, "content_role"), frontmatter_scalar(atom.frontmatter, "type")
         if role != "Plan" and (role != "Operations" or kind not in {"Workflow", "Step"}):
             raise ToolError("status-bundle-unsupported", "matching directory is not an admitted P/O container")
-        result["directory"] = (b"", _raw_revision_fingerprint(bundle.stat()))
-        for path in sorted(bundle.rglob("*")):
-            if path.is_symlink():
-                raise ToolError("status-bundle-unsafe", "matching directory contains a symlink")
-            key = "directory/" + path.relative_to(bundle).as_posix()
-            result[key] = (b"", _raw_revision_fingerprint(path.stat())) if path.is_dir() else read_raw_atom_revision(root, path)
+        try:
+            result.update(carrier_directory_snapshot(root, bundle))
+        except ToolError as error:
+            if error.code == "carrier-bundle-unsafe":
+                raise ToolError("status-bundle-unsafe", error.message) from error
+            raise
     return result
+
+
+def carrier_directory_snapshot(root: Path, bundle: Path) -> dict[str, tuple[bytes, tuple[int, ...]] | None]:
+    """Seal a carrier directory and its entries without following links."""
+    if bundle.is_symlink():
+        raise ToolError("carrier-bundle-unsafe", "matching directory must not be a symlink")
+    if not bundle.is_dir():
+        raise ToolError("carrier-bundle-unsafe", "matching carrier is not a directory")
+    result = {"directory": (b"", _raw_revision_fingerprint(bundle.stat()))}
+    for path in sorted(bundle.rglob("*")):
+        if path.is_symlink():
+            raise ToolError("carrier-bundle-unsafe", "matching directory contains a symlink")
+        key = "directory/" + path.relative_to(bundle).as_posix()
+        result[key] = (b"", _raw_revision_fingerprint(path.stat())) if path.is_dir() else read_raw_atom_revision(root, path)
+    return result
+
+
+def carrier_directory_snapshot_matches(
+    expected: Mapping[str, tuple[bytes, tuple[int, ...]] | None],
+    observed: Mapping[str, tuple[bytes, tuple[int, ...]] | None],
+    *, renamed: bool = False,
+) -> bool:
+    """Compare bundle bytes and fingerprints, allowing root ctime to change on rename."""
+    if expected.keys() != observed.keys():
+        return False
+    for key, prior in expected.items():
+        current = observed[key]
+        if prior is None or current is None:
+            if prior != current:
+                return False
+            continue
+        if prior[0] != current[0] or prior[1] != current[1]:
+            if (not renamed or key != "directory" or prior[0] != current[0]
+                    or prior[1][:4] != current[1][:4] or prior[1][5:] != current[1][5:]):
+                return False
+    return True
 
 
 def publish_status_atom_revision(root: Path, atom: Atom, relative_path: str, frontmatter: str,
