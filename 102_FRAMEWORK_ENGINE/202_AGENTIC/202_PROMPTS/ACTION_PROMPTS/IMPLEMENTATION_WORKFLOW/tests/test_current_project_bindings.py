@@ -1,6 +1,5 @@
 """Compatibility checks for the reviewed production source frontier."""
 import hashlib
-import importlib.util
 import json
 import re
 import shutil
@@ -9,24 +8,20 @@ import unittest
 from pathlib import Path
 
 
-HERE = Path(__file__).resolve().parents[1]
-ROOT = Path(__file__).resolve().parents[6]
+from frozen_inputs import FROZEN_BINDINGS, FROZEN_PROJECT_ROOT, load_actions as load_frozen_actions
 
 
 def load_actions():
-    spec = importlib.util.spec_from_file_location("implementation_actions", HERE / "implementation_actions.py")
-    actions = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(actions)
-    return actions
+    return load_frozen_actions()
 
 
 class CurrentProjectBindings(unittest.TestCase):
-    def test_reviewed_workflow_binding_matches_current_project(self):
-        manifest = json.loads((HERE / "source_bindings.json").read_text(encoding="utf-8"))["sources"]
+    def test_reviewed_workflow_binding_matches_frozen_project(self):
+        manifest = json.loads(FROZEN_BINDINGS.read_text(encoding="utf-8"))["sources"]
         expected = next(row for row in manifest if row["atom_id"] == "CA-O-016")
         sources = load_actions().current_source_bindings()
         workflow = next(row for row in sources if row["atom_id"] == "CA-O-016")
-        raw = (ROOT / expected["path"]).read_bytes()
+        raw = (FROZEN_PROJECT_ROOT / expected["path"]).read_bytes()
         version = re.search(rb"^version: ?[\"']?(\d+)", raw, re.M)
         self.assertIsNotNone(version)
         self.assertEqual(workflow, expected)
@@ -39,7 +34,7 @@ class CurrentProjectBindings(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             project = Path(directory) / "selected-project"
             for row in actions._reviewed_binding_rows():
-                source = ROOT / row["path"]
+                source = FROZEN_PROJECT_ROOT / row["path"]
                 target = project / row["path"]
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, target)

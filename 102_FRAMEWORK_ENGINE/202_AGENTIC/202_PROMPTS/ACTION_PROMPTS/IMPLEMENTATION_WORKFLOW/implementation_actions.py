@@ -9,12 +9,19 @@ import hashlib
 import json
 import math
 import re
+import sys
 from pathlib import Path
 from typing import Any, Callable, Mapping
 
 
 HERE = Path(__file__).parent
 ROOT = HERE.parents[4]
+TOOLS_ROOT = ROOT / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"
+MCP_ROOT = ROOT / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP"
+for _path in (TOOLS_ROOT, MCP_ROOT):
+    if str(_path) not in sys.path:
+        sys.path.insert(0, str(_path))
+from selected_definition_sources import CurrentDefinitionSources  # noqa: E402
 ACTION_BY_STEP = {
     "CA-O-091": ("CA-O-017", "Integrated"),
     "CA-O-092": ("CA-O-018", "Isolated"),
@@ -109,16 +116,46 @@ def _reviewed_binding_rows() -> list[dict[str, Any]]:
     return checked
 
 
+def _measured_binding(root: Path, row: Mapping[str, Any], path: str) -> dict[str, Any]:
+    raw = _read_bound_source(root, path)
+    version = re.search(r'^version: ?["\']?(\d+)', raw.decode("utf-8"), re.M)
+    if not version:
+        raise ValueError(f"stale reviewed source binding: {row['atom_id']}")
+    return {"atom_id": row["atom_id"], "version": int(version[1]), "path": path,
+            "sha256": hashlib.sha256(raw).hexdigest()}
+
+
 def current_source_bindings(selected_project_root: str | Path | None = None) -> list[dict[str, Any]]:
     """Read the reviewed prompt-authority frontier used by every invocation."""
     root = _trusted_project_root(selected_project_root)
     rows = _reviewed_binding_rows()
+    definition_sources: CurrentDefinitionSources | None = None
+    resolved_rows: list[dict[str, Any]] = []
     for row in rows:
-        raw = _read_bound_source(root, row["path"])
-        version = re.search(r'^version: ?["\']?(\d+)', raw.decode("utf-8"), re.M)
-        if not version or hashlib.sha256(raw).hexdigest() != row["sha256"] or int(version[1]) != row["version"]:
-            raise ValueError(f"stale reviewed source binding: {row['atom_id']}")
-    return rows
+        relative = _safe_source_path(row["path"])
+        candidate = root / relative
+        if candidate.exists() or candidate.is_symlink():
+            measured = _measured_binding(root, row, row["path"])
+            if measured != row:
+                raise ValueError(f"stale reviewed source binding: {row['atom_id']}")
+            resolved_rows.append(dict(row))
+            continue
+        if not row["atom_id"].startswith("CA-O-"):
+            raise ValueError(f"selected Project source is missing: {row['path']}")
+        if definition_sources is None:
+            definition_sources = CurrentDefinitionSources(root)
+        try:
+            observed = definition_sources.read(row["atom_id"], row["path"])
+        except (OSError, RuntimeError, ValueError) as error:
+            raise ValueError(f"selected Project source is missing: {row['path']}") from error
+        resolved_rows.append({"atom_id": observed["atom_id"], "version": observed["version"],
+                              "path": observed["source_path"], "sha256": observed["digest"]})
+    if definition_sources is not None:
+        try:
+            definition_sources.revalidate()
+        except (OSError, RuntimeError, ValueError) as error:
+            raise ValueError("current source identity inventory changed during admission") from error
+    return resolved_rows
 
 
 def prepare_input_bindings(atom_ids: list[str],

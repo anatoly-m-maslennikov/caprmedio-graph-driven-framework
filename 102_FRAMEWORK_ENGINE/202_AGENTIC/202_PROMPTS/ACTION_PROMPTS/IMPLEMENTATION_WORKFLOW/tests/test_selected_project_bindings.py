@@ -1,4 +1,5 @@
 """Selected-Project source admission checks for Implementation Workflow Actions."""
+import hashlib
 import shutil
 import tempfile
 import unittest
@@ -17,6 +18,33 @@ class SelectedProjectBindings(unittest.TestCase):
     def project_with_reviewed_sources(self, actions: object, directory: Path) -> Path:
         project = directory / "selected-project"
         for row in actions._reviewed_binding_rows():
+            source = FROZEN_PROJECT_ROOT / row["path"]
+            target = project / row["path"]
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target)
+        return project
+
+    def project_with_moved_operation_sources(self, actions: object, directory: Path) -> Path:
+        project = directory / "selected-project"
+        control = project / ".caprmedio_caprmedio"
+        control.mkdir(parents=True)
+        (control / "caprmedio_project_settings.toml").write_text(
+            '[project]\nname = "frozen fixture"\n[paths]\ncontrol_root = ".caprmedio_caprmedio"\n',
+            encoding="utf-8")
+        (control / "project_structure.toml").write_text(
+            'schema_version = 1\n[[scope_units]]\nscope_unit_name = "FIXTURE"\n'
+            'authority_path = ".caprmedio_caprmedio"\n'
+            'delivery_path = ".caprmedio_caprmedio/delivery"\n', encoding="utf-8")
+        operations = control / "09_operations"
+        for row in actions._reviewed_binding_rows():
+            if row["atom_id"].startswith("CA-O-"):
+                path = operations / f"{row['atom_id']}--moved.md"
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(
+                    f"---\natom_id: {row['atom_id']}\ncontent_role: Operations\n"
+                    f"type: Workflow\nstatus: Active\nversion: {row['version']}\n---\nMoved fixture\n",
+                    encoding="utf-8")
+                continue
             source = FROZEN_PROJECT_ROOT / row["path"]
             target = project / row["path"]
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -87,6 +115,35 @@ class SelectedProjectBindings(unittest.TestCase):
             self.assertNotEqual(project.resolve(), actions.ROOT.resolve())
             self.assertEqual(actual["result"], "implemented")
             self.assertEqual(launched, [packet])
+
+    def test_missing_reviewed_paths_follow_current_atom_ids_and_repin_measurements(self):
+        actions = load_actions()
+        with tempfile.TemporaryDirectory() as directory:
+            project = self.project_with_moved_operation_sources(actions, Path(directory))
+            sources = actions.current_source_bindings(project)
+            moved = [row for row in sources if row["atom_id"].startswith("CA-O-")]
+            self.assertEqual(len(moved), 1)
+            for row in moved:
+                self.assertTrue(row["path"].endswith(f"{row['atom_id']}--moved.md"))
+                raw = (project / row["path"]).read_bytes()
+                self.assertEqual(row["sha256"], hashlib.sha256(raw).hexdigest())
+
+    def test_present_stale_reviewed_path_does_not_fall_back_by_id(self):
+        actions = load_actions()
+        row = next(row for row in actions._reviewed_binding_rows() if row["atom_id"] == "CA-O-016")
+        invalid = {
+            "wrong identity": "---\natom_id: CA-O-999\nstatus: Active\nversion: 1\n---\n",
+            "malformed": "not an Atom carrier\n",
+            "inactive": "---\natom_id: CA-O-016\nstatus: Archived\nversion: 1\n---\n",
+        }
+        for label, content in invalid.items():
+            with self.subTest(label=label), tempfile.TemporaryDirectory() as directory:
+                project = self.project_with_moved_operation_sources(actions, Path(directory))
+                stale = project / row["path"]
+                stale.parent.mkdir(parents=True, exist_ok=True)
+                stale.write_text(content, encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, "stale reviewed source binding: CA-O-016"):
+                    actions.current_source_bindings(project)
 
     def test_performed_success_rejects_unbound_candidate_and_phase(self):
         actions = load_actions()

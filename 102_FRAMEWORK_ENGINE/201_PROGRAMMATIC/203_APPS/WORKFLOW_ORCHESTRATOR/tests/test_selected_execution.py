@@ -564,20 +564,20 @@ class SelectedExecutionTests(unittest.TestCase):
     def test_o016_selects_manifest_step_packets_and_carries_actual_prior_results(self) -> None:
         """Exercise all seven real prompt handlers through their injected Agent."""
         import implementation_actions
+        from frozen_selected_workflows import frozen_implementation_bindings, write_frozen_source
 
         fixture_root, _manifest = self._current_d547_fixture()
         selected, request = self.current_manifest_request(
             "run_implementation_workflow", "current-o016", root=fixture_root,
         )
-        sources = implementation_actions.current_source_bindings(REPOSITORY)
-        # The fixture executes against its disposable Project.  Preserve the
-        # exact current source pins there so prompt validation remains real
-        # while no handler can write into the source checkout.
+        # Use the checked-in frozen implementation corpus, whose paths match
+        # the reviewed binding hint used by this fixture.  This keeps the
+        # disposable Project self-contained without copying moved live bytes
+        # or manufacturing project configuration to force ID lookup.
+        sources = frozen_implementation_bindings()
         for binding in sources:
-            source = REPOSITORY / binding["path"]
-            destination = self.root / binding["path"]
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            destination.write_bytes(source.read_bytes())
+            write_frozen_source(self.root, binding["path"], binding["sha256"])
+        self.assertEqual(implementation_actions.current_source_bindings(self.root), sources)
         execution = request["execution"]
         assert isinstance(execution, dict)
         execution["request_id"] = "current-o016"
@@ -600,7 +600,7 @@ class SelectedExecutionTests(unittest.TestCase):
         }
         method_paths = [row["path"] for row in sources
                         if row["atom_id"].startswith("CA-M-")]
-        projection = implementation_actions.prepare_method_projection(method_paths, REPOSITORY)
+        projection = implementation_actions.prepare_method_projection(method_paths, self.root)
         workspace = self.root / "implementation-workspace"
         workspace.mkdir()
         workspace = workspace.resolve()
@@ -664,9 +664,9 @@ class SelectedExecutionTests(unittest.TestCase):
                          "task_ref": execution["workflow_run_id"],
                          "epic_ref": execution["definition_manifest"]["manifest_ref"]}},
             "workspace": str(workspace), "method_projection": projection,
-            "requirements": implementation_actions.prepare_input_bindings(["CA-R-1843"], REPOSITORY),
-            "delivery": implementation_actions.prepare_input_bindings(["CA-D-544"], REPOSITORY),
-            "evaluations": implementation_actions.prepare_input_bindings(["CA-E-563"], REPOSITORY),
+            "requirements": implementation_actions.prepare_input_bindings(["CA-R-1843"], self.root),
+            "delivery": implementation_actions.prepare_input_bindings(["CA-D-544"], self.root),
+            "evaluations": implementation_actions.prepare_input_bindings(["CA-E-563"], self.root),
             "red": {"expectation": "fixture assertion passes", "fixtures": ["fixture.py"],
                     "commands": ["test"], "scope": "selected implementation item"},
             "plan_item": {"plan_id": "current-o016-plan", "item_id": "current-o016-item",
