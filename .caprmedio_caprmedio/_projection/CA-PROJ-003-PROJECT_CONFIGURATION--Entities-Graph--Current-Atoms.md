@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-18 07:50:49 +0400
+updated_at: 2026-10-18 16:28:16 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2
@@ -54,21 +54,40 @@ sources:
 - CA-M-278@12
 - CA-M-300@5
 - CA-M-345@1
+- CA-O-004@8
+- CA-O-005@11
+- CA-O-006@9
+- CA-O-007@9
+- CA-O-008@15
+- CA-O-009@8
+- CA-O-012@8
+- CA-O-013@7
+- CA-O-014@7
+- CA-O-015@11
+- CA-O-017@9
+- CA-O-018@9
+- CA-O-019@7
+- CA-O-020@8
+- CA-O-021@12
 - CA-O-022@10
 - CA-O-023@9
+- CA-O-024@14
 - CA-O-025@6
 - CA-O-026@5
 - CA-O-027@5
+- CA-O-051@10
 - CA-O-052@7
 - CA-O-053@8
 - CA-O-054@8
 - CA-O-058@9
 - CA-O-062@6
 - CA-O-065@7
+- CA-O-067@10
 - CA-O-077@8
 - CA-O-078@6
 - CA-O-079@7
 - CA-O-087@9
+- CA-O-089@6
 - CA-O-090@7
 - CA-O-100@6
 - CA-O-103@5
@@ -83,6 +102,27 @@ sources:
 - CA-O-124@3
 - CA-O-125@4
 - CA-O-126@4
+- CA-O-127@13
+- CA-O-128@13
+- CA-O-129@11
+- CA-O-130@4
+- CA-O-131@4
+- CA-O-132@4
+- CA-O-133@5
+- CA-O-134@5
+- CA-O-135@4
+- CA-O-136@5
+- CA-O-137@5
+- CA-O-138@4
+- CA-O-139@5
+- CA-O-140@5
+- CA-O-141@5
+- CA-O-142@5
+- CA-O-143@5
+- CA-O-144@5
+- CA-O-145@5
+- CA-O-158@6
+- CA-O-162@5
 - CA-O-180@3
 - CA-R-1213@20
 - CA-R-1222@10
@@ -179,6 +219,7 @@ This is a derived Projection, not independent model authority.
 AI Agent
 Action
 Admit Methodology Expansion Mapping
+Agentic Step Execution Context
 Analysis Report
 Applicable Methodology
 	/ Applicable Methodology/Sources
@@ -191,13 +232,18 @@ Applicable Methodology Membership Selection
 Applicable Methodology Source Frontier Digest
 Applicable Methodology Source Set
 Apply Approved Source Corrections
+Apply Structural Change
+Approved Change Reversal
+Approved Change Reversal Step
 Artifact
 	/ Artifact/Carrier
 	/ Artifact/Carrier Placement
 	/ Artifact/Revision
 		/ Artifact/Revision/Status
 	/ Artifact/Type
+Artifact Archive Carrier Basename
 Artifact Carrier
+Assess Atom Update Identity
 Assess Lineage Impact
 Assess Prepared Result Conformance
 Assess Release Readiness
@@ -233,13 +279,18 @@ Atom
 		/ Atom/Scope/Filename Token
 	/ Atom/Summary
 	/ Atom/Type
+Atom Carrier
 Atom Carrier Validation
+Atom Change Classification
 Atom Collection
 	/ Atom Collection/Type: Epic
 Atom Content Authoring
 Author
 Authority Mode
+Authorize Structural Change
 Autonomous Confidence Threshold
+Build Entities Graph
+Build Terms Graph
 CAPRMEDIO
 	/ CAPRMEDIO/Applicable Methodology
 		/ CAPRMEDIO/Applicable Methodology/Methodology Source Carrier
@@ -268,15 +319,20 @@ Carrier
 	/ Carrier/Format
 Check Atoms
 Confidence Threshold
+Construct Entities Graph Projection
+Construct Terms Graph Projection
 Core Meta-Model
 Corrective Method Acceptance
 DEPENDS_ON
 Default Settings
+Definition Atom
 Delivery
+Dependency Order Derivation
 Development Backlog
 Development Backlog Splitting
 Directory Carrier
 Docker Image
+Entities Graph Construction Step
 Entity
 	/ Entity/Carrier
 		/ Entity/Carrier/Directory Carrier
@@ -299,6 +355,8 @@ Entity
 					/ Entity/Continuant/Node/Atom/Content Role: Evaluation/Type
 				/ Entity/Continuant/Node/Atom/Content Role: Operations
 					/ Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action
+					/ Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step
+					/ Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow
 				/ Entity/Continuant/Node/Atom/Content Role: Plan
 			/ Entity/Continuant/Node/History
 				/ Entity/Continuant/Node/History/Journal
@@ -323,15 +381,23 @@ Entity
 			/ Entity/Continuant/Object/Scope Unit
 		/ Entity/Continuant/Projection
 			/ Entity/Continuant/Projection/Type: Applicable Methodology
+			/ Entity/Continuant/Projection/Type: Entities Graph
 			/ Entity/Continuant/Projection/Type: Reconciled Projection
+			/ Entity/Continuant/Projection/Type: Terms Graph
 		/ Entity/Continuant/Relation
 			/ Entity/Continuant/Relation/Type: DERIVED_FROM
+			/ Entity/Continuant/Relation/Type: On Result
+		/ Entity/Continuant/Term
 	/ Entity/Occurrent
+		/ Entity/Occurrent/Event
 		/ Entity/Occurrent/Execution
+			/ Entity/Occurrent/Execution/Action Run
+			/ Entity/Occurrent/Execution/Step Run
 			/ Entity/Occurrent/Execution/Workflow Run
 Evaluation
 Evaluation Control
 Evaluation For Relation
+Evaluation Implementation
 Evaluator Evidence Calibration
 Evidence
 Execution context retrieval
@@ -341,15 +407,20 @@ Execution observation
 Extension
 Extension Packaging
 FPF
+Find and Fetch Artifacts
 Framework Instance Settings
 Framework Package
 GOVERNS
 Generated Data Stage Prefix
 Global Tier
 Governance Origin
+Governed Term
 Implementation
 Implementation Evaluation
+Implementation Failure Diagnosis
 Implementation Folder
+Implementation Preparation
+Implementation Repair
 Implementation Retry Control
 Implementation Retry Limit
 Implementation Workflow
@@ -358,10 +429,12 @@ Initialize first Framework runtime and project-local ca Skill
 Journal
 	/ Journal/Carrier
 	/ Journal/Record
+Journal Event query
 Legacy Evidence and Provisional RMED Preparation
 Lineage Impact Analysis
 Local Tier
 Logging Policy
+Markdown
 Markdown Atom Carrier
 Method Lesson Drafting
 Methodology
@@ -370,7 +443,9 @@ Migrate Atom CCE Representation
 Obtain Source Correction Decision
 Operator
 Owned Atoms
+Persist Atom Replacement
 Pre-runtime-resolved Relation Derivation
+Prepare Structural Change
 Project
 Project Configuration
 	/ Project Configuration/CAPRMEDIO-Specific Authority
@@ -380,12 +455,20 @@ Project Scope Unit Graph Projection
 Project Settings
 Project Structure
 Project Structure Maintenance
+Project Structure Maintenance Application Step
+Project Structure Maintenance Authorization Step
+Project Structure Maintenance Candidate Assessment Step
+Project Structure Maintenance Preparation Step
+Project Structure Maintenance Result Assessment Step
+Project Structure Maintenance Selection Step
 Project-Owned Markdown Atom Carrier
 	/ Project-Owned Markdown Atom Carrier/Filename
 Projection
 	/ Projection/Type: Catalog
 	/ Projection/Type: Reconciled Projection
+Property
 Propose Source Corrections
+Publish Reconciled Projection
 RMEDO Conflict Resolution
 Realization Graph
 Reconcile Atom Properties and Addresses
@@ -395,12 +478,15 @@ Refresh Required Release Projections
 Relation
 	/ Relation/Type: On Result
 Relation Derivation Class
+Relation Kind
 Release Readiness
 Release Workflow
 	/ Release Workflow/Gate admission
+Requirement Implementation
 Resolve Operator Priorities
 Resolve Project Initialization Inputs
 Retire Legacy Structural Projections
+Revert Changes Workflow
 Runtime
 Runtime-observed Relation Derivation
 Scope
@@ -415,11 +501,13 @@ Skill
 Source-declared Relation Derivation
 Spec
 Spec Content Roles
+Status
 Step
 Step Run
 Structural Entity
 Subtree-owned Atoms
 Summary
+Terms Graph Construction Step
 Tool
 Tool discovery
 Version

@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-18 07:50:48 +0400
+updated_at: 2026-10-18 16:28:15 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -354,31 +354,12 @@ sources:
 - CA-M-314@6
 - CA-M-315@6
 - CA-M-385@4
-- CA-O-004@7
-- CA-O-005@10
-- CA-O-006@8
-- CA-O-007@8
-- CA-O-008@14
-- CA-O-009@7
 - CA-O-010@11
 - CA-O-011@14
-- CA-O-012@7
-- CA-O-013@6
-- CA-O-014@6
-- CA-O-015@10
 - CA-O-016@13
-- CA-O-017@8
-- CA-O-018@8
-- CA-O-019@6
-- CA-O-020@7
-- CA-O-021@11
-- CA-O-024@13
 - CA-O-028@10
-- CA-O-051@9
-- CA-O-067@9
 - CA-O-080@7
 - CA-O-088@6
-- CA-O-089@5
 - CA-O-091@7
 - CA-O-092@6
 - CA-O-093@6
@@ -400,25 +381,6 @@ sources:
 - CA-O-119@4
 - CA-O-120@4
 - CA-O-121@4
-- CA-O-127@12
-- CA-O-128@12
-- CA-O-129@10
-- CA-O-130@3
-- CA-O-131@3
-- CA-O-132@3
-- CA-O-133@4
-- CA-O-134@4
-- CA-O-135@3
-- CA-O-136@4
-- CA-O-137@4
-- CA-O-138@3
-- CA-O-139@4
-- CA-O-140@4
-- CA-O-141@4
-- CA-O-142@4
-- CA-O-143@4
-- CA-O-144@4
-- CA-O-145@4
 - CA-O-146@5
 - CA-O-147@5
 - CA-O-148@5
@@ -431,11 +393,9 @@ sources:
 - CA-O-155@5
 - CA-O-156@5
 - CA-O-157@5
-- CA-O-158@5
 - CA-O-159@3
 - CA-O-160@3
 - CA-O-161@4
-- CA-O-162@4
 - CA-O-163@6
 - CA-R-1014@20
 - CA-R-1016@15
@@ -1023,10 +983,8 @@ Applicable Methodology Revision
 Applicable Methodology Source Frontier Digest
 Applicable Methodology Source Set
 Apply Approved Source Corrections
-Apply Structural Change
 Approved Change Reversal
 	/ Approved Change Reversal/Outcomes
-Approved Change Reversal Step
 Artifact
 	/ Artifact/Activity
 	/ Artifact/Applicability
@@ -1038,7 +996,6 @@ Artifact
 		/ Artifact/Revision/Status: Archived
 		/ Artifact/Revision/Version
 	/ Artifact/Type
-Artifact Archive Carrier Basename
 Artifact Carrier
 Artifact Carrier Placement
 Artifact Classification Resolution
@@ -1111,11 +1068,8 @@ Atom selection
 Author
 Authority
 Authority Mode
-Authorize Structural Change
 Autonomous Confidence Threshold
 BEARS
-Build Entities Graph
-Build Terms Graph
 CAPRMEDIO Expansion
 CAPRMEDIO Framework Instance
 CAPRMEDIO Graph
@@ -1152,8 +1106,6 @@ Concern About Relation
 Condition Expression
 Confidence Threshold
 Configuration Selection and Precedence
-Construct Entities Graph Projection
-Construct Terms Graph Projection
 Consumer
 Consumer Goal
 Container Atom
@@ -1175,7 +1127,6 @@ Dependency Relation Pair
 Dependent Entity
 Dependent Entity Occurrence
 Directory Carrier Nesting
-Entities Graph Construction Step
 Entity
 	/ Entity/Carrier
 		/ Entity/Carrier/Database Carrier
@@ -1296,7 +1247,6 @@ Entity Taxonomy
 Evaluate RMED Review Batch
 Evaluation CCE Role Profile
 Evaluation For Relation
-Evaluation Implementation
 Evaluation Implementation Step
 Evaluation Report
 Evidence
@@ -1308,7 +1258,6 @@ Extension Installation
 External Project Goal File Carrier
 External Project Goal Reference
 Feature Realization Relation
-Find and Fetch Artifacts
 Find and Fetch Journal Events
 Find and Fetch Journal Events Query Step
 Framework Instance Settings
@@ -1335,17 +1284,13 @@ IS_BORNE_BY
 IS_CARRIED_BY
 Implementation
 Implementation Binding
-Implementation Evaluation
 Implementation Evaluation Step
-Implementation Failure Diagnosis
 Implementation Failure Diagnosis Step
 Implementation Folder
 Implementation Of Relation
-Implementation Preparation
 Implementation Preparation Step
 Implementation Relation
 Implementation Relation Pair
-Implementation Repair
 Implementation Repair Step
 Implementation Retry Control
 Implementation Retry Control Step
@@ -1353,13 +1298,11 @@ Implementation Retry Limit
 Implementation Workflow
 	/ Implementation Workflow/Carrier
 Installed Extensions Catalog Entry
-Journal Event query
 Label
 Lifecycle Tool authority
 	/ Lifecycle Tool authority/Scope Unit
 Lineage Impact Analysis
 Lineage Impact Analysis Content
-Local Tier
 Markdown
 Markdown Atom Carrier
 Materialized Representation
@@ -1378,13 +1321,11 @@ Normative Authority Relation Pair
 Obtain Source Correction Decision
 Operations Type-specific CCE Profiles
 Owned Atoms
-Persist Atom Replacement
 Plan Atom Carrier
 Plan Backlog
 Plan Blocking Relations
 Plan CCE Role Profile
 Plan Graph
-Prepare Structural Change
 Previous Unit
 Primary Entity
 Producer
@@ -1400,12 +1341,6 @@ Project Settings
 	/ Project Settings/Revision Binding
 Project Structure Maintenance
 	/ Project Structure Maintenance/Step bindings
-Project Structure Maintenance Application Step
-Project Structure Maintenance Authorization Step
-Project Structure Maintenance Candidate Assessment Step
-Project Structure Maintenance Preparation Step
-Project Structure Maintenance Result Assessment Step
-Project Structure Maintenance Selection Step
 Projection
 	/ Projection/Type
 Projection Carrier Root
@@ -1434,10 +1369,8 @@ Relational Atom
 Repair RMED Review Batch
 Replacement-Required Lineage Impact Disposition
 Requirement CCE Role Profile
-Requirement Implementation
 Requirement Implementation Step
 Resolve Operator Priorities
-Revert Changes Workflow
 Root Term
 Runtime State
 Scope
@@ -1498,7 +1431,6 @@ Target Set
 Targeting Atoms
 Term
 Terminology Projection Derivation
-Terms Graph Construction Step
 Tool
 	/ Tool/Workflow Operations
 		/ Tool/Workflow Operations/Atom Lifecycle

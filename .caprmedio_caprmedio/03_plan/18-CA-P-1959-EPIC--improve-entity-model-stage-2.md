@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 94
-updated_at: "2026-10-18 07:51:57 +0400"
+version: 95
+updated_at: "2026-10-18 16:30:17 +0400"
 relations: {}
 ---
 # Summary
@@ -60,6 +60,16 @@ The existing Core and Project Configuration Entities projections were rebuilt fr
 Focused Move/lifecycle/routing checks passed (13, 39 and 43 tests respectively). The diagnostic full suite reported 397/398 passing modules, 3,521 counted tests and zero skips; one Docker integration module timed out at 1,800 seconds. Every case of that module passed isolated retests: all 13 supported Workflow native effects, all 27 creation/status cases and the remaining three status methods. This is not a claim that one complete full-suite run passed.
 
 Phase 2 remains unchecked and this Epic remains Active. The original 42 selected path-bound definitions, container bundles (seven parents and 29 children), older classification holds and the additional held cases above remain unchanged; these ledgers are not assumed additive. No Phase 3 retyping, Phase 4 additions, Phase 5 retirement or ordinary content migration is claimed. Child statuses do not cascade.
+
+#### Phase 2 stable-ID continuation — 2026-10-18
+
+Stable-ID lookup replaced the selected Operations' fixed source paths. Local release `local-20261018-stable-operation-lookup-007` completed: all 400 test modules passed, 3,555 tests ran with zero skips, launcher integration passed, and the updated MCP was started on port `56317`. Receipt: `.caprmedio_runtime/simple_local_release/reports/local-20261018-stable-operation-lookup-007.md`.
+
+The next selected batch completed 40 independent native moves through the existing MCP lifecycle route, with 120 completed terminal Run receipts. Exact source histories and unchanged bodies were retained. The recorded batch is `.caprmedio_tmp/atom-move-20261018/phase2/stable-id-execution-40/run-001/progress.json`; its request namespace is `stable-id-40-20261018`. CA-O-159 and CA-O-160 remain unchanged as explicitly instructed: their heading/content issue is deferred, not silently repaired.
+
+The Core and Project Configuration Entities projections were rebuilt from current source Atoms after this batch: 945 Core sources and 194 Project sources. Established projection IDs and source selections remain unchanged; unmapped Subjects are not hidden. Receipt: `.caprmedio_tmp/atom-move-20261018/graph/report.json`.
+
+Phase 2 is still unchecked and the Epic remains Active. Remaining work is tracked as separate groups: the two heading holds above; seven separate RMED-review binding holds; 36 container-bundle Atoms (seven parents and 29 children); and 71 classification holds. These groups are not assumed additive without their ledger. This checkpoint does not perform the later retyping, missing-definition work, remainder retirement or ordinary content migration. Earlier checkpoints remain historical records; child statuses do not cascade.
 
 #### Phase 3 — classify and retype source R Atoms
 
