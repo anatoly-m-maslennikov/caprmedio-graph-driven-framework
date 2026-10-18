@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from copy import deepcopy
-import json
 import sys
 import tempfile
 import unittest
@@ -26,9 +25,6 @@ from validate_atoms_workers.graph_authority_refresh import (  # noqa: E402
     refresh_entries,
     verify_entries,
 )
-
-
-GRAPH_AUTHORITY = TOOL / "validate_atoms_workers" / "graph_authority.json"
 
 
 class GraphAuthorityRefreshTests(unittest.TestCase):
@@ -85,12 +81,22 @@ class GraphAuthorityRefreshTests(unittest.TestCase):
                 _source_roots(root)
 
     def test_stale_pin_is_refused(self) -> None:
-        entries = json.loads(GRAPH_AUTHORITY.read_text(encoding="utf-8"))["sources"]
-        entries = refresh_entries(PROJECT, entries)
-        entries["CA-D-268"]["sha256"] = "0" * 64
+        root = Path("synthetic-project").resolve()
+        entries = self._entries()
+        with (
+            patch(
+                "validate_atoms_workers.graph_authority_refresh._active_source",
+                side_effect=lambda _root, atom_id: (
+                    root / "source" / f"{atom_id}.md", {"version": 2}
+                ),
+            ),
+            patch.object(Path, "read_bytes", return_value=b"synthetic source"),
+        ):
+            entries = refresh_entries(root, entries)
+            entries["CA-D-268"]["sha256"] = "0" * 64
 
-        with self.assertRaisesRegex(ValueError, "graph authority source is stale: CA-D-268"):
-            verify_entries(PROJECT, entries)
+            with self.assertRaisesRegex(ValueError, "graph authority source is stale: CA-D-268"):
+                verify_entries(root, entries)
 
     def test_refresh_preserves_input_and_unapproved_entries(self) -> None:
         root = Path("synthetic-project").resolve()
