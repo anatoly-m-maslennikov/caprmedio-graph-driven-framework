@@ -64,7 +64,11 @@ def _domain_check(metadata: Record, body: str, check: Check) -> None:
     if len(parts) == 3 and str(metadata.get("content_role", "")).lower() != parts[2]:
         check.applicable = False
         return
-    if field == "local_tier" and metadata.get("type") == "Goal":
+    if (
+        field == "local_tier"
+        and metadata.get("type") == "Goal"
+        and metadata.get("claim_target_scope_unit") == "PROJECT"
+    ):
         check.gap(field, "Project Goal admission is required to resolve Local Tier applicability.")
         return
     if (

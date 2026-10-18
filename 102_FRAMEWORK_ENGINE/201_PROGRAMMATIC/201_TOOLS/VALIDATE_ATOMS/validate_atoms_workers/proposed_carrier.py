@@ -349,7 +349,28 @@ def validate_proposed_carrier(
             raise ProposedCarrierError("carrier role is outside the explicit reference scope")
         reference_mapping = {key: value for key, value in mapping.items() if key in reference_roles}
     control = verified_source_context._selection.control_relative
-    result = validate_carrier(metadata, body, context, verified_source_context.inputs)
+    carrier_inputs = verified_source_context.inputs
+    if (role, metadata.get("type")) == ("Requirement", "Goal"):
+        report: Record = {"bindings": {}, "coverage": {"gaps": []}}
+        try:
+            with bind_selection(verified_source_context._selection):
+                goal_sources = [
+                    _source(verified_source_context.root, identifier, verified_source_context._reader, report)
+                    for identifier in ("CA-R-924", "CA-R-925", "CA-R-926", "CA-R-947", "CA-R-1392",
+                                       "CA-R-1389", "CA-R-1390", "CA-R-1391")
+                ]
+        except ProposedCarrierError:
+            raise
+        carrier_inputs = dict(verified_source_context.inputs)
+        carrier_inputs["sources"] = [
+            *verified_source_context.inputs["sources"],
+            *[
+                source for source in goal_sources
+                if source["binding"]["atom_id"]
+                not in {item["binding"]["atom_id"] for item in verified_source_context.inputs["sources"]}
+            ],
+        ]
+    result = validate_carrier(metadata, body, context, carrier_inputs)
     if result["findings"] or result["gaps"] or any(item["outcome"] != "passed" for item in result["outcomes"]):
         raise ProposedCarrierError("complete-carrier validation failed or is unresolved")
     if reference_roles is not None:

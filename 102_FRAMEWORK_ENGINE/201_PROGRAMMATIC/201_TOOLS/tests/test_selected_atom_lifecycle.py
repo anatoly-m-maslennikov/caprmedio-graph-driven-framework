@@ -20,10 +20,11 @@ import sys
 TOOLS = Path(__file__).resolve().parents[1]
 REPOSITORY = TOOLS.parents[2]
 APP_TESTS = TOOLS.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"
+_VALIDATE_WORKERS = TOOLS / "VALIDATE_ATOMS" / "validate_atoms_workers"
+_VALIDATE_TESTS = _VALIDATE_WORKERS.parent / "tests"
 sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(APP_TESTS))
-
-_VALIDATE_WORKERS = TOOLS / "VALIDATE_ATOMS" / "validate_atoms_workers"
+sys.path.insert(0, str(_VALIDATE_TESTS))
 _FIXTURE_SCOPE = "LIFECYCLE_FIXTURE"
 _FIXTURE_RELATIVE_PATH = "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/LIFECYCLE_FIXTURE"
 _FIXTURE_AUTHORITY_PATH = f".caprmedio_caprmedio/{_FIXTURE_RELATIVE_PATH}"
@@ -35,6 +36,8 @@ from frozen_selected_workflows import (  # noqa: E402
     frozen_source_bytes,
     frozen_source_root,
 )
+from golden_authority import frozen_authority_fixture_bytes  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers.support_authority import support_sources  # noqa: E402
 
 REQUIREMENT_STATUS_AUTHORITY = (
     REPOSITORY
@@ -98,6 +101,13 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             / "04_requirement"
         )
         self.requirements.mkdir(parents=True)
+        self.goal_requirements = (
+            self.root
+            / ".caprmedio_caprmedio"
+            / "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC"
+            / "04_requirement"
+        )
+        self.goal_requirements.mkdir(parents=True)
         (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
             "[project]\nkey = \"lifecycle-fixture\"\nname = \"lifecycle-fixture\"\n"
             "repository_slug = \"lifecycle-fixture\"\n"
@@ -106,11 +116,26 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             "[artifact_timestamps]\ntimezone = \"UTC\"\n", encoding="utf-8"
         )
         self._copy_complete_carrier_authority()
+        self._copy_frozen_goal_admission_authority()
+        self._copy_type_recovery_authority()
         for atom_id in ("CA-R-1309", "CA-R-1399", "CA-R-1875", "CA-R-1432", "CA-R-1464"):
             self._copy_frozen_atom(atom_id)
         self.target = self._atom("CA-R-100", "target", "Stable summary")
         self.successor_one = self._atom("CA-R-101", "first-successor", "First successor")
         self.successor_two = self._atom("CA-R-102", "second-successor", "Second successor")
+
+    def _copy_type_recovery_authority(self) -> None:
+        for atom_id, relative, name in (
+            ("CA-R-1766", "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement", "type-identity"),
+            ("CA-D-531", "102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/07_delivery", "lifecycle-dispatch"),
+        ):
+            path = self.root / ".caprmedio_caprmedio" / relative / f"{atom_id}--{name}.md"
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(
+                f"---\natom_id: {atom_id}\ncontent_role: {'Requirement' if atom_id == 'CA-R-1766' else 'Delivery'}\n"
+                "status: Active\nversion: 1\nrelations: {}\n---\n# Summary\n\nFixture authority\n",
+                encoding="utf-8",
+            )
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
@@ -171,6 +196,11 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             'structural_level = 2\nnavigational_order_number = 1\n'
             'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC"\n'
             'delivery_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC"\n\n'
+            '[[scope_units]]\nscope_unit_name = "MCP"\n'
+            'parent = "PROGRAMMATIC"\nscope_unit_type = "Unordered"\nscope_unit_label = "FEATURE"\n'
+            'structural_level = 3\nnavigational_order_number = 3\n'
+            'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP"\n'
+            'delivery_path = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP"\n\n'
             '[[scope_units]]\nscope_unit_name = "TOOLS"\n'
             'parent = "PROGRAMMATIC"\nscope_unit_type = "Unordered"\nscope_unit_label = "TOOL"\n'
             'structural_level = 3\nnavigational_order_number = 1\n'
@@ -183,6 +213,20 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             f'delivery_path = "{_FIXTURE_AUTHORITY_PATH}"\n',
             encoding="utf-8",
         )
+
+    def _copy_frozen_goal_admission_authority(self) -> None:
+        """Materialize the finite checked Goal-admission closure at its pinned locators."""
+        for atom_id in ("CA-R-924", "CA-R-925", "CA-R-926", "CA-R-947", "CA-R-1392",
+                        "CA-R-1389", "CA-R-1390", "CA-R-1391"):
+            entry = support_sources()[atom_id]
+            source_path, digest = entry["source_path"], entry["sha256"]
+            self.assertIsInstance(source_path, str)
+            self.assertIsInstance(digest, str)
+            payload = frozen_authority_fixture_bytes(atom_id)
+            self.assertEqual(digest, hashlib.sha256(payload).hexdigest())
+            destination = self.root / source_path
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(payload)
 
     def _copy_frozen_atom(self, atom_id: str) -> Path:
         source = self.frozen_by_id[atom_id]
@@ -470,7 +514,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(applied["assessment"], assessment)
 
     def _semantic_assessment_report(self, proposed: dict[str, str], *, change_class: str = "semantic_revision",
-                                    target_descriptor: dict[str, object] | None = None) -> dict[str, str]:
+                                    target_descriptor: dict[str, object] | None = None,
+                                    carrier_recovery: bool = False) -> dict[str, str]:
         authority_root = SEMANTIC_ASSESSMENT_AUTHORITIES[0].parent
         def pin(path: Path) -> dict[str, str]:
             return {"path": path.relative_to(self.root).as_posix(), "digest": hashlib.sha256(path.read_bytes()).hexdigest()}
@@ -484,10 +529,13 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                          "content_digest": hashlib.sha256(proposed["content"].encode()).hexdigest()},
             "authorityPins": {"r1432": pin(self.root / authority_root.relative_to(REPOSITORY) / SEMANTIC_ASSESSMENT_AUTHORITIES[1].name),
                               "r1464": pin(self.root / authority_root.relative_to(REPOSITORY) / SEMANTIC_ASSESSMENT_AUTHORITIES[2].name)},
-            "admittedChangeClass": change_class,
+            "admittedChangeClass": "carrier_only" if carrier_recovery else change_class,
             "primaryClaimIdentityPreserved": True,
             "declaredDelta": "Clarify the same fixture Claim's acceptance detail.",
-            "lineageEvidencePins": [pin(self.target)],
+            "lineageEvidencePins": [pin(self.root / str(target["path"]))] + ([
+                pin(self.root / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1766--type-identity.md"),
+                pin(self.root / ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/07_delivery/CA-D-531--lifecycle-dispatch.md"),
+            ] if carrier_recovery else []),
         }
         report.write_text(
             "---\natom_id: CA-A-400\ncontent_role: Analysis\ntype: Analysis Report\nstatus: Done\nversion: 1\n"
@@ -807,6 +855,226 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual("applied", result["outcome"])
         self.assertEqual(parameters["target"]["version"] + 1, result["observed"]["version"])
         self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
+
+    def _goal_type_recovery_parameters(
+        self,
+        atom_id: str,
+        *,
+        legacy: bool,
+        claim_scope: str = "MCP",
+        source_status: str | None = None,
+        ambiguous_filename: bool = False,
+        remove_unretired_metadata: bool = False,
+        stale_projection: bool = False,
+        missing_author: bool = False,
+        missing_tier: bool = False,
+        proposed_author: str = "Anatoly Maslennikov",
+        proposed_tier: tuple[str, int] = ("Standard", 8),
+    ) -> tuple[dict[str, object], bytes, Path]:
+        """Create one frozen current or R1188-style legacy Goal carrier."""
+        filename = f"{atom_id}-DEFINES_GOAL_FOR-{claim_scope}--goal"
+        if ambiguous_filename:
+            filename += f"-DEFINES_GOAL_FOR-{claim_scope}--duplicate"
+        path = self.goal_requirements / f"{filename}.md"
+        source_lines = [
+            "content_role: Requirement",
+            "current_scope_unit: PROGRAMMATIC" if not legacy else "",
+            f"claim_target_scope_unit: {claim_scope}" if not legacy else "",
+            "local_tier: Standard" if not (legacy and missing_tier) else "",
+            "global_tier: 8" if not (legacy and missing_tier) else "",
+            "author: Anatoly Maslennikov" if not (legacy and missing_author) else "",
+            f"status: {source_status or 'Active'}" if (not legacy or source_status is not None) else "",
+            "version: 1",
+            'updated_at: "2026-01-01 00:00:00 +0000"',
+            "subjects:",
+            f"  governs: {claim_scope}/Goal",
+            "  depends_on: []",
+            "relations: {}",
+        ]
+        if not legacy:
+            source_lines.insert(0, f"atom_id: {atom_id}")
+        else:
+            source_lines.extend(("cce_version: 9", "cce_form: legacy", "llm_session_ids: [retired]"))
+            if remove_unretired_metadata:
+                source_lines.append("cce_untrusted: must-remain")
+        source_frontmatter = "\n".join(line for line in source_lines if line)
+        source_content = (
+            "# Summary\n\nFrozen goal summary\n\n## Scope\n\nMCP.\n\n## Claim\n\nFrozen Goal claim.\n\n## Details\n\n"
+            "Frozen goal details.\n"
+            if not legacy else "# Frozen goal summary\n\nFrozen Goal claim.\n"
+        )
+        original = f"---\n{source_frontmatter}\n---\n{source_content}"
+        path.write_text(original, encoding="utf-8")
+
+        if legacy:
+            for args in (
+                ("init",),
+                ("add", "--", path.relative_to(self.root).as_posix()),
+                ("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+                 "-c", "commit.gpgSign=false", "-c", "core.hooksPath=/dev/null", "commit", "-m", "legacy Goal"),
+            ):
+                subprocess.run(["git", "-C", str(self.root), *args], capture_output=True, check=True)
+            commit = subprocess.run(["git", "-C", str(self.root), "rev-parse", "HEAD"], capture_output=True,
+                                    check=True, text=True).stdout.strip()
+            atom = Atom(path, path.relative_to(self.root).as_posix(), path.name, atom_id,
+                        "active", "04_requirement", source_frontmatter, source_content)
+            target = carrier_descriptor(self.root, atom)
+            proposal_frontmatter = "\n".join(
+                line for line in source_frontmatter.splitlines()
+                if not line.startswith(("cce_version:", "cce_form:", "llm_session_ids:"))
+                and (not remove_unretired_metadata or not line.startswith("cce_untrusted:"))
+            )
+            additions = [
+                f"atom_id: {atom_id}",
+                "current_scope_unit: PROGRAMMATIC",
+                f"claim_target_scope_unit: {claim_scope}",
+            ]
+            if missing_tier:
+                additions.extend((f"local_tier: {proposed_tier[0]}", f"global_tier: {proposed_tier[1]}"))
+            if missing_author:
+                additions.append(f"author: {proposed_author}")
+            additions.extend(("status: Active", "type: Goal"))
+            proposal_frontmatter += "\n" + "\n".join(additions)
+            proof: dict[str, object] = {
+                "atom_id": atom_id, "commit": commit, "path": atom.relative, "digest": target["digest"],
+            }
+        else:
+            target = carrier_descriptor(self.root, atom_id)
+            proposal_frontmatter = source_frontmatter + "\ntype: Goal"
+            proof = {}
+
+        proposal = {
+            "frontmatter": proposal_frontmatter,
+            "content": (
+                "# Summary\n\nFrozen goal summary\n\n## Scope\n\nMCP.\n\n## Claim\n\nFrozen Goal claim.\n\n## Details\n\n"
+                if legacy else source_content
+            ),
+        }
+        parameters: dict[str, object] = {
+            "target": target,
+            "proposed": proposal,
+            "change_class": "carrier_only",
+            "semantic_assessment_report": self._semantic_assessment_report(
+                proposal, target_descriptor=target, carrier_recovery=True,
+            ),
+        }
+        if legacy:
+            parameters["legacy_identity_proof"] = proof
+        if stale_projection:
+            projection = self.root / ".caprmedio_caprmedio/_projection/project_scope_unit_graph.projection.toml"
+            projection.parent.mkdir(parents=True, exist_ok=True)
+            projection.write_text(
+                "[[scope_units]]\nname = \"MCP\"\nunit_name = \"MCP\"\nparent = \"caprmedio\"\n"
+                "authority_path = \".caprmedio_caprmedio/obsolete-mcp\"\n",
+                encoding="utf-8",
+            )
+        return parameters, original.encode(), path
+
+    def test_goal_type_recovery_is_bound_carrier_only_and_preserves_exact_history(self) -> None:
+        for atom_id, legacy, stale_projection in (
+            ("CA-R-710", False, False),
+            ("CA-R-711", True, True),
+        ):
+            with self.subTest(atom_id=atom_id, legacy=legacy):
+                parameters, before, path = self._goal_type_recovery_parameters(
+                    atom_id, legacy=legacy, stale_projection=stale_projection,
+                )
+                preview = update_atom_action(self.root, parameters)
+                evidence = preview["assessment_evidence"]
+                self.assertEqual("preview", preview["outcome"])
+                self.assertEqual("carrier_only", evidence["admitted_change_class"])
+                self.assertEqual({"CA-R-1766", "CA-D-531"}, set(evidence["comparison"]["type_recovery"]))
+                assessment = update_assessment_seal(parameters, evidence)
+                result = update_atom_action(self.root, parameters, execute=True, authorized=True, assessment=assessment)
+                self.assertEqual("applied", result["outcome"])
+                self.assertEqual(atom_id, result["observed"]["atom_id"])
+                self.assertEqual("Goal", result["observed"]["type"])
+                self.assertEqual(parameters["target"]["version"] + 1, result["observed"]["version"])
+                self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
+                self.assertEqual(path, self.root / result["observed"]["path"])
+
+    def _mutate_goal_recovery_case(self, kind: str, parameters: dict[str, object]) -> None:
+        proposal = parameters["proposed"]
+        assert isinstance(proposal, dict)
+        frontmatter, content = proposal["frontmatter"], proposal["content"]
+        if kind == "claim":
+            proposal["content"] = content.replace("Frozen Goal claim.", "Changed Goal claim.")
+        elif kind == "summary":
+            proposal["content"] = content.replace("Frozen goal summary", "Changed goal summary", 1)
+        elif kind == "role":
+            proposal["frontmatter"] = frontmatter.replace("content_role: Requirement", "content_role: Delivery")
+        elif kind == "target":
+            proposal["frontmatter"] = frontmatter.replace("claim_target_scope_unit: MCP", "claim_target_scope_unit: TOOLS")
+        elif kind == "owner":
+            proposal["frontmatter"] = frontmatter.replace("current_scope_unit: PROGRAMMATIC", "current_scope_unit: MCP")
+        elif kind == "author":
+            proposal["frontmatter"] = frontmatter.replace("author: Anatoly Maslennikov", "author: Unregistered Fixture")
+        elif kind == "tier":
+            proposal["frontmatter"] = frontmatter.replace("global_tier: 8", "global_tier: 14")
+        elif kind == "subjects":
+            proposal["frontmatter"] = frontmatter.replace("governs: MCP/Goal", "governs: MCP/Requirement")
+        elif kind == "relations":
+            proposal["frontmatter"] = frontmatter.replace("relations: {}", "relations: {references: CA-R-999}")
+        elif kind == "scope":
+            proposal["content"] = content.replace("## Scope\n\nMCP.", "## Scope\n\nTOOLS.")
+        elif kind == "details":
+            proposal["content"] = content.replace("Frozen goal details.", "Changed goal details.")
+        elif kind == "type":
+            proposal["frontmatter"] = frontmatter.replace("type: Goal", "type: Requirement")
+        elif kind == "stale-report":
+            report = self.root / str(parameters["semantic_assessment_report"]["path"])
+            report.write_text(report.read_text(encoding="utf-8") + "\nstale\n", encoding="utf-8")
+        elif kind == "stale-authority":
+            authority = self.root / (
+                ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/"
+                "001_CORE_META_MODEL/04_requirement/CA-R-1766--type-identity.md"
+            )
+            authority.write_text(authority.read_text(encoding="utf-8") + "\nstale\n", encoding="utf-8")
+        else:
+            raise AssertionError(f"unknown Goal recovery mutation: {kind}")
+
+    def test_goal_type_recovery_refuses_non_carrier_deltas(self) -> None:
+        cases = (
+            ("changed-claim", False, {}, "claim"),
+            ("changed-summary", False, {}, "summary"),
+            ("changed-role", False, {}, "role"),
+            ("changed-target", False, {}, "target"),
+            ("wrong-owner", False, {}, "owner"),
+            ("unregistered-author", False, {}, "author"),
+            ("wrong-tier", False, {}, "tier"),
+            ("changed-subjects", False, {}, "subjects"),
+            ("changed-relations", False, {}, "relations"),
+            ("changed-scope", False, {}, "scope"),
+            ("changed-details", False, {}, "details"),
+            ("ambiguous-filename", False, {"ambiguous_filename": True}, "none"),
+            ("unregistered-target", False, {"claim_scope": "UNREGISTERED"}, "none"),
+            ("current-type-delta", False, {}, "type"),
+            ("legacy-type-delta", True, {}, "type"),
+            ("legacy-inactive", True, {"source_status": "Done"}, "none"),
+            ("legacy-unregistered-author", True,
+             {"missing_author": True, "proposed_author": "Unregistered Fixture"}, "none"),
+            ("legacy-invalid-tier", True,
+             {"missing_tier": True, "proposed_tier": ("Unsupported", 99)}, "none"),
+            ("legacy-unretired-metadata", True, {"remove_unretired_metadata": True}, "none"),
+            ("stale-report", False, {}, "stale-report"),
+            ("stale-authority", False, {}, "stale-authority"),
+        )
+        for index, (name, legacy, options, mutation) in enumerate(cases, start=720):
+            with self.subTest(name=name):
+                parameters, before, path = self._goal_type_recovery_parameters(
+                    f"CA-R-{index}", legacy=legacy, **options,
+                )
+                if mutation != "none":
+                    self._mutate_goal_recovery_case(mutation, parameters)
+                try:
+                    result = update_atom_action(self.root, parameters, execute=True, authorized=True)
+                except LifecycleError:
+                    result = None
+                if result is not None:
+                    self.assertNotEqual("applied", result["outcome"])
+                    self.assertTrue(all(effect["state"] == "unchanged" for effect in result["effects"]))
+                self.assertEqual(before, path.read_bytes())
+                self.assertFalse((path.parent / "archive").exists())
 
     def test_historical_migration_rejects_forged_stale_or_nonhistorical_identity(self) -> None:
         parameters, before = self._legacy_update()

@@ -13,6 +13,8 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 from authoritative_status_models import StatusModelError, resolve_status_model
 from artifact_metadata import current_timestamp
 from atom_operations import (
@@ -47,6 +49,7 @@ from atom_operations import (
     split_frontmatter,
     write_atom_revision,
 )
+from project_selection import ProjectSelectionError, active_selection
 
 
 ATOM_ID = re.compile(r"^CA-[A-Z]+-[0-9]{3,}$")
@@ -378,6 +381,88 @@ def _summary(content: str) -> str:
     raise LifecycleError("summary-missing", "# Summary must carry a non-empty value")
 
 
+def _goal_target(frontmatter: str) -> str | None:
+    match = re.search(r'(?m)^  governs:\s*["\']?([A-Z][A-Z0-9_]*)/Goal["\']?\s*$', frontmatter)
+    return match.group(1) if match else None
+
+
+def _goal_filename_target(filename: str) -> str | None:
+    matches = re.findall(r"(?:^|-)DEFINES_GOAL_FOR-([A-Z][A-Z0-9_]*)(?:--|$)", filename)
+    return matches[0] if len(matches) == 1 else None
+
+
+def _recovery_claim(content: str, *, legacy: bool) -> str | None:
+    kind, claim = _claim_comparison_value(content)
+    if kind == "claim-section":
+        return claim.strip("\n") or None
+    headings = re.findall(r"(?m)^# (.+?)\s*$", content)
+    if legacy and len(headings) == 1 and not re.search(r"(?m)^## ", content):
+        return re.sub(r"(?s)^# .+?\n", "", content).strip("\n") or None
+    return None
+
+
+def _recovery_metadata(root: Path, target: Atom, proposed: Mapping[str, str]) -> bool:
+    try:
+        before = yaml.safe_load(target.frontmatter) or {}
+        after = yaml.safe_load(proposed["frontmatter"]) or {}
+        rows = active_selection(root).structure["scope_units"]
+        owners = {row["scope_unit_name"]: root / row["authority_path"] for row in rows}
+        owner = max((name for name, path in owners.items() if target.path.is_relative_to(path)),
+                    key=lambda name: len(owners[name].parts))
+    except (AtomToolError, ProjectSelectionError, KeyError, TypeError, ValueError, yaml.YAMLError):
+        return False
+    if not isinstance(before, dict) or not isinstance(after, dict):
+        return False
+    canonical = {"atom_id", "content_role", "current_scope_unit", "claim_target_scope_unit", "local_tier",
+                 "global_tier", "author", "status", "version", "updated_at", "subjects", "relations", "type"}
+    retired = {"cce_version", "cce_form", "llm_session_ids"}
+    if any((key not in retired and after.get(key) != value)
+           or (key in retired and key in after and after[key] != value) for key, value in before.items()):
+        return False
+    if any(key not in before and key not in canonical for key in after):
+        return False
+    if before.get("status") is None and after.get("status") != "Active":
+        return False
+    if any(key not in before and after.get(key) not in ({}, []) for key in ("subjects", "relations")):
+        return False
+    target_scope = after.get("claim_target_scope_unit")
+    return (isinstance(target_scope, str) and target_scope in owners
+            and after.get("current_scope_unit") == owner)
+
+
+def _legacy_recovery_body(proposed: Mapping[str, str], claim: str, target_scope: str) -> bool:
+    expected = f"# Summary\n\n{_summary(proposed['content'])}\n\n## Scope\n\n{target_scope}.\n\n## Claim\n\n{claim}\n\n## Details\n"
+    return proposed["content"].rstrip("\n") == expected.rstrip("\n")
+
+
+def _goal_type_recovery(root: Path, target: Atom, proposed: Mapping[str, str], *, legacy: bool) -> bool:
+    target_scope = frontmatter_scalar(proposed["frontmatter"], "claim_target_scope_unit")
+    carried_scope = frontmatter_scalar(target.frontmatter, "claim_target_scope_unit")
+    governed_scope = _goal_target(target.frontmatter)
+    filename_scope = _goal_filename_target(target.filename)
+    target_claim = _recovery_claim(target.content, legacy=legacy)
+    proposed_claim = _recovery_claim(proposed["content"], legacy=False)
+    return (frontmatter_scalar(target.frontmatter, "type") is None
+            and frontmatter_scalar(proposed["frontmatter"], "type") == "Goal"
+            and target.atom_id is not None and target.atom_id.startswith("CA-R-") and target.role_directory == "04_requirement"
+            and frontmatter_scalar(proposed["frontmatter"], "content_role") == "Requirement"
+            and target.lifecycle == "active" and frontmatter_scalar(target.frontmatter, "status") in {None, "Active"}
+            and isinstance(target_scope, str)
+            and filename_scope == target_scope
+            and {value for value in (carried_scope, governed_scope) if value is not None} == {target_scope}
+            and target_claim is not None and target_claim == proposed_claim and _recovery_metadata(root, target, proposed)
+            and (target.content == proposed["content"] if not legacy else _legacy_recovery_body(proposed, target_claim, target_scope)))
+
+
+def _require_recovery_carrier(root: Path, target: Atom, proposed: Mapping[str, str], *, required: bool) -> None:
+    if not required:
+        return
+    try:
+        prepare_create_atom_revision(root, target.relative, proposed["frontmatter"], proposed["content"], creating=False)
+    except AtomToolError as error:
+        raise _translate(error) from error
+
+
 def _refresh_frontmatter(root: Path, frontmatter: str, *, version: int | None = None) -> str:
     result = frontmatter
     if version is not None:
@@ -614,8 +699,40 @@ def _package_assessment(path: Path, atom_id: str) -> dict[str, Any]:
     return dict(matches[0])
 
 
+def _recovery_authority_pins(root: Path, lineage: list[object]) -> dict[str, dict[str, str]]:
+    required = {"CA-R-1766", "CA-D-531"}
+    found: dict[str, dict[str, str]] = {}
+    for index, item in enumerate(lineage):
+        path, pin = _pinned_project_file(root, item, f"lineageEvidencePins[{index}]")
+        try:
+            atom = atom_from_path(root, path)
+            require_current_atom(root, atom)
+        except AtomToolError:
+            continue
+        relative = path.relative_to(control_root(root)).as_posix()
+        source = ((atom.atom_id == "CA-R-1766" and "/METHODOLOGY_SOURCES/" in f"/{relative}"
+                   and "/04_requirement/" in f"/{relative}")
+                  or (atom.atom_id == "CA-D-531" and "/201_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/07_delivery/" in f"/{relative}"))
+        if source and frontmatter_scalar(atom.frontmatter, "status") == "Active":
+            found[atom.atom_id] = pin
+    if set(found) != required:
+        raise LifecycleError("assessment-evidence-invalid", "Goal Type recovery lacks current R1766 and D531 lineage")
+    return found
+
+
+def _admit_assessment_class(admitted: object, *, carrier_recovery: bool) -> None:
+    allowed = {"equivalent_refinement", "semantic_revision", "replacement"}
+    if carrier_recovery and admitted == "carrier_only":
+        return
+    if admitted not in allowed:
+        raise LifecycleError("assessment-evidence-invalid", "assessment change class is not substantive")
+    if carrier_recovery:
+        raise LifecycleError("assessment-evidence-invalid", "Goal Type recovery must be carrier_only")
+
+
 def _semantic_assessment_evidence(root: Path, target: Atom, prior: Mapping[str, Any],
-                                  proposed: Mapping[str, str], reference: object) -> dict[str, Any]:
+                                  proposed: Mapping[str, str], reference: object, *,
+                                  carrier_recovery: bool = False) -> dict[str, Any]:
     """Verify bound assessment evidence; a report/package never authorizes edits."""
 
     report_path, report_pin = _pinned_project_file(root, reference, "semantic_assessment_report")
@@ -649,8 +766,7 @@ def _semantic_assessment_evidence(root: Path, target: Atom, prior: Mapping[str, 
     _, r1432 = _pinned_project_file(root, authority["r1432"], "CA-R-1432 authority", atom_id="CA-R-1432")
     _, r1464 = _pinned_project_file(root, authority["r1464"], "CA-R-1464 authority", atom_id="CA-R-1464")
     admitted = evidence["admittedChangeClass"]
-    if admitted not in {"equivalent_refinement", "semantic_revision", "replacement"}:
-        raise LifecycleError("assessment-evidence-invalid", "assessment change class is not substantive")
+    _admit_assessment_class(admitted, carrier_recovery=carrier_recovery)
     if evidence["primaryClaimIdentityPreserved"] is not True:
         raise LifecycleError("assessment-evidence-invalid", "assessment does not establish primary Claim identity")
     if not isinstance(evidence["declaredDelta"], str) or not evidence["declaredDelta"].strip():
@@ -659,7 +775,7 @@ def _semantic_assessment_evidence(root: Path, target: Atom, prior: Mapping[str, 
         raise LifecycleError("assessment-evidence-invalid", "assessment lineage review is incomplete")
     lineage = [_pinned_project_file(root, item, f"lineageEvidencePins[{index}]")[1]
                for index, item in enumerate(evidence["lineageEvidencePins"])]
-    return {
+    result = {
         "admitted_change_class": admitted,
         "comparison": {
             "target": target_pin,
@@ -671,6 +787,9 @@ def _semantic_assessment_evidence(root: Path, target: Atom, prior: Mapping[str, 
             "lineage_evidence_pins": lineage,
         },
     }
+    if carrier_recovery:
+        result["comparison"]["type_recovery"] = _recovery_authority_pins(root, evidence["lineageEvidencePins"])
+    return result
 
 
 def _proposed_successors(root: Path, value: object, predecessor: Atom) -> list[dict[str, str]]:
@@ -942,14 +1061,16 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
                          "E": "Evaluation", "D": "Delivery", "O": "Operations"}[expected_identity.split("-")[1]]
         if frontmatter_scalar(proposed["frontmatter"], "content_role") != expected_role:
             raise LifecycleError("atom-identity-changed", "legacy migration must retain the assigned Content Role")
+    type_recovery = _goal_type_recovery(root, target, proposed, legacy=legacy)
+    if frontmatter_scalar(proposed["frontmatter"], "type") != frontmatter_scalar(target.frontmatter, "type") and not type_recovery:
+        raise LifecycleError("atom-type-changed", "same-identity Update must retain the current Type")
+    _require_recovery_carrier(root, target, proposed, required=type_recovery)
     old_status = frontmatter_scalar(target.frontmatter, "status")
     new_status = frontmatter_scalar(proposed["frontmatter"], "status")
     status_change = new_status != old_status and not (legacy and old_status is None and new_status == "Active")
     status_preflight = None
     if status_change:
         status_preflight = preflight_atom_lifecycle(root, "change_status", {"target": prior, "status": new_status})
-    if not legacy and frontmatter_scalar(proposed["frontmatter"], "type") != frontmatter_scalar(target.frontmatter, "type"):
-        raise LifecycleError("atom-type-changed", "same-identity Update must retain the current Type")
     if not legacy and frontmatter_scalar(proposed["frontmatter"], "content_role") != frontmatter_scalar(target.frontmatter, "content_role"):
         raise LifecycleError("atom-role-changed", "same-identity Update must retain the current Content Role")
     prior_summary = _legacy_summary(target.content) if legacy else _summary(target.content)
@@ -1002,10 +1123,12 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
         admitted_evidence = _mechanical_update_evidence(
             target, prior, proposed, admitted_change_class="carrier_only", exact_carrier=False,
         )
-    elif not legacy or "semantic_assessment_report" in request:
+    elif not legacy or "semantic_assessment_report" in request or type_recovery:
         report = request.get("semantic_assessment_report")
         try:
-            admitted_evidence = _semantic_assessment_evidence(root, target, prior, proposed, report)
+            admitted_evidence = _semantic_assessment_evidence(
+                root, target, prior, proposed, report, carrier_recovery=type_recovery,
+            )
         except LifecycleError as error:
             assessment_evidence = {"assessment": dict(assessment)} if assessment is not None else {}
             return {

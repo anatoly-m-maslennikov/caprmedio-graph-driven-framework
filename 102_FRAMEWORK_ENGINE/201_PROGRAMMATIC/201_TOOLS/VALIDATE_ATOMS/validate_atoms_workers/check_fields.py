@@ -20,7 +20,7 @@ def _common(metadata: Record, body: str, check: Check) -> None:
     elif role not in ("Requirement", "Method", "Delivery"):
         check.require(metadata, "type", _string)
     check.require(metadata, "global_tier", _integer)
-    if metadata.get("type") == "Goal":
+    if metadata.get("type") == "Goal" and metadata.get("claim_target_scope_unit") == "PROJECT":
         check.gap("local_tier", "Project Goal admission is required to decide Local Tier presence.")
     else:
         check.require(metadata, "local_tier", _string)

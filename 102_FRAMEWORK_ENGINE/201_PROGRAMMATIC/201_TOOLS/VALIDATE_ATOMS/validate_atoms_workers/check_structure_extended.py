@@ -245,6 +245,21 @@ def _target(metadata: Record, body: str, check: Check) -> None:
                     "claim_target_scope_unit",
                     "Different owner and target require an admitted complete qualified Relational Atom Type.",
                 )
+    if (metadata.get("content_role"), metadata.get("type")) == ("Requirement", "Goal"):
+        _goal_target(metadata, target, owner, units, project_name, check)
+
+
+def _goal_target(metadata: Record, target: str, owner: str, units: Record,
+                 project_name: str | None, check: Check) -> None:
+    if not _authority(check, "CA-R-925", "CA-R-926", "CA-R-947"):
+        return
+    if target == project_name:
+        check.gap("claim_target_scope_unit", "Project Goal admission remains unresolved.")
+    elif units[target]["parent"] != owner:
+        check.fail("GOAL_OWNER", "current_scope_unit",
+                   "A non-Project Goal must be owned by its target Scope Unit's declared direct parent.")
+    else:
+        _goal_tier(metadata, check)
 
 
 def _tier(metadata: Record, body: str, check: Check) -> None:
@@ -260,10 +275,7 @@ def _tier(metadata: Record, body: str, check: Check) -> None:
         )
         return
     if metadata.get("content_role") == "Requirement" and metadata.get("type") == "Goal":
-        check.gap(
-            "local_tier",
-            "Project Goal admission and human Operator ownership must be resolved before selecting tier exceptions.",
-        )
+        _goal_tier(metadata, check)
         return
     local = _value(metadata, "local_tier", check)
     owner = _value(metadata, "current_scope_unit", check)
@@ -284,6 +296,36 @@ def _tier(metadata: Record, body: str, check: Check) -> None:
             "Change and Implementation Content Roles require carried Local Tier Standard.",
         )
     _tier_scope(metadata, owner, local, check)
+
+
+def _goal_tier(metadata: Record, check: Check) -> None:
+    """Admit only non-Project Goals with their direct parent's Standard tier."""
+    if not _authority(
+        check, "CA-D-276", "CA-R-925", "CA-R-926", "CA-R-947", "CA-R-1392",
+        "CA-R-1389", "CA-R-1390", "CA-R-1391",
+    ):
+        return
+    target = _value(metadata, "claim_target_scope_unit", check)
+    owner = _value(metadata, "current_scope_unit", check)
+    local = _value(metadata, "local_tier", check)
+    units = _structure(check)
+    if target is None or owner is None or local is None or units is None:
+        return
+    if target == _project_name(check):
+        check.gap("local_tier", "Project Goal admission remains unresolved.")
+        return
+    if target not in units or owner not in units:
+        check.gap("global_tier", "Goal tier resolution requires declared non-Project target and owner Scope Units.")
+        return
+    if units[target]["parent"] != owner:
+        check.fail("GOAL_OWNER", "current_scope_unit", "A non-Project Goal must be owned by its target Scope Unit's declared direct parent.")
+        return
+    if local != "Standard":
+        check.fail("GOAL_TIER", "local_tier", "A non-Project Goal must use its direct parent's Standard Local Tier.")
+        return
+    expected = 3 * units[owner]["structural_level"] + 2
+    if _integer(metadata.get("global_tier")) and metadata["global_tier"] != expected:
+        check.fail("TIER_GLOBAL", "global_tier", "Carried Global Tier disagrees with the Goal owner's Standard tier.")
 
 
 def _tier_scope(metadata: Record, owner: str | None, local: str | None, check: Check) -> None:

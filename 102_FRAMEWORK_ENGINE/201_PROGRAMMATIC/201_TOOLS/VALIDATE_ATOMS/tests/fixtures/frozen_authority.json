@@ -571,18 +571,18 @@
       },
       "CA-R-1389": {
         "fixture": "structure_authority/CA-R-1389.md",
-        "sha256": "813fbf92f6808add486c55a8e80b1d4d27f9c961de2192308a52a324da83ae03",
-        "version": 8
+        "sha256": "3b03701151191434869d438fc3f0880682f300a69686be0eafc303c92e89939e",
+        "version": 11
       },
       "CA-R-1390": {
         "fixture": "structure_authority/CA-R-1390.md",
-        "sha256": "e152fa9937b54ea5c7c715041384d9a731ed3bfc60ad163d187c70705332d604",
-        "version": 10
+        "sha256": "71fad60d9a231ceaaa27ce9776c6b905b7ded1dbd0b759d08d661cf3d601a69f",
+        "version": 14
       },
       "CA-R-1391": {
         "fixture": "structure_authority/CA-R-1391.md",
-        "sha256": "e6eff850f0d92ffa8a44b12bee902b9d1a1cfe0805ba4fa134c7159401674743",
-        "version": 9
+        "sha256": "3199d7f8d4d28992fa662de5b4ea1a8b376e3544eeb840e4b3975f9a9979d1a9",
+        "version": 12
       },
       "CA-R-1393": {
         "fixture": "structure_authority/CA-R-1393.md",
@@ -631,8 +631,23 @@
       },
       "CA-R-924": {
         "fixture": "structure_authority/CA-R-924.md",
-        "sha256": "5225eb884a06485591d558fe347a2fde007ff110c08af0a9b01fc1df4998df2a",
-        "version": 20
+        "sha256": "4f1cbfeb1ed8c10a20968b5d4e9ed58df7a392922fdd1f7c2e1c82a70bfe8301",
+        "version": 22
+      },
+      "CA-R-926": {
+        "fixture": "structure_authority/CA-R-926.md",
+        "sha256": "f9998c6b84c9b296bba192b91f5d26bb0529eda8d7fdf3b5387c212a1d25e7bd",
+        "version": 22
+      },
+      "CA-R-947": {
+        "fixture": "structure_authority/CA-R-947.md",
+        "sha256": "6a28980fd28244344b253b32457d63ae46a23ab8a5e089c59310f3af429aec65",
+        "version": 24
+      },
+      "CA-R-1392": {
+        "fixture": "structure_authority/CA-R-1392.md",
+        "sha256": "043564606ca52c11102bdf1a95dbeec6e4fddd6bc6e7e73b03d44e63d9f5c8ce",
+        "version": 13
       }
     }
   },

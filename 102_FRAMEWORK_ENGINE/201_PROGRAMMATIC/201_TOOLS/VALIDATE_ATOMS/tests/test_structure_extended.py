@@ -235,8 +235,31 @@ class StructureExtendedTest(unittest.TestCase):
                 "tier.resolution", metadata={**self.metadata, "content_role": "Plan"}
             ).findings
         )
+        self.structure["scope_units"].append(unit("TARGET", "CORE", 2))
+        goal = {
+            **self.metadata,
+            "type": "Goal",
+            "claim_target_scope_unit": "TARGET",
+            "local_tier": "Standard",
+            "global_tier": 5,
+        }
+        self.assertFalse(self.check("tier.resolution", metadata=goal).gaps)
+        self.assertFalse(self.check("tier.resolution", metadata=goal).findings)
         self.assertTrue(
-            self.check("tier.resolution", metadata={**self.metadata, "type": "Goal"}).gaps
+            self.check("tier.resolution", metadata={**goal, "local_tier": "Core"}).findings
+        )
+        self.assertTrue(
+            self.check("tier.resolution", metadata={**goal, "global_tier": 4}).findings
+        )
+        self.assertTrue(
+            self.check("tier.resolution", metadata={**goal, "current_scope_unit": "TARGET"}).findings
+        )
+        missing = [
+            source for source in self.authorities
+            if source["binding"]["atom_id"] != "CA-R-1392"
+        ]
+        self.assertTrue(
+            self.check("tier.resolution", metadata=goal, sources_override=missing).gaps
         )
 
     def test_status_is_case_exact_and_qualified(self) -> None:
