@@ -8,6 +8,7 @@ import re
 import tomllib
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 from .authority import AuthorityContext, Obligation, Record, _verified, resolve_context
 from .check_operators import load_operators_registry
@@ -117,7 +118,15 @@ def _entry(identifier: str, *, graph: bool = False) -> Record:
     return registry.get(identifier) or support_sources().get(identifier) or graph_entries.get(identifier) or {}
 
 
-def _source(root: Path, identifier: str, reader: ReadContext, report: Record, *, graph: bool = False) -> Record:
+def _source(
+    root: Path,
+    identifier: str,
+    reader: ReadContext,
+    report: Record,
+    *,
+    graph: bool = False,
+    locator: Any | None = None,
+) -> Record:
     entry = _entry(identifier, graph=graph)
     path = entry.get("source_path") if isinstance(entry, dict) else None
     if not isinstance(path, str) or not path or Path(path).is_absolute() or ".." in Path(path).parts:
@@ -126,6 +135,9 @@ def _source(root: Path, identifier: str, reader: ReadContext, report: Record, *,
     if selection is not None and Path(path).is_relative_to('.caprmedio_caprmedio'):
         path = (selection.control_relative / Path(path).relative_to('.caprmedio_caprmedio')).as_posix()
     absolute = root / path
+    if locator is not None and not absolute.exists() and not absolute.is_symlink():
+        path = locator.locate(identifier, path)
+        absolute = root / path
     item = load_source(absolute, None, reader, report)
     if (item is None or item["metadata"].get("atom_id") != identifier
             or not _verified(item, entry)):
@@ -135,6 +147,8 @@ def _source(root: Path, identifier: str, reader: ReadContext, report: Record, *,
 
 def source_context_from_project(root: Path) -> VerifiedSourceContext:
     """Load just the finite checked authority closure and selected Project inputs."""
+
+    from current_atom_locator import CurrentAtomLocator
 
     root = root.resolve()
     reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
@@ -153,7 +167,12 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
         operator_raw = reader.read(operators)
         with bind_selection(selection):
             identity = project_identity(root)
-            sources = [_source(root, identifier, reader, report) for identifier in (*_REGISTRY_IDS, *_SUPPORT_IDS)]
+            locator = CurrentAtomLocator(root, reader=reader)
+            sources = [
+                _source(root, identifier, reader, report, locator=locator)
+                for identifier in (*_REGISTRY_IDS, *_SUPPORT_IDS)
+            ]
+            locator.revalidate()
     except (OSError, RuntimeError, UnicodeError, ValueError) as error:
         raise ProposedCarrierError("required Project context is unreadable") from error
     inputs: Record = {

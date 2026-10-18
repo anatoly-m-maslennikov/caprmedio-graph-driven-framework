@@ -15,7 +15,10 @@ from typing import Any
 
 TOOL = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOL.parent))
+sys.path.insert(0, str(TOOL / "tests"))
 
+import current_atom_locator  # noqa: E402
+from current_atom_locator import CurrentAtomLocator  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers import authority, context, proposed_carrier as proposed  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers import check_graph_extended as graph  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers import check_schema_extended as schema  # noqa: E402
@@ -25,6 +28,7 @@ from VALIDATE_ATOMS.validate_atoms_workers.check_support import Check  # noqa: E
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS  # noqa: E402
+import test_proposed_carrier_admission_regressions as admission_fixtures  # noqa: E402
 
 
 def sha(raw: bytes) -> str:
@@ -38,6 +42,27 @@ class CurrentRuleSourcesTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory(dir=scratch)
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name).resolve()
+
+    def selected_project(self):
+        fixture = admission_fixtures.ProposedCarrierAdmissionRegressions()
+        fixture.setUp()
+        self.addCleanup(fixture.doCleanups)
+        return fixture.project()
+
+    def relocate_rule(self, selection: Any, identifier: str) -> Path:
+        registered = Path(proposed._entry(identifier)["source_path"])
+        original = selection.control_root / registered.relative_to(".caprmedio_caprmedio")
+        raw = original.read_bytes()
+        original.unlink()
+        destination = (
+            selection.control_root
+            / "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/04_requirement"
+            / f"{identifier}--relocated.md"
+        )
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(raw)
+        self.revise(destination)
+        return destination
 
     def source(self, identifier: str, *, graph_rule: bool = False) -> Path:
         entry = proposed._entry(identifier, graph=graph_rule)
@@ -185,6 +210,83 @@ class CurrentRuleSourcesTests(unittest.TestCase):
                 else:
                     with self.assertRaises(ValueError):
                         read()
+
+    def test_missing_support_paths_resolve_by_current_id_with_one_revalidated_locator(self) -> None:
+        selection = self.selected_project()
+        destinations = {
+            identifier: self.relocate_rule(selection, identifier)
+            for identifier in ("CA-R-1666", "CAPRMEDIO-R-793")
+        }
+        locators: list[CurrentAtomLocator] = []
+
+        class CountingLocator(CurrentAtomLocator):
+            def __init__(self, root: Path, *, reader: ReadContext) -> None:
+                super().__init__(root, reader=reader)
+                self.locate_calls = 0
+                self.revalidate_calls = 0
+                locators.append(self)
+
+            def locate(self, atom_id: str, reference: str | Path) -> str:
+                self.locate_calls += 1
+                return super().locate(atom_id, reference)
+
+            def revalidate(self) -> None:
+                self.revalidate_calls += 1
+                super().revalidate()
+
+        with patch.object(current_atom_locator, "CurrentAtomLocator", CountingLocator):
+            with proposed.bind_selection(selection):
+                result = proposed.source_context_from_project(selection.root)
+
+        self.assertEqual(1, len(locators))
+        self.assertEqual(2, locators[0].locate_calls)
+        self.assertEqual(1, locators[0].revalidate_calls)
+        for identifier, destination in destinations.items():
+            with self.subTest(identifier=identifier):
+                row = next(
+                    source for source in result.inputs["sources"]
+                    if source["binding"]["atom_id"] == identifier
+                )
+                self.assertEqual(str(destination), row["binding"]["path"])
+                self.assertEqual(
+                    parse_carrier(destination.read_bytes(), destination).metadata["version"],
+                    row["binding"]["version"],
+                )
+                self.assertEqual(sha(destination.read_bytes()), row["binding"]["sha256"])
+
+    def test_duplicate_current_rule_id_after_relocation_refuses_context(self) -> None:
+        selection = self.selected_project()
+        destination = self.relocate_rule(selection, "CA-R-1666")
+        duplicate = destination.with_name("duplicate-copy.md")
+        duplicate.write_bytes(destination.read_bytes())
+        with proposed.bind_selection(selection):
+            with self.assertRaises(proposed.ProposedCarrierError):
+                proposed.source_context_from_project(selection.root)
+
+    def test_relocated_rule_changed_after_capture_refuses_context(self) -> None:
+        selection = self.selected_project()
+        destination = self.relocate_rule(selection, "CA-R-1666")
+        original_load = proposed.load_source
+        changed = False
+
+        def load(
+            path: Path,
+            supplied: dict[str, Any] | None,
+            reader: ReadContext,
+            report: dict[str, Any],
+        ) -> dict[str, Any] | None:
+            nonlocal changed
+            row = original_load(path, supplied, reader, report)
+            if path == destination and not changed:
+                changed = True
+                destination.write_bytes(destination.read_bytes() + b"\nchanged after observation\n")
+            return row
+
+        with patch.object(proposed, "load_source", side_effect=load):
+            with proposed.bind_selection(selection):
+                with self.assertRaises(proposed.ProposedCarrierError):
+                    proposed.source_context_from_project(selection.root)
+        self.assertTrue(changed)
 
 
 if __name__ == "__main__":
