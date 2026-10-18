@@ -3,8 +3,8 @@ subjects:
   governs: TOOLS/Goal
   depends_on:
   - PROGRAMMATIC
-version: 10
-updated_at: "2026-10-18 03:41:08 +0400"
+version: 11
+updated_at: "2026-10-18 05:15:32 +0400"
 relations: {}
 atom_id: CA-R-1186
 content_role: Requirement
@@ -14,6 +14,7 @@ local_tier: Standard
 global_tier: 8
 status: Active
 author: Anatoly Maslennikov
+type: Goal
 ---
 # Summary
 
