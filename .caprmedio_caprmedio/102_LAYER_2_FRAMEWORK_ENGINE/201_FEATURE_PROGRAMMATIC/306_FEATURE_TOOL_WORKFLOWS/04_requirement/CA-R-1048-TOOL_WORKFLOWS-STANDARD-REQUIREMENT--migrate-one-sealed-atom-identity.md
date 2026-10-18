@@ -2,8 +2,8 @@
 subjects:
   governs: "artifact-operations"
   depends_on: []
-version: 14
-updated_at: "2026-10-12 23:58:28 +0400"
+version: 15
+updated_at: "2026-10-19 02:18:51 +0400"
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 content_role: Requirement
@@ -11,6 +11,9 @@ current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
 local_tier: Standard
 global_tier: 11
+atom_id: CA-R-1048
+status: Active
+author: Anatoly Maslennikov
 ---
 # Summary
 
@@ -18,16 +21,16 @@ Migrate one sealed Atom identity
 
 ## Scope
 
-One sealed existing-Atom legacy identity migration and independent composition of several such Actions.
+One assigned legacy Atom identity normalization and independent composition of these Actions.
 
 ## Claim
 
-`MIGRATE_ATOM_IDENTITY` is the canonical CAPRMEDIO Markdown Atom Doer for migrating **=1** selected active Atom carrier from one explicit source path **to** one explicit destination path. it **must** default **to** dry run **and** accept an exact JSON request containing the source digest **and** version, approved legacy identity, new canonical Atom ID, classification, exact destination filename tokens, approved frontmatter removals **and** updates, **and** exact relation rewrite **and** removal maps. a Workflow with several migrations invokes independent one-Atom Actions, stops at its first failed Action, retains completed Actions and leaves the remainder untouched. This Tool **must not** silently widen its one-Atom operation or promise a cross-Atom transaction; each Action retains its exact source, permission and storage-effect safeguards. Resume and retry policy for that sequence is deferred.
+The existing `update_atom` Workflow normalizes one explicitly selected assigned legacy identity. `legacy_identity_proof` binds the exact identity, path, digest and ancestor Git bytes. A missing identity header may be restored from that proof. An explicit noncanonical identity may be changed only through `legacy_identity_mapping`, which names the exact old identity, approved unused canonical identity and destination. An already canonical assigned identity must not be renumbered by this route.
 
-the destination filename is the sole authority for canonical Atom ID **and** Local Tier. the request **must not** add **or** update `atom_id` **or** `tier`; it **must** remove either field exactly **when** that field is present **in** the selected legacy carrier. it **must** preserve their absence **otherwise**, while requiring `version` **to** advance exactly once **and** an explicit `updated_at` timestamp.
+The canonical Atom ID must agree in the destination filename and YAML `atom_id`. The migration preserves Summary, substantive content, Content Role, Type, Status, owning and target Scope Units, tiers, Subjects, relations and all other fields except explicitly approved repairs needed by the current carrier schema. A Scope Unit move is a separate Action. The exact predecessor bytes are retained; Version advances once and Updated At records the actual update.
 
-**before** applying, the Doer **must** fail closed on a source digest **or** version mismatch, inactive **or** non-Atom carrier, old-identity mismatch, destination **or** canonical-ID collision, filename-token **or** content-role mismatch, undeclared frontmatter mutation, **and** missing **or** repeated named relation target. it **may** read other carriers **only** **to** validate identity collisions; it **must** mutate no carrier beyond the selected source **and** destination.
+Preview changes no source. Apply uses the existing MCP authorization and lifecycle execution boundary. Source or proof mismatch, ambiguous identity, destination or reserved-ID collision, role mismatch and unapproved changes stop that Action. The result reports the actual identity mapping, current carrier, predecessor and effects; the Workflow records the actual outcome. This does not add another approval protocol or a prerequisite for earlier Journal history.
 
-an apply is accepted **only** through an authorized project-local MCP delegation with a sealed Initiative action envelope. it **must** preserve the Markdown body **and** **every** frontmatter **or** relation element **not** named **in** the sealed request, write the resulting carrier atomically, **and** return a deterministic receipt. the receipt **must** state `journal: not_performed`, `git: not_performed`, **and** `trigger: acknowledged`; the Tool **must** cause durable `COMMIT_TRIGGER` intake **before** MCP reports success, but it **must not** append the Journal, stage files, **or** create a Git commit.
+A sequence uses independent one-Atom Actions, stops at the first failed or uncertain Action, preserves earlier completed effects and leaves the remainder untouched. It does not promise a cross-Atom transaction or automatic replay.
 
 ## Details
