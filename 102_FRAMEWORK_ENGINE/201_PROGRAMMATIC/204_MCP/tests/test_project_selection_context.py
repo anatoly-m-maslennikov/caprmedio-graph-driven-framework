@@ -3,7 +3,6 @@ import asyncio
 import hashlib
 import json
 import os
-import shutil
 from pathlib import Path
 import sys
 import tempfile
@@ -14,7 +13,8 @@ from unittest.mock import patch
 MCP = Path(__file__).resolve().parents[1]
 ROOT = MCP.parents[2]
 TOOLS = MCP.parent / "201_TOOLS"
-sys.path[:0] = [str(MCP), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS")]
+WORKFLOW_TESTS = MCP.parent / "203_APPS" / "WORKFLOW_ORCHESTRATOR" / "tests"
+sys.path[:0] = [str(MCP), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS"), str(WORKFLOW_TESTS)]
 
 from project_selection import bind_selection, resolve_project
 from atom_operations import control_root, project_identity_prefix, resolve_repository
@@ -24,6 +24,7 @@ from capability_discovery.service import Service
 from hot_reload import Gateway, _singleton_lock_path, _open_singleton_lock, _close_singleton_lock
 import selected_routes
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
+from frozen_selected_workflows import frozen_source_bytes
 
 
 class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
@@ -119,15 +120,26 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
 
     def test_query_frontier_keeps_exact_pins_but_refuses_another_control(self):
         selection = self.selections[0]
-        foreign = selected_routes._query_admission_specs(ROOT)
+        foreign_selection = self.selections[1]
+
+        def frozen_admissions(project):
+            with bind_selection(project):
+                for original in selected_routes._QUERY_SOURCE_ADMISSION_SPECS:
+                    sources = [original['acceptance_frontier'], original['workflow'],
+                               *original['ordered_actions'],
+                               *[pin for step in original['ordered_steps'] for pin in step.values()]]
+                    for source in sources:
+                        reference = selected_routes._selected_authority_ref(
+                            project.root, source['source_path']
+                        )
+                        destination = project.root / reference
+                        destination.parent.mkdir(parents=True, exist_ok=True)
+                        destination.write_bytes(frozen_source_bytes(source['source_path']))
+                return selected_routes._query_admission_specs(project.root)
+
+        foreign = frozen_admissions(foreign_selection)
         with bind_selection(selection):
-            for original in selected_routes._QUERY_SOURCE_ADMISSION_SPECS:
-                for source in [original['acceptance_frontier'], original['workflow'], *original['ordered_actions'],
-                               *[pin for step in original['ordered_steps'] for pin in step.values()]]:
-                    destination = selection.root / selected_routes._selected_authority_ref(selection.root, source['source_path'])
-                    destination.parent.mkdir(parents=True, exist_ok=True)
-                    shutil.copyfile(ROOT / source['source_path'], destination)
-            admitted = selected_routes._query_admission_specs(selection.root)
+            admitted = frozen_admissions(selection)
             for original, bound in zip(selected_routes._QUERY_SOURCE_ADMISSION_SPECS, admitted, strict=True):
                 original_pins = [original["acceptance_frontier"], original["workflow"],
                                  *original["ordered_actions"],
