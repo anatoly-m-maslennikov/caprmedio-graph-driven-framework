@@ -72,7 +72,7 @@ from lifecycle_intents import (  # noqa: E402
     update_atom_action,
     update_assessment_seal,
 )
-from atom_operations import Atom, ToolError, atom_from_path, split_frontmatter  # noqa: E402
+from atom_operations import Atom, ToolError, atom_from_path, frontmatter_scalar, split_frontmatter  # noqa: E402
 from authoritative_status_models import resolve_status_model  # noqa: E402
 
 
@@ -1106,6 +1106,62 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             update_atom_action(self.root, parameters, execute=True, authorized=True)
         self.assertEqual(self.target.read_bytes(), before)
 
+    def _explicit_legacy_r793(self) -> tuple[dict[str, object], Path, Path, bytes]:
+        old_id = "CAPRMEDIO-R-793"
+        structure = self.root / ".caprmedio_caprmedio/project_structure.toml"
+        structure_text = structure.read_text(encoding="utf-8")
+        for scope_path, delivery in (
+            (".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE", "framework-product/engine-delivery"),
+            (".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC",
+             "framework-product/programmatic-delivery"),
+            (".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS",
+             "framework-product/tools-delivery"),
+            (_FIXTURE_AUTHORITY_PATH, "framework-product/lifecycle-fixture-delivery"),
+        ):
+            structure_text = structure_text.replace(f'delivery_path = "{scope_path}"',
+                                                    f'delivery_path = "{delivery}"')
+        structure.write_text(structure_text, encoding="utf-8")
+        canonical_source = self._atom(
+            "CA-R-793", "define-evaluation-approach-as-a-type-value-for-evaluation-atoms",
+            "Define Evaluation Approach as a Type Value for Evaluation Atoms", version=22,
+            relations="relations: {depends_on: [CA-R-1503, CA-R-1506]}",
+        )
+        source = self.requirements / (
+            old_id + "-LIFECYCLE_FIXTURE--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
+        )
+        original = canonical_source.read_bytes().replace(
+            b"atom_id: CA-R-793\n", f'atom_id: "{old_id}"\n'.encode(), 1,
+        )
+        source.write_bytes(original)
+        canonical_source.unlink()
+        destination = self.requirements / (
+            "CA-R-793-LIFECYCLE_FIXTURE--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
+        )
+        subprocess.run(["git", "-C", str(self.root), "init"], capture_output=True, check=True)
+        subprocess.run(["git", "-C", str(self.root), "add", "--", source.relative_to(self.root).as_posix()],
+                       capture_output=True, check=True)
+        subprocess.run(["git", "-C", str(self.root), "-c", "user.name=Fixture", "-c",
+                        "user.email=fixture@example.invalid", "-c", "commit.gpgSign=false", "-c",
+                        "core.hooksPath=/dev/null", "commit", "-m", "legacy R793 carrier"],
+                       capture_output=True, check=True)
+        commit = subprocess.run(["git", "-C", str(self.root), "rev-parse", "HEAD"],
+                                capture_output=True, check=True, text=True).stdout.strip()
+        frontmatter, content = split_frontmatter(original.decode())
+        legacy = Atom(source, source.relative_to(self.root).as_posix(), source.name,
+                      old_id, "active", "04_requirement", frontmatter, content)
+        target = carrier_descriptor(self.root, legacy)
+        proposed = frontmatter.replace(f'atom_id: "{old_id}"', 'atom_id: "CA-R-793"')
+        parameters = {
+            "target": target,
+            "proposed": {"frontmatter": proposed, "content": content},
+            "change_class": "carrier_only",
+            "legacy_identity_proof": {"atom_id": old_id, "commit": commit,
+                                       "path": target["path"], "digest": target["digest"]},
+            "legacy_identity_mapping": {"legacy_atom_id": old_id, "atom_id": "CA-R-793",
+                                        "destination": destination.relative_to(self.root).as_posix()},
+        }
+        return parameters, source, destination, original
+
     def _mapped_delivery(self) -> tuple[dict[str, object], Path, Path, bytes]:
         role = self.requirements.parent / "07_delivery"
         role.mkdir()
@@ -1155,6 +1211,49 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(atom_from_path(self.root, destination).atom_id, "CA-D-560")
         self.assertEqual(result["history"]["identity_mapping"], parameters["legacy_identity_mapping"])
         self.assertEqual((self.root / result["history"]["prior_revision"]["path"]).read_bytes(), before)
+
+    def test_explicit_legacy_r793_header_maps_with_exact_history_and_ignores_noncurrent_copies(self) -> None:
+        parameters, source, destination, before = self._explicit_legacy_r793()
+        obsolete = self.root / (
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/04_requirement"
+        ) / source.name
+        projection = source.parent / "_projection" / source.name
+        obsolete.parent.mkdir(parents=True, exist_ok=True)
+        projection.parent.mkdir(parents=True, exist_ok=True)
+        obsolete.write_bytes(before)
+        projection.write_bytes(before)
+
+        preview = update_atom_action(self.root, parameters)
+        self.assertEqual("preview", preview["outcome"])
+        self.assertEqual(before, source.read_bytes())
+        self.assertFalse(destination.exists())
+
+        result = update_atom_action(self.root, parameters, execute=True, authorized=True)
+        self.assertEqual("CA-R-793", result["observed"]["atom_id"])
+        self.assertEqual(23, result["observed"]["version"])
+        self.assertFalse(source.exists())
+        self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
+        observed = atom_from_path(self.root, destination)
+        self.assertEqual("CA-R-793", observed.atom_id)
+        self.assertEqual("Active", frontmatter_scalar(observed.frontmatter, "status"))
+        self.assertIsNone(frontmatter_scalar(observed.frontmatter, "type"))
+        self.assertEqual(split_frontmatter(before.decode())[1], observed.content)
+        for field in ("content_role", "current_scope_unit", "claim_target_scope_unit", "local_tier",
+                      "global_tier", "author", "subjects", "relations"):
+            self.assertEqual(frontmatter_scalar(split_frontmatter(before.decode())[0], field),
+                             frontmatter_scalar(observed.frontmatter, field), field)
+
+    def test_explicit_legacy_mapping_rejects_duplicate_current_claim(self) -> None:
+        parameters, source, _destination, before = self._explicit_legacy_r793()
+        duplicate = source.with_name(
+            "CAPRMEDIO-R-793-PROJECT_CONFIGURATION--duplicate-current-requirement.md"
+        )
+        duplicate.write_bytes(before)
+        with self.assertRaisesRegex(LifecycleError, "atom-identity-duplicate"):
+            update_atom_action(self.root, parameters)
+        self.assertEqual(before, source.read_bytes())
+        self.assertEqual(before, duplicate.read_bytes())
 
     def test_identity_mapping_rejects_missing_proof_scope_change_summary_change_and_reserved_ids(self) -> None:
         parameters, source, destination, before = self._mapped_delivery()

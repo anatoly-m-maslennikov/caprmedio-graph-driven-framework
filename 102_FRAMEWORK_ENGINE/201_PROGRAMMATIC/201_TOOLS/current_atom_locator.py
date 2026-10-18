@@ -219,6 +219,36 @@ class CurrentAtomLocator:
             _fail(code, "Atom identity does not resolve to exactly one current carrier", {"atom_id": atom_id})
         return found[0].relative_to(self.root).as_posix()
 
+    def assert_unique_current_claim(self, atom_id: str, expected_path: str | Path) -> None:
+        """Require one current claim for this ID, at exactly the expected path."""
+        expected = Path(expected_path)
+        if expected.is_absolute():
+            try:
+                expected = expected.relative_to(self.root)
+            except ValueError:
+                _fail("atom-path-outside-project", "Expected Atom path is outside the selected Project")
+        if not expected.parts or ".." in expected.parts or "\x00" in str(expected):
+            _fail("atom-path-invalid", "Expected Atom path is not a safe Project-relative path")
+        expected_absolute = self.root / expected
+        try:
+            self.reader.allowed(expected_absolute)
+        except (OSError, RuntimeError, ValueError) as error:
+            raise CurrentAtomLocatorError(
+                "atom-path-unavailable", "Expected Atom path traverses an unsafe or unavailable path"
+            ) from error
+
+        found = _matching_paths(self._index(_selected_role(atom_id)), atom_id)
+        if len(found) != 1:
+            code = "atom-identity-duplicate" if found else "atom-identity-not-found"
+            _fail(code, "Atom identity does not resolve to exactly one current carrier", {"atom_id": atom_id})
+        if found[0] != expected_absolute:
+            _fail(
+                "atom-identity-path-mismatch",
+                "Atom identity resolves to a different current carrier path",
+                {"atom_id": atom_id},
+            )
+        self.revalidate()
+
     def revalidate(self) -> None:
         """Check one complete read snapshot after the admission has used it."""
         try:

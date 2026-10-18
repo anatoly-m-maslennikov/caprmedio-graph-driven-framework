@@ -53,6 +53,57 @@ class CurrentAtomLocatorTests(unittest.TestCase):
             self.locate()
         self.assertEqual("atom-identity-duplicate", caught.exception.code)
 
+    def test_unique_current_claim_preserves_quoted_legacy_id_and_refuses_duplicate(self):
+        legacy_id = "CAPRMEDIO-R-793"
+        first = self.atom(
+            self.scope / "04_requirement" / "feature" / f"{legacy_id}--current.md", legacy_id
+        )
+        first.write_text(
+            first.read_text(encoding="utf-8").replace(
+                f"atom_id: {legacy_id}", f'atom_id: "{legacy_id}"'
+            ),
+            encoding="utf-8",
+        )
+        locator = CurrentAtomLocator(self.root)
+        locator.assert_unique_current_claim(legacy_id, first)
+
+        duplicate = self.atom(
+            self.scope / "04_requirement" / "another" / f"{legacy_id}--duplicate.md", legacy_id
+        )
+        duplicate.write_text(
+            duplicate.read_text(encoding="utf-8").replace(
+                f"atom_id: {legacy_id}", f'atom_id: "{legacy_id}"'
+            ),
+            encoding="utf-8",
+        )
+        with self.assertRaises(CurrentAtomLocatorError) as caught:
+            CurrentAtomLocator(self.root).assert_unique_current_claim(legacy_id, first)
+        self.assertEqual("atom-identity-duplicate", caught.exception.code)
+
+    def test_unique_current_claim_ignores_unregistered_000_and_projection_copies(self):
+        current = self.atom(self.scope / "04_requirement" / "CA-R-101--current.md")
+        self.atom(self.control / "000" / "04_requirement" / "CA-R-101--unregistered.md")
+        projection = self.atom(
+            self.scope / "04_requirement" / "_projection" / "CA-R-101--projection.md"
+        )
+        projection.write_text(
+            projection.read_text(encoding="utf-8").replace(
+                "status: Active", "status: Active\nartifact_form: Projection"
+            ),
+            encoding="utf-8",
+        )
+
+        CurrentAtomLocator(self.root).assert_unique_current_claim(self.atom_id, current)
+
+    def test_unique_current_claim_requires_exact_expected_path(self):
+        self.atom(self.scope / "04_requirement" / "CA-R-101--current.md")
+        locator = CurrentAtomLocator(self.root)
+        with self.assertRaises(CurrentAtomLocatorError) as caught:
+            locator.assert_unique_current_claim(
+                self.atom_id, self.scope / "04_requirement" / "CA-R-101--other.md"
+            )
+        self.assertEqual("atom-identity-path-mismatch", caught.exception.code)
+
     def test_selected_metadata_with_competing_filename_identity_refuses(self):
         self.atom(self.scope / "04_requirement" / "CA-C-1--misnamed.md", self.atom_id)
         with self.assertRaises(CurrentAtomLocatorError) as caught:

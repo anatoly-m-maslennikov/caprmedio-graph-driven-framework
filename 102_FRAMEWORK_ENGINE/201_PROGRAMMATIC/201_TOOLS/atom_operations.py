@@ -959,7 +959,8 @@ def _migrate_atom_identity_revision(root: Path, atom: Atom, relative_path: str, 
     return observed
 
 
-def preserve_atom_revision(root: Path, atom: Atom, *, allow_nonactive: bool = False) -> Atom:
+def preserve_atom_revision(root: Path, atom: Atom, *, allow_nonactive: bool = False,
+                           allow_legacy_identity: bool = False) -> Atom:
     """Copy one prior semantic revision to its native role-local history path."""
 
     root = root.resolve()
@@ -978,7 +979,7 @@ def preserve_atom_revision(root: Path, atom: Atom, *, allow_nonactive: bool = Fa
     if target.exists():
         raise ToolError("destination-collision", f"history destination already exists: {target.relative_to(root)}")
     _atomic_write(target, atom.path.read_bytes())
-    if frontmatter_scalar(atom.frontmatter, "atom_id") is None:
+    if frontmatter_scalar(atom.frontmatter, "atom_id") is None or allow_legacy_identity:
         # Explicit legacy Update admission has already proven this identity.
         # Keep its original historical bytes, without granting lookup fallback.
         return replace(atom, path=target, relative=target.relative_to(root).as_posix(),

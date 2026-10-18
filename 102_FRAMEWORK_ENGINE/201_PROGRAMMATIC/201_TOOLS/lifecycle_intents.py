@@ -292,20 +292,27 @@ def _resolve_legacy_descriptor(root: Path, value: object, proof_value: object, *
         raise LifecycleError("legacy-proof-invalid", "historical proof must bind the exact target identity, path and bytes")
     try:
         path = safe_path(root, descriptor["path"], must_exist=True)
+        raw = path.read_bytes()
+        frontmatter, content = split_frontmatter(raw.decode("utf-8"))
+        old_id = str(proof["atom_id"])
+        declared_id = frontmatter_scalar(frontmatter, "atom_id")
         try:
             atom_from_path(root, path)
         except AtomToolError as error:
-            if error.code != "atom-frontmatter-id-required":
+            missing_header = error.code == "atom-frontmatter-id-required" and declared_id is None
+            explicit_legacy_header = (
+                mapped_identity is not None
+                and error.code == "atom-frontmatter-invalid"
+                and declared_id == old_id
+            )
+            if not (missing_header or explicit_legacy_header):
                 raise
         else:
             raise LifecycleError("legacy-proof-inapplicable", "target already carries an explicit identity")
-        raw = path.read_bytes()
-        frontmatter, content = split_frontmatter(raw.decode("utf-8"))
         relative = path.relative_to(control_root(root))
         if any(part.casefold() in INACTIVE_LIFECYCLE_SEGMENTS | {"archived", "resolved"} for part in relative.parts):
             raise LifecycleError("legacy-proof-inapplicable", "migration requires a current carrier, not a draft or history")
         matches = re.findall(r"(?:^|-)(CA-[CAPRMEDO]-[0-9]+)(?=-|$)", path.stem)
-        old_id = str(proof["atom_id"])
         if mapped_identity is None:
             identity_matches = matches == [old_id]
         else:
@@ -326,6 +333,10 @@ def _resolve_legacy_descriptor(root: Path, value: object, proof_value: object, *
             raise LifecycleError("legacy-history-unavailable", "cannot read the explicitly scoped repository history")
         if ancestor.returncode != 0 or committed.stdout != raw:
             raise LifecycleError("legacy-proof-invalid", "exact assigned carrier is not backed by the current Git history")
+        if explicit_legacy_header:
+            from current_atom_locator import CurrentAtomLocator
+
+            CurrentAtomLocator(root).assert_unique_current_claim(old_id, path)
         role = next(part for part in reversed(relative.parts[:-1]) if re.fullmatch(r"0[1-9]_[a-z0-9_]+", part))
         roles = {"C": "01_concern", "A": "02_analysis", "P": "03_plan", "R": "04_requirement",
                  "M": "05_method", "E": "06_evaluation", "D": "07_delivery", "O": "09_operations"}
@@ -345,7 +356,7 @@ def _resolve_legacy_descriptor(root: Path, value: object, proof_value: object, *
         observed = carrier_descriptor(root, atom)
         if any(descriptor[field] != observed[field] for field in _DESCRIPTOR_FIELDS):
             raise LifecycleError("stale-carrier", "legacy target no longer matches its complete sealed descriptor")
-        for candidate in control_root(root).rglob(f"*{atom.atom_id}*.md"):
+        for candidate in (() if explicit_legacy_header else control_root(root).rglob(f"*{atom.atom_id}*.md")):
             if candidate == path or any(part.casefold() in INACTIVE_LIFECYCLE_SEGMENTS | {"archived", "resolved"}
                                         for part in candidate.relative_to(control_root(root)).parts):
                 continue
@@ -1224,7 +1235,9 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
     try:
         frontmatter = _refresh_frontmatter(root, proposed["frontmatter"], version=next_version)
         if target.atom_id is not None and (identified_current or change_class == "semantic_revision" or legacy):
-            prior_revision = preserve_atom_revision(root, target, allow_nonactive=identified_current)
+            prior_revision = preserve_atom_revision(
+                root, target, allow_nonactive=identified_current, allow_legacy_identity=bool(mapping)
+            )
             if not mapping:
                 owned = prior_revision.path.lstat()
                 prior_revision_owner = (owned.st_dev, owned.st_ino)
