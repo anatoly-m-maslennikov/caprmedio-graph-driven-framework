@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection"
+  governs: "Entity/Continuant/Node/Projection"
   depends_on:
-    ["Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection/Type: Artifact Change Log", "Entity/Continuant/Projection/Type: Process Log"]
-version: 10
-updated_at: "2026-10-16 12:08:25 +0000"
+    ["Entity/Continuant/Node/History/Journal", "Entity/Continuant/Node/History/Journal.Record", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Projection/Type: Artifact Change Log", "Entity/Continuant/Node/Projection/Type: Process Log"]
+version: 11
+updated_at: "2026-10-18 03:33:33 +0400"
 relations: {}
 atom_id: "CA-R-1463"
 content_role: "Requirement"

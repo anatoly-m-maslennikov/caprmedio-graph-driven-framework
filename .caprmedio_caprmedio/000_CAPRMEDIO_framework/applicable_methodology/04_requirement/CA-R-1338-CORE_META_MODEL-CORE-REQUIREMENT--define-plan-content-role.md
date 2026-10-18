@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role", "Entity/Continuant/Object/Atom.Substance"]
-version: 14
-updated_at: "2026-10-16 12:08:21 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role", "Entity/Continuant/Node/Atom.Substance"]
+version: 15
+updated_at: "2026-10-18 03:33:22 +0400"
 relations: {}
 atom_id: "CA-R-1338"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md
   source_atom_id: CA-R-1338
-  source_atom_revision: 14
-  source_sha256: 21c8d785526d227b4be2edd2aabd90bd4d3d845fe20462d82512a29f3265c352
+  source_atom_revision: 15
+  source_sha256: 78b675b239461490e10070a578ca507f20c22ff7af3f98f09c12f4ef4eb36751
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Label"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Label"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Projection/Type: Applicable Methodology"]
-version: 7
-updated_at: "2026-10-16 12:08:32 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom/Content Role: Plan.Label", "Entity/Continuant/Node/Projection/Type: Applicable Methodology"]
+version: 8
+updated_at: "2026-10-18 03:33:41 +0400"
 relations: {"relates_to": ["CA-R-1574", "CA-R-1576"]}
 atom_id: "CA-R-1577"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1577-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-authoring-subtypes.md
   source_atom_id: CA-R-1577
-  source_atom_revision: 7
-  source_sha256: 3f67849a0e29e28305bf6ea052d9498f03e38b6de727570f038e9bafac41ed7f
+  source_atom_revision: 8
+  source_sha256: 60d50c846714454ac154272d370091b840c8fb7df2c1b634485681a1a4a98df9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

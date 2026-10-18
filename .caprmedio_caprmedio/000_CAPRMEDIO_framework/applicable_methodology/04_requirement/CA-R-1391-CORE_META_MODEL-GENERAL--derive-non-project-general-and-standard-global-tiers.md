@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Global Tier"
+  governs: "Entity/Continuant/Node/Atom.Global Tier"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Local Tier: General", "Entity/Continuant/Object/Atom.Local Tier: Standard", "Entity/Continuant/Object/Scope Unit"]
-version: 11
-updated_at: "2026-10-15 18:42:28 +0000"
+    ["Entity/Continuant/Node/Atom.Local Tier: General", "Entity/Continuant/Node/Atom.Local Tier: Standard", "Entity/Continuant/Node/Scope Unit"]
+version: 12
+updated_at: "2026-10-18 03:33:26 +0400"
 relations: {}
 atom_id: "CA-R-1391"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md
   source_atom_id: CA-R-1391
-  source_atom_revision: 11
-  source_sha256: fc176f7674bea6951f5edc5a40e67dd97df854dd9733b5c3a8863909a104ce88
+  source_atom_revision: 12
+  source_sha256: 3199d7f8d4d28992fa662de5b4ea1a8b376e3544eeb840e4b3975f9a9979d1a9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

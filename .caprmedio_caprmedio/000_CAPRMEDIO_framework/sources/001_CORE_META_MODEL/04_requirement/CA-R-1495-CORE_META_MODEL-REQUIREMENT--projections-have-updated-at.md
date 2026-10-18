@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection.Updated At"
+  governs: "Entity/Continuant/Node/Projection.Updated At"
   depends_on:
-    ["Entity/Continuant/Projection"]
-version: 8
-updated_at: "2026-10-16 12:08:28 +0000"
+    ["Entity/Continuant/Node/Projection"]
+version: 9
+updated_at: "2026-10-18 03:33:36 +0400"
 relations:
   child_of:
     - "CA-R-1708"

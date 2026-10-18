@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Project.Settings"
+  governs: "Entity/Continuant/Node/Project.Settings"
   depends_on:
-    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Settings.Revision Binding", "Entity/Continuant/Project.Settings.Project Name", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Scope Unit"]
-version: 22
-updated_at: "2026-10-16 12:09:05 +0000"
+    ["Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Project.Settings.Revision Binding", "Entity/Continuant/Node/Project.Settings.Project Name", "Entity/Continuant/Node/Project.Settings.Atom Prefix", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Scope Unit"]
+version: 23
+updated_at: "2026-10-18 03:34:22 +0400"
 relations:
   evaluation_for:
     - CA-R-1738
@@ -30,8 +30,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md
   source_atom_id: CA-E-459
-  source_atom_revision: 22
-  source_sha256: bfa5a24810d0d7a1aeeb901b279b3d95c557fdaab1876fa631fb1172c078ed35
+  source_atom_revision: 23
+  source_sha256: 3557b8d3d4d13c73a943d69e5e3981b7d33b293b53d8da8e873d8e160383cbdb
   original_relations_sha256: 393f148e2b59b1216f1f67b1640ec419876b3c17c08b001942511f86652805be
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Object/Atom/Content Role: Plan.Details", "Entity/Carrier/File Carrier"]
-version: 10
-updated_at: "2026-10-16 12:09:34 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom.Summary", "Entity/Continuant/Node/Atom.Substance", "Entity/Continuant/Node/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Node/Atom/Content Role: Plan.Details", "Entity/Carrier/File Carrier"]
+version: 11
+updated_at: "2026-10-18 03:34:50 +0400"
 relations: {"relates_to": ["CA-R-1599", "CA-R-1586", "CA-D-482", "CA-D-460"]}
 atom_id: "CA-D-470"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-STANDARD--serialize-plan-file-sections.md
   source_atom_id: CA-D-470
-  source_atom_revision: 10
-  source_sha256: ff3dcf21c5b613be2f7c31e1ca41610a80f6cf5b59d5da8224e3dcfb30ebc519
+  source_atom_revision: 11
+  source_sha256: a7ebe17cc4ffde117070ccdfd4b93195036fdaefeae63f702499677e3528a825
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

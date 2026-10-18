@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom"
+  governs: "Entity/Continuant/Node/Atom"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand", "Entity/Continuant/Object/Atom/Content Role: Plan"]
-version: 17
-updated_at: "2026-10-16 12:09:04 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Demand", "Entity/Continuant/Node/Atom/Content Role: Plan"]
+version: 18
+updated_at: "2026-10-18 03:34:21 +0400"
 relations: {"evaluation_for": ["CA-R-923", "CA-R-924", "CA-R-1576", "CA-R-1588"]}
 atom_id: "CA-E-425"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-425-CORE_META_MODEL-QA_CASE--validate-relational-atom-classifications.md
   source_atom_id: CA-E-425
-  source_atom_revision: 17
-  source_sha256: 9b7f27b84c1ee4c5ab3cb9589dd72dbc49b770b9dc2ce0807e47cfe622563ab7
+  source_atom_revision: 18
+  source_sha256: adec579212e801d99f3bdaa49a7cc6e9ac49c3fb37a388faf7e1d5166d2b9cbc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

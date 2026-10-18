@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Author"
+  governs: "Entity/Continuant/Node/Atom.Author"
   depends_on:
-    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Operator Registry"]
-version: 19
-updated_at: "2026-10-15 18:50:47 +0000"
+    ["Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Project.Operator Registry"]
+version: 20
+updated_at: "2026-10-18 03:34:33 +0400"
 relations: {}
 atom_id: "CA-D-274"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md
   source_atom_id: CA-D-274
-  source_atom_revision: 19
-  source_sha256: e0d850b0d10948bda665c8cfd850eb77e7a9a3b5525a4c2998f8237a99b62685
+  source_atom_revision: 20
+  source_sha256: 0537de6b489f8d669610069bcb827eb73eb2713a53d946990a78b63cbef8009a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

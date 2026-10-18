@@ -1,14 +1,16 @@
 ---
 subjects:
-  governs: "relation-model"
+  governs: "Entity/Continuant/Relation/Type: child_of"
   depends_on:
-    ["Atom Scope", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Relation"]
-version: 20
-updated_at: "2026-10-15 18:46:34 +0000"
+  - "Entity/Continuant/Node/Atom.Global Tier"
+  - "Entity/Continuant/Node/Atom.Owning Scope Unit"
+  - "Entity/Continuant/Node/Atom.Target Scope Unit"
+  - "Entity/Continuant/Node/Atom.Substance Scope"
+version: 22
+updated_at: "2026-10-18 03:34:11 +0400"
 relations:
   child_of:
-    - CA-R-917
-    - CA-R-920
+    - CA-R-1174
 atom_id: "CA-R-796"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
@@ -20,9 +22,9 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md
   source_atom_id: CA-R-796
-  source_atom_revision: 20
-  source_sha256: 87b14c64eb59f914af6e74fcbfb4938048bca57ca90431522325404a908708cf
-  original_relations_sha256: c6d1a936c74a52f1d4f770eb15844db07e6ce44a7a75320ef4f439519f19d5a5
+  source_atom_revision: 22
+  source_sha256: 0bab1c114661681d18ad68c62d702962ebfda7511fc466caf79d53b9a5f14fc6
+  original_relations_sha256: 4bbb4b930b4dba68ac5f2807086aabe7e4a23f53f26d95b54808e5edf87dfb4f
 ---
 # Summary
 
@@ -30,10 +32,13 @@ Keep tier-parent relations within Atom Scope
 
 ## Scope
 
-tier-parent relations between Atoms.
+Tier-parent relations between tier-classified Atoms.
 
 ## Claim
 
-**every** tier-parent relation between Atoms **must** connect Atoms with the same Atom Scope.
+a tier-parent relation **must** point from a child Atom to an applicable parent Atom permitted by the Global Tier topology. a parent in the child's Owning Scope Unit **must** have a lower Global Tier. a parent in a declared ancestor Scope Unit **may** have an equal or lower Global Tier. the parent's Substance, Target Scope Unit when applicable, and Substance Scope **must** support the authority claimed by that relation.
 
 ## Details
+
+Structural eligibility alone does not establish parenthood. Different Subjects are allowed when the parent actually governs the child's contribution; equal Subjects do not establish that governance. An ancestor-owned Goal may govern definitions that fulfill its result in the targeted child Scope Unit without changing either Atom's owner. A relational Atom's Target Scope Unit does not replace its Owning Scope Unit in the structural test. Preserve the admitted Project Goal-to-Project Principle case, Type-specific restrictions, orphan permissions, and the acyclic normative-authority boundary. Do not turn a dependency, classification, containment, or source-layer relation into `child_of` merely to fill parent coverage.
+

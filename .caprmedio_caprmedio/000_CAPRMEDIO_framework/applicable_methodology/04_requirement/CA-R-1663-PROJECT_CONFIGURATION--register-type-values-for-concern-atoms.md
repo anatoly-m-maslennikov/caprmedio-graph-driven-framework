@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Concern/Type"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Concern/Type"
   depends_on: []
-version: 23
-updated_at: "2026-10-03 01:45:07 +0400"
+version: 24
+updated_at: "2026-10-18 03:34:57 +0400"
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1663-PROJECT_CONFIGURATION--register-type-values-for-concern-atoms.md
   source_atom_id: CA-R-1663
-  source_atom_revision: 23
-  source_sha256: 2f98aacdae8742e9584acccaaca2338041e87525c966d9710b1cee2ad3f09a9a
+  source_atom_revision: 24
+  source_sha256: 4598a333e2b8b3eceeabe3686a5195c404fcbfe9ba1bd2267fb1efe1fc1ad333
   original_relations_sha256: b89d3dda96c6d1aabe3172420cd0a102ac12befd4244aa13be47b1a556386fed
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Demand.Target Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit.Local Order", "Entity/Continuant/Object/Scope Unit/Type: Ordered"]
-version: 15
-updated_at: "2026-10-16 12:08:19 +0000"
+    ["Entity/Continuant/Node/Scope Unit.Local Order", "Entity/Continuant/Node/Scope Unit/Type: Ordered"]
+version: 16
+updated_at: "2026-10-18 03:33:20 +0400"
 relations: {}
 atom_id: "CA-R-1293"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1293-CORE_META_MODEL-CORE--prohibit-demands-to-later-ordered-siblings.md
   source_atom_id: CA-R-1293
-  source_atom_revision: 15
-  source_sha256: c78540a08c1433d0663101507d72f33af1062fa4adc8648ae686948d22b846d6
+  source_atom_revision: 16
+  source_sha256: 77ea7c04ed4a8cc6ea65ff91fa0a9456ebd340972c05b275c6828f6c0913ff4e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

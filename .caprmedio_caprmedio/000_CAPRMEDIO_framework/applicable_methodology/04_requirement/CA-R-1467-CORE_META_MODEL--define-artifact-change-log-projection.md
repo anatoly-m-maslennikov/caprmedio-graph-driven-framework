@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Artifact Change Log"
+  governs: "Entity/Continuant/Node/Projection/Type: Artifact Change Log"
   depends_on:
-    ["Entity/Continuant/Projection", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record"]
-version: 8
-updated_at: "2026-10-16 12:08:26 +0000"
+    ["Entity/Continuant/Node/Projection", "Entity/Continuant/Node/History/Journal", "Entity/Continuant/Node/History/Journal.Record"]
+version: 9
+updated_at: "2026-10-18 03:33:33 +0400"
 relations: {}
 atom_id: "CA-R-1467"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1467-CORE_META_MODEL--define-artifact-change-log-projection.md
   source_atom_id: CA-R-1467
-  source_atom_revision: 8
-  source_sha256: a515bd9f96acdb49a4e75867e1f798f5138276473c33b9d693e358ddf43dd8e3
+  source_atom_revision: 9
+  source_sha256: a5488cd7b93734350707c4b82c6cd5dabf7190c633405b550b247e1a17f76c7b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/History/Journal"
+  governs: "Entity/Continuant/Node/History/Journal"
   depends_on:
-    ["Entity/Continuant/History", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom.Substance"]
-version: 20
-updated_at: "2026-10-16 12:08:42 +0000"
+    ["Entity/Continuant/Node/History", "Entity/Continuant/Node/History/Journal.Record", "Entity/Continuant/Node/Atom.Substance"]
+version: 21
+updated_at: "2026-10-18 03:33:53 +0400"
 relations: {}
 atom_id: "CA-R-1745"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md
   source_atom_id: CA-R-1745
-  source_atom_revision: 20
-  source_sha256: d803035fbd0407e284c3da68c11486118dc05c466d6e2f99127701dcd4ead02b
+  source_atom_revision: 21
+  source_sha256: 743478bc01417b7fe0c89acbf48a2d36518dfd4eed83f3c8bd5a2e0dd8ea8b2c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

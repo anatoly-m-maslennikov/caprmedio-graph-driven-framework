@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit.Path"
+  governs: "Entity/Continuant/Node/Scope Unit.Path"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children"]
-version: 20
-updated_at: "2026-10-16 12:08:45 +0000"
+    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit.Parent", "Entity/Continuant/Node/Scope Unit.Children"]
+version: 21
+updated_at: "2026-10-18 03:33:55 +0400"
 relations: {}
 atom_id: "CA-R-1764"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md
   source_atom_id: CA-R-1764
-  source_atom_revision: 20
-  source_sha256: b363ce90bfd6ab343f3c7e09908dd651fc4fc08af1df44d1fcef630bc6329d00
+  source_atom_revision: 21
+  source_sha256: aa0dbb740b3a0c352d16510c41e69a1581bf3059c095f753c998b8ef39046d33
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

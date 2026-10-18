@@ -2,14 +2,14 @@
 subjects:
   governs: "Entity/Carrier/Directory Carrier.Numeric Prefix"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Structural Level", "Entity/Continuant/Object/Scope Unit.Navigational Order Number"]
-version: 17
-updated_at: "2026-10-16 12:09:16 +0000"
+    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit.Structural Level", "Entity/Continuant/Node/Scope Unit.Navigational Order Number"]
+version: 20
+updated_at: "2026-10-18 07:30:51 +0400"
 relations: {}
 atom_id: "CA-D-300"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md
   source_atom_id: CA-D-300
-  source_atom_revision: 17
-  source_sha256: ae996b1414af91649ab347efdd9ec0b78def28a297639c544d2a014cfbfcdc6c
+  source_atom_revision: 20
+  source_sha256: 9fe33504270b9733fbb60c81838383ea7ebfd0b28e307e47454dc5f4a6bb290e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

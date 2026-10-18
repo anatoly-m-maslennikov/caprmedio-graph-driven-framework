@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/History/Journal"
+  governs: "Entity/Continuant/Node/History/Journal"
   depends_on:
-    ["Entity/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection/Type: Applicable Methodology"]
-version: 8
-updated_at: "2026-10-16 12:09:07 +0000"
+    ["Entity/Continuant/Node/History/Journal.Record", "Entity/Carrier", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Projection/Type: Applicable Methodology"]
+version: 9
+updated_at: "2026-10-18 03:34:24 +0400"
 relations:
   evaluation_for:
     - CA-R-1491

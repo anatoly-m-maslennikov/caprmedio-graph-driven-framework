@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Updated At"
+  governs: "Entity/Continuant/Node/Atom.Updated At"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier", "Entity/Continuant/Object/Atom.Version Number", "Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.ID", "Entity"]
-version: 5
-updated_at: "2026-10-16 12:09:10 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Evaluation", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/History/Revision/Type: Atom", "Entity/Carrier", "Entity/Continuant/Node/Atom.Version Number", "Entity/Continuant/Node/Atom.Status", "Entity/Continuant/Node/Atom.Summary", "Entity/Continuant/Node/Atom.ID", "Entity"]
+version: 6
+updated_at: "2026-10-18 03:34:31 +0400"
 relations:
   evaluation_for:
     - CA-D-270
@@ -23,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md
   source_atom_id: CA-E-521
-  source_atom_revision: 5
-  source_sha256: 49f55d8b73577fb0b4b774afe9ee6ab42e442e882309402191d2ec9d16480e11
+  source_atom_revision: 6
+  source_sha256: 8fd8e74e4972684ebbd0c41ebcd83a2cf0cdef84d3b6d38a05be8ab92404cde9
   original_relations_sha256: 264f25fd52bd494a4589532f3cc24beb82059d3ef7473c786f4815229ef0cb68
 ---
 # Summary

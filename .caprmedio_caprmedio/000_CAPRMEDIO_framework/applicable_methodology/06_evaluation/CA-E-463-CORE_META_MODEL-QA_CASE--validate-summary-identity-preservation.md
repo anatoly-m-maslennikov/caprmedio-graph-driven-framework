@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Summary"
+  governs: "Entity/Continuant/Node/Atom.Summary"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Substance"]
-version: 8
-updated_at: "2026-10-15 18:49:33 +0000"
+    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Atom.ID", "Entity/Continuant/Node/Atom.Substance"]
+version: 9
+updated_at: "2026-10-18 03:34:23 +0400"
 relations:
   evaluation_for:
     - CA-R-1464
@@ -22,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-463-CORE_META_MODEL-QA_CASE--validate-summary-identity-preservation.md
   source_atom_id: CA-E-463
-  source_atom_revision: 8
-  source_sha256: 35dad43f1c1a86d1d8536e875965a118df8a5f19e0fcceaa0265a9b1515c0839
+  source_atom_revision: 9
+  source_sha256: 7ff2e9fe68a3fa5dbe33373e26d4eb1ad53f67bc77764e8762cfc29fbbfea8f3
   original_relations_sha256: cb1c9046795a805c03cc62c2e84c370df72f8b2950359a6d813833a2908bbf03
 ---
 # Summary

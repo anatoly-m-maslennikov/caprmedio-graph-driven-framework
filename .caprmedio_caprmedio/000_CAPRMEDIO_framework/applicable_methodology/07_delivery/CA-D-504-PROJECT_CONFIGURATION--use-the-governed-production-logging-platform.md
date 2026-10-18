@@ -8,17 +8,17 @@ global_tier: 11
 status: "Active"
 author: "Anatoly Maslennikov"
 subjects:
-  governs: "Carrier"
+  governs: "Entity/Carrier"
   depends_on:
-    - "Journal"
-version: 2
-updated_at: "2026-10-04 22:11:24 +0000"
+    - "Entity/Continuant/Node/History/Journal"
+version: 3
+updated_at: "2026-10-18 03:35:01 +0400"
 relations: {}
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-504-PROJECT_CONFIGURATION--use-the-governed-production-logging-platform.md
   source_atom_id: CA-D-504
-  source_atom_revision: 2
-  source_sha256: 4761972e101bf628d970012da9c9a4a73ef6560e5b52973848122c91979df708
+  source_atom_revision: 3
+  source_sha256: 78b157ad810666fa667739c14ecb50c0f0673b13dce60b77514bf160dfaea697
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

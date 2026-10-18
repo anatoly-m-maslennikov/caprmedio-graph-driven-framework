@@ -8,10 +8,10 @@ global_tier: 11
 status: "Active"
 author: "Anatoly Maslennikov"
 subjects:
-  governs: "Carrier"
+  governs: "Entity/Carrier"
   depends_on: []
-version: 1
-updated_at: "2026-09-28 15:12:22 +0400"
+version: 2
+updated_at: "2026-10-18 03:35:01 +0400"
 relations: {}
 ---
 # Summary

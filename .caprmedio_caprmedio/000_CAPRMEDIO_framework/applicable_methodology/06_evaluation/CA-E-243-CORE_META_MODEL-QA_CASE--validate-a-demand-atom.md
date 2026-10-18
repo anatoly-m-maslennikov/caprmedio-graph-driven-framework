@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Demand"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit.Local Order"]
-version: 24
-updated_at: "2026-10-16 12:09:04 +0000"
+    ["Entity/Continuant/Node/Scope Unit.Local Order"]
+version: 25
+updated_at: "2026-10-18 03:34:21 +0400"
 relations:
   evaluation_for:
     - CA-R-932
@@ -26,8 +26,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-243-CORE_META_MODEL-QA_CASE--validate-a-demand-atom.md
   source_atom_id: CA-E-243
-  source_atom_revision: 24
-  source_sha256: a9331b5d9271313ab450f8bd7939bb38aa8957fed9fba90da1185021be984f5e
+  source_atom_revision: 25
+  source_sha256: 47eb30f961ed49c35bed14f0ff7b327c4430055f62d9503509219b5d85f01cfc
   original_relations_sha256: dec567d5137dd4657b645ae360a9789cdb5f4446863eddc6e91aadcb9bfc8417
 ---
 # Summary

@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Settings"
+  governs: "Entity/Continuant/Node/Project.Settings"
   depends_on:
-    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Projection"]
-version: 13
-updated_at: "2026-10-15 18:51:34 +0000"
+    ["Entity/Continuant/Node/Project", "Entity/Continuant/Node/Project.Settings.Atom Prefix", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Projection"]
+version: 16
+updated_at: "2026-10-18 07:31:49 +0400"
 relations:
   child_of:
     - CA-D-364
 atom_id: "CA-D-366"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md
   source_atom_id: CA-D-366
-  source_atom_revision: 13
-  source_sha256: 332bcfd6b54054e2f28df0121adc7f3afb65341166a77f1eb138dbe7a1d2fc21
+  source_atom_revision: 16
+  source_sha256: 9c18243c78aad3bb201606e09ca1ea486b3ca0b4c8a5ded363635c0863640a89
   original_relations_sha256: 1362486b734d90918b1d2949ab26e315125674e562b6b82d60abc7b3350f9e84
 ---
 # Summary

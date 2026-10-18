@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier"]
-version: 9
-updated_at: "2026-10-16 12:09:32 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier"]
+version: 10
+updated_at: "2026-10-18 03:34:49 +0400"
 relations: {"relates_to": ["CA-R-1578", "CA-D-469"]}
 atom_id: "CA-D-460"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-460-CORE_META_MODEL-CORE--serialize-plan-atom-carrier-bundles.md
   source_atom_id: CA-D-460
-  source_atom_revision: 9
-  source_sha256: 461ccda26aaddf0673b1ef1a1d9fed0f1ca3bb4391857ad389b1c03f80fe2194
+  source_atom_revision: 10
+  source_sha256: 93d43e3839ef9376fd23dee48009965a7f09238e06a9854181ba9b65b65f0fd7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

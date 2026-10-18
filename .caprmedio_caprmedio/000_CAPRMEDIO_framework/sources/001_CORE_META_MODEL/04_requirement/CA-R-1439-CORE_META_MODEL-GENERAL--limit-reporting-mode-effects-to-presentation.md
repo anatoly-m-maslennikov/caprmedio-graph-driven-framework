@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Effects"
+  governs: "Entity/Continuant/Node/Project.Framework Settings.Interaction.Reporting Mode.Effects"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode"]
-version: 10
-updated_at: "2026-10-16 12:08:24 +0000"
+    ["Entity/Continuant/Node/Project.Framework Settings.Interaction.Reporting Mode"]
+version: 11
+updated_at: "2026-10-18 03:33:31 +0400"
 relations:
   child_of:
     - "CA-R-1402"

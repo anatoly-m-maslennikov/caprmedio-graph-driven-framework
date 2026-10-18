@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Substance"
+  governs: "Entity/Continuant/Node/Atom.Substance"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Carrier/File Carrier", "Entity/Continuant/Object/Atom/Content Role"]
-version: 4
-updated_at: "2026-10-16 12:09:37 +0000"
+    ["Entity/Continuant/Node/Atom.Substance", "Entity/Continuant/Node/Atom.Target Scope Unit", "Entity/Carrier/File Carrier", "Entity/Continuant/Node/Atom/Content Role"]
+version: 5
+updated_at: "2026-10-18 03:34:53 +0400"
 relations: {"relates_to": ["CA-D-479", "CA-D-482", "CA-R-1271"]}
 atom_id: "CA-D-495"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md
   source_atom_id: CA-D-495
-  source_atom_revision: 4
-  source_sha256: 5f559c1e735826541696c0055752f401eba4ddc5ac5250dec56d7f02f039cedd
+  source_atom_revision: 5
+  source_sha256: c98fd20a89ebc58c49acb2323956499e502f310dc05ac2a17ba262981a8a8df8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

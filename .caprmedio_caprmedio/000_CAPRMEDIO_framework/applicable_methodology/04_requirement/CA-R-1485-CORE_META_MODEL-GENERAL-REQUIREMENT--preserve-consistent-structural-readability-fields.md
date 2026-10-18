@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Structure"
+  governs: "Entity/Continuant/Node/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children", "Entity/Continuant/Object/Scope Unit.Structural Level", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Carrier"]
-version: 7
-updated_at: "2026-10-16 12:08:27 +0000"
+    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit.Parent", "Entity/Continuant/Node/Scope Unit.Children", "Entity/Continuant/Node/Scope Unit.Structural Level", "Entity/Continuant/Node/Scope Unit.Navigational Order Number", "Entity/Carrier"]
+version: 8
+updated_at: "2026-10-18 03:33:34 +0400"
 relations: {}
 atom_id: "CA-R-1485"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1485-CORE_META_MODEL-GENERAL-REQUIREMENT--preserve-consistent-structural-readability-fields.md
   source_atom_id: CA-R-1485
-  source_atom_revision: 7
-  source_sha256: 65474f9490ebbc31deb837bdb3605f61372a8e26ec5717d9b91667445e143dde
+  source_atom_revision: 8
+  source_sha256: 247251cfe5378a91dfd02594deacc7832db6f1de01219faf4c921d49f76bb1a4
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

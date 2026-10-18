@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Relation/Type: On Result", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom.Substance"]
-version: 10
-updated_at: "2026-10-16 12:08:29 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Relation/Type: On Result", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Node/Atom.Substance"]
+version: 11
+updated_at: "2026-10-18 03:33:36 +0400"
 relations: {"relates_to": ["CA-R-1570"]}
 atom_id: "CA-R-1508"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1508-CORE_META_MODEL-CORE-REQUIREMENT--define-workflow.md
   source_atom_id: CA-R-1508
-  source_atom_revision: 10
-  source_sha256: ab4d6fe0b37830c025444fabdf2b56cb1b1a4303745a52cae8d7c5bd4f425cc1
+  source_atom_revision: 11
+  source_sha256: d936f40f3b1b9e901a0cef28f28905bf9c1c05d94bc92e0406621480245b07b6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

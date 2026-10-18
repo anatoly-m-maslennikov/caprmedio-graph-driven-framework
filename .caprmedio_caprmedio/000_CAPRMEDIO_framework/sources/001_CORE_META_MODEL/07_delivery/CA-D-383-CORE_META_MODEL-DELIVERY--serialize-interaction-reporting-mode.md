@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings"
+  governs: "Entity/Continuant/Node/Project.Framework Settings"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode"]
-version: 13
-updated_at: "2026-10-15 18:51:45 +0000"
+    ["Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Project.Framework Settings.Interaction.Reporting Mode"]
+version: 16
+updated_at: "2026-10-18 07:32:32 +0400"
 relations:
   child_of:
     - CA-D-361
@@ -13,8 +13,8 @@ relations:
     - CA-R-1750
 atom_id: "CA-D-383"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

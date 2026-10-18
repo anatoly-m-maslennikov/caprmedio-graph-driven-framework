@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Canonical Scope Signature"
+  governs: "Entity/Continuant/Node/Projection/Type: Canonical Scope Signature"
   depends_on:
-    ["Entity/Continuant/Projection/Type: Canonical Scope Signature", "Entity/Carrier"]
-version: 14
-updated_at: "2026-10-15 18:51:24 +0000"
+    ["Entity/Continuant/Node/Projection/Type: Canonical Scope Signature", "Entity/Carrier"]
+version: 15
+updated_at: "2026-10-18 03:34:40 +0400"
 relations:
   child_of:
     - CA-D-266

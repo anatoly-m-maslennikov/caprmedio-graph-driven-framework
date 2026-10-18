@@ -1,14 +1,14 @@
 ---
-version: 23
-updated_at: "2026-10-16 12:08:46 +0000"
+version: 24
+updated_at: "2026-10-18 03:33:57 +0400"
 relations:
   child_of:
     - "CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary"
     - "CA-R-1407"
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Global Tier"
+  governs: "Entity/Continuant/Node/Atom.Global Tier"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Project", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Operations"]
+    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Atom/Content Role: Requirement", "Entity/Continuant/Node/Atom/Content Role: Method", "Entity/Continuant/Node/Atom/Content Role: Evaluation", "Entity/Continuant/Node/Atom/Content Role: Delivery", "Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom/Content Role: Operations"]
 atom_id: "CA-R-1777"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
@@ -20,8 +20,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1777-CORE_META_MODEL-CORE-REQUIREMENT--use-one-global-tier-number-for-prmedo-authority.md
   source_atom_id: CA-R-1777
-  source_atom_revision: 23
-  source_sha256: 4b9b0bedc71011f7cef837231889a60552fe86b228728e098fda66a5e186e705
+  source_atom_revision: 24
+  source_sha256: 44fb67fde3acc91c7c824c8b979645a016bdedc961213ce6352027ab2d8e1c45
   original_relations_sha256: 05023c2b54bd4f729d605f16b28a62a690ec02300bcca80340745e1ea800e9b0
 ---
 # Summary

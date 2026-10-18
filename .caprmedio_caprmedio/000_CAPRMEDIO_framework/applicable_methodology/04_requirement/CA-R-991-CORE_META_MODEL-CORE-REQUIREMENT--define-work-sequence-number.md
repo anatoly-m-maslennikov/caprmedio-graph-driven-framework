@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Work Sequence Number"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan"]
-version: 20
-updated_at: "2026-10-16 12:09:00 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan"]
+version: 21
+updated_at: "2026-10-18 03:34:17 +0400"
 relations: {"relates_to": ["CA-R-1574", "CA-R-1578"]}
 atom_id: "CA-R-991"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md
   source_atom_id: CA-R-991
-  source_atom_revision: 20
-  source_sha256: f31f0478e72766f554eb38f1b45985e94cd85fe004448298426a2653129f12e1
+  source_atom_revision: 21
+  source_sha256: 1070240fca99d4438b674c27794fa2cba7276524372f22358ae135ed58168643
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

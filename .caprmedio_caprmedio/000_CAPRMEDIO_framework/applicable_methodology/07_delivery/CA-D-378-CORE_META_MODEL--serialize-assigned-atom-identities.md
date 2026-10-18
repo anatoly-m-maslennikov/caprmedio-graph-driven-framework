@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.ID"
+  governs: "Entity/Continuant/Node/Atom.ID"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom/Content Role: Plan.ID"]
-version: 13
-updated_at: "2026-10-16 12:09:22 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Atom/Content Role: Plan.ID"]
+version: 14
+updated_at: "2026-10-18 03:34:43 +0400"
 relations: {}
 atom_id: "CA-D-378"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL--serialize-assigned-atom-identities.md
   source_atom_id: CA-D-378
-  source_atom_revision: 13
-  source_sha256: 6a6f9b3658df81fab494845509c977f497a4d86d2dd72b8f0781340635d134d6
+  source_atom_revision: 14
+  source_sha256: 269c4e94fa6b29adeef0b05cb22d21ac4699eae4dd7aae9ca56b65d647987ea8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

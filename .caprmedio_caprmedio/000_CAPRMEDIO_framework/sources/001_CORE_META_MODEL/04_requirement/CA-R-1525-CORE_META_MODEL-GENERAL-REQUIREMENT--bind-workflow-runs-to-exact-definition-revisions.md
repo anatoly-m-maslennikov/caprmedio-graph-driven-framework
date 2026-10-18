@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Occurrent/Execution/Workflow Run"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Journal", "Entity/Continuant/Actor/Type: Operator"]
-version: 9
-updated_at: "2026-10-15 18:43:57 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/History/Journal", "Entity/Continuant/Node/Actor/Type: Operator"]
+version: 10
+updated_at: "2026-10-18 03:33:37 +0400"
 relations: {"relates_to": ["CA-R-1510", "CA-R-1511", "CA-R-1519", "CA-R-1520", "CA-R-1720"]}
 atom_id: "CA-R-1525"
 content_role: "Requirement"

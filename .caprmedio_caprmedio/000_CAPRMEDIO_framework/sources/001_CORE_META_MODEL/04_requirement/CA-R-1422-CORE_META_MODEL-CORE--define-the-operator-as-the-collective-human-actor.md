@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor/Type: Operator"
+  governs: "Entity/Continuant/Node/Actor/Type: Operator"
   depends_on:
-    ["Entity/Continuant/Actor", "Entity/Continuant/Object/Project"]
-version: 10
-updated_at: "2026-10-16 12:08:24 +0000"
+    ["Entity/Continuant/Node/Actor", "Entity/Continuant/Node/Project"]
+version: 11
+updated_at: "2026-10-18 03:33:31 +0400"
 relations:
   child_of:
     - CA-P-032

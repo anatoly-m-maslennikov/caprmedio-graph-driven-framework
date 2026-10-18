@@ -3,15 +3,15 @@ subjects:
   governs: "Entity/Continuant/Object/Project.Framework Settings.Confidence.Necessary Information Threshold"
   depends_on:
     ["Entity/Continuant/Object/Project.Framework Settings", "Confidence Threshold", "Entity/Carrier"]
-version: 11
-updated_at: "2026-10-15 18:51:35 +0000"
+version: 13
+updated_at: "2026-10-18 07:32:01 +0400"
 relations:
   child_of:
     - "CA-D-361"
 atom_id: "CA-D-368"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

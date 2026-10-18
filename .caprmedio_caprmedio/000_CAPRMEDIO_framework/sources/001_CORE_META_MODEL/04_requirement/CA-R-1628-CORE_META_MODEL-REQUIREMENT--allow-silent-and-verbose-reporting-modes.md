@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode"
+  governs: "Entity/Continuant/Node/Project.Framework Settings.Interaction.Reporting Mode"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings"]
-version: 27
-updated_at: "2026-10-15 18:45:05 +0000"
+    ["Entity/Continuant/Node/Project.Framework Settings"]
+version: 28
+updated_at: "2026-10-18 03:33:45 +0400"
 relations: {"child_of":["CA-R-1402"],"relates_to":["CA-R-1750","CA-O-052"]}
 atom_id: "CA-R-1628"
 content_role: "Requirement"

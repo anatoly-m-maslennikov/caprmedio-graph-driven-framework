@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Substance"
+  governs: "Entity/Continuant/Node/Atom.Substance"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit"]
-version: 11
-updated_at: "2026-10-15 18:49:31 +0000"
+    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Atom/Content Role: Evaluation", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Atom.Target Scope Unit"]
+version: 12
+updated_at: "2026-10-18 03:34:22 +0400"
 relations: {}
 atom_id: "CA-E-461"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-461-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--warn-about-selected-sibling-claim-boundaries.md
   source_atom_id: CA-E-461
-  source_atom_revision: 11
-  source_sha256: f26e81dc504f5f57ca98dc266e0fbc4ea9b1708adaf549d2aa20228e8d5bb4e2
+  source_atom_revision: 12
+  source_sha256: 3ec37e514a30af3cc7ec0153d57b644447ab59d8d6215f9de6e0fb5708fe8410
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

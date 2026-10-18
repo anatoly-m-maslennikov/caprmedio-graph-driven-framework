@@ -9,17 +9,17 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Relation/Type: On Result", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
-version: 10
-updated_at: "2026-10-16 12:09:40 +0000"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow"
+  depends_on: ["Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Relation/Type: On Result", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/History/Journal"]
+version: 12
+updated_at: "2026-10-18 06:16:01 +0400"
 relations:
   relates_to: [CA-O-129, CA-O-145, CA-M-303, CA-R-1508, CA-R-1513, CA-R-1520, CA-R-1525, CA-R-1720]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-127-CORE_META_MODEL-WORKFLOW--manage-atom-lifecycle.md
   source_atom_id: CA-O-127
-  source_atom_revision: 10
-  source_sha256: c0548a2b6c88cbf5b8e3098b57eef9fc4a1d1b80cfd86e6fb09b108d86da6b69
+  source_atom_revision: 12
+  source_sha256: c7f805fa035dba6da2b4325c0c6cf7f0ccdb59719e51578926f6ea74640b668a
   original_relations_sha256: fcfcc4b2dbb8fc1a8cac622227d404f20f79bf31f172624b9f4b4103aa62748d
 ---
 # Summary
@@ -28,15 +28,15 @@ Manage atom lifecycle
 
 ## Operation
 
-One reusable parameterized Workflow graph binds Create Atom, Update Atom, Replace Atom and Change Atom Status. Archive is only a Change Status shortcut admitted by the applicable model, not another Workflow. The Step definitions own all Action and input bindings.
+One reusable parameterized Workflow graph binds Create Atom, Update Atom, Replace Atom, Change Atom Status, and Move Atom. Archive is only a Change Status shortcut admitted by the applicable model, not another Workflow. The Step definitions own all Action and input bindings.
 
-Each invocation admits exactly one Create target or one existing current target/predecessor, with its complete required Carrier set. Replace retains the complete accepted set of >=1 distinct successors for that one predecessor, not additional predecessors. A request naming multiple independent targets/predecessors ends blocked before Step dispatch or effects; bulk callers expand their requests into separate individually admitted Runs of this same Workflow, with fresh exact inputs/assessment/permission bindings for each, except the instructed Subjects-only batch admission below.
+Each invocation admits exactly one Create target or one existing current target/predecessor, with its complete required Carrier set. Replace retains the complete accepted set of >=1 distinct successors for that one predecessor, not additional predecessors. A Move request admits exactly one existing current Atom, its exact source locator/digest, and one explicit destination mapping; it preserves identity and content meaning and does not discover descendants. A request naming multiple independent targets/predecessors ends blocked before Step dispatch or effects; bulk callers expand their requests into separate individually admitted Runs of this same Workflow, with fresh exact inputs/assessment/permission bindings for each, except the instructed Subjects-only batch admission below.
 
 For a containment cascade required by R1521, the calling Workflow binds the parent and every selected contained Plan or Operations Atom's latest Revision as separate individually admitted Runs of this Workflow, all requesting the same Status under each target's own model. Older historical Revisions and references outside the parent Carrier tree are excluded. Each Run retains the single-target boundary below; none discovers, invokes or authorizes the other targets. The caller preserves nesting under D461/D467 and advances only after a verified applied or no-op result. It stops on the first failed, refused or uncertain result, retains earlier completed effects and leaves remaining targets untouched, without automatic retry or cross-Atom rollback. One completed Run proves only its bound target; the caller reports the whole cascade complete only after every selected target has a verified result.
 
 ### Nodes and entry
 
-The graph has exactly two Step nodes: CA-O-145 and CA-O-129. An ordinary admitted Update request enters CA-O-145; admitted Create, Replace or Change Status requests enter CA-O-129. Unsupported request kinds end blocked without an effect.
+The graph has exactly two Step nodes: CA-O-145 and CA-O-129. An ordinary admitted Update request enters CA-O-145; admitted Create, Replace, Change Status or Move requests enter CA-O-129. Unsupported request kinds end blocked without an effect.
 
 ### Typed transitions and terminal results
 

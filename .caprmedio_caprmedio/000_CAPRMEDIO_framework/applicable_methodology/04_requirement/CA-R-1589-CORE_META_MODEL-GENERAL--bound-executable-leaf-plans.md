@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom/Content Role: Plan.Label"]
-version: 8
-updated_at: "2026-10-16 12:08:35 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Actor/Type: AI Agent", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Atom/Content Role: Plan.Label"]
+version: 9
+updated_at: "2026-10-18 03:33:43 +0400"
 relations: {"relates_to": ["CA-R-1575", "CA-R-1584"]}
 atom_id: "CA-R-1589"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1589-CORE_META_MODEL-GENERAL--bound-executable-leaf-plans.md
   source_atom_id: CA-R-1589
-  source_atom_revision: 8
-  source_sha256: de25b23ac36cd70b34216e6df2fce95ce0fcf2dcf48fba37f5adbd5bbd65c95d
+  source_atom_revision: 9
+  source_sha256: 73a2a5ba3383b829d54e57af3f08a3a6143f9dec7b58705ee6743e259db3fbf6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

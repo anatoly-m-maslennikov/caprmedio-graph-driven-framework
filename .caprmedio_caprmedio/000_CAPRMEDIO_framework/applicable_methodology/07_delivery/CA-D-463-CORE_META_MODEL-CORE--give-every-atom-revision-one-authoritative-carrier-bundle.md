@@ -3,9 +3,9 @@ subjects:
   governs: "Entity/Continuant/Object/Atom"
   depends_on:
     ["Entity/Continuant/Object/Atom", "Entity/Carrier", "Entity/Carrier/File Carrier", "Entity/Continuant/Object/Atom.Property", "Entity/Continuant/Object/Project"]
-version: 8
-updated_at: "2026-10-16 12:09:32 +0000"
-relations: {"relates_to": ["CA-D-258", "CA-D-259", "CA-D-416"]}
+version: 9
+updated_at: "2026-10-17 18:05:45 +0400"
+relations: {"relates_to": ["CA-R-1957", "CA-R-1956", "CA-D-416"]}
 atom_id: "CA-D-463"
 content_role: "Delivery"
 current_scope_unit: "CORE_META_MODEL"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md
   source_atom_id: CA-D-463
-  source_atom_revision: 8
-  source_sha256: 49e285195ec8d1003820af2129c71f54a910369875e25a3ff4e6d781a6edc7b7
+  source_atom_revision: 9
+  source_sha256: 1662c10dff90591846c550d900ebe92968b9c756ff5a697a592b8a875a67f71e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

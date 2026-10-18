@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor/Type: AI Agent"
+  governs: "Entity/Continuant/Node/Actor/Type: AI Agent"
   depends_on:
-    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent.Permissions"]
-version: 7
-updated_at: "2026-10-16 12:08:31 +0000"
+    ["Entity/Continuant/Node/Actor/Type: AI Agent", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Actor/Type: AI Agent.Permissions"]
+version: 8
+updated_at: "2026-10-18 03:33:40 +0400"
 relations:
   child_of:
     - CA-P-034
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md
   source_atom_id: CA-R-1552
-  source_atom_revision: 7
-  source_sha256: be778c629e3f1edc99f440a97b73cf3abc7d4c4367251381dd6c315ff8fa1a92
+  source_atom_revision: 8
+  source_sha256: 0d6209301a399f21bdb740d5182c2621abd748e1bf5a1a57a78fcb9e6a0b97ab
   original_relations_sha256: b47bf49353063d138eaaafb2507e53893b8f65ed84f88d6c603da43b611c30d9
 ---
 # Summary

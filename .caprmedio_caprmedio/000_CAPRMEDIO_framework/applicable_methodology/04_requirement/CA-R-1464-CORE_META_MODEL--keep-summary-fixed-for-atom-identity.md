@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Summary"
+  governs: "Entity/Continuant/Node/Atom.Summary"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Substance"]
-version: 7
-updated_at: "2026-10-15 18:43:22 +0000"
+    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Atom.ID", "Entity/Continuant/Node/Atom.Substance"]
+version: 8
+updated_at: "2026-10-18 03:33:33 +0400"
 relations: {}
 atom_id: "CA-R-1464"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1464-CORE_META_MODEL--keep-summary-fixed-for-atom-identity.md
   source_atom_id: CA-R-1464
-  source_atom_revision: 7
-  source_sha256: 886ccf08de89e1bf0a27579815c41725ca494cf042c16d5904a65405569b4558
+  source_atom_revision: 8
+  source_sha256: 4cf20d4838bb39207f0037b27973ea67c1cea526b24fa66200b74cfc46516d55
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

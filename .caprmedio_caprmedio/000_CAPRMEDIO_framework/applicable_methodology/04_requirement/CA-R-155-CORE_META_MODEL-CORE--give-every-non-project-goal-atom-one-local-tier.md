@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Local Tier"
+  governs: "Entity/Continuant/Node/Atom.Local Tier"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Atom.Local Tier: Core", "Entity/Continuant/Object/Atom.Local Tier: General", "Entity/Continuant/Object/Atom.Local Tier: Standard"]
-version: 32
-updated_at: "2026-10-15 18:44:12 +0000"
+    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Atom.Local Tier: Principle", "Entity/Continuant/Node/Atom.Local Tier: Core", "Entity/Continuant/Node/Atom.Local Tier: General", "Entity/Continuant/Node/Atom.Local Tier: Standard"]
+version: 33
+updated_at: "2026-10-18 03:33:40 +0400"
 relations: {}
 atom_id: "CA-R-155"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-155-CORE_META_MODEL-CORE--give-every-non-project-goal-atom-one-local-tier.md
   source_atom_id: CA-R-155
-  source_atom_revision: 32
-  source_sha256: a806d4ba674873e211ae20307865945d065fe8d93791952ee83414f2e7d33432
+  source_atom_revision: 33
+  source_sha256: afaff676c1ec07d326a24ca16b496ceff8c993c69bcffce5e6305d520a122c03
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

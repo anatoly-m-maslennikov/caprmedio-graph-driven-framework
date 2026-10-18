@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/File Carrier.Filename"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.ID", "Entity/Carrier"]
-version: 7
-updated_at: "2026-10-16 12:09:33 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom/Content Role: Plan.Label", "Entity/Continuant/Node/Atom/Content Role: Plan.Work Sequence Number", "Entity/Continuant/Node/Atom.Summary", "Entity/Continuant/Node/Atom.ID", "Entity/Carrier"]
+version: 8
+updated_at: "2026-10-18 03:34:50 +0400"
 relations: {"relates_to": ["CA-R-1576", "CA-R-991", "CA-D-381", "CA-D-282", "CA-D-284", "CA-D-460", "CA-R-997"]}
 atom_id: "CA-D-469"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-469-CORE_META_MODEL-STANDARD--serialize-plan-carrier-stems.md
   source_atom_id: CA-D-469
-  source_atom_revision: 7
-  source_sha256: a09a83dd339eadf0258e9f57b8643ebf1be5d7bb9035f0446e9650bceab38449
+  source_atom_revision: 8
+  source_sha256: ca02e96947829598423aaad8955a73baaaa1aff2d9a3004dda0123044cb2856f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

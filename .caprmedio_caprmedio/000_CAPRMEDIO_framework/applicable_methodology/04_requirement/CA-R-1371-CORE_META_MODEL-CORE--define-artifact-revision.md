@@ -1,9 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Revision"
-  depends_on: []
-version: 10
-updated_at: "2026-10-02 22:23:29 +0400"
+  governs: "Entity/Continuant/Node/History/Revision"
+  depends_on:
+  - "Entity/Continuant/Node/History"
+version: 12
+updated_at: "2026-10-18 03:33:24 +0400"
 relations: {}
 atom_id: "CA-R-1371"
 content_role: "Requirement"
@@ -16,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md
   source_atom_id: CA-R-1371
-  source_atom_revision: 10
-  source_sha256: 5d784abf1c82906ad8cb8d84e216f956fabf295523f15113ca9706032130c992
+  source_atom_revision: 12
+  source_sha256: f6a10949ea5440c6c143f285c6fef0baed2966fe680d5b07dbbb79d6d35cc150
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
@@ -26,10 +27,13 @@ Define Artifact Revision
 
 ## Scope
 
-Artifact Revisions.
+Preserved historical states of Artifacts.
 
 ## Claim
 
-an Artifact/Revision **means** one immutable recorded state of one Artifact's governed meaning. lifecycle Status **and** Updated At serialize its current lifecycle metadata **and** **may** change **without** creating another semantic Revision.
+a Revision **means** a preserved historical state of an Artifact. it belongs to History; it is **not** a dependent property of the current Artifact. the preserved state **must not** be edited as though it were the current state.
 
 ## Details
+
+A current Atom remains an Atom with its own Version Number and Updated At. Its accepted updates follow CA-R-1432 and CA-R-1788. An archived Atom itself represents the earlier Atom state; no additional Revision wrapper is required. This definition does not require a separate snapshot operation, Journal record, historical baseline or permission check. Journal records describe events, not Journal snapshots.
+

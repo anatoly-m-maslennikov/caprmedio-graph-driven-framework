@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity/Carrier/Directory Carrier", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"]
-version: 9
-updated_at: "2026-10-16 12:09:33 +0000"
+    ["Entity/Carrier/Directory Carrier", "Entity/Carrier", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step"]
+version: 10
+updated_at: "2026-10-18 03:34:50 +0400"
 relations: {"delivery_for": ["CA-R-1570", "CA-R-1569"], "relates_to": ["CA-D-457", "CA-D-285"]}
 atom_id: "CA-D-467"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md
   source_atom_id: CA-D-467
-  source_atom_revision: 9
-  source_sha256: 01a3ebd2514af6a4c4599b914aad723263c8577fa967932783e529222acd68f6
+  source_atom_revision: 10
+  source_sha256: d9da991e8827b8c3fadc6ba5c27ea36111f5e498a73a13c242f124bc856d4ac9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

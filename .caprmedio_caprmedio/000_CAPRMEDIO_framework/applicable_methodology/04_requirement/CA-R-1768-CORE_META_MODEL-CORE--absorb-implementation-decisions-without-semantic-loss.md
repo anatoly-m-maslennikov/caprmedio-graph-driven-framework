@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Method"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Method"
   depends_on: []
-version: 17
-updated_at: "2026-10-15 18:45:57 +0000"
+version: 18
+updated_at: "2026-10-18 03:33:56 +0400"
 relations: {}
 atom_id: "CA-R-1768"
 content_role: "Requirement"
@@ -16,8 +16,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1768-CORE_META_MODEL-CORE--absorb-implementation-decisions-without-semantic-loss.md
   source_atom_id: CA-R-1768
-  source_atom_revision: 17
-  source_sha256: b1fabdecc9759ff8c316e326823ad1c7285a2a300a7b4f3476a9094fd70b63b0
+  source_atom_revision: 18
+  source_sha256: d6a04f1f30d9dd65dc69cc65dd7a0921d88e860ebbef4f440402be7eaeb35c15
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

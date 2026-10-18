@@ -3,15 +3,15 @@ subjects:
   governs: "Entity/Continuant/Object/Project.Settings.Project Name"
   depends_on:
     ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project", "Project Name", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Implementation"]
-version: 12
-updated_at: "2026-10-15 18:51:40 +0000"
+version: 14
+updated_at: "2026-10-18 07:39:42 +0400"
 relations:
   child_of:
     - "CA-D-366"
 atom_id: "CA-D-375"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

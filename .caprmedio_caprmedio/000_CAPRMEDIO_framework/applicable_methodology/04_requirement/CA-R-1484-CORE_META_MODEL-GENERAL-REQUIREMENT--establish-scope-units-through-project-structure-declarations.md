@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit"
+  governs: "Entity/Continuant/Node/Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children"]
-version: 7
-updated_at: "2026-10-16 12:08:26 +0000"
+    ["Entity/Continuant/Node/Project.Structure", "Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Node/Scope Unit.Parent", "Entity/Continuant/Node/Scope Unit.Children"]
+version: 8
+updated_at: "2026-10-18 03:33:34 +0400"
 relations: {}
 atom_id: "CA-R-1484"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1484-CORE_META_MODEL-GENERAL-REQUIREMENT--establish-scope-units-through-project-structure-declarations.md
   source_atom_id: CA-R-1484
-  source_atom_revision: 7
-  source_sha256: 80c80cf224a82ae977a2f57aac951cdae297532d4d5c66080d47c02ce792143c
+  source_atom_revision: 8
+  source_sha256: 72bd10a48027c533b7ab9081caa362fbeb501012fa449813d071753a27193a33
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

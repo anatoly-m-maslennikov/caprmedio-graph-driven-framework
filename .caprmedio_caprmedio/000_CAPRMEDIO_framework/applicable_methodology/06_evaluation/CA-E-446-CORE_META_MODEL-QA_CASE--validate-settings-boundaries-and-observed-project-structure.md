@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Structure"
+  governs: "Entity/Continuant/Node/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Projection/Type: Applicable Methodology"]
-version: 14
-updated_at: "2026-10-15 18:49:20 +0000"
+    ["Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Node/Projection/Type: Applicable Methodology"]
+version: 15
+updated_at: "2026-10-18 03:34:22 +0400"
 relations:
   evaluation_for:
     - "CA-R-1483"
@@ -34,8 +34,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-446-CORE_META_MODEL-QA_CASE--validate-settings-boundaries-and-observed-project-structure.md
   source_atom_id: CA-E-446
-  source_atom_revision: 14
-  source_sha256: c6db3113f635142acd609e26d2bc631304d8cf329161917f9360fcd51c34bd72
+  source_atom_revision: 15
+  source_sha256: 13723e6d8879c26e446b743538d6d367043418479ec90269d27b50651e6f92f0
   original_relations_sha256: 5b513e54cd74d69f9ff194112df4589c8ccd5efc50c0275bc0be2f0582063614
 ---
 # Summary

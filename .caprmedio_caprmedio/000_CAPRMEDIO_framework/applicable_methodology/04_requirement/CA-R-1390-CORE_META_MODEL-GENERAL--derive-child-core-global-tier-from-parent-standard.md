@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Global Tier"
+  governs: "Entity/Continuant/Node/Atom.Global Tier"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Local Tier: Core", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Parent", "Entity/Continuant/Object/Scope Unit.Children"]
-version: 13
-updated_at: "2026-10-16 12:08:22 +0000"
+    ["Entity/Continuant/Node/Atom.Local Tier: Core", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit.Parent", "Entity/Continuant/Node/Scope Unit.Children"]
+version: 14
+updated_at: "2026-10-18 03:33:26 +0400"
 relations: {}
 atom_id: "CA-R-1390"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md
   source_atom_id: CA-R-1390
-  source_atom_revision: 13
-  source_sha256: f567a604e86d2c914455c321f41829b51f5688b1b825f15e11582d1df56ae3f9
+  source_atom_revision: 14
+  source_sha256: 71fad60d9a231ceaaa27ce9776c6b905b7ded1dbd0b759d08d661cf3d601a69f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

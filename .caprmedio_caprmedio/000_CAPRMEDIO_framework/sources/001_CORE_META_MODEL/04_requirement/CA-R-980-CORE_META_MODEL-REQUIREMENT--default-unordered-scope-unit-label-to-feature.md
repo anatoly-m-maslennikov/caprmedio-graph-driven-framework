@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit.Label"
+  governs: "Entity/Continuant/Node/Scope Unit.Label"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit/Type: Unordered"]
-version: 17
-updated_at: "2026-10-15 18:47:34 +0000"
+    ["Entity/Continuant/Node/Scope Unit/Type: Unordered"]
+version: 18
+updated_at: "2026-10-18 03:34:16 +0400"
 relations:
   child_of:
     - CA-R-972

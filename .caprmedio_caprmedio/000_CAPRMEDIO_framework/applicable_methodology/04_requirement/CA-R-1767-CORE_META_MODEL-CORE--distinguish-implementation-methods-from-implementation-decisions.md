@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Method"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Method"
   depends_on: []
-version: 19
-updated_at: "2026-10-15 18:45:56 +0000"
+version: 20
+updated_at: "2026-10-18 03:33:56 +0400"
 relations:
   child_of:
     - CA-M-001
@@ -18,8 +18,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL-CORE--distinguish-implementation-methods-from-implementation-decisions.md
   source_atom_id: CA-R-1767
-  source_atom_revision: 19
-  source_sha256: fd29cc7220459dbc2ad286a8ce8cdb34903e2336274309c7d669699be8537b0f
+  source_atom_revision: 20
+  source_sha256: 00c259c27203632e2d169350f54c3ecf6bbfe35797e97f0044d77f8b4ee10848
   original_relations_sha256: 2f95e55e3d0a844c858c40eeab601ef29e88bfb9f5c8b9fd17a85ccd2af662a7
 ---
 # Summary

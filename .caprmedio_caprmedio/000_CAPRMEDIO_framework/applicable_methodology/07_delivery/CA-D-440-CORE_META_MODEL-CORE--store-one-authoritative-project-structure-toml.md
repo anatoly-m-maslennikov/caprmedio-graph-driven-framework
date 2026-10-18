@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Structure"
+  governs: "Entity/Continuant/Node/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Object/Project.Settings", "Entity/Carrier", "Entity/Continuant/Object/Scope Unit"]
-version: 6
-updated_at: "2026-10-15 18:51:56 +0000"
+    ["Entity/Continuant/Node/Project.Settings", "Entity/Carrier", "Entity/Continuant/Node/Scope Unit"]
+version: 7
+updated_at: "2026-10-18 03:34:47 +0400"
 relations:
   relates_to:
     - "CA-R-1483"
@@ -20,8 +20,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-440-CORE_META_MODEL-CORE--store-one-authoritative-project-structure-toml.md
   source_atom_id: CA-D-440
-  source_atom_revision: 6
-  source_sha256: c1c169a39a975469001024c7fef1effc6a2b5938078fca5c4029894082dd4b23
+  source_atom_revision: 7
+  source_sha256: b2178dae0bfb6d28b45e5c6deaa26972c4b657e2ce5fe11a3780ca2095260a9a
   original_relations_sha256: 966790aed439082bc112a837c866f12d7b99b17679663bf5b164a38efeab0818
 ---
 # Summary

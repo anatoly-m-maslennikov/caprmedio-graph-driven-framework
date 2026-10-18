@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Work Sequence Number"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan"]
-version: 20
-updated_at: "2026-10-16 12:09:00 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan"]
+version: 21
+updated_at: "2026-10-18 03:34:17 +0400"
 relations: {"relates_to": ["CA-R-1574", "CA-R-1578"]}
 atom_id: "CA-R-991"
 content_role: "Requirement"

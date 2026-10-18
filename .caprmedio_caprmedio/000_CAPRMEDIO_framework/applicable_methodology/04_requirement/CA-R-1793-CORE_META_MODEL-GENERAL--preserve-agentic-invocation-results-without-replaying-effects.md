@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Occurrent/Execution/Step Run"
   depends_on:
-    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Occurrent/Execution/Step Run.Execution Context", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
-version: 3
-updated_at: "2026-10-16 12:08:49 +0000"
+    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Occurrent/Execution/Step Run.Execution Context", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/History/Journal"]
+version: 4
+updated_at: "2026-10-18 03:34:00 +0400"
 relations: {"relates_to": ["CA-R-1519", "CA-R-1520", "CA-R-1525", "CA-R-1527"]}
 atom_id: "CA-R-1793"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1793-CORE_META_MODEL-GENERAL--preserve-agentic-invocation-results-without-replaying-effects.md
   source_atom_id: CA-R-1793
-  source_atom_revision: 3
-  source_sha256: 78323788f99d0864d9a6cfa108ea16c892e81a11cfb95ff797e6793e959b852f
+  source_atom_revision: 4
+  source_sha256: aa39d5f442453cd6a4f7066a52ea8d20b692083b459fe77588d4b49c8450a5ae
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

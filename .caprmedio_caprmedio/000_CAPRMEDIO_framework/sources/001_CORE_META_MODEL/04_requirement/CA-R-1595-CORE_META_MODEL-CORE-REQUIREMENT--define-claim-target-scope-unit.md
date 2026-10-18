@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Target Scope Unit"
+  governs: "Entity/Continuant/Node/Atom.Target Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Scope Unit"]
-version: 6
-updated_at: "2026-10-15 18:44:55 +0000"
+    ["Entity/Continuant/Node/Atom.Substance", "Entity/Continuant/Node/Scope Unit"]
+version: 7
+updated_at: "2026-10-18 03:33:44 +0400"
 relations: {}
 atom_id: "CA-R-1595"
 content_role: "Requirement"

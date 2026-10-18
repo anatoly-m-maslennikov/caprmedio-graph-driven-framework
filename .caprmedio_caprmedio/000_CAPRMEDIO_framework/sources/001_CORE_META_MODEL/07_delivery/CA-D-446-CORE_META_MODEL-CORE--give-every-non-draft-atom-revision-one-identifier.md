@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/History/Revision.Identity"
+  governs: "Entity/Continuant/Node/History/Revision.Identity"
   depends_on:
-    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Version Number", "Entity/Continuant/Object/Atom.Status: Draft"]
-version: 12
-updated_at: "2026-10-16 12:09:30 +0000"
+    ["Entity/Continuant/Node/Atom.ID", "Entity/Continuant/Node/Atom.Version Number", "Entity/Continuant/Node/Atom.Status: Draft"]
+version: 13
+updated_at: "2026-10-18 03:34:49 +0400"
 relations:
   relates_to:
     - CA-D-378

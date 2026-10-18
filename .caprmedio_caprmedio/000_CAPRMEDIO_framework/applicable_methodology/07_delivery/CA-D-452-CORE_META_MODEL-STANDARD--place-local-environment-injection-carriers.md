@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/File Carrier"
   depends_on:
-    ["Entity/Continuant/Object/Project", "Entity/Carrier/Directory Carrier"]
-version: 6
-updated_at: "2026-10-16 12:09:31 +0000"
+    ["Entity/Continuant/Node/Project", "Entity/Carrier/Directory Carrier"]
+version: 7
+updated_at: "2026-10-18 03:34:49 +0400"
 relations: {}
 atom_id: "CA-D-452"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-452-CORE_META_MODEL-STANDARD--place-local-environment-injection-carriers.md
   source_atom_id: CA-D-452
-  source_atom_revision: 6
-  source_sha256: 1e1979ce603da6c77a8e06224cdfc48a6ce690a5fcc38ad956c93fa1ffe1aa1b
+  source_atom_revision: 7
+  source_sha256: dd4e11d0d6d30ba44b1d3cf982d78eb08f65536c6f886fe8098aad44180b294a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

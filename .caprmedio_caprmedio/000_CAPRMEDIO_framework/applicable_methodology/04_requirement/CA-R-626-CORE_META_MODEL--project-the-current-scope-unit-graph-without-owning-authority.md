@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Scope Unit Graph"
+  governs: "Entity/Continuant/Node/Projection/Type: Scope Unit Graph"
   depends_on:
-    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Project.Framework Settings"]
-version: 26
-updated_at: "2026-10-16 12:08:50 +0000"
+    ["Entity/Continuant/Node/Project.Structure", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Projection", "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Node/Project.Framework Settings"]
+version: 27
+updated_at: "2026-10-18 03:34:08 +0400"
 relations:
   child_of:
     - CA-R-843
@@ -22,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-626-CORE_META_MODEL--project-the-current-scope-unit-graph-without-owning-authority.md
   source_atom_id: CA-R-626
-  source_atom_revision: 26
-  source_sha256: 7aca0627f5e3736349804380c05eec0a791a80d827492234cc635055e0675ec3
+  source_atom_revision: 27
+  source_sha256: 17d22aef2e0193873c7186e6c3c728f88e769c63e1efe4720b89bfaec56690ac
   original_relations_sha256: fdcff71931cab6291573c3ef3ef6557f0f840e14ab089f37a36ccb79e65e2cf2
 ---
 # Summary

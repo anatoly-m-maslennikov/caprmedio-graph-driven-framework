@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Status: Draft"
+  governs: "Entity/Continuant/Node/Atom.Status: Draft"
   depends_on:
-    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/History/Revision.Identity", "Entity/Continuant/Object/Atom.Status: Draft", "Entity/Continuant/History/Revision", "Entity/Continuant/Object/Atom.Version Number", "Entity/Continuant/Object/Atom/Content Role"]
-version: 9
-updated_at: "2026-10-16 12:09:39 +0000"
+    ["Entity/Continuant/Node/Atom.ID", "Entity/Continuant/Node/History/Revision.Identity", "Entity/Continuant/Node/Atom.Status: Draft", "Entity/Continuant/Node/History/Revision", "Entity/Continuant/Node/Atom.Version Number", "Entity/Continuant/Node/Atom/Content Role"]
+version: 10
+updated_at: "2026-10-18 03:34:55 +0400"
 relations:
   relates_to:
     - CA-D-288

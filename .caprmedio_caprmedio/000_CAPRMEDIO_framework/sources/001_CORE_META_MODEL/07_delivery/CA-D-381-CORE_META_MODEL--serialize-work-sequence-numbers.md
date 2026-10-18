@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Work Sequence Number"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Work Sequence Number"
   depends_on:
     ["Entity/Carrier"]
-version: 9
-updated_at: "2026-10-16 12:09:23 +0000"
+version: 10
+updated_at: "2026-10-18 03:34:44 +0400"
 relations: {}
 atom_id: "CA-D-381"
 content_role: "Delivery"

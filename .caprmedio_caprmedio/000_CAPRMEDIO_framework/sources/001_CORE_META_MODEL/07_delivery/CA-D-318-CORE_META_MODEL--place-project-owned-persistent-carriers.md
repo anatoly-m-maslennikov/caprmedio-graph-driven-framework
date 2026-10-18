@@ -2,13 +2,13 @@
 subjects:
   governs: "Entity/Carrier/Directory Carrier"
   depends_on: []
-version: 12
-updated_at: "2026-10-16 12:09:19 +0000"
+version: 14
+updated_at: "2026-10-18 07:36:52 +0400"
 relations: {}
 atom_id: "CA-D-318"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

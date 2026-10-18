@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Version Number"
+  governs: "Entity/Continuant/Node/Atom.Version Number"
   depends_on:
-    ["Entity/Continuant/Object/Atom"]
-version: 12
-updated_at: "2026-10-15 18:42:48 +0000"
+    ["Entity/Continuant/Node/Atom"]
+version: 13
+updated_at: "2026-10-18 03:33:30 +0400"
 relations: {}
 atom_id: "CA-R-1415"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md
   source_atom_id: CA-R-1415
-  source_atom_revision: 12
-  source_sha256: e3b103e766ec8b5c727f78bcc93b23f3d29bbd6d4407b407b68fc01448f87c63
+  source_atom_revision: 13
+  source_sha256: 967a6f05749b40d7a694dfd1fea03c522f437bcfce544b11a249427285b27c36
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

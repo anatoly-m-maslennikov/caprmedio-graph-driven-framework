@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Relation/Type: On Result", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom.Substance"]
-version: 10
-updated_at: "2026-10-16 12:08:29 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Relation/Type: On Result", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Execution Context", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Node/Atom.Substance"]
+version: 11
+updated_at: "2026-10-18 03:33:36 +0400"
 relations: {"relates_to": ["CA-R-1570"]}
 atom_id: "CA-R-1508"
 content_role: "Requirement"

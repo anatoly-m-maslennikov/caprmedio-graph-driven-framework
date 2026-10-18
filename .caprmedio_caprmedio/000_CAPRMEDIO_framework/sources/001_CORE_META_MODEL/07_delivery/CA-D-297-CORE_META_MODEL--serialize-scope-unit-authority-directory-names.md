@@ -2,14 +2,14 @@
 subjects:
   governs: "Entity/Carrier/Directory Carrier.Name"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit.Name", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Continuant/Object/Scope Unit.Structural Level", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Continuant/Object/Scope Unit.Local Order"]
-version: 14
-updated_at: "2026-10-16 12:09:15 +0000"
+    ["Entity/Continuant/Node/Scope Unit.Name", "Entity/Continuant/Node/Scope Unit.Label", "Entity/Continuant/Node/Scope Unit.Structural Level", "Entity/Continuant/Node/Scope Unit.Navigational Order Number", "Entity/Continuant/Node/Scope Unit.Local Order"]
+version: 17
+updated_at: "2026-10-18 07:30:23 +0400"
 relations: {}
 atom_id: "CA-D-297"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

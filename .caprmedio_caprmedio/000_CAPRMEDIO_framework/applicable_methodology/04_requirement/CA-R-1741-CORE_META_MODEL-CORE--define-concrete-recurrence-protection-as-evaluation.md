@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Evaluation"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Evaluation"
   depends_on:
     []
-version: 16
-updated_at: "2026-10-16 12:08:42 +0000"
+version: 17
+updated_at: "2026-10-18 03:33:52 +0400"
 relations:
   child_of:
     - CAPRMEDIO-REQU-637-REQUIREMENT--establish-recurrence-protection
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md
   source_atom_id: CA-R-1741
-  source_atom_revision: 16
-  source_sha256: ba2cc0d64759f2426add8f1f1f88f1e6951c647dfbedbc0f7c2684a9e028fe09
+  source_atom_revision: 17
+  source_sha256: a03ee7d6b7d75442cc4b6394d0888296c9c5d4f6dd0e878c48fd58a17ea5e328
   original_relations_sha256: 218859b81bfe5fc15e1bc6da2d5c045c129cf8a0d1a3e0a0b96a079237e77fe3
 ---
 # Summary

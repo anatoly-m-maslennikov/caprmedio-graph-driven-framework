@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit.Name"
+  governs: "Entity/Continuant/Node/Scope Unit.Name"
   depends_on:
-    ["Entity/Continuant/Object/Project"]
-version: 19
-updated_at: "2026-10-15 18:47:26 +0000"
+    ["Entity/Continuant/Node/Project"]
+version: 20
+updated_at: "2026-10-18 03:34:15 +0400"
 relations:
   child_of:
     - CA-R-962
@@ -20,8 +20,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md
   source_atom_id: CA-R-970
-  source_atom_revision: 19
-  source_sha256: 86ca1d5ff14bbcbd91eee44d9360c960d6288c57a9e1f60b0bfa9ac44c9e1155
+  source_atom_revision: 20
+  source_sha256: a2ab0a070b4e3f0298628a1e171f4d571312d4cc7adc404a8d0a87e7cd874a05
   original_relations_sha256: c035b0cad0128cd240cc3a201d1a0991134aba7e339c59aaf2780c28a691f08a
 ---
 # Summary

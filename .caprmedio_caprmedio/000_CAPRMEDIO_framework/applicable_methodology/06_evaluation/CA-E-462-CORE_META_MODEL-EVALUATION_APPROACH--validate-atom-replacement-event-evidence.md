@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/History/Journal.Record"
+  governs: "Entity/Continuant/Node/History/Journal.Record"
   depends_on:
-    ["Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Operations", "Entity/Continuant/History/Journal", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection/Type: Applicable Methodology"]
-version: 16
-updated_at: "2026-10-16 12:09:06 +0000"
+    ["Entity/Continuant/Node/History/Journal.Record", "Entity/Continuant/Node/Atom.ID", "Entity/Continuant/Node/History/Revision/Type: Atom", "Entity/Carrier", "Entity/Continuant/Node/Atom/Content Role: Operations", "Entity/Continuant/Node/History/Journal", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Projection/Type: Applicable Methodology"]
+version: 17
+updated_at: "2026-10-18 03:34:23 +0400"
 relations:
   evaluation_for:
     - CA-R-1491
@@ -21,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-EVALUATION_APPROACH--validate-atom-replacement-event-evidence.md
   source_atom_id: CA-E-462
-  source_atom_revision: 16
-  source_sha256: 79ff15abc2296cad4c32d9e94df4b3f9bf6dfa9290a56612c9f0fbda35036e1e
+  source_atom_revision: 17
+  source_sha256: 64daf05aa8a60c67ade4288da36817b6857eed167738d6608053b23e8c21419a
   original_relations_sha256: 08e3ba1b02b72ebd56719baa1c003348b431b4bd58722cfd3ed9eccfe064ba4c
 ---
 # Summary

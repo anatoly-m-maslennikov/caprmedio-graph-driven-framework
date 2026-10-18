@@ -5,13 +5,13 @@ subjects:
     - "Markdown"
     - "TOML"
     - "YAML"
-version: 13
-updated_at: "2026-10-15 18:51:16 +0000"
+version: 15
+updated_at: "2026-10-18 07:31:02 +0400"
 relations: {}
 atom_id: "CA-D-330"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

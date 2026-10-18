@@ -8,17 +8,17 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Entities Graph"
-  depends_on: ["Entity", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom", "Entity/Continuant/Projection"]
-version: 4
-updated_at: "2026-10-15 18:52:36 +0000"
+  governs: "Entity/Continuant/Node/Projection/Type: Entities Graph"
+  depends_on: ["Entity", "Entity/Continuant/Relation", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Projection"]
+version: 5
+updated_at: "2026-10-18 03:34:55 +0400"
 relations:
   depends_on: [CA-R-1456, CA-D-310, CA-D-550, CA-D-635]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-634-CORE_META_MODEL-DELIVERY--deliver-readable-entities-graph-trees-as-markdown.md
   source_atom_id: CA-D-634
-  source_atom_revision: 4
-  source_sha256: a4edeff78ff201958109ad92ccd0f205b70a6525a21b50fa4a68cee9e1b18157
+  source_atom_revision: 5
+  source_sha256: 1d6767bcb0029943860383766d0381e255825fb6ef3490a3cbf5ad649ec7f263
   original_relations_sha256: 196bee6c6e2d5565b64cb9d99b79ebbb698c43321b9fad7085e2d140e5cc1880
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Target Scope Unit"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Target Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom/Content Role: Plan.Label"]
-version: 9
-updated_at: "2026-10-16 12:08:34 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom.Target Scope Unit", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Atom/Content Role: Plan.Label"]
+version: 10
+updated_at: "2026-10-18 03:33:43 +0400"
 relations: {"relates_to": ["CA-R-1574", "CA-D-482"]}
 atom_id: "CA-R-1588"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1588-CORE_META_MODEL-CORE-REQUIREMENT--default-plan-target-to-the-enclosing-scope-unit.md
   source_atom_id: CA-R-1588
-  source_atom_revision: 9
-  source_sha256: 7e7d09c36fdd6575d88fffadec02a02128554c60ef37c89ab464d0c2ae6070c6
+  source_atom_revision: 10
+  source_sha256: 59e5a44e737e1a4f806deae516d35c1f3a5c05ea35fa623ddbf8d3fe182a5213
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

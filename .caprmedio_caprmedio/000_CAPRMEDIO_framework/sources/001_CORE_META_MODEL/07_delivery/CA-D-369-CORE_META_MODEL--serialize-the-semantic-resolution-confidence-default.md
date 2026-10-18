@@ -3,15 +3,15 @@ subjects:
   governs: "Entity/Continuant/Object/Project.Framework Settings.Confidence.Semantic Resolution Threshold"
   depends_on:
     ["Entity/Continuant/Object/Project.Framework Settings", "Confidence Threshold"]
-version: 10
-updated_at: "2026-10-15 18:51:36 +0000"
+version: 12
+updated_at: "2026-10-18 07:32:11 +0400"
 relations:
   child_of:
     - "CA-D-361"
 atom_id: "CA-D-369"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

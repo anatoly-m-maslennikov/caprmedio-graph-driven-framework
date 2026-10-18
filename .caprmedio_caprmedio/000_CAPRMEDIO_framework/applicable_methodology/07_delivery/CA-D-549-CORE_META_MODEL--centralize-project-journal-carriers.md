@@ -8,16 +8,16 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/History/Journal"
-  depends_on: ["Entity/Continuant/Object/Project", "Entity/Continuant/History/Journal", "Entity/Carrier", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
-version: 6
-updated_at: "2026-10-16 12:09:38 +0000"
+  governs: "Entity/Continuant/Node/History/Journal"
+  depends_on: ["Entity/Continuant/Node/Project", "Entity/Continuant/Node/History/Journal", "Entity/Carrier", "Entity/Continuant/Node/Projection", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow"]
+version: 7
+updated_at: "2026-10-18 03:34:54 +0400"
 relations: {}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-549-CORE_META_MODEL--centralize-project-journal-carriers.md
   source_atom_id: CA-D-549
-  source_atom_revision: 6
-  source_sha256: e397e5e3003f023ca5466667dee0919b96e5dd914efc9b89085bde0be543ffbc
+  source_atom_revision: 7
+  source_sha256: e37bf490d28e48706573bbf6fc7a2ccbed02a9ba9d6d120a3c996c25b005b6bd
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

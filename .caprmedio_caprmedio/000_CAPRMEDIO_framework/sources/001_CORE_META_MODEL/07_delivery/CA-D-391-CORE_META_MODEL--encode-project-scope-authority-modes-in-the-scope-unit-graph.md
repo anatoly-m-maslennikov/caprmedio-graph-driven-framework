@@ -3,15 +3,15 @@ subjects:
   governs: "Project Scope Unit Graph Projection"
   depends_on:
     ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Framework Settings", "Authority Mode"]
-version: 8
-updated_at: "2026-10-15 18:51:48 +0000"
+version: 10
+updated_at: "2026-10-18 07:33:01 +0400"
 relations:
   child_of:
     - "CA-R-1430"
 atom_id: "CA-D-391"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

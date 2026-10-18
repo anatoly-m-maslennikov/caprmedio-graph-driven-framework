@@ -8,10 +8,10 @@ global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Entities Graph"
-  depends_on: ["Entity", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom", "Entity/Continuant/Projection"]
-version: 3
-updated_at: "2026-10-15 18:48:49 +0000"
+  governs: "Entity/Continuant/Node/Projection/Type: Entities Graph"
+  depends_on: ["Entity", "Entity/Continuant/Relation", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Projection"]
+version: 4
+updated_at: "2026-10-18 03:34:21 +0400"
 relations:
   method_for: [CA-R-1456]
 ---

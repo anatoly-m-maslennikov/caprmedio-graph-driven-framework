@@ -11,15 +11,15 @@ status: Active
 subjects:
   governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"
   depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Agentic Step Execution Context"]
-version: 9
-updated_at: "2026-10-15 23:48:39 +0400"
+version: 10
+updated_at: "2026-10-18 06:16:10 +0400"
 relations:
   relates_to: [CA-O-128, CA-O-145, CA-R-1509, CA-R-1511, CA-R-1527]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/09_operations/CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-lifecycle-change.md
   source_atom_id: CA-O-129
-  source_atom_revision: 9
-  source_sha256: 48830bce2aef24f2f11ba0f03aae3613ed4a15cba3751431b358b0b36bec8133
+  source_atom_revision: 10
+  source_sha256: f606dd3deb93f0ef4b28463d6ec29f036a0f3f4ce0d10765617363df9481c591
   original_relations_sha256: 41d9553cc0bc459a76834b9b50abe0aa6d5b316e2164db5c1ab185ff63b9f658
 ---
 # Summary
@@ -29,6 +29,8 @@ Apply an admitted Atom lifecycle change
 ## Operation
 
 This Step invokes exactly CA-O-128, apply authorized Atom lifecycle changes, as one Agentic Action. Its context is Integrated under R1527; missing required capability blocks admission, not silent context substitution.
+
+For Move Atom, bind one existing current target, exact source locator and digest, explicit destination mapping, current Revision, collision/path/content-role checks, permissions and effect admission. Recheck those bindings immediately before O128; preserve identity, Summary, Type and Substance. A same-location request is a no-op; an ambiguous, stale, colliding or semantically unresolved destination remains unchanged and returns its truthful outcome.
 
 ### Input and parameter binding
 
@@ -42,7 +44,7 @@ Return O128's result and evidence unchanged to the Workflow. This Step has no se
 
 ## Details
 
-The Workflow decides whether to dispatch or terminate after this result. Every dispatch is a distinct Step Run with its exact O128 definition/input/context binding; completed effects are not replayed when a Journal receipt is pending or its append failed. Tool adapter calls are implementation details, not extra graph nodes or authority.
+The Workflow decides whether to dispatch or terminate after this result. For Move, O128 owns the same-ID carrier effect and this Step owns only the one-target binding and pre-effect recheck. Every dispatch is a distinct Step Run with its exact O128 definition/input/context binding; completed effects are not replayed when a Journal receipt is pending or its append failed. Tool adapter calls are implementation details, not extra graph nodes or authority.
 
 ### Instructed Subjects-only batch member
 

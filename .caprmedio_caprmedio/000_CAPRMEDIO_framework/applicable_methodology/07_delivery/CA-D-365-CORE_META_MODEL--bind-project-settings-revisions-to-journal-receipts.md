@@ -4,15 +4,15 @@ subjects:
   depends_on:
     - "Artifact/Revision"
     - "Work Journal/Record"
-version: 12
-updated_at: "2026-10-13 21:22:41 +0400"
+version: 14
+updated_at: "2026-10-18 07:31:41 +0400"
 relations:
   child_of:
     - CA-D-364
 atom_id: "CA-D-365"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"
@@ -20,8 +20,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-365-CORE_META_MODEL--bind-project-settings-revisions-to-journal-receipts.md
   source_atom_id: CA-D-365
-  source_atom_revision: 12
-  source_sha256: 7b080191a202ba2785a62dd7847cd1a0effb4ecb60b556eac9ea16faa27bf541
+  source_atom_revision: 14
+  source_sha256: cb751a5da630c6fe8fda5fd8730cb380278ae22b0c2f611e0a70e0040cb37e40
   original_relations_sha256: 1362486b734d90918b1d2949ab26e315125674e562b6b82d60abc7b3350f9e84
 ---
 # Summary

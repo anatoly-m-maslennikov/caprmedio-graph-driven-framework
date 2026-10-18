@@ -3,15 +3,15 @@ subjects:
   governs: "Entity/Continuant/Object/Project.Framework Settings.Extension Selections"
   depends_on:
     ["Entity/Continuant/Object/Project.Framework Settings", "Extension"]
-version: 9
-updated_at: "2026-10-15 18:51:39 +0000"
+version: 11
+updated_at: "2026-10-18 07:39:13 +0400"
 relations:
   child_of:
     - "CA-D-361"
 atom_id: "CA-D-373"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

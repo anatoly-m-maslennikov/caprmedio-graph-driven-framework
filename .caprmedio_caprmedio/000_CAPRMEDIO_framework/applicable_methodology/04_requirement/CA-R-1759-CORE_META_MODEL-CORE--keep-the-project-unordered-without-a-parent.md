@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project"
+  governs: "Entity/Continuant/Node/Project"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit/Type"]
-version: 23
-updated_at: "2026-10-16 12:08:43 +0000"
+    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit/Type"]
+version: 24
+updated_at: "2026-10-18 03:33:54 +0400"
 relations: {}
 atom_id: "CA-R-1759"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md
   source_atom_id: CA-R-1759
-  source_atom_revision: 23
-  source_sha256: fc9043d19053f8f6410ba87732158c47fb8916501e2886b1168447672404a265
+  source_atom_revision: 24
+  source_sha256: ad46a0a71930847d4abc4fcb86284b1be2e882ead959238f7b7242102c974beb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

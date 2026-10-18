@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Status"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Status"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Entity/Continuant/Object/Atom/Content Role: Plan"]
-version: 10
-updated_at: "2026-10-16 12:09:32 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Plan.Status", "Entity/Continuant/Node/Atom/Content Role: Plan"]
+version: 12
+updated_at: "2026-10-18 03:34:49 +0400"
 relations: {"relates_to": ["CA-R-1539", "CA-D-483", "CA-R-1541"]}
 atom_id: "CA-D-461"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-CORE--place-plan-carriers-by-status.md
   source_atom_id: CA-D-461
-  source_atom_revision: 10
-  source_sha256: aa3f0ecbc94b6b94d8e12ad9eb16a5c0f1dbb331b7f3b5d99931ed2d6a719074
+  source_atom_revision: 12
+  source_sha256: ad004c1dd917230b1feca41d44d2d17455d858f8ce38f51566265c5623655320
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
@@ -33,6 +33,7 @@ Plan Carrier Bundle placement by carried Status.
 
 **every** Plan Carrier Bundle **must** represent its carried Status **in** its local Plan container under the following mapping:
 
+- Draft: **in** its `draft` subdirectory.
 - Active: directly **in** that local container.
 - Backlog: **in** its `001_backlog` subdirectory.
 - Done: **in** its `done` subdirectory.

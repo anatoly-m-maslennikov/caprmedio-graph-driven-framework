@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit"
+  governs: "Entity/Continuant/Node/Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Atom.Owning Scope Unit", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project"]
-version: 25
-updated_at: "2026-10-16 12:08:56 +0000"
+    ["Entity/Continuant/Node/Atom.Target Scope Unit", "Entity/Continuant/Node/Atom.Author", "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Node/Atom.Owning Scope Unit", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Project"]
+version: 26
+updated_at: "2026-10-18 03:34:13 +0400"
 relations:
   child_of:
     - CA-R-925
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md
   source_atom_id: CA-R-927
-  source_atom_revision: 25
-  source_sha256: e5f3d070fa21dfcef8ccf409dc31a02ecd49c985921b554f53f4a54cbe94ea51
+  source_atom_revision: 26
+  source_sha256: 8356b5b2f5b8a3e514a48497ce565a11c6877247989916efb4a992fcb9d3e9a6
   original_relations_sha256: 17da053e5a14748b4ae49b3e9ae87498700f37739d1c90477b4e8557624449be
 ---
 # Summary

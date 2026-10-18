@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Substance"
+  governs: "Entity/Continuant/Node/Atom.Substance"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance"]
-version: 18
-updated_at: "2026-10-16 12:08:57 +0000"
+    ["Entity/Continuant/Node/Atom.Substance"]
+version: 19
+updated_at: "2026-10-18 03:34:13 +0400"
 relations:
   child_of:
     - CA-R-918
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md
   source_atom_id: CA-R-940
-  source_atom_revision: 18
-  source_sha256: 43063b9485c649fea67a48188122dcc4900a7dba035518f72f5694223df8fb27
+  source_atom_revision: 19
+  source_sha256: 6c1d9539cf396dd1e5e243364d09aa5f53a77a774a57bf99b2588a53ffb180b6
   original_relations_sha256: 33e20e2e1769e02a63159d23b72e52fbce54f31ee1cf24d437c9d3bcc4fd118c
 ---
 # Summary

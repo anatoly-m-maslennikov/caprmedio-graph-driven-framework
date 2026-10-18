@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Occurrent/Execution/Workflow Run"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Journal", "Entity/Continuant/Actor/Type: Operator"]
-version: 9
-updated_at: "2026-10-15 18:43:57 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/History/Journal", "Entity/Continuant/Node/Actor/Type: Operator"]
+version: 10
+updated_at: "2026-10-18 03:33:37 +0400"
 relations: {"relates_to": ["CA-R-1510", "CA-R-1511", "CA-R-1519", "CA-R-1520", "CA-R-1720"]}
 atom_id: "CA-R-1525"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1525-CORE_META_MODEL-GENERAL-REQUIREMENT--bind-workflow-runs-to-exact-definition-revisions.md
   source_atom_id: CA-R-1525
-  source_atom_revision: 9
-  source_sha256: 8ec3ec787c3c0e45442737a07ec3efd9a9e8becff0edd8a87accd55c20408e5c
+  source_atom_revision: 10
+  source_sha256: 94130f37167ef2ecb3af472141f89cb6a14fa406be745691f2620e6a6cfdcfd7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

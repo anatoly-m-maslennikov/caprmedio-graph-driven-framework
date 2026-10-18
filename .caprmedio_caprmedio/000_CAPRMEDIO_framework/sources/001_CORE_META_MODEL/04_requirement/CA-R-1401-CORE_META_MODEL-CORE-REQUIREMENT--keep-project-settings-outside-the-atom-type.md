@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Settings"
+  governs: "Entity/Continuant/Node/Project.Settings"
   depends_on:
-    ["Entity/Continuant/Object/Atom"]
-version: 12
-updated_at: "2026-10-15 18:42:38 +0000"
+    ["Entity/Continuant/Node/Atom"]
+version: 13
+updated_at: "2026-10-18 03:33:28 +0400"
 relations:
   child_of:
     - CA-R-1405

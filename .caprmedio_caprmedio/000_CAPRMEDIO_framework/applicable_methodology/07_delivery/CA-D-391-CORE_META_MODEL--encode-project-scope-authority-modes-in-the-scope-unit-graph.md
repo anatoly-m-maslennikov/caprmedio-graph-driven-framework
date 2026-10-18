@@ -3,15 +3,15 @@ subjects:
   governs: "Project Scope Unit Graph Projection"
   depends_on:
     ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Framework Settings", "Authority Mode"]
-version: 8
-updated_at: "2026-10-15 18:51:48 +0000"
+version: 10
+updated_at: "2026-10-18 07:33:01 +0400"
 relations:
   child_of:
     - "CA-R-1430"
 atom_id: "CA-D-391"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-391-CORE_META_MODEL--encode-project-scope-authority-modes-in-the-scope-unit-graph.md
   source_atom_id: CA-D-391
-  source_atom_revision: 8
-  source_sha256: 4ec7eb035346db2a76c1db013cdb822802611c3dc519b38d49ca464c601d1777
+  source_atom_revision: 10
+  source_sha256: f2a6dc648219285fcbd380000455130332fa9cc431277307b68cae69fce5ed6e
   original_relations_sha256: 1be50eaa42168c84ffd69ce5d3a59f12850826b66f6c14e32382932fd9c81147
 ---
 # Summary

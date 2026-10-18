@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/History/Journal"
+  governs: "Entity/Continuant/Node/History/Journal"
   depends_on:
-    ["Entity/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection/Type: Applicable Methodology"]
-version: 8
-updated_at: "2026-10-16 12:09:07 +0000"
+    ["Entity/Continuant/Node/History/Journal.Record", "Entity/Carrier", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Projection/Type: Applicable Methodology"]
+version: 9
+updated_at: "2026-10-18 03:34:24 +0400"
 relations:
   evaluation_for:
     - CA-R-1491
@@ -22,8 +22,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-CORE-QA_CASE--check-the-journal-storage-boundary.md
   source_atom_id: CA-E-476
-  source_atom_revision: 8
-  source_sha256: 53cae795fa1ea12afa5bd7306147a667578ae03461375a75abb4b7e3c60073bd
+  source_atom_revision: 9
+  source_sha256: 58063afb3f09fb9d4f5a17de1b395c4bb360c13eb42a3bb0cceca934d76288eb
   original_relations_sha256: 0bb9bdd707ca608a1c818dea2bc9d515b9d834249c593269b81348c8b6275d01
 ---
 # Summary

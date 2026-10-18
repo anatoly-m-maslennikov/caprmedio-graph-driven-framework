@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit"
+  governs: "Entity/Continuant/Node/Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Atom"]
-version: 12
-updated_at: "2026-10-15 18:41:27 +0000"
+    ["Entity/Continuant/Node/Atom"]
+version: 13
+updated_at: "2026-10-18 03:33:18 +0400"
 relations: {}
 atom_id: "CA-R-1264"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1264-CORE_META_MODEL-CORE-REQUIREMENT--keep-scope-unit-outside-the-atom-taxonomy.md
   source_atom_id: CA-R-1264
-  source_atom_revision: 12
-  source_sha256: 6418895843378bae4a0fb9fb1f4d2e63530ea17fa5c4cb1eef8847e255dd25cb
+  source_atom_revision: 13
+  source_sha256: 1ff04e0e2d58314e9d83e93789e451c2a084bb59e430aa371c7c44dc78ec52bb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

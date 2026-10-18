@@ -8,17 +8,17 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Projection.ID"
-  depends_on: ["Entity/Continuant/Projection", "Entity/Continuant/Projection/Type", "Entity/Continuant/Selection"]
-version: 3
-updated_at: "2026-10-16 12:08:50 +0000"
+  governs: "Entity/Continuant/Node/Projection.ID"
+  depends_on: ["Entity/Continuant/Node/Projection", "Entity/Continuant/Node/Projection/Type", "Entity/Continuant/Node/Selection"]
+version: 4
+updated_at: "2026-10-18 03:34:00 +0400"
 relations:
   depends_on: [CA-R-1746]
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-REQUIREMENT--give-each-projection-a-stable-id.md
   source_atom_id: CA-R-1943
-  source_atom_revision: 3
-  source_sha256: 5fef097a4ebf4a83c0042fb15c6d9dfa1cf47c388126f3a8c9d0e1f796161f42
+  source_atom_revision: 4
+  source_sha256: 455da723aca1c90c47b1e77ad6cbd780ce97567b770c3633e8c53f3fd9539b3a
   original_relations_sha256: 70a0a6d3134f74ab4bfa350ad56597b6f4f39ada12828ed7451707ba65ea617e
 ---
 # Summary

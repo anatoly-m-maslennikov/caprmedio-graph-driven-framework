@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Analysis/Type"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Analysis/Type"
   depends_on:
     ["Entity/Carrier"]
-version: 10
-updated_at: "2026-10-16 12:09:24 +0000"
+version: 11
+updated_at: "2026-10-18 03:34:45 +0400"
 relations: {}
 atom_id: "CA-D-389"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-389-CORE_META_MODEL--serialize-analysis-type-tokens.md
   source_atom_id: CA-D-389
-  source_atom_revision: 10
-  source_sha256: ff5cf6b73e5912b80506543110bfe155e6ee6206cf3a2628472194e32ea15370
+  source_atom_revision: 11
+  source_sha256: 4be24c9c417bbe435ca6334edfe135aba776b70cd9e80d07bcb8d12e66b95fe3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

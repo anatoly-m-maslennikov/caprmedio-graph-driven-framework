@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit/Type: Ordered.Structural Coordinate"
+  governs: "Entity/Continuant/Node/Scope Unit/Type: Ordered.Structural Coordinate"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit/Type: Ordered"]
-version: 17
-updated_at: "2026-10-16 12:08:49 +0000"
+    ["Entity/Continuant/Node/Scope Unit/Type: Ordered"]
+version: 18
+updated_at: "2026-10-18 03:34:00 +0400"
 relations: {}
 atom_id: "CA-R-1932"
 content_role: "Requirement"

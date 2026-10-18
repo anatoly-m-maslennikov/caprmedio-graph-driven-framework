@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/History/Journal"
+  governs: "Entity/Continuant/Node/History/Journal"
   depends_on:
-    ["Entity/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
-version: 10
-updated_at: "2026-10-16 12:08:27 +0000"
+    ["Entity/Continuant/Node/History/Journal.Record", "Entity/Carrier", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Projection/Type: Applicable Methodology", "Entity/Continuant/Node/Atom/Content Role: Evaluation"]
+version: 11
+updated_at: "2026-10-18 03:33:35 +0400"
 relations:
   child_of:
     - CA-R-1490
@@ -21,8 +21,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-CORE-REQUIREMENT--keep-project-validation-out-of-journal-admission.md
   source_atom_id: CA-R-1491
-  source_atom_revision: 10
-  source_sha256: e38023831eac289be5befc842c6cc3117162ad68faf94e6542034cc86345b952
+  source_atom_revision: 11
+  source_sha256: 6fa1acc14e8b953f2a4ce85a1ab3f500698f63b96921fc03d2060aa80b85c9e1
   original_relations_sha256: 9924b6ff7c6932dfffb0d4989dcbbd73519db955518463bb61a9ef1a4be43d59
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit.Name"
+  governs: "Entity/Continuant/Node/Scope Unit.Name"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit"]
-version: 16
-updated_at: "2026-10-15 18:47:25 +0000"
+    ["Entity/Continuant/Node/Scope Unit"]
+version: 17
+updated_at: "2026-10-18 03:34:14 +0400"
 relations: {}
 atom_id: "CA-R-962"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md
   source_atom_id: CA-R-962
-  source_atom_revision: 16
-  source_sha256: cb06a427926859231a284fd729516b7fa998a24d1802d5361628085f411ca6db
+  source_atom_revision: 17
+  source_sha256: bb4a9113a79c4ad0309036166d6fb0db9161696a3329e78d36eb8d92b6ede53d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

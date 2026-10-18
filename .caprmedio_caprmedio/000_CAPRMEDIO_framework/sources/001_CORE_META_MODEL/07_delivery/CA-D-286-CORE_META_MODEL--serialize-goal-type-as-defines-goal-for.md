@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal"
+  governs: "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal"
   depends_on: []
-version: 16
-updated_at: "2026-10-15 18:50:52 +0000"
+version: 17
+updated_at: "2026-10-18 03:34:34 +0400"
 relations: {}
 atom_id: "CA-D-286"
 content_role: "Delivery"

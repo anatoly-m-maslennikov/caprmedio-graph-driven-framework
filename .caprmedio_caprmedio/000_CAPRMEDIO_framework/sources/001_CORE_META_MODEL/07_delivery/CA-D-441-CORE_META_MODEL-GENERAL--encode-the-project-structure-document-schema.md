@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Structure"
+  governs: "Entity/Continuant/Node/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Carrier", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Project.Settings"]
-version: 6
-updated_at: "2026-10-15 18:51:57 +0000"
+    ["Entity/Continuant/Node/Scope Unit", "Entity/Carrier", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Project.Settings"]
+version: 9
+updated_at: "2026-10-18 07:25:43 +0400"
 relations:
   child_of:
     - "CA-D-440"
 atom_id: "CA-D-441"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "General"
 status: "Active"
 author: "Anatoly Maslennikov"

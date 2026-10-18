@@ -3,9 +3,9 @@ subjects:
   governs: "Structural Entity"
   depends_on:
     ["Structural Entity", "Entity/Carrier/Directory Carrier", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure"]
-version: 6
-updated_at: "2026-10-15 18:52:08 +0000"
-relations: {"relates_to": ["CA-D-259", "CA-D-312", "CA-R-1484"]}
+version: 7
+updated_at: "2026-10-17 18:06:28 +0400"
+relations: {"relates_to": ["CA-R-1956", "CA-D-312", "CA-R-1484"]}
 atom_id: "CA-D-465"
 content_role: "Delivery"
 current_scope_unit: "CORE_META_MODEL"

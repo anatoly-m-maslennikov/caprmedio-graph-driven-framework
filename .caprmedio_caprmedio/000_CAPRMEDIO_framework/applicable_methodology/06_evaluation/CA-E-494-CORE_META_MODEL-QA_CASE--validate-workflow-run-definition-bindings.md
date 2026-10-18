@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Occurrent/Execution/Workflow Run"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Journal", "Entity/Continuant/Actor/Type: Operator"]
-version: 7
-updated_at: "2026-10-15 18:49:53 +0000"
+    ["Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/History/Journal", "Entity/Continuant/Node/Actor/Type: Operator"]
+version: 8
+updated_at: "2026-10-18 03:34:28 +0400"
 relations: {"evaluation_for": ["CA-R-1525"]}
 atom_id: "CA-E-494"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-QA_CASE--validate-workflow-run-definition-bindings.md
   source_atom_id: CA-E-494
-  source_atom_revision: 7
-  source_sha256: 99705ec4be51ce848a89bf085fa22b35a9eaae2fa5919f0038b0ad30aea12ea4
+  source_atom_revision: 8
+  source_sha256: cc9232ab2d23929f7c0f65bbe990a7b010f5bc9ec782d4a9e1e529fe9743dd77
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

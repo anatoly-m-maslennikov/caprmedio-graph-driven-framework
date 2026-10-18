@@ -2,14 +2,14 @@
 subjects:
   governs: "Entity/Carrier"
   depends_on:
-    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit"]
-version: 9
-updated_at: "2026-10-15 18:51:52 +0000"
+    ["Entity/Continuant/Node/Project", "Entity/Continuant/Node/Scope Unit"]
+version: 12
+updated_at: "2026-10-18 07:33:30 +0400"
 relations: {}
 atom_id: "CA-D-395"
 content_role: "Delivery"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Structure"
+  governs: "Entity/Continuant/Node/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Carrier"]
-version: 10
-updated_at: "2026-10-15 18:49:36 +0000"
+    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Carrier"]
+version: 11
+updated_at: "2026-10-18 03:34:23 +0400"
 relations:
   evaluation_for:
     - "CA-R-1483"
@@ -23,8 +23,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-469-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-project-structure-declarations.md
   source_atom_id: CA-E-469
-  source_atom_revision: 10
-  source_sha256: 48bdf2529dc48ebff6a8b1c1710e49b3ba65913eb20c59351aad247f35fb612b
+  source_atom_revision: 11
+  source_sha256: 5583bb7ceb01078be974097c3b080c50d6e67625410bb8d81c085c86f4d30a4b
   original_relations_sha256: d86665373422473d05db0aa248c67702c64650cf7b2163e327cfbed4dccb3db8
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/History/Revision.Identity"
+  governs: "Entity/Continuant/Node/History/Revision.Identity"
   depends_on:
-    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Version Number", "Entity/Continuant/Object/Atom.Status: Draft"]
-version: 12
-updated_at: "2026-10-16 12:09:30 +0000"
+    ["Entity/Continuant/Node/Atom.ID", "Entity/Continuant/Node/Atom.Version Number", "Entity/Continuant/Node/Atom.Status: Draft"]
+version: 13
+updated_at: "2026-10-18 03:34:49 +0400"
 relations:
   relates_to:
     - CA-D-378
@@ -20,8 +20,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md
   source_atom_id: CA-D-446
-  source_atom_revision: 12
-  source_sha256: fcdd312b99767d7652faedba51a1e1e6612bf65855e56fe224bb53f24b27e667
+  source_atom_revision: 13
+  source_sha256: 1dc1c878739121891ac87e1bb59827e3ca5a69ef867ff2b05d09a4949281e300
   original_relations_sha256: b17be253479843ef6dd3db281ba4b0df0d9ef1c54b95463e807c1b4fdfc085bd
 ---
 # Summary
