@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 95
-updated_at: "2026-10-18 16:30:17 +0400"
+version: 96
+updated_at: "2026-10-18 23:58:51 +0400"
 relations: {}
 ---
 # Summary
@@ -70,6 +70,16 @@ The next selected batch completed 40 independent native moves through the existi
 The Core and Project Configuration Entities projections were rebuilt from current source Atoms after this batch: 945 Core sources and 194 Project sources. Established projection IDs and source selections remain unchanged; unmapped Subjects are not hidden. Receipt: `.caprmedio_tmp/atom-move-20261018/graph/report.json`.
 
 Phase 2 is still unchecked and the Epic remains Active. Remaining work is tracked as separate groups: the two heading holds above; seven separate RMED-review binding holds; 36 container-bundle Atoms (seven parents and 29 children); and 71 classification holds. These groups are not assumed additive without their ledger. This checkpoint does not perform the later retyping, missing-definition work, remainder retirement or ordinary content migration. Earlier checkpoints remain historical records; child statuses do not cascade.
+
+#### Phase 2 settled placements and review-binding moves — 2026-10-18
+
+Review settled 45 of the 71 classification holds as keep-here placement decisions: 25 Requirements and 20 other Atoms. This closes their placement dispositions only; it does not claim content repairs or source moves. Six proposed Core moves remain blocked by validator source bindings, and 20 mixed/unclear cases remain deferred. The exact IDs and reasons are in `.caprmedio_tmp/atom-move-20261018/phase2/next-placement-holds/reconciliation.md`.
+
+The separate seven RMED-review binding-coupled moves completed: CA-D-496, CA-D-497, CA-O-028, CA-O-105, CA-O-106, CA-O-111 and CA-O-118. Their individual native results contain 21 completed terminal Run receipts. Independent readback verified their current destinations, exact predecessor histories, preserved bodies and recorded outcomes. Evidence: `.caprmedio_tmp/atom-move-20261018/phase2/review-bindings-seven/individual/` and `.caprmedio_tmp/atom-move-20261018/audit/review-bindings-seven/readback.json`. This supersedes the earlier seven-binding-hold checkpoint, not its history.
+
+The existing Entities projections were refreshed from current sources after these moves: 938 Core sources and 201 Project Configuration sources. Projection identities and source selections were preserved, and unmapped Subjects remain visible. Receipt: `.caprmedio_tmp/atom-move-20261018/graph/report.json`.
+
+Phase 2 and this Epic remain open. Outstanding groups are the six validator-binding-held Requirements, 36 container-bundle Atoms, two heading holds and 20 mixed/content holds; do not infer a combined count without the ledger. Later R typing, missing definitions, remainder review and ordinary content migration remain separate unfinished work. Earlier checkpoints remain historical records. The Epic stays Active and child statuses do not cascade.
 
 #### Phase 3 — classify and retype source R Atoms
 
