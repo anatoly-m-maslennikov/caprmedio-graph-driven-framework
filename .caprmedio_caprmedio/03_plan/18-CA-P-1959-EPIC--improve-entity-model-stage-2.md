@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 96
-updated_at: "2026-10-18 23:58:51 +0400"
+version: 97
+updated_at: "2026-10-19 03:17:34 +0400"
 relations: {}
 ---
 # Summary
@@ -80,6 +80,16 @@ The separate seven RMED-review binding-coupled moves completed: CA-D-496, CA-D-4
 The existing Entities projections were refreshed from current sources after these moves: 938 Core sources and 201 Project Configuration sources. Projection identities and source selections were preserved, and unmapped Subjects remain visible. Receipt: `.caprmedio_tmp/atom-move-20261018/graph/report.json`.
 
 Phase 2 and this Epic remain open. Outstanding groups are the six validator-binding-held Requirements, 36 container-bundle Atoms, two heading holds and 20 mixed/content holds; do not infer a combined count without the ledger. Later R typing, missing definitions, remainder review and ordinary content migration remain separate unfinished work. Earlier checkpoints remain historical records. The Epic stays Active and child statuses do not cascade.
+
+#### Phase 2 bundle and validator placement increment — 2026-10-19
+
+Local release `local-20261019-atom-bundle-move-002` completed on MCP endpoint `56317`. The full suite passed all 400 modules: 3,570 tests, zero skipped tests and zero failed modules; launcher integration also passed. Receipt: `.caprmedio_runtime/simple_local_release/reports/local-20261019-atom-bundle-move-002.md`. CA-R-1048 is now Version 15: the existing identity-normalization rule is aligned with the proof-bound update route, with its exact predecessor retained. This did not itself normalize or move legacy R793.
+
+Five Requirements moved to Core: CA-R-825, CA-R-1667, CA-R-1673, CA-R-1674 and CA-R-1675. Their independent native moves recorded 15 completed terminal Run receipts and were committed in `da11fd677`. The next 29 Operations moves completed with 87 terminal receipts and corresponding Journal records; their exact predecessors, final placements and preserved history passed independent readback. These moves were committed in `c9cc17d9e`. Evidence: `.caprmedio_tmp/atom-move-20261018/phase2/validator-six/individual/` and `.caprmedio_tmp/atom-move-20261018/phase2/bundle-followup/first29-readback.json`. The O104 bundle and its six descendants were not included.
+
+The existing Entities projections were rebuilt from the resulting current sources: 914 Core sources and 225 Project Configuration sources. Their IDs remain CA-PROJ-002 and CA-PROJ-003. The C290 missing-Subjects diagnostic and remaining Subjects outside Entity remain visible; this is not full semantic reconciliation. Receipt: `.caprmedio_tmp/atom-move-20261018/graph/report.json`.
+
+Phase 2 and the Epic remain open. Remaining work includes legacy R793 identity normalization and its separate Core move; O104 with its six binding-coupled descendants; the O159/O160 heading holds; and 20 mixed/content holds. Later R typing, missing definitions and remainder review are still unfinished; ordinary content migration remains separate. Earlier checkpoints remain historical records, Status stays Active and child statuses do not cascade.
 
 #### Phase 3 — classify and retype source R Atoms
 
