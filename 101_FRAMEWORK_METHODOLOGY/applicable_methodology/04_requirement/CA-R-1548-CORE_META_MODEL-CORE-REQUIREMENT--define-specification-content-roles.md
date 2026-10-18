@@ -1,0 +1,43 @@
+---
+subjects:
+  governs: "Spec Content Roles"
+  depends_on:
+    ["Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Change Content Roles", "Implementation", "Entity"]
+version: 6
+updated_at: "2026-10-15 18:44:10 +0000"
+relations: {"relates_to": ["CA-R-1339", "CA-R-1340", "CA-R-1341", "CA-R-1342"]}
+atom_id: "CA-R-1548"
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "Core"
+status: "Active"
+author: "Anatoly Maslennikov"
+global_tier: 9
+projection:
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md
+  source_atom_id: CA-R-1548
+  source_atom_revision: 6
+  source_sha256: 30f51bd0aacaabd089e76430d813820090483b29f1255c82a16f98d2789696ec
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+---
+# Summary
+
+Define Specification Content Roles
+
+## Scope
+
+Specification Content Roles (Spec, RMED).
+
+## Claim
+
+Specification Content Roles (Spec, RMED) **means** the set (Requirement, Method, Evaluation, Delivery) that specifies governed content **and** Entities, including CAPO **and** I.
+
+## Details
+
+- Requirement establishes model definitions **and** required properties **or** boundaries.
+- Method establishes construction **and** authorship conventions.
+- Evaluation establishes correctness checks.
+- Delivery establishes Carrier contents, representation, **and** placement.
+
+the methodology's own model **and** specification content are also within this specification domain; RMED is **not** limited **to** native Implementation.

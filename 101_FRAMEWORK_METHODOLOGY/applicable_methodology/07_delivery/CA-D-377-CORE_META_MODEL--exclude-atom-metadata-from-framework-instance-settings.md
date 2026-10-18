@@ -1,0 +1,38 @@
+---
+subjects:
+  governs: "Framework Instance Settings/Carrier/Atom metadata exclusion"
+  depends_on:
+    ["Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Atom", "Artifact/Revision"]
+version: 10
+updated_at: "2026-10-18 07:32:23 +0400"
+relations:
+  child_of:
+    - "CA-D-361"
+atom_id: "CA-D-377"
+content_role: "Delivery"
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: "Standard"
+status: "Active"
+author: "Anatoly Maslennikov"
+global_tier: 11
+projection:
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL--exclude-atom-metadata-from-framework-instance-settings.md
+  source_atom_id: CA-D-377
+  source_atom_revision: 10
+  source_sha256: ff40d0179c5906023f25896ba972d28a649df572fe09e9bb5fa2538c65eceb5c
+  original_relations_sha256: dbd41c990ca96026d80a7c6e36e3203724208ce3569ca634233af924bbbfab2f
+---
+# Summary
+
+Exclude Atom metadata from Framework Instance Settings
+
+## Scope
+
+Atom metadata in the Framework Instance Settings TOML Carrier.
+
+## Claim
+
+the Framework Instance Settings TOML Carrier **must not** contain Atom Frontmatter, Atom ID, Atom Revision metadata, Atom relations, rationale, **or** provenance; its Revision binding follows CA-D-360.
+
+## Details
