@@ -43,9 +43,9 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md"
     },
     "CA-R-1674": {
-      "version": 20,
-      "sha256": "b62549531afe4eff423109fa45fb8f203031268dbe1509fda162f24484b608c3",
-      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1674-PROJECT_CONFIGURATION--define-external-implementation-method-as-a-type-value-for-method-atoms.md"
+      "version": 21,
+      "sha256": "d34fedfdc514c88ad8da61d0537dd7d158bb6ca99ad73c0fc41309f0240c14f4",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1674-CORE_META_MODEL--define-external-implementation-method-as-a-type-value-for-method-atoms.md"
     },
     "CA-R-1666": {
       "version": 25,
@@ -53,24 +53,24 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1666-PROJECT_CONFIGURATION-GENERAL-REQUIREMENT--register-action-policy-for-plan-atoms.md"
     },
     "CA-R-825": {
-      "version": 20,
-      "sha256": "ba454f1699398f7a69fdc3712a97798458baed68bdc34097f78f60983f991852",
-      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-825-PROJECT_CONFIGURATION-REQUIREMENT--define-boundary-as-a-type-value-for-requirement-atoms.md"
+      "version": 21,
+      "sha256": "47d00e7f85e60bcd28454a8a6549a37302754c7428f26e407d8bb1cb9c518046",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-825-CORE_META_MODEL-REQUIREMENT--define-boundary-as-a-type-value-for-requirement-atoms.md"
     },
     "CA-R-1673": {
-      "version": 23,
-      "sha256": "d3e7be671382c40955ca50c006b0bc4368d03ce5f4a8c7d4705d86207dafa191",
-      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1673-PROJECT_CONFIGURATION-REQUIREMENT--register-constraint-as-an-external-type-value-for-requirement-atoms.md"
+      "version": 24,
+      "sha256": "dde942820abe638dbfc1586fa11667299cdb583bd68768ab4e3d872000d4a88c",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1673-CORE_META_MODEL-REQUIREMENT--register-constraint-as-an-external-type-value-for-requirement-atoms.md"
     },
     "CA-R-1675": {
-      "version": 20,
-      "sha256": "2ac1145885651a20ca7971d3dd64e21a40dfd1e6629790140d0800e142445cb3",
-      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1675-PROJECT_CONFIGURATION--define-method-binding-as-a-type-value-for-method-atoms.md"
+      "version": 21,
+      "sha256": "cee0d0321a221f300d25586590a7607b4dd96668c1fd935c5566077c2fd2d832",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1675-CORE_META_MODEL--define-method-binding-as-a-type-value-for-method-atoms.md"
     },
     "CA-R-1667": {
-      "version": 21,
-      "sha256": "1dee9737b5cd1436b6b05bc7b6aba591ad2d675027aece2649fadaf48370acad",
-      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1667-PROJECT_CONFIGURATION-REQUIREMENT--define-implementation-method-as-a-type-value-for-method-atoms.md"
+      "version": 22,
+      "sha256": "73b1a6f89dd1eb9f3a58bb3b95e53b8ce738ad7f0e76d877b163aca06c8bb961",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1667-CORE_META_MODEL-REQUIREMENT--define-implementation-method-as-a-type-value-for-method-atoms.md"
     },
     "CAPRMEDIO-R-793": {
       "version": 22,
