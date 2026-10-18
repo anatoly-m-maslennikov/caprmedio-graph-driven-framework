@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-18 23:48:38 +0400
+updated_at: 2026-10-19 03:14:17 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -352,21 +352,6 @@ sources:
 - CA-M-314@6
 - CA-M-315@6
 - CA-M-385@4
-- CA-O-010@11
-- CA-O-011@14
-- CA-O-016@13
-- CA-O-080@7
-- CA-O-088@6
-- CA-O-091@7
-- CA-O-092@6
-- CA-O-093@6
-- CA-O-094@7
-- CA-O-095@6
-- CA-O-096@6
-- CA-O-098@7
-- CA-O-099@5
-- CA-O-101@5
-- CA-O-102@4
 - CA-O-104@11
 - CA-O-108@9
 - CA-O-109@9
@@ -374,22 +359,8 @@ sources:
 - CA-O-119@4
 - CA-O-120@4
 - CA-O-121@4
-- CA-O-146@5
-- CA-O-147@5
-- CA-O-148@5
-- CA-O-149@5
-- CA-O-150@5
-- CA-O-151@5
-- CA-O-152@5
-- CA-O-153@5
-- CA-O-154@5
-- CA-O-155@5
-- CA-O-156@5
-- CA-O-157@5
 - CA-O-159@3
 - CA-O-160@3
-- CA-O-161@4
-- CA-O-163@6
 - CA-R-1014@20
 - CA-R-1016@15
 - CA-R-1017@15
@@ -714,10 +685,14 @@ sources:
 - CA-R-1660@18
 - CA-R-1661@20
 - CA-R-1664@23
+- CA-R-1667@22
 - CA-R-1669@18
 - CA-R-1670@18
 - CA-R-1671@16
 - CA-R-1672@16
+- CA-R-1673@24
+- CA-R-1674@21
+- CA-R-1675@21
 - CA-R-1676@20
 - CA-R-1677@21
 - CA-R-1678@18
@@ -888,6 +863,7 @@ sources:
 - CA-R-806@23
 - CA-R-807@19
 - CA-R-808@18
+- CA-R-825@21
 - CA-R-829@19
 - CA-R-833@16
 - CA-R-834@18
@@ -964,18 +940,8 @@ AI Agent Confidence
 AI Agent Delegation
 Agentic Action Instruction
 Agentic Step Execution Context
-Applicable Methodology Compilation
-Applicable Methodology Compilation Assess Step
-Applicable Methodology Compilation Correct Step
-Applicable Methodology Compilation Decide Step
-Applicable Methodology Compilation Propose Step
-Applicable Methodology Compilation Publish Step
-Applicable Methodology Compilation Select Step
-Applicable Methodology Conflict
 Applicable Methodology Revision
-Applicable Methodology Source Frontier Digest
 Applicable Methodology Source Set
-Apply Approved Source Corrections
 Approved Change Reversal
 	/ Approved Change Reversal/Outcomes
 Artifact
@@ -995,7 +961,6 @@ Artifact Classification Resolution
 Artifact query and fetch execution
 Artifact query and selected fetch
 Assess Atom Update Identity
-Assess Source Conflicts
 Atom
 	/ Atom/Claim
 	/ Atom/Content Role
@@ -1010,6 +975,9 @@ Atom
 	/ Atom/Content Role: Implementation
 	/ Atom/Content Role: Method
 		/ Atom/Content Role: Method/Type
+		/ Atom/Content Role: Method/Type: External Implementation Method
+		/ Atom/Content Role: Method/Type: Implementation Method
+		/ Atom/Content Role: Method/Type: Method Binding
 	/ Atom/Content Role: Operations
 		/ Atom/Content Role: Operations/Type
 		/ Atom/Content Role: Operations/Type: Action
@@ -1023,6 +991,8 @@ Atom
 			/ Atom/Content Role: Plan/Type: Plan/Label
 	/ Atom/Content Role: Requirement
 		/ Atom/Content Role: Requirement/Type
+		/ Atom/Content Role: Requirement/Type: Boundary
+		/ Atom/Content Role: Requirement/Type: Constraint
 	/ Atom/Identifier
 	/ Atom/Identity
 	/ Atom/Local Tier: Standard
@@ -1040,7 +1010,6 @@ Atom
 		/ Atom/Tier/Local Tier
 Atom Carrier
 Atom Carrier Binding
-Atom Carrier Validation
 Atom Change Classification
 Atom Claim Authoring
 Atom Claim Boundary Authoring
@@ -1085,8 +1054,6 @@ Cardinality Constraint Authoring
 Carrier
 Carrier-Only Recoding
 Change Content Roles
-Check Atoms
-Check Atoms Step
 Child Composition
 Claim
 Claim Value Set
@@ -1106,7 +1073,6 @@ Containment Relation Pair
 Content Role Naming
 Core Meta-Model
 Core Meta-model
-Corrective Method Acceptance Step
 Current Plan Scope
 Current-scope Atom
 DEPENDS_ON
@@ -1239,7 +1205,6 @@ Entity Identity
 Entity Taxonomy
 Evaluation CCE Role Profile
 Evaluation For Relation
-Evaluation Implementation Step
 Evaluation Report
 Evidence
 Evidence For Relation
@@ -1250,8 +1215,6 @@ Extension Installation
 External Project Goal File Carrier
 External Project Goal Reference
 Feature Realization Relation
-Find and Fetch Journal Events
-Find and Fetch Journal Events Query Step
 Framework Instance Settings
 	/ Framework Instance Settings/Carrier
 		/ Framework Instance Settings/Carrier/Atom metadata exclusion
@@ -1276,16 +1239,11 @@ IS_BORNE_BY
 IS_CARRIED_BY
 Implementation
 Implementation Binding
-Implementation Evaluation Step
-Implementation Failure Diagnosis Step
 Implementation Folder
 Implementation Of Relation
-Implementation Preparation Step
 Implementation Relation
 Implementation Relation Pair
-Implementation Repair Step
 Implementation Retry Control
-Implementation Retry Control Step
 Implementation Retry Limit
 Implementation Workflow
 	/ Implementation Workflow/Carrier
@@ -1300,8 +1258,6 @@ Markdown Atom Carrier
 Materialized Representation
 Method CCE Role Profile
 Method For Relation
-Method Learning Workflow
-Method Lesson Drafting Step
 Methodology
 Methodology Source
 NARROWER_THAN
@@ -1310,7 +1266,6 @@ Non-ephemeral Entity
 Nonnegative Integer Literal
 Normative Atom Prose Authoring
 Normative Authority Relation Pair
-Obtain Source Correction Decision
 Operations Type-specific CCE Profiles
 Owned Atoms
 Plan Atom Carrier
@@ -1338,9 +1293,7 @@ Projection
 Projection Carrier Root
 Projection Rebuild
 Property
-Propose Source Corrections
 Provenance
-Publish Reconciled Projection
 RMED Atom Review Check Coverage Gate Step
 RMED Atom Review Fix Coverage Gate Step
 RMED Atom Review Gather Coverage Gate Step
@@ -1358,7 +1311,6 @@ Relational Atom
 	/ Relational Atom/Type
 Replacement-Required Lineage Impact Disposition
 Requirement CCE Role Profile
-Requirement Implementation Step
 Resolve Operator Priorities
 Root Term
 Runtime State
@@ -1372,7 +1324,6 @@ Scope Unit Carrier Binding
 Scope Unit Scope
 Scripted Migration
 Select Priority-Governed Alternative
-Select Reconciliation Sources
 Selected Operations
 	/ Selected Operations/Carrier
 Selected Workflow Step
@@ -1383,12 +1334,6 @@ Set-valued Property Membership Evaluation
 Single Source of Truth
 Source Reconciliation
 	/ Source Reconciliation/Step bindings
-Source Reconciliation Assessment Step
-Source Reconciliation Correction Step
-Source Reconciliation Decision Step
-Source Reconciliation Proposal Step
-Source Reconciliation Publication Step
-Source Reconciliation Selection Step
 Source Reconciliation Workflow Carrier layout
 Source verification evidence
 Spec

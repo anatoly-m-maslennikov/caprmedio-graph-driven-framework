@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-18 23:48:39 +0400
+updated_at: 2026-10-19 03:14:19 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2
@@ -62,10 +62,13 @@ sources:
 - CA-O-007@9
 - CA-O-008@15
 - CA-O-009@8
+- CA-O-010@12
+- CA-O-011@15
 - CA-O-012@8
 - CA-O-013@7
 - CA-O-014@7
 - CA-O-015@11
+- CA-O-016@14
 - CA-O-017@9
 - CA-O-018@9
 - CA-O-019@7
@@ -89,10 +92,22 @@ sources:
 - CA-O-077@8
 - CA-O-078@6
 - CA-O-079@7
+- CA-O-080@8
 - CA-O-087@9
+- CA-O-088@7
 - CA-O-089@6
 - CA-O-090@7
+- CA-O-091@8
+- CA-O-092@7
+- CA-O-093@7
+- CA-O-094@8
+- CA-O-095@7
+- CA-O-096@7
+- CA-O-098@8
+- CA-O-099@6
 - CA-O-100@6
+- CA-O-101@6
+- CA-O-102@5
 - CA-O-103@5
 - CA-O-105@8
 - CA-O-106@11
@@ -128,8 +143,22 @@ sources:
 - CA-O-143@5
 - CA-O-144@5
 - CA-O-145@5
+- CA-O-146@6
+- CA-O-147@6
+- CA-O-148@6
+- CA-O-149@6
+- CA-O-150@6
+- CA-O-151@6
+- CA-O-152@6
+- CA-O-153@6
+- CA-O-154@6
+- CA-O-155@6
+- CA-O-156@6
+- CA-O-157@6
 - CA-O-158@6
+- CA-O-161@5
 - CA-O-162@5
+- CA-O-163@7
 - CA-O-180@3
 - CA-R-1213@20
 - CA-R-1222@10
@@ -169,11 +198,7 @@ sources:
 - CA-R-1663@24
 - CA-R-1665@21
 - CA-R-1666@25
-- CA-R-1667@21
 - CA-R-1668@22
-- CA-R-1673@23
-- CA-R-1674@20
-- CA-R-1675@20
 - CA-R-1680@20
 - CA-R-1692@19
 - CA-R-1711@20
@@ -201,7 +226,6 @@ sources:
 - CA-R-1981@2
 - CA-R-1982@2
 - CA-R-1983@2
-- CA-R-825@20
 - CAPRMEDIO-GOV-EVAL-006@27
 - CAPRMEDIO-R-793@22
 projection_id: CA-PROJ-003
@@ -234,6 +258,12 @@ Applicable Methodology
 		/ Applicable Methodology/Sources/Project Configuration
 			/ Applicable Methodology/Sources/Project Configuration/Project Customization
 Applicable Methodology Compilation
+Applicable Methodology Compilation Assess Step
+Applicable Methodology Compilation Correct Step
+Applicable Methodology Compilation Decide Step
+Applicable Methodology Compilation Propose Step
+Applicable Methodology Compilation Publish Step
+Applicable Methodology Compilation Select Step
 Applicable Methodology Conflict
 Applicable Methodology Membership Selection
 Applicable Methodology Source Frontier Digest
@@ -267,17 +297,13 @@ Atom
 		/ Atom/Content Role: Evaluation/Type: Evaluation Approach
 	/ Atom/Content Role: Implementation
 	/ Atom/Content Role: Method
-		/ Atom/Content Role: Method/Type: External Implementation Method
 		/ Atom/Content Role: Method/Type: Implementation Decision
-		/ Atom/Content Role: Method/Type: Implementation Method
-		/ Atom/Content Role: Method/Type: Method Binding
 	/ Atom/Content Role: Operations
 	/ Atom/Content Role: Plan
 		/ Atom/Content Role: Plan/Type
 		/ Atom/Content Role: Plan/Type: Plan
 	/ Atom/Content Role: Requirement
 		/ Atom/Content Role: Requirement/Type
-		/ Atom/Content Role: Requirement/Type: Boundary
 		/ Atom/Content Role: Requirement/Type: Constraint
 	/ Atom/Identifier
 	/ Atom/Revision
@@ -325,11 +351,13 @@ CCE
 Carrier
 	/ Carrier/Format
 Check Atoms
+Check Atoms Step
 Confidence Threshold
 Construct Entities Graph Projection
 Construct Terms Graph Projection
 Core Meta-Model
 Corrective Method Acceptance
+Corrective Method Acceptance Step
 DEPENDS_ON
 Default Settings
 Definition Atom
@@ -406,6 +434,7 @@ Evaluation
 Evaluation Control
 Evaluation For Relation
 Evaluation Implementation
+Evaluation Implementation Step
 Evaluator Evidence Calibration
 Evidence
 Execution context retrieval
@@ -416,6 +445,8 @@ Extension
 Extension Packaging
 FPF
 Find and Fetch Artifacts
+Find and Fetch Journal Events
+Find and Fetch Journal Events Query Step
 Framework Instance Settings
 Framework Package
 GOVERNS
@@ -425,11 +456,16 @@ Governance Origin
 Governed Term
 Implementation
 Implementation Evaluation
+Implementation Evaluation Step
 Implementation Failure Diagnosis
+Implementation Failure Diagnosis Step
 Implementation Folder
 Implementation Preparation
+Implementation Preparation Step
 Implementation Repair
+Implementation Repair Step
 Implementation Retry Control
+Implementation Retry Control Step
 Implementation Retry Limit
 Implementation Workflow
 Inferred-possible Relation Derivation
@@ -444,7 +480,9 @@ Local Tier
 Logging Policy
 Markdown
 Markdown Atom Carrier
+Method Learning Workflow
 Method Lesson Drafting
+Method Lesson Drafting Step
 Methodology
 Methodology Source
 Migrate Atom CCE Representation
@@ -493,6 +531,7 @@ Release Workflow
 	/ Release Workflow/Gate admission
 Repair RMED Review Batch
 Requirement Implementation
+Requirement Implementation Step
 Resolve Operator Priorities
 Resolve Project Initialization Inputs
 Retire Legacy Structural Projections
@@ -509,6 +548,13 @@ Select Priority-Governed Alternative
 Select RMED Review Batch
 Select Reconciliation Sources
 Skill
+Source Reconciliation
+Source Reconciliation Assessment Step
+Source Reconciliation Correction Step
+Source Reconciliation Decision Step
+Source Reconciliation Proposal Step
+Source Reconciliation Publication Step
+Source Reconciliation Selection Step
 Source-declared Relation Derivation
 Spec
 Spec Content Roles
