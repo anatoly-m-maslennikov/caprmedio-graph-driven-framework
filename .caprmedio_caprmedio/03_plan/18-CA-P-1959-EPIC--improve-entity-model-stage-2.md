@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 93
-updated_at: "2026-10-18 05:29:28 +0400"
+version: 94
+updated_at: "2026-10-18 07:51:57 +0400"
 relations: {}
 ---
 # Summary
@@ -46,6 +46,20 @@ The generic `get_execution_status` call reported the known wrong-backend limitat
 #### Phase 2 — separate Core and Project Configuration
 
 - [ ] After Phase 1, separate the abstract, project-independent Core Meta-model from CAPRMEDIO Project Configuration, which contains concrete project definitions, rules and choices. Apply the approved ownership and carrier relocations, preserving source evidence and typed links. Split mixed Core/project content only where needed and approved, without a blanket rewrite. Record the actual separation result and holds.
+
+#### Phase 2 bounded progress — 2026-10-18
+
+The minimal Atom-move Workflow is implemented and live on MCP port `56317`. The existing lifecycle path preserves ID, Summary, Type, Status, Subjects, relations and body; changes ownership, placement, Version and Updated At; archives the exact predecessor; and records the existing Run Journal events. Commits: RMEDO `ffb650b01`, implementation `6adff6453`, test-only reconnect optimization `fa2befc7c`, selected binding `cac0cc277`.
+
+The initial placement map was too broad. Of its first 46 completed moves, 37 generic Core rules were wrongly placed in Project Configuration. All 37 were corrected through new, history-preserving moves, not by reverting their recorded history. Independent review then retained 44 further moves, canceled 33 and held CA-E-441, CA-E-473 and CA-R-850 for content/placement clarification. Seven of the 44 retained moves remain held because RMED review has static source bindings: CA-D-496, CA-D-497, CA-O-028, CA-O-105, CA-O-106, CA-O-111 and CA-O-118. The other 37 were applied.
+
+Actual result: 120 completed move operations across 83 distinct Atoms, including the 37 corrective moves. Final placements represent 41 Core-to-Project relocations, five Project-to-Core relocations and 37 corrected Core originals. One earlier CA-D-442 attempt interrupted before source effects; its source remains exact and unchanged. No uncertain attempt was replayed. Source checkpoint before the final 37: `e0be0c340`. Exact archives, allowed metadata/body changes, final current uniqueness and all three completed Run receipts with Journal references were independently checked in `.caprmedio_tmp/atom-move-20261018/audit/final-history-readback-final-120.json`.
+
+The existing Core and Project Configuration Entities projections were rebuilt from current source Atoms without hiding unmapped Subjects. Their established IDs and source selections were preserved. The separate older Scope Unit graph generator could not refresh because it still expects a retired Methodology folder layout; its repair is not included here.
+
+Focused Move/lifecycle/routing checks passed (13, 39 and 43 tests respectively). The diagnostic full suite reported 397/398 passing modules, 3,521 counted tests and zero skips; one Docker integration module timed out at 1,800 seconds. Every case of that module passed isolated retests: all 13 supported Workflow native effects, all 27 creation/status cases and the remaining three status methods. This is not a claim that one complete full-suite run passed.
+
+Phase 2 remains unchecked and this Epic remains Active. The original 42 selected path-bound definitions, container bundles (seven parents and 29 children), older classification holds and the additional held cases above remain unchanged; these ledgers are not assumed additive. No Phase 3 retyping, Phase 4 additions, Phase 5 retirement or ordinary content migration is claimed. Child statuses do not cascade.
 
 #### Phase 3 — classify and retype source R Atoms
 

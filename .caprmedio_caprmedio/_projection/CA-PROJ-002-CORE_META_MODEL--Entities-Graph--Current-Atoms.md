@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-18 03:35:34 +0400
+updated_at: 2026-10-18 07:50:48 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -83,7 +83,6 @@ sources:
 - CA-C-426@3
 - CA-C-427@1
 - CA-C-452@4
-- CA-D-253@14
 - CA-D-262@14
 - CA-D-264@15
 - CA-D-266@14
@@ -106,30 +105,27 @@ sources:
 - CA-D-289@12
 - CA-D-290@13
 - CA-D-291@19
-- CA-D-292@18
+- CA-D-292@20
 - CA-D-296@17
-- CA-D-297@15
-- CA-D-298@15
-- CA-D-299@15
-- CA-D-300@18
+- CA-D-297@17
+- CA-D-298@17
+- CA-D-299@17
+- CA-D-300@20
 - CA-D-301@17
 - CA-D-302@15
 - CA-D-303@15
 - CA-D-304@14
-- CA-D-305@14
-- CA-D-306@15
-- CA-D-307@14
 - CA-D-308@14
 - CA-D-309@13
 - CA-D-310@14
 - CA-D-311@14
 - CA-D-312@14
-- CA-D-317@15
-- CA-D-318@12
+- CA-D-317@17
+- CA-D-318@14
 - CA-D-329@15
-- CA-D-330@13
+- CA-D-330@15
 - CA-D-331@12
-- CA-D-333@16
+- CA-D-333@18
 - CA-D-336@16
 - CA-D-338@15
 - CA-D-340@16
@@ -140,44 +136,49 @@ sources:
 - CA-D-352@13
 - CA-D-356@11
 - CA-D-357@10
-- CA-D-358@13
-- CA-D-359@13
-- CA-D-360@13
+- CA-D-358@15
+- CA-D-359@15
+- CA-D-360@15
 - CA-D-361@12
-- CA-D-362@13
-- CA-D-363@14
-- CA-D-364@14
-- CA-D-365@12
-- CA-D-366@14
-- CA-D-368@11
-- CA-D-369@10
-- CA-D-370@11
-- CA-D-371@10
-- CA-D-372@9
-- CA-D-373@9
-- CA-D-374@9
-- CA-D-375@12
-- CA-D-376@12
-- CA-D-377@8
+- CA-D-362@15
+- CA-D-363@16
+- CA-D-364@16
+- CA-D-365@14
+- CA-D-366@16
+- CA-D-368@13
+- CA-D-369@12
+- CA-D-370@13
+- CA-D-371@12
+- CA-D-372@11
+- CA-D-373@11
+- CA-D-374@11
+- CA-D-375@14
+- CA-D-376@14
+- CA-D-377@10
 - CA-D-378@14
 - CA-D-380@9
 - CA-D-381@10
-- CA-D-383@14
+- CA-D-383@16
 - CA-D-386@11
-- CA-D-387@12
+- CA-D-387@14
 - CA-D-389@11
-- CA-D-390@13
-- CA-D-391@8
-- CA-D-392@11
+- CA-D-390@15
+- CA-D-391@10
+- CA-D-392@13
 - CA-D-393@9
-- CA-D-394@8
-- CA-D-395@10
-- CA-D-407@9
+- CA-D-394@10
+- CA-D-395@12
+- CA-D-399@10
+- CA-D-400@11
+- CA-D-401@11
+- CA-D-402@10
+- CA-D-404@10
+- CA-D-407@11
 - CA-D-408@9
 - CA-D-416@14
-- CA-D-434@10
+- CA-D-434@12
 - CA-D-440@7
-- CA-D-441@7
+- CA-D-441@9
 - CA-D-442@10
 - CA-D-443@8
 - CA-D-444@9
@@ -231,7 +232,6 @@ sources:
 - CA-E-243@25
 - CA-E-246@27
 - CA-E-249@14
-- CA-E-379@23
 - CA-E-382@23
 - CA-E-383@18
 - CA-E-384@21
@@ -268,7 +268,6 @@ sources:
 - CA-E-472@9
 - CA-E-473@12
 - CA-E-476@9
-- CA-E-477@7
 - CA-E-481@9
 - CA-E-482@13
 - CA-E-486@8
@@ -288,11 +287,8 @@ sources:
 - CA-E-505@6
 - CA-E-506@10
 - CA-E-507@6
-- CA-E-510@5
 - CA-E-511@7
 - CA-E-512@5
-- CA-E-513@6
-- CA-E-519@8
 - CA-E-520@7
 - CA-E-521@6
 - CA-E-522@3
@@ -303,7 +299,6 @@ sources:
 - CA-E-623@20
 - CA-E-624@20
 - CA-M-111@27
-- CA-M-112@14
 - CA-M-113@19
 - CA-M-114@22
 - CA-M-115@25
@@ -315,7 +310,6 @@ sources:
 - CA-M-125@27
 - CA-M-127@15
 - CA-M-135@18
-- CA-M-225@19
 - CA-M-228@17
 - CA-M-229@14
 - CA-M-230@12
@@ -336,8 +330,6 @@ sources:
 - CA-M-273@15
 - CA-M-275@10
 - CA-M-276@11
-- CA-M-277@13
-- CA-M-278@11
 - CA-M-279@10
 - CA-M-287@11
 - CA-M-288@9
@@ -380,25 +372,13 @@ sources:
 - CA-O-019@6
 - CA-O-020@7
 - CA-O-021@11
-- CA-O-022@9
-- CA-O-023@8
 - CA-O-024@13
 - CA-O-028@10
 - CA-O-051@9
-- CA-O-052@6
-- CA-O-053@7
-- CA-O-054@7
-- CA-O-058@8
-- CA-O-065@6
 - CA-O-067@9
-- CA-O-077@7
-- CA-O-078@5
-- CA-O-079@6
 - CA-O-080@7
-- CA-O-087@8
 - CA-O-088@6
 - CA-O-089@5
-- CA-O-090@6
 - CA-O-091@7
 - CA-O-092@6
 - CA-O-093@6
@@ -407,10 +387,8 @@ sources:
 - CA-O-096@6
 - CA-O-098@7
 - CA-O-099@5
-- CA-O-100@5
 - CA-O-101@5
 - CA-O-102@4
-- CA-O-103@4
 - CA-O-104@11
 - CA-O-105@7
 - CA-O-106@10
@@ -422,14 +400,9 @@ sources:
 - CA-O-119@4
 - CA-O-120@4
 - CA-O-121@4
-- CA-O-122@5
-- CA-O-123@3
-- CA-O-124@2
-- CA-O-125@3
-- CA-O-126@3
-- CA-O-127@11
-- CA-O-128@11
-- CA-O-129@9
+- CA-O-127@12
+- CA-O-128@12
+- CA-O-129@10
 - CA-O-130@3
 - CA-O-131@3
 - CA-O-132@3
@@ -508,13 +481,11 @@ sources:
 - CA-R-1203@17
 - CA-R-1206@12
 - CA-R-1207@16
-- CA-R-1213@19
 - CA-R-1217@12
 - CA-R-1218@15
 - CA-R-1219@17
 - CA-R-121@17
 - CA-R-1220@12
-- CA-R-1228@18
 - CA-R-1231@15
 - CA-R-1232@15
 - CA-R-1234@14
@@ -564,10 +535,6 @@ sources:
 - CA-R-1311@15
 - CA-R-1312@16
 - CA-R-1313@13
-- CA-R-1314@17
-- CA-R-1315@17
-- CA-R-1316@15
-- CA-R-1317@13
 - CA-R-1318@13
 - CA-R-1319@11
 - CA-R-1320@11
@@ -599,7 +566,6 @@ sources:
 - CA-R-1363@14
 - CA-R-1368@12
 - CA-R-1371@12
-- CA-R-1373@13
 - CA-R-1375@15
 - CA-R-1376@13
 - CA-R-1382@12
@@ -803,7 +769,6 @@ sources:
 - CA-R-1677@21
 - CA-R-1678@18
 - CA-R-1679@17
-- CA-R-1680@19
 - CA-R-1681@22
 - CA-R-1682@25
 - CA-R-1683@26
@@ -897,7 +862,6 @@ sources:
 - CA-R-1775@17
 - CA-R-1776@21
 - CA-R-1777@24
-- CA-R-1778@14
 - CA-R-1788@7
 - CA-R-1789@5
 - CA-R-1790@5
@@ -1024,6 +988,10 @@ sources:
 - CA-R-992@21
 - CA-R-997@21
 - CA-R-999@14
+projection_id: CA-PROJ-002
+named_selection: Current Atoms
+source_of_truth:
+- .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL
 ---
 
 ## Inherency tree
@@ -1041,7 +1009,6 @@ This is a derived Projection, not independent model authority.
 ```text
 AI Agent Confidence
 AI Agent Delegation
-Admit Methodology Expansion Mapping
 Agentic Action Instruction
 Agentic Step Execution Context
 Applicable Methodology Compilation
@@ -1052,7 +1019,6 @@ Applicable Methodology Compilation Propose Step
 Applicable Methodology Compilation Publish Step
 Applicable Methodology Compilation Select Step
 Applicable Methodology Conflict
-Applicable Methodology Membership Selection
 Applicable Methodology Revision
 Applicable Methodology Source Frontier Digest
 Applicable Methodology Source Set
@@ -1079,8 +1045,6 @@ Artifact Classification Resolution
 Artifact query and fetch execution
 Artifact query and selected fetch
 Assess Atom Update Identity
-Assess Lineage Impact
-Assess Prepared Result Conformance
 Assess Source Conflicts
 Atom
 	/ Atom/Claim
@@ -1089,9 +1053,13 @@ Atom
 		/ Atom/Content Role: Analysis/Type
 	/ Atom/Content Role: Concern
 		/ Atom/Content Role: Concern/Type
+	/ Atom/Content Role: Delivery
+		/ Atom/Content Role: Delivery/Type
 	/ Atom/Content Role: Evaluation
 		/ Atom/Content Role: Evaluation/Type
 	/ Atom/Content Role: Implementation
+	/ Atom/Content Role: Method
+		/ Atom/Content Role: Method/Type
 	/ Atom/Content Role: Operations
 		/ Atom/Content Role: Operations/Type
 		/ Atom/Content Role: Operations/Type: Action
@@ -1103,6 +1071,8 @@ Atom
 	/ Atom/Content Role: Plan
 		/ Atom/Content Role: Plan/Type: Plan
 			/ Atom/Content Role: Plan/Type: Plan/Label
+	/ Atom/Content Role: Requirement
+		/ Atom/Content Role: Requirement/Type
 	/ Atom/Identifier
 	/ Atom/Identity
 	/ Atom/Local Tier: Standard
@@ -1118,7 +1088,6 @@ Atom
 	/ Atom/Subjects
 	/ Atom/Tier
 		/ Atom/Tier/Local Tier
-	/ Atom/Type
 Atom Carrier
 Atom Carrier Binding
 Atom Carrier Validation
@@ -1131,7 +1100,6 @@ Atom Collection
 	/ Atom Collection/Local Tier
 	/ Atom Collection/Type
 	/ Atom Collection/Type: Ad Hoc
-Atom Content Authoring
 Atom Direct Relation
 Atom Property Default
 Atom Scope
@@ -1149,7 +1117,6 @@ BEARS
 Build Entities Graph
 Build Terms Graph
 CAPRMEDIO Expansion
-CAPRMEDIO Framework Identity
 CAPRMEDIO Framework Instance
 CAPRMEDIO Graph
 CCE
@@ -1168,6 +1135,7 @@ Canonical Signature Derivation
 Canonical Signature Derivation Validation
 Cardinality Constraint
 Cardinality Constraint Authoring
+Carrier
 Carrier-Only Recoding
 Change Content Roles
 Check Atoms
@@ -1193,7 +1161,6 @@ Containment Relation Pair
 Content Role Naming
 Core Meta-Model
 Core Meta-model
-Corrective Method Acceptance
 Corrective Method Acceptance Step
 Current Plan Scope
 Current-scope Atom
@@ -1231,8 +1198,10 @@ Entity
 				/ Entity/Continuant/Node/Atom/Content Role: Analysis
 					/ Entity/Continuant/Node/Atom/Content Role: Analysis/Type
 				/ Entity/Continuant/Node/Atom/Content Role: Concern
+					/ Entity/Continuant/Node/Atom/Content Role: Concern/Type
 				/ Entity/Continuant/Node/Atom/Content Role: Delivery
 				/ Entity/Continuant/Node/Atom/Content Role: Evaluation
+					/ Entity/Continuant/Node/Atom/Content Role: Evaluation/Type
 				/ Entity/Continuant/Node/Atom/Content Role: Method
 				/ Entity/Continuant/Node/Atom/Content Role: Operations
 					/ Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action
@@ -1307,7 +1276,6 @@ Entity
 		/ Entity/Continuant/Relation
 			/ Entity/Continuant/Relation/Type: CARRIES
 			/ Entity/Continuant/Relation/Type: CONTAINS
-			/ Entity/Continuant/Relation/Type: DERIVED_FROM
 			/ Entity/Continuant/Relation/Type: GOVERNS
 			/ Entity/Continuant/Relation/Type: NARROWER_THAN
 			/ Entity/Continuant/Relation/Type: On Result
@@ -1331,7 +1299,6 @@ Evaluation For Relation
 Evaluation Implementation
 Evaluation Implementation Step
 Evaluation Report
-Evaluator Evidence Calibration
 Evidence
 Evidence For Relation
 Exact Atom Reference
@@ -1354,7 +1321,6 @@ General Artifact Graph
 General Term
 Generated-Only Provenance Validation
 Generator
-Global Tier
 Governance Origin
 Governed Entity
 Governed Term
@@ -1389,7 +1355,6 @@ Implementation Workflow
 Installed Extensions Catalog Entry
 Journal Event query
 Label
-Legacy Evidence and Provisional RMED Preparation
 Lifecycle Tool authority
 	/ Lifecycle Tool authority/Scope Unit
 Lineage Impact Analysis
@@ -1401,11 +1366,9 @@ Materialized Representation
 Method CCE Role Profile
 Method For Relation
 Method Learning Workflow
-Method Lesson Drafting
 Method Lesson Drafting Step
 Methodology
 Methodology Source
-Migrate Atom CCE Representation
 NARROWER_THAN
 Navigation Projection Derivation
 Non-ephemeral Entity
@@ -1461,9 +1424,6 @@ RMED Review Repair Step
 RMED Review Selection Step
 RMEDO Conflict Resolution
 Rationale For Relation
-Reconcile Atom Properties and Addresses
-Reconcile Navigation Numbers
-Reconcile Unfinished Work
 Related To Relation
 Relation
 	/ Relation/Type: On Result
@@ -1477,7 +1437,6 @@ Requirement CCE Role Profile
 Requirement Implementation
 Requirement Implementation Step
 Resolve Operator Priorities
-Resolve Project Initialization Inputs
 Revert Changes Workflow
 Root Term
 Runtime State
@@ -1489,8 +1448,6 @@ Scope Unit
 	/ Scope Unit/Type
 Scope Unit Carrier Binding
 Scope Unit Scope
-Scoped Operator-choice Applicability
-Screen Short Names
 Scripted Migration
 Select Priority-Governed Alternative
 Select RMED Review Batch
@@ -1503,7 +1460,6 @@ Session-State Envelope
 Set-valued Property
 Set-valued Property Membership Evaluation
 Single Source of Truth
-Skill
 Source Reconciliation
 	/ Source Reconciliation/Step bindings
 Source Reconciliation Assessment Step
@@ -1571,7 +1527,6 @@ development-flow
 evaluation
 extension-model
 external-boundary
-framework-boundary
 language
 lifecycle
 lifecycle-traceability
@@ -1607,13 +1562,6 @@ Artifact
 ```text
 Atom
 	. Atom.Substance
-```
-
-### Atom/Type
-
-```text
-Atom/Type
-	. Atom/Type.Status
 ```
 
 ### Atom Carrier
@@ -1876,14 +1824,6 @@ Entity/Continuant/Node/Projection
 	. Entity/Continuant/Node/Projection.Updated At
 ```
 
-### Entity/Continuant/Node/Projection/Type: Applicable Methodology
-
-```text
-Entity/Continuant/Node/Projection/Type: Applicable Methodology
-	. Entity/Continuant/Node/Projection/Type: Applicable Methodology.Conflict
-	. Entity/Continuant/Node/Projection/Type: Applicable Methodology.Member
-```
-
 ### Entity/Continuant/Node/Scope Unit
 
 ```text
@@ -1969,12 +1909,6 @@ Entity/Continuant/Object/Project
 			. Entity/Continuant/Object/Project.Framework Settings.Confidence.Necessary Information Threshold
 			. Entity/Continuant/Object/Project.Framework Settings.Confidence.Semantic Resolution Threshold
 		. Entity/Continuant/Object/Project.Framework Settings.Extension Selections
-		. Entity/Continuant/Object/Project.Framework Settings.Interaction
-			. Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode
-				. Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Effects
-				. Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information
-				: Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode: silent
-				: Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode: verbose
 		. Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution
 		. Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution Validation
 		. Entity/Continuant/Object/Project.Framework Settings.Revision Binding
@@ -1999,10 +1933,7 @@ Entity/Continuant/Object/Relation
 ```text
 Entity/Continuant/Object/Scope Unit
 	. Entity/Continuant/Object/Scope Unit.Label
-	. Entity/Continuant/Object/Scope Unit.Local Order
 	. Entity/Continuant/Object/Scope Unit.Name
-	. Entity/Continuant/Object/Scope Unit.Navigational Order Number
-	. Entity/Continuant/Object/Scope Unit.Structural Level
 ```
 
 ### Entity/Continuant/Projection
