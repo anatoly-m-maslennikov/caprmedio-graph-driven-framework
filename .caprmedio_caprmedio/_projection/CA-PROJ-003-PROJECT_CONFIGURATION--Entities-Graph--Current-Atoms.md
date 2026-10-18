@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-18 16:28:16 +0400
+updated_at: 2026-10-18 23:48:39 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2
@@ -29,6 +29,8 @@ sources:
 - CA-D-435@10
 - CA-D-453@5
 - CA-D-454@5
+- CA-D-496@11
+- CA-D-497@6
 - CA-D-498@1
 - CA-D-499@2
 - CA-D-500@1
@@ -75,6 +77,7 @@ sources:
 - CA-O-025@6
 - CA-O-026@5
 - CA-O-027@5
+- CA-O-028@11
 - CA-O-051@10
 - CA-O-052@7
 - CA-O-053@8
@@ -91,12 +94,16 @@ sources:
 - CA-O-090@7
 - CA-O-100@6
 - CA-O-103@5
+- CA-O-105@8
+- CA-O-106@11
+- CA-O-111@9
 - CA-O-112@1
 - CA-O-113@1
 - CA-O-114@1
 - CA-O-115@1
 - CA-O-116@1
 - CA-O-117@1
+- CA-O-118@5
 - CA-O-122@6
 - CA-O-123@4
 - CA-O-124@3
@@ -394,6 +401,7 @@ Entity
 			/ Entity/Occurrent/Execution/Action Run
 			/ Entity/Occurrent/Execution/Step Run
 			/ Entity/Occurrent/Execution/Workflow Run
+Evaluate RMED Review Batch
 Evaluation
 Evaluation Control
 Evaluation For Relation
@@ -469,6 +477,7 @@ Projection
 Property
 Propose Source Corrections
 Publish Reconciled Projection
+RMED Atom Review Coverage Gate Action
 RMEDO Conflict Resolution
 Realization Graph
 Reconcile Atom Properties and Addresses
@@ -482,6 +491,7 @@ Relation Kind
 Release Readiness
 Release Workflow
 	/ Release Workflow/Gate admission
+Repair RMED Review Batch
 Requirement Implementation
 Resolve Operator Priorities
 Resolve Project Initialization Inputs
@@ -496,6 +506,7 @@ Scope Unit
 Scoped Operator-choice Applicability
 Screen Short Names
 Select Priority-Governed Alternative
+Select RMED Review Batch
 Select Reconciliation Sources
 Skill
 Source-declared Relation Derivation
