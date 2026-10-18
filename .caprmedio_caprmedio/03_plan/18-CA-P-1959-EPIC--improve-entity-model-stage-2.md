@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 92
-updated_at: "2026-10-18 02:41:00 +0400"
+version: 93
+updated_at: "2026-10-18 05:29:28 +0400"
 relations: {}
 ---
 # Summary
@@ -33,7 +33,15 @@ Target: [Candidate #6](../_projection/core-entity-review/presentation/operator.m
 
 #### Phase 1 — migrate Subjects first
 
-- [ ] Record the complete current-source Subject map, including supported, unchanged, held and unsupported cases, then apply the approved supported Subject changes. Preserve ordinary content, ownership, Status and existing Types; only Subjects and required Version/time metadata change. Track missing R definitions without making them a prerequisite. Use existing checkpoint/draft/archive workflows and record the actual result and any holds.
+- [x] Record the complete current-source Subject map, including supported, unchanged, held and unsupported cases, then apply the approved supported Subject changes. Preserve ordinary content, ownership, Status and existing Types; only Subjects and required Version/time metadata change. Track missing R definitions without making them a prerequisite. Use existing checkpoint/draft/archive workflows and record the actual result and any holds.
+
+#### Phase 1 actual result — 2026-10-18
+
+The reviewed supported subset completed: 309 Atoms and 973 exact Subject patches (294 Core, 15 Project). The remaining 830 original Atoms were left unchanged: 801 whole-owner holds and 29 unchanged owners, including 82 excluded C/A instances. The native batch completed all 309 supported targets; 309 exact predecessors were archived, 309 drafts were consumed, and 928 terminal outcomes completed. Bodies, ownership, Status, Types and unrelated metadata were unchanged. Run: `candidate6-phase1-subjects-20261018-001`; drafts commit: `9beb35951`; source checkpoint: `35e557688`; migration commit: `4ff905f3d`.
+
+As-is current-source projections were rebuilt after the effects: [CA-PROJ-002 Core](../_projection/CA-PROJ-002-CORE_META_MODEL--Entities-Graph--Current-Atoms.md), 1,021 sources and 361 roots; and [CA-PROJ-003 Project Configuration](../_projection/CA-PROJ-003-PROJECT_CONFIGURATION--Entities-Graph--Current-Atoms.md), 118 sources and 97 roots. Remaining roots and holds stay visible; this is not semantic graph acceptance. The MCP repair is `01dff0231`, endpoint `56317` is working, and only focused tests/cold probe were run; no new full suite or public release was performed.
+
+The generic `get_execution_status` call reported the known wrong-backend limitation (Run not found; only RMED Base Revise registered). Native progress, accepted result and independent readback verified the completed batch. Phase 2 separation, Phase 3 R classification/retyping, Phase 4 missing definitions/rules and Phase 5 remainder review remain unchecked holds; the Epic remains Active and no child status cascades.
 
 #### Phase 2 — separate Core and Project Configuration
 
