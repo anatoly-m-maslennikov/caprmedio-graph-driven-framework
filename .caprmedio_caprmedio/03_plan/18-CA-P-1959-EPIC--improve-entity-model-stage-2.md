@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 106
-updated_at: "2026-10-19 18:00:18 +0400"
+version: 107
+updated_at: "2026-10-19 22:09:55 +0400"
 relations: {}
 ---
 # Summary
@@ -94,6 +94,18 @@ A read-only refresh of the 20-R pilot confirmed all 20 sources are Active with n
 Both current-source Entities views were rebuilt, preserving their Projection IDs: Core CA-PROJ-002 has 905 sources; Project Configuration CA-PROJ-003 has 234. Held/unmapped Subjects and the existing C290 diagnostic remain visible; no source mirror or Applicable Methodology was republished.
 
 The eight whole-owner holds remain unchanged: O159/O160, R850, E441, E446, E473, M120 and M271. Phase 2 and later unfinished phases remain open; the Epic stays Active and child Statuses do not cascade. Ordinary content migration remains CA-P-1970. Earlier checkpoints retain their historical results. No runtime code, full test suite or release was included.
+
+#### Graph Rule model and scoped formal-content contracts — 2026-10-19
+
+Seven new Core contracts are Active at v1: R1996 Type, R1997 Applies To, R1998 Condition, R1999 Default Value, R2000 Requirement Type Rule, M394 formal authoring and D637 YAML representation. The five bounded updates completed as R1995 v2, D479 v10, D495 v7, M111 v29 and M115 v27; their exact predecessors are preserved. They define the one-Type model, operative YAML plus readable Summary, the initial whitelist shape, count semantics and optional default-value meaning. The formal-layout exception applies only to R Atoms expressing Graph Rules, not to every R/Type: Rule Atom. Model Definition/Method/Delivery contracts retain the current compatible ordinary carrier without assigning new Atom Types.
+
+The initial update attempt paused at assessment before changing R1995 because the scratch review package contained two unsupported wrapper fields. The seven completed creations were not replayed. A fresh five-update packet used the admitted assessments-only wrapper with identical target/proposal bytes; all five native no-write previews and the resulting updates completed. The interrupted no-effect Run remains recorded separately, not counted as a successful update. Actual receipts are in `.caprmedio_tmp/graph-rule-model-20261019/step-1/` through `step-7/` and `remaining/step-1/` through `remaining/step-5/`.
+
+Candidate #6 records the model and the confirmed Relation tuple identity. Both source-derived Entities views were rebuilt with unchanged Projection IDs: Core CA-PROJ-002 has 912 sources, and Project Configuration CA-PROJ-003 has 234. Existing held/unmapped Subjects and the C290 Subjects diagnostic remain visible. Installed source mirrors and Applicable Methodology were not republished.
+
+Runtime Type Rule/YAML-body admission, the remaining Type-specific schemas and broader R retyping are still pending. No actual formal Rule instances, rule engine, whitelist merging, unknown-relation default, blacklist precedence, override policy, runtime code, full-suite result or release is claimed. This is not completion of the overall Type rollout or Phase 3.
+
+The eight whole-owner holds remain unchanged: O159/O160, R850, E441, E446, E473, M120 and M271. The Epic stays Active; unfinished phases remain open and child Statuses do not cascade. Ordinary content migration remains CA-P-1970. Earlier checkpoints retain their historical results.
 
 #### Phase 1 — migrate Subjects first
 

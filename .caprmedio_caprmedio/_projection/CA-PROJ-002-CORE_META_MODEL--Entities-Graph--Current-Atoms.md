@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-19 17:58:33 +0400
+updated_at: 2026-10-19 22:02:55 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -202,7 +202,7 @@ sources:
 - CA-D-473@9
 - CA-D-475@9
 - CA-D-478@9
-- CA-D-479@9
+- CA-D-479@10
 - CA-D-480@8
 - CA-D-481@9
 - CA-D-482@10
@@ -210,7 +210,7 @@ sources:
 - CA-D-484@7
 - CA-D-485@7
 - CA-D-494@7
-- CA-D-495@6
+- CA-D-495@7
 - CA-D-505@3
 - CA-D-506@3
 - CA-D-507@3
@@ -224,6 +224,7 @@ sources:
 - CA-D-634@6
 - CA-D-635@5
 - CA-D-636@3
+- CA-D-637@1
 - CA-E-207@16
 - CA-E-240@33
 - CA-E-241@25
@@ -296,10 +297,10 @@ sources:
 - CA-E-622@27
 - CA-E-623@20
 - CA-E-624@21
-- CA-M-111@28
+- CA-M-111@29
 - CA-M-113@20
 - CA-M-114@23
-- CA-M-115@26
+- CA-M-115@27
 - CA-M-116@17
 - CA-M-120@16
 - CA-M-121@17
@@ -351,6 +352,7 @@ sources:
 - CA-M-314@7
 - CA-M-315@7
 - CA-M-385@5
+- CA-M-394@1
 - CA-O-159@3
 - CA-O-160@3
 - CA-R-1014@21
@@ -834,7 +836,12 @@ sources:
 - CA-R-1992@3
 - CA-R-1993@3
 - CA-R-1994@1
-- CA-R-1995@1
+- CA-R-1995@2
+- CA-R-1996@1
+- CA-R-1997@1
+- CA-R-1998@1
+- CA-R-1999@1
+- CA-R-2000@1
 - CA-R-366@24
 - CA-R-380@27
 - CA-R-626@28
@@ -1142,6 +1149,7 @@ Entity
 				/ Entity/Node/Continuant/Atom/Content Role: Requirement
 					/ Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Demand
 					/ Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal
+					/ Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Rule
 				/ Entity/Node/Continuant/Atom/Type
 			/ Entity/Node/Continuant/Governing Configuration
 			/ Entity/Node/Continuant/History
@@ -1506,6 +1514,16 @@ Entity/Continuant/Object/Project
 ```text
 Entity/Continuant/Object/Relation
 	. Entity/Continuant/Object/Relation.Authority
+```
+
+### Entity/Graph Rule
+
+```text
+Entity/Graph Rule
+	. Entity/Graph Rule.Applies To
+	. Entity/Graph Rule.Condition
+	. Entity/Graph Rule.Default Value
+	. Entity/Graph Rule.Type
 ```
 
 ### Entity/Node/Continuant/Actor

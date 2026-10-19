@@ -121,13 +121,13 @@ Approved mapping: `AI Agent Delegation` → `Entity/Node/Continuant/Actor/Type: 
 
 33. **Nodes, Relations and Graph Rules:** use `Entity/Node`, `Entity/Relation`, `Entity/Graph Rule` and `Entity/Carrier`. Node is the logical abstraction, with Continuant and Occurrent branches. Graph Rule states conditions governing the graph model, including Nodes, Relations, properties, allowed endpoints and cardinality. A Graph Rule can be expressed by an R Atom without another authoritative instance or file. Ordinary project instructions remain RMED Atom content; they are not automatically Graph Rule instances. Carrier is the actual physical representation in files, directories or database storage, not another copy of the logical Node.
 
-34. **Relation kinds and Relation instances:** a Relation Definition defines a kind such as CONTAINS or IS_BORNE_BY. Each typed connection is a Relation instance, including a structural connection such as `Atom.Status IS_BORNE_BY Atom`. Structural connections belong in the Entity Graph; actual artifact-to-artifact connections belong in the instance graph. A Relation instance does not automatically require its own Atom or file. Relation identity and storage remain undecided.
+34. **Relation kinds and Relation instances:** a Relation Definition defines a kind such as CONTAINS or IS_BORNE_BY. Each typed connection is a Relation instance, including a structural connection such as `Atom.Status IS_BORNE_BY Atom`. Structural connections belong in the Entity Graph; actual artifact-to-artifact connections belong in the instance graph. A Relation instance does not automatically require its own Atom or file. Its identity is `(source, relation type, target)`, with no separate Relation ID. Its storage remains undecided.
 
 35. **Two Requirement Types:** use `R/Type: Definition` for definitions of Node kinds, Properties and Relation kinds; use `R/Type: Rule` for conditions, permissions, prohibitions and constraints. The Subject identifies what is governed; the Type says whether the Substance defines or constrains it. Do not add separate Node Definition, Property Definition or Relation Definition Types, or a Type for every Continuant branch. These are the two Types for this modeling work, not an automatic retirement of all existing R Types.
 
 36. **Subjects for relation definitions and constraints:** defining CONTAINS itself governs `Relation/Type: CONTAINS`. A Rule about an Atom's outgoing CONTAINS connections governs `Atom.Relations/Type: CONTAINS`; a Plan-specific Rule governs `Atom/Content Role: Plan.Relations/Type: CONTAINS`. Here `/Type` qualifies the Relation entries, not the datatype of the Relations property. Use one precise governs target. Other referenced kinds may appear in depends_on, but dependency links do not encode source/target endpoint roles; those roles belong in the Substance. Semantic Relations are not tied to a YAML field named relations; D defines their carrier.
 
-37. **Machine-readable Substance where useful:** an Atom Type can define structured Substance for formal conditions, including relation endpoint kinds, permissions and cardinality. That structured content is authoritative; readable wording is derived from it, not a second independently maintained Claim. Keep it simple and readable; do not add a general-purpose rule language. The exact schema, carrier, defaults, whitelist closure, blacklist precedence and inheritance semantics need definition before implementation. This decision does not make every RMED Atom structured or authorize a new storage field.
+37. **Machine-readable Substance where useful:** an Atom Type can define structured Substance for formal conditions, including relation endpoint kinds, permissions and cardinality. That structured content is authoritative; readable wording is derived from it, not a second independently maintained Claim. Keep it simple and readable; do not add a general-purpose rule language. Decision 43 supplies the initial whitelist form and endpoint matching. Remaining schema/carrier details, defaults, combination, blacklist precedence and override semantics need definition before implementation. This decision does not make every RMED Atom structured or authorize a new storage field.
 
 38. **Small structure migration first:** put Continuant and Occurrent under Node, retain Relation/Graph Rule/Carrier at Entity's first level, and keep the logical Node distinct from its physical Carrier. A live occurrence is not the persistent record describing it. Other rules—such as how to write code—remain RMED Atom content, optionally compiled into Projections and used by O Workflows. Keep `R/Type: Rule` distinct from the Graph Rule branch; do not globally replace the word Rule. Apply only supported, boundary-aware Subject changes, plus any explicitly necessary direct structural definition alignment, before resuming the older unfinished phases. Broader content migration remains separate. This decision changes no source Atom merely by being recorded here.
 
@@ -135,7 +135,28 @@ Approved mapping: `AI Agent Delegation` → `Entity/Node/Continuant/Actor/Type: 
 
 40. **Retire old Object and define Node separately:** the Operator explicitly approved archiving CA-R-1964's old Object definition instead of changing its meaning into Node. Its exact v2 is preserved; v3 is Archived and no longer a current original in the canonical Core source set. The fresh CA-R-1994 v1 defines `Entity/Node`: a logical abstraction in the Entity graph, classified as a Continuant or an Occurrent. Its ID, Summary and Claim are separate from the retired Atom. It uses the currently admitted ordinary Requirement format without Type; the planned Definition/Rule Type rollout remains pending. This retires only R1964, not every occurrence of the word Object, and does not create the separate Graph Rule definition.
 
-41. **Define Graph Rule without choosing its implementation:** CA-R-1995 v1 now defines `Entity/Graph Rule` as a condition or constraint on the graph model, concerning Nodes, Relations, their properties, endpoints or cardinality. It uses the current ordinary Requirement format without Type. An ordinary RMED instruction is not automatically a Graph Rule. The Operator deferred the machine-readable format/defaults/inheritance question and the exact whitelist scope; neither is decided or implemented here. Relation identity still needs clarification because “yes” answered a choice between tuple identity and a separate ID.
+41. **Define Graph Rule without choosing its implementation:** CA-R-1995 v1 now defines `Entity/Graph Rule` as a condition or constraint on the graph model, concerning Nodes, Relations, their properties, endpoints or cardinality. It uses the current ordinary Requirement format without Type. An ordinary RMED instruction is not automatically a Graph Rule. At creation, the Operator deferred the machine-readable format/defaults/inheritance question and the exact whitelist scope. Decision 43 subsequently resolves the initial whitelist form and endpoint scope; remaining choices stay open. Relation identity is resolved by decision 42. No runtime implementation is claimed.
+
+42. **Relation identity is the tuple:** the Operator confirmed `(source, relation type, target)` as a Relation instance's identity, with no separate Relation ID. This resolves identity only; it does not select a storage format or reopen the deferred Graph Rule decisions.
+
+43. **Whitelist both Relation endpoints:** use the existing Subject notation for allowed source and target kinds, rather than separate `kind` or Content Role selector fields. `applies_to` identifies the Relation Type; `condition` contains both endpoint lists. Both endpoints must match their respective allowed list; narrower kinds inherit membership. This states allowed connections, not required connections, and does not prohibit other Relation Types merely because a Node appears in this whitelist. `type: whitelist` is the structured Graph Rule form, not the containing R Atom's Type. The structured rule is Substance in that R Atom, not a second authoritative instance or file.
+
+```yaml
+type: whitelist
+applies_to:
+  relation_type: evaluation_for
+condition:
+  source:
+    - "Entity/Node/Continuant/Atom/Content Role: Evaluation"
+  target:
+    - "Entity/Node/Continuant/Atom/Content Role: Requirement"
+```
+
+Putting the source only in `applies_to` would restrict checking to that source, without prohibiting other source kinds; both endpoint restrictions therefore belong in `condition`. This is the approved candidate form, not an implemented parser or a migrated source rule. Combining multiple whitelists for the same Relation Type, undeclared Relation Types, other defaults and override/blacklist precedence remain undecided.
+
+44. **Formal Graph Rule model contracts:** a Graph Rule has Type, Applies To, Condition and optional Default Value. Exactly one Type selects its structured condition form: Whitelist, Blacklist, Cardinality, Value Constraint, Topology Constraint or Endpoint Constraint. Mandatory/optional/exact connection counts use minimum and maximum per matching source or target Node, not a graph-wide total. Default Value supplies an absent value without replacing an explicit value, must satisfy applicable constraints and does not itself request a source write. Operative rule content is formal YAML; Summary is the only prose and is not another authority. Different independently replaceable rules, including rules requiring different Types, belong in separate Atoms. The containing R Atom's Type Rule is distinct from the Graph Rule Type in the operative block.
+
+The authoritative model contracts are now R1996 Type, R1997 Applies To, R1998 Condition, R1999 Default Value, R2000 Requirement Type Rule, M394 formal authoring and D637 YAML representation. R1995 v2 and the narrow D479 v10, D495 v7, M111 v29 and M115 v27 updates align the existing definition and prose-layout contracts. The formal exception applies only to R Atoms expressing Graph Rules, not automatically to every R/Type: Rule Atom. Model Definition contracts can retain the current ordinary carrier; the structured rule remains one Claim by meaning. Runtime Type Rule/YAML-body admission and the other Type schemas are not implemented by these source changes. Whitelist combination, unknown Relation Types, blacklist precedence and override policies remain open. No actual formal Rule instances or rule engine were created.
 
 These decisions supersede the review proposals to create cross-owner property Selections or an `Object/Implementation` branch. They resolve group policy, not every per-Atom mapping. Earlier mapping files retain their captured paths until explicitly regenerated for this updated candidate.
 
@@ -195,11 +216,23 @@ Short Subjects below omit the full prefix:
 | Constrain Atom containment | Rule | `Atom.Relations/Type: CONTAINS` |
 | Constrain Plan containment | Rule | `Atom/Content Role: Plan.Relations/Type: CONTAINS` |
 
-For example, a Rule's structured Substance can identify outgoing direction, allowed source kinds and allowed target kinds. This is a proposal for machine-readable content, not an adopted payload schema. Human-readable text should be generated from that same content.
+For example, a Rule's structured Substance can identify outgoing direction, allowed source kinds and allowed target kinds. D637 now declares the initial whitelist payload and Summary-plus-YAML carrier; parser/validator support and other Type schemas remain pending. Derive the readable Summary from the operative YAML; do not maintain a second prose condition. R2000 supplies the Rule Type definition, not a completed runtime Type rollout or retyping of existing Atoms.
+
+#### Graph Rule properties
+
+```text
+Entity/Graph Rule
+	.Type
+	.Applies To
+	.Condition
+	.Default Value (optional)
+```
+
+R1996–R1999 define these properties. The formal block uses `type`, `applies_to`, `condition` and optional `default_value` under D637. The selected Graph Rule Type has its own schema; do not invent missing fields or encode free-form prose as an allegedly formal condition. The underlying Atom ID, Status and Version are not duplicated as a second Rule identity.
 
 Containment permissions include Scope Unit → Atom and Container Atom → Atom. An Atom without containment permission cannot contain Atoms; permission does not require children. Role/Type rules refine this, such as Plan → Plan, Workflow → Step and Step → Step. Container Atom remains an Atom. Keep these constraints separate from definitions of Atom and CONTAINS. CONTAINS graph implementation stays deferred.
 
-The example “E IS_EVALUATION_FOR R only” is not yet an exhaustive whitelist: whether it limits that Relation's targets or all outgoing E Relations remains unresolved. Do not apply either interpretation without a decision.
+The whitelist governs both endpoints of its selected Relation Type. Using the registered name `evaluation_for`, its source list can select Evaluation Atoms and its target list Requirement Atoms; both tests must match. This does not forbid an Evaluation's other Relation Types. Multiple-whitelist combination and handling of undeclared Relation Types remain undecided.
 
 ### Dependent names and mapping rules
 
@@ -309,7 +342,7 @@ Start with Applicable Methodology: CA-O-011, its Steps CA-O-152–CA-O-157, and 
 - [x] Archive old Object definition CA-R-1964 without reinterpreting its Claim; create the independent Core Node definition CA-R-1994, governing `Entity/Node`. Preserve the former's exact history. Other definition gaps remain pending; the separate Graph Rule result follows below.
 - [x] Create the plain Core Graph Rule definition CA-R-1995, governing `Entity/Graph Rule`. Its creation completed through the existing workflow; the machine-readable format and whitelist policy remain deferred. This closes this root definition gap only, not all defining-R coverage.
 - [ ] Define R Types Definition and Rule, including Property definitions, and reconcile affected existing Types without blanket retirement.
-- [ ] Define the candidate Subject qualification for Relation entries and a minimal machine-readable Substance schema before implementing it. Resolve only the remaining concrete default, inheritance and whitelist questions required by that schema.
+- [ ] Admit the agreed Subject qualification for Relation entries and the whitelist Substance form from decision 43 into the relevant Core rules before implementing them. Resolve only the remaining concrete default, combination and override questions needed for implementation; do not reopen the agreed endpoint scope or narrower-kind membership.
 - [ ] Keep structure declarations separate from constraints; derive readable Rule wording from the same structured Substance where that format is adopted.
 - [ ] Define Core Meta-model as the abstract, reusable model, not the project's catalogue of concrete procedures.
 - [ ] Define Project Configuration as the owner of all project-specific definitions and rules, including Applicable Methodology and named Workflows, Steps and Actions.

@@ -1,0 +1,42 @@
+---
+atom_id: CA-M-394
+content_role: Method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: Core
+global_tier: 9
+status: Active
+author: Anatoly Maslennikov
+subjects:
+  governs: Entity/Graph Rule
+  depends_on:
+  - Entity/Graph Rule.Type
+  - Entity/Graph Rule.Applies To
+  - Entity/Graph Rule.Condition
+  - Entity/Graph Rule.Default Value
+  - Entity/Node/Continuant/Atom.Substance
+  - Entity/Node/Continuant/Atom.Summary
+relations: {}
+version: 1
+updated_at: "2026-10-19 21:57:27 +0400"
+---
+# Summary
+
+Author one formal Graph Rule and its readable Summary
+
+## Scope
+
+authoring an R Atom that expresses a Graph Rule, not every R Atom of Type Rule.
+
+## Claim
+
+to author a Graph Rule, the Author **must** express one independently replaceable rule of exactly one Graph Rule Type as formal YAML, then write its source-faithful Summary for readability.
+
+## Details
+
+- use R/Type: Rule for the containing Atom; its Atom Type is distinct from the Graph Rule Type inside the operative YAML. Model Definition contracts are not Graph Rule instances merely because they describe the model.
+- carry all operative applicability and constraints in the structured rule; Summary is not another authoritative statement. Do not create duplicate prose Scope, Claim, Details or Semantics sections for a formal Graph Rule. The structured Substance remains the Atom's one Claim in meaning; only its representation differs.
+- select the registered schema for the one Graph Rule Type. Use declared fields, typed values, Subject references and formal constraints, not free-form prose pretending to be a machine-readable condition. A YAML document alone does not supply missing semantics.
+- split independently replaceable rules, including rules requiring different Graph Rule Types, into separate Atoms. Do not create a list of Type values in one rule.
+- retain the established Summary on update; if it must change, follow the existing new-Atom identity rule.
+- do not invent missing Type schemas, whitelist merging, blacklist precedence, defaults, override behaviour or a general-purpose expression language. Report the specific gap before authoring a rule that depends on it.
