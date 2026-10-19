@@ -1,0 +1,28 @@
+---
+subjects:
+  governs: "Subject Expression"
+  depends_on:
+    ["Entity", "Entity/Node/Continuant/Term", "Property", "Subject", "Entity/Node/Continuant/Atom"]
+version: 16
+updated_at: "2026-10-19 11:39:13 +0000"
+relations: {}
+atom_id: "CA-R-1321@draft"
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "Core"
+status: "Draft"
+author: "Anatoly Maslennikov"
+global_tier: 9
+---
+# Summary
+Define Subject Expression
+
+## Scope
+Subject Expressions formed from Term references **and** registered relation syntax.
+
+## Claim
+
+a Subject Expression **means** a reference **to** **`=1`** Entity formed from Term references, registered relation syntax, **and** an optional registered Atom-owner selector. `Atom` remains the case-significant Entity type **and** ordinary Term component; lowercase `atom(...)` is a distinct case-significant selector keyword, **not** an alias **or** spelling of `Atom` and **not** another Entity kind. Only an approved-profile expression may begin with exactly one of `atom(atom_id="<exact Atom ID>")`, `atom(content_role="<exact Content Role>")`, **or** `atom(content_role="<exact Content Role>",type="<exact Atom Type>")`; `atom_id` is exclusive, **and** `type` has no standalone form. Selector literals are non-empty, double-quoted exact literals with no escaping, evaluation, wildcard, alias, **or** case folding. **every** ordinary named component, including `Atom`, Property names, **and** named allowed values, references a Term; the selector keyword, keys, punctuation, **and** literals are syntax, **not** Terms. `/`, `.`, **and** `:` remain registered syntax; `@` is outside Subject syntax. Selector syntax neither enumerates Atom rows nor admits an Entity endpoint; the canonical Subject target rule remains separate. the expression identifies the target, **not** the Atom's Subject Relation **to** it.
+
+## Details
