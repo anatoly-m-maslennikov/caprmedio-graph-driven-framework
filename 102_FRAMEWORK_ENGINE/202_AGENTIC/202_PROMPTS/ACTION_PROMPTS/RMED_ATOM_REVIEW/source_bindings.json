@@ -305,9 +305,9 @@
     },
     {
       "atom_id": "CA-O-104",
-      "version": 11,
-      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md",
-      "sha256": "c9024d3e2995df0d80532c89c02b207d573da517e862815dbe2dab6851a1880a"
+      "version": 12,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md",
+      "sha256": "c4655ae7caddf8279db86f3f2d0069d94431da7fc3537a6f2bfa5550de01b342"
     },
     {
       "atom_id": "CA-O-105",
@@ -329,21 +329,21 @@
     },
     {
       "atom_id": "CA-O-108",
-      "version": 7,
-      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-108-CORE_META_MODEL-STEP--select-the-rmed-review-batch.md",
-      "sha256": "3831fb63b9b51bec003c1c16892fa31510e48654673d655a2c5adfea5a5189b2"
+      "version": 10,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-108-PROJECT_CONFIGURATION-STEP--select-the-rmed-review-batch.md",
+      "sha256": "42f6271f3e36bfb8f053e1e0e7047cb122164ee5aec4577124f18556477f6408"
     },
     {
       "atom_id": "CA-O-109",
-      "version": 7,
-      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch.md",
-      "sha256": "6a099bf156baeda2532a22dd09f7c6128177b1b9304ed9cf9ecf1264d780c189"
+      "version": 10,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-109-PROJECT_CONFIGURATION-STEP--evaluate-the-selected-rmed-review-batch.md",
+      "sha256": "5456a617fb1f7deef9a31a441ec537d4c2fbe50a0a0de835c4705c4658f62419"
     },
     {
       "atom_id": "CA-O-110",
-      "version": 7,
-      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-110-CORE_META_MODEL-STEP--repair-the-evaluated-rmed-review-batch.md",
-      "sha256": "f88afd61302101470f337976cbeb417be903c6eafaa50329933c7d1383115d49"
+      "version": 10,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-110-PROJECT_CONFIGURATION-STEP--repair-the-evaluated-rmed-review-batch.md",
+      "sha256": "1246fac0b8f235054401e952e3f6f1ab7f760a5247ec8beb4b762195452aa1aa"
     },
     {
       "atom_id": "CA-R-1200",
@@ -569,21 +569,21 @@
     },
     {
       "atom_id": "CA-O-119",
-      "version": 2,
-      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-108-CORE_META_MODEL-STEP--select-the-rmed-review-batch/CA-O-119-CORE_META_MODEL-STEP--gate-gather-result-coverage.md",
-      "sha256": "1eb8a85a0bba4cf96f9509f5f423224f9022c06ed8bab56758ae6600499716c6"
+      "version": 5,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-108-PROJECT_CONFIGURATION-STEP--select-the-rmed-review-batch/CA-O-119-PROJECT_CONFIGURATION-STEP--gate-gather-result-coverage.md",
+      "sha256": "be8f225fb466b3af0ab3bc73be3b22fd1d5239e093f8aff4c2232fa2dedb29d5"
     },
     {
       "atom_id": "CA-O-120",
-      "version": 2,
-      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch/CA-O-120-CORE_META_MODEL-STEP--gate-check-result-coverage.md",
-      "sha256": "df731bee1f144dee794b9f0c4c6efe9f7c9002235b5d40848308f0532f65b2aa"
+      "version": 5,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-109-PROJECT_CONFIGURATION-STEP--evaluate-the-selected-rmed-review-batch/CA-O-120-PROJECT_CONFIGURATION-STEP--gate-check-result-coverage.md",
+      "sha256": "5a38beca4a05e97dbd2664a2ccef79254a3a28225c2493b71b144471be627528"
     },
     {
       "atom_id": "CA-O-121",
-      "version": 2,
-      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-110-CORE_META_MODEL-STEP--repair-the-evaluated-rmed-review-batch/CA-O-121-CORE_META_MODEL-STEP--gate-fix-result-coverage.md",
-      "sha256": "b2bece2d48e968e8856a3bfbba222f65038e62b95bc99f13c3d23e637f77f8d2"
+      "version": 5,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-110-PROJECT_CONFIGURATION-STEP--repair-the-evaluated-rmed-review-batch/CA-O-121-PROJECT_CONFIGURATION-STEP--gate-fix-result-coverage.md",
+      "sha256": "5b0c0bf6c93cc9e6218ed18f92d620283a5a164b7661c8d6a395fb879479f045"
     }
   ],
   "settings": [

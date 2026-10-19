@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-19 04:48:19 +0400
+updated_at: 2026-10-19 13:32:58 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2
@@ -109,8 +109,12 @@ sources:
 - CA-O-101@6
 - CA-O-102@5
 - CA-O-103@5
+- CA-O-104@12
 - CA-O-105@8
 - CA-O-106@11
+- CA-O-108@10
+- CA-O-109@10
+- CA-O-110@10
 - CA-O-111@9
 - CA-O-112@1
 - CA-O-113@1
@@ -119,6 +123,9 @@ sources:
 - CA-O-116@1
 - CA-O-117@1
 - CA-O-118@5
+- CA-O-119@5
+- CA-O-120@5
+- CA-O-121@5
 - CA-O-122@6
 - CA-O-123@4
 - CA-O-124@3
@@ -433,6 +440,7 @@ Evaluation Control
 Evaluation For Relation
 Evaluation Implementation
 Evaluation Implementation Step
+Evaluation Report
 Evaluator Evidence Calibration
 Evidence
 Execution context retrieval
@@ -513,7 +521,14 @@ Projection
 Property
 Propose Source Corrections
 Publish Reconciled Projection
+RMED Atom Review Check Coverage Gate Step
 RMED Atom Review Coverage Gate Action
+RMED Atom Review Fix Coverage Gate Step
+RMED Atom Review Gather Coverage Gate Step
+RMED Atom Review Workflow
+RMED Review Evaluation Step
+RMED Review Repair Step
+RMED Review Selection Step
 RMEDO Conflict Resolution
 Realization Graph
 Reconcile Atom Properties and Addresses
