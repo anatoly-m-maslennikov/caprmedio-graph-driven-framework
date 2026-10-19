@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 97
-updated_at: "2026-10-19 03:17:34 +0400"
+version: 98
+updated_at: "2026-10-19 05:59:54 +0400"
 relations: {}
 ---
 # Summary
@@ -90,6 +90,18 @@ Five Requirements moved to Core: CA-R-825, CA-R-1667, CA-R-1673, CA-R-1674 and C
 The existing Entities projections were rebuilt from the resulting current sources: 914 Core sources and 225 Project Configuration sources. Their IDs remain CA-PROJ-002 and CA-PROJ-003. The C290 missing-Subjects diagnostic and remaining Subjects outside Entity remain visible; this is not full semantic reconciliation. Receipt: `.caprmedio_tmp/atom-move-20261018/graph/report.json`.
 
 Phase 2 and the Epic remain open. Remaining work includes legacy R793 identity normalization and its separate Core move; O104 with its six binding-coupled descendants; the O159/O160 heading holds; and 20 mixed/content holds. Later R typing, missing definitions and remainder review are still unfinished; ordinary content migration remains separate. Earlier checkpoints remain historical records, Status stays Active and child statuses do not cascade.
+
+#### Phase 2 R793 identity and Core placement — 2026-10-19
+
+The proof-bound legacy assessment fix is `afffd443c`. The first R793 normalization attempt, `r793-normalization-20261019-001`, remains recorded as interrupted/pending before source effects; its evidence was preserved, not rewritten as success. Fresh run `r793-normalization-20261019-002` completed the approved `CAPRMEDIO-R-793` Version 22 → `CA-R-793` Version 23 normalization with six completed terminal receipts. Separate run `r793-core-move-20261019-001` then moved that canonical Atom to Core at Version 24, with three completed terminal receipts. Exact predecessors and the unchanged body were independently checked; only the approved identity/header and move metadata changed. Readbacks are under `.caprmedio_tmp/atom-move-20261018/phase2/validator-six/r793-continuation-20261019-002/publication-r793-normalization-20261019-002/` and `r793-core-move-20261019-001/publication-001/`.
+
+The first local-release attempt, `local-20261019-r793-consumers-001`, stopped at tests without replacing the runtime. Seven modules exposed stale shared fixture setup; the launcher rejected its test image after those fixture files changed during the failed run. The fixture corrections preserve production validation and all behavior assertions. Fresh local release `local-20261019-r793-consumers-002` completed after updating the three canonical runtime consumers and their frozen fixture data. Its full suite passed 400 modules and 3574 tests, with zero skips or failed modules; launcher integration passed. Receipt: `.caprmedio_runtime/simple_local_release/reports/local-20261019-r793-consumers-002.md`. This release result is separate from the source-operation receipts above.
+
+Current-source Entities projections retain IDs CA-PROJ-002 and CA-PROJ-003: 915 Core sources and 224 Project Configuration sources. The C290 missing-Subjects diagnostic and unresolved roots remain visible. Receipt: `.caprmedio_tmp/atom-move-20261018/graph/report.json`. No fully reconciled graph is claimed.
+
+The O104 bundle and its six descendants were not moved. Auto-review rejected the command before a process started because the deployed Review definition would lose its old path before binding refresh and rebuild. The Operator choice is still pending: repair stable-ID lookup first, accept the explicitly described temporary unavailability, or defer. No failed command is counted as an executed move.
+
+Phase 2 and the Epic remain open. O159/O160 heading holds and the 20 mixed/content holds are unchanged. Later R typing, missing definitions and remainder review remain unfinished; ordinary content migration belongs to CA-P-1970. Earlier checkpoints retain their historical results. The Epic stays Active and child statuses do not cascade.
 
 #### Phase 3 — classify and retype source R Atoms
 
