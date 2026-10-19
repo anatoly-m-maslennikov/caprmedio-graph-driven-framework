@@ -18,8 +18,8 @@ subjects:
   - Entity/Node/Continuant/Atom.Summary
   - Entity/Carrier/File Carrier
 relations: {}
-version: 2
-updated_at: "2026-10-20 00:26:02 +0400"
+version: 3
+updated_at: "2026-10-20 03:02:51 +0400"
 ---
 # Summary
 
@@ -31,13 +31,13 @@ the Markdown carrier of an R Atom expressing a formal Graph Rule; ordinary R/Typ
 
 ## Claim
 
-a formal Graph Rule's Markdown carrier **must** preserve the ordinary Atom metadata in YAML frontmatter and carry its Main Content as exactly one prose Summary followed by exactly one operative YAML block, without duplicate prose Scope, Claim or Details sections.
+a formal Graph Rule's Markdown carrier **must** preserve ordinary Atom metadata in YAML frontmatter and carry its Main Content as exactly one prose Summary followed by exactly one operative YAML block. It has no Claim or Substance Property or section and no separate prose Scope. Semantics and Details are optional supporting sections, not required content.
 
 ## Details
 
 ### Body layout
 
-Use the existing literal `# Summary` heading and its source-faithful prose, followed by one fenced block whose language is `yaml`. All operative rule data belongs in that block; it is not a duplicate metadata/frontmatter representation. Do not add another authoritative prose condition or a separate Rule file. Existing Atom ID, Version, Status, ownership and lifecycle rules remain unchanged.
+Use the existing literal `# Summary` heading and its source-faithful prose, followed by one fenced block whose language is `yaml`. All operative rule data belongs in that block; it is not a duplicate metadata/frontmatter representation. Optional `## Semantics` and `## Details` sections may follow the operative block, each at most once and in either order. Usually omit them when no useful explanation or support is needed. Their prose and any fenced examples are supporting content, not another operative rule; they must not duplicate, change or override the operative YAML. Do not add another authoritative prose condition or a separate Rule file. Existing Atom ID, Version, Status, ownership and lifecycle rules remain unchanged.
 
 ### Rule mapping
 

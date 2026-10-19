@@ -262,6 +262,39 @@ class DeclarationSourcesTests(unittest.TestCase):
         self.assertEqual(len(catalog["unresolved"]), 2)
         self.assertTrue(all("source" in row["reason"].lower() or "raw_body" in row["reason"] for row in catalog["unresolved"]))
 
+    def test_optional_rule_docs_do_not_change_catalog_summary_or_operative_yaml(self):
+        supports, entries = support_carriers()
+        carrier = graph_rule_carrier("CA-R-901044")
+        carrier["body"] = carrier["body"].replace("\n", "\r\n") + (
+            "## Details\r\n\r\n"
+            "Illustrative only; graph_rule_type: blacklist is not operative here.\r\n\r\n"
+            "```yaml\r\n"
+            "graph_rule_type: blacklist\r\n"
+            "condition: {example: true}\r\n"
+            "```\r\n\r\n"
+            "## Semantics\r\n\r\n"
+            "A readable explanation of the admitted whitelist.\r\n"
+        )
+        refresh_raw(carrier)
+        body = carrier["raw_body"]
+        block_start = body.index("```yaml")
+        block_end = body.index("```", block_start + len("```yaml")) + 3
+        expected_block = body[block_start : block_end + len("\r\n")]
+
+        with patch(
+            "VALIDATE_ATOMS.validate_atoms_workers.support_authority.support_sources",
+            return_value=entries,
+        ):
+            catalog = compose_declaration_catalog([*supports, carrier])
+
+        self.assertEqual(len(catalog["graph_rules"]), 1)
+        rule = catalog["graph_rules"][0]
+        self.assertEqual(rule["summary"], "Permit evaluation links.")
+        self.assertEqual(rule["yaml_block"], expected_block)
+        self.assertIn("\r\n", rule["yaml_block"])
+        self.assertEqual(rule["evidence"], body)
+        self.assertEqual(catalog["unresolved"], [])
+
     def test_malformed_and_unsupported_rules_remain_unresolved_examples_are_ignored(self):
         supports, entries = support_carriers()
         malformed = graph_rule_carrier("CA-R-901031")

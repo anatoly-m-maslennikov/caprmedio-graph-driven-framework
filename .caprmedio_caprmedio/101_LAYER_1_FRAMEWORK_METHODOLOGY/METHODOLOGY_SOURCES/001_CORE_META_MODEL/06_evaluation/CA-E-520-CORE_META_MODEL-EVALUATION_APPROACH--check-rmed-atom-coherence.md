@@ -8,8 +8,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: "2026-10-19 15:55:16 +0400"
+version: 9
+updated_at: "2026-10-20 03:03:30 +0400"
 subjects:
   governs: "Entity/Node/Continuant/Atom"
   depends_on:
@@ -28,6 +28,8 @@ individual active RMED Atoms reviewed locally against their exact carried text *
 
 an RMED Atom passes this local Evaluation **only** **when** **all** of these checks pass with source evidence:
 
+For a formal R/Type: Graph Rule, apply the Properties check to CA-D-637's required Summary and operative YAML, with Semantics and Details optional. Do not require Scope, Claim or Substance sections. Check applicability from `applies_to`, the independently replaceable contribution and Summary faithfulness from the structured rule, and supporting Semantics or Details only when present. CCE applies to its readable prose; operative YAML follows the declared formal schema, without inventing support for an undeclared schema. These are the formal Rule equivalents of the local checks below, not another Claim/Scope layout. Ordinary RMED checks remain unchanged.
+
 | Check | Passing condition |
 |---|---|
 | properties | frontmatter is valid; required local Properties are present, admitted, correctly typed, **and** consistent with the body; body Properties occupy their required sections; values are **not** inferred from filenames **or** folders |
@@ -41,7 +43,7 @@ a failed check **must** identify its local source evidence, rule, **and** propos
 
 ## Details
 
-missing, duplicate, **or** misplaced headings fail Properties; they do **not** automatically block content checks. assess the complete readable text **and** cite actual passages that establish applicability, contribution, supporting detail, **and** Summary. this interpretation is review evidence, **not** a declaration that missing Property sections exist. keep the Carrier defect visible; do **not** invent headings **or** values from filenames **or** folders. **if** the content itself is absent **or** ambiguous, identify the precise unavailable evidence **or** unresolved meaning for the affected check. empty supporting content **may** satisfy Details; missing Details heading still fails Properties.
+missing, duplicate, **or** misplaced headings fail Properties; they do **not** automatically block content checks. assess the complete readable text **and** cite actual passages that establish applicability, contribution, supporting detail, **and** Summary. this interpretation is review evidence, **not** a declaration that missing Property sections exist. keep the Carrier defect visible; do **not** invent headings **or** values from filenames **or** folders. **if** the content itself is absent **or** ambiguous, identify the precise unavailable evidence **or** unresolved meaning for the affected check. empty supporting content **may** satisfy Details; a missing Details heading fails Properties only where the applicable layout requires it. For a formal Graph Rule, absent optional Semantics or Details is not a defect.
 
 this checklist has **`=3`** disjoint parts: CCE for `cce`, Properties for `properties`, **and** coherence for `scope`, `claim`, `details`, **and** `summary`. **every** part uses the same source binding **and** compact local rule pack.
 

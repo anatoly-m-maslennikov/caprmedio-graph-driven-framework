@@ -1,7 +1,11 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-20 00:27:01 +0400
+projection_id: CA-PROJ-003
+named_selection: Current Atoms
+source_of_truth:
+- .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION
+updated_at: 2026-10-20 02:52:25 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2
@@ -237,10 +241,6 @@ sources:
 - CA-R-1982@3
 - CA-R-1983@3
 - CAPRMEDIO-GOV-EVAL-006@27
-projection_id: CA-PROJ-003
-named_selection: Current Atoms
-source_of_truth:
-- .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION
 ---
 
 ## Inherency tree
@@ -685,4 +685,5 @@ Methodology Source
 
 Source limitations:
 
+- Native admission: not_performed; structural paths are derived from Subject notation.
 - No inherited facts were synthesized; unavailable source facts remain unavailable.

@@ -59,6 +59,50 @@ def _line_content(line: str) -> str:
     return line.rstrip("\r\n")
 
 
+def _support_sections_valid(body: str, closing: int, check: Check) -> bool:
+    from .check_sections import _headings
+
+    lines = body.splitlines()
+    sections: list[tuple[str, int]] = []
+    seen: set[str] = set()
+    active = False
+    for level, title, index in _headings(body):
+        if index <= closing:
+            continue
+        if level <= 2:
+            active = level == 2 and title in {"Semantics", "Details"} and title not in seen
+            if active:
+                seen.add(title)
+                sections.append((title, index))
+            else:
+                check.fail(
+                    "GRAPH_RULE_BODY",
+                    "body",
+                    "Only one optional ## Semantics and ## Details section may follow the operative block.",
+                )
+                return False
+        elif not active:
+            check.fail(
+                "GRAPH_RULE_BODY", "body", "Unsectioned content may not follow the operative block."
+            )
+            return False
+    if not sections:
+        if any(line.strip() for line in lines[closing + 1 :]):
+            check.fail(
+                "GRAPH_RULE_BODY", "body", "Unsectioned content may not follow the operative block."
+            )
+            return False
+        return True
+    if any(line.strip() for line in lines[closing + 1 : sections[0][1]]):
+        check.fail(
+            "GRAPH_RULE_BODY",
+            "body",
+            "Only optional ## Semantics or ## Details sections may follow the operative block.",
+        )
+        return False
+    return True
+
+
 def _carrier_parts(body: str, check: Check) -> tuple[str, str, str] | None:
     lines = body.splitlines(keepends=True)
     starts: list[int] = []
@@ -114,8 +158,7 @@ def _carrier_parts(body: str, check: Check) -> tuple[str, str, str] | None:
             "GRAPH_RULE_BODY", "Summary", "Graph Rule Summary must contain prose and no extra sections."
         )
         return None
-    if any(_line_content(line).strip() for line in lines[closing + 1 :]):
-        check.fail("GRAPH_RULE_BODY", "body", "No prose or sections may follow the Graph Rule yaml block.")
+    if not _support_sections_valid(body, closing, check):
         return None
     closing_end = starts[closing] + len(lines[closing])
     return (

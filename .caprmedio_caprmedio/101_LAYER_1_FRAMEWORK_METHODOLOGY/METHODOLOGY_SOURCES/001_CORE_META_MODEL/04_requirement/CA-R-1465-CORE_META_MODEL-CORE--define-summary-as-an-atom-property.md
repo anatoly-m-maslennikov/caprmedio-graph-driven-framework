@@ -3,8 +3,8 @@ subjects:
   governs: "Entity/Node/Continuant/Atom.Summary"
   depends_on:
     ["Entity/Node/Continuant/Atom", "Property", "Entity/Node/Continuant/Atom.Substance", "Atom/Content Role", "Markdown Atom Carrier.Main Content"]
-version: 11
-updated_at: "2026-10-19 15:53:11 +0400"
+version: 12
+updated_at: "2026-10-20 03:03:18 +0400"
 relations: {}
 atom_id: "CA-R-1465"
 content_role: "Requirement"
@@ -29,4 +29,4 @@ a Summary **means** a short, non-authoritative navigation Property of **`=1`** A
 
 ## Details
 
-for RMED, the source is Claim read within Scope, **not** Scope alone; for Analysis, Question; for Concern, Concern; for Plan, Objective; for Operations, Operation. Summary is written last but remains displayed first. Analysis TLDR summarizes its Results; it is **not** the Atom Summary **and** does **not** replace Question as the Summary source.
+for ordinary RMED, the source is Claim read within Scope, **not** Scope alone; for Analysis, Question; for Concern, Concern; for Plan, Objective; for Operations, Operation. For a formal R/Type: Graph Rule, the source is the operative structured YAML under CA-D-637; Claim and Substance sections are not required or supplied by this definition. Summary is written last but remains displayed first. Analysis TLDR summarizes its Results; it is **not** the Atom Summary **and** does **not** replace Question as the Summary source.

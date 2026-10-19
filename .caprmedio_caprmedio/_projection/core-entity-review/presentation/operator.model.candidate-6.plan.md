@@ -166,6 +166,16 @@ The authoritative model contracts are now R1996 Type, R1997 Applies To, R1998 Co
 
 48. **Requested declaration view is the middle level:** the Operator explicitly selected Relation Types and concrete Graph Rule declarations, not actual project Atom-to-Atom links. Distinguish (1) Relation as model structure, (2) named Relation Types such as IS_BORNE_BY and IS_CONTAINED_BY with their declared descriptive metadata, and (3) real source-type-target links instantiating those Types. The second requested projection selects level 2 together with the concrete Graph Rules governing the model. Level 3 is not its input catalogue. Keep the full Entity structure view separate, retain exact source Atom IDs/Versions, and do not invent missing Type metadata or turn illustrative YAML into live Rule instances. This resolves the projection-selection question, not the remaining source-format/implementation work, and changes no source Relation identity, syntax or storage policy.
 
+49. **Formal Graph Rule content, 2026-10-20:** an actual `R/Type: Graph Rule` Atom has a readable Summary and one operative YAML block, not a Claim or Substance Property/section. Optional `## Semantics` and `## Details` may follow the operative block, each at most once and in either order. Usually omit them when no useful explanation or support is needed. They do not duplicate, change or override the operative rule. Model Definition Atoms and ordinary RMED keep their ordinary prose layout. This supersedes earlier references to a formal Graph Rule's structured Substance or Claim; it does not introduce a new schema or evaluator. The bounded source alignment is applied as R2001 v2, M394 v3, D479 v11, D495 v8, D637 v3, R1273 v19, R1465 v12 and E520 v9, with exact predecessors archived. Runtime verification is recorded separately rather than inferred from these source effects.
+
+50. **Single root and source notation, reaffirmed 2026-10-20:** Entity is the only root. Its direct children are Node, Relation, Graph Rule and Carrier; Continuant and Occurrent are under Node. Artifact is not another branch. Correct the owning source Subjects rather than force an unsupported hierarchy in the renderer. Keep `/` for narrower kinds/classifiers, `.` for bearer-dependent properties and `:` for allowed values. Current examples needing source correction are `Atom/Summary` in M345 v1 and the `/Label` property boundary in R1546 v5; their full-prefix candidates belong under `Entity/Node/Continuant/Atom`. Do not globally replace slashes or turn every Artifact-prefixed path into generic Term. The read-only [remaining-Subject inventory](../../../../.caprmedio_tmp/entity-single-root-20261020/off-tree-subject-map.md) records legacy roots and current exclusions; no remaining Subject migration is claimed. Inclusion of legacy C/A and the eight held owners is a separate pending Operator scope choice.
+
+51. **Clean model first; include the formerly excluded sources, 2026-10-20:** the Operator included legacy C/A and the eight held owners fully, not only their Subjects. Build the clean Entity model first, then apply the necessary source corrections and do the remaining work. The earlier exclusions and holds are historical provenance, not a continuing scope restriction. This does not mean blindly mapping conflicting content, treating every old topic as a new class, or performing the whole general content migration before the model is settled. Preserve exact history when source changes are applied; keep actual source effects separate from candidate decisions. This resolves decision 50's pending inclusion question.
+
+52. **Retire pure glossary definitions after preserving meaning, 2026-10-20:** the Operator approved preserving useful meanings in the relevant defining Atoms' Semantics and retiring standalone glossary-only R Atoms. Keep actual normative constraints as rules; an Atom mixing terminology and a genuine requirement is not a glossary-only retirement. Primary Entity and Dependent Entity illustrate the glossary review, not an instruction to discard their useful meaning or silently archive every terminology-related Requirement. Terms remain derived from real source use and Semantics, not a separate authoritative glossary layer. This is an accepted cleanup disposition; source retirement and meaning transfer must be recorded as actual effects when applied.
+
+53. **Primary/dependent belongs to Relation semantics, 2026-10-20:** the Operator clarified that primary and dependent are part of the Relation Types, not extra Entity branches. Preserve their useful structural meaning with the appropriate Relation definitions and Semantics, including bearer dependence expressed by IS_BORNE_BY; do not introduce Primary Entity or Dependent Entity kinds or a replacement glossary layer. This refines decision 52's meaning-preservation destination. Descriptive Relation semantics remain distinct from Graph Rule constraints; no new endpoint permission or inference default is introduced by this clarification.
+
 These decisions supersede the review proposals to create cross-owner property Selections or an `Object/Implementation` branch. They resolve group policy, not every per-Atom mapping. Earlier mapping files retain their captured paths until explicitly regenerated for this updated candidate.
 
 ## Effective candidate model
@@ -208,7 +218,7 @@ This is the candidate backbone, not an exhaustive list of admitted Types or a cu
 
 ### Definitions and Rules
 
-| R Type | Substance |
+| R Type | Content |
 | --- | --- |
 | Definition | What a Node kind, Property or Relation kind means and its structure |
 | Rule | Conditions, permissions, prohibitions and constraints on those structures |
@@ -225,7 +235,7 @@ Short Subjects below omit the full prefix:
 | Constrain Atom containment | Graph Rule | `Atom.Relations/Type: IS_CONTAINED_BY` |
 | Constrain Plan containment | Graph Rule | `Atom/Content Role: Plan.Relations/Type: IS_CONTAINED_BY` |
 
-For example, a Rule's structured Substance can identify outgoing direction, allowed source kinds and allowed target kinds. D637 now declares the initial whitelist payload and Summary-plus-YAML carrier; parser/validator support and other Type schemas remain pending. Derive the readable Summary from the operative YAML; do not maintain a second prose condition. R2000 supplies the generic Rule Type definition; R2001 supplies the specific Graph Rule Type. Neither proves completed runtime admission or retyping of existing Atoms.
+For example, a formal Graph Rule's operative YAML can identify outgoing direction, allowed source kinds and allowed target kinds. It has no Claim or Substance Property/section. D637 declares the initial whitelist payload, required Summary-plus-YAML carrier and optional Semantics/Details after that block. Other Type schemas remain gaps. Derive the readable Summary from the operative YAML; do not maintain a second prose condition. R2000 supplies the generic Rule Type definition; R2001 supplies the specific Graph Rule Type. Neither proves completed runtime admission or retyping of existing Atoms.
 
 #### Graph Rule properties
 
@@ -237,7 +247,7 @@ Entity/Graph Rule
 	.Default Value (optional)
 ```
 
-R1996–R1999 define these properties. D637 v2 carries the operative block as `graph_rule_type`, `applies_to`, `condition` and optional `default_value`. These fields belong in the fenced body, not in the Atom's frontmatter. The selected Graph Rule Type has its own schema; do not invent missing fields or encode free-form prose as an allegedly formal condition. The underlying Atom ID, Status and Version are not duplicated as a second Rule identity.
+R1996–R1999 define these properties. D637 v3 carries the operative block as `graph_rule_type`, `applies_to`, `condition` and optional `default_value`. These fields belong in the fenced body, not in the Atom's frontmatter. The selected Graph Rule Type has its own schema; do not invent missing fields or encode free-form prose as an allegedly formal condition. The underlying Atom ID, Status and Version are not duplicated as a second Rule identity.
 
 Containment permissions concern both endpoints. In the direct IS_CONTAINED_BY direction these include Scope Unit → Scope Unit, Atom → Scope Unit and Atom → a permitted containing Atom. An Atom without containment permission cannot be the containing endpoint; permission does not require children. Role/Type rules refine this, such as Plan → Plan, Step → Workflow and Step → Step. Container Atom remains an Atom. Keep these constraints separate from the relation definition. CONTAINS is only the derived reverse view; its construction graph implementation stays deferred.
 

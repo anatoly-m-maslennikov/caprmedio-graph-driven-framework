@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 115
-updated_at: "2026-10-20 02:29:33 +0400"
+version: 116
+updated_at: "2026-10-20 03:14:35 +0400"
 relations: {}
 ---
 # Summary
@@ -164,7 +164,7 @@ The Operator approved these two next derived views and requested this Epic updat
 - [x] Extend/reuse the existing programmatic structural builder and readable renderer for the full selected Entity structure. Keep primary and dependent detail views, inherited meaning, exact typed edges and declared/alphabetical ordering. Keep unsupported or unmapped source material visible as gaps; do not force it into a target tree or treat it as absent.
 - [x] Build the separate middle-level declaration view from named Relation Type definitions and admitted structured Graph Rule bodies. Preserve each Type's graph-qualified identity, descriptive metadata, direct/inverse direction and source provenance. Keep constraints in Graph Rules rather than copying them into Relation Type metadata. Do not substitute actual Atom-to-Atom tuples, extract example YAML blocks as live Rule instances, or invent missing metadata. Report an empty formal-Rule selection and unresolved source coverage honestly.
 - [x] Add focused runtime tests for source selection, the three distinct model/declaration/real-link levels, duplicate references/shared identities, malformed or unsupported input, declared direct/inverse metadata, empty Rule selections and deterministic readable output. Real Atom-to-Atom tuples and example YAML must not be misclassified as requested declarations. Review the implementation against the selected PROGRAMMATIC Methods.
-- [ ] Generate the actual selected-source projections after implementation and scoped verification. Preserve IDs for unchanged Type/selection/source-of-truth identities, assign distinct identities to genuinely new views, and record the actual source coverage and unresolved gaps. A local implementation or generated file is not an installed MCP/release receipt.
+- [x] Generate the actual selected-source projections after implementation and scoped verification. Preserve IDs for unchanged Type/selection/source-of-truth identities, assign distinct identities to genuinely new views, and record the actual source coverage and unresolved gaps. A local implementation or generated file is not an installed MCP/release receipt.
 
 The existing whitelist structural validator is available in the checkout; other formal rule schemas and semantic evaluation remain separate. No rule evaluator, new default/precedence policy, live formal Rule creation, broad R retyping, ordinary content migration, deferred construction graph, runtime rebuild, release or push is part of this increment. CA-P-1959 stays Active, existing held owners remain held, child Statuses do not cascade, and general content migration remains CA-P-1970.
 
@@ -191,6 +191,27 @@ The structural route remains a mechanical Subject-path view. Its output now expl
 Verification: 295 graph-generator runtime tests passed, 501 Atom-validator runtime tests passed, changed-file Ruff passed and diff whitespace checks passed. Independent review found and drove fixes for incidental Scope graph qualification, raw CRLF loss, malformed governed-Subject filtering and missing native-admission disclosure. The final no-write current-source smoke inspected Core 913 Atoms and Project Configuration 234 Atoms. Core produced three graph-qualified named Types (Entities Graph IS_BORNE_BY and IS_ALLOWED_VALUE_OF; Terms Graph NARROWER_THAN), fourteen unresolved declaration candidates and zero concrete formal Graph Rules; Project produced zero named Types or concrete Rules in this selected coverage. Empty catalogues and unavailable fields are explicit limitations, not universal absence claims.
 
 The actual four Markdown publications remain pending the Operator's separate answer about running the local generator; the current connected MCP graph route does not invoke this readable renderer. No installed runtime update, full release suite, release, push, new live Rule, source model/content migration or construction graph was performed. CA-P-1959 stays Active; held owners and other unfinished phases remain open, children do not cascade, and general content migration stays CA-P-1970.
+
+#### Readable publications and optional Graph Rule documentation — verified 2026-10-20
+
+The four selected-source Markdown projections were generated locally with the Operator's approval. Core CA-PROJ-002 and Project Configuration CA-PROJ-003 retain their structural-view identities; CA-PROJ-004 and CA-PROJ-005 identify the separate Relation Type / Graph Rule declaration selections. Coverage is 913 current Core Atoms and 234 Project Configuration Atoms. The Core views were refreshed after the source updates below. Source bytes were unchanged by generation. These remain faithful as-is views, including old Subjects, explicit unresolved coverage and the native-semantic-admission limitation; they are not accepted clean-model migration results. The declaration selections contain zero actual formal Graph Rules in their selected sources, not a universal absence claim.
+
+The formal Graph Rule layout clarification is applied through eight existing-ID source revisions: R2001 v2, M394 v3, D479 v11, D495 v8, D637 v3, R1273 v19, R1465 v12 and E520 v9. Summary and one operative YAML block are required; Claim/Substance are not used; Semantics and Details are optional. Ordinary RMED layout is unchanged. Independent readback verified exact predecessors, preserved Summaries and non-revision metadata, one Version increment each and 48 completed terminal Run receipts with matching Journal records. No completed operation was replayed.
+
+The shared parser and declaration caller now accept the optional supporting sections after the operative block, at most once each, in either order. Nested headings and fenced documentation examples do not become operative rules. Exact YAML and CRLF evidence are preserved. Independent review passed. Verification: 505 validator runtime tests and 296 graph runtime tests passed; changed-file Ruff, targeted parser typing and diff whitespace checks passed. This is checkout verification, not an installed MCP or full release-suite receipt.
+
+#### Clean Entity model and source notation — revised scope, 2026-10-20
+
+Entity is the sole root, with Node, Relation, Graph Rule and Carrier directly beneath it; Continuant and Occurrent belong under Node. Artifact is not another branch. The renderer currently preserves source notation: property slashes originate in owning Atom Subjects, not a display-label substitution. For example M345's Atom/Summary needs Atom.Summary, and R1546's Plan Label needs a dot only at the dependent-property boundary; classifier slashes and allowed-value colons remain intact. Correct sources, not a hidden output alias.
+
+The Operator explicitly included previously excluded C/A and the eight held owners fully, not only their Subjects, and ordered clean model first, then the rest. Earlier exclusion and hold lists remain historical evidence, not current scope restrictions. This does not authorize guessed target kinds or count a candidate as an applied migration. General unrelated content work remains CA-P-1970.
+
+- [ ] Finish and reconcile the current-source mapping against the clean model, reusing previous decisions and defining-R evidence. Cover properties, old Artifact/topic branches and formerly held/excluded sources; record mapping, necessary source correction, or retirement without inventing generic aliases.
+- [ ] Resolve only concrete remaining model ambiguities with the Operator before their affected source changes. Do not reopen choices already settled in Candidate #6.
+- [ ] Apply the accepted source corrections with exact history, including content alignment needed for the clean model. Preserve ordinary unrelated content and keep broad content migration separate.
+- [ ] Rebuild both source selections and verify the Entity-only root and correct slash/dot/colon meaning from their actual sources, with remaining unresolved source material explicitly reported rather than hidden.
+
+Candidate #6 decisions 49–51 record these refinements. The scratch current-source inventory reports 2,483 off-tree Subject occurrences and 567 unique literals before correction; these are inventory counts, not completed migration counts. No Subject migration, live formal Rule creation, evaluator, deferred construction graph, installed runtime update, full release suite, release or push was performed in this checkpoint. The Epic stays Active and child Statuses do not cascade.
 
 #### Phase 1 — migrate Subjects first
 

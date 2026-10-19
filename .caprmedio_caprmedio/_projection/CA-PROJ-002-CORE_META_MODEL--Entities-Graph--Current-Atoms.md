@@ -1,7 +1,11 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-20 00:26:59 +0400
+projection_id: CA-PROJ-002
+named_selection: Current Atoms
+source_of_truth:
+- .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL
+updated_at: 2026-10-20 03:09:55 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -202,7 +206,7 @@ sources:
 - CA-D-473@9
 - CA-D-475@9
 - CA-D-478@9
-- CA-D-479@10
+- CA-D-479@11
 - CA-D-480@8
 - CA-D-481@9
 - CA-D-482@10
@@ -210,7 +214,7 @@ sources:
 - CA-D-484@7
 - CA-D-485@7
 - CA-D-494@7
-- CA-D-495@7
+- CA-D-495@8
 - CA-D-505@3
 - CA-D-506@3
 - CA-D-507@3
@@ -221,10 +225,10 @@ sources:
 - CA-D-565@6
 - CA-D-568@7
 - CA-D-570@11
-- CA-D-634@6
+- CA-D-634@7
 - CA-D-635@5
 - CA-D-636@3
-- CA-D-637@2
+- CA-D-637@3
 - CA-E-207@16
 - CA-E-240@33
 - CA-E-241@25
@@ -249,7 +253,7 @@ sources:
 - CA-E-446@15
 - CA-E-447@20
 - CA-E-448@12
-- CA-E-449@17
+- CA-E-449@18
 - CA-E-450@11
 - CA-E-456@18
 - CA-E-457@20
@@ -288,7 +292,7 @@ sources:
 - CA-E-507@7
 - CA-E-511@8
 - CA-E-512@6
-- CA-E-520@8
+- CA-E-520@9
 - CA-E-521@7
 - CA-E-522@4
 - CA-E-523@6
@@ -351,8 +355,8 @@ sources:
 - CA-M-313@10
 - CA-M-314@7
 - CA-M-315@7
-- CA-M-385@5
-- CA-M-394@2
+- CA-M-385@6
+- CA-M-394@3
 - CA-O-159@3
 - CA-O-160@3
 - CA-R-1014@21
@@ -430,7 +434,7 @@ sources:
 - CA-R-126@17
 - CA-R-1270@11
 - CA-R-1271@16
-- CA-R-1273@18
+- CA-R-1273@19
 - CA-R-1274@15
 - CA-R-1275@16
 - CA-R-1276@13
@@ -537,13 +541,13 @@ sources:
 - CA-R-1452@13
 - CA-R-1454@10
 - CA-R-1455@10
-- CA-R-1456@13
+- CA-R-1456@14
 - CA-R-1459@8
 - CA-R-1460@8
 - CA-R-1461@8
 - CA-R-1463@12
 - CA-R-1464@9
-- CA-R-1465@11
+- CA-R-1465@12
 - CA-R-1466@7
 - CA-R-1467@10
 - CA-R-1468@10
@@ -842,7 +846,7 @@ sources:
 - CA-R-1998@1
 - CA-R-1999@1
 - CA-R-2000@1
-- CA-R-2001@1
+- CA-R-2001@2
 - CA-R-366@24
 - CA-R-380@27
 - CA-R-626@28
@@ -916,10 +920,6 @@ sources:
 - CA-R-992@22
 - CA-R-997@22
 - CA-R-999@14
-projection_id: CA-PROJ-002
-named_selection: Current Atoms
-source_of_truth:
-- .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL
 ---
 
 ## Inherency tree
@@ -1832,5 +1832,6 @@ Term
 
 Source limitations:
 
+- Native admission: not_performed; structural paths are derived from Subject notation.
 - No inherited facts were synthesized; unavailable source facts remain unavailable.
 - .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/01_concern/CA-C-290-CORE_META_MODEL-CONFLICT--reconcile-supporting-detail-placement-in-plan-carriers.md: Subjects mapping is unavailable.

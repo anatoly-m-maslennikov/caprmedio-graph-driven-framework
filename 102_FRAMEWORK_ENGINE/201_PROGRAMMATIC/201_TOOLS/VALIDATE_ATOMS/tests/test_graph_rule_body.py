@@ -86,6 +86,62 @@ class GraphRuleBodyTests(unittest.TestCase):
         self.assertIn("default_value:\r\n  opaque: 2026-10-20\r\n", extracted.operative_yaml)
         self.assertEqual(str(extracted.payload["default_value"]["opaque"]), "2026-10-20")
 
+    def test_optional_support_sections_are_valid_in_either_order_or_empty(self) -> None:
+        variants = (
+            WHITELIST + "\n## Semantics\nUseful explanation.\n",
+            WHITELIST + "\n## Details\nUseful support.\n",
+            WHITELIST + "\n## Details\n\n## Semantics\n\n",
+            WHITELIST + "\n## Semantics\n\n## Details\n\n",
+        )
+        for body in variants:
+            with self.subTest(body=body):
+                check = self.validate(body)
+                self.assertEqual(check.findings, [])
+                self.assertEqual(check.gaps, [])
+
+    def test_nested_support_headings_and_fenced_examples_are_nonoperative(self) -> None:
+        body = WHITELIST + '''
+## Details
+### Supporting example
+```yaml
+graph_rule_type: blacklist
+applies_to: {}
+condition: {}
+```
+### More support
+No operative change.
+'''
+        check = Recorder()
+        extracted = validated_graph_rule_payload(body, check)  # type: ignore[arg-type]
+        self.assertEqual(check.findings, [])
+        assert extracted is not None
+        self.assertEqual(extracted.payload["graph_rule_type"], "whitelist")
+        self.assertEqual(extracted.operative_block, "```yaml\n" + WHITELIST.split("```yaml\n", 1)[1])
+
+    def test_crlf_support_docs_do_not_change_extracted_source_slices(self) -> None:
+        base = validated_graph_rule_payload(WHITELIST, Recorder())  # type: ignore[arg-type]
+        body = WHITELIST.replace("\n", "\r\n") + "\r\n## Semantics\r\nSupport.\r\n"
+        documented = validated_graph_rule_payload(body, Recorder())  # type: ignore[arg-type]
+        assert base is not None and documented is not None
+        self.assertEqual(documented.summary, base.summary.replace("\n", "\r\n"))
+        self.assertEqual(documented.operative_yaml, base.operative_yaml.replace("\n", "\r\n"))
+        self.assertEqual(documented.operative_block, base.operative_block.replace("\n", "\r\n"))
+
+    def test_forbidden_duplicate_unknown_and_pre_block_sections_fail(self) -> None:
+        invalid = (
+            WHITELIST + "\n## Scope\nSeparate scope.\n",
+            WHITELIST + "\n## Claim\nAnother claim.\n",
+            WHITELIST + "\n## Substance\nAnother substance.\n",
+            WHITELIST + "\n## Details\nOne.\n## Details\nTwo.\n",
+            WHITELIST + "\n## Semantics\nOne.\n## Other\nUnsupported.\n",
+            WHITELIST.replace("Allow evaluation links.\n\n```yaml", "Allow evaluation links.\n\n## Details\nPre-block.\n\n```yaml"),
+            WHITELIST + "\nUnsectioned trailing prose.\n",
+        )
+        for body in invalid:
+            with self.subTest(body=body):
+                check = self.validate(body)
+                self.assertTrue(check.findings)
+
     def test_extra_schema_fields_fail_without_extraction(self) -> None:
         for body in (
             WHITELIST.replace("relation_type: evaluation_for", "relation_type: evaluation_for\n  guessed: true"),
