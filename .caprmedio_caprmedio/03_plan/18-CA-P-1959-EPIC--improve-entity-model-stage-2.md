@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 107
-updated_at: "2026-10-19 22:09:55 +0400"
+version: 109
+updated_at: "2026-10-20 00:12:44 +0400"
 relations: {}
 ---
 # Summary
@@ -106,6 +106,29 @@ Candidate #6 records the model and the confirmed Relation tuple identity. Both s
 Runtime Type Rule/YAML-body admission, the remaining Type-specific schemas and broader R retyping are still pending. No actual formal Rule instances, rule engine, whitelist merging, unknown-relation default, blacklist precedence, override policy, runtime code, full-suite result or release is claimed. This is not completion of the overall Type rollout or Phase 3.
 
 The eight whole-owner holds remain unchanged: O159/O160, R850, E441, E446, E473, M120 and M271. The Epic stays Active; unfinished phases remain open and child Statuses do not cascade. Ordinary content migration remains CA-P-1970. Earlier checkpoints retain their historical results.
+
+#### Relation definitions, Graph Rules and stored containment — 2026-10-20
+
+The Operator approved the following model and requested this Epic update before continuation. This checkpoint records the decision and remaining work; it is not a receipt that the source contracts or runtime already implement it.
+
+- [x] Record the separation: Relation Type retains descriptive metadata, including name, meaning, direction and inverse. Endpoint permissions, cardinality and other constraints belong in Graph Rules, not in the Relation Type definition.
+- [x] Record authoritative containment direction: store `IS_CONTAINED_BY` on the child, pointing to its parent. Derive `CONTAINS` on the parent; do not store a second inverse declaration.
+- [x] Record the Version consequence: changing only a child's membership or content does not change the parent's own carrier or Version. A Task's addition, removal or reassignment changes that Task; the Epic's derived child view changes without editing the Epic. Updating the Epic's own content still increments its Version.
+- [x] Align the directly affected Core Relation metadata, containment and Delivery contracts with these decisions; preserve retained meanings and actual exact predecessors. Keep existing constraints explicit while separating their authority, without inventing new permissions, defaults or rule schemas.
+- [x] Update Candidate #6 and review runtime/fixture consumers of containment direction. Record required implementation work separately; do not claim a runtime migration or execute the deferred construction graph from source edits alone.
+- [ ] Carry forward the accepted Graph Rule naming refinement: use the specific Requirement Type `Graph Rule` and operative YAML key `graph_rule_type`; do not introduce generic Subtypes. Align the affected source contracts and later runtime admission in their own bounded increment.
+
+The Epic stays Active. Ordinary content migration remains CA-P-1970; existing held owners and unfinished phases remain open. No child Status cascade, runtime change, test-suite result or release is implied by this decision record.
+
+#### Relation-model source alignment — actual result, 2026-10-20
+
+The seven reviewed source revisions completed through the existing Atom update route: CA-R-806 v25, CA-R-1368 v14, CA-D-268 v18, CA-D-264 v16, CA-D-266 v15, CA-R-1040 v17 and CA-R-1945 v4. Every exact predecessor is preserved; IDs, Summaries, Subjects, Statuses, Types and ownership stayed unchanged. Each update incremented Version once. The seven readbacks contain 42 completed terminal Workflow/Step/Action Run receipts. Evidence: `.caprmedio_tmp/relation-model-20261020/contracts-v2/step-1/` through `step-7/`.
+
+Relation Type metadata is now descriptive; endpoint permissions, admissibility restrictions and cardinality belong to Graph Rules. The containment-pair definition no longer embeds those endpoint permissions and points to their existing separate authorities. Their conversion into formal Graph Rule instances is still pending; no new permission or rule-combination policy was invented.
+
+IS_CONTAINED_BY is direct from child to parent; CONTAINS is derived and is never independently authored. The Delivery policy records that a child-only change does not write the parent or increment its Version. Existing Carrier-nesting authority is preserved without adding a second declaration of the same fact. Inverse rejection follows the declared direction, not name spelling.
+
+Candidate #6 records the approved separation and the earlier Graph Rule naming refinements as prospective where source/runtime work remains. The current-source Entities views were refreshed with the same Projection IDs and selections. No containment relation entries were added to current source Atoms. The runtime registry does not yet admit the new authored containment key; runtime/consumer alignment and the deferred construction graph were not implemented or run. Specific Requirement Type Graph Rule, operative graph_rule_type, broader R retyping, held owners and the unfinished phases remain open. The Epic stays Active without child Status cascades; ordinary content migration remains CA-P-1970. No full suite, rebuild, release or push was performed.
 
 #### Phase 1 — migrate Subjects first
 

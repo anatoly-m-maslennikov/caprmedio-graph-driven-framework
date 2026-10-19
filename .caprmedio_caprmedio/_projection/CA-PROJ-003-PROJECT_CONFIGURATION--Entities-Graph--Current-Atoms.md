@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-19 22:02:56 +0400
+updated_at: 2026-10-20 00:11:53 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2

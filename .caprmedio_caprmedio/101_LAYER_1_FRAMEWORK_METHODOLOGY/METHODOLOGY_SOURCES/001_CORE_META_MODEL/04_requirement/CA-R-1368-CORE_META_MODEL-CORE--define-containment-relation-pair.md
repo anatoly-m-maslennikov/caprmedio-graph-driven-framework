@@ -4,8 +4,8 @@ subjects:
   depends_on:
   - "Entity/Node/Continuant/Atom.Enabled Relations.Contains"
   - "Entity/Node/Continuant/Scope Unit"
-version: 13
-updated_at: "2026-10-19 15:52:54 +0400"
+version: 14
+updated_at: "2026-10-20 00:10:16 +0400"
 relations: {}
 atom_id: "CA-R-1368"
 content_role: "Requirement"
@@ -26,9 +26,11 @@ Direct containment and its derived inverse, including Scope Unit containment and
 
 ## Claim
 
-the Containment Relation Pair **means** direct relation `CONTAINS` **and** its inverse-derived relation `IS_CONTAINED_BY`. a Scope Unit **may** contain other Scope Units **and** governed content. an Atom **may** contain other Atoms **when** containment is enabled for its Content Role **or** Type.
+the Containment Relation Pair **means** direct relation `IS_CONTAINED_BY` from a contained entity to its containing entity **and** inverse-derived relation `CONTAINS` from the containing entity to the contained entity.
 
 ## Details
 
-`IS_CONTAINED_BY` is derived from `CONTAINS`; it is not independently authored. Containment does not make a contained Atom part of the containing Atom's Substance or change its owning Scope Unit. This relation definition does not implement or require a construction graph projection.
+IS_CONTAINED_BY is the direct child-to-parent direction; CONTAINS is its derived inverse and is not independently authored.
+
+Endpoint permissions are separate constraints, not part of this definition. Existing Scope Unit capability is described by CA-R-1757; CA-R-1656, CA-R-1756 and CA-R-1660 govern parent cardinality, immediate ownership and structural-parent direction. Atom containment capability and its default are governed by CA-R-1945, with the existing Plan, Workflow and Step permissions in CA-R-1990, CA-R-1991 and CA-R-1992. Their formal Graph Rule migration remains separate. Containment does not make a contained Atom part of the containing Atom's Substance or change its owning Scope Unit. This definition does not implement or require a construction graph projection.
 
