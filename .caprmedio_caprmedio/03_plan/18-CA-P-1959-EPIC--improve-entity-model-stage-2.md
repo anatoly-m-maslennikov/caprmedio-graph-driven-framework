@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 105
-updated_at: "2026-10-19 16:35:22 +0400"
+version: 106
+updated_at: "2026-10-19 18:00:18 +0400"
 relations: {}
 ---
 # Summary
@@ -82,6 +82,18 @@ Keep this Epic Active without cascading child Statuses. General content migratio
 The earlier nine-owner hold list is historical. R1964 is resolved by explicit retirement, leaving eight holds: O159, O160, R850, E441, E446, E473, M120 and M271. Node now has a defining R. Graph Rule and other recorded definition gaps remain pending, along with the unfinished Core/Project separation and R-Type work. General content migration stays in CA-P-1970.
 
 Keep this Epic Active without child Status cascades. No C/A migration, other held-owner edit, runtime code change, full suite, rebuild, release or push was performed.
+
+#### Plain Graph Rule definition — 2026-10-19
+
+CA-R-1995 was created in Core at Version 1, Active, governing `Entity/Graph Rule`. Its plain definition describes a condition or constraint on the graph model concerning Nodes, Relations, their properties, endpoints or cardinality. Ordinary RMED instructions are not automatically Graph Rules. The existing creation route completed four terminal Run receipts; readback confirmed the proposed body. Evidence: `.caprmedio_tmp/candidate6-graph-rule-20261019/step-1/readback.json`.
+
+This completes the plain Graph Rule definition only. The machine-readable format (question 2) and whitelist scope (question 3) remain explicitly deferred. Relation identity remains unresolved pending the Operator's clarification; the earlier answer did not select either alternative. No rule engine, formal encoding, permission default, whitelist/blacklist precedence or inheritance policy was introduced, and no R-Type rollout was performed.
+
+A read-only refresh of the 20-R pilot confirmed all 20 sources are Active with no Type assigned. Ten Version/hash pins changed, but all ten bodies match their exact archived pilot predecessors; the other ten source pins are unchanged. The proposed 8 Definition / 11 Rule / 1 mixed classification remains unchanged. This refresh performs no retyping or Phase 3 adoption. Evidence: `.caprmedio_tmp/candidate6-graph-rule-20261019/pilot-refresh/refreshed-20-r-pilot.md`.
+
+Both current-source Entities views were rebuilt, preserving their Projection IDs: Core CA-PROJ-002 has 905 sources; Project Configuration CA-PROJ-003 has 234. Held/unmapped Subjects and the existing C290 diagnostic remain visible; no source mirror or Applicable Methodology was republished.
+
+The eight whole-owner holds remain unchanged: O159/O160, R850, E441, E446, E473, M120 and M271. Phase 2 and later unfinished phases remain open; the Epic stays Active and child Statuses do not cascade. Ordinary content migration remains CA-P-1970. Earlier checkpoints retain their historical results. No runtime code, full test suite or release was included.
 
 #### Phase 1 — migrate Subjects first
 

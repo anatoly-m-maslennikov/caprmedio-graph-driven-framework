@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-19 16:31:40 +0400
+updated_at: 2026-10-19 17:58:33 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -834,6 +834,7 @@ sources:
 - CA-R-1992@3
 - CA-R-1993@3
 - CA-R-1994@1
+- CA-R-1995@1
 - CA-R-366@24
 - CA-R-380@27
 - CA-R-626@28
@@ -1113,6 +1114,7 @@ Entity
 		/ Entity/Continuant/Projection
 			/ Entity/Continuant/Projection/Type: Applicable Methodology
 			/ Entity/Continuant/Projection/Type: Direct Relation Registry
+	/ Entity/Graph Rule
 	/ Entity/Node
 		/ Entity/Node/Continuant
 			/ Entity/Node/Continuant/Actor
