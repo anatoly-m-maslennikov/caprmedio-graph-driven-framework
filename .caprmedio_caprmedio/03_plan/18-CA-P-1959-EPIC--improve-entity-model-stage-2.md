@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 113
-updated_at: "2026-10-20 01:48:23 +0400"
+version: 114
+updated_at: "2026-10-20 02:02:15 +0400"
 relations: {}
 ---
 # Summary
@@ -160,13 +160,25 @@ The Operator approved these two next derived views and requested this Epic updat
 1. **Full structural Entity graph:** represent the selected current model, including primary entities, properties, allowed values and admitted structural Relations. Keep Core Meta-model and CAPRMEDIO Project Configuration selections separate. Preserve source identities and existing readable Markdown/YAML/tab-indented delivery. Full means full for the explicitly selected sources and evidenced coverage, not an invented complete semantic model.
 2. **Relation Type and Graph Rule declaration view:** use the Operator's middle level. Relation is model structure; named Relation Types such as IS_BORNE_BY and IS_CONTAINED_BY are concrete instances at that model level. Show those Types with their declared descriptive metadata, and concrete Graph Rule declarations with their conditions and exact source Atom IDs/Versions. Actual source-type-target links instantiate those Relation Types and are outside this requested view. Do not read top-level Atom relations maps as the requested instance catalogue or build a graph of actual project Atom IDs. This resolves the earlier ambiguity; align the affected RMED before implementation.
 
-- [ ] Review the active projection and Relation/Graph Rule RMED against these two views. Reuse existing projection Types and filtered views where their contracts fit; align or add only missing governing contracts. Resolve concrete ambiguity with the Operator, without guessing a formal schema or semantic mapping.
+- [x] Review the active projection and Relation/Graph Rule RMED against these two views. Reuse existing projection Types and filtered views where their contracts fit; align or add only missing governing contracts. Resolve concrete ambiguity with the Operator, without guessing a formal schema or semantic mapping.
 - [ ] Extend/reuse the existing programmatic structural builder and readable renderer for the full selected Entity structure. Keep primary and dependent detail views, inherited meaning, exact typed edges and declared/alphabetical ordering. Keep unsupported or unmapped source material visible as gaps; do not force it into a target tree or treat it as absent.
 - [ ] Build the separate middle-level declaration view from named Relation Type definitions and admitted structured Graph Rule bodies. Preserve each Type's graph-qualified identity, descriptive metadata, direct/inverse direction and source provenance. Keep constraints in Graph Rules rather than copying them into Relation Type metadata. Do not substitute actual Atom-to-Atom tuples, extract example YAML blocks as live Rule instances, or invent missing metadata. Report an empty formal-Rule selection and unresolved source coverage honestly.
 - [ ] Add focused runtime tests for source selection, the three distinct model/declaration/real-link levels, duplicate references/shared identities, malformed or unsupported input, declared direct/inverse metadata, empty Rule selections and deterministic readable output. Real Atom-to-Atom tuples and example YAML must not be misclassified as requested declarations. Review the implementation against the selected PROGRAMMATIC Methods.
 - [ ] Generate the actual selected-source projections after implementation and scoped verification. Preserve IDs for unchanged Type/selection/source-of-truth identities, assign distinct identities to genuinely new views, and record the actual source coverage and unresolved gaps. A local implementation or generated file is not an installed MCP/release receipt.
 
 The existing whitelist structural validator is available in the checkout; other formal rule schemas and semantic evaluation remain separate. No rule evaluator, new default/precedence policy, live formal Rule creation, broad R retyping, ordinary content migration, deferred construction graph, runtime rebuild, release or push is part of this increment. CA-P-1959 stays Active, existing held owners remain held, child Statuses do not cascade, and general content migration remains CA-P-1970.
+
+#### Projection RMED alignment — actual source result, 2026-10-20
+
+The bounded four-contract alignment completed through the existing Atom route: CA-R-1456 v14, CA-M-385 v6, CA-D-634 v7 and CA-E-449 v18. Each exact predecessor is archived. IDs, Summaries, Subjects, Types, Statuses, ownership and unrelated content remain unchanged. M385's Scope/Claim and D634's Scope were refined only for the existing readable-view generation/delivery purpose; no new Projection Type was introduced.
+
+R1456 separates full structural Entity coverage from the middle-level declaration selection. The second view contains named Relation Types and concrete formal Graph Rule declarations, not actual project Atom-to-Atom links. Types keep graph-qualified identity and descriptive metadata; permissions and cardinality remain Graph Rules. Source identity, metadata and schema gaps stay explicit rather than guessed or silently hidden.
+
+M385 specifies programmatic generation using current source evidence and existing bounded parsing/validation. Raw operative Rule YAML, opaque values and unresolved references are preserved without evaluation or normalization into another schema. D634 retains the structural Inherency layout and adds a separate declaration layout: Relation Types, Graph Rules and source limitations, using the existing Markdown/YAML identity and provenance rules. E449 adds controlled-input generator checks for the three levels, source selection, identities, metadata conflicts, empty Rule catalogues, unsupported schemas, deterministic output and separate Core/Project boundaries. It adds no project-health gate.
+
+Prepared packets contracts/ and contracts-v2/ were retained without source effects. The v2 packet corrected M385's new Method section placement to remain under Details rather than Outcome. Independent review then clarified that a declaration-only display excludes link instances regardless of endpoint presence, and separated normative parsing requirements from proof of runtime support. Only the reviewed contracts-v3/ packet was published. Exact source/archive and native terminal receipts are retained under `.caprmedio_tmp/graph-declaration-rmed-20261020/contracts-v3/step-1/` through `step-4/`.
+
+This completes RMED alignment only, not generator implementation or graph generation. Existing output IDs are unchanged, and no live formal Rule, actual-link extractor, evaluator, ordinary content migration, construction graph, runtime rebuild, full release suite, release or push was performed. The Epic stays Active and children do not cascade. The next task is implementing and testing these selected views against the aligned contracts; existing held owners and other unfinished phases remain open.
 
 #### Phase 1 — migrate Subjects first
 
