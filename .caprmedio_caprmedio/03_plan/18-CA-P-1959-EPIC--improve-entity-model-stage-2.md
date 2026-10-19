@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 103
-updated_at: "2026-10-19 15:59:56 +0400"
+version: 104
+updated_at: "2026-10-19 16:15:40 +0400"
 relations: {}
 ---
 # Summary
@@ -57,6 +57,19 @@ Source checkpoint: `43783ee189a5f6f727c0667419d1c74869f48130`. Draft checkpoint:
 Ten owners remain held unchanged: R655, R1964, O159, O160, R850, E441, E446, E473, M120 and M271. R655's terminal old Node dependency needs a concrete meaning decision. The six earlier content/applicability holds and two O heading holds remain separate from this prefix migration. No C/A migration, R retyping, ordinary content migration, CONTAINS implementation, runtime rebuild, full suite, release or push was performed.
 
 Next: resolve these bounded structural definitions/holds, then resume the unfinished Core/Project separation, reviewed Luna 20-R pilot and R-Type migration, missing definitions/rules and remainder review. General content migration remains CA-P-1970. Keep this Epic Active; do not cascade child Statuses or replay completed work.
+
+#### Artifact Term and R655 follow-up — 2026-10-19
+
+- [x] Record the latest Operator meaning in Candidate #6: Artifact is a Term for a Node instance delivered into one or more Carrier instances. It is not an additional Entity branch or another authoritative Terms-definition layer. Keep the actual Occurrent distinct from the persistent record describing it.
+- [x] Resolve R655 independently of the earlier 746-owner batch. CA-R-655 is now v27: `governs` is `Entity/Node/Continuant/Atom`; its former terminal Node dependency is `Entity/Node`. Only the two Subjects and Version/time changed. Its Summary, Claim, Scope, Details, Status, Type, ownership and other metadata are unchanged. The exact v26 predecessor was archived and the pinned draft consumed. The unchanged Artifact wording remains for the separate content migration, not silently rewritten here.
+- [x] Independent readback passed: one applied update, two exact patches, one exact archive, one consumed draft, 1,141 other checkpointed source files unchanged, no errors. The actual change event and four completed Workflow/Step/Action Run pairs were verified without recording errors or replay. Run: `candidate6-artifact-term-r655-20261019-001`. Source checkpoint: `e381dc69136fc2114525ebaac22a8bfe3fdf7ef4`; candidate/draft checkpoint: `f1c0a06e015ac56caa2e91a007081f9c716c08fc`.
+- [x] Refresh the actual current-source Entities projections with the same IDs: CA-PROJ-002 Core has 904 sources; CA-PROJ-003 Project Configuration has 234. Existing holds, excluded C/A Subjects and C290's diagnostic remain visible. Graph generation did not alter sources.
+
+The initial rejected preparation packet omitted the required nullable `target.type` member. It produced no staging Run/draft/source effect. The corrected new packet passed the existing loader, staged once and was published once. No runtime code, source rule, validation or approval policy changed.
+
+The prior ten-owner hold list records the state at that batch's completion. R655 is now resolved, leaving nine whole-owner holds: O159, O160, R850, E441, E446, E473, M120, M271 and R1964. Node and Graph Rule still need defining Rs. R1964 defines the old Object kind, not abstract Node, and remains unchanged while the Operator decides whether that old kind is obsolete or still has a named role. No automatic retirement or reinterpretation is approved by the Artifact Term clarification.
+
+Keep this Epic Active without cascading child Statuses. General content migration remains CA-P-1970. No C/A migration, other held-owner change, R retyping, CONTAINS implementation, new Terms-definition layer, runtime rebuild, full test suite, release or push was performed.
 
 #### Phase 1 — migrate Subjects first
 

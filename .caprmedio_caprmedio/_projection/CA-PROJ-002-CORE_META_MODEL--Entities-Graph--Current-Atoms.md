@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-19 15:57:28 +0400
+updated_at: 2026-10-19 16:13:49 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -838,7 +838,7 @@ sources:
 - CA-R-380@27
 - CA-R-626@28
 - CA-R-643@21
-- CA-R-655@26
+- CA-R-655@27
 - CA-R-658@21
 - CA-R-659@22
 - CA-R-660@19
