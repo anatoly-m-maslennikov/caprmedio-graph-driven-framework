@@ -215,7 +215,7 @@ class CurrentRuleSourcesTests(unittest.TestCase):
         selection = self.selected_project()
         destinations = {
             identifier: self.relocate_rule(selection, identifier)
-            for identifier in ("CA-R-1666", "CAPRMEDIO-R-793")
+            for identifier in ("CA-R-1666", "CA-R-793")
         }
         locators: list[CurrentAtomLocator] = []
         currentness_readers: list[ReadContext] = []

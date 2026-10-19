@@ -14,6 +14,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import sys
 from typing import Any, Iterable, Mapping
 
 from frozen_selected_workflows import (
@@ -25,6 +26,11 @@ from frozen_selected_workflows import (
     frozen_source_paths,
     write_frozen_source,
 )
+
+VALIDATOR_TESTS = Path(__file__).resolve().parents[3] / "201_TOOLS/VALIDATE_ATOMS/tests"
+if str(VALIDATOR_TESTS) not in sys.path:
+    sys.path.insert(0, str(VALIDATOR_TESTS))
+from golden_authority import frozen_authority_fixture_bytes
 
 
 MANIFEST_REF = ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json"
@@ -333,11 +339,42 @@ class GoldenProject:
         self._copy_pinned(status_sources[0], hashlib.sha256(
             frozen_source_bytes(status_sources[0])
         ).hexdigest())
+        authority = self.root / (
+            ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
+            "METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/"
+            "CA-R-793-CORE_META_MODEL--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
+        )
+        authority.parent.mkdir(parents=True, exist_ok=True)
+        authority.write_bytes(frozen_authority_fixture_bytes("CA-R-793"))
 
     def _write_complete_carrier_project_structure(self) -> None:
         """Use a complete self-contained Structure in W01/W03/W04 fixtures."""
         (self.root / ".caprmedio_caprmedio/project_structure.toml").write_text(
             "schema_version = 1\n\n"
+            "[[scope_units]]\n"
+            'scope_unit_name = "FRAMEWORK_METHODOLOGY"\nparent = "PROJECT"\n'
+            'scope_unit_type = "Unordered"\nscope_unit_label = "METHODOLOGY"\n'
+            "structural_level = 1\nnavigational_order_number = 0\n"
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY"\n'
+            'delivery_path = "delivery/FRAMEWORK_METHODOLOGY"\n\n'
+            "[[scope_units]]\n"
+            'scope_unit_name = "FRAMEWORK_METHOD_SOURCES"\nparent = "FRAMEWORK_METHODOLOGY"\n'
+            'scope_unit_type = "Unordered"\nscope_unit_label = "METHODOLOGY"\n'
+            "structural_level = 2\nnavigational_order_number = 0\n"
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"\n'
+            'delivery_path = "delivery/FRAMEWORK_METHODOLOGY/sources"\n\n'
+            "[[scope_units]]\n"
+            'scope_unit_name = "FRAMEWORK_CORE_META_MODEL"\nparent = "FRAMEWORK_METHOD_SOURCES"\n'
+            'scope_unit_type = "Unordered"\nscope_unit_label = "METHODOLOGY"\n'
+            "structural_level = 3\nnavigational_order_number = 0\n"
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"\n'
+            'delivery_path = "delivery/FRAMEWORK_METHODOLOGY/sources/CORE_META_MODEL"\n\n'
+            "[[scope_units]]\n"
+            'scope_unit_name = "FRAMEWORK_PROJECT_CONFIGURATION"\nparent = "FRAMEWORK_METHOD_SOURCES"\n'
+            'scope_unit_type = "Unordered"\nscope_unit_label = "METHODOLOGY"\n'
+            "structural_level = 3\nnavigational_order_number = 1\n"
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION"\n'
+            'delivery_path = "delivery/FRAMEWORK_METHODOLOGY/sources/PROJECT_CONFIGURATION"\n\n'
             "[[scope_units]]\n"
             'scope_unit_name = "PARENT"\nparent = "PROJECT"\n'
             'scope_unit_type = "Ordered"\nscope_unit_label = "LAYER"\n'

@@ -36,7 +36,7 @@ from frozen_selected_workflows import (  # noqa: E402
     frozen_source_bytes,
     frozen_source_root,
 )
-from golden_authority import frozen_authority_fixture_bytes  # noqa: E402
+from golden_authority import frozen_authority_fixture_bytes, frozen_entry, write_frozen_authority  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.support_authority import support_sources  # noqa: E402
 
 REQUIREMENT_STATUS_AUTHORITY = (
@@ -116,6 +116,11 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             "[artifact_timestamps]\ntimezone = \"UTC\"\n", encoding="utf-8"
         )
         self._copy_complete_carrier_authority()
+        write_frozen_authority(self.root, Path(".caprmedio_caprmedio"), ("CA-R-793",))
+        frozen_793 = self.root / frozen_entry("CA-R-793")["source_path"]
+        current_793 = self.root / proposed_carrier._entry("CA-R-793")["source_path"]
+        current_793.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(frozen_793, current_793)
         self._copy_frozen_goal_admission_authority()
         self._copy_type_recovery_authority()
         for atom_id in ("CA-R-1309", "CA-R-1399", "CA-R-1875", "CA-R-1432", "CA-R-1464"):
@@ -1112,11 +1117,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             update_atom_action(self.root, parameters, execute=True, authorized=True)
         self.assertEqual(self.target.read_bytes(), before)
 
-    def _explicit_legacy_r793(self) -> tuple[dict[str, object], Path, Path, bytes]:
-        pinned = frozen_complete_carrier_authority().get("CAPRMEDIO-R-793")
-        if pinned is not None:
-            (self.root / pinned["source_path"]).unlink(missing_ok=True)
-        old_id = "CAPRMEDIO-R-793"
+    def _explicit_legacy_requirement(self) -> tuple[dict[str, object], Path, Path, bytes]:
+        old_id = "CAPRMEDIO-R-9903"
         structure = self.root / ".caprmedio_caprmedio/project_structure.toml"
         structure_text = structure.read_text(encoding="utf-8")
         for scope_path, delivery in (
@@ -1131,7 +1133,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                                                     f'delivery_path = "{delivery}"')
         structure.write_text(structure_text, encoding="utf-8")
         canonical_source = self._atom(
-            "CA-R-793", "define-evaluation-approach-as-a-type-value-for-evaluation-atoms",
+            "CA-R-9903", "define-evaluation-approach-as-a-type-value-for-evaluation-atoms",
             "Define Evaluation Approach as a Type Value for Evaluation Atoms", version=22,
             relations="relations: {depends_on: [CA-R-1503, CA-R-1506]}",
         )
@@ -1139,19 +1141,19 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             old_id + "-LIFECYCLE_FIXTURE--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
         )
         original = canonical_source.read_bytes().replace(
-            b"atom_id: CA-R-793\n", f'atom_id: "{old_id}"\n'.encode(), 1,
+            b"atom_id: CA-R-9903\n", f'atom_id: "{old_id}"\n'.encode(), 1,
         )
         source.write_bytes(original)
         canonical_source.unlink()
         destination = self.requirements / (
-            "CA-R-793-LIFECYCLE_FIXTURE--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
+            "CA-R-9903-LIFECYCLE_FIXTURE--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
         )
         subprocess.run(["git", "-C", str(self.root), "init"], capture_output=True, check=True)
         subprocess.run(["git", "-C", str(self.root), "add", "--", source.relative_to(self.root).as_posix()],
                        capture_output=True, check=True)
         subprocess.run(["git", "-C", str(self.root), "-c", "user.name=Fixture", "-c",
                         "user.email=fixture@example.invalid", "-c", "commit.gpgSign=false", "-c",
-                        "core.hooksPath=/dev/null", "commit", "-m", "legacy R793 carrier"],
+                        "core.hooksPath=/dev/null", "commit", "-m", "legacy 9903 carrier"],
                        capture_output=True, check=True)
         commit = subprocess.run(["git", "-C", str(self.root), "rev-parse", "HEAD"],
                                 capture_output=True, check=True, text=True).stdout.strip()
@@ -1159,14 +1161,14 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         legacy = Atom(source, source.relative_to(self.root).as_posix(), source.name,
                       old_id, "active", "04_requirement", frontmatter, content)
         target = carrier_descriptor(self.root, legacy)
-        proposed = frontmatter.replace(f'atom_id: "{old_id}"', 'atom_id: "CA-R-793"')
+        proposed = frontmatter.replace(f'atom_id: "{old_id}"', 'atom_id: "CA-R-9903"')
         parameters = {
             "target": target,
             "proposed": {"frontmatter": proposed, "content": content},
             "change_class": "carrier_only",
             "legacy_identity_proof": {"atom_id": old_id, "commit": commit,
                                        "path": target["path"], "digest": target["digest"]},
-            "legacy_identity_mapping": {"legacy_atom_id": old_id, "atom_id": "CA-R-793",
+            "legacy_identity_mapping": {"legacy_atom_id": old_id, "atom_id": "CA-R-9903",
                                         "destination": destination.relative_to(self.root).as_posix()},
         }
         return parameters, source, destination, original
@@ -1221,8 +1223,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(result["history"]["identity_mapping"], parameters["legacy_identity_mapping"])
         self.assertEqual((self.root / result["history"]["prior_revision"]["path"]).read_bytes(), before)
 
-    def test_explicit_legacy_r793_header_maps_with_exact_history_and_ignores_noncurrent_copies(self) -> None:
-        parameters, source, destination, before = self._explicit_legacy_r793()
+    def test_explicit_legacy_requirement_header_maps_with_exact_history_and_ignores_noncurrent_copies(self) -> None:
+        parameters, source, destination, before = self._explicit_legacy_requirement()
         obsolete = self.root / (
             ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
             "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/04_requirement"
@@ -1239,12 +1241,12 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertFalse(destination.exists())
 
         result = update_atom_action(self.root, parameters, execute=True, authorized=True)
-        self.assertEqual("CA-R-793", result["observed"]["atom_id"])
+        self.assertEqual("CA-R-9903", result["observed"]["atom_id"])
         self.assertEqual(23, result["observed"]["version"])
         self.assertFalse(source.exists())
         self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
         observed = atom_from_path(self.root, destination)
-        self.assertEqual("CA-R-793", observed.atom_id)
+        self.assertEqual("CA-R-9903", observed.atom_id)
         self.assertEqual("Active", frontmatter_scalar(observed.frontmatter, "status"))
         self.assertIsNone(frontmatter_scalar(observed.frontmatter, "type"))
         self.assertEqual(split_frontmatter(before.decode())[1], observed.content)
@@ -1254,7 +1256,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                              frontmatter_scalar(observed.frontmatter, field), field)
 
     def test_exact_legacy_identity_encoding_has_sealed_carrier_only_evidence(self) -> None:
-        parameters, source, destination, before = self._explicit_legacy_r793()
+        parameters, source, destination, before = self._explicit_legacy_requirement()
         preview = update_atom_action(self.root, parameters)
         evidence = preview["assessment_evidence"]
         self.assertEqual("preview", preview["outcome"])
@@ -1274,7 +1276,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertFalse(destination.exists())
 
     def test_legacy_identity_mapping_requires_exact_body_and_other_metadata(self) -> None:
-        parameters, source, destination, before = self._explicit_legacy_r793()
+        parameters, source, destination, before = self._explicit_legacy_requirement()
         for field in ("body", "metadata"):
             with self.subTest(field=field):
                 invalid = copy.deepcopy(parameters)
@@ -1290,7 +1292,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                 self.assertEqual(before, source.read_bytes())
 
     def test_legacy_identity_encoding_seal_tampering_is_refused(self) -> None:
-        parameters, source, destination, before = self._explicit_legacy_r793()
+        parameters, source, destination, before = self._explicit_legacy_requirement()
         evidence = update_atom_action(self.root, parameters)["assessment_evidence"]
         seal = update_assessment_seal(parameters, evidence)
         seal["comparison"]["identity_mapping"]["atom_id"] = "CA-R-794"
@@ -1300,9 +1302,9 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertFalse(destination.exists())
 
     def test_explicit_legacy_mapping_rejects_duplicate_current_claim(self) -> None:
-        parameters, source, _destination, before = self._explicit_legacy_r793()
+        parameters, source, _destination, before = self._explicit_legacy_requirement()
         duplicate = source.with_name(
-            "CAPRMEDIO-R-793-PROJECT_CONFIGURATION--duplicate-current-requirement.md"
+            "CAPRMEDIO-R-9903-PROJECT_CONFIGURATION--duplicate-current-requirement.md"
         )
         duplicate.write_bytes(before)
         with self.assertRaisesRegex(LifecycleError, "atom-identity-duplicate"):

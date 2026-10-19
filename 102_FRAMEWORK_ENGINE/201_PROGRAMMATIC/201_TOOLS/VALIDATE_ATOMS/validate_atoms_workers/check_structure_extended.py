@@ -385,7 +385,7 @@ def _qualified_status_domain(role: str, kind: str | None, check: Check) -> tuple
     # independent Status-domain definition, so CA-R-1398 remains its role
     # domain unless a narrower qualified source is supplied below.
     if (role, kind) == ("Evaluation", "Evaluation Approach") and not _authority(
-        check, "CAPRMEDIO-R-793"
+        check, "CA-R-793"
     ):
         return None
     if role == "Concern" and not _authority(check, "CA-R-1231"):

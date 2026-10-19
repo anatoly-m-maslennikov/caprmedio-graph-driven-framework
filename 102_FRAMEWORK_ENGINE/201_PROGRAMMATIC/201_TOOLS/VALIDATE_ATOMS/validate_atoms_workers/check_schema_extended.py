@@ -95,7 +95,7 @@ TYPE_CONTRIBUTIONS = {
     "CA-R-1674": ("Method", ("External Implementation Method",)),
     "CA-R-1675": ("Method", ("Method Binding",)),
     "CA-R-1662": ("Evaluation", ("QA Case", "Evaluation Control")),
-    "CAPRMEDIO-R-793": ("Evaluation", ("Evaluation Approach",)),
+    "CA-R-793": ("Evaluation", ("Evaluation Approach",)),
     "CA-R-1665": ("Delivery", ("Release Definition", "Environment Definition")),
 }
 CONTENT_ROLES = (

@@ -72,10 +72,10 @@
       "sha256": "73b1a6f89dd1eb9f3a58bb3b95e53b8ce738ad7f0e76d877b163aca06c8bb961",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1667-CORE_META_MODEL-REQUIREMENT--define-implementation-method-as-a-type-value-for-method-atoms.md"
     },
-    "CAPRMEDIO-R-793": {
-      "version": 22,
-      "sha256": "9d651d176ac1f0553bbd6f16bea9632249365dc54a43f5f361f5621bf2458c52",
-      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/04_requirement/CAPRMEDIO-R-793-PROJECT_CONFIGURATION--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
+    "CA-R-793": {
+      "version": 24,
+      "sha256": "64390748e2831226ce86ecff6aad4391bd5d5264c79dd715b9ed6f99a5996bfa",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-793-CORE_META_MODEL--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md"
     },
     "CA-R-1668": {
       "version": 22,

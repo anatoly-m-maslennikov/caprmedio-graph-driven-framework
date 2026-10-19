@@ -316,7 +316,7 @@ class StructureExtendedTest(unittest.TestCase):
         sources = [
             source
             for source in self.authorities
-            if source["binding"]["atom_id"] != "CAPRMEDIO-R-793"
+            if source["binding"]["atom_id"] != "CA-R-793"
         ]
         check = self.check("status.resolution", metadata=approach, sources_override=sources)
         self.assertTrue(check.gaps)

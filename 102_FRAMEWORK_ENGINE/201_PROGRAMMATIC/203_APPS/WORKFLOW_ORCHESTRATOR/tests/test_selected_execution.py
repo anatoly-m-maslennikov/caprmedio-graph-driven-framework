@@ -532,23 +532,23 @@ class SelectedExecutionTests(unittest.TestCase):
         self.assertEqual(len(result["step_results"]), 2)
 
     def test_update_atom_legacy_mapping_runs_o067_assessment_then_o128_effect(self) -> None:
-        """Run the real selected route for the explicit legacy R793 mapping."""
+        """Run the real selected route for an explicit legacy requirement mapping."""
         from test_selected_atom_lifecycle import SelectedAtomLifecycleTest
         from test_selected_creation_execution import _Session
 
         lifecycle_fixture = SelectedAtomLifecycleTest(
-            "test_explicit_legacy_r793_header_maps_with_exact_history_and_ignores_noncurrent_copies"
+            "test_explicit_legacy_requirement_header_maps_with_exact_history_and_ignores_noncurrent_copies"
         )
         lifecycle_fixture.setUp()
         self.addCleanup(lifecycle_fixture.tearDown)
         root = lifecycle_fixture.root
         manifest = copy_complete_selected_guard_fixture(root)
-        parameters, source, destination, before = lifecycle_fixture._explicit_legacy_r793()
+        parameters, source, destination, before = lifecycle_fixture._explicit_legacy_requirement()
 
         selected = SelectedExecution(root)
         execution = {
             "mode": "execute", "operation_route": "update_atom",
-            "workflow_run_id": "legacy-r793-run001", "request_id": "legacy-r793-request",
+            "workflow_run_id": "legacy-r9903-run001", "request_id": "legacy-r9903-request",
             "parameters": parameters, "source_freshness": manifest["source_freshness"],
             "definition_manifest": {
                 "manifest_ref": manifest["manifest_ref"],
@@ -556,9 +556,9 @@ class SelectedExecutionTests(unittest.TestCase):
             },
         }
         graph = selected._validate_graph(execution)
-        execution["requested_runs"] = build_requested_runs(graph, "legacy-r793-run001")
+        execution["requested_runs"] = build_requested_runs(graph, "legacy-r9903-run001")
         frozen = {
-            "request": {"run_id": "legacy-r793-run001", "execution": execution},
+            "request": {"run_id": "legacy-r9903-run001", "execution": execution},
             "graph": graph,
         }
         session = _Session(execution["requested_runs"])
@@ -591,7 +591,7 @@ class SelectedExecutionTests(unittest.TestCase):
         self.assertFalse(source.exists())
         self.assertTrue(destination.exists())
         destination_text = destination.read_text(encoding="utf-8")
-        self.assertIn('atom_id: "CA-R-793"', destination_text)
+        self.assertIn('atom_id: "CA-R-9903"', destination_text)
         self.assertIn("version: 23", destination_text)
         from atom_operations import frontmatter_scalar, split_frontmatter
 

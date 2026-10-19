@@ -476,6 +476,11 @@
         "fixture": "schema_authority/CAPRMEDIO-R-793.md",
         "sha256": "9d651d176ac1f0553bbd6f16bea9632249365dc54a43f5f361f5621bf2458c52",
         "version": 22
+      },
+      "CA-R-793": {
+        "fixture": "schema_authority/CA-R-793.md",
+        "sha256": "64390748e2831226ce86ecff6aad4391bd5d5264c79dd715b9ed6f99a5996bfa",
+        "version": 24
       }
     },
     "structure_authority": {
