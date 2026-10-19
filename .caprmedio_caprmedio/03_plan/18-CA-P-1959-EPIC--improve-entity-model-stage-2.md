@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 98
-updated_at: "2026-10-19 05:59:54 +0400"
+version: 99
+updated_at: "2026-10-19 14:23:51 +0400"
 relations: {}
 ---
 # Summary
@@ -102,6 +102,18 @@ Current-source Entities projections retain IDs CA-PROJ-002 and CA-PROJ-003: 915 
 The O104 bundle and its six descendants were not moved. Auto-review rejected the command before a process started because the deployed Review definition would lose its old path before binding refresh and rebuild. The Operator choice is still pending: repair stable-ID lookup first, accept the explicitly described temporary unavailability, or defer. No failed command is counted as an executed move.
 
 Phase 2 and the Epic remain open. O159/O160 heading holds and the 20 mixed/content holds are unchanged. Later R typing, missing definitions and remainder review remain unfinished; ordinary content migration belongs to CA-P-1970. Earlier checkpoints retain their historical results. The Epic stays Active and child statuses do not cascade.
+
+#### Phase 2 O104 bundle and runtime binding refresh — 2026-10-19
+
+The Operator approved temporary RMED review unavailability during the seven moves and rebuild. Execution ordinals 30–36 completed for CA-O-104, CA-O-108, CA-O-109, CA-O-110, CA-O-119, CA-O-120 and CA-O-121; the earlier 29 moves were not replayed. All 36 bundle moves now pass the independent readback: 108 completed terminal Run/Journal records, 30 preserved pre-existing history files and zero failures. Identities, bodies, Subjects, relations, Types and Statuses were preserved; exact predecessors and the required move revisions were checked. Evidence: `.caprmedio_tmp/atom-move-20261018/phase2/bundle-followup/o104-continuation-20261019/audit_actual_36.json`.
+
+The first release attempt, `local-20261019-o104-bindings-001`, was intentionally interrupted before deployment after a Docker test worker reported FileNotFoundError for the new Project Configuration O104 path. It is not a completed full-suite result. The source moves remained completed; none were rolled back or replayed. The bounded fixture repair uses a separate current-readiness snapshot and preserves the old golden corpus.
+
+Exactly seven existing source-binding rows were refreshed from the new paths, Versions and source digests, then independently checked. Fresh local release `local-20261019-o104-bindings-002` completed: its full suite passed 400 modules and 3575 tests, with zero skips or failed modules, and launcher integration passed. The rebuilt MCP execution context was read back successfully with no issues. Source, package and container manifests match; all seven mounted source hashes and Versions passed the deployed readback, and the runtime fingerprint and read-only RMED description succeeded. No live RMED review was started. Release receipt: `.caprmedio_runtime/simple_local_release/reports/local-20261019-o104-bindings-002.md`; context receipt: `.caprmedio_tmp/atom-move-20261018/epic-o104-20261019/mcp-context-readback.json`; deployed readback: `.caprmedio_tmp/atom-move-20261018/epic-o104-20261019/deployed-runtime-readback.json`. This checkpoint supersedes the earlier pending O104 choice and hold, without rewriting that history.
+
+Current-source Entities projections retain IDs CA-PROJ-002 and CA-PROJ-003: 908 Core sources and 231 Project Configuration sources. The C290 missing-Subjects diagnostic and unresolved roots remain visible. Receipt: `.caprmedio_tmp/atom-move-20261018/graph/report.json`. No fully reconciled graph is claimed.
+
+Phase 2 and the Epic remain open. O159/O160 heading holds and the 20 mixed/content holds are unchanged. Later R typing, missing definitions and remainder review remain unfinished; ordinary content migration belongs to CA-P-1970. The Epic stays Active; no child statuses cascade, and no ordinary source content is rewritten by this checkpoint.
 
 #### Phase 3 — classify and retype source R Atoms
 
