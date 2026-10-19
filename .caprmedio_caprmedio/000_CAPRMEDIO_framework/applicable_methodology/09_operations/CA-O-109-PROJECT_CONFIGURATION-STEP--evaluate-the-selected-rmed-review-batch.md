@@ -2,19 +2,25 @@
 atom_id: CA-O-109
 content_role: Operations
 type: Step
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: "2026-10-15 18:54:05 +0000"
+version: 10
+updated_at: "2026-10-19 13:28:48 +0400"
 subjects:
   governs: "RMED Review Evaluation Step"
   depends_on:
     ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/History/Journal", "Evaluation Report"]
 relations: {"relates_to":["CA-O-106"]}
+projection:
+  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-109-PROJECT_CONFIGURATION-STEP--evaluate-the-selected-rmed-review-batch.md
+  source_atom_id: CA-O-109
+  source_atom_revision: 10
+  source_sha256: 5456a617fb1f7deef9a31a441ec537d4c2fbe50a0a0de835c4705c4658f62419
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
 

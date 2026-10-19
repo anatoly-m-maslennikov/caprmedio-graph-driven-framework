@@ -1,28 +1,28 @@
 ---
-atom_id: CA-O-121
+atom_id: CA-O-119
 content_role: Operations
 type: Step
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-15 18:54:09 +0000"
+version: 5
+updated_at: "2026-10-19 13:29:40 +0400"
 subjects:
-  governs: "RMED Atom Review Fix Coverage Gate Step"
+  governs: "RMED Atom Review Gather Coverage Gate Step"
   depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
 relations:
   relates_to: [CA-O-104, CA-O-118]
 ---
 # Summary
 
-Gate fix result coverage
+Gate gather result coverage
 
 ## Operation
 
-the fix Coverage Gate substep **must** invoke **`=1`** Action, CA-O-118, with stage=fix **after** the main fix Step **and** **before** continuation.
+the gather Coverage Gate substep **must** invoke **`=1`** Action, CA-O-118, with stage=gather **after** the main gather Step **and** **before** continuation.
 
 ## Details
 
