@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 112
-updated_at: "2026-10-20 01:27:41 +0400"
+version: 113
+updated_at: "2026-10-20 01:48:23 +0400"
 relations: {}
 ---
 # Summary
@@ -158,12 +158,12 @@ This is verified checkout implementation, not an installed MCP/release receipt. 
 The Operator approved these two next derived views and requested this Epic update before continuation. This records planned work, not completed implementation or generated outputs.
 
 1. **Full structural Entity graph:** represent the selected current model, including primary entities, properties, allowed values and admitted structural Relations. Keep Core Meta-model and CAPRMEDIO Project Configuration selections separate. Preserve source identities and existing readable Markdown/YAML/tab-indented delivery. Full means full for the explicitly selected sources and evidenced coverage, not an invented complete semantic model.
-2. **Relation and Graph Rule instance-only view:** represent concrete Relation and Graph Rule declarations, connections/conditions and exact source Atom IDs/Versions. Do not turn this into an instance graph of every Atom, Actor, Execution or other Node kind. Resolve the exact Relation-declaration/instance boundary in RMED before implementing extraction.
+2. **Relation Type and Graph Rule declaration view:** use the Operator's middle level. Relation is model structure; named Relation Types such as IS_BORNE_BY and IS_CONTAINED_BY are concrete instances at that model level. Show those Types with their declared descriptive metadata, and concrete Graph Rule declarations with their conditions and exact source Atom IDs/Versions. Actual source-type-target links instantiate those Relation Types and are outside this requested view. Do not read top-level Atom relations maps as the requested instance catalogue or build a graph of actual project Atom IDs. This resolves the earlier ambiguity; align the affected RMED before implementation.
 
 - [ ] Review the active projection and Relation/Graph Rule RMED against these two views. Reuse existing projection Types and filtered views where their contracts fit; align or add only missing governing contracts. Resolve concrete ambiguity with the Operator, without guessing a formal schema or semantic mapping.
 - [ ] Extend/reuse the existing programmatic structural builder and readable renderer for the full selected Entity structure. Keep primary and dependent detail views, inherited meaning, exact typed edges and declared/alphabetical ordering. Keep unsupported or unmapped source material visible as gaps; do not force it into a target tree or treat it as absent.
-- [ ] Build the separate instance-only view from explicit current source declarations and admitted structured Graph Rule bodies. Preserve Relation direction and tuple identity, source provenance and the distinction between authored facts and derived inverse navigation. Do not extract example YAML blocks as live Rule instances or invent missing Relation metadata. An empty formal-Rule selection is reported honestly, not filled with guessed rules.
-- [ ] Add focused runtime tests for source selection, structure versus instances, duplicate references/shared identities, malformed or unsupported input, inverse direction, empty instance selections and deterministic readable output. Review the implementation against the selected PROGRAMMATIC Methods.
+- [ ] Build the separate middle-level declaration view from named Relation Type definitions and admitted structured Graph Rule bodies. Preserve each Type's graph-qualified identity, descriptive metadata, direct/inverse direction and source provenance. Keep constraints in Graph Rules rather than copying them into Relation Type metadata. Do not substitute actual Atom-to-Atom tuples, extract example YAML blocks as live Rule instances, or invent missing metadata. Report an empty formal-Rule selection and unresolved source coverage honestly.
+- [ ] Add focused runtime tests for source selection, the three distinct model/declaration/real-link levels, duplicate references/shared identities, malformed or unsupported input, declared direct/inverse metadata, empty Rule selections and deterministic readable output. Real Atom-to-Atom tuples and example YAML must not be misclassified as requested declarations. Review the implementation against the selected PROGRAMMATIC Methods.
 - [ ] Generate the actual selected-source projections after implementation and scoped verification. Preserve IDs for unchanged Type/selection/source-of-truth identities, assign distinct identities to genuinely new views, and record the actual source coverage and unresolved gaps. A local implementation or generated file is not an installed MCP/release receipt.
 
 The existing whitelist structural validator is available in the checkout; other formal rule schemas and semantic evaluation remain separate. No rule evaluator, new default/precedence policy, live formal Rule creation, broad R retyping, ordinary content migration, deferred construction graph, runtime rebuild, release or push is part of this increment. CA-P-1959 stays Active, existing held owners remain held, child Statuses do not cascade, and general content migration remains CA-P-1970.
