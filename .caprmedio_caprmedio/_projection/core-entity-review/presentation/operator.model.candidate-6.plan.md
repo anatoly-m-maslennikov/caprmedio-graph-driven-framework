@@ -1,10 +1,12 @@
 # Candidate #6 — Entity structure, rules and Project Configuration
 
-Status: reconciled candidate and implementation plan, partially applied. On 2026-10-16, the supported Subjects-only batch updated 198 source Atoms. Content changes, missing R definitions and Core/Project Configuration relocation remain pending.
+Status: reconciled candidate and implementation plan, partially applied. The 2026-10-16 Subjects-only batch updated 198 source Atoms. The supported small-structure Subjects-only batch updated 746 more source Atoms on 2026-10-19 and passed the pinned post-publication readback. CA-R-655 was excluded and its Subjects-only update remains pending; content changes, missing R definitions and Core/Project Configuration relocation also remain pending.
 
 Candidate update — 2026-10-18: the structure/rule decisions below supersede the earlier Object partition and proposed separate Node/Relation Definition Types. This update changes this candidate only. Earlier execution records remain historical evidence; they do not prove that these new decisions are applied.
 
-Candidate update — 2026-10-19: the latest Operator decision places Node, Relation, Graph Rule and Carrier directly under Entity. Node has Continuant and Occurrent branches. Node is the logical abstraction; Carrier is its physical storage representation. Graph Rule governs the graph model, not every instruction in RMED. This small migration is now first in CA-P-1959; the candidate update is not a claim that source Subjects or definitions have already migrated.
+Candidate update — 2026-10-19: the latest Operator decision places Node, Relation, Graph Rule and Carrier directly under Entity. Node has Continuant and Occurrent branches. Node is the logical abstraction; Carrier is its physical storage representation. Graph Rule governs the graph model, not every instruction in RMED. At this update, the small migration was first in CA-P-1959; it did not claim that source Subjects or definitions had already migrated. The later 746-owner batch status is recorded below.
+
+Candidate update — 2026-10-19: the Operator clarified that Artifact is a Term whose meaning is a Node instance delivered or represented through one or more Carrier instances. The 746-owner supported Subject batch is complete; CA-R-655 was excluded pending this clarification. Its Subject-only mapping is now recorded below, but has not yet been applied. See the [decision and batch record](../../../../.caprmedio_tmp/candidate6-artifact-term-20261019/candidate/decision.md) and the [746-owner readback](../../../../.caprmedio_tmp/candidate6-small-structure-20261019/review/post-publication-readback.md).
 
 ## Decision
 
@@ -128,6 +130,8 @@ Approved mapping: `AI Agent Delegation` → `Entity/Node/Continuant/Actor/Type: 
 37. **Machine-readable Substance where useful:** an Atom Type can define structured Substance for formal conditions, including relation endpoint kinds, permissions and cardinality. That structured content is authoritative; readable wording is derived from it, not a second independently maintained Claim. Keep it simple and readable; do not add a general-purpose rule language. The exact schema, carrier, defaults, whitelist closure, blacklist precedence and inheritance semantics need definition before implementation. This decision does not make every RMED Atom structured or authorize a new storage field.
 
 38. **Small structure migration first:** put Continuant and Occurrent under Node, retain Relation/Graph Rule/Carrier at Entity's first level, and keep the logical Node distinct from its physical Carrier. A live occurrence is not the persistent record describing it. Other rules—such as how to write code—remain RMED Atom content, optionally compiled into Projections and used by O Workflows. Keep `R/Type: Rule` distinct from the Graph Rule branch; do not globally replace the word Rule. Apply only supported, boundary-aware Subject changes, plus any explicitly necessary direct structural definition alignment, before resuming the older unfinished phases. Broader content migration remains separate. This decision changes no source Atom merely by being recorded here.
+
+39. **Artifact is a Term:** Artifact names the meaning that a Node instance is delivered or represented through one or more Carrier instances. Artifact is not a separate Entity branch, and this does not add an authoritative definition-Atom layer or new Carrier restrictions. Keep a live Occurrent distinct from any persistent record describing it. For CA-R-655, the Subjects-only change is `governs: Entity/Continuant/Node/Atom` → `Entity/Node/Continuant/Atom` and `depends_on: Entity/Continuant/Node` → `Entity/Node`. Its existing Claim, any old `governedArtifact` wording and other content remain for the later content migration. These Subject changes are approved by the clarified meaning but have not yet been applied.
 
 These decisions supersede the review proposals to create cross-owner property Selections or an `Object/Implementation` branch. They resolve group policy, not every per-Atom mapping. Earlier mapping files retain their captured paths until explicitly regenerated for this updated candidate.
 
@@ -297,7 +301,7 @@ Start with Applicable Methodology: CA-O-011, its Steps CA-O-152–CA-O-157, and 
 
 ### 2. Put the boundary into authoritative Core Atoms
 
-- [ ] First apply the accepted small Node / Relation / Graph Rule / Carrier migration and Node's Continuant/Occurrent structure; review the directly affected definitions before adding replacements. Do not duplicate ordinary RMED instructions under Graph Rule.
+- [x] Apply the supported, boundary-aware Subjects-only Node / Relation / Graph Rule / Carrier migration and Node's Continuant/Occurrent structure to 746 Atoms; the exact post-publication readback passed. CA-R-655 was excluded from that batch and is not yet updated. Once its separately approved Subjects-only update is applied, nine whole-owner holds remain: CA-O-159, CA-O-160, CA-R-850, CA-E-441, CA-E-446, CA-E-473, CA-M-120, CA-M-271 and CA-R-1964. Directly affected definition/content work remains separate. Do not duplicate ordinary RMED instructions under Graph Rule.
 - [ ] Define R Types Definition and Rule, including Property definitions, and reconcile affected existing Types without blanket retirement.
 - [ ] Define the candidate Subject qualification for Relation entries and a minimal machine-readable Substance schema before implementing it. Resolve only the remaining concrete default, inheritance and whitelist questions required by that schema.
 - [ ] Keep structure declarations separate from constraints; derive readable Rule wording from the same structured Substance where that format is adopted.
@@ -354,4 +358,4 @@ Saving this plan alone does not meet that condition.
 - [Current unmapped Subject review](../candidate5-migration/next-migration/subject-review.md).
 - [Current source-derived tree](../../core-subject-notation/after-current/inherency.md).
 
-This candidate now records the latest Node / Relation / Graph Rule / Carrier organization and its abstraction-versus-storage boundary. Applying this small structure migration is the next work, before resuming the older unfinished phases. No blanket content migration, automatic retirement, tool redesign, FPF review or release is included.
+This candidate records the latest Node / Relation / Graph Rule / Carrier organization, its abstraction-versus-storage boundary, and Artifact as a Term meaning. The supported 746-owner Subjects-only migration is complete; CA-R-655's approved Subjects-only update remains unapplied, and source content/definition work remains pending. No blanket content migration, automatic retirement, tool redesign, FPF review or release is included.
