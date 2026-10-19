@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-19 13:32:57 +0400
+updated_at: 2026-10-19 15:03:03 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -335,7 +335,6 @@ sources:
 - CA-M-294@6
 - CA-M-295@11
 - CA-M-297@7
-- CA-M-298@6
 - CA-M-299@6
 - CA-M-301@8
 - CA-M-303@6
@@ -520,7 +519,6 @@ sources:
 - CA-R-1430@10
 - CA-R-1431@12
 - CA-R-1432@13
-- CA-R-1434@10
 - CA-R-1435@9
 - CA-R-1436@9
 - CA-R-1437@8
@@ -663,7 +661,6 @@ sources:
 - CA-R-1643@26
 - CA-R-1644@21
 - CA-R-1646@21
-- CA-R-1647@18
 - CA-R-1648@20
 - CA-R-1649@21
 - CA-R-1650@19
@@ -739,7 +736,6 @@ sources:
 - CA-R-1730@23
 - CA-R-1731@20
 - CA-R-1732@15
-- CA-R-1733@19
 - CA-R-1734@15
 - CA-R-1735@15
 - CA-R-1736@19
@@ -935,7 +931,6 @@ AI Agent Delegation
 Agentic Action Instruction
 Agentic Step Execution Context
 Applicable Methodology Revision
-Applicable Methodology Source Set
 Approved Change Reversal
 	/ Approved Change Reversal/Outcomes
 Artifact

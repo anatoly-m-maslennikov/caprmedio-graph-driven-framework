@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-19 13:32:58 +0400
+updated_at: 2026-10-19 15:03:03 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2
@@ -54,6 +54,7 @@ sources:
 - CA-M-225@20
 - CA-M-277@14
 - CA-M-278@12
+- CA-M-298@7
 - CA-M-300@5
 - CA-M-345@1
 - CA-O-004@8
@@ -179,6 +180,7 @@ sources:
 - CA-R-1355@9
 - CA-R-1356@10
 - CA-R-1373@14
+- CA-R-1434@11
 - CA-R-1514@6
 - CA-R-1515@5
 - CA-R-1517@4
@@ -200,6 +202,7 @@ sources:
 - CA-R-1641@17
 - CA-R-1642@20
 - CA-R-1645@21
+- CA-R-1647@19
 - CA-R-1651@20
 - CA-R-1662@27
 - CA-R-1663@24

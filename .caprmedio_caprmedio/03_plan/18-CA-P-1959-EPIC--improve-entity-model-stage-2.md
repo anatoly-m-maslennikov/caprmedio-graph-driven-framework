@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 99
-updated_at: "2026-10-19 14:23:51 +0400"
+version: 102
+updated_at: "2026-10-19 15:22:17 +0400"
 relations: {}
 ---
 # Summary
@@ -30,6 +30,28 @@ Complete the accepted entity model through the Subject map and migration, the mi
 ### Apply Candidate #6 — revised order, 2026-10-18
 
 Target: [Candidate #6](../_projection/core-entity-review/presentation/operator.model.candidate-6.plan.md). This order supersedes older definition-first sequences. Updating this Epic records work; it does not execute or authorize the migration, runtime changes or release. The earlier 79 accepted operations remain completed. This Epic stays Active; child statuses do not cascade.
+
+#### First upcoming work — small graph-structure migration, 2026-10-19
+
+The latest Operator decision takes priority over the earlier candidate paths and remaining sequence. Complete this bounded migration before continuing the unfinished phases below; earlier results remain historical facts, not replay instructions.
+
+```text
+Entity
+	Node
+		Continuant
+		Occurrent
+	Relation
+	Graph Rule
+	Carrier
+```
+
+- [ ] Update Candidate #6 and the exact Subject map to this structure. Node is the logical abstraction; Carrier is the actual physical representation in files, directories or database storage. Continuant/Occurrent qualify Nodes, not a second copy of their Carriers. Keep occurrence distinct from its persistent record.
+- [ ] Keep Graph Rule specific to the graph model: structural conditions, allowed relations/endpoints, cardinality and properties. Other rules remain RMED Atom content, optionally compiled into Projections and used by O Workflows. An R Atom can express a Graph Rule without creating another authoritative instance or file; do not reclassify every `/Type: Rule` or every Method as Graph Rule.
+- [ ] Check the directly affected structural R definitions and grammar before applying the map. Align only the accepted structural delta needed here; preserve Summary/identity rules and exact predecessors. Report missing definitions or ambiguous meanings instead of inventing them. Ordinary content migration remains CA-P-1970.
+- [ ] Preview and apply supported, boundary-aware Subjects-only prefix changes through existing batch Workflows, excluding C/A migration, drafts, archives and derived copies. Preserve all ordinary bodies, Summaries, Types, Statuses and unrelated metadata; update Version/time and archive exact predecessors through the existing machinery. Keep unresolved aliases/uses explicit, with no blanket replacement of the word Rule. Scope any additional source regions explicitly before expanding the batch.
+- [ ] Rebuild the actual current-source Entities projections without hiding unmapped Subjects, verify the expected paths/Carrier boundary and inherited properties, then record actual effects and holds. Do not substitute a candidate tree for a source-derived result.
+
+Then resume the remaining Core/Project separation, the reviewed Luna 20-R pilot and later R-Type migration, missing definitions/rules and remainder review. O159/O160 and the six current content/applicability holds remain untouched unless their specific issue is resolved. Keep this Epic Active; do not cascade child Statuses. This Plan update records the order and accepted boundary; it does not claim any of these migrations have already run.
 
 #### Phase 1 — migrate Subjects first
 
@@ -114,6 +136,28 @@ Exactly seven existing source-binding rows were refreshed from the new paths, Ve
 Current-source Entities projections retain IDs CA-PROJ-002 and CA-PROJ-003: 908 Core sources and 231 Project Configuration sources. The C290 missing-Subjects diagnostic and unresolved roots remain visible. Receipt: `.caprmedio_tmp/atom-move-20261018/graph/report.json`. No fully reconciled graph is claimed.
 
 Phase 2 and the Epic remain open. O159/O160 heading holds and the 20 mixed/content holds are unchanged. Later R typing, missing definitions and remainder review remain unfinished; ordinary content migration belongs to CA-P-1970. The Epic stays Active; no child statuses cascade, and no ordinary source content is rewritten by this checkpoint.
+
+#### Placement-hold review and read-only R classification pilot — 2026-10-19
+
+All 20 earlier mixed/content placement holds were reviewed in parallel and reconciled against independent review: ten keep their existing Core placement, three project-specific Atoms moved unchanged to Project Configuration, and seven remain explicit content/applicability/retirement holds. Generic extension points, serialization conventions and illustrative fixtures are not Project Configuration choices merely because they mention Project or Settings. The reconciled keeps are CA-D-262, CA-D-346, CA-D-347, CA-D-380, CA-D-559, CA-E-447, CA-E-449, CA-E-499, CA-E-522 and CA-M-114. Detailed review: .caprmedio_caprmedio/_projection/core-entity-review/presentation/candidate6-placement-and-r-type-pilot-20261019.md. Core and Project Configuration Entities views were rebuilt from actual sources, preserving CA-PROJ-002/003 and their selections: 905 Core and 234 Project sources. C290's missing-Subjects diagnostic and unmapped roots remain visible; no fully reconciled graph is claimed.
+
+The Operator-requested Luna pilot classified 20 current source Requirements, ten Core and ten Project Configuration: eight proposed Definition, eleven Rule and one provisional mixed. Independent review verified all twenty unique source IDs, Versions, SHA-256 values, evidence lines and headers. All twenty omit an explicit Type: currentType=null is separate from content_role=Requirement. R1483 remains the genuine constitutive-definition versus independent-rule ambiguity and cannot automatically trigger a split or retyping. R1213 and R1645 retain explicit interpretation/content notes. The pilot is review-only; no Type, identity, Substance or Status changed.
+
+Actual completed native moves: CA-R-1434 Version 10 → 11; CA-M-298 Version 6 → 7; CA-R-1647 Version 18 → 19. Their readbacks record 9 completed terminal receipts, unchanged bodies and only allowed move metadata changes.
+
+Evidence: `.caprmedio_tmp/candidate6-next-20261019/epic-progress/final-result.json`; `.caprmedio_caprmedio/_projection/core-entity-review/presentation/candidate6-placement-and-r-type-pilot-20261019.md`; `.caprmedio_tmp/candidate6-next-20261019/review-integration/placement.md`; `.caprmedio_tmp/candidate6-next-20261019/review-integration/r-pilot.md`; `.caprmedio_tmp/candidate6-next-20261019/placement-adjudication.md`; `.caprmedio_tmp/candidate6-next-20261019/r-pilot/rows.tsv`; `.caprmedio_tmp/candidate6-next-20261019/r-pilot-review.md`; `.caprmedio_tmp/candidate6-next-20261019/review-integration/move-readbacks/audit.md`; `.caprmedio_tmp/candidate6-next-20261019/move-preparation/runner-output/disposition.md`; `.caprmedio_tmp/candidate6-next-20261019/move-preparation/runner-connected-002/progress.json`; `.caprmedio_tmp/atom-move-20261018/graph/report.json`; `.caprmedio_tmp/candidate6-next-20261019/review-integration/move-readbacks/CA-R-1434.json`; `.caprmedio_tmp/candidate6-next-20261019/review-integration/move-readbacks/CA-M-298.json`; `.caprmedio_tmp/candidate6-next-20261019/review-integration/move-readbacks/CA-R-1647.json`.
+
+Phase 2 remains open for CA-R-850, CA-R-1733, CA-E-441, CA-E-446, CA-E-473, CA-M-120 and CA-M-271, plus the separately deferred O159/O160 heading cases. R1733 archival has been asked as a specific Operator disposition and has not run. Phase 3 scale-up, Type admission/retyping, Phase 4 missing definitions/rules and Phase 5 remainder retirement are still unfinished. The initial host-client attempt stopped before MCP initialization or any tool call because of the sandbox connection boundary; its stopped evidence was preserved. A separately prepared outside-sandbox connected attempt completed the three independent moves, without replaying an accepted effect. The native move audit verified exact predecessors, unchanged bodies, only allowed metadata changes, unique current originals and nine real completed Run/Journal receipts. No MCP rebuild, release or test-suite run was needed or performed for these source-only effects.
+
+This checkpoint records review and actual source-operation results only; it claims no additional release or test-suite result. R Type retyping was not performed. O159/O160 are unchanged. Phases 2–5 are not automatically complete; the Epic remains Active and no child statuses cascade. Ordinary content migration remains separate under CA-P-1970. Earlier checkpoints retain their historical results.
+
+#### R1733 archival — Operator decision applied, 2026-10-19
+
+The Operator approved “Archive R1733; preserve its history.” The existing status Workflow completed CA-R-1733 Active v19 → Archived v20, with exact v19 bytes retained. Body, Summary, Subjects, relations, identity and ownership were preserved; only Status, Version and Updated At changed. No replacement was created. All three Workflow/Step/Action terminal outcomes have matching Journal records. Readback: `.caprmedio_tmp/candidate6-r1733-archive-20261019/readback.json`; Run: `candidate6-activation-001-0ccb352c3d337765`.
+
+This resolves the prior R1733 hold without rewriting the earlier checkpoint. The six other content/applicability holds are CA-R-850, CA-E-441, CA-E-446, CA-E-473, CA-M-120 and CA-M-271; CA-O-159/160 remain separately deferred. The native diagnostic reports R1733's two historical outgoing parent links only; no active inbound source dependency was found, and no relation repair was performed.
+
+The current-source Entities views were refreshed after archival; existing diagnostics and unmapped Subjects remain visible. Phases 2–5 remain open. No R Type/content migration, replacement, runtime rebuild, release or new full-suite result is claimed. The Epic remains Active and child statuses do not cascade. General content migration remains CA-P-1970. Detail: `.caprmedio_caprmedio/_projection/core-entity-review/presentation/candidate6-r1733-retirement-20261019.md`.
 
 #### Phase 3 — classify and retype source R Atoms
 

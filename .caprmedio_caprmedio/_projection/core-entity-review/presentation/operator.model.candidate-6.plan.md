@@ -4,6 +4,8 @@ Status: reconciled candidate and implementation plan, partially applied. On 2026
 
 Candidate update — 2026-10-18: the structure/rule decisions below supersede the earlier Object partition and proposed separate Node/Relation Definition Types. This update changes this candidate only. Earlier execution records remain historical evidence; they do not prove that these new decisions are applied.
 
+Candidate update — 2026-10-19: the latest Operator decision places Node, Relation, Graph Rule and Carrier directly under Entity. Node has Continuant and Occurrent branches. Node is the logical abstraction; Carrier is its physical storage representation. Graph Rule governs the graph model, not every instruction in RMED. This small migration is now first in CA-P-1959; the candidate update is not a claim that source Subjects or definitions have already migrated.
+
 ## Decision
 
 Core Meta-model defines what a Workflow, Step or Action is.
@@ -35,29 +37,29 @@ Definitions are not executions. Workflow, Step and Action definitions are Contin
 - Project Configuration rules are not current Settings values. Do not duplicate Settings in configuration Atoms.
 - Only project-independent rules stay in Core. Applicable Methodology rules belong in Project Configuration, including rules that are general within that project-specific mechanism. Mixed Atoms need separation; do not invent broader Core rules merely to keep them there.
 - A Subject describing a general kind and a Subject selecting one named instance are not interchangeable. Preserve instance applicability when migrating.
-- Entity remains the single root. The current candidate separates Node, Relation and Rule under Continuant; this supersedes Candidate #5's Object partition. Occurrent and Carrier remain separate branches.
+- Entity remains the single root. Its direct branches are Node, Relation, Graph Rule and Carrier. Node has Continuant and Occurrent branches. This supersedes the earlier placement of Node/Relation/Rule under Continuant and Occurrent directly under Entity; it does not change old execution records.
 
 Generic operation Subjects:
 
 ```text
-Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow
-Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step
-Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action
+Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow
+Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step
+Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action
 ```
 
 Run Subjects:
 
 ```text
-Entity/Occurrent/Execution/Workflow Run
-Entity/Occurrent/Execution/Step Run
-Entity/Occurrent/Execution/Action Run
+Entity/Node/Occurrent/Execution/Workflow Run
+Entity/Node/Occurrent/Execution/Step Run
+Entity/Node/Occurrent/Execution/Action Run
 ```
 
-Separately approved: `Atom/Revision` → `Entity/Continuant/Node/History/Revision` in the updated candidate. Revision remains under History, not Atom. Longer old Revision paths still need their own mapping decisions.
+Separately approved: `Atom/Revision` → `Entity/Node/Continuant/History/Revision` in the updated candidate. Revision remains under History, not Atom. Longer old Revision paths still need their own mapping decisions.
 
-Approved mapping: `AI Agent Confidence` → `Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Confidence`. Confidence belongs to Agentic Step, not to Execution generally.
+Approved mapping: `AI Agent Confidence` → `Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Confidence`. Confidence belongs to Agentic Step, not to Execution generally.
 
-Approved mapping: `AI Agent Delegation` → `Entity/Continuant/Node/Actor/Type: AI Agent.Permissions`. Keep the permission limits and granting Operator; do not create a separate Delegation entity. This mapping is recorded for migration, not yet applied.
+Approved mapping: `AI Agent Delegation` → `Entity/Node/Continuant/Actor/Type: AI Agent.Permissions`. Keep the permission limits and granting Operator; do not create a separate Delegation entity. This mapping is recorded for migration, not yet applied.
 
 ## Approved group decisions
 
@@ -71,7 +73,7 @@ Approved mapping: `AI Agent Delegation` → `Entity/Continuant/Node/Actor/Type: 
 8. **Confidence Threshold precedence:** Settings supplies the default; a Plan can override it; a direct Operator prompt can override it for the Plan. Highest priority is direct prompt, then Plan, then Settings. Do not add another precedence layer or retain the old Hub-chain requirement as an extra layer. This is the threshold, not the Step's actual Confidence.
 9. **Remove Activity:** the separate `Activity: Active | Inactive` classification is not needed. Retire that concept and its dedicated rules; remap uses to the appropriate Status only where meanings match. Do not equate every non-Active Status with one invented Inactive Status or delete valid Status rules.
 10. **Methodology sources are Scope Units:** Core Meta-model, Extensions and Project Configuration use their existing Scope Units. Their Atoms belong there. Do not add another Methodology Source Object or named Selection just to represent these collections. Preserve the particular Scope Unit identity when mapping references; general meanings still belong in Terms.
-11. **Framework Instance uses existing entities:** map `CAPRMEDIO Framework Instance` primarily to Project, and to the appropriate Execution where the source means an actual run. Do not add a separate Framework Instance entity. Resolve these uses per Atom rather than making one blanket replacement. The new canonical candidate path is `Entity/Continuant/Node/Project`, superseding both Candidate #5's `Object/Project` and this plan's earlier direct `Continuant/Project` placement; source paths remain unchanged until migration.
+11. **Framework Instance uses existing entities:** map `CAPRMEDIO Framework Instance` primarily to Project, and to the appropriate Execution where the source means an actual run. Do not add a separate Framework Instance entity. Resolve these uses per Atom rather than making one blanket replacement. The new canonical candidate path is `Entity/Node/Continuant/Project`, superseding both Candidate #5's `Object/Project` and this plan's earlier direct `Continuant/Project` placement; source paths remain unchanged until migration.
 
 12. **Execution results belong to History:** records of what happened during any execution, including results, failures and evidence references, belong to History. Journal collects event records but is not mandatory for every historical artifact. Revision preserves earlier state. Authored analysis with rationale/conclusions is an Analysis Atom; compiled views of existing results are Projections. Do not add an Evaluation Report/Proof entity or a new History subtype just for this mapping.
 
@@ -91,9 +93,9 @@ Approved mapping: `AI Agent Delegation` → `Entity/Continuant/Node/Actor/Type: 
 
 20. **Projection scope is RMED only for now:** Plan projections are not needed now. Defer Plan Graph mapping/type admission and implementation; do not resume the deferred CONTAINS graph. This does not retire Plan Atoms or their relations, or authorize archiving their governing rules. Existing source Atoms remain unchanged pending later disposition.
 
-21. **Terms Graph is the newer name:** the terminology Catalog/projection and Terms Graph are the same output, not separate kinds. Map M114's `Terminology Projection Derivation` Subject to `Entity/Continuant/Node/Projection/Type: Terms Graph`, following RMED governs the thing. Its obsolete Definition-Atom requirement is a separate content repair: derive meanings from source Atoms and their Semantics under the already-approved model. Do not add another Catalog type for this output. This decision does not retire the generic Catalog type or change source Atoms now.
+21. **Terms Graph is the newer name:** the terminology Catalog/projection and Terms Graph are the same output, not separate kinds. Map M114's `Terminology Projection Derivation` Subject to `Entity/Node/Continuant/Projection/Type: Terms Graph`, following RMED governs the thing. Its obsolete Definition-Atom requirement is a separate content repair: derive meanings from source Atoms and their Semantics under the already-approved model. Do not add another Catalog type for this output. This decision does not retire the generic Catalog type or change source Atoms now.
 
-22. **Scope Unit hierarchy names:** use `Scope Unit.Path`, `Scope Unit.Parent` and `Scope Unit.Children`. Map the old `Structural Path` Subject to `Entity/Continuant/Node/Scope Unit.Path`. Path is the ordered chain from the root Scope Unit to this Scope Unit, derived from parentage—not a filesystem path, separate primary entity or independently authored ancestry. Parent and Children refer to the corresponding Scope Units in the same hierarchy. Source changes remain migration work.
+22. **Scope Unit hierarchy names:** use `Scope Unit.Path`, `Scope Unit.Parent` and `Scope Unit.Children`. Map the old `Structural Path` Subject to `Entity/Node/Continuant/Scope Unit.Path`. Path is the ordered chain from the root Scope Unit to this Scope Unit, derived from parentage—not a filesystem path, separate primary entity or independently authored ancestry. Parent and Children refer to the corresponding Scope Units in the same hierarchy. Source changes remain migration work.
 
 23. **Install Extensions, then regenerate:** put all Atoms of an Extension into `METHODOLOGY_SOURCES/002_INSTALLED_EXTENSIONS`, preserving the Extension's identity, then regenerate Applicable Methodology. This is the current name recorded by Project Structure. Do not require a separate application-binding Atom, target-Scope selection in Settings, or an additional enabled-extension selection layer. This supersedes the earlier activation-selection proposal. Remove CA-R-1733's mandatory application-binding requirement and align contradictory rules in the later content pass; preserve genuine constraints and provenance. No installation or regeneration is performed by saving this candidate.
 
@@ -115,7 +117,7 @@ Approved mapping: `AI Agent Delegation` → `Entity/Continuant/Node/Actor/Type: 
 
 32. **Structure is not an instance catalogue:** the Entity Graph describes kinds, their properties, allowed values and structural relations. Actual Atoms and other artifacts are instances, not additional kinds. A defining R Atom supplies the definition and provenance; its ID does not automatically become a structural node. Named project instances stay distinct from the structures they use.
 
-33. **Nodes, Relations and Rules:** use the three branches `Entity/Continuant/Node`, `Entity/Continuant/Relation` and `Entity/Continuant/Rule`. A Rule states conditions governing Nodes and Relations. A particular Rule can be represented by an R Atom: Rule describes its meaning; Atom describes its representation. Do not create duplicate instances, IDs or files merely to express these two views. The Rule branch describes Rule structure, not a new kind for every individual Rule.
+33. **Nodes, Relations and Graph Rules:** use `Entity/Node`, `Entity/Relation`, `Entity/Graph Rule` and `Entity/Carrier`. Node is the logical abstraction, with Continuant and Occurrent branches. Graph Rule states conditions governing the graph model, including Nodes, Relations, properties, allowed endpoints and cardinality. A Graph Rule can be expressed by an R Atom without another authoritative instance or file. Ordinary project instructions remain RMED Atom content; they are not automatically Graph Rule instances. Carrier is the actual physical representation in files, directories or database storage, not another copy of the logical Node.
 
 34. **Relation kinds and Relation instances:** a Relation Definition defines a kind such as CONTAINS or IS_BORNE_BY. Each typed connection is a Relation instance, including a structural connection such as `Atom.Status IS_BORNE_BY Atom`. Structural connections belong in the Entity Graph; actual artifact-to-artifact connections belong in the instance graph. A Relation instance does not automatically require its own Atom or file. Relation identity and storage remain undecided.
 
@@ -124,6 +126,8 @@ Approved mapping: `AI Agent Delegation` → `Entity/Continuant/Node/Actor/Type: 
 36. **Subjects for relation definitions and constraints:** defining CONTAINS itself governs `Relation/Type: CONTAINS`. A Rule about an Atom's outgoing CONTAINS connections governs `Atom.Relations/Type: CONTAINS`; a Plan-specific Rule governs `Atom/Content Role: Plan.Relations/Type: CONTAINS`. Here `/Type` qualifies the Relation entries, not the datatype of the Relations property. Use one precise governs target. Other referenced kinds may appear in depends_on, but dependency links do not encode source/target endpoint roles; those roles belong in the Substance. Semantic Relations are not tied to a YAML field named relations; D defines their carrier.
 
 37. **Machine-readable Substance where useful:** an Atom Type can define structured Substance for formal conditions, including relation endpoint kinds, permissions and cardinality. That structured content is authoritative; readable wording is derived from it, not a second independently maintained Claim. Keep it simple and readable; do not add a general-purpose rule language. The exact schema, carrier, defaults, whitelist closure, blacklist precedence and inheritance semantics need definition before implementation. This decision does not make every RMED Atom structured or authorize a new storage field.
+
+38. **Small structure migration first:** put Continuant and Occurrent under Node, retain Relation/Graph Rule/Carrier at Entity's first level, and keep the logical Node distinct from its physical Carrier. A live occurrence is not the persistent record describing it. Other rules—such as how to write code—remain RMED Atom content, optionally compiled into Projections and used by O Workflows. Keep `R/Type: Rule` distinct from the Graph Rule branch; do not globally replace the word Rule. Apply only supported, boundary-aware Subject changes, plus any explicitly necessary direct structural definition alignment, before resuming the older unfinished phases. Broader content migration remains separate. This decision changes no source Atom merely by being recorded here.
 
 These decisions supersede the review proposals to create cross-owner property Selections or an `Object/Implementation` branch. They resolve group policy, not every per-Atom mapping. Earlier mapping files retain their captured paths until explicitly regenerated for this updated candidate.
 
@@ -135,15 +139,8 @@ This section applies the decisions above to Candidate #5. Candidate #5 remains t
 
 ```text
 Entity
-	Occurrent
-		Event
-		Execution
-			Action Run
-			Step Run
-			Workflow Run
-		Session
-	Continuant
-		Node
+	Node
+		Continuant
 			Atom
 			Governing Configuration
 			Scope Unit
@@ -155,8 +152,15 @@ Entity
 			Projection
 			Selection
 			Term
-		Relation
-		Rule
+		Occurrent
+			Event
+			Execution
+				Action Run
+				Step Run
+				Workflow Run
+			Session
+	Relation
+	Graph Rule
 	Carrier
 		File Carrier
 		Directory Carrier
@@ -191,7 +195,7 @@ The example “E IS_EVALUATION_FOR R only” is not yet an exhaustive whitelist:
 
 ### Dependent names and mapping rules
 
-Display paths below omit the full prefix. Node paths now start with `Entity/Continuant/Node`; Relation and Rule are sibling branches. Existing migration records retain their historical paths until explicitly updated.
+Display paths below omit the full prefix. Logical Node paths start with `Entity/Node/Continuant` or `Entity/Node/Occurrent`; Relation, Graph Rule and Carrier are sibling branches of Node under Entity. Existing migration records retain their captured historical paths until a new migration is actually applied.
 
 | Governed thing | Candidate meaning |
 | --- | --- |
@@ -293,7 +297,7 @@ Start with Applicable Methodology: CA-O-011, its Steps CA-O-152–CA-O-157, and 
 
 ### 2. Put the boundary into authoritative Core Atoms
 
-- [ ] Define the Node / Relation / Rule structure and the structure-versus-instance distinction in Core; review existing definitions before adding replacements.
+- [ ] First apply the accepted small Node / Relation / Graph Rule / Carrier migration and Node's Continuant/Occurrent structure; review the directly affected definitions before adding replacements. Do not duplicate ordinary RMED instructions under Graph Rule.
 - [ ] Define R Types Definition and Rule, including Property definitions, and reconcile affected existing Types without blanket retirement.
 - [ ] Define the candidate Subject qualification for Relation entries and a minimal machine-readable Substance schema before implementing it. Resolve only the remaining concrete default, inheritance and whitelist questions required by that schema.
 - [ ] Keep structure declarations separate from constraints; derive readable Rule wording from the same structured Substance where that format is adopted.
@@ -350,4 +354,4 @@ Saving this plan alone does not meet that condition.
 - [Current unmapped Subject review](../candidate5-migration/next-migration/subject-review.md).
 - [Current source-derived tree](../../core-subject-notation/after-current/inherency.md).
 
-This candidate update adds the Rule branch and reorganizes Continuant branches, but does not apply them to active sources. No blanket content migration, automatic retirement, tool redesign, FPF review or release is included.
+This candidate now records the latest Node / Relation / Graph Rule / Carrier organization and its abstraction-versus-storage boundary. Applying this small structure migration is the next work, before resuming the older unfinished phases. No blanket content migration, automatic retirement, tool redesign, FPF review or release is included.
