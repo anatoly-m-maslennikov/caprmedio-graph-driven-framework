@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-20 00:11:52 +0400
+updated_at: 2026-10-20 00:26:59 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -224,7 +224,7 @@ sources:
 - CA-D-634@6
 - CA-D-635@5
 - CA-D-636@3
-- CA-D-637@1
+- CA-D-637@2
 - CA-E-207@16
 - CA-E-240@33
 - CA-E-241@25
@@ -352,7 +352,7 @@ sources:
 - CA-M-314@7
 - CA-M-315@7
 - CA-M-385@5
-- CA-M-394@1
+- CA-M-394@2
 - CA-O-159@3
 - CA-O-160@3
 - CA-R-1014@21
@@ -837,11 +837,12 @@ sources:
 - CA-R-1993@3
 - CA-R-1994@1
 - CA-R-1995@2
-- CA-R-1996@1
+- CA-R-1996@2
 - CA-R-1997@1
 - CA-R-1998@1
 - CA-R-1999@1
 - CA-R-2000@1
+- CA-R-2001@1
 - CA-R-366@24
 - CA-R-380@27
 - CA-R-626@28
@@ -1149,6 +1150,7 @@ Entity
 				/ Entity/Node/Continuant/Atom/Content Role: Requirement
 					/ Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Demand
 					/ Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal
+					/ Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Graph Rule
 					/ Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Rule
 				/ Entity/Node/Continuant/Atom/Type
 			/ Entity/Node/Continuant/Governing Configuration

@@ -160,7 +160,7 @@ The authoritative model contracts are now R1996 Type, R1997 Applies To, R1998 Co
 
 45. **Separate Relation definitions, Graph Rules and inverse views:** retain descriptive Relation Type metadata: name, meaning, declared direct direction, inverse and other descriptive semantics. Endpoint permissions, allowed contexts, cardinality and other restrictions belong in Graph Rules, not in the Relation Type definition. A projection can combine these sources without duplicating their authority. Store only the direct authoritative relation; derive its inverse. For containment, IS_CONTAINED_BY goes from child to parent; CONTAINS is the derived parent-to-child view. An authored Task membership belongs to the Task, not to the Epic's inverse list. Adding, removing or reassigning a Task does not edit the Epic's own carrier or create a new Epic Version. An actual Epic-content edit still increments its Version. When canonical Carrier nesting already supplies the fact, do not add a second independent declaration of that same fact. The deferred construction graph is not resumed by this decision.
 
-46. **Specific Graph Rule Type, no generic Subtype:** the accepted target is `R/Type: Graph Rule`, with one operative `graph_rule_type` such as whitelist or cardinality. Do not introduce a generic Subtype property. R2000's generic Rule definition is not silently renamed into another identity; the specific Type definition and D637 key alignment remain separate source work. The current published D637 still uses operative `type`; this candidate's refined key is not evidence of completed source/runtime admission.
+46. **Specific Graph Rule Type, no generic Subtype:** use `R/Type: Graph Rule`, with one operative `graph_rule_type` such as whitelist or cardinality. Do not introduce a generic Subtype property. Fresh CA-R-2001 v1 defines the specific Requirement Type; R2000's generic Rule definition remains unchanged. D637 v2 carries the operative discriminator as graph_rule_type in the fenced body, distinct from the containing Atom's frontmatter `type: Graph Rule`; M394 v2 aligns authoring. Ordinary defining R contracts remain untyped prose carriers and are not formal Rule instances merely because their Subjects name Graph Rule structure. This source alignment does not implement runtime Type/body admission, retype current Atoms or add an evaluator.
 
 47. **Model structure and its structural instances:** the Entity Graph includes Node and Carrier structure, Relation kinds and structural connections, and Graph Rule structure and the particular constraints governing that structure. A connection such as Atom.Status IS_BORNE_BY Atom or a Plan containment-cardinality rule belongs in this model view. Actual project Node and Carrier instances are not thereby added to the structural tree. Definitions and rules remain supplied by their source Atoms, not a duplicate source layer.
 
@@ -212,7 +212,7 @@ This is the candidate backbone, not an exhaustive list of admitted Types or a cu
 | Rule | Conditions, permissions, prohibitions and constraints on those structures |
 | Graph Rule | The specific formal constraint on graph structure; operative form selected by graph_rule_type |
 
-These are R Atom Types, not another authority layer. Defining Graph Rule structure uses Definition; stating a particular formal graph constraint uses Graph Rule. Generic Rule remains separate for other constraints. The specific Graph Rule Type admission is pending.
+These are R Atom Types, not another authority layer. Defining Graph Rule structure uses Definition; stating a particular formal graph constraint uses Graph Rule. Generic Rule remains separate for other constraints. R2001 defines the specific Graph Rule Type; its runtime admission remains pending.
 
 Short Subjects below omit the full prefix:
 
@@ -223,7 +223,7 @@ Short Subjects below omit the full prefix:
 | Constrain Atom containment | Graph Rule | `Atom.Relations/Type: IS_CONTAINED_BY` |
 | Constrain Plan containment | Graph Rule | `Atom/Content Role: Plan.Relations/Type: IS_CONTAINED_BY` |
 
-For example, a Rule's structured Substance can identify outgoing direction, allowed source kinds and allowed target kinds. D637 now declares the initial whitelist payload and Summary-plus-YAML carrier; parser/validator support and other Type schemas remain pending. Derive the readable Summary from the operative YAML; do not maintain a second prose condition. R2000 supplies the Rule Type definition, not a completed runtime Type rollout or retyping of existing Atoms.
+For example, a Rule's structured Substance can identify outgoing direction, allowed source kinds and allowed target kinds. D637 now declares the initial whitelist payload and Summary-plus-YAML carrier; parser/validator support and other Type schemas remain pending. Derive the readable Summary from the operative YAML; do not maintain a second prose condition. R2000 supplies the generic Rule Type definition; R2001 supplies the specific Graph Rule Type. Neither proves completed runtime admission or retyping of existing Atoms.
 
 #### Graph Rule properties
 
@@ -235,7 +235,7 @@ Entity/Graph Rule
 	.Default Value (optional)
 ```
 
-R1996–R1999 define these properties. The accepted target block uses `graph_rule_type`, `applies_to`, `condition` and optional `default_value`; D637 currently uses the older `type` key and still needs alignment with decision 46. The selected Graph Rule Type has its own schema; do not invent missing fields or encode free-form prose as an allegedly formal condition. The underlying Atom ID, Status and Version are not duplicated as a second Rule identity.
+R1996–R1999 define these properties. D637 v2 carries the operative block as `graph_rule_type`, `applies_to`, `condition` and optional `default_value`. These fields belong in the fenced body, not in the Atom's frontmatter. The selected Graph Rule Type has its own schema; do not invent missing fields or encode free-form prose as an allegedly formal condition. The underlying Atom ID, Status and Version are not duplicated as a second Rule identity.
 
 Containment permissions concern both endpoints. In the direct IS_CONTAINED_BY direction these include Scope Unit → Scope Unit, Atom → Scope Unit and Atom → a permitted containing Atom. An Atom without containment permission cannot be the containing endpoint; permission does not require children. Role/Type rules refine this, such as Plan → Plan, Step → Workflow and Step → Step. Container Atom remains an Atom. Keep these constraints separate from the relation definition. CONTAINS is only the derived reverse view; its construction graph implementation stays deferred.
 

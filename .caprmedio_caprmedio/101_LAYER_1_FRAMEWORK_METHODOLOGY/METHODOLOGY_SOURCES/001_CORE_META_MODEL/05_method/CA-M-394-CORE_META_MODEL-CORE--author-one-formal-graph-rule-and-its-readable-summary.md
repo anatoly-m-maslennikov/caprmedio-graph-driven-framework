@@ -17,8 +17,8 @@ subjects:
   - Entity/Node/Continuant/Atom.Substance
   - Entity/Node/Continuant/Atom.Summary
 relations: {}
-version: 1
-updated_at: "2026-10-19 21:57:27 +0400"
+version: 2
+updated_at: "2026-10-20 00:26:15 +0400"
 ---
 # Summary
 
@@ -34,7 +34,7 @@ to author a Graph Rule, the Author **must** express one independently replaceabl
 
 ## Details
 
-- use R/Type: Rule for the containing Atom; its Atom Type is distinct from the Graph Rule Type inside the operative YAML. Model Definition contracts are not Graph Rule instances merely because they describe the model.
+- use R/Type: Graph Rule for the containing Atom; its Requirement Type is distinct from graph_rule_type inside the operative YAML body. Do not add graph_rule_type to the Atom's frontmatter or introduce a generic Subtype. Model Definition contracts are not Graph Rule instances merely because they describe the model.
 - carry all operative applicability and constraints in the structured rule; Summary is not another authoritative statement. Do not create duplicate prose Scope, Claim, Details or Semantics sections for a formal Graph Rule. The structured Substance remains the Atom's one Claim in meaning; only its representation differs.
 - select the registered schema for the one Graph Rule Type. Use declared fields, typed values, Subject references and formal constraints, not free-form prose pretending to be a machine-readable condition. A YAML document alone does not supply missing semantics.
 - split independently replaceable rules, including rules requiring different Graph Rule Types, into separate Atoms. Do not create a list of Type values in one rule.

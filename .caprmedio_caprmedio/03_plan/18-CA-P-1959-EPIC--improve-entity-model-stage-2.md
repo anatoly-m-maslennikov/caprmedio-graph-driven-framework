@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 109
-updated_at: "2026-10-20 00:12:44 +0400"
+version: 110
+updated_at: "2026-10-20 00:28:22 +0400"
 relations: {}
 ---
 # Summary
@@ -116,7 +116,8 @@ The Operator approved the following model and requested this Epic update before 
 - [x] Record the Version consequence: changing only a child's membership or content does not change the parent's own carrier or Version. A Task's addition, removal or reassignment changes that Task; the Epic's derived child view changes without editing the Epic. Updating the Epic's own content still increments its Version.
 - [x] Align the directly affected Core Relation metadata, containment and Delivery contracts with these decisions; preserve retained meanings and actual exact predecessors. Keep existing constraints explicit while separating their authority, without inventing new permissions, defaults or rule schemas.
 - [x] Update Candidate #6 and review runtime/fixture consumers of containment direction. Record required implementation work separately; do not claim a runtime migration or execute the deferred construction graph from source edits alone.
-- [ ] Carry forward the accepted Graph Rule naming refinement: use the specific Requirement Type `Graph Rule` and operative YAML key `graph_rule_type`; do not introduce generic Subtypes. Align the affected source contracts and later runtime admission in their own bounded increment.
+- [x] Align the accepted Graph Rule naming in source contracts: specific Requirement Type `Graph Rule`, operative YAML body key `graph_rule_type`, no generic Subtypes; preserve the generic Rule definition separately.
+- [ ] Admit actual formal Graph Rule carriers in the runtime using their carried Requirement Type, the declared Summary-plus-YAML body and only the declared schemas; preserve ordinary layouts and the existing Type-change identity rule.
 
 The Epic stays Active. Ordinary content migration remains CA-P-1970; existing held owners and unfinished phases remain open. No child Status cascade, runtime change, test-suite result or release is implied by this decision record.
 
@@ -129,6 +130,16 @@ Relation Type metadata is now descriptive; endpoint permissions, admissibility r
 IS_CONTAINED_BY is direct from child to parent; CONTAINS is derived and is never independently authored. The Delivery policy records that a child-only change does not write the parent or increment its Version. Existing Carrier-nesting authority is preserved without adding a second declaration of the same fact. Inverse rejection follows the declared direction, not name spelling.
 
 Candidate #6 records the approved separation and the earlier Graph Rule naming refinements as prospective where source/runtime work remains. The current-source Entities views were refreshed with the same Projection IDs and selections. No containment relation entries were added to current source Atoms. The runtime registry does not yet admit the new authored containment key; runtime/consumer alignment and the deferred construction graph were not implemented or run. Specific Requirement Type Graph Rule, operative graph_rule_type, broader R retyping, held owners and the unfinished phases remain open. The Epic stays Active without child Status cascades; ordinary content migration remains CA-P-1970. No full suite, rebuild, release or push was performed.
+
+#### Specific Graph Rule Requirement Type and operative key — 2026-10-20
+
+The bounded source refinement completed through the existing Atom routes. Fresh CA-R-2001 v1 defines the specific Requirement Type Graph Rule; CA-R-2000's generic Rule definition remains unchanged. CA-D-637, CA-M-394 and CA-R-1996 are now v2, with their exact v1 predecessors retained. Their IDs, Summaries, own Content Roles, own Types, Statuses and ownership are unchanged. D637's one dependency now names the specific Graph Rule Type; the other source Subjects remain unchanged.
+
+An actual formal Rule instance has frontmatter `type: Graph Rule`. Its one operative `graph_rule_type` belongs in the fenced YAML body and selects the declared rule form; it is not a frontmatter property, a second Atom Type or a generic Subtype. The ordinary defining R contracts themselves remain untyped prose carriers, not formal Rule instances. The existing whitelist shape is unchanged; no schema, evaluator, default or precedence policy was invented.
+
+All four operations completed once: one creation and three updates, with 22 completed terminal Workflow/Step/Action Run receipts. Source receipts: `.caprmedio_tmp/graph-rule-refinement-20261020/step-1/` through `step-4/`. Candidate #6 and the two current-source Entities views were refreshed with their existing Projection IDs and selections. Existing diagnostics and unmapped Subjects remain visible.
+
+Runtime Type/body admission is the next separate implementation increment. Its discriminator is the actual carried Requirement Type Graph Rule, not a requirement that the governed Subject equal Entity/Graph Rule: a real rule governs the precise structure it constrains. It needs the Summary-plus-one-fenced-YAML body path and only declared schemas; ordinary Requirements must keep their existing layout. No runtime code, actual formal Rule instances, broad R retyping, full suite, rebuild, release or push is included in this source checkpoint. The Epic stays Active, held owners remain open, child Statuses do not cascade, and ordinary content migration stays in CA-P-1970.
 
 #### Phase 1 — migrate Subjects first
 
