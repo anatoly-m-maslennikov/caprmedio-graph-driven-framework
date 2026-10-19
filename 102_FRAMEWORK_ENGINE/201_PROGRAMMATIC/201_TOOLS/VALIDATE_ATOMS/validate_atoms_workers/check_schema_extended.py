@@ -90,6 +90,7 @@ TYPE_CONTRIBUTIONS = {
     "CA-R-1673": ("Requirement", ("Constraint",)),
     "CA-R-925": ("Requirement", ("Goal",)),
     "CA-R-932": ("Requirement", ("Demand",)),
+    "CA-R-2001": ("Requirement", ("Graph Rule",)),
     "CA-R-1667": ("Method", ("Implementation Method",)),
     "CA-R-1668": ("Method", ("Implementation Decision",)),
     "CA-R-1674": ("Method", ("External Implementation Method",)),

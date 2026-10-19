@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 110
-updated_at: "2026-10-20 00:28:22 +0400"
+version: 111
+updated_at: "2026-10-20 01:04:35 +0400"
 relations: {}
 ---
 # Summary
@@ -117,7 +117,7 @@ The Operator approved the following model and requested this Epic update before 
 - [x] Align the directly affected Core Relation metadata, containment and Delivery contracts with these decisions; preserve retained meanings and actual exact predecessors. Keep existing constraints explicit while separating their authority, without inventing new permissions, defaults or rule schemas.
 - [x] Update Candidate #6 and review runtime/fixture consumers of containment direction. Record required implementation work separately; do not claim a runtime migration or execute the deferred construction graph from source edits alone.
 - [x] Align the accepted Graph Rule naming in source contracts: specific Requirement Type `Graph Rule`, operative YAML body key `graph_rule_type`, no generic Subtypes; preserve the generic Rule definition separately.
-- [ ] Admit actual formal Graph Rule carriers in the runtime using their carried Requirement Type, the declared Summary-plus-YAML body and only the declared schemas; preserve ordinary layouts and the existing Type-change identity rule.
+- [x] Admit actual formal Graph Rule carriers in the runtime using their carried Requirement Type, the declared Summary-plus-YAML body and only the declared schemas; preserve ordinary layouts and the existing Type-change identity rule.
 
 The Epic stays Active. Ordinary content migration remains CA-P-1970; existing held owners and unfinished phases remain open. No child Status cascade, runtime change, test-suite result or release is implied by this decision record.
 
@@ -140,6 +140,18 @@ An actual formal Rule instance has frontmatter `type: Graph Rule`. Its one opera
 All four operations completed once: one creation and three updates, with 22 completed terminal Workflow/Step/Action Run receipts. Source receipts: `.caprmedio_tmp/graph-rule-refinement-20261020/step-1/` through `step-4/`. Candidate #6 and the two current-source Entities views were refreshed with their existing Projection IDs and selections. Existing diagnostics and unmapped Subjects remain visible.
 
 Runtime Type/body admission is the next separate implementation increment. Its discriminator is the actual carried Requirement Type Graph Rule, not a requirement that the governed Subject equal Entity/Graph Rule: a real rule governs the precise structure it constrains. It needs the Summary-plus-one-fenced-YAML body path and only declared schemas; ordinary Requirements must keep their existing layout. No runtime code, actual formal Rule instances, broad R retyping, full suite, rebuild, release or push is included in this source checkpoint. The Epic stays Active, held owners remain open, child Statuses do not cascade, and ordinary content migration stays in CA-P-1970.
+
+#### Runtime structural Graph Rule admission — 2026-10-20
+
+The checkout implementation now admits actual Requirement Type Graph Rule carriers through the existing public complete-carrier validation path. It selects this path by the carried Content Role and Type, not by requiring the governed Subject to equal Entity/Graph Rule. Ordinary Requirements and generic Rule body routing retain their existing prose layout. Additional source authority is loaded only for the actual Graph Rule Type; ordinary projects need not install these declarations to validate unrelated Atoms. The existing Type-change identity rule is unchanged.
+
+One pure body module validates Summary plus exactly one fenced YAML block, closed strict field shapes, safe YAML and approved Subject syntax. Whitelist has the declared relation_type and source/target lists. Optional default_value remains opaque data: this increment neither applies it nor evaluates a rule. The five other declared forms remain explicit schema-coverage gaps; no missing schema, endpoint semantics, default, precedence or inheritance evaluator was invented. Existing parser resource safeguards and the host byte ceiling cover direct candidate text before parsing; oversized and unencodable input receive sanitized diagnostics.
+
+Independent review found the missing direct-input byte guard; the correction includes a cheap length check before UTF-8 encoding and exact byte-limit tests. The final validator suite passed 498 tests, including 20 focused Graph Rule cases; 99 lifecycle/create/draft-promotion regressions also passed. New and directly edited small modules/tests pass Ruff; the two existing large proposed-carrier functions retain only their pre-existing complexity diagnostics (one complexity reduced from 41 to 39). The new pure module passed targeted strict typing. No whole-project lint/typecheck pass is claimed.
+
+A hypothetical whitelist carrier governing Entity/Node/Continuant/Atom.Relations passed all 14 public validation outcomes against current project sources, with no findings or gaps and no source Carrier written. Diagnostic evidence: `.caprmedio_tmp/graph-rule-runtime-20261020/real-project/report.json`; final validator output: `.caprmedio_tmp/graph-rule-runtime-20261020/validator-tests.log`.
+
+This is verified checkout implementation, not an installed MCP/release receipt. No formal Rule instance, broad R retyping, source migration, semantic evaluator, deferred construction graph, full release suite, runtime rebuild, release or push was performed. Existing held owners and unfinished phases remain open; the Epic stays Active without child Status cascades. Ordinary content migration remains CA-P-1970.
 
 #### Phase 1 — migrate Subjects first
 

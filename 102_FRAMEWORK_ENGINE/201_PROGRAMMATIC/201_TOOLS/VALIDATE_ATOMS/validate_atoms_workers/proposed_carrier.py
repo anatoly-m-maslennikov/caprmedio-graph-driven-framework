@@ -20,6 +20,7 @@ from .support_authority import support_sources
 from .check_support import Check
 from .check_graph_extended import relations_resolution, plan_resolution
 from .check_schema_extended import TYPE_CONTRIBUTIONS
+from .check_sections import GRAPH_RULE_SOURCES, is_graph_rule
 from .proposed_references import ProposedReferenceError, _container_id, inventory_proposed_references
 from .parsing import CarrierError, parse_carrier
 from .graph_authority_refresh import APPROVED_GRAPH_AUTHORITY_IDS
@@ -38,7 +39,8 @@ _REGISTRY_IDS = (
 _SUPPORT_IDS = (
     "CA-D-494", "CA-D-440", "CA-D-441", "CA-D-442", "CA-R-1308", "CA-R-1313",
     "CA-D-324", "CA-D-466", "CA-D-461",
-    *TYPE_CONTRIBUTIONS, "CA-R-1283", "CA-R-1700", "CA-R-1506",
+    *(identifier for identifier in TYPE_CONTRIBUTIONS if identifier not in GRAPH_RULE_SOURCES),
+    "CA-R-1283", "CA-R-1700", "CA-R-1506",
 )
 _GRAPH_IDS = tuple(sorted(APPROVED_GRAPH_AUTHORITY_IDS))
 _FRONTIER_STATUS_IDS = {
@@ -296,6 +298,26 @@ def _operations_placement(
         raise ProposedCarrierError("Operations containment authority or parent carrier is unavailable") from error
 
 
+def _type_inputs(context: VerifiedSourceContext, metadata: Record) -> Record:
+    """Load only the additional authority required by the actual proposed Type."""
+    if (metadata.get("content_role"), metadata.get("type")) == ("Requirement", "Goal"):
+        identifiers = ("CA-R-924", "CA-R-925", "CA-R-926", "CA-R-947", "CA-R-1392",
+                       "CA-R-1389", "CA-R-1390", "CA-R-1391")
+    elif is_graph_rule(metadata):
+        identifiers = GRAPH_RULE_SOURCES
+    else:
+        return context.inputs
+    report: Record = {"bindings": {}, "coverage": {"gaps": []}}
+    with bind_selection(context._selection):
+        sources = [_source(context.root, identifier, context._reader, report)
+                   for identifier in identifiers]
+    inputs = dict(context.inputs)
+    selected = {item["binding"]["atom_id"] for item in inputs["sources"]}
+    inputs["sources"] = [*inputs["sources"],
+                         *[source for source in sources if source["binding"]["atom_id"] not in selected]]
+    return inputs
+
+
 def validate_proposed_carrier(
     metadata: Record, body: str, verified_source_context: VerifiedSourceContext, relative_path: Path,
     *, allow_existing_relations: bool = False, reference_roles: tuple[str, ...] | None = None,
@@ -372,27 +394,7 @@ def validate_proposed_carrier(
             raise ProposedCarrierError("carrier role is outside the explicit reference scope")
         reference_mapping = {key: value for key, value in mapping.items() if key in reference_roles}
     control = verified_source_context._selection.control_relative
-    carrier_inputs = verified_source_context.inputs
-    if (role, metadata.get("type")) == ("Requirement", "Goal"):
-        report: Record = {"bindings": {}, "coverage": {"gaps": []}}
-        try:
-            with bind_selection(verified_source_context._selection):
-                goal_sources = [
-                    _source(verified_source_context.root, identifier, verified_source_context._reader, report)
-                    for identifier in ("CA-R-924", "CA-R-925", "CA-R-926", "CA-R-947", "CA-R-1392",
-                                       "CA-R-1389", "CA-R-1390", "CA-R-1391")
-                ]
-        except ProposedCarrierError:
-            raise
-        carrier_inputs = dict(verified_source_context.inputs)
-        carrier_inputs["sources"] = [
-            *verified_source_context.inputs["sources"],
-            *[
-                source for source in goal_sources
-                if source["binding"]["atom_id"]
-                not in {item["binding"]["atom_id"] for item in verified_source_context.inputs["sources"]}
-            ],
-        ]
+    carrier_inputs = _type_inputs(verified_source_context, metadata)
     result = validate_carrier(metadata, body, context, carrier_inputs)
     if result["findings"] or result["gaps"] or any(item["outcome"] != "passed" for item in result["outcomes"]):
         raise ProposedCarrierError("complete-carrier validation failed or is unresolved")

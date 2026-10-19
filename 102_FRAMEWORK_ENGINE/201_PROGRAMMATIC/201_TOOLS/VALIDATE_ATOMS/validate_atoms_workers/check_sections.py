@@ -6,9 +6,21 @@ import re
 
 from .authority import Record
 from .check_support import Check, _plan
+from .support_authority import require_sources
+from subject_notation import get_profile
 
 
-# Reviewed CA-D-479@6. The resolver admits these only for its exact source bytes.
+GRAPH_RULE_SOURCES = (
+    "CA-R-2001", "CA-D-637", "CA-R-1996",
+    *(source.atom_id for source in get_profile("approved").grammar_pins),
+)
+
+
+def is_graph_rule(metadata: Record) -> bool:
+    return metadata.get("content_role") == "Requirement" and metadata.get("type") == "Graph Rule"
+
+
+# Ordinary role layouts; formal Graph Rules use the source-bound exception below.
 ROLE_SECTIONS = {
     "Requirement": ("Scope", "Claim", "Details"),
     "Method": ("Scope", "Claim", "Details"),
@@ -29,6 +41,10 @@ def role_sections(metadata: Record, check: Check) -> list[tuple[int, str]] | Non
             "Body layout needs a carried Content Role with a supported section contract.",
         )
         return None
+    if is_graph_rule(metadata):
+        if not require_sources(check, GRAPH_RULE_SOURCES):
+            return None
+        return [(1, "Summary")]
     return [(1, "Summary"), *((2, name) for name in ROLE_SECTIONS[role])]
 
 
@@ -98,6 +114,12 @@ def _section_values(
 
 
 def _body(metadata: Record, body: str, check: Check) -> None:
+    if is_graph_rule(metadata):
+        from .graph_rule_body import validate_graph_rule_body
+
+        if require_sources(check, GRAPH_RULE_SOURCES):
+            validate_graph_rule_body(body, check)
+        return
     required = role_sections(metadata, check)
     if required is not None:
         _sections(body, check, required)

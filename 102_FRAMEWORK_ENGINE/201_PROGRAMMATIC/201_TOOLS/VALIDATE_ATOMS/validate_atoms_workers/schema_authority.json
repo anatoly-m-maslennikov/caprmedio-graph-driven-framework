@@ -111,6 +111,46 @@
       "version": 11,
       "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md"
+    },
+    "CA-R-2001": {
+      "version": 1,
+      "sha256": "ea36b75461efd0422b94f0cdc87f6d4baaba9c32a4ffbbb25a606c696fc9b6b2",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-2001-CORE_META_MODEL-CORE--define-atom-content-role-requirement-type-graph-rule.md"
+    },
+    "CA-D-637": {
+      "version": 2,
+      "sha256": "24a09dfb191da10df2f5952dc381d50d32fa17c039a4783bc8a0feaa2de370b4",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-637-CORE_META_MODEL-CORE--carry-a-formal-graph-rule-as-yaml-with-a-readable-summary.md"
+    },
+    "CA-R-1996": {
+      "version": 2,
+      "sha256": "6fac11a4a473a8643da93980cad8de3db22bcf3c9888ec615602ae76bf0fe3a2",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1996-CORE_META_MODEL-CORE--define-entity-graph-rule-type.md"
+    },
+    "CA-R-1931": {
+      "version": 1,
+      "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md"
+    },
+    "CA-R-1321": {
+      "version": 16,
+      "sha256": "88b6c64ed411516a4e20a49e4356a3d900e3f47501705079dd251d970793f5f6",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md"
+    },
+    "CA-R-1324": {
+      "version": 13,
+      "sha256": "9fa9571ff5f6c6bc0d01c2b7724cd9ed197a4df82b3e66a53d3f0bb56781a866",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md"
+    },
+    "CA-M-228": {
+      "version": 18,
+      "sha256": "9ca9e4fc32d5ea9b3406184b81c8a5a3c82d01be0237302cfe4f342e098a95ee",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md"
+    },
+    "CA-E-383": {
+      "version": 19,
+      "sha256": "0eb072584f801e9f0774670b9fb47b776e427488e937e28e74254e21dace7490",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md"
     }
   }
 }
