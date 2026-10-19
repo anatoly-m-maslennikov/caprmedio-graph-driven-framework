@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-19 03:14:19 +0400
+updated_at: 2026-10-19 04:48:19 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2
@@ -227,7 +227,6 @@ sources:
 - CA-R-1982@2
 - CA-R-1983@2
 - CAPRMEDIO-GOV-EVAL-006@27
-- CAPRMEDIO-R-793@22
 projection_id: CA-PROJ-003
 named_selection: Current Atoms
 source_of_truth:
@@ -294,7 +293,6 @@ Atom
 	/ Atom/Content Role: Delivery
 		/ Atom/Content Role: Delivery/Type
 	/ Atom/Content Role: Evaluation
-		/ Atom/Content Role: Evaluation/Type: Evaluation Approach
 	/ Atom/Content Role: Implementation
 	/ Atom/Content Role: Method
 		/ Atom/Content Role: Method/Type: Implementation Decision

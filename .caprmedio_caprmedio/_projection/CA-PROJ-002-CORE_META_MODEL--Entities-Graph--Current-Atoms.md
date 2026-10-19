@@ -1,7 +1,7 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-19 03:14:17 +0400
+updated_at: 2026-10-19 04:48:18 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -858,6 +858,7 @@ sources:
 - CA-R-728@25
 - CA-R-740@21
 - CA-R-771@19
+- CA-R-793@24
 - CA-R-794@25
 - CA-R-796@22
 - CA-R-806@23
@@ -972,6 +973,7 @@ Atom
 		/ Atom/Content Role: Delivery/Type
 	/ Atom/Content Role: Evaluation
 		/ Atom/Content Role: Evaluation/Type
+		/ Atom/Content Role: Evaluation/Type: Evaluation Approach
 	/ Atom/Content Role: Implementation
 	/ Atom/Content Role: Method
 		/ Atom/Content Role: Method/Type
