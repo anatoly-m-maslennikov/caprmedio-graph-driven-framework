@@ -39,10 +39,14 @@ class RenderEntityTreeTests(unittest.TestCase):
         self.source.write_text(atom(), encoding="utf-8")
         self.snapshot = self.projection / "graph.json"
         self.snapshot.write_text('{"stale": "irrelevant old graph"}', encoding="utf-8")
-        self.output = self.projection / "readable.md"
+        self.output = self.projection / "CA-PROJ-901-CORE--Entities-Graph--Current-Atoms.md"
 
-    def run_cli(self, output=None, source_root=None):
-        command = [sys.executable, "-B", str(SCRIPT), str(source_root or self.source.parent)]
+    def run_cli(self, output=None, source_root=None, *, view="inherency", selection="Current Atoms"):
+        command = [
+            sys.executable, "-B", str(SCRIPT), str(source_root or self.source.parent),
+            "--projection-id", "CA-PROJ-901", "--named-selection", selection,
+            "--scope-name", "CORE", "--view", view,
+        ]
         if output is not None:
             command.extend(["--output", str(output)])
         return subprocess.run(command, cwd=self.root, text=True, capture_output=True, timeout=30)
@@ -66,12 +70,50 @@ class RenderEntityTreeTests(unittest.TestCase):
         self.assertLessEqual(moment, dt.datetime.now(dt.UTC))
         self.assertEqual(dt.timedelta(0), moment.utcoffset())
         self.assertEqual(["CA-R-9001@7"], metadata["sources"])
+        self.assertEqual("CA-PROJ-901", metadata["projection_id"])
+        self.assertEqual("Current Atoms", metadata["named_selection"])
+        self.assertEqual(["sources"], metadata["source_of_truth"])
         self.assertEqual(stdout.stdout.split("---\n", 2)[2], document.split("---\n", 2)[2])
         self.assertIn("sources", document)
         self.assertNotIn("Saved snapshot", document)
         self.assertIn("### Alpha", document)
         self.assertIn("\t. Alpha.Label", document)
+        self.assertIn("Native admission: not_performed", document)
         self.assertEqual(before, self.source_bytes())
+
+    def test_declaration_view_excludes_live_atom_relation_tuples(self):
+        self.source.write_text(
+            atom(subject="Entity/Relation/Type: Custom").replace(
+                "\n---\n# Source", "\nrelations: {depends_on: [CA-R-123]}\n---\n# Source"
+            ), encoding="utf-8",
+        )
+        before = self.source_bytes()
+        result = self.run_cli(view="declarations", selection="Relation Types and Graph Rules")
+        self.assertEqual(0, result.returncode, result.stderr)
+        for heading in ("## Relation Types", "## Graph Rules", "## Source limitations"):
+            self.assertIn(heading, result.stdout)
+        self.assertIn("Custom", result.stdout)
+        self.assertIn("empty for the selected source set", result.stdout)
+        self.assertNotIn("CA-R-123", result.stdout)
+        self.assertEqual(before, self.source_bytes())
+
+    def test_identity_mismatch_or_wrong_filename_preserves_existing_output(self):
+        self.assertEqual(0, self.run_cli(self.output).returncode)
+        document = self.output.read_bytes()
+        renamed = self.run_cli(self.output, selection="Other Atoms")
+        self.assertEqual(1, renamed.returncode)
+        self.assertIn("Projection filename must be", renamed.stderr)
+        self.assertEqual(document, self.output.read_bytes())
+        other_view = self.run_cli(self.output, view="declarations")
+        self.assertEqual(1, other_view.returncode)
+        self.assertIn("distinct Projection identity", other_view.stderr)
+        self.assertEqual(document, self.output.read_bytes())
+        self.output.write_bytes(document.replace(b"projection_id: CA-PROJ-901", b"projection_id: CA-PROJ-902"))
+        mismatched = self.output.read_bytes()
+        result = self.run_cli(self.output)
+        self.assertEqual(1, result.returncode)
+        self.assertIn("Existing Projection identity", result.stderr)
+        self.assertEqual(mismatched, self.output.read_bytes())
 
     def test_next_run_reflects_live_subject_version_and_ignores_stale_snapshot(self):
         first = self.run_cli(self.output)

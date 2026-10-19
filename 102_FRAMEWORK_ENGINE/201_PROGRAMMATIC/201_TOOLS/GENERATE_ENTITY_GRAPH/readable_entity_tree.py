@@ -37,11 +37,15 @@ def _fence(lines: list[str]) -> list[str]:
     return [marker + "text", *lines, marker]
 
 
-def _header(provenance: Record, updated_at: str, source_selection: str) -> list[str]:
+def _header(
+    provenance: Record, updated_at: str, source_selection: str,
+    projection_identity: Record | None = None,
+) -> list[str]:
     frontmatter = yaml.safe_dump(
         {
             "artifact_form": "Projection",
             "type": "Entities Graph",
+            **(projection_identity or {}),
             "updated_at": text(updated_at, "updated_at"),
             "sources": _sources(provenance),
         },
@@ -133,7 +137,8 @@ def _limitations(
 
 
 def render_inherency(
-    graph: Record, provenance: Record, *, updated_at: str, source_selection: str
+    graph: Record, provenance: Record, *, updated_at: str, source_selection: str,
+    projection_identity: Record | None = None,
 ) -> str:
     """Return deterministic Markdown; only the supplied rebuild time may vary."""
     graph = record(graph)
@@ -141,7 +146,7 @@ def render_inherency(
     children, dependents, omitted, provisional = read_edges(rows(graph.get("edges")), nodes)
     main, appearances, cycles = primary_tree(nodes, children, set(nodes) - dependents)
     details, shown, detail_cycles = _details(appearances, nodes, children, dependents)
-    body = _header(provenance, updated_at, source_selection)
+    body = _header(provenance, updated_at, source_selection, projection_identity)
     body.extend([*_fence(main), "", *details])
     body.extend(
         _limitations(graph, nodes, omitted, provisional, dependents - shown, cycles | detail_cycles)

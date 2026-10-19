@@ -9,7 +9,10 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from validate_atoms_workers.graph_rule_body import validate_graph_rule_body  # noqa: E402
+from validate_atoms_workers.graph_rule_body import (  # noqa: E402
+    validate_graph_rule_body,
+    validated_graph_rule_payload,
+)
 from validate_atoms_workers.settings import CEILINGS  # noqa: E402
 
 
@@ -56,6 +59,43 @@ class GraphRuleBodyTests(unittest.TestCase):
         check = self.validate(WHITELIST)
         self.assertEqual(check.findings, [])
         self.assertEqual(check.gaps, [])
+
+    def test_extraction_returns_validated_payload_and_exact_carrier_text(self) -> None:
+        check = Recorder()
+        extracted = validated_graph_rule_payload(WHITELIST, check)  # type: ignore[arg-type]
+        self.assertEqual(check.findings, [])
+        self.assertIsNotNone(extracted)
+        assert extracted is not None
+        self.assertEqual(extracted.summary, "Allow evaluation links.\n\n")
+        self.assertEqual(extracted.operative_block, "```yaml\n" + WHITELIST.split("```yaml\n", 1)[1])
+        self.assertEqual(extracted.operative_yaml, WHITELIST.split("```yaml\n", 1)[1].split("```", 1)[0])
+        self.assertEqual(extracted.payload["graph_rule_type"], "whitelist")
+
+    def test_extraction_preserves_crlf_and_opaque_default_value(self) -> None:
+        body = WHITELIST.replace("```yaml", "~~~~yaml").replace("```", "~~~~").replace(
+            "\n", "\r\n"
+        )
+        body = body.replace("condition:\r\n", "default_value:\r\n  opaque: 2026-10-20\r\ncondition:\r\n")
+        check = Recorder()
+        extracted = validated_graph_rule_payload(body, check)  # type: ignore[arg-type]
+        self.assertEqual(check.findings, [])
+        assert extracted is not None
+        self.assertEqual(extracted.summary, "Allow evaluation links.\r\n\r\n")
+        self.assertTrue(extracted.operative_block.startswith("~~~~yaml\r\n"))
+        self.assertTrue(extracted.operative_block.endswith("~~~~\r\n"))
+        self.assertIn("default_value:\r\n  opaque: 2026-10-20\r\n", extracted.operative_yaml)
+        self.assertEqual(str(extracted.payload["default_value"]["opaque"]), "2026-10-20")
+
+    def test_extra_schema_fields_fail_without_extraction(self) -> None:
+        for body in (
+            WHITELIST.replace("relation_type: evaluation_for", "relation_type: evaluation_for\n  guessed: true"),
+            WHITELIST.replace("condition:\n", "condition:\n  guessed: true\n"),
+            WHITELIST.replace("graph_rule_type: whitelist", "graph_rule_type: whitelist\nextra: true"),
+        ):
+            with self.subTest(body=body):
+                check = Recorder()
+                self.assertIsNone(validated_graph_rule_payload(body, check))  # type: ignore[arg-type]
+                self.assertTrue(check.findings)
 
     def test_approved_dot_path_and_atom_selector_pass(self) -> None:
         body = WHITELIST.replace(
@@ -138,6 +178,11 @@ class GraphRuleBodyTests(unittest.TestCase):
         check = self.validate(body)
         self.assertEqual(check.findings, [])
         self.assertEqual(len(check.gaps), 1)
+        extraction_check = Recorder()
+        extracted = validated_graph_rule_payload(body, extraction_check)  # type: ignore[arg-type]
+        self.assertIsNone(extracted)
+        self.assertEqual(extraction_check.findings, [])
+        self.assertEqual(len(extraction_check.gaps), 1)
 
 
 if __name__ == "__main__":
