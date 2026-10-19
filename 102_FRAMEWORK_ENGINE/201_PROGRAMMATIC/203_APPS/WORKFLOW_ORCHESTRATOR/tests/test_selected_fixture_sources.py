@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 import sys
 import tempfile
@@ -10,12 +11,20 @@ import unittest
 from unittest.mock import patch
 
 from frozen_selected_workflows import (
+    frozen_base_revise_binding,
     frozen_complete_carrier_authority,
     frozen_source_bytes,
     frozen_source_paths,
     frozen_source_root,
 )
-from selected_workflows_docker_fixture import GoldenCase, GoldenCorpusError, GoldenProject
+from selected_workflows_docker_fixture import (
+    GoldenCase,
+    GoldenCorpusError,
+    GoldenProject,
+    _RUNTIME_READINESS_O104,
+    _RUNTIME_READINESS_O104_SNAPSHOT,
+    _RMED_PROMPTS,
+)
 
 
 REPOSITORY = Path(__file__).resolve().parents[5]
@@ -110,6 +119,28 @@ class SelectedFixtureSourcesTests(unittest.TestCase):
             two = GoldenProject(REPOSITORY, Path(second), GoldenCase("W09", "run_implementation_workflow"))
             two.prepare()
             self.assertEqual(frozen_source_bytes(relative), (two.root / relative).read_bytes())
+
+    def test_readiness_materializes_current_pin_and_keeps_historical_frozen(self) -> None:
+        self.project.prepare()
+        historical = frozen_base_revise_binding()
+        historical_path = Path(historical["path"])
+        current_manifest = json.loads((_RMED_PROMPTS / "source_bindings.json").read_text(encoding="utf-8"))
+        current = next(row for row in current_manifest["sources"] if row["atom_id"] == "CA-O-104")
+        current_path = Path(current["path"])
+        historical_bytes = frozen_source_bytes(historical_path, historical["sha256"])
+
+        self.assertNotEqual(historical_path, current_path)
+        self.assertEqual(historical["sha256"], hashlib.sha256(historical_bytes).hexdigest())
+        self.assertFalse((self.root / historical_path).exists())
+        copied = (self.root / current_path).read_bytes()
+        self.assertEqual(_RUNTIME_READINESS_O104, current)
+        self.assertEqual(_RUNTIME_READINESS_O104_SNAPSHOT.read_bytes(), copied)
+        self.assertEqual(current["sha256"], hashlib.sha256(copied).hexdigest())
+        app = Path(__file__).resolve().parents[1]
+        if str(app) not in sys.path:
+            sys.path.insert(0, str(app))
+        from engine import runtime_fingerprint
+        self.assertRegex(runtime_fingerprint(self.root), r"^[0-9a-f]{64}$")
 
     def test_disposable_source_change_rejects_a_held_preview_receipt(self) -> None:
         from selected_routes import SelectedRouteAdapter, load_selected_manifest

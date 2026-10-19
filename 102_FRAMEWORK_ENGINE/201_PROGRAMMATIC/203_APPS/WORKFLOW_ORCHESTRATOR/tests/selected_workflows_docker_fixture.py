@@ -18,7 +18,6 @@ import sys
 from typing import Any, Iterable, Mapping
 
 from frozen_selected_workflows import (
-    frozen_base_revise_binding,
     frozen_complete_carrier_authority,
     frozen_implementation_bindings,
     frozen_manifest,
@@ -31,6 +30,23 @@ VALIDATOR_TESTS = Path(__file__).resolve().parents[3] / "201_TOOLS/VALIDATE_ATOM
 if str(VALIDATOR_TESTS) not in sys.path:
     sys.path.insert(0, str(VALIDATOR_TESTS))
 from golden_authority import frozen_authority_fixture_bytes
+
+
+_RMED_PROMPTS = (
+    Path(__file__).resolve().parents[4]
+    / "202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW"
+)
+_RUNTIME_READINESS_O104 = {
+    "atom_id": "CA-O-104",
+    "version": 12,
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/"
+            "003_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--"
+            "review-and-repair-a-bounded-rmed-atom-batch.md",
+    "sha256": "c4655ae7caddf8279db86f3f2d0069d94431da7fc3537a6f2bfa5550de01b342",
+}
+_RUNTIME_READINESS_O104_SNAPSHOT = (
+    Path(__file__).with_name("fixtures") / "CA-O-104-v12-runtime-readiness.md"
+)
 
 
 MANIFEST_REF = ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json"
@@ -1001,14 +1017,28 @@ class GoldenProject:
 
         The selected suite does not exercise Base Revise, but the already
         deployed Docker worker fingerprints CA-O-104 before it advertises
-        readiness.  Copying its one pinned definition permits a disposable
-        selected-route runtime without borrowing any real Project authority.
+        readiness.  Materialize only the separately frozen current pin; the
+        historical carrier remains available in the frozen corpus, not active.
         """
-        definition = frozen_base_revise_binding()
-        self._copy_pinned(
-            _safe_relative(definition.get("path"), name="Base Revise readiness source"),
-            definition.get("sha256"),
-        )
+        manifest = json.loads((_RMED_PROMPTS / "source_bindings.json").read_text(encoding="utf-8"))
+        rows = [row for row in manifest.get("sources", []) if row.get("atom_id") == "CA-O-104"]
+        if len(rows) != 1:
+            raise GoldenCorpusError("current Base Revise readiness pin is missing or duplicated")
+        current = rows[0]
+        if any(current.get(key) != value for key, value in _RUNTIME_READINESS_O104.items()):
+            raise GoldenCorpusError("current Base Revise readiness pin differs from its frozen fixture")
+        try:
+            payload = _RUNTIME_READINESS_O104_SNAPSHOT.read_bytes()
+        except OSError as error:
+            raise GoldenCorpusError("current Base Revise readiness fixture is unavailable") from error
+        if hashlib.sha256(payload).hexdigest() != _RUNTIME_READINESS_O104["sha256"]:
+            raise GoldenCorpusError("current Base Revise readiness fixture has a stale digest")
+        relative = _safe_relative(_RUNTIME_READINESS_O104["path"], name="Base Revise readiness source")
+        target = self.root / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(payload)
+        if file_digest(target) != _RUNTIME_READINESS_O104["sha256"]:
+            raise GoldenCorpusError("fixture copy changed current Base Revise readiness source")
 
     def _copy_reviewed_manifest(self) -> dict[str, Any]:
         manifest = frozen_manifest()
