@@ -2,9 +2,9 @@
 subjects:
   governs: "Generated-Only Provenance Validation"
   depends_on:
-    ["Entity/Continuant/History/Journal.Record", "Implementation Relation", "Entity/Continuant/Projection"]
-version: 20
-updated_at: "2026-10-15 18:50:37 +0000"
+    ["Entity/Node/Continuant/History/Journal.Record", "Implementation Relation", "Entity/Node/Continuant/Projection"]
+version: 21
+updated_at: "2026-10-19 15:55:19 +0400"
 relations:
   evaluation_for:
     - CA-M-135

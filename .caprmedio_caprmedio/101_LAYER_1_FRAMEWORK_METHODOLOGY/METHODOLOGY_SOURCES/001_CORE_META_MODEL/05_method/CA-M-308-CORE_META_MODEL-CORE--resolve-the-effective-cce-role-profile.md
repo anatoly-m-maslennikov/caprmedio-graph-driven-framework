@@ -2,9 +2,9 @@
 subjects:
   governs: "CCE Role Profile"
   depends_on:
-    ["CCE Role Profile", "Atom/Content Role", "Type", "Entity/Continuant/Object/Atom.Substance"]
-version: 6
-updated_at: "2026-10-15 18:48:35 +0000"
+    ["CCE Role Profile", "Atom/Content Role", "Type", "Entity/Node/Continuant/Atom.Substance"]
+version: 7
+updated_at: "2026-10-19 15:54:51 +0400"
 relations:
   child_of:
     - CA-M-307

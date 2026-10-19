@@ -2,9 +2,9 @@
 subjects:
   governs: "Subject Expression Evaluation"
   depends_on:
-    ["General Term", "Governed Term", "Subject Expression", "Dependent Entity", "Property", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "Entity/Continuant/Term", "CCE Operator", "Entity/Continuant/Object/Scope Unit.Name", "Subject", "Subject Path"]
-version: 18
-updated_at: "2026-10-15 18:49:04 +0000"
+    ["General Term", "Governed Term", "Subject Expression", "Dependent Entity", "Property", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "Entity/Node/Continuant/Term", "CCE Operator", "Entity/Node/Continuant/Scope Unit.Name", "Subject", "Subject Path"]
+version: 19
+updated_at: "2026-10-19 15:54:57 +0400"
 relations:
   evaluation_for:
     - CA-R-1194

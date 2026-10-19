@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Entities Graph"
+  governs: "Entity/Node/Continuant/Projection/Type: Entities Graph"
   depends_on:
-    ["Entity", "Property", "Entity/Continuant/Term", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Relation Kind", "Subject Path", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Subjects", "Artifact", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/History/Journal", "Entity/Carrier", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
-version: 16
-updated_at: "2026-10-15 18:49:23 +0000"
+    ["Entity", "Property", "Entity/Node/Continuant/Term", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Relation Kind", "Subject Path", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Subjects", "Artifact", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/History/Journal", "Entity/Carrier", "Entity/Node/Continuant/Atom", "Entity/Relation", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
+version: 17
+updated_at: "2026-10-19 15:55:02 +0400"
 relations:
   evaluation_for:
     - CA-R-1192

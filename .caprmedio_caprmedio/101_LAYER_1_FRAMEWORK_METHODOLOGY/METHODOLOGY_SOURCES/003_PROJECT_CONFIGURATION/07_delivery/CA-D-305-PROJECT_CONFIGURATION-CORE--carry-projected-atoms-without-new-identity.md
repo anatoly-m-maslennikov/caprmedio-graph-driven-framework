@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection/Type: Applicable Methodology.Member"
+  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology.Member"
   depends_on:
-    ["Entity/Continuant/Node/Projection/Type: Applicable Methodology.Member", "Entity/Continuant/Node/Atom", "Entity/Carrier/File Carrier"]
-version: 15
-updated_at: "2026-10-18 07:13:06 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology.Member", "Entity/Node/Continuant/Atom", "Entity/Carrier/File Carrier"]
+version: 16
+updated_at: "2026-10-19 15:56:19 +0400"
 relations: {}
 atom_id: "CA-D-305"
 content_role: "Delivery"

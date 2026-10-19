@@ -8,12 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-15 18:50:29 +0000"
+version: 8
+updated_at: "2026-10-19 15:55:16 +0400"
 subjects:
-  governs: "Entity/Continuant/Object/Atom"
+  governs: "Entity/Node/Continuant/Atom"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Subjects", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Atom.Details", "Entity/Continuant/Object/Atom.Summary", "Atom/Content Role", "Property", "Entity", "CCE", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Actor/Type: Operator", "CAPRMEDIO Framework Instance", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
+    ["Entity/Node/Continuant/Atom.Subjects", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Node/Continuant/Atom.Details", "Entity/Node/Continuant/Atom.Summary", "Atom/Content Role", "Property", "Entity", "CCE", "Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Node/Continuant/Actor/Type: Operator", "CAPRMEDIO Framework Instance", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
 relations: {"evaluation_for":["CA-D-269","CA-D-478","CA-D-479","CA-D-495","CA-M-113","CA-M-125","CA-R-1269","CA-R-1270","CA-R-1271","CA-R-1273","CA-R-1465","CA-R-1624","CA-R-1799"]}
 ---
 # Summary

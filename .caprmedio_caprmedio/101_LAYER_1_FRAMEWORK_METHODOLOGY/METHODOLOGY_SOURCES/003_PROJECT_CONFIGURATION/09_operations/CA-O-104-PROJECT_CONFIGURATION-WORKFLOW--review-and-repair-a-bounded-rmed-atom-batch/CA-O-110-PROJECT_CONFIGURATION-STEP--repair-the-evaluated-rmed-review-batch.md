@@ -8,12 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 10
-updated_at: "2026-10-19 13:29:20 +0400"
+version: 11
+updated_at: "2026-10-19 15:56:55 +0400"
 subjects:
   governs: "RMED Review Repair Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/History/Journal", "Evaluation Report"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Continuant/History/Journal", "Evaluation Report"]
 relations: {"relates_to":["CA-O-111"]}
 ---
 # Summary

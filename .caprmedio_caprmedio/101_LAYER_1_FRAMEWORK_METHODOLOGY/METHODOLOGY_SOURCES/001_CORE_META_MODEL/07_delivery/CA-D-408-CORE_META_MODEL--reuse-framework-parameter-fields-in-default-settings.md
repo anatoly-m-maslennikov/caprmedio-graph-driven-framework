@@ -2,9 +2,9 @@
 subjects:
   governs: "Default Settings"
   depends_on:
-    ["Default Settings", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Carrier"]
-version: 9
-updated_at: "2026-10-15 18:51:53 +0000"
+    ["Default Settings", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Carrier"]
+version: 10
+updated_at: "2026-10-19 15:55:46 +0400"
 relations:
   child_of:
     - "CA-D-407"

@@ -2,9 +2,9 @@
 subjects:
   governs: "Core Meta-Model"
   depends_on:
-    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Atom/Content Role", "Entity/Continuant/Object/Project"]
-version: 11
-updated_at: "2026-10-19 14:45:52 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Atom/Content Role", "Entity/Node/Continuant/Project"]
+version: 12
+updated_at: "2026-10-19 15:56:06 +0400"
 relations: {}
 atom_id: "CA-R-1434"
 content_role: "Requirement"

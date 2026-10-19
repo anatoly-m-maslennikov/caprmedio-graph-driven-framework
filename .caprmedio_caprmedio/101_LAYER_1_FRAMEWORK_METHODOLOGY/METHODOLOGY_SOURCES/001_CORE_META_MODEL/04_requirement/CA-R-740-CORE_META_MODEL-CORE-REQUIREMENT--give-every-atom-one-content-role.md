@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role"
+  governs: "Entity/Node/Continuant/Atom/Content Role"
   depends_on: []
-version: 21
-updated_at: "2026-10-18 03:34:10 +0400"
+version: 22
+updated_at: "2026-10-19 15:54:22 +0400"
 relations:
   child_of:
     - CA-M-001

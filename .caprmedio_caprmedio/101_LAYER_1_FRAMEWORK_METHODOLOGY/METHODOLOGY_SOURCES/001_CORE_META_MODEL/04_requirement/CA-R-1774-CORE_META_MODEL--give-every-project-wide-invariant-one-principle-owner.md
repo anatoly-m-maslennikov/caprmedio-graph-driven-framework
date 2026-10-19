@@ -1,13 +1,13 @@
 ---
-version: 14
-updated_at: "2026-10-15 18:46:00 +0000"
+version: 15
+updated_at: "2026-10-19 15:54:04 +0400"
 relations:
   child_of:
     - CA-R-1773
 subjects:
   governs: "Project Principle Universe"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Project"]
+    ["Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Node/Continuant/Project"]
 atom_id: "CA-R-1774"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"

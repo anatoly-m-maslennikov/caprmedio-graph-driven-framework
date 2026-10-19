@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier", "Entity/Continuant/Node/Atom.ID", "Entity/Continuant/Node/Atom.Summary", "Entity/Continuant/Node/Atom/Content Role: Plan.Work Sequence Number", "Entity/Continuant/Node/Atom/Content Role: Plan.Label", "Entity/Continuant/Node/Atom/Content Role: Plan.Status", "Entity/Continuant/Node/Atom/Content Role: Plan.Definition of Done"]
-version: 10
-updated_at: "2026-10-18 03:34:30 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier", "Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom/Content Role: Plan.Work Sequence Number", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done"]
+version: 11
+updated_at: "2026-10-19 15:55:13 +0400"
 relations: {"evaluation_for": ["CA-D-460", "CA-D-461", "CA-D-469", "CA-D-470", "CA-D-472", "CA-D-475", "CA-R-1534", "CA-R-1599", "CA-R-997"]}
 atom_id: "CA-E-502"
 content_role: "Evaluation"

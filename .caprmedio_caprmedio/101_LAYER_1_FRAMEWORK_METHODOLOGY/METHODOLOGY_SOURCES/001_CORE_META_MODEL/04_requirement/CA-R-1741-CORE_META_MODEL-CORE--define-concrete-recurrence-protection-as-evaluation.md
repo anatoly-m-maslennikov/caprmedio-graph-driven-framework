@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Evaluation"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Evaluation"
   depends_on:
     []
-version: 17
-updated_at: "2026-10-18 03:33:52 +0400"
+version: 18
+updated_at: "2026-10-19 15:53:56 +0400"
 relations:
   child_of:
     - CAPRMEDIO-REQU-637-REQUIREMENT--establish-recurrence-protection

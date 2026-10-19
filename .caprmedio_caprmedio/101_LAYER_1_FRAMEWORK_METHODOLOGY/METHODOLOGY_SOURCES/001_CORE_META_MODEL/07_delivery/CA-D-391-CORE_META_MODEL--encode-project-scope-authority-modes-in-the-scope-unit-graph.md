@@ -2,9 +2,9 @@
 subjects:
   governs: "Project Scope Unit Graph Projection"
   depends_on:
-    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Framework Settings", "Authority Mode"]
-version: 10
-updated_at: "2026-10-18 07:33:01 +0400"
+    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Project.Framework Settings", "Authority Mode"]
+version: 11
+updated_at: "2026-10-19 15:55:42 +0400"
 relations:
   child_of:
     - "CA-R-1430"

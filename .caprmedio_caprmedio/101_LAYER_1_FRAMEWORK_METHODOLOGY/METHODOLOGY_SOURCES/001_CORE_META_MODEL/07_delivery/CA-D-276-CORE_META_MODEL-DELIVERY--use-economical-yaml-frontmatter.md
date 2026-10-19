@@ -2,9 +2,9 @@
 subjects:
   governs: "Markdown Atom Carrier.YAML Frontmatter"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Actor"]
-version: 19
-updated_at: "2026-10-15 23:42:04 +0400"
+    ["Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Actor"]
+version: 20
+updated_at: "2026-10-19 15:55:20 +0400"
 relations: {}
 atom_id: "CA-D-276"
 content_role: "Delivery"

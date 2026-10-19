@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Step Run", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Agentic Step Execution Context", "Tool"]
-version: 8
-updated_at: "2026-10-15 18:43:51 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Occurrent/Execution/Step Run", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Agentic Step Execution Context", "Tool"]
+version: 9
+updated_at: "2026-10-19 15:53:18 +0400"
 relations: {"relates_to": ["CA-R-1569"]}
 atom_id: "CA-R-1509"
 content_role: "Requirement"

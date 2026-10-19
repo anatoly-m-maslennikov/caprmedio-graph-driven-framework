@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Extended Entities Graph"
+  governs: "Entity/Node/Continuant/Projection/Type: Extended Entities Graph"
   depends_on:
-    ["Entity/Continuant/Projection", "Entity/Continuant/Projection/Type: Entities Graph", "Entity", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Subjects", "Subject Path", "GOVERNS", "DEPENDS_ON", "Entity/Continuant/Object/Relation", "Relation Kind"]
-version: 7
-updated_at: "2026-10-15 18:43:17 +0000"
+    ["Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Projection/Type: Entities Graph", "Entity", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Subjects", "Subject Path", "GOVERNS", "DEPENDS_ON", "Entity/Relation", "Relation Kind"]
+version: 8
+updated_at: "2026-10-19 15:53:09 +0400"
 relations: {}
 atom_id: "CA-R-1459"
 content_role: "Requirement"

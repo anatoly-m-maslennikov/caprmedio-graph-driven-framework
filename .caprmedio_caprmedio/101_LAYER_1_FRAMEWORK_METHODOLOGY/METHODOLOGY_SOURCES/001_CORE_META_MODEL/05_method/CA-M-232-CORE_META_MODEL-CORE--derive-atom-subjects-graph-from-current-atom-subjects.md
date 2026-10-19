@@ -2,9 +2,9 @@
 subjects:
   governs: "Subject Projection Derivation"
   depends_on:
-    ["Entity/Continuant/Projection/Type: Atom Subjects Graph", "Entity/Continuant/Object/Atom.Subjects", "Subject Path", "Subject", "Entity/Continuant/Object/Atom", "GOVERNS", "DEPENDS_ON"]
-version: 14
-updated_at: "2026-10-15 18:48:00 +0000"
+    ["Entity/Node/Continuant/Projection/Type: Atom Subjects Graph", "Entity/Node/Continuant/Atom.Subjects", "Subject Path", "Subject", "Entity/Node/Continuant/Atom", "GOVERNS", "DEPENDS_ON"]
+version: 15
+updated_at: "2026-10-19 15:54:42 +0400"
 relations: {}
 atom_id: "CA-M-232"
 content_role: "Method"

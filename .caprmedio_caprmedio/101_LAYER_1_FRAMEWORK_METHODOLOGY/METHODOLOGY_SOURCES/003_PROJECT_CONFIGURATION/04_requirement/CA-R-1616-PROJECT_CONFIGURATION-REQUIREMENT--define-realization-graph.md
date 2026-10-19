@@ -14,9 +14,9 @@ subjects:
     - "Implementation"
     - "Journal"
     - "Projection"
-    - "Relation"
-version: 4
-updated_at: "2026-10-03 00:55:03 +0400"
+    - "Entity/Relation"
+version: 5
+updated_at: "2026-10-19 15:56:07 +0400"
 relations:
   relates_to:
     - CA-R-1470

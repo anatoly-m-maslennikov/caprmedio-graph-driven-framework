@@ -2,9 +2,9 @@
 subjects:
   governs: "Propose Source Corrections"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Atom.Updated At", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold"]
-version: 9
-updated_at: "2026-10-18 16:19:47 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Global Tier", "Entity/Node/Continuant/Atom.Updated At", "Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Node/Continuant/Atom", "Entity/Relation", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold"]
+version: 10
+updated_at: "2026-10-19 15:56:27 +0400"
 relations: {}
 atom_id: "CA-O-006"
 content_role: "Operations"

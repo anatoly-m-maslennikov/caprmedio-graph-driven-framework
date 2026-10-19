@@ -1,13 +1,13 @@
 ---
-version: 17
-updated_at: "2026-10-15 18:46:01 +0000"
+version: 18
+updated_at: "2026-10-19 15:54:04 +0400"
 relations:
   child_of:
     - CA-M-001
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom", "Owned Atoms", "Targeting Atoms"]
+    ["Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom", "Owned Atoms", "Targeting Atoms"]
 atom_id: "CA-R-1775"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"

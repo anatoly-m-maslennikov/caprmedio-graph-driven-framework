@@ -2,9 +2,9 @@
 subjects:
   governs: "Configuration Selection and Precedence"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings", "Extension", "Tool"]
-version: 23
-updated_at: "2026-10-15 18:45:31 +0000"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Extension", "Tool"]
+version: 24
+updated_at: "2026-10-19 15:53:53 +0400"
 relations: {}
 atom_id: "CA-R-1724"
 content_role: "Requirement"

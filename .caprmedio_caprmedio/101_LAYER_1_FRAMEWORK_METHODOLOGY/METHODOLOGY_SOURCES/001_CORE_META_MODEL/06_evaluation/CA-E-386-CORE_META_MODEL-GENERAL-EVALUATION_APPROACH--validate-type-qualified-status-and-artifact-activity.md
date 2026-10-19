@@ -2,9 +2,9 @@
 subjects:
   governs: "Type-Qualified Status Validation"
   depends_on:
-    ["Artifact.Status", "Artifact.Activity", "Atom/Content Role", "Type", "Entity/Continuant/Object/Atom/Content Role: Plan.Status"]
-version: 21
-updated_at: "2026-10-15 18:49:07 +0000"
+    ["Artifact.Status", "Artifact.Activity", "Atom/Content Role", "Type", "Entity/Node/Continuant/Atom/Content Role: Plan.Status"]
+version: 22
+updated_at: "2026-10-19 15:54:57 +0400"
 relations: {}
 atom_id: "CA-E-386"
 content_role: "Evaluation"

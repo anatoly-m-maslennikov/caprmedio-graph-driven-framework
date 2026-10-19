@@ -2,9 +2,9 @@
 subjects:
   governs: "language"
   depends_on:
-    ["artifact-model", "CCE", "Author", "Entity/Continuant/Object/Atom.Substance"]
-version: 19
-updated_at: "2026-10-15 18:47:43 +0000"
+    ["artifact-model", "CCE", "Author", "Entity/Node/Continuant/Atom.Substance"]
+version: 20
+updated_at: "2026-10-19 15:54:39 +0400"
 relations:
   child_of:
     - CA-M-111

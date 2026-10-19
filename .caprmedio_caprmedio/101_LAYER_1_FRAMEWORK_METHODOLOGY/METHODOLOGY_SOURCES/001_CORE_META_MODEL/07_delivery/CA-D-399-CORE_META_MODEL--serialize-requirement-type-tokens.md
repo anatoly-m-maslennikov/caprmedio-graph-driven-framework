@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Requirement/Type"
   depends_on:
-    - "Carrier"
-version: 10
-updated_at: "2026-10-18 07:18:35 +0400"
+    - "Entity/Carrier"
+version: 11
+updated_at: "2026-10-19 15:55:43 +0400"
 relations: {}
 atom_id: "CA-D-399"
 content_role: "Delivery"

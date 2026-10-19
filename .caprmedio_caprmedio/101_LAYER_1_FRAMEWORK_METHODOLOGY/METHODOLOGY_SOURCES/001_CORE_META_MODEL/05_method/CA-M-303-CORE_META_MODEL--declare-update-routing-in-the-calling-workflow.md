@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Author", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Summary", "Assess Atom Update Identity"]
-version: 6
-updated_at: "2026-10-15 18:48:29 +0000"
+    ["Author", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Summary", "Assess Atom Update Identity"]
+version: 7
+updated_at: "2026-10-19 15:54:49 +0400"
 relations: {"relates_to": ["CA-M-301", "CA-O-067", "CA-R-1432", "CA-R-1464", "CA-R-1520"]}
 atom_id: "CA-M-303"
 content_role: "Method"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information"
   depends_on:
-    ["Entity/Continuant/Node/Project.Framework Settings.Interaction.Reporting Mode", "Entity/Continuant/Node/Actor/Type: Operator"]
-version: 10
-updated_at: "2026-10-18 03:33:31 +0400"
+    ["Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 11
+updated_at: "2026-10-19 15:53:05 +0400"
 relations:
   child_of:
     - "CA-R-1402"

@@ -2,9 +2,9 @@
 subjects:
   governs: "Root Term"
   depends_on:
-    ["Entity/Continuant/Term", "Entity/Continuant/Projection/Type: Terms Graph", "NARROWER_THAN"]
-version: 12
-updated_at: "2026-10-15 18:42:05 +0000"
+    ["Entity/Node/Continuant/Term", "Entity/Node/Continuant/Projection/Type: Terms Graph", "NARROWER_THAN"]
+version: 13
+updated_at: "2026-10-19 15:52:52 +0400"
 relations: {}
 atom_id: "CA-R-1347"
 content_role: "Requirement"

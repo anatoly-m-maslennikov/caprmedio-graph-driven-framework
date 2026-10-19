@@ -8,11 +8,11 @@ global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Analysis.Status"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Analysis.Status"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Analysis", "Atom/Content Role: Analysis/Type", "Entity/Continuant/Object/Atom.Status", "Extension", "Project Configuration"]
-version: 4
-updated_at: "2026-10-17 17:02:57 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Analysis", "Atom/Content Role: Analysis/Type", "Entity/Node/Continuant/Atom.Status", "Extension", "Project Configuration"]
+version: 5
+updated_at: "2026-10-19 15:54:08 +0400"
 relations: {relates_to: [CA-R-1232, CA-R-1337, CA-R-1664, CA-R-1727, CA-R-1308, CA-R-1312, CA-R-1313]}
 ---
 # Summary

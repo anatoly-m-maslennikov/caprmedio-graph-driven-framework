@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Owning Scope Unit"
+  governs: "Entity/Node/Continuant/Atom.Owning Scope Unit"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Owning Scope Unit"]
-version: 25
-updated_at: "2026-10-18 03:34:12 +0400"
+    ["Entity/Node/Continuant/Atom.Owning Scope Unit"]
+version: 26
+updated_at: "2026-10-19 15:54:25 +0400"
 relations:
   child_of:
     - CA-R-858

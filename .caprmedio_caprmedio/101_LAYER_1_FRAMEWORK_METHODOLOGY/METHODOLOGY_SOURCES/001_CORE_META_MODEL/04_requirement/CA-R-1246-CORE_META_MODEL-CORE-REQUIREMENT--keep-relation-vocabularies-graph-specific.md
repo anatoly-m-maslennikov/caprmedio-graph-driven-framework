@@ -2,9 +2,9 @@
 subjects:
   governs: "Relation Kind"
   depends_on:
-    ["CAPRMEDIO Graph", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Projection", "Relation Kind Metadata"]
-version: 13
-updated_at: "2026-10-15 18:41:23 +0000"
+    ["CAPRMEDIO Graph", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/Projection", "Relation Kind Metadata"]
+version: 14
+updated_at: "2026-10-19 15:52:40 +0400"
 relations: {}
 atom_id: "CA-R-1246"
 content_role: "Requirement"

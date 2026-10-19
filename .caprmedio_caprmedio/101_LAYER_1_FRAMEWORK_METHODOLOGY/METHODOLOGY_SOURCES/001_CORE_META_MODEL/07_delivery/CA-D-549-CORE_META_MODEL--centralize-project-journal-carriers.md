@@ -8,10 +8,10 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/History/Journal"
-  depends_on: ["Entity/Continuant/Node/Project", "Entity/Continuant/Node/History/Journal", "Entity/Carrier", "Entity/Continuant/Node/Projection", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow"]
-version: 7
-updated_at: "2026-10-18 03:34:54 +0400"
+  governs: "Entity/Node/Continuant/History/Journal"
+  depends_on: ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/History/Journal", "Entity/Carrier", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
+version: 8
+updated_at: "2026-10-19 15:56:00 +0400"
 relations: {}
 ---
 # Summary

@@ -2,9 +2,9 @@
 subjects:
   governs: "IS_ALLOWED_VALUE_OF"
   depends_on:
-    ["Entity/Continuant/Term", "Property"]
-version: 11
-updated_at: "2026-10-15 18:42:04 +0000"
+    ["Entity/Node/Continuant/Term", "Property"]
+version: 12
+updated_at: "2026-10-19 15:52:52 +0400"
 relations: {}
 atom_id: "CA-R-1346"
 content_role: "Requirement"

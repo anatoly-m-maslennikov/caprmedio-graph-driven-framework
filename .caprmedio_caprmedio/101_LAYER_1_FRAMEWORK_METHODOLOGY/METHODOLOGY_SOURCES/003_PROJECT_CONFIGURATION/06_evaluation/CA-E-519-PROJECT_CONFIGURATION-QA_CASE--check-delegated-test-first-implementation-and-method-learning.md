@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Workflow"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Entity/Continuant/Projection", "Entity/Continuant/Actor/Type: Operator", "Implementation Retry Limit", "Autonomous Confidence Threshold"]
-version: 9
-updated_at: "2026-10-18 07:45:08 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Actor/Type: Operator", "Implementation Retry Limit", "Autonomous Confidence Threshold"]
+version: 10
+updated_at: "2026-10-19 15:56:17 +0400"
 relations:
   evaluation_for:
     - CA-O-016

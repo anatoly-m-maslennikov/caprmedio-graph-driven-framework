@@ -2,9 +2,9 @@
 subjects:
   governs: "Subtree-targeting Atoms"
   depends_on:
-    ["Atom/Content Role", "Entity/Continuant/Object/Atom.Status", "Author"]
-version: 9
-updated_at: "2026-10-15 18:48:20 +0000"
+    ["Atom/Content Role", "Entity/Node/Continuant/Atom.Status", "Author"]
+version: 10
+updated_at: "2026-10-19 15:54:47 +0400"
 relations: {}
 atom_id: "CA-M-288"
 content_role: "Method"

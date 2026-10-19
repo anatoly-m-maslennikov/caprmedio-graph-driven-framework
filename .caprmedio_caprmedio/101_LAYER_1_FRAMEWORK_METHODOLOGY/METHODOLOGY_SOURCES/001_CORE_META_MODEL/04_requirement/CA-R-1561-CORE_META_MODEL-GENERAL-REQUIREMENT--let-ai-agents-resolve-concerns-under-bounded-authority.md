@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor/Type: AI Agent"
+  governs: "Entity/Node/Continuant/Actor/Type: AI Agent"
   depends_on:
-    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Object/Atom/Content Role: Concern", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator", "Atom/Content Role", "AI Agent Delegation", "AI Agent Confidence", "Autonomous Confidence Threshold"]
-version: 6
-updated_at: "2026-10-15 18:44:24 +0000"
+    ["Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Atom/Content Role: Concern", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Actor/Type: Operator", "Atom/Content Role", "AI Agent Delegation", "AI Agent Confidence", "Autonomous Confidence Threshold"]
+version: 7
+updated_at: "2026-10-19 15:53:29 +0400"
 relations: {"child_of":["CA-R-846","CA-P-034"],"relates_to":["CA-R-1058","CA-R-815","CA-R-846","CA-R-1552"]}
 atom_id: "CA-R-1561"
 content_role: "Requirement"

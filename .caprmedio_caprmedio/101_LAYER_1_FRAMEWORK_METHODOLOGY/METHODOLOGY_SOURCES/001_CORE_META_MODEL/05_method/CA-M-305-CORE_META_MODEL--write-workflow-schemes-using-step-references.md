@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Relation/Type: On Result"]
-version: 7
-updated_at: "2026-10-18 03:34:20 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Relation/Type: On Result"]
+version: 8
+updated_at: "2026-10-19 15:54:50 +0400"
 relations: {"method_for": ["CA-R-1570"]}
 atom_id: "CA-M-305"
 content_role: "Method"

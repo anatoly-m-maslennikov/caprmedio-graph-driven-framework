@@ -2,9 +2,9 @@
 subjects:
   governs: "Migrate Atom CCE Representation"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Projection", "CCE", "Confidence Threshold", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent"]
-version: 8
-updated_at: "2026-10-18 07:46:23 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Projection", "CCE", "Confidence Threshold", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent"]
+version: 9
+updated_at: "2026-10-19 15:56:45 +0400"
 relations:
   child_of:
     - CA-M-115

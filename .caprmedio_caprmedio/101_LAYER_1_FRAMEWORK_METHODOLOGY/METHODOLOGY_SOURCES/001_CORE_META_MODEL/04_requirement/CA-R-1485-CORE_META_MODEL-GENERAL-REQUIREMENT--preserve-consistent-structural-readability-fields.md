@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Structure"
+  governs: "Entity/Node/Continuant/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit.Parent", "Entity/Continuant/Node/Scope Unit.Children", "Entity/Continuant/Node/Scope Unit.Structural Level", "Entity/Continuant/Node/Scope Unit.Navigational Order Number", "Entity/Carrier"]
-version: 8
-updated_at: "2026-10-18 03:33:34 +0400"
+    ["Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Scope Unit.Parent", "Entity/Node/Continuant/Scope Unit.Children", "Entity/Node/Continuant/Scope Unit.Structural Level", "Entity/Node/Continuant/Scope Unit.Navigational Order Number", "Entity/Carrier"]
+version: 9
+updated_at: "2026-10-19 15:53:13 +0400"
 relations: {}
 atom_id: "CA-R-1485"
 content_role: "Requirement"

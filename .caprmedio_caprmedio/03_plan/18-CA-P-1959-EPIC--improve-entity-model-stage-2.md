@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 102
-updated_at: "2026-10-19 15:22:17 +0400"
+version: 103
+updated_at: "2026-10-19 15:59:56 +0400"
 relations: {}
 ---
 # Summary
@@ -31,9 +31,9 @@ Complete the accepted entity model through the Subject map and migration, the mi
 
 Target: [Candidate #6](../_projection/core-entity-review/presentation/operator.model.candidate-6.plan.md). This order supersedes older definition-first sequences. Updating this Epic records work; it does not execute or authorize the migration, runtime changes or release. The earlier 79 accepted operations remain completed. This Epic stays Active; child statuses do not cascade.
 
-#### First upcoming work — small graph-structure migration, 2026-10-19
+#### Small graph-structure migration — actual result, 2026-10-19
 
-The latest Operator decision takes priority over the earlier candidate paths and remaining sequence. Complete this bounded migration before continuing the unfinished phases below; earlier results remain historical facts, not replay instructions.
+The latest Operator structure is now the supported Subject-prefix target. Earlier results remain historical facts, not replay instructions.
 
 ```text
 Entity
@@ -45,13 +45,18 @@ Entity
 	Carrier
 ```
 
-- [ ] Update Candidate #6 and the exact Subject map to this structure. Node is the logical abstraction; Carrier is the actual physical representation in files, directories or database storage. Continuant/Occurrent qualify Nodes, not a second copy of their Carriers. Keep occurrence distinct from its persistent record.
-- [ ] Keep Graph Rule specific to the graph model: structural conditions, allowed relations/endpoints, cardinality and properties. Other rules remain RMED Atom content, optionally compiled into Projections and used by O Workflows. An R Atom can express a Graph Rule without creating another authoritative instance or file; do not reclassify every `/Type: Rule` or every Method as Graph Rule.
-- [ ] Check the directly affected structural R definitions and grammar before applying the map. Align only the accepted structural delta needed here; preserve Summary/identity rules and exact predecessors. Report missing definitions or ambiguous meanings instead of inventing them. Ordinary content migration remains CA-P-1970.
-- [ ] Preview and apply supported, boundary-aware Subjects-only prefix changes through existing batch Workflows, excluding C/A migration, drafts, archives and derived copies. Preserve all ordinary bodies, Summaries, Types, Statuses and unrelated metadata; update Version/time and archive exact predecessors through the existing machinery. Keep unresolved aliases/uses explicit, with no blanket replacement of the word Rule. Scope any additional source regions explicitly before expanding the batch.
-- [ ] Rebuild the actual current-source Entities projections without hiding unmapped Subjects, verify the expected paths/Carrier boundary and inherited properties, then record actual effects and holds. Do not substitute a candidate tree for a source-derived result.
+- [x] Update Candidate #6 and review the exact current-source Subject map. Node is the logical abstraction; Carrier is the actual storage representation. Continuant/Occurrent qualify Nodes, not their Carriers. Occurrences remain distinct from their persistent records.
+- [x] Keep Graph Rule specific to graph-model constraints. Ordinary RMED instructions and `/Type: Rule` are not automatically Graph Rules. This batch introduced no Graph Rule Subjects and did not create another authority layer.
+- [x] Review the directly affected structural R definitions and existing Subject grammar. The new paths fit the current parser; no implementation change was needed. Missing definitions are recorded below, not used to block supported Subject-only updates.
+- [x] Stage, checkpoint and apply the supported batch through the existing native Subjects Workflow: **746 Atoms, 2,616 exact Subject changes** — 594 Core and 152 Project Configuration. All 746 updates completed; every exact predecessor was archived and every pinned draft consumed. Version incremented once. Summaries, bodies, Types, Statuses, ownership and unrelated metadata were preserved. Independent readback found zero errors and 396 other tracked originals unchanged. All 746 change events and 2,239 Workflow/Step/Action Run pairs completed without recording errors.
+- [x] Rebuild actual current-source Entities projections, preserving their IDs: [CA-PROJ-002 Core](../_projection/CA-PROJ-002-CORE_META_MODEL--Entities-Graph--Current-Atoms.md), 904 sources; [CA-PROJ-003 Project Configuration](../_projection/CA-PROJ-003-PROJECT_CONFIGURATION--Entities-Graph--Current-Atoms.md), 234 sources. They remain as-is views: held and excluded old Subjects are not hidden. The existing C290 Subjects diagnostic remains visible; C/A migration is still excluded.
+- [ ] Finish the genuine structural-definition gaps: current defining R Atoms for Node and Graph Rule are missing. R1964 defines Object while its Subject names old Node, so it remains held. Review R1248's generic “possible graph node” wording separately; its Entity Subject is unchanged. R1958 remains unchanged at Entity/Carrier and already distinguishes representation from the represented thing. Any Summary/meaning replacement must preserve identity rules and exact history; no speculative definition or ordinary content rewrite was included here.
 
-Then resume the remaining Core/Project separation, the reviewed Luna 20-R pilot and later R-Type migration, missing definitions/rules and remainder review. O159/O160 and the six current content/applicability holds remain untouched unless their specific issue is resolved. Keep this Epic Active; do not cascade child Statuses. This Plan update records the order and accepted boundary; it does not claim any of these migrations have already run.
+Source checkpoint: `43783ee189a5f6f727c0667419d1c74869f48130`. Draft checkpoint: `209c97dc241e17bd56c1484907d1df47cd4467f6`. Completed Run: `candidate6-small-structure-subjects-20261019-001`. The reviewed map accounted for 1,056 PRMEDO sources and 4,941 Subject occurrences; it proposed 2,617 changes across 747 owners before the whole-owner R655 hold excluded its one otherwise supported patch. The batch contains only the remaining 746 owners and 2,616 patches.
+
+Ten owners remain held unchanged: R655, R1964, O159, O160, R850, E441, E446, E473, M120 and M271. R655's terminal old Node dependency needs a concrete meaning decision. The six earlier content/applicability holds and two O heading holds remain separate from this prefix migration. No C/A migration, R retyping, ordinary content migration, CONTAINS implementation, runtime rebuild, full suite, release or push was performed.
+
+Next: resolve these bounded structural definitions/holds, then resume the unfinished Core/Project separation, reviewed Luna 20-R pilot and R-Type migration, missing definitions/rules and remainder review. General content migration remains CA-P-1970. Keep this Epic Active; do not cascade child Statuses or replay completed work.
 
 #### Phase 1 — migrate Subjects first
 

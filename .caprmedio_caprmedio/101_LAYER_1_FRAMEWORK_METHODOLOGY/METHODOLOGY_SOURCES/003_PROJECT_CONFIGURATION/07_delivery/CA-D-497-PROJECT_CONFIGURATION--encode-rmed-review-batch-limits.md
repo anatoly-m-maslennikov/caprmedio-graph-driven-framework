@@ -7,12 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-18 23:44:45 +0400"
+version: 7
+updated_at: "2026-10-19 15:56:24 +0400"
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings"
+  governs: "Entity/Node/Continuant/Project.Framework Settings"
   depends_on:
-    ["Entity/Occurrent/Execution/Workflow Run", "Default Settings", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom"]
+    ["Entity/Node/Occurrent/Execution/Workflow Run", "Default Settings", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom"]
 relations: {}
 ---
 # Summary

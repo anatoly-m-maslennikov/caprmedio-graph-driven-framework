@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Reconcile Unfinished Work"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Relation", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Continuant/Actor/Type: Operator", "Entity/Occurrent/Execution/Workflow Run"]
-version: 7
-updated_at: "2026-10-18 07:47:18 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Relation", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Occurrent/Execution/Workflow Run"]
+version: 8
+updated_at: "2026-10-19 15:56:48 +0400"
 relations: {"relates_to": ["CA-R-1715", "CA-M-306", "CA-R-1574", "CA-R-1576", "CA-R-1577", "CA-R-1579", "CA-R-1580", "CA-R-1583", "CA-R-1599", "CA-R-1539", "CA-R-1464", "CA-D-461", "CA-D-470", "CA-D-481", "CA-R-1490", "CA-R-1720"]}
 global_tier: 11
 ---

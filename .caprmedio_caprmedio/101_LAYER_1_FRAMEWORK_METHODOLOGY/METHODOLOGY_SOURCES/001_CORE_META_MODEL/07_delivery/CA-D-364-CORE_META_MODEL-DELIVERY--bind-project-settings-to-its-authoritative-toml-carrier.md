@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Settings"
+  governs: "Entity/Node/Continuant/Project.Settings"
   depends_on:
     ["Entity/Carrier/File Carrier.Filename"]
-version: 16
-updated_at: "2026-10-18 07:37:54 +0400"
+version: 17
+updated_at: "2026-10-19 15:55:34 +0400"
 relations:
   child_of:
     - CA-D-363

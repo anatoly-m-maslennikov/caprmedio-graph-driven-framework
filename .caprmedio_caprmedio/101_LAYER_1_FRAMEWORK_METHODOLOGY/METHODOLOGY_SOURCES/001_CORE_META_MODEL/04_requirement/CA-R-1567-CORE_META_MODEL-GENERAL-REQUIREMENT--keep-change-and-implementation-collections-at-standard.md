@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Collection/Local Tier"
   depends_on:
-    ["Atom Collection", "Change Content Roles", "Implementation", "Atom/Local Tier: Standard", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Atom/Content Role: Plan/Type: Plan"]
-version: 6
-updated_at: "2026-10-15 18:44:29 +0000"
+    ["Atom Collection", "Change Content Roles", "Implementation", "Atom/Local Tier: Standard", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Atom/Content Role: Plan/Type: Plan"]
+version: 7
+updated_at: "2026-10-19 15:53:31 +0400"
 relations: {"relates_to": ["CA-R-1378", "CA-R-1566", "CA-R-1578"]}
 atom_id: "CA-R-1567"
 content_role: "Requirement"

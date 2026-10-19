@@ -8,12 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 11
-updated_at: "2026-10-18 23:46:19 +0400"
+version: 12
+updated_at: "2026-10-19 15:56:56 +0400"
 subjects:
   governs: "Evaluate RMED Review Batch"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Occurrent/Execution/Workflow Run"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Occurrent/Execution/Workflow Run"]
 relations: {"relates_to":["CA-D-496","CA-E-520"]}
 ---
 # Summary

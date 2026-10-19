@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Evaluation"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Method", "Implementation", "Artifact"]
-version: 8
-updated_at: "2026-10-18 16:21:47 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Method", "Implementation", "Artifact"]
+version: 9
+updated_at: "2026-10-19 15:56:42 +0400"
 relations:
   relates_to:
     - CA-O-018

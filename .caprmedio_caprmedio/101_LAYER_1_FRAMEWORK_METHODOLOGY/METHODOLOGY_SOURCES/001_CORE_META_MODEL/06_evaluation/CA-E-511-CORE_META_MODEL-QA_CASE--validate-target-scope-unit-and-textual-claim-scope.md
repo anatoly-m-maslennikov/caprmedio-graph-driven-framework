@@ -8,11 +8,11 @@ local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Target Scope Unit"
+  governs: "Entity/Node/Continuant/Atom.Target Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Entity/Continuant/Object/Atom.Subjects", "Current-scope Atom", "Hub Atom", "Entity/Continuant/Actor/Type: Operator", "Relational Atom", "Entity/Continuant/Object/Scope Unit"]
-version: 7
-updated_at: "2026-10-15 18:50:21 +0000"
+    ["Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Atom.Substance", "Atom Scope", "Entity/Node/Continuant/Atom.Subjects", "Current-scope Atom", "Hub Atom", "Entity/Node/Continuant/Actor/Type: Operator", "Relational Atom", "Entity/Node/Continuant/Scope Unit"]
+version: 8
+updated_at: "2026-10-19 15:55:16 +0400"
 relations:
   evaluation_for:
     - CA-D-482

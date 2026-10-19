@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Settings.Atom Prefix"
+  governs: "Entity/Node/Continuant/Project.Settings.Atom Prefix"
   depends_on:
-    ["Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Actor/Type: Operator"]
-version: 14
-updated_at: "2026-10-18 07:39:55 +0400"
+    ["Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 15
+updated_at: "2026-10-19 15:55:38 +0400"
 relations:
   child_of:
     - "CA-D-366"

@@ -2,9 +2,9 @@
 subjects:
   governs: "IS_BORNE_BY"
   depends_on:
-    ["Entity", "Dependent Entity", "Entity/Continuant/Projection/Type: Entities Graph", "Entity/Continuant/Object/Relation"]
-version: 14
-updated_at: "2026-10-15 18:41:26 +0000"
+    ["Entity", "Dependent Entity", "Entity/Node/Continuant/Projection/Type: Entities Graph", "Entity/Relation"]
+version: 15
+updated_at: "2026-10-19 15:52:41 +0400"
 relations: {}
 atom_id: "CA-R-1260"
 content_role: "Requirement"

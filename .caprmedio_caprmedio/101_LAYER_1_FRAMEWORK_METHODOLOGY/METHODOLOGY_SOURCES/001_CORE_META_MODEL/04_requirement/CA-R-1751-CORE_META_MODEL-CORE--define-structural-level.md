@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Scope Unit.Structural Level"
+  governs: "Entity/Node/Continuant/Scope Unit.Structural Level"
   depends_on:
-    ["Entity/Continuant/Node/Scope Unit.Path"]
-version: 23
-updated_at: "2026-10-18 03:33:53 +0400"
+    ["Entity/Node/Continuant/Scope Unit.Path"]
+version: 24
+updated_at: "2026-10-19 15:53:58 +0400"
 relations: {}
 atom_id: "CA-R-1751"
 content_role: "Requirement"

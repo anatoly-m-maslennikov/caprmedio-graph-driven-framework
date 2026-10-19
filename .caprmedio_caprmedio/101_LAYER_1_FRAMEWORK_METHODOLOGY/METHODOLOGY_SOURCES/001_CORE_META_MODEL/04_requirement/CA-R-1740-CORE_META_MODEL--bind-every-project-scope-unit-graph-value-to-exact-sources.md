@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection/Type: Scope Unit Graph"
+  governs: "Entity/Node/Continuant/Projection/Type: Scope Unit Graph"
   depends_on:
-    ["Entity/Continuant/Node/Project.Structure", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/History/Journal"]
-version: 25
-updated_at: "2026-10-18 03:33:51 +0400"
+    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/History/Journal"]
+version: 26
+updated_at: "2026-10-19 15:53:56 +0400"
 relations:
   child_of:
     - CA-R-1052

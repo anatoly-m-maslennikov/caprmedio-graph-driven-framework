@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings"
+  governs: "Entity/Node/Continuant/Project.Framework Settings"
   depends_on:
-    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Structure", "Authority Mode", "Entity/Continuant/Actor/Type: Operator"]
-version: 24
-updated_at: "2026-10-15 18:50:35 +0000"
+    ["Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Structure", "Authority Mode", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 25
+updated_at: "2026-10-19 15:55:18 +0400"
 relations:
   evaluation_for:
     - CA-R-1052

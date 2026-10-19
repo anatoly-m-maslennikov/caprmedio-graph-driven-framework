@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action"
   depends_on:
-    ["Entity/Continuant/Actor", "Tool", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/History/Journal.Record", "Entity/Carrier", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom.Substance"]
-version: 12
-updated_at: "2026-10-15 18:43:13 +0000"
+    ["Entity/Node/Continuant/Actor", "Tool", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/History/Journal.Record", "Entity/Carrier", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom.Substance"]
+version: 13
+updated_at: "2026-10-19 15:53:08 +0400"
 relations: {}
 atom_id: "CA-R-1452"
 content_role: "Requirement"

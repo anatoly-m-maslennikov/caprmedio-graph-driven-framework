@@ -8,10 +8,10 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Projection"
-  depends_on: ["Entity/Continuant/Node/Projection.ID", "Entity/Continuant/Node/Projection/Type", "Entity/Continuant/Node/Selection", "Entity/Continuant/Node/Scope Unit"]
-version: 4
-updated_at: "2026-10-18 03:34:55 +0400"
+  governs: "Entity/Node/Continuant/Projection"
+  depends_on: ["Entity/Node/Continuant/Projection.ID", "Entity/Node/Continuant/Projection/Type", "Entity/Node/Continuant/Selection", "Entity/Node/Continuant/Scope Unit"]
+version: 5
+updated_at: "2026-10-19 15:56:03 +0400"
 relations:
   depends_on: [CA-R-1943, CA-D-310, CA-D-550]
 ---

@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Corrective Method Acceptance"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Author", "Local Tier", "Entity/Continuant/Projection", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Spec"]
-version: 7
-updated_at: "2026-10-18 07:47:37 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.Author", "Local Tier", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Spec"]
+version: 8
+updated_at: "2026-10-19 15:56:50 +0400"
 relations:
   relates_to:
     - CA-O-021

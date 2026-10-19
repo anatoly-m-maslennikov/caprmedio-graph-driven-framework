@@ -2,9 +2,9 @@
 subjects:
   governs: "Artifact.Local Tier"
   depends_on:
-    ["Artifact", "Entity/Continuant/Object/Atom", "Implementation", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom.Local Tier: Standard"]
-version: 6
-updated_at: "2026-10-15 18:44:31 +0000"
+    ["Artifact", "Entity/Node/Continuant/Atom", "Implementation", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom.Local Tier: Standard"]
+version: 7
+updated_at: "2026-10-19 15:53:32 +0400"
 relations: {"relates_to": ["CA-R-660", "CA-R-1568"]}
 atom_id: "CA-R-1571"
 content_role: "Requirement"

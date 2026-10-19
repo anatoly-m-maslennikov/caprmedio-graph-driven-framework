@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit"
+  governs: "Entity/Node/Continuant/Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Project.Structure", "Entity/Carrier", "Implementation Folder"]
-version: 6
-updated_at: "2026-10-15 18:52:00 +0000"
+    ["Entity/Node/Continuant/Project.Structure", "Entity/Carrier", "Implementation Folder"]
+version: 7
+updated_at: "2026-10-19 15:55:49 +0400"
 relations:
   relates_to:
     - "CA-R-862"

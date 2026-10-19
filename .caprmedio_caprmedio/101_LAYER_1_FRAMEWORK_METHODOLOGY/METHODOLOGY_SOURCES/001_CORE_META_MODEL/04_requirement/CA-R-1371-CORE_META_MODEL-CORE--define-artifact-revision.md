@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/History/Revision"
+  governs: "Entity/Node/Continuant/History/Revision"
   depends_on:
-  - "Entity/Continuant/Node/History"
-version: 12
-updated_at: "2026-10-18 03:33:24 +0400"
+  - "Entity/Node/Continuant/History"
+version: 13
+updated_at: "2026-10-19 15:52:54 +0400"
 relations: {}
 atom_id: "CA-R-1371"
 content_role: "Requirement"

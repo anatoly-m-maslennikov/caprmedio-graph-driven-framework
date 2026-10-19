@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/History/Journal"
+  governs: "Entity/Node/Continuant/History/Journal"
   depends_on:
-    ["Entity/Continuant/Node/History/Journal.Record", "Entity/Carrier", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Projection/Type: Applicable Methodology", "Entity/Continuant/Node/Atom/Content Role: Evaluation"]
-version: 11
-updated_at: "2026-10-18 03:33:35 +0400"
+    ["Entity/Node/Continuant/History/Journal.Record", "Entity/Carrier", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
+version: 12
+updated_at: "2026-10-19 15:53:15 +0400"
 relations:
   child_of:
     - CA-R-1490

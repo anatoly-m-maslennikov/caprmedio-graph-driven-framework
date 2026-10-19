@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Local Tier"
+  governs: "Entity/Node/Continuant/Atom.Local Tier"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Atom/Content Role", "Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Scope Unit", "Type", "Methodology Source", "Autonomous Confidence Threshold"]
-version: 14
-updated_at: "2026-10-15 18:48:11 +0000"
+    ["Entity/Node/Continuant/Atom.Substance", "Atom Scope", "Atom/Content Role", "Entity/Node/Continuant/Atom.Local Tier", "Entity/Node/Continuant/Atom.Global Tier", "Entity/Node/Continuant/Scope Unit", "Type", "Methodology Source", "Autonomous Confidence Threshold"]
+version: 15
+updated_at: "2026-10-19 15:54:45 +0400"
 relations: {"method_for": ["CA-R-1566", "CA-R-659", "CA-R-1431", "CA-R-1573"]}
 atom_id: "CA-M-272"
 content_role: "Method"

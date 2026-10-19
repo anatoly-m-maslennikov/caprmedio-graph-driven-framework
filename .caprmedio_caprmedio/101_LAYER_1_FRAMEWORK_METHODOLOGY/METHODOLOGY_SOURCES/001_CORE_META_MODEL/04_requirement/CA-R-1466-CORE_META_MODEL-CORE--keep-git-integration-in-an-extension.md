@@ -2,9 +2,9 @@
 subjects:
   governs: "Extension"
   depends_on:
-    ["Core Meta-Model", "Entity/Continuant/History/Journal", "Entity/Continuant/Projection", "Project Configuration"]
-version: 6
-updated_at: "2026-10-15 18:43:24 +0000"
+    ["Core Meta-Model", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Projection", "Project Configuration"]
+version: 7
+updated_at: "2026-10-19 15:53:11 +0400"
 relations: {}
 atom_id: "CA-R-1466"
 content_role: "Requirement"

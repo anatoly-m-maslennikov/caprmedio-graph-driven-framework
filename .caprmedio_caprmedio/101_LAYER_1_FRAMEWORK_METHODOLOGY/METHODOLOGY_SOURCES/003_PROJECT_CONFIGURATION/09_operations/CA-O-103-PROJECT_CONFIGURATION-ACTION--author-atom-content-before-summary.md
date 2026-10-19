@@ -10,10 +10,10 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Atom Content Authoring"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Details", "Entity/Continuant/Object/Atom.Summary", "Atom/Content Role", "Author"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Details", "Entity/Node/Continuant/Atom.Summary", "Atom/Content Role", "Author"]
 relations: {"relates_to": ["CA-M-111", "CA-D-479", "CA-R-1465", "CA-R-1464", "CA-E-384"]}
-version: 5
-updated_at: "2026-10-18 07:47:55 +0400"
+version: 6
+updated_at: "2026-10-19 15:56:52 +0400"
 global_tier: 11
 ---
 # Summary

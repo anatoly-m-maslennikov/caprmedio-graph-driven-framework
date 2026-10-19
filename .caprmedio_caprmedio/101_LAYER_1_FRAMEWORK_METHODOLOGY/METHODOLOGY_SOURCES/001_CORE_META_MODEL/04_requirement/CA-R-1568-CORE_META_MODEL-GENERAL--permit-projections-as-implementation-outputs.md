@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection"
+  governs: "Entity/Node/Continuant/Projection"
   depends_on:
-    ["Implementation", "Spec Content Roles", "Artifact", "Entity/Continuant/Object/Atom", "Entity/Continuant/Projection.Authority"]
-version: 8
-updated_at: "2026-10-15 18:44:30 +0000"
+    ["Implementation", "Spec Content Roles", "Artifact", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Projection.Authority"]
+version: 9
+updated_at: "2026-10-19 15:53:32 +0400"
 relations: {"relates_to": ["CA-R-1548", "CA-R-1571", "CA-R-1703"]}
 atom_id: "CA-R-1568"
 content_role: "Requirement"

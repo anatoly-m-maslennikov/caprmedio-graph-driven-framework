@@ -1,19 +1,19 @@
 ---
 artifact_form: Projection
 type: Entities Graph
-updated_at: 2026-10-19 15:03:03 +0400
+updated_at: 2026-10-19 15:57:28 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2
-- CA-D-253@15
-- CA-D-305@15
-- CA-D-306@16
-- CA-D-307@15
+- CA-D-253@16
+- CA-D-305@16
+- CA-D-306@17
+- CA-D-307@16
 - CA-D-320@13
 - CA-D-321@11
 - CA-D-322@8
 - CA-D-323@8
-- CA-D-324@12
+- CA-D-324@13
 - CA-D-325@13
 - CA-D-326@15
 - CA-D-327@10
@@ -21,180 +21,180 @@ sources:
 - CA-D-337@9
 - CA-D-339@14
 - CA-D-344@9
-- CA-D-388@8
-- CA-D-396@8
+- CA-D-388@9
+- CA-D-396@9
 - CA-D-397@11
 - CA-D-398@10
-- CA-D-405@8
-- CA-D-435@10
-- CA-D-453@5
-- CA-D-454@5
-- CA-D-496@11
-- CA-D-497@6
+- CA-D-405@9
+- CA-D-435@11
+- CA-D-453@6
+- CA-D-454@6
+- CA-D-496@12
+- CA-D-497@7
 - CA-D-498@1
 - CA-D-499@2
-- CA-D-500@1
-- CA-D-501@1
+- CA-D-500@2
+- CA-D-501@2
 - CA-D-502@2
 - CA-D-503@2
-- CA-D-504@3
-- CA-D-581@1
-- CA-E-379@24
-- CA-E-465@7
+- CA-D-504@4
+- CA-D-581@2
+- CA-E-379@25
+- CA-E-465@8
 - CA-E-474@8
-- CA-E-477@8
+- CA-E-477@9
 - CA-E-483@6
 - CA-E-487@7
 - CA-E-488@6
-- CA-E-510@6
-- CA-E-513@7
-- CA-E-519@9
-- CA-E-588@1
+- CA-E-510@7
+- CA-E-513@8
+- CA-E-519@10
+- CA-E-588@2
 - CA-M-112@15
-- CA-M-225@20
-- CA-M-277@14
-- CA-M-278@12
+- CA-M-225@21
+- CA-M-277@15
+- CA-M-278@13
 - CA-M-298@7
 - CA-M-300@5
 - CA-M-345@1
-- CA-O-004@8
-- CA-O-005@11
-- CA-O-006@9
-- CA-O-007@9
-- CA-O-008@15
-- CA-O-009@8
-- CA-O-010@12
-- CA-O-011@15
-- CA-O-012@8
-- CA-O-013@7
-- CA-O-014@7
-- CA-O-015@11
-- CA-O-016@14
-- CA-O-017@9
-- CA-O-018@9
-- CA-O-019@7
-- CA-O-020@8
-- CA-O-021@12
-- CA-O-022@10
-- CA-O-023@9
-- CA-O-024@14
+- CA-O-004@9
+- CA-O-005@12
+- CA-O-006@10
+- CA-O-007@10
+- CA-O-008@16
+- CA-O-009@9
+- CA-O-010@13
+- CA-O-011@16
+- CA-O-012@9
+- CA-O-013@8
+- CA-O-014@8
+- CA-O-015@12
+- CA-O-016@15
+- CA-O-017@10
+- CA-O-018@10
+- CA-O-019@8
+- CA-O-020@9
+- CA-O-021@13
+- CA-O-022@11
+- CA-O-023@10
+- CA-O-024@15
 - CA-O-025@6
 - CA-O-026@5
 - CA-O-027@5
-- CA-O-028@11
-- CA-O-051@10
-- CA-O-052@7
-- CA-O-053@8
-- CA-O-054@8
-- CA-O-058@9
+- CA-O-028@12
+- CA-O-051@11
+- CA-O-052@8
+- CA-O-053@9
+- CA-O-054@9
+- CA-O-058@10
 - CA-O-062@6
-- CA-O-065@7
-- CA-O-067@10
-- CA-O-077@8
-- CA-O-078@6
-- CA-O-079@7
-- CA-O-080@8
-- CA-O-087@9
-- CA-O-088@7
-- CA-O-089@6
-- CA-O-090@7
-- CA-O-091@8
-- CA-O-092@7
-- CA-O-093@7
-- CA-O-094@8
-- CA-O-095@7
-- CA-O-096@7
-- CA-O-098@8
-- CA-O-099@6
-- CA-O-100@6
-- CA-O-101@6
-- CA-O-102@5
-- CA-O-103@5
-- CA-O-104@12
-- CA-O-105@8
-- CA-O-106@11
-- CA-O-108@10
-- CA-O-109@10
-- CA-O-110@10
-- CA-O-111@9
+- CA-O-065@8
+- CA-O-067@11
+- CA-O-077@9
+- CA-O-078@7
+- CA-O-079@8
+- CA-O-080@9
+- CA-O-087@10
+- CA-O-088@8
+- CA-O-089@7
+- CA-O-090@8
+- CA-O-091@9
+- CA-O-092@8
+- CA-O-093@8
+- CA-O-094@9
+- CA-O-095@8
+- CA-O-096@8
+- CA-O-098@9
+- CA-O-099@7
+- CA-O-100@7
+- CA-O-101@7
+- CA-O-102@6
+- CA-O-103@6
+- CA-O-104@13
+- CA-O-105@9
+- CA-O-106@12
+- CA-O-108@11
+- CA-O-109@11
+- CA-O-110@11
+- CA-O-111@10
 - CA-O-112@1
 - CA-O-113@1
 - CA-O-114@1
 - CA-O-115@1
 - CA-O-116@1
 - CA-O-117@1
-- CA-O-118@5
-- CA-O-119@5
-- CA-O-120@5
-- CA-O-121@5
-- CA-O-122@6
-- CA-O-123@4
-- CA-O-124@3
-- CA-O-125@4
-- CA-O-126@4
-- CA-O-127@13
-- CA-O-128@13
-- CA-O-129@11
-- CA-O-130@4
-- CA-O-131@4
-- CA-O-132@4
-- CA-O-133@5
-- CA-O-134@5
-- CA-O-135@4
-- CA-O-136@5
-- CA-O-137@5
-- CA-O-138@4
-- CA-O-139@5
-- CA-O-140@5
-- CA-O-141@5
-- CA-O-142@5
-- CA-O-143@5
-- CA-O-144@5
-- CA-O-145@5
-- CA-O-146@6
-- CA-O-147@6
-- CA-O-148@6
-- CA-O-149@6
-- CA-O-150@6
-- CA-O-151@6
-- CA-O-152@6
-- CA-O-153@6
-- CA-O-154@6
-- CA-O-155@6
-- CA-O-156@6
-- CA-O-157@6
-- CA-O-158@6
-- CA-O-161@5
-- CA-O-162@5
-- CA-O-163@7
+- CA-O-118@6
+- CA-O-119@6
+- CA-O-120@6
+- CA-O-121@6
+- CA-O-122@7
+- CA-O-123@5
+- CA-O-124@4
+- CA-O-125@5
+- CA-O-126@5
+- CA-O-127@14
+- CA-O-128@14
+- CA-O-129@12
+- CA-O-130@5
+- CA-O-131@5
+- CA-O-132@5
+- CA-O-133@6
+- CA-O-134@6
+- CA-O-135@5
+- CA-O-136@6
+- CA-O-137@6
+- CA-O-138@5
+- CA-O-139@6
+- CA-O-140@6
+- CA-O-141@6
+- CA-O-142@6
+- CA-O-143@6
+- CA-O-144@6
+- CA-O-145@6
+- CA-O-146@7
+- CA-O-147@7
+- CA-O-148@7
+- CA-O-149@7
+- CA-O-150@7
+- CA-O-151@7
+- CA-O-152@7
+- CA-O-153@7
+- CA-O-154@7
+- CA-O-155@7
+- CA-O-156@7
+- CA-O-157@7
+- CA-O-158@7
+- CA-O-161@6
+- CA-O-162@6
+- CA-O-163@8
 - CA-O-180@3
-- CA-R-1213@20
+- CA-R-1213@21
 - CA-R-1222@10
 - CA-R-1226@10
-- CA-R-1228@19
-- CA-R-1314@18
+- CA-R-1228@20
+- CA-R-1314@19
 - CA-R-1315@18
-- CA-R-1316@16
-- CA-R-1317@14
+- CA-R-1316@17
+- CA-R-1317@15
 - CA-R-1354@9
 - CA-R-1355@9
 - CA-R-1356@10
-- CA-R-1373@14
-- CA-R-1434@11
+- CA-R-1373@15
+- CA-R-1434@12
 - CA-R-1514@6
 - CA-R-1515@5
 - CA-R-1517@4
 - CA-R-1518@6
 - CA-R-1560@4
 - CA-R-1612@4
-- CA-R-1613@4
-- CA-R-1614@4
-- CA-R-1615@4
-- CA-R-1616@4
-- CA-R-1617@4
-- CA-R-1618@4
-- CA-R-1619@4
-- CA-R-1620@4
+- CA-R-1613@5
+- CA-R-1614@5
+- CA-R-1615@5
+- CA-R-1616@5
+- CA-R-1617@5
+- CA-R-1618@5
+- CA-R-1619@5
+- CA-R-1620@5
 - CA-R-1621@4
 - CA-R-1635@27
 - CA-R-1637@18
@@ -204,8 +204,8 @@ sources:
 - CA-R-1645@21
 - CA-R-1647@19
 - CA-R-1651@20
-- CA-R-1662@27
-- CA-R-1663@24
+- CA-R-1662@28
+- CA-R-1663@25
 - CA-R-1665@21
 - CA-R-1666@25
 - CA-R-1668@22
@@ -214,7 +214,7 @@ sources:
 - CA-R-1711@20
 - CA-R-1769@20
 - CA-R-1778@15
-- CA-R-1779@1
+- CA-R-1779@2
 - CA-R-1780@1
 - CA-R-1781@1
 - CA-R-1782@1
@@ -229,13 +229,13 @@ sources:
 - CA-R-1800@1
 - CA-R-1888@1
 - CA-R-1889@1
-- CA-R-1977@2
-- CA-R-1978@2
-- CA-R-1979@2
-- CA-R-1980@2
-- CA-R-1981@2
-- CA-R-1982@2
-- CA-R-1983@2
+- CA-R-1977@3
+- CA-R-1978@3
+- CA-R-1979@3
+- CA-R-1980@3
+- CA-R-1981@3
+- CA-R-1982@3
+- CA-R-1983@3
 - CAPRMEDIO-GOV-EVAL-006@27
 projection_id: CA-PROJ-003
 named_selection: Current Atoms
@@ -356,8 +356,6 @@ CAPRMEDIO Main Skill
 CAPRMEDIO Main Skill Routing
 CAPRMEDIO Routing Tree
 CCE
-Carrier
-	/ Carrier/Format
 Check Atoms
 Check Atoms Step
 Confidence Threshold
@@ -380,63 +378,47 @@ Entity
 	/ Entity/Carrier
 		/ Entity/Carrier/Directory Carrier
 		/ Entity/Carrier/File Carrier
-	/ Entity/Continuant
-		/ Entity/Continuant/Actor
-			/ Entity/Continuant/Actor/Type: AI Agent
-			/ Entity/Continuant/Actor/Type: Operator
-		/ Entity/Continuant/History
-			/ Entity/Continuant/History/Journal
-			/ Entity/Continuant/History/Revision
-				/ Entity/Continuant/History/Revision/Type: Atom
-		/ Entity/Continuant/Node
-			/ Entity/Continuant/Node/Actor
-				/ Entity/Continuant/Node/Actor/Type: Operator
-			/ Entity/Continuant/Node/Atom
-				/ Entity/Continuant/Node/Atom/Content Role: Concern
-					/ Entity/Continuant/Node/Atom/Content Role: Concern/Type
-				/ Entity/Continuant/Node/Atom/Content Role: Evaluation
-					/ Entity/Continuant/Node/Atom/Content Role: Evaluation/Type
-				/ Entity/Continuant/Node/Atom/Content Role: Operations
-					/ Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action
-					/ Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step
-					/ Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow
-				/ Entity/Continuant/Node/Atom/Content Role: Plan
-			/ Entity/Continuant/Node/History
-				/ Entity/Continuant/Node/History/Journal
-			/ Entity/Continuant/Node/Project
-			/ Entity/Continuant/Node/Projection
-				/ Entity/Continuant/Node/Projection/Type: Applicable Methodology
-		/ Entity/Continuant/Object
-			/ Entity/Continuant/Object/Atom
-				/ Entity/Continuant/Object/Atom/Content Role: Concern
-				/ Entity/Continuant/Object/Atom/Content Role: Delivery
-				/ Entity/Continuant/Object/Atom/Content Role: Evaluation
-				/ Entity/Continuant/Object/Atom/Content Role: Method
-				/ Entity/Continuant/Object/Atom/Content Role: Operations
-					/ Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action
-					/ Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step
-					/ Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow
-				/ Entity/Continuant/Object/Atom/Content Role: Plan
-				/ Entity/Continuant/Object/Atom/Content Role: Requirement
-					/ Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal
-			/ Entity/Continuant/Object/Project
-			/ Entity/Continuant/Object/Relation
-			/ Entity/Continuant/Object/Scope Unit
-		/ Entity/Continuant/Projection
-			/ Entity/Continuant/Projection/Type: Applicable Methodology
-			/ Entity/Continuant/Projection/Type: Entities Graph
-			/ Entity/Continuant/Projection/Type: Reconciled Projection
-			/ Entity/Continuant/Projection/Type: Terms Graph
-		/ Entity/Continuant/Relation
-			/ Entity/Continuant/Relation/Type: DERIVED_FROM
-			/ Entity/Continuant/Relation/Type: On Result
-		/ Entity/Continuant/Term
-	/ Entity/Occurrent
-		/ Entity/Occurrent/Event
-		/ Entity/Occurrent/Execution
-			/ Entity/Occurrent/Execution/Action Run
-			/ Entity/Occurrent/Execution/Step Run
-			/ Entity/Occurrent/Execution/Workflow Run
+		/ Entity/Carrier/Format
+	/ Entity/Node
+		/ Entity/Node/Continuant
+			/ Entity/Node/Continuant/Actor
+				/ Entity/Node/Continuant/Actor/Type: AI Agent
+				/ Entity/Node/Continuant/Actor/Type: Operator
+			/ Entity/Node/Continuant/Atom
+				/ Entity/Node/Continuant/Atom/Content Role: Concern
+					/ Entity/Node/Continuant/Atom/Content Role: Concern/Type
+				/ Entity/Node/Continuant/Atom/Content Role: Delivery
+				/ Entity/Node/Continuant/Atom/Content Role: Evaluation
+					/ Entity/Node/Continuant/Atom/Content Role: Evaluation/Type
+				/ Entity/Node/Continuant/Atom/Content Role: Method
+				/ Entity/Node/Continuant/Atom/Content Role: Operations
+					/ Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action
+					/ Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step
+					/ Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow
+				/ Entity/Node/Continuant/Atom/Content Role: Plan
+				/ Entity/Node/Continuant/Atom/Content Role: Requirement
+					/ Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal
+			/ Entity/Node/Continuant/History
+				/ Entity/Node/Continuant/History/Journal
+				/ Entity/Node/Continuant/History/Revision
+					/ Entity/Node/Continuant/History/Revision/Type: Atom
+			/ Entity/Node/Continuant/Project
+			/ Entity/Node/Continuant/Projection
+				/ Entity/Node/Continuant/Projection/Type: Applicable Methodology
+				/ Entity/Node/Continuant/Projection/Type: Entities Graph
+				/ Entity/Node/Continuant/Projection/Type: Reconciled Projection
+				/ Entity/Node/Continuant/Projection/Type: Terms Graph
+			/ Entity/Node/Continuant/Scope Unit
+			/ Entity/Node/Continuant/Term
+		/ Entity/Node/Occurrent
+			/ Entity/Node/Occurrent/Event
+			/ Entity/Node/Occurrent/Execution
+				/ Entity/Node/Occurrent/Execution/Action Run
+				/ Entity/Node/Occurrent/Execution/Step Run
+				/ Entity/Node/Occurrent/Execution/Workflow Run
+	/ Entity/Relation
+		/ Entity/Relation/Type: DERIVED_FROM
+		/ Entity/Relation/Type: On Result
 Evaluate RMED Review Batch
 Evaluation
 Evaluation Control
@@ -614,99 +596,76 @@ Entity/Carrier/Directory Carrier
 	. Entity/Carrier/Directory Carrier.Numeric Prefix
 ```
 
-### Entity/Continuant/History/Journal
+### Entity/Node/Continuant/Atom
 
 ```text
-Entity/Continuant/History/Journal
-	. Entity/Continuant/History/Journal.Record
+Entity/Node/Continuant/Atom
+	. Entity/Node/Continuant/Atom.Author
+	. Entity/Node/Continuant/Atom.Details
+	. Entity/Node/Continuant/Atom.Global Tier
+	. Entity/Node/Continuant/Atom.Local Tier
+		: Entity/Node/Continuant/Atom.Local Tier: Principle
+	. Entity/Node/Continuant/Atom.Property
+	. Entity/Node/Continuant/Atom.Subjects
+	. Entity/Node/Continuant/Atom.Substance
+	. Entity/Node/Continuant/Atom.Summary
+	. Entity/Node/Continuant/Atom.Target Scope Unit
+	. Entity/Node/Continuant/Atom.Updated At
 ```
 
-### Entity/Continuant/Node/Atom
+### Entity/Node/Continuant/Atom/Content Role: Plan
 
 ```text
-Entity/Continuant/Node/Atom
-	. Entity/Continuant/Node/Atom.Subjects
-	. Entity/Continuant/Node/Atom.Substance
+Entity/Node/Continuant/Atom/Content Role: Plan
+	. Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done
+	. Entity/Node/Continuant/Atom/Content Role: Plan.Label
+	. Entity/Node/Continuant/Atom/Content Role: Plan.Status
 ```
 
-### Entity/Continuant/Node/Atom/Content Role: Plan
+### Entity/Node/Continuant/History/Journal
 
 ```text
-Entity/Continuant/Node/Atom/Content Role: Plan
-	. Entity/Continuant/Node/Atom/Content Role: Plan.Definition of Done
-	. Entity/Continuant/Node/Atom/Content Role: Plan.Status
+Entity/Node/Continuant/History/Journal
+	. Entity/Node/Continuant/History/Journal.Record
 ```
 
-### Entity/Continuant/Node/Project
+### Entity/Node/Continuant/Project
 
 ```text
-Entity/Continuant/Node/Project
-	. Entity/Continuant/Node/Project.Framework Settings
-		. Entity/Continuant/Node/Project.Framework Settings.Artifact Timestamp Timezone
-		. Entity/Continuant/Node/Project.Framework Settings.Code-Root Locators
-		. Entity/Continuant/Node/Project.Framework Settings.Confidence
-		. Entity/Continuant/Node/Project.Framework Settings.Framework Control-Root Locator
-		. Entity/Continuant/Node/Project.Framework Settings.Identifier
-		. Entity/Continuant/Node/Project.Framework Settings.Interaction
-		. Entity/Continuant/Node/Project.Framework Settings.Parameter Resolution
+Entity/Node/Continuant/Project
+	. Entity/Node/Continuant/Project.Framework Settings
+		. Entity/Node/Continuant/Project.Framework Settings.Artifact Timestamp Timezone
+		. Entity/Node/Continuant/Project.Framework Settings.Code-Root Locators
+		. Entity/Node/Continuant/Project.Framework Settings.Confidence
+		. Entity/Node/Continuant/Project.Framework Settings.Framework Control-Root Locator
+		. Entity/Node/Continuant/Project.Framework Settings.Identifier
+		. Entity/Node/Continuant/Project.Framework Settings.Interaction
+			. Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode
+				. Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Effects
+				. Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information
+				: Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode: silent
+				: Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode: verbose
+		. Entity/Node/Continuant/Project.Framework Settings.Parameter Resolution
+	. Entity/Node/Continuant/Project.Settings
+	. Entity/Node/Continuant/Project.Structure
 ```
 
-### Entity/Continuant/Node/Projection/Type: Applicable Methodology
+### Entity/Node/Continuant/Projection/Type: Applicable Methodology
 
 ```text
-Entity/Continuant/Node/Projection/Type: Applicable Methodology
-	. Entity/Continuant/Node/Projection/Type: Applicable Methodology.Conflict
-	. Entity/Continuant/Node/Projection/Type: Applicable Methodology.Member
+Entity/Node/Continuant/Projection/Type: Applicable Methodology
+	. Entity/Node/Continuant/Projection/Type: Applicable Methodology.Conflict
+	. Entity/Node/Continuant/Projection/Type: Applicable Methodology.Member
 ```
 
-### Entity/Continuant/Object/Atom
+### Entity/Node/Continuant/Scope Unit
 
 ```text
-Entity/Continuant/Object/Atom
-	. Entity/Continuant/Object/Atom.Author
-	. Entity/Continuant/Object/Atom.Details
-	. Entity/Continuant/Object/Atom.Global Tier
-	. Entity/Continuant/Object/Atom.Local Tier
-		: Entity/Continuant/Object/Atom.Local Tier: Principle
-	. Entity/Continuant/Object/Atom.Property
-	. Entity/Continuant/Object/Atom.Substance
-	. Entity/Continuant/Object/Atom.Summary
-	. Entity/Continuant/Object/Atom.Target Scope Unit
-	. Entity/Continuant/Object/Atom.Updated At
-```
-
-### Entity/Continuant/Object/Atom/Content Role: Plan
-
-```text
-Entity/Continuant/Object/Atom/Content Role: Plan
-	. Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done
-	. Entity/Continuant/Object/Atom/Content Role: Plan.Label
-	. Entity/Continuant/Object/Atom/Content Role: Plan.Status
-```
-
-### Entity/Continuant/Object/Project
-
-```text
-Entity/Continuant/Object/Project
-	. Entity/Continuant/Object/Project.Framework Settings
-		. Entity/Continuant/Object/Project.Framework Settings.Interaction
-			. Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode
-				. Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Effects
-				. Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information
-				: Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode: silent
-				: Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode: verbose
-	. Entity/Continuant/Object/Project.Settings
-	. Entity/Continuant/Object/Project.Structure
-```
-
-### Entity/Continuant/Object/Scope Unit
-
-```text
-Entity/Continuant/Object/Scope Unit
-	. Entity/Continuant/Object/Scope Unit.Label
-	. Entity/Continuant/Object/Scope Unit.Local Order
-	. Entity/Continuant/Object/Scope Unit.Navigational Order Number
-	. Entity/Continuant/Object/Scope Unit.Structural Level
+Entity/Node/Continuant/Scope Unit
+	. Entity/Node/Continuant/Scope Unit.Label
+	. Entity/Node/Continuant/Scope Unit.Local Order
+	. Entity/Node/Continuant/Scope Unit.Navigational Order Number
+	. Entity/Node/Continuant/Scope Unit.Structural Level
 ```
 
 ### Markdown Atom Carrier

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Substance"
+  governs: "Entity/Node/Continuant/Atom.Substance"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Substance", "Entity/Continuant/Node/Atom.Target Scope Unit", "Entity/Carrier/File Carrier", "Entity/Continuant/Node/Atom/Content Role"]
-version: 5
-updated_at: "2026-10-18 03:34:53 +0400"
+    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Carrier/File Carrier", "Entity/Node/Continuant/Atom/Content Role"]
+version: 6
+updated_at: "2026-10-19 15:55:59 +0400"
 relations: {"relates_to": ["CA-D-479", "CA-D-482", "CA-R-1271"]}
 atom_id: "CA-D-495"
 content_role: "Delivery"

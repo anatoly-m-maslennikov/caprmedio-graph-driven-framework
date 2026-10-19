@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Scope Unit.Parent"
+  governs: "Entity/Node/Continuant/Scope Unit.Parent"
   depends_on:
     []
-version: 19
-updated_at: "2026-10-18 03:33:47 +0400"
+version: 20
+updated_at: "2026-10-19 15:53:49 +0400"
 relations: {}
 atom_id: "CA-R-1658"
 content_role: "Requirement"

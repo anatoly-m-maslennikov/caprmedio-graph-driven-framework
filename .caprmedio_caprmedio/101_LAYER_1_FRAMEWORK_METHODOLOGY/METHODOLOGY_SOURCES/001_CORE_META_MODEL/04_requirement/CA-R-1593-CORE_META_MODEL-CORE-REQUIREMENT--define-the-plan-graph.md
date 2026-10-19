@@ -2,9 +2,9 @@
 subjects:
   governs: "Plan Graph"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Projection", "Relation Kind", "Entity/Carrier"]
-version: 6
-updated_at: "2026-10-15 18:44:53 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Projection", "Relation Kind", "Entity/Carrier"]
+version: 7
+updated_at: "2026-10-19 15:53:39 +0400"
 relations: {"relates_to": ["CA-R-1574", "CA-R-1579", "CA-R-1580", "CA-R-806"]}
 atom_id: "CA-R-1593"
 content_role: "Requirement"

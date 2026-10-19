@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings.Authority Modes"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Authority Modes"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project.Structure", "Authority Mode", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom"]
-version: 10
-updated_at: "2026-10-15 18:42:54 +0000"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Project.Structure", "Authority Mode", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom"]
+version: 11
+updated_at: "2026-10-19 15:53:03 +0400"
 relations:
   child_of:
     - "CA-R-1402"

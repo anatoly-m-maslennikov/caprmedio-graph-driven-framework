@@ -2,9 +2,9 @@
 subjects:
   governs: "Normative Atom Prose Authoring"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "CCE"]
-version: 14
-updated_at: "2026-10-15 18:48:03 +0000"
+    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "CCE"]
+version: 15
+updated_at: "2026-10-19 15:54:43 +0400"
 relations: {}
 atom_id: "CA-M-233"
 content_role: "Method"

@@ -2,9 +2,9 @@
 subjects:
   governs: "Governed Term"
   depends_on:
-    ["Definition Atom", "Entity/Continuant/Term", "Entity/Continuant/Object/Project"]
-version: 11
-updated_at: "2026-10-15 18:41:51 +0000"
+    ["Definition Atom", "Entity/Node/Continuant/Term", "Entity/Node/Continuant/Project"]
+version: 12
+updated_at: "2026-10-19 15:52:48 +0400"
 relations: {}
 atom_id: "CA-R-1319"
 content_role: "Requirement"

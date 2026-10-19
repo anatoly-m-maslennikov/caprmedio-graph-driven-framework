@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Structure"
+  governs: "Entity/Node/Continuant/Project.Structure"
   depends_on:
-    ["Artifact", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit", "Single Source of Truth"]
-version: 6
-updated_at: "2026-10-15 18:43:31 +0000"
+    ["Artifact", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Scope Unit", "Single Source of Truth"]
+version: 7
+updated_at: "2026-10-19 15:53:13 +0400"
 relations: {}
 atom_id: "CA-R-1483"
 content_role: "Requirement"

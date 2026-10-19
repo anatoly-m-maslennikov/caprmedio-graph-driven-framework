@@ -2,9 +2,9 @@
 subjects:
   governs: "Canonical Scope Signature Derivation Validation"
   depends_on:
-    ["Scope Expression", "Entity/Continuant/Projection/Type: Canonical Scope Signature", "Atom Carrier"]
-version: 12
-updated_at: "2026-10-15 18:49:13 +0000"
+    ["Scope Expression", "Entity/Node/Continuant/Projection/Type: Canonical Scope Signature", "Atom Carrier"]
+version: 13
+updated_at: "2026-10-19 15:54:59 +0400"
 relations:
   evaluation_for:
     - CA-R-1361

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection"
+  governs: "Entity/Node/Continuant/Projection"
   depends_on:
-    ["Entity/Continuant/Node/Atom"]
-version: 7
-updated_at: "2026-10-18 03:33:36 +0400"
+    ["Entity/Node/Continuant/Atom"]
+version: 8
+updated_at: "2026-10-19 15:53:18 +0400"
 relations: {"child_of":["CA-R-1746"]}
 atom_id: "CA-R-1507"
 content_role: "Requirement"

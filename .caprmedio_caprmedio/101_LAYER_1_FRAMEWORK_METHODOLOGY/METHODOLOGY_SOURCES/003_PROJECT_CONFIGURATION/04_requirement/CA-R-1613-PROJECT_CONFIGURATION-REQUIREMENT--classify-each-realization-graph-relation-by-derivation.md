@@ -11,10 +11,10 @@ subjects:
   depends_on:
     - "Evidence"
     - "Projection"
-    - "Relation"
+    - "Entity/Relation"
     - "Relation Derivation Class"
-version: 4
-updated_at: "2026-10-03 00:55:03 +0400"
+version: 5
+updated_at: "2026-10-19 15:56:06 +0400"
 relations:
   relates_to:
     - CA-R-1616

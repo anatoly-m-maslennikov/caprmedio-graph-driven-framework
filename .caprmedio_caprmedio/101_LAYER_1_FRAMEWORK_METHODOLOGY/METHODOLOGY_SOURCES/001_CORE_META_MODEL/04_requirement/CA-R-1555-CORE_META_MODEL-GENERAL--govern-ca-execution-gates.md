@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor/Type: AI Agent"
+  governs: "Entity/Node/Continuant/Actor/Type: AI Agent"
   depends_on:
-    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "AI Agent Delegation", "Confidence Threshold"]
-version: 7
-updated_at: "2026-10-15 18:44:19 +0000"
+    ["Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "AI Agent Delegation", "Confidence Threshold"]
+version: 8
+updated_at: "2026-10-19 15:53:27 +0400"
 relations: {"child_of":["CA-R-1713"]}
 atom_id: "CA-R-1555"
 content_role: "Requirement"

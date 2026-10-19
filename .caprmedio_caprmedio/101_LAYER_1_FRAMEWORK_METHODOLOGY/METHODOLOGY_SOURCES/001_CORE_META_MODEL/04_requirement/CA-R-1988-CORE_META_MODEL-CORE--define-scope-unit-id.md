@@ -8,12 +8,12 @@ global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Scope Unit.ID"
+  governs: "Entity/Node/Continuant/Scope Unit.ID"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:06 +0400"
+version: 3
+updated_at: "2026-10-19 15:54:16 +0400"
 ---
 # Summary
 

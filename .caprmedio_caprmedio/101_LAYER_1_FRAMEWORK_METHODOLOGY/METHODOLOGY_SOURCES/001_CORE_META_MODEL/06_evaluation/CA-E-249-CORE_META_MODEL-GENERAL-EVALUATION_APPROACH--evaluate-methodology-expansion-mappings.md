@@ -1,11 +1,11 @@
 ---
-version: 14
-updated_at: "2026-10-15 18:48:58 +0000"
+version: 15
+updated_at: "2026-10-19 15:54:56 +0400"
 relations: {"child_of":["CA-E-001"],"evaluation_for":["CA-M-298","CA-O-054","CA-R-1375"]}
 subjects:
   governs: "Methodology Source.Expansion Mapping"
   depends_on:
-    ["Methodology Source", "Core Meta-Model", "Extension", "Project Configuration", "Entity/Continuant/Actor/Type: Operator", "Entity"]
+    ["Methodology Source", "Core Meta-Model", "Extension", "Project Configuration", "Entity/Node/Continuant/Actor/Type: Operator", "Entity"]
 atom_id: "CA-E-249"
 content_role: "Evaluation"
 current_scope_unit: "CORE_META_MODEL"

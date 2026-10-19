@@ -2,9 +2,9 @@
 subjects:
   governs: "Subject Expression Writing"
   depends_on:
-    ["Subject Path", "Entity", "Entity/Continuant/Object/Relation", "Entity/Continuant/Term", "Subject", "GOVERNS", "DEPENDS_ON"]
-version: 17
-updated_at: "2026-10-15 18:47:55 +0000"
+    ["Subject Path", "Entity", "Entity/Relation", "Entity/Node/Continuant/Term", "Subject", "GOVERNS", "DEPENDS_ON"]
+version: 18
+updated_at: "2026-10-19 15:54:41 +0400"
 relations: {}
 atom_id: "CA-M-228"
 content_role: "Method"

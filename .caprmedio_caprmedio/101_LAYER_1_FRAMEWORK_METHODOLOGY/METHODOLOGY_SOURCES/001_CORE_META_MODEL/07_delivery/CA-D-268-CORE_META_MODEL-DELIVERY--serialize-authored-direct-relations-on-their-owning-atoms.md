@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Relation"
+  governs: "Entity/Relation"
   depends_on:
-    ["Entity/Continuant/Relation.Source Reference"]
-version: 16
-updated_at: "2026-10-18 03:34:32 +0400"
+    ["Entity/Relation.Source Reference"]
+version: 17
+updated_at: "2026-10-19 15:55:19 +0400"
 relations: {}
 atom_id: "CA-D-268"
 content_role: "Delivery"

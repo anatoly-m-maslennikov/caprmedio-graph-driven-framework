@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Scope Unit"
+  governs: "Entity/Node/Continuant/Scope Unit"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Target Scope Unit", "Entity/Continuant/Node/Atom.Author", "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Node/Atom.Owning Scope Unit", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Project"]
-version: 26
-updated_at: "2026-10-18 03:34:13 +0400"
+    ["Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Node/Continuant/Atom.Owning Scope Unit", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project"]
+version: 27
+updated_at: "2026-10-19 15:54:29 +0400"
 relations:
   child_of:
     - CA-R-925

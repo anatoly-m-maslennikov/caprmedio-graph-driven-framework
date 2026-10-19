@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Carrier.Filename.Local Tier"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Atom.Local Tier: Standard", "Change Content Roles", "Implementation", "Artifact Carrier"]
-version: 15
-updated_at: "2026-10-15 18:50:51 +0000"
+    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Local Tier", "Entity/Node/Continuant/Atom.Local Tier: Standard", "Change Content Roles", "Implementation", "Artifact Carrier"]
+version: 16
+updated_at: "2026-10-19 15:55:22 +0400"
 relations: {"delivery_for": ["CA-R-1566"]}
 atom_id: "CA-D-285"
 content_role: "Delivery"

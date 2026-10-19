@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Entities Graph"
+  governs: "Entity/Node/Continuant/Projection/Type: Entities Graph"
   depends_on:
-    ["Entity", "Subject Path", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Subjects", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation", "Relation Kind", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Entity/Continuant/Projection", "Entity/Continuant/Term", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/History/Journal", "Entity/Carrier"]
-version: 12
-updated_at: "2026-10-15 18:43:16 +0000"
+    ["Entity", "Subject Path", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Subjects", "Entity/Node/Continuant/Atom", "Entity/Relation", "Relation Kind", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Term", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/History/Journal", "Entity/Carrier"]
+version: 13
+updated_at: "2026-10-19 15:53:09 +0400"
 relations:
   child_of:
     - CA-R-1438

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.ID"
+  governs: "Entity/Node/Continuant/Atom.ID"
   depends_on:
-    ["Entity/Continuant/Object/Atom.ID", "Atom/Content Role", "Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier.Canonical Address", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator", "Confidence Threshold", "Entity/Continuant/History/Journal"]
-version: 11
-updated_at: "2026-10-15 18:49:22 +0000"
+    ["Entity/Node/Continuant/Atom.ID", "Atom/Content Role", "Entity/Node/Continuant/Atom.Substance", "Atom Scope", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Carrier.Canonical Address", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator", "Confidence Threshold", "Entity/Node/Continuant/History/Journal"]
+version: 12
+updated_at: "2026-10-19 15:55:01 +0400"
 relations:
   evaluation_for:
     - CA-M-276

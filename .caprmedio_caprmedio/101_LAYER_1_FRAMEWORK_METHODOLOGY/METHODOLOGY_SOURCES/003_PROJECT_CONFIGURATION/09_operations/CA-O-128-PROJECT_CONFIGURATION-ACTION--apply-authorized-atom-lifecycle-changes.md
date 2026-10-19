@@ -9,10 +9,10 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Continuant/Object/Atom"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Status", "Entity/Carrier", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
-version: 13
-updated_at: "2026-10-18 16:23:02 +0400"
+  governs: "Entity/Node/Continuant/Atom"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Revision/Type: Atom", "Status", "Entity/Carrier", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal"]
+version: 14
+updated_at: "2026-10-19 15:57:00 +0400"
 relations:
   relates_to: [CA-O-051, CA-O-067, CA-R-1432, CA-R-1464, CA-R-1521, CA-R-1788, CA-R-807, CA-D-303, CA-D-289]
 ---

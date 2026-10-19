@@ -2,9 +2,9 @@
 subjects:
   governs: "Implementation Binding"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Entity/Continuant/Object/Atom.Substance"]
-version: 7
-updated_at: "2026-10-15 18:43:46 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation", "Entity/Node/Continuant/Atom.Substance"]
+version: 8
+updated_at: "2026-10-19 15:53:17 +0400"
 relations: {}
 atom_id: "CA-R-1504"
 content_role: "Requirement"

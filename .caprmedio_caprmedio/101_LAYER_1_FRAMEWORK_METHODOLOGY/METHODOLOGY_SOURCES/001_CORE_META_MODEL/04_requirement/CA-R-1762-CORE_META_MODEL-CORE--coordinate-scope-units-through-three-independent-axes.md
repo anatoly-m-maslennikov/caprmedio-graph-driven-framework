@@ -1,12 +1,12 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit"
+  governs: "Entity/Node/Continuant/Scope Unit"
   depends_on:
     - "Project Boundary Position"
     - "Scope Unit/Type"
     - "Child Composition"
-version: 20
-updated_at: "2026-10-15 18:45:52 +0000"
+version: 21
+updated_at: "2026-10-19 15:54:01 +0400"
 relations: {}
 atom_id: "CA-R-1762"
 content_role: "Requirement"
