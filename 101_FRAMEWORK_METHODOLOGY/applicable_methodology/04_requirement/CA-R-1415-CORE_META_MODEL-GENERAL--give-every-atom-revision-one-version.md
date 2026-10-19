@@ -1,0 +1,36 @@
+---
+subjects:
+  governs: "Entity/Continuant/Node/Atom.Version Number"
+  depends_on:
+    ["Entity/Continuant/Node/Atom"]
+version: 13
+updated_at: "2026-10-18 03:33:30 +0400"
+relations: {}
+atom_id: "CA-R-1415"
+content_role: "Requirement"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "General"
+status: "Active"
+author: "Anatoly Maslennikov"
+global_tier: 10
+projection:
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md
+  source_atom_id: CA-R-1415
+  source_atom_revision: 13
+  source_sha256: 967a6f05749b40d7a694dfd1fea03c522f437bcfce544b11a249427285b27c36
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+---
+# Summary
+
+Give Every Atom Revision One Version
+
+## Scope
+
+the Version of **every** Atom Revision.
+
+## Claim
+
+**every** Atom Revision **must** have **`=1`** positive integer Version that increases monotonically across successive Revisions of the same Atom.
+
+## Details
