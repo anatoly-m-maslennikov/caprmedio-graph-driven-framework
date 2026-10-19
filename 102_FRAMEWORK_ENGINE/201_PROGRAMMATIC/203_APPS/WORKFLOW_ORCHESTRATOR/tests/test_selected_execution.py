@@ -14,7 +14,8 @@ APP = Path(__file__).resolve().parents[1]
 REPOSITORY = APP.parents[3]
 PROMPTS = REPOSITORY / "102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/IMPLEMENTATION_WORKFLOW"
 MCP = REPOSITORY / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP"
-for location in (APP, PROMPTS, MCP, MCP / "tests"):
+TOOLS = REPOSITORY / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"
+for location in (APP, PROMPTS, MCP, MCP / "tests", TOOLS, TOOLS / "tests"):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))
 
@@ -529,6 +530,82 @@ class SelectedExecutionTests(unittest.TestCase):
         self.assertEqual(calls, ["CA-O-067", "CA-O-128"])
         self.assertEqual(result["outcome"], "completed")
         self.assertEqual(len(result["step_results"]), 2)
+
+    def test_update_atom_legacy_mapping_runs_o067_assessment_then_o128_effect(self) -> None:
+        """Run the real selected route for the explicit legacy R793 mapping."""
+        from test_selected_atom_lifecycle import SelectedAtomLifecycleTest
+        from test_selected_creation_execution import _Session
+
+        lifecycle_fixture = SelectedAtomLifecycleTest(
+            "test_explicit_legacy_r793_header_maps_with_exact_history_and_ignores_noncurrent_copies"
+        )
+        lifecycle_fixture.setUp()
+        self.addCleanup(lifecycle_fixture.tearDown)
+        root = lifecycle_fixture.root
+        manifest = copy_complete_selected_guard_fixture(root)
+        parameters, source, destination, before = lifecycle_fixture._explicit_legacy_r793()
+
+        selected = SelectedExecution(root)
+        execution = {
+            "mode": "execute", "operation_route": "update_atom",
+            "workflow_run_id": "legacy-r793-run001", "request_id": "legacy-r793-request",
+            "parameters": parameters, "source_freshness": manifest["source_freshness"],
+            "definition_manifest": {
+                "manifest_ref": manifest["manifest_ref"],
+                "manifest_digest": manifest["canonical_manifest_sha256"],
+            },
+        }
+        graph = selected._validate_graph(execution)
+        execution["requested_runs"] = build_requested_runs(graph, "legacy-r793-run001")
+        frozen = {
+            "request": {"run_id": "legacy-r793-run001", "execution": execution},
+            "graph": graph,
+        }
+        session = _Session(execution["requested_runs"])
+        result = selected._execute_graph(frozen, session)
+
+        self.assertEqual("completed", result["outcome"])
+        self.assertEqual(
+            ["identity-preserving", "applied"],
+            [row["result"] for row in result["step_results"]],
+        )
+        assessment_run = next(
+            row["requested_run_id"] for row in execution["requested_runs"]
+            if row["kind"] == "action" and row["definition"]["atom_id"] == "CA-O-067"
+        )
+        assessment_receipt = session.terminal[assessment_run]
+        self.assertEqual("completed", assessment_receipt["outcome"])
+        assessment_payload = json.loads((root / assessment_receipt["result_ref"]).read_text(encoding="utf-8"))
+        self.assertEqual("identity-preserving", assessment_payload["result"])
+        self.assertIsNotNone(assessment_payload["native_result"].get("assessment_evidence"))
+
+        effect_run = next(
+            row["requested_run_id"] for row in execution["requested_runs"]
+            if row["kind"] == "action" and row["definition"]["atom_id"] == "CA-O-128"
+        )
+        effect_receipt = session.terminal[effect_run]
+        effect_payload = json.loads((root / effect_receipt["result_ref"]).read_text(encoding="utf-8"))
+        prior_revision = effect_payload["native_result"]["history"]["prior_revision"]
+        self.assertEqual(before, (root / prior_revision["path"]).read_bytes())
+
+        self.assertFalse(source.exists())
+        self.assertTrue(destination.exists())
+        destination_text = destination.read_text(encoding="utf-8")
+        self.assertIn('atom_id: "CA-R-793"', destination_text)
+        self.assertIn("version: 23", destination_text)
+        from atom_operations import frontmatter_scalar, split_frontmatter
+
+        before_frontmatter, before_body = split_frontmatter(before.decode("utf-8"))
+        after_frontmatter, after_body = split_frontmatter(destination_text)
+        self.assertEqual(before_body, after_body)
+        for field in (
+            "content_role", "current_scope_unit", "claim_target_scope_unit", "local_tier",
+            "global_tier", "author", "status", "subjects", "relations",
+        ):
+            self.assertEqual(frontmatter_scalar(before_frontmatter, field),
+                             frontmatter_scalar(after_frontmatter, field), field)
+        effect_refs = set(result["effect_refs"])
+        self.assertIn(destination.relative_to(root).as_posix(), effect_refs)
 
     def test_move_atom_uses_the_canonical_lifecycle_handler(self) -> None:
         expected = {"operation": "move", "outcome": "preview", "effects": []}

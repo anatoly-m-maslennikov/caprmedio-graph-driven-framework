@@ -186,6 +186,12 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             'structural_level = 3\nnavigational_order_number = 0\n'
             'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"\n'
             'delivery_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"\n\n'
+            '[[scope_units]]\nscope_unit_name = "PROJECT_CONFIGURATION"\n'
+            'parent = "METHODOLOGY_SOURCES"\nscope_unit_type = "Ordered"\nscope_unit_label = "LAYER"\n'
+            'structural_level = 3\nlocal_order = 3\nnavigational_order_number = 3\n'
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources/003_PROJECT_CONFIGURATION"\n'
+            'authority_mode = "strict"\n\n'
             '[[scope_units]]\nscope_unit_name = "ENGINE"\n'
             'parent = "PROJECT"\nscope_unit_type = "Unordered"\nscope_unit_label = "ENGINE"\n'
             'structural_level = 1\nnavigational_order_number = 1\n'
@@ -1107,6 +1113,9 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(self.target.read_bytes(), before)
 
     def _explicit_legacy_r793(self) -> tuple[dict[str, object], Path, Path, bytes]:
+        pinned = frozen_complete_carrier_authority().get("CAPRMEDIO-R-793")
+        if pinned is not None:
+            (self.root / pinned["source_path"]).unlink(missing_ok=True)
         old_id = "CAPRMEDIO-R-793"
         structure = self.root / ".caprmedio_caprmedio/project_structure.toml"
         structure_text = structure.read_text(encoding="utf-8")
@@ -1243,6 +1252,52 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
                       "global_tier", "author", "subjects", "relations"):
             self.assertEqual(frontmatter_scalar(split_frontmatter(before.decode())[0], field),
                              frontmatter_scalar(observed.frontmatter, field), field)
+
+    def test_exact_legacy_identity_encoding_has_sealed_carrier_only_evidence(self) -> None:
+        parameters, source, destination, before = self._explicit_legacy_r793()
+        preview = update_atom_action(self.root, parameters)
+        evidence = preview["assessment_evidence"]
+        self.assertEqual("preview", preview["outcome"])
+        self.assertEqual("carrier_only", evidence["admitted_change_class"])
+        comparison = evidence["comparison"]
+        self.assertEqual(parameters["legacy_identity_mapping"], comparison["identity_mapping"])
+        self.assertFalse(comparison["properties"]["equal"])
+        self.assertTrue(comparison["metadata_equal_except_identity"])
+        self.assertEqual("identity-encoding-only", comparison["carrier_normalization"])
+        self.assertTrue(comparison["summary"]["equal"])
+        self.assertTrue(comparison["claim"]["equal"])
+        seal = update_assessment_seal(parameters, evidence)
+        sealed_preview = update_atom_action(self.root, parameters, assessment=seal)
+        self.assertEqual("preview", sealed_preview["outcome"])
+        self.assertEqual(seal, sealed_preview["assessment"])
+        self.assertEqual(before, source.read_bytes())
+        self.assertFalse(destination.exists())
+
+    def test_legacy_identity_mapping_requires_exact_body_and_other_metadata(self) -> None:
+        parameters, source, destination, before = self._explicit_legacy_r793()
+        for field in ("body", "metadata"):
+            with self.subTest(field=field):
+                invalid = copy.deepcopy(parameters)
+                if field == "body":
+                    invalid["proposed"]["content"] += "\nExtra prose.\n"
+                else:
+                    invalid["proposed"]["frontmatter"] = invalid["proposed"]["frontmatter"].replace(
+                        "author: Anatoly Maslennikov", "author: changed author")
+                preview = update_atom_action(self.root, invalid)
+                self.assertEqual("preview", preview["outcome"])
+                self.assertIsNone(preview.get("assessment_evidence"))
+                self.assertFalse(destination.exists())
+                self.assertEqual(before, source.read_bytes())
+
+    def test_legacy_identity_encoding_seal_tampering_is_refused(self) -> None:
+        parameters, source, destination, before = self._explicit_legacy_r793()
+        evidence = update_atom_action(self.root, parameters)["assessment_evidence"]
+        seal = update_assessment_seal(parameters, evidence)
+        seal["comparison"]["identity_mapping"]["atom_id"] = "CA-R-794"
+        with self.assertRaisesRegex(LifecycleError, "reassessment-required"):
+            update_atom_action(self.root, parameters, execute=True, authorized=True, assessment=seal)
+        self.assertEqual(before, source.read_bytes())
+        self.assertFalse(destination.exists())
 
     def test_explicit_legacy_mapping_rejects_duplicate_current_claim(self) -> None:
         parameters, source, _destination, before = self._explicit_legacy_r793()

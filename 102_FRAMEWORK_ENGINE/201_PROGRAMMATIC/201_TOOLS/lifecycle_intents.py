@@ -558,6 +558,21 @@ def _is_lossless_carrier_normalization(target: Atom, proposed: Mapping[str, str]
     )
 
 
+def _is_lossless_identity_encoding(target: Atom, proposed: Mapping[str, str], mapping: Mapping[str, str]) -> bool:
+    """Allow only the proven old-to-canonical identity field recoding."""
+
+    atom_id_line = re.compile(r"(?m)^atom_id:\s*.*?(?:\n|$)")
+    target_without_id, target_count = atom_id_line.subn("", target.frontmatter, count=1)
+    proposed_without_id, proposed_count = atom_id_line.subn("", proposed["frontmatter"], count=1)
+    return (
+        target_count == proposed_count == 1
+        and frontmatter_scalar(target.frontmatter, "atom_id") == mapping["legacy_atom_id"]
+        and frontmatter_scalar(proposed["frontmatter"], "atom_id") == mapping["atom_id"]
+        and target_without_id == proposed_without_id
+        and proposed["content"] == target.content
+    )
+
+
 def _comparison_digest(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
@@ -577,13 +592,14 @@ def _claim_comparison_value(content: str) -> tuple[str, str]:
 
 
 def _mechanical_update_evidence(target: Atom, prior: Mapping[str, Any], proposed: Mapping[str, str], *,
-                                admitted_change_class: str, exact_carrier: bool) -> dict[str, Any]:
+                                admitted_change_class: str, exact_carrier: bool,
+                                identity_mapping: Mapping[str, str] | None = None) -> dict[str, Any]:
     """Retain O067's actual target/proposal comparison for a proven safe class."""
 
     proposed_summary = _summary(proposed["content"])
     claim_kind, target_claim = _claim_comparison_value(target.content)
     proposed_claim_kind, proposed_claim = _claim_comparison_value(proposed["content"])
-    return {
+    result = {
         "admitted_change_class": admitted_change_class,
         "comparison": {
             "target": {"atom_id": target.atom_id, "path": target.relative, "digest": prior["digest"]},
@@ -600,6 +616,12 @@ def _mechanical_update_evidence(target: Atom, prior: Mapping[str, Any], proposed
             "carrier_normalization": "exact-carrier" if exact_carrier else "terminal-newline-only",
         },
     }
+    if identity_mapping is not None:
+        result["comparison"]["properties"]["equal"] = False
+        result["comparison"]["metadata_equal_except_identity"] = True
+        result["comparison"]["carrier_normalization"] = "identity-encoding-only"
+        result["comparison"]["identity_mapping"] = dict(identity_mapping)
+    return result
 
 
 def update_assessment_seal(parameters: Mapping[str, Any], evidence: Mapping[str, Any] | None = None) -> dict[str, Any]:
@@ -1156,11 +1178,16 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
         comparison_proposal = {**proposed, "frontmatter": replace_frontmatter_scalar(proposed["frontmatter"], "status", old_status)}
         if requested_draft and proposed_identity is None and target.atom_id is not None:
             comparison_target = replace(target, frontmatter=remove_frontmatter_scalar(target.frontmatter, "atom_id"))
-    mechanical = not legacy and change_class == "carrier_only" and _is_lossless_carrier_normalization(comparison_target, comparison_proposal)
+    mapped_encoding = (bool(mapping) and change_class == "carrier_only"
+                       and _is_lossless_identity_encoding(target, proposed, mapping))
+    mechanical = ((not legacy and change_class == "carrier_only"
+                   and _is_lossless_carrier_normalization(comparison_target, comparison_proposal))
+                  or mapped_encoding)
     admitted_evidence: dict[str, Any] | None = None
     if mechanical:
         admitted_evidence = _mechanical_update_evidence(
             target, prior, proposed, admitted_change_class="carrier_only", exact_carrier=False,
+            identity_mapping=mapping if mapped_encoding else None,
         )
     elif not legacy or "semantic_assessment_report" in request or type_recovery:
         report = request.get("semantic_assessment_report")
