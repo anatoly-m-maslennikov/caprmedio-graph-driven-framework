@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 104
-updated_at: "2026-10-19 16:15:40 +0400"
+version: 105
+updated_at: "2026-10-19 16:35:22 +0400"
 relations: {}
 ---
 # Summary
@@ -70,6 +70,18 @@ The initial rejected preparation packet omitted the required nullable `target.ty
 The prior ten-owner hold list records the state at that batch's completion. R655 is now resolved, leaving nine whole-owner holds: O159, O160, R850, E441, E446, E473, M120, M271 and R1964. Node and Graph Rule still need defining Rs. R1964 defines the old Object kind, not abstract Node, and remains unchanged while the Operator decides whether that old kind is obsolete or still has a named role. No automatic retirement or reinterpretation is approved by the Artifact Term clarification.
 
 Keep this Epic Active without cascading child Statuses. General content migration remains CA-P-1970. No C/A migration, other held-owner change, R retyping, CONTAINS implementation, new Terms-definition layer, runtime rebuild, full test suite, release or push was performed.
+
+#### Old Object retirement and separate Node definition — 2026-10-19
+
+- [x] Apply the Operator's explicit decision to retire the old Object kind rather than relabel its definition as Node. CA-R-1964 is now Archived as v3 in the canonical Core source set; its exact v2 bytes are preserved. Its Summary, Claim, Details, Subjects, ownership and outgoing parent link are unchanged. Only Status and revision metadata changed. No current inbound typed referrer was found, and none was invented or automatically retargeted.
+- [x] Create a separate fresh Core Requirement, CA-R-1994 v1, Active, governing `Entity/Node`. Claim: a Node means a logical abstraction in the Entity graph, classified as a Continuant or an Occurrent. It uses the next unreused Requirement number and does not reuse R1964's identity or turn the old Claim into another meaning.
+- [x] Keep the currently admitted ordinary Requirement carrier without Type. The planned `Definition`/`Rule` Type rollout remains pending; this creation neither admits a new Type value nor waives that later migration. Artifact remains a Term; Carrier remains physical representation. No extra properties, lifecycle policy, new Terms authority or Graph Rule definition was introduced.
+- [x] Verify the actual effects independently: exact v2 archive, preserved v3 body/non-revision metadata, exact new-Atom proposal except actual timestamp, no prior source use of R1994, and no unrelated canonical Core/Project source changes. Seven Workflow/Step/Action terminal Runs and two real completed change events passed Journal checks without recording errors or replay. Source checkpoint: `fa10a96b4f8fe76a9b8abd579c2e3dee134e65f6`.
+- [x] Update Candidate #6 and rebuild source-derived Entities projections with unchanged IDs: Core CA-PROJ-002 has 904 sources; Project Configuration CA-PROJ-003 has 234. The existing C290 diagnostic and excluded/held Subjects remain visible. Installed source mirrors and Applicable Methodology were not republished by this bounded change.
+
+The earlier nine-owner hold list is historical. R1964 is resolved by explicit retirement, leaving eight holds: O159, O160, R850, E441, E446, E473, M120 and M271. Node now has a defining R. Graph Rule and other recorded definition gaps remain pending, along with the unfinished Core/Project separation and R-Type work. General content migration stays in CA-P-1970.
+
+Keep this Epic Active without child Status cascades. No C/A migration, other held-owner edit, runtime code change, full suite, rebuild, release or push was performed.
 
 #### Phase 1 — migrate Subjects first
 
