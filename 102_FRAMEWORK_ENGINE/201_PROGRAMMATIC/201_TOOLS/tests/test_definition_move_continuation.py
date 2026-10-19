@@ -37,21 +37,7 @@ class DefinitionMoveContinuationTest(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.tearDown)
         self.root = self.fixture.root
-        self._add_project_scope()
         self.manifest = copy_complete_selected_guard_fixture(self.root)
-
-    def _add_project_scope(self) -> None:
-        structure = self.root / ".caprmedio_caprmedio/project_structure.toml"
-        structure.write_text(
-            structure.read_text(encoding="utf-8")
-            + '\n[[scope_units]]\nscope_unit_name = "PROJECT_CONFIGURATION"\n'
-            + 'parent = "METHODOLOGY_SOURCES"\nscope_unit_type = "Unordered"\n'
-            + 'scope_unit_label = "METHODOLOGY"\nstructural_level = 3\n'
-            + 'navigational_order_number = 1\n'
-            + 'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION"\n'
-            + 'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources/003_PROJECT_CONFIGURATION"\n',
-            encoding="utf-8",
-        )
 
     def test_moved_definition_is_reopened_for_next_admission_but_old_reader_stays_stale(self) -> None:
         pin = next(

@@ -19,11 +19,14 @@ CONTROL = Path(".caprmedio_caprmedio")
 SOURCE = CONTROL / "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
 sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(APP_TESTS))
+sys.path.insert(0, str(TOOLS / "VALIDATE_ATOMS/tests"))
 
 from atom_operations import atom_from_path, frontmatter_scalar, ToolError  # noqa: E402
 from authoritative_status_models import resolve_status_model, StatusModelError  # noqa: E402
 import lifecycle_intents  # noqa: E402
+from golden_authority import frozen_authority_fixture_bytes  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.check_sections import ROLE_SECTIONS  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers.support_authority import support_sources  # noqa: E402
 from frozen_selected_workflows import (  # noqa: E402
     frozen_complete_carrier_authority,
     frozen_graph_authority,
@@ -87,6 +90,11 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, destination)
             self.assertEqual(entry["sha256"], hashlib.sha256(destination.read_bytes()).hexdigest())
+        r793_entry = support_sources()["CA-R-793"]
+        r793_path = self.root / r793_entry["source_path"]
+        r793_path.parent.mkdir(parents=True, exist_ok=True)
+        r793_path.write_bytes(frozen_authority_fixture_bytes("CA-R-793"))
+        self.assertEqual(r793_entry["sha256"], hashlib.sha256(r793_path.read_bytes()).hexdigest())
         (control / "caprmedio_project_settings.toml").write_text(
             '[project]\nkey = "status-fixture"\nname = "caprmedio"\nrepository_slug = "status-fixture"\n'
             '[artifacts.identity]\nproject_prefix = "CA"\n'
@@ -105,13 +113,20 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             'scope_unit_label = "METHODOLOGY"\nstructural_level = 1\n'
             'navigational_order_number = 0\n'
             f'authority_path = "{SOURCE.as_posix()}"\n'
-            f'delivery_path = "{SOURCE.as_posix()}"\n\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources"\n\n'
             '[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
             'parent = "METHODOLOGY_SOURCES"\nscope_unit_type = "Unordered"\n'
             'scope_unit_label = "METHODOLOGY"\nstructural_level = 2\n'
             'navigational_order_number = 0\n'
             f'authority_path = "{(SOURCE / "001_CORE_META_MODEL").as_posix()}"\n'
-            f'delivery_path = "{(SOURCE / "001_CORE_META_MODEL").as_posix()}"\n\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources/001_CORE_META_MODEL"\n\n'
+            '[[scope_units]]\nscope_unit_name = "PROJECT_CONFIGURATION"\n'
+            'parent = "METHODOLOGY_SOURCES"\nscope_unit_type = "Ordered"\n'
+            'scope_unit_label = "LAYER"\nstructural_level = 2\nlocal_order = 3\n'
+            'navigational_order_number = 3\n'
+            f'authority_path = "{(SOURCE / "003_PROJECT_CONFIGURATION").as_posix()}"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources/003_PROJECT_CONFIGURATION"\n'
+            'authority_mode = "strict"\n\n'
             '[[scope_units]]\nscope_unit_name = "STATUS_FIXTURE"\n'
             'parent = "PROJECT"\nscope_unit_type = "Unordered"\n'
             'scope_unit_label = "FIXTURE"\nstructural_level = 1\n'

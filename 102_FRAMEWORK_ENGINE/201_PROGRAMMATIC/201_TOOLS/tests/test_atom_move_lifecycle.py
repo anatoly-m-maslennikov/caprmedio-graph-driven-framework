@@ -45,7 +45,6 @@ class AtomMoveLifecycleTest(unittest.TestCase):
         self.fixture = selected_lifecycle.SelectedAtomLifecycleTest("runTest")
         self.fixture.setUp()
         self.root = self.fixture.root
-        self._add_project_configuration_scope()
         self.fixture._copy_frozen_atom("CA-R-1539")
         self.core_path = self._move_fixture_atom(
             self.fixture.target, CORE_REQUIREMENTS / "CA-R-100-CORE_META_MODEL--core-move.md",
@@ -54,22 +53,6 @@ class AtomMoveLifecycleTest(unittest.TestCase):
 
     def tearDown(self) -> None:
         self.fixture.tearDown()
-
-    def _add_project_configuration_scope(self) -> None:
-        structure = self.root / ".caprmedio_caprmedio/project_structure.toml"
-        structure.write_text(
-            structure.read_text(encoding="utf-8")
-            + "\n[[scope_units]]\n"
-            + 'scope_unit_name = "PROJECT_CONFIGURATION"\n'
-            + 'parent = "METHODOLOGY_SOURCES"\n'
-            + 'scope_unit_type = "Unordered"\n'
-            + 'scope_unit_label = "METHODOLOGY"\n'
-            + "structural_level = 3\n"
-            + "navigational_order_number = 1\n"
-            + 'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION"\n'
-            + 'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources/003_PROJECT_CONFIGURATION"\n',
-            encoding="utf-8",
-        )
 
     def _move_fixture_atom(self, source: Path, relative: Path, owner: str) -> Path:
         payload = source.read_text(encoding="utf-8").replace(
