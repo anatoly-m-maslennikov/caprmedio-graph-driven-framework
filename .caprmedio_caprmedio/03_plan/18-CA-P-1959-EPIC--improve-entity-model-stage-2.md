@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 126
-updated_at: "2026-10-20 20:21:49 +0400"
+version: 127
+updated_at: "2026-10-20 20:29:44 +0400"
 relations: {}
 ---
 # Summary
@@ -338,7 +338,9 @@ Next: record this checkpoint, retire only the supported obsolete Revision defini
 - [x] Align R1415 v15, R1416 v15 and R1412 v14 Scope/Claim wording to Atoms and versions. Their immutable Summaries, Subjects, cardinalities, applicability, Status and unrelated metadata remain unchanged; each exact predecessor is preserved.
 - [x] Retire standalone Revision definitions R1371 and R1960 through the admitted archive action. Their final versions are Archived R1371 v14 and R1960 v4; exact previous v13 and v3 bytes are retained. No direct current Atom-ID relation targeted either definition. Their valid History, Version, timestamp and no-op constraints remain covered by R1961, R1432 and R1788.
 - [x] Rebuild the four existing derived views from actual current sources: Core CA-PROJ-002/004 each list 909 source Atoms, and Project Configuration CA-PROJ-003/005 each list 234. Retired R1371/R1960 are excluded from source lists; the latest property-rule Versions are included. Generation left all source bytes unchanged.
-- [ ] Align the 22 residual old Revision Subject-path owners source by source, preserving valid history and current-target meaning. They remain visible/unmapped, not silently filtered out or adopted as the new model. Review R1419's remaining archival-Status wording separately; do not invent an allowed-value removal or incoming-link policy.
+- [x] Prepare source-specific mappings for the 22 residual old Revision Subject-path owners. Exact source pins, unique Subject-block edits and duplicate-free dependencies were checked; bodies and unrelated metadata are unchanged. The map is a reviewed proposal, not a source effect or staged Atom set.
+- [x] Align R1419 v10's obsolete Subjects and necessary Scope/Claim wording while preserving its Summary and one-way Archived-status eligibility restriction. Archived historical versions may preserve other recorded Status values; no converse, new Status value or transition policy is introduced. Refresh Core CA-PROJ-002/004 with R1419@10.
+- [ ] Apply the 22 mapped Subject changes after the staging/identity compatibility decision and actual Tool support are resolved. Until then they remain visible/unmapped in the as-is views; the five old-marker drafts and stopped batches are not reused, changed or replayed. Do not invent incoming-link policy.
 
 The explicit retirement decision does not require an invented all-owner remapping gate. Archiving the two definitions is not a claim that their remaining mentions have been migrated or that the graph is clean. Historical references and exact archived bytes remain intact. O128 was held without changes during this bounded pass. No stopped batch was reset or replayed, and none of the five held edit-drafts was changed or published. Physical Plan archive flattening remains PROGRAMMATIC Problem C539, and draft markers remain C533. The live O030 update route successfully performed the actual governed edits; this does not close C545's separate request-schema handoff issue.
 

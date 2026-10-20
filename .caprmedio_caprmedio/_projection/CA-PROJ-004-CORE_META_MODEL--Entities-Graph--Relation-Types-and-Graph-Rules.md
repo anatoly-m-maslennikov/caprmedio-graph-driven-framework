@@ -5,7 +5,7 @@ named_selection: Relation Types and Graph Rules
 source_of_truth:
 - .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL
 type: Entities Graph
-updated_at: 2026-10-20 20:15:40 +0400
+updated_at: 2026-10-20 20:28:35 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -512,7 +512,7 @@ sources:
 - CA-R-1416@15
 - CA-R-1417@13
 - CA-R-1418@16
-- CA-R-1419@9
+- CA-R-1419@10
 - CA-R-1422@12
 - CA-R-1427@7
 - CA-R-1428@12

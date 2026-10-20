@@ -1,11 +1,11 @@
 ---
 subjects:
-  governs: "Artifact/Revision/Status: Archived"
+  governs: "Entity/Node/Continuant/Atom.Status: Archived"
   depends_on:
-    - "Artifact/Revision"
-    - "Artifact/Activity"
-version: 9
-updated_at: "2026-10-02 22:59:46 +0400"
+    - "Entity/Node/Continuant/Atom.Status"
+    - "Entity/Node/Continuant/Atom.Version Number"
+version: 10
+updated_at: "2026-10-20 20:27:54 +0400"
 relations: {}
 atom_id: "CA-R-1419"
 content_role: "Requirement"
@@ -22,10 +22,10 @@ Restrict Archived Status to Non-Current Revisions
 
 ## Scope
 
-the Archived Status of an Artifact Revision.
+the Archived Status of an Atom version.
 
 ## Claim
 
-an Artifact Revision **may** have Status Archived **only** **if** it is a prior Revision **or** the final Revision of a replaced, absorbed, **or** retired Artifact.
+an Atom version **may** have Status Archived **only** **if** it is a prior version **or** the final version of a replaced, absorbed, **or** retired Atom.
 
 ## Details
