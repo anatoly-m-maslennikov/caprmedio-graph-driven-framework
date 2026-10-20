@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 14
-updated_at: "2026-10-20T15:18:47.000Z"
+version: 17
+updated_at: "2026-10-20T16:03:14.000Z"
 ---
 # Summary
 
@@ -137,7 +137,7 @@ Register/reuse concrete C/Problems with historical evidence, then check whether 
 
 Hard isolation gate: every MCP reproduction/test must use an isolated nonproduction instance, a distinct verified port, isolated project/root/control-root fixture and state/locks/caches/Runs/receipts/Journal namespace. Use independent golden data rather than mutable production Atoms. Never send test effects to production, stop/reload/restart/redeploy production, reuse its state or fall back to its endpoint. If isolation is unverified, block reproductions and continue safe historical/read-only work. Normal governed record publication is not test traffic.
 
-Use as many Luna workers as the independent ready lanes and available slots support: four historical families, isolated harness, and bounded verification/Concern work when inputs are ready. Respect exclusive write scopes and dependency gates; no filler workers. Each Task owns at most 15 minutes and must split before exceeding that budget. After each completion, review and update dependent next Tasks. These eight actual child Task files declare their direct parent; this list is navigation, not a second authoritative inverse Relation.
+Use as many Luna workers as the independent ready lanes and available slots support: four historical families, isolated harness, and bounded verification/Concern work when inputs are ready. Respect exclusive write scopes and dependency gates; no filler workers. Each Task owns at most 15 minutes and must split before exceeding that budget. After each completion, review and update dependent next Tasks. These current child Task files declare their direct parent; this list is navigation, not a second authoritative inverse Relation.
 
 - [ ] [CA-P-2402 — Freeze the exact five-day project-session MCP call corpus](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/01-CA-P-2402-TASK--freeze-the-exact-five-day-project-session-mcp-call-corpus.md)
 - [ ] [CA-P-2403 — Audit Scope Unit and project_structure validation calls](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/02-CA-P-2403-TASK--audit-scope-unit-and-project-structure-validation-calls.md)
@@ -147,6 +147,7 @@ Use as many Luna workers as the independent ready lanes and available slots supp
 - [ ] [CA-P-2407 — Register and deduplicate concrete C/Problems](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/06-CA-P-2407-TASK--register-and-deduplicate-concrete-c-problems.md)
 - [ ] [CA-P-2408 — Establish and verify the isolated nonproduction MCP harness](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/07-CA-P-2408-TASK--establish-and-verify-the-isolated-nonproduction-mcp-harness.md)
 - [ ] [CA-P-2409 — Recheck current concern state and reconcile the planning boundary](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/08-CA-P-2409-TASK--recheck-current-concern-state-and-reconcile-the-planning-boundary.md)
+- [ ] [CA-P-2460 — Reconcile the update-atom lifecycle handoff request schema](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/49-CA-P-2460-TASK--reconcile-update-atom-handoff-request-schema.md)
 
 Planning-only manual publication was explicitly authorized because the connected MCP discovery/context reads returned implementation-call failures. Preserve exact v3 history; do not extend that exception to Concern or implementation writes. The audit starts only after this Epic revision and its Task files are saved and checked.
 
@@ -217,14 +218,18 @@ Four detached worker/agent test services with the exact owned full-suite attempt
 
 P2452 admitted fresh image sha256:febd5bcc189e3eda2b4926206beb23f26d26c7757092580b0ddf56705ac0aac9 with fingerprint b71c2770aef150235984df90e4e0984e17d2b7e8d7a8169ac8de15b3763a15b8. P2453 repeated all three isolated cases with zero failures/errors/skips in217.438s and exact protected production equality; receipt .caprmedio_tmp/mcp-audit-20261020/isolation/execute/p2439-e7s6sznn/receipt.json. Reused historical wrapper labels are not new completion claims for earlier Tasks. P2454 is the dependency-reviewed successor for the same expressly approved all-current-changes full local release. Its broad tests and actual replacement/readiness remain required before closing P2440 or installed-runtime Problems. The Epic and broader uncovered operations remain Active.
 
-### Second full local-release failure and repair chain — 2026-10-20
+### Historical second full local-release failure and repair chain — as of 2026-10-20T15:18:47Z
 
 The second full local-release terminal `local-20261020-current-target-parser-repair-1438` failed before replacement. Exact log: `.caprmedio_tmp/simple_local_release/local-20261020-current-target-parser-repair-1438-tests-a71g3vcj.log`; matching report: `runtime/reports/runid.md`. It covered 410 modules and 3555 tests with zero skips and 12 failed modules: nine `VALIDATE_ATOMS` fresh-child import failures and three shared frozen Plan-status mismatches in `test_proposed_relation_admission`, `test_relation_fixture_isolation` and `test_status_bundle_publication_independent`. Root recorded checkpoint `ac1952165`; no replacement phase ran and these results are not production guard failures.
 
 CA-C-543 records the fresh-child runner/import cause and CA-C-544 records the shared frozen-fixture cause. Active repair Tasks CA-P-2455 and CA-P-2456 own those bounded checks. Their Backlog successors are CA-P-2457 (fresh immutable build), CA-P-2458 (three isolated cases with protected production equality) and CA-P-2459 (approved full-local-release retry). CA-P-2454 records the failed retry and delegates to CA-P-2459 without claiming completed delivery; CA-P-2440 now depends on CA-P-2459 and remains unexecuted. Preserve all prior candidate/isolated receipts and historical failure checkpoints. The Epic remains Active; no deployment, release completion or broader capability acceptance is claimed.
 
-### Focused repair, fresh build and isolated gate checkpoint — 2026-10-20
+### Historical focused repair, fresh build and isolated gate checkpoint — as of 2026-10-20T15:18:47Z
 
 CA-C-543 and CA-C-544 are resolved for their scoped test-environment causes. CA-P-2455 passed runner13/13 and former fresh-child modules133/133 with zero skips and independent review `APPROVE`; CA-P-2456 passed fixture25/25 (relation8, isolation2, status15) plus2 current Plan-placement checks with strict validation and current D461 placement unchanged, no production guard change, and independent review pending. CA-P-2457 then admitted fresh image `sha256:a26b88751f9e8eb57132f648e114f0af4d0c25ff5acf66a6f891f7d05fb4fab3` with fingerprint `b95525f5be4b87c9b342f52199cd8f9260ff4206c2f130090cf63f4cc3e38f76`; its prelaunch source/image/compose inputs were unchanged, production snapshot equality was true, and independent fixture review was `APPROVE` with no findings.
 
 CA-P-2458 passed the isolated gate in `215.658s`: 3 tests, zero failures/errors/skips, protected production equality true, `production_endpoint_tested: false`, and `historical_replay: false`. CA-P-2459 is now Active and eligible after the required source/Git/runtime freeze, but remains unexecuted. The second full-suite failure and its 410-module/3555-test/12-module boundary remain retained; P2454 and P2440 remain Active. No installed deployment, release completion or Epic completion is claimed.
+
+### Current verified full local release checkpoint — 2026-10-20
+
+The approved release completed successfully. Proof `.caprmedio_tmp/mcp-audit-20261020/continuation/local-release-verified-20261020.json` and canonical receipt `.caprmedio_runtime/simple_local_release/reports/local-20261020-current-target-parser-repair-1521.md` record version `0.4.4.8`, 410 modules, 3680 tests, zero skips/failures and a passing final isolated launcher. The released image is `sha256:a26b88751f9e8eb57132f648e114f0af4d0c25ff5acf66a6f891f7d05fb4fab3` with source fingerprint `b95525f5be4b87c9b342f52199cd8f9260ff4206c2f130090cf63f4cc3e38f76`; healthy container `b1676bbd01e451f6bf5b32237bdc0d44147dbcc7f9da43638ca8de724a939d44` serves port `56317`, the prior container is absent and its old image was removed by the approved release. Parser `6b377172306c9a6aa662f8436885aeee51922e9980606d08d70b0dc2273c0329` was verified in the released package and container. P2459, P2454 and P2440 are now Done for their bounded release responsibilities; C525, C528, C529, C532, C534 and C535 are Resolved only for their repaired deployment blockers. C539, C542, C545 and other unrepaired or historical concerns remain open. This checkpoint claims neither historical batch replay, public release/merge nor full Atom/Scope Unit, topology, model/shared-runtime or Epic completion.
