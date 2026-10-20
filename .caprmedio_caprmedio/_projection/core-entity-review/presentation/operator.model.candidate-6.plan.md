@@ -238,7 +238,7 @@ This is the candidate backbone, not an exhaustive list of admitted Types or a cu
 | Rule | Conditions, permissions, prohibitions and constraints on those structures |
 | Graph Rule | The specific formal constraint on graph structure; operative form selected by graph_rule_type |
 
-These are R Atom Types, not another authority layer. Defining Graph Rule structure uses Definition; stating a particular formal graph constraint uses Graph Rule. Generic Rule remains separate for other constraints. R2001 defines the specific Graph Rule Type; its runtime admission remains pending.
+These are R Atom Types, not another authority layer. Defining Graph Rule structure uses Definition; stating a particular formal graph constraint uses Graph Rule. Generic Rule remains separate for other constraints. R2001 defines the specific Graph Rule Type; runtime admission is a separate implementation result, not something this candidate certifies.
 
 Short Subjects below omit the full prefix:
 
@@ -249,7 +249,7 @@ Short Subjects below omit the full prefix:
 | Constrain Atom containment | Graph Rule | `Atom.Relations/Type: IS_CONTAINED_BY` |
 | Constrain Plan containment | Graph Rule | `Atom/Content Role: Plan.Relations/Type: IS_CONTAINED_BY` |
 
-For example, a formal Graph Rule's operative YAML can identify outgoing direction, allowed source kinds and allowed target kinds. It has no Claim or Substance Property/section. D637 declares the initial whitelist payload, required Summary-plus-YAML carrier and optional Semantics/Details after that block. Other Type schemas remain gaps. Derive the readable Summary from the operative YAML; do not maintain a second prose condition. R2000 supplies the generic Rule Type definition; R2001 supplies the specific Graph Rule Type. Neither proves completed runtime admission or retyping of existing Atoms.
+For example, a formal Graph Rule's operative YAML can identify outgoing direction, allowed source kinds and allowed target kinds. It has no Claim or Substance Property/section. D637 v5 declares Whitelist and Cardinality payloads, the required Summary-plus-YAML carrier and optional Semantics/Details after that block. Other Type schemas remain gaps. Derive the readable Summary from the operative YAML; do not maintain a second prose condition. R2000 supplies the generic Rule Type definition; R2001 supplies the specific Graph Rule Type. Neither proves completed runtime admission or retyping of existing Atoms.
 
 #### Graph Rule properties
 
@@ -261,7 +261,7 @@ Entity/Graph Rule
 	.Default Value (optional)
 ```
 
-R1996–R1999 define these properties. D637 v3 carries the operative block as `graph_rule_type`, `applies_to`, `condition` and optional `default_value`. These fields belong in the fenced body, not in the Atom's frontmatter. The selected Graph Rule Type has its own schema; do not invent missing fields or encode free-form prose as an allegedly formal condition. The underlying Atom ID, Status and Version are not duplicated as a second Rule identity.
+R1996–R1999 define these properties. D637 v5 carries the operative block as `graph_rule_type`, `applies_to`, `condition` and Type-specific optional `default_value`; Cardinality does not admit `default_value`. These fields belong in the fenced body, not in the Atom's frontmatter. The selected Graph Rule Type has its own schema; do not invent missing fields or encode free-form prose as an allegedly formal condition. The underlying Atom ID, Status and Version are not duplicated as a second Rule identity.
 
 Containment permissions concern both endpoints. In the direct IS_CONTAINED_BY direction these include Scope Unit → Scope Unit, Atom → Scope Unit and Atom → a permitted containing Atom. An Atom without containment permission cannot be the containing endpoint; permission does not require children. Role/Type rules refine this, such as Plan → Plan, Step → Workflow and Step → Step. Container Atom remains an Atom. Keep these constraints separate from the relation definition. CONTAINS is only the derived reverse view; its construction graph implementation stays deferred.
 
@@ -293,7 +293,7 @@ RMED governs these things directly: R states required outcomes, M how to produce
 - The project is `caprmedio`, named in Project Settings TOML. Its result is the framework `CAPRMEDIO`, named by a project-local Atom. These are not the same Name property.
 - Core Meta-model, Extensions and Project Configuration are existing Scope Units. Preserve their identities; do not introduce Methodology Source Objects for them.
 - Applicable Methodology and its project-specific rules, concrete Workflows, Steps, substeps and Actions belong in Project Configuration. A generic Core Workflow, Step or Action definition does not describe a particular project procedure.
-- A named Operation is identified by its Atom ID under its generic kind. Candidate mapping records may keep the kind and ID separately. This is not a new executable Subject syntax or permission to replace a specific instance with every member of its kind.
+- A named Operation uses its name after `//` under its generic kind, as approved in decision 54: `Workflow//Workflow Name`. Keep its stable Atom ID in mapping evidence. Properties after the name remain qualified by that instance; do not replace a specific instance with every member of its kind. Name collisions require explicit reconciliation, not a new registry.
 - Default Settings belongs in `project_settings.default.toml`. Keep defaults separate from explicit overrides. Confidence-threshold precedence is Settings → Plan → direct Operator prompt, with the later source taking priority.
 - Extension metadata belongs to its Scope Unit. Install the Extension's Atoms under `002_INSTALLED_EXTENSIONS` → regenerate Applicable Methodology. No separate application-binding Atom or Settings enablement/application-selection layer.
 - Actual runs are Occurrents. Records of results, failures and evidence belong to History; authored analysis remains A, and compiled views remain Projections.

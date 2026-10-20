@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 121
-updated_at: "2026-10-20 15:26:42 +0400"
+version: 122
+updated_at: "2026-10-20 15:59:18 +0400"
 relations: {}
 ---
 # Summary
@@ -217,12 +217,12 @@ Candidate #6 decisions 49–51 record these refinements. The scratch current-sou
 
 This is the Operator's latest execution order, superseding earlier Subjects-only exclusions and the proposal to remove named Operation identity from Subjects. Candidate #6 decisions 52–54 record the accepted refinements. Entity remains the only root, with Node, Relation, Graph Rule and Carrier; Node contains Continuant and Occurrent. No Artifact branch or new Primary/Dependent branch is allowed.
 
-The source review now covers all 567 distinct off-tree Subject literals and 2,483 occurrences across the current Core and Project Configuration selections. Coverage is not completed resolution or an applied migration. Current maps retain exact provenance and distinguish supported targets, source-specific splits, removals/retirements and unresolved meanings. The old C/A and held-owner labels are historical, not current scope exclusions. Include those owners fully where clean-model alignment requires content as well as Subjects. General unrelated content migration remains CA-P-1970.
+The captured pre-C221 review covered 567 distinct off-tree Subject literals and 2,483 occurrences across the Core and Project Configuration selections at that checkpoint. Coverage is not completed resolution or an applied migration. Current maps retain exact provenance and distinguish supported targets, source-specific splits, removals/retirements and unresolved meanings. The old C/A and held-owner labels are historical, not current scope exclusions. Include those owners fully where clean-model alignment requires content as well as Subjects. General unrelated content migration remains CA-P-1970.
 
 Execution order:
 
 1. [x] Review and align the affected Core RMEDO before implementation. Keep `/` for narrower kinds/classifiers, `.` for bearer-dependent properties, and `:` for allowed values. Add `//` for kind-to-instance qualification, using the instance's name on the right, not Atom ID. Keep the exact kind prefix under Entity. Named instances are not new kinds or roots. Preserve actual source identity and report ambiguous names; do not invent a new name registry or silently collapse distinct instances.
-2. [ ] Put the useful primary/dependent meanings in the relevant Relation definitions' Semantics. IS_BORNE_BY expresses bearer dependence; NARROWER_THAN expresses specialization and does not alone prove independent identity. A dependent kind can have narrower kinds. Retire only pure glossary-definition R Atoms after preserving useful meaning; retain normative constraints as rules. Review mixed Atoms clause by clause rather than retiring by keyword.
+2. [x] Put the useful primary/dependent meanings in the relevant Relation definitions' Semantics. IS_BORNE_BY expresses bearer dependence; NARROWER_THAN expresses specialization and does not alone prove independent identity. A dependent kind can have narrower kinds. Retire only pure glossary-definition R Atoms after preserving useful meaning; retain normative constraints as rules. Review mixed Atoms clause by clause rather than retiring by keyword.
 3. [x] Implement the smallest shared grammar and consumer update for `Kind//Instance Name`. Keep existing Atom/atom distinction, ordinary names, classifier/allowed-value handling and unrelated behavior. Preserve the distinct instance-of meaning in graph composition/rendering; do not treat `//` as two narrower-kind separators. Update all affected search/update/validation and graph callers through their existing shared owners, without a parallel parser, evaluator or new approval mechanism.
 4. [x] Test parsing, exact path reconstruction, source resolution boundaries, named-instance versus narrower-kind graph edges, dependent properties after an instance, malformed delimiters, unchanged ordinary Subjects and current search/update contracts. Independently review the source and runtime change. Scope test claims to the checks actually run; no deployment or release follows automatically.
 5. [ ] Reconcile the accepted current-source mapping with the supported instance notation. Keep distinct named Terms/Selections and exact application constraints; correct `/` versus `.` from meaning, not global replacement. Resolve concrete remaining ambiguities with the Operator; do not reopen settled choices or invent a target solely to obtain one root.
@@ -235,7 +235,7 @@ Local shared parsing, Search, Subject-update preparation and readable graph comp
 
 The four as-is views were rebuilt from 914 Core and 234 Project Configuration sources with their existing projection IDs. Generation left selected source bytes unchanged. This is a refresh, not completion of step 7: source cleanup and the Entity-only source-root result are still pending.
 
-Step 2 is partly complete: useful Relation Semantics are preserved, but glossary retirement is not performed. Read-only review found R1191 semantically ready; R1192's exact one-bearer constraint must remain as a separate rule, with E449/E246 links and C221's current-authority wording aligned before retirement. Do not add the cardinality rule back into Relation Type meaning. Steps 5 and 6 remain open: review coverage and the 186-occurrence named-operation map are proposals, not source migration.
+At that earlier checkpoint, step 2 was partly complete: useful Relation Semantics were preserved, but glossary retirement was not yet performed. The completed Cardinality/glossary/C221 records below supersede that hold. Read-only review found R1191 semantically ready; R1192's exact one-bearer constraint must remain as a separate rule, with E449/E246 links and C221's current-authority wording aligned before retirement. Do not add the cardinality rule back into Relation Type meaning. Steps 5 and 6 remain open: review coverage and the 186-occurrence named-operation map are proposals, not source migration.
 
 The Epic stays Active; child Statuses do not cascade. No installed MCP update, named-instance Subject migration, glossary retirement, formal Rule instance, rule evaluator, deferred construction graph, global lock, release or push is included.
 
@@ -271,6 +271,18 @@ C221 is now v8 through the existing admitted update Workflow. Its exact v7 bytes
 The earlier missing-Summary hold above records the previous checkpoint, not the present edit capability. Two affected derived Core views, CA-PROJ-002 and CA-PROJ-004, were refreshed from current files with C221@8; their identities and source selection are unchanged, and generation changed no source Atom bytes. The initial MCP read failure was followed by a successful fresh context read; this records recovery of that call, not a diagnosed or repaired root cause.
 
 The Epic remains Active for the broader unmapped/held-source reconciliation, Core/Project separation and content work already listed. No child Status cascade, other Concern migration, installed MCP restart/reload/deployment, release or push was performed.
+
+#### Current-source reconciliation and bounded Artifact cleanup — 2026-10-20
+
+Six parallel reviews recaptured all 1,147 current source Atoms (913 Core, 234 Project Configuration) and reviewed all 2,476 off-tree Subject occurrences, including C/A and previously held owners. Their dispositions are proposals: 1,878 mappings, 159 dependency removals, 33 content splits, 5 retirement candidates and 401 unresolved occurrences across 134 distinct Subjects. Content alignment is flagged on 351 records. Exact locator coverage, captured source pins and mapped-path syntax passed. A proposed deletion of D485's governed Subject was caught and corrected to an unresolved hold. Root semantic adjudication is not complete; review coverage does not close step 5.
+
+The existing connected Workflows applied six bounded accepted source effects: D399/D402/D404 v12 now govern their full Entity-root Type Subjects with identical bodies; R1994 v2 preserves the approved Artifact Term meaning in Semantics without changing the Node Claim; R1249/R1268 are Archived v13 with their bodies and exact v12 history retained. No current canonical typed Atom-ID link targeted either retired definition. R1262 and mixed constraints remain untouched. Independent readback verified all six effects and 30 distinct completed terminal Run outcomes. No completed effect was replayed.
+
+Step 2 is now complete for the primary/dependent glossary constraint transfer already recorded below; the bounded Artifact glossary cleanup is also complete. Steps 5–7 remain open for the wider source-specific reconciliation and clean Entity-only graph result. General unrelated content migration remains CA-P-1970. Candidate #6's effective notes now use names after `//`, D637 v5's Whitelist/Cardinality encoding and Type-specific defaults, without claiming runtime admission.
+
+Core CA-PROJ-002 and CA-PROJ-004 were refreshed from 911 current sources with D399/D402/D404@12, R1994@2 and C221@8, excluding R1249/R1268. Generation changed no Core source bytes. This is not a clean single-root completion. Project Configuration sources/views were unchanged by this packet. The durable derived checkpoint is `_projection/core-entity-review/presentation/candidate6-current-source-reconciliation-20261020.md`; detailed scratch evidence is `.caprmedio_tmp/methodology-reconcile-20261020/`.
+
+Methodology source and Git integration remain owned here; tool/engine requirements were passed to CA #3: PROGRAMMATIC. No implementation, runtime restart/reload, deployment, release, full-suite run, broad R-Type rollout, child Status cascade or push occurred. The Epic remains Active.
 
 #### Phase 1 — migrate Subjects first
 

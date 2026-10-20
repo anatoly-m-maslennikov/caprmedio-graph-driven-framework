@@ -5,7 +5,7 @@ named_selection: Relation Types and Graph Rules
 source_of_truth:
 - .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL
 type: Entities Graph
-updated_at: 2026-10-20 15:25:36 +0400
+updated_at: 2026-10-20 15:55:24 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -172,11 +172,11 @@ sources:
 - CA-D-393@9
 - CA-D-394@11
 - CA-D-395@13
-- CA-D-399@11
+- CA-D-399@12
 - CA-D-400@12
 - CA-D-401@12
-- CA-D-402@11
-- CA-D-404@11
+- CA-D-402@12
+- CA-D-404@12
 - CA-D-407@12
 - CA-D-408@10
 - CA-D-416@15
@@ -415,7 +415,6 @@ sources:
 - CA-R-1246@14
 - CA-R-1247@11
 - CA-R-1248@12
-- CA-R-1249@12
 - CA-R-1250@14
 - CA-R-1251@11
 - CA-R-1256@13
@@ -427,7 +426,6 @@ sources:
 - CA-R-1264@14
 - CA-R-1266@12
 - CA-R-1267@11
-- CA-R-1268@12
 - CA-R-1269@15
 - CA-R-126@17
 - CA-R-1270@11
@@ -837,7 +835,7 @@ sources:
 - CA-R-1991@3
 - CA-R-1992@3
 - CA-R-1993@3
-- CA-R-1994@1
+- CA-R-1994@2
 - CA-R-1995@2
 - CA-R-1996@2
 - CA-R-1997@3
