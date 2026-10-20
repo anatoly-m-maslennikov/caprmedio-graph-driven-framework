@@ -1,0 +1,43 @@
+---
+subjects:
+  governs: "Atom Claim Authoring"
+  depends_on:
+    ["Entity/Node/Continuant/Atom.Substance", "CCE", "Entity/Node/Continuant/Atom.Summary"]
+version: 29
+updated_at: "2026-10-19 22:01:58 +0400"
+relations: {"relates_to": ["CA-R-1624", "CA-O-103", "CA-D-479", "CA-R-1465"]}
+atom_id: "CA-M-111"
+content_role: "Method"
+current_scope_unit: "CORE_META_MODEL"
+claim_target_scope_unit: "CORE_META_MODEL"
+local_tier: "Standard"
+status: "Active"
+author: "Anatoly Maslennikov"
+global_tier: 11
+projection:
+  source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md
+  source_atom_id: CA-M-111
+  source_atom_revision: 29
+  source_sha256: 509935d0774173ac323f3c982dbc075c6d3703f2c7c940e5506a687e1616b628
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+---
+# Summary
+
+Author one CCE Claim and derived Summary
+
+## Scope
+
+authoring an Atom's prose CCE primary contribution, its applicability, **and** its derived Summary. Formal Graph Rule Atoms use CA-M-394 instead, retaining one structured contribution and a source-faithful Summary. This exception does not apply automatically to every R/Type: Rule Atom.
+
+## Claim
+
+**to** author one CCE Claim **and** its derived Summary, an Author **must** use these authoring constraints:
+
+- express **`=1`** independently replaceable contribution using the applicable CCE Content Role profile. carry it under the primary contribution heading registered **in** CA-D-479 rather than imposing the literal heading Claim on **every** role.
+- resolve **`=1`** Claim Target Scope Unit independently of ownership. select the current Scope Unit as the authoring default **or** an explicitly permitted different target; carry the resolved value under CA-D-482. express applicability under CA-D-495. for RMED, describe what the Claim applies **to**, including applicable conditions **and** exclusions, **in** Scope; do **not** merely repeat the carried current **or** target Scope Unit; those restrictions alone do **not** make the Atom Relational.
+- keep Details within the primary contribution under CA-R-1624. for RMED, read the Claim within its Scope; Details **must not** change either. **if** supporting content reveals an incomplete **or** inaccurate contribution **or** applicability, revise the affected Scope **or** primary contribution explicitly **and** recheck agreement; do **not** hide the change **in** Details.
+- write Summary **only after** the other body sections **and** the contribution review are complete. shorten the finalized primary contribution under CA-R-1465 **and** CA-R-1273. for RMED, summarize the Claim within its finalized Scope, **not** the Scope alone; do **not** substitute supporting Results **or** TLDR as the source.
+- for an existing Atom, retain the established Summary **and** check its faithfulness; **if** the Summary needs changing, use a new Atom identity under CA-R-1464.
+- derive **every** Translation from the full corresponding source content, **not** the Summary.
+
+## Details
