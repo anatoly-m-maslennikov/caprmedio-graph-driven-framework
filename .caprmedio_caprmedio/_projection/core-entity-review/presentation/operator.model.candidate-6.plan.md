@@ -57,7 +57,7 @@ Entity/Node/Occurrent/Execution/Step Run
 Entity/Node/Occurrent/Execution/Action Run
 ```
 
-Separately approved: `Atom/Revision` → `Entity/Node/Continuant/History/Revision` in the updated candidate. Revision remains under History, not Atom. Longer old Revision paths still need their own mapping decisions.
+Historical mapping proposal, superseded by decision 56: `Atom/Revision` → `Entity/Node/Continuant/History/Revision`. It is not the current target or a migration instruction. Preserve earlier discussion as history; do not globally replace every use of “Revision.”
 
 Approved mapping: `AI Agent Confidence` → `Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Confidence`. Confidence belongs to Agentic Step, not to Execution generally.
 
@@ -77,7 +77,7 @@ Approved mapping: `AI Agent Delegation` → `Entity/Node/Continuant/Actor/Type: 
 10. **Methodology sources are Scope Units:** Core Meta-model, Extensions and Project Configuration use their existing Scope Units. Their Atoms belong there. Do not add another Methodology Source Object or named Selection just to represent these collections. Preserve the particular Scope Unit identity when mapping references; general meanings still belong in Terms.
 11. **Framework Instance uses existing entities:** map `CAPRMEDIO Framework Instance` primarily to Project, and to the appropriate Execution where the source means an actual run. Do not add a separate Framework Instance entity. Resolve these uses per Atom rather than making one blanket replacement. The new canonical candidate path is `Entity/Node/Continuant/Project`, superseding both Candidate #5's `Object/Project` and this plan's earlier direct `Continuant/Project` placement; source paths remain unchanged until migration.
 
-12. **Execution results belong to History:** records of what happened during any execution, including results, failures and evidence references, belong to History. Journal collects event records but is not mandatory for every historical artifact. Revision preserves earlier state. Authored analysis with rationale/conclusions is an Analysis Atom; compiled views of existing results are Projections. Do not add an Evaluation Report/Proof entity or a new History subtype just for this mapping.
+12. **Historical decision — superseded as to Revision by decision 56:** records of what happened during any execution, including results, failures and evidence references, belong to History. Journal collects event records but is not mandatory for every historical artifact. The earlier statement that Revision preserves earlier state does not establish Revision as a current entity. Authored analysis with rationale/conclusions is an Analysis Atom; compiled views of existing results are Projections. Do not add an Evaluation Report/Proof entity or a new History subtype just for this mapping.
 
 13. **Default Settings carrier:** Default Settings belongs in `project_settings.default.toml`. This supersedes the proposal to merge defaults into Project.Framework Settings. Preserve the distinction between defaults and explicit overrides. The file's location, field migration and actual creation/rename remain implementation work; this decision does not perform them.
 
@@ -91,7 +91,7 @@ Approved mapping: `AI Agent Delegation` → `Entity/Node/Continuant/Actor/Type: 
 
 18. **Project and framework names are different:** the project is `caprmedio`; its name belongs in Project Settings TOML. The project's result is the framework named `CAPRMEDIO`; that name is defined by a project-local Atom in Project Configuration, not by a universal Core rule. Do not map the framework-name rule to `Project.Name` or duplicate the project-name setting in an Atom. The exact project-local Subject remains mapping work.
 
-19. **Retire Journal Revision:** Journal contains event records with their own timestamps. Retire the separate Journal snapshot/revision concept and archive CA-R-1372 during migration, without a replacement Journal revision or Journal.Updated At rule. This does not remove the existing History/Revision branch or Journal event records. Source retirement has not run.
+19. **Historical Journal Revision decision — see decision 56:** Journal contains event records with their own timestamps. The earlier proposal to retire a separate Journal snapshot/revision concept and archive CA-R-1372 remains historical planning, not a completed source effect. It does not authorize deleting Journal event records, historical references or versioned carriers.
 
 20. **Projection scope is RMED only for now:** Plan projections are not needed now. Defer Plan Graph mapping/type admission and implementation; do not resume the deferred CONTAINS graph. This does not retire Plan Atoms or their relations, or authorize archiving their governing rules. Existing source Atoms remain unchanged pending later disposition.
 
@@ -182,6 +182,8 @@ Primary/dependent clarification: preserve these meanings in Relation Semantics r
 
 55. **Cardinality format and constraint migration, approved 2026-10-20:** the Operator approved defining the Cardinality Graph Rule format now and preserving R1192's exact-one-immediate-bearer constraint in a separate formal Rule before retiring that old mixed definition. Do not put cardinality back into the Relation Type definition. The format counts matching connections per selected node, including zero-edge cases. The Operator approved the named Selection `Entity/Node/Continuant/Selection//Dependent Entity Occurrences`, based on declared bearer dependence independently of currently present bearer edges. No new Dependent Entity taxonomy branch, selector engine or evaluator is implied. The source contracts, structural parser support, concrete R2003 Rule and E246/E449 authority redirection are now implemented and verified; actual Selection membership resolution and count evaluation were not added.
 
+56. **Current group and Versions, approved 2026-10-20:** use **Current** for the non-archived group; it is not the `Active` Status. A Draft has no Atom ID. Current has at most one source Atom per Atom ID across all non-archived Status values, including Active, Done, Canceled, Backlog and other admitted values. Archived carriers preserve historical Atom versions and use `AtomID@Version` filenames; multiple archived versions may share the canonical Atom ID. Keep versioned history, exact archived bytes, Journal event records and source/version references. Obsolete **Revision as a separate entity**: remove it from the effective model while retaining Versions/history; reuse existing Version and Updated At definitions where applicable. Do not create a universal Version entity, globally replace the word “Revision,” or remove historical version pins. Current graph links may target only current nodes. If an archived target has no current successor, incoming-link resolution remains unresolved: do not automatically delete or retarget links, or add a new blocking policy. The prior separate-Revision paths and model statements remain historical and are superseded only as current-model guidance. The temporary `@draft` Atom-ID marker needs alignment with the no-ID Draft decision in CA #3: PROGRAMMATIC; this introduces no new field or identity policy. These are candidate decisions only: source changes remain unapplied, and the candidate is not a migration receipt.
+
 Glossary cleanup checkpoint: CA-R-1191 was archived as v14 through the existing change-status workflow; exact v13 bytes were preserved. R1260 v16 Semantics preserves the Primary meaning; R1351 v10 remains the separate zero-bearer rule. CA-R-1192 was subsequently archived as v13 with exact v12 retained, after new Active CA-R-2003 v1 preserved its exact-one-bearer constraint as a Cardinality Graph Rule. E246 v29 and E449 v19 evaluate R2003 instead of R1192, retaining their acceptance meaning and exact predecessors. Both retired definitions preserve their bodies, Summaries, identities and unrelated metadata. C221's old review snapshot pin remains historical and unchanged; this is not a repaired legacy Concern carrier. The four views were rebuilt from 913 Core and 234 Project Configuration sources without changing source bytes during generation. Core's declaration view includes one actual formal Rule. This is not blanket glossary retirement, a completed single-root Subject migration, an installed MCP update or a count evaluator.
 
 The read-only cleanup inventory now has review coverage for all 567 distinct off-tree Subject literals and all 2,483 occurrences across the two current source selections. Maps preserve exact source provenance and distinguish supported targets, source-specific splits, retirement/removal candidates and unresolved choices. Coverage is not resolution or an applied migration. The proposed `//` notation requires the next bounded source-contract/runtime alignment before it can be used in authoritative Subjects.
@@ -208,7 +210,6 @@ Entity
 			Project
 			Actor
 			History
-				Revision
 				Journal
 			Projection
 			Selection
@@ -229,6 +230,16 @@ Entity
 ```
 
 This is the candidate backbone, not an exhaustive list of admitted Types or a current source-derived graph. It shows structure, not actual artifact instances. Properties remain dependent entities, outside this primary-entity tree. Existing narrower kinds inherit their broader kind's rules; specialized kinds may extend allowed values where permitted. Content Role and Type qualify Atom kinds; Plan labels do not add Types. Method has the distinct Types Implementation Method and Implementation Decision. Types may restrict allowed Local Tiers, including to one tier; the exact restrictions are deferred. Concrete named Operations, project selections and individual Rules are not new Core kinds.
+
+Lifecycle groups are not Entity kinds or Atom Status values:
+
+| Group | Candidate meaning |
+| --- | --- |
+| Draft | No Atom ID. The existing temporary `@draft` marker is pending CA #3 alignment. |
+| Current | One source Atom per Atom ID across all non-archived Status values; current links target current nodes only. |
+| Archived | Historical Atom versions retained with exact bytes and `AtomID@Version` filenames. |
+
+If an incoming link points to an archived node with no current successor, its resolution remains open; do not delete, retarget or newly block it automatically. The group model changes no source or carrier by itself.
 
 ### Definitions and Rules
 
@@ -282,8 +293,9 @@ Display paths below omit the full prefix. Logical Node paths start with `Entity/
 | `Atom/Content Role: Operations/Type: Step/Execution Kind: Agentic.Confidence` | Confidence belongs to the Agentic Step |
 | Agentic Step.Execution Context | Required context belongs to the Step; the actual execution-context choice belongs to Step Run.Execution Context. The supplied Invocation Context payload is distinct |
 | `Actor/Type: AI Agent.Permissions` | Permission limits, scope and granting Operator; no Delegation entity |
-| `History/Revision` | Historical state, not `Atom/Revision` or `Atom.Revision` |
-| `History/Journal` | Event records; no separate Journal snapshot/revision concept |
+| Atom Version and history | Preserve versioned states, archived bytes and source/version references; no separate Revision entity or universal Version entity |
+| Current graph links | Link only to current nodes; incoming links to an archived node without a current successor remain unresolved |
+| `History/Journal` | Event records and their timestamps; retain historical records and references |
 | `Projection/Type: Terms Graph` | Newer name for the terminology projection; meanings derive from source Atoms and Semantics |
 
 RMED governs these things directly: R states required outcomes, M how to produce them, E how to check them, and D how to store or deliver them. Operations arranges actions using RMED. Do not turn authoring, validation, storage or compilation procedure names into extra entities merely to map a Subject.
@@ -302,7 +314,7 @@ RMED governs these things directly: R states required outcomes, M how to produce
 
 - Retire the obsolete Artifact / Structural Entity partition only where valid meanings cannot be remapped; preserve mixed valid claims.
 - Remove Activity, Exploration Mode and unsupported vague topic links. Cross-owner meanings belong to Terms, not extra entity roots.
-- Retire Journal Revision and CA-R-1372. Keep History/Revision and Journal event records.
+- No separate Revision entity. Preserve Versions, historical carriers, source/version references and Journal event records. Earlier CA-R-1372 retirement language is historical planning; no source retirement is claimed here.
 - No extra Invocation or Tool Call entity layer. Use Workflows, Steps/substeps and Actions for definitions, Runs for execution and History for records. Methodology RMED does not prescribe whether internal tool calls become substeps.
 - No Implementation branch for now. Current projection work is RMED only; Plan projections and construction/CONTAINS graph implementation remain deferred. This does not remove containment relations or Plan rules.
 
@@ -338,7 +350,7 @@ The six occurrence maps retain exact source paths, roles, targets and evidence. 
 - [x] Resolve Atom.Property and Atom.Semantics: concrete metadata/content properties remain; the aggregate Atom.Property placeholder is superseded.
 - [x] Drop Carrier.Ownership Class from the candidate; defer actual storage-rule review to the content migration.
 - [x] Drop Carrier.Storage Boundary from the candidate; retain its storage-protection policy for the content pass. All 54 placeholder dispositions are resolved.
-- [x] Prepare exact Status, containment, Revision and Carrier source-alignment proposals and a 45-definition inventory in the [admission package](../candidate5-migration/definition-admission/README.md).
+- [x] Prepare exact Status, containment, Revision and Carrier source-alignment proposals and a 45-definition inventory in the [admission package](../candidate5-migration/definition-admission/README.md). Historical preparation only; decision 56 supersedes the Revision-entity proposal.
 - [x] Resolve Local Tiers: 10 Core, 3 General and 32 Standard; update 13 review drafts' metadata only.
 - [x] Propose all 45 parent links with applicability evidence and a narrow R796 correction; audit fresh IDs without reserving them.
 - [x] Fix local reference lookup and ancestor-parent validation with regression coverage; verify a real Continuant creation preview without publishing it. C/A migration remains deferred.
@@ -403,7 +415,7 @@ This is a bounded content change for the Core/configuration boundary. It does no
 - [ ] Use the existing migration and Atom workflows; do not build another migration system.
 - [ ] Checkpoint the affected sources, create the proposed drafts, then checkpoint those drafts.
 - [ ] On success, archive predecessors and promote or relocate the approved successors. Stop on failure.
-- [ ] Apply the approved Revision mapping as part of the mapped Subject changes.
+- [ ] Apply only the reviewed source-specific Version/history mapping and obsolete-Revision dispositions; do not globally replace `Revision` or treat this candidate edit as source migration.
 - [ ] Record what actually changed. Do not mark staged or proposed changes as applied.
 
 ### 5. Rebuild and check
@@ -430,4 +442,4 @@ Saving this plan alone does not meet that condition.
 - [Current unmapped Subject review](../candidate5-migration/next-migration/subject-review.md).
 - [Current source-derived tree](../../core-subject-notation/after-current/inherency.md).
 
-This candidate records the latest Node / Relation / Graph Rule / Carrier organization, its abstraction-versus-storage boundary, and Artifact as a Term meaning. The supported 746-owner Subjects-only migration, separate CA-R-655 v27 follow-up, explicitly approved R1964 retirement, new R1994 Node definition and plain R1995 Graph Rule definition are complete. Remaining content/definition work is still pending. No blanket content migration, automatic retirement, tool redesign, FPF review or release is included.
+This candidate records the latest Node / Relation / Graph Rule / Carrier organization, its abstraction-versus-storage boundary, Artifact as a Term meaning, and decision 56's Current/Draft/Archived groups with Revision removed as a separate entity. The supported 746-owner Subjects-only migration, separate CA-R-655 v27 follow-up, explicitly approved R1964 retirement, new R1994 Node definition and plain R1995 Graph Rule definition are complete. Decision 56 source alignment and migration remain pending; this candidate is not evidence they occurred. Remaining content/definition work is still pending. No blanket content migration, automatic link cleanup, tool redesign, FPF review or release is included.

@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 122
-updated_at: "2026-10-20 15:59:18 +0400"
+version: 123
+updated_at: "2026-10-20 16:39:45 +0400"
 relations: {}
 ---
 # Summary
@@ -283,6 +283,32 @@ Step 2 is now complete for the primary/dependent glossary constraint transfer al
 Core CA-PROJ-002 and CA-PROJ-004 were refreshed from 911 current sources with D399/D402/D404@12, R1994@2 and C221@8, excluding R1249/R1268. Generation changed no Core source bytes. This is not a clean single-root completion. Project Configuration sources/views were unchanged by this packet. The durable derived checkpoint is `_projection/core-entity-review/presentation/candidate6-current-source-reconciliation-20261020.md`; detailed scratch evidence is `.caprmedio_tmp/methodology-reconcile-20261020/`.
 
 Methodology source and Git integration remain owned here; tool/engine requirements were passed to CA #3: PROGRAMMATIC. No implementation, runtime restart/reload, deployment, release, full-suite run, broad R-Type rollout, child Status cascade or push occurred. The Epic remains Active.
+
+#### Latest model correction — Current group and Versions, 2026-10-20
+
+The Operator approved **Current** as the name of the non-archived group and explicitly instructed: **obsolete Revision as a separate entity; keep Versions**. This supersedes Candidate #6's earlier History/Revision branch, Revision specializations and conflicting current-source wording. Preserve actual versioned history, archived bytes, journal event records and source/version references; retiring the entity is not deletion of history or replacement of Atom identity.
+
+The three lifecycle groups are:
+
+- **Draft:** no Atom ID.
+- **Current:** at most one current source Atom per Atom ID across all its statuses, including Active, Done, Canceled, Backlog and other admitted values. Current is a group, not a new Status replacing these values.
+- **Archived:** historical Atom versions; filenames include `@Version`. Multiple archived versions may share the canonical Atom ID; their version-qualified filenames distinguish them.
+
+Current Atoms may have relations only to current nodes. This constrains current graph links, not historical references or Journal records. The Operator has not yet chosen how incoming links are resolved when a target is archived without a current successor. Do not invent automatic removal, retargeting or a new archive gate; hold only changes needing that choice. A same-ID version update keeps its current target identity.
+
+Next execution order:
+
+1. [x] Record these decisions in this Epic before continuing affected work. Preserve the Epic's Active Status and unrelated tasks.
+2. [ ] Align Candidate #6's effective model and inventory current defining R Atoms, properties, Subjects and rules that still require Revision or conflate Active Status with the Current group. Identify reusable Version/Updated At definitions; do not invent another historical-object branch.
+3. [ ] Align the bounded Core RMEDO first: Draft identity, current-ID uniqueness, versioned archived carriers and current-node relation targeting. Preserve valid constraints and exact history while retiring obsolete standalone Revision definitions; retain historical references as history rather than live authority.
+4. [ ] Pass concrete implementation gaps to CA #3: PROGRAMMATIC. Review the existing temporary `@draft` Atom-ID marker against the no-ID Draft decision before new affected staging; do not claim the old marker is compliant or introduce a new identity system here. Runtime changes belong to that chat and require their actual tests/deployment evidence.
+5. [ ] Apply accepted source corrections through the existing Workflows, then rebuild as-is Core and Project Configuration graph views and defining-R coverage. Keep remaining unresolved sources visible. Do not equate a candidate edit with source migration or completion.
+
+Independent work continues; general unrelated content migration stays CA-P-1970. No broad Status cascade, automatic link cleanup, R-Type rollout, new metadata field or physical folder rename is performed by this Plan update.
+
+Previous continuation results remain valid: draft checkpoint `3b7c129fb` and source-effects commit `109c62329` contain ten Subjects-only updates with ten exact predecessors and consumed drafts. Their completed batch readback reports no body/unrelated metadata changes and no errors. The 61-owner `//` staging attempt stopped before drafts or source effects; the later 16-owner ordinary staging attempt stopped after ten drafts on a duplicate mapping. Those original attempts remain stopped, not relabeled successful or replayed. The ten known drafts were separately selected, committed and published once; the duplicate mapping was corrected afterward. Five further drafts were staged before this new model decision; they are not published or presented as current sources. R1022 is separately owned by CA #3 under its own human-approved clarification and is excluded from this chat's follow-up publication.
+
+CA #3 confirmed that the installed MCP image lacks the already implemented `//` grammar; no new parser design is needed. That deployment dependency remains separate, with no production replacement or replay authorized by this Plan update. Existing pending edit-drafts and frozen maps remain evidence of their captured model, not authority over these latest decisions.
 
 #### Phase 1 — migrate Subjects first
 
