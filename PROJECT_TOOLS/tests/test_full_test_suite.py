@@ -5,6 +5,7 @@ from __future__ import annotations
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import redirect_stderr, redirect_stdout
 import io
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -137,7 +138,10 @@ class FullTestSuiteTests(unittest.TestCase):
         module = self.file("PROJECT_TOOLS/tests/test_one.py")
         result = subprocess.CompletedProcess([], 0, PASSED_COUNT, "")
         with (
-            patch.dict(full.os.environ, {"CAPRMEDIO_DOCKER_QUERY_IMAGE": "actual-image"}),
+            patch.dict(full.os.environ, {
+                "CAPRMEDIO_DOCKER_QUERY_IMAGE": "actual-image",
+                "PYTHONPATH": "existing-pythonpath",
+            }),
             patch.object(full.subprocess, "run", return_value=result) as command,
         ):
             with redirect_stdout(self.output), redirect_stderr(self.errors):
@@ -152,6 +156,34 @@ class FullTestSuiteTests(unittest.TestCase):
             self.assertEqual("1", environment["CAPRMEDIO_DOCKER_E2E"])
             self.assertEqual("1", environment["CAPRMEDIO_DOCKER_QUERY_E2E"])
             self.assertEqual("actual-image", environment["CAPRMEDIO_DOCKER_QUERY_IMAGE"])
+            tools_root = self.root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"
+            self.assertEqual(
+                os.pathsep.join((str(tools_root), "existing-pythonpath")),
+                environment["PYTHONPATH"],
+            )
+
+    def test_child_gets_canonical_tools_and_keeps_test_directory_first(self) -> None:
+        self.file(
+            "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/canonical_import.py",
+            "VALUE = 'canonical'\n",
+        )
+        self.file(
+            "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/shared_name.py",
+            "VALUE = 'tools'\n",
+        )
+        self.file("PROJECT_TOOLS/tests/shared_name.py", "VALUE = 'tests'\n")
+        module = self.file(
+            "PROJECT_TOOLS/tests/test_import_path.py",
+            "import unittest\n"
+            "from canonical_import import VALUE as canonical\n"
+            "from shared_name import VALUE as local\n"
+            "class ImportPathTest(unittest.TestCase):\n"
+            " def test_paths(self):\n"
+            "  self.assertEqual('canonical', canonical)\n"
+            "  self.assertEqual('tests', local)\n",
+        )
+        self.assertEqual(0, self.run_suite(), self.errors.getvalue())
+        self.assertIn(f"Test module FINISH: {module.relative_to(self.root)}", self.output.getvalue())
 
     def test_empty_suite_and_module_with_no_cases_are_failures(self) -> None:
         self.assertEqual(1, self.run_suite())

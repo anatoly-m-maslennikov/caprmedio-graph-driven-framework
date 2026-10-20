@@ -82,6 +82,11 @@ def run_module(
         "CAPRMEDIO_DOCKER_E2E": "1",
         "CAPRMEDIO_DOCKER_QUERY_E2E": "1",
     }
+    tools_root = root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"
+    existing_pythonpath = environment.get("PYTHONPATH")
+    environment["PYTHONPATH"] = os.pathsep.join(
+        path for path in (str(tools_root), existing_pythonpath) if path
+    )
     print(f"Test module START: {module.relative_to(root)}", flush=True)
     try:
         result = subprocess.run(

@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 12
-updated_at: "2026-10-20T14:37:35.626Z"
+version: 14
+updated_at: "2026-10-20T15:18:47.000Z"
 ---
 # Summary
 
@@ -216,3 +216,15 @@ The first full local release local-20261020-current-target-parser-repair-1412 ma
 Four detached worker/agent test services with the exact owned full-suite attempt label remained. Root verified ownership, stopped only those services, retained their containers/data/images, and reverified original production container432d276a/imagea44ad091/running/127.0.0.1:56317. P2451 closes that bounded manual teardown; C542 remains Active for automatic interruption cleanup. No broad cleanup or production MCP request occurred.
 
 P2452 admitted fresh image sha256:febd5bcc189e3eda2b4926206beb23f26d26c7757092580b0ddf56705ac0aac9 with fingerprint b71c2770aef150235984df90e4e0984e17d2b7e8d7a8169ac8de15b3763a15b8. P2453 repeated all three isolated cases with zero failures/errors/skips in217.438s and exact protected production equality; receipt .caprmedio_tmp/mcp-audit-20261020/isolation/execute/p2439-e7s6sznn/receipt.json. Reused historical wrapper labels are not new completion claims for earlier Tasks. P2454 is the dependency-reviewed successor for the same expressly approved all-current-changes full local release. Its broad tests and actual replacement/readiness remain required before closing P2440 or installed-runtime Problems. The Epic and broader uncovered operations remain Active.
+
+### Second full local-release failure and repair chain — 2026-10-20
+
+The second full local-release terminal `local-20261020-current-target-parser-repair-1438` failed before replacement. Exact log: `.caprmedio_tmp/simple_local_release/local-20261020-current-target-parser-repair-1438-tests-a71g3vcj.log`; matching report: `runtime/reports/runid.md`. It covered 410 modules and 3555 tests with zero skips and 12 failed modules: nine `VALIDATE_ATOMS` fresh-child import failures and three shared frozen Plan-status mismatches in `test_proposed_relation_admission`, `test_relation_fixture_isolation` and `test_status_bundle_publication_independent`. Root recorded checkpoint `ac1952165`; no replacement phase ran and these results are not production guard failures.
+
+CA-C-543 records the fresh-child runner/import cause and CA-C-544 records the shared frozen-fixture cause. Active repair Tasks CA-P-2455 and CA-P-2456 own those bounded checks. Their Backlog successors are CA-P-2457 (fresh immutable build), CA-P-2458 (three isolated cases with protected production equality) and CA-P-2459 (approved full-local-release retry). CA-P-2454 records the failed retry and delegates to CA-P-2459 without claiming completed delivery; CA-P-2440 now depends on CA-P-2459 and remains unexecuted. Preserve all prior candidate/isolated receipts and historical failure checkpoints. The Epic remains Active; no deployment, release completion or broader capability acceptance is claimed.
+
+### Focused repair, fresh build and isolated gate checkpoint — 2026-10-20
+
+CA-C-543 and CA-C-544 are resolved for their scoped test-environment causes. CA-P-2455 passed runner13/13 and former fresh-child modules133/133 with zero skips and independent review `APPROVE`; CA-P-2456 passed fixture25/25 (relation8, isolation2, status15) plus2 current Plan-placement checks with strict validation and current D461 placement unchanged, no production guard change, and independent review pending. CA-P-2457 then admitted fresh image `sha256:a26b88751f9e8eb57132f648e114f0af4d0c25ff5acf66a6f891f7d05fb4fab3` with fingerprint `b95525f5be4b87c9b342f52199cd8f9260ff4206c2f130090cf63f4cc3e38f76`; its prelaunch source/image/compose inputs were unchanged, production snapshot equality was true, and independent fixture review was `APPROVE` with no findings.
+
+CA-P-2458 passed the isolated gate in `215.658s`: 3 tests, zero failures/errors/skips, protected production equality true, `production_endpoint_tested: false`, and `historical_replay: false`. CA-P-2459 is now Active and eligible after the required source/Git/runtime freeze, but remains unexecuted. The second full-suite failure and its 410-module/3555-test/12-module boundary remain retained; P2454 and P2440 remain Active. No installed deployment, release completion or Epic completion is claimed.

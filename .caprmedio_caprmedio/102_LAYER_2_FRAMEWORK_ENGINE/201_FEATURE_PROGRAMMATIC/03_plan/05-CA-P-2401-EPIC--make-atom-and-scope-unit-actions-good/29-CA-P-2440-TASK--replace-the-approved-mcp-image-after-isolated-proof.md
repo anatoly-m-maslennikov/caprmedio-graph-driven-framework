@@ -12,11 +12,11 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: Entity/Node/Continuant/Atom
-  depends_on: []
+  depends_on: [CA-P-2459]
 relations:
   is_decomposition_of: [CA-P-2401]
-version: 4
-updated_at: "2026-10-20T14:30:31.000Z"
+version: 5
+updated_at: "2026-10-20T15:10:43.000Z"
 ---
 # Summary
 
@@ -47,3 +47,7 @@ The final isolated receipt `.caprmedio_tmp/mcp-audit-20261020/isolation/execute/
 ### First-attempt checkpoint
 
 The first full local release attempt after the isolated gate failed in tests and was intentionally interrupted with exit 130 (`KeyboardInterrupt`). Root recorded Git checkpoint `c1df`, and the old production state was verified unchanged. The actual retry is delegated to CA-P-2454 after the new CA-P-2453 isolated gate passes; no historical replay or release success is claimed here.
+
+### Successor dependency checkpoint
+
+The second full local release terminal also failed; its bounded runner and frozen-fixture repairs are CA-P-2455 and CA-P-2456, followed by fresh build CA-P-2457, isolated gate CA-P-2458 and release retry CA-P-2459. This replacement Task now depends on CA-P-2459 and remains Active/unexecuted. No MCP replacement, deployment, readiness proof or installed-runtime resolution is claimed.

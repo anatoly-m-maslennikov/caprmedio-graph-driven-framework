@@ -15,8 +15,8 @@ subjects:
   depends_on: [CA-P-2453, CA-P-2440]
 relations:
   is_decomposition_of: [CA-P-2401]
-version: 2
-updated_at: "2026-10-20T14:36:42.000Z"
+version: 3
+updated_at: "2026-10-20T15:10:43.000Z"
 ---
 # Summary
 
@@ -40,4 +40,8 @@ CA-P-2453 supplied a passing isolated receipt `.caprmedio_tmp/mcp-audit-20261020
 
 The retry receipt records the exact candidate, approval boundary, source/Git freeze, actual local-release phases, readiness and rollback/protected-state checks. Any failure remains explicit; no deployment, public release, or Epic completion is inferred from the plan.
 
-The retry remains unexecuted in this planning checkpoint.
+The retry described here remains unexecuted; the next attempt is delegated to CA-P-2459 after bounded repair and isolated gates pass.
+
+### Second-attempt failure checkpoint
+
+The second full local release terminal `local-20261020-current-target-parser-repair-1438` failed. Exact log: `.caprmedio_tmp/simple_local_release/local-20261020-current-target-parser-repair-1438-tests-a71g3vcj.log`; matching release report: `runtime/reports/runid.md`. It covered 410 modules and 3555 tests with zero skips and 12 failed modules: nine `VALIDATE_ATOMS` fresh-child import failures, plus `test_proposed_relation_admission`, `test_relation_fixture_isolation`, and `test_status_bundle_publication_independent` from a shared frozen Plan-status mismatch. Root recorded checkpoint `ac1952165`; no replacement phase ran. These are bounded runner/fixture causes, not production guard bugs. CA-P-2455 and CA-P-2456 remain Active repair Tasks; CA-P-2457 through CA-P-2459 are Backlog successors. No completed full release or deployment is claimed.

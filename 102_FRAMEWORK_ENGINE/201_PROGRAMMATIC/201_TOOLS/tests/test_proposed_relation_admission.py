@@ -8,6 +8,7 @@ fixture root.
 
 from __future__ import annotations
 
+import hashlib
 import os
 import sys
 import tempfile
@@ -38,6 +39,7 @@ from VALIDATE_ATOMS.tests.golden_authority import (  # noqa: E402
     frozen_entry,
     write_frozen_authority,
 )
+from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier  # noqa: E402
 
 
 FIXTURE_SCOPE = "PARENT"
@@ -49,10 +51,12 @@ METHODOLOGY_AUTHORITY = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/
 FROZEN_AUTHORITY = f"{METHODOLOGY_AUTHORITY}/frozen-authority"
 CONTROL = Path(".caprmedio_caprmedio")
 REGISTERED_AUTHOR = "Anatoly Maslennikov"
+PLAN_STATUS_BASE = VALIDATE / "tests" / "fixtures" / "current_graph_authority" / "CA-R-1947.md"
+PLAN_STATUS_BASE_SHA256 = "ca65ea189912acb3605517a2a8dbe3e76cb402dc018df6d6ca167decd16b218f"
 
 
 def _frozen_entry(identifier: str, *, graph: bool = False) -> dict[str, object]:
-    entry = frozen_entry(identifier, graph=graph)
+    entry = frozen_entry(identifier, graph=graph or identifier == "CA-R-1539")
     if graph:
         entry["source_path"] = f".caprmedio_caprmedio/frozen-graph-authority/{identifier}.md"
     return entry
@@ -127,19 +131,28 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
     def _copy_verified_authority_closure(self) -> None:
         """Materialize the finite checked-in authority closure for this Project."""
 
+        authority_ids = tuple(
+            identifier
+            for identifier in dict.fromkeys(
+                (
+                    *proposed_carrier._REGISTRY_IDS,
+                    *proposed_carrier._SUPPORT_IDS,
+                    *proposed_carrier._FRONTIER_IDS,
+                )
+            )
+            if identifier != "CA-R-1539"
+        )
         write_frozen_authority(
             self.root,
             CONTROL,
-            tuple(
-                dict.fromkeys(
-                    (
-                        *proposed_carrier._REGISTRY_IDS,
-                        *proposed_carrier._SUPPORT_IDS,
-                        *proposed_carrier._FRONTIER_IDS,
-                    )
-                )
-            ),
+            authority_ids,
         )
+        plan_status_entry = _frozen_entry("CA-R-1539")
+        plan_status_path = self.root / plan_status_entry["source_path"]
+        self.assertIsInstance(plan_status_entry["source_path"], str)
+        plan_status_path.parent.mkdir(parents=True, exist_ok=True)
+        plan_status_path.write_bytes(frozen_authority_fixture_bytes("CA-R-1539", graph=True))
+        self._write_plan_status_base()
         self.assertEqual(26, len(APPROVED_GRAPH_AUTHORITY_IDS))
         self.graph_entries = {}
         for identifier in APPROVED_GRAPH_AUTHORITY_IDS:
@@ -150,6 +163,15 @@ class ProposedRelationAdmissionTest(unittest.TestCase):
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(frozen_authority_fixture_bytes(identifier, graph=True))
             self.graph_entries[identifier] = entry
+
+    def _write_plan_status_base(self) -> None:
+        raw = PLAN_STATUS_BASE.read_bytes()
+        self.assertEqual(PLAN_STATUS_BASE_SHA256, hashlib.sha256(raw).hexdigest())
+        parsed = parse_carrier(raw, PLAN_STATUS_BASE)
+        self.assertEqual(("CA-R-1947", 3), (parsed.metadata["atom_id"], parsed.metadata["version"]))
+        destination = self.root / FROZEN_AUTHORITY / "CA-R-1947.md"
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(raw)
 
     @property
     def _authority_relative(self) -> Path:
