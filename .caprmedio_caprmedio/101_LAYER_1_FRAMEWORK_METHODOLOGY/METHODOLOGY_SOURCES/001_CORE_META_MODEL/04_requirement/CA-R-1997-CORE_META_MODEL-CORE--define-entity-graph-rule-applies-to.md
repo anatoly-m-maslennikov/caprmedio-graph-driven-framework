@@ -14,8 +14,8 @@ subjects:
   - Entity/Relation
   - Entity/Node
 relations: {}
-version: 1
-updated_at: "2026-10-19 21:55:41 +0400"
+version: 3
+updated_at: "2026-10-20 13:46:55 +0400"
 ---
 # Summary
 
@@ -29,6 +29,10 @@ The applicability of a Graph Rule in the Entity model.
 
 Graph Rule.Applies To **means** the structured identification of the Relation Type, property or Node kind whose cases the rule governs.
 
+## Semantics
+
+The named Selection `Entity/Node/Continuant/Selection//Dependent Entity Occurrences` means all Entity occurrences whose governing source declarations require bearer dependence. Determine membership from those declarations, not from the presence of IS_BORNE_BY edges in a possibly incomplete view. This is a named Selection, not a Dependent Entity kind or new taxonomy branch.
+
 ## Details
 
-For a whitelist, Applies To selects the Relation Type whose source and target endpoints are checked against the corresponding condition lists. A whitelist expresses allowed connections for that Relation Type; it does not make other Relation Types prohibited merely because a Node appears in a listed endpoint kind. This definition does not establish applicability encoding for the other Graph Rule Types.
+For a whitelist, Applies To selects the Relation Type whose source and target endpoints are checked against the corresponding condition lists. A whitelist expresses allowed connections for that Relation Type; it does not make other Relation Types prohibited merely because a Node appears in a listed endpoint kind. For Cardinality, Applies To identifies the source-backed node kind or named Selection whose members are each checked, the counted Relation Type and the incoming or outgoing direction. Selection membership comes from governing source declarations independently of matching edges present; zero-edge members remain included. An unknown or incomplete domain remains unresolved, not an empty passing set. CA-D-637 defines the encoding. This definition does not establish applicability encoding for the remaining Graph Rule Types or add a resolver or evaluator.

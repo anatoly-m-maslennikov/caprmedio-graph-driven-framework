@@ -3,11 +3,11 @@ subjects:
   governs: "Entity/Node/Continuant/Projection/Type: Entities Graph"
   depends_on:
     ["Entity", "Property", "Entity/Node/Continuant/Term", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Relation Kind", "Subject Path", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Subjects", "Artifact", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/History/Journal", "Entity/Carrier", "Entity/Node/Continuant/Atom", "Entity/Relation", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
-version: 18
-updated_at: "2026-10-20 02:00:51 +0400"
+version: 19
+updated_at: "2026-10-20 13:39:10 +0400"
 relations:
   evaluation_for:
-    - CA-R-1192
+    - CA-R-2003
     - CA-R-1201
     - CA-R-1243
     - CA-R-1246
@@ -47,7 +47,7 @@ the Evaluation **must** reject an Entities Graph **if** **any** of:
 - multiple governing Atoms are treated as multiple identities for one Entity, **or** the **`=1`** GOVERNS target per Atom is treated as permitting **only** **`=1`** governing Atom per Entity.
 - a tree display is treated as the full combined graph **without** satisfying its declared selection, **or** legitimate sharing is rejected, duplicated, **or** discarded **to** force a tree.
 - a Relation Kind is unregistered **or** belongs **to** another graph kind under CA-R-1246-CORE_META_MODEL-CORE-REQUIREMENT--keep-relation-vocabularies-graph-specific.
-- an IS_BORNE_BY Relation has an invalid endpoint **or** direction under CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by, **or** violates the applicable immediate-bearer cardinality under CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity **or** CA-R-1351-CORE_META_MODEL-CORE-REQUIREMENT--give-primary-entity-occurrences-no-bearer.
+- an IS_BORNE_BY Relation has an invalid endpoint **or** direction under CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by, **or** violates the applicable immediate-bearer cardinality under CA-R-2003-CORE_META_MODEL-CORE--require-exactly-one-immediate-bearer **or** CA-R-1351-CORE_META_MODEL-CORE-REQUIREMENT--give-primary-entity-occurrences-no-bearer.
 - an IS_ALLOWED_VALUE_OF Relation admits a value **without** governing authority for its qualified Property context under CA-R-1436-CORE_META_MODEL-CORE-REQUIREMENT--define-is-allowed-value-of.
 - admission **in** one Property context is used **to** justify admission **in** another context **without** its applicable authority.
 - allowed-value admission is treated as assigning a value **to** a particular Property occurrence **or** determining that Property's cardinality.

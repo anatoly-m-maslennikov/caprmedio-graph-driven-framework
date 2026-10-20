@@ -3,8 +3,8 @@ subjects:
   governs: "Entity/Node/Continuant/Atom.Subjects"
   depends_on:
     ["Entity/Node/Continuant/Atom", "Subject", "Subject Path", "GOVERNS", "DEPENDS_ON", "Entity", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Term", "Entity/Node/Continuant/Projection/Type: Atom Subjects Graph", "Entity/Node/Continuant/Atom/Content Role: Concern", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Evaluation For Relation", "Property", "Primary Entity", "Dependent Entity", "Entity/Node/Continuant/Scope Unit", "Atom Scope", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Node/Continuant/Atom.Summary"]
-version: 28
-updated_at: "2026-10-19 15:54:56 +0400"
+version: 29
+updated_at: "2026-10-20 13:38:55 +0400"
 relations:
   evaluation_for:
     - CA-R-1275
@@ -13,7 +13,7 @@ relations:
     - CA-R-1018
     - CA-R-1248
     - CA-R-1194
-    - CA-R-1192
+    - CA-R-2003
     - CA-R-1193
     - CA-R-1201
     - CA-R-1202

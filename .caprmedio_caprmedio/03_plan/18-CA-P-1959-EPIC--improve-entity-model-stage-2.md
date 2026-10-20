@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 118
-updated_at: "2026-10-20 05:08:02 +0400"
+version: 119
+updated_at: "2026-10-20 13:49:26 +0400"
 relations: {}
 ---
 # Summary
@@ -238,6 +238,21 @@ The four as-is views were rebuilt from 914 Core and 234 Project Configuration so
 Step 2 is partly complete: useful Relation Semantics are preserved, but glossary retirement is not performed. Read-only review found R1191 semantically ready; R1192's exact one-bearer constraint must remain as a separate rule, with E449/E246 links and C221's current-authority wording aligned before retirement. Do not add the cardinality rule back into Relation Type meaning. Steps 5 and 6 remain open: review coverage and the 186-occurrence named-operation map are proposals, not source migration.
 
 The Epic stays Active; child Statuses do not cascade. No installed MCP update, named-instance Subject migration, glossary retirement, formal Rule instance, rule evaluator, deferred construction graph, global lock, release or push is included.
+
+#### Cardinality format and glossary constraint migration — 2026-10-20
+
+The Operator approved defining Cardinality now and using the named Selection `Entity/Node/Continuant/Selection//Dependent Entity Occurrences`, based on declared bearer dependence independently of currently present edges. Zero-edge members remain checked; an unknown domain is unresolved, not a passing empty set. This adds no Dependent Entity kind, Selection resolver or rule evaluator.
+
+- [x] Align the source contract before implementation: final D637 v5 owns the closed YAML encoding; R1997 v3 owns applicability and the named Selection's meaning; R1998 v2 owns the count-condition meaning; M394 v4 governs authoring. Preserve each exact predecessor, including intermediate D637 v4 and R1997 v2. Descriptive Relation Type definitions remain unchanged.
+- [x] Implement strict structural Cardinality validation in the existing body validator. Require node/relation/direction and explicit minimum/maximum/opposite-endpoint fields; reject malformed or extra fields, Boolean/nonnumeric/negative/reversed bounds and defaults. Preserve Whitelist and unsupported-Type behavior, exact carrier text and opaque catalogue/rendering. Parsing does not resolve membership or evaluate counts.
+- [x] Create Active CA-R-2003 v1, Type Graph Rule, governing `Entity/Relation/Type: IS_BORNE_BY`: exactly one outgoing matching bearer Relation per selected dependent Entity occurrence. Its Summary and operative YAML preserve the old R1192 constraint without putting it into Relation Type metadata.
+- [x] Redirect the current precise `evaluation_for` links in E246 v29 and E449 v19 from R1192 to R2003, retaining their acceptance meaning and exact predecessors. E449's explanatory authority citation identifies R2003 too.
+- [x] Archive R1191 as v14 with exact v13 retained, and R1192 as v13 with exact v12 retained. Their bodies, Summaries, identities and unrelated metadata remain unchanged. Primary/dependent meaning survives in R1260/R1435 Semantics; R1351's complementary zero-bearer rule is unchanged. No active typed R1192 links remain in the two current source selections.
+- [x] Rebuild the four existing views from 913 Core and 234 Project Configuration sources; verify generation changed no selected source bytes. Core's declaration view includes the exact new formal Rule. This refresh does not establish a clean single-root source model or finish the remaining Subject migration.
+
+Independent source and runtime reviews passed. Runtime suites passed: Validator 512 and Graph 306 tests (818 total); focused lint and diff checks passed. The source effects before this Epic update have 58 unique completed terminal Run outcomes with retained receipts; this Epic update adds its own six actual outcomes. No full release suite, installed MCP update, release or push was performed.
+
+C221's old historical review pin is retained unchanged. Its current carrier lacks literal # Summary and cannot be edited through the normal same-ID route; no legacy-writer expansion or inferred Concern status transition was made here. That old resolution-time note is not a current typed Evaluation link. The broader map reconciliation, source migration/Core-Project separation, other glossary/content review and later rule evaluation remain open. The Epic stays Active; child Statuses do not cascade.
 
 #### Phase 1 — migrate Subjects first
 

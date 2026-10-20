@@ -18,8 +18,8 @@ subjects:
   - Entity/Node/Continuant/Atom.Summary
   - Entity/Carrier/File Carrier
 relations: {}
-version: 3
-updated_at: "2026-10-20 03:02:51 +0400"
+version: 5
+updated_at: "2026-10-20 13:47:11 +0400"
 ---
 # Summary
 
@@ -65,4 +65,36 @@ condition:
     - "Entity/Node/Continuant/Atom/Content Role: Requirement"
 ```
 
-This block illustrates the schema; it is not a second live Rule instance. Other Type schemas, multiple-whitelist combination, unknown Relation Types, blacklist precedence and override policies still require their own declarations before use. This Delivery contract does not implement parser or validator support.
+This block illustrates the schema; it is not a second live Rule instance.
+
+### Cardinality schema
+
+For `graph_rule_type: cardinality`, use these closed mappings; all listed fields are required, and additional fields are invalid:
+
+- `applies_to.node`: one string in existing Subject notation, identifying the source-backed node kind or named Selection whose members are checked individually. A named Selection selects its members, not the Selection node itself. The source must establish the complete selected domain independently of whether matching connections exist; include selected nodes with zero connections. Unknown or incomplete membership is unresolved evidence, not an empty passing set. This format creates no Selection resolver or evaluator.
+- `applies_to.relation_type`: one nonempty string identifying the counted Relation Type.
+- `applies_to.direction`: exactly `outgoing` or `incoming`, relative to each selected node.
+- `condition.other_endpoint`: a list of existing Subject strings identifying matching opposite-endpoint kinds. Narrower kinds inherit membership. Matching any listed kind includes a connection; an empty list matches no endpoint. Count each distinct source/type/target Relation once per selected node, without counting repeated filter matches or derived inverse navigation again.
+- `condition.minimum`: an exact nonnegative integer, not a Boolean, float or string.
+- `condition.maximum`: an exact nonnegative integer greater than or equal to minimum, or explicit YAML null for no upper bound. Do not omit either bound. Equal bounds require the exact count; minimum zero permits absence, minimum one requires a connection, and maximum zero prohibits matching connections.
+
+Cardinality constrains the number of existing matching connections; it does not supply a fallback value or create a connection. `default_value` is not part of this Type's schema. Operative keys, values and Subject syntax are structurally checked; parsing does not establish node membership, resolve references or evaluate the count.
+
+CA-R-1997 defines the meaning and source-declared membership of the named Selection used below; this Delivery contract specifies its Subject-string encoding.
+
+```yaml
+graph_rule_type: cardinality
+applies_to:
+  node: "Entity/Node/Continuant/Selection//Dependent Entity Occurrences"
+  relation_type: IS_BORNE_BY
+  direction: outgoing
+condition:
+  other_endpoint:
+    - Entity
+  minimum: 1
+  maximum: 1
+```
+
+This block illustrates the encoding and is not a live Rule instance. The concrete rule is authored separately with its own Atom identity.
+
+The remaining Type schemas, multiple-rule combination, unknown Relation Types, blacklist precedence and override policies still require their own declarations before use. This Delivery contract does not implement parser, validator, resolver or evaluator support.

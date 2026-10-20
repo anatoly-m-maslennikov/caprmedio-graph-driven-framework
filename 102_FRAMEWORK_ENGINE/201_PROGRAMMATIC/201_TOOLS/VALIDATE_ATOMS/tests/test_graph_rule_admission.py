@@ -35,6 +35,23 @@ condition:
     - "Entity/Node/Continuant/Atom/Content Role: Requirement"
 ```
 '''
+CARDINALITY = '''# Summary
+
+Cardinality source fixture.
+
+```yaml
+graph_rule_type: cardinality
+applies_to:
+  node: "Entity/Node/Continuant/Selection//Dependent Entity Occurrences"
+  relation_type: IS_BORNE_BY
+  direction: outgoing
+condition:
+  other_endpoint:
+    - Entity
+  minimum: 0
+  maximum: null
+```
+'''
 REQUIREMENT_BODY = """# Summary
 
 Ordinary requirement.
@@ -134,6 +151,30 @@ class GraphRuleAdmissionTests(unittest.TestCase):
         ADAPTERS["body.sections"](metadata, WHITELIST, check)
         self.assertEqual((check.findings, check.gaps), ([], []))
 
+    def test_cardinality_body_is_structurally_admitted_without_evaluation(self):
+        check = self.check()
+        ADAPTERS["body.sections"](self.graph_rule_metadata(), CARDINALITY, check)
+        self.assertEqual((check.findings, check.gaps), ([], []))
+
+    def test_cardinality_body_keeps_current_source_authority_gate(self):
+        for identifier in SOURCE_IDS:
+            for mode in ("missing", "changed", "ambiguous"):
+                with self.subTest(identifier=identifier, mode=mode):
+                    inputs = deepcopy(self.rule_inputs)
+                    rows = inputs["sources"]
+                    source = next(row for row in rows if row["binding"]["atom_id"] == identifier)
+                    if mode == "missing":
+                        rows.remove(source)
+                    elif mode == "changed":
+                        source["text"] += "\nChanged after observation.\n"
+                    else:
+                        rows.append(deepcopy(source))
+                    check = self.check(inputs)
+                    ADAPTERS["body.sections"](
+                        self.graph_rule_metadata(), CARDINALITY, check
+                    )
+                    self.assertTrue(check.findings or check.gaps)
+
     def test_ordinary_requirement_and_generic_rule_keep_prose_layout(self):
         untyped = self.check()
         SCHEMA_ADAPTERS["model.domains"](
@@ -171,7 +212,6 @@ class GraphRuleAdmissionTests(unittest.TestCase):
     def test_declared_forms_without_complete_schemas_remain_gaps(self):
         for rule_type in (
             "blacklist",
-            "cardinality",
             "value_constraint",
             "topology_constraint",
             "endpoint_constraint",

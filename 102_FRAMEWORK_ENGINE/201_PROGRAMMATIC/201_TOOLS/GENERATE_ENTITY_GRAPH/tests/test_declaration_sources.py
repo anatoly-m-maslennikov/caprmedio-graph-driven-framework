@@ -57,13 +57,23 @@ def refresh_raw(carrier: dict) -> None:
 
 
 def graph_rule_carrier(atom_id: str = "CA-R-901021", version: int = 3, yaml_type: str = "whitelist") -> dict:
-    yaml_block = (
-        "```yaml\ngraph_rule_type: " + yaml_type + "\napplies_to:\n"
-        "  relation_type: evaluation_for\ncondition:\n"
-        '  source: ["Entity/Node/Continuant/Atom/Content Role: Evaluation"]\n'
-        '  target: ["Entity/Node/Continuant/Atom/Content Role: Requirement"]\n```\n'
-    )
-    body = "# Summary\n\nPermit evaluation links.\n\n" + yaml_block
+    if yaml_type == "cardinality":
+        yaml_block = (
+            "```yaml\ngraph_rule_type: cardinality\napplies_to:\n"
+            '  node: "Entity/Node/Continuant/Selection//Dependent Entity Occurrences"\n'
+            "  relation_type: IS_BORNE_BY\n  direction: outgoing\ncondition:\n"
+            "  other_endpoint: [Entity]\n  minimum: 0\n  maximum: null\n```\n"
+        )
+        summary = "Cardinality fixture."
+    else:
+        yaml_block = (
+            "```yaml\ngraph_rule_type: " + yaml_type + "\napplies_to:\n"
+            "  relation_type: evaluation_for\ncondition:\n"
+            '  source: ["Entity/Node/Continuant/Atom/Content Role: Evaluation"]\n'
+            '  target: ["Entity/Node/Continuant/Atom/Content Role: Requirement"]\n```\n'
+        )
+        summary = "Permit evaluation links."
+    body = "# Summary\n\n" + summary + "\n\n" + yaml_block
     metadata = {
         "atom_id": atom_id,
         "version": version,
@@ -233,6 +243,38 @@ class DeclarationSourcesTests(unittest.TestCase):
         self.assertEqual(rule["subject"], "Entity/Node/Continuant/Atom.Relations")
         self.assertTrue(rule["yaml_block"].startswith("```yaml\n"))
         self.assertEqual(catalog["unresolved"], [])
+
+    def test_cardinality_rule_catalog_preserves_selection_yaml_and_source_evidence(self):
+        supports, entries = support_carriers()
+        carrier = graph_rule_carrier("CA-R-901061", yaml_type="cardinality")
+        carrier["body"] = carrier["body"].replace("\n", "\r\n")
+        refresh_raw(carrier)
+        body = carrier["raw_body"]
+        block_start = body.index("```yaml")
+        block_end = body.index("```", block_start + len("```yaml")) + 3
+        expected_block = body[block_start : block_end + len("\r\n")]
+
+        with patch(
+            "VALIDATE_ATOMS.validate_atoms_workers.support_authority.support_sources",
+            return_value=entries,
+        ):
+            catalog = compose_declaration_catalog([*supports, carrier])
+
+        self.assertEqual(len(catalog["graph_rules"]), 1)
+        self.assertEqual(catalog["unresolved"], [])
+        rule = catalog["graph_rules"][0]
+        self.assertEqual(
+            {"source", "subject", "summary", "yaml_block", "evidence", "authority"},
+            set(rule),
+        )
+        self.assertEqual(carrier["source"], rule["source"])
+        self.assertEqual("Entity/Node/Continuant/Atom.Relations", rule["subject"])
+        self.assertEqual("Cardinality fixture.", rule["summary"])
+        self.assertEqual(expected_block, rule["yaml_block"])
+        self.assertEqual(body, rule["evidence"])
+        self.assertIn("Selection//Dependent Entity Occurrences", rule["yaml_block"])
+        self.assertIn("minimum: 0\r\n", rule["yaml_block"])
+        self.assertIn("maximum: null\r\n", rule["yaml_block"])
 
     def test_rule_admission_preserves_crlf_and_requires_source_bound_raw_body(self):
         supports, entries = support_carriers()

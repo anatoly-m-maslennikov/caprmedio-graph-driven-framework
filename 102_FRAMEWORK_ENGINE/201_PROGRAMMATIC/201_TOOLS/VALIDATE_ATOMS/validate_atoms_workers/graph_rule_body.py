@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from typing import Any, cast
 
 import yaml
-from pydantic import BaseModel, ConfigDict, ValidationError
+from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from .check_support import Check
 from .parsing import CarrierError, UniqueSafeLoader, check_yaml_resources
@@ -45,6 +45,22 @@ class _WhitelistCondition(BaseModel):
 
     source: list[str]
     target: list[str]
+
+
+class _CardinalityAppliesTo(BaseModel):
+    model_config = ConfigDict(strict=True, extra="forbid")
+
+    node: str
+    relation_type: str
+    direction: str
+
+
+class _CardinalityCondition(BaseModel):
+    model_config = ConfigDict(strict=True, extra="forbid")
+
+    other_endpoint: list[str]
+    minimum: int = Field(ge=0)
+    maximum: int | None = Field(ge=0)
 
 
 @dataclass(frozen=True)
@@ -224,10 +240,32 @@ def _validate_whitelist(rule: _GraphRulePayload, check: Check) -> None:
         )
 
 
+def _validate_cardinality(rule: _GraphRulePayload, payload: dict[str, Any], check: Check) -> None:
+    if "default_value" in payload:
+        check.fail("GRAPH_RULE_BODY", "default_value", "Cardinality does not allow default_value.")
+        return
+    try:
+        applies_to = _CardinalityAppliesTo.model_validate(rule.applies_to)
+        condition = _CardinalityCondition.model_validate(rule.condition)
+    except ValidationError:
+        check.fail("GRAPH_RULE_BODY", "body", "Cardinality fields do not match the declared schema.")
+        return
+    if not applies_to.node.strip() or not _valid_subjects([applies_to.node]):
+        check.fail("GRAPH_RULE_BODY", "applies_to.node", "Cardinality node must use Subject notation.")
+    if not applies_to.relation_type.strip():
+        check.fail("GRAPH_RULE_BODY", "applies_to.relation_type", "Cardinality relation_type must be nonempty.")
+    if applies_to.direction not in {"outgoing", "incoming"}:
+        check.fail("GRAPH_RULE_BODY", "applies_to.direction", "Cardinality direction must be outgoing or incoming.")
+    if not _valid_subjects(condition.other_endpoint):
+        check.fail("GRAPH_RULE_BODY", "condition.other_endpoint", "Cardinality endpoints must use Subject notation.")
+    if condition.maximum is not None and condition.maximum < condition.minimum:
+        check.fail("GRAPH_RULE_BODY", "condition.maximum", "Cardinality maximum must be at least minimum.")
+
+
 def validated_graph_rule_payload(
     body: str, check: Check
 ) -> ValidatedGraphRulePayload | None:
-    """Return source-exact carrier text and parsed data for a valid whitelist."""
+    """Return source-exact carrier text and parsed data for a supported rule."""
     if not _within_body_limit(body, check):
         return None
     parts = _carrier_parts(body, check)
@@ -245,6 +283,12 @@ def validated_graph_rule_payload(
     if payload_model.graph_rule_type not in _RULE_TYPES:
         check.fail("GRAPH_RULE_BODY", "graph_rule_type", "Graph Rule type must be one declared string.")
         return None
+    if payload_model.graph_rule_type == "cardinality":
+        findings_before = len(check.findings)
+        _validate_cardinality(payload_model, rule, check)
+        if len(check.findings) > findings_before:
+            return None
+        return ValidatedGraphRulePayload(summary, operative_block, operative_yaml, rule)
     if payload_model.graph_rule_type != "whitelist":
         check.gap(
             "graph_rule_type",
@@ -259,5 +303,5 @@ def validated_graph_rule_payload(
 
 
 def validate_graph_rule_body(body: str, check: Check) -> None:
-    """Check the declared carrier and whitelist shape; do not evaluate a rule."""
+    """Check the declared carrier and supported Type shape, without evaluation."""
     validated_graph_rule_payload(body, check)

@@ -17,8 +17,8 @@ subjects:
   - Entity/Node/Continuant/Atom.Substance
   - Entity/Node/Continuant/Atom.Summary
 relations: {}
-version: 3
-updated_at: "2026-10-20 03:01:36 +0400"
+version: 4
+updated_at: "2026-10-20 13:33:10 +0400"
 ---
 # Summary
 
@@ -39,4 +39,5 @@ to author a Graph Rule, the Author **must** express one independently replaceabl
 - select the registered schema for the one Graph Rule Type. Use declared fields, typed values, Subject references and formal constraints, not free-form prose pretending to be a machine-readable condition. A YAML document alone does not supply missing semantics.
 - split independently replaceable rules, including rules requiring different Graph Rule Types, into separate Atoms. Do not create a list of Type values in one rule.
 - retain the established Summary on update; if it must change, follow the existing new-Atom identity rule.
+- author Cardinality only under CA-D-637's registered schema. Bind the declared node domain independently of edges present, preserve zero-edge cases, select direction and opposite-endpoint kinds explicitly, and use its typed minimum/maximum bounds. Do not infer Selection membership from a filtered graph or treat structural parsing as evaluation.
 - do not invent missing Type schemas, whitelist merging, blacklist precedence, defaults, override behaviour or a general-purpose expression language. Report the specific gap before authoring a rule that depends on it.

@@ -199,6 +199,45 @@ class DeclarationViewTests(unittest.TestCase):
         self.assertIn("literal: '01:02'", document)
         self.assertIn("Do not evaluate this.", document)
 
+    def test_cardinality_yaml_renders_opaque_with_selection_and_unbounded_maximum(self) -> None:
+        raw_yaml = (
+            FENCE
+            + "yaml\n"
+            + "graph_rule_type: cardinality\n"
+            + "applies_to:\n"
+            + '  node: "Entity/Node/Continuant/Selection//Dependent Entity Occurrences"\n'
+            + "  relation_type: IS_BORNE_BY\n"
+            + "  direction: outgoing\n"
+            + "condition:\n"
+            + "  other_endpoint: [Entity]\n"
+            + "  minimum: 0\n"
+            + "  maximum: null\n"
+            + FENCE
+        )
+        document = render(
+            {
+                "relation_types": [],
+                "graph_rules": [
+                    {
+                        "source": source("CA-R-637", 4),
+                        "subject": "Entity/Node/Continuant/Atom.Relations",
+                        "summary": "Cardinality display fixture.",
+                        "yaml_block": raw_yaml,
+                    }
+                ],
+                "limitations": [],
+                "unresolved": [],
+            }
+        )
+
+        self.assertIn("### Graph Rule: CA-R-637", document)
+        self.assertIn("Source: CA-R-637", document)
+        self.assertIn("Governed Subject: Entity/Node/Continuant/Atom.Relations", document)
+        self.assertIn(raw_yaml, document)
+        self.assertIn("Selection//Dependent Entity Occurrences", document)
+        self.assertIn("maximum: null", document)
+        self.assertNotIn("evaluated_count", document)
+
     def test_duplicate_relation_sources_are_deduplicated_and_sorted(self) -> None:
         document = render(
             {

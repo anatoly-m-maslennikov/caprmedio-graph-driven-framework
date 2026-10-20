@@ -5,7 +5,7 @@ projection_id: CA-PROJ-002
 named_selection: Current Atoms
 source_of_truth:
 - .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL
-updated_at: 2026-10-20 05:01:15 +0400
+updated_at: 2026-10-20 13:48:08 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -228,12 +228,12 @@ sources:
 - CA-D-634@7
 - CA-D-635@5
 - CA-D-636@3
-- CA-D-637@3
+- CA-D-637@5
 - CA-E-207@16
 - CA-E-240@33
 - CA-E-241@25
 - CA-E-243@26
-- CA-E-246@28
+- CA-E-246@29
 - CA-E-249@15
 - CA-E-382@24
 - CA-E-383@20
@@ -253,7 +253,7 @@ sources:
 - CA-E-446@15
 - CA-E-447@20
 - CA-E-448@12
-- CA-E-449@18
+- CA-E-449@19
 - CA-E-450@11
 - CA-E-456@18
 - CA-E-457@20
@@ -356,7 +356,7 @@ sources:
 - CA-M-314@7
 - CA-M-315@7
 - CA-M-385@7
-- CA-M-394@3
+- CA-M-394@4
 - CA-O-159@3
 - CA-O-160@3
 - CA-R-1014@21
@@ -391,8 +391,6 @@ sources:
 - CA-R-1080@18
 - CA-R-117@17
 - CA-R-118@20
-- CA-R-1191@13
-- CA-R-1192@12
 - CA-R-1193@11
 - CA-R-1194@16
 - CA-R-1198@16
@@ -842,12 +840,13 @@ sources:
 - CA-R-1994@1
 - CA-R-1995@2
 - CA-R-1996@2
-- CA-R-1997@1
-- CA-R-1998@1
+- CA-R-1997@3
+- CA-R-1998@2
 - CA-R-1999@1
 - CA-R-2000@1
 - CA-R-2001@2
 - CA-R-2002@1
+- CA-R-2003@1
 - CA-R-366@24
 - CA-R-380@27
 - CA-R-626@28
@@ -1183,6 +1182,7 @@ Entity
 				/ Entity/Node/Continuant/Scope Unit/Type: Ordered
 				/ Entity/Node/Continuant/Scope Unit/Type: Unordered
 			/ Entity/Node/Continuant/Selection
+				// Entity/Node/Continuant/Selection//Dependent Entity Occurrences
 			/ Entity/Node/Continuant/Term
 		/ Entity/Node/Occurrent
 			/ Entity/Node/Occurrent/Event
@@ -1196,6 +1196,7 @@ Entity
 		/ Entity/Relation/Type: CONTAINS
 		/ Entity/Relation/Type: GOVERNS
 		/ Entity/Relation/Type: INSTANCE_OF
+		/ Entity/Relation/Type: IS_BORNE_BY
 		/ Entity/Relation/Type: NARROWER_THAN
 		/ Entity/Relation/Type: On Result
 		/ Entity/Relation/Type: child_of
