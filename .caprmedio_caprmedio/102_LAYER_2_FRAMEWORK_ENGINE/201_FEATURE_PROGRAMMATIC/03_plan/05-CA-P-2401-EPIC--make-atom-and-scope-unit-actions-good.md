@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 11
-updated_at: "2026-10-20T14:10:10.473Z"
+version: 12
+updated_at: "2026-10-20T14:37:35.626Z"
 ---
 # Summary
 
@@ -207,3 +207,12 @@ The Methodology source/Git freeze is held for candidate testing and the separate
 The final selected Docker/MCP gate passed all three tests in 229.835 seconds, with zero failures/errors/skips and protected production equality. Receipt: .caprmedio_tmp/mcp-audit-20261020/isolation/execute/p2439-1q3i92q7/receipt.json. Candidate image sha256:2c2c218b561ff9868d2e6648c32b6ac0c6bb7df587d340cf6134e54bee03c427; source fingerprint d08ba9be7c5d275a5c72e77c24e8a3994cf63ab194f88ff71a4b2426ee0591e6. Coverage is exactly 29 supported Markdown Role/Status creation pairs, Current Concern targets Active/Done/Canceled, and approved double-slash Subject preview/staging with canonical bytes unchanged. No production endpoint was tested, and the uncertain historical batch was not replayed. Fixture failures were fixed without weakening source validation. P2439 and P2425 may close for this bounded evidence; C540 closes for the corrected fixture failures, not as a production-defect or deployment claim.
 
 The Operator-approved normal full local release is now eligible under the coordinated source/Git/runtime freeze. P2440 remains a separate actual replacement responsibility: require its full suite, source/image provenance and fresh readiness before claiming deployment. The all-current-changes Git checkpoints are expressly approved, but have not occurred at this handoff. Current source fixes do not close installed-runtime Problems until replacement proof. The Epic remains Active for wider Atom/Scope Unit operations, topology, model/shared-runtime adoption and C539 flat nested archival; this selected gate is not that broader acceptance.
+
+
+### Broad-suite fixture repair and retry gate
+
+The first full local release local-20261020-current-target-parser-repair-1412 made authorized checkpoint c1dfc37e4, then exposed a shared legacy Subject fixture missing frozen base Atom.Status authority R1947 after Plan R1539 inherited it. Root intentionally interrupted the already-failing suite; canonical report records tests/KeyboardInterrupt130, not a completed full-suite result. No copy/install/replacement phase ran. C541 records the fixture cause; the production Status/frontier validators were not weakened. One shared test-helper tuple now also copies R1947. All128 affected host checks passed (66 plus lifecycle48 plus staging14).
+
+Four detached worker/agent test services with the exact owned full-suite attempt label remained. Root verified ownership, stopped only those services, retained their containers/data/images, and reverified original production container432d276a/imagea44ad091/running/127.0.0.1:56317. P2451 closes that bounded manual teardown; C542 remains Active for automatic interruption cleanup. No broad cleanup or production MCP request occurred.
+
+P2452 admitted fresh image sha256:febd5bcc189e3eda2b4926206beb23f26d26c7757092580b0ddf56705ac0aac9 with fingerprint b71c2770aef150235984df90e4e0984e17d2b7e8d7a8169ac8de15b3763a15b8. P2453 repeated all three isolated cases with zero failures/errors/skips in217.438s and exact protected production equality; receipt .caprmedio_tmp/mcp-audit-20261020/isolation/execute/p2439-e7s6sznn/receipt.json. Reused historical wrapper labels are not new completion claims for earlier Tasks. P2454 is the dependency-reviewed successor for the same expressly approved all-current-changes full local release. Its broad tests and actual replacement/readiness remain required before closing P2440 or installed-runtime Problems. The Epic and broader uncovered operations remain Active.

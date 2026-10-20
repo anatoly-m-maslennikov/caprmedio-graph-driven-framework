@@ -15,8 +15,8 @@ subjects:
   depends_on: []
 relations:
   is_decomposition_of: [CA-P-2401]
-version: 3
-updated_at: "2026-10-20T14:09:53.000Z"
+version: 4
+updated_at: "2026-10-20T14:30:31.000Z"
 ---
 # Summary
 
@@ -43,3 +43,7 @@ The Operator answered Yes—use the full local release to the separate question 
 ### Latest review gate
 
 The final isolated receipt `.caprmedio_tmp/mcp-audit-20261020/isolation/execute/p2439-1q3i92q7/receipt.json` records 3 tests, 0 failures, 0 errors, 0 skips, `production_equal: true`, all 29 matrix pairs passing, Current Concern Active/Done/Canceled coverage, and `//subjects` preview with stage canonical bytes unchanged. The human explicitly approved the full local release flow including all current changes, with source freeze and the full-release approval gate recorded. This Task remains unexecuted: no MCP replacement, deployment, public release, or Git action is claimed here.
+
+### First-attempt checkpoint
+
+The first full local release attempt after the isolated gate failed in tests and was intentionally interrupted with exit 130 (`KeyboardInterrupt`). Root recorded Git checkpoint `c1df`, and the old production state was verified unchanged. The actual retry is delegated to CA-P-2454 after the new CA-P-2453 isolated gate passes; no historical replay or release success is claimed here.

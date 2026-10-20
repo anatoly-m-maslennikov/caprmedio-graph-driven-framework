@@ -126,7 +126,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         shutil.copyfile(frozen_793, current_793)
         self._copy_frozen_goal_admission_authority()
         self._copy_type_recovery_authority()
-        for atom_id in ("CA-R-1309", "CA-R-1399", "CA-R-1875", "CA-R-1432", "CA-R-1464"):
+        for atom_id in ("CA-R-1309", "CA-R-1399", "CA-R-1875", "CA-R-1432", "CA-R-1464", "CA-R-1947"):
             self._copy_frozen_atom(atom_id)
         self.target = self._atom("CA-R-100", "target", "Stable summary")
         self.successor_one = self._atom("CA-R-101", "first-successor", "First successor")
