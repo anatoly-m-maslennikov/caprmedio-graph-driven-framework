@@ -126,7 +126,7 @@ _PROFILES = MappingProxyType(
         ),
         "approved": SubjectProfile(
             name="approved",
-            separators=("/", ".", ":"),
+            separators=("//", "/", ".", ":"),
             bearer_separator=".",
             grammar_pins=_APPROVED_SOURCES,
         ),
@@ -242,10 +242,10 @@ def parse_subject(value: str, *, subject_profile: str = "legacy") -> list[tuple[
     parsed: list[tuple[str, str | None]] = [(selector.literal, None)]
     if position == len(value):
         return parsed
-    separator = value[position]
-    if separator not in profile.separators:
+    separator = _separator_at(value, position, profile)
+    if separator is None:
         raise SubjectNotationError("subject-selector-invalid", "selector must be followed by a Subject separator")
-    parsed.extend(_split_subject_components(value[position + 1 :], profile, preceding_separator=separator))
+    parsed.extend(_split_subject_components(value[position + len(separator) :], profile, preceding_separator=separator))
     return parsed
 
 
@@ -259,16 +259,26 @@ def _split_subject_components(
 
     parsed: list[tuple[str, str | None]] = []
     component: list[str] = []
-    for character in value:
-        if character not in profile.separators:
-            component.append(character)
+    position = 0
+    while position < len(value):
+        separator = _separator_at(value, position, profile)
+        if separator is None:
+            component.append(value[position])
+            position += 1
             continue
         parsed.append((_ordinary_component(component, profile), preceding_separator))
         component.clear()
-        preceding_separator = character
+        preceding_separator = separator
+        position += len(separator)
 
     parsed.append((_ordinary_component(component, profile), preceding_separator))
     return parsed
+
+
+def _separator_at(value: str, position: int, profile: SubjectProfile) -> str | None:
+    """Return the longest registered separator beginning at one position."""
+
+    return next((separator for separator in profile.separators if value.startswith(separator, position)), None)
 
 
 def _ordinary_component(component: list[str], profile: SubjectProfile) -> str:
@@ -294,7 +304,7 @@ def _initial_selector_prefix(value: str) -> tuple[InitialAtomSelector | None, in
     position = end
     while position < len(value) and value[position].isspace():
         position += 1
-    if position < len(value) and value[position] not in get_profile("approved").separators:
+    if position < len(value) and _separator_at(value, position, get_profile("approved")) is None:
         raise SubjectNotationError("subject-selector-invalid", "selector must be followed by a Subject separator")
     return (
         InitialAtomSelector(

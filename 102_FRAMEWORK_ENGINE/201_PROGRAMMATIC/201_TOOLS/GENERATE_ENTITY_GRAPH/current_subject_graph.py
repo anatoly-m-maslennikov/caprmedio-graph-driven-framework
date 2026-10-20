@@ -7,7 +7,12 @@ from typing import Any
 from subject_notation import SubjectNotationError, parse_subject
 
 Record = dict[str, Any]
-_KINDS = {"/": "NARROWER_THAN", ".": "IS_BORNE_BY", ":": "IS_ALLOWED_VALUE_OF"}
+_KINDS = {
+    "//": "INSTANCE_OF",
+    "/": "NARROWER_THAN",
+    ".": "IS_BORNE_BY",
+    ":": "IS_ALLOWED_VALUE_OF",
+}
 
 
 def _identifier(prefix: str, value: object) -> str:
@@ -106,6 +111,7 @@ def compose_current_graph(carriers: list[Record]) -> tuple[Record, Record]:
     graph = {
         "kind": "current_atom_subjects",
         "source_basis": "current_atom_carriers",
+        "native_admission": "not_performed",
         "nodes": sorted(nodes.values(), key=lambda row: (row["identity"], row["id"])),
         "edges": sorted(edges.values(), key=lambda row: row["id"]),
         "diagnostics": sorted(diagnostics),

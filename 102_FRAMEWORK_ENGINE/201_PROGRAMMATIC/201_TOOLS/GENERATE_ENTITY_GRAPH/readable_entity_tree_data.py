@@ -7,7 +7,12 @@ from typing import Any, cast
 Record = dict[str, Any]
 Nodes = dict[str, Record]
 Children = dict[str, list[tuple[str, Record]]]
-LABELS = {"NARROWER_THAN": "/", "IS_BORNE_BY": ".", "IS_ALLOWED_VALUE_OF": ":"}
+LABELS = {
+    "NARROWER_THAN": "/",
+    "INSTANCE_OF": "//",
+    "IS_BORNE_BY": ".",
+    "IS_ALLOWED_VALUE_OF": ":",
+}
 
 
 def record(value: object) -> Record:

@@ -121,6 +121,38 @@ class ReadableEntityTreeTests(unittest.TestCase):
             any(line.startswith(" ") for block in blocks for line in block.splitlines())
         )
 
+    def test_instance_relation_renders_kind_to_named_instance_and_keeps_bearer_details(self):
+        names = {
+            "kind": "Workflow",
+            "instance": "Workflow//Daily",
+            "instance_status": "Workflow//Daily.Status",
+            "instance_value": "Workflow//Daily.Status: Active",
+            "child_kind": "Workflow/Child",
+            "child_status": "Workflow/Child.Status",
+        }
+        graph = {
+            "nodes": [dict(id=key, identity=value) for key, value in names.items()],
+            "edges": [
+                edge("instance", "kind", "INSTANCE_OF"),
+                edge("instance_status", "instance", "IS_BORNE_BY"),
+                edge("instance_value", "instance_status", "IS_ALLOWED_VALUE_OF"),
+                edge("child_kind", "kind", "NARROWER_THAN"),
+                edge("child_status", "child_kind", "IS_BORNE_BY"),
+            ],
+            "native_admission": "not_performed",
+        }
+        document = render(graph)
+        main = primary(document)
+        self.assertIn("\t// Workflow//Daily", main)
+        self.assertIn("\t/ Workflow/Child", main)
+        self.assertIn("// INSTANCE_OF", document)
+        self.assertIn("kind to named instance", document)
+        self.assertIn("Workflow//Daily.Status", document)
+        self.assertIn("Workflow//Daily.Status: Active", document)
+        self.assertIn("Workflow/Child.Status", document)
+        sections = re.findall(r"^### (.+)$", document, re.MULTILINE)
+        self.assertEqual(["Primary entities", "Workflow//Daily", "Workflow/Child"], sections)
+
     def test_generation_is_deterministic_and_does_not_mutate_inputs(self):
         graph, provenance = fixture()
         before = copy.deepcopy((graph, provenance))

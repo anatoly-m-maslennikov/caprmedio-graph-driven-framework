@@ -5,7 +5,7 @@ projection_id: CA-PROJ-003
 named_selection: Current Atoms
 source_of_truth:
 - .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION
-updated_at: 2026-10-20 02:52:25 +0400
+updated_at: 2026-10-20 05:01:16 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2
@@ -249,7 +249,7 @@ Source selection: Current Atoms in .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_ME
 
 Display selection: supplied graph nodes and Inherency relations; dependent entities appear in detail sections.
 
-Notation: / NARROWER_THAN; . IS_BORNE_BY; : IS_ALLOWED_VALUE_OF. Relations are traversed from broader to narrower, bearer to dependent, and property to allowed value.
+Notation: / NARROWER_THAN; // INSTANCE_OF; . IS_BORNE_BY; : IS_ALLOWED_VALUE_OF. Relations are traversed from broader to narrower, kind to named instance (the source INSTANCE_OF direction is instance to kind), bearer to dependent, and property to allowed value.
 
 This is a derived Projection, not independent model authority.
 

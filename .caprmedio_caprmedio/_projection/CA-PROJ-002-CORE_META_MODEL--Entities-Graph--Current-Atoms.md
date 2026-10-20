@@ -5,7 +5,7 @@ projection_id: CA-PROJ-002
 named_selection: Current Atoms
 source_of_truth:
 - .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL
-updated_at: 2026-10-20 03:09:55 +0400
+updated_at: 2026-10-20 05:01:15 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -236,7 +236,7 @@ sources:
 - CA-E-246@28
 - CA-E-249@15
 - CA-E-382@24
-- CA-E-383@19
+- CA-E-383@20
 - CA-E-384@22
 - CA-E-386@22
 - CA-E-387@13
@@ -313,7 +313,7 @@ sources:
 - CA-M-125@28
 - CA-M-127@15
 - CA-M-135@18
-- CA-M-228@18
+- CA-M-228@19
 - CA-M-229@15
 - CA-M-230@12
 - CA-M-231@21
@@ -355,7 +355,7 @@ sources:
 - CA-M-313@10
 - CA-M-314@7
 - CA-M-315@7
-- CA-M-385@6
+- CA-M-385@7
 - CA-M-394@3
 - CA-O-159@3
 - CA-O-160@3
@@ -423,7 +423,7 @@ sources:
 - CA-R-1256@13
 - CA-R-1257@14
 - CA-R-1259@11
-- CA-R-1260@15
+- CA-R-1260@16
 - CA-R-1261@12
 - CA-R-1262@11
 - CA-R-1264@14
@@ -460,8 +460,8 @@ sources:
 - CA-R-1318@14
 - CA-R-1319@12
 - CA-R-1320@12
-- CA-R-1321@16
-- CA-R-1324@13
+- CA-R-1321@17
+- CA-R-1324@14
 - CA-R-1325@10
 - CA-R-1335@15
 - CA-R-1336@14
@@ -525,7 +525,7 @@ sources:
 - CA-R-1430@11
 - CA-R-1431@13
 - CA-R-1432@14
-- CA-R-1435@10
+- CA-R-1435@11
 - CA-R-1436@10
 - CA-R-1437@9
 - CA-R-1438@10
@@ -541,7 +541,7 @@ sources:
 - CA-R-1452@13
 - CA-R-1454@10
 - CA-R-1455@10
-- CA-R-1456@14
+- CA-R-1456@15
 - CA-R-1459@8
 - CA-R-1460@8
 - CA-R-1461@8
@@ -794,7 +794,7 @@ sources:
 - CA-R-1873@5
 - CA-R-1874@4
 - CA-R-1875@5
-- CA-R-1931@1
+- CA-R-1931@2
 - CA-R-1932@19
 - CA-R-1943@5
 - CA-R-1944@3
@@ -847,6 +847,7 @@ sources:
 - CA-R-1999@1
 - CA-R-2000@1
 - CA-R-2001@2
+- CA-R-2002@1
 - CA-R-366@24
 - CA-R-380@27
 - CA-R-626@28
@@ -928,7 +929,7 @@ Source selection: Current Atoms in .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_ME
 
 Display selection: supplied graph nodes and Inherency relations; dependent entities appear in detail sections.
 
-Notation: / NARROWER_THAN; . IS_BORNE_BY; : IS_ALLOWED_VALUE_OF. Relations are traversed from broader to narrower, bearer to dependent, and property to allowed value.
+Notation: / NARROWER_THAN; // INSTANCE_OF; . IS_BORNE_BY; : IS_ALLOWED_VALUE_OF. Relations are traversed from broader to narrower, kind to named instance (the source INSTANCE_OF direction is instance to kind), bearer to dependent, and property to allowed value.
 
 This is a derived Projection, not independent model authority.
 
@@ -1194,6 +1195,7 @@ Entity
 		/ Entity/Relation/Type: CARRIES
 		/ Entity/Relation/Type: CONTAINS
 		/ Entity/Relation/Type: GOVERNS
+		/ Entity/Relation/Type: INSTANCE_OF
 		/ Entity/Relation/Type: NARROWER_THAN
 		/ Entity/Relation/Type: On Result
 		/ Entity/Relation/Type: child_of

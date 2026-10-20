@@ -676,6 +676,12 @@ def _subject_parts(
 def terminal_term(subject_path: str, *, subject_profile: str = "legacy") -> str:
     """Return the terminal Term named by one complete Subject Expression."""
     parts = _subject_parts(subject_path, subject_profile=subject_profile)
+    if parts[-1][1] == "//":
+        raise EntityGraphError(
+            "subject-instance-term-unsupported",
+            "The native Term projection cannot treat an instance name as a Term.",
+            subject_path=subject_path,
+        )
     if subject_profile == "approved" and len(parts) == 1:
         selector = subject_notation.parse_initial_atom_selector(parts[0][0], subject_profile=subject_profile)
         if selector is not None:
@@ -701,6 +707,15 @@ def _edge_evidence(relation: SubjectRelation) -> dict[str, object]:
         "claim_subject_relation": relation.kind,
         "subject_path": relation.subject_path,
     }
+
+
+def _require_term_projection_subject(subject_path: str, parts: Sequence[tuple[str, str | None]]) -> None:
+    if any(separator == "//" for _, separator in parts[1:]):
+        raise EntityGraphError(
+            "subject-instance-term-unsupported",
+            "The native Term projection cannot represent an instance reference as a Term node or edge.",
+            subject_path=subject_path,
+        )
 
 
 def term_system_edges(
@@ -739,6 +754,7 @@ def term_system_edges(
 
     for relation in relations:
         parts = _subject_parts(relation.subject_path, subject_profile=subject_profile)
+        _require_term_projection_subject(relation.subject_path, parts)
         parent_prefix = parts[0][0]
         for segment, separator in parts[1:]:
             assert separator is not None
@@ -894,6 +910,7 @@ def declared_term_tree(
     for term in sorted(declared):
         for relation in declared[term]:
             parts = _subject_parts(relation.subject_path, subject_profile=subject_profile)
+            _require_term_projection_subject(relation.subject_path, parts)
             current_children = roots
             prefix = ""
             for segment, separator in parts:

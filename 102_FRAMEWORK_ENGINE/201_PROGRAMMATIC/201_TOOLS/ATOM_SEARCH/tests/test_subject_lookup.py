@@ -122,6 +122,23 @@ class SubjectLookupTest(unittest.TestCase):
         self.assertEqual(approved["subject_profile"], "approved")
         self.assertEqual(5, len(approved["subject_profile_evidence"]["grammar_pins"]))
 
+    def test_approved_instance_path_matches_exactly_and_by_kind_prefix(self) -> None:
+        instance_path = "Entity/Workflow//Operations:Daily.Build"
+        self._write("CA-R-3", instance_path, [])
+        exact = run_subject_search(
+            self.root,
+            self._args(subject=instance_path, subject_profile="approved"),
+        )
+        self.assertEqual([instance_path], [row["value"] for row in exact["occurrences"]])
+        prefix = run_subject_search(
+            self.root,
+            self._args(subject="Entity/Workflow", subject_match="prefix", subject_profile="approved"),
+        )
+        self.assertEqual([instance_path], [row["value"] for row in prefix["occurrences"]])
+        boundaries = describe("ATOM_SEARCH")["subject_lookup"]["profile_prefix_boundaries"]
+        self.assertIn("//", boundaries["approved"])
+        self.assertEqual(["/", ":"], boundaries["legacy"])
+
     def test_approved_selectors_are_case_sensitive_literal_subject_components(self) -> None:
         """Selectors qualify text syntax; they do not select fixture Atom rows."""
 

@@ -213,6 +213,65 @@ class SubjectProfileGraphTests(unittest.TestCase):
                     self.assertEqual("IS_BORNE_BY" if separator == "." else "IS_ALLOWED_VALUE_OF", edges[0]["relation"])
                 self.assertEqual(subject, graph.parse_subject_relations(self.carriers()[0], subject_profile="approved")[0][0].subject_path)
 
+    def test_instance_reference_is_not_promoted_into_native_term_projection(self) -> None:
+        path = "Workflow//Daily"
+        relation = graph.SubjectRelation(
+            atom_id="CA-R-2101",
+            atom_revision=1,
+            carrier_path="CA-R-2101.md",
+            carrier_sha256="0" * 64,
+            subject_path=path,
+            kind="GOVERNS",
+            temporal_form="current",
+            source_schema_key="governs",
+            cce_form="",
+        )
+
+        self.assertEqual([("Workflow", None), ("Daily", "//")], graph._subject_parts(path, subject_profile="approved"))
+        with self.assertRaises(graph.EntityGraphError) as terminal:
+            graph.terminal_term(path, subject_profile="approved")
+        self.assertEqual("subject-instance-term-unsupported", terminal.exception.code)
+        with self.assertRaises(graph.EntityGraphError) as edges:
+            graph.term_system_edges([], [relation], subject_profile="approved")
+        self.assertEqual("subject-instance-term-unsupported", edges.exception.code)
+        with self.assertRaises(graph.EntityGraphError) as tree:
+            graph.declared_term_tree({"Daily": [relation]}, subject_profile="approved")
+        self.assertEqual("subject-instance-term-unsupported", tree.exception.code)
+
+    def test_native_projection_reports_instance_term_coverage_gap(self) -> None:
+        self.write("CA-R-2103", "Workflow//Daily")
+
+        with self.assertRaises(graph.EntityGraphError) as error:
+            graph.generate_projection(self.repository, self.selected, subject_profile="approved")
+
+        self.assertEqual("subject-instance-term-unsupported", error.exception.code)
+        self.assertEqual("Workflow//Daily", error.exception.details["subject_path"])
+
+    def test_instance_property_path_keeps_exact_bearer_prefix_but_is_unsupported_as_term_edge(self) -> None:
+        path = "Workflow//Daily.Status"
+        parts = graph._subject_parts(path, subject_profile="approved")
+        self.assertEqual(
+            [("Workflow", None), ("Daily", "//"), ("Status", ".")],
+            parts,
+        )
+        self.assertEqual("Status", graph.terminal_term(path, subject_profile="approved"))
+        bearer = graph._subject_prefix("Workflow//Daily", ".", "Status", subject_profile="approved")
+        self.assertEqual("Workflow//Daily.Status", bearer)
+        relation = graph.SubjectRelation(
+            atom_id="CA-R-2102",
+            atom_revision=1,
+            carrier_path="CA-R-2102.md",
+            carrier_sha256="0" * 64,
+            subject_path=path,
+            kind="GOVERNS",
+            temporal_form="current",
+            source_schema_key="governs",
+            cce_form="",
+        )
+        with self.assertRaises(graph.EntityGraphError) as edges:
+            graph.term_system_edges([], [relation], subject_profile="approved")
+        self.assertEqual("subject-instance-term-unsupported", edges.exception.code)
+
     def test_approved_yaml_quotes_flow_and_block_lists_preserve_decoded_selectors_and_source_spans(self) -> None:
         self.copy_current_approved_pins()
         owner = 'atom( content_role = "Owner/Plan.Kind: Value, O\'Brien" , type = "Plan" )'

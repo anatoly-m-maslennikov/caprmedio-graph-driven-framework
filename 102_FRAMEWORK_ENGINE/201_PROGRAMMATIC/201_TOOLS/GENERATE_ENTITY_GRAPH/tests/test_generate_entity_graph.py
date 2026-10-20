@@ -232,6 +232,20 @@ class GenerateEntityGraphTests(unittest.TestCase):
         plan = next(node for node in content_role["children"] if node["segment"] == "Plan")
         self.assertEqual("IS_ALLOWED_VALUE_OF", plan["relation_from_parent"])
 
+    def test_legacy_slash_term_projection_remains_unchanged(self) -> None:
+        self.write(
+            "definitions/CA-R-legacy-slash.md",
+            atom("CA-R-legacy-slash", cce_form="definition", governs=("Workflow/Task",)),
+        )
+
+        projection = generate_entity_graph.generate_projection(self.root, self.selected)
+
+        self.assertEqual("Task", generate_entity_graph.terminal_term("Workflow/Task"))
+        self.assertEqual(
+            ["IS_BORNE_BY"],
+            [edge["relation"] for edge in projection["term_system"]["edges"]],
+        )
+
     def test_dependency_trees_expose_recursive_term_definitions(self) -> None:
         self.write(
             "CA-R-010.md",

@@ -5,8 +5,8 @@ subjects:
     - "Dependent Entity"
     - "IS_BORNE_BY"
     - "Entity"
-version: 1
-updated_at: "2026-10-11 03:56:26 +0400"
+version: 2
+updated_at: "2026-10-20 04:48:53 +0400"
 relations: {}
 atom_id: "CA-R-1931"
 content_role: "Requirement"
@@ -27,6 +27,6 @@ a Subject Path.
 
 ## Claim
 
-**in** a Subject Path, `/` **must** separate a broader component from its following narrower component; `.` **must** separate a bearer component from its following dependent component; `:` **must** separate a Property component from its following allowed-value component; **and** `@` is **not** Subject syntax. a Subject Path still resolves **`=1`** canonical target **and** does **not** create target identities. the mechanical native fact for `.` is Dependent IS_BORNE_BY Bearer; for `:` it is AllowedValue IS_ALLOWED_VALUE_OF Property. `/` admits **no** native Subject **or** Entity relation; any later Terms-Graph binding to NARROWER_THAN remains separately governed.
+**in** a Subject Path, `/` **must** separate a broader component from its following narrower component; `//`, recognized as one separator token and **not** two `/` tokens, **must** separate an Entity kind component from the following named instance component; `.` **must** separate a bearer component from its following dependent component; `:` **must** separate a Property component from its following allowed-value component; **and** `@` is **not** Subject syntax. the complete Subject Path still resolves **to** **`=1`** existing canonical target **and** does **not** create target identities. `//` denotes the existing kind-to-named-instance connection, distinct from the Atom's outer Subject Relation. The intended EntityGraph fact is named instance INSTANCE_OF kind, but a projection may assert that fact only under separately authored Core authority; syntax alone does **not** admit it. the mechanical native fact for `.` is Dependent IS_BORNE_BY Bearer; for `:` it is AllowedValue IS_ALLOWED_VALUE_OF Property. `/` admits **no** native Subject **or** Entity relation; any later Terms-Graph binding to NARROWER_THAN remains separately governed.
 
 ## Details

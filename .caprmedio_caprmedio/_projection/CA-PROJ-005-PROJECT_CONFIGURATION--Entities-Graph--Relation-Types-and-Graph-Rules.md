@@ -5,7 +5,7 @@ named_selection: Relation Types and Graph Rules
 source_of_truth:
 - .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION
 type: Entities Graph
-updated_at: 2026-10-20 02:52:25 +0400
+updated_at: 2026-10-20 05:01:17 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2

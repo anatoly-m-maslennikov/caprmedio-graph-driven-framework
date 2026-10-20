@@ -1627,7 +1627,7 @@ def describe(tool_id: str) -> dict[str, Any]:
             "matches": ["exact", "prefix", "suffix", "contains"], "prefix_boundaries": ["/", ":"],
             "profile_option": "--subject-profile", "profiles": ["legacy", "approved"],
             "default_profile": "legacy",
-            "profile_prefix_boundaries": {"legacy": ["/", ":"], "approved": ["/", ".", ":"]},
+            "profile_prefix_boundaries": {"legacy": ["/", ":"], "approved": ["//", "/", ".", ":"]},
             "default_lifecycle": "active", "filters": ["under", "atom", "query", "content_role", "scope_unit", "lifecycle", "limit"],
             "output": ["source_root", "count", "occurrences", "diagnostics", "subject_profile", "subject_profile_evidence"],
             "mcp_binding": None,

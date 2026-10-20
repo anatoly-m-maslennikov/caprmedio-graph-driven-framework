@@ -3,8 +3,8 @@ subjects:
   governs: "Entity/Node/Continuant/Projection/Type: Entities Graph"
   depends_on:
     ["Entity", "Subject Path", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Subjects", "Entity/Node/Continuant/Atom", "Entity/Relation", "Relation Kind", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Term", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/History/Journal", "Entity/Carrier"]
-version: 14
-updated_at: "2026-10-20 01:59:44 +0400"
+version: 15
+updated_at: "2026-10-20 04:50:57 +0400"
 relations:
   child_of:
     - CA-R-1438
@@ -46,7 +46,7 @@ these node **and** internal-Relation selection rules do **not** require importin
 
 The full structural Entities Graph view **must** present the Inherency tree:
 
-**Inherency tree:** use NARROWER_THAN, IS_BORNE_BY and IS_ALLOWED_VALUE_OF. First show the primary-entity tree without dependent entities. Then show one detail tree for each primary entity with one or more dependent entities, including its properties, further dependents and allowed values. Detail sections follow the primary entities' first-appearance order in the main tree.
+**Inherency tree:** use NARROWER_THAN, INSTANCE_OF, IS_BORNE_BY and IS_ALLOWED_VALUE_OF. Show a selected explicitly named instance under its kind using `//`, retaining the instance's existing identity; INSTANCE_OF is directed from instance to kind and is distinct from narrower-kind classification. The name is not automatically a Term. First show the primary-entity tree without dependent entities. Then show one detail tree for each primary entity with one or more dependent entities, including its properties, further dependents and allowed values. Detail sections follow the primary entities' first-appearance order in the main tree.
 
 An entity with multiple broader parents **must** appear under every applicable parent, with the same identity at every placement. Its dependent-entity detail section appears once at its first-appearance position. The view **must** preserve relation meaning and any declared cardinality; repeated display does not create another entity.
 
@@ -54,7 +54,7 @@ The Inherency view **must** be generated programmatically. Use declared sibling 
 
 ### Structural and middle-level declaration views
 
-The full structural view shows the selected model's primary entities, dependent properties, allowed values and admitted structural Relations. It is not a catalogue of every actual Atom, Actor, Execution or other project instance. Keep Core Meta-model and Project Configuration source selections separate. Report unsupported or unmapped source material as unresolved coverage, not as admitted facts or proof that it does not exist.
+The full structural view shows the selected model's primary entities, dependent properties, allowed values and admitted structural Relations. It is not a catalogue of every actual Atom, Actor, Execution or other project instance. A named instance explicitly selected by a source Subject may appear under its kind; do not enumerate unselected instances or turn instance names into new kinds. Keep Core Meta-model and Project Configuration source selections separate. Report unsupported or unmapped source material as unresolved coverage, not as admitted facts or proof that it does not exist.
 
 The declaration view is a separately identified filtered view of the same Entities Graph Type. It selects the middle level: named Relation Types with their declared descriptive metadata, together with concrete Graph Rule declarations. It does not select actual source-type-target links instantiating those Types. Do not use an Atom's frontmatter relations map as this declaration catalogue.
 

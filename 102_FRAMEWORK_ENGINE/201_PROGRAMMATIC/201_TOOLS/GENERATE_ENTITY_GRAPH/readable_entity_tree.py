@@ -64,9 +64,10 @@ def _header(
         "Display selection: supplied graph nodes and Inherency relations; "
         "dependent entities appear in detail sections.",
         "",
-        "Notation: / NARROWER_THAN; . IS_BORNE_BY; : IS_ALLOWED_VALUE_OF. "
-        "Relations are traversed from broader to narrower, bearer to dependent, "
-        "and property to allowed value.",
+        "Notation: / NARROWER_THAN; // INSTANCE_OF; . IS_BORNE_BY; "
+        ": IS_ALLOWED_VALUE_OF. Relations are traversed from broader to narrower, "
+        "kind to named instance (the source INSTANCE_OF direction is instance to kind), "
+        "bearer to dependent, and property to allowed value.",
         "",
         "This is a derived Projection, not independent model authority.",
         "",

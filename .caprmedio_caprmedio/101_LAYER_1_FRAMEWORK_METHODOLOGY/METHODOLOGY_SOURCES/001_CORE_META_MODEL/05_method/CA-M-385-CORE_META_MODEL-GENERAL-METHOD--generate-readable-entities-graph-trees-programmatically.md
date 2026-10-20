@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Entity/Node/Continuant/Projection/Type: Entities Graph"
   depends_on: ["Entity", "Entity/Relation", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Projection"]
-version: 6
-updated_at: "2026-10-20 02:00:14 +0400"
+version: 7
+updated_at: "2026-10-20 04:51:11 +0400"
 relations:
   method_for: [CA-R-1456]
 ---
@@ -30,8 +30,8 @@ Generate the structural Inherency and selected named declaration views with dete
 ## Details
 
 1. Read the selected source Atoms and their Versions. Retain qualified identities and relation evidence; collect every contributing Atom, including reused governing definitions, in the source list.
-2. Select the admitted Inherency relation facts: NARROWER_THAN, IS_BORNE_BY and IS_ALLOWED_VALUE_OF. Atom Subjects depends_on is not IS_BORNE_BY.
-3. Render the primary-entity hierarchy first, broader before narrower, excluding dependent entities. Record first-appearance order while retaining every shared-parent placement.
+2. Select the admitted Inherency relation facts: NARROWER_THAN, INSTANCE_OF, IS_BORNE_BY and IS_ALLOWED_VALUE_OF. Atom Subjects depends_on is not IS_BORNE_BY. Traverse an explicit INSTANCE_OF fact from kind to its named instance for display, using `//`; retain the fact's instance-to-kind direction and existing target identity. Do not enumerate instances from syntax or classify an instance name as a Term.
+3. Render the primary-entity hierarchy first, broader before narrower and kind before its selected named instance, excluding dependent entities. `/` and `//` remain distinct; specialization alone does not prove independent identity. Record first-appearance order while retaining every shared-parent placement.
 4. In that order, render one detail section for each primary entity with dependents. Traverse bearer to dependent and property to allowed value, retaining qualifications and relation distinctions. Reuse inherited facts only where source rules admit inheritance; do not author new source facts.
 5. Use source-declared sibling order where available; otherwise sort alphabetically by display name, breaking equal-name ties by qualified identity. Use the same ordering for roots. Track the current traversal path so a cycle is reported once at that placement rather than expanded forever; shared nodes on different paths are not cycles.
 6. Serialize through CA-D-634. Report unavailable source facts without guessing. The source list and tree body depend only on the selected source data and declared rules; updated_at is the completed rebuild time.

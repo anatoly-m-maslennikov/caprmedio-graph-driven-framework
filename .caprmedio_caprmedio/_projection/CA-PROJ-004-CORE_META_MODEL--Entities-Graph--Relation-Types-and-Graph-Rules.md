@@ -5,7 +5,7 @@ named_selection: Relation Types and Graph Rules
 source_of_truth:
 - .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL
 type: Entities Graph
-updated_at: 2026-10-20 03:09:56 +0400
+updated_at: 2026-10-20 05:01:15 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -236,7 +236,7 @@ sources:
 - CA-E-246@28
 - CA-E-249@15
 - CA-E-382@24
-- CA-E-383@19
+- CA-E-383@20
 - CA-E-384@22
 - CA-E-386@22
 - CA-E-387@13
@@ -313,7 +313,7 @@ sources:
 - CA-M-125@28
 - CA-M-127@15
 - CA-M-135@18
-- CA-M-228@18
+- CA-M-228@19
 - CA-M-229@15
 - CA-M-230@12
 - CA-M-231@21
@@ -355,7 +355,7 @@ sources:
 - CA-M-313@10
 - CA-M-314@7
 - CA-M-315@7
-- CA-M-385@6
+- CA-M-385@7
 - CA-M-394@3
 - CA-O-159@3
 - CA-O-160@3
@@ -423,7 +423,7 @@ sources:
 - CA-R-1256@13
 - CA-R-1257@14
 - CA-R-1259@11
-- CA-R-1260@15
+- CA-R-1260@16
 - CA-R-1261@12
 - CA-R-1262@11
 - CA-R-1264@14
@@ -460,8 +460,8 @@ sources:
 - CA-R-1318@14
 - CA-R-1319@12
 - CA-R-1320@12
-- CA-R-1321@16
-- CA-R-1324@13
+- CA-R-1321@17
+- CA-R-1324@14
 - CA-R-1325@10
 - CA-R-1335@15
 - CA-R-1336@14
@@ -525,7 +525,7 @@ sources:
 - CA-R-1430@11
 - CA-R-1431@13
 - CA-R-1432@14
-- CA-R-1435@10
+- CA-R-1435@11
 - CA-R-1436@10
 - CA-R-1437@9
 - CA-R-1438@10
@@ -541,7 +541,7 @@ sources:
 - CA-R-1452@13
 - CA-R-1454@10
 - CA-R-1455@10
-- CA-R-1456@14
+- CA-R-1456@15
 - CA-R-1459@8
 - CA-R-1460@8
 - CA-R-1461@8
@@ -794,7 +794,7 @@ sources:
 - CA-R-1873@5
 - CA-R-1874@4
 - CA-R-1875@5
-- CA-R-1931@1
+- CA-R-1931@2
 - CA-R-1932@19
 - CA-R-1943@5
 - CA-R-1944@3
@@ -847,6 +847,7 @@ sources:
 - CA-R-1999@1
 - CA-R-2000@1
 - CA-R-2001@2
+- CA-R-2002@1
 - CA-R-366@24
 - CA-R-380@27
 - CA-R-626@28
@@ -931,6 +932,55 @@ This is a derived Projection, not independent model authority.
 ## Relation Types
 
 ```text
+Relation Type: Entities Graph / INSTANCE_OF
+	Owning graph kind: Entities Graph
+	Canonical name: INSTANCE_OF
+	Meaning: unavailable (not evidenced in selected authority)
+	Declared direct direction: unavailable (not evidenced in selected authority)
+	Inverse direction: unavailable (not evidenced in selected authority)
+	Authority effect: unavailable (not evidenced in selected authority)
+	Transitivity: unavailable (not evidenced in selected authority)
+	Applicability: unavailable (not evidenced in selected authority)
+	Status: unavailable (not evidenced in selected authority)
+	Exclusive purpose: unavailable (not evidenced in selected authority)
+	Sources:
+		CA-R-2002@1
+```
+
+#### Evidence: CA-R-2002@1
+Source: CA-R-2002@1
+Subject: Entity/Relation/Type: INSTANCE_OF
+Body:
+```text
+# Summary
+
+Define INSTANCE_OF
+
+## Scope
+
+The INSTANCE_OF Relation in the Entities Graph.
+
+## Claim
+
+An INSTANCE_OF Relation from Entity I to kind K **means** that I is a particular instance classified by K, not a narrower kind of K.
+
+## Semantics
+
+`K//Name` qualifies an existing named instance of K. The Subject uses the instance's name, not its Atom ID; it retains that instance's existing identity. The Relation points from instance to kind, while readable navigation goes from kind to the named instance. This is distinct from specialization, bearer dependence and allowed-value qualification. A reusable Workflow definition can be an Atom instance of the Workflow kind; it is not that Workflow's actual execution. An instance name is not automatically a Term. Parsing a name does not create or admit an instance or establish its canonical target.
+
+## Details
+
+### relation admission
+
+- Status: the INSTANCE_OF Relation Kind is Active.
+- Owning graph kind: Entities Graph.
+- Direct direction: instance to kind.
+
+No new name registry, inverse Relation Kind, default, constraint or inference policy is introduced.
+```
+
+
+```text
 Relation Type: Entities Graph / IS_ALLOWED_VALUE_OF
 	Owning graph kind: Entities Graph
 	Canonical name: IS_ALLOWED_VALUE_OF
@@ -984,11 +1034,11 @@ Relation Type: Entities Graph / IS_BORNE_BY
 	Status: unavailable (not evidenced in selected authority)
 	Exclusive purpose: unavailable (not evidenced in selected authority)
 	Sources:
-		CA-R-1260@15
+		CA-R-1260@16
 ```
 
-#### Evidence: CA-R-1260@15
-Source: CA-R-1260@15
+#### Evidence: CA-R-1260@16
+Source: CA-R-1260@16
 Subject: IS_BORNE_BY
 Body:
 ```text
@@ -1003,6 +1053,10 @@ an IS_BORNE_BY Relation from Entity A **to** Entity B **in** the Entities Graph.
 ## Claim
 
 an IS_BORNE_BY Relation from Entity A **to** Entity B **in** the Entities Graph **means** that A is a Dependent Entity whose identity requires B as its immediate bearer.
+
+## Semantics
+
+Primary means that identity does not require another Entity occurrence as bearer. Dependent means that identity requires an immediate bearer, as expressed by IS_BORNE_BY. These describe bearer dependence, not additional taxonomy branches. An absent edge in an incomplete view does not establish independence.
 
 ## Details
 
@@ -1025,11 +1079,11 @@ Relation Type: Terms Graph / NARROWER_THAN
 	Status: unavailable (not evidenced in selected authority)
 	Exclusive purpose: unavailable (not evidenced in selected authority)
 	Sources:
-		CA-R-1435@10
+		CA-R-1435@11
 ```
 
-#### Evidence: CA-R-1435@10
-Source: CA-R-1435@10
+#### Evidence: CA-R-1435@11
+Source: CA-R-1435@11
 Subject: NARROWER_THAN
 Body:
 ```text
@@ -1044,6 +1098,10 @@ the NARROWER_THAN Relation **in** the Terms Graph.
 ## Claim
 
 a NARROWER_THAN Relation from Term A **to** Term B **in** the Terms Graph **means** that, under their governing definitions, **if** Term A applies **to** a referent, **then** Term B applies **to** the same referent; this Relation does **not** express Property ownership **or** allowed-value membership.
+
+## Semantics
+
+Specialization and bearer dependence are distinct. A dependent kind can itself have narrower kinds. NARROWER_THAN does not establish that either endpoint is primary and does not substitute for IS_BORNE_BY.
 
 ## Details
 

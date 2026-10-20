@@ -42,8 +42,24 @@ class SubjectNotationTest(unittest.TestCase):
             ],
         )
         approved = get_profile("approved")
-        self.assertEqual(approved.separators, ("/", ".", ":"))
+        self.assertEqual(approved.separators, ("//", "/", ".", ":"))
         self.assertEqual(approved.bearer_separator, ".")
+
+    def test_approved_kind_instance_separator_is_one_token(self) -> None:
+        self.assertEqual(
+            parse_subject("Entity/Workflow//Operations:Daily.Build", subject_profile="approved"),
+            [
+                ("Entity", None),
+                ("Workflow", "/"),
+                ("Operations", "//"),
+                ("Daily", ":"),
+                ("Build", "."),
+            ],
+        )
+        self.assertEqual(
+            parse_subject('atom(content_role="Plan")//Daily.Status', subject_profile="approved"),
+            [('atom(content_role="Plan")', None), ("Daily", "//"), ("Status", ".")],
+        )
 
     def test_approved_initial_atom_selector_preserves_literal_and_owner_term(self) -> None:
         literal = 'atom( content_role = "Plan/Type: Blue.Green" , type = "Plan" )'
@@ -129,6 +145,15 @@ class SubjectNotationTest(unittest.TestCase):
             self.assertIn(context.exception.code, {"subject-empty", "subject-malformed"})
         with self.assertRaises(SubjectNotationError) as context:
             parse_subject("Atom..Property", subject_profile="approved")
+        self.assertEqual(context.exception.code, "subject-malformed")
+
+    def test_instance_separator_malformed_and_legacy_rejected(self) -> None:
+        for value in ("//Name", "Kind//", "Kind///Name", "Kind////Name", "Kind//.Name", "Kind//:Name"):
+            with self.subTest(value=value), self.assertRaises(SubjectNotationError) as context:
+                parse_subject(value, subject_profile="approved")
+            self.assertEqual(context.exception.code, "subject-malformed")
+        with self.assertRaises(SubjectNotationError) as context:
+            parse_subject("Kind//Name", subject_profile="legacy")
         self.assertEqual(context.exception.code, "subject-malformed")
 
     def test_unsupported_forms_reject_in_both_profiles(self) -> None:

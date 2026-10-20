@@ -180,7 +180,7 @@ No operative change.
                 self.assertTrue(self.validate(body).findings)
 
     def test_malformed_subject_notation_fails(self) -> None:
-        for subject in ('"Entity//Atom"', "'atom(type=\"Plan\").Status'"):
+        for subject in ('"Entity///Atom"', "'atom(type=\"Plan\").Status'"):
             body = WHITELIST.replace(
                 '"Entity/Node/Continuant/Atom/Content Role: Evaluation"', subject
             )

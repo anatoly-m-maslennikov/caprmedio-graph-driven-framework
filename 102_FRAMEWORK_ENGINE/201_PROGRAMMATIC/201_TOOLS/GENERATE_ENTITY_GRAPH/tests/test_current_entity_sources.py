@@ -218,9 +218,9 @@ class CurrentEntitySourcesTests(unittest.TestCase):
         self.assertNotIn("Atom/Content Role", names.values())
 
     def test_malformed_subject_is_visible_as_a_diagnostic_without_guessed_edges(self):
-        self.write("CA-R-9001", "Atom//Broken")
+        self.write("CA-R-9001", "Atom///Broken")
         graph, provenance = self.build()
-        self.assertEqual(["Atom//Broken"], [row["identity"] for row in graph["nodes"]])
+        self.assertEqual(["Atom///Broken"], [row["identity"] for row in graph["nodes"]])
         self.assertEqual([], graph["edges"])
         self.assertTrue(graph["diagnostics"])
         document = render_inherency(
@@ -229,7 +229,7 @@ class CurrentEntitySourcesTests(unittest.TestCase):
             updated_at="2026-10-15 19:00:00 +0400",
             source_selection="current fixture",
         )
-        self.assertIn("Atom//Broken", document)
+        self.assertIn("Atom///Broken", document)
         self.assertTrue(any(str(message) in document for message in graph["diagnostics"]))
 
 

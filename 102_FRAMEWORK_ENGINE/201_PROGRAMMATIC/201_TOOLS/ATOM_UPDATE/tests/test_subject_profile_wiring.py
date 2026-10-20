@@ -47,7 +47,7 @@ class SubjectProfileWiringTests(unittest.TestCase):
         search = operations.describe("ATOM_SEARCH")["subject_lookup"]
         self.assertEqual(search["default_profile"], "legacy")
         self.assertEqual(search["profile_prefix_boundaries"],
-                         {"legacy": ["/", ":"], "approved": ["/", ".", ":"]})
+                         {"legacy": ["/", ":"], "approved": ["//", "/", ".", ":"]})
         self.assertIn("subject_profile_evidence", search["output"])
         preview = operations.describe("ATOM_UPDATE")["subject_preview"]
         self.assertFalse(preview["apply_supported"])
