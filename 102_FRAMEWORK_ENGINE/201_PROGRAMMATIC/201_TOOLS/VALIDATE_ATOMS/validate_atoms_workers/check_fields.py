@@ -10,6 +10,108 @@ from .authority import Record
 from .check_support import Check, _integer, _string, _strings
 
 
+def _draft_identity_context(metadata: Record, check: Check) -> tuple[str, str] | None:
+    """Resolve the exact Project prefix and D378 role letter for Draft markers."""
+    from .support_authority import exact_source, require_sources
+
+    if not require_sources(check, ("CA-D-378",)):
+        return None
+    project = check.inputs.get("_project_identity", {})
+    identity = project.get("identity", {}) if isinstance(project, dict) else {}
+    prefix = identity.get("project_prefix") if isinstance(identity, dict) else None
+    source = exact_source(check.inputs, "CA-D-378")
+    text = source.get("text") if isinstance(source, dict) else None
+    letters = dict(re.findall(r"([A-Za-z]+): ([A-Z])(?:,|\))", text)) if isinstance(text, str) else {}
+    letter = letters.get(metadata.get("content_role"))
+    if not _string(prefix) or not _string(letter):
+        check.gap(
+            "atom_id",
+            "Draft identity requires the selected Project prefix and exact D378 Content Role letter.",
+        )
+        return None
+    return prefix, letter
+
+
+def _looks_like_draft_marker(value: object) -> bool:
+    return isinstance(value, str) and (value.endswith("-draft") or value.endswith("@draft"))
+
+
+def _draft_value(metadata: Record, check: Check) -> object | None:
+    if "atom_id" not in metadata:
+        check.forbid(metadata, "identifier")
+        return None
+    value = metadata.get("atom_id")
+    if not _string(value):
+        check.fail(
+            "PROPERTY_TYPE",
+            "atom_id",
+            "A carried Draft atom_id must be a nonempty Draft marker string.",
+        )
+        return None
+    return value
+
+
+def _parse_draft_marker(
+    value: object, context: tuple[str, str] | None, check: Check
+) -> tuple[object | None, bool]:
+    if context is None:
+        return None, False
+    prefix, letter = context
+    try:
+        from atom_operations import parse_draft_marker
+
+        return parse_draft_marker(value, project_prefix=prefix, role_letter=letter), False
+    except ValueError as error:
+        check.fail("DRAFT_ID_INVALID", "atom_id", str(error))
+        return None, True
+
+
+def _check_draft_identity(metadata: Record, check: Check) -> None:
+    value = _draft_value(metadata, check)
+    if value is None:
+        return
+    context = _draft_identity_context(metadata, check)
+    if context is None:
+        if not _looks_like_draft_marker(value):
+            check.fail(
+                "DRAFT_ID_INVALID", "atom_id", "A carried Draft atom_id must use a D378 Draft-only marker."
+            )
+        return
+    marker, invalid = _parse_draft_marker(value, context, check)
+    if invalid:
+        return
+    if marker is None:
+        check.fail(
+            "DRAFT_ID_INVALID", "atom_id", "A carried Draft atom_id must use a D378 Draft-only marker."
+        )
+        return
+    proposed_version = getattr(marker, "proposed_version", None)
+    if proposed_version is not None and proposed_version != metadata.get("version"):
+        check.fail(
+            "DRAFT_ID_VERSION", "atom_id", "Draft marker proposed Version must equal the carried Version."
+        )
+
+
+def _check_non_draft_marker(metadata: Record, value: object, check: Check) -> None:
+    if not _looks_like_draft_marker(value):
+        return
+    context = _draft_identity_context(metadata, check)
+    marker, _ = _parse_draft_marker(value, context, check)
+    if context is None or marker is not None:
+        check.fail(
+            "DRAFT_ID_STATUS",
+            "atom_id",
+            "Draft-only identity markers are forbidden on Current or Archived sources.",
+        )
+
+
+def _check_non_draft_identity(metadata: Record, check: Check) -> None:
+    value = metadata.get("atom_id")
+    check.require(metadata, "atom_id", _string)
+    _check_non_draft_marker(metadata, value, check)
+    check.forbid(metadata, "identifier")
+
+
 def _common(metadata: Record, body: str, check: Check) -> None:
     del body
     for field in ("content_role", "current_scope_unit"):
@@ -69,12 +171,10 @@ def _identity(metadata: Record, body: str, check: Check) -> None:
     if not _string(status):
         check.gap("atom_id", "Identity applicability requires a resolved carried Status.")
         return
-    draft = status == "Draft"
-    if draft:
-        check.forbid(metadata, "atom_id")
+    if status == "Draft":
+        _check_draft_identity(metadata, check)
     else:
-        check.require(metadata, "atom_id", _string)
-    check.forbid(metadata, "identifier")
+        _check_non_draft_identity(metadata, check)
 
 
 def _retired(metadata: Record, body: str, check: Check) -> None:

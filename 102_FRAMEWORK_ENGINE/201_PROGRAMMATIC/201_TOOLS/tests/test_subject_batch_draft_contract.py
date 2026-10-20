@@ -30,7 +30,9 @@ class SubjectBatchDraftContractTests(unittest.TestCase):
 
     def test_invalid_limits_do_not_create_drafts_or_change_sources(self):
         project = SubjectBatchProject(self, count=1)
-        draft = subject_batch_draft_path(project.root, project.targets[0])
+        draft = subject_batch_draft_path(
+            project.root, project.targets[0], project.targets[0]["version"] + 1
+        )
         for limit in (0, 11, True, "1"):
             with self.subTest(limit=limit), self.assertRaises(ValueError):
                 stage_subject_batch(project.root, project.parameters, limit=limit)
@@ -39,7 +41,9 @@ class SubjectBatchDraftContractTests(unittest.TestCase):
 
     def test_existing_draft_collision_stops_without_overwrite_or_source_effect(self):
         project = SubjectBatchProject(self, count=1)
-        draft = subject_batch_draft_path(project.root, project.targets[0])
+        draft = subject_batch_draft_path(
+            project.root, project.targets[0], project.targets[0]["version"] + 1
+        )
         draft.parent.mkdir(parents=True, exist_ok=True)
         draft.write_bytes(b"fixture-owned existing draft\n")
         progress = stage_subject_batch(project.root, project.parameters, limit=1)

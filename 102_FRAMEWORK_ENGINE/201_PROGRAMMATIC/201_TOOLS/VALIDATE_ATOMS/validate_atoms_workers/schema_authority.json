@@ -3,9 +3,14 @@
   "description": "Reviewed supporting authority for structural schema checks. Exact source bytes are required; this is implementation provenance, not independent methodology authority.",
   "sources": {
     "CA-D-378": {
-      "version": 12,
-      "sha256": "e16d030b8516c6f5a46d8796bc6b5fabd70a5fe71e7a497cb680940be0521d6f",
+      "version": 16,
+      "sha256": "d4e6f0569f81a54f434d060ea6e2a271dea51611a66a1afd0f6a10ca127c7562",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL--serialize-assigned-atom-identities.md"
+    },
+    "CA-D-288": {
+      "version": 21,
+      "sha256": "ee2d67a592d36a35d4c38ba7212091151eaaaef0f5687030665296ed6133efe3",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-288-CORE_META_MODEL-DELIVERY--serialize-draft-atom-filenames-with-an-empty-number.md"
     },
     "CA-D-289": {
       "version": 12,

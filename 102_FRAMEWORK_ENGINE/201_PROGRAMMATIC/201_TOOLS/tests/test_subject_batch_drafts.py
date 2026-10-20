@@ -11,10 +11,20 @@ import atom_subject_apply as native
 from atom_subject_patch import prepare_subject_intent, materialize_subject_intent
 from subject_batch import load_subject_batch
 from subject_batch_stage import stage_subject_batch
-from subject_batch_drafts import require_reviewed_draft_candidate
+from subject_batch_drafts import require_reviewed_draft_candidate, subject_batch_draft_path
 from lifecycle_intents import carrier_descriptor
 
 EFFECT_TIME = "2026-10-15 19:20:21 +0400"
+
+
+def draft_marker(project, value):
+    canonical_id = value.split("@", 1)[0]
+    _, role_letter, _ = canonical_id.split("-", 2)
+    return operations.parse_draft_marker(
+        value,
+        project_prefix=operations.project_identity_prefix(project.root),
+        role_letter=role_letter,
+    )
 
 
 def edit_drafts(project):
@@ -22,9 +32,62 @@ def edit_drafts(project):
     for path in (project.root / ".caprmedio_caprmedio").rglob("*.md"):
         frontmatter, _ = operations.split_frontmatter(path.read_text())
         identity = operations.frontmatter_scalar(frontmatter, "atom_id")
-        if identity is not None and identity.endswith("@draft"):
+        if identity is None:
+            continue
+        try:
+            marker = draft_marker(project, identity)
+        except (TypeError, ValueError):
+            continue
+        if marker is not None and marker.canonical_id is not None:
             drafts.append(path)
     return drafts
+
+
+def is_draft_marker(project, value):
+    try:
+        return draft_marker(project, value) is not None
+    except (TypeError, ValueError):
+        return False
+
+
+def _id_free_draft_path(project, item):
+    target = item["target"]
+    current = project.root / target["path"]
+    _, role_letter, _ = target["atom_id"].split("-", 2)
+    role = next(parent for parent in current.parents if operations.ROLE_DIRECTORY.fullmatch(parent.name))
+    identity = f"{operations.project_identity_prefix(project.root)}-{role_letter}"
+    name = current.name.replace(target["atom_id"], identity, 1)
+    return role / "draft" / name
+
+
+def _without_frontmatter_line(raw, key):
+    lines = raw.decode().splitlines(keepends=True)
+    result = []
+    removed = False
+    for line in lines:
+        if not removed and line.startswith(f"{key}:"):
+            removed = True
+            continue
+        result.append(line)
+    if not removed:
+        raise AssertionError(f"missing frontmatter field: {key}")
+    return "".join(result).encode()
+
+
+def _rewrite_as_id_free(project, item, *, filename=None, suffix=b""):
+    preferred = project.root / item["draft"]["path"]
+    path = _id_free_draft_path(project, item)
+    if filename is not None:
+        path = path.with_name(filename)
+    raw = _without_frontmatter_line(preferred.read_bytes(), "atom_id") + suffix
+    preferred.rename(path)
+    path.write_bytes(raw)
+    item["draft"] = {
+        "path": path.relative_to(project.root).as_posix(),
+        "digest": hashlib.sha256(raw).hexdigest(),
+    }
+    project.save_packet()
+    return path
 
 
 class SubjectBatchDraftTests(unittest.TestCase):
@@ -57,6 +120,17 @@ class SubjectBatchDraftTests(unittest.TestCase):
         project.use_reviewed_packet(staged["reviewed_packet"])
         draft_path = project.root / project.packet["atoms"][0]["draft"]["path"]
         self.assertTrue(draft_path.exists())
+        metadata = operations.parse_carrier(draft_path.read_bytes(), draft_path).metadata
+        marker = draft_marker(project, metadata["atom_id"])
+        self.assertEqual(project.packet["atoms"][0]["target"]["version"], marker.proposed_version)
+        self.assertEqual(
+            subject_batch_draft_path(
+                project.root,
+                project.packet["atoms"][0]["target"],
+                project.packet["atoms"][0]["target"]["version"],
+            ),
+            draft_path,
+        )
         runner, frozen = project.execution("noop-subject-edit-draft")
         with patch.object(
             native, "current_timestamp", side_effect=AssertionError("no-op edit time")
@@ -88,7 +162,13 @@ class SubjectBatchDraftTests(unittest.TestCase):
                 item["draft"]["digest"], hashlib.sha256(draft.read_bytes()).hexdigest()
             )
             metadata = operations.parse_carrier(draft.read_bytes(), draft).metadata
-            self.assertEqual(item["target"]["atom_id"] + "@draft", metadata["atom_id"])
+            marker = draft_marker(project, metadata["atom_id"])
+            self.assertEqual(item["target"]["atom_id"], marker.canonical_id)
+            self.assertEqual(metadata["version"], marker.proposed_version)
+            self.assertEqual(
+                subject_batch_draft_path(project.root, item["target"], metadata["version"]),
+                draft,
+            )
             self.assertEqual("Draft", metadata["status"])
         canonical = operations.scan_atoms(project.root)
         for target in project.targets:
@@ -100,8 +180,183 @@ class SubjectBatchDraftTests(unittest.TestCase):
                 ),
             )
         self.assertFalse(
-            any(atom.atom_id and atom.atom_id.endswith("@draft") for atom in canonical)
+            any(atom.atom_id and is_draft_marker(project, atom.atom_id) for atom in canonical)
         )
+
+    def test_legacy_draft_marker_remains_accepted(self):
+        project = SubjectBatchProject(self, count=1)
+        staged = stage_subject_batch(project.root, project.parameters, limit=1)
+        project.use_reviewed_packet(staged["reviewed_packet"])
+        item = project.packet["atoms"][0]
+        preferred = project.root / item["draft"]["path"]
+        metadata = operations.parse_carrier(preferred.read_bytes(), preferred).metadata
+        canonical_id = item["target"]["atom_id"]
+        legacy = subject_batch_draft_path(project.root, item["target"])
+        preferred.rename(legacy)
+        raw = legacy.read_bytes().replace(
+            f'{canonical_id}@{metadata["version"]}-draft'.encode(),
+            f"{canonical_id}@draft".encode(),
+        )
+        legacy.write_bytes(raw)
+        item["draft"] = {
+            "path": legacy.relative_to(project.root).as_posix(),
+            "digest": hashlib.sha256(raw).hexdigest(),
+        }
+        project.save_packet()
+        loaded = load_subject_batch(project.root, project.parameters)
+        self.assertEqual(item["draft"], loaded["atoms"][0]["draft"])
+
+    def test_legacy_draft_version_must_match_materialized_candidate(self):
+        project = SubjectBatchProject(self, count=1)
+        staged = stage_subject_batch(project.root, project.parameters, limit=1)
+        project.use_reviewed_packet(staged["reviewed_packet"])
+        item = project.packet["atoms"][0]
+        preferred = project.root / item["draft"]["path"]
+        metadata = operations.parse_carrier(preferred.read_bytes(), preferred).metadata
+        canonical_id = item["target"]["atom_id"]
+        legacy = subject_batch_draft_path(project.root, item["target"])
+        preferred.rename(legacy)
+        raw = legacy.read_bytes().replace(
+            f'{canonical_id}@{metadata["version"]}-draft'.encode(),
+            f"{canonical_id}@draft".encode(),
+        )
+        wrong_version = metadata["version"] + 1
+        raw = raw.replace(
+            f"version: {metadata['version']}".encode(), f"version: {wrong_version}".encode(), 1
+        )
+        legacy.write_bytes(raw)
+        item["draft"] = {
+            "path": legacy.relative_to(project.root).as_posix(),
+            "digest": hashlib.sha256(raw).hexdigest(),
+        }
+        project.save_packet()
+        prepared = prepare_subject_intent(
+            project.root, item["target"], item["subject_patches"], subject_profile="approved"
+        )
+        candidate = materialize_subject_intent(project.root, prepared, EFFECT_TIME)
+        with self.assertRaises(ValueError):
+            require_reviewed_draft_candidate(project.root, item, candidate["carrier_bytes"])
+        self.assertEqual(project.before[project.paths[0]], project.paths[0].read_bytes())
+
+    def test_id_free_reviewed_draft_roundtrip_preserves_candidate_and_archive(self):
+        project = SubjectBatchProject(self, count=1)
+        staged = stage_subject_batch(project.root, project.parameters, limit=1)
+        project.use_reviewed_packet(staged["reviewed_packet"])
+        item = project.packet["atoms"][0]
+        draft_path = _rewrite_as_id_free(project, item)
+        loaded = load_subject_batch(project.root, project.parameters)
+        self.assertEqual(item["draft"], loaded["atoms"][0]["draft"])
+        prepared = prepare_subject_intent(
+            project.root, item["target"], item["subject_patches"], subject_profile="approved"
+        )
+        candidate = materialize_subject_intent(project.root, prepared, EFFECT_TIME)
+        require_reviewed_draft_candidate(project.root, item, candidate["carrier_bytes"])
+        path, archive = project.paths[0], project.archives()[0]
+        before = operations.parse_carrier(project.before[path], path)
+        runner, frozen = project.execution("id-free-subject-edit")
+        with patch.object(native, "current_timestamp", return_value=EFFECT_TIME):
+            result = runner.dispatch(frozen)
+        self.assertEqual("terminal", result["disposition"])
+        after = operations.parse_carrier(path.read_bytes(), path)
+        expected = copy.deepcopy(before.metadata)
+        expected["subjects"]["governs"] = "Atom.State"
+        expected.update(version=before.metadata["version"] + 1, updated_at=EFFECT_TIME)
+        self.assertEqual(expected, after.metadata)
+        self.assertEqual(before.body, after.body)
+        self.assertEqual(project.before[path], archive.read_bytes())
+        self.assertFalse(draft_path.exists())
+
+    def test_id_free_reviewed_draft_rejects_wrong_filename_and_tampering(self):
+        for case in ("wrong-filename", "tampered"):
+            with self.subTest(case=case):
+                project = SubjectBatchProject(self, count=1)
+                staged = stage_subject_batch(project.root, project.parameters, limit=1)
+                project.use_reviewed_packet(staged["reviewed_packet"])
+                item = project.packet["atoms"][0]
+                if case == "wrong-filename":
+                    valid = _id_free_draft_path(project, item)
+                    _rewrite_as_id_free(project, item, filename=f"{valid.stem}-wrong.md")
+                    with self.assertRaises(ValueError):
+                        load_subject_batch(project.root, project.parameters)
+                else:
+                    _rewrite_as_id_free(project, item, suffix=b"\nunreviewed body edit\n")
+                    prepared = prepare_subject_intent(
+                        project.root, item["target"], item["subject_patches"], subject_profile="approved"
+                    )
+                    candidate = materialize_subject_intent(project.root, prepared, EFFECT_TIME)
+                    with self.assertRaises(ValueError):
+                        require_reviewed_draft_candidate(project.root, item, candidate["carrier_bytes"])
+                self.assertEqual(project.before[project.paths[0]], project.paths[0].read_bytes())
+
+    def test_id_free_draft_version_must_match_materialized_candidate(self):
+        project = SubjectBatchProject(self, count=1)
+        staged = stage_subject_batch(project.root, project.parameters, limit=1)
+        project.use_reviewed_packet(staged["reviewed_packet"])
+        item = project.packet["atoms"][0]
+        draft = _rewrite_as_id_free(project, item)
+        metadata = operations.parse_carrier(draft.read_bytes(), draft).metadata
+        wrong_version = metadata["version"] + 1
+        raw = draft.read_bytes().replace(
+            f"version: {metadata['version']}".encode(), f"version: {wrong_version}".encode(), 1
+        )
+        draft.write_bytes(raw)
+        item["draft"]["digest"] = hashlib.sha256(raw).hexdigest()
+        project.save_packet()
+        prepared = prepare_subject_intent(
+            project.root, item["target"], item["subject_patches"], subject_profile="approved"
+        )
+        candidate = materialize_subject_intent(project.root, prepared, EFFECT_TIME)
+        with self.assertRaises(ValueError):
+            require_reviewed_draft_candidate(project.root, item, candidate["carrier_bytes"])
+        self.assertEqual(project.before[project.paths[0]], project.paths[0].read_bytes())
+
+    def test_versioned_draft_marker_must_match_candidate_version(self):
+        project = SubjectBatchProject(self, count=1)
+        staged = stage_subject_batch(project.root, project.parameters, limit=1)
+        project.use_reviewed_packet(staged["reviewed_packet"])
+        item = project.packet["atoms"][0]
+        preferred = project.root / item["draft"]["path"]
+        metadata = operations.parse_carrier(preferred.read_bytes(), preferred).metadata
+        wrong_version = metadata["version"] + 1
+        wrong_path = subject_batch_draft_path(project.root, item["target"], wrong_version)
+        raw = preferred.read_bytes().replace(
+            f'{item["target"]["atom_id"]}@{metadata["version"]}-draft'.encode(),
+            f'{item["target"]["atom_id"]}@{wrong_version}-draft'.encode(),
+        )
+        preferred.rename(wrong_path)
+        wrong_path.write_bytes(raw)
+        item["draft"] = {
+            "path": wrong_path.relative_to(project.root).as_posix(),
+            "digest": hashlib.sha256(raw).hexdigest(),
+        }
+        project.save_packet()
+        prepared = prepare_subject_intent(
+            project.root, item["target"], item["subject_patches"], subject_profile="approved"
+        )
+        candidate = materialize_subject_intent(project.root, prepared, EFFECT_TIME)
+        with self.assertRaises(ValueError):
+            require_reviewed_draft_candidate(project.root, item, candidate["carrier_bytes"])
+        self.assertEqual(project.before[project.paths[0]], project.paths[0].read_bytes())
+
+    def test_versioned_draft_marker_must_match_carried_yaml_version(self):
+        project = SubjectBatchProject(self, count=1)
+        staged = stage_subject_batch(project.root, project.parameters, limit=1)
+        project.use_reviewed_packet(staged["reviewed_packet"])
+        item = project.packet["atoms"][0]
+        draft = project.root / item["draft"]["path"]
+        metadata = operations.parse_carrier(draft.read_bytes(), draft).metadata
+        wrong_version = metadata["version"] + 1
+        raw = draft.read_bytes().replace(
+            f"version: {metadata['version']}".encode(),
+            f"version: {wrong_version}".encode(),
+            1,
+        )
+        draft.write_bytes(raw)
+        item["draft"]["digest"] = hashlib.sha256(raw).hexdigest()
+        project.save_packet()
+        with self.assertRaises(ValueError):
+            load_subject_batch(project.root, project.parameters)
+        self.assertEqual(project.before[project.paths[0]], project.paths[0].read_bytes())
 
     def test_changed_edit_draft_is_rejected_before_any_publication(self):
         project = SubjectBatchProject(self)

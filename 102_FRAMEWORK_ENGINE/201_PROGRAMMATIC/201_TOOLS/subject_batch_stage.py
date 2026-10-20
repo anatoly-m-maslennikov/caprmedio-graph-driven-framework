@@ -36,8 +36,14 @@ def _stage_target(root: Path, state: BatchAdmission, item: Mapping[str, Any]) ->
         root, item["target"], item["subject_patches"], subject_profile="approved"
     )
     candidate = materialize_subject_intent(root, prepared, current_timestamp(root))
-    raw = make_subject_edit_draft(candidate["carrier_bytes"], item["target"]["atom_id"])
-    path = subject_batch_draft_path(root, item["target"])
+    proposed_version = candidate["materialization"]["version"]
+    raw = make_subject_edit_draft(
+        candidate["carrier_bytes"],
+        item["target"]["atom_id"],
+        proposed_version,
+        root=root,
+    )
+    path = subject_batch_draft_path(root, item["target"], proposed_version)
     import os
 
     parent = operations._raw_revision_parent(root, path, create=True)

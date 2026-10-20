@@ -4,44 +4,44 @@ import argparse
 import json
 import subprocess
 import sys
-import tempfile
 import unittest
 from pathlib import Path
 
-
-TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
-TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-
 TOOLS = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(TOOLS / "tests"))
 
 import atom_operations as operations  # noqa: E402
+import test_model_driven_status_lifecycle as model_fixture  # noqa: E402
 
 
 class AtomOperationsTest(unittest.TestCase):
     def setUp(self) -> None:
-        # The fixture needs a synthetic .git directory for repository discovery.
-        # macOS sandbox policy can deny removal of that synthetic control directory,
-        # which is unrelated to the operation behavior under test.
-        self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
-        self.root = Path(self.temporary.name)
-        (self.root / ".git").mkdir()
-        self.scope = "FRAMEWORK_METHODOLOGY"
-        self.requirements = self.root / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement"
-        self.methods = self.root / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/05_method"
+        # Reuse the checked-in frozen authority closure so native promotion reaches
+        # its real complete-carrier checks without touching the live corpus.
+        self.model_fixture = model_fixture.ModelDrivenStatusLifecycleTest("run")
+        self.model_fixture.setUp()
+        self.temporary = self.model_fixture.temporary
+        self.root = self.model_fixture.root
+        self.scope = "STATUS_FIXTURE"
+        self.requirements = self.root / ".caprmedio_caprmedio/fixture/04_requirement"
+        self.methods = self.root / ".caprmedio_caprmedio/fixture/05_method"
         self.archive = self.requirements / "archive"
         self.drafts = self.requirements / "drafts"
         self.done = self.requirements / "done"
         for directory in (self.requirements, self.methods, self.archive, self.drafts, self.done):
             directory.mkdir(parents=True, exist_ok=True)
-        (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
-            "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n"
-            "[artifact_timestamps]\ntimezone = \"Asia/Kolkata\"\n",
+        settings = self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
+        settings.write_text(
+            settings.read_text(encoding="utf-8").replace(
+                'journal_root = ".caprmedio_caprmedio/_journal"',
+                'journal_root = ".caprmedio_caprmedio/_journal"\n[artifact_timestamps]\ntimezone = "Asia/Kolkata"',
+            ),
             encoding="utf-8",
         )
         (self.root / ".caprmedio_caprmedio/_projection").mkdir()
         (self.root / ".caprmedio_caprmedio/_projection/project_scope_unit_graph.projection.toml").write_text(
-            '[[scope_units]]\nname = "FRAMEWORK_METHODOLOGY"\nunit_name = "FRAMEWORK_METHODOLOGY"\nauthority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY"\nparent = "caprmedio"\n\n'
+            '[[scope_units]]\nname = "FRAMEWORK_METHODOLOGY"\nunit_name = "FRAMEWORK_METHODOLOGY"\nauthority_path = ".caprmedio_caprmedio/fixture"\nparent = "caprmedio"\n\n'
             '[[scope_units]]\nname = "FRAMEWORK_ENGINE"\nunit_name = "FRAMEWORK_ENGINE"\nauthority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE"\nparent = "caprmedio"\n\n'
             '[[scope_units]]\nname = "OPERATOR_DOCUMENTATION"\nunit_name = "OPERATOR_DOCUMENTATION"\nauthority_path = ".caprmedio_caprmedio/103_LAYER_3_OPERATOR_DOCUMENTATION"\nparent = "caprmedio"\n',
             encoding="utf-8",
@@ -65,7 +65,19 @@ class AtomOperationsTest(unittest.TestCase):
         path.parent.mkdir(parents=True, exist_ok=True)
         match = operations.ATOM_ID.search(path.name)
         identity = f"atom_id: {match.group(1)}\n" if match and "drafts" not in path.parts else ""
-        path.write_text(f"---\n{identity}subjects:\n  governs:\n    continuant:\n      - Test\nversion: {version}\nupdated_at: 2026-01-01 00:00:00\n---\n{content}\n", encoding="utf-8")
+        role = {"R": "Requirement", "M": "Method", "P": "Plan"}.get(
+            match.group(1).split("-")[1] if match else "R", "Requirement"
+        )
+        status = "Draft" if "drafts" in path.parts else "Archived" if "archive" in path.parts else "Done" if "done" in path.parts else "Active"
+        body = f"# Summary\n\nFixture content: {content.strip()}\n\n## Scope\n\nFixture scope.\n\n## Claim\n\nFixture claim.\n\n## Details\n\nFixture details.\n"
+        path.write_text(
+            f"---\n{identity}content_role: {role}\nstatus: {status}\n"
+            "current_scope_unit: STATUS_FIXTURE\nclaim_target_scope_unit: STATUS_FIXTURE\n"
+            "local_tier: Standard\nglobal_tier: 11\nauthor: Anatoly Maslennikov\n"
+            f"version: {version}\nupdated_at: 2026-01-01 00:00:00 +0530\n"
+            "subjects:\n  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n"
+            f"{body}", encoding="utf-8"
+        )
         return path
 
     def _input(self, payload: dict) -> str:
@@ -175,6 +187,64 @@ class AtomOperationsTest(unittest.TestCase):
                 with self.assertRaises(operations.ToolError) as context:
                     operations.atom_from_path(self.root, path)
                 self.assertEqual(context.exception.code, "draft-has-stable-id")
+
+    def test_draft_marker_parser_accepts_role_only_versioned_and_legacy_forms(self) -> None:
+        cases = (
+            ("CA-R-draft", None, None),
+            ("CA-R-343@4-draft", "CA-R-343", 4),
+            ("CA-R-343@draft", "CA-R-343", None),
+        )
+        for value, canonical_id, proposed_version in cases:
+            with self.subTest(value=value):
+                marker = operations.parse_draft_marker(value, project_prefix="CA", role_letter="R")
+                self.assertEqual((marker.canonical_id, marker.proposed_version), (canonical_id, proposed_version))
+        with self.assertRaises(ValueError):
+            operations.parse_draft_marker("CA-R-343", project_prefix="CA", role_letter="R")
+
+    def test_draft_marker_keeps_atom_identity_unassigned_and_requires_filename_alignment(self) -> None:
+        path = self.drafts / "CA-R-343@4-draft--candidate.md"
+        path.write_text(
+            "---\natom_id: CA-R-343@4-draft\ncontent_role: Requirement\nstatus: Draft\n"
+            "version: 4\n---\n# Draft\n",
+            encoding="utf-8",
+        )
+        atom = operations.atom_from_path(self.root, path)
+        self.assertIsNone(atom.atom_id)
+        path.write_text(path.read_text(encoding="utf-8").replace("CA-R-343@4-draft", "CA-R-343@draft"), encoding="utf-8")
+        with self.assertRaises(operations.ToolError) as context:
+            operations.atom_from_path(self.root, path)
+        self.assertEqual(context.exception.code, "atom-frontmatter-id-mismatch")
+
+    def test_promote_carried_marker_requires_sealed_target_without_allocating_a_fresh_identity(self) -> None:
+        path = self.drafts / "CA-R-343@4-draft--candidate.md"
+        path.write_text(
+            "---\natom_id: CA-R-343@4-draft\ncontent_role: Requirement\nstatus: Draft\n"
+            "version: 4\n---\n# Draft\n",
+            encoding="utf-8",
+        )
+        payload = {"atoms": [{"selector": path.name, "atom_id": "CA-R-344"}]}
+        with self.assertRaises(operations.ToolError) as context:
+            operations.run_promote(self.root, argparse.Namespace(input=self._input(payload), apply=True))
+        self.assertEqual(context.exception.code, "carrier-fields-invalid")
+        self.assertTrue(path.exists())
+
+    def test_create_and_update_preserve_role_only_draft_marker_without_assigning_identity(self) -> None:
+        path = self.drafts / "CA-R-draft--created.md"
+        payload = {"atoms": [{
+            "path": path.relative_to(self.root).as_posix(),
+            "frontmatter": "atom_id: CA-R-draft\ncontent_role: Requirement\nstatus: Draft",
+            "content": "# Created Draft\n",
+        }]}
+        operations.run_create(self.root, argparse.Namespace(input=self._input(payload), apply=True))
+        created = operations.atom_from_path(self.root, path)
+        self.assertIsNone(created.atom_id)
+        self.assertEqual("CA-R-draft", operations.frontmatter_scalar(created.frontmatter, "atom_id"))
+        update = {"atoms": [{"selector": path.name, "content": "# Updated Draft\n"}]}
+        operations.run_update(self.root, argparse.Namespace(input=self._input(update), apply=True))
+        updated = operations.atom_from_path(self.root, path)
+        self.assertIsNone(updated.atom_id)
+        self.assertEqual("CA-R-draft", operations.frontmatter_scalar(updated.frontmatter, "atom_id"))
+        self.assertEqual(2, operations.atom_version(updated))
 
     def test_frontmatter_identity_resolves_sequence_prefixed_plan_carrier(self) -> None:
         atom = operations.resolve_selector(self.root, "CA-P-346")
@@ -332,7 +402,6 @@ class AtomOperationsTest(unittest.TestCase):
 
     def test_promote_assigns_identity_and_preserves_bytes(self) -> None:
         draft = self.drafts / "CA-R--FRAMEWORK_METHODOLOGY-REQUIREMENT--candidate.md"
-        before = draft.read_bytes()
         payload = {"atoms": [{"selector": draft.name, "atom_id": "CA-R-344"}]}
         args = argparse.Namespace(input=self._input(payload), apply=False)
         result = operations.run_promote(self.root, args)

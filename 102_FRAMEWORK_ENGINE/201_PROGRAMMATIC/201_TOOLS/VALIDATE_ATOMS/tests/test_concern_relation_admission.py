@@ -185,6 +185,15 @@ class ConcernRelationAdmissionTests(unittest.TestCase):
                 )
                 self.assertTrue(any("Current Status" in gap["reason"] for gap in result.gaps))
 
+    def test_draft_marker_target_is_not_a_canonical_relation_target(self) -> None:
+        target = atom("X-R-2@draft", "Requirement", status="Draft")
+        result = check(
+            atom("X-C-1", "Concern", relations={"concern_about": [target["atom_id"]]}),
+            [reference(target)],
+        )
+        self.assertTrue(result.gaps)
+        self.assertFalse(result.findings)
+
     def test_inventory_admits_current_done_and_canceled_but_not_draft_or_archived(self) -> None:
         for status in ("Done", "Canceled"):
             result = inventory_target(status)

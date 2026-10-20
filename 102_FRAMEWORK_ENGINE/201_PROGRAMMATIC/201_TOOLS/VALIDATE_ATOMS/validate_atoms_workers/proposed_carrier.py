@@ -41,9 +41,11 @@ _REGISTRY_IDS = (
 _SUPPORT_IDS = (
     "CA-D-494", "CA-D-440", "CA-D-441", "CA-D-442", "CA-R-1308", "CA-R-1313",
     "CA-D-324", "CA-D-466", "CA-D-461",
+    "CA-D-288", "CA-D-378",
     *(identifier for identifier in TYPE_CONTRIBUTIONS if identifier not in GRAPH_RULE_SOURCES),
     "CA-R-1283", "CA-R-1700", "CA-R-1506",
 )
+_DEFERRED_SUPPORT_IDS = frozenset({"CA-D-378"})
 _GRAPH_IDS = tuple(sorted(APPROVED_GRAPH_AUTHORITY_IDS))
 _FRONTIER_STATUS_IDS = {
     "Concern": "CA-R-1608", "Analysis": "CA-R-1875", "Plan": "CA-R-1539",
@@ -202,10 +204,10 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
         with bind_selection(selection):
             identity = project_identity(root)
             locator = CurrentAtomLocator(root, reader=reader)
-            sources = [
-                _source(root, identifier, reader, report, locator=locator)
-                for identifier in (*_REGISTRY_IDS, *_SUPPORT_IDS)
-            ]
+            source_ids = (*_REGISTRY_IDS, *(identifier for identifier in _SUPPORT_IDS
+                                            if identifier not in _DEFERRED_SUPPORT_IDS))
+            sources = [_source(root, identifier, reader, report, locator=locator)
+                       for identifier in source_ids]
     except (OSError, RuntimeError, UnicodeError, ValueError) as error:
         raise ProposedCarrierError("required Project context is unreadable") from error
     inputs: Record = {
@@ -349,6 +351,20 @@ def _type_inputs(context: VerifiedSourceContext, metadata: Record) -> Record:
     return inputs
 
 
+def _validation_inputs(context: VerifiedSourceContext, metadata: Record) -> Record:
+    """Load identity authority at validation time, after initial context selection."""
+    inputs = _type_inputs(context, metadata)
+    report: Record = {"bindings": {}, "coverage": {"gaps": []}}
+    with bind_selection(context._selection):
+        identity_source = _source(context.root, "CA-D-378", context._reader, report)
+    known = {item["binding"]["atom_id"] for item in inputs["sources"]}
+    if identity_source["binding"]["atom_id"] in known:
+        return inputs
+    result = dict(inputs)
+    result["sources"] = [*inputs["sources"], identity_source]
+    return result
+
+
 def _target_type_sources(
     context: VerifiedSourceContext, base_sources: list[Record], inventory: ProposedReferenceInventory,
 ) -> list[Record]:
@@ -436,7 +452,7 @@ def validate_proposed_carrier(
             raise ProposedCarrierError("carrier role is outside the explicit reference scope")
         reference_mapping = {key: value for key, value in mapping.items() if key in reference_roles}
     control = verified_source_context._selection.control_relative
-    carrier_inputs = _type_inputs(verified_source_context, metadata)
+    carrier_inputs = _validation_inputs(verified_source_context, metadata)
     result = validate_carrier(metadata, body, context, carrier_inputs)
     if result["findings"] or result["gaps"] or any(item["outcome"] != "passed" for item in result["outcomes"]):
         raise ProposedCarrierError("complete-carrier validation failed or is unresolved")

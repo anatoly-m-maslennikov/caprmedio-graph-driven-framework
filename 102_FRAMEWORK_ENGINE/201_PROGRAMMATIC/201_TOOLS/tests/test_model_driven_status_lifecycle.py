@@ -24,7 +24,7 @@ sys.path.insert(0, str(TOOLS / "VALIDATE_ATOMS/tests"))
 from atom_operations import atom_from_path, frontmatter_scalar, ToolError  # noqa: E402
 from authoritative_status_models import resolve_status_model, StatusModelError  # noqa: E402
 import lifecycle_intents  # noqa: E402
-from golden_authority import frozen_authority_fixture_bytes  # noqa: E402
+from golden_authority import frozen_authority_fixture_bytes, frozen_entry  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.check_sections import ROLE_SECTIONS  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.support_authority import support_sources  # noqa: E402
 from frozen_selected_workflows import (  # noqa: E402
@@ -133,7 +133,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             'scope_unit_label = "FIXTURE"\nstructural_level = 1\n'
             'navigational_order_number = 1\n'
             'authority_path = ".caprmedio_caprmedio/fixture"\n'
-            'delivery_path = ".caprmedio_caprmedio/fixture"\n', encoding="utf-8",
+            'delivery_path = ".caprmedio_caprmedio/fixture-delivery"\n', encoding="utf-8",
         )
         self.sources: dict[str, Path] = {}
         for atom_id in (*AUTHORITY_IDS, *FRONTIER_IDS):
@@ -146,6 +146,20 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, destination)
             self.assertEqual(source.read_bytes(), destination.read_bytes())
+            self.sources[atom_id] = destination
+        support = support_sources()
+        for atom_id in ("CA-D-276", "CA-D-288", "CA-D-378", "CA-D-446"):
+            entry = support.get(atom_id) or frozen_entry(atom_id)
+            destination = self.root / entry["source_path"] if atom_id in support else self.sources.get(atom_id)
+            if destination is None:
+                complete_entry = frozen_complete_carrier_authority().get(atom_id)
+                if complete_entry is None:
+                    raise AssertionError(f"missing frozen destination for authority overlay: {atom_id}")
+                destination = self.root / complete_entry["source_path"]
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            raw = frozen_authority_fixture_bytes(atom_id)
+            destination.write_bytes(raw)
+            self.assertEqual(entry["sha256"], hashlib.sha256(raw).hexdigest())
             self.sources[atom_id] = destination
 
     def tearDown(self) -> None:

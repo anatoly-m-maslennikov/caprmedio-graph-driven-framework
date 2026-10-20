@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 17
-updated_at: "2026-10-20T16:03:14.000Z"
+version: 22
+updated_at: "2026-10-20T19:11:22.202Z"
 ---
 # Summary
 
@@ -113,6 +113,16 @@ Use these saved Standard Drafts as planning inputs only:
 Select request-bound versus connection/session-bound routing and its client protocol. Codex knowing the directory is not transmission to MCP. Bind the authoritative prefix together with validated Project/root/control-root identity and admitted host-to-container mapping; never route or authorize by prefix alone or silently use the process directory. Define registration, ambiguity, rebind, mount-change and drain/removal behavior. Container recreation needed for mounts is distinct from image rebuilding.
 
 Carry the retained binding/model generation through nested and asynchronous work, effects and recovery. Qualify caches, locks, Runs, receipts, Journal/log storage, outputs and record lookup by Project identity so identical local record IDs cannot collide. Preserve current lifecycle authorization and safe effect/recovery checks. Journal recording is not an admission gate; technical/business logs may use their declared local or remote Journal backend. No OS-level isolation between mutually hostile workloads is claimed.
+
+### Approved Draft-format implementation — 20 October 2026
+
+The Operator has authorized implementation after this Epic update. Bind the bounded increment to Core07 originals D288@21, D378@16, D446@16, D276@21, D568@8 and D570@12. Preserve optional ID-free Drafts; support the new-Atom marker `<PREFIX>-<ROLE>-draft`, the proposed-version marker `<canonical-ID>@<version>-draft`, and legacy `<canonical-ID>@draft`. Carried markers must match filenames and remain Draft-only. Version-qualified markers must match the proposed Version. Canonical Current/Archived identity and one-Current uniqueness remain unchanged.
+
+Work packages, each at most 15 minutes of own work per Task: freeze the identity contract; implement parser/Create/Update handling; implement source-pinned Subjects staging/publication compatibility; implement validators and directly consumed authority fixtures; verify functional/golden cases; align Engine RMEDO and C533; independently review integrated evidence. Record each Task separately and review dependent work before execution.
+
+Retain fresh next-unreused identity for ordinary ID-free promotion and the explicitly source-pinned Subjects-only same-ID publication. The Operator has explicitly authorized generic existing-Atom Draft promotion: `CA-R-123@4-draft` updates canonical `CA-R-123` to Version 4 and archives its exact Current predecessor. Bind the exact target and proposed next Version, and refuse stale, mismatched or colliding targets before effects; do not allocate another identity. This is distinct from ordinary ID-free promotion. Do not add Draft relation eligibility, retained-history/Journal gates, a registry, or an executor protocol.
+
+Acceptance requires positive and negative golden cases, exact predecessor preservation, stale/tamper rejection, compatibility, and no canonical number allocation at Draft creation. Tests use synthetic/disposable Projects, never production MCP traffic. Implementation and test evidence do not imply runtime deployment. Excluded: deployment/release, live staging/publication/migration, Methodology 22-source-map repinning, held-batch replay, and other chat-owned Core edits. C533 stays open until implementation and independent review pass.
 
 ### Dependency-ordered work packages
 
@@ -233,3 +243,31 @@ CA-P-2458 passed the isolated gate in `215.658s`: 3 tests, zero failures/errors/
 ### Current verified full local release checkpoint — 2026-10-20
 
 The approved release completed successfully. Proof `.caprmedio_tmp/mcp-audit-20261020/continuation/local-release-verified-20261020.json` and canonical receipt `.caprmedio_runtime/simple_local_release/reports/local-20261020-current-target-parser-repair-1521.md` record version `0.4.4.8`, 410 modules, 3680 tests, zero skips/failures and a passing final isolated launcher. The released image is `sha256:a26b88751f9e8eb57132f648e114f0af4d0c25ff5acf66a6f891f7d05fb4fab3` with source fingerprint `b95525f5be4b87c9b342f52199cd8f9260ff4206c2f130090cf63f4cc3e38f76`; healthy container `b1676bbd01e451f6bf5b32237bdc0d44147dbcc7f9da43638ca8de724a939d44` serves port `56317`, the prior container is absent and its old image was removed by the approved release. Parser `6b377172306c9a6aa662f8436885aeee51922e9980606d08d70b0dc2273c0329` was verified in the released package and container. P2459, P2454 and P2440 are now Done for their bounded release responsibilities; C525, C528, C529, C532, C534 and C535 are Resolved only for their repaired deployment blockers. C539, C542, C545 and other unrepaired or historical concerns remain open. This checkpoint claims neither historical batch replay, public release/merge nor full Atom/Scope Unit, topology, model/shared-runtime or Epic completion.
+
+### Draft implementation execution checkpoint
+
+CA-P-2461 completed source-contract review; dependent Active Tasks CA-P-2462 through CA-P-2465 own parser/Create/Update, Subjects staging, validation/frozen authority and functional/Engine-contract alignment. CA-P-2467 owns the latest same-ID generic promotion decision. CA-P-2466 remains Backlog for independent integrated review after those dependencies. Each is a separate actual Task file, at most 15 minutes own work.
+
+Native Update saved Epic v18 successfully with six terminal Runs. Fresh Task Create Run `candidate6-activation-001-f146b92b0c85551f` interrupted with LifecycleError before any Task carrier was observed; preserve its inspect-or-recover-only evidence at `.caprmedio_tmp/draft-format-implementation-20261020/tasks/step-1/dispatch.json`. The batch stopped. All seven Task records were then saved under the Operator-authorized manual fallback, after verifying their destinations absent. No failed Run or held batch was replayed. This checkpoint is planning/execution attribution, not implementation acceptance.
+
+### Marker promotion completion decisions and task split
+
+The Operator has now explicitly confirmed both remaining marker rules: a new-Atom role-only marker such as `CA-R-draft` promotes with a fresh canonical ID; compatible `CA-R-123@draft` promotes to the same canonical Atom using the explicitly supplied proposed Version. Qualified `CA-R-123@4-draft` remains same-ID promotion with exact Current predecessor preservation. ID-free promotion remains fresh-ID. Require exact target/source and canonical predecessor bindings; do not infer a target from a nonunique marker.
+
+Original Core D446@17 is published and independently checked (SHA-256 `189cc02e8a9e085d4e49bc59148bfc013d64ad14d660bc48c17fa66a86272d5c`); its qualified-marker rule requires Current+1 for an actual change and no Version/time/archive churn for an exact no-op. The other two defaults above are explicit Operator/Engine decisions, not an inference from that Core rule's scope. Other five pinned Core originals are unchanged.
+
+P2467 is split into actual child Tasks P2468 (binding/preflight), P2469 (shared safe publication), and P2470 (both-entry acceptance), each at most 15 minutes own work, with dependent review before execution. Parser and validator lanes produced bounded positive evidence; full integrated acceptance still depends on promotion and frozen fixture closure completion. Source/RMEDO alignment is prepared; no deployment or held-Draft publication is implied.
+
+The earlier Task Create interruption was independently attributed to the caller's Done Plan path outside its required done/ folder. The corrected planning carrier is under done/. No product defect is inferred; the interrupted Run remains inspect-only, with no replay.
+
+### Verified execution checkpoint
+
+Source validation passed the complete 542-test validator suite and 28 CLI E2E checks; these are frozen synthetic/host proofs, not deployment acceptance. Source/Engine strict metadata and exact HEAD predecessor archives passed independent audit. ID-free reviewed edit Draft compatibility P2471 is Done; a separate carried-YAML-Version mismatch is assigned to P2473. P2469 Active-only publication passed same-ID archive/no-op and injected cleanup recovery checks, but remains partial. Its new child P2472 completes destination-aware non-Active Current publication/recovery before P2470 acceptance. Prepared native tests exposed further role-only/no-op/recovery cases under diagnosis; no failing case is waived or claimed complete. P2466 independent integrated review and the expressly approved scoped local commit wait for all bounded checks. No release, push, deployment, live test traffic, migration or held-batch replay is authorized by this increment.
+
+### Verified execution checkpoint
+
+The bounded published-Draft source increment is implemented and accepted. ID-free, role-only, qualified edit and legacy marker forms work through staging/parsing/promotion and validation; same-ID publication preserves exact predecessor bytes, correct Current-status placement and canonical child bundles. Exact no-op is mutation-free; failure recovery refuses to overwrite concurrent edits. Independent final review is APPROVE. Receipts: validator 542, CLI E2E 28, native 8, marker 6, model 20, exact source pins 1, full promotion 22, Atom cohort 30, staging 16, contract 5 and workflow 10; overlapping suites are not summed. Frozen source inputs, not live Atoms, were used.
+
+P2462-P2466 and bounded promotion children are Done with exact history and complete container moves. P2467/P2477 remain Active for C546/P2478 residual source-quality follow-up: configured C901 is 12 versus HEAD 13, no newly complex function remains, but _run_create 13->14 and update_atom_action 61->71 are explicit retained increases. No lint-clean or all-work-complete claim is made. C533 remains Active for separately authorized installed-runtime adoption/held-carrier reconciliation. The six Core dependencies and P1959 v130 Journal clarification are verified and included in the expressly approved scoped local commit.
+
+This checkpoint authorizes no release, push, deployment, installed-mirror refresh, migration or held-batch replay. Production tests were not used. Full release suite and full live-project validation were not run for this source increment; the earlier settings-limit invocation failure was caller configuration, not proven project corruption. Root is sole Git/index owner; the local commit follows this accepted evidence. The broader Epic remains Active.

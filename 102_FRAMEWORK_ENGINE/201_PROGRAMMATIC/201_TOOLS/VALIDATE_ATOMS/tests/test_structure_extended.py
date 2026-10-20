@@ -439,6 +439,45 @@ class StructureExtendedTest(unittest.TestCase):
         self.assertTrue(any(f["property"] == "Summary" for f in check.findings))
         self.assertEqual(before, self.metadata)
 
+    def test_draft_address_requires_exact_empty_or_carried_marker(self) -> None:
+        metadata = {**self.metadata, "status": "Draft"}
+        project = {"_project_identity": {"identity": {"project_prefix": "CA"}}}
+        empty = self.check(
+            "address.consistency",
+            metadata={key: value for key, value in metadata.items() if key != "atom_id"},
+            inputs={
+                **project,
+                "path": self.path.with_name("CA-R--.md"),
+            },
+        )
+        self.assertFalse(any(f["property"] == "atom_id" for f in empty.findings))
+        self.assertFalse(empty.gaps)
+
+        carried = self.check(
+            "address.consistency",
+            metadata={**metadata, "atom_id": "CA-R-123@4-draft"},
+            inputs={
+                **project,
+                "path": self.path.with_name("CA-R-123@4-draft--test-claim.md"),
+            },
+        )
+        self.assertFalse(any(f["property"] == "atom_id" for f in carried.findings))
+        self.assertFalse(carried.gaps)
+
+    def test_draft_address_rejects_marker_filename_mismatch(self) -> None:
+        metadata = {**self.metadata, "status": "Draft", "atom_id": "CA-R-123@4-draft"}
+        for filename in ("CA-R-124@4-draft--test-claim.md", "CA-R-123@4-draft-mutable.md"):
+            with self.subTest(filename=filename):
+                check = self.check(
+                    "address.consistency",
+                    metadata=metadata,
+                    inputs={
+                        "_project_identity": {"identity": {"project_prefix": "CA"}},
+                        "path": self.path.with_name(filename),
+                    },
+                )
+                self.assertTrue(any(f["property"] == "atom_id" for f in check.findings))
+
     def test_address_unsupported_scope_token_registry_remains_gap(self) -> None:
         check = self.check("address.consistency")
         self.assertFalse(check.findings)

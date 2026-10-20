@@ -21,13 +21,78 @@ from atom_subject_patch import (
 from connector_bindings import FileSource
 
 
-def subject_batch_draft_path(root: Path, target: Mapping[str, Any]) -> Path:
+def _marker_context(root: Path, canonical_id: str) -> tuple[str, str]:
+    parts = canonical_id.split("-", 2)
+    if len(parts) != 3 or not parts[0] or len(parts[1]) != 1:
+        raise ValueError("Subject edit-draft target must carry one canonical Atom ID")
+    return operations.project_identity_prefix(root), parts[1]
+
+
+def _parse_marker(root: Path, canonical_id: str, value: str):
+    project_prefix, role_letter = _marker_context(root, canonical_id)
+    try:
+        marker = operations.parse_draft_marker(
+            value, project_prefix=project_prefix, role_letter=role_letter
+        )
+    except ValueError as error:
+        raise ValueError("Subject edit-draft temporary identity is invalid") from error
+    if marker is None or marker.canonical_id != canonical_id:
+        raise ValueError("Subject edit-draft temporary identity differs from its canonical target")
+    return marker
+
+
+def _marker_value(root: Path, canonical_id: str, proposed_version: int | None) -> str:
+    if proposed_version is None:
+        value = canonical_id + "@draft"
+    else:
+        if type(proposed_version) is not int or proposed_version < 1:
+            raise ValueError("Subject edit-draft proposed version must be a positive integer")
+        value = f"{canonical_id}@{proposed_version}-draft"
+    marker = _parse_marker(root, canonical_id, value)
+    if proposed_version is not None and marker.proposed_version != proposed_version:
+        raise ValueError("Subject edit-draft marker does not carry its proposed version")
+    return marker.value
+
+
+def _draft_path_for_marker(root: Path, target: Mapping[str, Any], marker_value: str) -> Path:
     current: Path = root / target["path"]
     role = next(
         parent for parent in current.parents if operations.ROLE_DIRECTORY.fullmatch(parent.name)
     )
-    name = current.name.replace(target["atom_id"], target["atom_id"] + "@draft", 1)
+    name = current.name.replace(target["atom_id"], marker_value, 1)
+    if name == current.name:
+        raise ValueError("Subject edit-draft target filename does not carry its canonical Atom ID")
     return role / "draft" / name
+
+
+def _id_free_marker(root: Path, target: Mapping[str, Any]) -> str:
+    project_prefix, role_letter = _marker_context(root, target["atom_id"])
+    return f"{project_prefix}-{role_letter}"
+
+
+def subject_batch_draft_path(
+    root: Path, target: Mapping[str, Any], proposed_version: int | None = None
+) -> Path:
+    marker = _marker_value(root, target["atom_id"], proposed_version)
+    return _draft_path_for_marker(root, target, marker)
+
+
+def _filename_marker(root: Path, target: Mapping[str, Any], path: Path) -> str | None:
+    current_name = (root / target["path"]).name
+    canonical_id = target["atom_id"]
+    if path.name == current_name.replace(canonical_id, _id_free_marker(root, target), 1):
+        return None
+    prefix, separator, suffix = current_name.partition(canonical_id)
+    if not separator:
+        raise ValueError("Subject edit-draft target filename does not carry its canonical Atom ID")
+    name = path.name
+    if not name.startswith(prefix) or (suffix and not name.endswith(suffix)):
+        raise ValueError("Subject edit-draft filename does not preserve its target shape")
+    end = len(name) - len(suffix) if suffix else len(name)
+    marker = name[len(prefix):end]
+    if not marker:
+        raise ValueError("Subject edit-draft filename is missing its temporary identity marker")
+    return marker
 
 
 def _scalars(raw: bytes) -> tuple[str, str, dict[str, ScalarNode]]:
@@ -38,11 +103,11 @@ def _scalars(raw: bytes) -> tuple[str, str, dict[str, ScalarNode]]:
         raise ValueError("Subject edit-draft requires one frontmatter mapping")
     scalars = {}
     for key, value in document.value:
-        if key.value in {"atom_id", "status", "updated_at"}:
+        if key.value in {"atom_id", "status", "updated_at", "version"}:
             if key.value in scalars or not isinstance(value, ScalarNode):
                 raise ValueError("Subject edit-draft marker fields must be unique scalars")
             scalars[key.value] = value
-    if set(scalars) != {"atom_id", "status", "updated_at"}:
+    if not {"status", "updated_at", "version"}.issubset(scalars):
         raise ValueError("Subject edit-draft marker fields are incomplete")
     return text, frontmatter, scalars
 
@@ -57,25 +122,78 @@ def _replace_scalars(raw: bytes, replacements: Mapping[str, str]) -> bytes:
     return _replace_frontmatter(text, frontmatter, changed).encode("utf-8")
 
 
-def make_subject_edit_draft(canonical_raw: bytes, canonical_id: str) -> bytes:
+def _remove_scalar(raw: bytes, name: str) -> bytes:
+    text, frontmatter, scalars = _scalars(raw)
+    node = scalars.get(name)
+    if node is None:
+        return raw
+    start = frontmatter.rfind("\n", 0, node.start_mark.index) + 1
+    end = frontmatter.find("\n", node.end_mark.index)
+    end = len(frontmatter) if end < 0 else end + 1
+    changed = frontmatter[:start] + frontmatter[end:]
+    return _replace_frontmatter(text, frontmatter, changed).encode("utf-8")
+
+
+def make_subject_edit_draft(
+    canonical_raw: bytes,
+    canonical_id: str,
+    proposed_version: int | None = None,
+    *,
+    root: Path,
+) -> bytes:
+    marker = _marker_value(root, canonical_id, proposed_version)
     return _replace_scalars(
         canonical_raw,
-        {"atom_id": _yaml_scalar(canonical_id + "@draft"), "status": _yaml_scalar("Draft")},
+        {"atom_id": _yaml_scalar(marker), "status": _yaml_scalar("Draft")},
     )
+
+
+def _positive_version(scalars: Mapping[str, ScalarNode]) -> int:
+    carried_version = scalars["version"].value
+    if not carried_version.isascii() or not carried_version.isdecimal():
+        raise ValueError("Subject edit-draft carried Version must be a positive integer")
+    version = int(carried_version)
+    if version < 1:
+        raise ValueError("Subject edit-draft carried Version must be a positive integer")
+    return version
+
+
+def _require_qualified_marker_version(
+    marker: operations.DraftMarker, scalars: Mapping[str, ScalarNode]
+) -> None:
+    if marker.proposed_version is None:
+        return
+    if _positive_version(scalars) != marker.proposed_version:
+        raise ValueError("Subject edit-draft marker does not match its carried Version")
 
 
 def read_reviewed_draft(root: Path, item: Mapping[str, Any]) -> bytes:
     pin = item["draft"]
-    expected = subject_batch_draft_path(root, item["target"]).relative_to(root).as_posix()
+    target = item["target"]
+    filename_marker = _filename_marker(root, target, Path(pin["path"]))
+    if filename_marker is None:
+        expected_path = _draft_path_for_marker(root, target, _id_free_marker(root, target))
+    else:
+        marker = _parse_marker(root, target["atom_id"], filename_marker)
+        expected_path = _draft_path_for_marker(root, target, marker.value)
+    expected = expected_path.relative_to(root).as_posix()
     if pin["path"] != expected:
         raise ValueError("Subject edit-draft must use its exact target-derived draft path")
     raw = FileSource(root, Path(pin["path"]), pin["digest"]).read_bytes()
     _, _, scalars = _scalars(raw)
-    if (
-        scalars["atom_id"].value != item["target"]["atom_id"] + "@draft"
-        or scalars["status"].value != "Draft"
-    ):
+    if scalars["status"].value != "Draft":
         raise ValueError("Subject edit-draft temporary identity or Draft status differs")
+    if filename_marker is None:
+        if "atom_id" in scalars:
+            raise ValueError("ID-free Subject edit-draft filename must omit atom_id")
+    else:
+        if "atom_id" not in scalars:
+            raise ValueError("Marked Subject edit-draft must carry its temporary identity")
+        yaml_marker = _parse_marker(root, target["atom_id"], scalars["atom_id"].value)
+        marker = _parse_marker(root, target["atom_id"], filename_marker)
+        if yaml_marker.value != marker.value:
+            raise ValueError("Subject edit-draft temporary identity differs from its filename")
+        _require_qualified_marker_version(marker, scalars)
     return raw
 
 
@@ -85,12 +203,29 @@ def require_reviewed_draft_candidate(
     if "draft" not in item:
         return
     raw = read_reviewed_draft(root, item)
-    _, canonical_frontmatter, scalars = _scalars(canonical_raw)
+    _, _, draft_scalars = _scalars(raw)
+    filename_marker = _filename_marker(root, item["target"], Path(item["draft"]["path"]))
+    marker = (
+        None
+        if filename_marker is None
+        else _parse_marker(root, item["target"]["atom_id"], draft_scalars["atom_id"].value)
+    )
+    _, canonical_frontmatter, canonical_scalars = _scalars(canonical_raw)
+    draft_version = _positive_version(draft_scalars)
+    candidate_version = _positive_version(canonical_scalars)
+    if draft_version != candidate_version:
+        raise ValueError("Subject edit-draft Version does not match the candidate version")
+    if marker is not None and marker.proposed_version is not None:
+        if marker.proposed_version != candidate_version:
+            raise ValueError("Subject edit-draft marker does not match the candidate version")
     replacements = {
-        key: canonical_frontmatter[node.start_mark.index : node.end_mark.index]
-        for key, node in scalars.items()
+        key: canonical_frontmatter[
+            canonical_scalars[key].start_mark.index : canonical_scalars[key].end_mark.index
+        ]
+        for key in draft_scalars
     }
-    if _replace_scalars(raw, replacements) != canonical_raw:
+    expected = canonical_raw if marker is not None else _remove_scalar(canonical_raw, "atom_id")
+    if _replace_scalars(raw, replacements) != expected:
         raise ValueError(
             "Reviewed edit-draft differs from the exact Subjects-only canonical candidate"
         )

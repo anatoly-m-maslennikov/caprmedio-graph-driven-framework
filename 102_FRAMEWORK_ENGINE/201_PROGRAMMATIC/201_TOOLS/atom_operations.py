@@ -62,6 +62,56 @@ class Atom:
     content: str
 
 
+@dataclass(frozen=True, slots=True)
+class DraftMarker:
+    """One validated Draft-only identity marker.
+
+    ``canonical_id`` is only a reference carried by an existing-Atom marker;
+    it never becomes ``Atom.atom_id`` while the carrier remains Draft.
+    """
+
+    value: str
+    canonical_id: str | None
+    proposed_version: int | None
+
+
+@dataclass(frozen=True, slots=True)
+class ExistingDraftPromotion:
+    """One sealed same-canonical Draft promotion binding."""
+
+    canonical_target: Atom
+    marker: DraftMarker
+    proposed_version: int
+    no_op: bool
+
+
+def parse_draft_marker(
+    value: str | None,
+    *,
+    project_prefix: str,
+    role_letter: str,
+) -> DraftMarker | None:
+    """Parse one optional Draft atom_id marker without reading or writing state."""
+
+    if value is None:
+        return None
+    if (not isinstance(value, str) or not isinstance(project_prefix, str)
+            or not isinstance(role_letter, str) or not project_prefix
+            or re.fullmatch(r"[A-Za-z0-9]+", project_prefix) is None
+            or re.fullmatch(r"[A-Z]", role_letter) is None):
+        raise ValueError("Draft marker context is invalid")
+    role_prefix = f"{project_prefix}-{role_letter}"
+    if value == f"{role_prefix}-draft":
+        return DraftMarker(value, None, None)
+    match = re.fullmatch(rf"({re.escape(role_prefix)}-[0-9]+)@(?:(\d+)-)?draft", value)
+    if match is None:
+        raise ValueError("Draft atom_id must use an admitted Draft marker")
+    version = int(match.group(2)) if match.group(2) is not None else None
+    if version is not None and version < 1:
+        raise ValueError("Draft proposed Version must be positive")
+    return DraftMarker(value, match.group(1), version)
+
+
 def canonical_json(value: object) -> str:
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False)
 
@@ -191,8 +241,7 @@ def _atom_from_path(root: Path, path: Path, control: Path) -> Atom:
     match = ATOM_ID.search(path.name)
     declared = frontmatter_scalar(frontmatter, "atom_id")
     if lifecycle == "draft":
-        if declared is not None:
-            raise ToolError("draft-has-stable-id", f"draft Atom cannot declare atom_id: {path}")
+        _draft_marker_identity(root, path, frontmatter)
         atom_id = None
     else:
         if declared is None:
@@ -337,7 +386,11 @@ def _revision(root: Path, frontmatter: str, *, creating: bool) -> str:
     lines = frontmatter.splitlines()
     index = next((i for i, line in enumerate(lines) if re.fullmatch(r"version:\s*[0-9]+\s*", line)), None)
     current = int(lines[index].split(":", 1)[1]) if index is not None else 0
-    line = f"version: {1 if creating else current + 1}"
+    marker = frontmatter_scalar(frontmatter, "atom_id")
+    existing_draft = marker is not None and re.fullmatch(
+        r"[A-Za-z0-9]+-[A-Z]-[0-9]+@(?:[0-9]+-)?draft", marker
+    ) is not None
+    line = f"version: {current if creating and existing_draft and current > 0 else 1 if creating else current + 1}"
     if index is None:
         lines.append(line)
     else:
@@ -352,12 +405,12 @@ def _revision(root: Path, frontmatter: str, *, creating: bool) -> str:
     return "\n".join(lines)
 
 
-def _with_atom_id(frontmatter: str, atom_id: str | None) -> str:
+def _with_atom_id(frontmatter: str, atom_id: str | None, *, allow_draft_marker: bool = False) -> str:
     """Make the current carrier identity explicit without accepting a conflict."""
 
     declared = frontmatter_scalar(frontmatter, "atom_id")
     if atom_id is None:
-        if declared is not None:
+        if declared is not None and not allow_draft_marker:
             raise ToolError("draft-has-stable-id", "a draft cannot declare atom_id")
         return frontmatter
     if declared is not None:
@@ -379,6 +432,347 @@ def frontmatter_scalar(frontmatter: str, name: str) -> str | None:
     if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
         value = value[1:-1]
     return value
+
+
+_DRAFT_MARKER_VALUE = re.compile(
+    r"[A-Za-z0-9]+-[A-Z]-(?:draft|[0-9]+@(?:[0-9]+-)?draft)"
+)
+_DRAFT_MARKER_PARTS = re.compile(
+    r"(?P<prefix>[A-Za-z0-9]+)-(?P<role>[A-Z])-(?:draft|[0-9]+@(?:[0-9]+-)?draft)"
+)
+
+
+def _draft_marker_from_filename(filename: str) -> str | None:
+    """Return the identity-segment Draft marker, if this filename carries one."""
+
+    head = Path(filename).stem.split("--", 1)[0]
+    head = re.sub(r"^[0-9]+-", "", head)
+    if _DRAFT_MARKER_VALUE.fullmatch(head):
+        return head
+    if "@" in head and re.search(r"draft$", head):
+        raise ValueError("filename contains a malformed Draft marker")
+    return None
+
+
+def _draft_marker_metadata(frontmatter: str, role: str) -> None:
+    """Reject Draft markers whose carrier metadata contradicts their role/status."""
+
+    content_role = frontmatter_scalar(frontmatter, "content_role")
+    if content_role is not None and (not content_role or content_role[0].upper() != role):
+        raise ToolError("draft-marker-invalid", "Draft marker role differs from Content Role")
+    status = frontmatter_scalar(frontmatter, "status")
+    if status is not None and status.casefold() != "draft":
+        raise ToolError("draft-marker-status-invalid", "Draft marker is permitted only with Draft status")
+
+
+def _draft_marker_identity(root: Path, path: Path, frontmatter: str) -> DraftMarker | None:
+    """Validate one Draft marker against its exact filename and project role."""
+    try:
+        filename_value = _draft_marker_from_filename(path.name)
+    except ValueError as error:
+        raise ToolError("draft-marker-invalid", str(error)) from error
+    declared = frontmatter_scalar(frontmatter, "atom_id")
+    if filename_value is None and declared is None:
+        return None
+    candidate = filename_value or declared
+    assert candidate is not None
+    parts = _DRAFT_MARKER_PARTS.fullmatch(candidate)
+    if parts is None:
+        raise ToolError("draft-has-stable-id", "a Draft cannot declare a canonical Atom ID")
+    if filename_value != declared:
+        raise ToolError("atom-frontmatter-id-mismatch", "Draft filename and frontmatter marker differ")
+    configured_prefix = project_identity_prefix(root)
+    if parts.group("prefix") != configured_prefix:
+        raise ToolError("draft-marker-invalid", "Draft marker does not use the configured Project prefix")
+    try:
+        marker = parse_draft_marker(candidate, project_prefix=configured_prefix, role_letter=parts.group("role"))
+    except ValueError as error:
+        raise ToolError("draft-marker-invalid", str(error)) from error
+    _draft_marker_metadata(frontmatter, parts.group("role"))
+    return marker
+
+
+def _without_promotion_metadata(frontmatter: str) -> str:
+    return re.sub(r"(?m)^(?:atom_id|status|version|updated_at):[^\n]*(?:\n|$)", "", frontmatter).rstrip("\n")
+
+
+def _draft_summary(content: str) -> str:
+    match = re.search(r"(?ms)^# Summary\s*\n+(.+?)(?=^#|\Z)", content)
+    if match is None:
+        raise ToolError("summary-missing", "# Summary must carry a non-empty value")
+    return match.group(1).strip()
+
+
+def _bind_existing_draft_marker(
+    root: Path, draft: Atom, canonical_target: Atom, proposed_version: int | None,
+) -> tuple[DraftMarker, int]:
+    if draft.lifecycle != "draft" or draft.atom_id is not None:
+        raise ToolError("atom-not-draft", "existing promotion requires one identity-less Draft carrier")
+    marker = _draft_marker_identity(root, draft.path, draft.frontmatter)
+    if marker is None or marker.canonical_id is None:
+        raise ToolError("draft-promotion-marker-required", "existing promotion requires one carried canonical Draft marker")
+    if canonical_target.atom_id != marker.canonical_id:
+        raise ToolError("canonical-target-mismatch", "canonical target must be the marker's exact current Atom")
+    if isinstance(proposed_version, bool) or not isinstance(proposed_version, int) or proposed_version < 1:
+        raise ToolError("draft-proposed-version-required", "existing Draft promotion requires one positive proposed_version")
+    if marker.proposed_version is not None and proposed_version != marker.proposed_version:
+        raise ToolError("draft-proposed-version-mismatch", "qualified Draft marker and request disagree on proposed_version")
+    if atom_version(draft) != proposed_version:
+        raise ToolError("draft-proposed-version-mismatch", "Draft carrier Version must equal its proposed Version")
+    return marker, proposed_version
+
+
+def _require_exact_current_canonical(root: Path, canonical_target: Atom) -> None:
+    require_current_atom(root, canonical_target)
+    from current_atom_locator import CurrentAtomLocator
+    CurrentAtomLocator(root).assert_unique_current_claim(canonical_target.atom_id or "", canonical_target.relative)
+
+
+def _existing_draft_preserves_canonical(draft: Atom, canonical_target: Atom) -> bool:
+    if frontmatter_scalar(draft.frontmatter, "content_role") != frontmatter_scalar(canonical_target.frontmatter, "content_role"):
+        raise ToolError("atom-role-changed", "existing Draft promotion must retain the canonical Content Role")
+    if frontmatter_scalar(draft.frontmatter, "type") != frontmatter_scalar(canonical_target.frontmatter, "type"):
+        raise ToolError("atom-type-changed", "existing Draft promotion must retain the canonical Type")
+    if _draft_summary(draft.content) != _draft_summary(canonical_target.content):
+        raise ToolError("summary-changed", "existing Draft promotion must retain the canonical Summary")
+    return _normalized_promotion_candidate_matches(draft.frontmatter, draft.content, canonical_target)
+
+
+def _normalized_promotion_candidate_matches(frontmatter: str, content: str, canonical_target: Atom) -> bool:
+    return (_without_promotion_metadata(frontmatter) == _without_promotion_metadata(canonical_target.frontmatter)
+            and content == canonical_target.content)
+
+
+def bind_existing_draft_promotion(
+    root: Path,
+    draft: Atom,
+    canonical_target: Atom,
+    *,
+    proposed_version: int | None = None,
+    requested_status: str = "Active",
+) -> ExistingDraftPromotion:
+    """Bind one existing-marker Draft to its exact current canonical target."""
+
+    root = root.resolve()
+    marker, version = _bind_existing_draft_marker(root, draft, canonical_target, proposed_version)
+    _require_exact_current_canonical(root, canonical_target)
+    no_op = (_existing_draft_preserves_canonical(draft, canonical_target)
+             and frontmatter_scalar(canonical_target.frontmatter, "status") == requested_status)
+    current_version = atom_version(canonical_target)
+    if version not in {current_version, current_version + 1}:
+        raise ToolError("atom-version-invalid", "existing Draft proposed Version must be current or next")
+    if not no_op and version != current_version + 1:
+        raise ToolError("atom-version-invalid", "existing Draft promotion Version must be the canonical current Version plus one")
+    return ExistingDraftPromotion(canonical_target, marker, version, no_op)
+
+
+def prepare_existing_draft_promotion_frontmatter(
+    root: Path, frontmatter: str, binding: ExistingDraftPromotion, requested_status: str,
+) -> str:
+    """Materialize only the admitted identity, Status, Version, and effect time."""
+
+    prepared = replace_frontmatter_scalar(frontmatter, "atom_id", binding.canonical_target.atom_id or "")
+    prepared = replace_frontmatter_scalar(prepared, "status", requested_status)
+    prepared = replace_frontmatter_scalar(prepared, "version", str(binding.proposed_version))
+    return replace_frontmatter_scalar(prepared, "updated_at", f'"{current_timestamp(root)}"')
+
+
+def _bundle_content_and_mode_match(expected: Mapping, observed: Mapping) -> bool:
+    if expected.keys() != observed.keys():
+        return False
+    return all(before is not None and observed[key] is not None
+               and before[0] == observed[key][0] and before[1][-1] == observed[key][1][-1]
+               for key, before in expected.items())
+
+
+def _restore_moved_existing_canonical(
+    root: Path, canonical_target: Atom, published: Atom, published_bundle: Mapping,
+    canonical_bundle: Mapping,
+) -> None:
+    if status_bundle_snapshot(root, published) != published_bundle:
+        raise ToolError("status-recovery-blocked", "published canonical bundle changed before recovery")
+    source_bundle, destination_bundle = canonical_target.path.with_suffix(""), published.path.with_suffix("")
+    if "directory" in canonical_bundle:
+        expected = {key: value for key, value in canonical_bundle.items() if key != "markdown"}
+        observed = {key: value for key, value in published_bundle.items() if key != "markdown"}
+        if source_bundle.exists() or not destination_bundle.is_dir() or not carrier_directory_snapshot_matches(expected, observed, renamed=True):
+            raise ToolError("status-recovery-blocked", "canonical container bundle cannot be returned")
+        destination_bundle.rename(source_bundle)
+    elif destination_bundle.exists():
+        raise ToolError("status-recovery-blocked", "unexpected canonical destination bundle")
+    _, fingerprint = published_bundle["markdown"]
+    if canonical_target.path.exists():
+        raise ToolError("status-recovery-blocked", "canonical source unexpectedly reappeared")
+    write_raw_atom_revision(root, canonical_target.path, canonical_bundle["markdown"][0], expected=None, mode=fingerprint[-1])
+    write_raw_atom_revision(root, published.path, None, expected=fingerprint, mode=fingerprint[-1])
+
+
+def _restore_same_path_existing_canonical(
+    root: Path, canonical_target: Atom, published: Atom | None, published_bundle: Mapping | None,
+    canonical_bundle: Mapping,
+) -> None:
+    current_bundle = status_bundle_snapshot(root, canonical_target)
+    if published is None:
+        if current_bundle != canonical_bundle:
+            raise ToolError("status-recovery-blocked", "canonical publication ownership is unknown")
+        return
+    if published_bundle is None or current_bundle != published_bundle:
+        raise ToolError("status-recovery-blocked", "published canonical bundle changed before recovery")
+    _, fingerprint = current_bundle["markdown"]
+    write_raw_atom_revision(root, canonical_target.path, canonical_bundle["markdown"][0],
+                            expected=fingerprint, mode=fingerprint[-1])
+
+
+def _restore_existing_history(root: Path, history: Path | None, canonical_raw: bytes) -> None:
+    if history is None or not history.exists():
+        return
+    history_raw, fingerprint = read_raw_atom_revision(root, history)
+    if history_raw != canonical_raw:
+        raise ToolError("status-recovery-blocked", "predecessor history bytes are not exact")
+    write_raw_atom_revision(root, history, None, expected=fingerprint, mode=fingerprint[-1])
+
+
+def _restore_existing_draft_source(root: Path, draft: Atom, draft_bundle: Mapping) -> None:
+    draft_raw, fingerprint = draft_bundle["markdown"]
+    if draft.path.exists():
+        restored_raw, _ = read_raw_atom_revision(root, draft.path)
+        if restored_raw != draft_raw:
+            raise ToolError("status-recovery-blocked", "Draft source bytes are not exact")
+        return
+    write_raw_atom_revision(root, draft.path, draft_raw, expected=None, mode=fingerprint[-1])
+
+
+def _verify_existing_promotion_recovery(
+    root: Path, draft: Atom, canonical_target: Atom, draft_bundle: Mapping, canonical_bundle: Mapping,
+) -> None:
+    if not _bundle_content_and_mode_match(canonical_bundle, status_bundle_snapshot(root, canonical_target)):
+        raise ToolError("status-recovery-blocked", "canonical container bundle is not restored")
+    restored_draft = atom_from_path(root, draft.path)
+    if not _bundle_content_and_mode_match(draft_bundle, status_bundle_snapshot(root, restored_draft)):
+        raise ToolError("status-recovery-blocked", "Draft container bundle is not restored")
+
+
+def _restore_existing_draft_promotion(
+    root: Path, draft: Atom, canonical_target: Atom, published: Atom | None,
+    published_bundle: Mapping | None, history: Path | None, draft_bundle: Mapping,
+    canonical_bundle: Mapping,
+) -> None:
+    try:
+        if published is not None and published.path != canonical_target.path:
+            if published_bundle is None:
+                raise ToolError("status-recovery-blocked", "published canonical bundle is unknown")
+            _restore_moved_existing_canonical(root, canonical_target, published, published_bundle, canonical_bundle)
+        else:
+            _restore_same_path_existing_canonical(root, canonical_target, published, published_bundle, canonical_bundle)
+        _restore_existing_history(root, history, canonical_bundle["markdown"][0])
+        _restore_existing_draft_source(root, draft, draft_bundle)
+        _verify_existing_promotion_recovery(root, draft, canonical_target, draft_bundle, canonical_bundle)
+    except BaseException as error:
+        raise ToolError("status-recovery-uncertain", "existing Draft promotion recovery is unverified; do not replay",
+                        {"automatic_retry": False, "source": draft.relative}) from error
+
+
+def _existing_promotion_destination(root: Path, atom: Atom, status: str) -> str:
+    """Resolve the admitted current-status location for an existing canonical Atom."""
+
+    control = control_root(root)
+    try:
+        relative = atom.path.relative_to(control)
+        index = next(i for i, part in enumerate(relative.parts[:-1]) if re.fullmatch(r"0[1-9]_[a-z0-9_]+", part))
+    except (ValueError, StopIteration) as error:
+        raise ToolError("status-location-missing", "canonical target has no content-role status location") from error
+    role = control.joinpath(*relative.parts[:index + 1])
+    stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
+    if frontmatter_scalar(atom.frontmatter, "content_role") in {"Plan", "Operations"}:
+        local = atom.path.parent.parent if atom.path.parent.name in {"001_backlog", "done", "canceled", "archived", "draft"} else atom.path.parent
+        folder = {"Active": None, "Backlog": "001_backlog", "Done": "done", "Canceled": "canceled", "Archived": "archived"}.get(status)
+        if status in {"Active", "Backlog", "Done", "Canceled", "Archived"}:
+            return (local / folder / f"{stem}.md" if folder else local / f"{stem}.md").relative_to(root).as_posix()
+    if status.casefold() == "active":
+        return (role / f"{stem}.md").relative_to(root).as_posix()
+    folder = status.casefold()
+    if re.fullmatch(r"[a-z0-9][a-z0-9_-]*", folder) is None:
+        raise ToolError("status-location-invalid", "admitted status cannot name a safe carrier subfolder")
+    return (role / folder / f"{stem}.md").relative_to(root).as_posix()
+
+
+def _existing_promotion_history_path(atom: Atom) -> Path:
+    stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
+    local = atom.path.parent.parent if atom.path.parent.name in {
+        "001_backlog", "done", "canceled", "archived", "resolved", "draft",
+    } else atom.path.parent
+    return local / "archived" / f"{stem}@{atom_version(atom)}.md"
+
+
+def _existing_promotion_is_noop(atom: Atom, prepared: str, content: str, requested_status: str) -> bool:
+    return (frontmatter_scalar(atom.frontmatter, "status") == requested_status
+            and _normalized_promotion_candidate_matches(prepared, content, atom))
+
+
+def _validate_existing_promotion_destination(
+    destination: Path, canonical_target: Atom, identity: str | None, history: Path,
+) -> None:
+    if identity != canonical_target.atom_id:
+        raise ToolError("canonical-target-mismatch", "existing Draft promotion must publish only its canonical target")
+    if history.exists() or history.is_symlink() or (destination != canonical_target.path and
+                                                    (destination.exists() or destination.is_symlink())):
+        raise ToolError("destination-collision", "existing Draft promotion destination already exists")
+
+
+def promote_existing_draft_atom(
+    root: Path, draft: Atom, binding: ExistingDraftPromotion, frontmatter: str, content: str, *,
+    requested_status: str, expected_draft_digest: str, expected_canonical_digest: str,
+) -> tuple[Atom, Atom | None, bool]:
+    """Use the status revision owner, then conditionally remove its sealed Draft source."""
+
+    root = root.resolve()
+    with atom_identity_lock(root):
+        current_draft = atom_from_path(root, draft.path)
+        current_canonical = atom_from_path(root, binding.canonical_target.path)
+        if atom_digest(current_draft) != expected_draft_digest or atom_digest(current_canonical) != expected_canonical_digest:
+            raise ToolError("carrier-stale", "Draft or canonical predecessor changed before publication")
+        refreshed = bind_existing_draft_promotion(
+            root, current_draft, current_canonical, proposed_version=binding.proposed_version,
+            requested_status=requested_status,
+        )
+        prepared = prepare_existing_draft_promotion_frontmatter(root, frontmatter, refreshed, requested_status)
+        if _existing_promotion_is_noop(current_canonical, prepared, content, requested_status):
+            return current_canonical, None, True
+        canonical_relative = _existing_promotion_destination(root, current_canonical, requested_status)
+        destination, normalized, identity = prepare_create_atom_revision(
+            root, canonical_relative, prepared, content, creating=False,
+        )
+        history = _existing_promotion_history_path(current_canonical)
+        _validate_existing_promotion_destination(destination, current_canonical, identity, history)
+        draft_bundle = status_bundle_snapshot(root, current_draft)
+        canonical_bundle = status_bundle_snapshot(root, current_canonical)
+        if "directory" in draft_bundle:
+            raise ToolError("draft-container-publication-unsupported", "Draft container publication requires an explicit child action")
+        if (hashlib.sha256(draft_bundle["markdown"][0]).hexdigest() != expected_draft_digest
+                or hashlib.sha256(canonical_bundle["markdown"][0]).hexdigest() != expected_canonical_digest):
+            raise ToolError("carrier-stale", "Draft or canonical bundle changed before publication")
+        observed: Atom | None = None
+        published_bundle: Mapping | None = None
+        try:
+            observed, written_history = publish_status_atom_revision(
+                root, current_canonical, canonical_relative, normalized, content,
+                expected_bundle=canonical_bundle,
+            )
+            if written_history != history:
+                raise ToolError("status-history-verification-failed", "canonical predecessor location changed")
+            published_bundle = status_bundle_snapshot(root, observed)
+            write_raw_atom_revision(root, current_draft.path, None,
+                                    expected=draft_bundle["markdown"][1], mode=draft_bundle["markdown"][1][-1])
+            if current_draft.path.exists():
+                raise ToolError("draft-cleanup-failed", "Draft carrier remains after promotion")
+            return observed, atom_from_path(root, history) if history is not None else None, False
+        except BaseException:
+            if observed is None and destination != current_canonical.path and destination.exists():
+                observed = atom_from_path(root, destination)
+                published_bundle = status_bundle_snapshot(root, observed)
+            _restore_existing_draft_promotion(root, current_draft, current_canonical, observed,
+                                              published_bundle, history, draft_bundle, canonical_bundle)
+            raise
 
 
 def replace_frontmatter_scalar(frontmatter: str, name: str, value: str) -> str:
@@ -672,10 +1066,10 @@ def prepare_create_atom_revision(
     atom_id = match.group(1) if match else None
     destination_lifecycle = _lifecycle(path, control_root(root))
     declared = frontmatter_scalar(normalized, "atom_id")
-    if destination_lifecycle == "draft" and atom_id is not None:
-        raise ToolError("draft-has-stable-id", f"draft filename must not contain a stable Atom ID: {path.name}")
-    if destination_lifecycle == "draft" and declared is not None:
-        raise ToolError("draft-has-stable-id", "a draft carrier cannot declare atom_id")
+    if destination_lifecycle == "draft":
+        _draft_marker_identity(root, path, normalized)
+        if atom_id is not None:
+            raise ToolError("draft-has-stable-id", f"draft filename must not contain a stable Atom ID: {path.name}")
     if destination_lifecycle != "draft" and atom_id is None:
         raise ToolError("atom-id-required", f"non-draft Atom filename must contain a stable Atom ID: {path.name}")
     if atom_id is not None and declared is None:
@@ -744,6 +1138,68 @@ def move_atom_revision(root: Path, atom: Atom, relative_path: str, frontmatter: 
     if target != atom.path:
         atom.path.unlink()
     return atom_from_path(root, target)
+
+
+def _prepare_draft_rename(root: Path, atom: Atom, relative_path: str, frontmatter: str, content: str,
+                          expected_bundle: Mapping) -> tuple[Path, str, bytes, int]:
+    if atom.lifecycle != "draft" or atom.atom_id is not None:
+        raise ToolError("atom-not-draft", "only one Draft marker carrier can be renamed")
+    target, normalized, identity = prepare_create_atom_revision(
+        root, relative_path, frontmatter, content, creating=False
+    )
+    if identity is not None or _draft_marker_identity(root, target, normalized) is None:
+        raise ToolError("draft-marker-invalid", "Draft marker rename requires one aligned Draft marker")
+    if target != atom.path and target.exists():
+        raise ToolError("destination-collision", f"Draft destination already exists: {target.relative_to(root)}")
+    if status_bundle_snapshot(root, atom) != expected_bundle:
+        raise ToolError("status-bundle-stale", "Draft carrier changed after admission")
+    before = atom.path.read_bytes()
+    mode = atom.path.stat().st_mode & 0o777
+    destination_directory = target.with_suffix("")
+    if target != atom.path and "directory" in expected_bundle and destination_directory.exists():
+        raise ToolError("destination-collision", "matching Draft carrier directory already exists")
+    return target, normalized, before, mode
+
+
+def _restore_draft_rename(atom: Atom, target: Path, before: bytes, mode: int) -> None:
+    destination_directory, source_directory = target.with_suffix(""), atom.path.with_suffix("")
+    if target != atom.path and destination_directory.exists() and not source_directory.exists():
+        destination_directory.rename(source_directory)
+    if target != atom.path and target.exists():
+        target.unlink()
+    if not atom.path.exists() or atom.path.read_bytes() != before:
+        _atomic_write(atom.path, before)
+        atom.path.chmod(mode)
+
+
+def _publish_draft_rename(root: Path, atom: Atom, target: Path, normalized: str, content: str,
+                          expected_bundle: Mapping) -> Atom:
+    source_directory, destination_directory = atom.path.with_suffix(""), target.with_suffix("")
+    output = render(normalized, content)
+    _atomic_write(target, output)
+    if target != atom.path and "directory" in expected_bundle:
+        source_directory.rename(destination_directory)
+    if target != atom.path:
+        atom.path.unlink()
+    observed = atom_from_path(root, target)
+    if status_bundle_snapshot(root, observed)["markdown"][0] != output:
+        raise ToolError("status-bundle-verification-failed", "renamed Draft carrier differs")
+    return observed
+
+
+def rename_draft_revision(root: Path, atom: Atom, relative_path: str, frontmatter: str, content: str,
+                          *, expected_bundle: Mapping) -> Atom:
+    """Rename one carried Draft marker while preserving its exact carrier bytes."""
+
+    root = root.resolve()
+    target, normalized, before, mode = _prepare_draft_rename(
+        root, atom, relative_path, frontmatter, content, expected_bundle,
+    )
+    try:
+        return _publish_draft_rename(root, atom, target, normalized, content, expected_bundle)
+    except BaseException:
+        _restore_draft_rename(atom, target, before, mode)
+        raise
 
 
 def status_bundle_snapshot(root: Path, atom: Atom) -> dict[str, tuple[bytes, tuple[int, ...]] | None]:
@@ -1047,16 +1503,22 @@ def prepare_draft_promotion(root: Path, atom: Atom, atom_id: str, frontmatter: s
     control = control_root(root)
     if atom.lifecycle != "draft" or atom.atom_id is not None:
         raise ToolError("draft-promotion-invalid", "only an ID-free Draft carrier can be promoted")
-    match = re.fullmatch(r"([A-Za-z0-9]+-[A-Z]+)--(.+)", atom.filename)
+    marker = _draft_marker_identity(root, atom.path, atom.frontmatter)
+    if marker is not None and marker.canonical_id is not None:
+        raise ToolError("draft-promotion-marker-unsupported", "carried Draft markers require their admitted source-bound promotion effect")
+    match = (re.fullmatch(rf"{re.escape(marker.value)}--(.+)", atom.filename) if marker is not None
+             else re.fullmatch(r"([A-Za-z0-9]+-[A-Z]+)--(.+)", atom.filename))
     identity = re.fullmatch(r"([A-Za-z0-9]+-[A-Z]+)-(\d+)", atom_id)
-    if match is None or identity is None or match.group(1) != identity.group(1):
+    role_prefix = marker.value.removesuffix("-draft") if marker is not None else match.group(1) if match else None
+    if match is None or identity is None or role_prefix != identity.group(1):
         raise ToolError("draft-promotion-invalid", "Draft filename and assigned identity do not share one role prefix")
     role_name = _role_directory(atom.path, control)
     if role_name is None:
         raise ToolError("archive-location-missing", "Draft has no content-role location")
     role = next(parent for parent in atom.path.parents if parent.name == role_name)
-    separator = "-" if "--" in match.group(2) else "--"
-    target = (role / f"{identity.group(1)}-{identity.group(2)}{separator}{match.group(2)}").resolve()
+    summary = match.group(1) if marker is not None else match.group(2)
+    separator = "-" if "--" in summary else "--"
+    target = (role / f"{identity.group(1)}-{identity.group(2)}{separator}{summary}").resolve()
     if relative_path is not None:
         target = safe_path(root, relative_path)
     if target.exists() or atom_id_has_preserved_history_evidence(root, atom_id):
@@ -1065,6 +1527,16 @@ def prepare_draft_promotion(root: Path, atom: Atom, atom_id: str, frontmatter: s
     normalized = replace_frontmatter_scalar(normalized, "atom_id", atom_id)
     prepare_create_atom_revision(root, target.relative_to(root).as_posix(), normalized, content, creating=False)
     return target, normalized, render(normalized, content)
+
+
+def prepare_native_fresh_draft_promotion(
+    root: Path, atom: Atom, atom_id: str, *, relative_path: str | None = None,
+) -> tuple[Path, str, bytes]:
+    """Prepare one native fresh-Draft promotion without changing its Version or time."""
+
+    frontmatter = replace_frontmatter_scalar(atom.frontmatter, "status", "Active")
+    return prepare_draft_promotion(root, atom, atom_id, frontmatter, atom.content,
+                                   relative_path=relative_path)
 
 
 def promote_draft_atom(root: Path, atom: Atom, atom_id: str, frontmatter: str, content: str, *,
@@ -1177,15 +1649,17 @@ def _run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         match = ATOM_ID.search(path.name)
         atom_id = match.group(1) if match else None
         destination_lifecycle = _lifecycle(path, control_root(root))
-        if destination_lifecycle == "draft" and atom_id is not None:
-            raise ToolError("draft-has-stable-id", f"draft filename must not contain a stable Atom ID: {path.name}")
+        if destination_lifecycle == "draft":
+            _draft_marker_identity(root, path, frontmatter)
+            if atom_id is not None:
+                raise ToolError("draft-has-stable-id", f"draft filename must not contain a stable Atom ID: {path.name}")
         if destination_lifecycle != "draft" and atom_id is None:
             raise ToolError("atom-id-required", f"non-draft Atom filename must contain a stable Atom ID: {path.name}")
         if atom_id and (atom_id in planned_ids or atom_id_has_preserved_history_evidence(root, atom_id)):
             raise ToolError("atom-id-collision", f"Atom ID already exists: {atom_id}")
         if atom_id:
             planned_ids.add(atom_id)
-        frontmatter = _with_atom_id(frontmatter, atom_id)
+        frontmatter = _with_atom_id(frontmatter, atom_id, allow_draft_marker=destination_lifecycle == "draft")
         frontmatter = _revision(root, frontmatter, creating=True)
         plans.append((path, render(frontmatter, item.get("content", ""))))
     result = {"count": len(plans), "changes": [{"operation": "create", "path": p.relative_to(root).as_posix()} for p, _ in plans]}
@@ -1244,7 +1718,9 @@ def _run_generic_update(root: Path, args: argparse.Namespace, raw_items: list[di
         if "frontmatter" not in item and "content" not in item:
             raise ToolError("input-invalid", "update item must provide frontmatter or content")
         frontmatter = _normalize_frontmatter(item["frontmatter"]) if "frontmatter" in item else atom.frontmatter
-        frontmatter = _with_atom_id(frontmatter, atom.atom_id)
+        if atom.lifecycle == "draft":
+            _draft_marker_identity(root, atom.path, frontmatter)
+        frontmatter = _with_atom_id(frontmatter, atom.atom_id, allow_draft_marker=atom.lifecycle == "draft")
         content = item["content"] if "content" in item else atom.content
         plans.append((atom, render(_revision(root, frontmatter, creating=False), content)))
     result = {"count": len(plans), "changes": [{"operation": "update", "path": atom.relative} for atom, _ in plans]}
@@ -1349,52 +1825,135 @@ def run_promote(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         return _run_promote(root, args)
 
 
-def _run_promote(root: Path, args: argparse.Namespace) -> dict[str, Any]:
-    root = root.resolve()
-    raw_items = _items(_load_payload(args.input))
-    selectors = [item.get("selector") for item in raw_items]
-    if any(not isinstance(selector, str) for selector in selectors):
-        raise ToolError("input-invalid", "every promote item requires selector")
-    atoms = resolve_selectors(root, selectors)
-    planned_ids: set[str] = set()
-    control = control_root(root)
-    plans: list[tuple[Atom, Path, bytes]] = []
-    for item, atom in zip(raw_items, atoms, strict=True):
-        if atom.lifecycle != "draft" or atom.atom_id is not None:
-            raise ToolError("atom-not-draft", f"only identity-less drafts can be promoted: {atom.relative}")
-        requested = item.get("atom_id")
-        if not isinstance(requested, str) or re.fullmatch(r"CA-[A-Z]+-[0-9]{3,}", requested) is None:
-            raise ToolError("atom-id-invalid", "promote item requires an Atom ID such as CA-R-343")
-        draft_prefix = re.match(r"^(CA-[A-Z]+)--(.+)$", atom.filename)
-        if draft_prefix is None or not requested.startswith(draft_prefix.group(1) + "-"):
-            raise ToolError("atom-id-role-mismatch", f"Atom ID does not match the draft content role: {requested}")
-        if requested in planned_ids or atom_id_has_preserved_history_evidence(root, requested):
-            raise ToolError("atom-id-collision", f"Atom ID already exists: {requested}")
-        planned_ids.add(requested)
-        filename = requested + "-" + draft_prefix.group(2)
-        if not CURRENT_FILENAME.fullmatch(filename):
-            raise ToolError("filename-invalid", f"promoted Atom filename does not follow current grammar: {filename}")
-        parent_parts = atom.path.parent.relative_to(control).parts
-        draft_indexes = [index for index, part in enumerate(parent_parts) if part.lower() == "drafts"]
-        if not draft_indexes:
-            raise ToolError("atom-not-draft", f"draft carrier has no drafts location: {atom.relative}")
-        index = draft_indexes[-1]
-        active_parent = control.joinpath(*parent_parts[:index], *parent_parts[index + 1:])
-        target = (active_parent / filename).resolve()
-        _validate_destination(root, target, filename_required=True)
-        frontmatter = _with_atom_id(atom.frontmatter, requested)
-        plans.append((atom, target, render(frontmatter, atom.content)))
-    moves = [(atom, target) for atom, target, _ in plans]
+_CARRIER_DESCRIPTOR_FIELDS = frozenset(
+    {"atom_id", "path", "filename", "version", "digest", "lifecycle", "status", "updated_at", "content_role", "type"}
+)
+
+
+def _carrier_descriptor(atom: Atom) -> dict[str, Any]:
+    return {
+        "atom_id": atom.atom_id,
+        "path": atom.relative,
+        "filename": atom.filename,
+        "version": atom_version(atom),
+        "digest": atom_digest(atom),
+        "lifecycle": atom.lifecycle,
+        "status": frontmatter_scalar(atom.frontmatter, "status"),
+        "updated_at": frontmatter_scalar(atom.frontmatter, "updated_at"),
+        "content_role": frontmatter_scalar(atom.frontmatter, "content_role"),
+        "type": frontmatter_scalar(atom.frontmatter, "type"),
+    }
+
+
+def _resolve_promotion_descriptor(root: Path, value: object, *, name: str, active: bool) -> Atom:
+    if not isinstance(value, Mapping) or set(value) != _CARRIER_DESCRIPTOR_FIELDS:
+        raise ToolError("carrier-fields-invalid", f"{name} must carry one complete carrier descriptor")
+    if not isinstance(value["path"], str):
+        raise ToolError("carrier-path-invalid", f"{name}.path must be a repository-relative string")
+    atom = atom_from_path(root, safe_path(root, value["path"], must_exist=True))
+    require_current_atom(root, atom)
+    observed = _carrier_descriptor(atom)
+    if any(value[field] != observed[field] for field in _CARRIER_DESCRIPTOR_FIELDS):
+        raise ToolError("stale-carrier", f"{name} no longer matches the observed carrier")
+    if active and atom.lifecycle != "active":
+        raise ToolError("active-carrier-required", f"{name} must resolve one active carrier")
+    return atom
+
+
+def _promote_fresh_id(root: Path, atom: Atom, item: Mapping[str, Any], planned_ids: set[str]) -> tuple[Path, bytes]:
+    if "target" in item or "canonical_target" in item or "proposed_version" in item:
+        raise ToolError("canonical-target-unadmitted", "only existing Draft markers accept canonical target evidence")
+    requested = item.get("atom_id")
+    prefix = re.match(r"^(CA-[A-Z]+)--(.+)$", atom.filename)
+    if not isinstance(requested, str) or re.fullmatch(r"CA-[A-Z]+-[0-9]{3,}", requested) is None:
+        raise ToolError("atom-id-invalid", "promote item requires an Atom ID such as CA-R-343")
+    if prefix is None or not requested.startswith(prefix.group(1) + "-"):
+        raise ToolError("atom-id-role-mismatch", f"Atom ID does not match the draft content role: {requested}")
+    if requested in planned_ids or atom_id_has_preserved_history_evidence(root, requested):
+        raise ToolError("atom-id-collision", f"Atom ID already exists: {requested}")
+    planned_ids.add(requested)
+    target, _normalized, payload = prepare_native_fresh_draft_promotion(root, atom, requested)
+    return target, payload
+
+
+def _promote_role_marker_id(root: Path, atom: Atom, marker: DraftMarker, item: Mapping[str, Any],
+                            planned_ids: set[str]) -> str:
+    target = _resolve_promotion_descriptor(root, item.get("target"), name="target", active=False)
+    if target.path != atom.path:
+        raise ToolError("canonical-target-mismatch", "selector and target descriptor must name the same Draft carrier")
+    if "canonical_target" in item or "proposed_version" in item:
+        raise ToolError("canonical-target-unadmitted", "new-Atom Draft markers do not accept canonical target evidence")
+    requested = item.get("atom_id")
+    prefix = marker.value.removesuffix("-draft")
+    if (not isinstance(requested, str) or re.fullmatch(r"CA-[A-Z]+-[0-9]{3,}", requested) is None
+            or not requested.startswith(prefix + "-")):
+        raise ToolError("atom-id-role-mismatch", f"Atom ID does not match the draft content role: {requested}")
+    if requested in planned_ids or atom_id_has_preserved_history_evidence(root, requested):
+        raise ToolError("atom-id-collision", f"Atom ID already exists: {requested}")
+    planned_ids.add(requested)
+    return requested
+
+
+def _promote_existing_marker_binding(root: Path, atom: Atom, marker: DraftMarker,
+                                     item: Mapping[str, Any]) -> ExistingDraftPromotion:
+    target = _resolve_promotion_descriptor(root, item.get("target"), name="target", active=False)
+    if target.path != atom.path or item.get("atom_id") != marker.canonical_id:
+        raise ToolError("canonical-target-mismatch", "selector and atom_id must name the carried Draft marker")
+    canonical_target = _resolve_promotion_descriptor(root, item.get("canonical_target"), name="canonical_target", active=False)
+    return bind_existing_draft_promotion(root, atom, canonical_target, proposed_version=item.get("proposed_version"))
+
+
+def _plan_promotion_item(root: Path, atom: Atom, item: Mapping[str, Any], planned_ids: set[str]) -> tuple[str, object]:
+    if atom.lifecycle != "draft" or atom.atom_id is not None:
+        raise ToolError("atom-not-draft", f"only identity-less drafts can be promoted: {atom.relative}")
+    marker = _draft_marker_identity(root, atom.path, atom.frontmatter)
+    if marker is None:
+        return "fresh", _promote_fresh_id(root, atom, item, planned_ids)
+    if marker.canonical_id is None:
+        return "role", _promote_role_marker_id(root, atom, marker, item, planned_ids)
+    return "existing", _promote_existing_marker_binding(root, atom, marker, item)
+
+
+def _validate_promotion_plans(
+    root: Path, plans: Sequence[tuple[Atom, Path, bytes]], existing: Sequence[object], role_drafts: Sequence[object],
+) -> None:
     targets = [target for _, target, _ in plans]
     if len(set(targets)) != len(targets):
         raise ToolError("destination-collision", "more than one selected Atom resolves to the same destination")
-    for atom, target, _ in plans:
-        if target.exists():
-            raise ToolError("destination-collision", f"destination already exists: {target.relative_to(root)}")
-    result = {"count": len(plans), "changes": [{"operation": "promote", "from": atom.relative,
-               "to": target.relative_to(root).as_posix()} for atom, target in moves]}
-    if not args.apply:
-        return result
+    if any(target.exists() for _, target, _ in plans):
+        raise ToolError("destination-collision", "a promotion destination already exists")
+    if (existing or role_drafts) and (plans or len(existing) + len(role_drafts) != 1):
+        raise ToolError("mixed-draft-promotion-batch-unadmitted", "existing-marker promotion accepts one independent Draft action per request")
+
+
+def _promotion_result(root: Path, plans: Sequence[tuple[Atom, Path, bytes]],
+                      existing: Sequence[tuple[Atom, ExistingDraftPromotion, dict[str, Any]]],
+                      role_drafts: Sequence[tuple[Atom, str]]) -> dict[str, Any]:
+    changes = [{"operation": "promote", "from": atom.relative, "to": target.relative_to(root).as_posix()}
+               for atom, target, _ in plans]
+    changes.extend({"operation": "no-op" if binding.no_op else "promote", "from": atom.relative,
+                    "to": _existing_promotion_destination(root, binding.canonical_target, "Active"),
+                    "canonical_target": binding.canonical_target.atom_id, "version": binding.proposed_version}
+                   for atom, binding, _ in existing)
+    changes.extend({"operation": "promote", "from": atom.relative, "atom_id": atom_id}
+                   for atom, atom_id in role_drafts)
+    return {"count": len(changes), "changes": changes}
+
+
+def _apply_promotion_plans(root: Path, plans: Sequence[tuple[Atom, Path, bytes]],
+                           existing: Sequence[tuple[Atom, ExistingDraftPromotion, dict[str, Any]]],
+                           role_drafts: Sequence[tuple[Atom, str]]) -> None:
+    if existing:
+        atom, binding, item = existing[0]
+        frontmatter = prepare_existing_draft_promotion_frontmatter(root, atom.frontmatter, binding, "Active")
+        promote_existing_draft_atom(root, atom, binding, frontmatter, atom.content, requested_status="Active",
+                                    expected_draft_digest=item["target"]["digest"],
+                                    expected_canonical_digest=item["canonical_target"]["digest"])
+        return
+    if role_drafts:
+        atom, atom_id = role_drafts[0]
+        target, _normalized, payload = prepare_native_fresh_draft_promotion(root, atom, atom_id)
+        plans = [(atom, target, payload)]
     snapshots: dict[Path, bytes | None] = {atom.path: atom.path.read_bytes() for atom, _, _ in plans}
     snapshots.update({target: None for _, target, _ in plans})
     try:
@@ -1405,6 +1964,31 @@ def _run_promote(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     except BaseException:
         _restore(snapshots)
         raise
+
+
+def _run_promote(root: Path, args: argparse.Namespace) -> dict[str, Any]:
+    root = root.resolve()
+    raw_items = _items(_load_payload(args.input))
+    selectors = [item.get("selector") for item in raw_items]
+    if any(not isinstance(selector, str) for selector in selectors):
+        raise ToolError("input-invalid", "every promote item requires selector")
+    plans: list[tuple[Atom, Path, bytes]] = []
+    existing: list[tuple[Atom, ExistingDraftPromotion, dict[str, Any]]] = []
+    role_drafts: list[tuple[Atom, str]] = []
+    planned_ids: set[str] = set()
+    for item, atom in zip(raw_items, resolve_selectors(root, selectors), strict=True):
+        kind, value = _plan_promotion_item(root, atom, item, planned_ids)
+        if kind == "fresh":
+            target, payload = value
+            plans.append((atom, target, payload))
+        elif kind == "role":
+            role_drafts.append((atom, value))
+        else:
+            existing.append((atom, value, item))
+    _validate_promotion_plans(root, plans, existing, role_drafts)
+    result = _promotion_result(root, plans, existing, role_drafts)
+    if args.apply:
+        _apply_promotion_plans(root, plans, existing, role_drafts)
     return result
 
 

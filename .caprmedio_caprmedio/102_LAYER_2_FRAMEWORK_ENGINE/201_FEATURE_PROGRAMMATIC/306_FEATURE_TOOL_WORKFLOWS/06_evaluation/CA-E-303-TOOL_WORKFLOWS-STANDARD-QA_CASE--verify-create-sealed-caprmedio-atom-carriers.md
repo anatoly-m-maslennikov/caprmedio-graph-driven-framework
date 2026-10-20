@@ -17,8 +17,8 @@ subjects:
     - "Create Sealed Atom Carriers"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 17
-updated_at: "2026-10-15 23:45:00 +0400"
+version: 19
+updated_at: "2026-10-20 22:06:20 +0400"
 relations: {"evaluation_for":["CA-R-865","CA-O-032","CA-D-508"]}
 ---
 # Summary
@@ -45,6 +45,8 @@ Create validates and admits one new Atom before its authorized effect. Several r
 - Inject a post-write validation failure within one Atom action. Prove that action's admitted all-or-nothing boundary and exact restoration where claimed; preserve unrelated Atoms, existing history and accepted recording. Unverified restoration remains a failed or uncertain effect, not a passing rollback.
 - Reject a competing identity admission after preview without silently choosing another ID. Verify the Project-wide next-unreused-number rule and initial Version metadata rather than only checking active filenames.
 - Create an Atom in each requested Status admitted by its applicable Role/Type model, including a case where Journal append fails or has no Event ID; verify the actual created Atom/Run outcome without replay.
+- Create a new Draft with no `atom_id` and the ID-free empty-number filename, and a role-draft marker such as `CA-R-draft`; validate marker/filename agreement without allocating a canonical number. Journal absence or append failure does not reject an otherwise admitted create.
+- Create an existing-Atom Draft carrier `CA-R-123@4-draft` with carried `version: 4` as a proposal for canonical `CA-R-123` Version 4; preserve Version 4 and do not allocate a canonical ID during Draft creation. Repeat the case with legacy `CA-R-123@draft` and an explicit proposed Version 4. Reject marker/filename/Version mismatches before writes. This is Draft-carrier staging, not new Atom creation; the fresh-ID and initial-Version cases above remain unchanged.
 
 ### Acceptance criteria
 

@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Atom/Revision/Updated At", "Update Sealed Atom Carriers", "Artifact/Carrier", "Journal/Record"]
-version: 29
-updated_at: "2026-10-20 14:06:27 +0400"
+version: 30
+updated_at: "2026-10-20 21:39:01 +0400"
 relations:
   evaluation_for: [CA-R-866, CA-O-030, CA-R-1464, CA-R-1415, CA-R-1371]
   relates_to: [CA-O-067, CA-R-1432, CA-R-1788, CA-R-1662]
@@ -134,6 +134,10 @@ Inject write/readback/validation/final-currentness and post-helper provider fail
 
 ### Existing-Atom edit-draft batch cases
 
-Exercise `stage_subject_batch` with strict limits1..10/default10, rejecting Boolean/out-of-range values, malformed packets, mixed draft pins and unsafe paths. Verify bounded actual progress and complete schema1 packet output, exact temporary `<canonical-ID>@draft`/Status Draft files, unchanged canonical/history bytes and modes, source-preserving body/metadata, and changed-proposal N+1/illustrative time. True no-ops retain source Version/time. New-Atom Drafts remain ID-free and canonical ID grammar is unchanged.
+Exercise `stage_subject_batch` with strict limits1..10/default10, rejecting Boolean/out-of-range values, malformed packets, mixed draft pins and unsafe paths. Verify bounded actual progress and complete schema1 packet output, exact temporary `CA-R-draft` or `<canonical-ID>@<proposed-version>-draft`/Status Draft files, unchanged canonical/history bytes and modes, source-preserving body/metadata, and changed-proposal N+1/illustrative time. Accept legacy `<canonical-ID>@draft` only as compatibility input with an explicit proposed Version. True no-ops retain source Version/time. New-Atom Drafts remain ID-free or use the role-draft marker and canonical ID allocation remains deferred until explicit promotion.
+
+### Draft marker promotion cases
+
+Exercise a new ID-free Draft, a `CA-R-draft` Draft, an existing `CA-R-123@4-draft` Draft, and legacy `CA-R-123@draft`. Require filename/carried-marker agreement, explicit target and expected current Version/digest, and refusal on stale or mismatched bindings. Promote the version-qualified case to the same canonical `CA-R-123` at Version 4, archive the exact Version-3 predecessor bytes, restore the source Status and remove only the pinned Draft. For ID-free/role-draft cases, require an explicitly admitted fresh next-unreused ID. Journal absence or append failure must remain diagnostic only; no retained Draft history or lineage record is a promotion gate.
 
 After the instructed draft commit, promote using existing request authorization without another full-candidate validation, content-review or confirmation round. Retain normal exact target/draft/patch/layout, archive, metadata, conditional-write and readback checks. Restore canonical ID and original Status (Active for the current migration), preserve unrelated bytes, and prove exact predecessor/N+1/actual-time outputs. Tampering or drift stops that member; completed earlier members remain and held/remaining sources are unchanged. Verify each draft-backed frontier includes the draft path after current/required archive paths, with exactly `{type: "draftRemoval", path, atom_id, sha256}` bound to the packet, including canonical no-op members. Reject wrong paths/digests/fields. After verified canonical output and any required archive readback, verify conditional deletion of only the exact pinned draft. Inject cleanup I/O failure or changed draft bytes: stop, retain published canonical/archive effects, report actual cleanup state and never roll back completed effects or delete an unverified file. For this batch, local carrier parsing, exact descriptors, explicit old-value patches, selected grammar, safe layout, deterministic byte materialization and conditional-write/readback are the normal checks; do not repeatedly revalidate unchanged body content or build a global reference inventory for every member. The existing final graph operation remains separate. Do not fabricate Draft lineage or confirmation receipts, or automatically replay/roll back the batch.

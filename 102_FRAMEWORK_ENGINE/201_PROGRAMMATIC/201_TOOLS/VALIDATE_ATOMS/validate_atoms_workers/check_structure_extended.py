@@ -16,6 +16,7 @@ import re
 from .authority import Record, _verified
 from .check_sections import _headings
 from .check_support import Check, _integer, _string
+from .check_fields import _draft_identity_context
 
 
 def _inputs(check: Check) -> Record:
@@ -585,6 +586,31 @@ def _summary(body: str) -> str | None:
     return value or None
 
 
+def _draft_filename_identity(metadata: Record, path: Path, check: Check) -> None:
+    context = _draft_identity_context(metadata, check)
+    if context is None:
+        return
+    prefix, letter = context
+    identifier = metadata.get("atom_id")
+    stem = path.stem
+    if _string(identifier):
+        matches = stem.split("--", 1)[0] == identifier
+    else:
+        matches = stem.startswith(f"{prefix}-{letter}--")
+    if not matches:
+        check.fail(
+            "ADDRESS_IDENTITY",
+            "atom_id",
+            "Draft filename identity does not agree with its exact carried Draft marker or empty-number form.",
+        )
+
+
+def _draft_address(metadata: Record, path: Path, check: Check) -> None:
+    if not _authority(check, "CA-D-288", "CA-D-378"):
+        return
+    _draft_filename_identity(metadata, path, check)
+
+
 def _address(metadata: Record, body: str, check: Check) -> None:
     if "projection" in metadata:
         check.gap(
@@ -597,10 +623,13 @@ def _address(metadata: Record, body: str, check: Check) -> None:
     if not isinstance(path, Path):
         check.gap("address", "Canonical address comparison requires the selected Carrier path.")
         return
+    if metadata.get("status") == "Draft":
+        _draft_address(metadata, path, check)
+        return
     if (
         metadata.get("content_role") == "Plan"
         or metadata.get("type") == "Goal"
-        or metadata.get("status") in ("Draft", "draft", "Archived")
+        or metadata.get("status") in ("draft", "Archived")
     ):
         check.gap(
             "address",

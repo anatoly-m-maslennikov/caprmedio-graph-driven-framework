@@ -14,8 +14,8 @@ subjects:
   depends_on: []
 relations:
   concern_about: [CA-P-2401, CA-P-1959, CA-D-446]
-version: 1
-updated_at: "2026-10-20 16:58:30 +0400"
+version: 4
+updated_at: "2026-10-20T19:10:44.040Z"
 ---
 # Summary
 
@@ -23,14 +23,14 @@ Align edit-draft markers with no-ID Draft identity
 
 ## Concern
 
-The legacy edit-draft staging representation uses an Atom ID-like @draft marker, while the latest human model decision says a Draft has no Atom ID. The Methodology source alignment and the representation change must be settled together; do not publish held drafts as compliant or infer a new identity system from their filenames.
+The source correction is implemented and verified, but installed runtime adoption remains outside this increment. The published Draft forms are: optional `atom_id` and ID-free empty-number Drafts, `CA-R-draft`/role-draft markers for new Atoms, version-qualified `<canonical-ID>@<proposed-version>-draft` edit markers, and legacy `<canonical-ID>@draft` compatibility. A marker is Draft-only proposal metadata, not a canonical identity. Existing-marker promotion must update the same canonical Atom at the explicit carried/requested Version, archive the exact current predecessor, and refuse stale target/version/digest bindings.
 
 ## Evidences
 
-Epic CA-P-1959 v124 retains the latest approved Draft/Current/Archived group decision and the no-ID Draft rule. The Methodology owner confirmed no source effect is running, the five held edit-drafts remain unpublished, and narrowing lifecycle source proposals are scratch-only, not new active authority. Existing held carrier filenames include CA-R-1016@draft, CA-R-1017@draft, CA-R-1019@draft, CA-R-1021@draft and CA-R-1472@draft. Their concrete representation requires reconciliation against active Draft identity/staging contracts before changing implementation.
+The six original Core deliveries and Engine RMEDO now agree on Draft-only markers and no retained-history/Journal admission gate. Independent frozen checks passed validator 542, CLI E2E 28, native promotion 8, marker formats 6, model lifecycle 20, exact pins 1 and full promotion 22. Staging passed focused 16, contract 5 and workflow 10. Same-path concurrent-edit preservation, exact predecessor bytes, Done-to-Active child bundles, strict Version bindings and mutation-free no-op were independently reviewed. The older parser cohort was corrected as a fixture/obsolete expectation issue and passed all 30; no production guard was weakened.
 
-The three lifecycle groups do not by themselves authorize removing Draft or Archived serialized Status values. Current-only relation targeting likewise does not choose an incoming-link cleanup or archive gate. No such additional policy is inferred.
+These are source/host proofs only. No release, deployment, installed mirror refresh, migration or held-Draft publication occurred. The installed 0.4.4.8 runtime has not been activated with this increment, so this Problem remains Active for separately authorized runtime adoption and reconciliation of held carriers CA-R-1016@draft, CA-R-1017@draft, CA-R-1019@draft, CA-R-1021@draft and CA-R-1472@draft. Preserve their captured evidence and the stopped batch; do not replay or reset it.
 
 ## Blast radius
 
-Affected edit-draft staging/publication and promotion may misrepresent Draft identity. This is a separate bounded source-and-implementation follow-up, not a parser fix or authority to replay, delete, reset or publish the held drafts. Preserve their captured evidence and the stopped batch. The approved runtime release does not claim this mismatch is repaired.
+Affected edit-draft staging/publication and promotion may misrepresent Draft identity or overwrite a stale canonical predecessor. This is a separate bounded source-and-implementation follow-up, not authority to replay, delete, reset or publish the held drafts. Preserve their captured evidence and the stopped batch. The approved runtime release does not claim this Problem is repaired.

@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Workflow Operations/Atom Lifecycle/Request Parameters/Draft Identity Evidence"
   depends_on: ["Tool", "Workflow Operations/Atom Lifecycle/Dispatch Interface", "Atom/Revision/Status: Draft", "Atom/Revision/History"]
-version: 6
-updated_at: "2026-10-16 00:00:00 +0400"
+version: 8
+updated_at: "2026-10-20 22:20:57 +0400"
 relations:
   relates_to: [CA-D-531, CA-D-532, CA-D-568]
 ---
@@ -32,5 +32,15 @@ Create and explicit Change Status admit any Status the resolved current Role/Typ
 Actual exact predecessor history is retained when the mutation produces it. Any Journal append records only observed facts after the independent mutation attempt; its absence or append failure is a diagnostic, does not invalidate an observed mutation, and never authorizes replay. Unknown effects remain unknown rather than being claimed successful.
 
 ## Details
+
+For Draft markers, bind the exact Draft path/digest and filename marker to the request. `CA-R-draft`/ID-free sources require an explicitly admitted fresh target ID; `<canonical-ID>@<proposed-version>-draft` binds to the same canonical target and proposed Version, while legacy `<canonical-ID>@draft` requires that Version explicitly. Existing-marker promotion must also bind the exact current predecessor Version/digest and refuses stale or mismatched evidence before effects. No retained Draft history, lineage or Journal append is required.
+
+### Existing-marker request bindings
+
+For an existing-marker Draft through the lifecycle `change_status` route, `request.parameters` carries exactly `{target: <full Draft descriptor>, status: "Active", canonical_target: <full Current descriptor>, proposed_version: <positive integer>}`. The full Draft descriptor includes the exact Draft path, filename marker, carried Version, digest, lifecycle and Status; the full Current descriptor includes the canonical ID, current path, filename, current Version, digest, lifecycle, current admitted Status, Content Role and Type. `canonical_target` is the current predecessor, not a second target or an instruction to allocate an ID.
+
+For an existing-marker item through native `ATOM_PROMOTE`, the item carries exactly `{selector: <Draft path>, target: <full Draft descriptor>, atom_id: <canonical ID>, canonical_target: <full Current descriptor>, proposed_version: <positive integer>}`. The selector, Draft descriptor path, marker-derived canonical ID, explicit `atom_id`, canonical-target ID/path and all Version/digest/currentness pins must agree. A duplicate ID, path or Version representation that disagrees with another bound representation refuses before effects. `proposed_version` is a positive integer; Boolean values are invalid even where the host language treats them as integers. The carried marker, proposed Version, current predecessor digest and currentness checks are authoritative preconditions, not advisory hints.
+
+Native new-marker packets support one Atom Action. Ordered bulk promotion remains the existing Workflow boundary: invoke one independently bound Action per item in declared order, without reordering and without cross-Atom rollback. Ordinary ID-free compatibility remains unchanged. A role-only new marker uses an explicitly admitted fresh canonical ID and exact Draft path/digest pins, and carries no `canonical_target` because it has no existing predecessor.
 
 This Delivery extends only the route-specific CA-D-531 lifecycle boundary; it does not alter CA-D-527's outer request, authorization, actual Run state, or Journal authority. CA-D-532 result carriers report actual observed facts and do not become an independent identity registry, Events writer, or Journal writer. This is a source contract, not an implemented request-field acceptance claim.

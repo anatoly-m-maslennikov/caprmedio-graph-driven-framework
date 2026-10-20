@@ -232,8 +232,8 @@
       },
       "CA-D-276": {
         "fixture": "authority_checks/CA-D-276.md",
-        "sha256": "265d617e1cbe3cc2301317c36f347b5012715f652fa118d8062f9342222b441f",
-        "version": 19
+        "sha256": "052efd2454be5fe51e60a57fafbc7b767d87bba4a37272615c95b2648583ac02",
+        "version": 21
       },
       "CA-D-305": {
         "fixture": "authority_checks/CA-D-305.md",
@@ -247,8 +247,8 @@
       },
       "CA-D-446": {
         "fixture": "authority_checks/CA-D-446.md",
-        "sha256": "c48ad404d8fafc60907ab79b790eaa3d6bd42ce7614ddb2d73f09405b663b7e6",
-        "version": 11
+        "sha256": "189cc02e8a9e085d4e49bc59148bfc013d64ad14d660bc48c17fa66a86272d5c",
+        "version": 17
       },
       "CA-D-447": {
         "fixture": "authority_checks/CA-D-447.md",
@@ -374,8 +374,13 @@
       },
       "CA-D-378": {
         "fixture": "schema_authority/CA-D-378.md",
-        "sha256": "9435f3abb5a56f46c37c43c3e758afa1e288a0af259f39a34237495d8fcf255f",
-        "version": 10
+        "sha256": "d4e6f0569f81a54f434d060ea6e2a271dea51611a66a1afd0f6a10ca127c7562",
+        "version": 16
+      },
+      "CA-D-288": {
+        "fixture": "schema_authority/CA-D-288.md",
+        "sha256": "ee2d67a592d36a35d4c38ba7212091151eaaaef0f5687030665296ed6133efe3",
+        "version": 21
       },
       "CA-D-623": {
         "fixture": "schema_authority/CA-D-623.md",

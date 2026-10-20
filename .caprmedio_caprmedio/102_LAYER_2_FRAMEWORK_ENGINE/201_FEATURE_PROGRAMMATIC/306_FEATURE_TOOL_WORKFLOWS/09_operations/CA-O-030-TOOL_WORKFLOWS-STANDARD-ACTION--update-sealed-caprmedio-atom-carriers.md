@@ -19,8 +19,8 @@ subjects:
     - "Atom/Revision/Updated At"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 24
-updated_at: "2026-10-20 14:06:03 +0400"
+version: 25
+updated_at: "2026-10-20 21:39:01 +0400"
 relations: {}
 ---
 # Summary
@@ -121,4 +121,4 @@ These direct calls preserve the existing no-Journal local preparation policy: no
 
 ### Existing-Atom edit-draft publication
 
-The instructed draft-backed batch uses CA-D-446/CA-D-425's source-pinned full drafts and final schema1 packet. Existing request authorization admits their exact promotion without an additional review/form/confirmation round. Restore canonical ID and original source Status from the temporary markers; the current Active sources therefore publish Active while generic non-Active status preservation remains unchanged. Reopen exact source and draft at the operation, enforce normal Subjects-only patch/layout and metadata checks, archive the exact predecessor, publish N+1 with actual time, and independently read back the actual effect. No separate full-candidate preflight or public initial intent metadata is required. Keep existing native failed-write handling and truthful partial/unknown results; proposal existence is not publication. After verified canonical output and any required predecessor readback, conditionally remove only that member's exact packet-pinned draft bytes. If draft cleanup fails or its bytes have drifted, stop and report the actual cleanup failure, preserving the published canonical Revision and archive; do not roll them back or remove another file.
+The instructed draft-backed batch uses CA-D-446/CA-D-425's source-pinned full drafts and final schema1 packet. Existing request authorization admits their exact promotion without an additional review/form/confirmation round. A new Draft may be ID-free or carry `CA-R-draft`; an edit Draft carries `<canonical-ID>@<proposed-version>-draft`, with legacy `<canonical-ID>@draft` accepted only when the request supplies the proposed Version. Reopen exact source and draft at the operation, verify the explicit target, expected predecessor Version/digest and marker, restore the canonical ID and original source Status, archive the exact predecessor when one exists, publish the proposed Version with actual time, and independently read back the actual effect. No separate full-candidate preflight, retained Draft-history/lineage requirement, Journal gate or public initial intent metadata is required. Keep existing native failed-write handling and truthful partial/unknown results; proposal existence is not publication. After verified canonical output and any required predecessor readback, conditionally remove only that member's exact packet-pinned draft bytes. If draft cleanup fails or its bytes have drifted, stop and report the actual cleanup failure, preserving the published canonical Revision and archive; do not roll them back or remove another file.

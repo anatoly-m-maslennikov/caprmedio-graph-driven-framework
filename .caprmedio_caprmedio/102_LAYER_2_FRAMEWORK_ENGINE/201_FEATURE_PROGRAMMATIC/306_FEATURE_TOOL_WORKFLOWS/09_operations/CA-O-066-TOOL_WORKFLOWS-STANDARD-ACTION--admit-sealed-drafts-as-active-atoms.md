@@ -20,8 +20,8 @@ subjects:
     - "Atom/Revision"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 4
-updated_at: "2026-10-13 18:55:32 +0400"
+version: 5
+updated_at: "2026-10-20 21:39:01 +0400"
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations: {}
@@ -34,23 +34,23 @@ Admit Sealed Drafts as Active Atoms **means** the reusable Action that accepts o
 
 - select **`=1`** Draft; handle an explicit ordered list as independent Atom Actions under CA-R-869.
 - actual promotion requires an authorized Project-local MCP delegation with a sealed Initiative action envelope. preview alone grants no apply authority.
-- the Operator supplies the stable Project Atom IDs. validate their admission under CA-D-450 **and** CA-D-378; do **not** silently substitute another ID.
+- bind the source to an explicit target. An ID-free or `CA-R-draft` Draft receives an explicitly admitted fresh next-unreused canonical ID under CA-D-378. A `<canonical-ID>@<proposed-version>-draft` Draft binds to that same canonical ID and proposed Version; legacy `<canonical-ID>@draft` remains compatible only with an explicit proposed Version. Do not silently substitute another target or Version.
 
 ## Action
 
-1. resolve this one source as a current Draft **and** bind it **to** **`=1`** Operator-supplied stable Atom ID. retain the exact source paths **and** bytes, digests, assigned IDs **and** expected active destinations.
-2. validate role matching, uniqueness within the request **and** the next unreused Project-wide numbers for the applicable Content Roles. use current authority **and** preserved assignment/history evidence; absence from active files alone does **not** establish non-use. archived, replaced **or** absorbed Atoms do **not** release their IDs. missing **or** conflicting evidence leaves admission unresolved.
-3. derive **`=1`** canonical active filename **and** location for this Draft. remove **only** the `drafts` lifecycle path segment **and** change the Carrier filename under the applicable Delivery grammar; preserve the complete Draft bytes. reject non-Drafts, invalid **or** mismatched IDs, collisions **and** incomplete mappings.
+1. resolve this one source as a current Draft and retain the exact source path, bytes and digest. Validate that its carried marker is permitted (`CA-R-draft`, `<canonical-ID>@<proposed-version>-draft`, or legacy `<canonical-ID>@draft`) and agrees with the filename; ID-free Drafts remain valid.
+2. bind the source to one explicit target and expected state. For an existing marker, require the target canonical ID, exact current predecessor Version/digest, and proposed Version equal to the marker and current Version + 1. For an ID-free/role-draft source, require an explicitly admitted fresh next-unreused canonical ID. No retained Draft history, lineage or Journal append is required; stale or conflicting target/Version evidence leaves admission unresolved.
+3. derive one canonical active filename and location. Materialize the canonical ID, admitted Status and proposed Version while preserving Draft body and unrelated metadata; remove only the Draft lifecycle marker/path. Reject non-Drafts, invalid or mismatched markers, collisions and incomplete mappings.
 4. freeze this source, identity-admission evidence **and** destination map. return its mutation-free dry run **without** accepting authority.
-5. on explicit authorized `--apply`, recheck source digests, identity-admission evidence **and** destination absence. a competing admission **or** changed evidence invalidates the preview. safely move this one Draft within its independent Action boundary.
+5. on explicit authorized `--apply`, recheck source digest, explicit target/predecessor Version/digest, marker and destination evidence. A competing admission or changed evidence invalidates the preview. Safely materialize this one Draft within its independent Action boundary, archiving the exact current predecessor for an existing marker.
 6. verify exact byte identity, unique active identity, canonical placement, absence from the Draft surface **and** this one target's complete admission.
 7. **if** **any** effect **or** postcondition fails, restore only this Action's verified mutable source **and** destination frontier **to** its exact before-state. preserve unrelated Carriers **and** immutable accepted Journal evidence. report the failed attempt **and** recovery result rather than promotion success.
 
 ## Outcome
 
-This accepted Draft becomes **`=1`** byte-identical active Atom with its admitted Operator-supplied identity. remain **in** dry-run mode **without** delegated apply authority. stop **or** roll back on invalid input, uncertain identity admission, collision, stale Carrier, changed destination absence **or** incomplete promotion. incomplete **or** unverified restoration is **not** successful recovery.
+This accepted Draft becomes one canonical active Atom with the explicitly bound identity and Version. An existing-marker promotion updates the same canonical Atom (for example `CA-R-123@4-draft` becomes `CA-R-123` Version 4) and archives the exact current predecessor; a new Draft receives its newly admitted identity. Stop or recover on invalid input, uncertain identity admission, collision, stale Carrier, changed destination or incomplete promotion. Incomplete or unverified restoration is not successful recovery.
 
-A first identity admission preserves the Draft-byte rule above; it does not invent a prior same-ID Atom Revision. Any actual change to an already identified Atom follows Version N+1 and actual Project-time updated_at, with exact prior N history retained; no-op retains Version/time.
+Journal records actual observations after the independent mutation attempt. Journal absence or append failure never authorizes replay and never gates an otherwise observed promotion.
 
 For a folder-backed Plan, Workflow or Step Draft, include its matching Directory Carrier in this one target's admitted destination map and retain its nested tree beside the promoted Markdown Carrier with the governed matching stem. Preserve exact older Revision bytes and do not migrate noncanonical legacy archive trees. Relocation does not infer or rewrite descendants' Status or Revision metadata. When this admission is a component of the R1521 containment cascade, the caller separately binds every selected descendant's latest Revision to its own model-admitted Status Action, rechecking its current location after earlier effects. This Action retains the Operator-supplied identity-admission conditions above, selects no other target and proves completion only for its one admission; referenced Atoms outside the tree remain untouched.
 

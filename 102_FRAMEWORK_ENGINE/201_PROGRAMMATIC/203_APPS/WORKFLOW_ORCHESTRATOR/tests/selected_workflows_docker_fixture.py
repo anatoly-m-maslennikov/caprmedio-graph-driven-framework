@@ -355,6 +355,19 @@ class GoldenProject:
         self._copy_pinned(status_sources[0], hashlib.sha256(
             frozen_source_bytes(status_sources[0])
         ).hexdigest())
+        draft_sources = []
+        for atom_id in ("CA-D-288", "CA-D-378"):
+            matches = [
+                Path(path) for path in frozen_source_paths()
+                if Path(path).name.startswith(f"{atom_id}-")
+            ]
+            if len(matches) != 1:
+                raise GoldenCorpusError(f"frozen {atom_id} draft-marker source is unavailable or ambiguous")
+            draft_sources.append(matches[0])
+        for source in draft_sources:
+            self._copy_pinned(source, hashlib.sha256(
+                frozen_source_bytes(source)
+            ).hexdigest())
         authority = self.root / (
             ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
             "METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/"
