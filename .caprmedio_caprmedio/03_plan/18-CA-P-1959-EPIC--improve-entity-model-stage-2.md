@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 124
-updated_at: "2026-10-20 16:50:31 +0400"
+version: 126
+updated_at: "2026-10-20 20:21:49 +0400"
 relations: {}
 ---
 # Summary
@@ -308,19 +308,41 @@ Independent work continues; general unrelated content migration stays CA-P-1970.
 
 Previous continuation results remain valid: draft checkpoint `3b7c129fb` and source-effects commit `109c62329` contain ten Subjects-only updates with ten exact predecessors and consumed drafts. Their completed batch readback reports no body/unrelated metadata changes and no errors. The 61-owner `//` staging attempt stopped before drafts or source effects; the later 16-owner ordinary staging attempt stopped after ten drafts on a duplicate mapping. Those original attempts remain stopped, not relabeled successful or replayed. The ten known drafts were separately selected, committed and published once; the duplicate mapping was corrected afterward. Five further drafts were staged before this new model decision; they are not published or presented as current sources. R1022 is separately owned by CA #3 under its own human-approved clarification and is excluded from this chat's follow-up publication.
 
-CA #3 confirmed that the installed MCP image lacks the already implemented `//` grammar; no new parser design is needed. That deployment dependency remains separate, with no production replacement or replay authorized by this Plan update. Existing pending edit-drafts and frozen maps remain evidence of their captured model, not authority over these latest decisions.
+Earlier checkpoint: CA #3 confirmed that the then-installed MCP image lacked the already implemented `//` grammar. That historical deployment gap was later repaired by its authorized local release, as recorded below. Existing pending edit-drafts and frozen maps remain evidence of their captured model, not authority over the latest decisions.
 
 #### P carrier layout refinement — Operator decision, 2026-10-20
 
 Each Scope Unit's P folder has shared `draft/` and `archived/` areas. These belong to the Scope Unit's P area, not separately to every container Plan. Each container P Atom has its own Done, Canceled and other applicable current-status folders for contained Plans. Done and Canceled remain statuses inside the Current group; their Atoms are not historical merely because work is finished.
 
 - [x] Record this latest carrier-layout decision before continuing.
-- [ ] Locate and align the affected P Delivery/containment/Status rules, preserving the approved distinction between lifecycle group and Status and the direct containing-Atom identity.
-- [ ] Keep Draft/Archived scope-wide and current-status organization local to the containing P Atom. Do not automatically flatten archived subtrees or invent a placement rule for a naked root-level Plan's terminal Status; any uncovered case remains explicit.
+- [x] Align the bounded P Delivery/Evaluation placement rules in D461 v15 and E502 v13, preserving the approved distinction between lifecycle group and Status and the direct containing-Atom identity. Broader status-domain changes are not inferred.
+- [x] Keep Draft/Archived scope-wide and current-status organization local to the containing P Atom. The later explicit Operator decision requires flat individual Archived Plan Markdown carriers; preserve Current nesting. Do not infer a physical migration, auxiliary-file layout or naked root-level terminal-Status placement.
 - [ ] Pass only concrete workflow/connector changes to CA #3 after source RMEDO alignment. Existing legacy edit-drafts remain held until their marker/identity treatment is aligned with Draft having no Atom ID.
 - [ ] Apply the accepted layout migration through existing operations after the rules and required tools are ready, preserve versioned history and source relationships, then rebuild the affected projections from actual sources.
 
 This Plan update moves no folder or Atom, changes no source Status or ID, creates no new archive/cascade behavior and does not declare the existing layout compliant. It refines the preceding Current-group decision; it does not restore Revision as an entity or decide incoming-link handling on archival.
+
+#### Continuation checkpoint — 2026-10-20
+
+The bounded Core alignment completed through the admitted update workflow: R1676 v21, D288 v20, D289 v13, D290 v14, D446 v15, R1961 v4, R1989 v4 and R1432 v15; D461 first advanced to v14 and E502 to v12. The later direct Operator answer, “No—flatten archived Plans,” superseded retained Archived nesting: D461 v15 and E502 v13 now put individual Archived Plan Markdown carriers directly in the owning Scope Unit's shared `03_plan/archived` area. Current Plan nesting stays unchanged. Existing Status values, transitions/cascades, Summary and unrelated metadata were preserved. Each changed source advanced Version by one and retained exact predecessor bytes; independent post-effect checks passed.
+
+This was source-rule alignment, not physical Plan migration or full Revision-entity retirement. R1371 and R1960 remain current until their fresh preservation and inbound-link checks pass. The five old-marker drafts remain held, and the stopped batches have not been replayed or reset. C533 tracks the draft-marker mismatch; C539 tracks the unimplemented flat Archived placement/migration. Auxiliary-file and optional bundle-directory layout is not decided by the flat Markdown-carrier rule. Incoming-link handling without a current successor remains unresolved.
+
+PROGRAMMATIC completed local release 0.4.4.8 and final checkpoint `bb7401a40`; its retained verification records 410 modules, 3,680 tests, zero failed modules/skips and launcher integration passed. Its new MCP at port 56317 includes the existing `//` parser. The coordination freeze is lifted. These are that release's recorded results, not a new test run or release by this Epic. C545 separately tracks a schema handoff gap; the selected O030 action currently advertises a complete update schema and is checked independently before source work.
+
+Next: record this checkpoint, retire only the supported obsolete Revision definitions, align remaining source-specific Subjects without blanket text replacement, then rebuild as-is Core and Project Configuration views. Keep residual conflicts visible and general unrelated content migration in CA-P-1970. No runtime repair, physical carrier move, held-draft publication or automatic history cleanup is authorized by this checkpoint.
+
+#### Post-release source and projection checkpoint — 2026-10-20
+
+- [x] Record the preceding completed alignment in this Epic (v125), retaining exact v124 history.
+- [x] Align R1415 v15, R1416 v15 and R1412 v14 Scope/Claim wording to Atoms and versions. Their immutable Summaries, Subjects, cardinalities, applicability, Status and unrelated metadata remain unchanged; each exact predecessor is preserved.
+- [x] Retire standalone Revision definitions R1371 and R1960 through the admitted archive action. Their final versions are Archived R1371 v14 and R1960 v4; exact previous v13 and v3 bytes are retained. No direct current Atom-ID relation targeted either definition. Their valid History, Version, timestamp and no-op constraints remain covered by R1961, R1432 and R1788.
+- [x] Rebuild the four existing derived views from actual current sources: Core CA-PROJ-002/004 each list 909 source Atoms, and Project Configuration CA-PROJ-003/005 each list 234. Retired R1371/R1960 are excluded from source lists; the latest property-rule Versions are included. Generation left all source bytes unchanged.
+- [ ] Align the 22 residual old Revision Subject-path owners source by source, preserving valid history and current-target meaning. They remain visible/unmapped, not silently filtered out or adopted as the new model. Review R1419's remaining archival-Status wording separately; do not invent an allowed-value removal or incoming-link policy.
+
+The explicit retirement decision does not require an invented all-owner remapping gate. Archiving the two definitions is not a claim that their remaining mentions have been migrated or that the graph is clean. Historical references and exact archived bytes remain intact. O128 was held without changes during this bounded pass. No stopped batch was reset or replayed, and none of the five held edit-drafts was changed or published. Physical Plan archive flattening remains PROGRAMMATIC Problem C539, and draft markers remain C533. The live O030 update route successfully performed the actual governed edits; this does not close C545's separate request-schema handoff issue.
+
+Next work remains the supported residual Subject mappings and necessary owner-level rule corrections, followed by refreshed as-is views and defining-R coverage. General content migration stays CA-P-1970. The Epic remains Active.
 
 #### Phase 1 — migrate Subjects first
 

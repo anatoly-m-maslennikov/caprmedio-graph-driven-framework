@@ -5,7 +5,7 @@ projection_id: CA-PROJ-003
 named_selection: Current Atoms
 source_of_truth:
 - .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION
-updated_at: 2026-10-20 13:42:07 +0400
+updated_at: 2026-10-20 20:15:41 +0400
 sources:
 - CA-C-266@5
 - CA-C-477@2
@@ -210,9 +210,9 @@ sources:
 - CA-R-1651@20
 - CA-R-1662@28
 - CA-R-1663@25
-- CA-R-1665@21
+- CA-R-1665@22
 - CA-R-1666@25
-- CA-R-1668@22
+- CA-R-1668@23
 - CA-R-1680@20
 - CA-R-1692@19
 - CA-R-1711@20
@@ -301,11 +301,8 @@ Atom
 		/ Atom/Content Role: Analysis/Type
 		/ Atom/Content Role: Analysis/Type: FPF Analysis Report
 	/ Atom/Content Role: Delivery
-		/ Atom/Content Role: Delivery/Type
 	/ Atom/Content Role: Evaluation
 	/ Atom/Content Role: Implementation
-	/ Atom/Content Role: Method
-		/ Atom/Content Role: Method/Type: Implementation Decision
 	/ Atom/Content Role: Operations
 	/ Atom/Content Role: Plan
 		/ Atom/Content Role: Plan/Type
@@ -388,9 +385,11 @@ Entity
 				/ Entity/Node/Continuant/Atom/Content Role: Concern
 					/ Entity/Node/Continuant/Atom/Content Role: Concern/Type
 				/ Entity/Node/Continuant/Atom/Content Role: Delivery
+					/ Entity/Node/Continuant/Atom/Content Role: Delivery/Type
 				/ Entity/Node/Continuant/Atom/Content Role: Evaluation
 					/ Entity/Node/Continuant/Atom/Content Role: Evaluation/Type
 				/ Entity/Node/Continuant/Atom/Content Role: Method
+					/ Entity/Node/Continuant/Atom/Content Role: Method/Type: Implementation Decision
 				/ Entity/Node/Continuant/Atom/Content Role: Operations
 					/ Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action
 					/ Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step
