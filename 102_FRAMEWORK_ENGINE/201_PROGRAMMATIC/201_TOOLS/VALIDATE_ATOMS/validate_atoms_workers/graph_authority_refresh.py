@@ -49,28 +49,56 @@ APPROVED_GRAPH_AUTHORITY_IDS = frozenset(
 )
 
 _SOURCE_ROLE_DIRECTORIES = ("04_requirement", "07_delivery")
+_REQUIRED_SOURCE_SCOPE_UNIT = "CORE_META_MODEL"
+_OPTIONAL_SOURCE_SCOPE_UNITS = ("PROJECT_CONFIGURATION",)
+
+
+def _validated_source_root(owner_root: Path, role: str, control_root: Path) -> Path:
+    declared_root = owner_root / role
+    source_root = declared_root.resolve()
+    if (
+        declared_root != source_root
+        or not source_root.is_relative_to(control_root)
+        or not source_root.is_dir()
+    ):
+        raise ValueError("current graph authority directory is unavailable")
+    return source_root
+
+
+def _declared_source_owner(selection: Any, scope_unit: str, *, required: bool) -> Any | None:
+    owners = [
+        row for row in selection.structure.get("scope_units", ())
+        if row.get("scope_unit_name") == scope_unit
+    ]
+    if len(owners) > 1 or (required and len(owners) != 1):
+        raise ValueError("current graph authority owner is absent or ambiguous")
+    if not owners:
+        return None
+    if not isinstance(owners[0].get("authority_path"), str):
+        raise ValueError("current graph authority owner is absent or ambiguous")
+    return owners[0]
 
 
 def _source_roots(root: Path) -> tuple[Path, ...]:
     selection = active_selection(root)
     owners = [
-        row for row in selection.structure.get("scope_units", ())
-        if row.get("scope_unit_name") == "CORE_META_MODEL"
+        _declared_source_owner(selection, _REQUIRED_SOURCE_SCOPE_UNIT, required=True),
+        *(
+            _declared_source_owner(selection, scope_unit, required=False)
+            for scope_unit in _OPTIONAL_SOURCE_SCOPE_UNITS
+        ),
     ]
-    if len(owners) != 1 or not isinstance(owners[0].get("authority_path"), str):
-        raise ValueError("current graph authority owner is absent or ambiguous")
-    owner = selection.root / owners[0]["authority_path"]
     result: list[Path] = []
-    for role in _SOURCE_ROLE_DIRECTORIES:
-        declared_root = owner / role
-        source_root = declared_root.resolve()
-        if (
-            declared_root != source_root
-            or not source_root.is_relative_to(selection.control_root)
-            or not source_root.is_dir()
-        ):
-            raise ValueError("current graph authority directory is unavailable")
-        result.append(source_root)
+    for index, owner in enumerate(owner for owner in owners if owner is not None):
+        owner_root = selection.root / owner["authority_path"]
+        roles = _SOURCE_ROLE_DIRECTORIES if index == 0 else tuple(
+            role for role in _SOURCE_ROLE_DIRECTORIES
+            if (owner_root / role).exists() or (owner_root / role).is_symlink()
+        )
+        result.extend(
+            _validated_source_root(owner_root, role, selection.control_root)
+            for role in roles
+        )
     return tuple(result)
 
 

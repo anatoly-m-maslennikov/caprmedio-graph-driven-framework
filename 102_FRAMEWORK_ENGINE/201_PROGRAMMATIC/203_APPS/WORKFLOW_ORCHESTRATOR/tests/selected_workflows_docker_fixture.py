@@ -81,8 +81,8 @@ STATUS_DOMAINS = (
     ("Method", "M", "05_method", "CA-R-1397", ("Draft", "Active", "Archived")),
     ("Evaluation", "E", "06_evaluation", "CA-R-1398", ("Draft", "Active", "Archived")),
     ("Delivery", "D", "07_delivery", "CA-R-1399", ("Draft", "Active", "Archived")),
-    ("Plan", "P", "03_plan", "CA-R-1539", ("Active", "Backlog", "Done", "Canceled", "Archived")),
-    ("Concern", "C", "01_concern", "CA-R-1608", ("draft", "active", "resolved", "canceled")),
+    ("Plan", "P", "03_plan", "CA-R-1539", ("Draft", "Active", "Archived", "Backlog", "Done", "Canceled")),
+    ("Concern", "C", "01_concern", "CA-R-1608", ("Draft", "Active", "Archived", "Resolved", "Canceled")),
     ("Operations", "O", "09_operations", "CA-R-1874", ("Draft", "Active", "Archived")),
     ("Analysis", "A", "02_analysis", "CA-R-1875", ("Draft", "Done", "Archived")),
 )
@@ -493,7 +493,7 @@ class GoldenProject:
         # METHODOLOGY_SOURCES authority, not caller-supplied models.  Keep an
         # exact copy of every current role authority available for the
         # all-role Docker proof; normal W04 still requests Requirement only.
-        for _role, _letter, _directory, atom_id, _statuses in STATUS_DOMAINS:
+        for atom_id in [row[3] for row in STATUS_DOMAINS] + ["CA-R-1947"]:
             matches = [
                 Path(path) for path in frozen_source_paths()
                 if path.startswith(self.compiler_source_dir.relative_to(self.root).as_posix() + "/")

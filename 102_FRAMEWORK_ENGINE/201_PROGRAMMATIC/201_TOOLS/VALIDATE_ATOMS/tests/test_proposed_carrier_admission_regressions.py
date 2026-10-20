@@ -15,6 +15,7 @@ REPOSITORY = TOOLS.parents[2]
 sys.path.insert(0, str(TOOLS))
 
 from project_selection import bind_selection, resolve_project
+from authoritative_status_models import capture_status_models  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.authority import Obligation
 from VALIDATE_ATOMS.validate_atoms_workers.check_structure_extended import ADAPTERS
 from VALIDATE_ATOMS.validate_atoms_workers.check_support import Check
@@ -35,6 +36,8 @@ from VALIDATE_ATOMS.tests.golden_authority import (
 
 PLAN_BODY = "# Summary\n\nIndependent Plan\n\n## Objective\n\nCheck admission.\n\n## Details\n\n### Definition of Done\n\nExact controls pass.\n"
 TARGET = b"---\natom_id: CA-O-701\ncontent_role: Operations\ncurrent_scope_unit: TEST\nstatus: Active\nversion: 7\n---\n# Summary\n\nRequested target\n"
+CURRENT_GRAPH_R1947 = Path(__file__).with_name("fixtures") / "current_graph_authority/CA-R-1947.md"
+CURRENT_GRAPH_R1539 = Path(__file__).with_name("fixtures") / "current_graph_authority/CA-R-1539.md"
 
 
 def snapshot(root):
@@ -148,6 +151,13 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         write_frozen_authority(
             root, control, tuple(dict.fromkeys((*_REGISTRY_IDS, *_SUPPORT_IDS, "CA-R-1539", *source_ids))),
         )
+        base = root / control / (
+            "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/"
+            "frozen-authority/CA-R-1947.md"
+        )
+        base.write_bytes(CURRENT_GRAPH_R1947.read_bytes())
+        plan = base.with_name("CA-R-1539.md")
+        plan.write_bytes(CURRENT_GRAPH_R1539.read_bytes())
         return resolve_project(root, control_name)
 
     @staticmethod
@@ -163,8 +173,10 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
     def validate_plan(self, selection, metadata=None, relative=Path("03_plan/CA-P-701--independent-plan.md")):
         with bind_selection(selection):
             context = source_context_from_project(selection.root)
+            status_index = capture_status_models(selection.root, context._reader)
             return validate_proposed_carrier(self.metadata(selection.settings["project"]["name"]) if metadata is None else metadata,
-                                             PLAN_BODY, context, relative, allow_existing_relations=True)
+                                             PLAN_BODY, context, relative, allow_existing_relations=True,
+                                             _status_index=status_index)
 
     def test_root_and_foreign_project_names_use_real_selected_settings_not_folder_name(self):
         for name, control in (("amber", ".caprmedio_selected"), ("violet", ".caprmedio_other")):
@@ -239,29 +251,34 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
         selection = self.project()
         with bind_selection(selection):
             context = source_context_from_project(self.root)
+            status_index = capture_status_models(self.root, context._reader)
         for path in (selection.settings_path, selection.structure_path):
             with self.subTest(path=path.name):
                 original = path.read_bytes()
                 path.write_bytes(original + b"\n# independently introduced stale bytes\n")
                 with self.assertRaises((ProposedCarrierError, ValueError)):
                     validate_proposed_carrier(self.metadata(), PLAN_BODY, context,
-                                             Path("03_plan/CA-P-701--independent-plan.md"))
+                                             Path("03_plan/CA-P-701--independent-plan.md"),
+                                             _status_index=status_index)
                 path.write_bytes(original)
 
     def test_captured_context_does_not_borrow_an_ambient_foreign_selection(self):
         selection = self.project()
         with bind_selection(selection):
             context = source_context_from_project(self.root)
+            status_index = capture_status_models(self.root, context._reader)
         foreign = self.root / "sibling"
         foreign.mkdir()
         other = self.project("violet", ".caprmedio_foreign", root=foreign)
         before = snapshot(self.root)
         result = validate_proposed_carrier(self.metadata(), PLAN_BODY, context,
-                                          Path("03_plan/CA-P-701--independent-plan.md"))
+                                          Path("03_plan/CA-P-701--independent-plan.md"),
+                                          _status_index=status_index)
         self.assertFalse(result["findings"] + result["gaps"])
         with bind_selection(other):
             result = validate_proposed_carrier(self.metadata(), PLAN_BODY, context,
-                                              Path("03_plan/CA-P-701--independent-plan.md"))
+                                              Path("03_plan/CA-P-701--independent-plan.md"),
+                                              _status_index=status_index)
         self.assertFalse(result["findings"] + result["gaps"])
         self.assertEqual(snapshot(self.root), before)
 
@@ -309,13 +326,20 @@ class ProposedCarrierAdmissionRegressions(unittest.TestCase):
 
         with bind_selection(selection):
             context = source_context_from_project(self.root)
-            result = validate_proposed_carrier(metadata, body, context, Path("06_evaluation/CA-E-701--related.md"))
+            status_index = capture_status_models(self.root, context._reader)
+            result = validate_proposed_carrier(
+                metadata, body, context, Path("06_evaluation/CA-E-701--related.md"),
+                _status_index=status_index,
+            )
 
         self.assertFalse(result["findings"] + result["gaps"])
         self.assertEqual(snapshot(self.root), before)
         target.unlink()
         with self.assertRaises(ProposedCarrierError):
-            validate_proposed_carrier(metadata, body, context, Path("06_evaluation/CA-E-701--related.md"))
+            validate_proposed_carrier(
+                metadata, body, context, Path("06_evaluation/CA-E-701--related.md"),
+                _status_index=status_index,
+            )
 
 
 if __name__ == "__main__":

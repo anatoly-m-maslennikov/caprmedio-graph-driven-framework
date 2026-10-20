@@ -282,6 +282,11 @@ def _is_active_status(status: str) -> bool:
     return status in {"Active", "active"}
 
 
+def _is_current_status(status: str) -> bool:
+    """Current excludes the source-defined Draft and Archived lifecycle groups."""
+    return status.casefold() not in {"draft", "archived"}
+
+
 def _parent_id(metadata: Mapping[str, Any]) -> str | None:
     relations = metadata.get("relations", {})
     if not isinstance(relations, Mapping):
@@ -332,6 +337,7 @@ def inventory_proposed_references(
     admitted_plan_status_folders: Mapping[str, str] | None = None,
     project_authority_paths: Iterable[str | Path] = (),
     project_name: str | None = None,
+    current_target_ids: Iterable[str] = (),
 ) -> ProposedReferenceInventory:
     """Return exact current facts for named targets and a nested Plan parent chain.
 
@@ -345,6 +351,8 @@ def inventory_proposed_references(
     must derive that finite mapping from validated CA-D-461 source evidence.
     ``project_authority_paths`` is an internal binding of exact Project roots
     from validated selected Project Settings and CA-D-324 source evidence.
+    IDs in ``current_target_ids`` use the source-defined Current group
+    (non-Draft, non-Archived); all other ordinary targets remain Active-only.
     Atom IDs never come from filenames.  A changed frontier, unsafe file,
     duplicate, missing or inactive named target raises
     ``ProposedReferenceError``.
@@ -353,6 +361,9 @@ def inventory_proposed_references(
     ids = tuple(direct_atom_ids)
     if not ids or any(not isinstance(item, str) or not item for item in ids) or len(set(ids)) != len(ids):
         raise ProposedReferenceError("direct target IDs must be a finite unique nonempty set")
+    current_targets = frozenset(current_target_ids)
+    if not current_targets.issubset(ids):
+        raise ProposedReferenceError("Current target IDs must belong to the requested target set")
     reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
     try:
         roots = _authority_roots(root, project_structure, project_authority_paths, project_name)
@@ -416,7 +427,8 @@ def inventory_proposed_references(
         item = _carrier(reader, root, path, requested, carrier)
         if item is None:
             continue
-        if not _is_active_status(item.status):
+        admitted_current = item.atom_id in current_targets and _is_current_status(item.status)
+        if not admitted_current and not _is_active_status(item.status):
             inactive.add(item.atom_id)
             continue
         if item.atom_id in active:
@@ -424,7 +436,11 @@ def inventory_proposed_references(
         active[item.atom_id] = item
     if blocking:
         for identity in blocking:
-            active[identity] = current_plan(identity)
+            item = current_plan(identity)
+            if identity in current_targets and not _is_current_status(item.status):
+                inactive.add(identity)
+                continue
+            active[identity] = item
     missing = requested - set(active)
     if missing:
         if missing & inactive:

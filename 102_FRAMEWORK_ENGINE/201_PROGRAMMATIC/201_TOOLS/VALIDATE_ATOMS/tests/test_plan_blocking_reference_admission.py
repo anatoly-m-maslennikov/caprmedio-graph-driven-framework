@@ -1,7 +1,6 @@
 """Narrow request-context controls for the reused current Plan selector."""
 
 from pathlib import Path
-import re
 import unittest
 
 import test_proposed_reference_scope_independent as scoped
@@ -14,10 +13,10 @@ class PlanBlockingReferenceAdmissionTests(unittest.TestCase):
         self.addCleanup(self.fixture.doCleanups)
         self.metadata = self.fixture.fixture.metadata(relations={"blocks": ["CA-P-710"]})
         sources = {row["binding"]["atom_id"]: row for row in self.fixture.context.inputs["sources"]}
-        self.plans = {"Active": "", **dict(re.findall(
-            r"- ([A-Za-z]+): .*?`([^`]+)`", sources["CA-D-461"]["text"],
-        ))}
-        self.statuses = scoped.admission._frontier_status_folders(self.fixture.context, self.plans)
+        self.plans = scoped.admission._plan_mapping(sources["CA-D-461"]["text"])
+        self.statuses = scoped.admission._frontier_status_folders(
+            self.fixture.context, self.plans, self.fixture.status_index,
+        )
 
     def plan(self, path, identity, status, parent=None):
         relations = "{}" if parent is None else f'{{"is_decomposition_of":["{parent}"]}}'

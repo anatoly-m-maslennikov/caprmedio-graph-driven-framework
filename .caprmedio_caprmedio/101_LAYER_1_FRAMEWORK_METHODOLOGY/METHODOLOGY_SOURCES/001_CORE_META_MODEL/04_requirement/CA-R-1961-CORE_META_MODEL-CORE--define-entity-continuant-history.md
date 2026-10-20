@@ -12,8 +12,8 @@ subjects:
 relations:
   child_of:
   - CA-R-1174
-version: 3
-updated_at: "2026-10-19 15:54:11 +0400"
+version: 4
+updated_at: "2026-10-20 17:08:38 +0400"
 ---
 # Summary
 
@@ -25,8 +25,8 @@ preserved historical states and records.
 
 ## Claim
 
-History **means** preserved earlier state or records of what happened. Revisions and Journals belong to History; the events or executions they record do **not**.
+History **means** preserved earlier state or records of what happened. Preserved earlier versions and Journals belong to History; the events or executions they record do **not**.
 
 ## Details
 
-Candidate #6 decisions 12 and 19 distinguish historical state, event records and actual occurrences. CA-R-1051 separates current authority from history; CA-R-1371 and CA-R-1745 define Revision and Journal. They do not define the shared History kind. Journal is not required for every historical artifact.
+Candidate #6 decisions 12 and 19 distinguish historical state, event records and actual occurrences. CA-R-1051 separates current authority from history; CA-R-1745 defines Journal. Archived Atom versions are one example of preserved earlier state. This requirement defines the shared History kind. Journal is not required for every historical artifact.

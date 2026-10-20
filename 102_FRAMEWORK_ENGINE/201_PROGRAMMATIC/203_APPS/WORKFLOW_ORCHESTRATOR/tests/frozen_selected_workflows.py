@@ -77,9 +77,9 @@ def _payload() -> dict[str, Any]:
             or any(identifier not in payload["behavior_bindings"] for identifier in _PREPARATION_BINDING_IDS)):
         raise AssertionError("selected-workflow frozen corpus is malformed")
     selected_root_paths = payload["selected_root_paths"]
-    if (len(selected_root_paths) != 177
+    if (len(selected_root_paths) != 185
             or not all(isinstance(path, str) and path in payload["files"] for path in selected_root_paths)
-            or len(set(selected_root_paths)) != 177):
+            or len(set(selected_root_paths)) != 185):
         raise AssertionError("selected-workflow frozen root is malformed")
     _validate_source_pins(payload)
     return payload

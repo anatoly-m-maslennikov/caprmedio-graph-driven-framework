@@ -3,8 +3,8 @@ subjects:
   governs: "relation-model"
   depends_on:
     - "atom-boundary"
-version: 20
-updated_at: "2026-10-01 21:44:50 +0400"
+version: 21
+updated_at: "2026-10-20 17:06:57 +0400"
 relations:
   child_of:
     - CA-R-1051
@@ -23,10 +23,10 @@ Keep RMED-to-RMED Relations within Active Authority
 
 ## Scope
 
-direct relations authored by Active RMED Atoms that target RMED Atoms.
+direct relations authored by Current RMED Atoms that target RMED Atoms.
 
 ## Claim
 
-**if** a direct relation is authored by an Active Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery) **and** targets an Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery), **then** the target Atom **must** be Active.
+**if** a direct relation is authored by a Current Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery) **and** targets an Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery), **then** the target Atom **must** be Current.
 
 ## Details

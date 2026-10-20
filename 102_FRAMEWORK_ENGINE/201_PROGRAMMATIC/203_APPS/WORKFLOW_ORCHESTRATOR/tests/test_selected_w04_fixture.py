@@ -1,6 +1,7 @@
 """Focused admission coverage for the disposable W04 status carriers."""
 from __future__ import annotations
 
+import hashlib
 import sys
 import tempfile
 from pathlib import Path
@@ -97,18 +98,18 @@ class SelectedW04FixtureTests(unittest.TestCase):
         self.assertEqual(outcome["outcome"], "applied")
         self.assertEqual(outcome["prior_status"], "Archived")
 
-    def test_resolved_concern_moves_to_lowercase_active_under_parent_scope(self) -> None:
+    def test_resolved_concern_moves_to_active_under_parent_scope(self) -> None:
         fixture = self._fixture()
-        source = fixture.status_atom("Concern", "resolved", number=8200)
+        source = fixture.status_atom("Concern", "Resolved", number=8200)
         outcome = change_status_atom_action(
             fixture.root,
-            {"target": fixture._descriptor(source.relative_to(fixture.root).as_posix()), "status": "active"},
+            {"target": fixture._descriptor(source.relative_to(fixture.root).as_posix()), "status": "Active"},
             execute=True,
             authorized=True,
         )
         self.assertEqual("applied", outcome["outcome"])
         observed = outcome["observed"]
-        self.assertEqual("active", observed["status"])
+        self.assertEqual("Active", observed["status"])
         self.assertEqual(
             ".caprmedio_caprmedio/PARENT/01_concern/CA-C-8200--docker-status.md",
             observed["path"],
@@ -136,7 +137,20 @@ class SelectedW04FixtureTests(unittest.TestCase):
                     model = outcome["status_model"]
                     self.assertEqual(list(statuses), model["statuses"])
                     self.assertEqual(requested, model["requested_status"])
-                    self.assertEqual(source_id, model["model_sources"][0]["atom_id"])
+                    expected_source_ids = (
+                        ("CA-R-1947", "CA-R-1608") if role == "Concern"
+                        else ("CA-R-1947", "CA-R-1539") if role == "Plan"
+                        else (source_id,)
+                    )
+                    self.assertEqual(
+                        expected_source_ids,
+                        tuple(row["atom_id"] for row in model["model_sources"]),
+                    )
+                    for pin in model["model_sources"]:
+                        self.assertEqual(
+                            hashlib.sha256((fixture.root / pin["path"]).read_bytes()).hexdigest(),
+                            pin["sha256"],
+                        )
                     self.assertEqual(requested, outcome["observed"]["status"])
 
 

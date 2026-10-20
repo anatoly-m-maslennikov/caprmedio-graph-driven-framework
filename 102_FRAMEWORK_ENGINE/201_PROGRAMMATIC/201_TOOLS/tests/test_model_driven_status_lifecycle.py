@@ -46,12 +46,13 @@ DOMAINS = (
     ("Method", "M", "05_method", "CA-R-1397", ("Draft", "Active", "Archived")),
     ("Evaluation", "E", "06_evaluation", "CA-R-1398", ("Draft", "Active", "Archived")),
     ("Delivery", "D", "07_delivery", "CA-R-1399", ("Draft", "Active", "Archived")),
-    ("Plan", "P", "03_plan", "CA-R-1539", ("Active", "Backlog", "Done", "Canceled", "Archived")),
-    ("Concern", "C", "01_concern", "CA-R-1608", ("draft", "active", "resolved", "canceled")),
+    ("Plan", "P", "03_plan", "CA-R-1539", ("Draft", "Active", "Archived", "Backlog", "Done", "Canceled")),
+    ("Concern", "C", "01_concern", "CA-R-1608", ("Draft", "Active", "Archived", "Resolved", "Canceled")),
     ("Operations", "O", "09_operations", "CA-R-1874", ("Draft", "Active", "Archived")),
     ("Analysis", "A", "02_analysis", "CA-R-1875", ("Draft", "Done", "Archived")),
 )
 AUTHORITY_IDS = tuple(row[3] for row in DOMAINS) + (
+    "CA-R-1947",
     "CA-R-1308", "CA-R-1521", "CA-R-1312", "CA-R-1311", "CA-R-1419",
     "CA-D-461", "CA-D-466", "CA-D-565", "CA-D-289", "CA-D-434",
     "CA-D-446", "CA-D-288", "CA-D-483", "CA-D-324",
@@ -278,15 +279,26 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         for role, _, _, source_id, statuses in DOMAINS:
             with self.subTest(role=role):
                 atom_type = {"Operations": "Action", "Analysis": "Analysis Report", "Plan": "Task"}.get(role)
-                path = self.atom(role, "active" if role == "Concern" else "Done" if role == "Analysis" else "Active",
+                path = self.atom(role, "Active" if role == "Concern" else "Done" if role == "Analysis" else "Active",
                                  atom_type=atom_type)
                 actual = atom_from_path(self.root, path)
                 for status in statuses:
                     model = resolve_status_model(self.root, actual, status)
                     self.assertEqual(list(statuses), model["statuses"])
-                    self.assertEqual(source_id, model["model_sources"][0]["atom_id"])
-                    self.assertEqual(hashlib.sha256(self.sources[source_id].read_bytes()).hexdigest(),
-                                     model["model_sources"][0]["sha256"])
+                    expected_source_ids = (
+                        ("CA-R-1947", "CA-R-1608") if role == "Concern"
+                        else ("CA-R-1947", "CA-R-1539") if role == "Plan"
+                        else (source_id,)
+                    )
+                    self.assertEqual(
+                        expected_source_ids,
+                        tuple(row["atom_id"] for row in model["model_sources"]),
+                    )
+                    for pin in model["model_sources"]:
+                        self.assertEqual(
+                            hashlib.sha256(self.sources[pin["atom_id"]].read_bytes()).hexdigest(),
+                            pin["sha256"],
+                        )
                 with self.assertRaises(StatusModelError):
                     resolve_status_model(self.root, actual, statuses[0].swapcase())
 
@@ -416,8 +428,8 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             ("Operations", "Action", "Active", "CA-R-1874"),
             ("Operations", "Workflow", "Active", "CA-R-1874"),
             ("Analysis", "Rationale", "Done", "CA-R-1875"),
-            ("Plan", "Task", "Active", "CA-R-1539"),
-            ("Plan", "EPIC", "Active", "CA-R-1539"),
+            ("Plan", "Task", "Active", "CA-R-1947"),
+            ("Plan", "EPIC", "Active", "CA-R-1947"),
         ):
             with self.subTest(role=role, atom_type=atom_type):
                 path = self.atom(role, status, atom_type=atom_type)
@@ -444,7 +456,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         self.assertEqual("CA-R-1874", fallback["model_sources"][0]["atom_id"])
 
     def test_every_role_same_status_is_noop_before_all_writes(self) -> None:
-        for role, status in ((row[0], "active" if row[0] == "Concern" else "Done"
+        for role, status in ((row[0], "Active" if row[0] == "Concern" else "Done"
                              if row[0] in {"Analysis", "Plan"} else "Active") for row in DOMAINS):
             with self.subTest(role=role):
                 path = self.atom(role, status)
@@ -499,20 +511,16 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             path = expected
             self.assert_model(result, request)
 
-    def test_concern_lowercase_nonactive_transitions_never_borrow_archive(self) -> None:
-        path = self.atom("Concern", "active", atom_type="Problem")
+    def test_concern_nonactive_transitions_use_role_directories(self) -> None:
+        path = self.atom("Concern", "Active", atom_type="Problem")
         local = self.root / CONTROL / "fixture/01_concern"
-        for status in ("resolved", "canceled", "active"):
+        for status in ("Resolved", "Canceled", "Active"):
             request = self.request(path, status)
             result = self.execute(request)
-            expected = local / path.name if status == "active" else local / status / path.name
+            expected = local / path.name if status == "Active" else local / status.casefold() / path.name
             self.assertEqual(expected.relative_to(self.root).as_posix(), result["observed"]["path"])
             path = expected
             self.assert_model(result, request)
-        before = self.snapshot()
-        with self.assertRaises(StatusModelError):
-            resolve_status_model(self.root, atom_from_path(self.root, path), "Archived")
-        self.assertEqual(before, self.snapshot())
 
     def test_preview_denied_execution_and_destination_collision_are_unchanged(self) -> None:
         path = self.atom("Requirement", "Active")
@@ -559,7 +567,7 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         for role, current, denied in (("Requirement", "Active", "Reviewed"),
                                       ("Requirement", "Active", "active"),
                                       ("Plan", "Done", "done"),
-                                      ("Concern", "resolved", "Active"),
+                                      ("Concern", "Resolved", "resolved"),
                                       ("Analysis", "Done", "Active")):
             with self.subTest(role=role, denied=denied):
                 path = self.atom(role, current)

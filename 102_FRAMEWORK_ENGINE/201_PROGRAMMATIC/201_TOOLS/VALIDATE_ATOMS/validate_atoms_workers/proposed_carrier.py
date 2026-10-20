@@ -21,7 +21,9 @@ from .check_support import Check
 from .check_graph_extended import relations_resolution, plan_resolution
 from .check_schema_extended import TYPE_CONTRIBUTIONS
 from .check_sections import GRAPH_RULE_SOURCES, is_graph_rule
-from .proposed_references import ProposedReferenceError, _container_id, inventory_proposed_references
+from .proposed_references import (
+    ProposedReferenceError, ProposedReferenceInventory, _container_id, inventory_proposed_references,
+)
 from .parsing import CarrierError, parse_carrier
 from .graph_authority_refresh import APPROVED_GRAPH_AUTHORITY_IDS
 from artifact_metadata import project_identity
@@ -147,6 +149,36 @@ def _source(
     return item
 
 
+def _plan_folder(raw: object) -> str:
+    if (not isinstance(raw, str) or raw.startswith(("/", "\\"))
+            or re.match(r"^[A-Za-z]:[\\/]", raw)
+            or any(part in {"", ".", ".."} or "\\" in part for part in raw.split("/"))):
+        raise ProposedCarrierError("Plan status-directory authority is unsafe")
+    parts = raw.split("/")
+    if parts[0] == "03_plan":
+        parts = parts[1:]
+    if len(parts) != 1 or re.fullmatch(r"[A-Za-z0-9_-]+", parts[0]) is None:
+        raise ProposedCarrierError("Plan status-directory authority has an invalid role path")
+    return parts[0]
+
+
+def _plan_mapping(source: str | dict[str, str]) -> dict[str, str]:
+    """Read the finite Plan placement map without admitting arbitrary paths."""
+    if isinstance(source, str):
+        entries = re.findall(r"(?m)^-\s+([A-Za-z]+):.*?`([^`]+)`", source)
+    elif isinstance(source, dict):
+        entries = list(source.items())
+    else:
+        raise ProposedCarrierError("Plan status-directory authority is unavailable")
+    mapping = {}
+    for status, raw in entries:
+        if not isinstance(status, str) or not status or status in mapping:
+            raise ProposedCarrierError("Plan status-directory authority is ambiguous")
+        mapping[status] = "" if status == "Active" and raw == "" else _plan_folder(raw)
+    mapping.setdefault("Active", "")
+    return mapping
+
+
 def source_context_from_project(root: Path) -> VerifiedSourceContext:
     """Load just the finite checked authority closure and selected Project inputs."""
 
@@ -207,15 +239,14 @@ def _current(reader: ReadContext, selection: ProjectSelection | None = None) -> 
 
 def _frontier_status_folders(context: VerifiedSourceContext, plan_mapping: dict[str, str],
                              status_index: StatusModelIndex | None = None) -> dict[str, dict[str, str]]:
+    plan_mapping = _plan_mapping(plan_mapping)
     report: Record = {"bindings": {}, "coverage": {"gaps": []}}
     with bind_selection(context._selection):
-        sources = {
-            identifier: _source(context.root, identifier, context._reader, report, graph=identifier in _GRAPH_IDS)
-            for identifier in _FRONTIER_IDS
-        }
+        for identifier in _FRONTIER_IDS:
+            _source(context.root, identifier, context._reader, report, graph=identifier in _GRAPH_IDS)
+        declarations = (status_index.declarations if status_index is not None
+                        else capture_status_models(context.root, context._reader).declarations)
     mappings = {}
-    declarations = (status_index.declarations if status_index is not None
-                    else declarations_from_sources(list(sources.values())))
     for role, identifier in _FRONTIER_STATUS_IDS.items():
         try:
             statuses = resolve_status_domain(declarations, role)["statuses"]
@@ -318,6 +349,21 @@ def _type_inputs(context: VerifiedSourceContext, metadata: Record) -> Record:
     return inputs
 
 
+def _target_type_sources(
+    context: VerifiedSourceContext, base_sources: list[Record], inventory: ProposedReferenceInventory,
+) -> list[Record]:
+    sources = list(base_sources)
+    known = {source["binding"]["atom_id"] for source in sources}
+    items = (*inventory.direct_targets, *inventory.plan_parent_closure, *inventory.plan_prerequisite_closure)
+    for item in items:
+        for source in _type_inputs(context, item.metadata)["sources"]:
+            identifier = source["binding"]["atom_id"]
+            if identifier not in known:
+                sources.append(source)
+                known.add(identifier)
+    return sources
+
+
 def validate_proposed_carrier(
     metadata: Record, body: str, verified_source_context: VerifiedSourceContext, relative_path: Path,
     *, allow_existing_relations: bool = False, reference_roles: tuple[str, ...] | None = None,
@@ -375,11 +421,7 @@ def validate_proposed_carrier(
         (item for item in verified_source_context.inputs["sources"] if item["binding"]["atom_id"] == "CA-D-461"),
         None,
     )
-    plan_mapping = (
-        {"Active": "", **dict(re.findall(r"- ([A-Za-z]+): .*?`([^`]+)`", plan_source["text"]))}
-        if plan_source is not None
-        else {}
-    )
+    plan_mapping = _plan_mapping(plan_source["text"]) if plan_source is not None else {}
     source = next((row for row in verified_source_context.inputs["sources"] if row["binding"]["atom_id"] == "CA-D-324"), None)
     if source is None or not isinstance(role, str):
         raise ProposedCarrierError("role-directory authority is unavailable")
@@ -427,6 +469,7 @@ def validate_proposed_carrier(
                 candidate_metadata=metadata,
                 candidate_path=control / relative_path,
                 admitted_plan_status_folders=plan_mapping or None,
+                current_target_ids=relations.get("concern_about", ()),
             )
         except ProposedReferenceError as error:
             raise ProposedCarrierError("relation targets are missing, inactive, ambiguous, or cyclic") from error
@@ -437,17 +480,29 @@ def validate_proposed_carrier(
                 _source(verified_source_context.root, identifier, graph_reader, graph_report, graph=True)
                 for identifier in _GRAPH_IDS
             ]
+            identity_source = (
+                _source(verified_source_context.root, "CA-D-378", graph_reader, graph_report)
+                if relations.get("concern_about") else None
+            )
         graph_inputs = dict(verified_source_context.inputs)
+        graph_source_inputs = _target_type_sources(
+            verified_source_context,
+            carrier_inputs.get("sources", verified_source_context.inputs["sources"]),
+            inventory,
+        )
         graph_inputs.update(
             sources=[
                 *[
-                    source for source in verified_source_context.inputs["sources"]
-                    if source["binding"]["atom_id"] not in APPROVED_GRAPH_AUTHORITY_IDS
+                    source for source in graph_source_inputs
+                    if source["binding"]["atom_id"] not in (*APPROVED_GRAPH_AUTHORITY_IDS, "CA-D-378")
                 ],
+                *([identity_source] if identity_source is not None else []),
                 *graph_sources,
             ],
             reader=graph_reader,
             reference_complete=True,
+            status_root=verified_source_context.root,
+            status_index=_status_index,
             path=verified_source_context.root / control / relative_path,
             references=[
                 {"path": verified_source_context.root / item.path, "metadata": item.metadata}
@@ -470,11 +525,11 @@ def validate_proposed_carrier(
         plan_status_source = next(
             (source for source in graph_sources if source["binding"]["atom_id"] == "CA-R-1539"), None
         )
-        domains = (
-            {"domain.status.plan": tuple(resolve_status_domain(_status_index.declarations, "Plan")["statuses"])}
-            if plan_status_source is not None
-            else {}
-        )
+        domains = dict(verified_source_context.authority.domains)
+        if plan_status_source is not None:
+            domains["domain.status.plan"] = tuple(
+                resolve_status_domain(_status_index.declarations, "Plan")["statuses"]
+            )
         graph_context = AuthorityContext([], 0, 0, 0, [], (), domains, False)
         adapters = [("relations.resolution", relations_resolution), ("plan.decomposition_resolution", plan_resolution)]
         if relations.get("blocks"):

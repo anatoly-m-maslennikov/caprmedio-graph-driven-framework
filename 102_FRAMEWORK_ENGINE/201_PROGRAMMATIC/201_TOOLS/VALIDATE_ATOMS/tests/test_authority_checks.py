@@ -14,9 +14,11 @@ import yaml
 TOOL = Path(__file__).resolve().parents[1]
 CORE = Path(__file__).resolve().parent / "fixtures/authority_checks"
 sys.path.insert(0, str(TOOL))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from validate_atoms_workers.authority import resolve_context  # noqa: E402
 from validate_atoms_workers.checks import validate_carrier  # noqa: E402
+from test_concern_status_admission import _context as current_concern_context  # noqa: E402
 
 
 def source(atom_id: str) -> dict[str, Any]:
@@ -134,17 +136,20 @@ class AuthorityChecksTest(unittest.TestCase):
         result = validate_carrier({"content_role": "Concern", "status": "Review"}, "", context)
         self.assertEqual(outcome(result, "domain.status.concern")["outcome"], "not_checked")
 
-    def test_concern_domain_preserves_exact_case(self) -> None:
+    def test_explicit_legacy_concern_domain_preserves_exact_case(self) -> None:
+        """The v3 fixture binds the legacy lowercase domain explicitly."""
         for value, expected in (("active", "passed"), ("Active", "failed")):
             result = run_check(["CA-R-1608"], {"content_role": "Concern", "status": value})
             self.assertEqual(outcome(result, "domain.status.concern")["outcome"], expected)
 
-    def test_lowercase_draft_does_not_allocate_identity(self) -> None:
-        result = run_check(
-            ["CA-D-446", "CA-R-1608"],
+    def test_current_model_rejects_lowercase_draft_but_requires_non_draft_identity(self) -> None:
+        result = validate_carrier(
             {"content_role": "Concern", "status": "draft", "atom_id": "EX-C-1"},
+            "",
+            current_concern_context(),
         )
-        self.assertEqual(outcome(result, "frontmatter.atom_id")["outcome"], "failed")
+        self.assertEqual(outcome(result, "frontmatter.atom_id")["outcome"], "passed")
+        self.assertEqual(outcome(result, "domain.status.concern")["outcome"], "failed")
 
     def test_plan_sections_and_priority_are_conditional(self) -> None:
         body = "# Summary\nWork\n## Objective\nDo work\n## Details\nContext\n### Definition of Done\nResult exists\n"

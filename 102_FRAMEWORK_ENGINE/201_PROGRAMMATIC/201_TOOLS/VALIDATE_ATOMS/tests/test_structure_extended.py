@@ -82,7 +82,7 @@ class StructureExtendedTest(unittest.TestCase):
                 "domain.status.evaluation": ("Draft", "Active", "Archived"),
                 "domain.status.delivery": ("Draft", "Active", "Archived"),
                 "domain.status.concern": ("draft", "active", "resolved", "canceled"),
-                "domain.status.plan": ("Active", "Backlog", "Done", "Canceled", "Archived"),
+                "domain.status.plan": ("Draft", "Active", "Archived", "Backlog", "Done", "Canceled"),
             },
             unclassified_sources=unclassified,
         )
@@ -369,6 +369,22 @@ class StructureExtendedTest(unittest.TestCase):
         self.assertTrue(bad.findings)
         nested = {**plan, "relations": {"is_decomposition_of": ["EX-P-9"]}}
         self.assertTrue(self.check("status.placement", metadata=nested, inputs={"path": path}).gaps)
+
+    def test_plan_draft_placement_uses_source_mapping(self) -> None:
+        plan = {**self.metadata, "content_role": "Plan", "type": "Plan", "status": "Draft"}
+        path = self.path.parents[1] / "03_plan/draft/EX-P-1-PLAN--test-claim.md"
+        good = self.check("status.placement", metadata=plan, inputs={"path": path})
+        self.assertFalse(good.findings)
+        self.assertFalse(good.gaps)
+        wrong = self.check(
+            "status.placement", metadata=plan, inputs={"path": path.parent.parent / path.name}
+        )
+        self.assertTrue(wrong.findings)
+
+    def test_plan_unknown_status_is_refused_without_mapping_lookup_error(self) -> None:
+        plan = {**self.metadata, "content_role": "Plan", "type": "Plan", "status": "Review"}
+        check = self.check("status.placement", metadata=plan)
+        self.assertTrue(check.findings)
 
     def test_matching_plan_bundle_directory_is_not_a_parent_plan(self) -> None:
         plan = {**self.metadata, "content_role": "Plan", "type": "Plan", "status": "Active"}

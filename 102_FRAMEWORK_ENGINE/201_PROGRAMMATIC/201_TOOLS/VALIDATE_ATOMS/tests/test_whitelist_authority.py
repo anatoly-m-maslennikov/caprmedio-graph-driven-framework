@@ -39,7 +39,9 @@ class WhitelistAuthorityTests(unittest.TestCase):
             for identifier in CONSUMED:
                 with self.subTest(identifier=identifier):
                     source = proposed_carrier._source(self.root, identifier, context._reader, report)
-                    entry = proposed_carrier._entry(identifier)
+                    entry = proposed_carrier._entry(
+                        identifier, graph=identifier in proposed_carrier.APPROVED_GRAPH_AUTHORITY_IDS,
+                    )
                     self.assertEqual(source["binding"]["sha256"], entry["sha256"])
                     path = self.selection.control_root.joinpath(*Path(entry["source_path"]).parts[1:])
                     self.assertEqual(source["binding"]["path"], str(path))

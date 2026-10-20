@@ -3,8 +3,8 @@ subjects:
   governs: "Entity/Carrier"
   depends_on:
     ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier", "Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom/Content Role: Plan.Work Sequence Number", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done"]
-version: 11
-updated_at: "2026-10-19 15:55:13 +0400"
+version: 13
+updated_at: "2026-10-20 17:33:55 +0400"
 relations: {"evaluation_for": ["CA-D-460", "CA-D-461", "CA-D-469", "CA-D-470", "CA-D-472", "CA-D-475", "CA-R-1534", "CA-R-1599", "CA-R-997"]}
 atom_id: "CA-E-502"
 content_role: "Evaluation"
@@ -31,7 +31,7 @@ the Plan Carrier Evaluation **must** reject Carrier facts that create duplicate 
 - validate leading navigation numbers **before** Atom IDs, their local uniqueness, mutable Label tokens, **and** canonical Summary slugs. changing a number **or** Label **must not** change identity **or** scheduling.
 - read Plan Status from its own file **and** check its local placement; reject read-time inference from a containing Hub **or** path.
 - change a parent Plan's Status to Active, Backlog, Done, Canceled **or** Archived as admitted by its model: require the same requested Status through independent single-Atom Actions for **all** recursively contained descendants' latest Revisions under CA-R-1521. check each Atom's own model; reject an invented target value **or** a multi-target Action.
-- retain each descendant inside its parent Carrier tree with the local Status mapping under CA-D-461; for a Done parent at `03_plan/done/<parent>.md`, accept its Done child at `03_plan/done/<parent>/done/<child>.md` using canonical matching stems. apply CA-D-289's Version suffixes for Archived placement **without** extracting descendants from the parent.
+- retain each Current descendant inside its parent Carrier tree with the local Status mapping under CA-D-461; for a contained Current Plan, validate its Status placement relative to its immediate containing Plan's Directory Carrier. For example, a Done child is in `<parent-directory>/done/<child>.md`, using its canonical matching stem. Validate Draft carriers in the owning Scope Unit's shared `03_plan/draft` area. Validate each Archived Plan Markdown Carrier directly in the shared `03_plan/archived` area, without parent/child Plan directory nesting, and with CA-D-289's Version suffixes.
 - leave referenced Plans outside the tree **and** older archived Revision bytes, Version **and** Status unchanged; reject older Revisions as cascade targets. no migration of noncanonical legacy `archive/` trees is implied.
 - accept root Backlog Plans **in** `03_plan/001_backlog`; reject `031_backlog` as the canonical new encoding **and** reject a `version-<VERSION>` directory substituted for a Version-labeled Plan identity.
 - retain one identity **when** decomposed work is added, removed, **or** reordered; a changed Summary follows Atom replacement authority rather than independent filename editing.

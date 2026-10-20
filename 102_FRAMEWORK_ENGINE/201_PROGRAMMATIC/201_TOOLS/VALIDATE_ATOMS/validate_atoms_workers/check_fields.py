@@ -70,14 +70,6 @@ def _identity(metadata: Record, body: str, check: Check) -> None:
         check.gap("atom_id", "Identity applicability requires a resolved carried Status.")
         return
     draft = status == "Draft"
-    if metadata.get("content_role") == "Concern":
-        domain = check.context.domains.get("domain.status.concern", ())
-        if "draft" not in domain:
-            check.gap(
-                "atom_id", "Concern Draft classification requires its supported Status model."
-            )
-            return
-        draft = status == "draft"
     if draft:
         check.forbid(metadata, "atom_id")
     else:

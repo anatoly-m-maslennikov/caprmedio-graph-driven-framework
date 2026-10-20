@@ -6,6 +6,7 @@ Journal coverage; those remain owned by their separately bounded packets.
 """
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 from pathlib import Path
 import sys
@@ -27,6 +28,8 @@ from lifecycle_intents import (  # noqa: E402
     replace_atom_action,
     update_atom_action,
 )
+from authoritative_status_models import resolve_status_model  # noqa: E402
+from frozen_selected_workflows import frozen_source_bytes  # noqa: E402
 from selected_workflows_docker_fixture import FixtureLease, GoldenCase, GoldenProject, ROUTE_CASES  # noqa: E402
 
 SPEC = importlib.util.spec_from_file_location("selected_golden_project_structure", STRUCTURE)
@@ -109,6 +112,48 @@ class SelectedGoldenInputsTest(unittest.TestCase):
                         self.assertIn("scope_units", (fixture.root / ".caprmedio_caprmedio/project_structure.toml").read_text(encoding="utf-8"))
                 finally:
                     lease.cleanup()
+
+    def test_concern_status_model_uses_frozen_inherited_sources(self) -> None:
+        lease, fixture = self._fixture("W01", "create_atom")
+        try:
+            carrier = fixture.create_status_carrier("Concern", "Resolved", number=8299)
+            model = resolve_status_model(fixture.root, carrier, "Resolved")
+            self.assertEqual(
+                ["Draft", "Active", "Archived", "Resolved", "Canceled"],
+                model["statuses"],
+            )
+            self.assertEqual(
+                ("CA-R-1947", "CA-R-1608"),
+                tuple(row["atom_id"] for row in model["model_sources"]),
+            )
+            self.assertEqual((3, 8), tuple(row["revision"] for row in model["model_sources"]))
+            for row in model["model_sources"]:
+                copied = fixture.root / row["path"]
+                self.assertEqual(frozen_source_bytes(row["path"]), copied.read_bytes())
+                self.assertEqual(row["sha256"], hashlib.sha256(copied.read_bytes()).hexdigest())
+        finally:
+            lease.cleanup()
+
+    def test_plan_status_model_uses_frozen_inherited_sources(self) -> None:
+        lease, fixture = self._fixture("W01", "create_atom")
+        try:
+            carrier = fixture.create_status_carrier("Plan", "Done", number=8298)
+            model = resolve_status_model(fixture.root, carrier, "Done")
+            self.assertEqual(
+                ["Draft", "Active", "Archived", "Backlog", "Done", "Canceled"],
+                model["statuses"],
+            )
+            self.assertEqual(
+                ("CA-R-1947", "CA-R-1539"),
+                tuple(row["atom_id"] for row in model["model_sources"]),
+            )
+            self.assertEqual((3, 9), tuple(row["revision"] for row in model["model_sources"]))
+            for row in model["model_sources"]:
+                copied = fixture.root / row["path"]
+                self.assertEqual(frozen_source_bytes(row["path"]), copied.read_bytes())
+                self.assertEqual(row["sha256"], hashlib.sha256(copied.read_bytes()).hexdigest())
+        finally:
+            lease.cleanup()
 
 
 if __name__ == "__main__":

@@ -5,6 +5,7 @@ import unittest
 from unittest.mock import patch
 
 import test_proposed_carrier_admission_regressions as fixtures
+from authoritative_status_models import capture_status_models
 from project_selection import bind_selection
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier as admission
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_references as references
@@ -25,6 +26,11 @@ class ExplicitReferenceScopeIndependentTests(unittest.TestCase):
         self.root = self.fixture.root
         self.selection = self.fixture.project()
         self.control = self.selection.control_relative
+        base = self.root / self.control / (
+            "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/"
+            "frozen-authority/CA-R-1947.md"
+        )
+        base.write_bytes((Path(__file__).parent / "fixtures/current_graph_authority/CA-R-1947.md").read_bytes())
         write_frozen_authority(
             self.root, self.control,
             tuple(dict.fromkeys((*admission._FRONTIER_IDS, *admission._GRAPH_IDS, "CA-D-378"))),
@@ -40,11 +46,13 @@ class ExplicitReferenceScopeIndependentTests(unittest.TestCase):
         )
         with bind_selection(self.selection):
             self.context = admission.source_context_from_project(self.root)
+            self.status_index = capture_status_models(self.root, self.context._reader)
 
     def validate(self, *, scope=PRMEDO, metadata=None, allow=False):
         return admission.validate_proposed_carrier(
             self.metadata if metadata is None else metadata, BODY, self.context, PATH,
             reference_roles=scope, allow_existing_relations=allow,
+            _status_index=self.status_index,
         )
 
     def test_scoped_success_does_not_read_malformed_excluded_roles_or_write(self):
@@ -119,6 +127,7 @@ class ExplicitReferenceScopeIndependentTests(unittest.TestCase):
         result = admission.validate_proposed_carrier(
             metadata, fixtures.PLAN_BODY, self.context, Path("03_plan/parent/child.md"),
             reference_roles=("Plan",), allow_existing_relations=True,
+            _status_index=self.status_index,
         )
         self.assertEqual(result["reference_scope"]["direct_targets"], ["CA-P-702"])
         self.assertEqual(result["reference_scope"]["plan_parent_closure"], ["CA-P-702"])

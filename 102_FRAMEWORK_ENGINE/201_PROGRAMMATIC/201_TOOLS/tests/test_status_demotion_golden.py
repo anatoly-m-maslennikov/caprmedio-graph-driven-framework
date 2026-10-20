@@ -71,11 +71,11 @@ class StatusDemotionGoldenTest(unittest.TestCase):
             self.fixture.execute(self.fixture.request(history, "Active"))
         self.assertEqual(before, self.fixture.snapshot())
 
-    def test_concern_resolved_to_lowercase_draft_is_a_demotion(self) -> None:
-        path = self.fixture.atom("Concern", "resolved")
+    def test_concern_resolved_to_draft_is_a_demotion(self) -> None:
+        path = self.fixture.atom("Concern", "Resolved")
         before = atom_from_path(self.fixture.root, path)
 
-        result = self.fixture.execute(self.fixture.request(path, "draft"))
+        result = self.fixture.execute(self.fixture.request(path, "Draft"))
 
         destination = self.fixture.root / result["observed"]["path"]
         self.assertEqual("CA-C--golden.md", destination.name)

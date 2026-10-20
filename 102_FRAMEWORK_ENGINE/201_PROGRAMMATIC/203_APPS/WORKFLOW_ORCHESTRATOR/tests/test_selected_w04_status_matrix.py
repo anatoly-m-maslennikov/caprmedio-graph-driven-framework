@@ -109,8 +109,17 @@ class SelectedW04StatusMatrixTests(unittest.TestCase):
         self.assertEqual("applied", native.get("outcome"), native)
         model = native["status_model"]
         self.assertEqual(list(statuses), model["statuses"], native)
+        expected_source_ids = (
+            ("CA-R-1947", "CA-R-1608") if role == "Concern"
+            else ("CA-R-1947", "CA-R-1539") if role == "Plan"
+            else (source_id,)
+        )
+        self.assertEqual(
+            expected_source_ids,
+            tuple(row["atom_id"] for row in model["model_sources"]),
+            native,
+        )
         pin = model["model_sources"][0]
-        self.assertEqual(source_id, pin["atom_id"], native)
         self.assertEqual(
             hashlib.sha256((fixture.root / pin["path"]).read_bytes()).hexdigest(), pin["sha256"]
         )
@@ -153,7 +162,7 @@ class SelectedW04StatusMatrixTests(unittest.TestCase):
             "refusal wrote Journal or Run records",
         )
 
-    def test_all_27_destinations_eight_noops_and_eight_refusals(self) -> None:
+    def test_all_29_destinations_eight_noops_and_eight_refusals(self) -> None:
         applied = noops = refusals = 0
         for role, _letter, _folder, source_id, statuses in corpus.STATUS_DOMAINS:
             with self.subTest(role=role):
@@ -184,7 +193,7 @@ class SelectedW04StatusMatrixTests(unittest.TestCase):
                     refusals += 1
                 finally:
                     lease.cleanup()
-        self.assertEqual((27, 8, 8), (applied, noops, refusals))
+        self.assertEqual((29, 8, 8), (applied, noops, refusals))
 
 
 if __name__ == "__main__":

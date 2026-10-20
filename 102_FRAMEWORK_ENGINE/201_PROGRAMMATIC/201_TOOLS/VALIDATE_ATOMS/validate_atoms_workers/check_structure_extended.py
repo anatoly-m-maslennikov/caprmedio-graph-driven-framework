@@ -541,13 +541,21 @@ def _placement(metadata: Record, body: str, check: Check) -> None:
             )
             return
         directories = {
+            "Draft": "draft",
             "Active": "",
             "Backlog": "001_backlog",
             "Done": "done",
             "Canceled": "canceled",
             "Archived": "archived",
         }
-        expected = base / "03_plan" / directories[metadata["status"]]
+        directory = directories.get(metadata.get("status"))
+        if directory is None:
+            check.gap(
+                "status",
+                "Plan Status has no reviewed directory-placement mapping.",
+            )
+            return
+        expected = base / "03_plan" / directory
         container = path.parent.parent if path.parent.name == path.stem else path.parent
         if container != expected:
             check.fail(

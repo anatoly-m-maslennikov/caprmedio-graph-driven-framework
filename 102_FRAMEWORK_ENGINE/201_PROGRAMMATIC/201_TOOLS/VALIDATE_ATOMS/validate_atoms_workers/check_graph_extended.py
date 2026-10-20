@@ -13,9 +13,12 @@ from functools import lru_cache
 from pathlib import Path
 from typing import cast
 
+from authoritative_status_models import StatusModelError, resolve_status_model
+
 from .authority import Record, _verified, diagnostic
 from .check_support import Check, _integer, _plan, _string, _strings
 from .check_structure_extended import _project_name, _structure
+from .check_schema_extended import _model_domains
 from .read_io import ReadContext
 
 
@@ -281,6 +284,83 @@ def _role(check: Check, metadata: Record, allowed: set[str], field: str, endpoin
     return True
 
 
+def _valid_atom_identity(check: Check, target: Record, field: str, identity: str) -> bool:
+    role = target.get("content_role")
+    allowed = check.context.domains.get("domain.content_role")
+    if not _string(role):
+        _gap(check, field, "Resolved target lacks its carried Content Role: " + identity + ".")
+        return False
+    if not isinstance(allowed, (tuple, list)) or role not in allowed:
+        _gap(check, field, "Resolved target has an unadmitted Content Role: " + str(role) + ".")
+        return False
+    if target.get("atom_id") != identity:
+        _gap(check, field, "Resolved target identity disagrees with its relation target: " + identity + ".")
+        return False
+    sources = _inputs(check).get("sources", [])
+    identity_source = next((row for row in sources if row.get("binding", {}).get("atom_id") == "CA-D-378"), None)
+    text = identity_source.get("text") if isinstance(identity_source, dict) else None
+    letters = dict(re.findall(r"([A-Za-z]+): ([A-Z])(?:,|\))", text)) if isinstance(text, str) else {}
+    letter = letters.get(role)
+    parts = identity.rsplit("-", 2) if isinstance(identity, str) else []
+    if (not _string(letter) or len(parts) != 3
+            or re.fullmatch(r"[A-Z0-9]+", parts[0] or "") is None
+            or parts[1] != letter or re.fullmatch(r"[0-9]+", parts[2] or "") is None):
+        _gap(check, field, "Resolved target identity disagrees with its carried Content Role: " + identity + ".")
+        return False
+    return True
+
+
+def _valid_atom_status(check: Check, target: Record, field: str, identity: str) -> bool:
+    status = target.get("status")
+    if not _string(status):
+        _gap(check, field, "Resolved target lacks its carried Status: " + identity + ".")
+        return False
+    root, index = _inputs(check).get("status_root"), _inputs(check).get("status_index")
+    if not isinstance(root, Path) or index is None:
+        _gap(check, field, "Resolved target Status model authority is unavailable: " + identity + ".")
+        return False
+    try:
+        resolve_status_model(root, target, status, _index=index)
+    except StatusModelError:
+        _gap(check, field, "Resolved target carries an unadmitted Status: " + identity + ".")
+        return False
+    return True
+
+
+def _current_atom_status(check: Check, target: Record, field: str, identity: str) -> bool:
+    status = target.get("status")
+    if isinstance(status, str) and status.casefold() not in {"draft", "archived"}:
+        return True
+    _gap(check, field, "Concern target must carry an admitted Current Status: " + identity + ".")
+    return False
+
+
+def _valid_atom_type(check: Check, target: Record, field: str, identity: str) -> bool:
+    nested = Check(check.obligation, check.context, _inputs(check))
+    _model_domains(target, "", nested)
+    valid = True
+    for issue in nested.findings + nested.gaps:
+        valid = False
+        _emit(
+            check,
+            issue["code"],
+            field,
+            "Resolved target Type is unsupported: " + str(issue["reason"]),
+            gap=issue["code"] == "AUTHORITY_UNSUPPORTED",
+        )
+    return valid
+
+
+def _valid_atom_target(check: Check, target: Record, field: str, identity: str) -> bool:
+    """Require source-bound identity, role, Type and qualified Status evidence."""
+    return (
+        _valid_atom_identity(check, target, field, identity)
+        and _valid_atom_status(check, target, field, identity)
+        and _current_atom_status(check, target, field, identity)
+        and _valid_atom_type(check, target, field, identity)
+    )
+
+
 def _rmed_status(check: Check, owner: Record, target: Record, field: str) -> None:
     if owner.get("content_role") not in _RMED or target.get("content_role") not in _RMED:
         return
@@ -294,6 +374,23 @@ def _rmed_status(check: Check, owner: Record, target: Record, field: str) -> Non
         )
     elif owner["status"] == "Active" and target["status"] != "Active":
         _fail(check, field, "An Active RMED Atom's RMED relation target must be Active.")
+
+
+def _resolve_relation_target(
+    check: Check,
+    target_id: str,
+    index: dict[str, list[Record]],
+    field: str,
+    *,
+    concern_target: bool,
+    active_rmed: bool,
+) -> Record | None:
+    target = _resolve(check, target_id, index, field, active_rmed=active_rmed)
+    if target is not None and concern_target and not _valid_atom_target(
+        check, target, field, target_id
+    ):
+        return None
+    return target
 
 
 def _typed_rule(metadata: Record, kind: str, check: Check) -> tuple[bool, set[str] | None]:
@@ -338,11 +435,6 @@ def _other_rule(metadata: Record, kind: str, check: Check) -> tuple[bool, None]:
         )
     if kind == "concern_about":
         _role(check, metadata, {"Concern"}, field, "owner")
-        _gap(
-            check,
-            field,
-            "Affected governed-entity admission cannot be inferred from an Atom ID alone.",
-        )
     return True, None
 
 
@@ -400,11 +492,12 @@ def _relation(
         return
     for target_id in targets:
         _checkpoint(check)
-        target = _resolve(
+        target = _resolve_relation_target(
             check,
             target_id,
             index,
             field,
+            concern_target=kind == "concern_about",
             active_rmed=metadata.get("content_role") in _RMED
             and metadata.get("status") == "Active",
         )

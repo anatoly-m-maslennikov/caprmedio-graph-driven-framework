@@ -1,9 +1,9 @@
 {
   "sources": {
     "CA-D-305": {
-      "version": 12,
-      "sha256": "06c141a93b14965614f93f88e522f21ec73790571676cc65e98265a310f447b5",
-      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md"
+      "version": 16,
+      "sha256": "7b1c4f96426e7907c90e5a949b037f26f39458fd769ed04e2b451a16376cdd39",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-CORE--carry-projected-atoms-without-new-identity.md"
     },
     "CA-R-1676": {
       "version": 20,
@@ -21,8 +21,8 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1247-CORE_META_MODEL-CORE-REQUIREMENT--identify-dependent-entity-occurrences-by-complete-subject-path.md"
     },
     "CA-R-1538": {
-      "version": 6,
-      "sha256": "2b978564cbd5ae0adcfad4540617ea37068ad365e93692f65223ec12d0f79d26",
+      "version": 9,
+      "sha256": "cce8030f05b55873f032541bfdff128c1b858c5466cb746623765f7ac9552155",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1538-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-plan-decomposition-cycles.md"
     },
     "CA-R-879": {
@@ -31,13 +31,13 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-CORE-REQUIREMENT--register-child-of-and-parent-of-relation-pair.md"
     },
     "CA-D-460": {
-      "version": 8,
-      "sha256": "09680665a26d8620b126ec036063c3858592c387d6d238ed713cf29c275a8840",
+      "version": 11,
+      "sha256": "61f27bfdde05aa8a7faaaa721728be5502fb886024d3f864b80d012ce4968d84",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-460-CORE_META_MODEL-CORE--serialize-plan-atom-carrier-bundles.md"
     },
     "CA-D-481": {
-      "version": 6,
-      "sha256": "30b269c1668fc46db956b90f2a3e7798b55a05c9fe18f5e51cb3ee90012da055",
+      "version": 9,
+      "sha256": "5ffc83dc1fe9564a6c348866acb0a91b0c489fc29524d5b2c5eb09ad430d81f3",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-481-CORE_META_MODEL-DELIVERY--store-plan-decomposition-on-the-decomposing-plan.md"
     },
     "CA-R-1017": {
@@ -46,23 +46,23 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md"
     },
     "CA-D-268": {
-      "version": 14,
-      "sha256": "28697f406084684970bf988230fa293f59b1d7ba25aee22f9656cd8a411f61ad",
+      "version": 18,
+      "sha256": "eb33ffdb1ae992b8db8ea50dbb332ab3fd91b90040096c5be4965d89afc96888",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md"
     },
     "CA-R-1040": {
-      "version": 16,
-      "sha256": "f713bc002eeaa0832f852337bbcc59e3640d389b376a7951aa140deadf574a44",
+      "version": 17,
+      "sha256": "b8db24215ede0bfe54316b71ef915df0281d0ab910aab5de34bf3af3b6749f41",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md"
     },
     "CA-R-1022": {
-      "version": 15,
-      "sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+      "version": 17,
+      "sha256": "1db2ca7916410f89d2cfda9c5defd8c641257c4585ca89233b4361da02586207",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md"
     },
     "CA-R-1539": {
-      "version": 6,
-      "sha256": "7a5a7638179edba26e740ea166dafac20a0517eba22a87bd9a9e11cb58e1926b",
+      "version": 9,
+      "sha256": "13b63bfdf55480496b734a408c3632d33c68b9522426ca8092b52038e7adbe0a",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md"
     },
     "CA-R-1194": {
@@ -91,8 +91,8 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md"
     },
     "CA-R-1018": {
-      "version": 19,
-      "sha256": "a026592a264be91ccbde59da9ba80df10ca4e91cfcc099b832b187bb38b04f41",
+      "version": 22,
+      "sha256": "1d6d94291d5b2e7a9e1687145627f8c71b3c0907a4e84cef46a4f849ae1b5e6a",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md"
     },
     "CA-R-1021": {
@@ -106,13 +106,13 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md"
     },
     "CA-R-1592": {
-      "version": 6,
-      "sha256": "c617a94493e98bb1e164527bd5e7e01d7a350807bd563847c2e324eb7e8c7012",
+      "version": 9,
+      "sha256": "88926d101350cb31de88c465b986ef549a7c03a06ddc6886a1bc7d305e58c97f",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1592-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-plan-completion-prerequisites-acyclic.md"
     },
     "CA-R-1593": {
-      "version": 6,
-      "sha256": "cddd9828ba08a01a9037203998256663afb3814e6e8de7cc8f82fb092054fdb7",
+      "version": 7,
+      "sha256": "1050913ca8b94c710c0bab15ad18fd7d05cd39038ac2f0bccc83c36864a30a77",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1593-CORE_META_MODEL-CORE-REQUIREMENT--define-the-plan-graph.md"
     },
     "CA-R-1026": {
@@ -121,8 +121,8 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md"
     },
     "CA-R-796": {
-      "version": 20,
-      "sha256": "87b14c64eb59f914af6e74fcbfb4938048bca57ca90431522325404a908708cf",
+      "version": 23,
+      "sha256": "0a3a51c9f7854d1d22894b2afba837f9cbc919f8cb35b11ea15a4179de77b580",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md"
     },
     "CA-R-1016": {
@@ -136,28 +136,28 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL-GENERAL--derive-entities-views-from-selected-authority.md"
     },
     "CA-R-1580": {
-      "version": 6,
-      "sha256": "e2fd1c4f7b6b172549dbe55eb263f8e138392808323bb5f3b30adda83c0e2c62",
+      "version": 7,
+      "sha256": "699820b2af9a396180702e330f3c9af69543ac15a29c64a0edecb688536811c9",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-blocking.md"
     },
     "CA-R-1579": {
-      "version": 7,
-      "sha256": "df106e79d89aa3c1a59e20b71290be1bef9c8bea7d071b88586176e4526b9207",
+      "version": 8,
+      "sha256": "d1c89fbca0ee38f44308a2a40a61d344cf1f8a5b6bfc748f4720de9491468e53",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1579-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-decomposition-relations.md"
     },
     "CA-D-471": {
-      "version": 7,
-      "sha256": "11dd6f96c21d96a3bd1a7b987777fad63b08147d278829857df292166d139794",
+      "version": 10,
+      "sha256": "cab1d31f4fc9a38b31077928a7fc6eacbd47b7a92ba0fdf6caed85bb61a58757",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL--serialize-explicit-plan-blocking.md"
     },
     "CA-D-269": {
-      "version": 14,
-      "sha256": "f6506099d7c264c7901a772b707fc88102c77d607bcf930b5d9bd2fd2aad78cd",
+      "version": 15,
+      "sha256": "255a50c29e5fb4719900734283d1e4936d6a1b0c9491d92f9cfc33a762a9fd28",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md"
     },
     "CA-D-475": {
-      "version": 6,
-      "sha256": "be8457517d4a132bc5a0cb6930aa11820a148cb5a310f459a04bec58e5be9ea0",
+      "version": 9,
+      "sha256": "3ec3f1eb7c99e29e2d29737b6b5d4de8475f1ac0c43939ab372a6519ef803b3e",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-475-CORE_META_MODEL-STANDARD--serialize-the-plan-backlog-directory.md"
     }
   }

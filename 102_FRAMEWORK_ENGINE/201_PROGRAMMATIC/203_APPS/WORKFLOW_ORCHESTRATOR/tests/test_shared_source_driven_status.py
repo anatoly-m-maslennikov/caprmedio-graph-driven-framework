@@ -217,16 +217,27 @@ class SharedSourceDrivenStatusTest(unittest.TestCase):
         self.prepare_route()
         for role, _, _, source_id, _ in native_goldens.DOMAINS:
             with self.subTest(role=role):
-                status = "active" if role == "Concern" else "Done" if role in {"Plan", "Analysis"} else "Active"
+                status = "Active" if role == "Concern" else "Done" if role in {"Plan", "Analysis"} else "Active"
                 path = self.fixture.atom(role, status)
                 before = self.authority_snapshot()
                 result, graph, progress = self.complete(path, status, f"shared-status-noop-{role.lower()}")
                 self.assertEqual("no-op", progress["result"], progress)
                 native = progress["native_result"]
                 self.assertEqual("no-op", native["outcome"], native)
-                self.assertEqual(source_id, native["status_model"]["model_sources"][0]["atom_id"])
-                self.assertEqual(hashlib.sha256(self.fixture.sources[source_id].read_bytes()).hexdigest(),
-                                 native["status_model"]["model_sources"][0]["sha256"])
+                expected_source_ids = (
+                    ("CA-R-1947", "CA-R-1608") if role == "Concern"
+                    else ("CA-R-1947", "CA-R-1539") if role == "Plan"
+                    else (source_id,)
+                )
+                self.assertEqual(
+                    expected_source_ids,
+                    tuple(row["atom_id"] for row in native["status_model"]["model_sources"]),
+                )
+                for pin in native["status_model"]["model_sources"]:
+                    self.assertEqual(
+                        hashlib.sha256(self.fixture.sources[pin["atom_id"]].read_bytes()).hexdigest(),
+                        pin["sha256"],
+                    )
                 self.assertEqual(before, self.authority_snapshot(), "no-op changed authority/history/Projection")
                 self.assertEqual([], graph["step_results"][0]["effect_refs"])
                 for terminal in result["terminal_runs"]:

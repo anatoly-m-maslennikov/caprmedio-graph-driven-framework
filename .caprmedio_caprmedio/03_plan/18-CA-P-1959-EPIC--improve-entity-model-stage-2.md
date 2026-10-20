@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 123
-updated_at: "2026-10-20 16:39:45 +0400"
+version: 124
+updated_at: "2026-10-20 16:50:31 +0400"
 relations: {}
 ---
 # Summary
@@ -309,6 +309,18 @@ Independent work continues; general unrelated content migration stays CA-P-1970.
 Previous continuation results remain valid: draft checkpoint `3b7c129fb` and source-effects commit `109c62329` contain ten Subjects-only updates with ten exact predecessors and consumed drafts. Their completed batch readback reports no body/unrelated metadata changes and no errors. The 61-owner `//` staging attempt stopped before drafts or source effects; the later 16-owner ordinary staging attempt stopped after ten drafts on a duplicate mapping. Those original attempts remain stopped, not relabeled successful or replayed. The ten known drafts were separately selected, committed and published once; the duplicate mapping was corrected afterward. Five further drafts were staged before this new model decision; they are not published or presented as current sources. R1022 is separately owned by CA #3 under its own human-approved clarification and is excluded from this chat's follow-up publication.
 
 CA #3 confirmed that the installed MCP image lacks the already implemented `//` grammar; no new parser design is needed. That deployment dependency remains separate, with no production replacement or replay authorized by this Plan update. Existing pending edit-drafts and frozen maps remain evidence of their captured model, not authority over these latest decisions.
+
+#### P carrier layout refinement — Operator decision, 2026-10-20
+
+Each Scope Unit's P folder has shared `draft/` and `archived/` areas. These belong to the Scope Unit's P area, not separately to every container Plan. Each container P Atom has its own Done, Canceled and other applicable current-status folders for contained Plans. Done and Canceled remain statuses inside the Current group; their Atoms are not historical merely because work is finished.
+
+- [x] Record this latest carrier-layout decision before continuing.
+- [ ] Locate and align the affected P Delivery/containment/Status rules, preserving the approved distinction between lifecycle group and Status and the direct containing-Atom identity.
+- [ ] Keep Draft/Archived scope-wide and current-status organization local to the containing P Atom. Do not automatically flatten archived subtrees or invent a placement rule for a naked root-level Plan's terminal Status; any uncovered case remains explicit.
+- [ ] Pass only concrete workflow/connector changes to CA #3 after source RMEDO alignment. Existing legacy edit-drafts remain held until their marker/identity treatment is aligned with Draft having no Atom ID.
+- [ ] Apply the accepted layout migration through existing operations after the rules and required tools are ready, preserve versioned history and source relationships, then rebuild the affected projections from actual sources.
+
+This Plan update moves no folder or Atom, changes no source Status or ID, creates no new archive/cascade behavior and does not declare the existing layout compliant. It refines the preceding Current-group decision; it does not restore Revision as an entity or decide incoming-link handling on archival.
 
 #### Phase 1 — migrate Subjects first
 

@@ -13,7 +13,7 @@ import re
 
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
-    ProposedCarrierError, VerifiedSourceContext, _current, _frontier_status_folders,
+    ProposedCarrierError, VerifiedSourceContext, _current, _frontier_status_folders, _plan_mapping,
 )
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_references import (
     ProposedReferenceError, TargetCarrier, _authority_roots, _carrier,
@@ -53,9 +53,7 @@ def _bindings(context: VerifiedSourceContext):
         r"- ([A-Za-z]+): `([0-9]{2}_[a-z_]+)/`[;.]", sources["CA-D-324"]["text"],
     ))
     roles = {role: roles[role] for role in ("Plan", "Operations")}
-    plans = {"Active": "", **dict(re.findall(
-        r"- ([A-Za-z]+): .*?`([^`]+)`", sources["CA-D-461"]["text"],
-    ))}
+    plans = _plan_mapping(sources["CA-D-461"]["text"])
     statuses = _frontier_status_folders(context, plans)
     roots = _authority_roots(
         context.root, context.inputs["structure"],

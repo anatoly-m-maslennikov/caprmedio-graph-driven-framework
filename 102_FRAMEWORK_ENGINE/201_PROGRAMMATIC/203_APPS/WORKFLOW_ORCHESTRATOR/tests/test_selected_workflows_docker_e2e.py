@@ -30,7 +30,15 @@ sys.path.insert(0, str(TOOLS))
 from atom_operations import atom_from_path, frontmatter_scalar, require_current_atom  # noqa: E402
 from authoritative_status_models import resolve_status_model  # noqa: E402
 from runtime import Runtime  # noqa: E402
+from subject_notation import get_profile  # noqa: E402
 from current_code_e2e_context import load_test_context  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier  # noqa: E402
+from frozen_selected_workflows import (  # noqa: E402
+    frozen_behavior_bindings,
+    frozen_graph_authority,
+    frozen_preparation_bindings,
+    frozen_source_bytes,
+)
 from selected_workflows_docker_fixture import (  # noqa: E402
     GoldenCase,
     GoldenCorpusError,
@@ -39,6 +47,7 @@ from selected_workflows_docker_fixture import (  # noqa: E402
     JOURNAL_CASES,
     ROUTE_CASES,
     STATUS_DOMAINS,
+    frozen_authority_fixture_bytes,
 )
 
 E2E_CONTEXT = load_test_context(os.environ, ROOT / ".caprmedio_tmp")
@@ -48,6 +57,60 @@ _RECONNECT_CASES = {"W01", "W15"}
 # Keep client bounds above that allowance for process/transport overhead.
 MCP_STARTUP_TIMEOUT_SECONDS = 120
 MCP_CALL_TIMEOUT_SECONDS = 120
+
+
+def _materialize_frozen_bindings(
+    fixture: GoldenProject, bindings: Mapping[str, Mapping[str, Any]]
+) -> None:
+    """Materialize only checked-in source pins into this disposable Project."""
+    for entry in bindings.values():
+        fixture._copy_pinned(Path(entry["source_path"]), entry["sha256"])
+
+
+def _materialize_frozen_frontier(fixture: GoldenProject) -> None:
+    """Materialize the selected carrier frontier at its production paths."""
+    from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
+        _FRONTIER_IDS, _entry,
+    )
+
+    graph = frozen_graph_authority()
+    for identifier in _FRONTIER_IDS:
+        if identifier in graph:
+            continue
+        path = Path(_entry(identifier)["source_path"])
+        fixture._copy_pinned(path, hashlib.sha256(frozen_source_bytes(path)).hexdigest())
+
+
+def _materialize_current_concern_target(fixture: GoldenProject) -> None:
+    """Complete the native target with the owner field relation admission reads."""
+    path = fixture.root / ".caprmedio_caprmedio/PARENT/04_requirement/CA-R-100--target.md"
+    raw = path.read_text(encoding="utf-8")
+    if "current_scope_unit:" not in raw:
+        path.write_text(
+            raw.replace("content_role: Requirement\n", "content_role: Requirement\ncurrent_scope_unit: PARENT\n"),
+            encoding="utf-8",
+        )
+
+
+def _materialize_approved_grammar(fixture: GoldenProject) -> None:
+    """Place static schema fixtures at the approved profile's exact paths."""
+    for pin in get_profile("approved").grammar_pins:
+        path = fixture.root / pin.path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(frozen_authority_fixture_bytes(pin.atom_id))
+
+
+def _approved_subject_request(target: Path) -> tuple[bytes, dict[str, Any]]:
+    raw = target.read_bytes()
+    return raw, {
+        "operation": "preview_subjects", "subject_profile": "approved",
+        "atoms": [{"atom_id": "CA-R-8602", "version": 3,
+                   "sha256": hashlib.sha256(raw).hexdigest(),
+                   "subject_patches": [{
+                       "field": "governs", "old": "Atom/Test",
+                       "new": "Entity/Workflow//Operations:Daily.Build",
+                   }]}],
+    }
 
 
 def _structured_tool_result(response: Any) -> dict[str, Any]:
@@ -322,6 +385,50 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         native = self._action_progress(root, request_id, rows[-1]["action_run_id"]).get("native_result")
         self.assertIsInstance(native, dict, native)
         return native, graph, selected
+
+    async def _assert_current_concern_targets(
+        self, runtime: Runtime, root: Path, fixture: GoldenProject,
+    ) -> None:
+        targets = (("CA-R-100", "Active"), ("CA-P-8603", "Done"), ("CA-P-8604", "Canceled"))
+        fixture.status_atom("Plan", "Done", number=8603)
+        fixture.status_atom("Plan", "Canceled", number=8604)
+        for index, (target_id, target_status) in enumerate(targets, start=1):
+            carrier = fixture.create_status_carrier("Concern", "Active", number=8600 + index)
+            carrier["frontmatter"] = carrier["frontmatter"].replace(
+                "relations: {}", f"relations:\n  concern_about: [{target_id}]",
+            )
+            native, _graph, _selected = await self._execute_create_case(
+                runtime, root, fixture, carrier,
+                f"p2437-concern-current-{target_status.casefold()}",
+            )
+            self.assertEqual("applied", native.get("outcome"), native)
+            observed_path = root / native["observed"]["path"]
+            observed = atom_from_path(root, observed_path)
+            metadata = parse_carrier(observed_path.read_bytes(), observed_path).metadata
+            self.assertEqual(f"CA-C-{8600 + index}", observed.atom_id)
+            self.assertEqual([target_id], metadata["relations"]["concern_about"])
+            self.assertEqual("Active", frontmatter_scalar(observed.frontmatter, "status"))
+
+    async def _assert_subject_stage(
+        self, runtime: Runtime, root: Path, target: Path,
+    ) -> None:
+        raw, request = _approved_subject_request(target)
+        await self._connect(runtime, root)
+        self.assertIn("atom_update", await _stdio_tool_names(self._mcp_client))
+        preview = await self._call(runtime, root, "atom_update", request)
+        self.assertEqual("preview_subjects", preview.get("operation"), preview)
+        self.assertEqual([], preview.get("errors"), preview)
+        sealed = preview["preview"]
+        staged = await self._call(
+            runtime, root, "atom_update",
+            {**request, "operation": "stage_subjects",
+             "preview_sha256": sealed["preview_sha256"],
+             "illustrative_updated_at": sealed["illustrative_updated_at"]},
+        )
+        self.assertEqual("stage_subjects", staged.get("operation"), staged)
+        self.assertEqual([], staged.get("errors"), staged)
+        self.assertTrue(staged["staging"]["staging_only"], staged)
+        self.assertEqual(raw, target.read_bytes(), "Subject staging changed the canonical source")
 
     def _assert_status_admission_blocked(self, result: Mapping[str, Any]) -> None:
         """Require the source-declared refusal carrier, not an MCP exception."""
@@ -865,6 +972,49 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                 await self._stop(runtime)
             temporary.cleanup()
 
+    async def test_w01_active_concern_about_resolves_current_atom_through_docker(self) -> None:
+        """Concern admission binds uniquely resolved Current Atom targets."""
+        temporary, root, fixture = self._new_fixture(GoldenCase("W01", "create_atom"))
+        runtime = self._runtime(root)
+        launched = False
+        try:
+            fixture.prepare()
+            _materialize_current_concern_target(fixture)
+            _materialize_frozen_bindings(fixture, frozen_graph_authority())
+            _materialize_frozen_frontier(fixture)
+            _materialize_frozen_bindings(
+                fixture, {"CA-D-378": frozen_behavior_bindings()["CA-D-378"]}
+            )
+            launched = True
+            await self._start(runtime)
+            await self._assert_current_concern_targets(runtime, root, fixture)
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            if launched:
+                await self._stop(runtime)
+            temporary.cleanup()
+
+    async def test_atom_update_stages_approved_double_slash_subject_through_docker(self) -> None:
+        """Public Subject staging preserves the approved double-slash grammar."""
+        temporary, root, fixture = self._new_fixture(GoldenCase("W01", "create_atom"))
+        runtime = self._runtime(root)
+        launched = False
+        try:
+            fixture.prepare()
+            _materialize_frozen_bindings(fixture, frozen_preparation_bindings())
+            _materialize_approved_grammar(fixture)
+            target = fixture.status_atom("Requirement", "Active", number=8602)
+            launched = True
+            await self._start(runtime)
+            await self._assert_subject_stage(runtime, root, target)
+        except GoldenCorpusError as error:
+            self.fail(str(error))
+        finally:
+            if launched:
+                await self._stop(runtime)
+            temporary.cleanup()
+
     async def test_w01_creates_every_role_admitted_status_through_docker(self) -> None:
         """W01 applies each current source-admitted role/status pair through MCP."""
         temporary, root, fixture = self._new_fixture(GoldenCase("W01", "create_atom"))
@@ -920,8 +1070,16 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                         )
                         model = resolve_status_model(root, atom, status)
                         self.assertEqual(list(statuses), model["statuses"])
-                        self.assertEqual(source_id, model["model_sources"][0]["atom_id"])
-            self.assertEqual(27, created)
+                        expected_source_ids = (
+                            ("CA-R-1947", "CA-R-1608") if role == "Concern"
+                            else ("CA-R-1947", "CA-R-1539") if role == "Plan"
+                            else (source_id,)
+                        )
+                        self.assertEqual(
+                            expected_source_ids,
+                            tuple(row["atom_id"] for row in model["model_sources"]),
+                        )
+            self.assertEqual(29, created)
         except GoldenCorpusError as error:
             self.fail(str(error))
         finally:

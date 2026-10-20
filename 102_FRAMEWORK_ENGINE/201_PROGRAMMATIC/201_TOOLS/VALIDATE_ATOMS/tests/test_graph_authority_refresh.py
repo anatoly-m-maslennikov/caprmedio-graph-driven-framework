@@ -21,6 +21,7 @@ from project_selection import bind_selection, resolve_project  # noqa: E402
 
 from validate_atoms_workers.graph_authority_refresh import (  # noqa: E402
     APPROVED_GRAPH_AUTHORITY_IDS,
+    _active_source,
     _source_roots,
     refresh_entries,
     verify_entries,
@@ -39,16 +40,7 @@ class GraphAuthorityRefreshTests(unittest.TestCase):
             for atom_id in APPROVED_GRAPH_AUTHORITY_IDS
         }
 
-    def test_authority_roots_are_the_finite_authored_source_roots(self) -> None:
-        selection = resolve_project(PROJECT)
-        owner = next(row["authority_path"] for row in selection.structure["scope_units"]
-                     if row["scope_unit_name"] == "CORE_META_MODEL")
-        self.assertEqual(
-            _source_roots(PROJECT),
-            (PROJECT / owner / "04_requirement", PROJECT / owner / "07_delivery"),
-        )
-
-    def test_relocated_declared_owner_and_foreign_selection(self) -> None:
+    def test_core_only_project_does_not_require_optional_configuration_owner(self) -> None:
         temporary = PROJECT / ".caprmedio_tmp" / "tests" / "graph_authority_refresh"
         temporary.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(dir=temporary) as directory:
@@ -60,24 +52,106 @@ class GraphAuthorityRefreshTests(unittest.TestCase):
             (control / "caprmedio_project_settings.toml").write_text(
                 '[project]\nname = "example"\n[paths]\ncontrol_root = ".caprmedio_example"\n'
             )
+            (control / "project_structure.toml").write_text(
+                "schema_version = 1\n"
+                '[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
+                'authority_path = ".caprmedio_example/declared_core"\n'
+                'delivery_path = ".caprmedio_example/declared_core"\n'
+            )
+            selection = resolve_project(root)
+            with bind_selection(selection):
+                self.assertEqual(
+                    _source_roots(root),
+                    (owner / "04_requirement", owner / "07_delivery"),
+                )
+
+    def test_relocated_declared_owner_and_foreign_selection(self) -> None:
+        temporary = PROJECT / ".caprmedio_tmp" / "tests" / "graph_authority_refresh"
+        temporary.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=temporary) as directory:
+            root = Path(directory)
+            control = root / ".caprmedio_example"
+            owners = {
+                "CORE_META_MODEL": control / "declared_core",
+                "PROJECT_CONFIGURATION": control / "declared_project",
+            }
+            for owner in owners.values():
+                for role in ("04_requirement", "07_delivery"):
+                    (owner / role).mkdir(parents=True)
+            (control / "caprmedio_project_settings.toml").write_text(
+                '[project]\nname = "example"\n[paths]\ncontrol_root = ".caprmedio_example"\n'
+            )
             structure = control / "project_structure.toml"
             declaration = (
                 '[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
                 'authority_path = ".caprmedio_example/declared_core"\n'
                 'delivery_path = ".caprmedio_example/declared_core"\n'
             )
-            structure.write_text("schema_version = 1\n" + declaration)
+            project_declaration = (
+                '[[scope_units]]\nscope_unit_name = "PROJECT_CONFIGURATION"\n'
+                'authority_path = ".caprmedio_example/declared_project"\n'
+                'delivery_path = ".caprmedio_example/declared_project"\n'
+            )
+            structure.write_text("schema_version = 1\n" + declaration + project_declaration)
             selection = resolve_project(root)
             with bind_selection(selection):
                 self.assertEqual(_source_roots(root),
-                                 (owner / "04_requirement", owner / "07_delivery"))
+                                 tuple(
+                                     owner / role
+                                     for owner in owners.values()
+                                     for role in ("04_requirement", "07_delivery")
+                                 ))
                 with self.assertRaisesRegex(ValueError, "another root"):
                     _source_roots(PROJECT)
             structure.write_text("schema_version = 1\n")
             with self.assertRaisesRegex(ValueError, "owner is absent or ambiguous"):
                 _source_roots(root)
-            structure.write_text("schema_version = 1\n" + declaration * 2)
+            structure.write_text(
+                "schema_version = 1\n" + declaration + project_declaration + project_declaration
+            )
             with self.assertRaisesRegex(ValueError, "unique"):
+                _source_roots(root)
+
+    def test_declared_project_configuration_fixture_is_selected(self) -> None:
+        temporary = PROJECT / ".caprmedio_tmp" / "tests" / "graph_authority_refresh"
+        temporary.mkdir(parents=True, exist_ok=True)
+        fixture = TESTS / "fixtures" / "graph_authority" / "CA-D-305-project-configuration.md"
+        with tempfile.TemporaryDirectory(dir=temporary) as directory:
+            root = Path(directory)
+            control = root / ".caprmedio_example"
+            owners = {
+                "CORE_META_MODEL": control / "declared_core",
+                "PROJECT_CONFIGURATION": control / "declared_project",
+            }
+            for role in ("04_requirement", "07_delivery"):
+                (owners["CORE_META_MODEL"] / role).mkdir(parents=True)
+            (owners["PROJECT_CONFIGURATION"] / "07_delivery").mkdir(parents=True)
+            (control / "caprmedio_project_settings.toml").write_text(
+                '[project]\nname = "example"\n[paths]\ncontrol_root = ".caprmedio_example"\n'
+            )
+            (control / "project_structure.toml").write_text(
+                "schema_version = 1\n"
+                '[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
+                'authority_path = ".caprmedio_example/declared_core"\n'
+                'delivery_path = ".caprmedio_example/declared_core"\n'
+                '[[scope_units]]\nscope_unit_name = "PROJECT_CONFIGURATION"\n'
+                'authority_path = ".caprmedio_example/declared_project"\n'
+                'delivery_path = ".caprmedio_example/declared_project"\n'
+            )
+            source = owners["PROJECT_CONFIGURATION"] / "07_delivery" / (
+                "CA-D-305-PROJECT_CONFIGURATION-CORE--carry-projected-atoms-without-new-identity.md"
+            )
+            source.write_bytes(fixture.read_bytes())
+            selection = resolve_project(root)
+            with bind_selection(selection):
+                selected, metadata = _active_source(root, "CA-D-305")
+            self.assertEqual(source, selected)
+            self.assertEqual(16, metadata["version"])
+            self.assertFalse((owners["PROJECT_CONFIGURATION"] / "04_requirement").exists())
+            (owners["PROJECT_CONFIGURATION"] / "04_requirement").symlink_to(
+                owners["CORE_META_MODEL"] / "04_requirement", target_is_directory=True
+            )
+            with self.assertRaisesRegex(ValueError, "directory is unavailable"):
                 _source_roots(root)
 
     def test_stale_pin_is_refused(self) -> None:

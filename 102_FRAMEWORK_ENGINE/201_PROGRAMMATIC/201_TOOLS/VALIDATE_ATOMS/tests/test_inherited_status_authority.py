@@ -38,6 +38,34 @@ PLAN = source("CA-R-1539", "Entity/Continuant/Object/Atom/Content Role: Plan.Sta
 
 
 class InheritedStatusAuthorityTests(unittest.TestCase):
+    def test_plan_mapping_accepts_current_root_paths_and_legacy_leaf_paths(self):
+        source = """
+- Draft: **in** the owning Scope Unit's shared `03_plan/draft` area.
+- Active: directly **in** its local container.
+- Backlog: **in** its `001_backlog` subdirectory.
+- Done: **in** its `done` subdirectory.
+- Canceled: **in** its `canceled` subdirectory.
+- Archived: **in** the owning Scope Unit's shared `03_plan/archived` area.
+"""
+        expected = {"Draft": "draft", "Active": "", "Archived": "archived",
+                    "Backlog": "001_backlog", "Done": "done", "Canceled": "canceled"}
+        self.assertEqual(proposed_carrier._plan_mapping(source), expected)
+        self.assertEqual(proposed_carrier._plan_mapping(source.replace("03_plan/", "")), expected)
+
+    def test_plan_mapping_rejects_traversal_absolute_and_wrong_role_paths(self):
+        template = """
+- Draft: **in** its `{draft}` subdirectory.
+- Active: directly **in** its local container.
+- Backlog: **in** its `001_backlog` subdirectory.
+- Done: **in** its `done` subdirectory.
+- Canceled: **in** its `canceled` subdirectory.
+- Archived: **in** its `archived` subdirectory.
+"""
+        for path in ("../draft", "/03_plan/draft", "03_plan/../draft",
+                     "04_requirement/draft", "03_plan/draft/child"):
+            with self.subTest(path=path), self.assertRaises(proposed_carrier.ProposedCarrierError):
+                proposed_carrier._plan_mapping(template.format(draft=path))
+
     def inherited_fixture(self):
         fixture = fixtures.ProposedCarrierAdmissionRegressions()
         fixture.setUp()
@@ -50,11 +78,15 @@ class InheritedStatusAuthorityTests(unittest.TestCase):
                          "## Claim\n\n" + PLAN["text"].split("## Claim\n", 1)[1], before, flags=re.S)
         self.assertNotEqual(before, updated)
         source_path.write_text(updated, encoding="utf-8")
+        for path in source_path.parent.glob("CA-R-1947*.md"):
+            path.unlink()
         base_path = source_path.parent / "CA-R-999001--base-status.md"
         base_path.write_text(BASE["text"], encoding="utf-8")
         delivery = next(fixture.root.rglob("CA-D-461*.md"))
-        delivery.write_text(delivery.read_text().replace(
-            "- Active:", "- Draft: **in** its `draft` subdirectory.\n- Active:", 1), encoding="utf-8")
+        delivery_text = delivery.read_text()
+        if "- Draft:" not in delivery_text:
+            delivery.write_text(delivery_text.replace(
+                "- Active:", "- Draft: **in** its `draft` subdirectory.\n- Active:", 1), encoding="utf-8")
         return fixture, selection, base_path
 
     def test_scoped_inherited_base_drift_uses_carrier_error_boundary(self):
