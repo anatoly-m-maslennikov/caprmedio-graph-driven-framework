@@ -10,16 +10,16 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Approved Change Reversal"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Artifact", "Artifact/Revision", "Entity/Continuant/History/Journal", "Workflow Run", "Step Run"]
-version: 4
-updated_at: "2026-10-18 16:23:36 +0400"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom", "Artifact", "Artifact/Revision", "Entity/Node/Continuant/History/Journal", "Workflow Run", "Step Run"]
+version: 5
+updated_at: "2026-10-19 15:57:02 +0400"
 relations:
   relates_to: [CA-R-1432, CA-R-1464, CA-R-1521, CA-R-807, CA-R-1720, CA-R-1525, CA-D-308, CA-D-340, CA-O-051]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-131-PROJECT_CONFIGURATION-ACTION--apply-an-approved-reversal.md
   source_atom_id: CA-O-131
-  source_atom_revision: 4
-  source_sha256: c610adb15b8195e6c92ee423a83b153e91c90b3829143ec00a83533819a017ab
+  source_atom_revision: 5
+  source_sha256: e5237851091e83983013df27385c5d7cbd94008e39e8873aad051bb9f90989a2
   original_relations_sha256: 499bd2dfb50827777a8f082640073db1b31ba37b8a99751234fbbe8867045fae
 ---
 # Summary

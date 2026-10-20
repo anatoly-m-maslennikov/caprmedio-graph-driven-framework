@@ -8,18 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-19 03:12:40 +0400"
+version: 6
+updated_at: "2026-10-19 15:57:08 +0400"
 subjects:
   governs: "Find and Fetch Journal Events"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/History/Journal", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Action Run"]
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/History/Journal", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Action Run"]
 relations:
   relates_to: [CA-O-162, CA-O-163, CA-R-1861, CA-R-1867]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-161-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-journal-events.md
   source_atom_id: CA-O-161
-  source_atom_revision: 5
-  source_sha256: 78bf9328add6346e8f365677815ba1b8d3996d47a786e9e0a7e65346e868b176
+  source_atom_revision: 6
+  source_sha256: 39087031afbb21d2d89196a525bd9bd557c99c3448bea989db96cfef2cf00a1f
   original_relations_sha256: f55b6e8cdb88a58cf4884fed057e8d608ec19cf78662e3bed41b5bbf62e03e05
 ---
 # Summary

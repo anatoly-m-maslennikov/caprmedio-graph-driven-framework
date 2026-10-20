@@ -2,9 +2,9 @@
 subjects:
   governs: "Apply Structural Change"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Actor/Type: Operator", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/History/Journal"]
-version: 7
-updated_at: "2026-10-18 16:20:52 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Node/Continuant/History/Journal"]
+version: 8
+updated_at: "2026-10-19 15:56:36 +0400"
 relations: {}
 atom_id: "CA-O-014"
 content_role: "Operations"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-014-PROJECT_CONFIGURATION-ACTION--apply-structural-change.md
   source_atom_id: CA-O-014
-  source_atom_revision: 7
-  source_sha256: 92be9c2fcc0670ce575e9975fe2b70fb0650347e7b7cd68192b4866b3516a2e1
+  source_atom_revision: 8
+  source_sha256: e07f5d7928a5dbf62c77f0115c890bdfefa4e2dbe0aa661da033cab6aeeae367
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

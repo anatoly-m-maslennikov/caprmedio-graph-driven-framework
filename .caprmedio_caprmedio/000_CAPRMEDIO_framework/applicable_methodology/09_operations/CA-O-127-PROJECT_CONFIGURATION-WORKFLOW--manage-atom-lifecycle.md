@@ -9,17 +9,17 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow"
-  depends_on: ["Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Relation/Type: On Result", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/History/Journal"]
-version: 13
-updated_at: "2026-10-18 16:22:50 +0400"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Relation/Type: On Result", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal"]
+version: 14
+updated_at: "2026-10-19 15:57:00 +0400"
 relations:
   relates_to: [CA-O-129, CA-O-145, CA-M-303, CA-R-1508, CA-R-1513, CA-R-1520, CA-R-1525, CA-R-1720]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-127-PROJECT_CONFIGURATION-WORKFLOW--manage-atom-lifecycle.md
   source_atom_id: CA-O-127
-  source_atom_revision: 13
-  source_sha256: cff313f9939c96a77f7c99d5726dba513b77e3987906a748e0ae7b3cae3c4b66
+  source_atom_revision: 14
+  source_sha256: db04d63821aed46401116a7804a5e29d021b27a371d5eb62e15e04419e9c158d
   original_relations_sha256: fcfcc4b2dbb8fc1a8cac622227d404f20f79bf31f172624b9f4b4103aa62748d
 ---
 # Summary

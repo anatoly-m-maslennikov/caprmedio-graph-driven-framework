@@ -8,19 +8,19 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-19 03:07:30 +0400"
+version: 7
+updated_at: "2026-10-19 15:56:35 +0400"
 subjects:
   governs: "Applicable Methodology Compilation Publish Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Publish Reconciled Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Entity/Carrier", "Entity/Continuant/Projection/Type: Reconciled Projection"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Publish Reconciled Projection", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Entity/Carrier", "Entity/Node/Continuant/Projection/Type: Reconciled Projection"]
 relations:
   relates_to: [CA-O-011, CA-O-009]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-157-PROJECT_CONFIGURATION-STEP--publish-the-applicable-methodology.md
   source_atom_id: CA-O-157
-  source_atom_revision: 6
-  source_sha256: e2dec1a8723d5fc3e6ba3061cd15a4c293f965411a9825f6f5a43237dc39845c
+  source_atom_revision: 7
+  source_sha256: c148000bb84db3bb2cce2380da3ff43a582a439fcaec9c1c0e041a22e2ca18e1
   original_relations_sha256: 3d58154a85585cabe11495d37bd8fd0904c638157cd48404ac517de5e5709123
 ---
 # Summary

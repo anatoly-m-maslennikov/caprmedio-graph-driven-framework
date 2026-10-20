@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Label"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Plan.Label"
   depends_on:
-    ["Label", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Label"]
-version: 7
-updated_at: "2026-10-15 18:44:37 +0000"
+    ["Label", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom/Content Role: Plan.Label"]
+version: 8
+updated_at: "2026-10-19 15:53:34 +0400"
 relations: {"relates_to": ["CA-R-1594", "CA-R-1574"]}
 atom_id: "CA-R-1576"
 content_role: "Requirement"

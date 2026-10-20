@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Atom/Content Role: Operations", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Actor", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Artifact Carrier"]
-version: 13
-updated_at: "2026-10-15 18:49:44 +0000"
+    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom/Content Role: Requirement", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Entity/Node/Continuant/Atom/Content Role: Operations", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Actor", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Artifact Carrier"]
+version: 14
+updated_at: "2026-10-19 15:55:09 +0400"
 relations:
   evaluation_for:
     - CA-R-1531
@@ -28,8 +28,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-482-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-principle-content-role-semantics.md
   source_atom_id: CA-E-482
-  source_atom_revision: 13
-  source_sha256: 1b54dfeed4e9ddaef91fff58cf2b76f63efb15e4779c1e23f2fa393de64f40c8
+  source_atom_revision: 14
+  source_sha256: e1a2da464a5a494a3b0c37811dd78739fd488d48b754c9498a1d61de924de52f
   original_relations_sha256: d63238eff976077a998317d0a36e32fdc3e09e703d6f3a9cee15c60755964d5c
 ---
 # Summary

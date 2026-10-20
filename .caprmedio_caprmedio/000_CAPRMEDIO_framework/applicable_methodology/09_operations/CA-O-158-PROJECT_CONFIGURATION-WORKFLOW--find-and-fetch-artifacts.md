@@ -8,17 +8,17 @@ global_tier: 11
 status: "Active"
 author: "Anatoly Maslennikov"
 type: "Workflow"
-version: 6
-updated_at: "2026-10-18 16:27:23 +0400"
+version: 7
+updated_at: "2026-10-19 15:57:08 +0400"
 subjects:
   governs: "Find and Fetch Artifacts"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Artifact", "Markdown", "Entity/Continuant/History/Journal", "Tool"]
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Artifact", "Markdown", "Entity/Node/Continuant/History/Journal", "Tool"]
 relations: {}
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-158-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-artifacts.md
   source_atom_id: CA-O-158
-  source_atom_revision: 6
-  source_sha256: bbbb4c71f02eb154fa5f0cc3a9c0b3102e4f9af470602b9b67c21cb41911da42
+  source_atom_revision: 7
+  source_sha256: 3560b87dd251e1d59acca577b187bde04b7c452e59e31ff55d73ecaff091a5df
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

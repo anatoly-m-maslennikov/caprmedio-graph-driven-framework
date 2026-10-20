@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Claim Boundary Authoring"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Claim", "Entity/Continuant/Object/Atom.Substance", "CCE", "Author", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit", "Relational Atom"]
-version: 25
-updated_at: "2026-10-15 18:47:48 +0000"
+    ["Entity/Node/Continuant/Atom", "Claim", "Entity/Node/Continuant/Atom.Substance", "CCE", "Author", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Target Scope Unit", "Relational Atom"]
+version: 27
+updated_at: "2026-10-19 22:02:11 +0400"
 relations: {}
 atom_id: "CA-M-115"
 content_role: "Method"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md
   source_atom_id: CA-M-115
-  source_atom_revision: 25
-  source_sha256: 6938b8272bc614a820b32397ed58bc16edc4be9f63544e9ed1ab30f1a2f613e8
+  source_atom_revision: 27
+  source_sha256: 1d497d4c4005e211df3fd9421e4d5606cf14adcb3b1ae704a5028a7db1b0d235
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
@@ -27,7 +27,7 @@ Author one CCE Claim per Atom
 
 ## Scope
 
-authoring the boundary of **`=1`** independently replaceable Atom contribution.
+authoring the boundary of **`=1`** independently replaceable prose CCE Atom contribution. Formal Graph Rule Atoms use CA-M-394 instead, retaining one independently replaceable structured rule of exactly one Graph Rule Type. This exception does not apply automatically to every R/Type: Rule Atom.
 
 ## Claim
 

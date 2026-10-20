@@ -8,18 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-19 13:29:59 +0400"
+version: 6
+updated_at: "2026-10-19 15:56:55 +0400"
 subjects:
   governs: "RMED Atom Review Check Coverage Gate Step"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal"]
 relations:
   relates_to: [CA-O-104, CA-O-118]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-104-PROJECT_CONFIGURATION-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch/CA-O-109-PROJECT_CONFIGURATION-STEP--evaluate-the-selected-rmed-review-batch/CA-O-120-PROJECT_CONFIGURATION-STEP--gate-check-result-coverage.md
   source_atom_id: CA-O-120
-  source_atom_revision: 5
-  source_sha256: 5a38beca4a05e97dbd2664a2ccef79254a3a28225c2493b71b144471be627528
+  source_atom_revision: 6
+  source_sha256: f61eb76893c132992fdc48e831fdf6514173d0735301dcbb147d7a2e2443d75b
   original_relations_sha256: bf71386ada6c23487fc05e9498120de59784b00f41060c7bbc43ad9070f682e0
 ---
 # Summary

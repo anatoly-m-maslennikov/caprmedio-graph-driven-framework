@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Evaluation"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Evaluation"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role", "Entity/Continuant/Relation/Type: evaluation_for"]
-version: 13
-updated_at: "2026-10-18 03:34:18 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role", "Entity/Relation/Type: evaluation_for"]
+version: 14
+updated_at: "2026-10-19 15:54:44 +0400"
 relations: {}
 atom_id: "CA-M-265"
 content_role: "Method"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-265-CORE_META_MODEL-GENERAL-METHOD--derive-evaluation-groups-from-checked-authority.md
   source_atom_id: CA-M-265
-  source_atom_revision: 13
-  source_sha256: 378216eb6a9bef88d44fbb0b851e85aaeff1a26dc0fc3344aa6cac81c8a419af
+  source_atom_revision: 14
+  source_sha256: f3d878ab04a1931e3c528c75a12a1369fa9b75f376adbecf61a085e4184a4ef3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

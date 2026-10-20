@@ -2,9 +2,9 @@
 subjects:
   governs: "Label"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit.Label", "Scope Unit/Type", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Plan Blocking Relations", "Atom/Content Role: Plan/Type: Plan", "Entity", "Property", "Entity/Continuant/Actor/Type: Operator"]
-version: 6
-updated_at: "2026-10-15 18:50:14 +0000"
+    ["Entity/Node/Continuant/Scope Unit.Label", "Scope Unit/Type", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Plan Blocking Relations", "Atom/Content Role: Plan/Type: Plan", "Entity", "Property", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 7
+updated_at: "2026-10-19 15:55:14 +0400"
 relations: {"evaluation_for": ["CA-R-1594", "CA-R-972", "CA-R-1576", "CA-R-1577", "CA-R-982"]}
 atom_id: "CA-E-505"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-505-CORE_META_MODEL-QA_CASE--validate-shared-label-semantics.md
   source_atom_id: CA-E-505
-  source_atom_revision: 6
-  source_sha256: a94af847b6be57acc0a56fdb0f6e3a18cae8c4d4285e57c6ccc47c86e3628a71
+  source_atom_revision: 7
+  source_sha256: 0b6c712540b3c71083685a8acbbc6c62b175b4a447fa18e3f37d2944602c6fd6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

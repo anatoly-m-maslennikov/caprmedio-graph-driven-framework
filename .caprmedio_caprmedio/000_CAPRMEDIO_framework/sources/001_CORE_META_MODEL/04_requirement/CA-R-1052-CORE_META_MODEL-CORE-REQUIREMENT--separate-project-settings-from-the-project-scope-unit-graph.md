@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Settings"
+  governs: "Entity/Node/Continuant/Project.Settings"
   depends_on:
-    ["Entity/Continuant/Node/Project.Structure", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Projection/Type: Scope Unit Graph", "Entity/Continuant/Node/Projection"]
-version: 25
-updated_at: "2026-10-18 03:33:17 +0400"
+    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Projection/Type: Scope Unit Graph", "Entity/Node/Continuant/Projection"]
+version: 26
+updated_at: "2026-10-19 15:52:35 +0400"
 relations:
   child_of:
     - CA-R-832-CORE-REQUIREMENT--select-optional-capabilities-through-configuration

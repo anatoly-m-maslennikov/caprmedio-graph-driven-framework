@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Summary"
+  governs: "Entity/Node/Continuant/Atom.Summary"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Translation"]
-version: 14
-updated_at: "2026-10-15 18:41:31 +0000"
+    ["Entity/Node/Continuant/Atom.Substance", "Translation"]
+version: 15
+updated_at: "2026-10-19 15:52:43 +0400"
 relations: {}
 atom_id: "CA-R-1274"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1274-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-authority-derivation-from-summary.md
   source_atom_id: CA-R-1274
-  source_atom_revision: 14
-  source_sha256: 47cf6f160c73d212112e472fbbd890c492558bd0a1572b55190feb0f04c4c684
+  source_atom_revision: 15
+  source_sha256: 8f12d21bc78143567bf32f11244d1222beef3801bf2048506e4752da4a712b19
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

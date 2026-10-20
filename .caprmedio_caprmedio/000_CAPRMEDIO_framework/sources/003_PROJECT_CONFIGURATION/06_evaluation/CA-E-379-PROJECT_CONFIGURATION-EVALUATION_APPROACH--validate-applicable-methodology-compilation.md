@@ -2,9 +2,9 @@
 subjects:
   governs: "Applicable Methodology Compilation"
   depends_on:
-    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set", "Project Configuration", "Extension", "Entity/Continuant/Object/Project.Framework Settings", "Methodology Source.Expansion Boundary", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal.Record"]
-version: 24
-updated_at: "2026-10-18 07:44:31 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set", "Project Configuration", "Extension", "Entity/Node/Continuant/Project.Framework Settings", "Methodology Source.Expansion Boundary", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal.Record"]
+version: 25
+updated_at: "2026-10-19 15:56:15 +0400"
 relations:
   evaluation_for:
     - CA-D-305

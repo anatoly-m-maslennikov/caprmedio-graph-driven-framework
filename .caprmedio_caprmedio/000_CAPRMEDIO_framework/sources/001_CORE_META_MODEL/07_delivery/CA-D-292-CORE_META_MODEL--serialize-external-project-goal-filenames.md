@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    ["Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Project.Settings.Project Name", "Entity/Continuant/Node/Project"]
-version: 20
-updated_at: "2026-10-18 07:30:14 +0400"
+    ["Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project.Settings.Project Name", "Entity/Node/Continuant/Project"]
+version: 21
+updated_at: "2026-10-19 15:55:24 +0400"
 relations: {}
 atom_id: "CA-D-292"
 content_role: "Delivery"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Relation/Type: NARROWER_THAN"
+  governs: "Entity/Relation/Type: NARROWER_THAN"
   depends_on:
-    ["Entity/Continuant/Node/Projection/Type: Terms Graph", "Entity/Continuant/Node/Term"]
-version: 18
-updated_at: "2026-10-18 03:33:18 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Terms Graph", "Entity/Node/Continuant/Term"]
+version: 19
+updated_at: "2026-10-19 15:52:40 +0400"
 relations: {}
 atom_id: "CA-R-1244"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1244-CORE_META_MODEL-GENERAL-REQUIREMENT--allow-multiple-direct-term-hierarchy-parents.md
   source_atom_id: CA-R-1244
-  source_atom_revision: 18
-  source_sha256: a6c9f70735858a60c93a90aa31e5d3dfade3bacf898f421e401bbb4b1b460e00
+  source_atom_revision: 19
+  source_sha256: 1f8fdc3a7a6d96375ce55767b93f90b96a4af0714ad6779b3a74261e2a560ce2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

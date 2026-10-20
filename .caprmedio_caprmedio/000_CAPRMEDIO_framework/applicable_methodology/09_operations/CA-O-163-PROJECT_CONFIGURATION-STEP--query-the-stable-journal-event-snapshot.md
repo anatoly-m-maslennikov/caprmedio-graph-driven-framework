@@ -8,18 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-19 03:13:04 +0400"
+version: 8
+updated_at: "2026-10-19 15:57:09 +0400"
 subjects:
   governs: "Find and Fetch Journal Events Query Step"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/History/Journal", "Entity/Occurrent/Event", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Action Run"]
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/History/Journal", "Entity/Node/Occurrent/Event", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Action Run"]
 relations:
   relates_to: [CA-O-161, CA-O-162, CA-R-1861, CA-R-1866, CA-R-1867]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-161-PROJECT_CONFIGURATION-WORKFLOW--find-and-fetch-journal-events/CA-O-163-PROJECT_CONFIGURATION-STEP--query-the-stable-journal-event-snapshot.md
   source_atom_id: CA-O-163
-  source_atom_revision: 7
-  source_sha256: c9021af7cf65dbed948ae08f2157899d60de8356d304423aa84744538cc16c0f
+  source_atom_revision: 8
+  source_sha256: 02ddb04cb4740d756431a0c7530b3da05c8e2dd5b709d631b0fafcbbcac9c15b
   original_relations_sha256: bc97cada2c55ca4fc1ba8f3089d65e09b69f29c10eacc660088ce8bda9761904
 ---
 # Summary

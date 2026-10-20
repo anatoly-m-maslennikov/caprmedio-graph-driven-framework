@@ -11,10 +11,10 @@ subjects:
   depends_on:
     - "Evidence"
     - "Realization Graph"
-    - "Relation"
+    - "Entity/Relation"
     - "Relation Derivation Class"
-version: 4
-updated_at: "2026-10-03 00:55:03 +0400"
+version: 5
+updated_at: "2026-10-19 15:56:06 +0400"
 relations:
   relates_to:
     - CA-R-1616
@@ -25,8 +25,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1614-PROJECT_CONFIGURATION-REQUIREMENT--define-inferred-possible-relation-derivation.md
   source_atom_id: CA-R-1614
-  source_atom_revision: 4
-  source_sha256: 21954dd6fdb6fabf5d77b478bdbdb1700d4bef45c57facc49e72c4009e120fab
+  source_atom_revision: 5
+  source_sha256: 06f87da9ce2514414bb881f77b4aec7d8516e694b925742115bbe4acbdf1781e
   original_relations_sha256: 9498a3bf925a4c9ab02a1ce984d38e81a4cea3f350b87deeacc61ca5f1581a30
 ---
 # Summary

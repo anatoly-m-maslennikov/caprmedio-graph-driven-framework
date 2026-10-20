@@ -8,18 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 8
-updated_at: "2026-10-18 23:45:50 +0400"
+version: 9
+updated_at: "2026-10-19 15:56:56 +0400"
 subjects:
   governs: "Select RMED Review Batch"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
 relations: {"relates_to":["CA-D-496","CA-D-497"]}
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-105-PROJECT_CONFIGURATION-ACTION--select-a-bounded-rmed-review-batch.md
   source_atom_id: CA-O-105
-  source_atom_revision: 8
-  source_sha256: 0890f6f0d4734a9c2649760e4e750f9e3183636a5866147ac704456a48f2549b
+  source_atom_revision: 9
+  source_sha256: 1bed8262d2b657429812b319a9684d34493dedd891ea270493097e1a352d8321
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,9 +2,9 @@
 subjects:
   governs: "authority"
   depends_on:
-    ["Spec Content Roles", "Change Content Roles", "Entity", "Implementation", "Entity/Continuant/History/Journal.Record"]
-version: 25
-updated_at: "2026-10-15 18:45:22 +0000"
+    ["Spec Content Roles", "Change Content Roles", "Entity", "Implementation", "Entity/Node/Continuant/History/Journal.Record"]
+version: 26
+updated_at: "2026-10-19 15:53:50 +0400"
 relations:
   child_of:
     - CA-M-001
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md
   source_atom_id: CA-R-1682
-  source_atom_revision: 25
-  source_sha256: dd2f23d73a0a4f5db9f2e4f9154849f66ee0472fd8276c091f14959d5b979b4a
+  source_atom_revision: 26
+  source_sha256: 608e338e554a2186961c77d9bdfcb691511e8998ed768ce86f0f8888f4f60c20
   original_relations_sha256: 2f95e55e3d0a844c858c40eeab601ef29e88bfb9f5c8b9fd17a85ccd2af662a7
 ---
 # Summary

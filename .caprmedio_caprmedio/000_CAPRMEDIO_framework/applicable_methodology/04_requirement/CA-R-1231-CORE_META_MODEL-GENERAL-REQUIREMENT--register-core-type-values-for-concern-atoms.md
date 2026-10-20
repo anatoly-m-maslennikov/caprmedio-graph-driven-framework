@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Concern/Type"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Concern", "Type"]
-version: 15
-updated_at: "2026-10-15 18:41:18 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Concern", "Type"]
+version: 16
+updated_at: "2026-10-19 15:52:38 +0400"
 relations: {}
 atom_id: "CA-R-1231"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1231-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-concern-atoms.md
   source_atom_id: CA-R-1231
-  source_atom_revision: 15
-  source_sha256: caaf38a800f0f3f253a74b80d95950aa24e24550737bcee5f3658539dcf05e4e
+  source_atom_revision: 16
+  source_sha256: 2279d1f8f7d2150362a21b68f07a16d005be314f5df160a42fda170d833dc2f0
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

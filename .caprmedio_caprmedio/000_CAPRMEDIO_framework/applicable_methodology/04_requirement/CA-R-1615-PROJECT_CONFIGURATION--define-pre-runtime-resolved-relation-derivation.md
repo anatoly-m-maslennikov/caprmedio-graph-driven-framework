@@ -11,10 +11,10 @@ subjects:
   depends_on:
     - "Evidence"
     - "Realization Graph"
-    - "Relation"
+    - "Entity/Relation"
     - "Relation Derivation Class"
-version: 4
-updated_at: "2026-10-01 21:44:50 +0400"
+version: 5
+updated_at: "2026-10-19 15:56:07 +0400"
 relations:
   relates_to:
     - CA-R-1493
@@ -26,8 +26,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1615-PROJECT_CONFIGURATION--define-pre-runtime-resolved-relation-derivation.md
   source_atom_id: CA-R-1615
-  source_atom_revision: 4
-  source_sha256: e082015ac31ec8f0e8f037a94b786ba387a9e6cf75dd71afa5f408701c0858f2
+  source_atom_revision: 5
+  source_sha256: c1f425255df21968e7eee2bcbf85ab0c4416985c1429530ac060233e137e0527
   original_relations_sha256: c1dfb708a2f30ab92ebb881edc995bbd3978d95e01ee61809f07aa5710d72562
 ---
 # Summary

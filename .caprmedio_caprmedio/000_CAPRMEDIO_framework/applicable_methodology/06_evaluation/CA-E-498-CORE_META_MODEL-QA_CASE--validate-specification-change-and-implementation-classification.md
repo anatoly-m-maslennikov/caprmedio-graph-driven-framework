@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role"
   depends_on:
-    ["Spec Content Roles", "Change Content Roles", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Implementation", "Entity/Carrier"]
-version: 7
-updated_at: "2026-10-15 18:50:00 +0000"
+    ["Spec Content Roles", "Change Content Roles", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Implementation", "Entity/Carrier"]
+version: 8
+updated_at: "2026-10-19 15:55:12 +0400"
 relations: {"evaluation_for": ["CA-R-1548", "CA-R-1549", "CA-R-1550", "CA-R-1339", "CA-R-1340", "CA-R-1343", "CA-R-1530", "CA-R-1569"]}
 atom_id: "CA-E-498"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md
   source_atom_id: CA-E-498
-  source_atom_revision: 7
-  source_sha256: 745934706346a320814e66a7dcb23af51fc78d38f015a3ccd573ebb43decc4df
+  source_atom_revision: 8
+  source_sha256: b973195205d45bee4f0a4810f4bedf8c39d6ee61124edf9a39993291eb7685ba
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

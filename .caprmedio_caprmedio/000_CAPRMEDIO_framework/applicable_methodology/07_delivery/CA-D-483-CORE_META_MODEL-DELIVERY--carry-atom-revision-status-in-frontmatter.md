@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Status"
+  governs: "Entity/Node/Continuant/Atom.Status"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Status", "Entity/Continuant/Node/Atom/Content Role", "Entity/Continuant/Node/Atom/Type", "Entity/Carrier.Canonical Address"]
-version: 9
-updated_at: "2026-10-18 03:34:52 +0400"
+    ["Entity/Node/Continuant/Atom.Status", "Entity/Node/Continuant/Atom/Content Role", "Entity/Node/Continuant/Atom/Type", "Entity/Carrier.Canonical Address"]
+version: 10
+updated_at: "2026-10-19 15:55:58 +0400"
 relations: {"relates_to": ["CA-D-478", "CA-D-480", "CA-D-466", "CA-D-461"]}
 atom_id: "CA-D-483"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md
   source_atom_id: CA-D-483
-  source_atom_revision: 9
-  source_sha256: 219491e0f20de4c3315723732506ca337f9482d9957e0178b1dec3dcb4fc35dc
+  source_atom_revision: 10
+  source_sha256: 9b03493d8cc669da7aaad704b8250a5846a1e3205e709c97c3f56137b34fbfb6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

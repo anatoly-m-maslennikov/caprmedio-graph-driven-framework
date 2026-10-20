@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Occurrent/Execution/Step Run.Invocation Context"
+  governs: "Entity/Node/Occurrent/Execution/Step Run.Invocation Context"
   depends_on:
-    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Atom"]
-version: 8
-updated_at: "2026-10-18 03:34:28 +0400"
+    ["Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom"]
+version: 9
+updated_at: "2026-10-19 15:55:12 +0400"
 relations: {"evaluation_for": ["CA-M-304", "CA-R-1789", "CA-R-1790", "CA-R-1791", "CA-R-1792", "CA-R-1793"]}
 atom_id: "CA-E-497"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-QA_CASE--validate-self-contained-agentic-invocations.md
   source_atom_id: CA-E-497
-  source_atom_revision: 8
-  source_sha256: f9ed5cb65a17ed34ca8f7de211df1617c84eef95b4e3b162dc5ca3ab41b5da85
+  source_atom_revision: 9
+  source_sha256: ca3baf83eee0249e7b6dfca594c13d820687bfc0f93384d891bda5cdb464bc9b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

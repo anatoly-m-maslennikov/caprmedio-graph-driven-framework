@@ -2,9 +2,9 @@
 subjects:
   governs: "DEPENDS_ON"
   depends_on:
-    ["Subject", "Entity/Continuant/Object/Atom.Subjects", "Entity", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary"]
-version: 18
-updated_at: "2026-10-15 18:41:36 +0000"
+    ["Subject", "Entity/Node/Continuant/Atom.Subjects", "Entity", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary"]
+version: 19
+updated_at: "2026-10-19 15:52:44 +0400"
 relations: {}
 atom_id: "CA-R-1280"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1280-CORE_META_MODEL-CORE-REQUIREMENT--reference-every-prerequisite-subject-through-depends-on.md
   source_atom_id: CA-R-1280
-  source_atom_revision: 18
-  source_sha256: be33e0064842a0455bddf01a2333e9216cf6f44866a71f6849e2c26923aeacbd
+  source_atom_revision: 19
+  source_sha256: 231bab115b3a5c93dc65ef3bc293d173d90104d4d2f1e307eb15c3be387ac22c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

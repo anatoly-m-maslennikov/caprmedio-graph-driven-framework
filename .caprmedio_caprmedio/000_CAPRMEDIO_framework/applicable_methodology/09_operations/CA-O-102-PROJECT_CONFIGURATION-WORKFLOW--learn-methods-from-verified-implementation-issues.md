@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Method Learning Workflow"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Method", "Implementation Workflow"]
-version: 5
-updated_at: "2026-10-19 03:11:24 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Method", "Implementation Workflow"]
+version: 6
+updated_at: "2026-10-19 15:56:51 +0400"
 relations:
   relates_to:
     - CA-O-101
@@ -22,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-102-PROJECT_CONFIGURATION-WORKFLOW--learn-methods-from-verified-implementation-issues.md
   source_atom_id: CA-O-102
-  source_atom_revision: 5
-  source_sha256: 7490569c174b24286fca8525b36ae0ee7891f3a14bea516705fa053aaf6b87b9
+  source_atom_revision: 6
+  source_sha256: b5fc30469d99fffc8e3cbbe84fc99548e6a2cdae0b2690329cc97f6eb14b5591
   original_relations_sha256: 3cf6dbadc9fea1fea16aad5572c903005fe75aa61c702ca060ae00fddc6d2117
 ---
 # Summary

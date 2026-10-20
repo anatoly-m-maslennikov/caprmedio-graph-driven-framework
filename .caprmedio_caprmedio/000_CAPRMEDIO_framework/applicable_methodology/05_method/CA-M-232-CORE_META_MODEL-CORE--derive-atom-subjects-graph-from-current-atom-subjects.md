@@ -2,9 +2,9 @@
 subjects:
   governs: "Subject Projection Derivation"
   depends_on:
-    ["Entity/Continuant/Projection/Type: Atom Subjects Graph", "Entity/Continuant/Object/Atom.Subjects", "Subject Path", "Subject", "Entity/Continuant/Object/Atom", "GOVERNS", "DEPENDS_ON"]
-version: 14
-updated_at: "2026-10-15 18:48:00 +0000"
+    ["Entity/Node/Continuant/Projection/Type: Atom Subjects Graph", "Entity/Node/Continuant/Atom.Subjects", "Subject Path", "Subject", "Entity/Node/Continuant/Atom", "GOVERNS", "DEPENDS_ON"]
+version: 15
+updated_at: "2026-10-19 15:54:42 +0400"
 relations: {}
 atom_id: "CA-M-232"
 content_role: "Method"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md
   source_atom_id: CA-M-232
-  source_atom_revision: 14
-  source_sha256: dbfda6454fc30f49ad23c1f315df2951405e73e86cef2f8a4eedbdfc6b949d6b
+  source_atom_revision: 15
+  source_sha256: db785d2296293c117ba89bd27536bcce036b5d2cd98c31546f77ac0ffaf254bb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

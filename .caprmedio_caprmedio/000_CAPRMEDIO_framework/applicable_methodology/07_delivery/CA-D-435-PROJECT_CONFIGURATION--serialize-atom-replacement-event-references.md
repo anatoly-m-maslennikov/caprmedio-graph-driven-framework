@@ -5,9 +5,9 @@ subjects:
     - "Work Journal/Event"
     - "Atom/Identifier"
     - "Atom/Revision"
-    - "Carrier"
-version: 10
-updated_at: "2026-10-14 18:37:38 +0400"
+    - "Entity/Carrier"
+version: 11
+updated_at: "2026-10-19 15:56:22 +0400"
 relations: {}
 atom_id: "CA-D-435"
 content_role: "Delivery"
@@ -20,8 +20,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-435-PROJECT_CONFIGURATION--serialize-atom-replacement-event-references.md
   source_atom_id: CA-D-435
-  source_atom_revision: 10
-  source_sha256: 470e466c21c59bebf0a2a5abd431a8abcdaeedde4785176c86360164a2f736da
+  source_atom_revision: 11
+  source_sha256: 3af49518056fddf0780f3a89b965753006811d5e71d1f92b82d6f2120a537c54
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,9 +2,9 @@
 subjects:
   governs: "Persist Atom Replacement"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Atom Carrier", "Entity/Continuant/History/Journal", "Artifact Archive Carrier Basename"]
-version: 10
-updated_at: "2026-10-18 16:22:19 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Revision/Type: Atom", "Atom Carrier", "Entity/Node/Continuant/History/Journal", "Artifact Archive Carrier Basename"]
+version: 11
+updated_at: "2026-10-19 15:56:44 +0400"
 relations: {relates_to: [CA-R-1432, CA-R-807]}
 atom_id: "CA-O-051"
 content_role: "Operations"

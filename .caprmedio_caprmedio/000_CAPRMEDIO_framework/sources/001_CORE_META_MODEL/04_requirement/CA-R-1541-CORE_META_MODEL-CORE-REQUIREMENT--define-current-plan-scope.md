@@ -2,9 +2,9 @@
 subjects:
   governs: "Current Plan Scope"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan.Status: Active"]
-version: 7
-updated_at: "2026-10-15 18:44:07 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Plan.Status: Active"]
+version: 8
+updated_at: "2026-10-19 15:53:24 +0400"
 relations: {"relates_to": ["CA-D-483", "CA-R-1539"]}
 atom_id: "CA-R-1541"
 content_role: "Requirement"

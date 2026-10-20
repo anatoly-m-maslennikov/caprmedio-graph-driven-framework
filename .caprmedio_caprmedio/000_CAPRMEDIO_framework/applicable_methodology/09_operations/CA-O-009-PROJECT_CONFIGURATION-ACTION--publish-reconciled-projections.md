@@ -2,9 +2,9 @@
 subjects:
   governs: "Publish Reconciled Projection"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Projection/Type: Reconciled Projection", "Artifact", "Entity/Continuant/Object/Atom.Substance", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Delivery"]
-version: 8
-updated_at: "2026-10-18 16:20:19 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Projection/Type: Reconciled Projection", "Artifact", "Entity/Node/Continuant/Atom.Substance", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Delivery"]
+version: 9
+updated_at: "2026-10-19 15:56:28 +0400"
 relations: {}
 atom_id: "CA-O-009"
 content_role: "Operations"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-009-PROJECT_CONFIGURATION-ACTION--publish-reconciled-projections.md
   source_atom_id: CA-O-009
-  source_atom_revision: 8
-  source_sha256: 9e6eb82c8859a68691315704a4f70d62258145371c2411a07db1e3f6078a2796
+  source_atom_revision: 9
+  source_sha256: 6ee82e002958f0ae8b073084d89663cca5d64f688e78e0b74fd137f3ce8a2eac
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

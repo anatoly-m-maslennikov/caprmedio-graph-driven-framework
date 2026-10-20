@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Relation/Type: On Result", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Actor/Type: Operator"]
-version: 9
-updated_at: "2026-10-18 03:34:25 +0400"
+    ["Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Relation/Type: On Result", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 10
+updated_at: "2026-10-19 15:55:09 +0400"
 relations: {"evaluation_for": ["CA-R-1519", "CA-R-1520"]}
 atom_id: "CA-E-489"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-QA_CASE--validate-workflow-execution-and-handoff-definitions.md
   source_atom_id: CA-E-489
-  source_atom_revision: 9
-  source_sha256: 738f669753751f30ec9cd81b79afa160ea6a1ad9191ce241bb13cf851f2bac7c
+  source_atom_revision: 10
+  source_sha256: be0e77bd0bfc8cd796d8f375d0ddd21b09f0070f09decdc8e5d2cff61aeca92b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

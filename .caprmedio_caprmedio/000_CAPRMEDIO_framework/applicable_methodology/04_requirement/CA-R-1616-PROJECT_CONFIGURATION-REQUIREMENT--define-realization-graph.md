@@ -14,9 +14,9 @@ subjects:
     - "Implementation"
     - "Journal"
     - "Projection"
-    - "Relation"
-version: 4
-updated_at: "2026-10-03 00:55:03 +0400"
+    - "Entity/Relation"
+version: 5
+updated_at: "2026-10-19 15:56:07 +0400"
 relations:
   relates_to:
     - CA-R-1470
@@ -28,8 +28,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1616-PROJECT_CONFIGURATION-REQUIREMENT--define-realization-graph.md
   source_atom_id: CA-R-1616
-  source_atom_revision: 4
-  source_sha256: 536018ba696ebe238eecba5e03bc9a37da3efcc801f7c57e436a68800d805cc0
+  source_atom_revision: 5
+  source_sha256: 51f9c2375c5593eafbe687876b7e9989d94f945e972a67568965427d9fa5597d
   original_relations_sha256: 1ef18b4680635e48eb29c93ae8f0179007f8563080857fa6273edea405820955
 ---
 # Summary

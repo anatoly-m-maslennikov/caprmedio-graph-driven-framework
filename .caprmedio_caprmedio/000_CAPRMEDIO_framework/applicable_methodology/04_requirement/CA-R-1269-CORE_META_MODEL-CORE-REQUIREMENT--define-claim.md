@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Substance"
+  governs: "Entity/Node/Continuant/Atom.Substance"
   depends_on:
-    ["Entity/Continuant/Node/Atom"]
-version: 14
-updated_at: "2026-10-18 03:33:18 +0400"
+    ["Entity/Node/Continuant/Atom"]
+version: 15
+updated_at: "2026-10-19 15:52:42 +0400"
 relations: {}
 atom_id: "CA-R-1269"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1269-CORE_META_MODEL-CORE-REQUIREMENT--define-claim.md
   source_atom_id: CA-R-1269
-  source_atom_revision: 14
-  source_sha256: 8b88f85ed3a80f2c6d96a46a4e3e6c0bb8f4f6873269535dda52898919fcd115
+  source_atom_revision: 15
+  source_sha256: e0af2ebb51a8c714aac9af9c50a32a80bcd008a98b8c4872b0d34f6fa5f636a6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

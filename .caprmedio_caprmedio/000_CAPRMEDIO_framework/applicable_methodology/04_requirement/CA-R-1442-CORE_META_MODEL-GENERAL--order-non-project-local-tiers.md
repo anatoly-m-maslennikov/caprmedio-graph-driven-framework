@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Local Tier"
+  governs: "Entity/Node/Continuant/Atom.Local Tier"
   depends_on:
-    ["Entity/Continuant/Node/Project", "Entity/Continuant/Node/Scope Unit"]
-version: 13
-updated_at: "2026-10-18 03:33:32 +0400"
+    ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/Scope Unit"]
+version: 14
+updated_at: "2026-10-19 15:53:06 +0400"
 relations: {}
 atom_id: "CA-R-1442"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1442-CORE_META_MODEL-GENERAL--order-non-project-local-tiers.md
   source_atom_id: CA-R-1442
-  source_atom_revision: 13
-  source_sha256: fe18ef4d95fd404f4b22ba8f30ae51dc8bb6363d5d448b91e74362f5bbb295ec
+  source_atom_revision: 14
+  source_sha256: 8ac74da8119c0ef7b86f92808455cd78dace5b17229ae605b005ff0ac9f60611
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

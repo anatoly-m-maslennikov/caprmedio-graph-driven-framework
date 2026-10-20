@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Spec Content Roles", "Change Content Roles", "Implementation", "Entity/Continuant/Object/Atom.Subjects"]
-version: 6
-updated_at: "2026-10-15 18:44:13 +0000"
+    ["Entity/Node/Continuant/Atom.Substance", "Spec Content Roles", "Change Content Roles", "Implementation", "Entity/Node/Continuant/Atom.Subjects"]
+version: 7
+updated_at: "2026-10-19 15:53:26 +0400"
 relations: {"relates_to": ["CA-R-1531", "CA-R-1548", "CA-R-1549", "CA-R-1343"]}
 atom_id: "CA-R-1550"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1550-CORE_META_MODEL-CORE-REQUIREMENT--keep-specification-in-rmed-regardless-of-its-subject.md
   source_atom_id: CA-R-1550
-  source_atom_revision: 6
-  source_sha256: 75950ce4e0dfefbb81e0a4b41d5a10e044f1247c139f9d36440922bfd3e86603
+  source_atom_revision: 7
+  source_sha256: ee4df35ce032f3f22b05317da7366bb0258fc2ce6b295e619ee3d96fcd0eeacb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -11,17 +11,17 @@ subjects:
   governs: "Atom/Content Role: Analysis/Type: FPF Analysis Report"
   depends_on:
     - "Project-Owned Markdown Atom Carrier/Filename"
-    - "Carrier"
-version: 1
-updated_at: "2026-10-05 23:46:22 +0400"
+    - "Entity/Carrier"
+version: 2
+updated_at: "2026-10-19 15:56:25 +0400"
 relations:
   delivery_for: ["CA-R-1888"]
   relates_to: ["CA-D-283", "CA-D-284", "CA-D-389", "CA-D-466"]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-581-PROJECT_CONFIGURATION--serialize-fpf-analysis-report-type-token.md
   source_atom_id: CA-D-581
-  source_atom_revision: 1
-  source_sha256: d7657f0d42a4347aae31f20232f2edd17f28fc70c514b4a34394ee6599d22b3d
+  source_atom_revision: 2
+  source_sha256: 9997cee34b916bd6ebce5ccf56ed7eaacee9df6d1e09821f575a7e08a9e5da6c
   original_relations_sha256: 2b6d8c0ebc6425f06a8771e0fec04a1d53006595d94f07805054d9e0fb3e213d
 ---
 # Summary

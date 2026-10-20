@@ -5,9 +5,9 @@ subjects:
     - "Journal/Record"
     - "Atom/Identifier"
     - "Atom/Revision"
-    - "Carrier"
-version: 7
-updated_at: "2026-10-01 21:31:46 +0400"
+    - "Entity/Carrier"
+version: 8
+updated_at: "2026-10-19 15:56:15 +0400"
 relations:
   evaluation_for:
     - CA-D-435

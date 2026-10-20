@@ -6,13 +6,13 @@ subjects:
     - "Extension"
     - "Project Configuration"
     - "Core Meta-Model"
-version: 6
-updated_at: "2026-10-15 12:20:00 +0000"
+version: 7
+updated_at: "2026-10-19 14:46:08 +0400"
 relations: {child_of: [CA-M-006], method_for: [CA-R-1375]}
 atom_id: "CA-M-298"
 content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 local_tier: "General"
 status: "Active"
 author: "Anatoly Maslennikov"

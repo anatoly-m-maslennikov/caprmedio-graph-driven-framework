@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Structure"
+  governs: "Entity/Node/Continuant/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Node/History/Revision", "Entity/Continuant/Node/History/Journal", "Entity/Carrier"]
-version: 8
-updated_at: "2026-10-18 03:34:48 +0400"
+    ["Entity/Node/Continuant/History/Revision", "Entity/Node/Continuant/History/Journal", "Entity/Carrier"]
+version: 9
+updated_at: "2026-10-19 15:55:48 +0400"
 relations:
   child_of:
     - "CA-D-440"

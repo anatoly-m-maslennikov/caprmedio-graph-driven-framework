@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Substance"
+  governs: "Entity/Node/Continuant/Atom.Substance"
   depends_on:
-    ["CCE Role Profile", "CCE Operator", "Entity/Continuant/Object/Atom.Substance", "Atom/Content Role", "Type"]
-version: 6
-updated_at: "2026-10-15 18:48:47 +0000"
+    ["CCE Role Profile", "CCE Operator", "Entity/Node/Continuant/Atom.Substance", "Atom/Content Role", "Type"]
+version: 7
+updated_at: "2026-10-19 15:54:53 +0400"
 relations:
   child_of:
     - CA-M-307
@@ -24,8 +24,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-315-CORE_META_MODEL-CORE--validate-claims-against-effective-cce-role-profiles.md
   source_atom_id: CA-M-315
-  source_atom_revision: 6
-  source_sha256: d5b36e90447742d2f73f1f7c5aac7b6967236c8122c51fdca735197ca9af5ba4
+  source_atom_revision: 7
+  source_sha256: aaf8bef54a8070ace77b615fa160d3066c376f1a807bab121579ef10d87bdc4e
   original_relations_sha256: a3f4be1eee60e8cccf53ca13d0dff034d656869874fe1fcbe26266fd5711294e
 ---
 # Summary

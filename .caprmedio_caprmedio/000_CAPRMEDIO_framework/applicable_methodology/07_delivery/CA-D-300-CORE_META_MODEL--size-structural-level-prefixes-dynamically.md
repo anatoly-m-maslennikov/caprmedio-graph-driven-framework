@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/Directory Carrier.Numeric Prefix"
   depends_on:
-    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit.Structural Level", "Entity/Continuant/Node/Scope Unit.Navigational Order Number"]
-version: 20
-updated_at: "2026-10-18 07:30:51 +0400"
+    ["Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Scope Unit.Structural Level", "Entity/Node/Continuant/Scope Unit.Navigational Order Number"]
+version: 21
+updated_at: "2026-10-19 15:55:26 +0400"
 relations: {}
 atom_id: "CA-D-300"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md
   source_atom_id: CA-D-300
-  source_atom_revision: 20
-  source_sha256: 9fe33504270b9733fbb60c81838383ea7ebfd0b28e307e47454dc5f4a6bb290e
+  source_atom_revision: 21
+  source_sha256: dee6b0ceca2098c867a1dc4fa66573e863c712a64952cdf0f655c517c44643ad
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

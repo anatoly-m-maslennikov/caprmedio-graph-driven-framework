@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project"
+  governs: "Entity/Node/Continuant/Project"
   depends_on:
-    ["Entity/Continuant/Node/Actor"]
-version: 17
-updated_at: "2026-10-18 03:34:11 +0400"
+    ["Entity/Node/Continuant/Actor"]
+version: 18
+updated_at: "2026-10-20 16:26:15 +0400"
 relations:
   child_of:
     - CA-P-032
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-850-CORE_META_MODEL-CORE-REQUIREMENT--exclude-caprmedio-instance-from-actor-role.md
   source_atom_id: CA-R-850
-  source_atom_revision: 17
-  source_sha256: d8d592f75ac06b20a94cca651fe13e7948b6d850ebf379257d6be5c9a735ab60
+  source_atom_revision: 18
+  source_sha256: b682c59594e1b9a93743150a619a6ba3f41a51d8ebe94d7ae0cc4e66f078c474
   original_relations_sha256: 78cfd319918db937dbc88bae53e0aa825eb011aaec69c68133dbd83ef0bc22b5
 ---
 # Summary

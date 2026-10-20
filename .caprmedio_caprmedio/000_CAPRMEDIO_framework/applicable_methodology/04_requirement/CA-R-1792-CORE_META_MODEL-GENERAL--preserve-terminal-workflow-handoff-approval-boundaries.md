@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Occurrent/Execution/Step Run"
+  governs: "Entity/Node/Occurrent/Execution/Step Run"
   depends_on:
-    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Occurrent/Execution/Step Run.Execution Context", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/History/Journal"]
-version: 4
-updated_at: "2026-10-18 03:33:59 +0400"
+    ["Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Node/Occurrent/Execution/Step Run.Execution Context", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal"]
+version: 5
+updated_at: "2026-10-19 15:54:06 +0400"
 relations: {"relates_to": ["CA-R-1519", "CA-R-1520", "CA-R-1525", "CA-R-1527"]}
 atom_id: "CA-R-1792"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1792-CORE_META_MODEL-GENERAL--preserve-terminal-workflow-handoff-approval-boundaries.md
   source_atom_id: CA-R-1792
-  source_atom_revision: 4
-  source_sha256: 062e36ce01bf1b229cf42623c8f55e19ad6841857a2b5e381f744a3b5a4f2031
+  source_atom_revision: 5
+  source_sha256: aaac70577a1ffb6dde8a57aec485ef0c9d270d3723c83347768a83b17f137bd0
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Workflow"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Atom/Content Role: Plan/Type: Plan", "Implementation Retry Control"]
-version: 14
-updated_at: "2026-10-19 03:07:45 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Atom/Content Role: Plan/Type: Plan", "Implementation Retry Control"]
+version: 15
+updated_at: "2026-10-19 15:56:37 +0400"
 relations:
   relates_to:
     - CA-R-1509
@@ -31,8 +31,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior.md
   source_atom_id: CA-O-016
-  source_atom_revision: 14
-  source_sha256: fc11c1f73c78b7041be33b183c3c981a5a29fb2cfd857b3207793813e2221187
+  source_atom_revision: 15
+  source_sha256: 477520169a5c096e85319045fc6e4c175a0a2f9f258c855e22bc95aada39ef2e
   original_relations_sha256: afd8ad0085bd98fa6ee05fc161e797d8d95dcc19dedfe5a9834816e6ac9f4c9f
 ---
 # Summary

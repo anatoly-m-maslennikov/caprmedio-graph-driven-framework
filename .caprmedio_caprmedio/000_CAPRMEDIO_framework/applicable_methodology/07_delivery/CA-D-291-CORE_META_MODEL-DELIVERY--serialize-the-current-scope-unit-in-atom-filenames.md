@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Owning Scope Unit"
+  governs: "Entity/Node/Continuant/Atom.Owning Scope Unit"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Owning Scope Unit", "Entity/Continuant/Node/Scope Unit"]
-version: 19
-updated_at: "2026-10-18 03:34:35 +0400"
+    ["Entity/Node/Continuant/Atom.Owning Scope Unit", "Entity/Node/Continuant/Scope Unit"]
+version: 20
+updated_at: "2026-10-19 15:55:23 +0400"
 relations: {}
 atom_id: "CA-D-291"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-291-CORE_META_MODEL-DELIVERY--serialize-the-current-scope-unit-in-atom-filenames.md
   source_atom_id: CA-D-291
-  source_atom_revision: 19
-  source_sha256: 780f20d9d421eb9f92854eb2c0650e598b524e251a7259d15af067defc273f07
+  source_atom_revision: 20
+  source_sha256: 084654cc2fb8e52e8beb65ae953c6bfedabf78b2a6cf2f0232dfe3ac9a921d27
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

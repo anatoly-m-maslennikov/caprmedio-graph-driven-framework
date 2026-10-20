@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Analysis.Status"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Analysis.Status"
   depends_on: []
-version: 19
-updated_at: "2026-10-18 03:33:49 +0400"
+version: 20
+updated_at: "2026-10-19 15:53:54 +0400"
 relations: {}
 atom_id: "CA-R-1727"
 content_role: "Requirement"
@@ -16,8 +16,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md
   source_atom_id: CA-R-1727
-  source_atom_revision: 19
-  source_sha256: 76c8aaf7e3dc8463b9b28dc800adc186250cdd3c7f575cacb136d21b4fb2796c
+  source_atom_revision: 20
+  source_sha256: f5a9440d28ee58d9db97eefa1e67e0465c94afec833734a325e012148d3ae1be
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

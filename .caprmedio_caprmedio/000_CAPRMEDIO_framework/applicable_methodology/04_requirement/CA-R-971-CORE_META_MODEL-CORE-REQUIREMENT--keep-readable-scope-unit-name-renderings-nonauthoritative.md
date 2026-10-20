@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit.Name"
+  governs: "Entity/Node/Continuant/Scope Unit.Name"
   depends_on:
     - "Authority"
-version: 17
-updated_at: "2026-10-15 18:47:28 +0000"
+version: 18
+updated_at: "2026-10-19 15:54:35 +0400"
 relations:
   child_of:
     - CA-R-962
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md
   source_atom_id: CA-R-971
-  source_atom_revision: 17
-  source_sha256: d43f96fc696253939e4457501a6f0705d54fe85ead0094cbff09c5152b3ff64e
+  source_atom_revision: 18
+  source_sha256: d6745f04ebed589e8188388fc846ad0aa4fd812c46332650e1c1480653c48acf
   original_relations_sha256: 9f8adc47911b133023e5cb465406a5c1930cc53c456a9deec2ef5b985b46e0bb
 ---
 # Summary

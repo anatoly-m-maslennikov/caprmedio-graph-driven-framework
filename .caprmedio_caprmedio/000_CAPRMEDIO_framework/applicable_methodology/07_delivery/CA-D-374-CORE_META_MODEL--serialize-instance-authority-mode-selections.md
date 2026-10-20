@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings"
+  governs: "Entity/Node/Continuant/Project.Framework Settings"
   depends_on:
-    ["Entity/Continuant/Object/Project.Structure", "Authority Mode", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Scope Unit"]
-version: 11
-updated_at: "2026-10-18 07:39:27 +0400"
+    ["Entity/Node/Continuant/Project.Structure", "Authority Mode", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Scope Unit"]
+version: 12
+updated_at: "2026-10-19 15:55:37 +0400"
 relations:
   child_of:
     - "CA-D-361"
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-374-CORE_META_MODEL--serialize-instance-authority-mode-selections.md
   source_atom_id: CA-D-374
-  source_atom_revision: 11
-  source_sha256: 9c14bfaf2d4e4da6a6fae9039bf031277081f8a0eaf335adfa3fb7e74ccf6848
+  source_atom_revision: 12
+  source_sha256: 3e2f7966309f60a4e50fd61c1c679b4b47bccf166c8f569cbc36f16f5acff5bb
   original_relations_sha256: dbd41c990ca96026d80a7c6e36e3203724208ce3569ca634233af924bbbfab2f
 ---
 # Summary

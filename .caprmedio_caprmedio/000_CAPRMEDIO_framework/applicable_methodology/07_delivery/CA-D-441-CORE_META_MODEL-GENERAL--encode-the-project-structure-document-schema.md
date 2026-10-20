@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Structure"
+  governs: "Entity/Node/Continuant/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Node/Scope Unit", "Entity/Carrier", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Project.Settings"]
-version: 9
-updated_at: "2026-10-18 07:25:43 +0400"
+    ["Entity/Node/Continuant/Scope Unit", "Entity/Carrier", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Project.Settings"]
+version: 10
+updated_at: "2026-10-19 15:55:47 +0400"
 relations:
   child_of:
     - "CA-D-440"
@@ -19,8 +19,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-441-CORE_META_MODEL-GENERAL--encode-the-project-structure-document-schema.md
   source_atom_id: CA-D-441
-  source_atom_revision: 9
-  source_sha256: 061443e54c94fce8ca530eb5ea5f8b884988cf266deb5c1b4f157eb4cd249615
+  source_atom_revision: 10
+  source_sha256: 008492e965f7af43ced2d6298d294775036e85b3d43b2228fd46325233ef0dfc
   original_relations_sha256: 4ea2c90f06a6f75bf31082400ec9137e19d06cdfa3e8d7bded3331399aa3453a
 ---
 # Summary

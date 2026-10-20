@@ -2,9 +2,9 @@
 subjects:
   governs: "Project Configuration"
   depends_on:
-    ["Entity/Continuant/Object/Project", "Extension", "Methodology Source", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project.Settings"]
-version: 15
-updated_at: "2026-10-15 18:41:15 +0000"
+    ["Entity/Node/Continuant/Project", "Extension", "Methodology Source", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Project.Settings"]
+version: 16
+updated_at: "2026-10-19 15:52:38 +0400"
 relations: {}
 atom_id: "CA-R-1218"
 content_role: "Requirement"

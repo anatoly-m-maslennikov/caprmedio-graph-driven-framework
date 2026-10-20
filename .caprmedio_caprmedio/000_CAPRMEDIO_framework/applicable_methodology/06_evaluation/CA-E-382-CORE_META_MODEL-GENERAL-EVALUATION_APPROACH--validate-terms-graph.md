@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Terms Graph"
+  governs: "Entity/Node/Continuant/Projection/Type: Terms Graph"
   depends_on:
-    ["Entity/Continuant/Term", "Root Term", "NARROWER_THAN", "Entity/Continuant/Object/Relation", "Relation Kind", "CAPRMEDIO Graph", "Governed Term", "Definition Atom", "Entity/Continuant/Object/Atom.Substance", "Entity", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom"]
-version: 23
-updated_at: "2026-10-15 18:49:02 +0000"
+    ["Entity/Node/Continuant/Term", "Root Term", "NARROWER_THAN", "Entity/Relation", "Relation Kind", "CAPRMEDIO Graph", "Governed Term", "Definition Atom", "Entity/Node/Continuant/Atom.Substance", "Entity", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom"]
+version: 24
+updated_at: "2026-10-19 15:54:56 +0400"
 relations:
   evaluation_for:
     - CA-R-1335
@@ -29,8 +29,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-terms-graph.md
   source_atom_id: CA-E-382
-  source_atom_revision: 23
-  source_sha256: 1684d81920109f7b3ff66093f67554bf567637fbc4153e55bccb206e1c125d10
+  source_atom_revision: 24
+  source_sha256: 4d7dcb9b837efd17e5ae01deffde437f9ec1d20d45f06812c22d1181a3a68d1f
   original_relations_sha256: c15fab4d4bed61578be628db073128611966a77960e483af8f8f19de14957ef8
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Scope Unit.Label"
+  governs: "Entity/Node/Continuant/Scope Unit.Label"
   depends_on:
-    ["Entity/Continuant/Node/Scope Unit/Type: Unordered"]
-version: 18
-updated_at: "2026-10-18 03:34:16 +0400"
+    ["Entity/Node/Continuant/Scope Unit/Type: Unordered"]
+version: 19
+updated_at: "2026-10-19 15:54:36 +0400"
 relations:
   child_of:
     - CA-R-972
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md
   source_atom_id: CA-R-980
-  source_atom_revision: 18
-  source_sha256: d4158661e954bcf2c6bb18b9686870358f0851954f2634322e379cffbb2b9e53
+  source_atom_revision: 19
+  source_sha256: 1913bd59e2a04ebdea428c93500aba7d9ea6112ea57d73c2cfc2f6dfbb4bd0e6
   original_relations_sha256: ab511b4c40a9a7855cf5a5afc557e88ecc2a5cf85f7ac01ce80b93150b247e03
 ---
 # Summary

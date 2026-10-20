@@ -2,9 +2,9 @@
 subjects:
   governs: "authority"
   depends_on:
-    ["Spec Content Roles", "Change Content Roles", "Entity", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Actor", "Entity/Continuant/History/Journal.Record", "Verification"]
-version: 26
-updated_at: "2026-10-15 18:45:23 +0000"
+    ["Spec Content Roles", "Change Content Roles", "Entity", "Implementation", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Actor", "Entity/Node/Continuant/History/Journal.Record", "Verification"]
+version: 27
+updated_at: "2026-10-19 15:53:50 +0400"
 relations:
   child_of:
     - CA-M-001
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md
   source_atom_id: CA-R-1683
-  source_atom_revision: 26
-  source_sha256: fcbe10e699240dffdd714069189497bc3c274db2b60f152d528eb4bc7b589dc7
+  source_atom_revision: 27
+  source_sha256: f59d87068d9a123ed13b648913dff164752e34a266f7ce4d555790d39e664c8e
   original_relations_sha256: 2f95e55e3d0a844c858c40eeab601ef29e88bfb9f5c8b9fd17a85ccd2af662a7
 ---
 # Summary

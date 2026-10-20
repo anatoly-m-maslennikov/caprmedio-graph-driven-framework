@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Plan/Type: Plan"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Object/Atom/Content Role: Plan.Assignee", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Object/Atom/Content Role: Plan.Details", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Hub Atom", "Entity/Continuant/Object/Scope Unit", "Autonomous Confidence Threshold"]
-version: 9
-updated_at: "2026-10-15 18:50:05 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Atom/Content Role: Plan.Assignee", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Atom/Content Role: Plan.Details", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Hub Atom", "Entity/Node/Continuant/Scope Unit", "Autonomous Confidence Threshold"]
+version: 10
+updated_at: "2026-10-19 15:55:13 +0400"
 relations: {"evaluation_for": ["CA-R-1574", "CA-R-1575", "CA-R-1576", "CA-R-1577", "CA-R-1581", "CA-R-1599", "CA-R-1583", "CA-R-1584", "CA-R-1587", "CA-R-1588", "CA-R-1589", "CA-M-306", "CA-D-470"]}
 atom_id: "CA-E-501"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-QA_CASE--validate-common-plan-authoring.md
   source_atom_id: CA-E-501
-  source_atom_revision: 9
-  source_sha256: 644f898096492a2b99ba898379115cb156a75be8f1291f06687f70e1a0b2c9f2
+  source_atom_revision: 10
+  source_sha256: e281af57c20d9e1942bae241cd62c482cd93f2c95abdb8cfaf385b88ffe1facb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

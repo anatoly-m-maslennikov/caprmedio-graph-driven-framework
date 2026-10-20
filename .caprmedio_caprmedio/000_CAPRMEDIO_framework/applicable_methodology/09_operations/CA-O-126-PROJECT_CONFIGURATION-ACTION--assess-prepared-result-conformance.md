@@ -8,18 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-18 07:48:41 +0400"
+version: 5
+updated_at: "2026-10-19 15:56:59 +0400"
 subjects:
   governs: "Assess Prepared Result Conformance"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Artifact", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent"]
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Artifact", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent"]
 relations:
   relates_to: [CA-O-005, CA-O-104, CA-O-106, CA-O-111, CA-O-118]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-126-PROJECT_CONFIGURATION-ACTION--assess-prepared-result-conformance.md
   source_atom_id: CA-O-126
-  source_atom_revision: 4
-  source_sha256: 8ec9e11d1f004e22bfc82b5015378e74da43aac58ccd3978998ffa17a5465fc5
+  source_atom_revision: 5
+  source_sha256: 2eb3691480503d4a654b87ca335a5f4662903b865fca8eb6cb60b89c791eb5fc
   original_relations_sha256: bcc31f577cd7f39c9381f0a44ee9c75b747e7f598b8eff68adb11593d5e2f9b3
 ---
 # Summary

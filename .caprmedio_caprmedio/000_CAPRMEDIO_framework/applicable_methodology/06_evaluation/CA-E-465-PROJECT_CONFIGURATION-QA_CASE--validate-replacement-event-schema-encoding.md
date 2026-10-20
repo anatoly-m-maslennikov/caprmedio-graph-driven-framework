@@ -5,9 +5,9 @@ subjects:
     - "Journal/Record"
     - "Atom/Identifier"
     - "Atom/Revision"
-    - "Carrier"
-version: 7
-updated_at: "2026-10-01 21:31:46 +0400"
+    - "Entity/Carrier"
+version: 8
+updated_at: "2026-10-19 15:56:15 +0400"
 relations:
   evaluation_for:
     - CA-D-435
@@ -24,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-465-PROJECT_CONFIGURATION-QA_CASE--validate-replacement-event-schema-encoding.md
   source_atom_id: CA-E-465
-  source_atom_revision: 7
-  source_sha256: dc2921e214f5a04f15929915847561205977bfb8da24fc6d860edaee5c3e8946
+  source_atom_revision: 8
+  source_sha256: fce26ce2e91da2c06a7c076e21110b8186530d8baf9b72e3ff774165b6d897bc
   original_relations_sha256: a2c0eabd6c46d0c5e4047f0b164c1fbe4b51882a883b69df6fe296abf10c590e
 ---
 # Summary

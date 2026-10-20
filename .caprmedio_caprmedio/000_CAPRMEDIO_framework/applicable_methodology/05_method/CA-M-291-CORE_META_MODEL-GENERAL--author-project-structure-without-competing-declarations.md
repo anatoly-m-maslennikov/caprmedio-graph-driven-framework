@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Structure"
+  governs: "Entity/Node/Continuant/Project.Structure"
   depends_on:
-    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit.Name", "Entity/Continuant/Node/Scope Unit/Type", "Entity/Continuant/Node/Scope Unit.Label", "Entity/Continuant/Node/Scope Unit.Local Order", "Entity/Continuant/Node/Scope Unit.Navigational Order Number", "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Carrier"]
-version: 9
-updated_at: "2026-10-18 03:34:19 +0400"
+    ["Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Scope Unit.Name", "Entity/Node/Continuant/Scope Unit/Type", "Entity/Node/Continuant/Scope Unit.Label", "Entity/Node/Continuant/Scope Unit.Local Order", "Entity/Node/Continuant/Scope Unit.Navigational Order Number", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Carrier"]
+version: 10
+updated_at: "2026-10-19 15:54:47 +0400"
 relations:
   relates_to:
     - "CA-R-1483"
@@ -22,8 +22,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-291-CORE_META_MODEL-GENERAL--author-project-structure-without-competing-declarations.md
   source_atom_id: CA-M-291
-  source_atom_revision: 9
-  source_sha256: c663a71ae78183f54502f99e4de3d77316667eca5fb5f46bb40d044740b20850
+  source_atom_revision: 10
+  source_sha256: 7b1f6c1a9d7dffa1a43d1d7dfd32fc15b474df6e33b4bd6cc289e7a34585474a
   original_relations_sha256: 687d41bc387f53992337f6691486ad0c74be07ae4a2bf0a97606f0e0f22a4339
 ---
 # Summary

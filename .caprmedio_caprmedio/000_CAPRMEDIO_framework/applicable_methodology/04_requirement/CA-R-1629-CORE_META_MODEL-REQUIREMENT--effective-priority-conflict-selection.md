@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Concern.Priority"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Concern.Priority"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Concern", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Actor/Type: Operator"]
-version: 26
-updated_at: "2026-10-18 03:33:46 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Concern", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 27
+updated_at: "2026-10-19 15:53:45 +0400"
 relations: {}
 atom_id: "CA-R-1629"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md
   source_atom_id: CA-R-1629
-  source_atom_revision: 26
-  source_sha256: eb5bb19bdf61b0e144f4b7aa1a17efb43329fe5f9f9f20cac9bd2138c1faaac5
+  source_atom_revision: 27
+  source_sha256: d5b51c3c2a70ed19ebfad6d1bc49e81a15cc018770b06265c4b1cea7a90384ad
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

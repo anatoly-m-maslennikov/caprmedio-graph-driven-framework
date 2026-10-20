@@ -2,9 +2,9 @@
 subjects:
   governs: "GOVERNS"
   depends_on:
-    ["Relation Kind", "Entity/Continuant/Object/Atom", "Subject", "Entity", "Entity/Continuant/Object/Atom.Substance"]
-version: 15
-updated_at: "2026-10-15 18:41:09 +0000"
+    ["Relation Kind", "Entity/Node/Continuant/Atom", "Subject", "Entity", "Entity/Node/Continuant/Atom.Substance"]
+version: 16
+updated_at: "2026-10-19 15:52:36 +0400"
 relations: {}
 atom_id: "CA-R-1199"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md
   source_atom_id: CA-R-1199
-  source_atom_revision: 15
-  source_sha256: 4990548c4d5a75070c032b1a495dad5e6d14e373bdd29ee21f8ace0f9e83dc02
+  source_atom_revision: 16
+  source_sha256: 72b150f04bcc2976cafb89d9ca79dc59f48fb6c5926343e907f3df47659f4e8b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

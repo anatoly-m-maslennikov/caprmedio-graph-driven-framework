@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Operations/Type"
   depends_on:
-    ["Atom/Content Role: Operations/Type", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Atom/Content Role: Operations/Type: Actor", "Artifact Carrier"]
-version: 8
-updated_at: "2026-10-15 18:52:04 +0000"
+    ["Atom/Content Role: Operations/Type", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Atom/Content Role: Operations/Type: Actor", "Artifact Carrier"]
+version: 9
+updated_at: "2026-10-19 15:55:50 +0400"
 relations: {"relates_to": ["CA-R-1565", "CA-D-283", "CA-D-284", "CA-D-285", "CA-R-1569"]}
 atom_id: "CA-D-457"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-457-CORE_META_MODEL-STANDARD--serialize-operations-atom-type-tokens.md
   source_atom_id: CA-D-457
-  source_atom_revision: 8
-  source_sha256: 472728f76d98649be92677d7cb8172fa5e8b7b771325d6065ec3891e800ceb67
+  source_atom_revision: 9
+  source_sha256: 5bf9fe349894a20ab62c7b888a0ffcbc3860ed46e4cbab1c983ac640374f752c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

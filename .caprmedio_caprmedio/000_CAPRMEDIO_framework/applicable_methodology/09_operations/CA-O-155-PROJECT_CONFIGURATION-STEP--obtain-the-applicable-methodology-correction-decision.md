@@ -8,19 +8,19 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-19 03:07:00 +0400"
+version: 7
+updated_at: "2026-10-19 15:56:34 +0400"
 subjects:
   governs: "Applicable Methodology Compilation Decide Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Obtain Source Correction Decision", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Project Configuration", "Methodology Source.Expansion Boundary"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Obtain Source Correction Decision", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Project Configuration", "Methodology Source.Expansion Boundary"]
 relations:
   relates_to: [CA-O-011, CA-O-007]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-155-PROJECT_CONFIGURATION-STEP--obtain-the-applicable-methodology-correction-decision.md
   source_atom_id: CA-O-155
-  source_atom_revision: 6
-  source_sha256: 292ab2b0a02a24661270d51d80e055924b61c7d9b0510e5234e9923f1a6d43cd
+  source_atom_revision: 7
+  source_sha256: 43cebce0f050043a23ab6bebc99a64dd46fc3d623c027eaf8c2052b0442d4b5f
   original_relations_sha256: 0327527080511193852b3621512152c3c6601254c66c43323355c91d8fe7ea35
 ---
 # Summary

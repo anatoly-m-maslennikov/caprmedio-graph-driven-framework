@@ -2,9 +2,9 @@
 subjects:
   governs: "Applicable Methodology Source Set"
   depends_on:
-    ["Methodology Source", "Core Meta-Model", "Project Configuration", "Extension", "Entity/Continuant/Object/Project.Framework Settings"]
-version: 19
-updated_at: "2026-10-18 07:48:59 +0400"
+    ["Methodology Source", "Core Meta-Model", "Project Configuration", "Extension", "Entity/Node/Continuant/Project.Framework Settings"]
+version: 20
+updated_at: "2026-10-19 15:56:04 +0400"
 relations: {}
 atom_id: "CA-R-1228"
 content_role: "Requirement"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
+  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    ["Methodology Source", "Entity/Continuant/Object/Atom", "Entity/Continuant/Projection", "Entity/Continuant/Projection/Type: Reconciled Projection", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Delivery"]
-version: 20
-updated_at: "2026-10-18 07:48:50 +0400"
+    ["Methodology Source", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Projection/Type: Reconciled Projection", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Delivery"]
+version: 21
+updated_at: "2026-10-19 15:56:03 +0400"
 relations: {}
 atom_id: "CA-R-1213"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1213-PROJECT_CONFIGURATION-CORE-REQUIREMENT--define-applicable-methodology-as-a-compiled-projection.md
   source_atom_id: CA-R-1213
-  source_atom_revision: 20
-  source_sha256: 201c3a941b3556e90a1d4baf27fc6d68b0c3020c5aef522302b03731c42b8b4f
+  source_atom_revision: 21
+  source_sha256: 7930b07f3d1057b4d3b96adaf762aa5228f2fcde7b22e2634c35f02c35a93c65
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,9 +2,9 @@
 subjects:
   governs: "Markdown Atom Carrier.YAML Frontmatter"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Actor"]
-version: 19
-updated_at: "2026-10-15 23:42:04 +0400"
+    ["Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Actor"]
+version: 20
+updated_at: "2026-10-19 15:55:20 +0400"
 relations: {}
 atom_id: "CA-D-276"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter.md
   source_atom_id: CA-D-276
-  source_atom_revision: 19
-  source_sha256: 265d617e1cbe3cc2301317c36f347b5012715f652fa118d8062f9342222b441f
+  source_atom_revision: 20
+  source_sha256: 963fe03028ab2a581f976552da806d2918f681c7e71191c27a4f132dc4923a11
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

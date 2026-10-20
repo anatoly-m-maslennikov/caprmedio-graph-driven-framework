@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Settings.Identifier"
+  governs: "Entity/Node/Continuant/Project.Settings.Identifier"
   depends_on:
-    ["Entity/Continuant/Node/Project.Settings"]
-version: 15
-updated_at: "2026-10-18 07:37:35 +0400"
+    ["Entity/Node/Continuant/Project.Settings"]
+version: 16
+updated_at: "2026-10-19 15:55:33 +0400"
 relations:
   child_of:
     - CA-R-1738

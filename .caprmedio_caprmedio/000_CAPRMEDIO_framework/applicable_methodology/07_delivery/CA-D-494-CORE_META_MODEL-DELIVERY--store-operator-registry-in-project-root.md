@@ -7,20 +7,20 @@ local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
 status: Active
-version: 6
-updated_at: "2026-10-18 03:34:53 +0400"
+version: 7
+updated_at: "2026-10-19 15:55:59 +0400"
 subjects:
-  governs: "Entity/Continuant/Node/Project.Operator Registry"
+  governs: "Entity/Node/Continuant/Project.Operator Registry"
   depends_on:
-    ["Entity/Continuant/Node/Project", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Atom.Author", "Entity/Continuant/Node/History/Journal"]
+    ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/History/Journal"]
 relations:
   relates_to:
     - CA-D-274
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-DELIVERY--store-operator-registry-in-project-root.md
   source_atom_id: CA-D-494
-  source_atom_revision: 6
-  source_sha256: 90ec3158c00dbbf7f95369a542d7f51672b202e91b9f80ad632c79ddf44d9b68
+  source_atom_revision: 7
+  source_sha256: a5e6fed358a534281e7ce2fa18884cc1463c5789c961d0ca667b35e55ee07d35
   original_relations_sha256: a65eca1addd76091855e72e01ea52ce14489f7951301cdf17bf615f34767c318
 ---
 # Summary

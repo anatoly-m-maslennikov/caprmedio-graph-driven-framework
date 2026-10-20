@@ -4,9 +4,9 @@ subjects:
   depends_on:
     - "Journal"
     - "Projection"
-    - "Carrier/Format"
-version: 8
-updated_at: "2026-10-02 19:27:36 +0400"
+    - "Entity/Carrier/Format"
+version: 9
+updated_at: "2026-10-19 15:56:21 +0400"
 relations: {}
 atom_id: "CA-D-388"
 content_role: "Delivery"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings"
+  governs: "Entity/Node/Continuant/Project.Framework Settings"
   depends_on:
-    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Structure", "Default Settings", "Project Name", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Atom"]
-version: 23
-updated_at: "2026-10-15 18:45:44 +0000"
+    ["Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Structure", "Default Settings", "Project Name", "Entity/Node/Continuant/Project.Settings.Atom Prefix", "Entity/Node/Continuant/Atom"]
+version: 24
+updated_at: "2026-10-19 15:53:58 +0400"
 relations:
   relates_to:
     - "CA-R-1740"
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md
   source_atom_id: CA-R-1750
-  source_atom_revision: 23
-  source_sha256: 57c636884b0f47b243d54871de567d5744762a80212bd5d255cd2782116090e5
+  source_atom_revision: 24
+  source_sha256: 9aefc79be484cee27f0e0fd276382b57efc4039894fe36090388703b95372036
   original_relations_sha256: 4e823082688e17e42d7889dacdc356b5f8822d57bcf2f4501c09225f60722871
 ---
 # Summary

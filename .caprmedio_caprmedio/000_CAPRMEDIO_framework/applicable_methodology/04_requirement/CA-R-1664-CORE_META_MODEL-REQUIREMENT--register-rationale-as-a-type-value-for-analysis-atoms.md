@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Analysis/Type: Rationale"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Analysis/Type: Rationale"
   depends_on:
     - "artifact-catalog"
-version: 23
-updated_at: "2026-10-15 18:45:21 +0000"
+version: 24
+updated_at: "2026-10-19 15:53:50 +0400"
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md
   source_atom_id: CA-R-1664
-  source_atom_revision: 23
-  source_sha256: 87d33f6cf1b056f61975a66ea1fbd80cfb83b5ec357ff9666d7e1a6a1b53612c
+  source_atom_revision: 24
+  source_sha256: 698a1ec087dd6d448c03776275ba8f7c9ee1fbfb5d75215e0f334c3757c40e68
   original_relations_sha256: b89d3dda96c6d1aabe3172420cd0a102ac12befd4244aa13be47b1a556386fed
 ---
 # Summary

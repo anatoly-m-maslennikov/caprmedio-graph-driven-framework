@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Parameter Resolution"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator"]
-version: 10
-updated_at: "2026-10-15 18:48:19 +0000"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Default Settings", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 11
+updated_at: "2026-10-19 15:54:46 +0400"
 relations:
   relates_to:
     - "CA-R-1402"
@@ -23,8 +23,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-279-CORE_META_MODEL-GENERAL-METHOD--resolve-missing-framework-parameters-from-default-settings.md
   source_atom_id: CA-M-279
-  source_atom_revision: 10
-  source_sha256: 374bf3d8c12437b6cf343ca12ccfe116a01a29405a3db662dd0a2a52dcb21829
+  source_atom_revision: 11
+  source_sha256: 85b7c924c503c3e2c111c93350b25a1797871cde9c1ce8f3a931cde3acab96f0
   original_relations_sha256: cddde851356103178bde399ce5d8445877ace80e10c9a74c6f296891f8818c2d
 ---
 # Summary

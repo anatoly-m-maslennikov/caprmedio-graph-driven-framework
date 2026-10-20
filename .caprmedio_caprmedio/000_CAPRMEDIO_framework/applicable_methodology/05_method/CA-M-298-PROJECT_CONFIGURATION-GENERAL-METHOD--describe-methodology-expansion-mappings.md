@@ -6,22 +6,22 @@ subjects:
     - "Extension"
     - "Project Configuration"
     - "Core Meta-Model"
-version: 6
-updated_at: "2026-10-15 12:20:00 +0000"
+version: 7
+updated_at: "2026-10-19 14:46:08 +0400"
 relations: {child_of: [CA-M-006], method_for: [CA-R-1375]}
 atom_id: "CA-M-298"
 content_role: "Method"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 local_tier: "General"
 status: "Active"
 author: "Anatoly Maslennikov"
 global_tier: 10
 projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-298-CORE_META_MODEL-GENERAL-METHOD--describe-methodology-expansion-mappings.md
+  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/05_method/CA-M-298-PROJECT_CONFIGURATION-GENERAL-METHOD--describe-methodology-expansion-mappings.md
   source_atom_id: CA-M-298
-  source_atom_revision: 6
-  source_sha256: 1a651f5cfa58b453cc9a1d038274e518bc36c8b7e5f37786404debd6bad83f1d
+  source_atom_revision: 7
+  source_sha256: a51743a0f59b6e8a001359172d414f4edb17eeaf1c7a8056889c2fad9290f314
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

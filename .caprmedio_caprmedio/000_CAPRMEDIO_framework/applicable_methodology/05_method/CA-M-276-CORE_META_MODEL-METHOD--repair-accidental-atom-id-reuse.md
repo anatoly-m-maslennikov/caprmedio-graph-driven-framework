@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.ID"
+  governs: "Entity/Node/Continuant/Atom.ID"
   depends_on:
-    ["Entity/Continuant/Object/Atom.ID", "Atom/Content Role", "Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Carrier.Canonical Address", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Confidence Threshold", "Entity/Continuant/History/Journal"]
-version: 11
-updated_at: "2026-10-15 18:48:15 +0000"
+    ["Entity/Node/Continuant/Atom.ID", "Atom/Content Role", "Entity/Node/Continuant/Atom.Substance", "Atom Scope", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Carrier.Canonical Address", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Confidence Threshold", "Entity/Node/Continuant/History/Journal"]
+version: 12
+updated_at: "2026-10-19 15:54:46 +0400"
 relations: {"method_for":["CA-R-728"]}
 atom_id: "CA-M-276"
 content_role: "Method"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-METHOD--repair-accidental-atom-id-reuse.md
   source_atom_id: CA-M-276
-  source_atom_revision: 11
-  source_sha256: f9e8eaaf3792191562d8094e2e51864aa20203d38a06a8a47ff472a9df47e6fc
+  source_atom_revision: 12
+  source_sha256: f4c810701200ebe4f35b4bb0d2bfb2d176bc041de343622c83aa6a1d15e6ae01
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom selection"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Author", "Owned Atoms", "Targeting Atoms", "Subtree-owned Atoms", "Subtree-targeting Atoms", "Entity/Continuant/Object/Scope Unit", "Entity/Carrier", "Entity/Continuant/Object/Atom.Target Scope Unit", "Atom/Content Role", "Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Atom", "Entity/Carrier/Directory Carrier"]
-version: 15
-updated_at: "2026-10-15 18:48:13 +0000"
+    ["Entity/Node/Continuant/Atom.Author", "Owned Atoms", "Targeting Atoms", "Subtree-owned Atoms", "Subtree-targeting Atoms", "Entity/Node/Continuant/Scope Unit", "Entity/Carrier", "Entity/Node/Continuant/Atom.Target Scope Unit", "Atom/Content Role", "Entity/Node/Continuant/Atom.Status", "Entity/Node/Continuant/Atom", "Entity/Carrier/Directory Carrier"]
+version: 16
+updated_at: "2026-10-19 15:54:45 +0400"
 relations: {}
 atom_id: "CA-M-273"
 content_role: "Method"

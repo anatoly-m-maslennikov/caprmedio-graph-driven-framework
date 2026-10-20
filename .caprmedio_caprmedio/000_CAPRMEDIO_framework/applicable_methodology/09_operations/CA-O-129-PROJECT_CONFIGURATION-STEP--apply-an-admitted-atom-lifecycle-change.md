@@ -9,17 +9,17 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Agentic Step Execution Context"]
-version: 11
-updated_at: "2026-10-18 16:23:14 +0400"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Agentic Step Execution Context"]
+version: 12
+updated_at: "2026-10-19 15:57:01 +0400"
 relations:
   relates_to: [CA-O-128, CA-O-145, CA-R-1509, CA-R-1511, CA-R-1527]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-129-PROJECT_CONFIGURATION-STEP--apply-an-admitted-atom-lifecycle-change.md
   source_atom_id: CA-O-129
-  source_atom_revision: 11
-  source_sha256: e076d77c0873091da3ccb275eff9fc06c2ba1ef57a5b1c71845d96a2a800cd43
+  source_atom_revision: 12
+  source_sha256: 6b93bbc8dc557df1bc5ca19f0ff2bda2c8cb450e05dbf6d6f8ad656767ca3e07
   original_relations_sha256: 41d9553cc0bc459a76834b9b50abe0aa6d5b316e2164db5c1ab185ff63b9f658
 ---
 # Summary

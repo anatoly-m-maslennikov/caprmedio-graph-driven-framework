@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Settings"
+  governs: "Entity/Node/Continuant/Project.Settings"
   depends_on:
-    ["Entity/Continuant/Node/Atom"]
-version: 13
-updated_at: "2026-10-18 03:33:28 +0400"
+    ["Entity/Node/Continuant/Atom"]
+version: 14
+updated_at: "2026-10-19 15:52:58 +0400"
 relations:
   child_of:
     - CA-R-1405
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1401-CORE_META_MODEL-CORE-REQUIREMENT--keep-project-settings-outside-the-atom-type.md
   source_atom_id: CA-R-1401
-  source_atom_revision: 13
-  source_sha256: 33ee5db36b3bf44e2574cb80956f910404d47bee06e4ae7f4f64ab6f2cba0598
+  source_atom_revision: 14
+  source_sha256: a163ef12ef7ce8a78ccb529402b5cc70d16ab1355383e49f9acba0a29088c407
   original_relations_sha256: 099c36b13d260149aeb937d6aa6464bb601ffec8fb534877facc7e873d1e9fb0
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role"
+  governs: "Entity/Node/Continuant/Atom/Content Role"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role"]
-version: 22
-updated_at: "2026-10-18 03:33:48 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role"]
+version: 23
+updated_at: "2026-10-19 15:53:52 +0400"
 relations:
   child_of:
     - CA-R-1531
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-REQUIREMENT--require-stable-noun-content-role-names.md
   source_atom_id: CA-R-1704
-  source_atom_revision: 22
-  source_sha256: 83c423fe537338979254673026d41531af91ec3ae8194191ba85d021f38e6f73
+  source_atom_revision: 23
+  source_sha256: 17dbd4ac50e337175adbbe83eaef17f3c7532c31f9126f635ebfcd139cecb3d9
   original_relations_sha256: 82f92bfeb352f33301bec5e49444e9f184ed3e4d887a957bb5628badf27ab365
 ---
 # Summary

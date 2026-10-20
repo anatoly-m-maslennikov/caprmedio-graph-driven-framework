@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/History/Journal"
+  governs: "Entity/Node/Continuant/History/Journal"
   depends_on:
-    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Project", "Artifact", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Projection", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Delivery"]
-version: 21
-updated_at: "2026-10-15 18:45:30 +0000"
+    ["Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Project", "Artifact", "Implementation", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/History/Journal.Record", "Entity/Node/Continuant/Projection", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Delivery"]
+version: 22
+updated_at: "2026-10-19 15:53:53 +0400"
 relations:
   child_of:
     - CAPRMEDIO-REQU-007-CORE-REQUIREMENT--full-minimal-traceability

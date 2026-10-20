@@ -8,15 +8,15 @@ global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Status"
+  governs: "Entity/Node/Continuant/Atom.Status"
   depends_on:
-  - "Entity/Continuant/Node/Atom"
-  - "Entity/Continuant/Node/Atom/Content Role"
+  - "Entity/Node/Continuant/Atom"
+  - "Entity/Node/Continuant/Atom/Content Role"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:06 +0400"
+version: 4
+updated_at: "2026-10-20 17:08:53 +0400"
 ---
 # Summary
 
@@ -32,4 +32,4 @@ Atom.Status **means** the Atom's lifecycle classification under its applicable S
 
 ## Details
 
-IS_BORNE_BY expresses the property-to-Atom relation. A current Atom is not a historical Revision merely because it has a Version Number. An archived Atom preserves its recorded Status; preserving history does not rewrite that value. CA-R-1412 supplies the one-Status requirement. The separate allowed-value rules define inherited and additional values; this definition adds no values, transition procedure or mandatory history record. Shared Status meanings are derived in the Terms graph from source usage, not independently authored here for every owner.
+IS_BORNE_BY expresses the property-to-Atom relation. A Current Atom is not historical merely because it has a Version Number. An archived Atom preserves its recorded Status; preserving history does not rewrite that value. CA-R-1412 supplies the one-Status requirement. The separate allowed-value rules define inherited and additional values; this definition adds no values, transition procedure or mandatory history record. Shared Status meanings are derived in the Terms graph from source usage, not independently authored here for every owner.

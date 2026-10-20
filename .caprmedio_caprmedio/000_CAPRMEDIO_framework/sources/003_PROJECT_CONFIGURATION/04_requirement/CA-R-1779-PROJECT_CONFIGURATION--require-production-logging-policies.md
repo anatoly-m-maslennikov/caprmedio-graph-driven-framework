@@ -10,12 +10,12 @@ author: "Anatoly Maslennikov"
 subjects:
   governs: "Logging Policy"
   depends_on:
-    - "Carrier"
+    - "Entity/Carrier"
     - "Evaluation Control"
     - "Implementation"
     - "Projection/Type: Catalog"
-version: 1
-updated_at: "2026-09-28 15:12:22 +0400"
+version: 2
+updated_at: "2026-10-19 15:56:10 +0400"
 relations: {}
 ---
 # Summary

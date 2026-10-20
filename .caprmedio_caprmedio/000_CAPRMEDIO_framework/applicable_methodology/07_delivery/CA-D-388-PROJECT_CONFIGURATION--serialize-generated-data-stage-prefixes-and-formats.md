@@ -4,9 +4,9 @@ subjects:
   depends_on:
     - "Journal"
     - "Projection"
-    - "Carrier/Format"
-version: 8
-updated_at: "2026-10-02 19:27:36 +0400"
+    - "Entity/Carrier/Format"
+version: 9
+updated_at: "2026-10-19 15:56:21 +0400"
 relations: {}
 atom_id: "CA-D-388"
 content_role: "Delivery"
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-388-PROJECT_CONFIGURATION--serialize-generated-data-stage-prefixes-and-formats.md
   source_atom_id: CA-D-388
-  source_atom_revision: 8
-  source_sha256: dfa9f38febc8d3040f7e4328e256a15d2b134036929111189b8cf2d97f8ff76c
+  source_atom_revision: 9
+  source_sha256: 8134e0f6ca35572c6b2475529c47fb9fe9e3e44612616472688357b1851962ee
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

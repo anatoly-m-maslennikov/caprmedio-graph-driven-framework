@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Canonical Scope Signature"
+  governs: "Entity/Node/Continuant/Projection/Type: Canonical Scope Signature"
   depends_on:
-    ["Scope Expression", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.ID", "Artifact Carrier", "CCE Operator"]
-version: 15
-updated_at: "2026-10-15 18:42:12 +0000"
+    ["Scope Expression", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.ID", "Artifact Carrier", "CCE Operator"]
+version: 16
+updated_at: "2026-10-19 15:52:54 +0400"
 relations: {}
 atom_id: "CA-R-1361"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1361-CORE_META_MODEL--define-canonical-scope-signature.md
   source_atom_id: CA-R-1361
-  source_atom_revision: 15
-  source_sha256: 2703acdf6802f4468e3a704aa65fd3c22eda3bf365151179eac1993e722807cc
+  source_atom_revision: 16
+  source_sha256: 93d0cfc0758de6d896ed0d3e0057a9f335b4bc59aae5d250f0b55e848d13512b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,6 +1,6 @@
 ---
-version: 6
-updated_at: "2026-10-15 18:48:22 +0000"
+version: 7
+updated_at: "2026-10-19 15:54:47 +0400"
 relations:
   child_of:
     - CA-R-940
@@ -14,7 +14,7 @@ relations:
 subjects:
   governs: "language"
   depends_on:
-    ["Author", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "CCE", "Governed Term", "CCE Operator"]
+    ["Author", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "CCE", "Governed Term", "CCE Operator"]
 atom_id: "CA-M-294"
 content_role: "Method"
 current_scope_unit: "CORE_META_MODEL"
@@ -26,8 +26,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-294-CORE_META_MODEL--use-simpler-words-without-losing-meaning.md
   source_atom_id: CA-M-294
-  source_atom_revision: 6
-  source_sha256: 87ad5ff76a4f5529b29173ab52770cd30e6590dbd5a2faaef1be7172161be1d0
+  source_atom_revision: 7
+  source_sha256: 027a0b0fce358893221c1f07993a517c498be623c8b613cc2a647a93d6c9a8f2
   original_relations_sha256: ef5e3e1940601bf417f7ddae95bd601b72d88cbab3eb0749af23d7404ac30c0e
 ---
 # Summary

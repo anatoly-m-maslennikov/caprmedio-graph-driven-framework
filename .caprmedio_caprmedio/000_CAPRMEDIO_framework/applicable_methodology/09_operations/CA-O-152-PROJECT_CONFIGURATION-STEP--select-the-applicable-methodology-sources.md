@@ -8,19 +8,19 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-19 03:06:15 +0400"
+version: 7
+updated_at: "2026-10-19 15:56:33 +0400"
 subjects:
   governs: "Applicable Methodology Compilation Select Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Select Reconciliation Sources", "Methodology Source", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Framework Settings", "Extension", "Project Configuration", "Entity/Continuant/Object/Atom"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Select Reconciliation Sources", "Methodology Source", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Framework Settings", "Extension", "Project Configuration", "Entity/Node/Continuant/Atom"]
 relations:
   relates_to: [CA-O-011, CA-O-004]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-152-PROJECT_CONFIGURATION-STEP--select-the-applicable-methodology-sources.md
   source_atom_id: CA-O-152
-  source_atom_revision: 6
-  source_sha256: 57884f8a5858f092db236ab89bc5dcbe261db453664c1968338b3c5a525387a7
+  source_atom_revision: 7
+  source_sha256: 121f2f5d3100eb8f1dd19508c95414cd6d1077b186716b9c32fd3279b04cbb8c
   original_relations_sha256: 311198b9d39fd208f3cb18f1176254443ffa87a8577be8789b9988599e51e0f9
 ---
 # Summary

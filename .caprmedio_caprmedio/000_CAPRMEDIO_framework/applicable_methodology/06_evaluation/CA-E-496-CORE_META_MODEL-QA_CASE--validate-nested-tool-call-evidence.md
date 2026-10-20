@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/History/Journal.Record"
+  governs: "Entity/Node/Continuant/History/Journal.Record"
   depends_on:
-    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Tool", "Entity/Continuant/History/Journal", "Entity/Continuant/Projection"]
-version: 6
-updated_at: "2026-10-15 18:49:56 +0000"
+    ["Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Tool", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Projection"]
+version: 7
+updated_at: "2026-10-19 15:55:11 +0400"
 relations: {"evaluation_for": ["CA-R-1528", "CA-R-1511"]}
 atom_id: "CA-E-496"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-496-CORE_META_MODEL-QA_CASE--validate-nested-tool-call-evidence.md
   source_atom_id: CA-E-496
-  source_atom_revision: 6
-  source_sha256: 9da498385836162af379fe1a3d4690d1e329aaf1a2d9d92f952578bd291aec8c
+  source_atom_revision: 7
+  source_sha256: 145553864d818c17ad12bc293143a9b8ffa56e9a7cd259bd09b9eddb631fe460
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

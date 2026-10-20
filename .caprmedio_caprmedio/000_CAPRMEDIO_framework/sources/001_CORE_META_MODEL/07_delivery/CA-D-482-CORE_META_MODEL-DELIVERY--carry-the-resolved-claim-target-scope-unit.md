@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Target Scope Unit"
+  governs: "Entity/Node/Continuant/Atom.Target Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Object/Atom.Target Scope Unit", "Atom Scope", "Current-scope Atom", "Relational Atom"]
-version: 9
-updated_at: "2026-10-15 18:52:19 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Atom.Target Scope Unit", "Atom Scope", "Current-scope Atom", "Relational Atom"]
+version: 10
+updated_at: "2026-10-19 15:55:57 +0400"
 relations: {"relates_to": ["CA-R-1595", "CA-R-1596", "CA-R-922", "CA-R-923", "CA-D-478"]}
 atom_id: "CA-D-482"
 content_role: "Delivery"

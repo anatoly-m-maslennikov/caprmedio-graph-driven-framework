@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Concern.Owning Scope Unit"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Concern.Owning Scope Unit"
   depends_on: []
-version: 18
-updated_at: "2026-10-18 03:33:56 +0400"
+version: 19
+updated_at: "2026-10-19 15:54:02 +0400"
 relations: {}
 atom_id: "CA-R-1770"
 content_role: "Requirement"

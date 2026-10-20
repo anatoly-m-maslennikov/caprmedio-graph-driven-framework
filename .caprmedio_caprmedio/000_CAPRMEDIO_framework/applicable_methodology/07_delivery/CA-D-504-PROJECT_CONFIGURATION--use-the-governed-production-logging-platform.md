@@ -10,15 +10,15 @@ author: "Anatoly Maslennikov"
 subjects:
   governs: "Entity/Carrier"
   depends_on:
-    - "Entity/Continuant/Node/History/Journal"
-version: 3
-updated_at: "2026-10-18 03:35:01 +0400"
+    - "Entity/Node/Continuant/History/Journal"
+version: 4
+updated_at: "2026-10-19 15:56:25 +0400"
 relations: {}
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-504-PROJECT_CONFIGURATION--use-the-governed-production-logging-platform.md
   source_atom_id: CA-D-504
-  source_atom_revision: 3
-  source_sha256: 78b157ad810666fa667739c14ecb50c0f0673b13dce60b77514bf160dfaea697
+  source_atom_revision: 4
+  source_sha256: b56ad38498ebcdd2cf2dd0dc2fe6c8ffdd950792ac1d6b507beeddafefaece28
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

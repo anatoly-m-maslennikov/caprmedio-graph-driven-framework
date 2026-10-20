@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Substance"
+  governs: "Entity/Node/Continuant/Atom.Substance"
   depends_on:
-    ["Entity/Continuant/Term", "Relation/Type: On Result", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom", "Author", "CCE", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
-version: 8
-updated_at: "2026-10-15 18:48:27 +0000"
+    ["Entity/Node/Continuant/Term", "Relation/Type: On Result", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom", "Author", "CCE", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
+version: 9
+updated_at: "2026-10-19 15:54:49 +0400"
 relations:
   child_of:
     - CA-M-113
@@ -24,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-301-CORE_META_MODEL--make-atom-claims-easy-to-understand.md
   source_atom_id: CA-M-301
-  source_atom_revision: 8
-  source_sha256: c2d9d8b31cc0babd59c14d05dfee58e953ad5a6d17d86d88ad1f7c6295b1bdc6
+  source_atom_revision: 9
+  source_sha256: 8d4cf51028404ef555c8de8913bd65ecd534da52733feb93b3e5b2aa3ead79b7
   original_relations_sha256: f469ff7efb70ffb6ea732b5fd14ab4a693061692e4687f0c129a6b4ea6b83bfa
 ---
 # Summary

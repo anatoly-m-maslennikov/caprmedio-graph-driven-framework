@@ -2,9 +2,9 @@
 subjects:
   governs: "Navigation Projection Derivation"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary"]
-version: 20
-updated_at: "2026-10-15 18:47:59 +0000"
+    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary"]
+version: 21
+updated_at: "2026-10-19 15:54:42 +0400"
 relations: {}
 atom_id: "CA-M-231"
 content_role: "Method"

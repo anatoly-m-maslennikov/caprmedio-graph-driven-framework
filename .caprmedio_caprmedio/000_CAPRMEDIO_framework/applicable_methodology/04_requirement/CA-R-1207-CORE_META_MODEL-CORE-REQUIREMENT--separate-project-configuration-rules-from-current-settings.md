@@ -2,9 +2,9 @@
 subjects:
   governs: "Project Configuration"
   depends_on:
-    ["Entity/Continuant/Object/Project", "Extension", "Entity/Continuant/Object/Project.Framework Settings"]
-version: 16
-updated_at: "2026-10-15 18:41:13 +0000"
+    ["Entity/Node/Continuant/Project", "Extension", "Entity/Node/Continuant/Project.Framework Settings"]
+version: 17
+updated_at: "2026-10-19 15:52:38 +0400"
 relations: {}
 atom_id: "CA-R-1207"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1207-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-configuration-rules-from-current-settings.md
   source_atom_id: CA-R-1207
-  source_atom_revision: 16
-  source_sha256: 2259561f3e6a53f5f1f1c830be3f8f3e6296eaaa86fc47b36915b6c42450cbee
+  source_atom_revision: 17
+  source_sha256: 3aa675b19588dea4a361a7a9ebff4cc27553fb00c0c5ff78e921ba84517ec601
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

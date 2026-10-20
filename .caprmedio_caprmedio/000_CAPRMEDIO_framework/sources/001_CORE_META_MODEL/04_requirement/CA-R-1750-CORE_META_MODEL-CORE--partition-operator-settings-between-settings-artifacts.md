@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings"
+  governs: "Entity/Node/Continuant/Project.Framework Settings"
   depends_on:
-    ["Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Structure", "Default Settings", "Project Name", "Entity/Continuant/Object/Project.Settings.Atom Prefix", "Entity/Continuant/Object/Atom"]
-version: 23
-updated_at: "2026-10-15 18:45:44 +0000"
+    ["Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Structure", "Default Settings", "Project Name", "Entity/Node/Continuant/Project.Settings.Atom Prefix", "Entity/Node/Continuant/Atom"]
+version: 24
+updated_at: "2026-10-19 15:53:58 +0400"
 relations:
   relates_to:
     - "CA-R-1740"

@@ -9,17 +9,17 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"
-  depends_on: ["Assess Atom Update Identity", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Agentic Step Execution Context"]
-version: 5
-updated_at: "2026-10-18 16:27:09 +0400"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step"
+  depends_on: ["Assess Atom Update Identity", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Agentic Step Execution Context"]
+version: 6
+updated_at: "2026-10-19 15:57:08 +0400"
 relations:
   relates_to: [CA-O-067, CA-M-303, CA-R-1509, CA-R-1511, CA-R-1527]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-145-PROJECT_CONFIGURATION-STEP--assess-update-identity-for-atom-lifecycle.md
   source_atom_id: CA-O-145
-  source_atom_revision: 5
-  source_sha256: 90afa2debf0104ec4aa262ab2762c95dc68d100ff250d87b8cac6db100474736
+  source_atom_revision: 6
+  source_sha256: 8f6e7e89467f1b0da65a8abc52c20c73ea3f68a746f3f9da18cf2da0c2c12897
   original_relations_sha256: 230246f64c1454e87387dde25cc082ad40aa84ab1cd1a524398f06c74698a992
 ---
 # Summary

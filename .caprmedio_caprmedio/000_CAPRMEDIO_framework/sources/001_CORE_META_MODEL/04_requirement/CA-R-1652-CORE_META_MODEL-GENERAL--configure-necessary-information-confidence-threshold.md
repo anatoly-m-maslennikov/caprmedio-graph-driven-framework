@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings.Confidence.Necessary Information Threshold"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Confidence.Necessary Information Threshold"
   depends_on:
-    ["Confidence Threshold", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Actor/Type: Operator"]
-version: 24
-updated_at: "2026-10-15 18:45:17 +0000"
+    ["Confidence Threshold", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 25
+updated_at: "2026-10-19 15:53:48 +0400"
 relations:
   child_of:
     - CAPRMEDIO-REQU-035-CORE-REQUIREMENT--identify-necessary-information-by-confidence

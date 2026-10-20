@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Carrier"
+  governs: "Entity/Carrier"
   depends_on:
     - "Logging Policy"
-version: 8
-updated_at: "2026-10-02 19:36:21 +0400"
+version: 9
+updated_at: "2026-10-19 15:56:21 +0400"
 relations: {}
 atom_id: "CA-D-396"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-396-PROJECT_CONFIGURATION--serialize-structured-production-log-records.md
   source_atom_id: CA-D-396
-  source_atom_revision: 8
-  source_sha256: bab2808d4ba1e88a3762826d007c95e7b05d16fdc25089c471139e883b532203
+  source_atom_revision: 9
+  source_sha256: a517e9d896e1b87a06c3940fac9b4299b34890f8259d1dfe33c03d92a4f3e3fa
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

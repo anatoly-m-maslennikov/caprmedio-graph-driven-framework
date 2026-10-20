@@ -2,9 +2,9 @@
 subjects:
   governs: "Relation/Type: On Result"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Relation Kind"]
-version: 6
-updated_at: "2026-10-15 18:43:53 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Relation Kind"]
+version: 7
+updated_at: "2026-10-19 15:53:19 +0400"
 relations: {}
 atom_id: "CA-R-1513"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1513-CORE_META_MODEL-GENERAL-REQUIREMENT--define-workflow-result-transition.md
   source_atom_id: CA-R-1513
-  source_atom_revision: 6
-  source_sha256: 26faa5c3e354bb8c2b9f2942aeaf69ee367685d498572d090ad8b1e6d569be42
+  source_atom_revision: 7
+  source_sha256: 214b32392ecdabcdac71efe73201e1996f5ea67861ad5953766bbc8cd89abbcf
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

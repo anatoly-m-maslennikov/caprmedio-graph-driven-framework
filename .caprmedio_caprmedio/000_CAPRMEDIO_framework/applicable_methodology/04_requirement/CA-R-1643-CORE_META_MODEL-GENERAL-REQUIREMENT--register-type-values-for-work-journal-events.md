@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/History/Journal.Record"
+  governs: "Entity/Node/Continuant/History/Journal.Record"
   depends_on:
-    ["Entity/Continuant/Node/History/Journal.Record"]
-version: 26
-updated_at: "2026-10-18 03:33:46 +0400"
+    ["Entity/Node/Continuant/History/Journal.Record"]
+version: 27
+updated_at: "2026-10-19 15:53:47 +0400"
 relations: {}
 atom_id: "CA-R-1643"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md
   source_atom_id: CA-R-1643
-  source_atom_revision: 26
-  source_sha256: 4ec68eea6b1616dd84655e112a55226f74e089f5e6fd10a14acb6539051e7f20
+  source_atom_revision: 27
+  source_sha256: 296c22e4419b751bfc5f3923f514423cc8ff56076760365fb9abe430f4b60227
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

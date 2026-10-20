@@ -10,16 +10,16 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Scoped Operator-choice Applicability"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Object/Atom", "Artifact", "Entity/Continuant/History/Journal"]
-version: 4
-updated_at: "2026-10-18 07:48:31 +0400"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Atom", "Artifact", "Entity/Node/Continuant/History/Journal"]
+version: 5
+updated_at: "2026-10-19 15:56:59 +0400"
 relations:
   relates_to: [CA-O-007, CA-O-008, CA-O-013, CA-O-022, CA-O-023, CA-O-065, CA-O-078, CA-O-118]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-125-PROJECT_CONFIGURATION-ACTION--assess-scoped-operator-choice-applicability.md
   source_atom_id: CA-O-125
-  source_atom_revision: 4
-  source_sha256: 6b3f82dbbdf961b0fc5a2d489a31a685bf0ea6450bf3f26fe58e56e7665cc75e
+  source_atom_revision: 5
+  source_sha256: 4f99264337e16b5b059cb6d2290041b856e3a3c57e5a4f3385a43fd144593b75
   original_relations_sha256: 578c17b6338a827816194a58a1a8ff63e74697ec3dc4ee0bb0e6c0f5d912b739
 ---
 # Summary

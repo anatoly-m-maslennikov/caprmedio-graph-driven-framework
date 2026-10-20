@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Concern/Type"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Concern", "Type"]
-version: 15
-updated_at: "2026-10-15 18:41:18 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Concern", "Type"]
+version: 16
+updated_at: "2026-10-19 15:52:38 +0400"
 relations: {}
 atom_id: "CA-R-1231"
 content_role: "Requirement"

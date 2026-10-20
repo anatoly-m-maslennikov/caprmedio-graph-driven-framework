@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection"
+  governs: "Entity/Node/Continuant/Projection"
   depends_on:
-    ["Entity/Continuant/Node/History/Journal", "Entity/Continuant/Node/History/Journal.Record", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Projection/Type: Artifact Change Log", "Entity/Continuant/Node/Projection/Type: Process Log"]
-version: 11
-updated_at: "2026-10-18 03:33:33 +0400"
+    ["Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Projection/Type: Artifact Change Log", "Entity/Node/Continuant/Projection/Type: Process Log"]
+version: 12
+updated_at: "2026-10-19 15:53:10 +0400"
 relations: {}
 atom_id: "CA-R-1463"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-GENERAL-REQUIREMENT--derive-log-views-from-the-shared-journal.md
   source_atom_id: CA-R-1463
-  source_atom_revision: 11
-  source_sha256: a46832a0b47a894907195505f7d667aab445b0dff67f379e4378e20d109799d7
+  source_atom_revision: 12
+  source_sha256: 77f4ac687846cec0202b15c4d492b73eda2f85c54bba300f3db88c567d2d362d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

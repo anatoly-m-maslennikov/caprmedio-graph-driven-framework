@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Delivery/Type"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Delivery/Type"
   depends_on:
-    - "Carrier"
-version: 10
-updated_at: "2026-10-18 07:19:03 +0400"
+    - "Entity/Carrier"
+version: 12
+updated_at: "2026-10-20 15:51:07 +0400"
 relations: {}
 atom_id: "CA-D-402"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-402-CORE_META_MODEL--serialize-delivery-type-tokens.md
   source_atom_id: CA-D-402
-  source_atom_revision: 10
-  source_sha256: bbd5052888d1cfd811e522b44f6c55549e454c864c149a1954b096ddb4c742cd
+  source_atom_revision: 12
+  source_sha256: 8255607ee82f721ac35d3246acf1e6496e536775c7059b097402f47bf348072f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,9 +2,9 @@
 subjects:
   governs: "Canonical Scope Signature Derivation"
   depends_on:
-    ["Scope Expression", "Entity/Continuant/Projection/Type: Canonical Scope Signature", "Atom Carrier"]
-version: 11
-updated_at: "2026-10-15 18:48:07 +0000"
+    ["Scope Expression", "Entity/Node/Continuant/Projection/Type: Canonical Scope Signature", "Atom Carrier"]
+version: 12
+updated_at: "2026-10-19 15:54:44 +0400"
 relations:
   child_of:
     - CA-M-121
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-241-CORE_META_MODEL--derive-canonical-scope-signatures-without-source-rewrite.md
   source_atom_id: CA-M-241
-  source_atom_revision: 11
-  source_sha256: a997d1bf7608019fd43471facd899c8b5d47713b89b68a0861201ad33ff1a9ba
+  source_atom_revision: 12
+  source_sha256: 6e0c6711ff636167632d7bdad67dc23ced0041dbd48926285a738cff05830bf3
   original_relations_sha256: 6fc59a347195a35964bdd70772c15ed7cb8cb9aec1c3a511387f263fc6569134
 ---
 # Summary

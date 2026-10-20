@@ -7,18 +7,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-18 23:44:45 +0400"
+version: 7
+updated_at: "2026-10-19 15:56:24 +0400"
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings"
+  governs: "Entity/Node/Continuant/Project.Framework Settings"
   depends_on:
-    ["Entity/Occurrent/Execution/Workflow Run", "Default Settings", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom"]
+    ["Entity/Node/Occurrent/Execution/Workflow Run", "Default Settings", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom"]
 relations: {}
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-497-PROJECT_CONFIGURATION--encode-rmed-review-batch-limits.md
   source_atom_id: CA-D-497
-  source_atom_revision: 6
-  source_sha256: fe75dc1f0de45e7690834482ef0471e697c5bd7fb4a40324148dad02af8ea274
+  source_atom_revision: 7
+  source_sha256: 4852bd3f6b72fb6ef5bb2562a09632a261952c5b35de36f8223ebbd89bd1043b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

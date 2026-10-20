@@ -3,9 +3,9 @@ subjects:
   governs: "Project Scope Unit Graph Projection"
   depends_on:
     - "Project Structure"
-    - "Carrier"
-version: 5
-updated_at: "2026-10-04 22:12:51 +0000"
+    - "Entity/Carrier"
+version: 6
+updated_at: "2026-10-19 15:56:22 +0400"
 relations: {"relates_to":["CA-O-062"]}
 atom_id: "CA-D-453"
 content_role: "Delivery"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-453-PROJECT_CONFIGURATION-STANDARD--place-project-scope-unit-graph-sources-projection.md
   source_atom_id: CA-D-453
-  source_atom_revision: 5
-  source_sha256: 98c6568ac5fdb9f91481ef4f0dc1e475680a72345e7634bf6d09ce5f0fbde8cc
+  source_atom_revision: 6
+  source_sha256: 54d8f198f5c72f40aba1c693594b0ea5d446a119a9ee756f39cdcde6e34185dd
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

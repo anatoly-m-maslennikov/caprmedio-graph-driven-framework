@@ -2,9 +2,9 @@
 subjects:
   governs: "Lineage Impact Analysis"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Atom Change Classification", "Carrier-Only Recoding", "Verification"]
-version: 23
-updated_at: "2026-10-17 18:51:07 +0400"
+    ["Entity/Node/Continuant/Atom", "Atom Change Classification", "Carrier-Only Recoding", "Verification"]
+version: 24
+updated_at: "2026-10-19 15:53:46 +0400"
 relations:
   relates_to:
     - CA-R-1632

@@ -2,9 +2,9 @@
 subjects:
   governs: "Requirement CCE Role Profile"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Requirement", "CCE Operator", "Entity/Continuant/Object/Atom.Substance"]
-version: 7
-updated_at: "2026-10-15 18:48:38 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Requirement", "CCE Operator", "Entity/Node/Continuant/Atom.Substance"]
+version: 8
+updated_at: "2026-10-19 15:54:52 +0400"
 relations:
   child_of:
     - CA-M-307
@@ -23,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-310-CORE_META_MODEL--write-requirement-claims-with-the-requirement-cce-profile.md
   source_atom_id: CA-M-310
-  source_atom_revision: 7
-  source_sha256: 2919c7a9cf3e595ba37c4b9cf6e00c33b1254b740a0fc6e6281d82845243c11e
+  source_atom_revision: 8
+  source_sha256: f6a1e51373aa794ad090797cd6525722a1ddafd05b1218e565cacf65f66181cf
   original_relations_sha256: 7ff74fac259540a50c68f38f47ef057478ad58aa287534b9bcfad07aacadfb73
 ---
 # Summary

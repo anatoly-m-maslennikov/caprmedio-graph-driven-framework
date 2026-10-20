@@ -2,9 +2,9 @@
 subjects:
   governs: "General Term"
   depends_on:
-    ["Entity/Continuant/Object/Project"]
-version: 11
-updated_at: "2026-10-15 18:41:51 +0000"
+    ["Entity/Node/Continuant/Project"]
+version: 12
+updated_at: "2026-10-19 15:52:48 +0400"
 relations: {}
 atom_id: "CA-R-1320"
 content_role: "Requirement"

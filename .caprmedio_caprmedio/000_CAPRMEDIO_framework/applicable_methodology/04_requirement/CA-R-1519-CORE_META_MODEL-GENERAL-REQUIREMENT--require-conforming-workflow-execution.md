@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Relation/Type: On Result", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator", "Methodology"]
-version: 7
-updated_at: "2026-10-15 18:43:54 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Relation/Type: On Result", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Actor/Type: Operator", "Methodology"]
+version: 8
+updated_at: "2026-10-19 15:53:19 +0400"
 relations: {"relates_to": ["CA-R-1508", "CA-R-1509", "CA-R-1510", "CA-R-1511", "CA-R-1513", "CA-R-1525"]}
 atom_id: "CA-R-1519"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1519-CORE_META_MODEL-GENERAL-REQUIREMENT--require-conforming-workflow-execution.md
   source_atom_id: CA-R-1519
-  source_atom_revision: 7
-  source_sha256: b10c2fba31ec86ba7c521a9e0f37367624b2a9443a3bd7ff9b4abd5ee8c5cb6f
+  source_atom_revision: 8
+  source_sha256: dd49344c6032593ea83b95f4b203d08f8a4e391c584d62be4f24df1db81fe06e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

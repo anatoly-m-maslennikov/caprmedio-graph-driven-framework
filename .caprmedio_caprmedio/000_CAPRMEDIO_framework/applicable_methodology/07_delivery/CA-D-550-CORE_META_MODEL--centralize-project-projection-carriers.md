@@ -9,15 +9,15 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Projection Carrier Root"
-  depends_on: ["Entity/Continuant/Object/Project", "Entity/Continuant/Projection", "Entity/Carrier", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/History/Journal", "Entity/Continuant/Object/Atom", "Methodology Source", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Structure"]
-version: 6
-updated_at: "2026-10-15 18:52:31 +0000"
+  depends_on: ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/Projection", "Entity/Carrier", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Atom", "Methodology Source", "Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Structure"]
+version: 7
+updated_at: "2026-10-19 15:56:01 +0400"
 relations: {}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md
   source_atom_id: CA-D-550
-  source_atom_revision: 6
-  source_sha256: 890c80cab34a4ceaa1f11897be2f4fba3091f1524c555fda88fd30c983d70c39
+  source_atom_revision: 7
+  source_sha256: 6da2faa1e707dc8ef8a0312a3b17b9f2862375df905798206807299b3df99944
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

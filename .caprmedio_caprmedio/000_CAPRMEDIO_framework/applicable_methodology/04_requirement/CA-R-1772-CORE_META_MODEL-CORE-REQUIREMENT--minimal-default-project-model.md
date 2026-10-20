@@ -1,13 +1,13 @@
 ---
-version: 16
-updated_at: "2026-10-15 18:45:58 +0000"
+version: 17
+updated_at: "2026-10-19 15:54:03 +0400"
 relations:
   child_of:
     - CA-M-005-PRINCIPLE-METHOD--add-complexity-only-when-necessary
 subjects:
-  governs: "Entity/Continuant/Object/Project.Minimum Model"
+  governs: "Entity/Node/Continuant/Project.Minimum Model"
   depends_on:
-    ["Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Implementation", "Entity/Continuant/Object/Atom", "Structural Level", "CAPRMEDIO Framework Instance"]
+    ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/Atom/Content Role: Requirement", "Implementation", "Entity/Node/Continuant/Atom", "Structural Level", "CAPRMEDIO Framework Instance"]
 atom_id: "CA-R-1772"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1772-CORE_META_MODEL-CORE-REQUIREMENT--minimal-default-project-model.md
   source_atom_id: CA-R-1772
-  source_atom_revision: 16
-  source_sha256: a75b6e49f4181af7a8ceeec4f724f6246bcc928924aba4763da0d5658076dc0b
+  source_atom_revision: 17
+  source_sha256: 22ec866321a224b57df7a1da9c169a2edf8f90034fbdc998079fa5455e64d187
   original_relations_sha256: eefe61750ccf463a3e5e18fc1187a40036d570d0a4de9a2543fbf1fc14eaaa97
 ---
 # Summary

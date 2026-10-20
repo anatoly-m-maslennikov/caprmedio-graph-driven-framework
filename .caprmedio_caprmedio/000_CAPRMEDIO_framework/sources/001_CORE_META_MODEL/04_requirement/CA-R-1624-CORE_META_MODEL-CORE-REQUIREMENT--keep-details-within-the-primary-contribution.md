@@ -7,12 +7,12 @@ local_tier: Core
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Details"
+  governs: "Entity/Node/Continuant/Atom.Details"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Markdown Atom Carrier.Main Content"]
+    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Markdown Atom Carrier.Main Content"]
 relations: {"relates_to": ["CA-R-1269", "CA-R-1586"]}
-version: 4
-updated_at: "2026-10-15 18:45:03 +0000"
+version: 5
+updated_at: "2026-10-19 15:53:44 +0400"
 global_tier: 9
 ---
 # Summary

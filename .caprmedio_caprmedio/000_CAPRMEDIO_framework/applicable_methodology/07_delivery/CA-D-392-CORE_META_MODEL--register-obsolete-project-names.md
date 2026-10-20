@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection/Type: Scope Unit Graph"
+  governs: "Entity/Node/Continuant/Projection/Type: Scope Unit Graph"
   depends_on:
-    ["Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Project.Settings.Project Name", "Entity/Continuant/Node/Project.Settings.Obsolete Names"]
-version: 13
-updated_at: "2026-10-18 07:33:11 +0400"
+    ["Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Settings.Project Name", "Entity/Node/Continuant/Project.Settings.Obsolete Names"]
+version: 14
+updated_at: "2026-10-19 15:55:42 +0400"
 relations:
   child_of:
     - "CA-R-1052"
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-392-CORE_META_MODEL--register-obsolete-project-names.md
   source_atom_id: CA-D-392
-  source_atom_revision: 13
-  source_sha256: e9063d7343d7aeb677d773ccf7699e8af177f2aa23525fd3051127c15a4409e4
+  source_atom_revision: 14
+  source_sha256: e3e8c379553588ca154c03ffbaae4aae8f49df4d9e19ddd8d52497e5b86a175a
   original_relations_sha256: 5411c48e314874dae72d61833b5dd597b25ac3a746bb13d14b671ab0808665d2
 ---
 # Summary

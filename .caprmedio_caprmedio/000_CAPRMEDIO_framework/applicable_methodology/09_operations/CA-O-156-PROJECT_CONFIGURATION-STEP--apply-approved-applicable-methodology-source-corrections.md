@@ -8,19 +8,19 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-19 03:07:16 +0400"
+version: 7
+updated_at: "2026-10-19 15:56:35 +0400"
 subjects:
   governs: "Applicable Methodology Compilation Correct Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Apply Approved Source Corrections", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal.Record", "Methodology Source", "Entity/Continuant/Object/Atom.Substance"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Apply Approved Source Corrections", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal.Record", "Methodology Source", "Entity/Node/Continuant/Atom.Substance"]
 relations:
   relates_to: [CA-O-011, CA-O-008]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-156-PROJECT_CONFIGURATION-STEP--apply-approved-applicable-methodology-source-corrections.md
   source_atom_id: CA-O-156
-  source_atom_revision: 6
-  source_sha256: f5e1e6381e8cd29249e4223d72191759723ed4f5f001ea80134f8a930be13c57
+  source_atom_revision: 7
+  source_sha256: c4c8701c4b98651ef3d41b510878b8b8d709de472760158cdb61fc71de937b95
   original_relations_sha256: 096b0599580a28c8c6f7e0bdc2d9f2defb1fb2b6089cf791e3f3adfc1be1f947
 ---
 # Summary

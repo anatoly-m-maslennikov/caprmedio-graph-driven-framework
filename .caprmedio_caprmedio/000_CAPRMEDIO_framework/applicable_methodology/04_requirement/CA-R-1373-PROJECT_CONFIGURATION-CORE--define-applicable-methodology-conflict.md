@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection/Type: Applicable Methodology.Conflict"
+  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology.Conflict"
   depends_on:
-    ["Entity/Continuant/Node/Projection/Type: Applicable Methodology"]
-version: 14
-updated_at: "2026-10-18 07:49:47 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology"]
+version: 15
+updated_at: "2026-10-19 15:56:05 +0400"
 relations: {}
 atom_id: "CA-R-1373"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1373-PROJECT_CONFIGURATION-CORE--define-applicable-methodology-conflict.md
   source_atom_id: CA-R-1373
-  source_atom_revision: 14
-  source_sha256: fee13ab9247414c91dd26c338a188181f4e970378568d5a9b4ff8f94d65ef9ba
+  source_atom_revision: 15
+  source_sha256: 1f1340ee0bb941433c7ec6e05ece1300152fed03d6914a9f1d8d69e7bddb588e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

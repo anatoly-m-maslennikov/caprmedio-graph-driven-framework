@@ -12,9 +12,9 @@ subjects:
   governs: "Atom/Content Role: Analysis/Type: FPF Analysis Report"
   depends_on:
     - "Artifact/Revision"
-    - "Carrier"
-version: 1
-updated_at: "2026-10-05 23:46:22 +0400"
+    - "Entity/Carrier"
+version: 2
+updated_at: "2026-10-19 15:56:18 +0400"
 relations:
   evaluation_for: ["CA-R-1889"]
 ---

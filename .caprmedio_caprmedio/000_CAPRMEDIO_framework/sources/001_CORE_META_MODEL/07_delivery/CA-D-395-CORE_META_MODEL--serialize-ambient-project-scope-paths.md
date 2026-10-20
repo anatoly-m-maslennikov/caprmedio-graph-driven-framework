@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier"
   depends_on:
-    ["Entity/Continuant/Node/Project", "Entity/Continuant/Node/Scope Unit"]
-version: 12
-updated_at: "2026-10-18 07:33:30 +0400"
+    ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/Scope Unit"]
+version: 13
+updated_at: "2026-10-19 15:55:43 +0400"
 relations: {}
 atom_id: "CA-D-395"
 content_role: "Delivery"

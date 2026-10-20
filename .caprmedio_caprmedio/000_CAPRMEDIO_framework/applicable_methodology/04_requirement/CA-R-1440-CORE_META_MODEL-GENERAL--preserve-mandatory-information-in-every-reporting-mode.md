@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information"
   depends_on:
-    ["Entity/Continuant/Node/Project.Framework Settings.Interaction.Reporting Mode", "Entity/Continuant/Node/Actor/Type: Operator"]
-version: 10
-updated_at: "2026-10-18 03:33:31 +0400"
+    ["Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 11
+updated_at: "2026-10-19 15:53:05 +0400"
 relations:
   child_of:
     - "CA-R-1402"
@@ -21,8 +21,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL-GENERAL--preserve-mandatory-information-in-every-reporting-mode.md
   source_atom_id: CA-R-1440
-  source_atom_revision: 10
-  source_sha256: 0bb99557ad365d992474067ec772fec1cd27e137e0146fde3d41b6f88ac024f3
+  source_atom_revision: 11
+  source_sha256: 7461c1d1d83125ce9cebcb8cbc064a668ba19f0acc28540119713570640b1044
   original_relations_sha256: 0340864db7abe404688a97498db8cf00b4ab1863cf1571a0cc596bb09548562e
 ---
 # Summary

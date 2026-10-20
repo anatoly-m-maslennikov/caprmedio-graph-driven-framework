@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Implementation Overview"
+  governs: "Entity/Node/Continuant/Projection/Type: Implementation Overview"
   depends_on:
-    ["Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Artifact", "Implementation Binding", "Entity/Continuant/History/Journal", "Implementation", "Verification", "Atom/Content Role"]
-version: 20
-updated_at: "2026-10-15 18:45:28 +0000"
+    ["Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Artifact", "Implementation Binding", "Entity/Node/Continuant/History/Journal", "Implementation", "Verification", "Atom/Content Role"]
+version: 21
+updated_at: "2026-10-19 15:53:52 +0400"
 relations: {}
 atom_id: "CA-R-1703"
 content_role: "Requirement"

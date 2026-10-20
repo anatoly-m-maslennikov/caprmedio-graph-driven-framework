@@ -2,9 +2,9 @@
 subjects:
   governs: "Hub Atom"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Atom/Content Role: Plan/Type: Plan", "Type", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Entity/Continuant/Object/Atom.Global Tier"]
-version: 6
-updated_at: "2026-10-15 18:44:39 +0000"
+    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Atom/Content Role: Plan/Type: Plan", "Type", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Atom.Global Tier"]
+version: 7
+updated_at: "2026-10-19 15:53:34 +0400"
 relations: {"relates_to": ["CA-R-1534", "CA-R-1579"]}
 atom_id: "CA-R-1578"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-CORE-REQUIREMENT--define-hub-atom-as-a-derived-description.md
   source_atom_id: CA-R-1578
-  source_atom_revision: 6
-  source_sha256: 13b3d7374cd13d773e6cba88077042c4e05039aa419554044c41a8caf4a5c2a7
+  source_atom_revision: 7
+  source_sha256: 3a4dbefae5afc1eb7a1377de9e781ea72f058e77502b4e35587b77d075b0cd40
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

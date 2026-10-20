@@ -2,9 +2,9 @@
 subjects:
   governs: "Evidence"
   depends_on:
-    ["Artifact", "Implementation", "Entity/Continuant/Projection", "Entity/Carrier"]
-version: 21
-updated_at: "2026-10-15 18:45:14 +0000"
+    ["Artifact", "Implementation", "Entity/Node/Continuant/Projection", "Entity/Carrier"]
+version: 22
+updated_at: "2026-10-19 15:53:47 +0400"
 relations:
   resolution_of:
     - "CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented"
@@ -21,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md
   source_atom_id: CA-R-1646
-  source_atom_revision: 21
-  source_sha256: 1bb075ad428437afd7c3f710eeb6fce405f5b5396a0323f51c363ddfc8bf7a2f
+  source_atom_revision: 22
+  source_sha256: 7fb0085a23db9f51a5218f8598c65dc170d753db37c504e5b2d958af6df680d2
   original_relations_sha256: 7d5e5955ca0ee72f9019f7d2d5dbbcfbeac9d5f91bff5e109d83e55ba651637f
 ---
 # Summary

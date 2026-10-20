@@ -2,9 +2,9 @@
 subjects:
   governs: "Lineage Impact Analysis"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Atom Change Classification", "Carrier-Only Recoding", "Verification"]
-version: 23
-updated_at: "2026-10-17 18:51:07 +0400"
+    ["Entity/Node/Continuant/Atom", "Atom Change Classification", "Carrier-Only Recoding", "Verification"]
+version: 24
+updated_at: "2026-10-19 15:53:46 +0400"
 relations:
   relates_to:
     - CA-R-1632
@@ -20,8 +20,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md
   source_atom_id: CA-R-1633
-  source_atom_revision: 23
-  source_sha256: c424a2a09ca15a0455d6a3474b3b0c115a2b668da4f640c8b54a3e6a5faeb937
+  source_atom_revision: 24
+  source_sha256: bfdabe4a68345402b0bfc2a1580d25fd031043a56020e89b43c121e733dd9848
   original_relations_sha256: c7fa64331151a0cf79b662ca47c7f4718bd3cf68c09cb3f68cd810e2a706fd05
 ---
 # Summary

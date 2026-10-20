@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity", "Entity/Continuant/Object/Atom", "Atom/Content Role", "Type", "Status", "Entity/Continuant/Object/Scope Unit", "Container Atom", "Entity/Carrier"]
-version: 7
-updated_at: "2026-10-15 23:50:15 +0400"
+    ["Entity", "Entity/Node/Continuant/Atom", "Atom/Content Role", "Type", "Status", "Entity/Node/Continuant/Scope Unit", "Container Atom", "Entity/Carrier"]
+version: 8
+updated_at: "2026-10-19 15:55:10 +0400"
 relations: {"evaluation_for": ["CA-R-1521"]}
 atom_id: "CA-E-490"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-490-CORE_META_MODEL-QA_CASE--validate-lifecycle-workflow-adaptability.md
   source_atom_id: CA-E-490
-  source_atom_revision: 7
-  source_sha256: 478e3d37ed145ec7cb638ddbadfa6eab7f7260800efff1af9b9ef0d46e5c6009
+  source_atom_revision: 8
+  source_sha256: 2299253c1c2aba02f84501965c27a84be4fae9afa571454772fb3004eb5c6d44
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

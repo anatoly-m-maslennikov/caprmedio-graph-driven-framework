@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action"
   depends_on:
-    ["Entity/Continuant/Actor", "Tool", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/History/Journal.Record", "Entity/Carrier", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom.Substance"]
-version: 12
-updated_at: "2026-10-15 18:43:13 +0000"
+    ["Entity/Node/Continuant/Actor", "Tool", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/History/Journal.Record", "Entity/Carrier", "Atom/Content Role: Operations/Type: Action/Execution Kind", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom.Substance"]
+version: 13
+updated_at: "2026-10-19 15:53:08 +0400"
 relations: {}
 atom_id: "CA-R-1452"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md
   source_atom_id: CA-R-1452
-  source_atom_revision: 12
-  source_sha256: 81d2eaf92383f44b671cb4732a35a33d685bfee83a74d710c240e04eca156818
+  source_atom_revision: 13
+  source_sha256: c7e1900c89f21167c58d7169c51968bffa7bc8d7a1fc87d6de39c0afff00cd70
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

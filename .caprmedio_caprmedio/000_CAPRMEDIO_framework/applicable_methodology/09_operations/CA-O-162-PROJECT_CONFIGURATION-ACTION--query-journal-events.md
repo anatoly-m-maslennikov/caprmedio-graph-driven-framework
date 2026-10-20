@@ -8,18 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-18 16:27:39 +0400"
+version: 6
+updated_at: "2026-10-19 15:57:09 +0400"
 subjects:
   governs: "Journal Event query"
-  depends_on: ["Entity/Continuant/History/Journal", "Entity/Occurrent/Event", "Tool", "Entity/Occurrent/Execution/Action Run"]
+  depends_on: ["Entity/Node/Continuant/History/Journal", "Entity/Node/Occurrent/Event", "Tool", "Entity/Node/Occurrent/Execution/Action Run"]
 relations:
   relates_to: [CA-O-161, CA-O-163, CA-R-1850, CA-R-1861, CA-R-1862, CA-R-1863, CA-R-1864, CA-R-1865, CA-R-1866, CA-R-1867, CA-R-1868, CA-R-1869, CA-R-1870, CA-R-1871, CA-R-1872, CA-M-334, CA-M-335, CA-M-336, CA-M-337, CA-E-575, CA-E-576, CA-E-577, CA-E-578, CA-E-579, CA-E-580, CA-D-555, CA-D-556, CA-D-557, CA-D-558]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-162-PROJECT_CONFIGURATION-ACTION--query-journal-events.md
   source_atom_id: CA-O-162
-  source_atom_revision: 5
-  source_sha256: 63120eb56276b8c810f0ff7d2659e3171fd74719946848e52774117df85d1cad
+  source_atom_revision: 6
+  source_sha256: 4ef22c8e8f4af8100ac0da09bbed21ac5611101f6b063ed4e517b2813c5fefaa
   original_relations_sha256: 5e7db52619c9d61f26949bc8416eeb3832b24568764946912fcba9ad333f3e07
 ---
 # Summary

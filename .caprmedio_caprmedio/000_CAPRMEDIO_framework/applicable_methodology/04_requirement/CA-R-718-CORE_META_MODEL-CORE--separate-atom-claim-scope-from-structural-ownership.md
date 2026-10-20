@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Target Scope Unit"
+  governs: "Entity/Node/Continuant/Atom.Target Scope Unit"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Substance", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Project.Structure", "Entity/Continuant/Node/Atom.Substance Scope"]
-version: 26
-updated_at: "2026-10-18 03:34:10 +0400"
+    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Atom.Substance Scope"]
+version: 27
+updated_at: "2026-10-19 15:54:21 +0400"
 relations:
   child_of:
     - CA-R-1776
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-718-CORE_META_MODEL-CORE--separate-atom-claim-scope-from-structural-ownership.md
   source_atom_id: CA-R-718
-  source_atom_revision: 26
-  source_sha256: f32fd6c054c14ecaf54f4771dc9de92feb0bcecc1d00e6e8078da91d0190ccab
+  source_atom_revision: 27
+  source_sha256: 03ac3f5026e05fb5f5a97e2cc04441a45f2b222823bb0684799518d5ccbcee46
   original_relations_sha256: 868eac844141c4cf0b077b00bddf6f56fd5513a31eee2000992d30643acfad35
 ---
 # Summary

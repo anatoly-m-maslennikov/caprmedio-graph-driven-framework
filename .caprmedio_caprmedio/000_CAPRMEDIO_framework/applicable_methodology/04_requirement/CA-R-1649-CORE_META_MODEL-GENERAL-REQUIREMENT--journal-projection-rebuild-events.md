@@ -2,9 +2,9 @@
 subjects:
   governs: "Projection Rebuild"
   depends_on:
-    ["Entity/Continuant/History/Journal.Record", "Entity/Continuant/Projection"]
-version: 21
-updated_at: "2026-10-15 18:45:15 +0000"
+    ["Entity/Node/Continuant/History/Journal.Record", "Entity/Node/Continuant/Projection"]
+version: 22
+updated_at: "2026-10-19 15:53:48 +0400"
 relations: {}
 atom_id: "CA-R-1649"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md
   source_atom_id: CA-R-1649
-  source_atom_revision: 21
-  source_sha256: 5c92d7fbeea120f675c936b09790932d46d4d75ef99c41066bce569232531dca
+  source_atom_revision: 22
+  source_sha256: 1dc9320277ad1c951d2dfef088a1351b97aeeade5af26b930ff3b936fbc6f694
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

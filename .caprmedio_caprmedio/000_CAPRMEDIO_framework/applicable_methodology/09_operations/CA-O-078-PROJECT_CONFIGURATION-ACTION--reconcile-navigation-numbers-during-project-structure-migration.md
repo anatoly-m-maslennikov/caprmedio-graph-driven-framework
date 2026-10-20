@@ -10,16 +10,16 @@ status: Active
 subjects:
   governs: "Reconcile Navigation Numbers"
   depends_on:
-    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Continuant/Object/Scope Unit.Local Order", "Entity/Continuant/Object/Scope Unit.Structural Level", "Scope Unit/Type", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Carrier", "Entity/Carrier/Directory Carrier.Numeric Prefix", "Implementation Folder", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Project Structure Maintenance"]
-version: 6
-updated_at: "2026-10-18 07:47:09 +0400"
+    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Scope Unit.Navigational Order Number", "Entity/Node/Continuant/Scope Unit.Local Order", "Entity/Node/Continuant/Scope Unit.Structural Level", "Scope Unit/Type", "Entity/Node/Continuant/Scope Unit.Label", "Entity/Carrier", "Entity/Carrier/Directory Carrier.Numeric Prefix", "Implementation Folder", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Project Structure Maintenance"]
+version: 7
+updated_at: "2026-10-19 15:56:48 +0400"
 relations: {"relates_to": ["CA-R-1483", "CA-R-1484", "CA-R-976", "CA-R-981", "CA-R-983", "CA-M-291", "CA-D-440", "CA-D-442", "CA-D-444", "CA-D-445", "CA-D-297", "CA-D-299", "CA-D-300", "CA-D-380", "CA-O-012", "CA-O-015"]}
 global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-078-PROJECT_CONFIGURATION-ACTION--reconcile-navigation-numbers-during-project-structure-migration.md
   source_atom_id: CA-O-078
-  source_atom_revision: 6
-  source_sha256: 4d420393fa167d12286a8307bec816a45a2d16e6861c0359d34ae3af5bee1424
+  source_atom_revision: 7
+  source_sha256: 770efbcff278ab3638c22cf90f148441941c7ab6e32b1b0f98477c40e042dc99
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

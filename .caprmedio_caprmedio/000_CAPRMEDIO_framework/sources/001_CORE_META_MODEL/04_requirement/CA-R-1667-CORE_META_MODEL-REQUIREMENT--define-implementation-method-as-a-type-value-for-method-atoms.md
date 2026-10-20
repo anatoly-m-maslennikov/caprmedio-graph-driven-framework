@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Method/Type: Implementation Method"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Method/Type: Implementation Method"
   depends_on: []
-version: 22
-updated_at: "2026-10-19 02:57:39 +0400"
+version: 23
+updated_at: "2026-10-20 16:26:13 +0400"
 relations:
   {"depends_on": ["CA-R-1767"]}
 atom_id: "CA-R-1667"

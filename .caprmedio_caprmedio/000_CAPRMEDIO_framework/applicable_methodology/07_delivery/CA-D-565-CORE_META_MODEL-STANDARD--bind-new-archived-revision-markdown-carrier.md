@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/History/Revision"
+  governs: "Entity/Node/Continuant/History/Revision"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Status", "Entity/Continuant/Node/Atom.Status: Archived", "Entity/Carrier.Canonical Address"]
-version: 5
-updated_at: "2026-10-18 03:34:54 +0400"
+    ["Entity/Node/Continuant/Atom.Status", "Entity/Node/Continuant/Atom.Status: Archived", "Entity/Carrier.Canonical Address"]
+version: 6
+updated_at: "2026-10-19 15:56:02 +0400"
 relations: {"relates_to": ["CA-D-289", "CA-D-466"]}
 atom_id: "CA-D-565"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md
   source_atom_id: CA-D-565
-  source_atom_revision: 5
-  source_sha256: e1fafc6f9a845084a4e20e8ee8a946830ecc0bb613ff0a810609048d102992a1
+  source_atom_revision: 6
+  source_sha256: fe205e2d516ae00d54891b6bb717eb806dbeb69a6fffbf04ef79b6138e4a3a96
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

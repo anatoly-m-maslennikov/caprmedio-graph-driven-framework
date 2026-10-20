@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Local Tier: Standard"
+  governs: "Entity/Node/Continuant/Atom.Local Tier: Standard"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Local Tier", "Entity/Continuant/Node/Scope Unit"]
-version: 18
-updated_at: "2026-10-18 03:34:09 +0400"
+    ["Entity/Node/Continuant/Atom.Local Tier", "Entity/Node/Continuant/Scope Unit"]
+version: 19
+updated_at: "2026-10-19 15:54:20 +0400"
 relations: {}
 atom_id: "CA-R-660"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-660-CORE_META_MODEL-CORE--define-standard-local-tier.md
   source_atom_id: CA-R-660
-  source_atom_revision: 18
-  source_sha256: 7d3b28f1fb1159b4738cc5f3d791390b967fa149f6be401a63ca05def9c8776e
+  source_atom_revision: 19
+  source_sha256: 1f26c1b8f01cdbb7a21c0e8fa38e4d04f75bc87602d33849594fadc40c6c903a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

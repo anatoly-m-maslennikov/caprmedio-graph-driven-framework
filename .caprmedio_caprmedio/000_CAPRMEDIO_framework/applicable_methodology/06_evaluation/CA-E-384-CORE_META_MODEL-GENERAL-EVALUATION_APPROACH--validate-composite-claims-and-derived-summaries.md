@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Substance"
+  governs: "Entity/Node/Continuant/Atom.Substance"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Atom.Summary", "Scope Expression", "Entity/Continuant/Object/Scope Unit"]
-version: 21
-updated_at: "2026-10-15 18:49:06 +0000"
+    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Node/Continuant/Atom.Summary", "Scope Expression", "Entity/Node/Continuant/Scope Unit"]
+version: 22
+updated_at: "2026-10-19 15:54:57 +0400"
 relations:
   evaluation_for:
     - CA-R-1596
@@ -25,8 +25,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-384-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-composite-claims-and-derived-summaries.md
   source_atom_id: CA-E-384
-  source_atom_revision: 21
-  source_sha256: d65cd03f442f1d2ef5b13a0520ba602ad695241b35ec89c32741296fbc27e5f6
+  source_atom_revision: 22
+  source_sha256: 8808785d3e41ea1be3147f05c52bddd5a9d8f8198fcafa6fc38142bce31bb269
   original_relations_sha256: 07213b2ab316a074edef5b36598f1f4f4d2e1c9cf14e66d3ad001e784d02e330
 ---
 # Summary

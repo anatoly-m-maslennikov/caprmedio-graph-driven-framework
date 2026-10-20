@@ -2,9 +2,9 @@
 subjects:
   governs: "CAPRMEDIO Graph"
   depends_on:
-    ["Single Source of Truth", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Structural Entity", "Entity/Continuant/History/Journal", "Entity/Continuant/Object/Relation"]
-version: 7
-updated_at: "2026-10-15 18:43:29 +0000"
+    ["Single Source of Truth", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Structural Entity", "Entity/Node/Continuant/History/Journal", "Entity/Relation"]
+version: 8
+updated_at: "2026-10-19 15:53:12 +0400"
 relations: {}
 atom_id: "CA-R-1471"
 content_role: "Requirement"

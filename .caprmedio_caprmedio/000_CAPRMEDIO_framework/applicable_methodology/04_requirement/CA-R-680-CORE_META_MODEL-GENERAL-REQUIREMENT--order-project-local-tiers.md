@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Local Tier"
+  governs: "Entity/Node/Continuant/Atom.Local Tier"
   depends_on:
-    ["Entity/Continuant/Node/Project"]
-version: 21
-updated_at: "2026-10-18 03:34:09 +0400"
+    ["Entity/Node/Continuant/Project"]
+version: 22
+updated_at: "2026-10-19 15:54:21 +0400"
 relations:
   child_of:
     - CA-R-917
@@ -22,8 +22,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-680-CORE_META_MODEL-GENERAL-REQUIREMENT--order-project-local-tiers.md
   source_atom_id: CA-R-680
-  source_atom_revision: 21
-  source_sha256: bfffffced08cc012d5741b6020f783e0b98d03a1218807ed57371f782726e9ad
+  source_atom_revision: 22
+  source_sha256: 8b90e222f07a936ee56c3e27daaa6c3d4c24a1753332f51d5df98f853b1add0d
   original_relations_sha256: 2b7a7a899d81a7747d051c48c64f4d8b84815afc425e1226a1e0e84b7002d829
 ---
 # Summary

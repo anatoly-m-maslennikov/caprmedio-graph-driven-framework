@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Concern.Priority"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Concern.Priority"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role", "Entity/Continuant/Node/Atom/Content Role: Concern.Priority", "Entity/Continuant/Node/Atom/Content Role: Plan"]
-version: 11
-updated_at: "2026-10-18 03:34:44 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role", "Entity/Node/Continuant/Atom/Content Role: Concern.Priority", "Entity/Node/Continuant/Atom/Content Role: Plan"]
+version: 12
+updated_at: "2026-10-19 15:55:40 +0400"
 relations: {}
 atom_id: "CA-D-386"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-386-CORE_META_MODEL-DELIVERY--serialize-concern-priority.md
   source_atom_id: CA-D-386
-  source_atom_revision: 11
-  source_sha256: 6ebc0977eeaefd7f16b9690c5b08ec3b294dba2e2e5018641348792c530a0695
+  source_atom_revision: 12
+  source_sha256: 5e67b964b21618329f81dfebf0dc6b6386761d76c778a1b64998a02d9fc0f7ac
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

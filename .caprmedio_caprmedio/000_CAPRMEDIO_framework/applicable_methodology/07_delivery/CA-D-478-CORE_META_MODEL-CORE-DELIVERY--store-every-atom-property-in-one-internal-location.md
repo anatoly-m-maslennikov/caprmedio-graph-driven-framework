@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Property"
+  governs: "Entity/Node/Continuant/Atom.Property"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Property", "Entity/Carrier/File Carrier", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Relation"]
-version: 8
-updated_at: "2026-10-16 12:09:35 +0000"
+    ["Entity/Node/Continuant/Atom.Property", "Entity/Carrier/File Carrier", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Relation"]
+version: 9
+updated_at: "2026-10-19 15:55:56 +0400"
 relations: {"delivery_for": ["CA-R-1598"], "relates_to": ["CA-D-479", "CA-D-268", "CA-R-1470"]}
 atom_id: "CA-D-478"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-CORE-DELIVERY--store-every-atom-property-in-one-internal-location.md
   source_atom_id: CA-D-478
-  source_atom_revision: 8
-  source_sha256: cd7c33575bebefbc6f576800790f5588f5e963de7c8830514cf62c34a444bd2a
+  source_atom_revision: 9
+  source_sha256: f0be16fa21b1cce785a8dacd55fd50ad2db63b0beee6bd1c96152c49e47b3483
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

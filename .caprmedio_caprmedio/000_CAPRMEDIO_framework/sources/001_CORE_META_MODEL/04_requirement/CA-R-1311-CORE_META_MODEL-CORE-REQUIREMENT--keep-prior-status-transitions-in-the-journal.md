@@ -2,9 +2,9 @@
 subjects:
   governs: "Artifact.Status"
   depends_on:
-    ["Entity/Continuant/History/Journal"]
-version: 15
-updated_at: "2026-10-15 18:41:45 +0000"
+    ["Entity/Node/Continuant/History/Journal"]
+version: 16
+updated_at: "2026-10-19 15:52:47 +0400"
 relations: {}
 atom_id: "CA-R-1311"
 content_role: "Requirement"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection/Type: Applicable Methodology.Member"
+  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology.Member"
   depends_on:
-    ["Entity/Continuant/Node/Projection/Type: Applicable Methodology.Member", "Entity/Continuant/Node/Atom", "Entity/Carrier/File Carrier"]
-version: 15
-updated_at: "2026-10-18 07:13:06 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology.Member", "Entity/Node/Continuant/Atom", "Entity/Carrier/File Carrier"]
+version: 16
+updated_at: "2026-10-19 15:56:19 +0400"
 relations: {}
 atom_id: "CA-D-305"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-305-PROJECT_CONFIGURATION-CORE--carry-projected-atoms-without-new-identity.md
   source_atom_id: CA-D-305
-  source_atom_revision: 15
-  source_sha256: 30532c71892da12687f6db37b68e9a4883974974acf940f7c66bbfeddc1d206f
+  source_atom_revision: 16
+  source_sha256: 7b1c4f96426e7907c90e5a949b037f26f39458fd769ed04e2b451a16376cdd39
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

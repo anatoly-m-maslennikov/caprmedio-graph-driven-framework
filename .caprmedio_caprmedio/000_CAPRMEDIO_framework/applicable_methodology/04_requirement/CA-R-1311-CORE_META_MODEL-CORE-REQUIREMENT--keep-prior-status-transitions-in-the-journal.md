@@ -2,9 +2,9 @@
 subjects:
   governs: "Artifact.Status"
   depends_on:
-    ["Entity/Continuant/History/Journal"]
-version: 15
-updated_at: "2026-10-15 18:41:45 +0000"
+    ["Entity/Node/Continuant/History/Journal"]
+version: 16
+updated_at: "2026-10-19 15:52:47 +0400"
 relations: {}
 atom_id: "CA-R-1311"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1311-CORE_META_MODEL-CORE-REQUIREMENT--keep-prior-status-transitions-in-the-journal.md
   source_atom_id: CA-R-1311
-  source_atom_revision: 15
-  source_sha256: 1e125bbdfbb392888ab398bd2445eff70563ec9883774350835953b3b6b10789
+  source_atom_revision: 16
+  source_sha256: 84395c09423e2f544b32e4e1d1b162c55f5083efbdab30c1005e52fd63e2c37f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

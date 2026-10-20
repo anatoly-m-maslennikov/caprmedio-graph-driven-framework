@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection/Type: Applicable Methodology"
+  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    ["Entity/Continuant/Node/Projection/Type: Applicable Methodology", "Entity/Continuant/Node/Atom.Subjects"]
-version: 20
-updated_at: "2026-10-18 07:45:27 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/Atom.Subjects"]
+version: 21
+updated_at: "2026-10-19 15:56:13 +0400"
 relations: {}
 atom_id: "CA-M-225"
 content_role: "Method"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/05_method/CA-M-225-PROJECT_CONFIGURATION--retrieve-applicable-methodology-mechanically.md
   source_atom_id: CA-M-225
-  source_atom_revision: 20
-  source_sha256: fee3ebb57874fd90dd0b8b2cf6bd57d97356978306a579ea1db9507262239372
+  source_atom_revision: 21
+  source_sha256: f0d75c082c944801e33203001c6b6a16f77eee0dd06682dae22a97911aacd920
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

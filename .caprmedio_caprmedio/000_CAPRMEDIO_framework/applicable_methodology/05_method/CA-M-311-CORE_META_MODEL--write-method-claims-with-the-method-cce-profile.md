@@ -2,9 +2,9 @@
 subjects:
   governs: "Method CCE Role Profile"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Method", "CCE Operator", "Entity/Continuant/Object/Atom.Substance"]
-version: 7
-updated_at: "2026-10-15 18:48:40 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Method", "CCE Operator", "Entity/Node/Continuant/Atom.Substance"]
+version: 8
+updated_at: "2026-10-19 15:54:52 +0400"
 relations:
   child_of:
     - CA-M-307
@@ -23,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-311-CORE_META_MODEL--write-method-claims-with-the-method-cce-profile.md
   source_atom_id: CA-M-311
-  source_atom_revision: 7
-  source_sha256: 7fa539dc4c73f6d1f471c294d82f02f3de06fee1bd08c3019fb4039b1dda0666
+  source_atom_revision: 8
+  source_sha256: ce23c7fce572b3bf37e1cde3a480512b0ee0d401a28877b0497cba5ea77bb660
   original_relations_sha256: 3de62fee16e66285539eebfa3bd5be54eb84e71deb12d3b61d93d21734b978f8
 ---
 # Summary

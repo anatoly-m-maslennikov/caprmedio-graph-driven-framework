@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Analysis/Type"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Analysis/Type"
   depends_on:
     ["Entity/Carrier"]
-version: 11
-updated_at: "2026-10-18 03:34:45 +0400"
+version: 12
+updated_at: "2026-10-19 15:55:41 +0400"
 relations: {}
 atom_id: "CA-D-389"
 content_role: "Delivery"

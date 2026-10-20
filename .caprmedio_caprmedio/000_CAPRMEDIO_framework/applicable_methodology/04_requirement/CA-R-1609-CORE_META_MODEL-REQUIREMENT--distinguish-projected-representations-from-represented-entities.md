@@ -7,11 +7,11 @@ local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Continuant/Projection"
+  governs: "Entity/Node/Continuant/Projection"
   depends_on:
-    ["Artifact", "Entity", "Entity/Continuant/Object/Scope Unit", "Single Source of Truth"]
-version: 5
-updated_at: "2026-10-15 18:45:01 +0000"
+    ["Artifact", "Entity", "Entity/Node/Continuant/Scope Unit", "Single Source of Truth"]
+version: 6
+updated_at: "2026-10-19 15:53:42 +0400"
 relations:
   relates_to:
     - CA-R-1470
@@ -21,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-REQUIREMENT--distinguish-projected-representations-from-represented-entities.md
   source_atom_id: CA-R-1609
-  source_atom_revision: 5
-  source_sha256: 1310c4d0353901195f4f95122ca4a08bc782b7497a976a346f1bcf2869aefb74
+  source_atom_revision: 6
+  source_sha256: b97007900753106724be82ff33f7458cbdc28b08ef62f9ab819c8d169c181147
   original_relations_sha256: 9530390b47050763ac35ad602a83916c10c7411ed485e78f67196c63606fcd2a
 ---
 # Summary

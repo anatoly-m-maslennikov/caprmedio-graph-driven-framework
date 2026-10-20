@@ -2,9 +2,9 @@
 subjects:
   governs: "Authorize Structural Change"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Autonomous Confidence Threshold"]
-version: 7
-updated_at: "2026-10-18 16:20:40 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Autonomous Confidence Threshold"]
+version: 8
+updated_at: "2026-10-19 15:56:36 +0400"
 relations: {}
 atom_id: "CA-O-013"
 content_role: "Operations"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-013-PROJECT_CONFIGURATION-ACTION--authorize-structural-change.md
   source_atom_id: CA-O-013
-  source_atom_revision: 7
-  source_sha256: 81f83011b2446418f96b00bc31b2a22dea3003b9e88028581edc151012927a0f
+  source_atom_revision: 8
+  source_sha256: b72adca8d085eff6221d9e4f5368ce1dd80443f82aae3c4a3af6228d8b679411
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

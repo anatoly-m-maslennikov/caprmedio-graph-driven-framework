@@ -8,17 +8,17 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Project.Framework Settings.Artifact Timestamp Timezone"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Artifact Timestamp Timezone"
 relations:
   child_of:
   - CA-R-1176
-version: 2
-updated_at: "2026-10-18 03:34:57 +0400"
+version: 3
+updated_at: "2026-10-19 15:56:11 +0400"
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1977-PROJECT_CONFIGURATION--define-project-framework-settings-artifact-timestamp-timezone.md
   source_atom_id: CA-R-1977
-  source_atom_revision: 2
-  source_sha256: f26ff5494ceb9055d474f8bc66f5f7e9f76108b78adf0d8583ba40caee4b86fb
+  source_atom_revision: 3
+  source_sha256: 10019fcc30a1248512f6988564feb42fcb19fb51708b2e6e33ebe6bac3c2eb36
   original_relations_sha256: 9e3e53a370b31aee7f492cc3fbaba3b8b30f92b5773698d221265754db5d0402
 ---
 # Summary

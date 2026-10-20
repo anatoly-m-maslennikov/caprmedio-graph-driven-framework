@@ -8,11 +8,11 @@ local_tier: Standard
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Target Scope Unit"
+  governs: "Entity/Node/Continuant/Atom.Target Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Entity/Continuant/Object/Atom.Subjects", "Current-scope Atom", "Hub Atom", "Entity/Continuant/Actor/Type: Operator", "Relational Atom", "Entity/Continuant/Object/Scope Unit"]
-version: 7
-updated_at: "2026-10-15 18:50:21 +0000"
+    ["Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Atom.Substance", "Atom Scope", "Entity/Node/Continuant/Atom.Subjects", "Current-scope Atom", "Hub Atom", "Entity/Node/Continuant/Actor/Type: Operator", "Relational Atom", "Entity/Node/Continuant/Scope Unit"]
+version: 8
+updated_at: "2026-10-19 15:55:16 +0400"
 relations:
   evaluation_for:
     - CA-D-482
@@ -27,8 +27,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md
   source_atom_id: CA-E-511
-  source_atom_revision: 7
-  source_sha256: f38c7bfc799594ec05144e3610a22ad24fcd85f7052cc7e516464817bc4eb28f
+  source_atom_revision: 8
+  source_sha256: 520769fc499490ebe930dd44092b967ebd38f59db4f058817a86c7d111d98640
   original_relations_sha256: be5737b9afecc383c01dacfa16b2124d01728c40cbd6c601be94031bfc56f4c4
 ---
 # Summary

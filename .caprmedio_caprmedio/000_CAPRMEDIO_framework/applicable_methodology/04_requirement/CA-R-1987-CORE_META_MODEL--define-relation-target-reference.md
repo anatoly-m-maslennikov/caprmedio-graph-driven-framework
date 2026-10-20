@@ -8,17 +8,17 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Relation.Target Reference"
+  governs: "Entity/Relation.Target Reference"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:06 +0400"
+version: 3
+updated_at: "2026-10-19 15:54:16 +0400"
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1987-CORE_META_MODEL--define-relation-target-reference.md
   source_atom_id: CA-R-1987
-  source_atom_revision: 2
-  source_sha256: 05c00e2b595c0e0aff5756c7b6cef6c804202f400374a600da5db0909e458e5f
+  source_atom_revision: 3
+  source_sha256: db25f0f2897e273589c27e66075704e0167081f855d604df05d0cd265c745039
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 # Summary

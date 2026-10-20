@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor/Type: AI Agent"
+  governs: "Entity/Node/Continuant/Actor/Type: AI Agent"
   depends_on:
-    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Spec", "Entity/Continuant/Object/Atom.Substance", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Analysis/Type: Analysis Report"]
-version: 7
-updated_at: "2026-10-15 18:44:21 +0000"
+    ["Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Spec", "Entity/Node/Continuant/Atom.Substance", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Analysis/Type: Analysis Report"]
+version: 8
+updated_at: "2026-10-19 15:53:28 +0400"
 relations: {"child_of":["CA-R-1702"]}
 atom_id: "CA-R-1556"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md
   source_atom_id: CA-R-1556
-  source_atom_revision: 7
-  source_sha256: e2e22d6c422bc4d9a3408c3faf31b100457cb1a0cb60a6cfc2d419f2f17e6121
+  source_atom_revision: 8
+  source_sha256: cc8107a956ceacaf6a41decb3837556aae76eb1f2b4ca3a34ad026fd9f2b2b19
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

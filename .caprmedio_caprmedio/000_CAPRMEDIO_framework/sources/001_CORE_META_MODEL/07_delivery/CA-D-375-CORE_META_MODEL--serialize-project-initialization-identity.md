@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Settings.Project Name"
+  governs: "Entity/Node/Continuant/Project.Settings.Project Name"
   depends_on:
-    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project", "Project Name", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Implementation"]
-version: 14
-updated_at: "2026-10-18 07:39:42 +0400"
+    ["Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project", "Project Name", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom", "Implementation"]
+version: 15
+updated_at: "2026-10-19 15:55:37 +0400"
 relations:
   child_of:
     - "CA-D-366"

@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Repair"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Implementation Failure Diagnosis", "Implementation Retry Control", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "Spec", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Method", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom.Author", "Local Tier"]
-version: 12
-updated_at: "2026-10-18 16:21:58 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Implementation Failure Diagnosis", "Implementation Retry Control", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Spec", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Method", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom.Author", "Local Tier"]
+version: 13
+updated_at: "2026-10-19 15:56:42 +0400"
 relations:
   relates_to:
     - CA-R-1559
@@ -23,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-021-PROJECT_CONFIGURATION-ACTION--repair-nonconforming-implementation.md
   source_atom_id: CA-O-021
-  source_atom_revision: 12
-  source_sha256: 1d7c819b08777c1c5289b69400db786b9db5ca4af8695b0c88494af16f18c992
+  source_atom_revision: 13
+  source_sha256: 16b271b25a8090aec798a1b770c12c655f9ca8450c636901c0b0ff31590d825d
   original_relations_sha256: 85b3fa441ff283c248bb5de5680f9ffa0fa644b2825d092607c8ca13e09066d6
 ---
 # Summary

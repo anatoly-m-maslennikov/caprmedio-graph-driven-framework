@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Property Default"
   depends_on:
-    ["Property", "Atom Property Default", "Entity/Continuant/Object/Atom.Property", "Autonomous Confidence Threshold", "Implementation Retry Limit"]
-version: 6
-updated_at: "2026-10-15 18:52:22 +0000"
+    ["Property", "Atom Property Default", "Entity/Node/Continuant/Atom.Property", "Autonomous Confidence Threshold", "Implementation Retry Limit"]
+version: 7
+updated_at: "2026-10-19 15:55:59 +0400"
 relations: {"relates_to": ["CA-D-478", "CA-D-472", "CA-D-447"]}
 atom_id: "CA-D-485"
 content_role: "Delivery"

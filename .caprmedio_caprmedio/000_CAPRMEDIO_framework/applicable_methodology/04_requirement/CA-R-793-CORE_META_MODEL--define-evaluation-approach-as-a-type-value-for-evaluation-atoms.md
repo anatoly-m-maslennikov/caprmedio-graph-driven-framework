@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Evaluation/Type: Evaluation Approach"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Evaluation/Type: Evaluation Approach"
   depends_on: []
-version: 24
-updated_at: "2026-10-19 04:42:02 +0400"
+version: 25
+updated_at: "2026-10-20 16:26:14 +0400"
 relations: {"child_of": ["CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type"], "depends_on": ["CA-R-1503", "CA-R-1506"]}
 atom_id: "CA-R-793"
 content_role: "Requirement"
@@ -16,8 +16,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-793-CORE_META_MODEL--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md
   source_atom_id: CA-R-793
-  source_atom_revision: 24
-  source_sha256: 64390748e2831226ce86ecff6aad4391bd5d5264c79dd715b9ed6f99a5996bfa
+  source_atom_revision: 25
+  source_sha256: 540b8df8de72b70d1e551a78891a3db0f18c2408f28dc6adf0f93fe06c59cb70
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

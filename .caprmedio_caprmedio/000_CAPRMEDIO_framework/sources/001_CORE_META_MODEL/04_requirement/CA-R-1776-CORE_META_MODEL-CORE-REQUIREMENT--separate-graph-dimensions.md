@@ -1,14 +1,14 @@
 ---
-version: 21
-updated_at: "2026-10-15 18:46:02 +0000"
+version: 22
+updated_at: "2026-10-19 15:54:04 +0400"
 relations:
   child_of:
     - "CA-M-001"
     - "CA-R-1407"
 subjects:
-  governs: "Entity/Continuant/Object/Project.Graph Dimensions"
+  governs: "Entity/Node/Continuant/Project.Graph Dimensions"
   depends_on:
-    ["Subject", "CAPRMEDIO Framework Instance", "Entity/Continuant/Object/Project"]
+    ["Subject", "CAPRMEDIO Framework Instance", "Entity/Node/Continuant/Project"]
 atom_id: "CA-R-1776"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"

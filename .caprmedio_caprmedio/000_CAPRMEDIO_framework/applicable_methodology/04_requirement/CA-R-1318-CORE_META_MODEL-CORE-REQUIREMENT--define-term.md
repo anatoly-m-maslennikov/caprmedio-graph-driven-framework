@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Term"
+  governs: "Entity/Node/Continuant/Term"
   depends_on:
-    ["Entity/Continuant/Node/Project"]
-version: 13
-updated_at: "2026-10-18 03:33:21 +0400"
+    ["Entity/Node/Continuant/Project"]
+version: 14
+updated_at: "2026-10-19 15:52:47 +0400"
 relations: {}
 atom_id: "CA-R-1318"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md
   source_atom_id: CA-R-1318
-  source_atom_revision: 13
-  source_sha256: a6516374f7da3a8da8a526ef805b57faba296b987b8de0c1ccfe227df26f2109
+  source_atom_revision: 14
+  source_sha256: 28d583bf02661a2fb7ff5e979d0981f6bde01af209e82fcea2517e517ee05e39
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

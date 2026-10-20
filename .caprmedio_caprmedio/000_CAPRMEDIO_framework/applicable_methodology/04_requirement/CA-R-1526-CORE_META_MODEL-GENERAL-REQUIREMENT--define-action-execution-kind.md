@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Operations/Type: Action/Execution Kind"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: AI Agent", "Tool", "Entity/Continuant/Actor/Type: Operator"]
-version: 6
-updated_at: "2026-10-15 18:43:58 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: AI Agent", "Tool", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 7
+updated_at: "2026-10-19 15:53:21 +0400"
 relations: {"relates_to": ["CA-R-1452"]}
 atom_id: "CA-R-1526"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1526-CORE_META_MODEL-GENERAL-REQUIREMENT--define-action-execution-kind.md
   source_atom_id: CA-R-1526
-  source_atom_revision: 6
-  source_sha256: 1c5a03caa3bf494d21e11217df6d60088249605292a6aab19351cb4ccc41c11b
+  source_atom_revision: 7
+  source_sha256: 224a5e60449cc94605b0a4358c0a6f66fc1200c2e8316325209077806dd34ffb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

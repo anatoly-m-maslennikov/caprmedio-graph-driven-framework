@@ -8,17 +8,17 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Occurrent/Execution/Action Run
+  governs: "Entity/Node/Occurrent/Execution/Action Run"
 relations:
   child_of:
   - CA-R-1174
-version: 1
-updated_at: "2026-10-17 17:26:44 +0400"
+version: 2
+updated_at: "2026-10-19 15:54:13 +0400"
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1969-CORE_META_MODEL--define-entity-occurrent-execution-action-run.md
   source_atom_id: CA-R-1969
-  source_atom_revision: 1
-  source_sha256: abc684650a36a6817d874f1dea2e8c809efeba1ab6b5e8c3c56d6bca4f29a63f
+  source_atom_revision: 2
+  source_sha256: 8fc7d48213c540944784de2f6b8ec1ee349f38965611f56692f7a8911f686008
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 # Summary

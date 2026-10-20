@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit"
+  governs: "Entity/Node/Continuant/Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Project.Structure", "Implementation Folder", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Delivery"]
-version: 17
-updated_at: "2026-10-15 18:46:41 +0000"
+    ["Entity/Node/Continuant/Project.Structure", "Implementation Folder", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Delivery"]
+version: 18
+updated_at: "2026-10-19 15:54:25 +0400"
 relations:
   child_of:
     - CA-R-1484
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-862-CORE_META_MODEL-CORE-REQUIREMENT--bind-scope-unit-places-without-requiring-local-delivery-atoms.md
   source_atom_id: CA-R-862
-  source_atom_revision: 17
-  source_sha256: c08695fe4e361855731f9ccf795b96b1a4450f37250cbd421e726c8196fe033f
+  source_atom_revision: 18
+  source_sha256: 2caff3820f458604ff864fdde86a5ff701a0f37425f9eba27b1556b14c0cc053
   original_relations_sha256: e97103b9de4ee47dfbc03a240fd5f7d67efe5c3a843e2d7604a54112d1133c11
 ---
 # Summary

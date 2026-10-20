@@ -10,16 +10,16 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Project Structure Maintenance Candidate Assessment Step"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Agentic Step Execution Context"]
-version: 5
-updated_at: "2026-10-18 16:26:10 +0400"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Agentic Step Execution Context"]
+version: 6
+updated_at: "2026-10-19 15:57:06 +0400"
 relations:
   relates_to: [CA-O-015, CA-O-005, CA-O-140, CA-R-1509, CA-R-1510, CA-R-1511, CA-R-1527]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-141-PROJECT_CONFIGURATION-STEP--assess-project-structure-maintenance-candidate.md
   source_atom_id: CA-O-141
-  source_atom_revision: 5
-  source_sha256: 033435d5d2b131537cb83550eab077ceae51fe6cd9909cb29250051a085dc23e
+  source_atom_revision: 6
+  source_sha256: 646f5d8f2651e14e31b3554100ca287fec96f55482a893bc5bb8ad7e40c12a76
   original_relations_sha256: 84e57d2627001fdc2faee475356d21f46cc7b8ec8b78c7467b87a849b9ef8aa8
 ---
 # Summary

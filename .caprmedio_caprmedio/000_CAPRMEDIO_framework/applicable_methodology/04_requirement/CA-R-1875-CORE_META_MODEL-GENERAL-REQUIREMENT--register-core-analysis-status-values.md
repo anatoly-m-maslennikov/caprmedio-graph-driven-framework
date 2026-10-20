@@ -8,17 +8,17 @@ global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Analysis.Status"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Analysis.Status"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Analysis", "Atom/Content Role: Analysis/Type", "Entity/Continuant/Object/Atom.Status", "Extension", "Project Configuration"]
-version: 4
-updated_at: "2026-10-17 17:02:57 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Analysis", "Atom/Content Role: Analysis/Type", "Entity/Node/Continuant/Atom.Status", "Extension", "Project Configuration"]
+version: 5
+updated_at: "2026-10-19 15:54:08 +0400"
 relations: {relates_to: [CA-R-1232, CA-R-1337, CA-R-1664, CA-R-1727, CA-R-1308, CA-R-1312, CA-R-1313]}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md
   source_atom_id: CA-R-1875
-  source_atom_revision: 4
-  source_sha256: ac544d88890567d826794d2d3c585fe8c01f3b275db02d1610bc905cb71c44b5
+  source_atom_revision: 5
+  source_sha256: 36f00195503d11a20d14d05ba1690b8151a9e6765e0000cd6cb3f15e14a084a7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

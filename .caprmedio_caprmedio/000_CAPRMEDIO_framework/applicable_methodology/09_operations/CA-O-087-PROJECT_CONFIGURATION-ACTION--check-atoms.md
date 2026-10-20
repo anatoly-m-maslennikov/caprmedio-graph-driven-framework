@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Check Atoms"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Property", "Markdown Atom Carrier.YAML Frontmatter", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/History/Revision/Type: Atom", "Owned Atoms", "Subtree-owned Atoms", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Global Tier", "Local Tier", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Projection", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
-version: 9
-updated_at: "2026-10-18 07:47:28 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Property", "Markdown Atom Carrier.YAML Frontmatter", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/History/Revision/Type: Atom", "Owned Atoms", "Subtree-owned Atoms", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure", "Global Tier", "Local Tier", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/Projection", "Entity/Relation", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal"]
+version: 10
+updated_at: "2026-10-19 15:56:50 +0400"
 relations:
   relates_to:
     - CA-R-1598
@@ -31,8 +31,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-087-PROJECT_CONFIGURATION-ACTION--check-atoms.md
   source_atom_id: CA-O-087
-  source_atom_revision: 9
-  source_sha256: 7a68613d3e19bc9090fd0cbf5dff2aef7022e561a477f4d0cfda942b8a304c33
+  source_atom_revision: 10
+  source_sha256: 0c8927adb867fb93922f5afe48098f71be6cda3cb28d8849615e8f3ee8f03d7b
   original_relations_sha256: 2dc986c40a8906cb9501be88b2d0cee5617d887bd2450c8e21e2652ae24615d2
 ---
 # Summary

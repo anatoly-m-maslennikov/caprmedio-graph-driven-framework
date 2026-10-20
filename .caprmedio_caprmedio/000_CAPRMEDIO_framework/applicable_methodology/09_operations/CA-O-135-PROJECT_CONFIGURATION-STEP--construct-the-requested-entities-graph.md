@@ -10,16 +10,16 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Entities Graph Construction Step"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Agentic Step Execution Context", "Entity/Continuant/Projection/Type: Entities Graph"]
-version: 4
-updated_at: "2026-10-18 16:24:37 +0400"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Agentic Step Execution Context", "Entity/Node/Continuant/Projection/Type: Entities Graph"]
+version: 5
+updated_at: "2026-10-19 15:57:03 +0400"
 relations:
   relates_to: [CA-O-133, CA-O-134, CA-R-1509, CA-R-1525, CA-R-1526, CA-R-1527]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-135-PROJECT_CONFIGURATION-STEP--construct-the-requested-entities-graph.md
   source_atom_id: CA-O-135
-  source_atom_revision: 4
-  source_sha256: cb8b66f70064cc4b310bc6327a31c537d3ba31599c3ee2b3e283d68fce18bcb5
+  source_atom_revision: 5
+  source_sha256: ed2bc60d8e2030bc0ac8f14323e4d3f33b3d579c989c4543f2eb9580273adad5
   original_relations_sha256: ba5b0565492adc01712e4665d0a19d0c5305e0eba4cd6d2277b6b196e73a92be
 ---
 # Summary

@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Carrier.Filename.Local Tier"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Atom.Local Tier: Standard", "Change Content Roles", "Implementation", "Artifact Carrier"]
-version: 15
-updated_at: "2026-10-15 18:50:51 +0000"
+    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Local Tier", "Entity/Node/Continuant/Atom.Local Tier: Standard", "Change Content Roles", "Implementation", "Artifact Carrier"]
+version: 16
+updated_at: "2026-10-19 15:55:22 +0400"
 relations: {"delivery_for": ["CA-R-1566"]}
 atom_id: "CA-D-285"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-285-CORE_META_MODEL--serialize-local-tier-filename-tokens.md
   source_atom_id: CA-D-285
-  source_atom_revision: 15
-  source_sha256: 5e4535707d64a6f9897be643e42ec852c3a724b91a3c0d335be3af423ae02b46
+  source_atom_revision: 16
+  source_sha256: 8d44ebc0865abefcf2abb903d1bb31911fa280ca11ad193f4be72c746b01c30f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

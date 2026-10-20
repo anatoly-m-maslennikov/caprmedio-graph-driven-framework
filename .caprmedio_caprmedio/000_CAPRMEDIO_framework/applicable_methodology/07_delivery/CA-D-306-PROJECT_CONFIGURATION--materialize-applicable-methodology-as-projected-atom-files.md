@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection/Type: Applicable Methodology"
+  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    ["Entity/Continuant/Node/Projection/Type: Applicable Methodology.Member"]
-version: 16
-updated_at: "2026-10-18 07:13:15 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology.Member"]
+version: 17
+updated_at: "2026-10-19 15:56:19 +0400"
 relations: {}
 atom_id: "CA-D-306"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-306-PROJECT_CONFIGURATION--materialize-applicable-methodology-as-projected-atom-files.md
   source_atom_id: CA-D-306
-  source_atom_revision: 16
-  source_sha256: 9321962188bc178f275f0967d7f02d04df66b2401c2260c5761b9feb3d7ef117
+  source_atom_revision: 17
+  source_sha256: ed39e0787f3fb450d42e03172ffc99b66ceb6da6a13099e92ff388c0201fff3c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

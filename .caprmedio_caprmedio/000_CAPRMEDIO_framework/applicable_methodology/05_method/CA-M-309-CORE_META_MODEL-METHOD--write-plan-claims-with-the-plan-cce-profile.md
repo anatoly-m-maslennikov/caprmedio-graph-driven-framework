@@ -2,9 +2,9 @@
 subjects:
   governs: "Plan CCE Role Profile"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Plan", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "CCE Operator"]
-version: 6
-updated_at: "2026-10-15 18:48:37 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "CCE Operator"]
+version: 7
+updated_at: "2026-10-19 15:54:51 +0400"
 relations:
   child_of:
     - CA-M-307
@@ -24,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-METHOD--write-plan-claims-with-the-plan-cce-profile.md
   source_atom_id: CA-M-309
-  source_atom_revision: 6
-  source_sha256: e2cf9392b94abeafa53ca49e3dbefb8a53e2483fb7ae7bb8453314948d5a39a9
+  source_atom_revision: 7
+  source_sha256: 3cf30c8e4aa15057417842a6fc9e28d4a4a10403a730ed13892b3a678cb7f07b
   original_relations_sha256: 55738e4ef8b9a22c50eaa72508a8c36a2fd271300e142933cb6bdfa7928d3dae
 ---
 # Summary

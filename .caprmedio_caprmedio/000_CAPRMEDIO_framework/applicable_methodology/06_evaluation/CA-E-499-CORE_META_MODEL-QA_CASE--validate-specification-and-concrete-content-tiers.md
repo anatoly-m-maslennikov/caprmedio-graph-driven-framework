@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Local Tier"
+  governs: "Entity/Node/Continuant/Atom.Local Tier"
   depends_on:
-    ["Spec Content Roles", "Change Content Roles", "Atom/Content Role", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Subjects", "Implementation", "Container Atom", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom.Local Tier: Standard"]
-version: 9
-updated_at: "2026-10-15 18:50:01 +0000"
+    ["Spec Content Roles", "Change Content Roles", "Atom/Content Role", "Entity/Node/Continuant/Atom.Global Tier", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Subjects", "Implementation", "Container Atom", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom.Local Tier: Standard"]
+version: 10
+updated_at: "2026-10-19 15:55:12 +0400"
 relations: {"evaluation_for": ["CA-R-659", "CA-R-1431", "CA-R-1566", "CA-R-1567", "CA-R-1568", "CA-R-1571", "CA-M-272", "CA-D-484", "CA-R-1573"]}
 atom_id: "CA-E-499"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md
   source_atom_id: CA-E-499
-  source_atom_revision: 9
-  source_sha256: a1fbe80b8893923e3b5bdfd6fd74aec49a2c1b2fb9f290e10f7d630e9eb268bf
+  source_atom_revision: 10
+  source_sha256: 7c6b8baf0f14efbfbd8db4c8515ab51abb8f2e2af2f241ee7590686f1dc2157a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

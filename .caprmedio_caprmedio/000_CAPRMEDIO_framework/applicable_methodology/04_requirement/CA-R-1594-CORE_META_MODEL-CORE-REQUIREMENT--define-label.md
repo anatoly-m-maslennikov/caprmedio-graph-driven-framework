@@ -2,9 +2,9 @@
 subjects:
   governs: "Label"
   depends_on:
-    ["Entity", "Property", "Entity/Continuant/Actor/Type: Operator", "Type", "Entity/Continuant/Object/Atom/Content Role: Plan.Label"]
-version: 6
-updated_at: "2026-10-15 18:44:54 +0000"
+    ["Entity", "Property", "Entity/Node/Continuant/Actor/Type: Operator", "Type", "Entity/Node/Continuant/Atom/Content Role: Plan.Label"]
+version: 7
+updated_at: "2026-10-19 15:53:39 +0400"
 relations: {}
 atom_id: "CA-R-1594"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1594-CORE_META_MODEL-CORE-REQUIREMENT--define-label.md
   source_atom_id: CA-R-1594
-  source_atom_revision: 6
-  source_sha256: fdf7965154a23d4ec3492239b1c526c8261cceb645d65c7e5f3f3c54bb1600a4
+  source_atom_revision: 7
+  source_sha256: 18008aaf44b71c5167f386652034f22d4b85194a1c6111c17e53ed8ecad236ef
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

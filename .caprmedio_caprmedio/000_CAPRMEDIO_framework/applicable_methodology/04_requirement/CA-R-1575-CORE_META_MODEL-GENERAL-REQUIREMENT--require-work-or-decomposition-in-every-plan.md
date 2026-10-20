@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Plan"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Plan"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom.Summary", "Entity/Continuant/Node/Atom.Substance"]
-version: 8
-updated_at: "2026-10-18 03:33:41 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.Substance"]
+version: 9
+updated_at: "2026-10-19 15:53:33 +0400"
 relations: {"relates_to": ["CA-R-1574", "CA-R-1579"]}
 atom_id: "CA-R-1575"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1575-CORE_META_MODEL-GENERAL-REQUIREMENT--require-work-or-decomposition-in-every-plan.md
   source_atom_id: CA-R-1575
-  source_atom_revision: 8
-  source_sha256: cf776f3ddb082c43f6043833295c9c025ca52aae974190424c4903c7e86ce9d1
+  source_atom_revision: 9
+  source_sha256: 3a0b32004327146b8d1e00f91f0877e27fb24d8ca49c8a3740f5a912471528a3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection/Type: Scope Unit Graph"
+  governs: "Entity/Node/Continuant/Projection/Type: Scope Unit Graph"
   depends_on:
-    ["Entity/Continuant/Node/Project.Structure", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/History/Journal"]
-version: 25
-updated_at: "2026-10-18 03:33:51 +0400"
+    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/History/Journal"]
+version: 26
+updated_at: "2026-10-19 15:53:56 +0400"
 relations:
   child_of:
     - CA-R-1052
@@ -20,8 +20,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md
   source_atom_id: CA-R-1740
-  source_atom_revision: 25
-  source_sha256: 991d9c9fd4a3903d0129e1b8435b7488c70d4b07d4a54084553c89ff8104917f
+  source_atom_revision: 26
+  source_sha256: cb60e1c11ce9eba5bb355b368b9cc797010aebf592c60a2e9d3a70a64b014e64
   original_relations_sha256: b834e9326a485a1e4a12ec129726eef004d439dd95deddb120393490b0dd1d5c
 ---
 # Summary

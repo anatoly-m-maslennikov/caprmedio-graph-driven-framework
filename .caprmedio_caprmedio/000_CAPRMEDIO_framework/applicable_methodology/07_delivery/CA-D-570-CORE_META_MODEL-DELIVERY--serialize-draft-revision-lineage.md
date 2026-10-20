@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Status: Draft"
+  governs: "Entity/Node/Continuant/Atom.Status: Draft"
   depends_on:
-    ["Entity/Continuant/Node/Atom.ID", "Entity/Continuant/Node/History/Revision.Identity", "Entity/Continuant/Node/Atom.Status: Draft", "Entity/Continuant/Node/History/Revision", "Entity/Continuant/Node/Atom.Version Number", "Entity/Continuant/Node/Atom/Content Role"]
-version: 10
-updated_at: "2026-10-18 03:34:55 +0400"
+    ["Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/History/Revision.Identity", "Entity/Node/Continuant/Atom.Status: Draft", "Entity/Node/Continuant/History/Revision", "Entity/Node/Continuant/Atom.Version Number", "Entity/Node/Continuant/Atom/Content Role"]
+version: 11
+updated_at: "2026-10-19 15:56:02 +0400"
 relations:
   relates_to:
     - CA-D-288
@@ -24,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md
   source_atom_id: CA-D-570
-  source_atom_revision: 10
-  source_sha256: e6ee2b02be774d48b6ca4ef973fe0626976e619aab4ebf629fff72b0aa3d6acf
+  source_atom_revision: 11
+  source_sha256: 8447d4bd356c6b258a508af55fe56a286a477741c90d58c423ce1b0b66973c35
   original_relations_sha256: e19eb696895ab6be7d61099151a891a599656e05788872b1a0ccfc89f7b0f628
 ---
 # Summary

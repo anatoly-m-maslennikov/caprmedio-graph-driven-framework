@@ -2,9 +2,9 @@
 subjects:
   governs: "Owned Atoms"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Scope Unit", "Entity/Carrier"]
-version: 10
-updated_at: "2026-10-15 18:43:10 +0000"
+    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Scope Unit", "Entity/Carrier"]
+version: 11
+updated_at: "2026-10-19 15:53:07 +0400"
 relations: {}
 atom_id: "CA-R-1447"
 content_role: "Requirement"

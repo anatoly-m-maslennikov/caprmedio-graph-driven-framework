@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Carrier/Directory Carrier", "Entity/Continuant/Relation/Type: On Result"]
-version: 10
-updated_at: "2026-10-18 03:34:29 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Carrier/Directory Carrier", "Entity/Relation/Type: On Result"]
+version: 11
+updated_at: "2026-10-19 15:55:13 +0400"
 relations: {"evaluation_for": ["CA-R-1570", "CA-R-1569", "CA-M-305", "CA-D-467"]}
 atom_id: "CA-E-500"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-QA_CASE--validate-workflow-scheme-and-step-carrier-separation.md
   source_atom_id: CA-E-500
-  source_atom_revision: 10
-  source_sha256: 5684deec22f418955252355d493d4bf62d52eb66ab9ff527b2bf27be0f86aab1
+  source_atom_revision: 11
+  source_sha256: 12b4f21a8b0bf5d1c44af485fefe84161f33e882ec6febb20ce2d1334a938efc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

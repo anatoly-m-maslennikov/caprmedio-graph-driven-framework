@@ -2,9 +2,9 @@
 subjects:
   governs: "Subject Assignment"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Subjects", "Subject Path", "Author", "Subject", "Entity/Continuant/Term", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Evaluation For Relation", "Entity", "Dependent Entity"]
-version: 27
-updated_at: "2026-10-15 18:47:53 +0000"
+    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.Subjects", "Subject Path", "Author", "Subject", "Entity/Node/Continuant/Term", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Evaluation For Relation", "Entity", "Dependent Entity"]
+version: 28
+updated_at: "2026-10-19 15:54:41 +0400"
 relations: {}
 atom_id: "CA-M-125"
 content_role: "Method"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md
   source_atom_id: CA-M-125
-  source_atom_revision: 27
-  source_sha256: 5fa93508690de0bee0250dc98b78a450d29cd4cdf28fd10be4264f9b778d521e
+  source_atom_revision: 28
+  source_sha256: 3f9f0bc037451e43a4a7f0a20f58d95fbd0bf16a24cf9a1ec8b12b46657203c9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

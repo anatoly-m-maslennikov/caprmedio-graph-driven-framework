@@ -8,16 +8,16 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/History/Journal"
-  depends_on: ["Implementation", "Entity/Continuant/Projection", "Entity/Continuant/History/Journal", "Entity/Carrier"]
-version: 4
-updated_at: "2026-10-15 18:52:32 +0000"
+  governs: "Entity/Node/Continuant/History/Journal"
+  depends_on: ["Implementation", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/History/Journal", "Entity/Carrier"]
+version: 5
+updated_at: "2026-10-19 15:56:01 +0400"
 relations: {relates_to: [CA-R-1745, CA-R-1720, CA-D-549, CA-D-504]}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks.md
   source_atom_id: CA-D-559
-  source_atom_revision: 4
-  source_sha256: 79eef0ee95067467c7b3fd32a79380e7c1e5d0d2ef9637d7d11f35610d319625
+  source_atom_revision: 5
+  source_sha256: b9770806ecfdae73697c8ba3486d0b30f2c00e327358db689f3fe8d154fcdfbe
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

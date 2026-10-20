@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Catalog"
+  governs: "Entity/Node/Continuant/Projection/Type: Catalog"
   depends_on:
-    ["Entity/Continuant/Term", "Entity/Continuant/Object/Project", "Definition Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom", "Subject", "Entity", "Subject Path", "Entity/Continuant/Projection/Type: Terms Graph", "Entity/Continuant/Object/Atom/Content Role: Concern", "General Term", "Artifact", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Actor", "Entity/Continuant/Projection", "Entity/Continuant/Object/Relation", "Relation Kind"]
-version: 14
-updated_at: "2026-10-15 18:49:19 +0000"
+    ["Entity/Node/Continuant/Term", "Entity/Node/Continuant/Project", "Definition Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom", "Subject", "Entity", "Subject Path", "Entity/Node/Continuant/Projection/Type: Terms Graph", "Entity/Node/Continuant/Atom/Content Role: Concern", "General Term", "Artifact", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Actor", "Entity/Node/Continuant/Projection", "Entity/Relation", "Relation Kind"]
+version: 15
+updated_at: "2026-10-19 15:55:00 +0400"
 relations:
   evaluation_for:
     - CA-R-1318
@@ -30,8 +30,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-QA_CASE--validate-project-specific-term-meaning.md
   source_atom_id: CA-E-444
-  source_atom_revision: 14
-  source_sha256: a2a310a9c7f93a6f3f4157db63d98bd589c30db8456deb80db0a17b23157c3ed
+  source_atom_revision: 15
+  source_sha256: 0df916320ed0d8429df4c69b35b11aa5f35b58ec35a94b8e16403f343ad0c3f8
   original_relations_sha256: 0d64e659b20d5948f54c21bda3d484df7b0a5119e2e2a32a34700623d64dda3d
 ---
 # Summary

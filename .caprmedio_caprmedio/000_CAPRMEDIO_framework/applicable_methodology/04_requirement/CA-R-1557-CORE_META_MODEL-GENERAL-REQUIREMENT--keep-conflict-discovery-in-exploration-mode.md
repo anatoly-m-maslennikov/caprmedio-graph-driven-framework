@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor/Type: AI Agent"
+  governs: "Entity/Node/Continuant/Actor/Type: AI Agent"
   depends_on:
-    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Exploration Mode", "Entity/Continuant/Object/Atom/Content Role: Concern"]
-version: 7
-updated_at: "2026-10-15 18:44:22 +0000"
+    ["Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Exploration Mode", "Entity/Node/Continuant/Atom/Content Role: Concern"]
+version: 8
+updated_at: "2026-10-19 15:53:28 +0400"
 relations: {"child_of":["CA-R-1702"]}
 atom_id: "CA-R-1557"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md
   source_atom_id: CA-R-1557
-  source_atom_revision: 7
-  source_sha256: 109fc72c5095b37b59a52e0d7f703189005e6538d3a3c3ae3f0a1c6d667d95b4
+  source_atom_revision: 8
+  source_sha256: 497f1502e8b3e6ad7be66aa2e28baa93659db48411071e22b054390b6fd56b48
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

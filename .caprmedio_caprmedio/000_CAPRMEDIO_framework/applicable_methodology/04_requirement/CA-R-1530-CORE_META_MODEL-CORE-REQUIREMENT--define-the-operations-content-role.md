@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Operations"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role", "Entity/Continuant/Node/Atom.Substance", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Actor"]
-version: 10
-updated_at: "2026-10-18 03:33:37 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Actor"]
+version: 11
+updated_at: "2026-10-19 15:53:22 +0400"
 relations: {"relates_to": ["CA-R-1565"]}
 atom_id: "CA-R-1530"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-CORE-REQUIREMENT--define-the-operations-content-role.md
   source_atom_id: CA-R-1530
-  source_atom_revision: 10
-  source_sha256: 8cc35268aa1d5f55e4bbc90e530607924e42152364f7c14be51f5d7032463e1c
+  source_atom_revision: 11
+  source_sha256: 94711596720895eb7c5a25386b0233413d4e35efe1c6e958d9f9a617f24a3017
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

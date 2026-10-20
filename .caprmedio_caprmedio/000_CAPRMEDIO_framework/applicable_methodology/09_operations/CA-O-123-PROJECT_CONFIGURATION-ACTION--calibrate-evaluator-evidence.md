@@ -10,16 +10,16 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Evaluator Evidence Calibration"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Artifact", "Implementation"]
-version: 4
-updated_at: "2026-10-18 07:48:13 +0400"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom", "Artifact", "Implementation"]
+version: 5
+updated_at: "2026-10-19 15:56:58 +0400"
 relations:
   relates_to: [CA-O-018, CA-O-020, CA-O-104, CA-O-105, CA-O-106, CA-O-111, CA-O-118]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-123-PROJECT_CONFIGURATION-ACTION--calibrate-evaluator-evidence.md
   source_atom_id: CA-O-123
-  source_atom_revision: 4
-  source_sha256: 3f2317df93193b621613eede8b225d8c25257ed130c2366d1e3e2f3009ea7fb5
+  source_atom_revision: 5
+  source_sha256: 4c3715078c975edb8c84620947b308fef0a3debf3807a941cd1b1f5b56ecb40c
   original_relations_sha256: 8ace5e8c1a4db5fb3dc0c84fd049eb9d8fdd6ae14c6c3db5e9bd96f0ed636fcd
 ---
 # Summary

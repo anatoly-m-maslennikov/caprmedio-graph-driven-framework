@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Atom Carrier Validation"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Check Atoms Step"]
-version: 8
-updated_at: "2026-10-19 03:10:42 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Check Atoms Step"]
+version: 9
+updated_at: "2026-10-19 15:56:49 +0400"
 relations:
   relates_to:
     - CA-O-088
@@ -23,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-080-PROJECT_CONFIGURATION-WORKFLOW--validate-atom-carriers.md
   source_atom_id: CA-O-080
-  source_atom_revision: 8
-  source_sha256: c9df0c64a307916c6c40456122f2fc4f3b0e5ddb58af1baeb3ac959d4382cae8
+  source_atom_revision: 9
+  source_sha256: ee021e8e71041496fdbc69309092d038a03c216a7b02e51aa88951d0160d05a3
   original_relations_sha256: f59b0957a2d6f670bd211e54ae86aee3b30520244c95f04e6fd1545abae07fe7
 ---
 # Summary

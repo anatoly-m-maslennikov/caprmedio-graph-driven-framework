@@ -10,16 +10,16 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Terms Graph Construction Step"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Agentic Step Execution Context", "Entity/Continuant/Projection/Type: Terms Graph"]
-version: 4
-updated_at: "2026-10-18 16:25:21 +0400"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Agentic Step Execution Context", "Entity/Node/Continuant/Projection/Type: Terms Graph"]
+version: 5
+updated_at: "2026-10-19 15:57:05 +0400"
 relations:
   relates_to: [CA-O-136, CA-O-137, CA-R-1509, CA-R-1525, CA-R-1526, CA-R-1527]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-138-PROJECT_CONFIGURATION-STEP--construct-the-requested-terms-graph.md
   source_atom_id: CA-O-138
-  source_atom_revision: 4
-  source_sha256: baf6d6e9bf320d298f4d92309b2b451e7904a7ac0dea6cf95ea515af9105ea8f
+  source_atom_revision: 5
+  source_sha256: de0b5cde9808e26de9d0254a879d640651045fe83c228776d1b8e9a01cf413dd
   original_relations_sha256: 036e05260380041d7f441def4e3e87b1fd2a4c7d7560e5097b8bbcc6144973c8
 ---
 # Summary

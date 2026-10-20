@@ -8,17 +8,17 @@ global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Governing Configuration"
+  governs: "Entity/Node/Continuant/Governing Configuration"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:03 +0400"
+version: 3
+updated_at: "2026-10-19 15:54:11 +0400"
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1962-CORE_META_MODEL-CORE--define-entity-continuant-object-governing-configuration.md
   source_atom_id: CA-R-1962
-  source_atom_revision: 2
-  source_sha256: a07c36a8beb2b296a75861baa084421562d374f22a414c49d7f9873c1d7cfa3f
+  source_atom_revision: 3
+  source_sha256: 1f1114363a4d2286a4baafdf7c03149d0e5c0dae0d79079f8a7bca2bf3e059b7
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Settings"
+  governs: "Entity/Node/Continuant/Project.Settings"
   depends_on:
-    ["Entity/Continuant/Node/Project", "Entity/Continuant/Node/Project.Settings.Atom Prefix", "Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Projection"]
-version: 16
-updated_at: "2026-10-18 07:31:49 +0400"
+    ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/Project.Settings.Atom Prefix", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Projection"]
+version: 17
+updated_at: "2026-10-19 15:55:34 +0400"
 relations:
   child_of:
     - CA-D-364
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md
   source_atom_id: CA-D-366
-  source_atom_revision: 16
-  source_sha256: 9c18243c78aad3bb201606e09ca1ea486b3ca0b4c8a5ded363635c0863640a89
+  source_atom_revision: 17
+  source_sha256: 229ed37d4104060e7da3e53049be6bd35b05cb1017fdad6633cc56279e48ef65
   original_relations_sha256: 1362486b734d90918b1d2949ab26e315125674e562b6b82d60abc7b3350f9e84
 ---
 # Summary

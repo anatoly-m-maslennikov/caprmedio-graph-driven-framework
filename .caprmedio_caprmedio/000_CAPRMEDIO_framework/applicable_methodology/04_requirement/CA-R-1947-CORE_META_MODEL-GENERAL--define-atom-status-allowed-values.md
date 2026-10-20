@@ -8,17 +8,17 @@ global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Status"
+  governs: "Entity/Node/Continuant/Atom.Status"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:02 +0400"
+version: 3
+updated_at: "2026-10-19 15:54:10 +0400"
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL-GENERAL--define-atom-status-allowed-values.md
   source_atom_id: CA-R-1947
-  source_atom_revision: 2
-  source_sha256: 9c4391429705176ff8eef0f5292f2aeff3596346d8aa98afd05dd2589aacae9c
+  source_atom_revision: 3
+  source_sha256: ca65ea189912acb3605517a2a8dbe3e76cb402dc018df6d6ca167decd16b218f
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 # Summary

@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection.Updated At"
+  governs: "Entity/Node/Continuant/Projection.Updated At"
   depends_on: []
-version: 14
-updated_at: "2026-10-18 03:34:38 +0400"
+version: 15
+updated_at: "2026-10-19 15:55:28 +0400"
 relations: {}
 atom_id: "CA-D-310"
 content_role: "Delivery"
@@ -16,8 +16,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md
   source_atom_id: CA-D-310
-  source_atom_revision: 14
-  source_sha256: b9606ee5d8d7c8c44c4b9e01f43f211bacf05a2fb9a4186aa4bb6a9b629bd64f
+  source_atom_revision: 15
+  source_sha256: 11e09f048eac68d6b6d99ffd65bb80f308665e839837cab835958f6d3d82fcc8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

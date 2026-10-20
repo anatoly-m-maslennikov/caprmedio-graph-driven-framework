@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Claim Projection"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Translation"]
-version: 16
-updated_at: "2026-10-15 18:47:50 +0000"
+    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Translation"]
+version: 17
+updated_at: "2026-10-19 15:54:40 +0400"
 relations:
   relates_to:
     - CA-M-294
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md
   source_atom_id: CA-M-116
-  source_atom_revision: 16
-  source_sha256: 580c84b3e67f7a38255b5a256894f53050c9db77dcf3e90c29312d3c1db6b348
+  source_atom_revision: 17
+  source_sha256: 6c1f6020a9e4e0497add5aae8c3b7965d29eced0da8d5b55bbe37102a7886193
   original_relations_sha256: 9bf67064015f173c315f553cfdea41bbcb9767069ed6dd9a11f2fb394a1a9d88
 ---
 # Summary

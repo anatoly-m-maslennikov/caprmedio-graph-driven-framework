@@ -8,17 +8,17 @@ global_tier: 11
 status: "Active"
 author: "Anatoly Maslennikov"
 subjects:
-  governs: "Carrier"
+  governs: "Entity/Carrier"
   depends_on:
     - "Logging Policy"
-version: 1
-updated_at: "2026-09-28 15:12:22 +0400"
+version: 2
+updated_at: "2026-10-19 15:56:24 +0400"
 relations: {}
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-500-PROJECT_CONFIGURATION--select-material-production-log-events.md
   source_atom_id: CA-D-500
-  source_atom_revision: 1
-  source_sha256: 5d36b86bd9b5766ba79d1220a4b00f597edf5b2e7671bb00b6372ee52a2fdff1
+  source_atom_revision: 2
+  source_sha256: 5b6fe0b7617400116578fd2fd5839ecaaae4e2a5871dc3bf3c168db439ba3a43
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

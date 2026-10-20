@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom"
+  governs: "Entity/Node/Continuant/Atom"
   depends_on:
-    ["Entity/Continuant/Node/Atom.ID", "Entity/Carrier.Canonical Address"]
-version: 16
-updated_at: "2026-10-18 03:34:39 +0400"
+    ["Entity/Node/Continuant/Atom.ID", "Entity/Carrier.Canonical Address"]
+version: 17
+updated_at: "2026-10-19 15:55:30 +0400"
 relations: {}
 atom_id: "CA-D-336"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md
   source_atom_id: CA-D-336
-  source_atom_revision: 16
-  source_sha256: 7bc5a4fbd5d831da69aa9f59f6d8bdf2f3eaf2a9cfd365aba1e40f8b1615fb3e
+  source_atom_revision: 17
+  source_sha256: 89c658ad6c47b1d4f4c9759268777a5e2144246b0bf5786610206a1720cab14c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

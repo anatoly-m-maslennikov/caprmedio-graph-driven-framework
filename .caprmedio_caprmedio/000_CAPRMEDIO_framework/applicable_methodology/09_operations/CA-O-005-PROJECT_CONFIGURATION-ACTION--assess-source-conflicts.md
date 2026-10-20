@@ -2,9 +2,9 @@
 subjects:
   governs: "Assess Source Conflicts"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Atom.Updated At", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Actor/Type: Operator"]
-version: 11
-updated_at: "2026-10-18 16:19:37 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Global Tier", "Entity/Node/Continuant/Atom.Updated At", "Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 12
+updated_at: "2026-10-19 15:56:26 +0400"
 relations: {}
 atom_id: "CA-O-005"
 content_role: "Operations"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-005-PROJECT_CONFIGURATION-ACTION--assess-source-conflicts.md
   source_atom_id: CA-O-005
-  source_atom_revision: 11
-  source_sha256: d6e14f1d494be1136efdf78fd15b5dc6efc01042da9c189628be6432ad1cdbc2
+  source_atom_revision: 12
+  source_sha256: d3f9bff4cef7746ba01cd9fbb0d5f4c3cabb6de2cdf25be214a2fedf6d389ee7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

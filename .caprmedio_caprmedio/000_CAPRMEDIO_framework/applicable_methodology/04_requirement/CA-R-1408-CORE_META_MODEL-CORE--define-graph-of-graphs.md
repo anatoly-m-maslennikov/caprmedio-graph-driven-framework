@@ -2,9 +2,9 @@
 subjects:
   governs: "Graph of Graphs"
   depends_on:
-    ["CAPRMEDIO Graph", "Entity/Continuant/Projection", "Entity/Continuant/Object/Relation", "Relation Kind", "Single Source of Truth"]
-version: 8
-updated_at: "2026-10-15 18:42:44 +0000"
+    ["CAPRMEDIO Graph", "Entity/Node/Continuant/Projection", "Entity/Relation", "Relation Kind", "Single Source of Truth"]
+version: 9
+updated_at: "2026-10-19 15:52:59 +0400"
 relations: {}
 atom_id: "CA-R-1408"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL-CORE--define-graph-of-graphs.md
   source_atom_id: CA-R-1408
-  source_atom_revision: 8
-  source_sha256: 002e2792a12b1576fe5785640626ef54c2375ee0b98ec40c57293f205b632a36
+  source_atom_revision: 9
+  source_sha256: 861b0e2818d83fe5b8411c503cd8e8bcf75e0dcf827ae36a70163ea25fc5c184
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

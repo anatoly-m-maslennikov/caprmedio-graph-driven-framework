@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Settings"
+  governs: "Entity/Node/Continuant/Project.Settings"
   depends_on:
-    ["Artifact", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Implementation", "Entity/Continuant/Projection", "Project Name", "Entity/Continuant/Object/Project.Settings.Atom Prefix"]
-version: 23
-updated_at: "2026-10-15 18:45:38 +0000"
+    ["Artifact", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom", "Implementation", "Entity/Node/Continuant/Projection", "Project Name", "Entity/Node/Continuant/Project.Settings.Atom Prefix"]
+version: 24
+updated_at: "2026-10-19 15:53:55 +0400"
 relations:
   child_of:
     - "CA-R-1708"
@@ -20,8 +20,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md
   source_atom_id: CA-R-1738
-  source_atom_revision: 23
-  source_sha256: d69b665fa6628a75c80da6e2bad53b09b304eda2fb265503f5ff5b6cda96baf1
+  source_atom_revision: 24
+  source_sha256: 28b873f014d93ac2b310da9f220145042973a301f2519af4b73cd79a1e6be222
   original_relations_sha256: 2b36cf9e29bd2b8820df0d08cf2dcbed6fee9c3cd67fb35dcceb595d780d428f
 ---
 # Summary

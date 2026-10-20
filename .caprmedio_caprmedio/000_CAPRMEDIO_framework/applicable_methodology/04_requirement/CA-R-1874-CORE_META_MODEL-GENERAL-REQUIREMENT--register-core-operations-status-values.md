@@ -8,17 +8,17 @@ global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations.Status"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations.Status"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations", "Atom/Content Role: Operations/Type", "Entity/Continuant/Object/Atom.Status", "Extension", "Project Configuration"]
-version: 3
-updated_at: "2026-10-15 18:46:11 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations", "Atom/Content Role: Operations/Type", "Entity/Node/Continuant/Atom.Status", "Extension", "Project Configuration"]
+version: 4
+updated_at: "2026-10-19 15:54:07 +0400"
 relations: {relates_to: [CA-R-1530, CA-R-1565, CA-R-1306, CA-R-1308, CA-R-1312, CA-R-1313]}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-operations-status-values.md
   source_atom_id: CA-R-1874
-  source_atom_revision: 3
-  source_sha256: 0a7aa953a3390350de3d35501fea1de12f66db37f015fa866d00d67ccec568d0
+  source_atom_revision: 4
+  source_sha256: 6840bec71644d1ffa45759fd302be8a212559409f0d979b6ce4c9f06faeb3990
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

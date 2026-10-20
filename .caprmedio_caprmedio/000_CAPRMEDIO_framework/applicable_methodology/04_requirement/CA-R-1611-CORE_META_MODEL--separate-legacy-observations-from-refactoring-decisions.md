@@ -9,9 +9,9 @@ status: Active
 subjects:
   governs: "Implementation"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Analysis", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Evidence", "Entity/Continuant/Projection"]
-version: 6
-updated_at: "2026-10-15 18:45:02 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Analysis", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Evidence", "Entity/Node/Continuant/Projection"]
+version: 7
+updated_at: "2026-10-19 15:53:44 +0400"
 relations:
   relates_to:
     - CA-R-1470
@@ -21,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1611-CORE_META_MODEL--separate-legacy-observations-from-refactoring-decisions.md
   source_atom_id: CA-R-1611
-  source_atom_revision: 6
-  source_sha256: 3648d1d1cd5cfc95fbee86488a4788676343ff631cabfce4a2d3e8b028356e93
+  source_atom_revision: 7
+  source_sha256: 111fac68d1b7fe7a8c30d8f6d5bf4f1728ea09ac41cfaedbda3347a8bd2d2185
   original_relations_sha256: ecfa056a4dd17d6264df2fb6bbe74ba7e195d2c7c2e3bf0eadd3b55fae051b4b
 ---
 # Summary

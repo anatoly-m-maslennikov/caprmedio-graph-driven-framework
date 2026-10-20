@@ -2,9 +2,9 @@
 subjects:
   governs: "Terminology Projection Derivation"
   depends_on:
-    ["Entity/Continuant/Projection/Type: Catalog", "Generator", "Definition Atom", "Governed Term", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Atom.Substance", "Subject", "Subject Path", "Entity", "Entity/Continuant/Term", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
-version: 22
-updated_at: "2026-10-15 18:47:46 +0000"
+    ["Entity/Node/Continuant/Projection/Type: Catalog", "Generator", "Definition Atom", "Governed Term", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Atom.Substance", "Subject", "Subject Path", "Entity", "Entity/Node/Continuant/Term", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
+version: 23
+updated_at: "2026-10-19 15:54:40 +0400"
 relations: {}
 atom_id: "CA-M-114"
 content_role: "Method"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md
   source_atom_id: CA-M-114
-  source_atom_revision: 22
-  source_sha256: 7742e9cd18ba0a9cc4d9833397b9a91f626fc2f20951eaa3ea837deaf4ef5682
+  source_atom_revision: 23
+  source_sha256: 498d2b6602228cf546f0234cf8144956b9f00ea7d330c3ca563b79b55f6490b3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

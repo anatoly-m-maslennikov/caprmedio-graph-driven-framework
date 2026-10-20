@@ -2,9 +2,9 @@
 subjects:
   governs: "Migrate Atom CCE Representation"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Projection", "CCE", "Confidence Threshold", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent"]
-version: 8
-updated_at: "2026-10-18 07:46:23 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Projection", "CCE", "Confidence Threshold", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent"]
+version: 9
+updated_at: "2026-10-19 15:56:45 +0400"
 relations:
   child_of:
     - CA-M-115
@@ -21,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-053-PROJECT_CONFIGURATION-ACTION--migrate-atoms-to-a-current-cce-version.md
   source_atom_id: CA-O-053
-  source_atom_revision: 8
-  source_sha256: 95f57a2e8e91aee0e87da6110ffd8a129106bdbdea2a3adc4a22e9e4f5d03578
+  source_atom_revision: 9
+  source_sha256: 3fefd17ee537e2d5b1df0b59f1e9de97f02bafe71b606f04532badaeca571181
   original_relations_sha256: e96ce022b6ca9ebedf6f1896049d977e7cbcf98c15a6cf9d8a6fdd4fb67b6a60
 ---
 # Summary

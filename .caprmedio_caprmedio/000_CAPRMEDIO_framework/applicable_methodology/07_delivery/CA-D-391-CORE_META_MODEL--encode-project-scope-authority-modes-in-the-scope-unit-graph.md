@@ -2,9 +2,9 @@
 subjects:
   governs: "Project Scope Unit Graph Projection"
   depends_on:
-    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Project.Framework Settings", "Authority Mode"]
-version: 10
-updated_at: "2026-10-18 07:33:01 +0400"
+    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Project.Framework Settings", "Authority Mode"]
+version: 11
+updated_at: "2026-10-19 15:55:42 +0400"
 relations:
   child_of:
     - "CA-R-1430"
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-391-CORE_META_MODEL--encode-project-scope-authority-modes-in-the-scope-unit-graph.md
   source_atom_id: CA-D-391
-  source_atom_revision: 10
-  source_sha256: f2a6dc648219285fcbd380000455130332fa9cc431277307b68cae69fce5ed6e
+  source_atom_revision: 11
+  source_sha256: fdb70dbbbfb0308dc61ec5081ab3fc866cb6f0fcd4f34200af8b3d2f5446ad89
   original_relations_sha256: 1be50eaa42168c84ffd69ce5d3a59f12850826b66f6c14e32382932fd9c81147
 ---
 # Summary

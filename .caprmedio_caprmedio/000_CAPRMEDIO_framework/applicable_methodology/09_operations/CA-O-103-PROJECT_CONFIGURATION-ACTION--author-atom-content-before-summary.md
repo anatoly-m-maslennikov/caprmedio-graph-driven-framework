@@ -10,16 +10,16 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Atom Content Authoring"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Details", "Entity/Continuant/Object/Atom.Summary", "Atom/Content Role", "Author"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Details", "Entity/Node/Continuant/Atom.Summary", "Atom/Content Role", "Author"]
 relations: {"relates_to": ["CA-M-111", "CA-D-479", "CA-R-1465", "CA-R-1464", "CA-E-384"]}
-version: 5
-updated_at: "2026-10-18 07:47:55 +0400"
+version: 6
+updated_at: "2026-10-19 15:56:52 +0400"
 global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-103-PROJECT_CONFIGURATION-ACTION--author-atom-content-before-summary.md
   source_atom_id: CA-O-103
-  source_atom_revision: 5
-  source_sha256: 31968329057f9e5c10947427161592bc514a705f652506cd4f0aeac7d4033d57
+  source_atom_revision: 6
+  source_sha256: f1e4249bf936800c2485caf8fc4a3ea469b3464a15e71625ccad3ae26a155986
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

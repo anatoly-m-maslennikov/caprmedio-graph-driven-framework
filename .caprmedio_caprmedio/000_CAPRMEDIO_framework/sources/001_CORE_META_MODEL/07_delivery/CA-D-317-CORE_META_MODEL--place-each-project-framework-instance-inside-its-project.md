@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project"
+  governs: "Entity/Node/Continuant/Project"
   depends_on: []
-version: 17
-updated_at: "2026-10-18 07:36:38 +0400"
+version: 18
+updated_at: "2026-10-19 15:55:28 +0400"
 relations: {}
 atom_id: "CA-D-317"
 content_role: "Delivery"

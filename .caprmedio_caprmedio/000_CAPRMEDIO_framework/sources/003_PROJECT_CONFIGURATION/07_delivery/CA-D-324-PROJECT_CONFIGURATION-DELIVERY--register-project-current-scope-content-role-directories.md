@@ -5,12 +5,12 @@ subjects:
     - "Project"
     - "Scope Unit"
     - "Atom/Content Role"
-    - "Carrier"
+    - "Entity/Carrier"
     - "Artifact/Revision/Status"
     - "Structural Entity"
     - "Directory Carrier"
-version: 12
-updated_at: "2026-10-02 19:18:22 +0400"
+version: 13
+updated_at: "2026-10-19 15:56:20 +0400"
 relations: {"relates_to":["CA-D-296","CA-D-451","CA-D-466"]}
 atom_id: "CA-D-324"
 content_role: "Delivery"

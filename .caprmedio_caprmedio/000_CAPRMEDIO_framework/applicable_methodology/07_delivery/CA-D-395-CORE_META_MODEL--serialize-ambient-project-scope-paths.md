@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier"
   depends_on:
-    ["Entity/Continuant/Node/Project", "Entity/Continuant/Node/Scope Unit"]
-version: 12
-updated_at: "2026-10-18 07:33:30 +0400"
+    ["Entity/Node/Continuant/Project", "Entity/Node/Continuant/Scope Unit"]
+version: 13
+updated_at: "2026-10-19 15:55:43 +0400"
 relations: {}
 atom_id: "CA-D-395"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-395-CORE_META_MODEL--serialize-ambient-project-scope-paths.md
   source_atom_id: CA-D-395
-  source_atom_revision: 12
-  source_sha256: 45a36d8d0648502b73408ae87695e6832e2b5f4fe4469037735b4791abc78226
+  source_atom_revision: 13
+  source_sha256: 7fdd072781b75e3c409302420befa5f07765062b62c2d5898a7fb7ae0b29f5bb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

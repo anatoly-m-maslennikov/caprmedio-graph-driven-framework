@@ -8,17 +8,17 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Project.Settings.Identifier"
+  governs: "Entity/Node/Continuant/Project.Settings.Identifier"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:05 +0400"
+version: 3
+updated_at: "2026-10-19 15:54:15 +0400"
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1985-CORE_META_MODEL--define-project-settings-identifier.md
   source_atom_id: CA-R-1985
-  source_atom_revision: 2
-  source_sha256: 7f04f13c4e33f473910448294ada74ea56fae9f4e128dcb9d2f502be90c220a1
+  source_atom_revision: 3
+  source_sha256: 8b4ccd848786eb26d0dbe4d6de181d1d227e4668a1a6afe5c96e9c1fd94e9569
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 # Summary

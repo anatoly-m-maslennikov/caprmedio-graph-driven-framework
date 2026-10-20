@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Evaluation Implementation"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Implementation"]
-version: 9
-updated_at: "2026-10-18 16:21:26 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Entity/Node/Continuant/Atom/Content Role: Requirement", "Implementation"]
+version: 10
+updated_at: "2026-10-19 15:56:41 +0400"
 relations:
   relates_to:
     - CA-O-017
@@ -21,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-018-PROJECT_CONFIGURATION-ACTION--implement-evaluations.md
   source_atom_id: CA-O-018
-  source_atom_revision: 9
-  source_sha256: 657c2ff370ac08aef1b109063a4e435f2e1536db2b94a19f7460ec7cc6319e27
+  source_atom_revision: 10
+  source_sha256: 2d87a0e8a5524d010f90991be5cf291d7ad7b7806e2362f55808952d4785b1e7
   original_relations_sha256: 95f6c99d1efc99d7004ab8a8f29dde5c29b2e88c3e0dc4ba5902eff79acf5b23
 ---
 # Summary

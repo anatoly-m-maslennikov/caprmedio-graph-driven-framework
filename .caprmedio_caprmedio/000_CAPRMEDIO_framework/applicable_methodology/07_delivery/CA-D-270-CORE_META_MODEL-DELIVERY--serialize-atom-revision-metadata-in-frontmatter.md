@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom"
+  governs: "Entity/Node/Continuant/Atom"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Version Number", "Entity/Continuant/Node/Atom.Updated At"]
-version: 16
-updated_at: "2026-10-18 03:34:32 +0400"
+    ["Entity/Node/Continuant/Atom.Version Number", "Entity/Node/Continuant/Atom.Updated At"]
+version: 17
+updated_at: "2026-10-19 15:55:20 +0400"
 relations: {}
 atom_id: "CA-D-270"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter.md
   source_atom_id: CA-D-270
-  source_atom_revision: 16
-  source_sha256: be839d70f7ee82281e8eb431290603c3e1dcd583aafb852db95d11e433af5022
+  source_atom_revision: 17
+  source_sha256: 99a0cb4c6fe6bb1875f085a3726a1ab724df74c767d9e7d2333437710141f83a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

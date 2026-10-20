@@ -5,12 +5,12 @@ subjects:
     - "Project"
     - "Scope Unit"
     - "Atom/Content Role"
-    - "Carrier"
+    - "Entity/Carrier"
     - "Artifact/Revision/Status"
     - "Structural Entity"
     - "Directory Carrier"
-version: 12
-updated_at: "2026-10-02 19:18:22 +0400"
+version: 13
+updated_at: "2026-10-19 15:56:20 +0400"
 relations: {"relates_to":["CA-D-296","CA-D-451","CA-D-466"]}
 atom_id: "CA-D-324"
 content_role: "Delivery"
@@ -23,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-324-PROJECT_CONFIGURATION-DELIVERY--register-project-current-scope-content-role-directories.md
   source_atom_id: CA-D-324
-  source_atom_revision: 12
-  source_sha256: 2c3ac3c7a0b8165c61bc24b51c27102ee68061fec1e26537118cddb5f1b0c97d
+  source_atom_revision: 13
+  source_sha256: 21ef9fb375c684a31ab68e03049066a887076b33e1e232d58b7d1d30c577ab4b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

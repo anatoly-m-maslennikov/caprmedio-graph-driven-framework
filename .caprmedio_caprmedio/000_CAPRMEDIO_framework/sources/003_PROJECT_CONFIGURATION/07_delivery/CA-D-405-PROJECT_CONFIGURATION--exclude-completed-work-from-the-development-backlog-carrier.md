@@ -2,9 +2,9 @@
 subjects:
   governs: "Development Backlog"
   depends_on:
-    - "Carrier"
-version: 8
-updated_at: "2026-10-02 19:36:21 +0400"
+    - "Entity/Carrier"
+version: 9
+updated_at: "2026-10-19 15:56:22 +0400"
 relations: {}
 atom_id: "CA-D-405"
 content_role: "Delivery"

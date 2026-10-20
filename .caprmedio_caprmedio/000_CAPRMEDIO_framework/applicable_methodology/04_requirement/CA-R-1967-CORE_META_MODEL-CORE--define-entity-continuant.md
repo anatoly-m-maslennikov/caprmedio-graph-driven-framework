@@ -8,17 +8,17 @@ global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Continuant
+  governs: "Entity/Node/Continuant"
 relations:
   child_of:
   - CA-R-1174
-version: 1
-updated_at: "2026-10-17 17:05:48 +0400"
+version: 2
+updated_at: "2026-10-19 15:54:13 +0400"
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1967-CORE_META_MODEL-CORE--define-entity-continuant.md
   source_atom_id: CA-R-1967
-  source_atom_revision: 1
-  source_sha256: 7053075f661f1a32362868e41866325909295e0d7c3d06cf2ecff99f4b530810
+  source_atom_revision: 2
+  source_sha256: 9d8d7e2a6de1fac1008ba372b2e0cf25a8a18b042fdb2478c627ca5869f06ba3
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 # Summary

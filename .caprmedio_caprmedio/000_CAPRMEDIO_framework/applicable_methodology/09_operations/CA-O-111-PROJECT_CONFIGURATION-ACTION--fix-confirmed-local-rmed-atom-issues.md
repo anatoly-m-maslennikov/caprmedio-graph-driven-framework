@@ -8,18 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 9
-updated_at: "2026-10-18 23:46:50 +0400"
+version: 10
+updated_at: "2026-10-19 15:56:57 +0400"
 subjects:
   governs: "Repair RMED Review Batch"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Entity/Continuant/History/Journal"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Entity/Node/Continuant/History/Journal"]
 relations: {"relates_to":["CA-D-496","CA-E-520","CA-O-028","CA-O-067","CA-R-1464"]}
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-111-PROJECT_CONFIGURATION-ACTION--fix-confirmed-local-rmed-atom-issues.md
   source_atom_id: CA-O-111
-  source_atom_revision: 9
-  source_sha256: 91cfbce3c86e36d24c15cebeec0d64f0002abd31cf47ac2723e37562b03d7c2f
+  source_atom_revision: 10
+  source_sha256: 0fd524b249eed36a944200707b2c7d3a3c7626b45aa9338a29dbb0a4c85811ca
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

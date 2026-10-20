@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor/Type: AI Agent"
+  governs: "Entity/Node/Continuant/Actor/Type: AI Agent"
   depends_on:
-    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Object/Atom/Content Role: Concern", "Entity/Continuant/Object/Atom", "Entity/Continuant/Actor/Type: Operator", "Atom/Content Role", "AI Agent Delegation", "AI Agent Confidence", "Autonomous Confidence Threshold"]
-version: 6
-updated_at: "2026-10-15 18:44:24 +0000"
+    ["Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Atom/Content Role: Concern", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Actor/Type: Operator", "Atom/Content Role", "AI Agent Delegation", "AI Agent Confidence", "Autonomous Confidence Threshold"]
+version: 7
+updated_at: "2026-10-19 15:53:29 +0400"
 relations: {"child_of":["CA-R-846","CA-P-034"],"relates_to":["CA-R-1058","CA-R-815","CA-R-846","CA-R-1552"]}
 atom_id: "CA-R-1561"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md
   source_atom_id: CA-R-1561
-  source_atom_revision: 6
-  source_sha256: ff3402efc7f8e78aae4cc552e288aada6963ab7ca050c41e5f6e438cd4c95986
+  source_atom_revision: 7
+  source_sha256: 465df442c95b57d127b14c9794ddf7150bfa93546f9f9cdef70d6b0101954e61
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

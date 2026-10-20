@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
+  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set"]
-version: 15
-updated_at: "2026-10-18 07:11:34 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set"]
+version: 16
+updated_at: "2026-10-19 15:56:18 +0400"
 relations: {}
 atom_id: "CA-D-253"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-253-PROJECT_CONFIGURATION-CORE-DELIVERY--place-applicable-methodology-and-its-sources.md
   source_atom_id: CA-D-253
-  source_atom_revision: 15
-  source_sha256: 570869928bf3e56ab26e314fc98d2d9d8a156c5095a7e07d8c08c65845b41c77
+  source_atom_revision: 16
+  source_sha256: 3446f15fe039b7bc4339e581e5d184809451efbfee562484d706dd38c358c5a9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

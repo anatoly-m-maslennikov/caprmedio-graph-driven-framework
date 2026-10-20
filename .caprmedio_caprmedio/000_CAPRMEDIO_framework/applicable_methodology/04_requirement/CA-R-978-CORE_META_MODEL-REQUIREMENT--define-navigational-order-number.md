@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Scope Unit.Navigational Order Number"
+  governs: "Entity/Node/Continuant/Scope Unit.Navigational Order Number"
   depends_on:
-    ["Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Scope Unit"]
-version: 20
-updated_at: "2026-10-18 03:34:15 +0400"
+    ["Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Scope Unit"]
+version: 21
+updated_at: "2026-10-19 15:54:36 +0400"
 relations:
   child_of:
     - CA-R-1757
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md
   source_atom_id: CA-R-978
-  source_atom_revision: 20
-  source_sha256: d19474900801282d542f7d05e8e3372a2d09d75362945a9daa5541cee1997bb4
+  source_atom_revision: 21
+  source_sha256: 4e9f827383788a618ba8f38fab1bed1983dbd5e8c79e584306836fa7f15960fe
   original_relations_sha256: 0d5349af063e25951431be4425259274b9843239db40885f758886b4d38e3d58
 ---
 # Summary

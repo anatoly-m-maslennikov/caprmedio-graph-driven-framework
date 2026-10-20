@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Retry Control"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Implementation Workflow", "Implementation Retry Limit", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Entity/Continuant/Actor/Type: Operator", "Atom/Content Role: Plan/Type: Plan", "Autonomous Confidence Threshold", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation"]
-version: 14
-updated_at: "2026-10-18 16:22:09 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Implementation Workflow", "Implementation Retry Limit", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Continuant/Actor/Type: Operator", "Atom/Content Role: Plan/Type: Plan", "Autonomous Confidence Threshold", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation"]
+version: 15
+updated_at: "2026-10-19 15:56:43 +0400"
 relations:
   relates_to:
     - CA-R-1559
@@ -22,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-024-PROJECT_CONFIGURATION-ACTION--control-implementation-retries.md
   source_atom_id: CA-O-024
-  source_atom_revision: 14
-  source_sha256: 28a412d35d1ffedf816f5b37fd23f1a8a8eb20a374074704a1c41d03ed395287
+  source_atom_revision: 15
+  source_sha256: 0c7d7803fc3679f27e65bf676bbdd314f528771b70bbe0b7fe09491711b7214a
   original_relations_sha256: e654698fd3f567fe0db1e47fe0385ac5ad43f81f7b191e5cabf60899e1938eb4
 ---
 # Summary

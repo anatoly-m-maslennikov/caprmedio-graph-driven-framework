@@ -8,16 +8,16 @@ global_tier: 9
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Relation/Type: CARRIES"
+  governs: "Entity/Relation/Type: CARRIES"
   depends_on:
   - Entity/Carrier
   - Entity
-  - "Entity/Continuant/Relation"
+  - "Entity/Relation"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:08 +0400"
+version: 3
+updated_at: "2026-10-19 15:54:18 +0400"
 ---
 # Summary
 

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity", "Artifact", "Entity/Continuant/Object/Atom", "Atom/Content Role", "Type", "Status", "Structural Entity", "Entity/Continuant/Object/Scope Unit", "Container Atom", "Entity/Carrier"]
-version: 8
-updated_at: "2026-10-15 23:46:29 +0400"
+    ["Entity", "Artifact", "Entity/Node/Continuant/Atom", "Atom/Content Role", "Type", "Status", "Structural Entity", "Entity/Node/Continuant/Scope Unit", "Container Atom", "Entity/Carrier"]
+version: 9
+updated_at: "2026-10-19 15:53:20 +0400"
 relations: {"relates_to": ["CA-R-1519"]}
 atom_id: "CA-R-1521"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1521-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-lifecycle-changes-from-applicable-status-models.md
   source_atom_id: CA-R-1521
-  source_atom_revision: 8
-  source_sha256: 8d16aee2c786b7e882eb422c731126cd464c573aceb9d4738dfc75f09d5e3418
+  source_atom_revision: 9
+  source_sha256: 8a669fcec44fad9c07282aeb7024495aa2182e25d9842b6942cc4f69c4814711
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

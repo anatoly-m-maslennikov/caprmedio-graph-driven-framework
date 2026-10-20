@@ -2,9 +2,9 @@
 subjects:
   governs: "Relational Atom"
   depends_on:
-    ["Entity/Continuant/Object/Atom"]
-version: 12
-updated_at: "2026-10-15 18:41:24 +0000"
+    ["Entity/Node/Continuant/Atom"]
+version: 13
+updated_at: "2026-10-19 15:52:40 +0400"
 relations: {}
 atom_id: "CA-R-1256"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md
   source_atom_id: CA-R-1256
-  source_atom_revision: 12
-  source_sha256: 007f4796921db4c0d49ddb2d89adf1a1db18215fc810d5035c3c36cc42c123da
+  source_atom_revision: 13
+  source_sha256: cc5d936547fdaa4166dd1c18b4b20360965d58b979caed92ecc4e8c867515e45
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

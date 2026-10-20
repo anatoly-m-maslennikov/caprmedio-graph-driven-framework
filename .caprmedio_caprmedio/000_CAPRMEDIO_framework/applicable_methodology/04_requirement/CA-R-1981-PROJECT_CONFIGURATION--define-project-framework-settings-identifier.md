@@ -8,17 +8,17 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Project.Framework Settings.Identifier"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Identifier"
 relations:
   child_of:
   - CA-R-1176
-version: 2
-updated_at: "2026-10-18 03:34:59 +0400"
+version: 3
+updated_at: "2026-10-19 15:56:12 +0400"
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1981-PROJECT_CONFIGURATION--define-project-framework-settings-identifier.md
   source_atom_id: CA-R-1981
-  source_atom_revision: 2
-  source_sha256: 646ae3f7bb38ecc8ed5bc0248786e517530248395df8bffef7a385ff29633a06
+  source_atom_revision: 3
+  source_sha256: a080b5ba82a5a9c6ee958bab8b4a31438d1535371ed18eee8698186cb3ca0fee
   original_relations_sha256: 9e3e53a370b31aee7f492cc3fbaba3b8b30f92b5773698d221265754db5d0402
 ---
 # Summary

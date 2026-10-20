@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Delivery.Substance"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Delivery.Substance"
   depends_on:
-  - "Entity/Continuant/Node/Atom/Content Role: Delivery"
+  - "Entity/Node/Continuant/Atom/Content Role: Delivery"
   - Entity/Carrier
-  - "Entity/Continuant/Node/Atom.Subjects"
-  - "Entity/Continuant/Node/Term"
-  - "Entity/Continuant/Relation"
-version: 9
-updated_at: "2026-10-18 03:34:20 +0400"
+  - "Entity/Node/Continuant/Atom.Subjects"
+  - "Entity/Node/Continuant/Term"
+  - "Entity/Relation"
+version: 10
+updated_at: "2026-10-19 15:54:53 +0400"
 relations:
   child_of:
     - CA-M-307
@@ -25,8 +25,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md
   source_atom_id: CA-M-313
-  source_atom_revision: 9
-  source_sha256: d1069a91de748f190a6feca595da3113b95b781a18e30e04a4b2d6522b4558fe
+  source_atom_revision: 10
+  source_sha256: f02cdfc51f399f700c833be8f825524c21c95376b53903dbb2fef99abfd09e7c
   original_relations_sha256: df4e705715370cdf548abfbeba9ae0eed904bc3f2977ebc87988f011e0ad7418
 ---
 # Summary

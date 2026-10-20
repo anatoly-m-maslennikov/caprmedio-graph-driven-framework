@@ -2,9 +2,9 @@
 subjects:
   governs: "Scope Reference Validation"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Author", "Atom Scope", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Subjects", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Actor/Type: Operator", "Hub Atom"]
-version: 32
-updated_at: "2026-10-15 18:48:52 +0000"
+    ["Entity/Node/Continuant/Atom.Author", "Atom Scope", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Subjects", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Actor/Type: Operator", "Hub Atom"]
+version: 33
+updated_at: "2026-10-19 15:54:55 +0400"
 relations: {"evaluation_for": ["CA-R-1595", "CA-R-1596", "CA-R-922", "CA-R-923", "CA-R-1588", "CA-R-1271", "CA-R-947", "CA-R-944", "CA-R-1201", "CA-R-1202", "CA-D-482", "CA-D-495"]}
 atom_id: "CA-E-240"
 content_role: "Evaluation"

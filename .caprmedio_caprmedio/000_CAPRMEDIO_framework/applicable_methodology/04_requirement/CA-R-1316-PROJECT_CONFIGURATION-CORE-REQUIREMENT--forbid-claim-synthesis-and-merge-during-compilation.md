@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection/Type: Applicable Methodology"
+  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Substance"]
-version: 16
-updated_at: "2026-10-18 07:49:29 +0400"
+    ["Entity/Node/Continuant/Atom.Substance"]
+version: 17
+updated_at: "2026-10-19 15:56:05 +0400"
 relations: {}
 atom_id: "CA-R-1316"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1316-PROJECT_CONFIGURATION-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md
   source_atom_id: CA-R-1316
-  source_atom_revision: 16
-  source_sha256: 3cc68aa8b65c5f038ef5aa730b961fffd5cbfaeb6fa694518b87b96e4f1858a4
+  source_atom_revision: 17
+  source_sha256: 4ec10eacc19eeb42be3a5df1acd01199c91a6d019c8b5aa850f80b42e1459c1b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

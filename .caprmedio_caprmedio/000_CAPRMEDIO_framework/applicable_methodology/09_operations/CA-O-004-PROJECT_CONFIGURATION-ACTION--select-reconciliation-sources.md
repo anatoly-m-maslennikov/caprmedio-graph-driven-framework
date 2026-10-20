@@ -2,9 +2,9 @@
 subjects:
   governs: "Select Reconciliation Sources"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Projection/Type: Reconciled Projection", "Artifact", "Entity/Continuant/Object/Atom.Substance"]
-version: 8
-updated_at: "2026-10-18 16:19:25 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Projection/Type: Reconciled Projection", "Artifact", "Entity/Node/Continuant/Atom.Substance"]
+version: 9
+updated_at: "2026-10-19 15:56:26 +0400"
 relations: {}
 atom_id: "CA-O-004"
 content_role: "Operations"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-004-PROJECT_CONFIGURATION-ACTION--select-reconciliation-sources.md
   source_atom_id: CA-O-004
-  source_atom_revision: 8
-  source_sha256: 05fbe441c78c98304e0df839d06d6abbe2fbf1b68d39b051bdc2c2811967dbe1
+  source_atom_revision: 9
+  source_sha256: 5426cd2321957b0f52a45e577ceea8267f70c69b587e3ff7c6b21319f26b7ab8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

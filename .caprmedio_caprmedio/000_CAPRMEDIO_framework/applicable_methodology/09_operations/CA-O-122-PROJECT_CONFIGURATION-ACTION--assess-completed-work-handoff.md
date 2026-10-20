@@ -9,18 +9,18 @@ global_tier: 11
 author: Anatoly Maslennikov
 status: Active
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Plan"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Plan"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Node/Atom/Content Role: Plan.Status", "Entity/Continuant/Relation", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Node/History/Journal"]
-version: 6
-updated_at: "2026-10-18 07:48:03 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Relation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/History/Journal"]
+version: 7
+updated_at: "2026-10-19 15:56:57 +0400"
 relations:
   relates_to: [CA-R-1583, CA-R-1599, CA-R-1520, CA-R-1580, CA-O-079, CA-O-017, CA-O-077, CA-O-090]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-122-PROJECT_CONFIGURATION-ACTION--assess-completed-work-handoff.md
   source_atom_id: CA-O-122
-  source_atom_revision: 6
-  source_sha256: 6dd21754b4d380e4b9de7a105b439d97f23541c9be44e7532bba37c31c92feae
+  source_atom_revision: 7
+  source_sha256: 09a678a3d6cabb25f37909b337cd69412585d5a2fa6f71a207a64d5a110198cb
   original_relations_sha256: 7038b731397220a891683e692ecd42be19539b02fa491c4738bc20910feef073
 ---
 # Summary

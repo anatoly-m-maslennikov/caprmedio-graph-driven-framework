@@ -3,9 +3,9 @@ subjects:
   governs: "Project Scope Unit Graph Projection"
   depends_on:
     - "Project Structure"
-    - "Carrier"
-version: 5
-updated_at: "2026-10-04 22:12:51 +0000"
+    - "Entity/Carrier"
+version: 6
+updated_at: "2026-10-19 15:56:22 +0400"
 relations: {"relates_to":["CA-O-062"]}
 atom_id: "CA-D-453"
 content_role: "Delivery"

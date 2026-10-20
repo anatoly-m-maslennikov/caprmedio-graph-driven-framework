@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role"
+  governs: "Entity/Node/Continuant/Atom/Content Role"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role"]
-version: 22
-updated_at: "2026-10-18 03:33:48 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role"]
+version: 23
+updated_at: "2026-10-19 15:53:52 +0400"
 relations:
   child_of:
     - CA-R-1531

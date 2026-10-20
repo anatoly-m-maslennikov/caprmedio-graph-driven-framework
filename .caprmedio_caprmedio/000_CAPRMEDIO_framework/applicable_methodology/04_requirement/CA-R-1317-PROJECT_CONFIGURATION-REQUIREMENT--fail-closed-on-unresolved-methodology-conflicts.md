@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
+  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    ["Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal.Record", "Methodology Source.Expansion Boundary"]
-version: 14
-updated_at: "2026-10-18 07:49:39 +0400"
+    ["Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal.Record", "Methodology Source.Expansion Boundary"]
+version: 15
+updated_at: "2026-10-19 15:56:05 +0400"
 relations:
   relates_to:
     - CA-O-007
@@ -20,8 +20,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1317-PROJECT_CONFIGURATION-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md
   source_atom_id: CA-R-1317
-  source_atom_revision: 14
-  source_sha256: 5dc4c3d7180ccf4c5c3aac9d00fe7865b425f6e34033d07430fbd6f6e5d36548
+  source_atom_revision: 15
+  source_sha256: 9e5059c53177b30f1f11024adf3629fa6f410a718697e494faf13a2624cb48e7
   original_relations_sha256: 56595bb1f3f9fe9f5b758e4de0a03aa828cc25314d286bc50f06905262bd2204
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Scope Unit.Navigational Order Number"
+  governs: "Entity/Node/Continuant/Scope Unit.Navigational Order Number"
   depends_on:
-    ["Entity/Continuant/Node/Scope Unit"]
-version: 17
-updated_at: "2026-10-18 03:34:16 +0400"
+    ["Entity/Node/Continuant/Scope Unit"]
+version: 18
+updated_at: "2026-10-19 15:54:37 +0400"
 relations: {}
 atom_id: "CA-R-981"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-981-CORE_META_MODEL-REQUIREMENT--default-navigational-order-chronologically.md
   source_atom_id: CA-R-981
-  source_atom_revision: 17
-  source_sha256: b861eae62bd0512b9ac379200c6d4576fd8f95b01f983601be299d91054014f6
+  source_atom_revision: 18
+  source_sha256: c23595ae5c476fb2095ddbe00acb3f29f7b199718cf423deaae8c8be51c41883
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -11,18 +11,18 @@ subjects:
   governs: Entity/Carrier
   depends_on:
   - Entity
-  - "Entity/Continuant/Relation/Type: CARRIES"
-  - "Entity/Continuant/Node/History/Revision"
+  - "Entity/Relation/Type: CARRIES"
+  - "Entity/Node/Continuant/History/Revision"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:56 +0400"
+version: 3
+updated_at: "2026-10-19 15:56:03 +0400"
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-636-CORE_META_MODEL--bind-carriers-to-their-represented-current-or-historical-entities.md
   source_atom_id: CA-D-636
-  source_atom_revision: 2
-  source_sha256: 42bc1a4777f14da8b5b8a990719b9ee5694a601a09a76435795cb8265a7c000d
+  source_atom_revision: 3
+  source_sha256: 1397605ee74a0c25be87f07c5c635d2f2e34d16a1b2c192ca7c26d61e7eac8d9
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 # Summary

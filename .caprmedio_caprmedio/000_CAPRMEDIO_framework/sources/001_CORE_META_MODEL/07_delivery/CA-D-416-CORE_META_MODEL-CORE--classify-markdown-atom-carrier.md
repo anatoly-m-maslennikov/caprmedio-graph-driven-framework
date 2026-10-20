@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/File Carrier"
   depends_on:
-    ["Entity/Carrier/File Carrier", "Entity/Continuant/Node/Term", "Entity/Continuant/Relation/Type: NARROWER_THAN"]
-version: 14
-updated_at: "2026-10-18 03:34:46 +0400"
+    ["Entity/Carrier/File Carrier", "Entity/Node/Continuant/Term", "Entity/Relation/Type: NARROWER_THAN"]
+version: 15
+updated_at: "2026-10-19 15:55:46 +0400"
 relations: {}
 atom_id: "CA-D-416"
 content_role: "Delivery"

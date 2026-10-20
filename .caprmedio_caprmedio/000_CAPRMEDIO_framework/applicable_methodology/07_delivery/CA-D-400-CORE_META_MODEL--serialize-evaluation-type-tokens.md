@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Evaluation/Type"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Evaluation/Type"
   depends_on:
     - "Entity/Carrier"
-version: 11
-updated_at: "2026-10-18 07:18:45 +0400"
+version: 12
+updated_at: "2026-10-19 15:55:44 +0400"
 relations: {}
 atom_id: "CA-D-400"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-400-CORE_META_MODEL--serialize-evaluation-type-tokens.md
   source_atom_id: CA-D-400
-  source_atom_revision: 11
-  source_sha256: 553d5f855e03774d129422599c552c415ce359d0b37579e14861fe9cd5904e79
+  source_atom_revision: 12
+  source_sha256: a3715f3b4a0cd46f58ded0e11fa2febf0436efe75a02a757813afb14aaf1b631
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

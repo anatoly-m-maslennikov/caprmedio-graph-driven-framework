@@ -2,9 +2,9 @@
 subjects:
   governs: "Applicable Methodology Compilation"
   depends_on:
-    ["Relation/Type: On Result", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Source Reconciliation", "Entity/Continuant/Projection/Type: Applicable Methodology", "Methodology Source", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Framework Settings", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Actor/Type: Operator", "Applicable Methodology Source Frontier Digest", "Entity/Continuant/History/Journal.Record"]
-version: 15
-updated_at: "2026-10-19 03:06:00 +0400"
+    ["Relation/Type: On Result", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Source Reconciliation", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Methodology Source", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Framework Settings", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Actor/Type: Operator", "Applicable Methodology Source Frontier Digest", "Entity/Node/Continuant/History/Journal.Record"]
+version: 16
+updated_at: "2026-10-19 15:56:32 +0400"
 relations: {}
 atom_id: "CA-O-011"
 content_role: "Operations"

@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Source Reconciliation Assessment Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Source Reconciliation", "Agentic Step Execution Context", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
-version: 6
-updated_at: "2026-10-19 03:04:48 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Source Reconciliation", "Agentic Step Execution Context", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run"]
+version: 7
+updated_at: "2026-10-19 15:56:30 +0400"
 relations:
   relates_to:
     - CA-O-010
@@ -24,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-010-PROJECT_CONFIGURATION-WORKFLOW--reconcile-sources/CA-O-147-PROJECT_CONFIGURATION-STEP--assess-the-reconciliation-source-frontier.md
   source_atom_id: CA-O-147
-  source_atom_revision: 6
-  source_sha256: 7646768aa5d5575513e50904ae9bd98d543e0c23d25d0f2cdea55caefa3c5892
+  source_atom_revision: 7
+  source_sha256: f328ee6b950f55d2f0975c308ee5b377e69e5ca19a89232aeae97cb4657f7085
   original_relations_sha256: f478176d8bd72d7a6bf44b10c21b9db6ed4f997897c6e33e4ee733d7183c131d
 ---
 # Summary

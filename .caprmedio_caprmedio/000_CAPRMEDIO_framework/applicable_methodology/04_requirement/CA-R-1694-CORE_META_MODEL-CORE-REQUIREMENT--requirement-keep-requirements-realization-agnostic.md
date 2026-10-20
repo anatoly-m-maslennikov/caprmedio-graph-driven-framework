@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Atom/Content Role", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Operations"]
-version: 23
-updated_at: "2026-10-15 18:45:25 +0000"
+    ["Entity/Node/Continuant/Atom.Substance", "Atom/Content Role", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Implementation", "Entity/Node/Continuant/Atom/Content Role: Operations"]
+version: 24
+updated_at: "2026-10-19 15:53:51 +0400"
 relations: {}
 atom_id: "CA-R-1694"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md
   source_atom_id: CA-R-1694
-  source_atom_revision: 23
-  source_sha256: 4ff03c11a43635b1acb7fc49c8c18128add914ab2c2f7619a30fac846594ceda
+  source_atom_revision: 24
+  source_sha256: 5433fa193ef2b199cb7e91e22eb64ef028401e3be5de1adb69a18ff39c7e98a0
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

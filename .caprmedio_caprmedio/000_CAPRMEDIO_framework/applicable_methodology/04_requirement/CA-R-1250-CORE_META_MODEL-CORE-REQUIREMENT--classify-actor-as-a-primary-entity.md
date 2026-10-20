@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor"
+  governs: "Entity/Node/Continuant/Actor"
   depends_on:
     - "Primary Entity"
-version: 13
-updated_at: "2026-10-15 18:41:23 +0000"
+version: 14
+updated_at: "2026-10-19 15:52:40 +0400"
 relations: {}
 atom_id: "CA-R-1250"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md
   source_atom_id: CA-R-1250
-  source_atom_revision: 13
-  source_sha256: 65b24a66ac4c1ffb10fb2114df04ceb778fa4f2eb198b6d5b109b3384bd85e9c
+  source_atom_revision: 14
+  source_sha256: 291e9f8a4f6b7457755cf8ee59d719dd527d79d97d38ffa4a1d69019975196a2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

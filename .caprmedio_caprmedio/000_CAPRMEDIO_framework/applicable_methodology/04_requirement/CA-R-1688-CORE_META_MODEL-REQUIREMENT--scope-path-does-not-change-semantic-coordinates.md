@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Scope Unit.Path"
+  governs: "Entity/Node/Continuant/Scope Unit.Path"
   depends_on: []
-version: 26
-updated_at: "2026-10-18 03:33:48 +0400"
+version: 27
+updated_at: "2026-10-19 15:53:51 +0400"
 relations:
   child_of:
     - CA-M-001
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-REQUIREMENT--scope-path-does-not-change-semantic-coordinates.md
   source_atom_id: CA-R-1688
-  source_atom_revision: 26
-  source_sha256: 7b84f19f2c83ab1a1dc535a7d467a2e8673ab33f9cac2d7afee13a920dcae4b5
+  source_atom_revision: 27
+  source_sha256: 0651ef746a4031b32cbab68a69b594f76b8b433289a6f40fb6131d95361c4137
   original_relations_sha256: 72ddfdc0667725e6e9f7d88a8543eef5c2f84deeda1c3f0e29608a221a378b9d
 ---
 # Summary

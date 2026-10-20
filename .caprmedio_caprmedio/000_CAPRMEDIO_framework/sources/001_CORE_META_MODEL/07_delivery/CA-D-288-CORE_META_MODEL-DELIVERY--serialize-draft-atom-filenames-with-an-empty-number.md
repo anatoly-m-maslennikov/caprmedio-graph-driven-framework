@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/File Carrier.Filename"
   depends_on:
-    ["Entity/Continuant/Node/Atom.ID"]
-version: 18
-updated_at: "2026-10-18 03:34:34 +0400"
+    ["Entity/Node/Continuant/Atom.ID"]
+version: 20
+updated_at: "2026-10-20 17:07:25 +0400"
 relations: {}
 atom_id: "CA-D-288"
 content_role: "Delivery"
@@ -23,10 +23,10 @@ Project-owned Draft Atom filenames.
 
 ## Claim
 
-Outside the explicit Subjects-only edit-draft exception below, **every** Project-owned Draft Atom filename **must** use `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>--` **before** its mutable components **and** **must not** carry an assigned Atom ID.
+**every** Project-owned Draft Atom filename **must** use `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>--` **before** its mutable components **and** **must not** carry an Atom ID.
 
 ## Details
 
-### Subjects-only edit-draft exception
+### Existing temporary-ID exception
 
-CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry the temporary `atom_id: <canonical-ID>@draft`, `status: Draft`, and matching temporary-ID filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts remain ID-free; canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.
+Draft identity rules have no temporary-ID exception. Existing source validation, permissions and exact history preservation still apply.

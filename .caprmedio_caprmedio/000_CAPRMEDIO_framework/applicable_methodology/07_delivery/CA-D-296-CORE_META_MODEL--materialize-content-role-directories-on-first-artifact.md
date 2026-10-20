@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier.Canonical Address"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Atom", "Entity/Carrier/Directory Carrier"]
-version: 17
-updated_at: "2026-10-18 03:34:35 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom", "Entity/Carrier/Directory Carrier"]
+version: 18
+updated_at: "2026-10-19 15:55:24 +0400"
 relations: {}
 atom_id: "CA-D-296"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-296-CORE_META_MODEL--materialize-content-role-directories-on-first-artifact.md
   source_atom_id: CA-D-296
-  source_atom_revision: 17
-  source_sha256: f0bf6bfd53b4e6c430d21fb41e4e07961a26aee7554ad915ce7897c4032f0aa1
+  source_atom_revision: 18
+  source_sha256: 6f1340d9f749c8edbad2e26d8232a89ac92c1548e78b77ebfd97f8a88aa7a7b2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Reconcile Navigation Numbers"
   depends_on:
-    ["Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Scope Unit.Navigational Order Number", "Entity/Continuant/Object/Scope Unit.Local Order", "Entity/Continuant/Object/Scope Unit.Structural Level", "Scope Unit/Type", "Entity/Continuant/Object/Scope Unit.Label", "Entity/Carrier", "Entity/Carrier/Directory Carrier.Numeric Prefix", "Implementation Folder", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Concern"]
-version: 6
-updated_at: "2026-10-18 07:44:50 +0400"
+    ["Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Scope Unit.Navigational Order Number", "Entity/Node/Continuant/Scope Unit.Local Order", "Entity/Node/Continuant/Scope Unit.Structural Level", "Scope Unit/Type", "Entity/Node/Continuant/Scope Unit.Label", "Entity/Carrier", "Entity/Carrier/Directory Carrier.Numeric Prefix", "Implementation Folder", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Concern"]
+version: 7
+updated_at: "2026-10-19 15:56:16 +0400"
 relations: {"evaluation_for": ["CA-O-078", "CA-R-1483", "CA-R-976", "CA-R-981", "CA-R-983", "CA-D-300", "CA-D-380", "CA-D-442", "CA-D-444", "CA-D-445"], "relates_to": ["CA-E-469"]}
 global_tier: 11
 ---

@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Construct Terms Graph Projection"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Term", "Governed Term", "Definition Atom", "Entity/Continuant/Projection/Type: Terms Graph", "Relation Kind", "Artifact/Revision", "Entity/Continuant/History/Journal"]
-version: 5
-updated_at: "2026-10-18 16:25:08 +0400"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Term", "Governed Term", "Definition Atom", "Entity/Node/Continuant/Projection/Type: Terms Graph", "Relation Kind", "Artifact/Revision", "Entity/Node/Continuant/History/Journal"]
+version: 6
+updated_at: "2026-10-19 15:57:04 +0400"
 relations:
   relates_to: [CA-R-1335, CA-R-1454, CA-R-1318, CA-R-1279, CA-M-114, CA-R-1746, CA-R-1471, CA-R-1246, CA-R-806, CA-R-1472, CA-R-1437, CA-E-382, CA-R-1720, CA-R-1728]
 ---

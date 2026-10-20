@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Preparation"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Spec", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Dependency Order Derivation", "Entity/Continuant/Object/Scope Unit"]
-version: 9
-updated_at: "2026-10-18 16:21:15 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Spec", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Requirement", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Dependency Order Derivation", "Entity/Node/Continuant/Scope Unit"]
+version: 10
+updated_at: "2026-10-19 15:56:41 +0400"
 relations:
   relates_to:
     - CA-M-239
@@ -28,8 +28,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-017-PROJECT_CONFIGURATION-ACTION--prepare-implementation-work.md
   source_atom_id: CA-O-017
-  source_atom_revision: 9
-  source_sha256: 4ccf589e6a51e883f302fb09c0e84f8f1c2069e59eb86811303496eac4c7648b
+  source_atom_revision: 10
+  source_sha256: b8214f2e5283c74bac4e04e4941580e7901134f297bb4c5bd08f0446fe40c6aa
   original_relations_sha256: db26a746a5f120fd963437de61c26fc65671b305457db4f648a9ea144b54f80a
 ---
 # Summary

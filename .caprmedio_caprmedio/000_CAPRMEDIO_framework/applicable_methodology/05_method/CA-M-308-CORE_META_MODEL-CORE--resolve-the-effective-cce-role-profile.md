@@ -2,9 +2,9 @@
 subjects:
   governs: "CCE Role Profile"
   depends_on:
-    ["CCE Role Profile", "Atom/Content Role", "Type", "Entity/Continuant/Object/Atom.Substance"]
-version: 6
-updated_at: "2026-10-15 18:48:35 +0000"
+    ["CCE Role Profile", "Atom/Content Role", "Type", "Entity/Node/Continuant/Atom.Substance"]
+version: 7
+updated_at: "2026-10-19 15:54:51 +0400"
 relations:
   child_of:
     - CA-M-307
@@ -26,8 +26,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL-CORE--resolve-the-effective-cce-role-profile.md
   source_atom_id: CA-M-308
-  source_atom_revision: 6
-  source_sha256: 9fcf6afd0bf38b1034abdda663088f503ec1d0aea63413b9bd16caf65ffd68dd
+  source_atom_revision: 7
+  source_sha256: 304991ba73a4a2396e4d3bed4273fcade554875993ae0cc144f6b5095b425533
   original_relations_sha256: ecf15d66e52790b11397217f00000f28e01dedab7a7136802d07e978204bdbb7
 ---
 # Summary

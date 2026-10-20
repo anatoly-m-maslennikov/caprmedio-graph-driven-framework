@@ -2,9 +2,9 @@
 subjects:
   governs: "CAPRMEDIO Graph"
   depends_on:
-    ["Single Source of Truth", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Structural Entity", "Entity/Continuant/History/Journal", "Entity/Continuant/Object/Relation"]
-version: 7
-updated_at: "2026-10-15 18:43:29 +0000"
+    ["Single Source of Truth", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Structural Entity", "Entity/Node/Continuant/History/Journal", "Entity/Relation"]
+version: 8
+updated_at: "2026-10-19 15:53:12 +0400"
 relations: {}
 atom_id: "CA-R-1471"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1471-CORE_META_MODEL-CORE--keep-secondary-graphs-derived-from-source-authority.md
   source_atom_id: CA-R-1471
-  source_atom_revision: 7
-  source_sha256: 43ece714768515461c65bd284e19226aa7cef432ffea2bdd7d2dc4d898f27010
+  source_atom_revision: 8
+  source_sha256: e723e17015d11756e663e944418a19a6e3431f9cf49e23c5edafdf842d366a51
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

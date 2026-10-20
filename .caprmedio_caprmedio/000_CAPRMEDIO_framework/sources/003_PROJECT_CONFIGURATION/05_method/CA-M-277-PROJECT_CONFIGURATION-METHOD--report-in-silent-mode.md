@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode: silent"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode: silent"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode", "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Effects", "Entity/Continuant/Object/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information", "Artifact", "Skill", "Entity/Continuant/Object/Project"]
-version: 14
-updated_at: "2026-10-18 07:45:37 +0400"
+    ["Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode", "Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Effects", "Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode.Mandatory Information", "Artifact", "Skill", "Entity/Node/Continuant/Project"]
+version: 15
+updated_at: "2026-10-19 15:56:14 +0400"
 relations: {"relates_to":["CA-R-1628","CA-R-1439","CA-R-1440","CA-R-1558","CA-O-052","CA-R-1750"]}
 atom_id: "CA-M-277"
 content_role: "Method"

@@ -1,6 +1,6 @@
 ---
-version: 11
-updated_at: "2026-10-15 18:48:24 +0000"
+version: 12
+updated_at: "2026-10-19 15:54:48 +0400"
 relations:
   child_of:
     - CA-R-1489
@@ -9,7 +9,7 @@ relations:
 subjects:
   governs: "Implementation Retry Limit"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Implementation Retry Limit", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Hub Atom", "Plan Atom Carrier"]
+    ["Atom/Content Role: Plan/Type: Plan", "Implementation Retry Limit", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project.Framework Settings", "Default Settings", "Hub Atom", "Plan Atom Carrier"]
 atom_id: "CA-M-295"
 content_role: "Method"
 current_scope_unit: "CORE_META_MODEL"
@@ -21,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL--resolve-implementation-retry-limits-by-source-precedence.md
   source_atom_id: CA-M-295
-  source_atom_revision: 11
-  source_sha256: b374e0698b4bb13a0c49f98d408a3b231b8b9ad70b71a64e182ad724aaf66933
+  source_atom_revision: 12
+  source_sha256: f4e3fe4b2223923786165478c64f7186251d3ff7eaf0909c8659edd05b0e97d1
   original_relations_sha256: 0e568ddd932a6a9cb52688571f732567cbd704e78761e71bf6799c4a1827c540
 ---
 # Summary

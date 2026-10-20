@@ -8,19 +8,19 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-19 03:06:29 +0400"
+version: 7
+updated_at: "2026-10-19 15:56:33 +0400"
 subjects:
   governs: "Applicable Methodology Compilation Assess Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Assess Source Conflicts", "Methodology Source.Expansion Boundary", "Core Meta-Model", "Entity/Continuant/Object/Atom", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Assess Source Conflicts", "Methodology Source.Expansion Boundary", "Core Meta-Model", "Entity/Node/Continuant/Atom", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest"]
 relations:
   relates_to: [CA-O-011, CA-O-005]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology/CA-O-153-PROJECT_CONFIGURATION-STEP--assess-applicable-methodology-source-conflicts.md
   source_atom_id: CA-O-153
-  source_atom_revision: 6
-  source_sha256: 12e1ee8fd7b6fc6719e239694593be064feaf373993f40a6c31049129c43b3e2
+  source_atom_revision: 7
+  source_sha256: 55b84ff49f8f08b7a4d5400c492f0d90926611c167c6d499ef4015f851b26195
   original_relations_sha256: 9e53cce5969842350ce25539597bb1bfbc787ff9378d7f40487b722802818257
 ---
 # Summary

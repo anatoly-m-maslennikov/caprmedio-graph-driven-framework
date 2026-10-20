@@ -2,9 +2,9 @@
 subjects:
   governs: "Project Structure Maintenance"
   depends_on:
-    ["Entity/Continuant/Object/Project.Structure", "Entity/Carrier", "Entity/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Project", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
-version: 8
-updated_at: "2026-10-15 18:49:38 +0000"
+    ["Entity/Node/Continuant/Project.Structure", "Entity/Carrier", "Entity/Node/Continuant/Actor/Type: Operator", "Autonomous Confidence Threshold", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
+version: 9
+updated_at: "2026-10-19 15:55:07 +0400"
 relations:
   evaluation_for:
     - "CA-O-012"
@@ -23,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-471-CORE_META_MODEL-EVALUATION_APPROACH--validate-structural-change-cutover.md
   source_atom_id: CA-E-471
-  source_atom_revision: 8
-  source_sha256: 124de7efc607be7c95a61cc3918a22b4b494d8073b45d75bc00a7859db3291fb
+  source_atom_revision: 9
+  source_sha256: 9b97a9cce60d98da87bdba4c870dc1e8f2da47789c2d183ecb6cc07ef18197f7
   original_relations_sha256: 318865287cda0356e51e6261ca8fe15ace9ad22dd37a62e11499b968bf0e0927
 ---
 # Summary

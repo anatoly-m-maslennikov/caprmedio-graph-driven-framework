@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Workflow"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Node/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Relation/Type: On Result"]
-version: 7
-updated_at: "2026-10-18 03:34:20 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Relation/Type: On Result"]
+version: 8
+updated_at: "2026-10-19 15:54:50 +0400"
 relations: {"method_for": ["CA-R-1570"]}
 atom_id: "CA-M-305"
 content_role: "Method"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-305-CORE_META_MODEL--write-workflow-schemes-using-step-references.md
   source_atom_id: CA-M-305
-  source_atom_revision: 7
-  source_sha256: c9da8482f01276fa4079282bd9cbd204432d347d7ca6cae8c91abe0f2c8d311d
+  source_atom_revision: 8
+  source_sha256: 1a88cc32e1f4af00fe5c8801275a5f47cd6e03fedf74568d4d427a6b72d6b3cb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

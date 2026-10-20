@@ -2,9 +2,9 @@
 subjects:
   governs: "Screen Short Names"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Project"]
-version: 7
-updated_at: "2026-10-18 07:46:50 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project"]
+version: 8
+updated_at: "2026-10-19 15:56:47 +0400"
 relations: {"child_of":["CA-M-005"],"relates_to":["CA-R-1057"]}
 atom_id: "CA-O-065"
 content_role: "Operations"

@@ -2,9 +2,9 @@
 subjects:
   governs: "Resolve Project Initialization Inputs"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Project", "Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/Projection", "Artifact Carrier"]
-version: 7
-updated_at: "2026-10-18 07:46:14 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project.Framework Settings", "Default Settings", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Projection", "Artifact Carrier"]
+version: 8
+updated_at: "2026-10-19 15:56:45 +0400"
 relations:
   child_of:
     - CA-R-1052
@@ -22,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-052-PROJECT_CONFIGURATION-ACTION--resolve-project-and-framework-settings-before-derived-structure.md
   source_atom_id: CA-O-052
-  source_atom_revision: 7
-  source_sha256: 10698e3b8ef4a9fff9982fbaae6aaf45d8f696bbcf7b847f5b11e432cffea154
+  source_atom_revision: 8
+  source_sha256: a53d1424920c4797a3c7121a478cdfe3f9b0ea1323f94a72f9d04bc78e300dc0
   original_relations_sha256: db9b6e148783ad3c9cd838e93ac305b0292907f8e82639cd9fc0e62c97bf061c
 ---
 # Summary

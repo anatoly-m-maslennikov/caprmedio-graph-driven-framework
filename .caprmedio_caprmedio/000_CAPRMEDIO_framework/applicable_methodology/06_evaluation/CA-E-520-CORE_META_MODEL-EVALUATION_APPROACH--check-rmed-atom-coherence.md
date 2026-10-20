@@ -8,18 +8,18 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 7
-updated_at: "2026-10-15 18:50:29 +0000"
+version: 9
+updated_at: "2026-10-20 03:03:30 +0400"
 subjects:
-  governs: "Entity/Continuant/Object/Atom"
+  governs: "Entity/Node/Continuant/Atom"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Subjects", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Atom.Details", "Entity/Continuant/Object/Atom.Summary", "Atom/Content Role", "Property", "Entity", "CCE", "Entity/Continuant/Object/Atom.Local Tier: Principle", "Entity/Continuant/Actor/Type: Operator", "CAPRMEDIO Framework Instance", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow"]
+    ["Entity/Node/Continuant/Atom.Subjects", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Node/Continuant/Atom.Details", "Entity/Node/Continuant/Atom.Summary", "Atom/Content Role", "Property", "Entity", "CCE", "Entity/Node/Continuant/Atom.Local Tier: Principle", "Entity/Node/Continuant/Actor/Type: Operator", "CAPRMEDIO Framework Instance", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
 relations: {"evaluation_for":["CA-D-269","CA-D-478","CA-D-479","CA-D-495","CA-M-113","CA-M-125","CA-R-1269","CA-R-1270","CA-R-1271","CA-R-1273","CA-R-1465","CA-R-1624","CA-R-1799"]}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVALUATION_APPROACH--check-rmed-atom-coherence.md
   source_atom_id: CA-E-520
-  source_atom_revision: 7
-  source_sha256: 4da76fb28c94f3620f8665a762130f2bb22ab6a4f6b82c1e2b984dc061d03403
+  source_atom_revision: 9
+  source_sha256: e7d962a27e562674e72a282fd568bcbb0e942487c5b914b60dd78e15ad1a6447
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
@@ -34,6 +34,8 @@ individual active RMED Atoms reviewed locally against their exact carried text *
 
 an RMED Atom passes this local Evaluation **only** **when** **all** of these checks pass with source evidence:
 
+For a formal R/Type: Graph Rule, apply the Properties check to CA-D-637's required Summary and operative YAML, with Semantics and Details optional. Do not require Scope, Claim or Substance sections. Check applicability from `applies_to`, the independently replaceable contribution and Summary faithfulness from the structured rule, and supporting Semantics or Details only when present. CCE applies to its readable prose; operative YAML follows the declared formal schema, without inventing support for an undeclared schema. These are the formal Rule equivalents of the local checks below, not another Claim/Scope layout. Ordinary RMED checks remain unchanged.
+
 | Check | Passing condition |
 |---|---|
 | properties | frontmatter is valid; required local Properties are present, admitted, correctly typed, **and** consistent with the body; body Properties occupy their required sections; values are **not** inferred from filenames **or** folders |
@@ -47,7 +49,7 @@ a failed check **must** identify its local source evidence, rule, **and** propos
 
 ## Details
 
-missing, duplicate, **or** misplaced headings fail Properties; they do **not** automatically block content checks. assess the complete readable text **and** cite actual passages that establish applicability, contribution, supporting detail, **and** Summary. this interpretation is review evidence, **not** a declaration that missing Property sections exist. keep the Carrier defect visible; do **not** invent headings **or** values from filenames **or** folders. **if** the content itself is absent **or** ambiguous, identify the precise unavailable evidence **or** unresolved meaning for the affected check. empty supporting content **may** satisfy Details; missing Details heading still fails Properties.
+missing, duplicate, **or** misplaced headings fail Properties; they do **not** automatically block content checks. assess the complete readable text **and** cite actual passages that establish applicability, contribution, supporting detail, **and** Summary. this interpretation is review evidence, **not** a declaration that missing Property sections exist. keep the Carrier defect visible; do **not** invent headings **or** values from filenames **or** folders. **if** the content itself is absent **or** ambiguous, identify the precise unavailable evidence **or** unresolved meaning for the affected check. empty supporting content **may** satisfy Details; a missing Details heading fails Properties only where the applicable layout requires it. For a formal Graph Rule, absent optional Semantics or Details is not a defect.
 
 this checklist has **`=3`** disjoint parts: CCE for `cce`, Properties for `properties`, **and** coherence for `scope`, `claim`, `details`, **and** `summary`. **every** part uses the same source binding **and** compact local rule pack.
 

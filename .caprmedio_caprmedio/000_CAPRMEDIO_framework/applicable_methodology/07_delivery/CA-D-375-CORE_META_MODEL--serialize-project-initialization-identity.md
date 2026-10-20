@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Settings.Project Name"
+  governs: "Entity/Node/Continuant/Project.Settings.Project Name"
   depends_on:
-    ["Entity/Continuant/Object/Project.Settings", "Entity/Continuant/Object/Project", "Project Name", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Object/Atom", "Implementation"]
-version: 14
-updated_at: "2026-10-18 07:39:42 +0400"
+    ["Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Project", "Project Name", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom", "Implementation"]
+version: 15
+updated_at: "2026-10-19 15:55:37 +0400"
 relations:
   child_of:
     - "CA-D-366"
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md
   source_atom_id: CA-D-375
-  source_atom_revision: 14
-  source_sha256: c98f2cda50dd3a8d3812d890454df8a9194f13d77f7d2504772e1aa154d273b6
+  source_atom_revision: 15
+  source_sha256: a6502f03216f8d15cc10365f2783a62133533414039ff672a7be871d506474a9
   original_relations_sha256: 60d285f0b5eadc5cfe0417918004395017eb1104d02fc3179cd56cf1f1493577
 ---
 # Summary

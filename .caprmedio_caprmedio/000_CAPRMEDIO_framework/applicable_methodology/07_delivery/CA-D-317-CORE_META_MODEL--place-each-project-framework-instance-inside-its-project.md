@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project"
+  governs: "Entity/Node/Continuant/Project"
   depends_on: []
-version: 17
-updated_at: "2026-10-18 07:36:38 +0400"
+version: 18
+updated_at: "2026-10-19 15:55:28 +0400"
 relations: {}
 atom_id: "CA-D-317"
 content_role: "Delivery"
@@ -16,8 +16,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md
   source_atom_id: CA-D-317
-  source_atom_revision: 17
-  source_sha256: e7f439971c7901f40030e35a70d9e3cad54f1344c84564a7b94feae091cdb1df
+  source_atom_revision: 18
+  source_sha256: bbd9ab71d24ea4206e891355507290b4367128ed6702332ded8d583990a1b8a2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

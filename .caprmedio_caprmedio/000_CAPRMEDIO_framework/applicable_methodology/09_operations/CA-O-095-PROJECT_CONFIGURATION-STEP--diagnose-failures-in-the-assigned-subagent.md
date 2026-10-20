@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Failure Diagnosis Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
-version: 7
-updated_at: "2026-10-19 03:09:37 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Node/Continuant/Actor/Type: AI Agent", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run"]
+version: 8
+updated_at: "2026-10-19 15:56:39 +0400"
 relations:
   relates_to:
     - CA-O-089
@@ -22,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-016-PROJECT_CONFIGURATION-WORKFLOW--implement-evaluations-before-required-behavior/CA-O-095-PROJECT_CONFIGURATION-STEP--diagnose-failures-in-the-assigned-subagent.md
   source_atom_id: CA-O-095
-  source_atom_revision: 7
-  source_sha256: d6cd25a9de0bd21651010ae1f477917f6e9894f54adfd3ac0b5d3d49ac25393a
+  source_atom_revision: 8
+  source_sha256: c06064d97a1d8651159b3af38358073670b806d36235495083ba8483942ccdb5
   original_relations_sha256: f44c9db520af7268fea8076f22c861ee76b9cf12ee645e58fa3317547c9eaf52
 ---
 # Summary

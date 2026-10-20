@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit"
+  governs: "Entity/Node/Continuant/Scope Unit"
   depends_on:
-    ["Structural Entity", "Entity/Continuant/Object/Atom"]
-version: 18
-updated_at: "2026-10-15 18:45:45 +0000"
+    ["Structural Entity", "Entity/Node/Continuant/Atom"]
+version: 19
+updated_at: "2026-10-19 15:53:59 +0400"
 relations: {}
 atom_id: "CA-R-1757"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md
   source_atom_id: CA-R-1757
-  source_atom_revision: 18
-  source_sha256: 4647e7a54e93dfb525d793ba44bfcf360c42c8726d41e7eb9112647b8dee41b3
+  source_atom_revision: 19
+  source_sha256: d18e9ccbb07a36812c2f6af178a484be21762f0b98427cf0daf4df0f0ca5022a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

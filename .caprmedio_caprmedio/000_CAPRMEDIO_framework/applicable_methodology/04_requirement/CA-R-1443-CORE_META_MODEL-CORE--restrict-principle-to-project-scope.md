@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Local Tier: Principle"
+  governs: "Entity/Node/Continuant/Atom.Local Tier: Principle"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Owning Scope Unit", "Entity/Continuant/Node/Project"]
-version: 13
-updated_at: "2026-10-18 03:33:32 +0400"
+    ["Entity/Node/Continuant/Atom.Owning Scope Unit", "Entity/Node/Continuant/Project"]
+version: 14
+updated_at: "2026-10-19 15:53:06 +0400"
 relations: {}
 atom_id: "CA-R-1443"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1443-CORE_META_MODEL-CORE--restrict-principle-to-project-scope.md
   source_atom_id: CA-R-1443
-  source_atom_revision: 13
-  source_sha256: 9f6a99251481a227975f6310a4f83baf15d150ff0b59971c2c758a7b1fdd7895
+  source_atom_revision: 14
+  source_sha256: 591a4a6ae4f5f6ed63ceaece9fbee096d5916b2b5006060abfcca1ad4b16c7a4
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

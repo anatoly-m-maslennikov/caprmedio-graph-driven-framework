@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection"
+  governs: "Entity/Node/Continuant/Projection"
   depends_on:
-    ["Artifact", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Scope Unit", "Structural Entity", "Entity/Continuant/Object/Project.Structure", "Entity/Continuant/History/Journal", "Single Source of Truth"]
-version: 22
-updated_at: "2026-10-15 18:45:42 +0000"
+    ["Artifact", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Scope Unit", "Structural Entity", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/History/Journal", "Single Source of Truth"]
+version: 23
+updated_at: "2026-10-19 15:53:57 +0400"
 relations: {}
 atom_id: "CA-R-1746"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md
   source_atom_id: CA-R-1746
-  source_atom_revision: 22
-  source_sha256: dbffc5b3eec7a533c30d61e577600f5881d011b0195a5246ab55d127cecfc33e
+  source_atom_revision: 23
+  source_sha256: f7ba68108cf2ffeff413d769c88eae6c76908e6c1d44f2209d6f06a47ff4fa7d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,9 +2,9 @@
 subjects:
   governs: Atom Tier Validation
   depends_on:
-    ["Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Atom.Local Tier", "Atom Scope", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project"]
-version: 17
-updated_at: "2026-10-15 18:49:25 +0000"
+    ["Entity/Node/Continuant/Atom.Global Tier", "Entity/Node/Continuant/Atom.Local Tier", "Atom Scope", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project"]
+version: 18
+updated_at: "2026-10-19 15:55:02 +0400"
 relations: {"evaluation_for": ["CA-R-155", "CA-R-680", "CA-R-1442", "CA-R-1443", "CA-R-1389", "CA-R-1390", "CA-R-1391", "CA-R-1392", "CA-D-285", "CA-R-1566", "CA-R-1573"]}
 atom_id: "CA-E-456"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-456-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-local-and-global-tiers.md
   source_atom_id: CA-E-456
-  source_atom_revision: 17
-  source_sha256: 23340a8f9fb7cd1553cb6966bf71987062881e0f0af2fedc72b888f04f6e6e70
+  source_atom_revision: 18
+  source_sha256: 6f3dafda6c8fd9076870875e35b080b8338fbadfa8797be104373498bfac763d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

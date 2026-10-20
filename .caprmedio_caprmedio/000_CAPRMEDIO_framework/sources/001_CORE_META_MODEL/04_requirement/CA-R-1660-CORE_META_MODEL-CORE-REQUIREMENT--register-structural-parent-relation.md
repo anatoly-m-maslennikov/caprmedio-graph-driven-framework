@@ -2,9 +2,9 @@
 subjects:
   governs: "Structural Parent Relation"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Structural Entity"]
-version: 18
-updated_at: "2026-10-15 18:45:19 +0000"
+    ["Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure", "Structural Entity"]
+version: 19
+updated_at: "2026-10-19 15:53:49 +0400"
 relations: {}
 atom_id: "CA-R-1660"
 content_role: "Requirement"

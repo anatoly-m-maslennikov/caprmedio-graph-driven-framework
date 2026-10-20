@@ -1,6 +1,6 @@
 ---
-version: 9
-updated_at: "2026-10-18 07:46:05 +0400"
+version: 10
+updated_at: "2026-10-19 15:56:43 +0400"
 relations:
   child_of:
     - CA-R-1487
@@ -10,7 +10,7 @@ relations:
 subjects:
   governs: "Select Priority-Governed Alternative"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Actor/Type: Operator", "Resolve Operator Priorities", "Project Priority Model Application", "Project Lexicographic Selection"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Resolve Operator Priorities", "Project Priority Model Application", "Project Lexicographic Selection"]
 atom_id: "CA-O-023"
 content_role: "Operations"
 current_scope_unit: PROJECT_CONFIGURATION
@@ -23,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-023-PROJECT_CONFIGURATION-ACTION--select-an-alternative-under-active-priorities.md
   source_atom_id: CA-O-023
-  source_atom_revision: 9
-  source_sha256: 3ae0f1d9e424d8a02af545cd2f6c4041568661880909bf9125ef394bd5c824ee
+  source_atom_revision: 10
+  source_sha256: f6b6c3edba8f1442bd9343c276d6bb47abf497bb2f6f8237a753e1b33d5ec00d
   original_relations_sha256: 047cd938435fe8ff2d4107ef1a67b8ae794bce6978dda89e63efeacb3951c6b3
 ---
 # Summary

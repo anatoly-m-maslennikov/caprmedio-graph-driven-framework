@@ -2,9 +2,9 @@
 subjects:
   governs: "lifecycle"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings"]
-version: 28
-updated_at: "2026-10-15 18:45:07 +0000"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Default Settings"]
+version: 29
+updated_at: "2026-10-19 15:53:45 +0400"
 relations:
   relates_to:
     - "CA-R-1439"
@@ -21,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md
   source_atom_id: CA-R-1630
-  source_atom_revision: 28
-  source_sha256: 869ba0ef5a767b8302be453ed9be4a17f00df22ed9f8b2a3a5f0a1a147425299
+  source_atom_revision: 29
+  source_sha256: 80fc44046ca8302fe054ea3f26231ae2dfa8277e59671d690e6f562494ea47ca
   original_relations_sha256: 80b2f5265b62c0afd0761c4128afd064ed11e545823c5d03cd99765f9d07b0cd
 ---
 # Summary

@@ -2,9 +2,9 @@
 subjects:
   governs: "Change Content Roles"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Concern", "Entity/Continuant/Object/Atom/Content Role: Analysis", "Entity/Continuant/Object/Atom/Content Role: Plan", "Entity/Continuant/Object/Atom/Content Role: Operations", "Spec", "Implementation"]
-version: 5
-updated_at: "2026-10-15 18:44:11 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Concern", "Entity/Node/Continuant/Atom/Content Role: Analysis", "Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom/Content Role: Operations", "Spec", "Implementation"]
+version: 6
+updated_at: "2026-10-19 15:53:25 +0400"
 relations: {"relates_to": ["CA-R-1336", "CA-R-1337", "CA-R-1338", "CA-R-1530"]}
 atom_id: "CA-R-1549"
 content_role: "Requirement"

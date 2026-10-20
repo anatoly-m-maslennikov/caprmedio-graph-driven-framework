@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Build Terms Graph"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Terms Graph"]
-version: 5
-updated_at: "2026-10-18 16:24:52 +0400"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Terms Graph"]
+version: 6
+updated_at: "2026-10-19 15:57:04 +0400"
 relations:
   relates_to: [CA-O-138, CA-R-1508, CA-R-1519, CA-R-1525, CA-R-1335, CA-R-1728]
 ---

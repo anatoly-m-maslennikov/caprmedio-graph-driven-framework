@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Plan/Type: Plan"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Plan Graph", "Entity/Continuant/Object/Atom/Content Role: Plan.Label", "Relation Kind", "Entity/Continuant/Object/Atom/Content Role: Plan.Status", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Substance"]
-version: 7
-updated_at: "2026-10-15 18:44:40 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Plan Graph", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Relation Kind", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Substance"]
+version: 8
+updated_at: "2026-10-19 15:53:35 +0400"
 relations: {"relates_to": ["CA-D-481", "CA-R-1574", "CA-R-1583"]}
 atom_id: "CA-R-1579"
 content_role: "Requirement"

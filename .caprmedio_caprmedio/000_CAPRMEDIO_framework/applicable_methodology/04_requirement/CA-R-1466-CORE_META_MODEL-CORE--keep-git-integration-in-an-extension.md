@@ -2,9 +2,9 @@
 subjects:
   governs: "Extension"
   depends_on:
-    ["Core Meta-Model", "Entity/Continuant/History/Journal", "Entity/Continuant/Projection", "Project Configuration"]
-version: 6
-updated_at: "2026-10-15 18:43:24 +0000"
+    ["Core Meta-Model", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Projection", "Project Configuration"]
+version: 7
+updated_at: "2026-10-19 15:53:11 +0400"
 relations: {}
 atom_id: "CA-R-1466"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1466-CORE_META_MODEL-CORE--keep-git-integration-in-an-extension.md
   source_atom_id: CA-R-1466
-  source_atom_revision: 6
-  source_sha256: 8da64aa7951dbc57addd560919341f1e9bf6ee83ad30214d07ff3b81f3be40fa
+  source_atom_revision: 7
+  source_sha256: 01dcc9489ced9e58f87195565217401d71892f4ffdb34b26b19890f42a994d43
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

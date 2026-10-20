@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Settings.Atom Prefix"
+  governs: "Entity/Node/Continuant/Project.Settings.Atom Prefix"
   depends_on:
-    ["Entity/Continuant/Node/Project.Settings", "Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Actor/Type: Operator"]
-version: 14
-updated_at: "2026-10-18 07:39:55 +0400"
+    ["Entity/Node/Continuant/Project.Settings", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 15
+updated_at: "2026-10-19 15:55:38 +0400"
 relations:
   child_of:
     - "CA-D-366"
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md
   source_atom_id: CA-D-376
-  source_atom_revision: 14
-  source_sha256: f41f0c95bc43eec04525664f165230705c4b432f1e1b662ebadca6d4c52ffa77
+  source_atom_revision: 15
+  source_sha256: 061b76d5e76f109369c39bcba7003e559d3c8806ecfda87f5aae5820a6876118
   original_relations_sha256: 60d285f0b5eadc5cfe0417918004395017eb1104d02fc3179cd56cf1f1493577
 ---
 # Summary

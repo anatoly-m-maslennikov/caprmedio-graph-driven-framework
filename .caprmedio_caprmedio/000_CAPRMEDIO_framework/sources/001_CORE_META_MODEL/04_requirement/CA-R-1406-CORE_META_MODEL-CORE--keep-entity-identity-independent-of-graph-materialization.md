@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity.Identity"
   depends_on:
-    ["Entity", "Entity/Continuant/Projection"]
-version: 12
-updated_at: "2026-10-16 12:08:24 +0000"
+    ["Entity", "Entity/Node/Continuant/Projection"]
+version: 13
+updated_at: "2026-10-19 15:52:59 +0400"
 relations:
   child_of:
     - CA-R-1248

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Structure"
+  governs: "Entity/Node/Continuant/Project.Structure"
   depends_on:
-    ["Entity/Carrier", "Entity/Continuant/Node/Project.Structure", "Entity/Continuant/Node/Actor/Type: Operator"]
-version: 9
-updated_at: "2026-10-18 03:34:48 +0400"
+    ["Entity/Carrier", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 10
+updated_at: "2026-10-19 15:55:48 +0400"
 relations:
   child_of:
     - "CA-D-440"
@@ -21,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-444-CORE_META_MODEL-STANDARD--separate-candidate-project-structure-from-active-authority.md
   source_atom_id: CA-D-444
-  source_atom_revision: 9
-  source_sha256: 9cfda9b89aff5aae94224145a3dfcc9284faeac710627ac0fbe42ee2375a7a2b
+  source_atom_revision: 10
+  source_sha256: da343240575da402564abd7b9aec093c7c94afc7fb70656f6a14d0c2f584a37f
   original_relations_sha256: b3dc811146ee62c18ef50f82ff64aab425c31a30946049ab1ef214daa4b99a41
 ---
 # Summary

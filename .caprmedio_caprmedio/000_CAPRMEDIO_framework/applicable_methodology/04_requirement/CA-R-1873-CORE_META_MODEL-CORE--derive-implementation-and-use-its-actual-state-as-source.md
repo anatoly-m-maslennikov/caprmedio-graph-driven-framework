@@ -9,15 +9,15 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Implementation"
-  depends_on: ["Implementation", "Entity/Continuant/Projection", "Entity/Continuant/History/Journal", "Entity/Carrier"]
-version: 4
-updated_at: "2026-10-15 18:46:10 +0000"
+  depends_on: ["Implementation", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/History/Journal", "Entity/Carrier"]
+version: 5
+updated_at: "2026-10-19 15:54:07 +0400"
 relations: {relates_to: [CA-R-1470, CA-R-1746, CA-R-1343]}
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md
   source_atom_id: CA-R-1873
-  source_atom_revision: 4
-  source_sha256: 85e0161211b0c490cabae80cb1af0d70f9cc59a08583b9b0b5d2bf934db8bc2b
+  source_atom_revision: 5
+  source_sha256: f220030455707282f091d9d97ee1a04f5b74f168dda42ac7505315d828bc4cde
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

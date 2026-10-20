@@ -12,16 +12,16 @@ subjects:
   governs: "Atom/Content Role: Analysis/Type: FPF Analysis Report"
   depends_on:
     - "Artifact/Revision"
-    - "Carrier"
-version: 1
-updated_at: "2026-10-05 23:46:22 +0400"
+    - "Entity/Carrier"
+version: 2
+updated_at: "2026-10-19 15:56:18 +0400"
 relations:
   evaluation_for: ["CA-R-1889"]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-QA_CASE--check-fpf-analysis-report-imports.md
   source_atom_id: CA-E-588
-  source_atom_revision: 1
-  source_sha256: 992de8cbc5bd753cd46e693b4223ab91d04c74f46d48be97d77f7258de0195ed
+  source_atom_revision: 2
+  source_sha256: 672d5b416e2a45449d31f1c817d029e58b016d324cd504d29be4ac47461c7e4b
   original_relations_sha256: 959b6b66b714bafc7e0737a40201ef12644e0e8c6f29681b7f4d735ec3bc48c9
 ---
 # Summary

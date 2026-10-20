@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Property Default"
   depends_on:
-    ["Property", "Atom Property Default", "Entity/Continuant/Object/Atom.Property", "Autonomous Confidence Threshold", "Implementation Retry Limit"]
-version: 6
-updated_at: "2026-10-15 18:52:22 +0000"
+    ["Property", "Atom Property Default", "Entity/Node/Continuant/Atom.Property", "Autonomous Confidence Threshold", "Implementation Retry Limit"]
+version: 7
+updated_at: "2026-10-19 15:55:59 +0400"
 relations: {"relates_to": ["CA-D-478", "CA-D-472", "CA-D-447"]}
 atom_id: "CA-D-485"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md
   source_atom_id: CA-D-485
-  source_atom_revision: 6
-  source_sha256: 1e7983142bb55b2316d19ebdaf28572a38e22d23f61cc09b7f89fd3e35f92072
+  source_atom_revision: 7
+  source_sha256: 2a6e4f869a5b58e0da8b6e8d13c078327920bd80a3126eb1f90bbc0a3a606dcf
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

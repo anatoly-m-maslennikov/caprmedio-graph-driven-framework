@@ -10,16 +10,16 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Project Structure Maintenance Preparation Step"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Agentic Step Execution Context"]
-version: 5
-updated_at: "2026-10-18 16:25:48 +0400"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Agentic Step Execution Context"]
+version: 6
+updated_at: "2026-10-19 15:57:05 +0400"
 relations:
   relates_to: [CA-O-015, CA-O-012, CA-O-139, CA-R-1509, CA-R-1510, CA-R-1511, CA-R-1527]
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-140-PROJECT_CONFIGURATION-STEP--prepare-project-structure-maintenance-change.md
   source_atom_id: CA-O-140
-  source_atom_revision: 5
-  source_sha256: 47ef970994d473a79b841bad3d09fdd04274d923226dd1acdcdea1af24c5c839
+  source_atom_revision: 6
+  source_sha256: 2e420c8b0c23bd98d591744f9148cc83650966f4a875c92e31cfa6ee270d1d6b
   original_relations_sha256: f814cbea998ed9ed755793a97dd77377d892bc42a447d4ef31cdf1510f4cbb35
 ---
 # Summary

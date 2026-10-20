@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Framework Settings"
+  governs: "Entity/Node/Continuant/Project.Framework Settings"
   depends_on:
-    ["Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Projection"]
-version: 23
-updated_at: "2026-10-18 03:33:46 +0400"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Projection"]
+version: 24
+updated_at: "2026-10-19 15:53:45 +0400"
 relations: {}
 atom_id: "CA-R-1631"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-REQUIREMENT--configure-optional-projection-activation.md
   source_atom_id: CA-R-1631
-  source_atom_revision: 23
-  source_sha256: 7ecbb885dd63ca6c15667fcf5691c4a88eb0c8d7cc1de182edbd96c6a3579501
+  source_atom_revision: 24
+  source_sha256: 12026cb6a3f111107ea3f4138e0d6ab63876d6e4e48c3c0640b096e0b5d31cc9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

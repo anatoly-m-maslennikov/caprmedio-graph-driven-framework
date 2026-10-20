@@ -10,9 +10,9 @@ author: "Anatoly Maslennikov"
 subjects:
   governs: "Entity/Carrier"
   depends_on:
-    - "Entity/Continuant/Node/History/Journal"
-version: 3
-updated_at: "2026-10-18 03:35:01 +0400"
+    - "Entity/Node/Continuant/History/Journal"
+version: 4
+updated_at: "2026-10-19 15:56:25 +0400"
 relations: {}
 ---
 # Summary

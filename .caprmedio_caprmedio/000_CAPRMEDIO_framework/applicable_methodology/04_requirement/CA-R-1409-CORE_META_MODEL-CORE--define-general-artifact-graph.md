@@ -2,9 +2,9 @@
 subjects:
   governs: "General Artifact Graph"
   depends_on:
-    ["Artifact", "Structural Entity", "Entity/Continuant/Object/Scope Unit", "Container Atom", "Entity/Carrier", "CAPRMEDIO Graph", "Structural Entity Direct Containment", "Entity/Continuant/Object/Atom", "Entity/Continuant/History/Journal", "Entity/Continuant/Projection"]
-version: 10
-updated_at: "2026-10-15 18:42:45 +0000"
+    ["Artifact", "Structural Entity", "Entity/Node/Continuant/Scope Unit", "Container Atom", "Entity/Carrier", "CAPRMEDIO Graph", "Structural Entity Direct Containment", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/Projection"]
+version: 11
+updated_at: "2026-10-19 15:53:00 +0400"
 relations: {}
 atom_id: "CA-R-1409"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md
   source_atom_id: CA-R-1409
-  source_atom_revision: 10
-  source_sha256: 9ee33d1889ab25ca49e6e7789e0f287de3e648aedac46c73f73e9b306fed6aa7
+  source_atom_revision: 11
+  source_sha256: 13b1d029fa2b4b4939befe409b1ea5d2608c8bce8ce687aa71924c646264daf1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

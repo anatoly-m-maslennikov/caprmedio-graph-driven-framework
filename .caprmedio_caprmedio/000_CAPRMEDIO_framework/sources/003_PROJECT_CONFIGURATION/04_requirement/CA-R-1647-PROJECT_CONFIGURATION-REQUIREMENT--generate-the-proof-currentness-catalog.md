@@ -2,25 +2,19 @@
 subjects:
   governs: "evaluation"
   depends_on: []
-version: 18
-updated_at: "2026-10-03 01:31:08 +0400"
+version: 19
+updated_at: "2026-10-19 14:46:22 +0400"
 relations:
   resolution_of:
     - CAPRMEDIO-GOV-CONC-054--how-should-proof-currentness-be-represented
 atom_id: "CA-R-1647"
 content_role: "Requirement"
-current_scope_unit: "CORE_META_MODEL"
-claim_target_scope_unit: "CORE_META_MODEL"
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 local_tier: "Standard"
 status: "Active"
 author: "Anatoly Maslennikov"
 global_tier: 11
-projection:
-  source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1647-CORE_META_MODEL-REQUIREMENT--generate-the-proof-currentness-catalog.md
-  source_atom_id: CA-R-1647
-  source_atom_revision: 18
-  source_sha256: 1e5fe234fc77b0b02471640d9553c6affdd2a599bbefb17a913dbf46f8e25bba
-  original_relations_sha256: f92866e80ecae21a57cc95ee6a0987c0e7890e086be2a2dcc34ad89fee8fffa1
 ---
 # Summary
 

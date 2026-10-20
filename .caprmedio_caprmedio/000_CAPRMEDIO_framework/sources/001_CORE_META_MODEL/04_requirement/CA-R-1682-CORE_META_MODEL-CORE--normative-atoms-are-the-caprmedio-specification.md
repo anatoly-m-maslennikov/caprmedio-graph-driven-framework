@@ -2,9 +2,9 @@
 subjects:
   governs: "authority"
   depends_on:
-    ["Spec Content Roles", "Change Content Roles", "Entity", "Implementation", "Entity/Continuant/History/Journal.Record"]
-version: 25
-updated_at: "2026-10-15 18:45:22 +0000"
+    ["Spec Content Roles", "Change Content Roles", "Entity", "Implementation", "Entity/Node/Continuant/History/Journal.Record"]
+version: 26
+updated_at: "2026-10-19 15:53:50 +0400"
 relations:
   child_of:
     - CA-M-001

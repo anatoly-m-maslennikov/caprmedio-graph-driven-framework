@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Tier Validation.Concrete Cases"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit", "Subtree-targeting Atoms", "Atom/Content Role", "Entity/Continuant/Object/Atom.Status", "Evaluation For Relation", "Methodology Source.Expansion Boundary", "Entity/Continuant/Object/Project.Framework Settings"]
-version: 19
-updated_at: "2026-10-15 18:49:21 +0000"
+    ["Entity/Node/Continuant/Atom.Local Tier", "Entity/Node/Continuant/Atom.Global Tier", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Target Scope Unit", "Subtree-targeting Atoms", "Atom/Content Role", "Entity/Node/Continuant/Atom.Status", "Evaluation For Relation", "Methodology Source.Expansion Boundary", "Entity/Node/Continuant/Project.Framework Settings"]
+version: 20
+updated_at: "2026-10-19 15:55:01 +0400"
 relations:
   evaluation_for:
     - CA-R-1402

@@ -2,9 +2,9 @@
 subjects:
   governs: "Applicable Methodology Compilation"
   depends_on:
-    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set", "Project Configuration", "Extension", "Entity/Continuant/Object/Project.Framework Settings", "Methodology Source.Expansion Boundary", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal.Record"]
-version: 24
-updated_at: "2026-10-18 07:44:31 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set", "Project Configuration", "Extension", "Entity/Node/Continuant/Project.Framework Settings", "Methodology Source.Expansion Boundary", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal.Record"]
+version: 25
+updated_at: "2026-10-19 15:56:15 +0400"
 relations:
   evaluation_for:
     - CA-D-305
@@ -27,8 +27,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md
   source_atom_id: CA-E-379
-  source_atom_revision: 24
-  source_sha256: 464e327e94ff781d9f2cb424ddb421f0e097479834d96fe0a27704616b0aaeb4
+  source_atom_revision: 25
+  source_sha256: 5255d15b42376ce5bdfd4a3931c179d1e1ec4c6cf96042ae42fb89a2f2ab5541
   original_relations_sha256: 4d75dd368f1379a3981e2860afca1b710fa2dfb2213461b7d467333060bf8338
 ---
 # Summary

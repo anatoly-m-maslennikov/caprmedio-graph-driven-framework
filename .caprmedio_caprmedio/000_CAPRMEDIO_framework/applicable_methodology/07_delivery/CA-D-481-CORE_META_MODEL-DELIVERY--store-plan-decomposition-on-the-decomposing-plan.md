@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Plan"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Plan"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom.ID", "Entity/Carrier/Directory Carrier"]
-version: 8
-updated_at: "2026-10-18 03:34:52 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom.ID", "Entity/Carrier/Directory Carrier"]
+version: 9
+updated_at: "2026-10-19 15:55:57 +0400"
 relations: {"relates_to": ["CA-R-1579", "CA-R-117", "CA-R-118", "CA-D-268", "CA-D-460", "CA-D-475"]}
 atom_id: "CA-D-481"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-481-CORE_META_MODEL-DELIVERY--store-plan-decomposition-on-the-decomposing-plan.md
   source_atom_id: CA-D-481
-  source_atom_revision: 8
-  source_sha256: 53d2074b099edbf38a72239a79f031f96f7280452512d6694de21282d8a0183b
+  source_atom_revision: 9
+  source_sha256: 5ffc83dc1fe9564a6c348866acb0a91b0c489fc29524d5b2c5eb09ad430d81f3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Framework Settings"
+  governs: "Entity/Node/Continuant/Project.Framework Settings"
   depends_on:
-    ["Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Project.Framework Settings.Interaction.Reporting Mode"]
-version: 16
-updated_at: "2026-10-18 07:32:32 +0400"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Project.Framework Settings.Interaction.Reporting Mode"]
+version: 17
+updated_at: "2026-10-19 15:55:40 +0400"
 relations:
   child_of:
     - CA-D-361
@@ -22,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md
   source_atom_id: CA-D-383
-  source_atom_revision: 16
-  source_sha256: 5bf469281d1a6983612a7ef26bc6c35a6c38616a3bbea2ef0c49a10c21e75fa1
+  source_atom_revision: 17
+  source_sha256: f5e47ed084a8647239c961d1c7328d2191b6c200374a84707e263c64d0b0b398
   original_relations_sha256: f35ab4d15e0ddafd47faf74ffa94717141e3d1f8a5764928d58928f822191627
 ---
 # Summary

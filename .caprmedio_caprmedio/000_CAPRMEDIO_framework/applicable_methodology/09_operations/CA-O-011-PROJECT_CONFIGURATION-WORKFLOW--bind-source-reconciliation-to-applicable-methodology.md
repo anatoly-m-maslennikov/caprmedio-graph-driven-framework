@@ -2,9 +2,9 @@
 subjects:
   governs: "Applicable Methodology Compilation"
   depends_on:
-    ["Relation/Type: On Result", "Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Source Reconciliation", "Entity/Continuant/Projection/Type: Applicable Methodology", "Methodology Source", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Framework Settings", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Actor/Type: Operator", "Applicable Methodology Source Frontier Digest", "Entity/Continuant/History/Journal.Record"]
-version: 15
-updated_at: "2026-10-19 03:06:00 +0400"
+    ["Relation/Type: On Result", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Source Reconciliation", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Methodology Source", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Framework Settings", "Extension", "Project Configuration", "Methodology Source.Expansion Boundary", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Actor/Type: Operator", "Applicable Methodology Source Frontier Digest", "Entity/Node/Continuant/History/Journal.Record"]
+version: 16
+updated_at: "2026-10-19 15:56:32 +0400"
 relations: {}
 atom_id: "CA-O-011"
 content_role: "Operations"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-011-PROJECT_CONFIGURATION-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md
   source_atom_id: CA-O-011
-  source_atom_revision: 15
-  source_sha256: 4ad1ccf81df5e22e954461b04a05d64e060e8da865171af5bf022887153273f0
+  source_atom_revision: 16
+  source_sha256: bdf82b8d5331fb425adc34360277bc39fbe6babcb18fda358e1484c0069e8427
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

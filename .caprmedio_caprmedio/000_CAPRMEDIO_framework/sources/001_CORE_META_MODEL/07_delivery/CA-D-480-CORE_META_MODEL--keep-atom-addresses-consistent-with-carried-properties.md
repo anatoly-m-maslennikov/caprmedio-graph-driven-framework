@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Property"
+  governs: "Entity/Node/Continuant/Atom.Property"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Property", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Status", "Entity/Carrier/File Carrier"]
-version: 7
-updated_at: "2026-10-16 12:09:36 +0000"
+    ["Entity/Node/Continuant/Atom.Property", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/Atom.Status", "Entity/Carrier/File Carrier"]
+version: 8
+updated_at: "2026-10-19 15:55:57 +0400"
 relations: {"relates_to": ["CA-D-478", "CA-D-282", "CA-D-466"]}
 atom_id: "CA-D-480"
 content_role: "Delivery"

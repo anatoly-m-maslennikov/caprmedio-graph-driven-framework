@@ -2,9 +2,9 @@
 subjects:
   governs: "Reconcile Atom Properties and Addresses"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Property", "Entity/Continuant/History/Revision/Type: Atom", "Entity/Continuant/Object/Atom.Summary", "Entity/Carrier", "Entity/Continuant/Actor/Type: Operator"]
-version: 8
-updated_at: "2026-10-18 07:47:00 +0400"
+    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Property", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Node/Continuant/Atom.Summary", "Entity/Carrier", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 9
+updated_at: "2026-10-19 15:56:47 +0400"
 relations: {"relates_to": ["CA-R-1598", "CA-D-478", "CA-D-479", "CA-D-480", "CA-D-481", "CA-R-1464"]}
 atom_id: "CA-O-077"
 content_role: "Operations"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-077-PROJECT_CONFIGURATION-ACTION--reconcile-atom-properties-and-addresses-together.md
   source_atom_id: CA-O-077
-  source_atom_revision: 8
-  source_sha256: 2d0a176fa90bda183a4dd0112fbb396d816580fab5d1f76a4c3785d13213dbd4
+  source_atom_revision: 9
+  source_sha256: aceb4b985e3fbf67a32fe4ea6425c48d6cb5923aca6fd644249e7b4133d58a3e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

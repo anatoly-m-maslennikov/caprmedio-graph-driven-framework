@@ -11,13 +11,13 @@ subjects:
   governs: Entity/Carrier
   depends_on:
   - Entity
-  - "Entity/Continuant/Relation/Type: CARRIES"
-  - "Entity/Continuant/Node/History/Revision"
+  - "Entity/Relation/Type: CARRIES"
+  - "Entity/Node/Continuant/History/Revision"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:56 +0400"
+version: 3
+updated_at: "2026-10-19 15:56:03 +0400"
 ---
 # Summary
 

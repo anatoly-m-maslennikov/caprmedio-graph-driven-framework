@@ -8,17 +8,17 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/History/Revision/Type: Atom"
+  governs: "Entity/Node/Continuant/History/Revision/Type: Atom"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:02 +0400"
+version: 3
+updated_at: "2026-10-19 15:54:10 +0400"
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1960-CORE_META_MODEL--define-entity-continuant-history-revision-type-atom.md
   source_atom_id: CA-R-1960
-  source_atom_revision: 2
-  source_sha256: 23bff5ca3d9c989546a4ff5681fff914e54d8f799c4094fb607f52055ac14fa0
+  source_atom_revision: 3
+  source_sha256: 8d047e358398333553abf7e9bc538a8dd8bd7eae960918a5dd135649e3703a8b
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 # Summary

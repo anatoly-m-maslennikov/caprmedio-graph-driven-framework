@@ -2,9 +2,9 @@
 subjects:
   governs: "Evaluation CCE Role Profile"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "CCE Operator", "Condition Expression"]
-version: 7
-updated_at: "2026-10-15 18:48:42 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Evaluation", "CCE Operator", "Condition Expression"]
+version: 8
+updated_at: "2026-10-19 15:54:52 +0400"
 relations:
   child_of:
     - CA-M-307
@@ -23,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/05_method/CA-M-312-CORE_META_MODEL--write-evaluation-claims-with-the-evaluation-cce-profile.md
   source_atom_id: CA-M-312
-  source_atom_revision: 7
-  source_sha256: 9b3eed42a6d93b007c272eec5a54d1008bb978c20007ffb205b7796d8925800d
+  source_atom_revision: 8
+  source_sha256: b5f97dbce46eb47810a4ef1db205adf5867c1b286431cf070d2d6df9576cec45
   original_relations_sha256: aa462ce019b270814426d94414797841ce61d6b116880fca29408163fa1e02c5
 ---
 # Summary

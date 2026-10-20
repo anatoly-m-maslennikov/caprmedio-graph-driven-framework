@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Relation/Type: child_of"
+  governs: "Entity/Relation/Type: child_of"
   depends_on:
-  - "Entity/Continuant/Node/Atom.Global Tier"
-  - "Entity/Continuant/Node/Atom.Owning Scope Unit"
-  - "Entity/Continuant/Node/Atom.Target Scope Unit"
-  - "Entity/Continuant/Node/Atom.Substance Scope"
-version: 22
-updated_at: "2026-10-18 03:34:11 +0400"
+  - "Entity/Node/Continuant/Atom.Global Tier"
+  - "Entity/Node/Continuant/Atom.Owning Scope Unit"
+  - "Entity/Node/Continuant/Atom.Target Scope Unit"
+  - "Entity/Node/Continuant/Atom.Substance Scope"
+version: 23
+updated_at: "2026-10-19 15:54:23 +0400"
 relations:
   child_of:
     - CA-R-1174
@@ -22,8 +22,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md
   source_atom_id: CA-R-796
-  source_atom_revision: 22
-  source_sha256: 0bab1c114661681d18ad68c62d702962ebfda7511fc466caf79d53b9a5f14fc6
+  source_atom_revision: 23
+  source_sha256: 0a3a51c9f7854d1d22894b2afba837f9cbc919f8cb35b11ea15a4179de77b580
   original_relations_sha256: 4bbb4b930b4dba68ac5f2807086aabe7e4a23f53f26d95b54808e5edf87dfb4f
 ---
 # Summary

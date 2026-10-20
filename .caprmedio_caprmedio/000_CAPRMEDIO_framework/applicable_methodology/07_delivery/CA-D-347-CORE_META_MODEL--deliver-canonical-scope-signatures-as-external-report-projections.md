@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection/Type: Canonical Scope Signature"
+  governs: "Entity/Node/Continuant/Projection/Type: Canonical Scope Signature"
   depends_on:
-    ["Entity/Continuant/Node/Projection/Type: Canonical Scope Signature", "Entity/Carrier"]
-version: 15
-updated_at: "2026-10-18 03:34:40 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Canonical Scope Signature", "Entity/Carrier"]
+version: 16
+updated_at: "2026-10-19 15:55:32 +0400"
 relations:
   child_of:
     - CA-D-266
@@ -19,8 +19,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md
   source_atom_id: CA-D-347
-  source_atom_revision: 15
-  source_sha256: 42d21839c4a5b2ef55391f66d83fe7c2449b3f32fe6719ca11daece8ae88877f
+  source_atom_revision: 16
+  source_sha256: deaabc3990ca6acab8dd764ffe6b24321cfd1729be3a4977474f7ae70a64bc9d
   original_relations_sha256: 27960d084ae992c89042523b783c283ce26a91ac1b1473d8e6f3ba8c73dade11
 ---
 # Summary

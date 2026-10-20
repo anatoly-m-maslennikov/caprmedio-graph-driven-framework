@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Summary"
+  governs: "Entity/Node/Continuant/Atom.Summary"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Summary"]
-version: 15
-updated_at: "2026-10-18 03:34:33 +0400"
+    ["Entity/Node/Continuant/Atom.Summary"]
+version: 16
+updated_at: "2026-10-19 15:55:21 +0400"
 relations: {}
 atom_id: "CA-D-282"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-282-CORE_META_MODEL-DELIVERY--serialize-filename-summary-slug-from-summary.md
   source_atom_id: CA-D-282
-  source_atom_revision: 15
-  source_sha256: 8d1833be409cbe566b51c75ec416605fbe12401668045e38f8f09b08e4f4aeef
+  source_atom_revision: 16
+  source_sha256: 165368e82743f944f9b9f99d3b7d8da47ae76fc8f32ecc1cdb8e5ac9dd67acba
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

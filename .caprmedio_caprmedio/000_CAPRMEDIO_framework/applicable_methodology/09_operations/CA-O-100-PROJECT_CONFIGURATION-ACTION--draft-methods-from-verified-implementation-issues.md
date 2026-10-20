@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Method Lesson Drafting"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent"]
-version: 6
-updated_at: "2026-10-18 07:47:46 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent"]
+version: 7
+updated_at: "2026-10-19 15:56:51 +0400"
 relations:
   relates_to:
     - CA-O-090
@@ -23,8 +23,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-100-PROJECT_CONFIGURATION-ACTION--draft-methods-from-verified-implementation-issues.md
   source_atom_id: CA-O-100
-  source_atom_revision: 6
-  source_sha256: fce0b6a3f865fefa7d304094535ef7a11fa3c141e424408a3f94c431f09f6aec
+  source_atom_revision: 7
+  source_sha256: 1124a62e573da7a91053ed7be61d376af964f5d5479a2fbb6dbfe77f0843af74
   original_relations_sha256: b2489f323a77e636b921e72f37bc2992e015b00afb6db114252392e02cf825d6
 ---
 # Summary

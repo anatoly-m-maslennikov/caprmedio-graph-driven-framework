@@ -10,18 +10,18 @@ author: "Anatoly Maslennikov"
 subjects:
   governs: "Logging Policy"
   depends_on:
-    - "Carrier"
+    - "Entity/Carrier"
     - "Evaluation Control"
     - "Implementation"
     - "Projection/Type: Catalog"
-version: 1
-updated_at: "2026-09-28 15:12:22 +0400"
+version: 2
+updated_at: "2026-10-19 15:56:10 +0400"
 relations: {}
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1779-PROJECT_CONFIGURATION--require-production-logging-policies.md
   source_atom_id: CA-R-1779
-  source_atom_revision: 1
-  source_sha256: 65ee89fdf890cbaf62747b77d301c47f0f1027f41400da532c36be1a64f114b1
+  source_atom_revision: 2
+  source_sha256: 084be0f04bfc73030caec0df132f9af3abd56ab970b78a40c3290a71dccbe009
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

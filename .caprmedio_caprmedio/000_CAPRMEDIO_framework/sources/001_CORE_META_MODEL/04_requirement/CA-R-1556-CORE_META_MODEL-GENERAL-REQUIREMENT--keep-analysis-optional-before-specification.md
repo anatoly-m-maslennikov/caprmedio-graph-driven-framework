@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor/Type: AI Agent"
+  governs: "Entity/Node/Continuant/Actor/Type: AI Agent"
   depends_on:
-    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Spec", "Entity/Continuant/Object/Atom.Substance", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Analysis/Type: Analysis Report"]
-version: 7
-updated_at: "2026-10-15 18:44:21 +0000"
+    ["Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Spec", "Entity/Node/Continuant/Atom.Substance", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Analysis/Type: Analysis Report"]
+version: 8
+updated_at: "2026-10-19 15:53:28 +0400"
 relations: {"child_of":["CA-R-1702"]}
 atom_id: "CA-R-1556"
 content_role: "Requirement"

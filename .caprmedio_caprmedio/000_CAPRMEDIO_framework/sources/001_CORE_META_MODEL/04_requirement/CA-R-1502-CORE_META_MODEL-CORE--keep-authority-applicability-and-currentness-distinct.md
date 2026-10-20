@@ -2,9 +2,9 @@
 subjects:
   governs: "Artifact"
   depends_on:
-    ["Artifact/Authority", "Artifact/Applicability", "Artifact/Currentness", "Artifact/Revision", "Entity/Continuant/Projection", "Provenance", "Atom/Content Role: Implementation", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Property", "Atom/Claim", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Atom/Content Role: Operations"]
-version: 6
-updated_at: "2026-10-15 18:43:44 +0000"
+    ["Artifact/Authority", "Artifact/Applicability", "Artifact/Currentness", "Artifact/Revision", "Entity/Node/Continuant/Projection", "Provenance", "Atom/Content Role: Implementation", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Property", "Atom/Claim", "Entity/Node/Continuant/Atom/Content Role: Requirement", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Entity/Node/Continuant/Atom/Content Role: Operations"]
+version: 7
+updated_at: "2026-10-19 15:53:16 +0400"
 relations: {child_of: [CA-M-001]}
 atom_id: "CA-R-1502"
 content_role: "Requirement"

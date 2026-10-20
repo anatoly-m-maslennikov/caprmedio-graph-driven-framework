@@ -2,9 +2,9 @@
 subjects:
   governs: "Canonical Scope Signature Derivation Validation"
   depends_on:
-    ["Scope Expression", "Entity/Continuant/Projection/Type: Canonical Scope Signature", "Atom Carrier"]
-version: 12
-updated_at: "2026-10-15 18:49:13 +0000"
+    ["Scope Expression", "Entity/Node/Continuant/Projection/Type: Canonical Scope Signature", "Atom Carrier"]
+version: 13
+updated_at: "2026-10-19 15:54:59 +0400"
 relations:
   evaluation_for:
     - CA-R-1361
@@ -21,8 +21,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-EVALUATION_APPROACH--validate-canonical-scope-signature-boundary.md
   source_atom_id: CA-E-407
-  source_atom_revision: 12
-  source_sha256: 25773cd6b893cc0e24a4a703abe2f3d87bb3c1b4fed9a30c2f86303df4af1f79
+  source_atom_revision: 13
+  source_sha256: 038dec864eac6d03a8eb2540d94624de69fc474c02318388cdfcf192b2f6de60
   original_relations_sha256: 9f42961de2ab19ebbf0721ed15ec0f854c9df12d1ec58d3936ae5b5e57ad4922
 ---
 # Summary

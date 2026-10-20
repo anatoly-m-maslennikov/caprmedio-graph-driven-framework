@@ -2,9 +2,9 @@
 subjects:
   governs: "Confidence Threshold.Resolution Validation"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Confidence Threshold", "Autonomous Confidence Threshold", "Entity/Continuant/Actor/Type: Operator", "Hub Atom", "Entity/Continuant/Object/Project.Framework Settings", "Property", "Entity/Continuant/Object/Atom/Content Role: Concern", "Entity/Carrier"]
-version: 12
-updated_at: "2026-10-15 18:49:17 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Confidence Threshold", "Autonomous Confidence Threshold", "Entity/Node/Continuant/Actor/Type: Operator", "Hub Atom", "Entity/Node/Continuant/Project.Framework Settings", "Property", "Entity/Node/Continuant/Atom/Content Role: Concern", "Entity/Carrier"]
+version: 13
+updated_at: "2026-10-19 15:55:00 +0400"
 relations: {"evaluation_for":["CA-R-1587","CA-R-1044","CA-R-1045","CA-R-1427","CA-R-1428","CA-M-271","CA-R-1591","CA-D-472","CA-D-485","CA-R-1713"]}
 atom_id: "CA-E-443"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-QA_CASE--validate-confidence-threshold-precedence-and-inheritance.md
   source_atom_id: CA-E-443
-  source_atom_revision: 12
-  source_sha256: 8fb87bb0b80c3d6e6523c1cec1b159f7b0230816946b802926fc1d3e2e76b36a
+  source_atom_revision: 13
+  source_sha256: c49f4f044cdf059fe09a508f284eb5334ecd7fdd299ef5004954e066adf6769e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

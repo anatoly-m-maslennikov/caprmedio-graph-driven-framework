@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Delivery.Status"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Delivery.Status"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Delivery"]
-version: 12
-updated_at: "2026-10-18 03:33:28 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Delivery"]
+version: 13
+updated_at: "2026-10-19 15:52:58 +0400"
 relations: {}
 atom_id: "CA-R-1399"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md
   source_atom_id: CA-R-1399
-  source_atom_revision: 12
-  source_sha256: 724d5d37f194223b0427230b5278497a3aa389c2dce16c2d6f1dc77f9915fb55
+  source_atom_revision: 13
+  source_sha256: 0bf0f07fdd885aed908fa8f1c3746e885c8e0c66ce3ce7d0904b2ce746c5dc0c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -2,9 +2,9 @@
 subjects:
   governs: "semantics"
   depends_on:
-    ["Atom/Content Role", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Actor", "Entity/Continuant/History/Journal.Record", "Entity/Continuant/Object/Relation"]
-version: 28
-updated_at: "2026-10-15 18:45:27 +0000"
+    ["Atom/Content Role", "Implementation", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Actor", "Entity/Node/Continuant/History/Journal.Record", "Entity/Relation"]
+version: 29
+updated_at: "2026-10-19 15:53:52 +0400"
 relations:
   child_of:
     - CA-M-001

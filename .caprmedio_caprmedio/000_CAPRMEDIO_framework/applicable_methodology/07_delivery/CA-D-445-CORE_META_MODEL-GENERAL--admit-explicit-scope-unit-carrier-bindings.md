@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit"
+  governs: "Entity/Node/Continuant/Scope Unit"
   depends_on:
-    ["Entity/Continuant/Object/Project.Structure", "Entity/Carrier", "Implementation Folder"]
-version: 6
-updated_at: "2026-10-15 18:52:00 +0000"
+    ["Entity/Node/Continuant/Project.Structure", "Entity/Carrier", "Implementation Folder"]
+version: 7
+updated_at: "2026-10-19 15:55:49 +0400"
 relations:
   relates_to:
     - "CA-R-862"
@@ -23,8 +23,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-445-CORE_META_MODEL-GENERAL--admit-explicit-scope-unit-carrier-bindings.md
   source_atom_id: CA-D-445
-  source_atom_revision: 6
-  source_sha256: 8dc063768c8494e53c148332fdffdb7ef4943427cf62488a8772c343658ec8f8
+  source_atom_revision: 7
+  source_sha256: bb80d77e73d1afd9d830f609fd34eb47f1c0f094aab98b9af8c753bc803c3442
   original_relations_sha256: a630e062087293cb66bd50672ef10690e102d630295b7ff040265eaaef88500e
 ---
 # Summary

@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Method Lesson Drafting Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run"]
-version: 6
-updated_at: "2026-10-19 03:12:19 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Agentic Step Execution Context", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run"]
+version: 7
+updated_at: "2026-10-19 15:56:52 +0400"
 relations:
   relates_to:
     - CA-O-100
@@ -22,8 +22,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-102-PROJECT_CONFIGURATION-WORKFLOW--learn-methods-from-verified-implementation-issues/CA-O-101-PROJECT_CONFIGURATION-STEP--draft-methods-in-a-separate-learning-run.md
   source_atom_id: CA-O-101
-  source_atom_revision: 6
-  source_sha256: ca09965385050d40ff7023f6e48895c24b4b6e8cc0b50d046fdb6eacf14ebf37
+  source_atom_revision: 7
+  source_sha256: 80126b7a61effbb044878e9630cd4726358df73d385cc99bbbd2e50aad1b9bf0
   original_relations_sha256: a0977c00fef855cb75511ef588cc370e664b81c980df0701e9805008dbd3288c
 ---
 # Summary

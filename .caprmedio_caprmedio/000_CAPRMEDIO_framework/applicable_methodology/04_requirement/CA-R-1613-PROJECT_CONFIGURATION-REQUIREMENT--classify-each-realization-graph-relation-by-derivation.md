@@ -11,10 +11,10 @@ subjects:
   depends_on:
     - "Evidence"
     - "Projection"
-    - "Relation"
+    - "Entity/Relation"
     - "Relation Derivation Class"
-version: 4
-updated_at: "2026-10-03 00:55:03 +0400"
+version: 5
+updated_at: "2026-10-19 15:56:06 +0400"
 relations:
   relates_to:
     - CA-R-1616
@@ -25,8 +25,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1613-PROJECT_CONFIGURATION-REQUIREMENT--classify-each-realization-graph-relation-by-derivation.md
   source_atom_id: CA-R-1613
-  source_atom_revision: 4
-  source_sha256: 47b0fc650b5ad10e315e762a3101c3306f0ec74a19f3ab1509d692d91f5ed206
+  source_atom_revision: 5
+  source_sha256: 028f6a6a230d74d7b3ffd25d5d1a35d29290e79d01266f5ff7e699324a7018ee
   original_relations_sha256: 9498a3bf925a4c9ab02a1ce984d38e81a4cea3f350b87deeacc61ca5f1581a30
 ---
 # Summary

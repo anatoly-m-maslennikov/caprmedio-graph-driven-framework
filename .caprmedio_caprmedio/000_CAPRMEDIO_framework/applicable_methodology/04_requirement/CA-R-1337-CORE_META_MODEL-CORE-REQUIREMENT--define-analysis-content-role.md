@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Analysis"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Analysis"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role", "Entity/Continuant/Node/Atom.Substance"]
-version: 14
-updated_at: "2026-10-18 03:33:22 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role", "Entity/Node/Continuant/Atom.Substance"]
+version: 15
+updated_at: "2026-10-19 15:52:49 +0400"
 relations: {}
 atom_id: "CA-R-1337"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md
   source_atom_id: CA-R-1337
-  source_atom_revision: 14
-  source_sha256: c1cda848a24a8cc9c934169142fc211dd9a3a1cbc42f9f1ddc5d5ec215cc3006
+  source_atom_revision: 15
+  source_sha256: b7dda1887a2b9a2bab0f419c8412f8dec507762856980a3877e2b914e9b092d1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

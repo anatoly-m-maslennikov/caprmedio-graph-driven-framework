@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Status: Backlog"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Plan.Status: Backlog"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom/Content Role: Plan.Label", "Entity/Continuant/Node/Atom/Content Role: Plan.Status", "Entity/Carrier/Directory Carrier"]
-version: 8
-updated_at: "2026-10-18 03:34:52 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Carrier/Directory Carrier"]
+version: 9
+updated_at: "2026-10-19 15:55:55 +0400"
 relations: {"relates_to": ["CA-D-469", "CA-R-1542", "CA-R-1576"]}
 atom_id: "CA-D-475"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-475-CORE_META_MODEL-STANDARD--serialize-the-plan-backlog-directory.md
   source_atom_id: CA-D-475
-  source_atom_revision: 8
-  source_sha256: 4e40b3d971455c2b68d232a60d54ed2a10efe4e0ba0c22aa71ad245699c18496
+  source_atom_revision: 9
+  source_sha256: 3ec3f1eb7c99e29e2d29737b6b5d4de8475f1ac0c43939ab372a6519ef803b3e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

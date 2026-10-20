@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom.Substance", "Type"]
-version: 6
-updated_at: "2026-10-15 18:44:30 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom.Substance", "Type"]
+version: 7
+updated_at: "2026-10-19 15:53:32 +0400"
 relations: {"relates_to": ["CA-R-1509", "CA-R-1565"]}
 atom_id: "CA-R-1569"
 content_role: "Requirement"

@@ -11,9 +11,9 @@ subjects:
   depends_on:
     - "Entity"
     - "Projection"
-    - "Relation"
-version: 4
-updated_at: "2026-10-03 01:09:05 +0400"
+    - "Entity/Relation"
+version: 5
+updated_at: "2026-10-19 15:56:09 +0400"
 relations:
   relates_to:
     - CA-R-1246
@@ -24,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1620-PROJECT_CONFIGURATION--define-the-realization-graph-dependency-view.md
   source_atom_id: CA-R-1620
-  source_atom_revision: 4
-  source_sha256: a8e1ea75be414bcda4eebe917b6f22c89455d5784cef43b162757fbc1de2635c
+  source_atom_revision: 5
+  source_sha256: 1b85d206321e65ea552189cbccb4d8f04e776f95afe847d890b06d708d8e9e42
   original_relations_sha256: eae00a96c16cb4ab498859fce5ef1d2cf94e6e5d896519f44ef27f2cdb0c59c3
 ---
 # Summary

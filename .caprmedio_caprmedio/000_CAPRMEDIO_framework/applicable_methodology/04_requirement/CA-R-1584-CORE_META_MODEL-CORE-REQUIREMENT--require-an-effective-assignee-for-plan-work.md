@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Assignee"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Plan.Assignee"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Actor"]
-version: 8
-updated_at: "2026-10-18 03:33:42 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Actor"]
+version: 9
+updated_at: "2026-10-19 15:53:36 +0400"
 relations: {"relates_to": ["CA-R-1575"]}
 atom_id: "CA-R-1584"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1584-CORE_META_MODEL-CORE-REQUIREMENT--require-an-effective-assignee-for-plan-work.md
   source_atom_id: CA-R-1584
-  source_atom_revision: 8
-  source_sha256: c2e238bf54d4909ca77e0eb1cf80a39f9923c8e08de93583fd31caa9ffc0d1ea
+  source_atom_revision: 9
+  source_sha256: 4401ee4c702514307b8d708b34ccbc62c88ef6db8e427fdbea0798f1211ac2ba
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

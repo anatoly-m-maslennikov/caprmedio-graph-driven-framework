@@ -12,10 +12,10 @@ subjects:
     - "Evidence"
     - "Journal"
     - "Realization Graph"
-    - "Relation"
+    - "Entity/Relation"
     - "Relation Derivation Class"
-version: 4
-updated_at: "2026-10-03 01:07:45 +0400"
+version: 5
+updated_at: "2026-10-19 15:56:08 +0400"
 relations:
   relates_to:
     - CA-R-1616
@@ -26,8 +26,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/04_requirement/CA-R-1618-PROJECT_CONFIGURATION-REQUIREMENT--define-runtime-observed-relation-derivation.md
   source_atom_id: CA-R-1618
-  source_atom_revision: 4
-  source_sha256: 4bd0256dcfbb37226f87645c5b0f77410945bb8a3f5fd48efbfeb02c801b382f
+  source_atom_revision: 5
+  source_sha256: f2b3eeee785579a05561dd29806d06080cc7c4bdb3541ad5f35ac6347ce5f056
   original_relations_sha256: 9498a3bf925a4c9ab02a1ce984d38e81a4cea3f350b87deeacc61ca5f1581a30
 ---
 # Summary

@@ -11,9 +11,9 @@ subjects:
   governs: "Atom/Content Role: Analysis/Type: FPF Analysis Report"
   depends_on:
     - "Project-Owned Markdown Atom Carrier/Filename"
-    - "Carrier"
-version: 1
-updated_at: "2026-10-05 23:46:22 +0400"
+    - "Entity/Carrier"
+version: 2
+updated_at: "2026-10-19 15:56:25 +0400"
 relations:
   delivery_for: ["CA-R-1888"]
   relates_to: ["CA-D-283", "CA-D-284", "CA-D-389", "CA-D-466"]

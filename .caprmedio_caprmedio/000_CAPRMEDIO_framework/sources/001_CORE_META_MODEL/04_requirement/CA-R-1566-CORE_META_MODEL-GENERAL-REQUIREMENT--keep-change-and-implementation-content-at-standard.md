@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Local Tier"
+  governs: "Entity/Node/Continuant/Atom.Local Tier"
   depends_on:
-    ["Change Content Roles", "Implementation", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Local Tier: Standard"]
-version: 7
-updated_at: "2026-10-15 18:44:28 +0000"
+    ["Change Content Roles", "Implementation", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Local Tier: Standard"]
+version: 8
+updated_at: "2026-10-19 15:53:31 +0400"
 relations: {"relates_to": ["CA-R-1549", "CA-R-1343", "CA-R-660"]}
 atom_id: "CA-R-1566"
 content_role: "Requirement"

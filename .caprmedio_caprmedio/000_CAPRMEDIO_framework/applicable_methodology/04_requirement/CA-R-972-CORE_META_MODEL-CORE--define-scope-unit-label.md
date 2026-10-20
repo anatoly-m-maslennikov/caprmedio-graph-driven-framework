@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit.Label"
+  governs: "Entity/Node/Continuant/Scope Unit.Label"
   depends_on:
-    ["Label", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Actor/Type: Operator", "Scope Unit/Type"]
-version: 20
-updated_at: "2026-10-15 18:47:29 +0000"
+    ["Label", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Actor/Type: Operator", "Scope Unit/Type"]
+version: 21
+updated_at: "2026-10-19 15:54:35 +0400"
 relations: {"relates_to": ["CA-R-1594"]}
 atom_id: "CA-R-972"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md
   source_atom_id: CA-R-972
-  source_atom_revision: 20
-  source_sha256: 4411baf12d4b193c3daf94bba7c9e382ecb142a9603194b1c82dabe8eb0542e6
+  source_atom_revision: 21
+  source_sha256: b7e2ab8ce574250d6a170f9f035687cbd0750a188b081359648680f6f007865b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

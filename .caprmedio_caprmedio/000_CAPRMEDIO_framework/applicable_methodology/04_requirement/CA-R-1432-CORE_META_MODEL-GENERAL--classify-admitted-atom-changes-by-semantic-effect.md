@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Change Classification"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/History/Revision/Type: Atom", "Carrier-Only Recoding", "Lineage Impact Analysis", "Tool"]
-version: 13
-updated_at: "2026-10-15 18:42:57 +0000"
+    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/History/Revision/Type: Atom", "Carrier-Only Recoding", "Lineage Impact Analysis", "Tool"]
+version: 15
+updated_at: "2026-10-20 17:09:09 +0400"
 relations: {}
 atom_id: "CA-R-1432"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 10
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md
   source_atom_id: CA-R-1432
-  source_atom_revision: 13
-  source_sha256: 38b23ac489e3e66b05a3b587f334c6581846cce7ee4037c512baab7ad59f14e7
+  source_atom_revision: 15
+  source_sha256: 6fb25e98091fca12939f020d9b93875c64ff470eb6a6f07fe296baf7a927c472
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
@@ -37,7 +37,7 @@ the classification of admitted Atom changes by semantic effect.
 |---|---|---|---|
 | `carrier_only` | Representation, the Atom's own filename **or** local placement, encoding, **or** lossless Entity-name/reference renaming **without** changing governed meaning **or** the Atom's Summary value | Keep the Atom ID; increment Version by exactly **`1`** | Verify lossless recoding |
 | `refinement` | Wording **or** criteria become clearer **or** stricter while primary Claim, applicability, **and** acceptance meaning remain equivalent **and** the Summary value remains unchanged | Keep the Atom ID; increment Version by exactly **`1`** | Demonstrate equivalence |
-| `semantic_revision` | Meaning **or** applicability changes while the same primary Claim remains recognizable **and** the Summary value remains unchanged | Keep the Atom ID; increment Version by exactly **`1`** **and** create a new Revision | Declare the delta **and** complete lineage-impact review |
+| `semantic_revision` | Meaning **or** applicability changes while the same primary Claim remains recognizable **and** the Summary value remains unchanged | Keep the Atom ID; increment Version by exactly **`1`** | Declare the delta **and** complete lineage-impact review |
 | `replacement` | the Summary value changes under CA-R-1464, the primary Claim changes identity, **or** an independently replaceable Claim is added **or** removed | Create a new Atom ID; preserve the predecessor **and** successor identity binding under CA-R-807 | Review the replacement boundary **and** affected lineage |
 
 **if** Scope narrowing **or** expansion preserves the primary Claim identity **and** Summary value, **then** it is a `semantic_revision`, **not** a carrier-only change. splitting **or** combining independently replaceable Claims is a `replacement`. the Summary-change replacement rule takes precedence even **when** the Claim remains unchanged; lossless serialization of the same Summary value is **not** a Summary change. the semantic change class is independent of storage transactions **or** version-control change sets; persistence preserves the admitted Atom, Carrier, **and** Journal authority.

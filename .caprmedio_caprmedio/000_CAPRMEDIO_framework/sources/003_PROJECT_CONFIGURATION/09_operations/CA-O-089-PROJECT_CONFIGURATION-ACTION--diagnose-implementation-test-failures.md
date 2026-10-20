@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Failure Diagnosis"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Entity/Continuant/Object/Atom/Content Role: Method", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Spec"]
-version: 6
-updated_at: "2026-10-18 16:22:40 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation", "Entity/Node/Continuant/Atom/Content Role: Method", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Spec"]
+version: 7
+updated_at: "2026-10-19 15:56:50 +0400"
 relations:
   relates_to:
     - CA-O-020

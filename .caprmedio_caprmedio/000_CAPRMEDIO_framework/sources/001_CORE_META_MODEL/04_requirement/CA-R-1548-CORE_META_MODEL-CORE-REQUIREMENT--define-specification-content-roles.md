@@ -2,9 +2,9 @@
 subjects:
   governs: "Spec Content Roles"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Change Content Roles", "Implementation", "Entity"]
-version: 6
-updated_at: "2026-10-15 18:44:10 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Requirement", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Change Content Roles", "Implementation", "Entity"]
+version: 7
+updated_at: "2026-10-19 15:53:25 +0400"
 relations: {"relates_to": ["CA-R-1339", "CA-R-1340", "CA-R-1341", "CA-R-1342"]}
 atom_id: "CA-R-1548"
 content_role: "Requirement"

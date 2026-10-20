@@ -8,17 +8,17 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Actor.Name"
+  governs: "Entity/Node/Continuant/Actor.Name"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:01 +0400"
+version: 3
+updated_at: "2026-10-19 15:54:09 +0400"
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1944-CORE_META_MODEL--define-actor-name.md
   source_atom_id: CA-R-1944
-  source_atom_revision: 2
-  source_sha256: 34a6146aac6f2fbd6a39510a1c432c7edfae07deae3f014fc4bc0b7e6f777473
+  source_atom_revision: 3
+  source_sha256: 48cc794c94ba8fb96a83cc75b1b2fbe9c9d9f3c180a88378ad3740bf5d858a7e
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 # Summary

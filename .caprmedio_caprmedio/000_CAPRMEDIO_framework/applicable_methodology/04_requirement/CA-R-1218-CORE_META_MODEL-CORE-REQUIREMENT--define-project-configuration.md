@@ -2,9 +2,9 @@
 subjects:
   governs: "Project Configuration"
   depends_on:
-    ["Entity/Continuant/Object/Project", "Extension", "Methodology Source", "Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Project.Settings"]
-version: 15
-updated_at: "2026-10-15 18:41:15 +0000"
+    ["Entity/Node/Continuant/Project", "Extension", "Methodology Source", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Project.Settings"]
+version: 16
+updated_at: "2026-10-19 15:52:38 +0400"
 relations: {}
 atom_id: "CA-R-1218"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1218-CORE_META_MODEL-CORE-REQUIREMENT--define-project-configuration.md
   source_atom_id: CA-R-1218
-  source_atom_revision: 15
-  source_sha256: 0063542ad55271fa319c916da07d4d3adcee277a48cab9173db0405cac773573
+  source_atom_revision: 16
+  source_sha256: 1c954ccc67b7b5f81346a1bad7a4e6daf3098dad0eafa088cc70189872f8dd79
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

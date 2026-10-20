@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Tier Validation.Concrete Cases"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Local Tier", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit", "Subtree-targeting Atoms", "Atom/Content Role", "Entity/Continuant/Object/Atom.Status", "Evaluation For Relation", "Methodology Source.Expansion Boundary", "Entity/Continuant/Object/Project.Framework Settings"]
-version: 19
-updated_at: "2026-10-15 18:49:21 +0000"
+    ["Entity/Node/Continuant/Atom.Local Tier", "Entity/Node/Continuant/Atom.Global Tier", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Target Scope Unit", "Subtree-targeting Atoms", "Atom/Content Role", "Entity/Node/Continuant/Atom.Status", "Evaluation For Relation", "Methodology Source.Expansion Boundary", "Entity/Node/Continuant/Project.Framework Settings"]
+version: 20
+updated_at: "2026-10-19 15:55:01 +0400"
 relations:
   evaluation_for:
     - CA-R-1402
@@ -49,8 +49,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md
   source_atom_id: CA-E-447
-  source_atom_revision: 19
-  source_sha256: 7cd802d4dd5ac5b5052375da646ce0c1ee50f58dda6ef10a3355cfe8ec4f1b9e
+  source_atom_revision: 20
+  source_sha256: 3429bf694262236c1ede31b88f6aaca50ab0bb187c618e01307edea8bc85feee
   original_relations_sha256: 750009cdd71d55152ef6dc9022e65be3f1f61c0ecc62f1416916dd4df0746233
 ---
 # Summary

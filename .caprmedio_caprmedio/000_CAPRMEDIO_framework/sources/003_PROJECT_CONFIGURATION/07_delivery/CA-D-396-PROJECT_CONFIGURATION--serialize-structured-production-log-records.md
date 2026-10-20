@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Carrier"
+  governs: "Entity/Carrier"
   depends_on:
     - "Logging Policy"
-version: 8
-updated_at: "2026-10-02 19:36:21 +0400"
+version: 9
+updated_at: "2026-10-19 15:56:21 +0400"
 relations: {}
 atom_id: "CA-D-396"
 content_role: "Delivery"

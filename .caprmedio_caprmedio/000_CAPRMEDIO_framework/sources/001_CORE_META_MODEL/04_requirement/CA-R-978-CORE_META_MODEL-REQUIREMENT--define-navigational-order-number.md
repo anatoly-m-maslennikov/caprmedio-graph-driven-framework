@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Scope Unit.Navigational Order Number"
+  governs: "Entity/Node/Continuant/Scope Unit.Navigational Order Number"
   depends_on:
-    ["Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Scope Unit"]
-version: 20
-updated_at: "2026-10-18 03:34:15 +0400"
+    ["Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Scope Unit"]
+version: 21
+updated_at: "2026-10-19 15:54:36 +0400"
 relations:
   child_of:
     - CA-R-1757

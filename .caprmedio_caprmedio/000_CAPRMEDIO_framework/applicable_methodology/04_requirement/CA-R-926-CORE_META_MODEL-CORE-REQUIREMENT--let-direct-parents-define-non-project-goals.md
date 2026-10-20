@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Requirement/Type: Goal"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Project.Structure", "Entity/Continuant/Node/Atom.Substance", "Entity/Continuant/Node/Scope Unit.Parent", "Entity/Continuant/Node/Scope Unit.Children"]
-version: 22
-updated_at: "2026-10-18 03:34:13 +0400"
+    ["Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Scope Unit.Parent", "Entity/Node/Continuant/Scope Unit.Children"]
+version: 23
+updated_at: "2026-10-19 15:54:29 +0400"
 relations:
   child_of:
     - CA-R-925
@@ -19,8 +19,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-CORE-REQUIREMENT--let-direct-parents-define-non-project-goals.md
   source_atom_id: CA-R-926
-  source_atom_revision: 22
-  source_sha256: f9998c6b84c9b296bba192b91f5d26bb0529eda8d7fdf3b5387c212a1d25e7bd
+  source_atom_revision: 23
+  source_sha256: 8c00c39ecd925f1c86820119478bde4551d647feb7966ee64aee67cf7eae2ab4
   original_relations_sha256: 17da053e5a14748b4ae49b3e9ae87498700f37739d1c90477b4e8557624449be
 ---
 # Summary

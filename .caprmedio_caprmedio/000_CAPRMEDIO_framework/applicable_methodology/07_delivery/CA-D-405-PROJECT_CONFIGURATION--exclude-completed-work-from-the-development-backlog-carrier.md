@@ -2,9 +2,9 @@
 subjects:
   governs: "Development Backlog"
   depends_on:
-    - "Carrier"
-version: 8
-updated_at: "2026-10-02 19:36:21 +0400"
+    - "Entity/Carrier"
+version: 9
+updated_at: "2026-10-19 15:56:22 +0400"
 relations: {}
 atom_id: "CA-D-405"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/07_delivery/CA-D-405-PROJECT_CONFIGURATION--exclude-completed-work-from-the-development-backlog-carrier.md
   source_atom_id: CA-D-405
-  source_atom_revision: 8
-  source_sha256: 62db0e58fc82a1793001cf4cface51eb7650ced7eaae1b0f4440c200fe79de14
+  source_atom_revision: 9
+  source_sha256: 12622da524c5b39827a53fea364422e0c94d8902fb9ee8a8468110f307335a83
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

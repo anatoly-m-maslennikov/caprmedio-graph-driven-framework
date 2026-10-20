@@ -2,9 +2,9 @@
 subjects:
   governs: "General Term"
   depends_on:
-    ["Entity/Continuant/Object/Project"]
-version: 11
-updated_at: "2026-10-15 18:41:51 +0000"
+    ["Entity/Node/Continuant/Project"]
+version: 12
+updated_at: "2026-10-19 15:52:48 +0400"
 relations: {}
 atom_id: "CA-R-1320"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1320-CORE_META_MODEL-CORE-REQUIREMENT--define-general-term.md
   source_atom_id: CA-R-1320
-  source_atom_revision: 11
-  source_sha256: e106868d5372bc0b0824438dfc8ad3f40aaffee5a6556ca3601628d8096be241
+  source_atom_revision: 12
+  source_sha256: e63d83be449a36ac1906f85f7aaa46075307eccc3c5aa15e2845bc81a6f305a5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

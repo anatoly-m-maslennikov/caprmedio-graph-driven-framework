@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Evaluation/Type"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Evaluation", "Implementation", "Type"]
-version: 6
-updated_at: "2026-10-15 18:43:48 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Evaluation", "Implementation", "Type"]
+version: 7
+updated_at: "2026-10-19 15:53:17 +0400"
 relations: {}
 atom_id: "CA-R-1506"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1506-CORE_META_MODEL-CORE-REQUIREMENT--separate-check-mechanism-labels-from-evaluation-atom-types.md
   source_atom_id: CA-R-1506
-  source_atom_revision: 6
-  source_sha256: 2ba96cf1e6f643b445bec93f02e52cbd12c91ef715b2cf336956366f59a2babe
+  source_atom_revision: 7
+  source_sha256: 511c3eac64c77b7053918a2ee767a90fc4a5ae990e925a799729b6f4a11b798f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

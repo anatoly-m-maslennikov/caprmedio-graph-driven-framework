@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/Directory Carrier.Name"
   depends_on:
-    ["Entity/Continuant/Node/Scope Unit.Name", "Entity/Continuant/Node/Scope Unit.Label", "Entity/Continuant/Node/Scope Unit.Structural Level", "Entity/Continuant/Node/Scope Unit.Navigational Order Number", "Entity/Continuant/Node/Scope Unit.Local Order"]
-version: 17
-updated_at: "2026-10-18 07:30:23 +0400"
+    ["Entity/Node/Continuant/Scope Unit.Name", "Entity/Node/Continuant/Scope Unit.Label", "Entity/Node/Continuant/Scope Unit.Structural Level", "Entity/Node/Continuant/Scope Unit.Navigational Order Number", "Entity/Node/Continuant/Scope Unit.Local Order"]
+version: 18
+updated_at: "2026-10-19 15:55:25 +0400"
 relations: {}
 atom_id: "CA-D-297"
 content_role: "Delivery"
@@ -17,8 +17,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-297-CORE_META_MODEL--serialize-scope-unit-authority-directory-names.md
   source_atom_id: CA-D-297
-  source_atom_revision: 17
-  source_sha256: 40e8eeeb827eb334149a92268234805009b0a3753ab210925ac770b3e050d446
+  source_atom_revision: 18
+  source_sha256: 385d565058ac04dac34b62822ce07be7084d37bf69a1a22bdd9d5f209ed2df65
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

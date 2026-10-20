@@ -8,17 +8,17 @@ global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Semantics"
+  governs: "Entity/Node/Continuant/Atom.Semantics"
 relations:
   child_of:
   - CA-R-1746
-version: 2
-updated_at: "2026-10-18 03:34:01 +0400"
+version: 3
+updated_at: "2026-10-19 15:54:09 +0400"
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1946-CORE_META_MODEL-GENERAL--define-atom-semantics.md
   source_atom_id: CA-R-1946
-  source_atom_revision: 2
-  source_sha256: 31c9002ff676c22a9ddd7693d128ff4421e13462ed41e891b3da33374ccd9435
+  source_atom_revision: 3
+  source_sha256: cd8d7908d62e15be7fc34c7f47fbd2e44f453de9d7f7cc09edd38b788a6138d4
   original_relations_sha256: cf9cb3753811b7df14cb3d6471a1dbb7c105ba4c7887af180d314140d5f5514f
 ---
 # Summary

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/History/Journal"
+  governs: "Entity/Node/Continuant/History/Journal"
   depends_on:
-    ["Core Meta-Model", "Extension", "Entity/Continuant/Projection/Type: Artifact Change Log", "Entity/Continuant/Projection/Type: Process Log"]
-version: 8
-updated_at: "2026-10-15 18:49:34 +0000"
+    ["Core Meta-Model", "Extension", "Entity/Node/Continuant/Projection/Type: Artifact Change Log", "Entity/Node/Continuant/Projection/Type: Process Log"]
+version: 9
+updated_at: "2026-10-19 15:55:05 +0400"
 relations:
   evaluation_for:
     - CA-R-1466
@@ -24,8 +24,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-EVALUATION_APPROACH--validate-journal-independence-from-git.md
   source_atom_id: CA-E-464
-  source_atom_revision: 8
-  source_sha256: 4801548bd6d98c27e361a0aa1658ceb25ec7b28010c07e580fef3e2d9d8f3111
+  source_atom_revision: 9
+  source_sha256: e34a031592bf16b4021560e6e537d59152a8d943f423eab00a0b3d2cc98c0c20
   original_relations_sha256: 0774b6ba3127da6adf5552674549654cd435db450e0b5fe4feb531497eae50d8
 ---
 # Summary
