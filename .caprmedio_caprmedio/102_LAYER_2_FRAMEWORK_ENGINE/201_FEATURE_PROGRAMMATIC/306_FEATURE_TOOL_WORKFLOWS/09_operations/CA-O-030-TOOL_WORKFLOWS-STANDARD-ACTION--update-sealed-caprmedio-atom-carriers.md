@@ -19,8 +19,8 @@ subjects:
     - "Atom/Revision/Updated At"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 23
-updated_at: "2026-10-17 18:53:06 +0400"
+version: 24
+updated_at: "2026-10-20 14:06:03 +0400"
 relations: {}
 ---
 # Summary
@@ -41,6 +41,12 @@ This workflow-facing Action addresses logical Atoms by Atom ID and Version and S
 - a Section edit under CA-R-1933/CA-M-373 addresses exactly one explicit Section and adds, replaces, removes, renames its title or reorders it. The explicit position for reordering is a Section position, not a Property-list index. Preserve every unrelated Section and Property and all required content/structure rules.
 - validate the whole proposed Atom under its current Content Role/Type and owning authority before writing. Do not accept mixed families, hidden search or unrelated changes. Any Summary-value change, including wording-only, or Type change returns replacement-required and leaves the target unchanged; this same-ID Action neither allocates a new ID nor archives the predecessor implicitly.
 - reference modification is an explicit Property use with exact target ID/Version, current reference value and requested new value. No implicit Find, retargeting to a replacement successor or mutation of other referencing Atoms is admitted.
+
+### Existing full-content Concern repair
+
+For an explicitly selected, already identified Concern under `01_concern`, a legacy single descriptive first H1 may supply the source Summary value for a same-ID full-content repair. Require exactly one nonempty unfenced H1 and no competing Summary; do not infer or assign an identity. The proposed body must use the canonical literal `# Summary` with that exact value and pass complete Concern validation. Preserve ID, path, Type and intended Status; a changed Summary value still requires replacement. Reuse existing assessment, authorization, exact source checks, Version N+1/actual Updated At, exact predecessor history and result readback. This source-input normalization adds no endpoint, flag or proof/approval mechanism and does not relax Subjects-only source validation.
+
+This uses the existing full-content update path under CA-R-866, not the one-Section edit operation under CA-R-1933/CA-M-373. Its explicit approved proposal may reorganize the legacy Concern body into its canonical sections; unrelated changes remain excluded.
 
 ### Workflow-owned policy and connector boundary
 

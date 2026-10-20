@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Atom/Revision/Updated At", "Update Sealed Atom Carriers", "Artifact/Carrier", "Journal/Record"]
-version: 28
-updated_at: "2026-10-17 18:52:43 +0400"
+version: 29
+updated_at: "2026-10-20 14:06:27 +0400"
 relations:
   evaluation_for: [CA-R-866, CA-O-030, CA-R-1464, CA-R-1415, CA-R-1371]
   relates_to: [CA-O-067, CA-R-1432, CA-R-1788, CA-R-1662]
@@ -41,6 +41,12 @@ ATOM_UPDATE follows CA-R-866 and CA-O-030 for one Atom action, preserving identi
 4. Apply formatting-only, lossless Subject serialization, equivalent refinement, Status-only and semantic changes with fixed Summary/Type. Every actual changed same-ID update requires exactly Version N+1 and actual refreshed Updated At, preserving exact prior state at N. A no-op keeps Version/time and creates no history effect. A Summary or Type change requires replacement instead. Keep content/class assessment truthful; a changed Claim, applicability, Subject target or Relation meaning is not equivalent merely because serialization is lossless.
 5. Inject failure after an effect or publication and before verification within one Atom action. Compare that action's complete admitted restoration boundary, including its current Carrier and new history destination. Preserve earlier completed Atom actions; failed or unverified restoration is not a passing rollback.
 6. request an evidenced unchanged result. distinguish actual no-op from an accepted carrier edit: require no invented Version, Updated At **or** archive mutation. retain the actual no-op/result evidence for the governing Run; file equality alone does **not** establish its actual execution.
+
+### Identified legacy Concern repair cases
+
+Use a disposable already identified CA-C Concern under `01_concern` with one nonempty unfenced descriptive first H1. An exact same-value canonical `# Summary` proposal is admitted through the existing full-content route; require normal complete Concern result validation, existing assessment/authorization, unchanged ID/Type/intended Status/path, Version N+1, actual time and exact predecessor bytes. Preserve historical pins when repairing an old note.
+
+Reject missing, blank, ambiguous or fenced-only source headings and noncanonical proposed bodies. A changed Summary value returns replacement-required without writes. Retain refusal for ID/Type drift, stale descriptors and invalid proposed carriers. Test both source-side Summary reads and canonical fence awareness. The ordinary proof-based legacy-ID migration, one-Section edits and full-source Subjects-only preview checks retain their existing behavior. These cases are required checks, not claimed passes.
 
 ### Logical modification cases
 

@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Artifact/Carrier", "Atom Change Classification", "Atom/Revision/Updated At"]
-version: 29
-updated_at: "2026-10-17 18:52:58 +0400"
+version: 30
+updated_at: "2026-10-20 14:05:47 +0400"
 relations:
   relates_to: [CA-O-030, CA-E-304, CA-O-067, CA-R-1432, CA-R-1788, CA-R-1464, CA-R-1415, CA-R-1371]
 ---
@@ -79,6 +79,10 @@ capability Requirement.
 ## Details
 
 The logical Workflow owns Subject eligibility, selected profile, proposal, Version, preview and effect admission; its connector receives explicit logical targets, deltas and bound source/schema/permission evidence through the coherent interface. The closed legacy CLI payload and Markdown staging layout below are private existing implementation bindings, not a new universal connector schema. This authority split moves no code and does not establish that the existing implementation admits the new connector contract.
+
+### Identified legacy Concern input
+
+For an explicitly selected, already identified Concern under `01_concern`, a legacy single descriptive first H1 may supply the source Summary value for a same-ID full-content repair. Require exactly one nonempty unfenced H1 and no competing Summary; do not infer or assign an identity. The proposed body must use the canonical literal `# Summary` with that exact value and pass complete Concern validation. Preserve ID, path, Type and intended Status; a changed Summary value still requires replacement. Reuse existing assessment, authorization, exact source checks, Version N+1/actual Updated At, exact predecessor history and result readback. This source-input normalization adds no endpoint, flag or proof/approval mechanism and does not relax Subjects-only source validation.
 
 ### Instructed Subjects-only batch
 

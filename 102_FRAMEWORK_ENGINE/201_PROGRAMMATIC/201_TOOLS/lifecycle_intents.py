@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+from VALIDATE_ATOMS.validate_atoms_workers.check_sections import _headings
 
 from authoritative_status_models import StatusModelError, resolve_status_model
 from artifact_metadata import current_timestamp, project_identity
@@ -386,14 +387,46 @@ def _legacy_summary(content: str) -> str:
 
 
 def _summary(content: str) -> str:
-    match = re.search(r"(?m)^# Summary\s*$\n(?P<tail>.*?)(?=^#|\Z)", content, re.DOTALL)
-    if match is None:
+    headings = _headings(content)
+    summaries = [(title, index) for level, title, index in headings if level == 1 and title == "Summary"]
+    if not summaries:
         raise LifecycleError("summary-missing", "the complete carrier content must contain # Summary")
-    for line in match.group("tail").splitlines():
+    if len(summaries) != 1 or not headings or headings[0] != (1, "Summary", summaries[0][1]):
+        raise LifecycleError("summary-ambiguous", "# Summary must be the one first unfenced H1")
+    _, index = summaries[0]
+    lines = content.splitlines()
+    end = next((heading_index for _, _, heading_index in headings if heading_index > index), len(lines))
+    for line in lines[index + 1 : end]:
         value = line.strip()
         if value:
             return value
     raise LifecycleError("summary-missing", "# Summary must carry a non-empty value")
+
+
+def _source_summary(target: Atom, *, legacy: bool = False) -> str:
+    """Read a source Summary, including the assigned legacy Concern heading form."""
+
+    if (target.atom_id is None or re.fullmatch(r"CA-C-[0-9]{3,}", target.atom_id) is None
+            or target.role_directory != "01_concern"):
+        return _legacy_summary(target.content) if legacy else _summary(target.content)
+
+    headings = _headings(target.content)
+    h1 = [(heading, index) for level, heading, index in headings if level == 1]
+    summaries = [(heading, index) for level, heading, index in headings if heading == "Summary"]
+    if summaries:
+        if len(summaries) == 1 and len(h1) == 1 and h1[0] == summaries[0]:
+            return _summary(target.content)
+        raise LifecycleError(
+            "legacy-summary-ambiguous",
+            "identified Concern source requires one Summary or one descriptive first H1, without a competing Summary",
+        )
+    if (len(h1) != 1 or not h1[0][0].strip()
+            or not headings or headings[0] != (1, h1[0][0], h1[0][1])):
+        raise LifecycleError(
+            "legacy-summary-ambiguous",
+            "identified Concern source requires one non-empty first unfenced descriptive H1",
+        )
+    return h1[0][0].strip()
 
 
 def _goal_target(frontmatter: str) -> str | None:
@@ -607,7 +640,7 @@ def _mechanical_update_evidence(target: Atom, prior: Mapping[str, Any], proposed
                 "frontmatter_digest": _comparison_digest(proposed["frontmatter"]),
                 "content_digest": _comparison_digest(proposed["content"]),
             },
-            "summary": {"target": _comparison_digest(_summary(target.content)),
+            "summary": {"target": _comparison_digest(_source_summary(target)),
                         "proposed": _comparison_digest(proposed_summary), "equal": True},
             "properties": {"target": _comparison_digest(target.frontmatter),
                            "proposed": _comparison_digest(proposed["frontmatter"]), "equal": True},
@@ -1134,7 +1167,7 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
         status_preflight = preflight_atom_lifecycle(root, "change_status", {"target": prior, "status": new_status})
     if not legacy and frontmatter_scalar(proposed["frontmatter"], "content_role") != frontmatter_scalar(target.frontmatter, "content_role"):
         raise LifecycleError("atom-role-changed", "same-identity Update must retain the current Content Role")
-    prior_summary = _legacy_summary(target.content) if legacy else _summary(target.content)
+    prior_summary = _source_summary(target, legacy=legacy)
     if _summary(proposed["content"]) != prior_summary:
         if mapping:
             raise LifecycleError("legacy-summary-changed", "identity encoding migration must preserve the exact Summary")

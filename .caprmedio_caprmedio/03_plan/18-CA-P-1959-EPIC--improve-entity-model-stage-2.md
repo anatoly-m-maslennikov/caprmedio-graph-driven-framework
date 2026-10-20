@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 119
-updated_at: "2026-10-20 13:49:26 +0400"
+version: 120
+updated_at: "2026-10-20 14:05:14 +0400"
 relations: {}
 ---
 # Summary
@@ -253,6 +253,16 @@ The Operator approved defining Cardinality now and using the named Selection `En
 Independent source and runtime reviews passed. Runtime suites passed: Validator 512 and Graph 306 tests (818 total); focused lint and diff checks passed. The source effects before this Epic update have 58 unique completed terminal Run outcomes with retained receipts; this Epic update adds its own six actual outcomes. No full release suite, installed MCP update, release or push was performed.
 
 C221's old historical review pin is retained unchanged. Its current carrier lacks literal # Summary and cannot be edited through the normal same-ID route; no legacy-writer expansion or inferred Concern status transition was made here. That old resolution-time note is not a current typed Evaluation link. The broader map reconciliation, source migration/Core-Project separation, other glossary/content review and later rule evaluation remain open. The Epic stays Active; child Statuses do not cascade.
+
+#### Approved Epic precedence and legacy Concern repair — 2026-10-20
+
+The Operator's latest approved Epic decisions take precedence over conflicting active rules. Update the affected RMEDO to match before implementation; stale active wording does not veto the approved change. Undecided proposals and unrelated changes are not authorized by this precedence.
+
+The Operator explicitly approved repairing legacy Concern editing, including C221. Keep its original question as the exact Summary value, ID, Type, intended Status and historical pins. Use the existing full-content same-ID update route to normalize a single descriptive first H1 into canonical Concern sections, with normal complete-result validation, source checks, semantic assessment, exact predecessor preservation and Version N+1. This is not a new endpoint, flag, identity-migration proof or approval gate. Ordinary one-Section edits and Subjects-only validation remain unchanged.
+
+- [ ] Align the existing update contract and focused Evaluation before implementation.
+- [ ] Repair the two source Summary reads; proposed bodies remain canonical and fence-aware.
+- [ ] Verify positive/negative runtime cases and independent review, then repair C221 through the existing Workflow and retain actual effect/readback evidence.
 
 #### Phase 1 — migrate Subjects first
 

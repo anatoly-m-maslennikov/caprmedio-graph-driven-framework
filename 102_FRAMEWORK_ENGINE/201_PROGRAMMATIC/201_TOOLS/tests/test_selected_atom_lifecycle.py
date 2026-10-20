@@ -68,7 +68,10 @@ from lifecycle_intents import (  # noqa: E402
     carrier_descriptor,
     change_status_atom_action,
     create_atom_action,
+    _mechanical_update_evidence,
     replace_atom_action,
+    _source_summary,
+    _summary,
     update_atom_action,
     update_assessment_seal,
 )
@@ -292,6 +295,25 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         path.write_text(payload, encoding="utf-8")
         return path
 
+    def _concern(self, body: str) -> Path:
+        directory = self.root / ".caprmedio_caprmedio" / _FIXTURE_RELATIVE_PATH / "01_concern"
+        directory.mkdir(parents=True, exist_ok=True)
+        path = directory / "CA-C-221--fixture-concern.md"
+        path.write_text(
+            "---\natom_id: CA-C-221\ncontent_role: Concern\ntype: Question\nstatus: active\n"
+            "version: 1\nupdated_at: \"2026-01-01 00:00:00 +0000\"\n"
+            f"current_scope_unit: {_FIXTURE_SCOPE}\nclaim_target_scope_unit: {_FIXTURE_SCOPE}\n"
+            "local_tier: Standard\nglobal_tier: 14\nauthor: Anatoly Maslennikov\npriority: medium\n"
+            "subjects:\n  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n" + body,
+            encoding="utf-8",
+        )
+        return path
+
+    def _concern_carrier(self, path: Path, content: str) -> dict[str, str]:
+        text = path.read_text(encoding="utf-8")
+        frontmatter, _ = text[4:].split("\n---\n", 1)
+        return {"frontmatter": frontmatter, "content": content}
+
     def _model(self) -> dict[str, object]:
         return resolve_status_model(
             self.root, carrier_descriptor(self.root, "CA-R-100"), "Archived",
@@ -365,6 +387,108 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(result["replace_handoff"]["predecessor"]["atom_id"], "CA-R-100")
         self.assertEqual(result["replace_handoff"]["successors"][0]["frontmatter"].splitlines()[0], "atom_id: CA-R-105")
         self.assertEqual(self.target.read_bytes(), before)
+
+    def test_identified_concern_legacy_summary_is_fence_aware_and_exact(self) -> None:
+        path = self._concern(
+            "# Stable concern  \n\n## Context\n\nFixture.\n\n"
+            "```markdown\n# Summary\n\nnot a heading\n```\n"
+        )
+        target = atom_from_path(self.root, path)
+        self.assertEqual(_source_summary(target), "Stable concern")
+        self.assertEqual(_source_summary(target, legacy=True), "Stable concern")
+
+        plain_path = self._concern("# Stable concern\n\n## Concern\n\nFixture?\n")
+        plain_target = atom_from_path(self.root, plain_path)
+        proposed = self._concern_carrier(
+            plain_path,
+            "# Summary\n\nStable concern\n\n## Concern\n\nFixture?\n\n"
+            "## Evidences\n\nFixture evidence.\n\n## Blast radius\n\nFixture impact.\n",
+        )
+        evidence = _mechanical_update_evidence(
+            plain_target, carrier_descriptor(self.root, plain_target), proposed,
+            admitted_change_class="carrier_only", exact_carrier=False,
+        )
+        self.assertTrue(evidence["comparison"]["summary"]["equal"])
+
+    def test_identified_concern_canonicalization_applies_with_exact_history_and_version(self) -> None:
+        source_text = (
+            "# Stable concern  \n\n## Concern\n\nFixture?\n\n"
+            "## Evidences\n\nFixture evidence.\n\n## Blast radius\n\nFixture impact.\n"
+        )
+        path = self._concern(source_text)
+        target = atom_from_path(self.root, path)
+        proposed = self._concern_carrier(
+            path,
+            "# Summary\n\nStable concern\n\n## Concern\n\nFixture?\n\n"
+            "## Evidences\n\nFixture evidence.\n\n## Blast radius\n\nFixture impact.\n",
+        )
+        # The test's complete-carrier authority needs an explicit fixture status model.
+        source_model = (self.root / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+                        / "001_CORE_META_MODEL/04_requirement/CA-R-9999--concern-status-model.md")
+        source_model.parent.mkdir(parents=True, exist_ok=True)
+        source_model.write_text(
+            "---\natom_id: CA-R-9999\ncontent_role: Requirement\nstatus: Active\nversion: 1\n"
+            "subjects:\n  governs: Atom/Content Role: Concern/Status\n---\n"
+            "Core allowed values of Atom/Content Role: Concern/Status must be exactly (active, resolved, canceled).\n",
+            encoding="utf-8",
+        )
+        descriptor = carrier_descriptor(self.root, target)
+        report = self._semantic_assessment_report(proposed, target_descriptor=descriptor)
+        parameters = {
+            "target": descriptor, "proposed": proposed, "change_class": "semantic_revision",
+            "semantic_assessment_report": report,
+        }
+        preview = update_atom_action(self.root, parameters, execute=False, authorized=True)
+        self.assertEqual(preview["outcome"], "preview")
+        assessment = update_assessment_seal(parameters, preview["assessment_evidence"])
+        before = path.read_bytes()
+
+        applied = update_atom_action(self.root, parameters, execute=True, authorized=True, assessment=assessment)
+
+        self.assertEqual(applied["outcome"], "applied")
+        self.assertEqual(applied["observed"]["atom_id"], "CA-C-221")
+        self.assertEqual(applied["observed"]["version"], 2)
+        self.assertEqual(applied["observed"]["status"], "active")
+        self.assertEqual(applied["observed"]["type"], "Question")
+        prior_revision = self.root / applied["history"]["prior_revision"]["path"]
+        self.assertEqual(prior_revision.read_bytes(), before)
+
+    def test_concern_summary_change_hands_off_without_writing(self) -> None:
+        path = self._concern("# Stable concern\n\n## Context\n\nFixture.\n")
+        before = path.read_bytes()
+        target = atom_from_path(self.root, path)
+        proposed = self._concern_carrier(path, "# Summary\n\nChanged concern\n\n## Context\n\nFixture.\n")
+        successor = self._carrier("CA-R-105", "successor", "Changed concern")
+        result = update_atom_action(
+            self.root,
+            {"target": carrier_descriptor(self.root, target), "proposed": proposed,
+             "change_class": "semantic_revision", "successors": [successor]},
+            execute=True, authorized=True,
+        )
+        self.assertEqual(result["outcome"], "replace_handoff")
+        self.assertEqual(path.read_bytes(), before)
+        self.assertFalse((self.requirements / "CA-R-105--successor.md").exists())
+
+    def test_concern_summary_source_refuses_ambiguous_and_proposal_requires_canonical_heading(self) -> None:
+        malformed = (
+            "## Context\n\nBefore.\n\n# Descriptive\n",
+            "# First\n\n# Second\n",
+            "#   \n\nBlank.\n",
+            "```markdown\n# Fenced only\n```\n",
+            "# Summary\n\nOne.\n\n## Summary\n\nCompeting.\n",
+        )
+        for body in malformed:
+            with self.subTest(body=body):
+                path = self._concern(body)
+                with self.assertRaises(LifecycleError):
+                    _source_summary(atom_from_path(self.root, path))
+
+        with self.assertRaisesRegex(LifecycleError, "summary-missing"):
+            _summary("```markdown\n# Summary\n\nHidden.\n```\n")
+        with self.assertRaisesRegex(LifecycleError, "summary-ambiguous"):
+            _summary("## Context\n\nBefore.\n\n# Summary\n\nValue.\n")
+        with self.assertRaisesRegex(LifecycleError, "summary-ambiguous"):
+            _summary("# Summary\n\nFirst.\n\n# Summary\n\nSecond.\n")
 
     def test_update_honors_identity_revision_class_and_true_noop(self) -> None:
         before = self.target.read_bytes()
