@@ -8,12 +8,12 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Occurrent/Session
+  governs: "Entity/Node/Occurrent/Session"
 relations:
   child_of:
   - CA-R-1174
-version: 1
-updated_at: "2026-10-17 17:20:34 +0400"
+version: 2
+updated_at: "2026-10-19 15:54:14 +0400"
 ---
 # Summary
 

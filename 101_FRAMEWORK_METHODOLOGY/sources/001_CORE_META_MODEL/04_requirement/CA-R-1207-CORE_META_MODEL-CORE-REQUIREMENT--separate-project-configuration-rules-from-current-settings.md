@@ -2,9 +2,9 @@
 subjects:
   governs: "Project Configuration"
   depends_on:
-    ["Entity/Continuant/Object/Project", "Extension", "Entity/Continuant/Object/Project.Framework Settings"]
-version: 16
-updated_at: "2026-10-15 18:41:13 +0000"
+    ["Entity/Node/Continuant/Project", "Extension", "Entity/Node/Continuant/Project.Framework Settings"]
+version: 17
+updated_at: "2026-10-19 15:52:38 +0400"
 relations: {}
 atom_id: "CA-R-1207"
 content_role: "Requirement"

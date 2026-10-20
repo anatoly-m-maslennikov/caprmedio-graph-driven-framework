@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor/Type: AI Agent"
+  governs: "Entity/Node/Continuant/Actor/Type: AI Agent"
   depends_on:
-    ["Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Exploration Mode", "Artifact", "Entity/Continuant/Object/Atom.Substance"]
-version: 6
-updated_at: "2026-10-15 18:44:22 +0000"
+    ["Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Exploration Mode", "Artifact", "Entity/Node/Continuant/Atom.Substance"]
+version: 7
+updated_at: "2026-10-19 15:53:29 +0400"
 relations: {}
 atom_id: "CA-R-1558"
 content_role: "Requirement"

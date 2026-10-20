@@ -8,12 +8,12 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Project.Framework Settings.Interaction"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Interaction"
 relations:
   child_of:
   - CA-R-1176
-version: 2
-updated_at: "2026-10-18 03:34:59 +0400"
+version: 3
+updated_at: "2026-10-19 15:56:13 +0400"
 ---
 # Summary
 

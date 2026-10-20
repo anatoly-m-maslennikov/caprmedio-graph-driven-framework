@@ -2,9 +2,9 @@
 subjects:
   governs: "Plan Blocking Relations"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Plan Graph", "Entity/Continuant/Object/Atom/Content Role: Plan.Status: Done", "Hub Atom", "Subject Relation Kind: DEPENDS_ON"]
-version: 6
-updated_at: "2026-10-15 18:44:41 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Plan Graph", "Entity/Node/Continuant/Atom/Content Role: Plan.Status: Done", "Hub Atom", "Subject Relation Kind: DEPENDS_ON"]
+version: 7
+updated_at: "2026-10-19 15:53:35 +0400"
 relations: {"relates_to": ["CA-R-1583", "CA-D-471", "CA-R-1200"]}
 atom_id: "CA-R-1580"
 content_role: "Requirement"

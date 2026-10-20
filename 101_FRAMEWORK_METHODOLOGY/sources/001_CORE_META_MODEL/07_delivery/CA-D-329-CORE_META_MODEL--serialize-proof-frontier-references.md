@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/History"
+  governs: "Entity/Node/Continuant/History"
   depends_on: []
-version: 15
-updated_at: "2026-10-18 03:34:39 +0400"
+version: 16
+updated_at: "2026-10-19 15:55:29 +0400"
 relations: {}
 atom_id: "CA-D-329"
 content_role: "Delivery"

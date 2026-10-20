@@ -2,9 +2,9 @@
 subjects:
   governs: "CAPRMEDIO Graph.Connectivity"
   depends_on:
-    ["CAPRMEDIO Graph", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Structural Entity", "Entity/Continuant/History/Journal", "Entity/Continuant/Object/Relation", "Relation Kind", "Relation Kind Metadata"]
-version: 7
-updated_at: "2026-10-15 18:43:30 +0000"
+    ["CAPRMEDIO Graph", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Structural Entity", "Entity/Node/Continuant/History/Journal", "Entity/Relation", "Relation Kind", "Relation Kind Metadata"]
+version: 8
+updated_at: "2026-10-19 15:53:12 +0400"
 relations: {}
 atom_id: "CA-R-1472"
 content_role: "Requirement"

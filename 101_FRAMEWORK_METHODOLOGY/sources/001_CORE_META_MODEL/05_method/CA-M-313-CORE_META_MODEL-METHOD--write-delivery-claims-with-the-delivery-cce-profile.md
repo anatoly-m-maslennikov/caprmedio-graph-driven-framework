@@ -1,14 +1,14 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Delivery.Substance"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Delivery.Substance"
   depends_on:
-  - "Entity/Continuant/Node/Atom/Content Role: Delivery"
+  - "Entity/Node/Continuant/Atom/Content Role: Delivery"
   - Entity/Carrier
-  - "Entity/Continuant/Node/Atom.Subjects"
-  - "Entity/Continuant/Node/Term"
-  - "Entity/Continuant/Relation"
-version: 9
-updated_at: "2026-10-18 03:34:20 +0400"
+  - "Entity/Node/Continuant/Atom.Subjects"
+  - "Entity/Node/Continuant/Term"
+  - "Entity/Relation"
+version: 10
+updated_at: "2026-10-19 15:54:53 +0400"
 relations:
   child_of:
     - CA-M-307

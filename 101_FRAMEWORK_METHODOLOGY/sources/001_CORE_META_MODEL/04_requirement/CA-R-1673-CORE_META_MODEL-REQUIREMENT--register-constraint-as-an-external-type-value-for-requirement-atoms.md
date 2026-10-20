@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Constraint"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Constraint"
   depends_on: []
-version: 24
-updated_at: "2026-10-19 02:58:32 +0400"
+version: 25
+updated_at: "2026-10-20 16:26:14 +0400"
 relations:
   {"child_of": ["CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type"], "relates_to": ["CA-D-393"], "depends_on": ["CA-R-1690"]}
 atom_id: "CA-R-1673"

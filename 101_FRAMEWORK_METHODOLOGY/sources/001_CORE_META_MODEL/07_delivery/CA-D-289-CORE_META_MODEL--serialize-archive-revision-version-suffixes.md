@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Artifact/Revision/Archive Carrier Basename"
+  governs: "Entity/Carrier.Canonical Address.Segment"
   depends_on:
-    - "Artifact/Revision/Version"
-version: 12
-updated_at: "2026-10-02 19:05:39 +0400"
+    - "Entity/Node/Continuant/Atom.Version Number"
+version: 13
+updated_at: "2026-10-20 17:07:35 +0400"
 relations: {}
 atom_id: "CA-D-289"
 content_role: "Delivery"
@@ -21,10 +21,10 @@ Serialize Archive Revision Version Suffixes
 
 ## Scope
 
-Archive Carrier basenames for Artifact Revisions.
+Archive Carrier basenames for Archived Atom versions.
 
 ## Claim
 
-**every** Archive Carrier basename for an Artifact Revision **must** append `@<version>` immediately **before** its file extension **when** one exists.
+**every** Archived Atom Carrier basename **must** append `@<version>` immediately **before** its file extension **when** one exists; the suffix value is that Atom version's Version Number.
 
 ## Details

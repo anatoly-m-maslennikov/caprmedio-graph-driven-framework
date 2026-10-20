@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Carrier.Filename.Scope Unit Token"
   depends_on:
-    ["Entity/Continuant/Object/Scope Unit.Name", "Project Configuration"]
-version: 15
-updated_at: "2026-10-15 18:51:06 +0000"
+    ["Entity/Node/Continuant/Scope Unit.Name", "Project Configuration"]
+version: 16
+updated_at: "2026-10-19 15:55:26 +0400"
 relations: {}
 atom_id: "CA-D-302"
 content_role: "Delivery"

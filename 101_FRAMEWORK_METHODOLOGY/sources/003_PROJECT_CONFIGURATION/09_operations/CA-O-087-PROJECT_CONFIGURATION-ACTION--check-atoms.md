@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Check Atoms"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Property", "Markdown Atom Carrier.YAML Frontmatter", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/History/Revision/Type: Atom", "Owned Atoms", "Subtree-owned Atoms", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Project.Structure", "Global Tier", "Local Tier", "Entity/Continuant/Projection/Type: Applicable Methodology", "Entity/Continuant/Projection", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal"]
-version: 9
-updated_at: "2026-10-18 07:47:28 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Property", "Markdown Atom Carrier.YAML Frontmatter", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/History/Revision/Type: Atom", "Owned Atoms", "Subtree-owned Atoms", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure", "Global Tier", "Local Tier", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Entity/Node/Continuant/Projection", "Entity/Relation", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal"]
+version: 10
+updated_at: "2026-10-19 15:56:50 +0400"
 relations:
   relates_to:
     - CA-R-1598

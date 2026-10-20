@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Plan"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Plan"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Actor/Type: AI Agent", "Entity/Continuant/Node/Actor/Type: Operator", "Entity/Continuant/Node/Atom/Content Role: Plan.Label"]
-version: 9
-updated_at: "2026-10-18 03:33:43 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Atom/Content Role: Plan.Label"]
+version: 10
+updated_at: "2026-10-19 15:53:38 +0400"
 relations: {"relates_to": ["CA-R-1575", "CA-R-1584"]}
 atom_id: "CA-R-1589"
 content_role: "Requirement"

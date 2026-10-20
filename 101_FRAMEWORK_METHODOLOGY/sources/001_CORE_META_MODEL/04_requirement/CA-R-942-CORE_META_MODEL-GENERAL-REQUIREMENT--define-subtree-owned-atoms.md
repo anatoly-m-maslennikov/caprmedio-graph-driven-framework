@@ -2,9 +2,9 @@
 subjects:
   governs: "Subtree-owned Atoms"
   depends_on:
-    ["Owned Atoms", "Entity/Continuant/Object/Scope Unit"]
-version: 18
-updated_at: "2026-10-15 18:47:10 +0000"
+    ["Owned Atoms", "Entity/Node/Continuant/Scope Unit"]
+version: 19
+updated_at: "2026-10-19 15:54:31 +0400"
 relations: {}
 atom_id: "CA-R-942"
 content_role: "Requirement"

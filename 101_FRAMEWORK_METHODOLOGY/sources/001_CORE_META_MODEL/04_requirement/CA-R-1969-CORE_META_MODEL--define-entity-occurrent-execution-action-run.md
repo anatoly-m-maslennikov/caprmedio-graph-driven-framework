@@ -8,12 +8,12 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: Entity/Occurrent/Execution/Action Run
+  governs: "Entity/Node/Occurrent/Execution/Action Run"
 relations:
   child_of:
   - CA-R-1174
-version: 1
-updated_at: "2026-10-17 17:26:44 +0400"
+version: 2
+updated_at: "2026-10-19 15:54:13 +0400"
 ---
 # Summary
 

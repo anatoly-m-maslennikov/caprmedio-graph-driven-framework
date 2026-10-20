@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Framework Settings.Framework Control-Root Locator"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Framework Control-Root Locator"
   depends_on:
-    ["Entity/Continuant/Node/Project.Framework Settings", "Entity/Continuant/Node/Project", "Entity/Carrier/Directory Carrier"]
-version: 13
-updated_at: "2026-10-18 07:38:32 +0400"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Project", "Entity/Carrier/Directory Carrier"]
+version: 14
+updated_at: "2026-10-19 15:55:35 +0400"
 relations:
   child_of:
     - "CA-D-361"

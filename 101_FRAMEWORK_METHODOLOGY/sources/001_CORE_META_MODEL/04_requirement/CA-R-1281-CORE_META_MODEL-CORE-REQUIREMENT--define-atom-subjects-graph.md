@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Atom Subjects Graph"
+  governs: "Entity/Node/Continuant/Projection/Type: Atom Subjects Graph"
   depends_on:
-    ["Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Subjects", "Subject Path", "Entity", "GOVERNS", "DEPENDS_ON", "Entity/Continuant/Object/Relation", "Relation Kind", "CAPRMEDIO Graph", "Subject", "Entity/Continuant/Term"]
-version: 14
-updated_at: "2026-10-15 18:41:38 +0000"
+    ["Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Subjects", "Subject Path", "Entity", "GOVERNS", "DEPENDS_ON", "Entity/Relation", "Relation Kind", "CAPRMEDIO Graph", "Subject", "Entity/Node/Continuant/Term"]
+version: 15
+updated_at: "2026-10-19 15:52:44 +0400"
 relations: {}
 atom_id: "CA-R-1281"
 content_role: "Requirement"

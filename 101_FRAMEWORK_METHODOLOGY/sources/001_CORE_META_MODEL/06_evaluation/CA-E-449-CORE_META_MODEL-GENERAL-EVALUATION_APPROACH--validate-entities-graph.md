@@ -1,13 +1,13 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Entities Graph"
+  governs: "Entity/Node/Continuant/Projection/Type: Entities Graph"
   depends_on:
-    ["Entity", "Property", "Entity/Continuant/Term", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Relation Kind", "Subject Path", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Subjects", "Artifact", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/History/Journal", "Entity/Carrier", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Relation", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
-version: 16
-updated_at: "2026-10-15 18:49:23 +0000"
+    ["Entity", "Property", "Entity/Node/Continuant/Term", "IS_BORNE_BY", "IS_ALLOWED_VALUE_OF", "BEARS", "Relation Kind", "Subject Path", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Subjects", "Artifact", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/History/Journal", "Entity/Carrier", "Entity/Node/Continuant/Atom", "Entity/Relation", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
+version: 19
+updated_at: "2026-10-20 13:39:10 +0400"
 relations:
   evaluation_for:
-    - CA-R-1192
+    - CA-R-2003
     - CA-R-1201
     - CA-R-1243
     - CA-R-1246
@@ -47,7 +47,7 @@ the Evaluation **must** reject an Entities Graph **if** **any** of:
 - multiple governing Atoms are treated as multiple identities for one Entity, **or** the **`=1`** GOVERNS target per Atom is treated as permitting **only** **`=1`** governing Atom per Entity.
 - a tree display is treated as the full combined graph **without** satisfying its declared selection, **or** legitimate sharing is rejected, duplicated, **or** discarded **to** force a tree.
 - a Relation Kind is unregistered **or** belongs **to** another graph kind under CA-R-1246-CORE_META_MODEL-CORE-REQUIREMENT--keep-relation-vocabularies-graph-specific.
-- an IS_BORNE_BY Relation has an invalid endpoint **or** direction under CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by, **or** violates the applicable immediate-bearer cardinality under CA-R-1192-CORE_META_MODEL-CORE-REQUIREMENT--define-dependent-entity **or** CA-R-1351-CORE_META_MODEL-CORE-REQUIREMENT--give-primary-entity-occurrences-no-bearer.
+- an IS_BORNE_BY Relation has an invalid endpoint **or** direction under CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by, **or** violates the applicable immediate-bearer cardinality under CA-R-2003-CORE_META_MODEL-CORE--require-exactly-one-immediate-bearer **or** CA-R-1351-CORE_META_MODEL-CORE-REQUIREMENT--give-primary-entity-occurrences-no-bearer.
 - an IS_ALLOWED_VALUE_OF Relation admits a value **without** governing authority for its qualified Property context under CA-R-1436-CORE_META_MODEL-CORE-REQUIREMENT--define-is-allowed-value-of.
 - admission **in** one Property context is used **to** justify admission **in** another context **without** its applicable authority.
 - allowed-value admission is treated as assigning a value **to** a particular Property occurrence **or** determining that Property's cardinality.
@@ -85,5 +85,19 @@ For the readable view specified by CA-R-1456 and delivered under CA-D-634, check
 - missing source facts and cycles are reported without invented facts or endless expansion.
 
 These checks exercise the generator with controlled inputs. They do not add an unrelated whole-project Atom-validation gate.
+
+### Structural and declaration-view acceptance
+
+Use controlled runtime inputs to check the full structural view and the separately selected middle-level declaration view under CA-R-1456 and CA-D-634:
+
+- The full structural view preserves eligible source-backed primary entities, properties, allowed values and structural Relations. Unmapped or unsupported material remains visible as unresolved coverage, not falsely admitted or silently removed to force a target tree.
+- The declaration view includes the selected named Relation Types and concrete formal Graph Rule declarations, not actual Atom-to-Atom links. Inputs containing such links, illustrative YAML, generic Rule prose or model definitions must not turn them into selected declarations.
+- A Relation Type keeps its graph kind and canonical name, descriptive metadata, declared direct/inverse direction and exact source provenance. Repeated references do not duplicate its identity; equal names in different graph kinds stay distinct. Missing, ambiguous or conflicting metadata remains unresolved, without an invented value or winner. Graph Rule permissions and cardinality are not copied into descriptive Type metadata.
+- Each included formal Rule retains its source Atom identity/Version, governed Subject, Summary and operative YAML. Opaque values are preserved; unsupported forms or references remain explicit gaps. The generator does not evaluate conditions, apply defaults, merge rules or create instances.
+- An empty Rule catalogue passes when the selected inputs contain no concrete formal Rule declarations. This neither requires live Rule creation nor proves completeness beyond the declared selection.
+- Core and Project source boundaries remain separate. Source selection, display selection and ultimate source evidence stay explicit, including on partial results.
+- Rebuilding the same Type, named selection and source of truth keeps its Projection ID and deterministic body/source list. A genuinely different selection keeps a distinct Projection identity under CA-R-1943. Check actual rebuild time, Markdown/YAML fields, alphabetical ordering where no order is declared, literal tabs in text trees and spaces in YAML.
+
+These are generator tests with controlled inputs, not a whole-project Atom-health gate. They add no rule evaluator, source admission policy or construction/CONTAINS implementation.
 
 Construction/CONTAINS projection is deferred to the adjacent `draft/` RMED. It is not required by this active readable-view specification.

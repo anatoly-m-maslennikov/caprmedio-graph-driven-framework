@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role"
   depends_on:
-    ["Spec Content Roles", "Change Content Roles", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Implementation", "Entity/Carrier"]
-version: 7
-updated_at: "2026-10-15 18:50:00 +0000"
+    ["Spec Content Roles", "Change Content Roles", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Implementation", "Entity/Carrier"]
+version: 8
+updated_at: "2026-10-19 15:55:12 +0400"
 relations: {"evaluation_for": ["CA-R-1548", "CA-R-1549", "CA-R-1550", "CA-R-1339", "CA-R-1340", "CA-R-1343", "CA-R-1530", "CA-R-1569"]}
 atom_id: "CA-E-498"
 content_role: "Evaluation"

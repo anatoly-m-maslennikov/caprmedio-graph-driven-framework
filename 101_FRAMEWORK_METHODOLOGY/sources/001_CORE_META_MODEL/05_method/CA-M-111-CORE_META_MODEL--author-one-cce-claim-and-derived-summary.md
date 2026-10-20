@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Claim Authoring"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "CCE", "Entity/Continuant/Object/Atom.Summary"]
-version: 27
-updated_at: "2026-10-15 18:47:42 +0000"
+    ["Entity/Node/Continuant/Atom.Substance", "CCE", "Entity/Node/Continuant/Atom.Summary"]
+version: 29
+updated_at: "2026-10-19 22:01:58 +0400"
 relations: {"relates_to": ["CA-R-1624", "CA-O-103", "CA-D-479", "CA-R-1465"]}
 atom_id: "CA-M-111"
 content_role: "Method"
@@ -21,7 +21,7 @@ Author one CCE Claim and derived Summary
 
 ## Scope
 
-authoring an Atom's primary contribution, its applicability, **and** its derived Summary.
+authoring an Atom's prose CCE primary contribution, its applicability, **and** its derived Summary. Formal Graph Rule Atoms use CA-M-394 instead, retaining one structured contribution and a source-faithful Summary. This exception does not apply automatically to every R/Type: Rule Atom.
 
 ## Claim
 

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Parameter Resolution"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project", "Entity/Continuant/Actor/Type: Operator"]
-version: 10
-updated_at: "2026-10-15 18:48:19 +0000"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Default Settings", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 11
+updated_at: "2026-10-19 15:54:46 +0400"
 relations:
   relates_to:
     - "CA-R-1402"

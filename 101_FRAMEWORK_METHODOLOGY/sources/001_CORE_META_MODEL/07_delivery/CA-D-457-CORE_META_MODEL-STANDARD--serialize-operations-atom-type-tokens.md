@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom/Content Role: Operations/Type"
   depends_on:
-    ["Atom/Content Role: Operations/Type", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Atom/Content Role: Operations/Type: Actor", "Artifact Carrier"]
-version: 8
-updated_at: "2026-10-15 18:52:04 +0000"
+    ["Atom/Content Role: Operations/Type", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Atom/Content Role: Operations/Type: Actor", "Artifact Carrier"]
+version: 9
+updated_at: "2026-10-19 15:55:50 +0400"
 relations: {"relates_to": ["CA-R-1565", "CA-D-283", "CA-D-284", "CA-D-285", "CA-R-1569"]}
 atom_id: "CA-D-457"
 content_role: "Delivery"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Relation"
+  governs: "Entity/Relation"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Relation", "Entity/Continuant/Node/Atom.ID", "Entity/Continuant/Node/Atom.Subjects"]
-version: 9
-updated_at: "2026-10-18 03:34:51 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Relation", "Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/Atom.Subjects"]
+version: 10
+updated_at: "2026-10-19 15:55:54 +0400"
 relations: {"delivery_for": ["CA-R-1580"]}
 atom_id: "CA-D-471"
 content_role: "Delivery"

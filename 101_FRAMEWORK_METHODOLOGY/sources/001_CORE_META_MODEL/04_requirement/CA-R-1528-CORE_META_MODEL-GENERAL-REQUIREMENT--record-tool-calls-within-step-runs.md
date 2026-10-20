@@ -2,9 +2,9 @@
 subjects:
   governs: "Tool Call"
   depends_on:
-    ["Entity/Occurrent/Execution/Step Run", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Tool", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record"]
-version: 7
-updated_at: "2026-10-15 18:44:00 +0000"
+    ["Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Tool", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record"]
+version: 8
+updated_at: "2026-10-19 15:53:21 +0400"
 relations: {"relates_to": ["CA-R-1452", "CA-R-1509", "CA-R-1511", "CA-R-1720"]}
 atom_id: "CA-R-1528"
 content_role: "Requirement"

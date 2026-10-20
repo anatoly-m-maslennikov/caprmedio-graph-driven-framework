@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/File Carrier"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Property", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Entity/Continuant/Object/Atom.Status", "Entity/Continuant/Object/Relation", "Entity/Carrier/File Carrier"]
-version: 10
-updated_at: "2026-10-16 12:09:10 +0000"
+    ["Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Property", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.Status", "Entity/Relation", "Entity/Carrier/File Carrier"]
+version: 11
+updated_at: "2026-10-19 15:55:15 +0400"
 relations: {"evaluation_for": ["CA-R-1598", "CA-R-1599", "CA-D-478", "CA-D-479", "CA-D-480", "CA-D-481", "CA-D-482", "CA-D-483", "CA-D-485", "CA-D-460", "CA-D-470"]}
 atom_id: "CA-E-506"
 content_role: "Evaluation"

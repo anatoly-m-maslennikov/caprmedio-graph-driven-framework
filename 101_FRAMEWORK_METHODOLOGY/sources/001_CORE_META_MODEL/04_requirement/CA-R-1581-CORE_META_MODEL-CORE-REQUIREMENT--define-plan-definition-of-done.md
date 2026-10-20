@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done"
   depends_on:
-    ["Atom/Content Role: Plan/Type: Plan", "Condition Expression", "Entity/Continuant/Object/Atom.Substance"]
-version: 6
-updated_at: "2026-10-15 18:44:41 +0000"
+    ["Atom/Content Role: Plan/Type: Plan", "Condition Expression", "Entity/Node/Continuant/Atom.Substance"]
+version: 7
+updated_at: "2026-10-19 15:53:35 +0400"
 relations: {"relates_to": ["CA-M-123"]}
 atom_id: "CA-R-1581"
 content_role: "Requirement"

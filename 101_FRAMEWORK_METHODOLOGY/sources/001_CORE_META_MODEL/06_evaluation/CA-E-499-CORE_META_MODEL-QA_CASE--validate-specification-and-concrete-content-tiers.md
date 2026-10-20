@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Local Tier"
+  governs: "Entity/Node/Continuant/Atom.Local Tier"
   depends_on:
-    ["Spec Content Roles", "Change Content Roles", "Atom/Content Role", "Entity/Continuant/Object/Atom.Global Tier", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Subjects", "Implementation", "Container Atom", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom.Local Tier: Standard"]
-version: 9
-updated_at: "2026-10-15 18:50:01 +0000"
+    ["Spec Content Roles", "Change Content Roles", "Atom/Content Role", "Entity/Node/Continuant/Atom.Global Tier", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Subjects", "Implementation", "Container Atom", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom.Local Tier: Standard"]
+version: 10
+updated_at: "2026-10-19 15:55:12 +0400"
 relations: {"evaluation_for": ["CA-R-659", "CA-R-1431", "CA-R-1566", "CA-R-1567", "CA-R-1568", "CA-R-1571", "CA-M-272", "CA-D-484", "CA-R-1573"]}
 atom_id: "CA-E-499"
 content_role: "Evaluation"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Global Tier"
+  governs: "Entity/Node/Continuant/Atom.Global Tier"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Owning Scope Unit", "Entity/Continuant/Node/Atom.Local Tier", "Entity/Continuant/Node/Scope Unit.Structural Level"]
-version: 13
-updated_at: "2026-10-18 03:33:32 +0400"
+    ["Entity/Node/Continuant/Atom.Owning Scope Unit", "Entity/Node/Continuant/Atom.Local Tier", "Entity/Node/Continuant/Scope Unit.Structural Level"]
+version: 14
+updated_at: "2026-10-19 15:53:07 +0400"
 relations: {}
 atom_id: "CA-R-1444"
 content_role: "Requirement"

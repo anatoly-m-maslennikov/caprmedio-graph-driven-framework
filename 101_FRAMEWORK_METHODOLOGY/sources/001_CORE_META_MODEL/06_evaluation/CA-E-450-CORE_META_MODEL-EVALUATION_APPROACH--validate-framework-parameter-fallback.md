@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings.Parameter Resolution Validation"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Parameter Resolution Validation"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project", "Entity/Carrier", "Entity/Continuant/Object/Atom/Content Role: Evaluation"]
-version: 10
-updated_at: "2026-10-15 18:49:24 +0000"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Default Settings", "Entity/Node/Continuant/Project", "Entity/Carrier", "Entity/Node/Continuant/Atom/Content Role: Evaluation"]
+version: 11
+updated_at: "2026-10-19 15:55:02 +0400"
 relations:
   evaluation_for:
     - "CA-D-407"

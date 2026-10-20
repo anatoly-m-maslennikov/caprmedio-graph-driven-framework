@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier.Canonical Address"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Atom", "Entity/Carrier/Directory Carrier"]
-version: 17
-updated_at: "2026-10-18 03:34:35 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom", "Entity/Carrier/Directory Carrier"]
+version: 18
+updated_at: "2026-10-19 15:55:24 +0400"
 relations: {}
 atom_id: "CA-D-296"
 content_role: "Delivery"

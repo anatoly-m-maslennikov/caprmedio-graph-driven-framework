@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Method/Type: External Implementation Method"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Method/Type: External Implementation Method"
   depends_on: []
-version: 21
-updated_at: "2026-10-19 02:59:42 +0400"
+version: 22
+updated_at: "2026-10-20 16:26:14 +0400"
 relations:
   {"relates_to": ["CA-D-393"], "depends_on": ["CA-R-1690", "CA-R-1767"]}
 atom_id: "CA-R-1674"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Updated At"
+  governs: "Entity/Node/Continuant/Atom.Updated At"
   depends_on:
-    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/History/Revision/Type: Atom", "Entity/Carrier", "Entity", "Entity/Continuant/Node/Atom.Status", "Entity/Carrier.Canonical Address"]
-version: 7
-updated_at: "2026-10-18 03:33:57 +0400"
+    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Carrier", "Entity", "Entity/Node/Continuant/Atom.Status", "Entity/Carrier.Canonical Address"]
+version: 8
+updated_at: "2026-10-19 15:54:05 +0400"
 claim_target_scope_unit: "CORE_META_MODEL"
 relations:
   child_of:

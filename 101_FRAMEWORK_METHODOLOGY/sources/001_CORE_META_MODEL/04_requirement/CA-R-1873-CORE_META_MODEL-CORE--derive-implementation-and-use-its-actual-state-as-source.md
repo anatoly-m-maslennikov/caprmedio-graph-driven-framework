@@ -9,9 +9,9 @@ status: Active
 author: Anatoly Maslennikov
 subjects:
   governs: "Implementation"
-  depends_on: ["Implementation", "Entity/Continuant/Projection", "Entity/Continuant/History/Journal", "Entity/Carrier"]
-version: 4
-updated_at: "2026-10-15 18:46:10 +0000"
+  depends_on: ["Implementation", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/History/Journal", "Entity/Carrier"]
+version: 5
+updated_at: "2026-10-19 15:54:07 +0400"
 relations: {relates_to: [CA-R-1470, CA-R-1746, CA-R-1343]}
 ---
 # Summary

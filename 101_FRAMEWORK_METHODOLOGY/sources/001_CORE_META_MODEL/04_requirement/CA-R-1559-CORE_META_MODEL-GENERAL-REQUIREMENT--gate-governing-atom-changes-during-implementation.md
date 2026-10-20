@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Actor/Type: AI Agent"
+  governs: "Entity/Node/Continuant/Actor/Type: AI Agent"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Author", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/Actor/Type: AI Agent", "AI Agent Confidence", "Entity/Continuant/Object/Atom/Content Role: Plan.Autonomous Confidence Threshold", "Spec", "Entity/Continuant/Object/Atom", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Entity/Continuant/Object/Project", "Implementation Workflow"]
-version: 7
-updated_at: "2026-10-15 18:44:23 +0000"
+    ["Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "AI Agent Confidence", "Entity/Node/Continuant/Atom/Content Role: Plan.Autonomous Confidence Threshold", "Spec", "Entity/Node/Continuant/Atom", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Requirement", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Entity/Node/Continuant/Project", "Implementation Workflow"]
+version: 8
+updated_at: "2026-10-19 15:53:29 +0400"
 relations: {"child_of":["CA-M-261"],"relates_to":["CA-R-1591","CA-R-1552","CA-R-1080","CA-M-262"]}
 atom_id: "CA-R-1559"
 content_role: "Requirement"

@@ -2,9 +2,9 @@
 subjects:
   governs: "Carrier-Only Recoding"
   depends_on:
-    ["Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom.Substance", "Atom Scope", "Atom Direct Relation"]
-version: 14
-updated_at: "2026-10-15 18:51:08 +0000"
+    ["Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/Atom.Substance", "Atom Scope", "Atom Direct Relation"]
+version: 15
+updated_at: "2026-10-19 15:55:27 +0400"
 relations: {}
 atom_id: "CA-D-304"
 content_role: "Delivery"

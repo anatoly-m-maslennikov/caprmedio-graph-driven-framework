@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Requirement/Type: Boundary"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Boundary"
   depends_on: []
-version: 21
-updated_at: "2026-10-19 03:01:48 +0400"
+version: 22
+updated_at: "2026-10-20 16:26:15 +0400"
 relations:
   {"depends_on": ["CA-R-740"]}
 atom_id: "CA-R-825"

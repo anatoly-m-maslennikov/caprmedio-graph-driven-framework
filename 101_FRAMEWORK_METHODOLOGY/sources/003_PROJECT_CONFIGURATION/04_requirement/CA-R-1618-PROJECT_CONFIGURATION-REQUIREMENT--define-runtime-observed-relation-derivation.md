@@ -12,10 +12,10 @@ subjects:
     - "Evidence"
     - "Journal"
     - "Realization Graph"
-    - "Relation"
+    - "Entity/Relation"
     - "Relation Derivation Class"
-version: 4
-updated_at: "2026-10-03 01:07:45 +0400"
+version: 5
+updated_at: "2026-10-19 15:56:08 +0400"
 relations:
   relates_to:
     - CA-R-1616

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Subjects"
+  governs: "Entity/Node/Continuant/Atom.Subjects"
   depends_on:
-    ["Entity/Continuant/Object/Atom", "Subject", "Subject Path", "GOVERNS", "DEPENDS_ON", "Entity", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Term", "Entity/Continuant/Projection/Type: Atom Subjects Graph", "Entity/Continuant/Object/Atom/Content Role: Concern", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Evaluation For Relation", "Property", "Primary Entity", "Dependent Entity", "Entity/Continuant/Object/Scope Unit", "Atom Scope", "Entity/Continuant/Object/Atom.Target Scope Unit", "Entity/Continuant/Object/Atom.Summary"]
-version: 27
-updated_at: "2026-10-15 18:48:57 +0000"
+    ["Entity/Node/Continuant/Atom", "Subject", "Subject Path", "GOVERNS", "DEPENDS_ON", "Entity", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Term", "Entity/Node/Continuant/Projection/Type: Atom Subjects Graph", "Entity/Node/Continuant/Atom/Content Role: Concern", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Evaluation For Relation", "Property", "Primary Entity", "Dependent Entity", "Entity/Node/Continuant/Scope Unit", "Atom Scope", "Entity/Node/Continuant/Atom.Target Scope Unit", "Entity/Node/Continuant/Atom.Summary"]
+version: 29
+updated_at: "2026-10-20 13:38:55 +0400"
 relations:
   evaluation_for:
     - CA-R-1275
@@ -13,7 +13,7 @@ relations:
     - CA-R-1018
     - CA-R-1248
     - CA-R-1194
-    - CA-R-1192
+    - CA-R-2003
     - CA-R-1193
     - CA-R-1201
     - CA-R-1202

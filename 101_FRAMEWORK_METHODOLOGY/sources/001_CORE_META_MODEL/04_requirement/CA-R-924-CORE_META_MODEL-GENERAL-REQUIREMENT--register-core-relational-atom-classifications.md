@@ -2,9 +2,9 @@
 subjects:
   governs: "Relational Atom/Type"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal", "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand", "Atom/Content Role: Plan/Type: Plan"]
-version: 22
-updated_at: "2026-10-15 18:46:53 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal", "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Demand", "Atom/Content Role: Plan/Type: Plan"]
+version: 23
+updated_at: "2026-10-19 15:54:28 +0400"
 relations:
   child_of:
     - CA-R-923

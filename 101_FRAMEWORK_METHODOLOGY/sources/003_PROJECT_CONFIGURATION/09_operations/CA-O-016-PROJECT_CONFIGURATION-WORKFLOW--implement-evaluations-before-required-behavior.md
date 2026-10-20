@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Workflow"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Entity/Occurrent/Execution/Workflow Run", "Entity/Occurrent/Execution/Step Run", "Atom/Content Role: Plan/Type: Plan", "Implementation Retry Control"]
-version: 14
-updated_at: "2026-10-19 03:07:45 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Relation/Type: On Result", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Occurrent/Execution/Step Run", "Atom/Content Role: Plan/Type: Plan", "Implementation Retry Control"]
+version: 15
+updated_at: "2026-10-19 15:56:37 +0400"
 relations:
   relates_to:
     - CA-R-1509

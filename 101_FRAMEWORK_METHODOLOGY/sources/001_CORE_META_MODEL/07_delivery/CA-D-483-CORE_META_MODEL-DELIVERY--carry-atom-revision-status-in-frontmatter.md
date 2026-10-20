@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Status"
+  governs: "Entity/Node/Continuant/Atom.Status"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Status", "Entity/Continuant/Node/Atom/Content Role", "Entity/Continuant/Node/Atom/Type", "Entity/Carrier.Canonical Address"]
-version: 9
-updated_at: "2026-10-18 03:34:52 +0400"
+    ["Entity/Node/Continuant/Atom.Status", "Entity/Node/Continuant/Atom/Content Role", "Entity/Node/Continuant/Atom/Type", "Entity/Carrier.Canonical Address"]
+version: 10
+updated_at: "2026-10-19 15:55:58 +0400"
 relations: {"relates_to": ["CA-D-478", "CA-D-480", "CA-D-466", "CA-D-461"]}
 atom_id: "CA-D-483"
 content_role: "Delivery"

@@ -8,11 +8,11 @@ global_tier: 11
 status: "Active"
 author: "Anatoly Maslennikov"
 subjects:
-  governs: "Carrier"
+  governs: "Entity/Carrier"
   depends_on:
     - "Logging Policy"
-version: 1
-updated_at: "2026-09-28 15:12:22 +0400"
+version: 2
+updated_at: "2026-10-19 15:56:25 +0400"
 relations: {}
 ---
 # Summary

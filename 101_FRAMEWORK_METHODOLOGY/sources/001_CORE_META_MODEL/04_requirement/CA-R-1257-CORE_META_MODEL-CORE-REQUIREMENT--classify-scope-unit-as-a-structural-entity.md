@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit"
+  governs: "Entity/Node/Continuant/Scope Unit"
   depends_on:
     - "Structural Entity"
-version: 13
-updated_at: "2026-10-15 18:41:25 +0000"
+version: 14
+updated_at: "2026-10-19 15:52:41 +0400"
 relations: {}
 atom_id: "CA-R-1257"
 content_role: "Requirement"

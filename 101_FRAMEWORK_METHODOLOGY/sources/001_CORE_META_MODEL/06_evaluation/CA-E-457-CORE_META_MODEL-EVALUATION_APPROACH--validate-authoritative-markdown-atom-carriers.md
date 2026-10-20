@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/File Carrier"
   depends_on:
-    ["Entity/Continuant/Node/Atom", "Entity/Carrier/File Carrier", "Entity/Continuant/Node/Project"]
-version: 19
-updated_at: "2026-10-18 03:34:22 +0400"
+    ["Entity/Node/Continuant/Atom", "Entity/Carrier/File Carrier", "Entity/Node/Continuant/Project"]
+version: 20
+updated_at: "2026-10-19 15:55:03 +0400"
 relations:
   evaluation_for:
     - CA-D-463

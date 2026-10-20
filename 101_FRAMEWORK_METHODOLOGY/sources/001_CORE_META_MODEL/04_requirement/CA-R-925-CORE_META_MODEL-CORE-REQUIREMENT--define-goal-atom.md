@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Goal"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Goal"
   depends_on:
-    ["Relational Atom", "Entity/Continuant/Object/Scope Unit"]
-version: 21
-updated_at: "2026-10-15 18:46:55 +0000"
+    ["Relational Atom", "Entity/Node/Continuant/Scope Unit"]
+version: 22
+updated_at: "2026-10-19 15:54:29 +0400"
 relations:
   child_of:
     - CA-R-923

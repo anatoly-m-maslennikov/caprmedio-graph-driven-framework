@@ -8,12 +8,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 6
-updated_at: "2026-10-19 03:07:00 +0400"
+version: 7
+updated_at: "2026-10-19 15:56:34 +0400"
 subjects:
   governs: "Applicable Methodology Compilation Decide Step"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Occurrent/Execution/Workflow Run", "Entity/Continuant/Projection/Type: Applicable Methodology", "Obtain Source Correction Decision", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal", "Entity/Continuant/History/Journal.Record", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Project Configuration", "Methodology Source.Expansion Boundary"]
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Obtain Source Correction Decision", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Project Configuration", "Methodology Source.Expansion Boundary"]
 relations:
   relates_to: [CA-O-011, CA-O-007]
 ---

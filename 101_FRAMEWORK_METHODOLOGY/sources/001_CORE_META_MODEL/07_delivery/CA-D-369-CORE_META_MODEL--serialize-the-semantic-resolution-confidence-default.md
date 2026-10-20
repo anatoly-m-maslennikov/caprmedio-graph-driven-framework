@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Project.Framework Settings.Confidence.Semantic Resolution Threshold"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Confidence.Semantic Resolution Threshold"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings", "Confidence Threshold"]
-version: 12
-updated_at: "2026-10-18 07:32:11 +0400"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Confidence Threshold"]
+version: 13
+updated_at: "2026-10-19 15:55:35 +0400"
 relations:
   child_of:
     - "CA-D-361"

@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Carrier/Directory Carrier.Numeric Prefix"
   depends_on:
-    ["Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit.Structural Level", "Entity/Continuant/Node/Scope Unit.Navigational Order Number"]
-version: 20
-updated_at: "2026-10-18 07:30:51 +0400"
+    ["Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Scope Unit.Structural Level", "Entity/Node/Continuant/Scope Unit.Navigational Order Number"]
+version: 21
+updated_at: "2026-10-19 15:55:26 +0400"
 relations: {}
 atom_id: "CA-D-300"
 content_role: "Delivery"

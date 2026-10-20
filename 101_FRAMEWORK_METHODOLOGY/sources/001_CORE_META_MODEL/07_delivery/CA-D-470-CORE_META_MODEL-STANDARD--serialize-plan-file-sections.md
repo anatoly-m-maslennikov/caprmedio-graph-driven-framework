@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Plan"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Plan"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom.Summary", "Entity/Continuant/Node/Atom.Substance", "Entity/Continuant/Node/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Node/Atom/Content Role: Plan.Details", "Entity/Carrier/File Carrier"]
-version: 11
-updated_at: "2026-10-18 03:34:50 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Atom/Content Role: Plan.Details", "Entity/Carrier/File Carrier"]
+version: 12
+updated_at: "2026-10-19 15:55:54 +0400"
 relations: {"relates_to": ["CA-R-1599", "CA-R-1586", "CA-D-482", "CA-D-460"]}
 atom_id: "CA-D-470"
 content_role: "Delivery"

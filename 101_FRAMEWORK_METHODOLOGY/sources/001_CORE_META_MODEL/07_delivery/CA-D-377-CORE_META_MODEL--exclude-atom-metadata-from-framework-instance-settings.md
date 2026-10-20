@@ -2,9 +2,9 @@
 subjects:
   governs: "Framework Instance Settings/Carrier/Atom metadata exclusion"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings", "Entity/Continuant/Object/Atom", "Artifact/Revision"]
-version: 10
-updated_at: "2026-10-18 07:32:23 +0400"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Atom", "Artifact/Revision"]
+version: 11
+updated_at: "2026-10-19 15:55:38 +0400"
 relations:
   child_of:
     - "CA-D-361"

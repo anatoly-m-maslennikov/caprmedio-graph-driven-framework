@@ -10,9 +10,9 @@ author: Anatoly Maslennikov
 status: Active
 subjects:
   governs: "Construct Entities Graph Projection"
-  depends_on: ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity", "Property", "Entity/Continuant/Projection/Type: Entities Graph", "Entity/Continuant/Object/Project.Structure", "Relation Kind", "Artifact/Revision", "Entity/Continuant/History/Journal"]
-version: 5
-updated_at: "2026-10-18 16:24:21 +0400"
+  depends_on: ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity", "Property", "Entity/Node/Continuant/Projection/Type: Entities Graph", "Entity/Node/Continuant/Project.Structure", "Relation Kind", "Artifact/Revision", "Entity/Node/Continuant/History/Journal"]
+version: 6
+updated_at: "2026-10-19 15:57:03 +0400"
 relations:
   relates_to: [CA-R-1438, CA-R-1456, CA-R-1746, CA-R-1471, CA-R-1246, CA-R-806, CA-R-1472, CA-R-1437, CA-R-1483, CA-D-440, CA-E-449, CA-R-1720, CA-R-1728]
 ---

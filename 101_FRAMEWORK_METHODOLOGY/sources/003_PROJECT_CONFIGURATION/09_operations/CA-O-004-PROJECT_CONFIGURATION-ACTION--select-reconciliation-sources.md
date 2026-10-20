@@ -2,9 +2,9 @@
 subjects:
   governs: "Select Reconciliation Sources"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Projection/Type: Reconciled Projection", "Artifact", "Entity/Continuant/Object/Atom.Substance"]
-version: 8
-updated_at: "2026-10-18 16:19:25 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Projection/Type: Reconciled Projection", "Artifact", "Entity/Node/Continuant/Atom.Substance"]
+version: 9
+updated_at: "2026-10-19 15:56:26 +0400"
 relations: {}
 atom_id: "CA-O-004"
 content_role: "Operations"

@@ -5,9 +5,9 @@ subjects:
     - "Work Journal/Event"
     - "Atom/Identifier"
     - "Atom/Revision"
-    - "Carrier"
-version: 10
-updated_at: "2026-10-14 18:37:38 +0400"
+    - "Entity/Carrier"
+version: 11
+updated_at: "2026-10-19 15:56:22 +0400"
 relations: {}
 atom_id: "CA-D-435"
 content_role: "Delivery"

@@ -2,8 +2,8 @@
 subjects:
   governs: "Entity/Carrier.Canonical Address.Segment"
   depends_on: []
-version: 13
-updated_at: "2026-10-16 12:09:14 +0000"
+version: 14
+updated_at: "2026-10-20 17:07:46 +0400"
 relations: {}
 atom_id: "CA-D-290"
 content_role: "Delivery"
@@ -20,10 +20,10 @@ Omit Version Suffixes from Active Carriers
 
 ## Scope
 
-Active Artifact Carriers.
+Current Atom source Carriers across all admitted Status values.
 
 ## Claim
 
-an Artifact Carrier basename **must not** contain an `@<version>` suffix **if** its Artifact Activity is Active.
+a Current Atom source Carrier basename **must not** contain an `@<version>` suffix, regardless of the Atom's admitted Status value.
 
 ## Details

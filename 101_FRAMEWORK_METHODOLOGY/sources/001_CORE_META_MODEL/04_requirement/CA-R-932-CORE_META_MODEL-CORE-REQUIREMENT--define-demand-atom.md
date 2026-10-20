@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom/Content Role: Requirement/Type: Demand"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Requirement/Type: Demand"
   depends_on:
-    ["Relational Atom", "Consumer", "Producer", "Atom Scope", "Entity/Continuant/Object/Atom.Target Scope Unit"]
-version: 23
-updated_at: "2026-10-15 18:46:59 +0000"
+    ["Relational Atom", "Consumer", "Producer", "Atom Scope", "Entity/Node/Continuant/Atom.Target Scope Unit"]
+version: 24
+updated_at: "2026-10-19 15:54:30 +0400"
 relations:
   child_of:
     - CA-R-923

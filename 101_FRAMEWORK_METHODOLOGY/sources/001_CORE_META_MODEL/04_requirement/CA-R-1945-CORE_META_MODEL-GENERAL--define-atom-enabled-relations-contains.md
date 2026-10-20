@@ -8,12 +8,12 @@ global_tier: 10
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Enabled Relations.Contains"
+  governs: "Entity/Node/Continuant/Atom.Enabled Relations.Contains"
 relations:
   child_of:
   - CA-R-1174
-version: 2
-updated_at: "2026-10-18 03:34:01 +0400"
+version: 4
+updated_at: "2026-10-20 00:11:28 +0400"
 ---
 # Summary
 
@@ -31,4 +31,4 @@ Atom.Enabled Relations.Contains **means** whether an Atom kind **may** contain o
 
 The Operator approved the default-False kind capability and containment for Plan and Workflow kinds. Their particular enabling rules remain separate. Container capability does not replace Owning Scope Unit or Target Scope Unit references, including Goal and Demand targets.
 
-Existing evidence: CA-R-1368 defines `CONTAINS` and its derived inverse `IS_CONTAINED_BY`, but not this capability or its default. CA-R-1378, CA-R-1379 and CA-R-1265 still describe the old non-Atom collection model; their conflicting content needs the later content pass. This draft neither retires those sources nor resumes the deferred construction graph.
+CA-R-1368 defines direct IS_CONTAINED_BY and its derived inverse CONTAINS; this capability describes which Atom kinds may be the containing endpoint, not another authored inverse. CA-R-1378, CA-R-1379 and CA-R-1265 still describe the old non-Atom collection model; their conflicting content needs the later content pass. This alignment neither retires those sources nor resumes the deferred construction graph.

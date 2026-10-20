@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Atom.Subjects"
+  governs: "Entity/Node/Continuant/Atom.Subjects"
   depends_on:
-    ["Subject", "Subject Path", "Entity", "Entity/Continuant/Object/Scope Unit", "Entity/Continuant/Object/Atom.Target Scope Unit"]
-version: 6
-updated_at: "2026-10-15 18:44:57 +0000"
+    ["Subject", "Subject Path", "Entity", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Target Scope Unit"]
+version: 7
+updated_at: "2026-10-19 15:53:40 +0400"
 relations:
   relates_to:
     - CA-R-1275

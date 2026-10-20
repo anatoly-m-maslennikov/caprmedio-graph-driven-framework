@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
+  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    ["Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Entity/Continuant/Actor/Type: Operator", "Entity/Continuant/History/Journal.Record", "Methodology Source.Expansion Boundary"]
-version: 14
-updated_at: "2026-10-18 07:49:39 +0400"
+    ["Applicable Methodology Conflict", "Applicable Methodology Source Frontier Digest", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/History/Journal.Record", "Methodology Source.Expansion Boundary"]
+version: 15
+updated_at: "2026-10-19 15:56:05 +0400"
 relations:
   relates_to:
     - CA-O-007

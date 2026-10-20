@@ -2,9 +2,9 @@
 subjects:
   governs: "Atom Claim Projection"
   depends_on:
-    ["Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom.Summary", "Translation"]
-version: 16
-updated_at: "2026-10-15 18:47:50 +0000"
+    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom.Summary", "Translation"]
+version: 17
+updated_at: "2026-10-19 15:54:40 +0400"
 relations:
   relates_to:
     - CA-M-294

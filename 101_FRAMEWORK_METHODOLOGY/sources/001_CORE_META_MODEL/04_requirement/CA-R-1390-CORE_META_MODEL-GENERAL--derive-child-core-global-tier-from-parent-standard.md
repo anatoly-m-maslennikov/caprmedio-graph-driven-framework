@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Global Tier"
+  governs: "Entity/Node/Continuant/Atom.Global Tier"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Local Tier: Core", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Scope Unit.Parent", "Entity/Continuant/Node/Scope Unit.Children"]
-version: 14
-updated_at: "2026-10-18 03:33:26 +0400"
+    ["Entity/Node/Continuant/Atom.Local Tier: Core", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Scope Unit.Parent", "Entity/Node/Continuant/Scope Unit.Children"]
+version: 15
+updated_at: "2026-10-19 15:52:56 +0400"
 relations: {}
 atom_id: "CA-R-1390"
 content_role: "Requirement"

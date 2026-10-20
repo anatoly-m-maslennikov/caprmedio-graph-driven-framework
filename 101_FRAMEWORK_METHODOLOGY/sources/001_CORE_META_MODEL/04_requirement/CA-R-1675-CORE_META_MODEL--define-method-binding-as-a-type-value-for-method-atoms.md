@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Method/Type: Method Binding"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Method/Type: Method Binding"
   depends_on: []
-version: 21
-updated_at: "2026-10-19 03:00:38 +0400"
+version: 22
+updated_at: "2026-10-20 16:26:14 +0400"
 relations:
   {"child_of": ["CAPRMEDIO-META-REQU-084--relational-artifacts-declare-endpoints"], "depends_on": ["CA-R-1767"]}
 atom_id: "CA-R-1675"

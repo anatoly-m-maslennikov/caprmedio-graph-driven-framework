@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Entities Graph"
+  governs: "Entity/Node/Continuant/Projection/Type: Entities Graph"
   depends_on:
-    ["Entity/Continuant/Projection", "Entity", "Relation Kind", "Entity/Continuant/Object/Relation", "CAPRMEDIO Graph"]
-version: 9
-updated_at: "2026-10-15 18:43:02 +0000"
+    ["Entity/Node/Continuant/Projection", "Entity", "Relation Kind", "Entity/Relation", "CAPRMEDIO Graph"]
+version: 10
+updated_at: "2026-10-19 15:53:05 +0400"
 relations: {}
 atom_id: "CA-R-1438"
 content_role: "Requirement"

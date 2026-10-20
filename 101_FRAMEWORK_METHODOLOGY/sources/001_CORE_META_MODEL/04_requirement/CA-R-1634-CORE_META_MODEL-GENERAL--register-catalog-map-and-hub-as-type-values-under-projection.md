@@ -2,9 +2,9 @@
 subjects:
   governs: "Projection/Type"
   depends_on:
-    ["Entity/Continuant/Projection", "Type", "Entity/Continuant/Projection/Type: Catalog", "Entity/Continuant/Projection/Type: Map", "Entity/Continuant/Projection/Type: Hub", "Entity/Continuant/Object/Atom.Substance"]
-version: 28
-updated_at: "2026-10-15 18:45:10 +0000"
+    ["Entity/Node/Continuant/Projection", "Type", "Entity/Node/Continuant/Projection/Type: Catalog", "Entity/Node/Continuant/Projection/Type: Map", "Entity/Node/Continuant/Projection/Type: Hub", "Entity/Node/Continuant/Atom.Substance"]
+version: 29
+updated_at: "2026-10-19 15:53:46 +0400"
 relations: {}
 atom_id: "CA-R-1634"
 content_role: "Requirement"

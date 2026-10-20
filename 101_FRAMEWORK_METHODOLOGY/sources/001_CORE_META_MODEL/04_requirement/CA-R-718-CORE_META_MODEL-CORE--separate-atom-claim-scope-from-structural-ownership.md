@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom.Target Scope Unit"
+  governs: "Entity/Node/Continuant/Atom.Target Scope Unit"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Substance", "Entity/Continuant/Node/Scope Unit", "Entity/Continuant/Node/Project.Structure", "Entity/Continuant/Node/Atom.Substance Scope"]
-version: 26
-updated_at: "2026-10-18 03:34:10 +0400"
+    ["Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Project.Structure", "Entity/Node/Continuant/Atom.Substance Scope"]
+version: 27
+updated_at: "2026-10-19 15:54:21 +0400"
 relations:
   child_of:
     - CA-R-1776

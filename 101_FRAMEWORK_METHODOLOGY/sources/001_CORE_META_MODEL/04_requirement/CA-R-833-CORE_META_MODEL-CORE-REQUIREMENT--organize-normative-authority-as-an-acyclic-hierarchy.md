@@ -1,13 +1,13 @@
 ---
-version: 16
-updated_at: "2026-10-18 03:34:11 +0400"
+version: 17
+updated_at: "2026-10-19 15:54:24 +0400"
 relations:
   child_of:
     - "CA-R-1407"
 subjects:
-  governs: "Entity/Continuant/Node/Selection"
+  governs: "Entity/Node/Continuant/Selection"
   depends_on:
-    ["Entity/Continuant/Node/Project"]
+    ["Entity/Node/Continuant/Project"]
 atom_id: "CA-R-833"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"

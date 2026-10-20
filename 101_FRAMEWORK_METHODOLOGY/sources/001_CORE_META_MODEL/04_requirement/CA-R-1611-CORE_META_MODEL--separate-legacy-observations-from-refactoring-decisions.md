@@ -9,9 +9,9 @@ status: Active
 subjects:
   governs: "Implementation"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Analysis", "Entity/Continuant/Object/Atom.Substance", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Evidence", "Entity/Continuant/Projection"]
-version: 6
-updated_at: "2026-10-15 18:45:02 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Analysis", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Evidence", "Entity/Node/Continuant/Projection"]
+version: 7
+updated_at: "2026-10-19 15:53:44 +0400"
 relations:
   relates_to:
     - CA-R-1470

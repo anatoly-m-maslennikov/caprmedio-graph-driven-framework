@@ -8,12 +8,12 @@ global_tier: 11
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Entity/Continuant/Node/Project.Framework Settings.Artifact Timestamp Timezone"
+  governs: "Entity/Node/Continuant/Project.Framework Settings.Artifact Timestamp Timezone"
 relations:
   child_of:
   - CA-R-1176
-version: 2
-updated_at: "2026-10-18 03:34:57 +0400"
+version: 3
+updated_at: "2026-10-19 15:56:11 +0400"
 ---
 # Summary
 

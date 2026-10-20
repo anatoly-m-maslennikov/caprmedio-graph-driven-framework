@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Canonical Signature"
+  governs: "Entity/Node/Continuant/Projection/Type: Canonical Signature"
   depends_on:
-    ["Atom Claim Canonical Signature", "Entity/Carrier", "Entity/Continuant/Object/Atom.ID", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom.Substance", "Atom Carrier", "CCE"]
-version: 14
-updated_at: "2026-10-15 18:51:21 +0000"
+    ["Atom Claim Canonical Signature", "Entity/Carrier", "Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom.Substance", "Atom Carrier", "CCE"]
+version: 15
+updated_at: "2026-10-19 15:55:31 +0400"
 relations:
   child_of:
     - CA-D-266

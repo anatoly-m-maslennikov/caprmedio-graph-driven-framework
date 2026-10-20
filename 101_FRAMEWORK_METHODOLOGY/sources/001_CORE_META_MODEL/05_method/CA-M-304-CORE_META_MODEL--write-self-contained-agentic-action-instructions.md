@@ -2,9 +2,9 @@
 subjects:
   governs: "Agentic Action Instruction"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Step", "Entity/Continuant/Object/Atom/Content Role: Operations/Type: Workflow", "Entity/Continuant/Actor/Type: Operator", "Tool", "Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic", "Tool Call"]
-version: 6
-updated_at: "2026-10-15 18:48:30 +0000"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Actor/Type: Operator", "Tool", "Atom/Content Role: Operations/Type: Action/Execution Kind: Agentic", "Tool Call"]
+version: 7
+updated_at: "2026-10-19 15:54:50 +0400"
 relations: {"method_for": ["CA-R-1789", "CA-R-1790", "CA-R-1791", "CA-R-1792", "CA-R-1793"]}
 atom_id: "CA-M-304"
 content_role: "Method"

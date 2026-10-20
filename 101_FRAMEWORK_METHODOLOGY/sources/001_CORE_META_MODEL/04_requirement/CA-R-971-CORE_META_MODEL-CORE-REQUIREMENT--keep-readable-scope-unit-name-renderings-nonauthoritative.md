@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Object/Scope Unit.Name"
+  governs: "Entity/Node/Continuant/Scope Unit.Name"
   depends_on:
     - "Authority"
-version: 17
-updated_at: "2026-10-15 18:47:28 +0000"
+version: 18
+updated_at: "2026-10-19 15:54:35 +0400"
 relations:
   child_of:
     - CA-R-962

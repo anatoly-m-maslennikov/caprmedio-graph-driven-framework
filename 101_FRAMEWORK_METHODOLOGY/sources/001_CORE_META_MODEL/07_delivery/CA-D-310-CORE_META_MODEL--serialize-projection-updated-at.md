@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Projection.Updated At"
+  governs: "Entity/Node/Continuant/Projection.Updated At"
   depends_on: []
-version: 14
-updated_at: "2026-10-18 03:34:38 +0400"
+version: 15
+updated_at: "2026-10-19 15:55:28 +0400"
 relations: {}
 atom_id: "CA-D-310"
 content_role: "Delivery"

@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/History/Revision"
+  governs: "Entity/Node/Continuant/History/Revision"
   depends_on:
-    ["Entity/Continuant/Node/Atom.Status", "Entity/Continuant/Node/Atom.Status: Archived", "Entity/Carrier.Canonical Address"]
-version: 5
-updated_at: "2026-10-18 03:34:54 +0400"
+    ["Entity/Node/Continuant/Atom.Status", "Entity/Node/Continuant/Atom.Status: Archived", "Entity/Carrier.Canonical Address"]
+version: 6
+updated_at: "2026-10-19 15:56:02 +0400"
 relations: {"relates_to": ["CA-D-289", "CA-D-466"]}
 atom_id: "CA-D-565"
 content_role: "Delivery"

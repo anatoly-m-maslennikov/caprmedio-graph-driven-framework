@@ -10,9 +10,9 @@ status: Active
 subjects:
   governs: "Implementation Preparation"
   depends_on:
-    ["Entity/Continuant/Object/Atom/Content Role: Operations/Type: Action", "Spec", "Entity/Continuant/Projection", "Entity/Continuant/Object/Atom", "Entity/Continuant/Object/Atom/Content Role: Method", "Entity/Continuant/Object/Atom/Content Role: Requirement", "Entity/Continuant/Object/Atom/Content Role: Evaluation", "Entity/Continuant/Object/Atom/Content Role: Delivery", "Atom/Content Role: Plan/Type: Plan", "Entity/Continuant/Object/Atom/Content Role: Plan.Definition of Done", "Entity/Continuant/Actor/Type: AI Agent", "Entity/Continuant/Actor/Type: Operator", "Dependency Order Derivation", "Entity/Continuant/Object/Scope Unit"]
-version: 9
-updated_at: "2026-10-18 16:21:15 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Spec", "Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Method", "Entity/Node/Continuant/Atom/Content Role: Requirement", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Atom/Content Role: Delivery", "Atom/Content Role: Plan/Type: Plan", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done", "Entity/Node/Continuant/Actor/Type: AI Agent", "Entity/Node/Continuant/Actor/Type: Operator", "Dependency Order Derivation", "Entity/Node/Continuant/Scope Unit"]
+version: 10
+updated_at: "2026-10-19 15:56:41 +0400"
 relations:
   relates_to:
     - CA-M-239

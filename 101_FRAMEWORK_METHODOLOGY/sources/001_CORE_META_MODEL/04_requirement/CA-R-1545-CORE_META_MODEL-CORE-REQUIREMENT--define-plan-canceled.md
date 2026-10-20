@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Atom/Content Role: Plan.Status: Canceled"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Plan.Status: Canceled"
   depends_on:
-    ["Entity/Continuant/Node/Atom/Content Role: Plan", "Entity/Continuant/Node/Atom.Status"]
-version: 7
-updated_at: "2026-10-18 03:33:40 +0400"
+    ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Node/Continuant/Atom.Status"]
+version: 8
+updated_at: "2026-10-19 15:53:25 +0400"
 relations: {"relates_to": ["CA-R-1539"]}
 atom_id: "CA-R-1545"
 content_role: "Requirement"

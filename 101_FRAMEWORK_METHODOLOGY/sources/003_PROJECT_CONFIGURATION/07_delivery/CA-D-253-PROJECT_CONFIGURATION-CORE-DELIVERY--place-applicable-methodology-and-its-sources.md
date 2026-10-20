@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Projection/Type: Applicable Methodology"
+  governs: "Entity/Node/Continuant/Projection/Type: Applicable Methodology"
   depends_on:
-    ["Entity/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set"]
-version: 15
-updated_at: "2026-10-18 07:11:34 +0400"
+    ["Entity/Node/Continuant/Projection/Type: Applicable Methodology", "Applicable Methodology Source Set"]
+version: 16
+updated_at: "2026-10-19 15:56:18 +0400"
 relations: {}
 atom_id: "CA-D-253"
 content_role: "Delivery"

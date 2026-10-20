@@ -2,9 +2,9 @@
 subjects:
   governs: "Framework Instance Settings Validation"
   depends_on:
-    ["Entity/Continuant/Object/Project.Framework Settings", "Default Settings", "Entity/Continuant/Object/Project.Framework Settings.Revision Binding"]
-version: 19
-updated_at: "2026-10-15 18:49:27 +0000"
+    ["Entity/Node/Continuant/Project.Framework Settings", "Default Settings", "Entity/Node/Continuant/Project.Framework Settings.Revision Binding"]
+version: 20
+updated_at: "2026-10-19 15:55:03 +0400"
 relations:
   evaluation_for:
     - CA-R-1402

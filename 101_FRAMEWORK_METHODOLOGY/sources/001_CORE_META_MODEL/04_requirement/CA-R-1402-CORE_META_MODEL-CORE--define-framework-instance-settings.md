@@ -1,10 +1,10 @@
 ---
 subjects:
-  governs: "Entity/Continuant/Node/Project.Framework Settings"
+  governs: "Entity/Node/Continuant/Project.Framework Settings"
   depends_on:
-    ["Entity/Continuant/Node/Governing Configuration", "Entity/Continuant/Node/Project", "Entity/Continuant/Node/Actor/Type: Operator"]
-version: 14
-updated_at: "2026-10-18 03:33:29 +0400"
+    ["Entity/Node/Continuant/Governing Configuration", "Entity/Node/Continuant/Project", "Entity/Node/Continuant/Actor/Type: Operator"]
+version: 15
+updated_at: "2026-10-19 15:52:59 +0400"
 relations: {}
 atom_id: "CA-R-1402"
 content_role: "Requirement"

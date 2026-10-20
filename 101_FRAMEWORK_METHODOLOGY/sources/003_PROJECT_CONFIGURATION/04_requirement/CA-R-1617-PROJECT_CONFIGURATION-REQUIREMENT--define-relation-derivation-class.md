@@ -11,9 +11,9 @@ subjects:
   depends_on:
     - "Evidence"
     - "Realization Graph"
-    - "Relation"
-version: 4
-updated_at: "2026-10-03 01:07:45 +0400"
+    - "Entity/Relation"
+version: 5
+updated_at: "2026-10-19 15:56:08 +0400"
 relations:
   relates_to:
     - CA-R-1616

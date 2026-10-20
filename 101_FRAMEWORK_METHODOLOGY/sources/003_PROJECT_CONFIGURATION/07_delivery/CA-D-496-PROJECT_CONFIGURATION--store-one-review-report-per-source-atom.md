@@ -7,12 +7,12 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 11
-updated_at: "2026-10-18 23:42:12 +0400"
+version: 12
+updated_at: "2026-10-19 15:56:23 +0400"
 subjects:
-  governs: "Entity/Occurrent/Execution/Workflow Run"
+  governs: "Entity/Node/Occurrent/Execution/Workflow Run"
   depends_on:
-    ["Entity/Continuant/Node/Atom", "Entity/Continuant/Node/Atom/Content Role: Evaluation", "Entity/Carrier/File Carrier", "Entity/Continuant/Node/Projection"]
+    ["Entity/Node/Continuant/Atom", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Carrier/File Carrier", "Entity/Node/Continuant/Projection"]
 relations: {"relates_to":["CA-E-520"]}
 ---
 # Summary
