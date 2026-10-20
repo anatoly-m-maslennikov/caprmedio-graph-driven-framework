@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom.Owning Scope Unit"
+  governs: "Atom Scope"
   depends_on:
     ["Entity/Node/Continuant/Atom"]
-version: 22
-updated_at: "2026-10-20 12:22:39 +0000"
+version: 21
+updated_at: "2026-10-19 15:54:27 +0400"
 relations: {}
-atom_id: "CA-R-920@draft"
+atom_id: "CA-R-920"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
 claim_target_scope_unit: "CORE_META_MODEL"
 local_tier: "Core"
-status: "Draft"
+status: "Active"
 author: "Anatoly Maslennikov"
 global_tier: 9
 ---

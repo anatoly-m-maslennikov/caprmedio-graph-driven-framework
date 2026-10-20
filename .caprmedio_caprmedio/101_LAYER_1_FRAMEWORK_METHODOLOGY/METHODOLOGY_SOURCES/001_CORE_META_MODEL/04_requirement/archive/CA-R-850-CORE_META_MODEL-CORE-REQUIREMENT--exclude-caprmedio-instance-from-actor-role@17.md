@@ -1,19 +1,19 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Project"
+  governs: "Entity/Continuant/Node/Project"
   depends_on:
-    ["Entity/Node/Continuant/Actor"]
-version: 18
-updated_at: "2026-10-20 12:22:38 +0000"
+    ["Entity/Continuant/Node/Actor"]
+version: 17
+updated_at: "2026-10-18 03:34:11 +0400"
 relations:
   child_of:
     - CA-P-032
-atom_id: "CA-R-850@draft"
+atom_id: "CA-R-850"
 content_role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
 claim_target_scope_unit: "CORE_META_MODEL"
 local_tier: "Core"
-status: "Draft"
+status: "Active"
 author: "Anatoly Maslennikov"
 global_tier: 9
 ---

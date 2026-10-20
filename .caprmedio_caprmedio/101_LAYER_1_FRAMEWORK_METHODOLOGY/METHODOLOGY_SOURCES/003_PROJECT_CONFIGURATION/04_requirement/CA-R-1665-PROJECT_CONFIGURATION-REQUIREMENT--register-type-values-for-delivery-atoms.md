@@ -1,9 +1,9 @@
 ---
 subjects:
-  governs: "Atom/Content Role: Delivery/Type"
+  governs: "Entity/Node/Continuant/Atom/Content Role: Delivery/Type"
   depends_on: []
-version: 21
-updated_at: "2026-10-03 01:51:15 +0400"
+version: 22
+updated_at: "2026-10-20 16:26:13 +0400"
 relations:
   child_of:
     - CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type

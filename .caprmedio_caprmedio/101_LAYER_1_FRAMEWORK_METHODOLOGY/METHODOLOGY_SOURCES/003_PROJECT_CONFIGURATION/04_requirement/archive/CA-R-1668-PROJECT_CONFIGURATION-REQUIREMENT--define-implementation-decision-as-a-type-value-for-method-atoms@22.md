@@ -1,17 +1,17 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Method/Type: Implementation Decision"
+  governs: "Atom/Content Role: Method/Type: Implementation Decision"
   depends_on: []
-version: 23
-updated_at: "2026-10-20 12:22:38 +0000"
+version: 22
+updated_at: "2026-10-03 01:51:15 +0400"
 relations:
   {"depends_on": ["CA-R-1767"]}
-atom_id: "CA-R-1668@draft"
+atom_id: "CA-R-1668"
 content_role: "Requirement"
 current_scope_unit: "PROJECT_CONFIGURATION"
 claim_target_scope_unit: "PROJECT_CONFIGURATION"
 local_tier: "Standard"
-status: "Draft"
+status: "Active"
 author: "Anatoly Maslennikov"
 global_tier: 11
 ---

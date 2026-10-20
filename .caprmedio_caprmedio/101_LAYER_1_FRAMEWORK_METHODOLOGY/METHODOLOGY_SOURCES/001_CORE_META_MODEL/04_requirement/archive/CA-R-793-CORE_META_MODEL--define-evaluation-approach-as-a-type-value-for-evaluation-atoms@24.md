@@ -1,16 +1,16 @@
 ---
 subjects:
-  governs: "Entity/Node/Continuant/Atom/Content Role: Evaluation/Type: Evaluation Approach"
+  governs: "Atom/Content Role: Evaluation/Type: Evaluation Approach"
   depends_on: []
-version: 25
-updated_at: "2026-10-20 12:22:38 +0000"
+version: 24
+updated_at: "2026-10-19 04:42:02 +0400"
 relations: {"child_of": ["CAPRMEDIO-META-REQU-740--separate-content-role-from-artifact-type"], "depends_on": ["CA-R-1503", "CA-R-1506"]}
-atom_id: "CA-R-793@draft"
+atom_id: "CA-R-793"
 content_role: "Requirement"
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 local_tier: "Standard"
-status: "Draft"
+status: "Active"
 author: "Anatoly Maslennikov"
 global_tier: 11
 ---
