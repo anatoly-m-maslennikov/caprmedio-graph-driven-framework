@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 120
-updated_at: "2026-10-20 14:05:14 +0400"
+version: 121
+updated_at: "2026-10-20 15:26:42 +0400"
 relations: {}
 ---
 # Summary
@@ -260,9 +260,17 @@ The Operator's latest approved Epic decisions take precedence over conflicting a
 
 The Operator explicitly approved repairing legacy Concern editing, including C221. Keep its original question as the exact Summary value, ID, Type, intended Status and historical pins. Use the existing full-content same-ID update route to normalize a single descriptive first H1 into canonical Concern sections, with normal complete-result validation, source checks, semantic assessment, exact predecessor preservation and Version N+1. This is not a new endpoint, flag, identity-migration proof or approval gate. Ordinary one-Section edits and Subjects-only validation remain unchanged.
 
-- [ ] Align the existing update contract and focused Evaluation before implementation.
-- [ ] Repair the two source Summary reads; proposed bodies remain canonical and fence-aware.
-- [ ] Verify positive/negative runtime cases and independent review, then repair C221 through the existing Workflow and retain actual effect/readback evidence.
+- [x] Align the existing update contract and focused Evaluation before implementation.
+- [x] Repair the two source Summary reads; proposed bodies remain canonical and fence-aware.
+- [x] Verify positive/negative runtime cases and independent review, then repair C221 through the existing Workflow and retain actual effect/readback evidence.
+
+Legacy Concern repair completed. R866 v30, O030 v24 and E304 v29 define the bounded existing full-content route; implementation and tests are locally committed in `fdedca543`. Independent reviews passed and 58 scoped runtime tests passed (48 lifecycle, 9 independent Version/history and 1 real Subject self-rule publication). This continuation changed no implementation code and did not rerun the release suite.
+
+C221 is now v8 through the existing admitted update Workflow. Its exact v7 bytes are archived; the original question/Summary, ID, Type Question, intended `active` Status, ownership and historical paths/hashes are preserved. Its body has canonical Concern/Evidences/Blast radius sections, records the old R1192 authority as historical, and identifies current R2003's separate Cardinality constraint. Approved Subjects now use the single-root paths. Six actual terminal Run outcomes and source/archive readback were verified; no effect was replayed.
+
+The earlier missing-Summary hold above records the previous checkpoint, not the present edit capability. Two affected derived Core views, CA-PROJ-002 and CA-PROJ-004, were refreshed from current files with C221@8; their identities and source selection are unchanged, and generation changed no source Atom bytes. The initial MCP read failure was followed by a successful fresh context read; this records recovery of that call, not a diagnosed or repaired root cause.
+
+The Epic remains Active for the broader unmapped/held-source reconciliation, Core/Project separation and content work already listed. No child Status cascade, other Concern migration, installed MCP restart/reload/deployment, release or push was performed.
 
 #### Phase 1 — migrate Subjects first
 

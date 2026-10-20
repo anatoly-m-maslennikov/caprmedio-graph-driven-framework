@@ -5,7 +5,7 @@ projection_id: CA-PROJ-002
 named_selection: Current Atoms
 source_of_truth:
 - .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL
-updated_at: 2026-10-20 13:48:08 +0400
+updated_at: 2026-10-20 15:25:36 +0400
 sources:
 - CA-A-1192@1
 - CA-A-1193@1
@@ -26,7 +26,7 @@ sources:
 - CA-C-218@7
 - CA-C-219@7
 - CA-C-220@7
-- CA-C-221@7
+- CA-C-221@8
 - CA-C-222@7
 - CA-C-223@7
 - CA-C-224@7
