@@ -15,8 +15,8 @@ subjects:
   depends_on: []
 relations:
   is_decomposition_of: [CA-P-2494]
-version: 2
-updated_at: "2026-10-21T09:38:06Z"
+version: 3
+updated_at: "2026-10-21T09:58:14Z"
 ---
 # Summary
 
@@ -37,3 +37,7 @@ Focused synthetic-project checks and independent review verify the stated behavi
 ### Dependency review after image-naming increment
 
 Independent source review finds coordinator/member/provider/MCP wiring present; no speculative source rewrite. Fresh pure34checks pass, but the fresh native functional attempt was interrupted after90seconds during currentness scanning, not accepted. P2524 owns exact readiness diagnosis and frozen-fixture-only correction if justified; P2525 owns strengthened native member-lineage/partial-stop assertions. Final acceptance waits for both, independent review and root native rerun. Production remains unchanged; existing safety and evidence gates are not waived.
+
+### Reviewed preparation increment accepted; final matrix still pending
+
+P2524Done@3, P2525Done@3 and P2506Done@3 are accepted: native7/7 in67.783s, root finalpartial1/1 in10.710s, adjacent36/36 in0.071s, independentfixture/seam/assertionreviewAPPROVE. Exactfrozenfunctional634eed... andfixture3d5be57a... are bound in completedTasks. ActualWorkflow/Step/Action lineage and one-targetreceipts are now directly asserted; two initial test-only invalidfailureinjections are retained, not productionbugs. Existing Archive/Done/history/auth/source/duplicate cases unchanged. This parent remains Active because full P2495native refusal/uncertainty/lateruntouchedmembermatrix is not complete; P2495updatedBacklog@3 beforefutureexecution. Do not interpret this boundedgreenincrement as wholecontaineracceptance or installedrelease.

@@ -81,7 +81,11 @@ class ContainerLifecycleFixture:
     def __init__(self, root: str | Path | None = None) -> None:
         self._temporary: tempfile.TemporaryDirectory[str] | None = None
         if root is None:
-            self._temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
+            parent = APP.parents[3] / ".caprmedio_tmp" / "tests" / "container-lifecycle"
+            parent.mkdir(parents=True, exist_ok=True)
+            self._temporary = tempfile.TemporaryDirectory(
+                prefix="native-", dir=parent, ignore_cleanup_errors=True,
+            )
             self.root = Path(self._temporary.name).resolve()
         else:
             self.root = Path(root).resolve()

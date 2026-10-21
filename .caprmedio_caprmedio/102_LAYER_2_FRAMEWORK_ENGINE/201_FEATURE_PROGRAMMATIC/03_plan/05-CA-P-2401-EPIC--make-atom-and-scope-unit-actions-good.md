@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 50
-updated_at: "2026-10-21T09:42:22Z"
+version: 52
+updated_at: "2026-10-21T09:57:28Z"
 ---
 # Summary
 
@@ -466,3 +466,11 @@ Two independent Luna reviews find production coordinator, per-member admission a
 ### Image-naming priority closed with exact final readback
 
 The Operator separately authorized removal of unreferenced696-byteimage27b9017daa69; fresh exact metadata/reference checks, non-force removal and absence readback passed. Final12CAPRMEDIOimages allnamed with version/build-date/sha12, zero unnamed. Original production e812/08f runninghealthy unchanged; no runtime adoption/release. C560Resolved@2 and P2521Done@4 complete the naming priority, source/tests/contracts, actual maintenance/provenance and next-queue review. Earlier18unknownimage/6stoppedcontainercleanup boundary is distinct from this1additionalartifact. Main implementation/provenance saved locally ecffab7b9; no push. P2524/P2525 continue accepted scoped native verification; C561/C562 remain deferred, other container acceptance Tasks stay pending. Deleted container logs/writable state and removed images have no backup/undo.
+
+### Native fixture readiness accepted without changing runtime guards
+
+P2524Done@3: concrete E467defaulttemp correction,2pathchecks and nativeauth-tamper1check pass5.558s (wall6.69), independentfixtureAPPROVE. Historicalrelease logs show original5nativechecks passed49.324/54.998s; the prior90secondinterruption is not evidence of an infinitehang. No currentness/budget/productioncode change. P2525 updated before nativeexecution: readiness review caught failed-member Journal expectation error before running; testowner fixes event mapping and assertion cohesion, then executes current7nativechecks. Full P2495matrix remains unaccepted; no release/deployment. Naming completion and12taggedimages remain unaffected.
+
+### Native lineage and partial-stop increment accepted; remaining matrix explicit
+
+P2524/P2525/P2506 are Done after independent final review. Current native7/7 pass67.783s; root finalpartial1/1 pass10.710s; adjacentpure/path36/36 pass0.071s. Functionalfile634eed485a1cbeba0967d16cffea8372309e203e757666201c55f8eb0020dd27; fixture3d5be57a57b34ade4e83e7b1712f049e82dc17b71d2d522ce9a2b57f94fa0623. Two earlier test-only failedattempts and correct canonicalhandler seam are retained in P2525, not concealed or countedgreen. No productionlifecycle/sourceguard change; fixturetemp compliance and bounded functionalassertions only. P2495 reviewed/updated before futureactivation and staysBacklog: external-reference, unsupported/collision native refusals, uncertainfrontier no-replay and lateruntouchedmembers remain. P2502/P2499/P2503/P2501/P2494 and relevant Concerns remain pendingfullacceptance; no wholeEpiccompletion. Imagepriorityalreadycomplete12named/0unnamed, originalMCPunchanged; no newrelease/push/deployment/productiontest/heldreplay.

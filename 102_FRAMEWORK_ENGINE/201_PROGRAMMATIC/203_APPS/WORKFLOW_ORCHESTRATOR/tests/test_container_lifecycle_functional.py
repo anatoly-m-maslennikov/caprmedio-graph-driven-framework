@@ -8,11 +8,13 @@ Runs are then dispatched through the native provider boundary.
 from __future__ import annotations
 
 from copy import deepcopy
+from collections.abc import Mapping
 import json
 from pathlib import Path
 import re
 import sys
 import unittest
+from unittest.mock import patch
 
 
 APP = Path(__file__).resolve().parents[1]
@@ -154,6 +156,68 @@ class ContainerLifecycleFunctionalTests(unittest.TestCase):
     def dispatch(self, fixture: ContainerLifecycleFixture, run_id: str) -> dict[str, object]:
         return SelectedNativeProviders(fixture.root).dispatch(run_id)
 
+    def _assert_member_receipt(
+        self, selected: SelectedExecution, member: Mapping[str, object], initiative: Mapping[str, object],
+    ) -> tuple[str, dict[str, object], dict[str, object]]:
+        requested = member["requested_run_id"]
+        self.assertIsInstance(requested, str)
+        frozen = selected.load(requested)
+        execution = frozen["request"]["execution"]
+        target = execution["parameters"]["target"]
+        self.assertEqual(member["atom_id"], target["atom_id"])
+        self.assertEqual(member["version"], target["version"])
+        self.assertEqual(member["sha256"], target.get("digest", target.get("sha256")))
+        self.assertEqual([target["path"]], execution["target_frontier"])
+        self.assertEqual([{"type": "change_atom_status", "target": target["path"],
+                           "status": member["requested_status"]}], execution["effects"])
+        observed = execution["proposal_receipt"]["source_freshness"]["observed"]
+        self.assertIn("lifecycle_admission", observed)
+        self.assertNotIn("container_lifecycle", observed)
+        self.assertEqual(initiative, execution["initiative"])
+        self.assertEqual("CA-O-029", execution["assigned_action_id"])
+        authorization = execution["operator_authorization"]
+        self.assertEqual(execution["request_id"], authorization["request_id"])
+        self.assertEqual(execution["proposal_receipt_digest"], authorization["proposal_receipt_digest"])
+        self.assertEqual(_canonical_digest(frozen), member["request_digest"])
+        definitions = {row["kind"]: row["definition"] for row in execution["requested_runs"]}
+        return requested, execution, definitions
+
+    def _assert_member_journal_facts(
+        self, fixture: ContainerLifecycleFixture, requested: str, member: Mapping[str, object],
+        coordinator_id: str, initiative: Mapping[str, object], definitions: Mapping[str, object],
+    ) -> dict[str, list[dict[str, object]]]:
+        events = [event for event in _journal_events(fixture.root, f"{requested}-request")
+                  if isinstance(event.get("run"), Mapping)]
+        self.assertEqual(6, len(events), events)
+        by_kind = {kind: [event for event in events if event["run"].get("kind") == kind]
+                   for kind in ("workflow", "step", "action")}
+        terminal_event = {"completed": "completed", "no_op": "completed", "failed": "failed",
+                          "partial": "failed", "cancelled": "abandoned"}[member["outcome"]]
+        for kind, facts in by_kind.items():
+            self.assertEqual(["started", terminal_event], [event["event"] for event in facts], facts)
+            self.assertEqual(1, len({event["run"]["run_id"] for event in facts}), facts)
+            self.assertEqual(definitions[kind], facts[0]["run"]["definition"])
+            for event in facts:
+                self.assertEqual(initiative, event.get("initiative"), event)
+                self.assertEqual("CA-O-029", event.get("action_id"), event)
+                self.assertNotEqual(coordinator_id, event["run"]["run_id"], event)
+        return by_kind
+
+    def _assert_member_parent_lineage(
+        self, by_kind: Mapping[str, list[dict[str, object]]], actual: str,
+    ) -> None:
+        workflow_id = by_kind["workflow"][0]["run"]["run_id"]
+        step_id = by_kind["step"][0]["run"]["run_id"]
+        action_id = by_kind["action"][0]["run"]["run_id"]
+        self.assertEqual(actual, workflow_id)
+        self.assertEqual(3, len({workflow_id, step_id, action_id}), by_kind)
+        for event in by_kind["workflow"]:
+            self.assertNotIn("parent_run_id", event["run"], event)
+        for event in by_kind["step"]:
+            self.assertEqual(workflow_id, event["run"].get("parent_run_id"), event)
+        for event in by_kind["action"]:
+            self.assertEqual(step_id, event["run"].get("parent_run_id"), event)
+
     def assert_real_member_runs(
         self, fixture: ContainerLifecycleFixture, result: dict[str, object], coordinator_id: str,
     ) -> None:
@@ -163,23 +227,31 @@ class ContainerLifecycleFunctionalTests(unittest.TestCase):
         self.assertFalse(result.get("original_requested_root_run_started"))
         self.assertNotEqual(coordinator_id, result.get("parent_run_id"))
         actual_ids: list[str] = []
+        selected = SelectedExecution(fixture.root)
+        initiative = {
+            "initiative_id": f"functional-{coordinator_id}",
+            "instruction_summary": "Native container lifecycle functional acceptance",
+            "initiative_ref": "fixture/container-lifecycle-input.json",
+        }
         for member in members:
             self.assertIsInstance(member, dict)
             actual = member.get("actual_run_id")
-            requested = member.get("requested_run_id")
             self.assertIsInstance(actual, str)
-            self.assertIsInstance(requested, str)
-            self.assertEqual(actual, requested)
             self.assertNotEqual(actual, coordinator_id)
             actual_ids.append(actual)
-            workflow_events = [
-                event for event in _journal_events(fixture.root, f"{requested}-request")
-                if event.get("run", {}).get("kind") == "workflow"
-            ]
-            self.assertEqual({actual}, {event["run"]["run_id"] for event in workflow_events})
+            requested, _execution, definitions = self._assert_member_receipt(selected, member, initiative)
+            facts = self._assert_member_journal_facts(
+                fixture, requested, member, coordinator_id, initiative, definitions,
+            )
+            self._assert_member_parent_lineage(facts, actual)
         self.assertEqual(result.get("parent_run_id"), actual_ids[-1])
         self.assertEqual(actual_ids, [member.get("actual_run_id") for member in members])
         self.assertEqual([], _journal_events(fixture.root, f"{coordinator_id}-request"))
+        self.assertTrue(all(
+            event.get("run", {}).get("run_id") != coordinator_id
+            for event in _journal_events(fixture.root)
+            if isinstance(event.get("run"), Mapping)
+        ))
 
     def test_archive_is_deepest_first_flat_and_preserves_exact_history(self) -> None:
         fixture = self.fixture()
@@ -277,6 +349,98 @@ class ContainerLifecycleFunctionalTests(unittest.TestCase):
         self.assertEqual(before, _authority_snapshot(fixture.root))
         self.assertEqual([], _journal_events(fixture.root))
 
+    def test_native_failure_after_first_effect_preserves_partial_history_without_replay(self) -> None:
+        fixture = self.fixture()
+        child_raw = fixture.child_plan.read_bytes()
+        parent_raw = fixture.parent_plan.read_bytes()
+        self.request(fixture, "functional-partial", "Archived")
+
+        calls: list[str] = []
+
+        providers = SelectedNativeProviders(fixture.root)
+        original_execution = providers.execution
+
+        def configure(frozen: Mapping[str, object]) -> SelectedExecution:
+            selected = original_execution(frozen)
+            native_handler = selected.handlers["CA-O-128"]
+
+            def fail_parent(context: Mapping[str, object]) -> dict[str, object]:
+                atom_id = context["parameters"]["target"]["atom_id"]
+                calls.append(atom_id)
+                if atom_id == "CA-P-701":
+                    return {"result": "failed", "terminal_outcome": "failed", "effect_refs": []}
+                return native_handler(context)
+
+            selected.handlers["CA-O-128"] = fail_parent
+            return selected
+
+        with patch.object(providers, "execution", side_effect=configure):
+            result = providers.dispatch("functional-partial")
+
+        self.assertEqual(["CA-P-702", "CA-P-701"], calls)
+        self.assertEqual("partial", result["outcome"])
+        self.assertEqual("terminal", result["disposition"])
+        self.assertEqual([result["members"][0]["actual_run_id"]], result["completed"])
+        self.assertEqual("CA-P-701", result["failed"]["atom_id"])
+        self.assertEqual([], result["untouched"])
+        self.assert_real_member_runs(fixture, result, "functional-partial")
+
+        archive = fixture.parent_plan.parent / "archived"
+        self.assertEqual(child_raw, (archive / f"{fixture.child_plan.stem}@1.md").read_bytes())
+        self.assertEqual(("Archived", 2), _metadata(archive / f"{fixture.child_plan.stem}@2.md"))
+        self.assertFalse(fixture.child_plan.exists())
+        self.assertEqual(parent_raw, fixture.parent_plan.read_bytes())
+        before = _authority_snapshot(fixture.root)
+        events = _journal_events(fixture.root)
+        self.assertEqual(result, self.dispatch(fixture, "functional-partial"))
+        self.assertEqual(before, _authority_snapshot(fixture.root))
+        self.assertEqual(events, _journal_events(fixture.root))
+
+    def test_native_rebind_after_first_effect_blocks_new_descendant_without_replay(self) -> None:
+        fixture = self.fixture()
+        parent_raw = fixture.parent_plan.read_bytes()
+        self.request(fixture, "functional-rebind", "Archived")
+
+        import lifecycle_intents
+
+        native = lifecycle_intents.change_status_atom_action
+        injected = fixture.parent_plan.with_suffix("") / "03-CA-P-799-TASK--injected.md"
+
+        def inject_after_first(root: Path, parameters: Mapping[str, object], *, execute: bool = False,
+                               authorized: bool = False) -> dict[str, object]:
+            result = native(root, parameters, execute=execute, authorized=authorized)
+            if parameters["target"]["atom_id"] == "CA-P-702":
+                _write_plan(injected, "CA-P-799", parent="CA-P-701")
+            return result
+
+        with patch.object(lifecycle_intents, "change_status_atom_action", side_effect=inject_after_first):
+            result = self.dispatch(fixture, "functional-rebind")
+
+        self.assertEqual("partial", result["outcome"])
+        self.assertEqual("terminal", result["disposition"])
+        self.assertEqual("CA-P-701", result["failed"]["atom_id"])
+        self.assertEqual([], result["untouched"])
+        self.assertEqual("completed", result["members"][0]["outcome"])
+        self.assertEqual("blocked", result["members"][1]["outcome"])
+        self.assertIsNone(result["members"][1]["actual_run_id"])
+
+        archive = fixture.parent_plan.parent / "archived"
+        self.assertEqual(("Archived", 2), _metadata(archive / f"{fixture.child_plan.stem}@2.md"))
+        self.assertEqual(parent_raw, fixture.parent_plan.read_bytes())
+        self.assertEqual("Active", _metadata(injected)[0])
+        self.assertFalse((archive / f"{injected.stem}@1.md").exists())
+        progress = json.loads(
+            (fixture.root / ".caprmedio_install/workflow_orchestrator/runs/functional-rebind"
+             / "container_lifecycle_progress.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual("dispatching", progress["state"])
+        self.assertEqual(result["members"][0]["requested_run_id"], progress["current"])
+        before = _authority_snapshot(fixture.root)
+        events = _journal_events(fixture.root)
+        self.assertEqual(result, self.dispatch(fixture, "functional-rebind"))
+        self.assertEqual(before, _authority_snapshot(fixture.root))
+        self.assertEqual(events, _journal_events(fixture.root))
+
     def test_duplicate_dispatch_reuses_accepted_aggregate_without_replay(self) -> None:
         fixture = self.fixture()
         _selected, frozen = self.request(fixture, "functional-duplicate", "Archived")
@@ -289,7 +453,6 @@ class ContainerLifecycleFunctionalTests(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertEqual(authority, _authority_snapshot(fixture.root))
         self.assertEqual(events, _journal_events(fixture.root))
-
 
 if __name__ == "__main__":
     unittest.main()
