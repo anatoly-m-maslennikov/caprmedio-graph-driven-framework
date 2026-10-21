@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 49
-updated_at: "2026-10-21T09:38:06Z"
+version: 50
+updated_at: "2026-10-21T09:42:22Z"
 ---
 # Summary
 
@@ -431,7 +431,7 @@ The earlier local release `local-20261021-mcp-health-reviewed` completed as vers
 - [x] [CA-P-2518 — Implement versioned and dated CAPRMEDIO image names](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/78-CA-P-2518-TASK--implement-versioned-and-dated-caprmedio-image-names.md)
 - [x] [CA-P-2519 — Verify CAPRMEDIO image name and build metadata](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/79-CA-P-2519-TASK--verify-caprmedio-image-name-and-build-metadata.md)
 - [x] [CA-P-2520 — Name existing verified CAPRMEDIO images](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/80-CA-P-2520-TASK--name-existing-verified-caprmedio-images.md)
-- [ ] [CA-P-2521 — Accept image naming and resume container queue](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/81-CA-P-2521-TASK--accept-image-naming-and-resume-container-queue.md)
+- [x] [CA-P-2521 — Accept image naming and resume container queue](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/81-CA-P-2521-TASK--accept-image-naming-and-resume-container-queue.md)
 
 ### Image contract aligned; exclusive source and test lanes activated
 
@@ -462,3 +462,7 @@ P2518/P2522/P2519/P2520/P2523 are Done; P2521 is Active for final acceptance/con
 ### Recursive-container continuation: acceptance before speculative code changes
 
 Two independent Luna reviews find production coordinator, per-member admission and MCP/provider wiring present. Pure34checks pass; native Archive/Done tests exist, but refreshed native run exceeded90seconds in currentness scanning and was interrupted, not accepted. P2499/P2501/P2503 stay pending acceptance; do not infer completion from old plan claims. P2502/P2506 updated before continuation. New bounded Tasks P2524 (native fixture readiness diagnosis, fixture-only correction if concrete) and P2525 (native per-member lineage/partial-stop assertions) are Active with disjoint file ownership; final native execution waits for readiness and independent review. Existing C551/native composition concerns remain open; no source guard/timeout waiver, live Atom fallback, new release, production mutation test or held replay.
+
+### Image-naming priority closed with exact final readback
+
+The Operator separately authorized removal of unreferenced696-byteimage27b9017daa69; fresh exact metadata/reference checks, non-force removal and absence readback passed. Final12CAPRMEDIOimages allnamed with version/build-date/sha12, zero unnamed. Original production e812/08f runninghealthy unchanged; no runtime adoption/release. C560Resolved@2 and P2521Done@4 complete the naming priority, source/tests/contracts, actual maintenance/provenance and next-queue review. Earlier18unknownimage/6stoppedcontainercleanup boundary is distinct from this1additionalartifact. Main implementation/provenance saved locally ecffab7b9; no push. P2524/P2525 continue accepted scoped native verification; C561/C562 remain deferred, other container acceptance Tasks stay pending. Deleted container logs/writable state and removed images have no backup/undo.

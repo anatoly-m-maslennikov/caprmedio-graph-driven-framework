@@ -7,15 +7,15 @@ claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Active
+status: Resolved
 priority: high
 subjects:
   governs: Entity/Node/Continuant/Implementation
   depends_on: []
 relations:
   concern_about: [CA-P-2518, CA-P-2520, CA-R-1901]
-version: 1
-updated_at: "2026-10-21T09:06:55Z"
+version: 2
+updated_at: "2026-10-21T09:42:22Z"
 ---
 # Summary
 
@@ -34,3 +34,7 @@ Native create was attempted once and stopped before publication at its final Pro
 ## Blast radius
 
 P2518–P2521 own the Operator-prioritized fix, consistent regression coverage, additive exact-image maintenance and acceptance before recursive-container continuation. Preserve immutable SHA/fingerprint/platform/Project admission, occupied tags, existing containers and unknown historical version evidence. No guessed version/date, deletion/prune, tag movement, runtime restart/replacement, new release or production mutation test is authorized. R1901@4/M356@4/D594@6/E600@5 encode the adopted display-only metadata permission. C555/C545 and other lifecycle Problems remain separate.
+
+### Resolution evidence
+
+P2518/P2522 source accepted;109root focused tests and actual isolated canonicalbuild/same-IDreuse pass. All11historical source-proven images plus1newbuild are named caprmedio-runtime with exact version/DockerCreatedUTC/sha12 tags. Approved18unknown-versionimages+6stoppedtestcontainers removed, then separately approved696-byte image27b9017daa69 removed non-force after fresh metadata/no-reference checks. Final fresh readback:12CAPRMEDIO images, allnamed, no unnamed; original e812container/08fimage unchangedhealthy. No version/date guessed; no release/deployment/restart. ExactIDs/actualreceipts retained in Journal event4ad64079-e23e-431b-93c5-02063dae88c7; final additional deletion recorded separately. C561/C562/C555/C545 remain independent open issues; this bounded naming defect is resolved, not all runtime issues.
