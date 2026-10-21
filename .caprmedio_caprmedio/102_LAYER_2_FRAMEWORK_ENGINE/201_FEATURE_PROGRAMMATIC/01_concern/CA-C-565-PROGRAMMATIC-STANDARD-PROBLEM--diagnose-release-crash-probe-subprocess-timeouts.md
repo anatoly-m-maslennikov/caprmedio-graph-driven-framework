@@ -7,15 +7,15 @@ claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Active
+status: Resolved
 priority: high
 subjects:
   governs: Entity/Node/Continuant/Implementation
   depends_on: []
 relations:
   concern_about: [CA-P-2401, CA-P-2532, CA-O-164]
-version: 2
-updated_at: "2026-10-21T11:36:18Z"
+version: 3
+updated_at: "2026-10-21T11:55:43Z"
 ---
 # Summary
 
@@ -40,3 +40,7 @@ P2532 owns isolated reproducibility and phase diagnosis on frozen disposable fix
 The exact single test passes in isolation1/1 in60.255s, with history/current children reaching expected exit73 and all real history/no-replay assertions passing. Child authorization took about3.4s; dispatch-to-history-write about11.9/17.7s. The clean four-copy comparison retained unchanged30second child deadlines; all4instances reached the diagnostic90second parent limit with no write/exit73 events in their retained22-event traces. This is a bounded stress diagnostic, not4completed failing unittest results or an exact reproduction of the heterogeneous full suite. A first stress batch overlapped a root file-listing scan and is explicitly excluded from causal attribution. Final serial recovery passes1/1 in48.594s, both exit73, no diagnostic processes left. Traces are under .caprmedio_tmp/diagnose-crash-probe-20261021-JSqlaK/.
 
 Evidence supports concurrent validation/filesystem timing sensitivity, not an unbounded lifecycle loop or a particular universal resource threshold. The suite runs2ordinary+2Docker modules, not5simultaneous modules inferred from interleaved log lines. P2533 will isolate the expensive selected-subject module once before those existing pools, preserving every test, source/currentness/authorization/crash/no-replay guard and the30/1800second deadlines. No production validation optimization, aggregate-evidence format, global lock or timeout increase is authorized. This Problem stays Active until repair and a fresh mandatory release gate pass.
+
+### Latest actual checkpoint
+
+Fresh actual full-suite Run local-20261021-isolated-gate-114321 executed all25selected-subject tests in397.444s (module398.094s),0skips/allpass, including both history/current exit73 crash probes at unchanged30second child deadlines. Source isolate-first repair removes this suite's own interference; do not claim universal cross-process contention prevention. This resolves the observed crash-probe gate Problem, not the Local release: a separate Docker address-pool-exhaustion failure is C566.

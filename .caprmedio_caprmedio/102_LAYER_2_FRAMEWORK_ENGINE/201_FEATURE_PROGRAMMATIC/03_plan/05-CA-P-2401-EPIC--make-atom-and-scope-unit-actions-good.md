@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 60
-updated_at: "2026-10-21T11:43:21Z"
+version: 61
+updated_at: "2026-10-21T11:55:43Z"
 ---
 # Summary
 
@@ -514,3 +514,7 @@ P2533Active, with disjoint P2534source/P2535tests, will run the existing expensi
 ### Reviewed scheduler repair accepted; fresh requested Local release active
 
 P2533/P2534/P2535 Done after independent APPROVE. Root17scheduler checks pass0.807s and14adjacent checks pass2.588s; pinned Ruff/diff checks pass, no daemon tests in this cohort. Selected-subject module now completes once before remaining2ordinary+2Docker submissions; all coverage/counts/deadlines/cancellation preserved. C564@2 records exact245/272line source/test size debt without waiver; C565 stays Active until the real gate succeeds. P2536Active now owns fresh Local release local-20261021-isolated-gate-114321, with actual full suite before version/image/adoption and Project-only maintenance after verified candidate smoke. Original0.4.4.9 runtime remains installed at this checkpoint; no release completion claimed.
+
+### Latest actual checkpoint
+
+Fresh actual suite passed the isolated25test publication/crash module397.444s with unchanged budgets; C565Resolved@3. Docker integration then failed creating anonymousHTTPtest networks with all predefined address pools fully subnetted; not an Atom validation or MCPproduction failure. ExactownedreleasePID96380 was intentionally interrupted after knownerror; failedreport/testlogretained. P2536 remains Active pending successful freshgate; C566Active/P2537Active now own network diagnosis. No delivery/version/adoption occurred. ChildP2538read-onlyinventory, P2539read-onlycleanupsource, P2540read-onlyregressiondesign are disjoint evidence lanes; root owns all Docker mutation/Git/governedrecords. No worker may delete, test, release, replay or touchproduction. Native matrix continuation remains queued behind repair/release terminal acceptance.
