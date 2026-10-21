@@ -84,6 +84,24 @@ uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-e
   --all-groups python -B PROJECT_TOOLS/release.py public --run-id public-001 --content-draft /absolute/path/release-draft.json
 ```
 
+Omit `--test-module` to keep the complete discovered suite as the local-release
+default. For an explicit opt-in focused run, repeat it with repository-relative
+discovered module paths:
+
+```sh
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --all-groups python -B PROJECT_TOOLS/release.py local --run-id local-focused \
+  --test-module PROJECT_TOOLS/tests/test_release_cli.py \
+  --test-module PROJECT_TOOLS/tests/test_focused_release.py
+```
+
+Focused selection rejects empty, duplicate, malformed, foreign, and symlink
+paths before running tests. The report names the focused scope and exact module
+list. Focused runs are useful for iteration but can miss regressions outside
+the selected modules; they are not evidence that the complete release suite is
+green.
+
 `--project-root PATH` is optional; the default is this repository's root, derived
 from the script location. Choose a new run ID for each new release; simple IDs
 such as `local-001` and `public-001` work for both commands.

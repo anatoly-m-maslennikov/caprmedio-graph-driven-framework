@@ -43,6 +43,33 @@ class ReleaseCliTests(unittest.TestCase):
             self.assertEqual(self.invoke(["local", "--run-id", "local-1"]), (0, result))
         run.assert_called_once_with(REPOSITORY, run_id="local-1")
 
+    def test_local_dispatch_forwards_repeatable_focused_modules(self) -> None:
+        result = {"outcome": "completed", "receipt_path": "receipt.json"}
+        modules = (
+            "PROJECT_TOOLS/tests/test_first.py",
+            "102_FRAMEWORK_ENGINE/component/tests/test_second.py",
+        )
+        with patch.object(release, "run_local_release", return_value=result) as run:
+            self.assertEqual(
+                self.invoke(
+                    [
+                        "local",
+                        "--run-id",
+                        "local-focused",
+                        "--test-module",
+                        modules[0],
+                        "--test-module",
+                        modules[1],
+                    ]
+                ),
+                (0, result),
+            )
+        run.assert_called_once_with(
+            REPOSITORY,
+            run_id="local-focused",
+            test_modules=modules,
+        )
+
     def test_public_dispatch_and_failed_result(self) -> None:
         temporary = REPOSITORY / ".caprmedio_tmp/verification/release-cli"
         temporary.mkdir(parents=True, exist_ok=True)

@@ -15,8 +15,8 @@ subjects:
   depends_on: []
 relations:
   is_decomposition_of: [CA-P-2401]
-version: 9
-updated_at: "2026-10-21T13:30:19Z"
+version: 12
+updated_at: "2026-10-21T16:32:40Z"
 ---
 # Summary
 
@@ -24,11 +24,11 @@ Run fresh Local release after isolated suite repair
 
 ## Objective
 
-Complete the Operator-requested full Local release after P2533's reviewed scheduler repair, then resume native container acceptance.
+Complete the Operator-requested Local release continuation through the explicitly approved focused-validation path after P2549's proof, then resume native container acceptance.
 
 ## Details
 
-Root exclusively owns Git, real release and Docker mutations. Freeze source before launch. Use Project3.14virtualenv and canonical O164host command with NEW Run local-20261021-isolated-gate-114321, not interrupted-run replay. Complete full suite before version/product/image/adoption. Canonical dated/versioned image naming then exact candidate MCP replacement/smoke precedes selected-Project-only retention. Preserve foreign/unowned/referenced images and all safety checks; no force/prune/push. Observe actual report/log/runtime digest/version/health and tool discovery; separate failure, cleanup_pending and installed acceptance. C565 remains Active until actual gate evidence; C564 is separate acknowledged source-conformance debt, not waived. At most15minutes own work excluding passive gate wait, split any discovered repair into new Tasks/Concerns. No production mutation tests or held replay. Native Epic acceptance follows only after terminal release state.
+Root exclusively owns Git, real release and Docker mutations. Freeze source before launch. Use the selected Project Python 3.14 virtualenv and canonical O164 host command with fresh Run local-20261021-focused-adoption-01 and the 16 explicit module arguments retained in .caprmedio_tmp/local-focused-admission-20261021.log. Admission passed 131 tests with zero skips/failures. Reuse the separately retained prior Docker proof only for unchanged Engine/runtime/dependency sources; do not rerun the full suite or replay a previous Run. The exact candidate replacement/MCP smoke precedes selected-Project-only retention. Preserve foreign/unowned/referenced resources and all safeguards; no force, prune or push. Observe actual report, digest, version, health and tool discovery, separating failure, cleanup pending and installed acceptance. C565 is resolved; C564 remains acknowledged unresolved conformance debt. At most 15 minutes own work excluding passive release wait. Split discovered repairs into Tasks/Concerns; no production mutation tests or held replay.
 
 ### Latest actual checkpoint
 
@@ -61,3 +61,7 @@ All source/test repair children P2542/P2544/P2545/P2546/P2547 are Done after41fo
 ### Actual focused verification completed
 
 Focused fixes and verification are complete: 53 related tests passed, including both repaired Docker modules and all 29 W01 role/status cases, zero skips. Current code uses four host workers, two Docker workers, a finite 60-minute module cap and isolated crash probes. No full suite was rerun after the Operator's latest instruction. Original production remains 0.4.4.9; no version bump, delivery, adoption, retention or push occurred. The unchanged normal Local-release command automatically invokes the full suite, so it was not called again. C570 asks whether to complete this release with an explicitly recorded focused-validation path or leave deployment pending; this Task cannot claim a completed release yet.
+
+### Current focused-release continuation decision
+
+C570Resolved@3 answers the path choice: the Operator authorizes one explicit focused Local-release continuation through the existing host PROJECT_TOOLS/release.py local entrypoint with repeatable --test-module arguments. The complete discovered suite remains the default and CA-O-188 public release remains full-gate. P2549 is Done at 89-CA-P-2536-TASK--run-fresh-local-release-after-isolated-suite-repair/done/09-CA-P-2549-TASK--admit-and-prove-focused-local-release-validation.md after the canonical admission proof of exactly 16 selected host modules, 131 tests, zero skips and zero failures; the exact module list is retained in .caprmedio_tmp/local-focused-admission-20261021.log. It reuses the prior 53-test Docker/related proof from .caprmedio_tmp/focused-release-repair-20261021/focused-summary.json only under exact Engine/runtime/pyproject/uv.lock/version no-diff and does not rerun the expensive 12 Docker tests. P2550 is Active at 89-CA-P-2536-TASK--run-fresh-local-release-after-isolated-suite-repair/10-CA-P-2550-TASK--execute-focused-local-release-and-adopt-candidate.md for fresh Run local-20261021-focused-adoption-01 with the same 16 module arguments, actual Local release, candidate installation and observed MCP smoke. C564 remains Active and unresolved; no focused result is full-suite green, and no release/adoption success is claimed until P2550 evidence exists.

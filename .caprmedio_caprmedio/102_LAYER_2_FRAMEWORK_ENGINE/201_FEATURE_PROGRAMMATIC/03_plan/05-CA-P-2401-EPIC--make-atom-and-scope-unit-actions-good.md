@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 71
-updated_at: "2026-10-21T13:30:19Z"
+version: 74
+updated_at: "2026-10-21T16:32:40Z"
 ---
 # Summary
 
@@ -558,3 +558,7 @@ Source repairs accepted after independent review and41fast related checks:14imag
 ### Actual focused verification completed
 
 P2542–P2548 are Done for the bounded test/profile repair and verification increment. Final independent source review APPROVE; 41 fast related checks plus 12 opted-in Docker tests pass, zero skips, with all 29 W01 status cases retained. Matrix 269.220 seconds and original portfolio 629.254 seconds ran concurrently on one image; this is not a full-suite speedup benchmark. Same two pre-existing containers/five networks and healthy original production are restored exactly; unused test image is absent. C568/C569 are Resolved. C564 source-conformance debt and C567 interruption/startup lifetime follow-up remain Active. No post-fix full rerun or deployment was performed. P2536 stays Active pending C570's explicit release-path choice because the normal CLI automatically runs the prohibited full suite. Native container failure-matrix queue P2495/P2502/P2499/P2503/P2501/P2494 remains separate and unclosed; no whole-Epic completion is claimed.
+
+### Focused Local-release continuation is answered; release/adoption remains pending
+
+C570Resolved@3 records the Operator-approved one-run focused Local-release continuation through the existing host PROJECT_TOOLS/release.py local entrypoint with repeatable --test-module arguments; the complete discovered suite remains the default. P2549 is Done at 89-CA-P-2536-TASK--run-fresh-local-release-after-isolated-suite-repair/done/09-CA-P-2549-TASK--admit-and-prove-focused-local-release-validation.md after the canonical admission proof of exactly 16 selected host modules, 131 tests, zero skips and zero failures; the exact module list is retained in .caprmedio_tmp/local-focused-admission-20261021.log. The prior 53-test Docker/related proof is reused from .caprmedio_tmp/focused-release-repair-20261021/focused-summary.json after exact Engine/runtime/pyproject/uv.lock/version no-diff verification; the expensive 12 Docker tests are not rerun. P2550 is Active at 89-CA-P-2536-TASK--run-fresh-local-release-after-isolated-suite-repair/10-CA-P-2550-TASK--execute-focused-local-release-and-adopt-candidate.md for fresh Run local-20261021-focused-adoption-01 with the same 16 module arguments, actual Local release/adoption and installed MCP smoke. O164@20/O165@9/O169@11 now reconcile the complete-suite default with the explicitly recorded focused local path; CA-O-188 public release remains full-gate. C564 remains Active/unresolved. No version bump, installed replacement, release success or whole-Epic completion is claimed in this planning increment.

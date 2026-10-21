@@ -207,6 +207,62 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         for target in (self.product, self.installed):
             self.assertEqual(source.read_bytes(), (target / "sources/001_CORE_META_MODEL/active.md").read_bytes())
 
+    def test_focused_modules_are_forwarded_and_reported(self):
+        modules = (
+            "PROJECT_TOOLS/tests/test_one.py",
+            "PROJECT_TOOLS/tests/test_two.py",
+        )
+        runner, calls = self._runner()
+        with self._compiler():
+            result = run_local_release(
+                self.root,
+                run_id="focused-forwarding",
+                runner=runner,
+                test_modules=modules,
+            )
+
+        self.assertEqual("completed", result["outcome"])
+        self.assertEqual("focused", result["test_scope"])
+        self.assertEqual(list(modules), result["test_modules"])
+        test_command = next(argv for argv in calls if any(
+            item.endswith("run_full_test_suite.py") for item in argv
+        ))
+        self.assertEqual(
+            ("--test-module", modules[0], "--test-module", modules[1]),
+            test_command[-4:],
+        )
+        receipt = (self.root / result["receipt_path"]).read_text(encoding="utf-8")
+        self.assertIn("Test scope: `focused`", receipt)
+        self.assertIn("Selected test modules: " + ", ".join(modules), receipt)
+
+    def test_focused_test_failure_blocks_downstream_release(self):
+        modules = ("PROJECT_TOOLS/tests/test_failing.py",)
+        base_runner, calls = self._runner()
+
+        def failed_tests(argv, cwd):
+            result = base_runner(argv, cwd)
+            if any(item.endswith("run_full_test_suite.py") for item in argv):
+                return subprocess.CompletedProcess(
+                    argv, 1, "focused tests ran\n", "focused test failure\n"
+                )
+            return result
+
+        result = run_local_release(
+            self.root,
+            run_id="focused-failed",
+            runner=failed_tests,
+            test_modules=modules,
+        )
+
+        self.assertEqual(("failed", "tests"), (result["outcome"], result["failed_step"]))
+        self.assertEqual("focused", result["test_scope"])
+        self.assertEqual(list(modules), result["test_modules"])
+        self.assertFalse(any(argv[-1:] == ("project-mcp",) for argv in calls))
+        report = (self.root / result["report_path"]).read_text(encoding="utf-8")
+        self.assertIn("Test scope: `focused`", report)
+        self.assertIn("Selected test modules: " + modules[0], report)
+        self.assertIn("focused test failure", report)
+
     def _assert_input_refused(self, run_id):
         runner, calls = self._runner()
         result = run_local_release(self.root, run_id=run_id, runner=runner)

@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-21T10:41:00Z"
+version: 4
+updated_at: "2026-10-21T16:26:28Z"
 subjects:
   governs: "Tool/RELEASE_VERSION/Installed-delivery QA"
   depends_on: [Tool, Runtime, Skill, Image]
@@ -31,4 +31,6 @@ The QA case verifies the installed package/runtime and project-local `ca` Skill,
 
 This case does not require a sealed manifest, a separate full-suite aggregation protocol or promotion state. Verify the exact admitted immutable candidate, package Version and canonical version/build-date/digest tag using the existing runtime evidence.
 
-Use independent synthetic Projects and Docker observations to check: green full suite precedes canonical candidate preparation; failed suite or preparation causes no startup/image removal; cleanup requires verified exact candidate launch even with no prior image; only that candidate earns release retention. An unused, fully selected-Project-owned older rebuild is removable even with the same fingerprint. A same-fingerprint but different-image exact prior Project MCP is replaced by the existing ownership-checked path, while exact candidate reuse remains allowed. Foreign, unowned, incomplete/conflicting ownership, running containers outside that path, and images referenced by any container are preserved. Cover failed observation/removal, pending reporting, no force/global prune and no uncertain retry. These functional checks do not authorize an actual release or production Docker effects.
+Use independent synthetic Projects and Docker observations to check: for the default Local route, green full suite precedes canonical candidate preparation; failed suite or preparation causes no startup/image removal; cleanup requires verified exact candidate launch even with no prior image; only that candidate earns release retention. An unused, fully selected-Project-owned older rebuild is removable even with the same fingerprint. A same-fingerprint but different-image exact prior Project MCP is replaced by the existing ownership-checked path, while exact candidate reuse remains allowed. Foreign, unowned, incomplete/conflicting ownership, running containers outside that path, and images referenced by any container are preserved. Cover failed observation/removal, pending reporting, no force/global prune and no uncertain retry. These functional checks do not authorize an actual release or production Docker effects.
+
+Fresh focused tests are required for the explicit Local `--test-module` route: validate discovery-bound relative selection and rejection of empty, duplicate, malformed, foreign, and symlink paths; prove selected-only execution and truthful focused scope/module reporting; and prove a selected failure or required skip blocks downstream Local delivery. Selected scope may include any discovered source module, including Docker modules, using the existing shared image and launcher handling. Retain prior unchanged-source evidence separately with its exact source binding; it is not folded into focused selection and does not support a full-suite or Public Full Gate claim. Omitting `--test-module` remains the full Local default, and public release still requires its separate complete Public Full Gate.

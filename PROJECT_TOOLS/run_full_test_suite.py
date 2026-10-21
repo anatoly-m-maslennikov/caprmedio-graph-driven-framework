@@ -72,6 +72,24 @@ def discover_test_modules(root: Path) -> list[Path]:
     return sorted(modules)
 
 
+def _select_test_modules(
+    root: Path, discovered: list[Path], selected: tuple[str, ...]
+) -> list[Path]:
+    if not isinstance(selected, tuple):
+        raise ValueError("test-module selection must be a tuple")
+    if not selected:
+        raise ValueError("test-module selection is empty")
+    if any(not isinstance(module, str) or not module for module in selected):
+        raise ValueError("test-module selection contains an invalid path")
+    if len(set(selected)) != len(selected):
+        raise ValueError("test-module selection contains duplicates")
+    available = {module.relative_to(root).as_posix(): module for module in discovered}
+    missing = [module for module in selected if module not in available]
+    if missing:
+        raise ValueError("test-module selection is not discovered: " + ", ".join(missing))
+    return [available[module] for module in selected]
+
+
 def run_module(
     root: Path, module: Path, environment=None
 ) -> tuple[bool, int, int, str, str, float, str | None]:
@@ -125,9 +143,20 @@ def _docker_module(root: Path, module: Path) -> bool:
     )
 
 
-def run_full_suite(root: Path) -> int:
+def run_full_suite(root: Path, test_modules: tuple[str, ...] | None = None) -> int:
     """Attempt the complete discovered suite and fail on test or import errors."""
     modules = discover_test_modules(root)
+    scope = "full" if test_modules is None else "focused"
+    if test_modules is None:
+        selection = "all discovered modules"
+    else:
+        try:
+            modules = _select_test_modules(root, modules, test_modules)
+        except ValueError as error:
+            print(f"Invalid focused test selection: {error}", file=sys.stderr)
+            return 1
+        selection = ", ".join(test_modules)
+    print(f"Test scope: {scope}; selected modules: {selection}")
     if not modules:
         print("No source test modules found", file=sys.stderr)
         return 1
@@ -237,8 +266,12 @@ def _run_modules(root: Path, modules: list[Path], environment: dict, integration
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-root", type=Path, default=Path.cwd())
+    parser.add_argument("--test-module", action="append", dest="test_modules", metavar="PATH")
     arguments = parser.parse_args()
-    return run_full_suite(arguments.project_root.resolve(strict=True))
+    root = arguments.project_root.resolve(strict=True)
+    if arguments.test_modules is None:
+        return run_full_suite(root)
+    return run_full_suite(root, test_modules=tuple(arguments.test_modules))
 
 
 if __name__ == "__main__":

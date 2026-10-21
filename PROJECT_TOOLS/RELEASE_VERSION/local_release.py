@@ -405,12 +405,23 @@ def _failed_test_output(root: Path, run_id: str, result: Any, *, log_path: str |
     return f"{note}\n{detail}"
 
 
-def run_local_release(project_root: Path | str, *, run_id: str,
-                      runner: Callable[[tuple[str, ...], Path], Any] | None = None) -> dict[str, object]:
+def run_local_release(
+    project_root: Path | str,
+    *,
+    run_id: str,
+    runner: Callable[[tuple[str, ...], Path], Any] | None = None,
+    test_modules: tuple[str, ...] | None = None,
+) -> dict[str, object]:
     """Run the direct local release without candidate selection or recovery state."""
 
     if not isinstance(run_id, str) or not _RUN_ID.fullmatch(run_id):
         raise LocalReleaseError("local-release-run-id-invalid")
+    if test_modules is not None and not isinstance(test_modules, tuple):
+        raise LocalReleaseError("local-release-test-modules-invalid")
+    if test_modules == ():
+        raise LocalReleaseError("local-release-test-modules-empty")
+    if test_modules is not None and any(not isinstance(module, str) for module in test_modules):
+        raise LocalReleaseError("local-release-test-modules-invalid")
     root = _root(project_root)
     from project_selection import ProjectSelectionError, resolve_project
     try:
@@ -445,6 +456,11 @@ def run_local_release(project_root: Path | str, *, run_id: str,
     cleanup_note = "No proven superseded Project-owned image identity was available; none was removed."
     cleanup_pending = False
     cleanup = None
+    test_scope = "focused" if test_modules is not None else "full"
+    selected_test_modules = list(test_modules) if test_modules is not None else None
+    test_selection = (
+        ", ".join(test_modules) if test_modules is not None else "all discovered modules"
+    )
     phases = (
         "validate inputs", "tests", "copy active sources", "compile product", "build package", "prepare candidate image",
         "copy product to installed framework", "install project runtime", "start mcp", "final",
@@ -516,6 +532,12 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                     "--managed-python", "--no-env-file", "--all-groups", "python", "-B", "-u",
                     str(Path(__file__).resolve().parents[1] / "run_full_test_suite.py"), "--project-root", str(root),
                 )
+                if test_modules is not None:
+                    argv += tuple(
+                        argument
+                        for module in test_modules
+                        for argument in ("--test-module", module)
+                    )
                 if default_runner:
                     temporary = _target(root, Path(".caprmedio_tmp/simple_local_release"), label="test-log")
                     temporary.mkdir(parents=True, exist_ok=True)
@@ -728,6 +750,8 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 receipt.write_text(
                     "# Simple local release receipt\n\n"
                     f"Run: `{run_id}`\n\n"
+                    f"Test scope: `{test_scope}`\n\n"
+                    f"Selected test modules: {test_selection}\n\n"
                     f"Endpoint: `{endpoint.strip() if isinstance(endpoint, str) else 'not reported'}`\n\n"
                     + (f"Complete test output: `{test_log_path}`\n\n" if test_log_path is not None else "")
                     +
@@ -745,6 +769,8 @@ def run_local_release(project_root: Path | str, *, run_id: str,
             report.write_text(
                 "# Simple local release failed\n\n"
                 f"Run: `{run_id}`\n\nStopped at: `{failed_step}`\n\n"
+                f"Test scope: `{test_scope}`\n\n"
+                f"Selected test modules: {test_selection}\n\n"
                 f"Error class: `{type(error).__name__}`\n\n"
                 + (f"{str(error)[:8500]}\n\n" if failed_step == "tests" else "")
                 + (f"Complete test output: `{test_log_path}`\n\n" if test_log_path is not None else "")
@@ -759,8 +785,16 @@ def run_local_release(project_root: Path | str, *, run_id: str,
             report_path = relative.as_posix()
         except (LocalReleaseError, OSError):
             pass
-        return {"outcome": "failed", "failed_step": failed_step, "report_path": report_path,
-                "error_type": type(error).__name__, "test_log_path": test_log_path, "endpoint": None}
+        return {
+            "outcome": "failed",
+            "failed_step": failed_step,
+            "report_path": report_path,
+            "error_type": type(error).__name__,
+            "test_log_path": test_log_path,
+            "endpoint": None,
+            "test_scope": test_scope,
+            "test_modules": selected_test_modules,
+        }
 
     endpoint = getattr(mcp, "stdout", None)
     return {
@@ -768,4 +802,6 @@ def run_local_release(project_root: Path | str, *, run_id: str,
         "failed_step": None, "report_path": None, "receipt_path": receipt_path,
         "test_log_path": test_log_path,
         "endpoint": endpoint.strip() if isinstance(endpoint, str) else None,
+        "test_scope": test_scope,
+        "test_modules": selected_test_modules,
     }

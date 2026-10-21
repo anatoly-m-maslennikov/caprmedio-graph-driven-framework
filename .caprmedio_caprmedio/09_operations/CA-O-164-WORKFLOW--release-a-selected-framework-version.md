@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Release selected Framework Version"
   depends_on: [Workflow, Step, Action, Operator, Version, Methodology, Implementation, Skill, Test, Journal]
-version: 19
-updated_at: "2026-10-21T10:41:00Z"
+version: 20
+updated_at: "2026-10-21T16:23:32Z"
 relations:
   relates_to: [CA-O-011, CA-O-165, CA-O-166, CA-O-168, CA-O-169, CA-R-1525]
 ---
@@ -40,7 +40,7 @@ The Workflow uses the current active Atoms in the Project-owned `METHODOLOGY_SOU
 
 | Step result | Next step or outcome |
 | --- | --- |
-| current active sources and delivery paths are valid and intended local-release tool tests pass | CA-O-172 |
+| current active sources and delivery paths are valid and the declared local-release validation scope passes | CA-O-172 |
 | verified derived source product | CA-O-173 |
 | compiled product | CA-O-178 |
 | verified installed copy, `ca`, and Project-MCP smoke | complete |
@@ -48,12 +48,14 @@ The Workflow uses the current active Atoms in the Project-owned `METHODOLOGY_SOU
 
 ## Details
 
-Invoke this Workflow from the repository host through `PROJECT_TOOLS/release.py local --project-root <project-root> --run-id <run-id>` in the governed uv environment; `--project-root` defaults to the repository root. The Project's MCP blacklist disables `release_version` exposure and invocation while preserving its adapter for later reuse. This entrypoint reuses the existing local runner and all required full-suite, installation, smoke and safe cleanup behavior.
+Invoke this Workflow from the repository host through `PROJECT_TOOLS/release.py local --project-root <project-root> --run-id <run-id> [--test-module <repo-relative-module> ...]` in the governed uv environment; `--project-root` defaults to the repository root. The Project's MCP blacklist disables `release_version` exposure and invocation while preserving its adapter for later reuse. This entrypoint reuses the existing local runner and required validation, installation, smoke and safe cleanup behavior.
 
 The four named Step/Action occurrences are the complete registered graph. Intended local-release tool tests are mandatory internal Workflow work after successful CA-O-170 validation and before CA-O-172 delivery; they are not another Atom Step or Action and cannot be bypassed by interpreting an edge label as execution. The admitted native Workflow runner must actually run the declared tests, retain their observed result, and stop before delivery on failure, unavailable execution, or unknown completion. CA-O-165 remains validation-only. This clarification creates no test Atom ID, restored retired Step, or second Workflow.
 
-This Workflow starts on one Operator command. It runs Git before every listed Step and before intended tool tests, then runs Git again after final completion. It validates the current inputs, runs intended local-release tests, copies active sources into the product, compiles them, installs Engine `.install` into the Project runtime package, and smokes the installed Docker/MCP path. A failed step or test stops and is reported for manual handling. It never starts CA-O-188, pushes, opens a PR, or makes an installed copy authoritative.
+The complete discovered test suite is the default local validation. A single explicitly Operator-authorized local continuation may pass repeatable `--test-module` arguments to the same entrypoint. The current planning carrier must record the exact module list, fresh Run ID, source-currentness proof and focused result; the receipt must be labelled `focused` and must not be reported as complete-suite green. This one-run local choice does not create a permanent bypass and does not alter CA-O-188's public full-suite gate.
+
+This Workflow starts on one Operator command. It runs Git before every listed Step and before intended tool tests, then runs Git again after final completion. It validates the current inputs, runs intended local-release tests under the declared validation scope, copies active sources into the product, compiles them, installs Engine `.install` into the Project runtime package, and smokes the installed Docker/MCP path. A failed step or test stops and is reported for manual handling. It never starts CA-O-188, pushes, opens a PR, or makes an installed copy authoritative.
 
 Its first release step commits all tracked changes and all untracked nonignored files allowed by the existing file-safety exclusions, then verifies that the worktree and index are clean. Ignored files remain ignored and environment-file exclusions remain; an excluded nonignored dirty file stops release rather than being committed or waived. An already clean repository needs no empty commit. A failed commit or any remaining tracked or nonignored untracked change stops the release before tests, image preparation/build or Docker work. Verify cleanliness after each later checkpoint as well. This checkpoint is internal work of this Workflow, not a new Step or Action.
 
-Canonical image naming is prepared after the full suite passes, using the existing ImageManager and actual Docker build timestamp. Post-smoke image retention is selected-Project-only: keep this release's exact current-Version candidate; other positively owned unused digests, including same-fingerprint rebuilds, are eligible for non-force removal. Preserve foreign/unowned images and all container references, and report incomplete cleanup as pending. This is internal work of CA-O-178/CA-O-169, not an additional Workflow or Step; CA-O-179 is not another occurrence in this registered graph.
+Canonical image naming is prepared after the declared local validation scope passes, using the existing ImageManager and actual Docker build timestamp; the complete suite remains the default prerequisite. Post-smoke image retention is selected-Project-only: keep this release's exact current-Version candidate; other positively owned unused digests, including same-fingerprint rebuilds, are eligible for non-force removal. Preserve foreign/unowned images and all container references, and report incomplete cleanup as pending. This is internal work of CA-O-178/CA-O-169, not an additional Workflow or Step; CA-O-179 is not another occurrence in this registered graph.

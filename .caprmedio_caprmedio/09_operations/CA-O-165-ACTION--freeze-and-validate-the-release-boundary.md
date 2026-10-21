@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Validate local release inputs"
   depends_on: [Action, Operator, Methodology, Delivery, Test]
-version: 8
-updated_at: "2026-10-14 19:54:14 +0400"
+version: 9
+updated_at: "2026-10-21T16:23:32Z"
 relations:
   relates_to: [CA-O-164, CA-O-170, CA-O-025, CA-R-1525, CA-R-1720]
 ---
@@ -21,11 +21,11 @@ Validate local release inputs
 
 ## Action
 
-Validate local release inputs **means** the Action that checks the explicit local-release inputs and configured delivery paths for file/path safety before the full test suite.
+Validate local release inputs **means** the Action that checks the explicit local-release inputs and configured delivery paths for file/path safety before the declared local validation scope. The complete discovered suite remains the default; a focused scope requires the explicit current Operator record admitted by CA-O-164.
 
 ## Scope
 
-The Action checks the configured source and delivery paths, Project Structure, protected settings, compiler, and target paths `101_FRAMEWORK_METHODOLOGY/` and `.caprmedio_caprmedio/000_CAPRMEDIO_framework/` for ordinary input and file/path safety. It does not separately validate Active Atom metadata, placement or relations; release verification uses the full test suite.
+The Action checks the configured source and delivery paths, Project Structure, protected settings, compiler, and target paths `101_FRAMEWORK_METHODOLOGY/` and `.caprmedio_caprmedio/000_CAPRMEDIO_framework/` for ordinary input and file/path safety. It does not separately validate Active Atom metadata, placement or relations; release verification uses the declared scope and records whether it is complete or focused.
 
 ## Details
 
