@@ -8,6 +8,7 @@ import re
 import sys
 import tomllib
 import copy
+from dataclasses import replace
 from pathlib import Path
 from typing import Any, Callable, Mapping
 from pydantic import ConfigDict
@@ -15,8 +16,16 @@ from typing_extensions import NotRequired, TypedDict
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / '201_TOOLS'))
 from project_selection import bound_selection
+from project_selection import active_selection
 from connector_bindings import capture_source
 from selected_definition_sources import CurrentDefinitionSources
+from operation_error_boundary import (
+    FailureRecord,
+    classify_failure,
+    emit_failure_diagnostic,
+    operation_error_boundary,
+)
+from technical_diagnostics import make_technical_logger
 
 
 DEFAULT_CONTROL_ROOT = Path(".caprmedio_caprmedio")
@@ -125,6 +134,56 @@ _QUERY_SOURCE_ADMISSION_SPECS = (
 
 class SelectedRouteError(ValueError):
     """A rejected MCP projection request or stale source binding."""
+
+
+def _public_logger(root: Path):
+    try:
+        selection = active_selection(root)
+        logger, _error = make_technical_logger(selection.settings, root)
+        return replace(logger, component="MCP_SELECTED_ROUTES") if logger is not None else None
+    except Exception:
+        return None
+
+
+def _log_structured_failure(root: Path, operation: str, request: Any,
+                            *, disposition: str) -> str | None:
+    logger = _public_logger(root)
+    code = {
+        "rejected": "input_invalid",
+        "blocked": "operation_blocked",
+        "failed": "operation_failed",
+    }.get(disposition, "operation_failed")
+    failure = FailureRecord("WARNING", code, "public operation did not complete")
+    return emit_failure_diagnostic(
+        logger, failure, operation=operation,
+        correlation_id=(request.get("request_id") if isinstance(request, Mapping)
+                         and isinstance(request.get("request_id"), str) else None),
+    )
+
+
+def _public_boundary_result(adapter: "SelectedRouteAdapter", route: str,
+                            request: Any, error: Exception) -> dict[str, Any]:
+    failure = classify_failure(error)
+    diagnostic_error = emit_failure_diagnostic(
+        _public_logger(adapter.root), failure, operation=route,
+        correlation_id=(request.get("request_id") if isinstance(request, Mapping)
+                         and isinstance(request.get("request_id"), str) else None),
+    )
+    disposition = "blocked" if failure.severity == "ERROR" else "failed"
+    result = adapter._result(
+        request, disposition, disposition, f"{failure.code}: {failure.message}", log=False,
+    )
+    if diagnostic_error:
+        result["diagnostics"].append("technical diagnostic unavailable")
+    return result
+
+
+def _guard_public_call(adapter: "SelectedRouteAdapter", route: str,
+                       request: Any, call: Callable[[], Any]) -> Any:
+    def on_error(error: Exception) -> Any:
+        return _public_boundary_result(adapter, route, request, error)
+
+    return operation_error_boundary(on_error=on_error)(call)()
 
 
 def canonical_json(value: Any) -> str:
@@ -632,10 +691,19 @@ class _SelectedRouteAdapterBase:
             self.routes = {entry["route"]: entry for entry in self.manifest["routes"]}
         self.service = service
 
-    def _result(self, request: Any, disposition: str, outcome: str, diagnostic: str) -> dict[str, Any]:
+    def _result(self, request: Any, disposition: str, outcome: str, diagnostic: str,
+                *, log: bool = True) -> dict[str, Any]:
         value = {"disposition": disposition, "outcome": outcome, "diagnostics": [diagnostic]}
         if isinstance(request, Mapping) and isinstance(request.get("request_id"), str):
             value["request_id"] = request["request_id"]
+        if log:
+            diagnostic_error = _log_structured_failure(
+                self.root, str(request.get("operation_route", "selected_route"))
+                if isinstance(request, Mapping) else "selected_route", request,
+                disposition=disposition,
+            )
+            if diagnostic_error:
+                value["diagnostics"].append("technical diagnostic unavailable")
         return value
 
     def _support(self) -> Any | None:
@@ -908,8 +976,15 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
             return lifecycle_refusal
         support = self._support()
         if support is None:
-            return {"request_id": normalized["request_id"], "disposition": "blocked", "outcome": "implementation_gap",
-                    "source_freshness": normalized["source_freshness"], "diagnostics": ["shared implement_run_support is unavailable"]}
+            value = {"request_id": normalized["request_id"], "disposition": "blocked",
+                     "outcome": "implementation_gap", "source_freshness": normalized["source_freshness"],
+                     "diagnostics": ["shared implement_run_support is unavailable"]}
+            diagnostic_error = _log_structured_failure(
+                self.root, route, normalized, disposition="blocked",
+            )
+            if diagnostic_error:
+                value["diagnostics"].append("technical diagnostic unavailable")
+            return value
         try:
             handler: Callable[[dict[str, Any]], dict[str, Any]] = getattr(support, "run_selected_operation")
             result = handler(normalized)
@@ -961,24 +1036,38 @@ def register_selected_routes(
                          annotations=(query_annotations if route in QUERY_ROUTE_NAMES else selected_annotations))
             def selected_route(request: dict[str, Any]) -> dict[str, Any]:
                 """Preview ordinary routes before their explicit authorized execute."""
-                return adapter.invoke(route, request)
+                return _guard_public_call(
+                    adapter, route, request, lambda: adapter.invoke(route, request),
+                )
         add_route(route_name)
 
     def release_version(request: DirectLocalReleaseRequest) -> dict[str, Any]:
         """Run only the connected Project's direct local release."""
-        return adapter.invoke(_OPTIONAL_RELEASE_ROUTE_NAME, request)
+        return _guard_public_call(
+            adapter, _OPTIONAL_RELEASE_ROUTE_NAME, request,
+            lambda: adapter.invoke(_OPTIONAL_RELEASE_ROUTE_NAME, request),
+        )
 
     def public_release(request: DirectPublicReleaseRequest) -> dict[str, Any]:
         """Run only the connected Project's public release with its supplied draft."""
-        return adapter.invoke(_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME, request)
+        return _guard_public_call(
+            adapter, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME, request,
+            lambda: adapter.invoke(_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME, request),
+        )
 
     def get_selected_workflow_run(request: dict[str, Any]) -> dict[str, Any]:
         """Read one saved selected Workflow Run without dispatch."""
-        return adapter.get_workflow_run(request)
+        return _guard_public_call(
+            adapter, "get_selected_workflow_run", request,
+            lambda: adapter.get_workflow_run(request),
+        )
 
     def get_selected_action_run(request: dict[str, Any]) -> dict[str, Any]:
         """Read one saved selected Action Run without dispatch."""
-        return adapter.get_action_run(request)
+        return _guard_public_call(
+            adapter, "get_selected_action_run", request,
+            lambda: adapter.get_action_run(request),
+        )
 
     controls = {
         _OPTIONAL_RELEASE_ROUTE_NAME: (release_version, release_annotations),

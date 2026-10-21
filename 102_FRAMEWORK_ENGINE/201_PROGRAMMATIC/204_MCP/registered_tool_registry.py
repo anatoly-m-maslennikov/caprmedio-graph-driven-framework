@@ -6,7 +6,7 @@ provider descriptions and canonical model symbols; it never invokes a Tool.
 from __future__ import annotations
 
 from collections.abc import Callable, Collection, Mapping, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import hashlib
 import importlib.util
 import inspect
@@ -22,6 +22,15 @@ from typing import Any
 from mcp.server.mcpserver.exceptions import ToolError
 from mcp.types import ToolAnnotations
 from pydantic import TypeAdapter
+
+from operation_error_boundary import (
+    FailureRecord,
+    classify_failure,
+    emit_failure_diagnostic,
+    operation_error_boundary,
+)
+from project_selection import active_selection
+from technical_diagnostics import make_technical_logger
 
 
 _ENTRYPOINT_PREFIX = PurePosixPath("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC")
@@ -49,6 +58,16 @@ _RESERVED_PUBLIC_NAMES = frozenset({
 
 class RegisteredToolError(ValueError):
     """A descriptor is not eligible for MCP projection."""
+
+
+def _classify_public_failure(error: Exception) -> FailureRecord | None:
+    """Keep known public refusals attributable without exposing exception text."""
+
+    if isinstance(error, RegisteredToolError):
+        return FailureRecord("WARNING", "source_binding_invalid", "source binding is invalid")
+    if isinstance(error, ToolError):
+        return FailureRecord("WARNING", "request_rejected", "request or source binding was rejected")
+    return None
 
 
 @dataclass(frozen=True)
@@ -454,18 +473,35 @@ def _invoke_wrapper(
         raise RegisteredToolError("callable.invoke: adapter is unresolved")
     output_adapter = TypeAdapter(output_model)
 
-    async def registered_tool(request: object) -> object:
+    def _logger():
         try:
-            if not _binding_is_fresh(root, catalog_binding):
-                raise ToolError(f"{mcp_name}: source binding is stale or unavailable")
-            result = invoke(request)
-            if inspect.isawaitable(result):
-                result = await result
-            return output_adapter.validate_python(result)
-        except ToolError:
-            raise
-        except Exception as error:
-            raise ToolError(f"{mcp_name}: {error}") from error
+            selection = active_selection(root)
+            logger, _error = make_technical_logger(selection.settings, Path(root))
+            return replace(logger, component="MCP_REGISTRY") if logger is not None else None
+        except Exception:
+            return None
+
+    def _on_error(error: Exception) -> object:
+        failure = classify_failure(error, classifier=_classify_public_failure)
+        diagnostic_error = emit_failure_diagnostic(
+            _logger(), failure, operation=mcp_name,
+        )
+        message = f"{failure.code}: {failure.message}"
+        if diagnostic_error:
+            message += "; technical diagnostic unavailable"
+        raise ToolError(f"{mcp_name}: {message}") from error
+
+    @operation_error_boundary(on_error=_on_error)
+    async def guarded_invoke(request: object) -> object:
+        if not _binding_is_fresh(root, catalog_binding):
+            raise ToolError(f"{mcp_name}: source binding is stale or unavailable")
+        result = invoke(request)
+        if inspect.isawaitable(result):
+            result = await result
+        return output_adapter.validate_python(result)
+
+    async def registered_tool(request: object) -> object:
+        return await guarded_invoke(request)
 
     # Captured objects stay closures instead of optional default parameters,
     # avoiding accidental SDK request-schema fields.

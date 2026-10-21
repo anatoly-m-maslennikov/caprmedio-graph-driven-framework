@@ -22,6 +22,13 @@ from project_runtime import RUNTIME_DIRECTORY, atomic_tempfile
 from project_selection import ProjectSelectionError, active_selection, bound_selection
 from artifact_metadata import current_timestamp
 from authoritative_status_models import StatusModelError
+from operation_error_boundary import (
+    FailureRecord,
+    classify_failure,
+    emit_failure_diagnostic,
+    operation_error_boundary,
+)
+from technical_diagnostics import make_technical_logger
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
     CarrierValidationScope,
     ProposedCarrierError,
@@ -2347,18 +2354,64 @@ def parser(tool_id: str) -> argparse.ArgumentParser:
     return result
 
 
+def _classify_cli_failure(error: Exception) -> FailureRecord | None:
+    if isinstance(error, ToolError):
+        return FailureRecord("WARNING", error.code, error.message, error.details)
+    if isinstance(error, (OSError, UnicodeError)):
+        return FailureRecord("WARNING", "operation-failed", str(error))
+    return None
+
+
+def _cli_logger(root: Path | None):
+    if root is None:
+        return None
+    try:
+        selection = bound_selection(root)
+        settings = selection.settings if selection is not None else tomllib.loads(
+            (root / SETTINGS_PATH).read_text(encoding="utf-8")
+        )
+        logger, _logger_error = make_technical_logger(settings, root)
+        return replace(logger, component="ATOM_OPERATIONS") if logger is not None else None
+    except (OSError, ProjectSelectionError, TypeError, ValueError, tomllib.TOMLDecodeError):
+        return None
+
+
+def _cli_error(tool_id: str, kind: str, mode: str, root: Path | None, error: Exception) -> int:
+    failure = classify_failure(error, classifier=_classify_cli_failure)
+    secondary = emit_failure_diagnostic(
+        _cli_logger(root), failure, operation=f"atom_operations.{tool_id.lower()}"
+    )
+    diagnostic: dict[str, Any] = {"code": failure.code, "message": failure.message}
+    if failure.details:
+        diagnostic["details"] = dict(failure.details)
+    if failure.diagnostic_error or secondary:
+        details = diagnostic.setdefault("details", {})
+        if isinstance(details, dict):
+            details["diagnostic_error"] = failure.diagnostic_error or secondary
+    envelope = {"schema_version": SCHEMA_VERSION, "tool": {"capability_id": tool_id, "kind": kind},
+                "ok": False, "mode": mode, "diagnostics": [diagnostic], "result": {}}
+    print(canonical_json(envelope))
+    return 2
+
+
 def cli(tool_id: str) -> int:
     args = parser(tool_id).parse_args()
     kind = "finder" if tool_id in {"ATOM_SEARCH", "ATOM_READ"} else "doer"
     mode = "describe" if args.command == "describe" else "apply" if getattr(args, "apply", False) else "staged-preview" if getattr(args, "stage_preview", False) else "read-only" if kind == "finder" else "dry-run"
-    try:
+    root: Path | None = None
+
+    @operation_error_boundary(
+        on_error=lambda error: _cli_error(tool_id, kind, mode, root, error)
+    )
+    def _invoke() -> int:
+        nonlocal root
+        root = resolve_repository(args.repository)
         if (args.command == "run" and getattr(args, "apply", False)
                 and tool_id in {"ATOM_CREATE", "ATOM_UPDATE"}):
             raise ToolError(
                 "standalone-apply-not-admitted",
                 f"{tool_id} --apply requires authorized project-local MCP delegation with a sealed Initiative action envelope",
             )
-        root = resolve_repository(args.repository)
         if args.command == "describe":
             operation = describe(tool_id)
         else:
@@ -2370,12 +2423,4 @@ def cli(tool_id: str) -> int:
                     "ok": True, "mode": mode, "diagnostics": [], "result": operation}
         print(canonical_json(envelope))
         return 0
-    except (ToolError, OSError, UnicodeError) as error:
-        diagnostic: dict[str, Any] = {"code": getattr(error, "code", "operation-failed"),
-                                      "message": getattr(error, "message", str(error))}
-        if getattr(error, "details", None):
-            diagnostic["details"] = error.details
-        envelope = {"schema_version": SCHEMA_VERSION, "tool": {"capability_id": tool_id, "kind": kind},
-                    "ok": False, "mode": mode, "diagnostics": [diagnostic], "result": {}}
-        print(canonical_json(envelope))
-        return 2
+    return _invoke()

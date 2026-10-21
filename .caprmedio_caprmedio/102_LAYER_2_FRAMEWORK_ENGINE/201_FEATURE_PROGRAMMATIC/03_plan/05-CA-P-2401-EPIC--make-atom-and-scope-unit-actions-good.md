@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 78
-updated_at: "2026-10-21T18:41:35Z"
+version: 79
+updated_at: "2026-10-21T19:05:01Z"
 ---
 # Summary
 
@@ -648,6 +648,26 @@ independent review). Each child has at most 15 minutes own work; revise dependan
 after its predecessor completes. Reuse the existing logger and caller-owned
 result schemas, preserve sync/async cancellation and effect safety, and add no
 automatic retry, repair, rollback, fabricated Workflow or hidden Journal writes.
-CA-P-2557 is Active; source admission is not implementation completion. Use
-isolated fixtures and only broken/related tests, without a full-suite run or
-production deployment. Preserve the existing dispatch/cleanup/readiness queues.
+CA-P-2557@2 and children CA-P-2558@5, CA-P-2559@3, CA-P-2560@3 and
+CA-P-2561@2 are Done for this bounded source increment. Shared sync/async handling
+now reaches registered Tools, selected MCP callers, workflow_orchestrator, Atom
+CLI and AtomSearch. Partial lookup data is retained with explicit schema_invalid
+errors and complete:false; request failures produce technical WARNING, and only
+explicitly classified blocking runtime failures produce ERROR. Cancellation and
+caller-owned result schemas remain intact. The decorator adds no retries or
+technical Journal records.
+
+Focused evidence covers 117 unique passing cases across ten modules. The initial
+64-case Tools run found one stale empty-error test assertion; the corrected
+provider module passed 10 cases while prior passing results were retained. The
+53-case MCP group passed. After the final review fix to omit invented exception
+classes on synthetic warnings, 32 related cases passed again in 1.823 seconds.
+Repeated runs are not additional unique coverage. Independent final review
+APPROVED; exact commands and evidence are retained in CA-P-2561. Core/logger Ruff
+and changed-file F checks pass. Existing non-failing fixture ResourceWarnings and
+tracked source-conformance debt are not broader acceptance.
+
+No full suite, new image, release, deployment, production endpoint test or push
+occurred. New source is not active in the installed MCP yet. P2552/C572 readiness,
+P2556/C573 dispatch, ownership cleanup and the native container failure matrix
+remain open, as does the Epic. Scope Unit operations stay in Stage 2.

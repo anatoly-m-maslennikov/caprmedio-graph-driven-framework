@@ -19,6 +19,7 @@ from project_settings_schema import _string
 _FIELD_LIMIT = 512
 _PATH_LIMIT = 512
 _RECORD_LIMIT = 4_096
+_SEVERITIES = frozenset({"ERROR", "WARNING", "INFO", "DEBUG"})
 _SECRET = re.compile(
     r"(?i)\b(password|passwd|secret|token|api[_-]?key|authorization)\b\s*[:=]\s*[^\s,;]+"
 )
@@ -87,30 +88,40 @@ class TechnicalDiagnosticLogger:
     component: str = "ATOM_SEARCH"
 
     def _record(self, *, code: str, relative_path: str, reason: str,
-                correlation_id: str | None) -> dict[str, str]:
+                correlation_id: str | None, severity: str = "WARNING",
+                event: str = "atom_schema_invalid", operation: str = "atom_search",
+                outcome: str = "skipped", exception_class: str | None = None) -> dict[str, str]:
         record: dict[str, str] = {
             "timestamp": datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"),
-            "severity": "WARNING",
-            "event": "atom_schema_invalid",
+            "severity": _sanitize(severity, limit=32),
+            "event": _sanitize(event, limit=128),
             "component": _sanitize(self.component, limit=128),
             "environment": _sanitize(self.environment, limit=128),
             "version": _sanitize(self.version, limit=128),
             "project_prefix": self.project_prefix,
-            "operation": "atom_search",
-            "outcome": "skipped",
+            "operation": _sanitize(operation, limit=128),
+            "outcome": _sanitize(outcome, limit=64),
             "code": _sanitize(code, limit=128),
             "relative_path": _sanitize(relative_path, limit=_PATH_LIMIT, root=self.root),
             "reason": _sanitize(reason, limit=_FIELD_LIMIT, root=self.root),
         }
         if correlation_id is not None:
             record["correlation_id"] = _sanitize(correlation_id, limit=128)
+        if exception_class is not None:
+            record["exception_class"] = _sanitize(exception_class, limit=128)
         return record
 
     def emit(self, *, code: str, relative_path: str, reason: str,
-             correlation_id: str | None = None) -> str | None:
-        record = self._record(code=code, relative_path=relative_path, reason=reason,
-                              correlation_id=correlation_id)
+             correlation_id: str | None = None, severity: str = "WARNING",
+             event: str = "atom_schema_invalid", operation: str = "atom_search",
+             outcome: str = "skipped", exception_class: str | None = None) -> str | None:
+        if severity not in _SEVERITIES:
+            return "invalid diagnostic severity"
         try:
+            record = self._record(code=code, relative_path=relative_path, reason=reason,
+                                  correlation_id=correlation_id, severity=severity,
+                                  event=event, operation=operation, outcome=outcome,
+                                  exception_class=exception_class)
             self.stream.write(_render(record) + "\n")
             self.stream.flush()
         except Exception as error:

@@ -20,6 +20,7 @@ sys.path.insert(0, str(TOOLS))
 
 from atom_operations import ToolError, cli
 from atom_subject_lookup import run_subject_search
+from operation_error_boundary import FailureRecord, emit_failure_diagnostic
 from project_selection import ProjectSelection, ProjectSelectionError, active_selection, bind_selection
 from technical_diagnostics import make_technical_logger
 from tool_description import binding_matches, make_tool_description
@@ -224,7 +225,7 @@ def _diagnostic_outcome(root: Path, result: dict[str, Any]) -> tuple[str | None,
                 for diagnostic in diagnostics]
     if result["coverage"] != "full" and not warnings:
         return "backend_failure", []
-    return None, warnings
+    return ("schema_invalid" if warnings else None), warnings
 
 
 def _emit_lookup_warnings(selection: ProjectSelection, root: Path, warnings: list[LookupWarning], *,
@@ -253,11 +254,39 @@ class _DescriptorAdapter:
         self._diagnostic_stream = diagnostic_stream
         self._diagnostic_environment = diagnostic_environment
 
+    def _refuse(self, code: str, message: str, field: str | None = None,
+                *, selection: ProjectSelection | None = None) -> SubjectLookupResult:
+        result = _refusal(code, message, field)
+        failure = FailureRecord("WARNING", code, message)
+        logger = None
+        logger_error: str | None = None
+        try:
+            selected = selection or active_selection(self._root)
+            logger, logger_error = make_technical_logger(
+                selected.settings, self._root, stream=self._diagnostic_stream,
+                environment=self._diagnostic_environment,
+            )
+        except (OSError, ProjectSelectionError, TypeError, ValueError):
+            logger_error = "technical diagnostic logger unavailable"
+        secondary = emit_failure_diagnostic(
+            logger, failure, operation="atom_search"
+        )
+        if logger_error or secondary:
+            result.errors[0] = LookupError(
+                code=code,
+                message=f"{message} (technical diagnostic: {logger_error or secondary})",
+                field=field,
+            )
+        return result
+
     def invoke(self, request: SubjectLookupRequest | dict[str, Any]) -> SubjectLookupResult:
+        selection: ProjectSelection | None = None
         try:
             parsed = request if isinstance(request, SubjectLookupRequest) else SubjectLookupRequest.model_validate(request)
         except ValidationError:
-            return _refusal("input_invalid", "Request does not match the closed direct Subject lookup schema")
+            return self._refuse(
+                "input_invalid", "Request does not match the closed direct Subject lookup schema"
+            )
         try:
             contracts = _contract_reader(self._root)
             selection = active_selection(self._root)
@@ -275,11 +304,17 @@ class _DescriptorAdapter:
                 result = run_subject_search(self._root, args, direct_subject_only=True)
             selection._revalidate_boundary(reader=contracts)
             if contracts.currentness()["state"] != "unchanged":
-                return _refusal("stale_state", "Direct lookup contract sources changed during lookup")
+                return self._refuse(
+                    "stale_state", "Direct lookup contract sources changed during lookup",
+                    selection=selection,
+                )
             diagnostic_error, warnings = _diagnostic_outcome(self._root, result)
-            if diagnostic_error is not None:
-                return _refusal(diagnostic_error,
-                                "Direct Subject lookup refused an integrity or identity diagnostic")
+            if diagnostic_error not in {None, "schema_invalid"}:
+                return self._refuse(
+                    diagnostic_error,
+                    "Direct Subject lookup refused an integrity or identity diagnostic",
+                    selection=selection,
+                )
             warnings = _emit_lookup_warnings(
                 selection, self._root, warnings, stream=self._diagnostic_stream,
                 environment=self._diagnostic_environment)
@@ -295,18 +330,39 @@ class _DescriptorAdapter:
             public_evidence = {"grammar_pins": [{key: pin[key] for key in GrammarEvidence.model_fields}
                                                 for pin in evidence["grammar_pins"]],
                                "native_admission": evidence["native_admission"]}
+            errors = ([LookupError(
+                code="schema_invalid",
+                message="One or more Atom carriers failed schema validation and were skipped",
+                field=None,
+            )] if diagnostic_error == "schema_invalid" else [])
             return SubjectLookupResult(data=LookupData(matches=matches, complete=not warnings,
                 subject_profile=result["subject_profile"], subject_profile_evidence=public_evidence,
                 warnings=warnings),
-                current_state=[states[key] for key in sorted(states)], effects=[], errors=[])
+                current_state=[states[key] for key in sorted(states)], effects=[], errors=errors)
         except ToolError as error:
-            return _refusal(_error_code(error.code), "Direct Subject lookup refused the selected request or source frontier")
+            return self._refuse(
+                _error_code(error.code),
+                "Direct Subject lookup refused the selected request or source frontier",
+                selection=selection,
+            )
         except ProjectSelectionError:
-            return _refusal("stale_state", "Direct Subject lookup could not verify the selected Project declaration boundary")
+            return self._refuse(
+                "stale_state",
+                "Direct Subject lookup could not verify the selected Project declaration boundary",
+                selection=selection,
+            )
         except (OSError, LimitReached):
-            return _refusal("backend_failure", "Direct Subject lookup could not verify its bounded source frontier")
+            return self._refuse(
+                "backend_failure",
+                "Direct Subject lookup could not verify its bounded source frontier",
+                selection=selection,
+            )
         except (ValueError, KeyError, TypeError):
-            return _refusal("schema_invalid", "Direct Subject lookup evidence does not match its closed result schema")
+            return self._refuse(
+                "schema_invalid",
+                "Direct Subject lookup evidence does not match its closed result schema",
+                selection=selection,
+            )
 
 
 def create_adapter(root: str | Path, *, diagnostic_stream: TextIO | None = None,

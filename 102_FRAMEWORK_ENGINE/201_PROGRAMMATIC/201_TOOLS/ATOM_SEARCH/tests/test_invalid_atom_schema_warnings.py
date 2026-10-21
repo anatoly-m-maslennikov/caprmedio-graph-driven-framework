@@ -1,6 +1,8 @@
 """Focused public lookup checks for invalid per-Atom schema handling."""
 from __future__ import annotations
 
+import io
+import json
 import shutil
 from pathlib import Path
 import sys
@@ -93,7 +95,7 @@ class InvalidAtomSchemaWarningsTests(unittest.TestCase):
 
         result = self._invoke()
 
-        self.assertEqual([], result["errors"])
+        self.assertEqual(["schema_invalid"], [error["code"] for error in result["errors"]])
         self.assertEqual([], result["effects"])
         self._assert_valid_matches(result)
         self.assertFalse(result["data"]["complete"])
@@ -104,7 +106,7 @@ class InvalidAtomSchemaWarningsTests(unittest.TestCase):
 
         result = self._invoke()
 
-        self.assertEqual([], result["errors"])
+        self.assertEqual(["schema_invalid"], [error["code"] for error in result["errors"]])
         self.assertEqual([], result["effects"])
         self._assert_valid_matches(result)
         self.assertFalse(result["data"]["complete"])
@@ -118,7 +120,7 @@ class InvalidAtomSchemaWarningsTests(unittest.TestCase):
 
         result = self._invoke()
 
-        self.assertEqual([], result["errors"])
+        self.assertEqual(["schema_invalid"], [error["code"] for error in result["errors"]])
         self.assertEqual([], result["effects"])
         self.assertEqual([], result["data"]["matches"])
         self.assertEqual([], result["current_state"])
@@ -150,15 +152,28 @@ class InvalidAtomSchemaWarningsTests(unittest.TestCase):
         self.assertEqual([], result["effects"])
 
     def test_stale_contract_remains_an_error(self) -> None:
+        settings = self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
+        settings.write_text(
+            'schema_version = "2.0"\n'
+            '[project]\nname = "Lookup fixture"\n'
+            '[artifacts.identity]\nproject_prefix = "TEST"\n'
+            '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n',
+            encoding="utf-8",
+        )
         source = self.root / provider.SOURCE_PINS[0]["path"]
         source.write_bytes(source.read_bytes().replace(b"CA-R-1936", b"CA-R-99999", 1))
 
-        result = self._invoke()
+        stream = io.StringIO()
+        result = provider.create_adapter(self.root, diagnostic_stream=stream).invoke(self.request).model_dump(mode="json")
 
         self.assertIsNone(result["data"])
         self.assertIsNone(result["current_state"])
         self.assertEqual("stale_state", result["errors"][0]["code"])
         self.assertEqual([], result["effects"])
+        records = [json.loads(line) for line in stream.getvalue().splitlines()]
+        self.assertEqual(1, len(records))
+        self.assertEqual("WARNING", records[0]["severity"])
+        self.assertEqual("stale_state", records[0]["code"])
 
     def test_bounded_source_io_remains_an_error(self) -> None:
         with patch.object(

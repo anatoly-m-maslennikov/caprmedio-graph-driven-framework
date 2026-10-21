@@ -285,7 +285,7 @@ class DirectSubjectLookupProtocolTests(unittest.IsolatedAsyncioTestCase):
         self.paths["CA-R-9200"].write_text("---\natom_id: [CA-R-9200\n---\n", encoding="utf-8")
         async with self._session() as session:
             result = self._assert_public(await self._call(session, self.request))
-        self.assertEqual([], result["errors"])
+        self.assertEqual(["schema_invalid"], [error["code"] for error in result["errors"]])
         self.assertFalse(result["data"]["complete"])
         self.assertEqual(sorted(set(self.paths) - {"CA-R-9200"}),
                          [match["atom_id"] for match in result["data"]["matches"]])

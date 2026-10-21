@@ -314,6 +314,12 @@ class AtomOperationsTest(unittest.TestCase):
                 envelope = json.loads(refused.stdout)
                 self.assertFalse(envelope["ok"])
                 self.assertEqual("standalone-apply-not-admitted", envelope["diagnostics"][0]["code"])
+                technical = json.loads(refused.stderr)
+                self.assertEqual("WARNING", technical["severity"])
+                self.assertEqual("operation_failure", technical["event"])
+                self.assertEqual("ATOM_OPERATIONS", technical["component"])
+                self.assertEqual("standalone-apply-not-admitted", technical["code"])
+                self.assertEqual("CA", technical["project_prefix"])
                 self.assertEqual(before, self._snapshot())
                 self.assertFalse(create_path.exists())
 

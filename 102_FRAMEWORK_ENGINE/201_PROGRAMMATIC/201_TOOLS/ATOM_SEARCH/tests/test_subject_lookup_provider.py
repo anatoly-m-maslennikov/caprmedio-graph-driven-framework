@@ -113,7 +113,7 @@ class SubjectLookupProviderTests(unittest.TestCase):
         source = next(self.fixture.role.glob("CA-R-2-*.md"))
         source.write_bytes(source.read_bytes().replace(b'subjects:', b'subjects: invalid\ninvalid_subjects:'))
         result = self.invoke()
-        self.assertEqual([], result["errors"])
+        self.assertEqual(["schema_invalid"], [error["code"] for error in result["errors"]])
         self.assertEqual(
             [("CA-R-1", 1, "depends_on", "Core/Atom/child"), ("CA-R-1", 1, "governs", "Core/Atom")],
             [(row["atom_id"], row["version"], row["field"], row["value"])

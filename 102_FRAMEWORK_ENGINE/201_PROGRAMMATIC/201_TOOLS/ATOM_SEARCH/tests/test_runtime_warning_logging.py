@@ -58,7 +58,7 @@ class RuntimeWarningLoggingTests(unittest.TestCase):
             result = provider.create_adapter(self.root, diagnostic_stream=stream).invoke(self.request)
         record = json.loads(stream.getvalue())
 
-        self.assertEqual([], result.errors)
+        self.assertEqual(["schema_invalid"], [error.code for error in result.errors])
         self.assertFalse(result.data.complete)
         warning = next(item for item in result.data.warnings if item.path == invalid.relative_to(self.root).as_posix())
         self.assertEqual("schema_invalid", warning.code)
@@ -82,7 +82,7 @@ class RuntimeWarningLoggingTests(unittest.TestCase):
                                          diagnostic_environment="docker").invoke(self.request)
         record = json.loads(stream.getvalue())
 
-        self.assertEqual([], result.errors)
+        self.assertEqual(["schema_invalid"], [error.code for error in result.errors])
         self.assertFalse(result.data.complete)
         self.assertEqual("SECOND", record["project_prefix"])
         self.assertEqual("docker", record["environment"])
@@ -91,7 +91,7 @@ class RuntimeWarningLoggingTests(unittest.TestCase):
         self._invalid()
         result = provider.create_adapter(self.root, diagnostic_stream=_FailingStream()).invoke(self.request)
 
-        self.assertEqual([], result.errors)
+        self.assertEqual(["schema_invalid"], [error.code for error in result.errors])
         self.assertEqual("CA-R-1", result.data.matches[0].atom_id)
         self.assertFalse(result.data.complete)
         self.assertIn("schema_invalid", {warning.code for warning in result.data.warnings})
@@ -99,6 +99,19 @@ class RuntimeWarningLoggingTests(unittest.TestCase):
                         if warning.code == "diagnostic_logging_failed")
         self.assertIn("diagnostic sink unavailable", failure.reason)
         self.assertIn("technical diagnostic emission failed", failure.reason)
+
+    def test_invalid_request_returns_error_and_one_warning_log(self) -> None:
+        stream = io.StringIO()
+        request = {key: value for key, value in self.request.items() if key != "lifecycle"}
+        result = provider.create_adapter(self.root, diagnostic_stream=stream).invoke(request)
+
+        self.assertIsNone(result.data)
+        self.assertEqual(["input_invalid"], [error.code for error in result.errors])
+        records = [json.loads(line) for line in stream.getvalue().splitlines()]
+        self.assertEqual(1, len(records))
+        self.assertEqual("WARNING", records[0]["severity"])
+        self.assertEqual("operation_failure", records[0]["event"])
+        self.assertEqual("input_invalid", records[0]["code"])
 
     def test_logger_redacts_secret_and_bounds_reason(self) -> None:
         stream = io.StringIO()

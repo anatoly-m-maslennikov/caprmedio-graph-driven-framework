@@ -1,6 +1,7 @@
 """Reloadable Project-local stdio implementation behind the stable gateway."""
 import argparse
 from contextlib import contextmanager
+from dataclasses import replace
 from pathlib import Path
 import sys
 import time
@@ -16,6 +17,13 @@ TOOLS_ROOT = Path(__file__).resolve().parents[1] / '201_TOOLS'
 sys.path.insert(0, str(TOOLS_ROOT))
 sys.path.insert(0, str(TOOLS_ROOT / 'VALIDATE_ATOMS'))
 from capability_discovery.service import Service  # noqa: E402
+from operation_error_boundary import (  # noqa: E402
+    classify_failure,
+    emit_failure_diagnostic,
+    operation_error_boundary,
+)
+from project_selection import active_selection  # noqa: E402
+from technical_diagnostics import make_technical_logger  # noqa: E402
 sys.path.insert(0, str(TOOLS_ROOT.parent / '203_APPS/WORKFLOW_ORCHESTRATOR'))
 from orchestrator import Request as OrchestratorRequest, run as orchestrate  # noqa: E402
 from selected_routes import register_selected_routes  # noqa: E402
@@ -47,10 +55,30 @@ def register_orchestrator(server, root):
         read_only_hint=False, destructive_hint=False, idempotent_hint=True, open_world_hint=False))
     def workflow_orchestrator(request: OrchestratorRequest) -> dict[str, Any]:
         """Enqueue or inspect an independent Run; requires an explicitly initialized local worker."""
-        try:
+        def on_error(error: Exception) -> object:
+            failure = classify_failure(error)
+            logger = None
+            try:
+                selection = active_selection(root)
+                logger, _logger_error = make_technical_logger(selection.settings, Path(root))
+                if logger is not None:
+                    logger = replace(logger, component="MCP_ORCHESTRATOR")
+            except Exception:
+                pass
+            diagnostic_error = emit_failure_diagnostic(
+                logger, failure, operation="workflow_orchestrator",
+                correlation_id=getattr(request, "run_id", None),
+            )
+            message = f"{failure.code}: {failure.message}"
+            if diagnostic_error:
+                message += "; technical diagnostic unavailable"
+            raise ToolError(message) from error
+
+        @operation_error_boundary(on_error=on_error)
+        def guarded() -> dict[str, Any]:
             return orchestrate(root, request)
-        except (ValueError, OSError, RuntimeError) as error:
-            raise ToolError(str(error)) from error
+
+        return guarded()
 
 
 def create_server(root):
