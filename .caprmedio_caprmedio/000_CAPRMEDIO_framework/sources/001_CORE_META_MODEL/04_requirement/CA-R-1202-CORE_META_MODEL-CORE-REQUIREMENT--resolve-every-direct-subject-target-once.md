@@ -4,9 +4,9 @@ subjects:
   depends_on:
     - "GOVERNS"
     - "DEPENDS_ON"
-    - "Entity"
-version: 17
-updated_at: "2026-10-19 15:52:37 +0400"
+    - "Subject Target"
+version: 18
+updated_at: "2026-10-21 01:47:52 +0400"
 relations: {}
 atom_id: "CA-R-1202"
 content_role: "Requirement"
@@ -27,6 +27,6 @@ direct GOVERNS and DEPENDS_ON values in an Atom's Subjects Property.
 
 ## Claim
 
-**every** direct GOVERNS value **and** **every** direct DEPENDS_ON value **in** an Atom's Subjects Property **must** resolve **to** **`=1`** canonical Entity. resolution **must not** require an intermediate Subject/Entity **or** Subject/Reference Property **or** a repeated target-kind field.
+**every** direct GOVERNS value **and** **every** direct DEPENDS_ON value **in** an Atom's Subjects Property **must** resolve **to** **`=1`** canonical Subject Target. resolution **must not** require an intermediate Subject/Entity **or** Subject/Reference Property **or** a repeated target-kind field.
 
 ## Details

@@ -2,9 +2,9 @@
 subjects:
   governs: "DEPENDS_ON"
   depends_on:
-    ["Relation Kind", "Entity/Node/Continuant/Atom", "Subject", "Atom/Content Role: Plan/Type: Plan", "Entity", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
-version: 19
-updated_at: "2026-10-19 15:52:36 +0400"
+    ["Relation Kind", "Entity/Node/Continuant/Atom", "Subject", "Atom/Content Role: Plan/Type: Plan", "Subject Target", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
+version: 20
+updated_at: "2026-10-21 01:47:52 +0400"
 relations: {}
 atom_id: "CA-R-1200"
 content_role: "Requirement"
@@ -17,8 +17,8 @@ global_tier: 9
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md
   source_atom_id: CA-R-1200
-  source_atom_revision: 19
-  source_sha256: a7a8687c6b53149385c2ecf0751aa234adadcb09ad681c5ebc061b9bdc4fc1d5
+  source_atom_revision: 20
+  source_sha256: 2c093d68e0f5f02614d81b134618cea515fac7fa3403f00ff5a478b4293523df
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
@@ -31,7 +31,7 @@ the DEPENDS_ON Subject Relation Kind of an Atom.
 
 ## Claim
 
-DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Entity mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Entity.
+DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Subject Target mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Subject Target.
 
 ## Details
 

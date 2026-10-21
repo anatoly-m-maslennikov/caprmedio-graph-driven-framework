@@ -3,8 +3,8 @@ subjects:
   governs: "Markdown Atom Carrier.YAML Frontmatter"
   depends_on:
     ["Entity/Node/Continuant/Atom.Author", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Actor"]
-version: 20
-updated_at: "2026-10-19 15:55:20 +0400"
+version: 21
+updated_at: "2026-10-20 21:17:43 +0400"
 relations: {}
 atom_id: "CA-D-276"
 content_role: "Delivery"
@@ -35,7 +35,7 @@ use the following field encodings for the applicable Atom Properties. presence f
 
 | Property | Top-level field | Encoding **and** applicable presence |
 |---|---|---|
-| Atom Identity | `atom_id` | String under CA-D-446; forbidden for ordinary Draft, required for non-Draft; its explicit Subjects-only edit-draft exception carries only the temporary canonical-ID-plus-`@draft` proposal marker; carry Version separately |
+| Atom Identity | `atom_id` | String under CA-D-446; optional for Draft and required for Current or Archived; Draft marker forms follow CA-D-378; carry Version separately |
 | Content Role | `content_role` | **=1** String selecting its canonical Content Role; resolve the admitted domain from applicable authority |
 | Type | `type` | **=1** String selecting an admitted specialized Type **when** one applies; omit for an ordinary Requirement, Method, **or** Delivery Atom under CA-R-1700; other Content Roles retain their applicable Type requirements; a present field **must not** be null, empty, **or** a collection; filename Type tokens are **not** a second value |
 | current Scope Unit **or** external Atom Author | `current_scope_unit` | **=1** String: the registered Scope Unit Name, **or**, for an Atom outside **every** Scope Unit, its Author's registered Operator name, exactly equal **to** the carried `author` value |
@@ -49,7 +49,7 @@ use the following field encodings for the applicable Atom Properties. presence f
 | authored Atom Relations | `relations` | use CA-D-268; omission **or** an empty mapping represents no authored Relations; **every** present Relation Kind carries its nonempty target collection |
 
 - `current_scope_unit` **must not** be null, a list, a joined set of names, **or** replaced by an `operators` field. the external Author fallback does **not** make the Author a Scope Unit **or** create an Actor owner of the Atom. resolve the permitted reference kind from the applicable Atom model **and** registered identities. a failed Scope Unit resolution does **not** prove the Atom is outside **every** Scope Unit. never infer the value from its filename.
-- the Revision Identifier is composed from `atom_id` **and** `version` under CA-D-446; do **not** duplicate it **in** an `identifier` field. an ordinary Draft has Version **and** Updated At but no assigned Atom ID. CA-D-446's explicitly source-pinned Subjects-only edit draft carries a temporary proposal marker, never an assigned canonical ID.
+- the Atom ID and Version identify a Current or Archived Atom version under CA-D-446; do **not** duplicate them **in** an `identifier` field. A Draft has Version **and** Updated At and may omit or carry `atom_id` under CA-D-446; Draft marker forms follow CA-D-378.
 - Summary **and** Claim use their body sections under CA-D-479, **not** `summary` **or** `claim` frontmatter copies. other body Properties use their own registered section authority.
 
 ### Conditional fields and expansion
@@ -62,4 +62,4 @@ use the following field encodings for the applicable Atom Properties. presence f
 
 ### Subjects-only edit-draft exception
 
-CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry the temporary `atom_id: <canonical-ID>@draft`, `status: Draft`, and matching temporary-ID filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts remain ID-free; canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.
+CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry `atom_id: <canonical-ID>@<proposed-version>-draft` (preferred) or the compatible `atom_id: <canonical-ID>@draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts may omit or carry an Atom ID under CA-D-446; marker and filename rules remain governed by CA-D-378 and CA-D-288. Canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.

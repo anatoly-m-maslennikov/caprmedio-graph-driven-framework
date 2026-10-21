@@ -3,8 +3,8 @@ subjects:
   governs: "Entity/Carrier"
   depends_on:
     ["Entity/Node/Continuant/Atom/Content Role: Plan", "Entity/Carrier/File Carrier", "Entity/Carrier/Directory Carrier", "Entity/Node/Continuant/Atom.ID", "Entity/Node/Continuant/Atom.Summary", "Entity/Node/Continuant/Atom/Content Role: Plan.Work Sequence Number", "Entity/Node/Continuant/Atom/Content Role: Plan.Label", "Entity/Node/Continuant/Atom/Content Role: Plan.Status", "Entity/Node/Continuant/Atom/Content Role: Plan.Definition of Done"]
-version: 13
-updated_at: "2026-10-20 17:33:55 +0400"
+version: 14
+updated_at: "2026-10-20T20:50:42.246Z"
 relations: {"evaluation_for": ["CA-D-460", "CA-D-461", "CA-D-469", "CA-D-470", "CA-D-472", "CA-D-475", "CA-R-1534", "CA-R-1599", "CA-R-997"]}
 atom_id: "CA-E-502"
 content_role: "Evaluation"
@@ -18,8 +18,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md
   source_atom_id: CA-E-502
-  source_atom_revision: 13
-  source_sha256: ef78dacf5b7e70e8cfcb8ca520037c567a572d849a65d474dc1b42589a608610
+  source_atom_revision: 14
+  source_sha256: b2616234aa0d950cc6c4fe5daa45e2983f362f4d2338b276cba786cfedb85cd0
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary
@@ -36,9 +36,9 @@ the Plan Carrier Evaluation **must** reject Carrier facts that create duplicate 
 - require DoD **in** **every** supplied Plan file, even **when** it carries a pure Hub **or** explicit overrides.
 - validate leading navigation numbers **before** Atom IDs, their local uniqueness, mutable Label tokens, **and** canonical Summary slugs. changing a number **or** Label **must not** change identity **or** scheduling.
 - read Plan Status from its own file **and** check its local placement; reject read-time inference from a containing Hub **or** path.
-- change a parent Plan's Status to Active, Backlog, Done, Canceled **or** Archived as admitted by its model: require the same requested Status through independent single-Atom Actions for **all** recursively contained descendants' latest Revisions under CA-R-1521. check each Atom's own model; reject an invented target value **or** a multi-target Action.
+- change a parent Plan's Status to Active, Backlog, Done, Canceled **or** Archived as admitted by its model: require independent single-Atom Actions for the selected latest descendants under CA-R-1521, without an optional descendant mode. For target Done, contained latest Plans already Done remain unchanged with no Revision churn, and every other contained latest Plan is requested as Canceled. For target Archived, every contained latest Atom is requested as Archived, including Done Plans. Other admitted targets retain the same-Status cascade. Check each Atom's own model; reject an invented target value **or** a multi-target Action.
 - retain each Current descendant inside its parent Carrier tree with the local Status mapping under CA-D-461; for a contained Current Plan, validate its Status placement relative to its immediate containing Plan's Directory Carrier. For example, a Done child is in `<parent-directory>/done/<child>.md`, using its canonical matching stem. Validate Draft carriers in the owning Scope Unit's shared `03_plan/draft` area. Validate each Archived Plan Markdown Carrier directly in the shared `03_plan/archived` area, without parent/child Plan directory nesting, and with CA-D-289's Version suffixes.
-- leave referenced Plans outside the tree **and** older archived Revision bytes, Version **and** Status unchanged; reject older Revisions as cascade targets. no migration of noncanonical legacy `archive/` trees is implied.
+- leave referenced Plans outside the tree **and** older archived Revision bytes, Version **and** Status unchanged; reject older Revisions as cascade targets. Allow retained-history subtrees and non-Atom assets to accompany the matching Directory Carrier byte-for-byte unchanged, without inferring Status effects. No independent migration of noncanonical legacy `archive/` trees is implied.
 - accept root Backlog Plans **in** `03_plan/001_backlog`; reject `031_backlog` as the canonical new encoding **and** reject a `version-<VERSION>` directory substituted for a Version-labeled Plan identity.
 - retain one identity **when** decomposed work is added, removed, **or** reordered; a changed Summary follows Atom replacement authority rather than independent filename editing.
 

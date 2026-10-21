@@ -2,21 +2,14 @@
 subjects:
   governs: "Entity/Node/Continuant/Projection/Type: Catalog"
   depends_on:
-    ["Entity/Node/Continuant/Term", "Entity/Node/Continuant/Project", "Definition Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom", "Subject", "Entity", "Subject Path", "Entity/Node/Continuant/Projection/Type: Terms Graph", "Entity/Node/Continuant/Atom/Content Role: Concern", "General Term", "Artifact", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Actor", "Entity/Node/Continuant/Projection", "Entity/Relation", "Relation Kind"]
-version: 15
-updated_at: "2026-10-19 15:55:00 +0400"
+    ["Entity/Node/Continuant/Term", "Entity/Node/Continuant/Project", "Definition Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom", "Subject", "Subject Target", "Subject Path", "Entity/Node/Continuant/Projection/Type: Terms Graph", "Entity/Node/Continuant/Atom/Content Role: Concern", "General Term", "Artifact", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Actor", "Entity/Node/Continuant/Projection", "Entity/Relation", "Relation Kind"]
+version: 16
+updated_at: "2026-10-21 01:47:52 +0400"
 relations:
   evaluation_for:
     - CA-R-1318
     - CA-R-1319
     - CA-R-1320
-    - CA-R-1455
-    - CA-R-1275
-    - CA-R-1279
-    - CA-R-1321
-    - CA-R-1194
-    - CA-R-1325
-    - CA-M-114
     - CA-M-125
 atom_id: "CA-E-444"
 content_role: "Evaluation"
@@ -30,9 +23,9 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-QA_CASE--validate-project-specific-term-meaning.md
   source_atom_id: CA-E-444
-  source_atom_revision: 15
-  source_sha256: 0df916320ed0d8429df4c69b35b11aa5f35b58ec35a94b8e16403f343ad0c3f8
-  original_relations_sha256: 0d64e659b20d5948f54c21bda3d484df7b0a5119e2e2a32a34700623d64dda3d
+  source_atom_revision: 16
+  source_sha256: 47553c2c827003e368048d149fb3bea5542383fc7d480533fbc6cecbc8a1035e
+  original_relations_sha256: f0841efce3d8c65fe2bb735c7d7e4cb0144f1cbaf3541bafea852e3a586e917d
 ---
 # Summary
 
@@ -50,17 +43,19 @@ a Catalog used as a vocabulary diagnostic index **must** keep its assessment of 
 
 ### Test case
 
-create an active Definition Atom that gives a word **or** phrase a Project-specific meaning, **and** use that meaning consistently **in** several Claims. create an ordinary English word used consistently **without** a Project-specific definition. create a definition that merely repeats ordinary dictionary meaning, a Term used with conflicting Project-specific meanings, a Term's wording substituted for a direct Subject reference, **and** a complete composite Subject Path classified as a Term.
+create an active Definition Atom that gives a word **or** phrase a Project-specific meaning, **and** use that meaning consistently **in** several Claims. create an ordinary English word used consistently **without** a Project-specific definition. create a definition that merely repeats ordinary dictionary meaning, a Term used with conflicting Project-specific meanings, a Term's wording substituted for a direct Subject reference, and a complete composite Subject Path classified as a Term.
 
-add a source occurrence with evidence of Project-specific use but no active defining authority **in** the declared applicable source authority boundary with complete checked definition coverage; two incompatible active definitions; duplicate active defining authority; **and** a case whose context **or** source coverage cannot settle classification. include sentence-initial ordinary vocabulary, Scope Unit **and** Actor names, identifiers, paths, **and** syntax tokens with no evidence of Project-specific vocabulary meaning. include a definition excluded by a filtered selection, source occurrences of the same spelling with different evidenced contexts, an entry lacking an exact occurrence **or** Revision, **and** invented edges between indexed entries.
+add a source occurrence with evidence of Project-specific use but no active defining authority **in** the declared applicable source authority boundary with complete checked definition coverage; two incompatible active definitions; duplicate active defining authority; **and** a case whose context **or** source coverage cannot settle classification. include sentence-initial ordinary vocabulary, Scope Unit **and** Actor names, identifiers, paths, and syntax tokens with no evidence of Project-specific vocabulary meaning. include a definition excluded by a filtered selection, source occurrences of the same spelling with different evidenced contexts, an entry lacking an exact occurrence **or** Revision, and invented edges between indexed entries.
+
+include `Method/Decomposition` as a direct Subject target. validate that it is a Method Topic admitted by an accepted source Method Atom's exact GOVERNS path and Substance or Semantics; reject treating it as an Entity Object, a Scope Unit, or a separately defined Term merely because its words occur in a folder or carrier name.
 
 ### Acceptance criteria
 
-the consistently used Project-specific Term satisfies the checked source-meaning condition **and** resolves **to** its active Definition Atom. the ordinary word remains valid general language **without** being classified as a Term. consistent use **or** capitalization alone does **not** establish a Term. **in** a Subject Path, **every** named component is a Term reference that requires validation; its occurrence does **not** establish the referenced Term's defining authority. a dictionary-only definition does **not** qualify for a Catalog's governed-definition entries; it **may** be retained as diagnostic source evidence under CA-R-1455. conflicting meanings fail the checked source-meaning condition with the defining Atom **and** conflicting uses identified. a Subject is the direct GOVERNS **or** DEPENDS_ON Relation connecting an Atom **to** its canonical Entity target; the target is **not** the Subject Relation. substituting the Term's wording for a direct Subject reference **or** classifying a complete composite Subject Path as a Term fails the checked Subject-reference condition. terminology entries retain their source references **without** independent authority.
+the consistently used Project-specific Term satisfies the checked source-meaning condition **and** resolves **to** its active Definition Atom. the ordinary word remains valid general language **without** being classified as a Term. consistent use **or** capitalization alone does **not** establish a Term. **in** a Subject Path, **every** named component is a Term reference that requires validation; its occurrence does **not** establish the referenced Term's defining authority. a dictionary-only definition does **not** qualify for a Catalog's governed-definition entries; it **may** be retained as diagnostic source evidence under CA-R-1455. conflicting meanings fail the checked source-meaning condition with the defining Atom **and** conflicting uses identified. a Subject is the direct GOVERNS **or** DEPENDS_ON Relation connecting an Atom **to** its canonical Subject Target; the target is **not** the Subject Relation. substituting the Term's wording for a direct Subject reference **or** classifying a complete composite Subject Path as a Term fails the checked Subject-reference condition. terminology entries retain their source references **without** independent authority.
 
-the diagnostic index distinguishes supported ordinary English use, missing defining authority, conflicting defining authority **or** uses, **and** explicitly uncertain cases. **every** judgment retains the exact occurrence, surrounding Claim **or** reference context, Artifact Revision, source selection, **and** checked definition coverage. ordinary vocabulary requires no Project-specific definition; a source occurrence's capitalization does **not** become evidence of missing authority. outside a named Subject Path component, names, identifiers, paths, **and** syntax tokens do **not** become unresolved Project-specific candidates **without** contextual evidence of that use. use as a named Subject Path component establishes a required Term-reference context; an unresolved reference stays visible, **without** the diagnostic inventing its definition. a missing-authority judgment requires complete checked definition coverage for its declared applicable source authority boundary; absence from incomplete **or** filtered coverage alone cannot establish that judgment. duplicate active defining authority fails uniqueness even **when** the definitions agree; the diagnostic identifies an authority conflict **without** inventing a meaning conflict. an evidence-backed candidate remains diagnostic **without** a fabricated definition; a case whose evidence is insufficient remains reviewable as uncertain **without** an established Term classification. spelling alone does **not** transfer classification across source contexts. missing occurrence **or** revision traceability, hidden uncertainty, unsupported semantic certainty, **or** invented graph edges fail. a source-backed uncertain result passes the diagnostic-index check while the underlying meaning **or** authority remains unresolved.
+the diagnostic index distinguishes supported ordinary English use, missing defining authority, conflicting defining authority **or** uses, and explicitly uncertain cases. **every** judgment retains the exact occurrence, surrounding Claim **or** reference context, Artifact Revision, source selection, and checked definition coverage. ordinary vocabulary requires no Project-specific definition; a source occurrence's capitalization does **not** become evidence of missing authority. outside a named Subject Path component, names, identifiers, paths, and syntax tokens do **not** become unresolved Project-specific candidates **without** contextual evidence of that use. use as a named Subject Path component establishes a required Term-reference context; an unresolved reference stays visible, **without** the diagnostic inventing its definition. a missing-authority judgment requires complete checked definition coverage for its declared applicable source authority boundary; absence from incomplete **or** filtered coverage alone cannot establish that judgment. duplicate active defining authority fails uniqueness even **when** the definitions agree; the diagnostic identifies an authority conflict **without** inventing a meaning conflict. an evidence-backed candidate remains diagnostic **without** a fabricated definition; a case whose evidence is insufficient remains reviewable as uncertain **without** an established Term classification. spelling alone does **not** transfer classification across source contexts. missing occurrence **or** revision traceability, hidden uncertainty, unsupported semantic certainty, **or** invented graph edges fail. a source-backed uncertain result passes the diagnostic-index check while the underlying meaning **or** authority remains unresolved.
 
-the Evaluation **must** distinguish the correctness of the diagnostic Projection from the source conditions it reports. a faithful diagnostic **may** pass its Projection-correctness checks while identifying a failed source-meaning, defining-authority, **or** Subject-reference condition; an unresolved source condition remains unresolved. a Projection omission, unsupported judgment, lost source traceability, **or** concealed uncertainty fails the diagnostic check. passing that check **must not** become an unqualified claim that the represented source model is valid **or** complete beyond the declared checked coverage.
+the Evaluation **must** distinguish the correctness of the diagnostic Projection from the source conditions it reports. a faithful diagnostic **may** pass its Projection-correctness checks while identifying a failed source-meaning, defining-authority, **or** Subject-reference condition; an unresolved source condition remains unresolved. a Projection omission, unsupported judgment, lost source traceability, or concealed uncertainty fails the diagnostic check. passing that check **must not** become an unqualified claim that the represented source model is valid **or** complete beyond the declared checked coverage.
 
 ### Failure disposition
 

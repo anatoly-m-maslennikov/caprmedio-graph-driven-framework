@@ -9,8 +9,8 @@ subjects:
     - "Atom/Revision/Version"
     - "Atom/Revision/History"
     - "Tool/Workflow Operations/Atom Lifecycle/Request Parameters"
-version: 7
-updated_at: "2026-10-15 23:52:59 +0400"
+version: 8
+updated_at: "2026-10-20 21:17:55 +0400"
 relations:
   relates_to:
     - CA-D-288
@@ -31,8 +31,8 @@ global_tier: 11
 projection:
   source_carrier_path: ../../sources/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md
   source_atom_id: CA-D-568
-  source_atom_revision: 7
-  source_sha256: da1463a62ef997c9579c7ff77a345d2b92f38c4f823049251ec7a967f7c0bd43
+  source_atom_revision: 8
+  source_sha256: 9a1a2c030ff7b55bf5f6672221a641ec78fe8cf431553caffac132de465bce26
   original_relations_sha256: 26799383d9e49344687013dfe0bb6c37bed7b4353c0546ea6e7e46de4b50926c
 ---
 # Summary
@@ -58,4 +58,4 @@ Existing retained-history records remain actual history, not an admission capabi
 
 ### Subjects-only edit-draft exception
 
-CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry the temporary `atom_id: <canonical-ID>@draft`, `status: Draft`, and matching temporary-ID filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts remain ID-free; canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.
+CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry `atom_id: <canonical-ID>@<proposed-version>-draft` (preferred) or the compatible `atom_id: <canonical-ID>@draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts may omit or carry an Atom ID under CA-D-446; marker and filename rules remain governed by CA-D-378 and CA-D-288. Canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.

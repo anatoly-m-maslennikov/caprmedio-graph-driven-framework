@@ -2,9 +2,9 @@
 subjects:
   governs: "DEPENDS_ON"
   depends_on:
-    ["Relation Kind", "Entity/Node/Continuant/Atom", "Subject", "Atom/Content Role: Plan/Type: Plan", "Entity", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
-version: 19
-updated_at: "2026-10-19 15:52:36 +0400"
+    ["Relation Kind", "Entity/Node/Continuant/Atom", "Subject", "Atom/Content Role: Plan/Type: Plan", "Subject Target", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow"]
+version: 20
+updated_at: "2026-10-21 01:47:52 +0400"
 relations: {}
 atom_id: "CA-R-1200"
 content_role: "Requirement"
@@ -25,7 +25,7 @@ the DEPENDS_ON Subject Relation Kind of an Atom.
 
 ## Claim
 
-DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Entity mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Entity.
+DEPENDS_ON **means** the direct Subject Relation Kind from an Atom **to** a canonical Subject Target mentioned **in** its Markdown Main Content other than its GOVERNS target. this reference does **not** make the Claim authoritative about that Subject Target.
 
 ## Details
 
