@@ -6,7 +6,7 @@ import hashlib
 from pathlib import Path
 from types import SimpleNamespace
 import sys
-from typing import Annotated, Any, Literal
+from typing import Annotated, Any, Literal, TextIO
 
 from pydantic import BaseModel, ConfigDict, Field, JsonValue, ValidationError, field_validator
 
@@ -20,7 +20,8 @@ sys.path.insert(0, str(TOOLS))
 
 from atom_operations import ToolError, cli
 from atom_subject_lookup import run_subject_search
-from project_selection import ProjectSelectionError, active_selection, bind_selection
+from project_selection import ProjectSelection, ProjectSelectionError, active_selection, bind_selection
+from technical_diagnostics import make_technical_logger
 from tool_description import binding_matches, make_tool_description
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext
@@ -128,7 +129,7 @@ class ProfileEvidence(_Closed):
 
 
 class LookupWarning(_Closed):
-    code: Literal["schema_invalid"]
+    code: Literal["schema_invalid", "diagnostic_logging_failed"]
     path: str = Field(min_length=1)
     reason: str = Field(min_length=1)
 
@@ -226,11 +227,31 @@ def _diagnostic_outcome(root: Path, result: dict[str, Any]) -> tuple[str | None,
     return None, warnings
 
 
+def _emit_lookup_warnings(selection: ProjectSelection, root: Path, warnings: list[LookupWarning], *,
+                          stream: TextIO | None = None,
+                          environment: str | None = None) -> list[LookupWarning]:
+    logger, logger_error = make_technical_logger(selection.settings, root,
+                                                  stream=stream, environment=environment)
+    for warning in tuple(warnings):
+        failure = logger_error
+        if logger is not None:
+            failure = logger.emit(code=warning.code, relative_path=warning.path,
+                                  reason="Atom carrier failed bounded schema validation")
+        if failure is not None:
+            warnings.append(LookupWarning(
+                code="diagnostic_logging_failed", path=warning.path,
+                reason=f"technical diagnostic emission failed: {failure}"))
+    return warnings
+
+
 class _DescriptorAdapter:
-    def __init__(self, root: str | Path):
+    def __init__(self, root: str | Path, *, diagnostic_stream: TextIO | None = None,
+                 diagnostic_environment: str | None = None):
         self._root = Path(root).absolute()
         if not self._root.is_dir() or self._root.resolve() != self._root:
             raise ValueError("Direct lookup requires one canonical server-bound Project root")
+        self._diagnostic_stream = diagnostic_stream
+        self._diagnostic_environment = diagnostic_environment
 
     def invoke(self, request: SubjectLookupRequest | dict[str, Any]) -> SubjectLookupResult:
         try:
@@ -259,6 +280,9 @@ class _DescriptorAdapter:
             if diagnostic_error is not None:
                 return _refusal(diagnostic_error,
                                 "Direct Subject lookup refused an integrity or identity diagnostic")
+            warnings = _emit_lookup_warnings(
+                selection, self._root, warnings, stream=self._diagnostic_stream,
+                environment=self._diagnostic_environment)
             occurrences = sorted(result["occurrences"],
                                  key=lambda row: (row["atom_id"], row["version"], row["field"], row["value"]))
             matches = [{key: row[key] for key in LookupMatch.model_fields} for row in occurrences]
@@ -285,8 +309,10 @@ class _DescriptorAdapter:
             return _refusal("schema_invalid", "Direct Subject lookup evidence does not match its closed result schema")
 
 
-def create_adapter(root: str | Path) -> _DescriptorAdapter:
-    return _DescriptorAdapter(root)
+def create_adapter(root: str | Path, *, diagnostic_stream: TextIO | None = None,
+                   diagnostic_environment: str | None = None) -> _DescriptorAdapter:
+    return _DescriptorAdapter(root, diagnostic_stream=diagnostic_stream,
+                              diagnostic_environment=diagnostic_environment)
 
 
 def describe_tool() -> dict[str, Any]:

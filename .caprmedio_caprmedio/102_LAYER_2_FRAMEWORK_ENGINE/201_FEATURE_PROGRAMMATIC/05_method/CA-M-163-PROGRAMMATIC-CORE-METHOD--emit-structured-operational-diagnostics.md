@@ -9,8 +9,8 @@ subjects:
     - "Journal/Record"
     - "programmatic software"
     - "Logging Policy"
-version: 13
-updated_at: "2026-10-21T16:54:03Z"
+version: 14
+updated_at: "2026-10-21T17:26:17Z"
 relations:
   derived_from:
     - "CA-A-053"
@@ -44,8 +44,18 @@ operation, degraded operation, failure, recovery, **or** diagnostic detail.
 4. materialize sink **and** runtime settings **in** configuration **or** Implementation,
    govern carrier placement **and** encoding through Delivery, **and** preserve actual
    execution evidence through Journal Records **and** diagnostic evidence through
-   the applicable production-log Carriers. Operations defines the reusable behavior;
-   it does **not** make emitted records O Atoms.
+   the applicable production-log Carriers. For the selected Docker runtime, write
+   structured technical diagnostics to **stderr** for Docker's local logging driver;
+   every record carries the validated Project prefix from the existing bound Project
+   selection and canonical prefix-field validation, never a guessed path, container,
+   process, or caller identity. This uses the selected immutable settings view; it
+   adds no settings carrier and makes no claim of full SettingsReader conformance.
+   Configure bounded local rotation as `max-size=10m` and `max-file=3`, with Docker
+   logging `mode=non-blocking` and `max-buffer-size=1m`; when that buffer is full,
+   new technical messages may be dropped so logging cannot stall primary work.
+   Docker logs are removed with the container. Do not create a separate local log
+   directory or place technical diagnostics in the business Journal. Operations
+   defines the reusable behavior; it does **not** make emitted records O Atoms.
 5. declare retention, loss, **and** back-pressure behavior at those bounded
    materialization **and** operational boundaries.
 6. make logging failure observable **without** silently breaking primary work.
@@ -53,12 +63,14 @@ operation, degraded operation, failure, recovery, **or** diagnostic detail.
 ### Technical warnings are not business Journal records
 
 When a bounded scan isolates a schema-invalid Atom and continues with a warning,
-emit the warning through the configured runtime diagnostic logging abstraction with
-the repository-relative path and reason, and preserve the incomplete result
-(`complete: false`) in the operation response. Do not append that technical warning
-as a business Journal event, fabricate a Run to carry it, or rewrite historical
-Journal records. The active Logging Policy and configuration select the sink and
-retention behavior; this Method does not choose a path or container-only default.
+emit the warning through the selected Docker `stderr` diagnostic stream with the
+validated Project prefix, repository-relative path, and reason, and preserve the
+incomplete result (`complete: false`) in the operation response. Do not append that
+technical warning as a business Journal event, fabricate a Run to carry it, or
+rewrite historical Journal records. Docker local rotation is bounded to
+`max-size=10m` and `max-file=3`; non-blocking buffering is bounded to 1 MiB and
+may drop new technical messages when full; a logging failure remains observable
+without breaking the primary scan.
 
 ## Outcome
 

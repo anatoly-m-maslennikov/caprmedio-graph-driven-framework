@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 75
-updated_at: "2026-10-21T17:01:24Z"
+version: 77
+updated_at: "2026-10-21T17:25:04Z"
 ---
 # Summary
 
@@ -110,7 +110,48 @@ Use these saved Standard Drafts as planning inputs only:
 
 Select request-bound versus connection/session-bound routing and its client protocol. Codex knowing the directory is not transmission to MCP. Bind the authoritative prefix together with validated Project/root/control-root identity and admitted host-to-container mapping; never route or authorize by prefix alone or silently use the process directory. Define registration, ambiguity, rebind, mount-change and drain/removal behavior. Container recreation needed for mounts is distinct from image rebuilding.
 
-Carry the retained binding/model generation through nested and asynchronous work, effects and recovery. Qualify caches, locks, Runs, receipts, Journal/log storage, outputs and record lookup by Project identity so identical local record IDs cannot collide. Preserve current lifecycle authorization and safe effect/recovery checks. Journal recording is not an admission gate; technical/business logs may use their declared local or remote Journal backend. No OS-level isolation between mutually hostile workloads is claimed.
+Carry the retained binding/model generation through nested and asynchronous work, effects and recovery. Qualify caches, locks, Runs, receipts, Journal/log storage, outputs and record lookup by Project identity so identical local record IDs cannot collide. Preserve current lifecycle authorization and safe effect/recovery checks. Journal recording is not an admission gate; the business Journal stores business records only. No OS-level isolation between mutually hostile workloads is claimed.
+
+### Technical diagnostic logging decision — 21 October 2026
+
+Technical warnings and other operational diagnostics are emitted as structured
+records to Docker `stderr` for the selected runtime. Every record includes the
+validated Project prefix from Project settings; the prefix is never guessed from
+the filesystem path, container, process, or caller. Docker's local logging driver
+uses bounded rotation `max-size=10m` and `max-file=3`, `mode=non-blocking`, and
+`max-buffer-size=1m`; when full, new technical messages may be dropped so logging
+cannot stall the primary operation. Docker logs are removed with the container. No separate
+`.caprmedio_runtime/logs/` directory is created, and technical diagnostics are
+never appended to the business Journal. A logging failure remains observable
+without silently breaking the primary operation.
+
+The Project prefix is read from the existing bound Project selection and canonical
+prefix-field validation in the selected immutable settings view. This decision adds
+no settings carrier and does not claim full SettingsReader conformance; that
+pre-existing reader gap remains a separate readiness caveat.
+
+This decision resolves the sink-policy question for CA-P-2555. P2555 is now Done
+at the source/configuration/focused-evidence boundary: six logger checks, 94
+AtomSearch tests with no skips, ten MCP protocol tests in 3.990 seconds, four
+Docker logging checks plus 21 related checks, and an isolated source-mounted
+Docker inspection verified two Project prefixes, redaction, bounded
+non-blocking backpressure and no Atom contents. The source-mounted inspection
+used the existing version 0.4.4.10 image and is not new-image or deployment
+acceptance. CA-C-572 remains Active pending that boundary and the pre-existing
+full SettingsReader/M284 conformance gap.
+
+### Current readiness and next queue — 21 October 2026
+
+CA-P-2555 is Done for the bounded source/configuration/evidence scope; CA-P-2552
+remains Active because its new-image/deployment/readiness boundary is open. The
+production container remained healthy and unchanged; no image build, deployment,
+full-suite release or public-release acceptance is claimed. The next queue is
+new-image/runtime acceptance of the logging path, followed by the
+separate full SettingsReader/M284 conformance gap. Preserve the Docker
+`stderr`/Project-prefix, `max-size=10m`, `max-file=3`, `mode=non-blocking`, and
+`max-buffer-size=1m` contract while keeping technical diagnostics out of the
+business Journal. CA-C-572 remains the active readiness Problem until those
+boundaries are independently closed.
 
 ### Approved Draft-format implementation — 20 October 2026
 

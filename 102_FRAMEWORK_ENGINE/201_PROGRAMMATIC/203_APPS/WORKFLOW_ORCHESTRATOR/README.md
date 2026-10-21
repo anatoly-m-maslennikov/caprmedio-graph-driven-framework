@@ -14,6 +14,15 @@ The public outcome adapter reports only the recorded terminal evidence for the
 matching Workflow Run; scheduler success and nested Action outcomes do not stand
 in for that outcome. Shared-Journal evidence remains required.
 
+Docker technical diagnostics stay on container stdout/stderr, with the Project
+prefix supplied by the application for attribution. Compose uses Docker's local
+driver with bounded retention (`max-size: 10m`, `max-file: 3`) and a 1 MB
+non-blocking buffer per container; when that buffer is full, new technical
+messages may be dropped rather than blocking the runtime. Inspect logs with
+`docker logs` or `docker compose logs`. This creates no log folder and writes
+no technical records to the business Journal; removing a container removes its
+logs, and logging options apply when a container is created or recreated.
+
 ## Start the worker explicitly
 
 From the repository root, install the declared runtime and start a detached worker:

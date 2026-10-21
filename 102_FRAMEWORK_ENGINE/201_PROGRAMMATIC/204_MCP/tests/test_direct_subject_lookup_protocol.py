@@ -169,7 +169,15 @@ class DirectSubjectLookupProtocolTests(unittest.IsolatedAsyncioTestCase):
         result = response.structured_content
         self.assertEqual({"data", "current_state", "effects", "errors"}, set(result))
         self.assertEqual([], result["effects"])
-        self.assertFalse({"path", "relative_path", "source_path", "index"} & set(_keys(result)))
+        logical = {**result, "data": None if result["data"] is None else
+                   {key: value for key, value in result["data"].items() if key != "warnings"}}
+        self.assertFalse({"path", "relative_path", "source_path", "index"} & set(_keys(logical)))
+        for warning in (result["data"] or {}).get("warnings", []):
+            self.assertEqual({"code", "path", "reason"}, set(warning))
+            self.assertIn(warning["code"], {"schema_invalid", "diagnostic_logging_failed"})
+            path = Path(warning["path"])
+            self.assertFalse(path.is_absolute())
+            self.assertNotIn("..", path.parts)
         self.assertNotIn(self.root.as_posix(), json.dumps(result), "public result leaked a private root")
         return result
 
@@ -273,10 +281,18 @@ class DirectSubjectLookupProtocolTests(unittest.IsolatedAsyncioTestCase):
                         self.assertTrue((await self._call(session, request)).is_error)
                 search.assert_not_called()
 
-    async def test_selected_malformed_carrier_refuses_instead_of_partial_results(self):
+    async def test_selected_malformed_carrier_warns_and_preserves_other_matches(self):
         self.paths["CA-R-9200"].write_text("---\natom_id: [CA-R-9200\n---\n", encoding="utf-8")
         async with self._session() as session:
-            self._assert_refusal(await self._call(session, self.request), "schema_invalid")
+            result = self._assert_public(await self._call(session, self.request))
+        self.assertEqual([], result["errors"])
+        self.assertFalse(result["data"]["complete"])
+        self.assertEqual(sorted(set(self.paths) - {"CA-R-9200"}),
+                         [match["atom_id"] for match in result["data"]["matches"]])
+        warnings = result["data"]["warnings"]
+        self.assertEqual(1, len(warnings))
+        self.assertEqual("schema_invalid", warnings[0]["code"])
+        self.assertEqual(self.paths["CA-R-9200"].relative_to(self.root).as_posix(), warnings[0]["path"])
 
     async def test_selected_identity_claim_hidden_in_excluded_role_refuses(self):
         excluded = self.root / CONTROL / "lookup/01_concern/CA-C-9299-TEST--unrelated-malformed.md"

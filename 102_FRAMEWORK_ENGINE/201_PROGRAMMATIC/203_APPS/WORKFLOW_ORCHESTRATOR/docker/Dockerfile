@@ -15,7 +15,7 @@ COPY --from=codex /usr/local/bin/node /usr/local/bin/node
 COPY --from=codex /usr/local/lib/node_modules /usr/local/lib/node_modules
 RUN ln -s /usr/local/lib/node_modules/@openai/codex/bin/codex.js /usr/local/bin/codex
 WORKDIR /workspace
-COPY pyproject.toml uv.lock ./
+COPY pyproject.toml uv.lock version.toml ./
 ENV UV_PROJECT_ENVIRONMENT=/opt/venv UV_CACHE_DIR=/tmp/uv-cache
 RUN uv sync --locked --no-dev --group rmed-workflow-mcp --group workflow-orchestrator \
     --group validate-atoms --group validate-atoms-dev

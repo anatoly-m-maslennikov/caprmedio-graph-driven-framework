@@ -1,6 +1,15 @@
+x-runtime-logging: &runtime-logging
+  driver: local
+  options:
+    max-size: "10m"
+    max-file: "3"
+    mode: "non-blocking"
+    max-buffer-size: "1m"
+
 services:
   mcp-http:
     image: ${CAPRMEDIO_IMAGE:-caprmedio-runtime:local}
+    logging: *runtime-logging
     init: true
     read_only: true
     cap_drop: [ALL]
