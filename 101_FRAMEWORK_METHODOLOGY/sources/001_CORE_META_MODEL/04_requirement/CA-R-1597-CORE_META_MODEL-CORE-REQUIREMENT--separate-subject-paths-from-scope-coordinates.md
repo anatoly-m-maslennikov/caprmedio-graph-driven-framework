@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Node/Continuant/Atom.Subjects"
   depends_on:
-    ["Subject", "Subject Path", "Entity", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Target Scope Unit"]
-version: 7
-updated_at: "2026-10-19 15:53:40 +0400"
+    ["Subject", "Subject Path", "Subject Target", "Entity/Node/Continuant/Scope Unit", "Entity/Node/Continuant/Atom.Target Scope Unit"]
+version: 8
+updated_at: "2026-10-21 01:47:52 +0400"
 relations:
   relates_to:
     - CA-R-1275
@@ -31,6 +31,6 @@ an Atom's Subject Paths.
 
 ## Claim
 
-an Atom's Subject Paths **must** identify the Entity targets of its Subject Relations **without** substituting those paths for its owning Scope Unit **or** its Claim Target Scope Unit.
+an Atom's Subject Paths **must** identify the Subject Targets of its Subject Relations **without** substituting those paths for its owning Scope Unit **or** its Claim Target Scope Unit.
 
 ## Details

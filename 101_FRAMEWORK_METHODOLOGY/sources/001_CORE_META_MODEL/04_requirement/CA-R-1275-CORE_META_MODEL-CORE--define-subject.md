@@ -2,9 +2,9 @@
 subjects:
   governs: "Subject"
   depends_on:
-    ["Entity/Node/Continuant/Atom", "Entity", "Entity/Node/Continuant/Term", "Entity/Relation", "GOVERNS", "DEPENDS_ON", "Subject Path"]
-version: 16
-updated_at: "2026-10-19 15:52:43 +0400"
+    ["Entity/Node/Continuant/Atom", "Entity", "Subject Target", "Entity/Node/Continuant/Term", "Entity/Relation", "GOVERNS", "DEPENDS_ON", "Subject Path"]
+version: 17
+updated_at: "2026-10-21 01:47:52 +0400"
 relations: {}
 atom_id: "CA-R-1275"
 content_role: "Requirement"
@@ -21,14 +21,14 @@ Define Subject
 
 ## Scope
 
-Subjects relating an Atom and an Entity.
+Subjects relating an Atom and a canonical Subject Target.
 
 ## Claim
 
-a Subject **means** a direct Relation between an Atom **and** an Entity, typed as GOVERNS **or** DEPENDS_ON.
+a Subject **means** a direct Relation between an Atom **and** a canonical Subject Target, typed as GOVERNS **or** DEPENDS_ON.
 
 ## Details
 
-- the Atom is the source; the Entity is the target identified by its full canonical Subject Path.
+- the Atom is the source; the Subject Target is the target identified by its full canonical Subject Path.
 - the Subject is the Relation, **not** its target, its target's path, **or** a Term used **in** that path.
 - the Relation creates no intermediate Subject object **and** no additional target identity; it does **not** make the target bearer-dependent on the source Atom.

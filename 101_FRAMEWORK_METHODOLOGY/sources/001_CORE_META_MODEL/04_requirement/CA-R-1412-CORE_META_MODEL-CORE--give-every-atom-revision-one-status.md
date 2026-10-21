@@ -3,8 +3,8 @@ subjects:
   governs: "Entity/Node/Continuant/Atom.Status"
   depends_on:
     ["Entity/Node/Continuant/Atom"]
-version: 13
-updated_at: "2026-10-19 15:53:00 +0400"
+version: 14
+updated_at: "2026-10-20 20:13:57 +0400"
 relations: {}
 atom_id: "CA-R-1412"
 content_role: "Requirement"
@@ -21,10 +21,10 @@ Give Every Atom Revision One Status
 
 ## Scope
 
-Atom Revisions.
+Atoms.
 
 ## Claim
 
-**every** Atom Revision **must** have **`=1`** Status.
+**every** Atom **must** have **`=1`** Status.
 
 ## Details
