@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 57
-updated_at: "2026-10-21T10:50:11Z"
+version: 58
+updated_at: "2026-10-21T11:24:00Z"
 ---
 # Summary
 
@@ -498,3 +498,9 @@ P2530/P2531Done@2 implement inspected complete Project-only image ownership and 
 P2526/P2527/P2528/P2529 are Done; P2530/P2531 remain Done within P2527's matching Done container hierarchy, with exact predecessors retained for carrier-only relocation. C563 is Resolved. Independent code safety and planning reviews APPROVE; root final frozen10-module synthetic gate102/102 passed9.632s after integration (earlier102/10216.084s separately). Normal Local release now retains only its exact current-Version candidate among eligible selected-Project images, including no fingerprint-only exemption for old rebuilds. Canonical version/date/digest naming remains post-green; image cleanup remains post-verified candidate smoke. Complete owner labels and all container references are enforced; other Projects, unowned resources and uncertainty are preserved/reported, no force/prune/retry.
 
 C564 is Active for exact current source-conformance evidence: inherited runner Ruff scores13/13/59 plus E731 are unchanged versus HEAD; the old703line/C90158 exception is stale, and changed test files225/235lines need applicable bounded evidence or separate cohesive splitting. No clean-global-lint, E539 acceptance, full release, Docker mutation, version bump, deployment, push or held replay is claimed. Earlier recursive-container backlog P2495/P2502/P2499/P2503/P2501/P2494 and C561/C562 remain separate; this closes image-retention implementation, not the whole Epic.
+
+### Requested Local release failed before delivery; diagnosis activated
+
+The Operator requested Local release then Epic continuation. Run local-20261021-retention-110232 reached the full suite, where the selected-subject crash test reported2subcase timeouts at its existing30second child budget. The owned failed attempt was interrupted before delivery; report records failed/tests/KeyboardInterrupt and the test log preserves the preceding errors. Version0.4.4.9 and original e812/08f production MCP remain unchanged/healthy. Four exact-attributed disposable test containers and their attempt-bound test image were cleaned non-force, no volumes/prune; retained host evidence and actual cleanup readback remain separate from release completion. C565Active/P2532Active now own isolated diagnosis; no blind timeout increase, guard bypass or release replay.
+
+Parallel read-only continuation reviews found P2499/P2503/P2501's existing admission and provider wiring present; C551's old mocked-pass description is historical, not proof that code is absent. Current Run/Journal evidence need not be duplicated into new aggregate fields. Native acceptance gaps remain external references, unsupported model, occupied destination, uncertainty/frontier no-replay and later untouched members. Preserve their existing dependency gates and record exact freeze/handoff before future execution. No recursive-matrix implementation or whole-Epic completion is claimed.
