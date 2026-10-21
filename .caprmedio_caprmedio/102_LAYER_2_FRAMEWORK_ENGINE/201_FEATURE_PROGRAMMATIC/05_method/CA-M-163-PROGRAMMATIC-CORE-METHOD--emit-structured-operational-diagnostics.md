@@ -9,8 +9,8 @@ subjects:
     - "Journal/Record"
     - "programmatic software"
     - "Logging Policy"
-version: 14
-updated_at: "2026-10-21T17:26:17Z"
+version: 15
+updated_at: "2026-10-21T18:41:35Z"
 relations:
   derived_from:
     - "CA-A-053"
@@ -36,6 +36,12 @@ operation, degraded operation, failure, recovery, **or** diagnostic detail.
 
 1. select ERROR, WARNING, INFO, **or** DEBUG according **to** the active Logging Policy;
    do **not** introduce a fifth shared severity.
+   Apply CA-M-396 and CA-M-397 to failure classification: invalid input or Project
+   artifacts produce WARNING diagnostics and an explicit request-output error;
+   ERROR is reserved for a genuine blocking failure of the runtime itself.
+   A refused request or failed business Workflow is not by itself an ERROR-level
+   runtime failure. Preserve partial results under CA-M-398, use the shared
+   boundary under CA-M-400, and leave business lifecycle recording with CA-M-399.
 2. emit records through one project-owned logging abstraction **and** schema.
    include timestamp, level, component, operation, outcome, **and** the canonical
    action **or** event identity **when** one exists.

@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 77
-updated_at: "2026-10-21T17:25:04Z"
+version: 78
+updated_at: "2026-10-21T18:41:35Z"
 ---
 # Summary
 
@@ -624,10 +624,30 @@ effect. P2550 is Done, P2536 remains Active, P2551 is Backlog and C571 is Active
 for the remaining ownership evidence.
 
 The current Epic queue records P2552 Active (AtomSearch warning/Journal boundary),
-P2553 Done (implementation), P2554 Done (focused proof), P2555 Backlog (pending
-the Operator's technical-log sink answer), P2556 Backlog (selected-workflow
+P2553 Done (implementation), P2554 Done (focused proof), P2555 Done (Docker
+technical-log source/configuration increment), P2556 Backlog (selected-workflow
 dispatch diagnosis), C572 Active and not deployed, and C573 Active. C564 remains
 unresolved source-conformance debt. C570 is already Resolved for the focused
 path choice. CA-O-188's public release remains a separate full-gate requirement;
 this observed focused adoption does not close Stage 2 Scope Unit work or the
 whole Epic.
+
+### Shared failure handling — current implementation queue
+
+CA-M-396 through CA-M-400 are Active: all failures remain observable; only real
+runtime failures may block runtime/service operation or emit technical ERROR.
+Invalid input and Project artifacts emit WARNING diagnostics plus explicit errors
+in the public response, without disabling a healthy service. Preserve verified
+partial results before error details. Technical stdout/stderr is separate from
+actual business Workflow started/failed/completed Journal events.
+
+CA-P-2557 owns the bounded shared error-boundary implementation, with child Tasks
+CA-P-2558 (shared classifier/decorator), CA-P-2559 (canonical Tool/MCP callers),
+CA-P-2560 (partial AtomSearch responses), and CA-P-2561 (functional acceptance and
+independent review). Each child has at most 15 minutes own work; revise dependants
+after its predecessor completes. Reuse the existing logger and caller-owned
+result schemas, preserve sync/async cancellation and effect safety, and add no
+automatic retry, repair, rollback, fabricated Workflow or hidden Journal writes.
+CA-P-2557 is Active; source admission is not implementation completion. Use
+isolated fixtures and only broken/related tests, without a full-suite run or
+production deployment. Preserve the existing dispatch/cleanup/readiness queues.

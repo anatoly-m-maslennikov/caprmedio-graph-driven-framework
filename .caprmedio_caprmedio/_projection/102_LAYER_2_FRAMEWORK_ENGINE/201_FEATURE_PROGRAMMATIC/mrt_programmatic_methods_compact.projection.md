@@ -1,5 +1,5 @@
 ---
-updated_at: "2026-10-21 03:57:36 +0400"
+updated_at: "2026-10-21T18:43:18Z"
 ---
 # System Prompt
 
@@ -22,6 +22,8 @@ For a formal CA-O-016 invocation, follow the [Implementation Workflow input cont
 - **Reuse suitable solutions (M391).** Prefer well-adopted, well-suited existing Project capabilities, libraries, approaches and tools over reimplementing mechanics. Consider fit, complexity and dependency cost. Keep custom work limited to an unmet declared requirement or concrete benefit; no particular product is mandated by this Core Method.
 - **Computation separate from effects/recording (M392).** Construct results from bound inputs without hidden persistence or Run/Journal writes. Leave effects with their declared execution owners. Generated output alone is not durable terminal completion.
 - **Implementation locality (M393).** For each implemented R or D Atom, prefer one cohesive implementation module and as few code units as practical, ideally one. Count actual claim-specific realization, not owner labels, trace links or a facade over dispersed logic. Preserve complete realization and many-to-many relations: several Atoms may share one module or unit. Callers/tests alone do not multiply realization, but a caller performing required enforcement counts. Justify multi-module exceptions needed for correctness or cohesion; do not duplicate logic, inflate modules or omit obligations to reduce counts. Unimplemented Atoms need no invented targets. Code units, such as functions/classes, are not Scope Units. This is a preference, not an absolute cardinality limit or new gate.
+
+- **Observable, isolated failures (M396).** Never hide failures or turn them into empty success. Response errors are separate from technical levels: bad input and Project artifacts use WARNING diagnostics plus explicit output errors while healthy runtime remains available. Only genuine runtime failure may block the affected runtime component or emit ERROR. Preserve safety/authorization refusals without crashing the service.
 
 ### 3) Inputs & Interpretation
 
@@ -47,9 +49,17 @@ Implementation locality (M393) is not a function/file-size rule. For changed-sou
 
 **MCP callable frontier — Standard M193 (target MCP):** enumerate and validate the complete current source-bound active callable CAPRMEDIO Tool and Workflow frontier. Exclude inactive/explicitly disabled Tools, internal CONNECTORS/adapters and PROJECT_TOOLS; diagnose invalid active contracts rather than silently omitting them. Expose one stable endpoint per valid active Tool and delegate unchanged to its declared provider; direct read/query Tools do not require a Workflow Orchestrator wrapper. Publish only the complete validated candidate; on failure retain the preceding valid frontier without calling it current, applying R1110's publication boundary. Reject calls that cannot delegate unchanged.
 
+**Request-local failures — General M397:** bad input or unusable Project artifacts produce a sanitized WARNING and an explicit caller-visible error, not a service crash or technical ERROR. Preserve unsafe-effect refusals and independent safe work; never silently repair, substitute targets or retry.
+
+**Partial-result response — General M398:** retain verified completed data/effects and present them before attributable errors and unfinished/uncertain work. Mark incomplete; preserve each caller's result contract, not JSON field order. Never claim uncertain/rolled-back work as done or weaken atomicity and effect safety.
+
+**Business lifecycle recording — General M399:** technical diagnostics use structured stdout/stderr (stderr for protocol stdout), while the actual business Workflow executor records applicable started/failed/completed events through the Journal owner. A rejected preflight or technical warning does not invent a Workflow/Run/Journal event. No Journal-completeness gate or historical rewrite.
+
+**Shared public error boundary — General M400:** reuse one transport-neutral sync/async decorator or equivalent wrapper, explicit failure classification and existing logger, with operation-specific response adapters. Preserve callable metadata, cancellation and structured partial results. Do not infer blocking runtime failure from RuntimeError inheritance, duplicate diagnostics, swallow unexpected failures, retry or add business/Journal effects.
+
 ### 5) Sources, Scope & Freshness
 
-Selection: root `05_method/*.md` with explicit `status: Active`, `content_role: Method` and `current_scope_unit: PROGRAMMATIC`. Snapshot: **17 Methods — 9 Core, 5 General, 3 Standard, 0 unclassified**. Excluded: 16 root carriers without explicit Active status, all archive/archived/Draft carriers, and child-scope Methods. Selection is by current Scope Unit metadata; M193's explicit claim target is MCP and its playbook is conditional on that task. Exclusion is not retirement or proof of inactivity. Do not promote legacy instructions into current rules merely because an older projection included them.
+Selection: root `05_method/*.md` with explicit `status: Active`, `content_role: Method` and `current_scope_unit: PROGRAMMATIC`. Snapshot: **22 Methods — 10 Core, 9 General, 3 Standard, 0 unclassified**. Excluded: 16 root carriers without explicit Active status, all archive/archived/Draft carriers, and child-scope Methods. Selection is by current Scope Unit metadata; M193's explicit claim target is MCP and its playbook is conditional on that task. Exclusion is not retirement or proof of inactivity. Do not promote legacy instructions into current rules merely because an older projection included them.
 
 Refresh from the originals when their relevant content changes. The timestamp marks this rebuild, not proof of currentness. Source revisions at rebuild:
 
@@ -72,6 +82,11 @@ Refresh from the originals when their relevant content changes. The timestamp ma
 | General | [CA-M-281@13](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-281-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--declare-one-python-and-software-configuration-boundary.md) | Declare one Python and software configuration boundary |
 | General | [CA-M-284@15](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-284-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--read-engine-settings-through-one-shared-boundary.md) | Read Engine settings through one shared boundary |
 | General | [CA-M-395@1](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-395-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--prepare-coherent-changes-through-a-closed-dependency-world.md) | Prepare coherent changes through a closed dependency world |
+| Core | [CA-M-396@1](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-396-PROGRAMMATIC-CORE-IMPLEMENTATION_METHOD--make-failures-observable-without-disabling-healthy-runtime.md) | Make failures observable without disabling healthy runtime |
+| General | [CA-M-397@1](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-397-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--contain-invalid-input-and-project-artifact-failures.md) | Contain invalid input and Project artifact failures |
+| General | [CA-M-398@1](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-398-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--return-verified-partial-results-before-failure-details.md) | Return verified partial results before failure details |
+| General | [CA-M-399@1](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-399-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--record-business-workflow-lifecycle-separately-from-technical-diagnostics.md) | Record business Workflow lifecycle separately from technical diagnostics |
+| General | [CA-M-400@1](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-400-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--apply-one-shared-public-operation-error-boundary.md) | Apply one shared public-operation error boundary |
 
 ### 6) Error Handling & Edge Cases
 
