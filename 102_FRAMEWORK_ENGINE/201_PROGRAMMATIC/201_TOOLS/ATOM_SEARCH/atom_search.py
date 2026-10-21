@@ -127,11 +127,18 @@ class ProfileEvidence(_Closed):
     native_admission: Literal["not_performed"]
 
 
+class LookupWarning(_Closed):
+    code: Literal["schema_invalid"]
+    path: str = Field(min_length=1)
+    reason: str = Field(min_length=1)
+
+
 class LookupData(_Closed):
     matches: list[LookupMatch]
-    complete: Literal[True]
+    complete: bool
     subject_profile: Profile
     subject_profile_evidence: ProfileEvidence
+    warnings: list[LookupWarning] = Field(default_factory=list)
 
 
 class LookupCurrentState(_Closed):
@@ -183,6 +190,42 @@ def _error_code(code: str) -> str:
     return "input_invalid"
 
 
+_SCHEMA_DIAGNOSTIC_CODES = frozenset({
+    "source-invalid", "subject-invalid", "subject-empty", "subject-at-unsupported",
+    "subject-form-unsupported", "subject-selector-invalid", "subject-selector-position",
+    "subject-malformed",
+})
+
+
+def _diagnostic_error_code(code: str) -> str:
+    """Map a scanner diagnostic to a refusal without weakening unknown cases."""
+
+    if code == "duplicate-original-id":
+        return "target_ambiguous"
+    if code == "owner-path-mismatch":
+        return "stale_state"
+    # Symlink and any future/unknown diagnostic are integrity failures.  Keep
+    # them fatal rather than accidentally treating a new code as a warning.
+    return "backend_failure"
+
+
+def _diagnostic_outcome(root: Path, result: dict[str, Any]) -> tuple[str | None, list[LookupWarning]]:
+    """Keep integrity diagnostics fatal and expose only carrier schema gaps."""
+
+    diagnostics = result["diagnostics"]
+    fatal = next((diagnostic for diagnostic in diagnostics
+                  if diagnostic.get("code") not in _SCHEMA_DIAGNOSTIC_CODES), None)
+    if fatal is not None:
+        return _diagnostic_error_code(fatal.get("code", "")), []
+    warnings = [LookupWarning(code="schema_invalid",
+                              path=Path(diagnostic["path"]).relative_to(root).as_posix(),
+                              reason=diagnostic["message"])
+                for diagnostic in diagnostics]
+    if result["coverage"] != "full" and not warnings:
+        return "backend_failure", []
+    return None, warnings
+
+
 class _DescriptorAdapter:
     def __init__(self, root: str | Path):
         self._root = Path(root).absolute()
@@ -212,14 +255,10 @@ class _DescriptorAdapter:
             selection._revalidate_boundary(reader=contracts)
             if contracts.currentness()["state"] != "unchanged":
                 return _refusal("stale_state", "Direct lookup contract sources changed during lookup")
-            diagnostics = result["diagnostics"]
-            if diagnostics:
-                errors = [LookupError(code="target_ambiguous" if diagnostic["code"] == "duplicate-original-id" else "schema_invalid",
-                                      message="A selected Subject source failed lookup validation", field=None)
-                          for diagnostic in diagnostics]
-                return SubjectLookupResult(data=None, current_state=None, effects=[], errors=errors)
-            if result["coverage"] != "full":
-                return _refusal("backend_failure", "Complete Subject lookup coverage could not be verified")
+            diagnostic_error, warnings = _diagnostic_outcome(self._root, result)
+            if diagnostic_error is not None:
+                return _refusal(diagnostic_error,
+                                "Direct Subject lookup refused an integrity or identity diagnostic")
             occurrences = sorted(result["occurrences"],
                                  key=lambda row: (row["atom_id"], row["version"], row["field"], row["value"]))
             matches = [{key: row[key] for key in LookupMatch.model_fields} for row in occurrences]
@@ -232,8 +271,9 @@ class _DescriptorAdapter:
             public_evidence = {"grammar_pins": [{key: pin[key] for key in GrammarEvidence.model_fields}
                                                 for pin in evidence["grammar_pins"]],
                                "native_admission": evidence["native_admission"]}
-            return SubjectLookupResult(data=LookupData(matches=matches, complete=True,
-                subject_profile=result["subject_profile"], subject_profile_evidence=public_evidence),
+            return SubjectLookupResult(data=LookupData(matches=matches, complete=not warnings,
+                subject_profile=result["subject_profile"], subject_profile_evidence=public_evidence,
+                warnings=warnings),
                 current_state=[states[key] for key in sorted(states)], effects=[], errors=[])
         except ToolError as error:
             return _refusal(_error_code(error.code), "Direct Subject lookup refused the selected request or source frontier")

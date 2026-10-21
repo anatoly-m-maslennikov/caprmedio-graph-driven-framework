@@ -9,8 +9,8 @@ subjects:
     - "Journal/Record"
     - "programmatic software"
     - "Logging Policy"
-version: 12
-updated_at: "2026-09-17 18:36:46 +0000"
+version: 13
+updated_at: "2026-10-21T16:54:03Z"
 relations:
   derived_from:
     - "CA-A-053"
@@ -49,6 +49,16 @@ operation, degraded operation, failure, recovery, **or** diagnostic detail.
 5. declare retention, loss, **and** back-pressure behavior at those bounded
    materialization **and** operational boundaries.
 6. make logging failure observable **without** silently breaking primary work.
+
+### Technical warnings are not business Journal records
+
+When a bounded scan isolates a schema-invalid Atom and continues with a warning,
+emit the warning through the configured runtime diagnostic logging abstraction with
+the repository-relative path and reason, and preserve the incomplete result
+(`complete: false`) in the operation response. Do not append that technical warning
+as a business Journal event, fabricate a Run to carry it, or rewrite historical
+Journal records. The active Logging Policy and configuration select the sink and
+retention behavior; this Method does not choose a path or container-only default.
 
 ## Outcome
 

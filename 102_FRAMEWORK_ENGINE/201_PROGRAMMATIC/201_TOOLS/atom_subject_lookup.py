@@ -305,7 +305,7 @@ def _run_subject_search(root: Path, args: Any, *, direct_subject_only: bool) -> 
         try:
             raw = reader.read(path)
             parsed = parse_carrier(raw, path)
-        except (OSError, UnicodeError, CarrierError) as error:
+        except CarrierError:
             diagnostics.append(_diagnostic("source-invalid", path, "carrier cannot be parsed"))
             continue
         metadata = parsed.metadata

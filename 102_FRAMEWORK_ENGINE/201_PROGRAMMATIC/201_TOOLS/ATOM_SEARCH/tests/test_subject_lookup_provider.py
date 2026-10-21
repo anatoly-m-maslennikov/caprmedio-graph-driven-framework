@@ -15,12 +15,12 @@ for directory in (TOOLS, TOOLS / "ATOM_SEARCH", TOOLS / "ATOM_UPDATE/tests", APP
     if str(directory) not in sys.path:
         sys.path.insert(0, str(directory))
 
-import atom_search as provider
+import atom_search as provider  # noqa: E402
 from frozen_selected_workflows import frozen_behavior_bindings, frozen_source_bytes  # noqa: E402
-from project_selection import bind_selection, resolve_project
-from subject_notation import get_profile
+from project_selection import bind_selection, resolve_project  # noqa: E402
+from subject_notation import get_profile  # noqa: E402
 from subject_grammar_corpus import grammar_carriers  # noqa: E402
-import test_subject_lookup as fixtures
+import test_subject_lookup as fixtures  # noqa: E402
 
 
 class SubjectLookupProviderTests(unittest.TestCase):
@@ -109,13 +109,23 @@ class SubjectLookupProviderTests(unittest.TestCase):
         self.assertEqual([], result["errors"])
         self.assertEqual(self.invoke(), self.invoke({**self.request, "atom_ids": []}))
 
-    def test_selected_malformed_subjects_refuse_without_partial_results(self):
+    def test_selected_malformed_subjects_are_reported_without_partial_matches(self):
         source = next(self.fixture.role.glob("CA-R-2-*.md"))
         source.write_bytes(source.read_bytes().replace(b'subjects:', b'subjects: invalid\ninvalid_subjects:'))
         result = self.invoke()
-        self.assertIsNone(result["data"])
-        self.assertIsNone(result["current_state"])
-        self.assertEqual("schema_invalid", result["errors"][0]["code"])
+        self.assertEqual([], result["errors"])
+        self.assertEqual(
+            [("CA-R-1", 1, "depends_on", "Core/Atom/child"), ("CA-R-1", 1, "governs", "Core/Atom")],
+            [(row["atom_id"], row["version"], row["field"], row["value"])
+             for row in result["data"]["matches"]],
+        )
+        self.assertFalse(result["data"]["complete"])
+        warnings = result["data"]["warnings"]
+        self.assertIsInstance(warnings, list)
+        warning = next((item for item in warnings if item.get("path") == source.relative_to(self.root).as_posix()), None)
+        self.assertIsNotNone(warning, warnings)
+        self.assertIsInstance(warning.get("reason"), str)
+        self.assertTrue(warning["reason"])
 
     def test_invalid_current_contract_identity_refuses_without_lookup(self):
         source = self.root / provider.SOURCE_PINS[0]["path"]

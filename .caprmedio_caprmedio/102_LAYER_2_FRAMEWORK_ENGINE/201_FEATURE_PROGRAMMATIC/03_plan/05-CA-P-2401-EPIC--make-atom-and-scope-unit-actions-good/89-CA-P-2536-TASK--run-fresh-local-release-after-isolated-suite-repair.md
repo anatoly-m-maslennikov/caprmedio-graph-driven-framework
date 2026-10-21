@@ -15,8 +15,8 @@ subjects:
   depends_on: []
 relations:
   is_decomposition_of: [CA-P-2401]
-version: 12
-updated_at: "2026-10-21T16:32:40Z"
+version: 13
+updated_at: "2026-10-21T17:01:24Z"
 ---
 # Summary
 
@@ -65,3 +65,29 @@ Focused fixes and verification are complete: 53 related tests passed, including 
 ### Current focused-release continuation decision
 
 C570Resolved@3 answers the path choice: the Operator authorizes one explicit focused Local-release continuation through the existing host PROJECT_TOOLS/release.py local entrypoint with repeatable --test-module arguments. The complete discovered suite remains the default and CA-O-188 public release remains full-gate. P2549 is Done at 89-CA-P-2536-TASK--run-fresh-local-release-after-isolated-suite-repair/done/09-CA-P-2549-TASK--admit-and-prove-focused-local-release-validation.md after the canonical admission proof of exactly 16 selected host modules, 131 tests, zero skips and zero failures; the exact module list is retained in .caprmedio_tmp/local-focused-admission-20261021.log. It reuses the prior 53-test Docker/related proof from .caprmedio_tmp/focused-release-repair-20261021/focused-summary.json only under exact Engine/runtime/pyproject/uv.lock/version no-diff and does not rerun the expensive 12 Docker tests. P2550 is Active at 89-CA-P-2536-TASK--run-fresh-local-release-after-isolated-suite-repair/10-CA-P-2550-TASK--execute-focused-local-release-and-adopt-candidate.md for fresh Run local-20261021-focused-adoption-01 with the same 16 module arguments, actual Local release, candidate installation and observed MCP smoke. C564 remains Active and unresolved; no focused result is full-suite green, and no release/adoption success is claimed until P2550 evidence exists.
+
+### Actual focused Local release/adoption checkpoint — 2026-10-21
+
+Root observed Run `local-20261021-focused-adoption-01` complete with
+`completed_with_cleanup_pending`, CLI1 and `failed_step: null`. Exactly 16
+selected host modules ran: 131 tests, zero skips and zero failures. The run used
+the approved focused continuation and did not rerun the complete suite or the
+expensive real-Docker 12-test set.
+
+Version `0.4.4.10` was installed with candidate tag
+`caprmedio-runtime:0.4.4.10-20261021T131557Z-0555ed0be341`; container
+`649228a677661439d12d9771d606652525480ab4a2f5ef2131036b451a1cae7e` is
+healthy, `/health` is ready, and connected MCP discovery returned O164 v20.
+The launcher matched image/source fingerprint `80fc2b4` and the current
+Project. Receipt: `.caprmedio_runtime/simple_local_release/reports/local-20261021-focused-adoption-01.md`.
+
+The old Project container and three positively owned images were removed; unknown,
+incomplete and foreign resources, including image
+`650023dd711fad2e48a3446b2780733d20881adbe088a8f63a09af48f938fd83`, were
+retained. The cleanup disposition remains pending. The separate selected-workflow
+cleanup Run was officially cancelled after ENQUEUED observation, with no child
+cascade or observed effect. P2550 is now Done at
+`89-CA-P-2536-TASK--run-fresh-local-release-after-isolated-suite-repair/done/10-CA-P-2550-TASK--execute-focused-local-release-and-adopt-candidate.md`;
+P2551 is Backlog at sequence 11 for the ownership cleanup follow-up. P2536
+remains Active until that boundary and other unresolved conformance work are
+closed; this is not a full-suite/public-release or whole-Epic completion claim.

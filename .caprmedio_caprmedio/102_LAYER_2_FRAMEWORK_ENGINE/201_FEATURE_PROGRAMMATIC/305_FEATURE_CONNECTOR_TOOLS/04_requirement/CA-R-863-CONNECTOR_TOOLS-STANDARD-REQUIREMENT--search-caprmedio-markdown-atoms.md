@@ -15,8 +15,8 @@ subjects:
     - "Atom"
     - "Artifact/Carrier"
     - "Scope Unit"
-version: 20
-updated_at: "2026-10-14 10:04:27 +0400"
+version: 21
+updated_at: "2026-10-21T16:54:03Z"
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
@@ -37,6 +37,18 @@ Accept explicit conjunctive filters for Scope Unit, Content Role, Type, direct `
 Validate the supplied request, schema/context and any supplied source-state preconditions. A malformed or unsupported query fails without effects. For Subject matching, apply literal `exact`, `prefix`, `suffix` or `contains` only as explicitly requested. A supplied `legacy` or `approved` profile determines lexical syntax: legacy prefix boundaries are `/` and `:`; approved additionally recognizes `.`. Suffix and contains compare literal scalar text. Reject unsupported Subject syntax under the supplied profile without inferring ontology, relations or native endpoint admission. Do not choose a profile when one is required but absent.
 
 Return stable ordered matches with the supplied projection, matching facts and actual source-state evidence. Expose invalid or unreadable selected source data and bounded/truncated coverage explicitly under the result schema; do not disguise either as complete successful coverage. Storage paths, Markdown parsing and physical lookup bindings remain connector details; logical Workflow targets are declared identities and query fields.
+
+### Individual schema-invalid Atom disposition
+
+When one selected Atom fails schema validation but the scan can still preserve its
+source frontier and safety checks, omit only that Atom, continue the bounded scan,
+and return the valid matches with a technical warning containing the repository-
+relative path and reason. The result **must** set `complete: false`; the warning
+must not be presented as complete successful coverage. This warning is diagnostic
+evidence, not a business Journal record, and it does not authorize repair or any
+mutation. Fatal I/O, security, duplicate-identity, stale, ambiguous, or otherwise
+incomplete-frontier conditions remain refusal/error dispositions with no partial
+successful result.
 
 ## Details
 

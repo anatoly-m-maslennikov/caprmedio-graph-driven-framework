@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_SEARCH"
   depends_on: [Atom, Subject, Artifact/Carrier, Scope Unit]
-version: 6
-updated_at: "2026-10-14 10:04:27 +0400"
+version: 7
+updated_at: "2026-10-21T16:54:03Z"
 relations:
   relates_to: [CA-R-863, CA-O-046, CA-E-301, CA-D-424]
 ---
@@ -30,6 +30,15 @@ Direct Subject-field matching by an explicitly requested connector query.
 Use literal equality for `exact`. For explicitly requested `prefix`, use the supplied profile's lexical boundaries: `/` and `:` for legacy, with `.` additionally recognized for approved. For `suffix`, compare the end of the complete scalar; for `contains`, compare a literal substring. Preserve the `Atom`/`atom` distinction and validate any supplied Subject profile without choosing one, translating profiles, expanding selectors or inferring semantic relations.
 
 Return matching values and attributable current source-state evidence in stable order. A dependency position may be an observed storage detail, but it is not a logical update selector or a required public list-edit index. Report invalid selected data and limited coverage explicitly. No query grants effect permission or performs a mutation.
+
+For an isolated selected Atom whose schema is invalid but whose source frontier and
+safety checks remain usable, emit a technical warning with the repository-relative
+path and reason, skip that Atom, continue the bounded scan, and mark the result
+`complete: false`. Route that warning through the configured diagnostic logging
+abstraction under CA-M-163; do not append it as a business Journal event or repair
+the source. I/O, security, duplicate-identity, stale, ambiguous, and other
+incomplete-frontier failures remain fatal refusal/error outcomes rather than partial
+success.
 
 ## Details
 

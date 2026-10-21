@@ -16,8 +16,8 @@ subjects:
     - "Artifact/Carrier"
     - "Scope Unit"
     - "Search Atom Carriers"
-version: 19
-updated_at: "2026-10-14 10:04:27 +0400"
+version: 20
+updated_at: "2026-10-21T16:54:03Z"
 relations: {"evaluation_for":["CA-R-863","CA-O-046","CA-O-201"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -57,6 +57,19 @@ Test Subject criteria for governs, depends_on and both with exact, prefix, suffi
 ### Test case
 
 use one fixture with active, draft, archived, malformed, **and** non-Atom Markdown candidates across two Scope Units. within one selected subtree, run an exact Atom selector that yields one result **and** a second conjunction of lifecycle, Content-role, Tier, frontmatter, **and** body-text filters that yields two results; request **every** output view **and** repeat both requests **after** recording **every** fixture digest.
+
+### Individual schema-invalid scan case
+
+Include valid selected Atoms on both sides of one selected Atom with an invalid
+schema. The realization may continue the bounded scan only when the invalid Atom is
+isolated and the source frontier and safety checks remain usable: valid matches are
+retained, the invalid Atom is omitted, a technical warning identifies its
+repository-relative path and reason, and the result is `complete: false`. The
+warning is emitted through the configured diagnostic logging path and does not
+create or rewrite a business Journal record. I/O, security, duplicate-identity,
+stale, ambiguous, or incomplete-frontier conditions still refuse the result rather
+than producing partial complete coverage. Record fixture bytes and Journal bytes
+before and after; no source repair or mutation is accepted.
 
 ### Additional selection cases
 
