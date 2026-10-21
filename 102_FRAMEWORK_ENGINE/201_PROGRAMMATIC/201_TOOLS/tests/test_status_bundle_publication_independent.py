@@ -97,7 +97,7 @@ class IndependentStatusBundlePublicationTests(unittest.TestCase):
         self.assertEqual(result["observed"]["path"], destination.relative_to(self.root).as_posix())
         self.assertFalse(target.exists())
         self.assertFalse(target.with_suffix("").exists())
-        self.assertEqual((local / "archived" / f"{stem}@3.md").read_bytes(), prior)
+        self.assertEqual((self.authority / "03_plan/archived" / f"{stem}@3.md").read_bytes(), prior)
         self.assert_revised_bytes(prior, destination.read_bytes(), "Done", start, end)
         for relative, raw in descendants.items():
             self.assertEqual((destination.with_suffix("") / relative).read_bytes(), raw)
@@ -141,7 +141,7 @@ class IndependentStatusBundlePublicationTests(unittest.TestCase):
             with self.subTest(collision=collision):
                 target, _ = self.bundle()
                 if collision == "history":
-                    path = target.parent / "archived" / f"{target.stem}@3.md"
+                    path = self.authority / "03_plan/archived" / f"{target.stem}@3.md"
                 elif collision == "file":
                     path = target.parent / "done" / target.name
                 else:
@@ -176,7 +176,7 @@ class IndependentStatusBundlePublicationTests(unittest.TestCase):
 
     def assert_fsync_fault_restores_exact_own_action(self, phase):
         target, _ = self.bundle()
-        history = target.parent / "archived" / f"{target.stem}@3.md"
+        history = self.authority / "03_plan/archived" / f"{target.stem}@3.md"
         destination = target.parent / "done" / target.name
         before = self.files()
         real_fsync, injected = os.fsync, False
@@ -301,7 +301,7 @@ class IndependentStatusBundlePublicationTests(unittest.TestCase):
         self.assertEqual(destination.read_bytes(), foreign)
         self.assertEqual(target.read_bytes(), prior)
         self.assertTrue(target.with_suffix("").is_dir())
-        self.assertEqual((target.parent / "archived" / f"{target.stem}@3.md").read_bytes(), prior)
+        self.assertEqual((self.authority / "03_plan/archived" / f"{target.stem}@3.md").read_bytes(), prior)
 
     def test_failed_own_recovery_is_explicitly_uncertain_and_never_success(self):
         target, _ = self.bundle()
@@ -325,7 +325,7 @@ class IndependentStatusBundlePublicationTests(unittest.TestCase):
 
     def test_post_link_staging_cleanup_failure_is_recovered_or_reported_uncertain(self):
         target, _ = self.bundle()
-        history = target.parent / "archived" / f"{target.stem}@3.md"
+        history = self.authority / "03_plan/archived" / f"{target.stem}@3.md"
         destination = target.parent / "done" / target.name
         before = self.files()
         real_unlink, injected = os.unlink, False

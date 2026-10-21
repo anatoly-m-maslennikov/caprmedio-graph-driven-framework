@@ -59,6 +59,7 @@ from atom_operations import (
     safe_path,
     scan_atoms,
     split_frontmatter,
+    _status_predecessor_destination,
     write_atom_revision,
 )
 from project_selection import ProjectSelectionError, active_selection
@@ -1860,13 +1861,10 @@ def _publish_status_change(root: Path, target: Atom, requested: str, frontmatter
     publication_no_op = False
     try:
         if requested.casefold() == "draft":
+            history_path = _status_predecessor_destination(root, target, requested)
             observed = demote_atom_to_draft(root, target, frontmatter, content, expected_bundle=expected_bundle)
             # The shared publisher retained the exact identified predecessor.
-            local = target.path.parent
-            if local.name in {"001_backlog", "done", "canceled", "archived", "resolved", "draft"}:
-                local = local.parent
-            stem = re.sub(r"@[0-9]+$", "", target.path.stem)
-            prior_revision = atom_from_path(root, local / "archive" / f"{stem}@{atom_version(target)}.md")
+            prior_revision = atom_from_path(root, history_path)
         elif existing_promotion is not None:
             if expected_draft_digest is None or expected_canonical_digest is None:
                 raise LifecycleError("carrier-stale", "existing Draft promotion requires sealed source and canonical digests")

@@ -36,6 +36,26 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/07_delivery/CA-D-324-PROJECT_CONFIGURATION-DELIVERY--register-project-current-scope-content-role-directories.md",
       "version": 12
     },
+    "CA-D-434": {
+      "sha256": "20aff3f2318978d247c04e1ae3d1df46ad61979243cdfd5129f9f9070f7b3ce0",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-434-CORE_META_MODEL--place-authoritative-operations-atom-carriers.md",
+      "version": 9
+    },
+    "CA-D-460": {
+      "sha256": "61f27bfdde05aa8a7faaaa721728be5502fb886024d3f864b80d012ce4968d84",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-460-CORE_META_MODEL-CORE--serialize-plan-atom-carrier-bundles.md",
+      "version": 11
+    },
+    "CA-D-467": {
+      "sha256": "0b9ea56cb1226543ddef71e994f3ffb2f845dbe1a9f12bf1688715e1ba93499f",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "version": 8
+    },
+    "CA-D-481": {
+      "sha256": "5ffc83dc1fe9564a6c348866acb0a91b0c489fc29524d5b2c5eb09ad430d81f3",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-481-CORE_META_MODEL-DELIVERY--store-plan-decomposition-on-the-decomposing-plan.md",
+      "version": 9
+    },
     "CA-D-440": {
       "sha256": "c1c169a39a975469001024c7fef1effc6a2b5938078fca5c4029894082dd4b23",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-440-CORE_META_MODEL-CORE--store-one-authoritative-project-structure-toml.md",
@@ -106,15 +126,40 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1308-CORE_META_MODEL-CORE-REQUIREMENT--resolve-status-domains-from-complete-qualified-paths.md",
       "version": 12
     },
+    "CA-R-1309": {
+      "sha256": "7adaf0031e8ea2f244655e94980fe9e217aaa1b330bd016c9fedf1a584633d2b",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1309-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-requirement-status-values.md",
+      "version": 14
+    },
     "CA-R-1313": {
       "sha256": "59b917b94425699091f707c1d949a5be3147520095998d4867167bee8dc98872",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
       "version": 13
     },
+    "CA-R-1397": {
+      "sha256": "c53bb2cb96c56b5a916e36df55860d3e2c2f7094d3c4effed43594f67f47ec53",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1397-CORE_META_MODEL-GENERAL--register-core-method-status-values.md",
+      "version": 11
+    },
+    "CA-R-1398": {
+      "sha256": "7d27f5b53c65ef744154bae8539f5a8128910863237c6f8a406cdcd63c91b130",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL-GENERAL--register-core-evaluation-status-values.md",
+      "version": 11
+    },
+    "CA-R-1399": {
+      "sha256": "ac1b07f9b9234b16db1920e1fd23be1643b2fe62c36d73809fb5eeb4248988eb",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md",
+      "version": 11
+    },
     "CA-R-1506": {
       "sha256": "2ba96cf1e6f643b445bec93f02e52cbd12c91ef715b2cf336956366f59a2babe",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1506-CORE_META_MODEL-CORE-REQUIREMENT--separate-check-mechanism-labels-from-evaluation-atom-types.md",
       "version": 6
+    },
+    "CA-R-1539": {
+      "sha256": "13b63bfdf55480496b734a408c3632d33c68b9522426ca8092b52038e7adbe0a",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
+      "version": 9
     },
     "CA-R-1565": {
       "sha256": "f4d71f3071765c4f66c321d6e2802812468c30f0bc5a0bd5b3d36c0e4da16352",
@@ -125,6 +170,11 @@
       "sha256": "f2dd66abc3a0ebb509338a6ff2c1d5a633e50179d0480eea9a9d28cd5320cfba",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1574-CORE_META_MODEL-CORE-REQUIREMENT--define-the-common-plan-atom.md",
       "version": 6
+    },
+    "CA-R-1608": {
+      "sha256": "e66304f5d6a880354ab2cc08a586d13259c9e544c6e164dab00870f8b54ecf6f",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
+      "version": 8
     },
     "CA-R-1662": {
       "sha256": "0baa7e3d84c87db43509a6f9f3c5a2d3aa49a4b22e03e5dec1164f4a0763d91b",
@@ -170,6 +220,16 @@
       "sha256": "6df2206a5d6d534dead7d7d0a6994db1023345e515c40025a01004403cf25832",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-CORE-REQUIREMENT--admit-atoms-only-where-a-role-has-an-atomic-unit.md",
       "version": 21
+    },
+    "CA-R-1874": {
+      "sha256": "0a7aa953a3390350de3d35501fea1de12f66db37f015fa866d00d67ccec568d0",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-operations-status-values.md",
+      "version": 3
+    },
+    "CA-R-1875": {
+      "sha256": "539a86522e1b99a2198631de7f167790f9751e69ffea91120402951c5f9f9504",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+      "version": 3
     },
     "CA-R-825": {
       "sha256": "ba454f1699398f7a69fdc3712a97798458baed68bdc34097f78f60983f991852",

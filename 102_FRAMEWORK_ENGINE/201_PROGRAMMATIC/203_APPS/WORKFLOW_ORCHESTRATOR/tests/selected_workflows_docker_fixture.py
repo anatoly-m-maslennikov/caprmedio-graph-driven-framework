@@ -876,7 +876,8 @@ class GoldenProject:
         elif status != "Active":
             folder /= status.casefold()
         folder.mkdir(parents=True, exist_ok=True)
-        name = f"CA-{letter}--docker-status.md" if draft else f"CA-{letter}-{number}--docker-status.md"
+        revision_suffix = "@3" if status == "Archived" else ""
+        name = f"CA-{letter}--docker-status.md" if draft else f"CA-{letter}-{number}--docker-status{revision_suffix}.md"
         identity = "" if draft else f"atom_id: CA-{letter}-{number}\n"
         path = folder / name
         type_by_role = {

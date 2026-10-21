@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 35
-updated_at: "2026-10-21T00:36:33Z"
+version: 42
+updated_at: "2026-10-21T01:30:00Z"
 ---
 # Summary
 
@@ -367,3 +367,53 @@ P2513 is Active after dependent review for the explicitly authorized normal full
 Run local-20261021-mcp-health-0434 committed eligible changes at01ec043df and validated inputs, but the full suite immediately exposed missing dependencies in the selected launcher virtualenv. Root stopped only the verified owned release process (exit130); its failure report/log and local commit remain intact. No package/image install, production startup or replacement occurred. Focused health acceptance had used the separately populated .venv, so its positive evidence was not evidence that the launcher environment was ready.
 
 CA-C-556 records and resolves this bounded preparation issue: synchronize the actual launcher virtualenv from unchanged uv.lock/all groups, select the existing project-local cache rather than the broken inherited shared-cache entry, and smoke-import the real selected dependencies through the exact no-sync launcher invocation. These checks now pass. P2512 has the corrected preflight; P2513 remains Active after renewed dependent review for fresh run local-20261021-mcp-health-verified-env with every normal gate rerun. No failures are waived; C555 remains Active. Production is still the original healthy container, and no held Run or uncertain call was replayed.
+
+### Full-suite fixture mismatch recorded before repair
+
+The fresh environment-verified release remains in its complete test phase, collecting results; its first confirmed failure is a stale expected Plan predecessor path in test_subject_intent_materialization.py (archive rather than canonical archived). Independent read-only diagnosis confirms current shared production resolver and D461/E502 agree on03_plan/archived. A second scan found the same likely issue in test_selected_subject_apply_portfolio.py paths(), where Requirement must retain archive while Plan uses archived. Deliberate legacy-history fixtures are excluded from the repair.
+
+Active Problem C557 and Backlog Task P2514 record this bounded test-only repair. No production or test source edits occur until the current suite finishes; then review the complete failure set, activate/split P2514 as needed and preserve all assertions except the obsolete expected destination. P2513 stays Active and cannot claim acceptance from this failing run; a fresh normal full release is required after focused tests and independent review. The production MCP remains unchanged; no gate waiver, live mutation testing or held/uncertain replay.
+
+- [x] [CA-P-2514 — Repair stale Plan predecessor expectations](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/74-CA-P-2514-TASK--repair-stale-plan-predecessor-expectations.md)
+
+### Full-suite repair lanes expanded without changing production
+
+The complete environment-verified suite is still collecting results. Six failing module reports are now known: intent predecessor path, independent Plan subject portfolio paths, primary bundle owner/fault setup, independent flat bundle history/fault targets, W04 fixture old Plan archive target and W04 Plan Draft selected-binding freshness. The 12-case selected-workflow Docker module passed with zero skips; new health/registry tests remain passing. No final full-suite acceptance or installed runtime change is claimed.
+
+C557@2 records the additional evidence. Backlog P2514 owns only intent/portfolio expected paths. Backlog P2515 owns the two status-bundle fixtures: exact synthetic ownership and flat owning-scope Plan history, preserving Operations/Step local history, recovery assertions and all injected faults. Backlog P2516 owns W04 fixture path/fresh-binding diagnosis, preserving29/8/8 matrix totals and production currentness guards. Two independent reviews found no production recovery regression in the bundle failures. No source edits start until the current full suite finishes; review the complete failure set before activation, then independently accept each repair and review P2513 before a fresh complete normal local release. Each Task owns at most15minutes; split before extending. Production remains the original MCP, with no held/uncertain replay or live mutation tests.
+
+- [x] [CA-P-2515 — Repair Plan bundle ownership and flat history fixtures](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/75-CA-P-2515-TASK--repair-plan-bundle-ownership-and-flat-history-fixtures.md)
+
+- [x] [CA-P-2516 — Repair the canonical Draft predecessor lookup](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/76-CA-P-2516-TASK--repair-the-canonical-draft-predecessor-lookup.md)
+
+### Complete failed gate reviewed; bounded repairs activated
+
+Run local-20261021-mcp-health-verified-env finished with424 modules,3796 tests,zero skips,six failed modules; launcher integration passed. The report and complete log are retained; no package/image installation, MCP replacement or public effects occurred. P2513 remains Active but has no release-success receipt.
+
+P2514 and P2515 are Active for independently confirmed test/fixture corrections only. P2516 is Active under a corrected production scope: Draft demotion successfully publishes a Plan then wrongly reconstructs its predecessor as local/archive, causing a post-effect lookup failure. Reuse the canonical predecessor owner, audit callers, add a focused regression and preserve exact history/recovery/non-Plan semantics. Do not change fixture expected paths to conceal this defect. The earlier assumption that both W04 failures were fixture-only is superseded. The distinct masked Plan preview refusal remains under diagnosis by a separate bounded follow-up P2517 before any related production fix; declaration/observation digest labels alone were not proof of source drift. New C/Problems will retain these two findings separately from C557 fixture drift.
+
+Three disjoint ready implementation lanes are expectation pair, bundle fixtures and canonical Draft predecessor lookup; a fourth independent lane diagnoses the masked preview refusal. Root owns governed records/Git/release. After each reviewed repair, update P2513 before a fresh complete normal local release. No gate waiver, production mutation test, held/uncertain replay or Stage2 Scope Unit operation.
+
+### Separate production findings and fourth diagnosis lane admitted
+
+C558 and C559 are now canonically admitted Active Problems; Active P2517 is admitted for an isolated exact-cause reproduction of the hidden Plan preview refusal before proposing a production change. C557@3 is explicitly fixture-only under P2514/P2515. P2516 retains its identity but is renamed Repair the canonical Draft predecessor lookup; its source owner reuses the publisher's exact canonical history resolver before demotion instead of reconstructing a path after the effect. Existing API, non-Plan local history and exact predecessor semantics remain unchanged.
+
+Four disjoint lanes are running: intent/portfolio expected paths, bundle fixture ownership/flat fault targets, canonical Draft predecessor caller plus regression, and masked Plan preview diagnosis only. The complete failed gate424/3796/zero skips/six failed modules and successful launcher integration are retained, not waived. P2513 remains dependent Active; no next release has started. Source fixes are not deployed evidence and production remains unchanged.
+
+- [x] [CA-P-2517 — Diagnose and restore Plan status preview compatibility](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/77-CA-P-2517-TASK--diagnose-and-restore-plan-status-preview-compatibility.md)
+
+### Fixture-only release repairs accepted
+
+P2514 and P2515 are Done with exact predecessors and current done paths; C557 is Resolved@4 for its bounded fixture-only defect. Release-env focused receipts: intent10,portfolio6,adjacent subject10,bundle24,flat14 all pass; independent final reviews APPROVE without weakening native guards or recovery/byte assertions. P2513 has been reviewed/updated after these completions and still waits for C558/P2516 and C559/P2517 source/regression acceptance plus final frozen integration before a fresh full release. No failed gate is waived; no installed replacement has occurred.
+
+### Canonical Draft lookup accepted; frozen closure diagnosis retained
+
+P2516 is Done and C558 Resolved@2: shared predecessor owner before demotion, exact nested Plan owner-history regression, independent source/test APPROVE, bounded9 checks and fresh root model-driven20/20 in38.153s. The worker's interrupted broader attempt was not counted; the root fresh run passed. P2513 has been reviewed/updated accordingly; no installed/full-release receipt is inferred.
+
+P2517/C559 diagnosis confirms Plan Draft preview was blocked by12 missing frozen containment-frontier authority pins, including D434, not by compared route/outer-manifest digests. Only existing frozen corpus materialization is approved; no live Atom fallback or currentness weakening. A later Plan transition exposed by closure still needs exact-cause diagnosis and full29/8/8 acceptance. Keep P2517 Active and split further before exceeding15minutes own work. Final integration/fresh complete local release still wait; production is unchanged.
+
+### Final frozen repairs accepted; fresh full release activated
+
+P2517 is Done and C559 Resolved after restoring only the missing frozen containment closure and the synthetic Archived @3 suffix. W04 matrix29/8/8 and independent fixture review APPROVE. R1608 historical-registry mismatch was withdrawn after checking that registry entries locate current source re-reading; no blind authority repinning or live Atom fixture fallback. P2514/P2515/P2516/P2517 are all accepted; P2513 has been reviewed after each completion.
+
+The final frozen candidate passes14 unique modules/101 tests/zero skips, covering every previously failed module, native Draft predecessor regression, model/status guards and health. Source/fixture hashes remain unchanged and diff check is clean. The first coordinator passed13 modules/100 tests but lacked the Docker context needed to import the matrix; fresh intended native invocation passed the matrix1 test in74.636s. The configuration error is retained, not counted as acceptance. Fresh normal local release local-20261021-mcp-health-reviewed is now activated under existing authorization, rerunning every full gate before actual installation/startup. No source writers remain. Production is unchanged at this checkpoint; C555 remains Active and no installed success or causal cure is inferred.

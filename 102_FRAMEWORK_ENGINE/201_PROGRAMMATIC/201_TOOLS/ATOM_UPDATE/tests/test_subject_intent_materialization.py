@@ -59,7 +59,7 @@ class SubjectIntentMaterializationTests(unittest.TestCase):
         self.assertEqual({"frontmatter_digest": hashlib.sha256(frontmatter.encode()).hexdigest(),
                           "content_digest": hashlib.sha256(content.encode()).hexdigest(),
                           "sha256": hashlib.sha256(intended).hexdigest()}, intent["proposal"])
-        archive = self.path.parent.parent / "archive" / f"{self.path.stem}@7.md"
+        archive = self.path.parent.parent / "archived" / f"{self.path.stem}@7.md"
         self.assertEqual({"atom_id": "CA-P-501", "version": 7, "path": archive.relative_to(self.root).as_posix(),
                           "sha256": hashlib.sha256(original).hexdigest(), "lifecycle": "archived"}, intent["predecessorArchive"])
         canonical = json.dumps(intent, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False)

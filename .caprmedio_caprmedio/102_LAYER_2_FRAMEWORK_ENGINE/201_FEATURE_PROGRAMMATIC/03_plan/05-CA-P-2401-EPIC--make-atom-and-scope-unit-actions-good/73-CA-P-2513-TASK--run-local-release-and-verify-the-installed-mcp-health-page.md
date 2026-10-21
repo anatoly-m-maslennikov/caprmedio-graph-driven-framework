@@ -15,8 +15,8 @@ subjects:
   depends_on: []
 relations:
   is_decomposition_of: [CA-P-2401]
-version: 3
-updated_at: "2026-10-21T00:36:33Z"
+version: 6
+updated_at: "2026-10-21T01:30:00Z"
 ---
 # Summary
 
@@ -39,3 +39,15 @@ Dependency review: P2512 preflight is Done following frozen implementation/fixtu
 The first local release local-20261021-mcp-health-0434 committed eligible changes at01ec043df, validated inputs, then exposed missing launcher dependencies (mcp/anyio) at tests. Root interrupted only that verified release; exit130/report/log are retained, owned suite parents exited, and no install/startup or production replacement occurred. The earlier Python-version-only preflight was insufficient; focused health tests used the separate populated .venv. CA-C-556 records this environment defect and its bounded repair.
 
 The actual selected launcher virtualenv is now synchronized with unchanged uv.lock/all groups. The exact no-sync launcher invocation imports all required runtime/test libraries successfully. UV_CACHE_DIR is explicitly the project-local .caprmedio_tmp/cache/uv because the inherited shared cache had a missing wheel entry; no shared cache was deleted. P2512 preparation is corrected and Done. P2513 remains Active for fresh run local-20261021-mcp-health-verified-env, rerunning every full gate from the beginning. This is a newly authorized local-release attempt, not replay of an uncertain MCP call or held Workflow. Production remains the original healthy container; no gate bypass or release-completion claim.
+
+### Failed full gate retained and repaired dependencies reviewed
+
+The environment-verified attempt ended failed at tests:424 modules,3796 tests,zero skips,six failed modules; launcher integration passed. Its complete report/log and candidate commit5420b2df6 are preserved. No copy/install/startup phase ran. P2514 and P2515 are Done after release-env focused tests and independent final reviews; C557 fixture-only closure is accepted. C558/P2516 canonical Draft predecessor lookup and C559/P2517 masked Plan preview remain pending source/regression acceptance. Do not restart this Task's release execution until both are reviewed, final frozen integrated checks pass and a fresh run ID is recorded. Production remains unchanged; no failed gate is waived or held/uncertain operation replayed.
+
+### Canonical Draft lookup dependency accepted
+
+P2516 is Done and C558 Resolved after independent source/nested-test review, bounded9 positive checks and root broader20/20 lifecycle checks. The candidate still requires C559/P2517 frozen fixture closure and remaining Plan transition diagnosis, final bound integrated tests and a fresh complete normal local release. No failed/full prior report is reused as acceptance, and no new release has started.
+
+### Final dependency review and fresh release activation
+
+P2517 is Done and C559 Resolved after exact fixture diagnosis, complete29/8/8 matrix and independent approval. All repair lanes are complete and frozen. Final14 unique modules/101 tests/zero skips pass with unchanged source/fixture hashes and clean diff check. The initial coordinator passed13 modules/100 tests but could not import the matrix without Docker context; fresh intended native matrix invocation separately passed1 test in74.636s. No failed/configuration gate is waived. Use fresh run ID local-20261021-mcp-health-reviewed and rerun the complete normal commit/test/build/install/startup flow in the verified locked launcher virtualenv with project-local uv cache. All eligible checkout changes remain authorized. No source writers remain active. Production is unchanged at activation; verify actual installed endpoint after success, and retain C555 uncertainty. No public push/merge, live mutation test or held/uncertain replay.

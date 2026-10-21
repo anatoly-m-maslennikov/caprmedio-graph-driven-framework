@@ -72,7 +72,8 @@ def paths(role, status):
     role_path = Path(".caprmedio_caprmedio/PARENT") / directory
     placement = "done" if status == "Done" else "001_backlog" if status == "Backlog" else ""
     filename = f"CA-{letter}-8100--docker-status.md"
-    return (role_path / placement / filename).as_posix(), (role_path / "archive" / f"CA-{letter}-8100--docker-status@3.md").as_posix()
+    history_directory = "archived" if role == "Plan" else "archive"
+    return (role_path / placement / filename).as_posix(), (role_path / history_directory / f"CA-{letter}-8100--docker-status@3.md").as_posix()
 
 
 def descriptor(role, status, path, raw, *, changed=False, archived=False):
