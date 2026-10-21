@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 34
-updated_at: "2026-10-21T00:33:42Z"
+version: 35
+updated_at: "2026-10-21T00:36:33Z"
 ---
 # Summary
 
@@ -361,3 +361,9 @@ P2510 HTTP/security review is APPROVE after explicit Accept specificity and gene
 P2509/P2510/P2511/P2512 and bounded fixture-repair P2507 are Done with exact predecessors retained. Final frozen health18/18, existing hot-reload21/21, HTTP7/7, native container functional5/5 and adjacent composition5/5 all pass; overlapping checks are not summed. Independent observer/HTTP and fixture-diff reviews APPROVE. Actual Workflow identity is validated and cannot be inferred from nested Action/Step/coordinator results, invalid identities or scheduler SUCCESS. Health implementation/test hashes are stable across root acceptance.
 
 P2513 is Active after dependent review for the explicitly authorized normal full local release, run ID local-20261021-mcp-health-0434. Use the selected locked launcher virtualenv and all existing commit/full-test/build/install/startup gates; include all eligible current nonignored changes as authorized. Only one production MCP container is running, healthy at127.0.0.1:56317. The gateway-child discovery cause C555 is still unknown; the release delivers new visibility and is not a claimed causal cure. No release has started at this checkpoint. No production mutation test, held Run or uncertain-call replay, public push/merge or Stage2 Scope Unit operation is authorized.
+
+### First release stopped; selected environment repaired before retry
+
+Run local-20261021-mcp-health-0434 committed eligible changes at01ec043df and validated inputs, but the full suite immediately exposed missing dependencies in the selected launcher virtualenv. Root stopped only the verified owned release process (exit130); its failure report/log and local commit remain intact. No package/image install, production startup or replacement occurred. Focused health acceptance had used the separately populated .venv, so its positive evidence was not evidence that the launcher environment was ready.
+
+CA-C-556 records and resolves this bounded preparation issue: synchronize the actual launcher virtualenv from unchanged uv.lock/all groups, select the existing project-local cache rather than the broken inherited shared-cache entry, and smoke-import the real selected dependencies through the exact no-sync launcher invocation. These checks now pass. P2512 has the corrected preflight; P2513 remains Active after renewed dependent review for fresh run local-20261021-mcp-health-verified-env with every normal gate rerun. No failures are waived; C555 remains Active. Production is still the original healthy container, and no held Run or uncertain call was replayed.
