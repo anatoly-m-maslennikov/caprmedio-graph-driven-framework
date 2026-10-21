@@ -27,6 +27,11 @@ package. Shared compiler, installer and test-gate helpers remain in the Engine.
 Local checkpoints keep existing ignored-file and environment-file exclusions.
 Excluded nonignored changes stop release rather than being committed or waived.
 
+The full suite runs the expensive selected-subject publication/crash module once
+in isolation before submitting the remaining two ordinary and two Docker workers.
+Every discovered module still runs once, including after a failed module; test
+deadlines, result/skip accounting and the final launcher proof are unchanged.
+
 Fresh Local-release image builds carry exact Project ownership, Project name and
 the full build-time owning-repository HEAD commit ID; missing or invalid name or
 HEAD stops fresh preparation before building. Name and HEAD record provenance;

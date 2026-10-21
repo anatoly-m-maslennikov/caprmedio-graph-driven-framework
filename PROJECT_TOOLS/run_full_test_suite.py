@@ -149,46 +149,72 @@ def _output_text(output: str | bytes | None) -> str:
     return output.decode("utf-8", errors="replace") if isinstance(output, bytes) else output or ""
 
 
+def _record_modules(root: Path, pending: dict) -> tuple[list[str], int, int]:
+    failed = []
+    tests = skipped = 0
+    if not pending:
+        return failed, tests, skipped
+    for future in as_completed(pending):
+        module = pending.pop(future)
+        successful, count, skips, stdout, stderr, elapsed, diagnostic = future.result()
+        print(f"Test module FINISH: {module.relative_to(root)}", flush=True)
+        print(stdout, end="", flush=True)
+        print(stderr, end="", file=sys.stderr, flush=True)
+        if diagnostic is not None:
+            print(
+                f"Test module failed: {module.relative_to(root)}: {diagnostic}", file=sys.stderr,
+                flush=True,
+            )
+        print(f"Module time: {module.relative_to(root)}: {elapsed:.3f}s", flush=True)
+        tests += count
+        skipped += skips
+        if not successful:
+            failed.append(module.relative_to(root).as_posix())
+    return failed, tests, skipped
+
+
 def _run_modules(root: Path, modules: list[Path], environment: dict, integration: bool) -> int:
     failed = []
     tests = skipped = 0
+    ordered = sorted(
+        modules,
+        key=lambda module: (
+            module
+            not in (
+                root / APP / "tests/test_selected_workflows_docker_e2e.py",
+                root / APP / "tests/test_selected_subject_apply.py",
+                root
+                / APP.parents[1]
+                / "204_MCP/tests/test_subject_publication_confirmation.py",
+                root / APP.parents[1] / "204_MCP/tests/test_subject_publication_gateway.py",
+            )
+        ),
+    )
+    selected = root / APP / "tests/test_selected_subject_apply.py"
+    selected_modules = [module for module in ordered if module == selected]
+    remaining_modules = [module for module in ordered if module != selected]
     with ThreadPoolExecutor(max_workers=2) as ordinary, ThreadPoolExecutor(max_workers=2) as docker:
         try:
             pending = {
                 (docker if _docker_module(root, module) else ordinary).submit(
                     run_module, root, module, environment
                 ): module
-                for module in sorted(
-                    modules,
-                    key=lambda module: (
-                        module
-                        not in (
-                            root / APP / "tests/test_selected_workflows_docker_e2e.py",
-                            root / APP / "tests/test_selected_subject_apply.py",
-                            root
-                            / APP.parents[1]
-                            / "204_MCP/tests/test_subject_publication_confirmation.py",
-                            root / APP.parents[1] / "204_MCP/tests/test_subject_publication_gateway.py",
-                        )
-                    ),
-                )
+                for module in selected_modules
             }
-            for future in as_completed(pending):
-                module = pending.pop(future)
-                successful, count, skips, stdout, stderr, elapsed, diagnostic = future.result()
-                print(f"Test module FINISH: {module.relative_to(root)}", flush=True)
-                print(stdout, end="", flush=True)
-                print(stderr, end="", file=sys.stderr, flush=True)
-                if diagnostic is not None:
-                    print(
-                        f"Test module failed: {module.relative_to(root)}: {diagnostic}", file=sys.stderr,
-                        flush=True,
-                    )
-                print(f"Module time: {module.relative_to(root)}: {elapsed:.3f}s", flush=True)
-                tests += count
-                skipped += skips
-                if not successful:
-                    failed.append(module.relative_to(root).as_posix())
+            selected_failed, selected_tests, selected_skipped = _record_modules(root, pending)
+            failed.extend(selected_failed)
+            tests += selected_tests
+            skipped += selected_skipped
+            pending = {
+                (docker if _docker_module(root, module) else ordinary).submit(
+                    run_module, root, module, environment
+                ): module
+                for module in remaining_modules
+            }
+            remaining_failed, remaining_tests, remaining_skipped = _record_modules(root, pending)
+            failed.extend(remaining_failed)
+            tests += remaining_tests
+            skipped += remaining_skipped
         except KeyboardInterrupt:
             for executor in (ordinary, docker):
                 executor.shutdown(wait=False, cancel_futures=True)

@@ -14,8 +14,8 @@ subjects:
   depends_on: []
 relations:
   concern_about: [CA-P-2527, CA-P-2529, CA-M-332, CA-E-539]
-version: 1
-updated_at: "2026-10-21T10:50:11Z"
+version: 2
+updated_at: "2026-10-21T11:43:21Z"
 ---
 # Summary
 
@@ -36,3 +36,7 @@ Independent functional-safety review approves the retention diff. Root frozen10-
 ## Blast radius
 
 Maintainability, source reviewability and accuracy of readiness/conformance claims for Project Local release and its focused tests. This is not evidence of unsafe Docker cleanup, a new production incident or permission to change unrelated functionality. Current retention invariants and all runtime/ownership/refusal guards remain binding.
+
+### Suite-scheduler repair measurements
+
+P2533/P2534/P2535 add isolate-first scheduling and functional regression evidence. run_full_test_suite.py grows219to245physical lines; test_full_test_suite_parallel.py grows174to272physical lines. Both pinned Ruff checks pass with no new diagnostic, but this is not a file-size waiver or strict-typing acceptance. The existing runner main unit remains above25logical lines; test fixtures retain long executable units. Record these exact current surfaces in the source-conformance follow-up; do not shrink whitespace or claim inherited-unchanged size debt. Independent functional-safety approval and31focused checks do not close C564.

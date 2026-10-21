@@ -14,8 +14,8 @@ subjects:
   depends_on: []
 relations:
   concern_about: [CA-P-2401, CA-P-2532, CA-O-164]
-version: 1
-updated_at: "2026-10-21T11:24:00Z"
+version: 2
+updated_at: "2026-10-21T11:36:18Z"
 ---
 # Summary
 
@@ -34,3 +34,9 @@ No product copy, version bump, installed-runtime replacement or release-image re
 ## Blast radius
 
 P2532 owns isolated reproducibility and phase diagnosis on frozen disposable fixtures. Preserve actual authorization, source/currentness, schema, history, crash-boundary and no-replay checks. Do not bypass production safeguards, raise a deadline simply to pass, replay held Atom effects or use production MCP for tests. Repair only an evidenced root cause, split work before15minutes own work, and rerun required checks before any separately identified release attempt. Other Epic work may proceed only under its existing dependency gates.
+
+### Bounded diagnosis checkpoint
+
+The exact single test passes in isolation1/1 in60.255s, with history/current children reaching expected exit73 and all real history/no-replay assertions passing. Child authorization took about3.4s; dispatch-to-history-write about11.9/17.7s. The clean four-copy comparison retained unchanged30second child deadlines; all4instances reached the diagnostic90second parent limit with no write/exit73 events in their retained22-event traces. This is a bounded stress diagnostic, not4completed failing unittest results or an exact reproduction of the heterogeneous full suite. A first stress batch overlapped a root file-listing scan and is explicitly excluded from causal attribution. Final serial recovery passes1/1 in48.594s, both exit73, no diagnostic processes left. Traces are under .caprmedio_tmp/diagnose-crash-probe-20261021-JSqlaK/.
+
+Evidence supports concurrent validation/filesystem timing sensitivity, not an unbounded lifecycle loop or a particular universal resource threshold. The suite runs2ordinary+2Docker modules, not5simultaneous modules inferred from interleaved log lines. P2533 will isolate the expensive selected-subject module once before those existing pools, preserving every test, source/currentness/authorization/crash/no-replay guard and the30/1800second deadlines. No production validation optimization, aggregate-evidence format, global lock or timeout increase is authorized. This Problem stays Active until repair and a fresh mandatory release gate pass.

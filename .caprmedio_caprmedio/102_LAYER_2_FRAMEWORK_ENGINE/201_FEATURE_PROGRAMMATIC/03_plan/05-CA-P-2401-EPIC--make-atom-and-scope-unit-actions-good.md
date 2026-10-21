@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 58
-updated_at: "2026-10-21T11:24:00Z"
+version: 60
+updated_at: "2026-10-21T11:43:21Z"
 ---
 # Summary
 
@@ -504,3 +504,13 @@ C564 is Active for exact current source-conformance evidence: inherited runner R
 The Operator requested Local release then Epic continuation. Run local-20261021-retention-110232 reached the full suite, where the selected-subject crash test reported2subcase timeouts at its existing30second child budget. The owned failed attempt was interrupted before delivery; report records failed/tests/KeyboardInterrupt and the test log preserves the preceding errors. Version0.4.4.9 and original e812/08f production MCP remain unchanged/healthy. Four exact-attributed disposable test containers and their attempt-bound test image were cleaned non-force, no volumes/prune; retained host evidence and actual cleanup readback remain separate from release completion. C565Active/P2532Active now own isolated diagnosis; no blind timeout increase, guard bypass or release replay.
 
 Parallel read-only continuation reviews found P2499/P2503/P2501's existing admission and provider wiring present; C551's old mocked-pass description is historical, not proof that code is absent. Current Run/Journal evidence need not be duplicated into new aggregate fields. Native acceptance gaps remain external references, unsupported model, occupied destination, uncertainty/frontier no-replay and later untouched members. Preserve their existing dependency gates and record exact freeze/handoff before future execution. No recursive-matrix implementation or whole-Epic completion is claimed.
+
+### Crash-probe diagnosis accepted; canonical suite scheduling repair active
+
+P2532Done@2: isolated exactcrashtest passes60.255s; clean4copy comparison hit diagnostic90second parent limits under unchanged30second child deadlines, with retained phase/stack evidence; finalserialrecovery passes48.594s and all diagnostic processes exited. Firststressbatch's overlapping root listing is a declared confound, not causalproof. C565@2 remains Active; this is timing-sensitivity evidence, not4completed unittest failures or exact full-suite equivalence.
+
+P2533Active, with disjoint P2534source/P2535tests, will run the existing expensive selected-subject module once before submitting remaining2+2pool work. Preserve all tests/counts/failure continuation/cancellation/launcher behavior and existing30/1800deadlines; no productionguard/cache change or global lock. Root owns README/provenance/integration. A fresh real Local release still requires its full suite after reviewed repair; no release completion or production replacement is claimed.
+
+### Reviewed scheduler repair accepted; fresh requested Local release active
+
+P2533/P2534/P2535 Done after independent APPROVE. Root17scheduler checks pass0.807s and14adjacent checks pass2.588s; pinned Ruff/diff checks pass, no daemon tests in this cohort. Selected-subject module now completes once before remaining2ordinary+2Docker submissions; all coverage/counts/deadlines/cancellation preserved. C564@2 records exact245/272line source/test size debt without waiver; C565 stays Active until the real gate succeeds. P2536Active now owns fresh Local release local-20261021-isolated-gate-114321, with actual full suite before version/image/adoption and Project-only maintenance after verified candidate smoke. Original0.4.4.9 runtime remains installed at this checkpoint; no release completion claimed.
