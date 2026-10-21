@@ -1,0 +1,82 @@
+---
+subjects:
+  governs: "Project Structure Maintenance"
+  depends_on:
+    ["Relation/Type: On Result", "Entity/Node/Occurrent/Execution/Step Run", "Entity/Node/Occurrent/Execution/Workflow Run", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Step", "Entity/Node/Continuant/Atom/Content Role: Operations/Type: Workflow", "Entity/Node/Continuant/Project.Structure", "Select Reconciliation Sources", "Prepare Structural Change", "Assess Source Conflicts", "Authorize Structural Change", "Apply Structural Change"]
+version: 12
+updated_at: "2026-10-19 15:56:37 +0400"
+relations:
+  relates_to:
+    - "CA-R-1483"
+    - "CA-M-291"
+    - "CA-O-004"
+    - "CA-O-005"
+    - "CA-O-012"
+    - "CA-O-013"
+    - "CA-O-014"
+    - "CA-O-139"
+    - "CA-O-140"
+    - "CA-O-141"
+    - "CA-O-142"
+    - "CA-O-143"
+    - "CA-O-144"
+atom_id: "CA-O-015"
+content_role: "Operations"
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+local_tier: "Standard"
+status: "Active"
+author: "Anatoly Maslennikov"
+type: "Workflow"
+global_tier: 11
+projection:
+  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-015-PROJECT_CONFIGURATION-WORKFLOW--maintain-project-structure.md
+  source_atom_id: CA-O-015
+  source_atom_revision: 12
+  source_sha256: c907f61954743aa06db7d586fc8e44741ed5db7397cfd52f8ceaefe5a4f8b499
+  original_relations_sha256: 569e3438c37c00da6868cfa4d3d012142a4a3163bb9330450903e1ae5e11062c
+---
+# Summary
+
+Maintain Project Structure
+
+## Operation
+
+Project Structure Maintenance **means** the Workflow that maintains authoritative declarations through the following Step graph; Tools execute this Workflow **without** becoming its authority.
+
+the entry Step is CA-O-139. interpret Step bindings **and** run boundaries under CA-R-1509, CA-R-1510, **and** CA-R-1511.
+
+### Steps
+
+| Step |
+|---|
+| CA-O-139 |
+| CA-O-140 |
+| CA-O-141 |
+| CA-O-142 |
+| CA-O-143 |
+| CA-O-144 |
+
+### Transitions
+
+the transitions below use the Workflow-scoped ON_RESULT Relation under CA-R-1513 **when** the destination is a Step. a terminal outcome ends the Workflow Run; it is **not** another Step **or** Action.
+
+| Step | Result condition | Next Step **or** outcome |
+|---|---|---|
+| CA-O-139 | exact current Project Structure, relevant Settings, Goal/Atom references **and** separate Carrier observations selected | CA-O-140 |
+| CA-O-140 | bounded proposal ready | CA-O-141 |
+| CA-O-141 | candidate conforms **and** required checks complete | CA-O-142 |
+| CA-O-141 | contradiction, incomplete check, **or** unresolved disposition | stop; request a corrected proposal **or** Operator decision |
+| CA-O-142 | authorization valid for exact effects **and** current state | CA-O-143 |
+| CA-O-143 | cutover completed | CA-O-144 |
+| CA-O-144 | required checks complete **and** accepted effects verified | complete |
+| CA-O-139 | failed, stale, ambiguous, unauthorized, **or** below-threshold outcome | stop **and** report the exact state; further attempts require applicable authorization **and** remaining retry allowance |
+| CA-O-140 | failed, stale, ambiguous, unauthorized, **or** below-threshold outcome | stop **and** report the exact state; further attempts require applicable authorization **and** remaining retry allowance |
+| CA-O-141 | failed, stale, ambiguous, unauthorized, **or** below-threshold outcome | stop **and** report the exact state; further attempts require applicable authorization **and** remaining retry allowance |
+| CA-O-142 | failed, stale, ambiguous, unauthorized, **or** below-threshold outcome | stop **and** report the exact state; further attempts require applicable authorization **and** remaining retry allowance |
+| CA-O-143 | failed, stale, ambiguous, unauthorized, **or** below-threshold outcome | stop **and** report the exact state; further attempts require applicable authorization **and** remaining retry allowance |
+| CA-O-144 | failed, stale, ambiguous, unauthorized, **or** below-threshold outcome | stop **and** report the exact state; further attempts require applicable authorization **and** remaining retry allowance |
+
+this Workflow produces authoritative source changes **and** validation results; it does **not** require **or** publish a separate Project Structure Projection. publication of an unrelated Projection remains a separately selected operation.
+
+## Details

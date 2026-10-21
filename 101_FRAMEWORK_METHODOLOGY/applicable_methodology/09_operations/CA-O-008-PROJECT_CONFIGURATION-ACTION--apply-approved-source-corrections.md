@@ -1,0 +1,41 @@
+---
+subjects:
+  governs: "Apply Approved Source Corrections"
+  depends_on:
+    ["Entity/Node/Continuant/Atom/Content Role: Operations/Type: Action", "Entity/Node/Continuant/Actor/Type: Operator", "Entity/Node/Continuant/Actor/Type: AI Agent", "Artifact", "Entity/Node/Continuant/History/Revision/Type: Atom", "Entity/Node/Continuant/Atom.Substance", "Entity/Node/Continuant/History/Journal", "Entity/Node/Continuant/History/Journal.Record", "Entity/Node/Continuant/Atom", "Entity/Relation", "Entity/Node/Continuant/Atom/Content Role: Evaluation", "Entity/Node/Continuant/Project.Framework Settings", "Entity/Node/Continuant/Project.Settings"]
+version: 16
+updated_at: "2026-10-19 15:56:27 +0400"
+relations: {}
+atom_id: "CA-O-008"
+content_role: "Operations"
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+local_tier: "Standard"
+status: "Active"
+author: "Anatoly Maslennikov"
+type: "Action"
+global_tier: 11
+projection:
+  source_carrier_path: ../../sources/003_PROJECT_CONFIGURATION/09_operations/CA-O-008-PROJECT_CONFIGURATION-ACTION--apply-approved-source-corrections.md
+  source_atom_id: CA-O-008
+  source_atom_revision: 16
+  source_sha256: 39f590ce63eed03b20f4e64584b9c71230f6ff6c0b9ef1088d9856c7c785562a
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+---
+# Summary
+
+Apply approved source corrections
+
+## Operation
+
+Apply Approved Source Corrections **means** the reusable Action that applies **only** the exact upstream corrections authorized for the current proposal, conflict, **and** source frontier.
+
+1. **before** mutation, revalidate the actual Operator authorization **and** relevant current source state. authorization **may** be an explicit decision recorded under CA-O-007 **or** an active Operator delegation that covers **every** proposed action, subject **to** CA-R-1551 **and** the calling Workflow's stricter approval requirements. missing, rejected, stale, partial, ambiguous, **or** mismatched authorization blocks mutation.
+2. apply the authorized correction through the owning source's governed change workflow. resulting Claims remain **in** their owning source Atoms; resulting selections remain **in** their owning settings. compilation **and** an approval record do **not** themselves grant source-change authority.
+3. for archival, verify CA-O-006's coverage conditions against live sources, complete prerequisite repairs, **and** preserve the predecessor under CA-O-051: retain its exact prior Revision bytes as history **without** changing prior Version, Status **or** Updated At; retain the current predecessor's body, Summary, identity **and** all metadata except Version, archived Status **and** archive-time Updated At, incrementing Version by exactly **`1`** for that actual update. apply replacement **or** absorption recording under CA-R-807 **when** applicable; a withdrawn obsolete Claim does **not** require an invented successor.
+4. record actual execution, changes, failures, **and** partial effects **in** the Journal. report the resulting source frontier **or** exact failure; a Journal record describes those effects **without** replacing current source authority.
+5. return changed sources for renewed selection, conflict assessment, Principle alignment, **and** affected coverage checks. do **not** report completion **until** required checks confirm no remaining conflict **or** coverage gap **in** the affected authority.
+
+this Action **must not** edit projected Claims as a conflict fix, infer additional corrections, create a duplicate approval Atom, **or** claim completion **after** a failed correction. retries **and** recovery require their applicable accepted authority **and** bounds; this Action does **not** authorize automatic rollback **or** unbounded repetition.
+
+## Details
