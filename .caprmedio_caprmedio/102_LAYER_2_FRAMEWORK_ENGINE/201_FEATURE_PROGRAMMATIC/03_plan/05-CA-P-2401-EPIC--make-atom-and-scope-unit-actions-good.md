@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 54
-updated_at: "2026-10-21T10:13:48Z"
+version: 57
+updated_at: "2026-10-21T10:50:11Z"
 ---
 # Summary
 
@@ -482,3 +482,19 @@ The Operator requests image naming and cleanup as normal Local release work afte
 ### Post-green release ordering/proof accepted; retention scope awaits one decision
 
 P2528 is Done: root59/59 focused checks in6.330s, worker overlapping32/40 portfolios, independent review APPROVE. Canonical naming already occurs after a green suite; regressions now bind candidate/installed/launch/cleanup order and failed-suite/preparation stops. Corrected the empty-prior-image gap: no image scan/removal without current_image == candidate_image, with existing pending disposition. No actual release or Docker operation was run. Confirmed desired retention is only the last rebuild of the current version. C563 asks host-wide unused CAPRMEDIO images versus selected-Project images; until answered, P2526/P2527 remain incomplete, new retention semantics and active source-contract changes are held, and P2529 remains Backlog. Current ownership/fingerprint guards are unchanged except the stricter positive-launch proof. This accepted safety/test increment is not a claim that candidate-only retention is implemented. Earlier naming cleanup/native lifecycle results remain independently accepted.
+
+### Project-only retention decision and source alignment accepted
+
+The latest Operator answer selects the second option: only positively identified images owned by this Project, not other Projects or all runtime-labelled images on the host. C563Resolved@2; P2526Done@3 aligns R1878/M332/E573/D564 and O164/O169/O178/O179 before implementation. Retain this successful release's exact current-Version candidate; no second slot for another digest with the same fingerprint. Preserve unknown/foreign ownership and every container reference; image ownership cannot be inferred solely from an old container link. Naming stays after the green full suite, cleanup after verified exact candidate smoke, with no force/prune/replay. No actual release or Docker mutation is authorized here.
+
+P2527 remains Active, split into bounded child Tasks P2530/P2531 for images/stopped containers while the parent owns exact-prior MCP matching and regression integration. P2529 stays dependent Backlog until isolated checks and independent review pass. Earlier accepted naming/native/ordering increments are unchanged.
+
+### Project-only implementation frozen; independent acceptance active
+
+P2530/P2531Done@2 implement inspected complete Project-only image ownership and eligible stopped noncandidate containers, including same-fingerprint rebuilds. Root integrated102/102 functional checks pass16.084s across10modules, including canonical image naming and strict candidate launcher behavior. P2527 owns local_release.py plus identity-helper definitions; P2531 exclusively removed cleanup.py imports/calls first. The separate regression lane covers exact prior same-fingerprint/different-digest replacement. P2529 is Active for independent final review and frozen rerun; P2527 remains Active until acceptance closes integration. No actual release/Docker mutation, deployment, version bump, push or held replay. Inherited release-runner Ruff/size debt is not a clean-global-lint claim.
+
+### Automatic selected-Project image maintenance accepted
+
+P2526/P2527/P2528/P2529 are Done; P2530/P2531 remain Done within P2527's matching Done container hierarchy, with exact predecessors retained for carrier-only relocation. C563 is Resolved. Independent code safety and planning reviews APPROVE; root final frozen10-module synthetic gate102/102 passed9.632s after integration (earlier102/10216.084s separately). Normal Local release now retains only its exact current-Version candidate among eligible selected-Project images, including no fingerprint-only exemption for old rebuilds. Canonical version/date/digest naming remains post-green; image cleanup remains post-verified candidate smoke. Complete owner labels and all container references are enforced; other Projects, unowned resources and uncertainty are preserved/reported, no force/prune/retry.
+
+C564 is Active for exact current source-conformance evidence: inherited runner Ruff scores13/13/59 plus E731 are unchanged versus HEAD; the old703line/C90158 exception is stale, and changed test files225/235lines need applicable bounded evidence or separate cohesive splitting. No clean-global-lint, E539 acceptance, full release, Docker mutation, version bump, deployment, push or held replay is claimed. Earlier recursive-container backlog P2495/P2502/P2499/P2503/P2501/P2494 and C561/C562 remain separate; this closes image-retention implementation, not the whole Epic.

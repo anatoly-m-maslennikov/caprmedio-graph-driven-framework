@@ -7,11 +7,10 @@ import subprocess
 from release_cleanup_identity import (
     IMAGE,
     IDENTIFIER,
-    FINGERPRINT,
     Container,
     Cleanup as Cleanup,
     Runner,
-    image_has_current_code as image_has_current_code,
+    image_labels,
     owner_labels,
     run_docker,
 )
@@ -61,7 +60,6 @@ def _remove_container(
         return
     if (
         row.Image == current_image
-        or row.Config.Labels.get(FINGERPRINT) == fingerprint
         or row.State.Running
         or row.State.Status not in {"exited", "dead"}
     ):
@@ -71,11 +69,7 @@ def _remove_container(
         return
     if IMAGE.fullmatch(row.Image) is None:
         raise ValueError("Container image identity is invalid")
-    if image_has_current_code(root, row.Image, current_image, fingerprint, runner):
-        cleanup.notes.append(
-            f"Container {identifier} retained: image has current code fingerprint."
-        )
-        return
+    image_labels(root, runner, row.Image)
     cleanup.images.add(row.Image)
     cleanup.attempted.add(identifier)
     run_docker(root, runner, "container", "rm", identifier)

@@ -1,4 +1,4 @@
-"""Strict Docker observations and immutable current-code identity checks."""
+"""Strict Docker observations and immutable runtime-image identity checks."""
 
 from collections.abc import Callable
 from dataclasses import dataclass, field
@@ -76,6 +76,8 @@ def run_docker(root: Path, runner: Runner | None, *arguments: str) -> str:
 
 
 def image_labels(root: Path, runner: Runner | None, image: str) -> dict[str, str]:
+    if not isinstance(image, str) or IMAGE.fullmatch(image) is None:
+        raise ValueError("Image identity is invalid")
     projection = '{"Id":{{json .Id}},"Config":{"Labels":{{json .Config.Labels}}}}'
     row = ImageMetadata.model_validate_json(
         run_docker(root, runner, "image", "inspect", "--format", projection, image)
@@ -88,21 +90,3 @@ def image_labels(root: Path, runner: Runner | None, image: str) -> dict[str, str
     ):
         raise ValueError("Image runtime ownership unproven")
     return labels
-
-
-def image_fingerprint(root: Path, runner: Runner | None, image: str) -> str:
-    return image_labels(root, runner, image)[FINGERPRINT]
-
-
-def image_has_current_code(
-    root: Path,
-    image: str,
-    current_image: str,
-    fingerprint: str,
-    runner: Runner | None,
-) -> bool:
-    if image == current_image:
-        return True
-    if IMAGE.fullmatch(image) is None:
-        raise ValueError("Container image identity is invalid")
-    return image_fingerprint(root, runner, image) == fingerprint

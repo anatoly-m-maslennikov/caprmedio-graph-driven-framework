@@ -33,6 +33,19 @@ class LocalReleaseCleanupTests(unittest.TestCase):
 
         return read
 
+    def _assert_prior_replacement(self, calls, docker, identifier: str, prior_image: str) -> None:
+        self.assertNotIn(identifier, docker.containers)
+        stop = next(index for index, argv in enumerate(calls) if argv[1:3] == ("container", "stop"))
+        remove = next(index for index, argv in enumerate(calls) if argv[1:3] == ("container", "rm"))
+        launch = next(index for index, argv in enumerate(calls) if argv[-1:] == ("project-mcp",))
+        inspect = next(
+            index for index, argv in enumerate(calls)
+            if argv[1:3] == ("image", "inspect") and argv[-1] == prior_image
+        )
+        self.assertLess(inspect, stop)
+        self.assertLess(stop, remove)
+        self.assertLess(remove, launch)
+
     def test_all_stopped_predecessors_removed_before_launch_images_after_launch(self) -> None:
         fixture, docker = self.fixture()
         _, first_image = docker.add("1")
@@ -110,6 +123,36 @@ class LocalReleaseCleanupTests(unittest.TestCase):
                 for argv in docker.calls
             )
         )
+
+    def test_same_fingerprint_different_prior_image_is_replaced_before_candidate_launch(self) -> None:
+        fixture, docker = self.fixture()
+        identifier, prior_image = docker.add("b", State={"Running": True, "Status": "running"})
+        self.assertNotEqual(prior_image, fixture.image_id)
+        self.assertEqual("b" * 64, fixture.image.identity().fingerprint)
+        calls: list[tuple[str, ...]] = []
+
+        def runner(argv: tuple[str, ...], root: Path) -> subprocess.CompletedProcess[str]:
+            calls.append(argv)
+            if argv[:2] == ("docker", "ps"):
+                return subprocess.CompletedProcess(argv, 0, identifier, "")
+            if argv[0] == "docker":
+                return docker.run(argv, root)
+            if argv[-1:] == ("project-mcp",):
+                self.assertNotIn(identifier, docker.containers)
+                self.assertEqual(fixture.image_id, argv[argv.index("--image") + 1])
+                return subprocess.CompletedProcess(argv, 0, "http://localhost:12345/mcp", "")
+            return subprocess.CompletedProcess(argv, 0, "", "")
+
+        with (
+            fixture._compiler(),
+            patch(
+                "local_release._launcher_image",
+                side_effect=self._launcher_image(fixture, prior_image, fixture.image_id),
+            ),
+        ):
+            result = run_local_release(fixture.root, run_id="replace-same-fingerprint", runner=runner)
+        self.assertEqual("completed", result["outcome"], (result, docker.calls))
+        self._assert_prior_replacement(calls, docker, identifier, prior_image)
 
     def test_failed_launcher_retains_predecessor_images(self) -> None:
         fixture, docker = self.fixture()

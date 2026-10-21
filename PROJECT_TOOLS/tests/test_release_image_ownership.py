@@ -15,13 +15,13 @@ from release_cleanup_identity import owner_labels
 class OwnedDocker(fixtures.DockerFixture):
     def __init__(self) -> None:
         super().__init__()
-        self.metadata: dict[str, dict[str, str]] = {}
+        self.metadata_overrides: dict[str, dict[str, str]] = {}
 
     def run(self, argv: tuple[str, ...], root: Path) -> subprocess.CompletedProcess[str]:
         result = super().run(argv, root)
         if argv[1:3] == ("image", "inspect") and result.returncode == 0:
             value = json.loads(result.stdout)
-            value["Config"]["Labels"].update(self.metadata.get(argv[-1], {}))
+            value["Config"]["Labels"].update(self.metadata_overrides.get(argv[-1], {}))
             result.stdout = json.dumps(value)
         return result
 
@@ -32,7 +32,7 @@ class ReleaseImageOwnershipTests(unittest.TestCase):
         image = "sha256:" + "1" * 64
         docker.images[image] = "1" * 64
         owner = owner_labels(fixtures.ROOT, "c" * 64, ".caprmedio_caprmedio")
-        docker.metadata[image] = owner
+        docker.metadata_overrides[image] = owner
         cleanup = Cleanup(owner=owner)
         cleanup_obsolete_images(
             fixtures.ROOT, fixtures.CURRENT, fixtures.FINGER, cleanup, docker.run
@@ -54,7 +54,7 @@ class ReleaseImageOwnershipTests(unittest.TestCase):
                     docker = OwnedDocker()
                     image = "sha256:" + "1" * 64
                     docker.images[image] = "1" * 64
-                    docker.metadata[image] = metadata
+                    docker.metadata_overrides[image] = metadata
                     cleanup = Cleanup(owner=owner, images={image} if linked else set())
                     cleanup_obsolete_images(
                         fixtures.ROOT, fixtures.CURRENT, fixtures.FINGER, cleanup, docker.run
@@ -67,7 +67,7 @@ class ReleaseImageOwnershipTests(unittest.TestCase):
         image = "sha256:" + "1" * 64
         docker.images[image] = "1" * 64
         owner = owner_labels(fixtures.ROOT, "c" * 64, ".caprmedio_caprmedio")
-        docker.metadata[image] = owner_labels(Path("/foreign"), "f" * 64, ".caprmedio_foreign")
+        docker.metadata_overrides[image] = owner_labels(Path("/foreign"), "f" * 64, ".caprmedio_foreign")
         cleanup = Cleanup(owner=owner, images={image})
         cleanup_obsolete_images(
             fixtures.ROOT, fixtures.CURRENT, fixtures.FINGER, cleanup, docker.run
@@ -75,21 +75,60 @@ class ReleaseImageOwnershipTests(unittest.TestCase):
         self.assertFalse(cleanup.pending)
         self.assertNotIn(("docker", "image", "rm", image), docker.calls)
 
-    def test_owned_orphan_with_current_fingerprint_or_container_use_is_preserved(self) -> None:
-        for current in (True, False):
-            with self.subTest(current=current):
+    def test_same_fingerprint_owned_rebuild_is_removed(self) -> None:
+        docker = OwnedDocker()
+        image = "sha256:" + "1" * 64
+        docker.images[image] = fixtures.FINGER
+        owner = owner_labels(fixtures.ROOT, "c" * 64, ".caprmedio_caprmedio")
+        docker.metadata_overrides[image] = owner
+        cleanup = Cleanup(owner=owner)
+        cleanup_obsolete_images(
+            fixtures.ROOT, fixtures.CURRENT, fixtures.FINGER, cleanup, docker.run
+        )
+        self.assertIn(("docker", "image", "rm", image), docker.calls)
+        self.assertFalse(cleanup.pending)
+
+    def test_exact_candidate_is_protected_but_same_fingerprint_rebuild_is_not(self) -> None:
+        docker = OwnedDocker()
+        image = "sha256:" + "1" * 64
+        docker.images[image] = fixtures.FINGER
+        owner = owner_labels(fixtures.ROOT, "c" * 64, ".caprmedio_caprmedio")
+        docker.metadata_overrides[image] = owner
+        cleanup = Cleanup(owner=owner, images={fixtures.CURRENT, image})
+        cleanup_obsolete_images(
+            fixtures.ROOT, fixtures.CURRENT, fixtures.FINGER, cleanup, docker.run
+        )
+        self.assertNotIn(("docker", "image", "rm", fixtures.CURRENT), docker.calls)
+        self.assertIn(("docker", "image", "rm", image), docker.calls)
+
+    def test_unowned_orphan_and_linked_image_are_retained_pending(self) -> None:
+        for linked in (False, True):
+            with self.subTest(linked=linked):
                 docker = OwnedDocker()
                 image = "sha256:" + "1" * 64
-                docker.images[image] = fixtures.FINGER if current else "1" * 64
-                if not current:
-                    docker.references.add(image)
-                owner = owner_labels(fixtures.ROOT, "c" * 64, ".caprmedio_caprmedio")
-                docker.metadata[image] = owner
-                cleanup = Cleanup(owner=owner)
+                docker.images[image] = "1" * 64
+                cleanup = Cleanup(owner=owner_labels(fixtures.ROOT, "c" * 64, ".caprmedio_caprmedio"))
+                if linked:
+                    cleanup.images.add(image)
                 cleanup_obsolete_images(
                     fixtures.ROOT, fixtures.CURRENT, fixtures.FINGER, cleanup, docker.run
                 )
+                self.assertTrue(cleanup.pending)
                 self.assertNotIn(("docker", "image", "rm", image), docker.calls)
+
+    def test_owned_image_with_container_use_is_preserved_pending(self) -> None:
+        docker = OwnedDocker()
+        image = "sha256:" + "1" * 64
+        docker.images[image] = "1" * 64
+        docker.references.add(image)
+        owner = owner_labels(fixtures.ROOT, "c" * 64, ".caprmedio_caprmedio")
+        docker.metadata_overrides[image] = owner
+        cleanup = Cleanup(owner=owner)
+        cleanup_obsolete_images(
+            fixtures.ROOT, fixtures.CURRENT, fixtures.FINGER, cleanup, docker.run
+        )
+        self.assertTrue(cleanup.pending)
+        self.assertNotIn(("docker", "image", "rm", image), docker.calls)
 
 
 if __name__ == "__main__":

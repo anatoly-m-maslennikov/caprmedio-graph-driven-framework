@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Release selected Framework Version"
   depends_on: [Workflow, Step, Action, Operator, Version, Methodology, Implementation, Skill, Test, Journal]
-version: 18
-updated_at: "2026-10-15 01:26:10 +0000"
+version: 19
+updated_at: "2026-10-21T10:41:00Z"
 relations:
   relates_to: [CA-O-011, CA-O-165, CA-O-166, CA-O-168, CA-O-169, CA-R-1525]
 ---
@@ -34,7 +34,7 @@ The Workflow uses the current active Atoms in the Project-owned `METHODOLOGY_SOU
 | CA-O-170 | CA-O-165 | validate current active sources and delivery paths |
 | CA-O-172 | CA-O-166 | clear the derived product except protected settings, then copy only the active source units |
 | CA-O-173 | CA-O-166 | compile applicable Methodology in that product |
-| CA-O-178 | CA-O-169 | clear the installed Framework except protected configuration, copy `101_FRAMEWORK_METHODOLOGY` as-is, install `ca`, remove eligible stopped obsolete Project-owned containers before MCP startup, restart or reuse Project MCP for smoke, then finish eligible container/image cleanup |
+| CA-O-178 | CA-O-169 | clear the installed Framework except protected configuration, copy `101_FRAMEWORK_METHODOLOGY` as-is, install `ca`, remove eligible stopped obsolete Project-owned containers before MCP startup, restart or reuse Project MCP for smoke, then retain the exact admitted candidate and finish eligible selected-Project container/image cleanup |
 
 ## Transitions
 
@@ -55,3 +55,5 @@ The four named Step/Action occurrences are the complete registered graph. Intend
 This Workflow starts on one Operator command. It runs Git before every listed Step and before intended tool tests, then runs Git again after final completion. It validates the current inputs, runs intended local-release tests, copies active sources into the product, compiles them, installs Engine `.install` into the Project runtime package, and smokes the installed Docker/MCP path. A failed step or test stops and is reported for manual handling. It never starts CA-O-188, pushes, opens a PR, or makes an installed copy authoritative.
 
 Its first release step commits all tracked changes and all untracked nonignored files allowed by the existing file-safety exclusions, then verifies that the worktree and index are clean. Ignored files remain ignored and environment-file exclusions remain; an excluded nonignored dirty file stops release rather than being committed or waived. An already clean repository needs no empty commit. A failed commit or any remaining tracked or nonignored untracked change stops the release before tests, image preparation/build or Docker work. Verify cleanliness after each later checkpoint as well. This checkpoint is internal work of this Workflow, not a new Step or Action.
+
+Canonical image naming is prepared after the full suite passes, using the existing ImageManager and actual Docker build timestamp. Post-smoke image retention is selected-Project-only: keep this release's exact current-Version candidate; other positively owned unused digests, including same-fingerprint rebuilds, are eligible for non-force removal. Preserve foreign/unowned images and all container references, and report incomplete cleanup as pending. This is internal work of CA-O-178/CA-O-169, not an additional Workflow or Step; CA-O-179 is not another occurrence in this registered graph.

@@ -1,4 +1,4 @@
-"""Discover owned orphan images and remove only verified unused obsolete code."""
+"""Remove only verified unused Project-owned noncandidate runtime images."""
 
 from pathlib import Path
 import re
@@ -6,7 +6,6 @@ import subprocess
 
 from release_cleanup_identity import (
     Cleanup,
-    FINGERPRINT,
     IMAGE,
     SCHEMA,
     Runner,
@@ -15,18 +14,21 @@ from release_cleanup_identity import (
 )
 
 
+_OWNER_KEYS = (
+    "org.caprmedio.project",
+    "org.caprmedio.control_root",
+    "org.caprmedio.host_project_root",
+)
+
+
 def _has_owner(labels: dict[str, str], owner: dict[str, str]) -> bool:
-    return bool(owner) and all(labels.get(key) == value for key, value in owner.items())
+    return all(key in owner and labels.get(key) == owner[key] for key in _OWNER_KEYS)
 
 
 def _declares_owner(labels: dict[str, str]) -> bool:
     return any(
         key in labels
-        for key in (
-            "org.caprmedio.project",
-            "org.caprmedio.control_root",
-            "org.caprmedio.host_project_root",
-        )
+        for key in _OWNER_KEYS
     )
 
 
@@ -49,18 +51,22 @@ def _remove_image(
     root: Path,
     runner: Runner | None,
     image: str,
-    fingerprint: str,
+    current_image: str,
     cleanup: Cleanup,
 ) -> None:
-    labels = image_labels(root, runner, image)
-    if labels[FINGERPRINT] == fingerprint:
-        cleanup.notes.append(f"Image {image} retained: current code fingerprint.")
+    if image == current_image:
+        cleanup.notes.append(f"Image {image} retained: exact candidate image.")
         return
-    if _declares_owner(labels) and not _has_owner(labels, cleanup.owner):
-        cleanup.pending |= not _foreign_owner(labels, cleanup.owner)
-        cleanup.notes.append(
-            f"Image {image} retained: declared ownership does not match the Project."
-        )
+    labels = image_labels(root, runner, image)
+    if not _has_owner(labels, cleanup.owner):
+        if _declares_owner(labels):
+            cleanup.pending |= not _foreign_owner(labels, cleanup.owner)
+            cleanup.notes.append(
+                f"Image {image} retained: foreign or incomplete declared ownership."
+            )
+        else:
+            cleanup.pending = True
+            cleanup.notes.append(f"Image {image} retained without Project ownership evidence.")
         return
     references = run_docker(
         root, runner, "container", "ls", "--all", "--filter", f"ancestor={image}", "--quiet"
@@ -70,7 +76,7 @@ def _remove_image(
         cleanup.pending = True
         return
     run_docker(root, runner, "image", "rm", image)
-    cleanup.notes.append(f"Removed obsolete Project-owned or Project-linked image {image}.")
+    cleanup.notes.append(f"Removed obsolete Project-owned image {image}.")
 
 
 def _discover_images(
@@ -115,7 +121,7 @@ def cleanup_obsolete_images(
         cleanup.notes.append("Runtime image discovery unavailable; unproven images retained.")
     for image in sorted(cleanup.images - {current_image}):
         try:
-            _remove_image(root, runner, image, fingerprint, cleanup)
+            _remove_image(root, runner, image, current_image, cleanup)
         except OSError, RuntimeError, ValueError, subprocess.TimeoutExpired:
             cleanup.pending = True
             cleanup.notes.append(f"Image {image} retained: inspection or removal failed.")

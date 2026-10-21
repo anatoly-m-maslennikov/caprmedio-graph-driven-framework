@@ -7,15 +7,15 @@ claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Active
+status: Resolved
 priority: medium
 subjects:
   governs: Entity/Node/Continuant/Implementation
   depends_on: []
 relations:
   concern_about: [CA-P-2526, CA-P-2527, CA-O-169, CA-D-564]
-version: 1
-updated_at: "2026-10-21T10:13:48Z"
+version: 2
+updated_at: "2026-10-21T10:42:00Z"
 ---
 # Summary
 
@@ -27,10 +27,10 @@ Should automatic Local release retention cover all unused positively identified 
 
 ## Evidences
 
-The Operator explicitly requested image maintenance after a green full suite and confirmed retaining only the last rebuild of the current version, not one image per historical version. The retained image is the exact candidate admitted and launched by that release, not a moving tag or arbitrary host-clock ordering. Current O169/M332/D564 and cleanup code restrict retirement to selected-Project ownership or proven links. Host-wide deletion would additionally affect other test Projects and unowned runtime-schema-labelled images. Prior manual deletion approvals named exact targets and do not establish that recurring wider scope. The scope question was asked in-session and remains unanswered.
+The Operator explicitly requested image maintenance after a green full suite and confirmed retaining only the last rebuild of the current version, not one image per historical version. The retained image is the exact candidate admitted and launched by that release, not a moving tag or arbitrary host-clock ordering. Current O169/M332/D564 and cleanup code restrict retirement to selected-Project ownership or proven links. Host-wide deletion would additionally affect other test Projects and unowned runtime-schema-labelled images. Prior manual deletion approvals named exact targets and do not establish that recurring wider scope. The latest direct Operator answer, 2nd option, selects Project-only retention. This supersedes the unresolved scope question.
 
 Current canonical ImageManager already names the candidate after the green suite. P2528 independently verifies that order, failed-suite/tag-preparation stops and exact immutable launch. A narrow existing-safety correction now skips all image cleanup if the launched candidate was not verified, even on first installation; root focused59/59 checks passed and independent review approved. No actual release or Docker effect occurred.
 
 ## Blast radius
 
-Hold scope-sensitive retention implementation and active contract changes until the Operator chooses. Preserve current ownership rules, container references, no-force/no-prune safeguards and pending reporting. P2526/P2527 remain incomplete; P2529 final acceptance waits. Independent ordering/proof-guard work is accepted separately and grants no broader deletion authority. Do not stop foreign/running containers or infer permission from tags, dates or missing version metadata alone.
+Implement selected-Project-only retention under complete inspected image ownership. Keep the exact current-Version admitted candidate; another fingerprint-identical digest earns no retention slot. Preserve all container-referenced images, foreign/unowned resources, no-force/no-prune safeguards and pending reporting. A container link alone does not claim image ownership. The existing exact prior selected-Project MCP replacement may replace another digest; accumulated cleanup never stops other running containers. No actual release or Docker deletion is authorized by this implementation decision.

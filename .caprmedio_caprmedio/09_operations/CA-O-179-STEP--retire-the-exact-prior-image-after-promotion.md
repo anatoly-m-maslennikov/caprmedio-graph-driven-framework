@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Release Version/Step: retire exact prior image"
   depends_on: [Workflow, Step, Action, Docker Image, Container, Permission, Journal]
-version: 2
-updated_at: "2026-10-10 19:05:19 +0400"
+version: 3
+updated_at: "2026-10-21T10:41:00Z"
 relations:
   part_of: [CA-O-164]
   invokes: [CA-O-169]
@@ -22,8 +22,8 @@ Retire the exact prior image after promotion
 
 ## Step
 
-This Step invokes CA-O-169 once with phase `retire`, binding CA-O-178's completed promotion result, sealed rollback-retention condition and exact prior N-image digest to the final exact prior N-image disposition.
+When explicitly selected, this Step invokes CA-O-169's existing safe retirement phase for inspected selected-Project noncandidate images after verified replacement installation and MCP smoke. Normal Local release performs this work inside CA-O-178; this carrier is not an additional occurrence in CA-O-164's complete registered graph.
 
 ## Details
 
-Only CA-O-169 may remove the exact old image after it verifies no in-scope use. Under sealed `retain_prior`, this Step completes as `exact prior N-image disposition` only with an actual Docker-subprocess, SHA-256-valid retention receipt bound to the exact sealed condition reference and settings digest, that observes the exact required prior image, has `retaining_container_refs == ()`, and has no removal fields; that retained outcome is not retirement. A used, unavailable, unverified, mismatched or non-exact image remains preserved and partial with actual evidence. Actual retirement remains pending until its separate exact removal effect has a canonical Journal record; this Step does not force cleanup, prune globally, retry or claim release completion.
+Retain the exact admitted image of the current package Version. Another digest, including a same-fingerprint rebuild, is eligible only under complete matching inspected Project/root/control ownership, positive runtime classification and absence of every container reference. Preserve foreign, unowned, incomplete, in-use or unverified resources and report pending work. No sealed rollback-retention condition, canonical Journal receipt, force, global prune or uncertain retry is required or permitted as an added mechanism. Record actual removal/retention and logging failures independently; no release completion is inferred from this definition or from a Journal entry alone.

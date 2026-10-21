@@ -13,9 +13,11 @@ package. Shared compiler, installer and test-gate helpers remain in the Engine.
   product, build the Engine/package and candidate image, install the Methodology
   and Project runtime, then start and verify MCP. Preserve configuration and
   remove eligible stopped obsolete Project-owned containers before MCP startup,
-  then repeat cleanup and remove unused obsolete images after successful smoke.
-  Preserve verified current-code resources, other running containers and
-  unrelated or unproven targets; report unfinished cleanup.
+  then repeat cleanup after successful exact-candidate smoke. Keep only this
+  release's exact current-Version candidate; remove other eligible images owned
+  by this Project, even same-fingerprint rebuilds. Preserve every container
+  reference, other Projects' images, other running containers and unproven
+  targets; report unfinished cleanup. Never force removal or prune globally.
 - **Public release:** one prompt produces the full PR description and concise
   Version History bullets. Discover at most one matching open PR, prepare the
   version and documentation, and run the complete suite before public effects.
@@ -28,11 +30,15 @@ Excluded nonignored changes stop release rather than being committed or waived.
 Fresh Local-release image builds carry exact Project ownership, Project name and
 the full build-time owning-repository HEAD commit ID; missing or invalid name or
 HEAD stops fresh preparation before building. Name and HEAD record provenance;
-the source fingerprint
-and immutable image ID identify current code. Matching ownership labels allow
+the source fingerprint and immutable image ID identify built bytes. Canonical
+version/build-date/digest naming follows the green full suite; the exact admitted
+candidate alone earns release retention, not another digest with equal code.
+Complete matching Project/root/control ownership labels allow
 cleanup to identify labelled orphan images. Cached images keep their existing
 labels and reuse behavior; no metadata-only rebuild or ownership claim is added.
-Legacy unlabelled or otherwise unproven images remain retained and reported.
+Legacy unlabelled or otherwise unproven images remain retained and reported,
+even if a Project container formerly referenced them. Image cleanup is skipped
+unless the replacement launcher has verified the exact candidate image.
 
 The implementation cores are `RELEASE_VERSION/local_release.py` and
 `PUBLIC_RELEASE/public_release.py`. Run them through `release.py` on the host,

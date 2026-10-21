@@ -28,6 +28,7 @@ class DockerFixture:
         self.project_id = project_id
         self.containers: dict[str, dict[str, object]] = {}
         self.images: dict[str, str] = {CURRENT: FINGER}
+        self.image_owner_labels: dict[str, dict[str, str]] = {}
         self.references: set[str] = set()
         self.calls: list[tuple[str, ...]] = []
         self.fail: tuple[str, ...] | None = None
@@ -50,6 +51,11 @@ class DockerFixture:
         self.containers[identifier] = row
         if row["Image"] == image:
             self.images[image] = digit * 64
+            self.image_owner_labels[image] = {
+                "org.caprmedio.project": self.project_id,
+                "org.caprmedio.control_root": ".caprmedio_caprmedio",
+                "org.caprmedio.host_project_root": str(self.root),
+            }
         return identifier, image
 
     def run(self, argv: tuple[str, ...], root: Path) -> subprocess.CompletedProcess[str]:
@@ -74,15 +80,15 @@ class DockerFixture:
             output = "\n".join(self.images)
         elif argv[1:3] == ("image", "inspect"):
             image = argv[-1]
+            labels = {
+                SCHEMA: "1",
+                FINGERPRINT: self.images[image],
+                **self.image_owner_labels.get(image, {}),
+            }
             output = json.dumps(
                 {
                     "Id": image,
-                    "Config": {
-                        "Labels": {
-                            SCHEMA: "1",
-                            FINGERPRINT: self.images[image],
-                        }
-                    },
+                    "Config": {"Labels": labels},
                 }
             )
         return subprocess.CompletedProcess(argv, 0, output, "")
@@ -109,22 +115,32 @@ class ReleaseCleanupTests(unittest.TestCase):
         self.assertTrue(cleanup.pending)
         self.assertTrue(any("without Project ownership" in note for note in cleanup.notes))
 
-    def test_running_current_code_foreign_and_unknown_states_are_preserved(self) -> None:
+    def test_same_fingerprint_noncandidate_stopped_container_is_removed(self) -> None:
+        docker = DockerFixture()
+        identifier, matching = docker.add("3")
+        docker.images[matching] = FINGER
+        cleanup = self.sweep(docker)
+        self.assertNotIn(identifier, docker.containers)
+        self.assertEqual(cleanup.images, {matching})
+        self.assertFalse(cleanup.pending)
+
+    def test_running_current_foreign_and_unknown_states_are_preserved(self) -> None:
         docker = DockerFixture()
         docker.add("1", State={"Running": True, "Status": "running"})
         docker.add("2", Image=CURRENT)
-        _, matching = docker.add("3")
-        docker.images[matching] = FINGER
         docker.add("4", Config={"Labels": {"org.caprmedio.project": "other"}})
         docker.add("5", State={"Running": False, "Status": "paused"})
         docker.add("6", State={"Running": "false", "Status": "exited"})
         cleanup = self.sweep(docker)
-        self.assertEqual(len(docker.containers), 6)
+        self.assertEqual(len(docker.containers), 5)
         self.assertEqual(cleanup.images, set())
         self.assertTrue(cleanup.pending)
-        self.assertFalse(any(argv[1:3] == ("container", "rm") for argv in docker.calls))
+        self.assertEqual(
+            sum(argv[1:3] == ("container", "rm") for argv in docker.calls),
+            0,
+        )
 
-    def test_in_use_current_id_and_current_fingerprint_images_are_preserved(self) -> None:
+    def test_in_use_candidate_and_unowned_matching_fingerprint_images_are_preserved(self) -> None:
         docker = DockerFixture()
         _, used = docker.add("1")
         docker.references.add(used)
@@ -139,6 +155,7 @@ class ReleaseCleanupTests(unittest.TestCase):
         for command in (
             ("docker", "container", "ls"),
             ("docker", "container", "inspect"),
+            ("docker", "image", "inspect"),
             ("docker", "container", "rm"),
         ):
             with self.subTest(command=command):
@@ -149,6 +166,15 @@ class ReleaseCleanupTests(unittest.TestCase):
                 self.assertTrue(cleanup.pending)
                 self.assertEqual(len(docker.containers), 1)
                 self.assertEqual(sum(argv[: len(command)] == command for argv in docker.calls), 1)
+
+    def test_invalid_container_image_labels_are_retained_pending(self) -> None:
+        docker = DockerFixture()
+        identifier, image = docker.add("1")
+        docker.images[image] = "invalid"
+        cleanup = self.sweep(docker)
+        self.assertIn(identifier, docker.containers)
+        self.assertTrue(cleanup.pending)
+        self.assertFalse(any(argv[1:3] == ("container", "rm") for argv in docker.calls))
 
     def test_failed_image_removal_and_unproven_image_are_reported(self) -> None:
         for failed in (True, False):

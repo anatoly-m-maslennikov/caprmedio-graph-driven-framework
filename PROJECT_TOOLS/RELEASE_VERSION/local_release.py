@@ -18,7 +18,8 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from release_cleanup import cleanup_obsolete_images, cleanup_stopped_containers, image_has_current_code  # noqa: E402
+from release_cleanup import cleanup_obsolete_images, cleanup_stopped_containers  # noqa: E402
+from release_cleanup_identity import image_labels  # noqa: E402
 from release_image_provenance import release_image_provenance  # noqa: E402
 from PROJECT_TOOLS.local_release_test_process import run_logged_test_process  # noqa: E402
 
@@ -668,12 +669,12 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                                 and isinstance(row.get("State"), dict)
                                 and isinstance(row["State"].get("Running"), bool)
                             ):
-                                protected = image_has_current_code(
-                                    root, row.get("Image", ""), candidate_image, candidate_fingerprint, cleanup_runner,
-                                )
+                                prior_id = row.get("Image", "")
+                                protected = prior_id == candidate_image
                                 if protected:
-                                    cleanup_note = "Retained the existing Project MCP container with current code for canonical reuse."
+                                    cleanup_note = "Retained the exact candidate Project MCP container for canonical reuse."
                                 else:
+                                    image_labels(root, cleanup_runner, prior_id)
                                     cleanup.attempted.add(identifiers[0])
                                 if row["State"]["Running"] and not protected:
                                     stopped = runner(("docker", "container", "stop", identifiers[0]), root)
