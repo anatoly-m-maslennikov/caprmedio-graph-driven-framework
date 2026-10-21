@@ -15,8 +15,8 @@ subjects:
   depends_on: []
 relations:
   is_decomposition_of: [CA-P-2401]
-version: 2
-updated_at: "2026-10-21T11:55:43Z"
+version: 4
+updated_at: "2026-10-21T12:09:01Z"
 ---
 # Summary
 
@@ -33,3 +33,11 @@ Root exclusively owns Git, real release and Docker mutations. Freeze source befo
 ### Latest actual checkpoint
 
 Fresh Run local-20261021-isolated-gate-114321 failed its full suite: test_docker_e2e anonymousHTTPstartup could not create Compose networks because all predefined Docker address pools were fully subnetted (3tests/1error135.597s). Prior crash module25/25passed397.444s; C565Resolved@3. Root inspected exact releasePID96380 and sentINT only after confirmed failed gate; terminalreportfailed/tests/KeyboardInterrupt/exit130 preserves preceding RuntimeError in testlog. No delivery/versionbump/adoption/retention occurred; original0.4.4.9 MCP unchanged. C566/P2537 now own bounded network attribution/cleanup-lifetime diagnosis; no blind retry, broadprune or foreignresource deletion.
+
+### Actual result and next boundary
+
+Network recovery is explicitly approved and completed: exact 25 empty-network IDs removed after fresh no-endpoint/no-container-reference checks; the separate interrupted attempt cleanup is verified. P2541 is Active for the actual affected Docker module on a fresh isolated current-source context, then comparison against five-network/protected-production baseline. Do not infer full release from this focused proof. After acceptance, select a NEW run ID and execute the complete canonical Local-release gate; old failed Run must not be replayed.
+
+### Recovery verification
+
+P2541 Done: affected actual Docker module3/3 passes94.378s, zero skips; exact five-network and protected-production baselines unchanged. C566 Resolved@3; C567 remains separate. Source boundaries now freeze before fresh complete Local Run local-20261021-network-recovered-120901. All earlier failed reports/logs remain retained; no failed Run replay or skipped gate. Require complete suite before version/image/install, candidate verification before Project-only maintenance, then inspect actual installed health/discovery/tag/ownership and terminal cleanup disposition.

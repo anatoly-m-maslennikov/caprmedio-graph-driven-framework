@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 61
-updated_at: "2026-10-21T11:55:43Z"
+version: 63
+updated_at: "2026-10-21T12:09:01Z"
 ---
 # Summary
 
@@ -518,3 +518,11 @@ P2533/P2534/P2535 Done after independent APPROVE. Root17scheduler checks pass0.8
 ### Latest actual checkpoint
 
 Fresh actual suite passed the isolated25test publication/crash module397.444s with unchanged budgets; C565Resolved@3. Docker integration then failed creating anonymousHTTPtest networks with all predefined address pools fully subnetted; not an Atom validation or MCPproduction failure. ExactownedreleasePID96380 was intentionally interrupted after knownerror; failedreport/testlogretained. P2536 remains Active pending successful freshgate; C566Active/P2537Active now own network diagnosis. No delivery/version/adoption occurred. ChildP2538read-onlyinventory, P2539read-onlycleanupsource, P2540read-onlyregressiondesign are disjoint evidence lanes; root owns all Docker mutation/Git/governedrecords. No worker may delete, test, release, replay or touchproduction. Native matrix continuation remains queued behind repair/release terminal acceptance.
+
+### Actual result and next boundary
+
+P2537/P2538/P2539/P2540 are Done after bounded read-only diagnosis and root-owned approved recovery. Current normal fixture teardown is already scoped and correct; no speculative production rollback or generic network garbage collector was added. Exactly 25 separately approved empty unknown-owner networks were removed with fresh identity/labels/zero-endpoint/all-container-reference checks and absence readback. Failed-attempt two containers/one network/one image were separately cleaned; no volumes or host evidence deleted. Production stays the same healthy e812/08f runtime. C566 remains Active until actual recovery validation; C567 records potential launcher no-container/forced-interruption edge cases for separate reproduction. P2541 Active now owns affected isolated Docker checks, followed by P2536's NEW full Local-release Run. No version bump/deployment or whole-Epic completion claimed.
+
+### Recovery verification
+
+P2541 Done after real isolated Docker3/3 pass94.378s (module96.201s), zero skips. Approved25-network recovery is verified; exact five-network set and original production container/image/network unchanged after tests, unused attempt image removed. C566 Resolved@3; C565 already Resolved from actual25-test crash-module pass; C567 Active separately records unproven interruption/launcher startup edges. No speculative source cleanup changes were made. P2536 now activates fresh complete Local Run local-20261021-network-recovered-120901 after source freeze and commit; full suite still required, no release completion yet. Native container-lifecycle acceptance resumes after terminal release verification.

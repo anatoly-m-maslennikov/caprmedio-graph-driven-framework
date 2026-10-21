@@ -7,15 +7,15 @@ claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Active
+status: Resolved
 priority: high
 subjects:
   governs: Entity/Node/Continuant/Implementation
   depends_on: []
 relations:
   concern_about: [CA-P-2401, CA-P-2536, CA-P-2537, CA-O-164]
-version: 1
-updated_at: "2026-10-21T11:55:43Z"
+version: 3
+updated_at: "2026-10-21T12:09:01Z"
 ---
 # Summary
 
@@ -32,3 +32,11 @@ Run local-20261021-isolated-gate-114321 log .caprmedio_tmp/simple_local_release/
 ## Blast radius
 
 Isolated test infrastructure and ability to complete the full Local-release gate. No evidence of production MCP failure; preserve working MCP, foreign/unknown/referenced networks, volumes and installedimage. Release remains uninstalled. Root owns exact validated cleanup only; no broadprune, force, inferredownership or unrelated daemon reconfiguration.
+
+### Actual result and next boundary
+
+The Operator explicitly approved deleting the exact 25 empty networks despite unrecoverable Project ownership. Root verified full ID/name/Compose labels, zero endpoints and absence of references from every container immediately before each non-force removal. All 25 IDs are absent; no other unknown network was selected. Separately, two exact failed-attempt containers, their one network and uniquely labelled unused test image were cleaned after release processes exited; volumes and host evidence retained. Production e812/08f/network6e489 remain healthy unchanged; five networks now remain. Existing ordinary test teardown already calls scoped down; no current normal-path leak is proven. C567 records unproven failed-start/forced-interruption edge cases. P2541 validates recovery before fresh full release.
+
+### Recovery verification
+
+After approved bounded cleanup, the actual previously affected Docker module passed3/3 with zero skips94.378s; module96.201s. Its exact five-network baseline and original production container/image/network are unchanged after fixture teardown, and canonical owner removed its unused test image. The observed capacity blocker is resolved without daemon settings, production code changes or broad cleanup. C567 remains a separate unproven failed-start/forced-interruption risk. This is focused recovery acceptance, not a full release success.
