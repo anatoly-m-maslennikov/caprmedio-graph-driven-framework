@@ -14,8 +14,8 @@ subjects:
   depends_on: []
 relations:
   concern_about: [CA-P-2537, CA-P-2536, CA-O-164]
-version: 1
-updated_at: "2026-10-21T12:06:05Z"
+version: 2
+updated_at: "2026-10-21T13:10:41Z"
 ---
 # Summary
 
@@ -32,3 +32,7 @@ P2539 source review: test_project_launcher_docker_e2e._cleanup skips Compose dow
 ## Blast radius
 
 Future test-resource lifetime and release reliability. Separate reproduction/functional coverage must preserve live/readiness-failed production runtimes, other Projects, unknown ownership, volumes and no-prune/no-force guards. Do not add automatic production rollback or broader cleanup based only on this hypothesis. Current recovery/full-release acceptance remains separate.
+
+### New direct timeout evidence
+
+The forced-termination branch now has direct evidence: selected_workflows_docker_e2e timed out at1800.064s in local-20261021-network-recovered-120901, and after the complete failed suite terminated two exact-attempt worker/agent containers plus network c55d28fd40e32fc1b60a5820d1a50444e7c36c9bf09ec06a7f8ec4168284f929 remained healthy/running. Root proved image c2805de9 and attempt ff9cb6b638a84a02a8325d6fc82679ce plus disposable fixture mount, then stopped/removed those exact containers, empty network and unused attempt image non-force. Five-network baseline and original healthy production restored; volumes/host evidence preserved, deleted container writable state/logs not backed up. This confirms one timeout-cleanup residual, not attribution of the historical25unknown networks. Failed-start-before-container branch remains unproven; no speculative production rollback was added.

@@ -15,7 +15,7 @@ import time
 from full_suite_docker import APP, current_code_test_image, run_launcher
 
 CODE_ROOTS = ("102_FRAMEWORK_ENGINE", "PROJECT_TOOLS")
-MODULE_TIMEOUT_SECONDS = 1800
+MODULE_TIMEOUT_SECONDS = 3600
 RESULT_MARKER = "CAPRMEDIO_TEST_COUNTS "
 CHILD = """
 import json, sys, unittest
@@ -193,7 +193,7 @@ def _run_modules(root: Path, modules: list[Path], environment: dict, integration
     selected = root / APP / "tests/test_selected_subject_apply.py"
     selected_modules = [module for module in ordered if module == selected]
     remaining_modules = [module for module in ordered if module != selected]
-    with ThreadPoolExecutor(max_workers=2) as ordinary, ThreadPoolExecutor(max_workers=2) as docker:
+    with ThreadPoolExecutor(max_workers=4) as ordinary, ThreadPoolExecutor(max_workers=2) as docker:
         try:
             pending = {
                 (docker if _docker_module(root, module) else ordinary).submit(

@@ -13,6 +13,7 @@ sys.path.insert(0, str(APP / "docker"))
 
 import docker_bridge  # noqa: E402
 import runtime  # noqa: E402
+from image_reference import IMAGE  # noqa: E402
 
 
 IMMUTABLE_IMAGE = "sha256:" + "a" * 64
@@ -29,7 +30,7 @@ class ImageOverrideTests(unittest.TestCase):
                 self.assertEqual(IMMUTABLE_IMAGE, instance.environment()["CAPRMEDIO_IMAGE"])
 
     def test_runtime_empty_override_uses_safe_development_fallback(self):
-        self.assertEqual(runtime.IMAGE, runtime.image_reference({"CAPRMEDIO_IMAGE": ""}))
+        self.assertEqual(IMAGE, runtime.image_reference({"CAPRMEDIO_IMAGE": ""}))
 
     def test_bridge_preserves_explicit_immutable_image(self):
         environment = docker_bridge._environment(

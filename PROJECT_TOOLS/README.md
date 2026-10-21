@@ -28,9 +28,14 @@ Local checkpoints keep existing ignored-file and environment-file exclusions.
 Excluded nonignored changes stop release rather than being committed or waived.
 
 The full suite runs the expensive selected-subject publication/crash module once
-in isolation before submitting the remaining two ordinary and two Docker workers.
-Every discovered module still runs once, including after a failed module; test
-deadlines, result/skip accounting and the final launcher proof are unchanged.
+in isolation before submitting the remaining four ordinary and two Docker workers.
+Every discovered module still runs once, including after a failed module;
+result/skip accounting and the final launcher proof are unchanged.
+
+Each module has a finite 60-minute budget. Host and Docker pools are bounded
+separately; the same immutable test image is shared by disposable Project stacks.
+The W01 status matrix runs as a separate Docker module so its cases do not
+serialize behind the main route portfolio.
 
 Fresh Local-release image builds carry exact Project ownership, Project name and
 the full build-time owning-repository HEAD commit ID; missing or invalid name or

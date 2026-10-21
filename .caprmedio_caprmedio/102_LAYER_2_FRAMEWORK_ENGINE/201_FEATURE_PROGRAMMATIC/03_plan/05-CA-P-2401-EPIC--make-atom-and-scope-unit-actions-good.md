@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 63
-updated_at: "2026-10-21T12:09:01Z"
+version: 71
+updated_at: "2026-10-21T13:30:19Z"
 ---
 # Summary
 
@@ -526,3 +526,35 @@ P2537/P2538/P2539/P2540 are Done after bounded read-only diagnosis and root-owne
 ### Recovery verification
 
 P2541 Done after real isolated Docker3/3 pass94.378s (module96.201s), zero skips. Approved25-network recovery is verified; exact five-network set and original production container/image/network unchanged after tests, unused attempt image removed. C566 Resolved@3; C565 already Resolved from actual25-test crash-module pass; C567 Active separately records unproven interruption/launcher startup edges. No speculative source cleanup changes were made. P2536 now activates fresh complete Local Run local-20261021-network-recovered-120901 after source freeze and commit; full suite still required, no release completion yet. Native container-lifecycle acceptance resumes after terminal release verification.
+
+### Remaining-suite failure collection before bounded fixture correction
+
+Fresh full suite now records one real failure in test_image_override: the runtime fallback assertion references runtime.IMAGE, but runtime imports only IMMUTABLE_IMAGE/image_reference from the canonical image_reference module. Repo caller search finds this is the only runtime.IMAGE reference; canonical IMAGE remains caprmedio-runtime:local. C568Active/P2542Active own a bounded test-owner correction after the current source-frozen suite terminates. No production compatibility export or fallback behavior change is requested. Continue this already-failed suite to collect all remaining failures before one fresh repair/release attempt. No delivery/runtime replacement can proceed from this failed gate; original production remains unchanged.
+
+### Selected-workflow module deadline reached after observable progress
+
+Current Run collected a second blocker: selected_workflows_docker_e2e hit its unchanged1800second module deadline. Retained partial output shows several preceding cases completed and the later W01 role/status matrix was executing at timeout; this is not proof of an initial startup hang or semantic failure. C569/P2543 now own read-only case/fixture work mapping before any proposed cohesive test partition; no deadline increase, source guard bypass, reduced matrix or test skip. Keep source frozen while the current failed suite finishes collecting results. C568's stale fallback-test repair remains separately bounded.
+
+### Reviewed diagnosis and dependent work
+
+P2543 Done after read-only partition review. New P2544/P2545 are dependent Backlog until the running failed suite reaches terminal state. Minimal planned test-only move: existing29-status W01 matrix gets one own _docker_e2e module with composed current harness; old11+new1 equals previous12 tests. No reduced matrix, inherited test duplication, runner/API/production change or deadline extension. Root owns C568's two-line canonical-constant test repair; Luna source owner exclusively owns old/new W01Docker files, verification owner owns disposable proof only. Full next release times both modules and remains the runtime acceptance gate; focused discovery is not a green-release claim.
+
+### Latest Operator decision
+
+The Operator explicitly authorizes either removing the module limit or setting60minutes, and requests faster parallel execution with shared-image containers. Choose finite3600seconds per module, not unlimited; retain30second isolated crash-probe and1980second launcher budgets. Live resource readback: host8CPUs/16GiB; Docker4vCPUs/3052277760bytes (~2.84GiB), current testworker119.2MiB/testagent60.36MiB, productionMCP202.7MiB; these are samples, not peak guarantees. Raise ordinary host module capacity2to4, keep Docker capacity2 to avoid expanding the constrained VM pool without peak evidence. Existing same immutable image is already shared across disposable containers; separate W01matrix enables independent scheduling. Current Run still uses old source/deadlines and remains failed; new settings apply only after terminal, reviewed repair and a NEW full gate. No Docker daemon configuration or production parallelism change.
+
+### Execution handoff after terminal failed gate
+
+Run local-20261021-network-recovered-120901 terminated naturally failed/tests/LocalReleaseError/exit1 after427modules,3806countedtests,0skips,2failedmodules: stale runtime.IMAGE test and selected Docker aggregate1800s timeout. Launcher all-groups integration passed. Complete log/report retained; no version/delivery/adoption. Source freeze is now lifted for disjoint P2544 W01testpartition, P2545 disposable discovery proof, P2546 root runner profile and P2547 scheduler tests. Root also owns tiny P2542 fallback-test correction, README, all Docker/Git/planning and next actualrelease. Latest Operator profile3600seconds/module,4host+2Docker with isolated crash module supersedes old future1800/2+2 contracts. Actual next gate, not static checks, proves new timing. Separate attempt cleanup remains ownership-checked; no broad prune.
+
+### Latest focused-only validation instruction
+
+Latest Operator instruction: after these fixes, DO NOT rerun the full suite; run only broken and related checks. This supersedes all earlier next-full-gate clauses in this current Task/Epic. Focused acceptance includes stale image-reference tests/related image selection, scheduler regression portfolio and the original11-test plus new1-test W01Docker modules (all29statuses). Use3600second module budget,4host+2Docker capacity, isolated crash-probe scheduling; no unrelated test rerun or production mutation test. Report focused results accurately; do not call the current HEAD full-suite green or invoke the normal Local-release command that automatically reruns it.
+
+### Focused source acceptance and next boundary
+
+Source repairs accepted after independent review and41fast related checks:14image0.280s,17scheduler0.598s,10image/context0.160s. W01partition discovery11+1=12,status29 and17assertions preserved; opt-in/no-context guard proved skip with0Docker calls. Final matrix165lines withbounded newhelpers. Root profile3600seconds,4host+2Docker and isolated crash module; no production behavior change. P2548Active now owns actual two-module focused Docker proof with one shared image; source frozen until terminal. DO NOT rerun all427modules or invoke normal Local-release CLI; do not claim full green HEAD/deployment. C568Resolved; C569 pending actualmatrix success; C564/C567 remain separate.
+
+### Actual focused verification completed
+
+P2542–P2548 are Done for the bounded test/profile repair and verification increment. Final independent source review APPROVE; 41 fast related checks plus 12 opted-in Docker tests pass, zero skips, with all 29 W01 status cases retained. Matrix 269.220 seconds and original portfolio 629.254 seconds ran concurrently on one image; this is not a full-suite speedup benchmark. Same two pre-existing containers/five networks and healthy original production are restored exactly; unused test image is absent. C568/C569 are Resolved. C564 source-conformance debt and C567 interruption/startup lifetime follow-up remain Active. No post-fix full rerun or deployment was performed. P2536 stays Active pending C570's explicit release-path choice because the normal CLI automatically runs the prohibited full suite. Native container failure-matrix queue P2495/P2502/P2499/P2503/P2501/P2494 remains separate and unclosed; no whole-Epic completion is claimed.

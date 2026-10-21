@@ -1,0 +1,31 @@
+---
+atom_id: CA-P-2544
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 4
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+author: Anatoly Maslennikov
+status: Backlog
+subjects:
+  governs: Entity/Node/Continuant/Implementation
+  depends_on: []
+relations:
+  is_decomposition_of: [CA-P-2536]
+version: 1
+updated_at: "2026-10-21T12:53:16Z"
+---
+# Summary
+
+Partition the W01 Docker status matrix without losing coverage
+
+## Objective
+
+Partition the existing selected Docker module at one cohesive W01 matrix boundary.
+
+## Details
+
+Exclusive edit tests/test_selected_workflows_docker_e2e.py and new tests/test_selected_w01_status_matrix_docker_e2e.py only. Wait current source-frozen full suite terminal and root activation. Remove exactly the29-status W01test from oldclass, rehouse it in one opt-in IsolatedAsyncioTestCase that composes current harness instance, not inheritance/imported TestCase symbols. Reuse fixture/status domains/dispatch/evidence/cleanup; retain every assertion and exact29cases. New file under200lines and new cohesive executable units at most25logical lines where possible; no whitespace compression or invented exemption for remaining legacy file. Preserve old11+new1 unittest inventory, W01-W15/J01-J08coverage and Docker classifier suffix. No fixture/runner/production/deadline/MCP/Git edits or realDocker execution. At most15minutes own work; root integration owns full gate.

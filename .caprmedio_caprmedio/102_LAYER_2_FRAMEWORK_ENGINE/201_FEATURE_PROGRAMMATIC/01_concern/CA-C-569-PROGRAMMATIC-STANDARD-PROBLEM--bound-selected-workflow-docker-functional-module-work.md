@@ -1,0 +1,46 @@
+---
+atom_id: CA-C-569
+content_role: Concern
+type: Problem
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+author: Anatoly Maslennikov
+status: Resolved
+priority: high
+subjects:
+  governs: Entity/Node/Continuant/Implementation
+  depends_on: []
+relations:
+  concern_about: [CA-P-2536, CA-P-2543, CA-O-164]
+version: 4
+updated_at: "2026-10-21T13:30:19Z"
+---
+# Summary
+
+Bound selected-workflow Docker functional module work
+
+## Concern
+
+The selected-workflows Docker module exceeds its unchanged30minute module budget. Determine actual per-case work and smallest cohesive fixture/test partition or demonstrated bottleneck repair without weakening the required matrix, changing production validation or blindly extending deadlines.
+
+## Evidences
+
+Run local-20261021-network-recovered-120901 log6225-8828 retains partial stdout/stderr; module timed out1800.064s. Initial Journal harness, double-slash staging, image-mount boundary, corpus and stale-source cases completed; later13-route and W01 role/status work is observable, with W01 at line1034 when timed out. No final unittest counts/complete matrix verdict was emitted for this module. Other module failures are separate C568. Normal Docker3/3 and selected-query Docker completed after approved network recovery. This does not prove a hung initial startup, production semantic defect, or universal contention threshold.
+
+## Blast radius
+
+Release validation duration and full Docker workflow acceptance. Preserve every required route/role/status case, source guards, exact current-image proof, Project isolation and no-live-port testing. Diagnose read-only first, then separate bounded implementation/test ownership. No deadline waiver, skipped matrix, new production batch API or generic scheduler is authorized merely by this failure. Keep complete failure evidence; no deployment from this run.
+
+### Reviewed diagnosis and dependent work
+
+P2543 diagnosis reviewed: the existing12-test module combines13-route execution and the29-status W01 matrix; actual partial output completes aggregate routes and active-Concern case before entering29-status work. Proposed minimal partition moves only that matrix into one new Docker-discovered module, composing the unchanged existing harness. Preserve29cases,11+1total unittest inventory, all route/Journal coverage, source assertions, cleanup and1800second deadline. No current production defect or repeated DBOS optimization is inferred. Source edits wait current suite terminal; complete fresh gate must time and accept both modules.
+
+### Latest Operator decision
+
+Latest Operator instruction supersedes the earlier unchanged1800second future-budget constraint: choose3600seconds for subsequent modules while keeping a finite bound. Still partition W01matrix for parallel work rather than relying on the larger budget alone. Host workers become4; Docker remains2 based on its4CPU/~2.84GiB allocation. Current timed-out result stays failed and retained. New full gate must execute old11+new1 tests and all29matrix cases; no retroactive success, skip or guard relaxation.
+
+### Actual focused verification completed
+
+P2544/P2545's reviewed test-only partition passed actual focused Docker execution: original 11-test module 629.254 seconds, separated 29-status matrix 269.220 seconds, zero skips and no lost/duplicate cases. Both modules finish below even the former 1800-second bound in this focused environment; the latest approved profile remains 3600 seconds. No production validation, fixture semantics, route coverage or image behavior was weakened. All exact resources and production metadata returned unchanged, and the shared test image was removed. This resolves the observed aggregate-module blocker, not global performance under every load or current-HEAD full-suite conformance.

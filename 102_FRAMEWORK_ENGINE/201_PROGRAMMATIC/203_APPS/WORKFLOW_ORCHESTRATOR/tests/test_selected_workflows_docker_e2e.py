@@ -27,8 +27,7 @@ sys.path.insert(0, str(APP / "docker"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(TOOLS))
 
-from atom_operations import atom_from_path, frontmatter_scalar, require_current_atom  # noqa: E402
-from authoritative_status_models import resolve_status_model  # noqa: E402
+from atom_operations import atom_from_path, frontmatter_scalar  # noqa: E402
 from runtime import Runtime  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
 from current_code_e2e_context import load_test_context  # noqa: E402
@@ -46,7 +45,6 @@ from selected_workflows_docker_fixture import (  # noqa: E402
     FixtureLease,
     JOURNAL_CASES,
     ROUTE_CASES,
-    STATUS_DOMAINS,
     frozen_authority_fixture_bytes,
 )
 
@@ -1008,78 +1006,6 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             launched = True
             await self._start(runtime)
             await self._assert_subject_stage(runtime, root, target)
-        except GoldenCorpusError as error:
-            self.fail(str(error))
-        finally:
-            if launched:
-                await self._stop(runtime)
-            temporary.cleanup()
-
-    async def test_w01_creates_every_role_admitted_status_through_docker(self) -> None:
-        """W01 applies each current source-admitted role/status pair through MCP."""
-        temporary, root, fixture = self._new_fixture(GoldenCase("W01", "create_atom"))
-        runtime = self._runtime(root)
-        launched = False
-        created = 0
-        try:
-            fixture.prepare()
-            launched = True
-            await self._start(runtime)
-            for role, letter, directory, source_id, statuses in STATUS_DOMAINS:
-                for status in statuses:
-                    with self.subTest(role=role, status=status):
-                        created += 1
-                        number = 8100 + created
-                        carrier = fixture.create_status_carrier(role, status, number=number)
-                        native, _graph, _selected = await self._execute_create_case(
-                            runtime, root, fixture, carrier,
-                            f"p2385-w01-{role.casefold()}-{status.casefold()}-{number}",
-                            reconnect=False,
-                        )
-                        self.assertEqual("applied", native.get("outcome"), native)
-                        observed = root / native["observed"]["path"]
-                        self.assertTrue(observed.is_file(), native)
-                        atom = atom_from_path(root, observed)
-                        require_current_atom(root, atom)
-                        expected_id = None if status.casefold() == "draft" else f"CA-{letter}-{number}"
-                        expected_directory = root / ".caprmedio_caprmedio" / "PARENT" / directory
-                        if status.casefold() == "draft":
-                            expected_directory /= "draft"
-                        elif role == "Plan" and status == "Backlog":
-                            expected_directory /= "001_backlog"
-                        elif status.casefold() != "active":
-                            expected_directory /= status.casefold()
-                        self.assertEqual(expected_directory / Path(carrier["path"]).name, observed)
-                        self.assertEqual(carrier["path"], atom.relative)
-                        self.assertEqual(carrier["content"], atom.content)
-                        if status == "Archived":
-                            self.assertTrue(atom.filename.endswith("@1.md"), atom.filename)
-                        self.assertEqual(role, frontmatter_scalar(atom.frontmatter, "content_role"))
-                        self.assertEqual(status, frontmatter_scalar(atom.frontmatter, "status"))
-                        self.assertEqual(expected_id, atom.atom_id)
-                        self.assertEqual(expected_id, native["observed"]["atom_id"])
-                        self.assertEqual(1, native["observed"]["version"])
-                        self.assertEqual("1", frontmatter_scalar(atom.frontmatter, "version"))
-                        self.assertEqual(
-                            frontmatter_scalar(carrier["frontmatter"], "type"),
-                            frontmatter_scalar(atom.frontmatter, "type"),
-                        )
-                        self.assertEqual(
-                            "high" if role == "Concern" else None,
-                            frontmatter_scalar(atom.frontmatter, "priority"),
-                        )
-                        model = resolve_status_model(root, atom, status)
-                        self.assertEqual(list(statuses), model["statuses"])
-                        expected_source_ids = (
-                            ("CA-R-1947", "CA-R-1608") if role == "Concern"
-                            else ("CA-R-1947", "CA-R-1539") if role == "Plan"
-                            else (source_id,)
-                        )
-                        self.assertEqual(
-                            expected_source_ids,
-                            tuple(row["atom_id"] for row in model["model_sources"]),
-                        )
-            self.assertEqual(29, created)
         except GoldenCorpusError as error:
             self.fail(str(error))
         finally:

@@ -65,7 +65,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
                     ordinary_starts.append(module)
                 active[lane] += 1
                 peak[lane] = max(peak[lane], active[lane])
-                if sum(active.values()) == 4:
+                if sum(active.values()) == 6:
                     ready.set()
             self.assertTrue(release.wait(5))
             with lock:
@@ -103,9 +103,9 @@ class FullTestSuiteParallelTests(unittest.TestCase):
                 )
                 critical_release.set()
                 self.assertTrue(ready.wait(5))
-                self.assertEqual({"ordinary": 2, "docker": 2}, peak)
+                self.assertEqual({"ordinary": 4, "docker": 2}, peak)
                 self.assertIn(selected, docker_starts[:2])
-                self.assertEqual(set(long_host[1:]), set(ordinary_starts[:2]))
+                self.assertTrue(set(long_host[1:]).issubset(set(ordinary_starts[:4])))
             finally:
                 critical_release.set()
                 release.set()
@@ -191,7 +191,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
 
     def test_interrupt_cancels_queued_modules_in_both_worker_lanes(self):
         modules = [
-            self.case.file(f"PROJECT_TOOLS/tests/test_unit_{number}.py") for number in range(4)
+            self.case.file(f"PROJECT_TOOLS/tests/test_unit_{number}.py") for number in range(6)
         ]
         modules += [
             self.case.file(str(full.APP / f"tests/test_{number}_docker_e2e.py"))
@@ -204,7 +204,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
         def execute(_root, module, _environment):
             with lock:
                 started.append(module)
-                if len(started) == 4:
+                if len(started) == 6:
                     ready.set()
             self.assertTrue(release.wait(10))
             return True, 1, 0, "", "", 0.0, None
@@ -212,7 +212,16 @@ class FullTestSuiteParallelTests(unittest.TestCase):
         def interrupted(pending):
             self.assertTrue(ready.wait(5))
             queued = [future for future in pending if not future.running()]
+            queued_modules = [pending[future] for future in queued]
             self.assertEqual(4, len(queued))
+            self.assertEqual(
+                2,
+                sum(not full._docker_module(self.case.root, module) for module in queued_modules),
+            )
+            self.assertEqual(
+                2,
+                sum(full._docker_module(self.case.root, module) for module in queued_modules),
+            )
 
             def release_after_cancellation():
                 deadline = time.monotonic() + 3
@@ -242,7 +251,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
                 canceled.is_set(), "queued work must be canceled before waiting for active modules"
             )
             self.assertEqual(
-                4, len(started), "interruption must not start either lane's queued modules"
+                6, len(started), "interruption must not start either lane's queued modules"
             )
             launcher.assert_not_called()
         finally:
@@ -251,7 +260,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
                 watcher.join(timeout=5)
                 self.assertFalse(watcher.is_alive())
 
-    def test_all_module_deadlines_remain_1800_seconds(self):
+    def test_all_module_deadlines_remain_3600_seconds(self):
         result = subprocess.CompletedProcess([], 0, fixtures.PASSED_COUNT, "")
         for relative in (
             full.APP / "tests/test_selected_workflows_docker_e2e.py",
@@ -265,7 +274,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
             ):
                 observed = full.run_module(self.case.root, module)
                 self.assertEqual((True, 1, 0), observed[:3])
-                self.assertEqual(1800, command.call_args.kwargs["timeout"])
+                self.assertEqual(3600, command.call_args.kwargs["timeout"])
 
 
 if __name__ == "__main__":

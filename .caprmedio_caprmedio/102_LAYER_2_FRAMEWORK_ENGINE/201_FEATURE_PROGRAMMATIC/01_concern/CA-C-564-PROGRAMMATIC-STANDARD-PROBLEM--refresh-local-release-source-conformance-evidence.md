@@ -14,8 +14,8 @@ subjects:
   depends_on: []
 relations:
   concern_about: [CA-P-2527, CA-P-2529, CA-M-332, CA-E-539]
-version: 2
-updated_at: "2026-10-21T11:43:21Z"
+version: 3
+updated_at: "2026-10-21T13:22:06Z"
 ---
 # Summary
 
@@ -40,3 +40,7 @@ Maintainability, source reviewability and accuracy of readiness/conformance clai
 ### Suite-scheduler repair measurements
 
 P2533/P2534/P2535 add isolate-first scheduling and functional regression evidence. run_full_test_suite.py grows219to245physical lines; test_full_test_suite_parallel.py grows174to272physical lines. Both pinned Ruff checks pass with no new diagnostic, but this is not a file-size waiver or strict-typing acceptance. The existing runner main unit remains above25logical lines; test fixtures retain long executable units. Record these exact current surfaces in the source-conformance follow-up; do not shrink whitespace or claim inherited-unchanged size debt. Independent functional-safety approval and31focused checks do not close C564.
+
+### Exact current focused-repair measures
+
+Latest focused-only repairs keep run_full_test_suite.py at245physical lines; test_full_test_suite.py remains258physical lines with only deadline literals changed; test_full_test_suite_parallel.py grows272to281physical lines from explicit per-lane cancellation coverage. These current surfaces still exceed the200line target; no file-size waiver is inferred from passing Ruff or scheduler tests. The new W01matrix file is165physical lines with bounded new helpers (9/5/16/9logical lines) and the test loop below25; it retains all17assertions and29status cases. The reduced original Docker portfolio retains only its prior C90111 finding at _assert_route_specific_effects; no new production logic or blanket legacy-debt waiver is claimed. Independent source review approves the bounded functional change.41fast related checks pass; actual two-module Docker acceptance is pending at this checkpoint. Latest Operator explicitly excludes a full rerun, so no full-green-HEAD or global source-conformance claim is allowed.

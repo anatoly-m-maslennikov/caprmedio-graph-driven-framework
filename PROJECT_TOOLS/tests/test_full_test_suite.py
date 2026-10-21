@@ -197,12 +197,12 @@ class FullTestSuiteTests(unittest.TestCase):
         passing = subprocess.CompletedProcess([], 0, PASSED_COUNT, "")
         for error in (
             OSError("fixture command unavailable"),
-            subprocess.TimeoutExpired("fixture", 1800),
+            subprocess.TimeoutExpired("fixture", 3600),
             subprocess.TimeoutExpired(
-                "fixture", 1800, output=b"partial output \xff\n", stderr=b"partial errors \xfe\n"
+                "fixture", 3600, output=b"partial output \xff\n", stderr=b"partial errors \xfe\n"
             ),
             subprocess.TimeoutExpired(
-                "fixture", 1800, output="partial output\n", stderr="partial errors\n"
+                "fixture", 3600, output="partial output\n", stderr="partial errors\n"
             ),
         ):
             self.output, self.errors = io.StringIO(), io.StringIO()
@@ -219,9 +219,9 @@ class FullTestSuiteTests(unittest.TestCase):
                 self.assertEqual(1, self.run_suite())
                 self.assertEqual(2, command.call_count)
                 self.assertEqual(
-                    {1800}, {call.kwargs["timeout"] for call in command.call_args_list}
+                    {3600}, {call.kwargs["timeout"] for call in command.call_args_list}
                 )
-                self.assertEqual(1800, full.MODULE_TIMEOUT_SECONDS)
+                self.assertEqual(3600, full.MODULE_TIMEOUT_SECONDS)
                 self.assertIn(module.name, self.errors.getvalue())
                 self.assertIn(later.name, self.output.getvalue())
                 self.assertIn("tests run: 1; skipped: 0; failed modules: 1", self.output.getvalue())
