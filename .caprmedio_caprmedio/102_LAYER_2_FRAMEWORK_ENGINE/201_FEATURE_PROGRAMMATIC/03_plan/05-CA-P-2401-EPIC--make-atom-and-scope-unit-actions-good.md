@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 52
-updated_at: "2026-10-21T09:57:28Z"
+version: 54
+updated_at: "2026-10-21T10:13:48Z"
 ---
 # Summary
 
@@ -474,3 +474,11 @@ P2524Done@3: concrete E467defaulttemp correction,2pathchecks and nativeauth-tamp
 ### Native lineage and partial-stop increment accepted; remaining matrix explicit
 
 P2524/P2525/P2506 are Done after independent final review. Current native7/7 pass67.783s; root finalpartial1/1 pass10.710s; adjacentpure/path36/36 pass0.071s. Functionalfile634eed485a1cbeba0967d16cffea8372309e203e757666201c55f8eb0020dd27; fixture3d5be57a57b34ade4e83e7b1712f049e82dc17b71d2d522ce9a2b57f94fa0623. Two earlier test-only failedattempts and correct canonicalhandler seam are retained in P2525, not concealed or countedgreen. No productionlifecycle/sourceguard change; fixturetemp compliance and bounded functionalassertions only. P2495 reviewed/updated before futureactivation and staysBacklog: external-reference, unsupported/collision native refusals, uncertainfrontier no-replay and lateruntouchedmembers remain. P2502/P2499/P2503/P2501/P2494 and relevant Concerns remain pendingfullacceptance; no wholeEpiccompletion. Imagepriorityalreadycomplete12named/0unnamed, originalMCPunchanged; no newrelease/push/deployment/productiontest/heldreplay.
+
+### Automatic image maintenance in Local release — new Operator decision
+
+The Operator requests image naming and cleanup as normal Local release work after the full suite is green, retaining only the last rebuild of the current version, not one image per historical version. P2526/P2528 are Active for contract alignment and independent ordering tests; P2527/P2529 are dependent Backlog. Canonical ImageManager already names the candidate after the suite; do not duplicate that owner or invent a tag timestamp. Image removal remains after verified replacement MCP smoke, preserving the working runtime if replacement fails. Retain the exact admitted candidate digest and preserve all container references without force. Host-wide unused CAPRMEDIO versus selected-Project cleanup scope is awaiting the Operator's answer before deletion semantics change. Existing pending/error disposition remains; no release execution, Docker mutation, broad prune, foreign-container stop or push is authorized. Three bounded read-only lanes mapped flow, contracts and tests; ordering-test preparation can proceed independently.
+
+### Post-green release ordering/proof accepted; retention scope awaits one decision
+
+P2528 is Done: root59/59 focused checks in6.330s, worker overlapping32/40 portfolios, independent review APPROVE. Canonical naming already occurs after a green suite; regressions now bind candidate/installed/launch/cleanup order and failed-suite/preparation stops. Corrected the empty-prior-image gap: no image scan/removal without current_image == candidate_image, with existing pending disposition. No actual release or Docker operation was run. Confirmed desired retention is only the last rebuild of the current version. C563 asks host-wide unused CAPRMEDIO images versus selected-Project images; until answered, P2526/P2527 remain incomplete, new retention semantics and active source-contract changes are held, and P2529 remains Backlog. Current ownership/fingerprint guards are unchanged except the stricter positive-launch proof. This accepted safety/test increment is not a claim that candidate-only retention is implemented. Earlier naming cleanup/native lifecycle results remain independently accepted.

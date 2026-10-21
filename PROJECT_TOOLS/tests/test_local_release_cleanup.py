@@ -19,10 +19,24 @@ class LocalReleaseCleanupTests(unittest.TestCase):
         project_id = resolve_project(fixture.root).instance_id
         return fixture, docker_tests.DockerFixture(fixture.root, project_id)
 
+    def _launcher_image(self, fixture, before: str | None, after: str | None):
+        import local_release
+
+        original = local_release._launcher_image
+        runtime_package = fixture.runtime / "simple_local_release/package"
+
+        def read(selection):
+            observed = original(selection)
+            if observed is not None:
+                return observed
+            return after if runtime_package.is_dir() else before
+
+        return read
+
     def test_all_stopped_predecessors_removed_before_launch_images_after_launch(self) -> None:
         fixture, docker = self.fixture()
-        docker.add("1")
-        docker.add("2")
+        _, first_image = docker.add("1")
+        _, second_image = docker.add("2")
         order: list[str] = []
 
         def runner(argv: tuple[str, ...], root: Path) -> subprocess.CompletedProcess[str]:
@@ -36,14 +50,41 @@ class LocalReleaseCleanupTests(unittest.TestCase):
 
         with (
             fixture._compiler(),
-            patch("local_release._launcher_image", side_effect=[None, fixture.image_id]),
+            patch("local_release._launcher_image", side_effect=self._launcher_image(fixture, None, fixture.image_id)),
         ):
             result = run_local_release(fixture.root, run_id="cleanup", runner=runner)
         self.assertEqual(result["outcome"], "completed", result)
         self.assertEqual(order.count("container rm"), 2)
         self.assertEqual(order.count("image rm"), 2)
+        self.assertEqual(
+            {first_image, second_image},
+            {argv[-1] for argv in docker.calls if argv[1:3] == ("image", "rm")},
+        )
+        self.assertFalse(
+            any(argv[1:3] in {("image", "prune"), ("system", "prune")} for argv in docker.calls)
+        )
         self.assertLess(order.index("container rm"), order.index("launch"))
         self.assertGreater(order.index("image rm"), order.index("launch"))
+
+    def test_first_install_without_verified_launcher_skips_image_cleanup_and_is_pending(self) -> None:
+        fixture, docker = self.fixture()
+        orphan = "sha256:" + "f" * 64
+        docker.images[orphan] = "f" * 64
+
+        def runner(argv: tuple[str, ...], root: Path) -> subprocess.CompletedProcess[str]:
+            if argv[0] == "docker":
+                return docker.run(argv, root)
+            return subprocess.CompletedProcess(argv, 0, "", "")
+
+        with (
+            fixture._compiler(),
+            patch("local_release._launcher_image", return_value=None),
+        ):
+            result = run_local_release(fixture.root, run_id="first-install", runner=runner)
+        self.assertEqual("completed_with_cleanup_pending", result["outcome"], result)
+        self.assertFalse(
+            any(argv[1:3] in {("image", "ls"), ("image", "rm")} for argv in docker.calls)
+        )
 
     def test_existing_current_image_container_is_reused_without_stop_or_removal(self) -> None:
         fixture, docker = self.fixture()
@@ -101,7 +142,7 @@ class LocalReleaseCleanupTests(unittest.TestCase):
 
         with (
             fixture._compiler(),
-            patch("local_release._launcher_image", side_effect=[image, fixture.image_id]),
+            patch("local_release._launcher_image", side_effect=self._launcher_image(fixture, image, fixture.image_id)),
         ):
             result = run_local_release(fixture.root, run_id="no-retry", runner=runner)
         self.assertEqual(result["outcome"], "completed_with_cleanup_pending")
@@ -140,7 +181,7 @@ class LocalReleaseCleanupTests(unittest.TestCase):
 
         with (
             fixture._compiler(),
-            patch("local_release._launcher_image", side_effect=[image, fixture.image_id]),
+            patch("local_release._launcher_image", side_effect=self._launcher_image(fixture, image, fixture.image_id)),
         ):
             result = run_local_release(fixture.root, run_id="prior-no-retry", runner=runner)
         self.assertEqual(result["outcome"], "completed_with_cleanup_pending")

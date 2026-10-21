@@ -709,8 +709,8 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                     root, selection.instance_id, selection.control_relative.as_posix(),
                     candidate_image, candidate_fingerprint, cleanup_runner, cleanup=cleanup,
                 )
-                if cleanup.images and current_image != candidate_image:
-                    cleanup.notes.append("Obsolete images retained: replacement launcher image was not verified.")
+                if current_image != candidate_image:
+                    cleanup.notes.append("Image cleanup skipped: replacement launcher image was not verified.")
                     cleanup.pending = True
                 else:
                     cleanup_obsolete_images(root, candidate_image, candidate_fingerprint, cleanup, cleanup_runner)

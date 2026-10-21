@@ -17,6 +17,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "RELEASE_VERSION"))
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"))
+import local_release  # noqa: E402
 from local_release import run_local_release, _launcher_image  # noqa: E402
 from project_selection import resolve_project  # noqa: E402
 
@@ -79,6 +80,18 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.image_id = "sha256:" + "a" * 64
         self.image = SimpleNamespace(resolve=Mock(return_value=self.image_id),
                                      identity=lambda: SimpleNamespace(fingerprint="b" * 64))
+        original_launcher_image = local_release._launcher_image
+
+        def scoped_launcher_image(selection):
+            observed = original_launcher_image(selection)
+            if observed is not None:
+                return observed
+            package = self.runtime / "simple_local_release/package"
+            return self.image_id if package.is_dir() else None
+
+        launcher = patch("local_release._launcher_image", side_effect=scoped_launcher_image)
+        launcher.start()
+        self.addCleanup(launcher.stop)
         image_factory = patch("local_release._image_manager", return_value=self.image)
         self.image_factory = image_factory.start()
         self.addCleanup(image_factory.stop)
@@ -323,9 +336,15 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             failed = any(item.endswith("run_full_test_suite.py") for item in argv)
             return subprocess.CompletedProcess(argv, 2 if failed else 0, stdout if failed else "", stderr if failed else "")
 
-        result = run_local_release(self.root, run_id="tests-failed", runner=runner)
+        with (
+            patch("local_release.cleanup_stopped_containers") as stopped_cleanup,
+            patch("local_release.cleanup_obsolete_images") as image_cleanup,
+        ):
+            result = run_local_release(self.root, run_id="tests-failed", runner=runner)
         self.assertEqual("tests", result["failed_step"])
         self.assertEqual("failed", result["outcome"])
+        stopped_cleanup.assert_not_called()
+        image_cleanup.assert_not_called()
         for target in (self.product, self.installed):
             self.assertEqual("obsolete", (target / "old.txt").read_text())
         self.assertEqual(1, sum(any(item.endswith("run_full_test_suite.py") for item in argv) for argv in calls))
@@ -532,7 +551,10 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertFalse((self.root / ".caprmedio_install").exists())
 
     def test_image_is_verified_before_replacement_and_installed_launch_cannot_build(self):
+        events = []
+
         def resolve(**kwargs):
+            events.append("candidate-resolve" if not kwargs else "installed-resolve")
             if not kwargs:
                 self.assertEqual("obsolete", (self.installed / "old.txt").read_text())
                 self.assertFalse((self.runtime / "simple_local_release/package").exists())
@@ -542,8 +564,19 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             return self.image_id
         self.image.resolve.side_effect = resolve
         runner, calls = self._runner()
+
+        def record(argv, cwd):
+            result = runner(argv, cwd)
+            if any(item.endswith("run_full_test_suite.py") for item in argv):
+                events.append("full-suite-green")
+            elif argv[-1:] == ("project-mcp",):
+                events.append("launch")
+            elif argv[:3] == ("docker", "image", "ls"):
+                events.append("post-smoke-image-cleanup")
+            return result
+
         with self._compiler():
-            result = run_local_release(self.root, run_id="image-order", runner=runner)
+            result = run_local_release(self.root, run_id="image-order", runner=record)
         self.assertEqual("completed", result["outcome"])
         self.assertEqual(2, self.image_factory.call_count)
         source, temporary = self.image_factory.call_args_list[0].args
@@ -553,6 +586,10 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         launch = next(argv for argv in calls if argv[-1:] == ("project-mcp",))
         self.assertEqual(self.image_id, launch[launch.index("--image") + 1])
         self.assertIn("--no-build", launch)
+        self.assertLess(events.index("full-suite-green"), events.index("candidate-resolve"))
+        self.assertLess(events.index("candidate-resolve"), events.index("installed-resolve"))
+        self.assertLess(events.index("installed-resolve"), events.index("launch"))
+        self.assertLess(events.index("launch"), events.index("post-smoke-image-cleanup"))
 
     def test_image_preparation_failure_preserves_previous_installation(self):
         runtime_package = self.runtime / "simple_local_release/package"
@@ -562,10 +599,16 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             (target / "old.txt").write_bytes(b"previous payload")
         self.image.resolve.side_effect = RuntimeError("image unavailable")
         runner, calls = self._runner()
-        with self._compiler():
+        with (
+            self._compiler(),
+            patch("local_release.cleanup_stopped_containers") as stopped_cleanup,
+            patch("local_release.cleanup_obsolete_images") as image_cleanup,
+        ):
             result = run_local_release(self.root, run_id="image-failed", runner=runner)
         self.assertEqual("failed", result["outcome"])
         self.assertEqual("prepare_candidate_image", result["failed_step"])
+        stopped_cleanup.assert_not_called()
+        image_cleanup.assert_not_called()
         self.assertEqual("obsolete", (self.installed / "old.txt").read_text())
         self.assertEqual(b"previous payload", (runtime_package / "old.txt").read_bytes())
         self.assertEqual(b"previous payload", (skill / "old.txt").read_bytes())
