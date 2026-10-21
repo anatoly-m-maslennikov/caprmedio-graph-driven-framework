@@ -30,6 +30,32 @@ PROXY_ROUTING = {
 }
 
 
+def _tagging_executor(executor, calls):
+    tagged, sources, inspections = set(), {}, {}
+
+    def execute(argv, **kwargs):
+        command = tuple(argv)
+        if command[:3] == ("docker", "image", "tag"):
+            calls.append(command)
+            tagged.add(command[-1])
+            sources[command[-1]] = command[-2]
+            return subprocess.CompletedProcess(argv, 0, "", "")
+        if command[:3] == ("docker", "image", "inspect") and command[-1].startswith("caprmedio-runtime:"):
+            if command[-1] not in tagged:
+                return subprocess.CompletedProcess(argv, 1, "", "")
+            payload = json.loads(inspections[sources[command[-1]]])
+            payload[0]["RepoTags"] = [command[-1]]
+            return subprocess.CompletedProcess(argv, 0, json.dumps(payload), "")
+        if command[:3] == ("docker", "image", "ls") and command[-1].startswith("caprmedio-runtime:"):
+            return subprocess.CompletedProcess(argv, 0, "", "")
+        result = executor(argv, **kwargs)
+        if command[:3] == ("docker", "image", "inspect") and result.returncode == 0:
+            inspections[command[-1]] = result.stdout
+        return result
+
+    return execute
+
+
 class ImageOutputSafetyTests(unittest.TestCase):
     def python(self, source):
         return [sys.executable, "-B", "-c", source]
@@ -160,6 +186,7 @@ class ImageCredentialContextTests(unittest.TestCase):
         docker.mkdir(parents=True)
         (source / "pyproject.toml").write_text("[project]\nname='fixture'\n")
         (source / "uv.lock").write_text("version=1\n")
+        (source / "version.toml").write_text('[framework]\nversion = "0.4.4.9"\n')
         (docker / "Dockerfile").write_text("FROM scratch\n")
         (docker / "Dockerfile.dockerignore").write_text(".git\n")
         (docker.parent / "engine.py").write_text("ENGINE=True\n")
@@ -207,17 +234,20 @@ class ImageCredentialContextTests(unittest.TestCase):
                     self.assertEqual(row.mode, staged.stat().st_mode & 0o777)
                 Path(argv[argv.index("--iidfile") + 1]).write_text(IMAGE_ID + "\n")
                 return subprocess.CompletedProcess(argv, 0, PRIVATE_MARKER, PRIVATE_MARKER)
-            inspection = [{"Id": IMAGE_ID, "Os": "linux", "Architecture": "amd64",
+            inspection = [{"Id": IMAGE_ID, "Created": "2026-10-21T14:15:16.987654321Z",
+                           "RepoTags": [], "Os": "linux", "Architecture": "amd64",
                            "Config": {"Labels": {images.SCHEMA_LABEL: images.SCHEMA,
-                                                 images.FINGERPRINT_LABEL: before.fingerprint}}}]
+                                                 images.FINGERPRINT_LABEL: before.fingerprint,
+                                                 "org.opencontainers.image.version": "0.4.4.9"}}}]
             return subprocess.CompletedProcess(argv, 0, json.dumps(inspection), PRIVATE_MARKER)
 
-        manager.executor = executor
+        manager.executor = _tagging_executor(executor, calls)
         with patch.object(Path, "read_bytes", guarded_read):
             self.assertEqual(before, manager.identity())
             self.assertEqual(IMAGE_ID, manager.resolve())
         self.assertEqual(1, sum("build" in call for call in calls))
-        self.assertFalse(any("tag" in call or "run" in call for call in calls))
+        self.assertEqual(1, sum("tag" in call for call in calls))
+        self.assertFalse(any("run" in call for call in calls))
 
 
 if __name__ == "__main__":

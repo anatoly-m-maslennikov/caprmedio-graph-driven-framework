@@ -2,6 +2,7 @@
 **
 !pyproject.toml
 !uv.lock
+!version.toml
 !102_FRAMEWORK_ENGINE
 !102_FRAMEWORK_ENGINE/**
 **/.env

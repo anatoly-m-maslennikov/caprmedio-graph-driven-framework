@@ -16,6 +16,32 @@ from image_provenance import ImageBuildProvenance  # noqa: E402
 from runtime_images import FINGERPRINT_LABEL, SCHEMA_LABEL, ImageError, ImageManager  # noqa: E402
 
 
+def _display_tag_executor(executor):
+    tagged, sources, inspections = set(), {}, {}
+
+    def execute(argv, **kwargs):
+        command = tuple(argv)
+        if command[:3] == ("docker", "image", "tag"):
+            tagged.add(command[-1])
+            sources[command[-1]] = command[-2]
+            return subprocess.CompletedProcess(argv, 0, "", "")
+        if command[:3] == ("docker", "image", "inspect") and command[-1].startswith("caprmedio-runtime:"):
+            tag = command[-1]
+            if tag not in tagged:
+                return subprocess.CompletedProcess(argv, 1, "", "")
+            value = json.loads(inspections[sources[tag]])
+            value[0]["RepoTags"] = [tag]
+            return subprocess.CompletedProcess(argv, 0, json.dumps(value), "")
+        if command[:3] == ("docker", "image", "ls") and command[-1].startswith("caprmedio-runtime:"):
+            return subprocess.CompletedProcess(argv, 0, "", "")
+        result = executor(argv, **kwargs)
+        if command[:3] == ("docker", "image", "inspect") and result.returncode == 0:
+            inspections[command[-1]] = result.stdout
+        return result
+
+    return execute
+
+
 class ImageProvenanceTests(unittest.TestCase):
     def setUp(self) -> None:
         fixture = fixtures.ImageGoldenTests("runTest")
@@ -61,6 +87,8 @@ class ImageProvenanceTests(unittest.TestCase):
             inspection = [
                 {
                     "Id": fixtures.IMAGE_ID,
+                    "Created": "2026-10-21T14:15:16.987654321Z",
+                    "RepoTags": [],
                     "Os": "linux",
                     "Architecture": "amd64",
                     "Config": {"Labels": labels},
@@ -70,7 +98,7 @@ class ImageProvenanceTests(unittest.TestCase):
 
         manager = ImageManager(
             self.source,
-            executor=executor,
+            executor=_display_tag_executor(executor),
             platform="linux/amd64",
             build_temp_root=self.temporary,
             build_provenance=self.owner,
@@ -91,6 +119,7 @@ class ImageProvenanceTests(unittest.TestCase):
                 labels = {
                     SCHEMA_LABEL: "1",
                     FINGERPRINT_LABEL: manager.identity().fingerprint,
+                    "org.opencontainers.image.version": fixtures.FRAMEWORK_VERSION,
                     **metadata,
                 }
 
@@ -103,6 +132,8 @@ class ImageProvenanceTests(unittest.TestCase):
                             [
                                 {
                                     "Id": fixtures.IMAGE_ID,
+                                    "Created": "2026-10-21T14:15:16.987654321Z",
+                                    "RepoTags": [],
                                     "Os": "linux",
                                     "Architecture": "amd64",
                                     "Config": {"Labels": labels},
@@ -112,7 +143,7 @@ class ImageProvenanceTests(unittest.TestCase):
                     )
                     return subprocess.CompletedProcess(argv, 0, output, "")
 
-                manager.executor = executor
+                manager.executor = _display_tag_executor(executor)
                 self.assertEqual(manager.resolve(), fixtures.IMAGE_ID)
                 self.assertFalse(any("build" in call for call in calls))
                 self.assertNotIn("org.caprmedio.source.head_commit", labels)
@@ -140,6 +171,8 @@ class ImageProvenanceTests(unittest.TestCase):
                     [
                         {
                             "Id": fixtures.IMAGE_ID,
+                            "Created": "2026-10-21T14:15:16.987654321Z",
+                            "RepoTags": [],
                             "Os": "linux",
                             "Architecture": "amd64",
                             "Config": {"Labels": labels},
@@ -151,7 +184,7 @@ class ImageProvenanceTests(unittest.TestCase):
 
         manager = ImageManager(
             self.source,
-            executor=executor,
+            executor=_display_tag_executor(executor),
             platform="linux/amd64",
             build_temp_root=self.temporary,
             build_provenance=self.owner,

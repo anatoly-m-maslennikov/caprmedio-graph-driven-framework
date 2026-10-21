@@ -21,6 +21,7 @@ from runtime_images import ImageError, ImageManager  # noqa: E402
 
 GOLDENS = Path(__file__).parent / "launcher_golden" / "image_cases.json"
 IMAGE_ID = "sha256:" + "a" * 64
+FRAMEWORK_VERSION = "0.4.4.9"
 
 
 class ImageGoldenTests(unittest.TestCase):
@@ -30,8 +31,30 @@ class ImageGoldenTests(unittest.TestCase):
         self.fixture_root = Path(tempfile.mkdtemp(dir=parent))
 
     def manager(self, source_root: Path, executor) -> ImageManager:
+        tagged, sources, inspections = set(), {}, {}
+
+        def tagging_executor(argv, **kwargs):
+            command = tuple(argv)
+            if command[:3] == ("docker", "image", "tag"):
+                tagged.add(command[-1])
+                sources[command[-1]] = command[-2]
+                return subprocess.CompletedProcess(argv, 0, "", "")
+            if command[:3] == ("docker", "image", "inspect") and command[-1].startswith("caprmedio-runtime:"):
+                tag = command[-1]
+                if tag not in tagged:
+                    return subprocess.CompletedProcess(argv, 1, "", "")
+                payload = json.loads(inspections[sources[tag]])
+                payload[0]["RepoTags"] = sorted(set(payload[0].get("RepoTags", [])) | {tag})
+                return subprocess.CompletedProcess(argv, 0, json.dumps(payload), "")
+            if command[:3] == ("docker", "image", "ls") and command[-1].startswith("caprmedio-runtime:"):
+                return subprocess.CompletedProcess(argv, 0, "", "")
+            result = executor(argv, **kwargs)
+            if command[:3] == ("docker", "image", "inspect") and result.returncode == 0:
+                inspections[command[-1]] = result.stdout
+            return result
+
         return ImageManager(
-            source_root, executor=executor, timeout=7, uid=1000, gid=1000, platform="linux/amd64"
+            source_root, executor=tagging_executor, timeout=7, uid=1000, gid=1000, platform="linux/amd64"
         )
 
     def source_fixture(self) -> Path:
@@ -41,6 +64,9 @@ class ImageGoldenTests(unittest.TestCase):
         docker.mkdir(parents=True)
         (root / "pyproject.toml").write_text("[project]\nname = 'fixture'\n", encoding="utf-8")
         (root / "uv.lock").write_text("version = 1\n", encoding="utf-8")
+        (root / "version.toml").write_text(
+            f'[framework]\nversion = "{FRAMEWORK_VERSION}"\n', encoding="utf-8"
+        )
         (docker / "Dockerfile").write_text("FROM scratch\n", encoding="utf-8")
         (docker / "Dockerfile.dockerignore").write_text(".git\n", encoding="utf-8")
         (docker.parent / "engine.py").write_text("ENGINE = 'one'\n", encoding="utf-8")
@@ -98,11 +124,14 @@ class ImageGoldenTests(unittest.TestCase):
                 return subprocess.CompletedProcess(argv, 0, "", "")
             if "ls" in argv:
                 return subprocess.CompletedProcess(argv, 0, "", "")
-            inspection = [{"Id": IMAGE_ID, "Os": "linux", "Architecture": "amd64", "Config": {"Labels": {
+            inspection = [{"Id": IMAGE_ID, "Created": "2026-10-21T14:15:16.987654321Z", "RepoTags": [],
+                           "Os": "linux", "Architecture": "amd64", "Config": {"Labels": {
                 "org.caprmedio.runtime.schema": "1", "org.caprmedio.runtime.fingerprint": identity.fingerprint,
+                "org.opencontainers.image.version": FRAMEWORK_VERSION,
             }}}]
             return subprocess.CompletedProcess(argv, 0, json.dumps(inspection), "")
-        manager = ImageManager(source, executor=executor, uid=1000, gid=1000, platform="linux/amd64", build_temp_root=parent)
+        manager = self.manager(source, executor)
+        manager.build_temp_root = parent
         self.assertEqual(identity, manager.identity())
         self.assertEqual(IMAGE_ID, manager.resolve())
         self.assertEqual(1, len(list(parent.iterdir())))
@@ -138,9 +167,12 @@ class ImageGoldenTests(unittest.TestCase):
             labels = {
                 "org.caprmedio.runtime.schema": "1",
                 "org.caprmedio.runtime.fingerprint": expected.fingerprint,
+                "org.opencontainers.image.version": FRAMEWORK_VERSION,
             }
             inspection = json.dumps([{
                 "Id": IMAGE_ID,
+                "Created": "2026-10-21T14:15:16.987654321Z",
+                "RepoTags": [],
                 "Os": "linux",
                 "Architecture": "amd64",
                 "Config": {"Labels": labels},
@@ -169,10 +201,12 @@ class ImageGoldenTests(unittest.TestCase):
                 return subprocess.CompletedProcess(argv, 0, output, "")
             self.assertIn("inspect", argv)
             inspection = json.dumps([{
-                "Id": IMAGE_ID, "RepoTags": [], "Os": "linux", "Architecture": "amd64",
+                "Id": IMAGE_ID, "Created": "2026-10-21T14:15:16.987654321Z", "RepoTags": [],
+                "Os": "linux", "Architecture": "amd64",
                 "Config": {"Labels": {
                     "org.caprmedio.runtime.schema": "1",
                     "org.caprmedio.runtime.fingerprint": identity.fingerprint,
+                    "org.opencontainers.image.version": FRAMEWORK_VERSION,
                 }},
             }])
             return subprocess.CompletedProcess(argv, 0, inspection, "")
@@ -232,11 +266,14 @@ class ImageGoldenTests(unittest.TestCase):
                 return subprocess.CompletedProcess(argv, 0, "", "")
             inspection = json.dumps([{
                 "Id": IMAGE_ID,
+                "Created": "2026-10-21T14:15:16.987654321Z",
+                "RepoTags": [],
                 "Os": "linux",
                 "Architecture": "amd64",
                 "Config": {"Labels": {
                     "org.caprmedio.runtime.schema": "1",
                     "org.caprmedio.runtime.fingerprint": initial.fingerprint,
+                    "org.opencontainers.image.version": FRAMEWORK_VERSION,
                 }},
             }])
             return subprocess.CompletedProcess(argv, 0, inspection, "")
@@ -269,15 +306,17 @@ class ImageGoldenTests(unittest.TestCase):
                 iidfile.write_text(IMAGE_ID + "\n", encoding="utf-8")
                 return subprocess.CompletedProcess(argv, 0, "", "")
             inspection = json.dumps([{
-                "Id": IMAGE_ID, "Os": "linux", "Architecture": "amd64",
+                "Id": IMAGE_ID, "Created": "2026-10-21T14:15:16.987654321Z", "RepoTags": [],
+                "Os": "linux", "Architecture": "amd64",
                 "Config": {"Labels": {
                     "org.caprmedio.runtime.schema": "1",
                     "org.caprmedio.runtime.fingerprint": identity.fingerprint,
+                    "org.opencontainers.image.version": FRAMEWORK_VERSION,
                 }},
             }])
             return subprocess.CompletedProcess(argv, 0, inspection, "")
 
-        manager.executor = executor
+        manager = self.manager(source, executor)
         with patch.dict(os.environ, caller, clear=True):
             self.assertEqual(IMAGE_ID, manager.resolve())
         self.assertEqual(identity, manager.identity())

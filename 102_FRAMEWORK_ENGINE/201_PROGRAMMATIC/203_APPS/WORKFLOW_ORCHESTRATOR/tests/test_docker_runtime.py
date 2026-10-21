@@ -20,6 +20,8 @@ from runtime import Runtime  # noqa: E402
 
 
 class RuntimeTests(unittest.TestCase):
+    image = "sha256:" + "a" * 64
+
     def setUp(self):
         self.temporary = APP.parents[3] / ".caprmedio_tmp/tests/docker-runtime"
         self.temporary.mkdir(parents=True, exist_ok=True)
@@ -136,7 +138,7 @@ class RuntimeTests(unittest.TestCase):
             root = Path(directory)
             (root / ".caprmedio_caprmedio").mkdir()
             (root / ".git").mkdir()
-            runtime = Runtime(root, mock=True)
+            runtime = Runtime(root, mock=True, image=self.image)
             with patch.object(runtime, "call", side_effect=RuntimeError("not ready")):
                 with self.assertRaises(RuntimeError):
                     runtime.start()
@@ -151,7 +153,7 @@ class RuntimeTests(unittest.TestCase):
             root = Path(directory)
             (root / ".caprmedio_caprmedio").mkdir()
             (root / ".git").mkdir()
-            runtime = Runtime(root, mock=True)
+            runtime = Runtime(root, mock=True, image=self.image)
             with patch.object(runtime, "call", return_value="") as operation:
                 self.assertEqual(runtime.start()["outcome"], "ready")
                 self.assertEqual(runtime.start()["outcome"], "ready")

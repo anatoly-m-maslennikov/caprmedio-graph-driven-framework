@@ -10,9 +10,9 @@ import subprocess
 import tempfile
 
 try:
-    from .image_reference import IMAGE, IMMUTABLE_IMAGE, image_reference
+    from .image_reference import IMMUTABLE_IMAGE, image_reference
 except ImportError:  # direct execution: docker/ is the import root
-    from image_reference import IMAGE, IMMUTABLE_IMAGE, image_reference
+    from image_reference import IMMUTABLE_IMAGE, image_reference
 
 DIRECTORY = Path(__file__).resolve().parent
 SOURCE_ROOT = DIRECTORY.parents[4]
@@ -101,21 +101,39 @@ class Runtime:
             raise RuntimeError("Docker operation failed; inspect service logs")
         return result.stdout if capture else None
 
+    def _project_temp_root(self, *, create=False):
+        path = self.root / ".caprmedio_tmp"
+        if path.is_symlink():
+            raise ValueError("Runtime temporary root must not be a symlink")
+        try:
+            if create:
+                path.mkdir(exist_ok=True)
+            resolved = path.resolve(strict=True)
+        except OSError as error:
+            raise ValueError("Runtime temporary root is unavailable") from error
+        if not path.is_dir() or resolved != path:
+            raise ValueError("Runtime temporary root must be a project directory")
+        return path
+
+    def _image_manager(self, *, create_temp=False):
+        try:
+            from .runtime_images import ImageManager
+        except ImportError:  # direct execution: docker/ is the import root
+            from runtime_images import ImageManager
+        return ImageManager(SOURCE_ROOT, build_temp_root=self._project_temp_root(create=create_temp))
+
+    def _ensure_launch_image(self):
+        if self.image is not None:
+            return self.image
+        if os.environ.get("CAPRMEDIO_IMAGE"):
+            self.image = image_reference(os.environ)
+            return self.image
+        self.image = self._image_manager().resolve(build_if_missing=False)
+        return self.image
+
     def build(self):
-        command = [
-            "docker",
-            "build",
-            "--file",
-            str(DIRECTORY / "Dockerfile"),
-            "--tag",
-            IMAGE,
-            "--build-arg",
-            f"RUNTIME_UID={os.getuid()}",
-            "--build-arg",
-            f"RUNTIME_GID={os.getgid()}",
-            str(SOURCE_ROOT),
-        ]
-        subprocess.run(command, check=True)
+        self.image = self._image_manager(create_temp=True).resolve()
+        return self.image
 
     def prepare(self, *, require_auth=True):
         for relative in (".caprmedio_caprmedio", ".git"):
@@ -142,6 +160,7 @@ class Runtime:
 
     def start(self):
         self.prepare()
+        self._ensure_launch_image()
         self.call(
             "up",
             "-d",
@@ -218,6 +237,7 @@ class Runtime:
     def mcp_http_start(self):
         self.prepare(require_auth=False)
         port = self._http_port()
+        self._ensure_launch_image()
         # Generation readiness can take 90s; keep Compose and the caller outside that budget.
         self.call("up", "-d", "--wait", "--wait-timeout", "120", "--force-recreate", "mcp-http",
                   http=True, timeout=150)
@@ -281,7 +301,7 @@ def main():
         return 0 if ready else 1
     runtime = Runtime(args.project_root, mock=args.mock, auth_file=args.auth_file, image=args.image)
     if args.operation == "build":
-        runtime.build()
+        print(runtime.build())
     elif args.operation in ("start", "restart"):
         if args.operation == "restart":
             runtime.stop()
@@ -299,6 +319,8 @@ def main():
     elif args.operation == "mcp-http-status":
         print(json.dumps(runtime.mcp_http_status()))
     else:
+        runtime.prepare(require_auth=False)
+        runtime._ensure_launch_image()
         os.execvpe(
             "docker",
             runtime.command("run", "--rm", "--no-deps", "-T", "mcp"),

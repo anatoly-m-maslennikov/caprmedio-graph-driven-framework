@@ -56,6 +56,15 @@ Atoms, runtime state, authentication, or `.env` files. Compose explicitly disabl
 implicit `.env` loading. Network restrictions still apply to image building;
 Docker is not a workaround for denied registry access.
 
+`version.toml` is part of the admitted source closure and is carried into the
+private build context. The resulting image carries the exact
+`org.opencontainers.image.version` label and receives an additive display tag in
+the existing `caprmedio-runtime` repository:
+`caprmedio-runtime:<version>-<Docker-Created-UTC>-<image-sha-first-12>`. The UTC
+timestamp comes from Docker image inspection after the immutable image is built
+or reused. Runtime admission still uses only the full immutable SHA-256 ID;
+there is no `latest` alias, and an occupied display tag is never moved.
+
 `--mock` uses a deterministic Agent and no live credentials or paid inference.
 It is only for tests: do not enqueue real Atom selections against the mock Agent.
 The two real-container end-to-end tests require a successful image build:

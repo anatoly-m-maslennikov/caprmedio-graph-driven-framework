@@ -22,9 +22,13 @@ import time
 
 try:
     from .image_reference import IMMUTABLE_IMAGE
+    from .image_metadata import (
+        OCI_VERSION_LABEL, display_image_tag, docker_created_utc, read_framework_version,
+    )
     from .image_provenance import ImageBuildProvenance, label_arguments
 except ImportError:  # direct execution/import with docker/ on sys.path
     from image_reference import IMMUTABLE_IMAGE
+    from image_metadata import OCI_VERSION_LABEL, display_image_tag, docker_created_utc, read_framework_version
     from image_provenance import ImageBuildProvenance, label_arguments
 
 
@@ -35,7 +39,7 @@ DOCKERIGNORE = DOCKER_ROOT + "/Dockerfile.dockerignore"
 SCHEMA_LABEL = "org.caprmedio.runtime.schema"
 FINGERPRINT_LABEL = "org.caprmedio.runtime.fingerprint"
 SCHEMA = "1"
-_REQUIRED = ("pyproject.toml", "uv.lock", DOCKERFILE, DOCKERIGNORE)
+_REQUIRED = ("pyproject.toml", "uv.lock", "version.toml", DOCKERFILE, DOCKERIGNORE)
 _TRANSIENT_DIRECTORIES = frozenset({
     ".git", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache",
     ".tox", ".nox", ".venv", ".virtualenv", "venv", "virtualenv",
@@ -81,6 +85,7 @@ class BuildInput:
 class ImageIdentity:
     fingerprint: str
     tag: str
+    version: str
     platform: str
     manifest: tuple[BuildInput, ...]
     uid: int
@@ -248,20 +253,22 @@ class ImageManager:
         """Observe only admitted source paths; Project/Git state is not an input."""
         root = self._root()
         try:
+            version = read_framework_version(self._file(root, "version.toml"))
             rows = tuple(BuildInput(path.relative_to(root).as_posix(),
                                     hashlib.sha256(path.read_bytes()).hexdigest(),
                                     path.stat().st_mode & 0o777)
                          for path in self._files(root))
-        except OSError as error:
+        except (OSError, ValueError, UnicodeError) as error:
             raise self._input_error() from error
         payload = {"schema": SCHEMA, "platform": self.platform,
                    "build_arguments": {"RUNTIME_UID": self.uid, "RUNTIME_GID": self.gid},
                    "files": [[row.path, row.sha256, row.mode] for row in rows]}
         fingerprint = hashlib.sha256(_canonical(payload)).hexdigest()
-        return ImageIdentity(fingerprint, "caprmedio-runtime:inputs-" + fingerprint,
+        return ImageIdentity(fingerprint, "caprmedio-runtime:inputs-" + fingerprint, version,
                              self.platform, rows, self.uid, self.gid)
 
-    def _run(self, argv, *, code="IMAGE_REFUSED", cwd=None, buildx_config=None):
+    def _run(self, argv, *, code="IMAGE_REFUSED", cwd=None, buildx_config=None,
+             allow_failure=False):
         build = len(argv) > 1 and argv[1] == "build"
         try:
             if self.executor is _DEFAULT_EXECUTOR:
@@ -283,14 +290,19 @@ class ImageManager:
         except (OSError, ValueError):
             raise ImageError(code, "Docker image operation is unavailable") from None
         if (not isinstance(result, subprocess.CompletedProcess)
-                or type(result.returncode) is not int or result.returncode != 0):
+                or type(result.returncode) is not int):
+            raise ImageError(code, "Docker image operation failed")
+        if result.returncode != 0:
+            if allow_failure:
+                return None
             raise ImageError(code, "Docker image operation failed")
         output = "" if build else result.stdout
         if not isinstance(output, str) or len(output.encode("utf-8")) > _MAX_OUTPUT:
             raise ImageError(code, "Docker image output is incomplete or invalid")
         return output
 
-    def _inspect(self, image: str, identity: ImageIdentity, *, code: str = "IMAGE_REFUSED", built: bool = False) -> str:
+    def _inspect_details(self, image: str, identity: ImageIdentity, *,
+                         code: str = "IMAGE_REFUSED", built: bool = False) -> str:
         raw = self._run(("docker", "image", "inspect", image), code=code)
         try:
             values = json.loads(raw, object_pairs_hook=_unique_object)
@@ -305,12 +317,62 @@ class ImageManager:
             if (value["Id"] != image or not isinstance(labels, dict)
                     or labels.get(SCHEMA_LABEL) != SCHEMA
                     or labels.get(FINGERPRINT_LABEL) != identity.fingerprint
+                    or labels.get(OCI_VERSION_LABEL) != identity.version
                     or value.get("Os") != platform[0] or value.get("Architecture") != platform[1]
                     or (len(platform) == 3 and value.get("Variant") != platform[2])):
                 raise ValueError("image identity differs")
+            created = value["Created"]
+            docker_created_utc(created)
         except (ValueError, TypeError, KeyError) as error:
             raise ImageError(code, "Image schema, source fingerprint, platform or immutable identity does not match") from error
+        return created
+
+    def _inspect(self, image: str, identity: ImageIdentity, *, code: str = "IMAGE_REFUSED", built: bool = False) -> str:
+        self._inspect_details(image, identity, code=code, built=built)
         return image
+
+    def _display_tag_state(self, tag: str) -> str | None:
+        """Return the digest owning a tag, or None when Docker confirms it absent."""
+        raw = self._run(("docker", "image", "inspect", tag), allow_failure=True)
+        if raw is None:
+            # A missing tag is a normal negative lookup; a daemon failure must
+            # still prove an empty listing before any tag mutation is attempted.
+            listed = self._run(("docker", "image", "ls", "--all", "--quiet", "--no-trunc", tag))
+            if listed.strip():
+                raise ImageError("IMAGE_REFUSED", "Display tag inspection is unavailable")
+            return None
+        try:
+            values = json.loads(raw, object_pairs_hook=_unique_object)
+            if not isinstance(values, list) or len(values) != 1 or not isinstance(values[0], dict):
+                raise ValueError("one display tag is required")
+            value = values[0]
+            image = value["Id"]
+            repo_tags = value.get("RepoTags")
+            if not isinstance(repo_tags, list) or any(not isinstance(item, str) for item in repo_tags):
+                raise ValueError("display tag inventory is invalid")
+            if tag not in repo_tags:
+                raise ImageError("IMAGE_REFUSED", "Display tag inventory is ambiguous")
+            if IMMUTABLE_IMAGE.fullmatch(image) is None:
+                raise ValueError("display tag identity is invalid")
+            return image
+        except (ValueError, TypeError, KeyError) as error:
+            raise ImageError("IMAGE_REFUSED", "Display tag inventory is invalid") from error
+
+    def ensure_display_tag(self, image: str, version: str, created: object) -> str:
+        """Add one collision-safe display tag without changing an existing tag."""
+        try:
+            tag = display_image_tag(version, created, image)
+        except ValueError as error:
+            raise ImageError("IMAGE_REFUSED", "Display tag metadata is invalid") from error
+        existing = self._display_tag_state(tag)
+        if existing is not None:
+            if existing != image:
+                raise ImageError("IMAGE_REFUSED", "Display tag is already bound to another image")
+            return tag
+        self._run(("docker", "image", "tag", image, tag), code="BUILD_FAILED")
+        if self._display_tag_state(tag) != image:
+            raise ImageError("BUILD_FAILED", "Docker did not retain the requested display tag")
+        return tag
 
     def _current(self, identity: ImageIdentity):
         if self.identity() != identity:
@@ -324,7 +386,8 @@ class ImageManager:
             raise ImageError("IMAGE_REFUSED", "Image build selection must be a boolean")
         identity = self.identity()
         if explicit_id is not None:
-            image = self._inspect(explicit_id, identity)
+            image = explicit_id
+            created = self._inspect_details(explicit_id, identity)
         else:
             raw = self._run(("docker", "image", "ls", "--all", "--quiet", "--no-trunc",
                              "--filter", f"label={SCHEMA_LABEL}={SCHEMA}",
@@ -333,17 +396,19 @@ class ImageManager:
             if any(IMMUTABLE_IMAGE.fullmatch(value) is None for value in ids) or len(ids) > 1:
                 raise ImageError("IMAGE_REFUSED", "Matching local image identity is invalid or ambiguous")
             if ids:
-                image = self._inspect(next(iter(ids)), identity)
+                image = next(iter(ids))
+                created = self._inspect_details(image, identity)
             elif build_if_missing:
                 self._current(identity)
-                image = self._build(identity)
+                return self._build(identity)
             else:
                 raise ImageError("IMAGE_REFUSED", "No matching local runtime image is present; build is disabled")
         self._current(identity)
+        self.ensure_display_tag(image, identity.version, created)
         return image
 
     def _build(self, identity: ImageIdentity) -> str:
-        """One missing-image attempt, without moving tags or runtime resources."""
+        """Build one image, then add its inspect-derived display tag if safe."""
         self._current(identity)
         try:
             # Retain one private attempt as build evidence.  Cleanup must never
@@ -368,6 +433,7 @@ class ImageManager:
         command = ("docker", "build", "--iidfile", str(iidfile),
                    "--label", f"{SCHEMA_LABEL}={SCHEMA}",
                    "--label", f"{FINGERPRINT_LABEL}={identity.fingerprint}",
+                   "--label", f"{OCI_VERSION_LABEL}={identity.version}",
                    *label_arguments(self.build_provenance),
                    "--platform", identity.platform,
                    "--build-arg", f"RUNTIME_UID={identity.uid}",
@@ -384,7 +450,8 @@ class ImageManager:
                 raise ValueError("immutable builder identity is invalid")
         except (OSError, ValueError, UnicodeError) as error:
             raise ImageError("BUILD_FAILED", "Builder did not capture one immutable sha256 image ID") from error
-        self._inspect(image, identity, code="BUILD_FAILED", built=True)
+        created = self._inspect_details(image, identity, code="BUILD_FAILED", built=True)
+        self.ensure_display_tag(image, identity.version, created)
         self._current(identity)
         self._verify_context(context, identity)
         return image

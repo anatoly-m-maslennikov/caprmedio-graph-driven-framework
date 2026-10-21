@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 14
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-13 23:30:12 +0400"
+version: 6
+updated_at: "2026-10-21T08:58:22Z"
 subjects:
   governs: "Workflow Orchestrator/Project MCP runtime admission Carrier"
   depends_on: [Project, MCP, Docker Runtime, Image, Gateway, Carrier, Project Settings]
@@ -37,3 +37,7 @@ the delivered launcher boundary **must** carry exact image and selected-Project 
 - deliver the small explicit `start_mcp.py` bootstrap under `.caprmedio_runtime/`, copied from its tracked Engine source during installation and refreshed during upgrade. The installed copy resolves the installed Engine package without requiring an Engine checkout in the target Project. Installation preserves Project configuration and runtime state and does not start MCP. When explicitly invoked, the bootstrap runs through uv, starts or reuses only the selected Project MCP HTTP container and returns its URL. Importing, installing or connecting to this script does not execute a Workflow; no scheduler or automatic Workflow hook is installed.
 - the readiness probe carries no password, bearer, Authorization value, or credential configuration. No Carrier places an HTTP credential in a URL, argument vector, image, committed configuration, normal log, launch result, or persistent metadata.
 - this Delivery supplements the existing Docker runtime and HTTP Gateway Carriers. It is not a full-Release delivery, does not repurpose Release actions, does not replace package/runtime N, and never permits live-service replacement.
+
+### Image display metadata
+
+Carry version.toml within the exact admitted source/package build closure and its source fingerprint; framework.version is encoded as the Docker/OCI org.opencontainers.image.version label. Deliver repository caprmedio-runtime and the tag <framework-version>-<UTC-build-date-YYYYMMDDTHHMMSSZ>-<first12-image-sha>, deriving the date from the inspected Docker Created value and the suffix from the full immutable sha256 ID. UTC date and tag are descriptive output, not source fingerprint inputs or runtime selectors. Preserve the exact safe version string. Never emit latest/local moving aliases or move an existing tag to a different digest. Same-digest display binding is idempotent. Historical additive naming requires R1901's explicit permission and verified image/version evidence; absent evidence is reported, not reconstructed from today's checkout. Existing launch/result interfaces retain immutable image ID/fingerprint and unchanged safe Project metadata; tags grant no ownership, admission, cleanup or live replacement authority.

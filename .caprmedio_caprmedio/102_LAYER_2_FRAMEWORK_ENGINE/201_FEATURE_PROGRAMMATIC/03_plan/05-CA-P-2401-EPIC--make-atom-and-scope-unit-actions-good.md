@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 42
-updated_at: "2026-10-21T01:30:00Z"
+version: 49
+updated_at: "2026-10-21T09:38:06Z"
 ---
 # Summary
 
@@ -335,7 +335,7 @@ Update active MCP R/E/D before implementation, using the PROGRAMMATIC M/E/D proj
 - [x] [CA-P-2510 — Render the same-port MCP health page](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/70-CA-P-2510-TASK--render-the-same-port-mcp-health-page.md)
 - [x] [CA-P-2511 — Verify MCP health and history in isolated fixtures](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/71-CA-P-2511-TASK--verify-mcp-health-and-history-in-isolated-fixtures.md)
 - [x] [CA-P-2512 — Prepare the authorized local release gate](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/72-CA-P-2512-TASK--prepare-the-authorized-local-release-gate.md)
-- [ ] [CA-P-2513 — Run local release and verify the installed MCP health page](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/73-CA-P-2513-TASK--run-local-release-and-verify-the-installed-mcp-health-page.md)
+- [x] [CA-P-2513 — Run local release and verify the installed MCP health page](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/73-CA-P-2513-TASK--run-local-release-and-verify-the-installed-mcp-health-page.md)
 
 ### Health contract admitted and implementation lanes opened
 
@@ -417,3 +417,48 @@ P2517/C559 diagnosis confirms Plan Draft preview was blocked by12 missing frozen
 P2517 is Done and C559 Resolved after restoring only the missing frozen containment closure and the synthetic Archived @3 suffix. W04 matrix29/8/8 and independent fixture review APPROVE. R1608 historical-registry mismatch was withdrawn after checking that registry entries locate current source re-reading; no blind authority repinning or live Atom fixture fallback. P2514/P2515/P2516/P2517 are all accepted; P2513 has been reviewed after each completion.
 
 The final frozen candidate passes14 unique modules/101 tests/zero skips, covering every previously failed module, native Draft predecessor regression, model/status guards and health. Source/fixture hashes remain unchanged and diff check is clean. The first coordinator passed13 modules/100 tests but lacked the Docker context needed to import the matrix; fresh intended native invocation passed the matrix1 test in74.636s. The configuration error is retained, not counted as acceptance. Fresh normal local release local-20261021-mcp-health-reviewed is now activated under existing authorization, rerunning every full gate before actual installation/startup. No source writers remain. Production is unchanged at this checkpoint; C555 remains Active and no installed success or causal cure is inferred.
+
+### Image names and version/build-date tags — Operator-prioritized increment
+
+The Operator explicitly prioritizes readable names and tags for CAPRMEDIO Docker images before resuming the recursive-container queue. Canonical Tasks P2518–P2521 are admitted below; each owns at most15minutes of own work and is split before extending. P2518 is Active; later Tasks are dependent Backlog. Four ready read-only lanes cover canonical build/callers, regression preparation, source contracts and exact live-image/version provenance. Root alone owns governed records, Git and Docker mutation. Current Project runtime remains untouched.
+
+Reuse repository `caprmedio-runtime`. Carry one additive display tag `<framework-version>-<UTC-build-date-YYYYMMDDTHHMMSSZ>-<first12-image-sha>`. Version comes from the exact safe source/package `version.toml` included in the source fingerprint and OCI `org.opencontainers.image.version` build label. Build date comes from the inspected image's actual Docker `Created`, including cache hits, never tag-maintenance time. Source fingerprint and full immutable sha256 remain the only admission/launch boundary; tags are display metadata, not a mutable override or compatibility proof. New builds and validated reuse share the canonical naming owner; the development builder and disposable test/release callers must be covered without duplicate policy. Do not add latest/local moving aliases. An already bound same-digest display tag is a no-op; an occupied other-digest tag is retained and reported, never moved. Build date is not a source fingerprint input.
+
+The same explicit instruction authorizes adding these display tags to existing positively identified CAPRMEDIO images only after verifying original build timestamp and exact version from embedded/release/source evidence. Unknown historical versions are deferred and reported, never guessed as the current version. No deletion/pruning, image overwrite, container stop/restart/replacement, new release or production mutation test is included. Amend R1901/M356/D594/E600 and release delivery at their current Standard tiers to make this additive metadata permission precise before implementation. Missing current-Step/inner parameters in recovered MCP context remain the existing C545 gap; use the standing Operator-authorized manual fallback for planning/contract records, retaining exact prior bytes and actual provenance, never guessed MCP effect payloads.
+
+The earlier local release `local-20261021-mcp-health-reviewed` completed as version0.4.4.9:425modules/3797tests/zero skips/zero failed modules and launcher integration passed; one installed healthy MCP container and same-port JSON/HTML plus fresh SDK/connected discovery were observed. Its receipt and Journal event dd73c633-b340-4af4-b0d7-cf122710b91e close P2513's execution; this checkpoint reconciles its stale Active carrier rather than rerunning release. C555 original cause remains unknown and discovery coverage diagnostics remain separate. After the naming increment, review the unfinished P2499/P2501/P2503/P2506/P2495 container implementation/functional acceptance frontier before continuing. Stage2 Scope Unit operations and held/uncertain replay remain excluded.
+
+- [x] [CA-P-2518 — Implement versioned and dated CAPRMEDIO image names](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/78-CA-P-2518-TASK--implement-versioned-and-dated-caprmedio-image-names.md)
+- [x] [CA-P-2519 — Verify CAPRMEDIO image name and build metadata](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/79-CA-P-2519-TASK--verify-caprmedio-image-name-and-build-metadata.md)
+- [x] [CA-P-2520 — Name existing verified CAPRMEDIO images](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/80-CA-P-2520-TASK--name-existing-verified-caprmedio-images.md)
+- [ ] [CA-P-2521 — Accept image naming and resume container queue](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/81-CA-P-2521-TASK--accept-image-naming-and-resume-container-queue.md)
+
+### Image contract aligned; exclusive source and test lanes activated
+
+R1901@4/M356@4/D594@6/E600@5 now carry the exact version/date/digest display-tag contract and narrow additive permission with unchanged immutable admission. Prior revisions are retained byte-for-byte under each role's archive. D564 ownership-safe cleanup is unchanged: name/version/date never authorize removal. P2518 owns the canonical build/helper/development caller; P2519 is Active for disjoint test/fixture preparation and waits for reviewed source before acceptance. Four investigation lanes completed their initial reports; the historical-inventory lane continues bounded evidence recovery without guessing18currently unknown versions. Docker inventory:29CAPRMEDIO-labelled images all untagged;11versions currently source-proven. No Docker change/restart, new release, public effect or held/uncertain replay has occurred.
+
+### Image review follow-up split before acceptance
+
+P2518's initial source increment is frozen; disjoint P2519 tests are still preparing/running and no integrated acceptance or Docker mutation is claimed. Independent review exposed a development build-to-start digest handoff and Project-temp gap; new child P2522 splits that narrow follow-up before extending P2518's own-work bound. It also closes ambiguous tag-inspection and tag-length boundary details without changing the accepted display/admission contract. Root check found exactly the same3inherited C901 diagnostics in current and HEAD (_bounded_run12, _verify_context11, runtime.main11), not a clean-global-lint claim.
+
+C560 records the image naming defect. Its one native create attempt stopped before publication on the final Project-boundary read-I/O timeout; after target/identity absence checks it was manually saved under the standing fallback, and C561 separately records that postponed admission-performance issue. No validator/time-budget change or blind create replay. Read-only recovery completed with29images,11verified versions and18unknown; the Operator is asked how to display unknown historical versions. Current runtime remains unchanged. Final P2519 acceptance, reviewed existing-image maintenance P2520 and container-queue continuation P2521 still wait.
+
+### Operator decision: remove the eighteen version-unknown historical images
+
+The latest direct answer is just remove them. This supersedes the earlier unknown-version display question and no-deletion bound only for the exact18version-null image IDs in the retained inventory. New Active P2523 owns fresh positive identification, non-force image-only removal and exact readback. No age/name glob, prune, force, container/volume/cache removal, known-version image removal or current-runtime restart is included. Container-referenced images are preserved/reported pending separate authority, not forcibly deleted. P2520 continues additive naming for the11verified historical/current images and the new builder result. No version is guessed and no unknown-tag label will be added. Root remains the sole Docker/Git/record owner; source/tests are frozen after review, with final broader fixtures and isolated build readback pending.
+
+- [x] [CA-P-2523 — Remove the explicitly selected version-unknown images](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/82-CA-P-2523-TASK--remove-the-explicitly-selected-version-unknown-images.md)
+
+### Final naming acceptance and exact stopped-container cleanup authorization
+
+Root final focused gate109/109 passed in6.495s after the actual formatting/final fixture changes; independent P2522 review APPROVE. A real isolated canonical Docker build produced sha256:650023dd711fad2e48a3446b2780733d20881adbe088a8f63a09af48f938fd83, OCI version0.4.4.9, actual DockerCreated2026-10-21T09:25:17.76190551Z and caprmedio-runtime:0.4.4.9-20261021T092517Z-650023dd711f. Same immutable-ID reuse and full source-fingerprint stability24e231511e70d70e0eff59997694fdb01b706c93e54ddfb2f6d317dd083d1384 passed; no container started/replaced. This is not a new local release or installed runtime adoption.
+
+P2523 image-only pass removed16unknown-versionimages and retained2referencedby6stoppedtestcontainers. The Operator now separately explicitly authorizes those exact6container removals and then those2image removals. Updated P2523@2 binds the exact receipt IDs, fresh stopped/image checks, non-force/non-volume deletion and unchanged running MCP. No other stopped container, known-version image, volume/cache or runtime may be removed. P2520 verified naming follows using the reviewed canonical helper. Docker lacks atomic tag compare-and-create: occupied-tag checks/readback protect the stated canonical-owner scope, not arbitrary hostile external writers; no lock framework or absolute external-writer guarantee is claimed. C561 and legacy ProjectMCP temp-root plumbing C562 remain separate deferred Problems.
+
+### Approved cleanup completed; historical naming and continuation reviewed
+
+P2518/P2522/P2519/P2520/P2523 are Done; P2521 is Active for final acceptance/continuation review. All18exact version-unknown images and separately approved6stopped test containers were removed non-force, no volumes/prune; production e81250f8ed4c remains same08f26a9b8b14image healthy. All11verified historical/current images now carry caprmedio-runtime tags with source-proven version and actualDockerCreatedUTC; the isolated new650023dd711fbuild is likewise named. Final109testgate/realbuild/reuse receipts are in current Tasks. A tiny696-byte schema1 scratchimage27b9017daa69 without Created was additionally observed during final inventory; verify its origin separately, do not invent a build date or infer deletion authority. Two read-only Luna lanes now review pending recursive-container source composition and functional acceptance before implementation. C561/C562 remain deferred. No release/deployment, production mutation test, held replay or Stage2 scope work.
+
+### Recursive-container continuation: acceptance before speculative code changes
+
+Two independent Luna reviews find production coordinator, per-member admission and MCP/provider wiring present. Pure34checks pass; native Archive/Done tests exist, but refreshed native run exceeded90seconds in currentness scanning and was interrupted, not accepted. P2499/P2501/P2503 stay pending acceptance; do not infer completion from old plan claims. P2502/P2506 updated before continuation. New bounded Tasks P2524 (native fixture readiness diagnosis, fixture-only correction if concrete) and P2525 (native per-member lineage/partial-stop assertions) are Active with disjoint file ownership; final native execution waits for readiness and independent review. Existing C551/native composition concerns remain open; no source guard/timeout waiver, live Atom fallback, new release, production mutation test or held replay.

@@ -11,6 +11,8 @@ APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP / "docker"))
 from runtime import Runtime  # noqa: E402
 
+IMAGE = "sha256:" + "a" * 64
+
 
 class MCPHTTPRuntimeTests(unittest.TestCase):
     def setUp(self):
@@ -38,7 +40,7 @@ class MCPHTTPRuntimeTests(unittest.TestCase):
         }]}
 
     def test_explicit_port_is_required_without_a_token_or_agent_auth(self):
-        runtime = Runtime(self.root())
+        runtime = Runtime(self.root(), image=IMAGE)
         with patch.dict(os.environ, {}, clear=True):
             with self.assertRaisesRegex(ValueError, "CAPRMEDIO_MCP_HTTP_PORT"):
                 runtime.mcp_http_start()
@@ -51,7 +53,7 @@ class MCPHTTPRuntimeTests(unittest.TestCase):
         self.assertTrue(call.call_args.kwargs["http"])
 
     def test_startup_deadlines_cover_generation_readiness_budget(self):
-        runtime = Runtime(self.root())
+        runtime = Runtime(self.root(), image=IMAGE)
         with patch.dict(os.environ, {"CAPRMEDIO_MCP_HTTP_PORT": "8099"}, clear=True), \
                 patch.object(runtime, "call", return_value="") as call, \
                 patch.object(runtime, "mcp_http_status", return_value=self._published_status()):
@@ -85,10 +87,10 @@ class MCPHTTPRuntimeTests(unittest.TestCase):
         for name, status in cases.items():
             with self.subTest(name=name), \
                     patch.dict(os.environ, {"CAPRMEDIO_MCP_HTTP_PORT": "8099"}, clear=True):
-                runtime = Runtime(self.root())
+                runtime = Runtime(self.root(), image=IMAGE)
                 with patch.object(runtime, "call", return_value=""), \
                         patch.object(runtime, "mcp_http_status", return_value=status):
-                    with self.assertRaisesRegex(RuntimeError, "HTTP MCP published listener admission failed") as error:
+                    with self.assertRaisesRegex(RuntimeError, "HTTP MCP published listener admission failed"):
                         runtime.mcp_http_start()
 
     def test_overlay_is_loopback_only_and_has_no_agent_or_socket(self):
