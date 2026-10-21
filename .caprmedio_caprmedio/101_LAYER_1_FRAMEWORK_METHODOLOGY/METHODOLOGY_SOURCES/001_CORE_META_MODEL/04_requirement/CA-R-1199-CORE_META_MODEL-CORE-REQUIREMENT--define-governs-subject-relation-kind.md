@@ -2,9 +2,9 @@
 subjects:
   governs: "GOVERNS"
   depends_on:
-    ["Relation Kind", "Entity/Node/Continuant/Atom", "Subject", "Entity", "Entity/Node/Continuant/Atom.Substance"]
-version: 16
-updated_at: "2026-10-19 15:52:36 +0400"
+    ["Relation Kind", "Entity/Node/Continuant/Atom", "Subject", "Subject Target", "Entity/Node/Continuant/Atom.Substance"]
+version: 17
+updated_at: "2026-10-21 01:47:52 +0400"
 relations: {}
 atom_id: "CA-R-1199"
 content_role: "Requirement"
@@ -25,6 +25,6 @@ the GOVERNS Subject Relation Kind.
 
 ## Claim
 
-GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Entity about which its Claim is authoritative.
+GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Subject Target about which its Claim is authoritative.
 
 ## Details

@@ -31,6 +31,24 @@ Settings must register the shared Journal. An explicitly started, password-free
 localhost HTTP transport is available only through the isolated Docker runtime;
 it is documented in the [Docker runtime README](../203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md).
 
+## Same-port health page
+
+The existing loopback HTTP listener serves `GET /health` on the same configured
+host port as `/mcp`. Machine clients receive the unchanged JSON
+`{"ready":true}` or `{"ready":false}` representation with its existing 200 or
+503 status. A client that explicitly requests `Accept: text/html` receives a
+read-only browser view at that same URL; use the configured loopback URL from the
+Docker runtime documentation and replace `/mcp` with `/health`.
+
+The page reports gateway task availability, the already-advertised Tool registry,
+and bounded process-local Tool and Workflow observations. It separates scheduler
+status from actual Workflow outcome/disposition and labels missing observations
+as unknown. History is limited to 32 entries per kind and resets when the gateway
+restarts. It performs no Tool, Workflow, DBOS, Docker, Journal, reload or other
+live probe, and exposes no arguments, results, credentials, paths or provider
+exception text. `Accept: application/json`, `*/*`, missing Accept, and an HTML
+media range with `q=0` retain the machine JSON response.
+
 For independent execution, also include `--group workflow-orchestrator` before
 `python` in the runtime invocation. Start the worker explicitly using its
 [README](../203_APPS/WORKFLOW_ORCHESTRATOR/README.md). The worker's lifetime is

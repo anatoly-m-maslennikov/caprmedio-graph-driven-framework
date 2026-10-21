@@ -265,6 +265,24 @@ def _canonical(operations: Any, value: object) -> str:
         raise operations.ToolError("subject-intent-invalid", "Subject intent must be canonical JSON data") from error
 
 
+def _planned_atom(operations: Any, root: Path, plan: Mapping[str, Any]) -> Any:
+    path = plan["path"]
+    control = operations.control_root(root)
+    role = operations._role_directory(path, control)
+    if role is None:
+        raise operations.ToolError("subject-intent-invalid", "Subject target has no content-role history location")
+    return operations.Atom(
+        path,
+        plan["selector"],
+        path.name,
+        plan["atom_id"],
+        operations._lifecycle(path, control),
+        role,
+        plan["frontmatter"],
+        plan["body"],
+    )
+
+
 def _intent_from_plan(operations: Any, root: Path, plan: dict[str, Any], profile_name: str, evidence: dict[str, Any]) -> dict[str, Any]:
     _ensure_non_overlapping(operations, plan["subject_replacements"])
     frontmatter = _apply_replacements(plan["frontmatter"], plan["subject_replacements"])
@@ -280,8 +298,7 @@ def _intent_from_plan(operations: Any, root: Path, plan: dict[str, Any], profile
                for patch in plan["patches"]]
     predecessor = None
     if not plan["noop"]:
-        role = next(parent for parent in plan["path"].parents if operations.ROLE_DIRECTORY.fullmatch(parent.name))
-        archive = role / "archive" / f'{plan["path"].stem}@{plan["version"]}{plan["path"].suffix}'
+        archive = operations.preserved_revision_destination(root, _planned_atom(operations, root, plan))
         predecessor = {
             "atom_id": plan["atom_id"], "version": plan["version"],
             "path": archive.relative_to(root).as_posix(), "sha256": plan["before_sha256"], "lifecycle": "archived",

@@ -7,9 +7,10 @@ from pathlib import Path
 import re
 
 from starlette.requests import Request
-from starlette.responses import JSONResponse, Response
+from starlette.responses import HTMLResponse, JSONResponse, Response
 from starlette.routing import Route
 
+from health_page import render_health_page
 from hot_reload import Gateway, startup_selection, bind_selection
 from mcp.server.transport_security import TransportSecuritySettings
 
@@ -54,11 +55,63 @@ class LoopbackGuard:
         await self.app(scope, receive, send)
 
 
-async def health(request, gateway):
+def _accepts_html(value):
+    """Honor explicit text/html only when its quality is not lower than JSON."""
+    if not isinstance(value, str):
+        return False
+    html_quality = None
+    explicit_json_quality = None
+    wildcard_quality = 0.0
+    for item in value.split(","):
+        parts = [part.strip() for part in item.split(";")]
+        if not parts:
+            continue
+        quality = 1.0
+        for parameter in parts[1:]:
+            key, separator, raw = parameter.partition("=")
+            if key.strip().lower() != "q" or not separator:
+                continue
+            try:
+                quality = float(raw.strip())
+            except ValueError:
+                quality = 0.0
+        media_type = parts[0].lower()
+        if media_type == "text/html":
+            html_quality = max(html_quality or 0.0, quality)
+        elif media_type == "application/json":
+            explicit_json_quality = max(explicit_json_quality or 0.0, quality)
+        elif media_type == "*/*":
+            wildcard_quality = max(wildcard_quality, quality)
+    json_quality = (
+        explicit_json_quality if explicit_json_quality is not None else wildcard_quality
+    )
+    return (
+        html_quality is not None
+        and 0.0 < html_quality <= 1.0
+        and html_quality >= json_quality
+    )
+
+
+def _gateway_ready(gateway):
     generation = gateway.active
-    if generation is None or generation.task.done():
-        return JSONResponse({"ready": False}, status_code=503)
-    return JSONResponse({"ready": True})
+    return generation is not None and not generation.task.done()
+
+
+async def health(request, gateway):
+    ready = _gateway_ready(gateway)
+    status_code = 200 if ready else 503
+    if not _accepts_html(request.headers.get("accept")):
+        return JSONResponse({"ready": ready}, status_code=status_code)
+    observer = getattr(gateway, "health_observations", None)
+    try:
+        snapshot = observer.snapshot() if observer is not None else {}
+    except Exception:
+        snapshot = {}
+    return HTMLResponse(
+        render_health_page(snapshot, ready=ready, gateway=gateway),
+        status_code=status_code,
+        headers={"Cache-Control": "no-store"},
+    )
 
 
 def create_app(root, implementation=None, *, selection=None):

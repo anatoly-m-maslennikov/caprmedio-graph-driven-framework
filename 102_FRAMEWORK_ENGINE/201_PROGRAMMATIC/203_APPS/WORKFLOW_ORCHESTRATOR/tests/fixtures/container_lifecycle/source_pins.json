@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "route": "change_atom_status",
+  "definitions": [
+    {
+      "atom_id": "CA-O-127",
+      "kind": "Workflow",
+      "version": 15,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-127-PROJECT_CONFIGURATION-WORKFLOW--manage-atom-lifecycle.md",
+      "fixture_path": "sources/CA-O-127.md",
+      "sha256": "1a24e6ae16f8d7271662f386dd530ac1dea2824485d1e7dd7039c257ee9059d9"
+    },
+    {
+      "atom_id": "CA-O-128",
+      "kind": "Action",
+      "version": 15,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-128-PROJECT_CONFIGURATION-ACTION--apply-authorized-atom-lifecycle-changes.md",
+      "fixture_path": "sources/CA-O-128.md",
+      "sha256": "b2a46a984230f0e9d255c6598af9bd3a67c1316ebcbff20521627211a86fdcd8"
+    },
+    {
+      "atom_id": "CA-O-129",
+      "kind": "Step",
+      "version": 12,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/09_operations/CA-O-129-PROJECT_CONFIGURATION-STEP--apply-an-admitted-atom-lifecycle-change.md",
+      "fixture_path": "sources/CA-O-129.md",
+      "sha256": "6b93bbc8dc557df1bc5ca19f0ff2bda2c8cb450e05dbf6d6f8ad656767ca3e07"
+    },
+    {
+      "atom_id": "CA-O-029",
+      "kind": "Action",
+      "version": 10,
+      "source_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/09_operations/CA-O-029-TOOL_WORKFLOWS-STANDARD-ACTION--archive-selected-active-atoms.md",
+      "fixture_path": "sources/CA-O-029.md",
+      "sha256": "34e4c88fbbcfa29ac0a9f85338c1f823db2b9927d4e8c2db94f2c7cef8dad923"
+    },
+    {
+      "atom_id": "CA-R-1947",
+      "kind": "Requirement",
+      "version": 3,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL-GENERAL--define-atom-status-allowed-values.md",
+      "fixture_path": "sources/CA-R-1947.md",
+      "sha256": "ca65ea189912acb3605517a2a8dbe3e76cb402dc018df6d6ca167decd16b218f"
+    },
+    {
+      "atom_id": "CA-R-1539",
+      "kind": "Requirement",
+      "version": 9,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
+      "fixture_path": "sources/CA-R-1539.md",
+      "sha256": "13b63bfdf55480496b734a408c3632d33c68b9522426ca8092b52038e7adbe0a"
+    },
+    {
+      "atom_id": "CA-R-793",
+      "kind": "Requirement",
+      "version": 24,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-793-CORE_META_MODEL--define-evaluation-approach-as-a-type-value-for-evaluation-atoms.md",
+      "fixture_path": "sources/CA-R-793.md",
+      "sha256": "64390748e2831226ce86ecff6aad4391bd5d5264c79dd715b9ed6f99a5996bfa"
+    },
+    {
+      "atom_id": "CA-D-378",
+      "kind": "Delivery",
+      "version": 16,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL--serialize-assigned-atom-identities.md",
+      "sha256": "d4e6f0569f81a54f434d060ea6e2a271dea51611a66a1afd0f6a10ca127c7562",
+      "fixture_path": "sources/CA-D-378.md"
+    }
+  ]
+}

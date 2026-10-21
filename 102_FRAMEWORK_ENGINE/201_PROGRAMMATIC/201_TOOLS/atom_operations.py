@@ -19,7 +19,7 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from project_runtime import RUNTIME_DIRECTORY, atomic_tempfile
-from project_selection import bound_selection
+from project_selection import ProjectSelectionError, active_selection, bound_selection
 from artifact_metadata import current_timestamp
 from authoritative_status_models import StatusModelError
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
@@ -202,6 +202,37 @@ def _role_directory(path: Path, control: Path) -> str | None:
         if ROLE_DIRECTORY.fullmatch(part):
             return part
     return None
+
+
+def _plan_archive_directory(root: Path, atom: Atom) -> Path:
+    scope = frontmatter_scalar(atom.frontmatter, "current_scope_unit")
+    try:
+        selection = bound_selection(root) or active_selection(root)
+        rows = selection.structure["scope_units"]
+        matches = [row for row in rows if row["scope_unit_name"] == scope]
+        authority = matches[0]["authority_path"] if len(matches) == 1 else None
+        if not isinstance(authority, str):
+            raise ValueError("Plan scope authority is unavailable")
+        plan_root = selection.root / authority / "03_plan"
+    except (KeyError, ProjectSelectionError, TypeError, ValueError) as error:
+        raise ToolError("status-location-missing", "Plan has no exact owning Scope Unit plan location") from error
+    if not _inside(atom.path, plan_root):
+        raise ToolError("status-location-missing", "Plan is outside its owning Scope Unit plan location")
+    return plan_root / "archived"
+
+
+def archive_revision_destination(root: Path, atom: Atom, version: int) -> Path:
+    """Resolve one Archive Carrier destination from the current Atom owner."""
+
+    stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
+    if frontmatter_scalar(atom.frontmatter, "content_role") == "Plan":
+        directory = _plan_archive_directory(root, atom)
+    else:
+        directory = atom.path.parent
+        if directory.name in {"001_backlog", "done", "canceled", "archived", "resolved", "draft"}:
+            directory = directory.parent
+        directory /= "archived"
+    return directory / f"{stem}@{version}{atom.path.suffix}"
 
 
 def _lifecycle(path: Path, control: Path) -> str:
@@ -672,7 +703,7 @@ def _restore_existing_draft_promotion(
                         {"automatic_retry": False, "source": draft.relative}) from error
 
 
-def _existing_promotion_destination(root: Path, atom: Atom, status: str) -> str:
+def _existing_promotion_destination(root: Path, atom: Atom, status: str, version: int) -> str:
     """Resolve the admitted current-status location for an existing canonical Atom."""
 
     control = control_root(root)
@@ -683,6 +714,8 @@ def _existing_promotion_destination(root: Path, atom: Atom, status: str) -> str:
         raise ToolError("status-location-missing", "canonical target has no content-role status location") from error
     role = control.joinpath(*relative.parts[:index + 1])
     stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
+    if frontmatter_scalar(atom.frontmatter, "content_role") == "Plan" and status == "Archived":
+        return archive_revision_destination(root, atom, version).relative_to(root).as_posix()
     if frontmatter_scalar(atom.frontmatter, "content_role") in {"Plan", "Operations"}:
         local = atom.path.parent.parent if atom.path.parent.name in {"001_backlog", "done", "canceled", "archived", "draft"} else atom.path.parent
         folder = {"Active": None, "Backlog": "001_backlog", "Done": "done", "Canceled": "canceled", "Archived": "archived"}.get(status)
@@ -696,12 +729,8 @@ def _existing_promotion_destination(root: Path, atom: Atom, status: str) -> str:
     return (role / folder / f"{stem}.md").relative_to(root).as_posix()
 
 
-def _existing_promotion_history_path(atom: Atom) -> Path:
-    stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
-    local = atom.path.parent.parent if atom.path.parent.name in {
-        "001_backlog", "done", "canceled", "archived", "resolved", "draft",
-    } else atom.path.parent
-    return local / "archived" / f"{stem}@{atom_version(atom)}.md"
+def _existing_promotion_history_path(root: Path, atom: Atom, status: str) -> Path:
+    return _status_predecessor_destination(root, atom, status)
 
 
 def _existing_promotion_is_noop(atom: Atom, prepared: str, content: str, requested_status: str) -> bool:
@@ -738,11 +767,13 @@ def promote_existing_draft_atom(
         prepared = prepare_existing_draft_promotion_frontmatter(root, frontmatter, refreshed, requested_status)
         if _existing_promotion_is_noop(current_canonical, prepared, content, requested_status):
             return current_canonical, None, True
-        canonical_relative = _existing_promotion_destination(root, current_canonical, requested_status)
+        canonical_relative = _existing_promotion_destination(
+            root, current_canonical, requested_status, refreshed.proposed_version,
+        )
         destination, normalized, identity = prepare_create_atom_revision(
             root, canonical_relative, prepared, content, creating=False,
         )
-        history = _existing_promotion_history_path(current_canonical)
+        history = _existing_promotion_history_path(root, current_canonical, requested_status)
         _validate_existing_promotion_destination(destination, current_canonical, identity, history)
         draft_bundle = status_bundle_snapshot(root, current_draft)
         canonical_bundle = status_bundle_snapshot(root, current_canonical)
@@ -828,6 +859,20 @@ def atom_version(atom: Atom) -> int:
     if raw is None or re.fullmatch(r"[0-9]+", raw) is None:
         raise ToolError("atom-version-invalid", f"Atom lacks a non-negative integer Version: {atom.relative}")
     return int(raw)
+
+
+def _status_predecessor_destination(root: Path, atom: Atom, status: str) -> Path:
+    """Resolve the Status-publication predecessor destination for one Atom."""
+
+    version = atom_version(atom)
+    if frontmatter_scalar(atom.frontmatter, "content_role") == "Plan":
+        return archive_revision_destination(root, atom, version)
+    stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
+    local = atom.path.parent
+    if local.name in {"001_backlog", "done", "canceled", "archived", "resolved", "draft"}:
+        local = local.parent
+    directory = "archive" if status.casefold() == "draft" else "archived"
+    return local / directory / f"{stem}@{version}{atom.path.suffix}"
 
 
 def atom_digest(atom: Atom) -> str:
@@ -1259,6 +1304,27 @@ def carrier_directory_snapshot_matches(
     return True
 
 
+def _reject_current_plan_bundle_descendant(
+    root: Path, atom: Atom, status: str, destination_directory: Path, expected_bundle: Mapping,
+) -> None:
+    """Refuse one Plan archive that would relocate an independent current Atom."""
+
+    bundle = atom.path.with_suffix("")
+    if (status != "Archived" or frontmatter_scalar(atom.frontmatter, "content_role") != "Plan"
+            or "directory" not in expected_bundle or bundle == destination_directory):
+        return
+    from current_atom_locator import CurrentAtomLocator, CurrentAtomLocatorError
+    locator = CurrentAtomLocator(root)
+    for descendant in scan_atoms(root, under=bundle.relative_to(root).as_posix()):
+        if descendant.atom_id is None or descendant.lifecycle in {"draft", "archived"}:
+            continue
+        try:
+            locator.assert_unique_current_claim(descendant.atom_id, descendant.relative)
+        except CurrentAtomLocatorError as error:
+            raise ToolError(error.code, error.message, error.details) from error
+        raise ToolError("status-bundle-current-descendant", "Plan archive requires a separate descendant Action")
+
+
 def publish_status_atom_revision(root: Path, atom: Atom, relative_path: str, frontmatter: str,
                                  content: str, *, expected_bundle: Mapping) -> tuple[Atom, Path | None]:
     if atom.atom_id is None:
@@ -1275,7 +1341,8 @@ def _publish_status_atom_revision(root: Path, atom: Atom, relative_path: str, fr
     require_current_atom(root, atom)
     target, normalized, identity = prepare_create_atom_revision(
         root, relative_path, frontmatter, content, creating=False)
-    draft = frontmatter_scalar(normalized, "status").casefold() == "draft"
+    status = frontmatter_scalar(normalized, "status")
+    draft = status.casefold() == "draft"
     if atom.atom_id is None:
         if identity is None or atom_id_has_preserved_history_evidence(root, identity):
             raise ToolError("atom-id-collision", "Draft publication requires one unused assigned identity")
@@ -1284,11 +1351,7 @@ def _publish_status_atom_revision(root: Path, atom: Atom, relative_path: str, fr
     version = atom_version(atom)
     if frontmatter_scalar(normalized, "version") != str(version + 1):
         raise ToolError("atom-version-invalid", "status publication must increment Version exactly once")
-    stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
-    local = atom.path.parent
-    if local.name in {"001_backlog", "done", "canceled", "archived", "resolved", "draft"}:
-        local = local.parent
-    history = local / ("archive" if draft else "archived") / f"{stem}@{version}.md" if atom.atom_id is not None else None
+    history = _status_predecessor_destination(root, atom, status) if atom.atom_id is not None else None
     source_directory, destination_directory = atom.path.with_suffix(""), target.with_suffix("")
     raw, source_fingerprint = expected_bundle["markdown"]
     output = render(normalized, content)
@@ -1302,6 +1365,7 @@ def _publish_status_atom_revision(root: Path, atom: Atom, relative_path: str, fr
             raise ToolError("destination-collision", f"status destination exists: {path.relative_to(root)}")
     if status_bundle_snapshot(root, atom) != expected_bundle:
         raise ToolError("status-bundle-stale", "status carrier bundle changed after admission")
+    _reject_current_plan_bundle_descendant(root, atom, status, destination_directory, expected_bundle)
     created: dict[Path, tuple[int, ...]] = {}
     removed = moved = False
     def publish(path, data, expected):
@@ -1415,23 +1479,32 @@ def _migrate_atom_identity_revision(root: Path, atom: Atom, relative_path: str, 
     return observed
 
 
+def preserved_revision_destination(root: Path, atom: Atom) -> Path:
+    """Resolve the canonical retained predecessor location for one Atom."""
+
+    root = root.resolve()
+    control = control_root(root)
+    role_name = _role_directory(atom.path, control)
+    if role_name is None:
+        raise ToolError("archive-location-missing", f"Atom has no content-role history location: {atom.relative}")
+    if frontmatter_scalar(atom.frontmatter, "content_role") == "Plan":
+        return archive_revision_destination(root, atom, atom_version(atom))
+    role = next(parent for parent in atom.path.parents if parent.name == role_name)
+    stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
+    return (role / "archive" / f"{stem}@{atom_version(atom)}{atom.path.suffix}").resolve()
+
+
 def preserve_atom_revision(root: Path, atom: Atom, *, allow_nonactive: bool = False,
                            allow_legacy_identity: bool = False) -> Atom:
     """Copy one prior semantic revision to its native role-local history path."""
 
     root = root.resolve()
-    control = control_root(root)
     require_current_atom(root, atom)
     if atom.lifecycle == "draft" or atom.atom_id is None:
         raise ToolError("atom-not-current", f"only identified current Atoms can preserve history: {atom.relative}")
     if not allow_nonactive and atom.lifecycle != "active":
         raise ToolError("atom-not-active", f"only active Atoms with stable identity can preserve history: {atom.relative}")
-    role_name = _role_directory(atom.path, control)
-    if role_name is None:
-        raise ToolError("archive-location-missing", f"Atom has no content-role history location: {atom.relative}")
-    role = next(parent for parent in atom.path.parents if parent.name == role_name)
-    stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
-    target = (role / "archive" / f"{stem}@{atom_version(atom)}{atom.path.suffix}").resolve()
+    target = preserved_revision_destination(root, atom)
     if target.exists():
         raise ToolError("destination-collision", f"history destination already exists: {target.relative_to(root)}")
     _atomic_write(target, atom.path.read_bytes())
@@ -1454,11 +1527,7 @@ def archive_atom_revision(root: Path, atom: Atom, frontmatter: str, content: str
     role_name = _role_directory(atom.path, control)
     if role_name is None:
         raise ToolError("archive-location-missing", f"Atom has no content-role archive location: {atom.relative}")
-    local = atom.path.parent
-    if local.name in {"001_backlog", "done", "canceled", "archived", "resolved", "draft"}:
-        local = local.parent
-    stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
-    target = local / "archived" / f"{stem}@{atom_version(atom) + 1}{atom.path.suffix}"
+    target = archive_revision_destination(root, atom, atom_version(atom) + 1)
     archived, _history = publish_status_atom_revision(
         root, atom, target.relative_to(root).as_posix(), frontmatter, content,
         expected_bundle=status_bundle_snapshot(root, atom) if expected_bundle is None else expected_bundle)
@@ -1626,6 +1695,12 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         return _run_create(root, args)
 
 
+def _validate_created_draft_marker(root: Path, path: Path, frontmatter: str, atom_id: str | None) -> None:
+    _draft_marker_identity(root, path, frontmatter)
+    if atom_id is not None:
+        raise ToolError("draft-has-stable-id", f"draft filename must not contain a stable Atom ID: {path.name}")
+
+
 def _run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
     plans: list[tuple[Path, bytes]] = []
@@ -1650,9 +1725,7 @@ def _run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         atom_id = match.group(1) if match else None
         destination_lifecycle = _lifecycle(path, control_root(root))
         if destination_lifecycle == "draft":
-            _draft_marker_identity(root, path, frontmatter)
-            if atom_id is not None:
-                raise ToolError("draft-has-stable-id", f"draft filename must not contain a stable Atom ID: {path.name}")
+            _validate_created_draft_marker(root, path, frontmatter, atom_id)
         if destination_lifecycle != "draft" and atom_id is None:
             raise ToolError("atom-id-required", f"non-draft Atom filename must contain a stable Atom ID: {path.name}")
         if atom_id and (atom_id in planned_ids or atom_id_has_preserved_history_evidence(root, atom_id)):
@@ -1932,7 +2005,9 @@ def _promotion_result(root: Path, plans: Sequence[tuple[Atom, Path, bytes]],
     changes = [{"operation": "promote", "from": atom.relative, "to": target.relative_to(root).as_posix()}
                for atom, target, _ in plans]
     changes.extend({"operation": "no-op" if binding.no_op else "promote", "from": atom.relative,
-                    "to": _existing_promotion_destination(root, binding.canonical_target, "Active"),
+                    "to": _existing_promotion_destination(
+                        root, binding.canonical_target, "Active", binding.proposed_version,
+                    ),
                     "canonical_target": binding.canonical_target.atom_id, "version": binding.proposed_version}
                    for atom, binding, _ in existing)
     changes.extend({"operation": "promote", "from": atom.relative, "atom_id": atom_id}

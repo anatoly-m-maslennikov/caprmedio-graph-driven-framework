@@ -6,7 +6,28 @@ from pathlib import Path
 import json
 from typing import Any, Mapping
 
-from atom_operations import ROLE_DIRECTORY
+import atom_operations as operations
+from connector_bindings import FileSource
+
+
+def _pinned_atom(root: Path, target: Mapping[str, Any]) -> operations.Atom:
+    path = root / target["path"]
+    raw = FileSource(root, Path(target["path"]), target["digest"]).read_bytes()
+    frontmatter, content = operations.split_frontmatter(raw.decode("utf-8"))
+    control = operations.control_root(root)
+    role = operations._role_directory(path.resolve(), control)
+    if role is None:
+        raise ValueError("Subject target has no content-role history location")
+    return operations.Atom(
+        path.resolve(),
+        target["path"],
+        target["filename"],
+        target["atom_id"],
+        target["lifecycle"],
+        role,
+        frontmatter,
+        content,
+    )
 
 
 def _changed(item: Mapping[str, Any]) -> bool:
@@ -19,18 +40,16 @@ def _changed(item: Mapping[str, Any]) -> bool:
     return False
 
 
-def subject_batch_frontier(packet: Mapping[str, Any]) -> tuple[list[str], list[dict[str, Any]]]:
+def subject_batch_frontier(packet: Mapping[str, Any], *, root: Path) -> tuple[list[str], list[dict[str, Any]]]:
     """Derive exact paths and revision effects without preparing or validating Carriers."""
+    root = Path(root).resolve()
     frontier, effects = [], []
     for item in packet["atoms"]:
         target = item["target"]
         frontier.append(target["path"])
         if _changed(item):
-            path = Path(target["path"])
-            role = next(parent for parent in path.parents if ROLE_DIRECTORY.fullmatch(parent.name))
-            archive = (
-                role / "archive" / f"{path.stem}@{target['version']}{path.suffix}"
-            ).as_posix()
+            archive = operations.preserved_revision_destination(root, _pinned_atom(root, target))
+            archive = archive.relative_to(root).as_posix()
             frontier.append(archive)
             effects.extend(
                 [
@@ -64,8 +83,10 @@ def subject_batch_frontier(packet: Mapping[str, Any]) -> tuple[list[str], list[d
     return frontier, effects
 
 
-def require_subject_batch_frontier(packet: Mapping[str, Any], execution: Mapping[str, Any]) -> None:
-    frontier, expected = subject_batch_frontier(packet)
+def require_subject_batch_frontier(
+    packet: Mapping[str, Any], execution: Mapping[str, Any], *, root: Path
+) -> None:
+    frontier, expected = subject_batch_frontier(packet, root=root)
     if execution.get("target_frontier") != frontier:
         raise ValueError("Subject batch declared frontier differs from its exact ordered packet")
     declared = execution.get("effects")

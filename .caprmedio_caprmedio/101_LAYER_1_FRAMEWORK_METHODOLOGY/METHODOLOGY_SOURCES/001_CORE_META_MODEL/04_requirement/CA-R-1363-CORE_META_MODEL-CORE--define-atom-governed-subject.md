@@ -2,9 +2,9 @@
 subjects:
   governs: "Entity/Node/Continuant/Atom.Governed Subject"
   depends_on:
-    ["Entity/Node/Continuant/Atom.Subjects", "GOVERNS", "Subject", "Relation Kind", "Entity", "Entity/Node/Continuant/Atom.Substance"]
-version: 15
-updated_at: "2026-10-19 15:52:54 +0400"
+    ["Entity/Node/Continuant/Atom.Subjects", "GOVERNS", "Subject", "Relation Kind", "Subject Target", "Entity/Node/Continuant/Atom.Substance"]
+version: 16
+updated_at: "2026-10-21 01:47:52 +0400"
 relations:
   child_of:
     - CA-R-1269
@@ -30,6 +30,6 @@ an Atom's governed Subject relation.
 
 ## Claim
 
-an Atom Governed Subject **means** the Atom's **`=1`** Subject Relation whose Relation Kind is GOVERNS. its target is the canonical Entity governed by the Atom's Claim; the Relation **and** its target are distinct.
+an Atom Governed Subject **means** the Atom's **`=1`** Subject Relation whose Relation Kind is GOVERNS. its target is the canonical Subject Target governed by the Atom's Claim; the Relation **and** its target are distinct.
 
 ## Details

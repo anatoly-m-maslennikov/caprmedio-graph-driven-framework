@@ -18,7 +18,7 @@ import test_proposed_carrier_admission_regressions as fixtures  # noqa: E402
 
 
 CURRENT_D461 = HERE / "fixtures/current_plan_placement/CA-D-461.md"
-CURRENT_D461_SHA256 = "270f5d90c4591a9f6d42265d44e5f5c45418ee9981c70b2031e3d8eba3c7bf06"
+CURRENT_D461_SHA256 = "96282d2eaf40d663de404d5ef03cb8682a0506733f0c239308731198de0bd373"
 
 
 class CurrentPlanPlacementAuthorityTests(unittest.TestCase):
@@ -39,11 +39,11 @@ class CurrentPlanPlacementAuthorityTests(unittest.TestCase):
             status_index = capture_status_models(self.fixture.root, context._reader)
         return selection, context, status_index
 
-    def test_fixture_is_exact_current_d461_v14(self):
+    def test_fixture_is_exact_current_d461_v16(self):
         raw = CURRENT_D461.read_bytes()
         parsed = parse_carrier(raw, CURRENT_D461)
         self.assertEqual(parsed.metadata["atom_id"], "CA-D-461")
-        self.assertEqual(parsed.metadata["version"], 14)
+        self.assertEqual(parsed.metadata["version"], 16)
         self.assertEqual(hashlib.sha256(raw).hexdigest(), CURRENT_D461_SHA256)
 
     def test_source_derived_root_draft_and_archived_callers_pass(self):

@@ -1,4 +1,5 @@
 """DBOS is the durable scheduler; existing Run evidence remains the observed history."""
+from collections.abc import Mapping
 import json
 from pathlib import Path
 import signal
@@ -17,6 +18,8 @@ QUEUE = 'base-revise'
 WORKFLOW = 'rmed-atoms-base-revise-independent'
 APP_VERSION = 'base-revise-v5-selected-v1-docker-project-mount'
 SELECTED_WORKFLOW = 'selected-workflow-execution'
+CONTAINER_LIFECYCLE_SCHEMA = 'container-lifecycle/v1'
+CONTAINER_IDENTITY_KIND = 'technical_coordinator'
 
 
 def _scheduler_identity():
@@ -60,6 +63,7 @@ def enqueue_selected(root, request):
     request = EnqueueSelected.model_validate(request)
     selected = SelectedExecution(root)
     scheduler = _scheduler_identity()
+    _verify_container_lifecycle_seal(root, request.execution)
     # The selected coordinator cannot reinterpret Base Revise request.json state.
     frozen = selected.freeze(request.model_dump())
     transport = client(root)
@@ -69,9 +73,210 @@ def enqueue_selected(root, request):
     finally:
         transport.destroy()
     response = status(root, Status(run_id=request.run_id))
-    response.update({'workflow_id': frozen['graph']['workflow']['atom_id'],
-                     'selected_route': frozen['graph']['route'], 'disposition': 'queued'})
+    if _container_lifecycle_marker(frozen) is not None:
+        response.pop('workflow_run_id', None)
+        response.pop('workflow_id', None)
+        response.update({'coordinator_id': request.run_id,
+                         'identity_kind': CONTAINER_IDENTITY_KIND,
+                         'selected_route': frozen['graph']['route'], 'disposition': 'queued'})
+    else:
+        response.update({'workflow_id': frozen['graph']['workflow']['atom_id'],
+                         'selected_route': frozen['graph']['route'], 'disposition': 'queued'})
     return response
+
+
+def _container_lifecycle_marker(frozen):
+    """Return the sealed container marker, or ``None`` for ordinary requests."""
+    if not isinstance(frozen, Mapping):
+        return None
+    request = frozen.get('request')
+    execution = request.get('execution') if isinstance(request, Mapping) else None
+    receipt = execution.get('proposal_receipt') if isinstance(execution, Mapping) else None
+    freshness = receipt.get('source_freshness') if isinstance(receipt, Mapping) else None
+    observed = freshness.get('observed') if isinstance(freshness, Mapping) else None
+    if not isinstance(observed, Mapping) or 'container_lifecycle' not in observed:
+        return None
+    marker = observed['container_lifecycle']
+    return marker if isinstance(marker, Mapping) else {}
+
+
+def _container_member_rows(value):
+    if not isinstance(value, list) or not value:
+        raise ValueError('container aggregate members are invalid')
+    rows = []
+    requested_ids = []
+    actual_ids = []
+    for item in value:
+        if not isinstance(item, Mapping):
+            raise ValueError('container aggregate members must carry Run identities')
+        requested_id = item.get('requested_run_id')
+        if not isinstance(requested_id, str) or not requested_id:
+            raise ValueError('container aggregate member requested Run identity is invalid')
+        if 'actual_run_id' not in item:
+            raise ValueError('container aggregate member actual Run identity is missing')
+        actual_id = item.get('actual_run_id')
+        if actual_id is not None and (not isinstance(actual_id, str) or not actual_id):
+            raise ValueError('container aggregate member actual Run identity is invalid')
+        outcome = item.get('outcome')
+        if not isinstance(outcome, str) or not outcome:
+            raise ValueError('container aggregate member outcome is invalid')
+        effect_refs = item.get('effect_refs')
+        if not isinstance(effect_refs, list) or any(
+                not isinstance(reference, str) or not reference for reference in effect_refs):
+            raise ValueError('container aggregate member effect references are invalid')
+        requested_ids.append(requested_id)
+        if actual_id is not None:
+            actual_ids.append(actual_id)
+        rows.append(dict(item))
+    if len(set(requested_ids)) != len(requested_ids):
+        raise ValueError('container aggregate members contain duplicate requested Run identities')
+    if len(set(actual_ids)) != len(actual_ids):
+        raise ValueError('container aggregate members contain duplicate actual Run identities')
+    return rows, requested_ids, actual_ids
+
+
+def _container_ids(value, field):
+    if not isinstance(value, list):
+        raise ValueError(f'container aggregate {field} is invalid')
+    identifiers = []
+    for identifier in value:
+        if not isinstance(identifier, str) or not identifier:
+            raise ValueError(f'container aggregate {field} has an invalid Run identity')
+        identifiers.append(identifier)
+    if len(set(identifiers)) != len(identifiers):
+        raise ValueError(f'container aggregate {field} contains duplicate Run identities')
+    return identifiers
+
+
+def _container_failed_member(value):
+    if value is None:
+        return None
+    if not isinstance(value, Mapping):
+        raise ValueError('container aggregate failed member must be a mapping or null')
+    requested_id = value.get('requested_run_id')
+    if not isinstance(requested_id, str) or not requested_id:
+        raise ValueError('container aggregate failed member requested Run identity is invalid')
+    actual_id = value.get('actual_run_id')
+    if actual_id is not None and (not isinstance(actual_id, str) or not actual_id):
+        raise ValueError('container aggregate failed member actual Run identity is invalid')
+    return dict(value)
+
+
+def _container_outcome_groups(result, requested_ids, actual_ids):
+    completed = _container_ids(result.get('completed'), 'completed')
+    failed = _container_failed_member(result.get('failed'))
+    untouched = _container_ids(result.get('untouched'), 'untouched')
+    requested_set = set(requested_ids)
+    actual_set = set(actual_ids)
+    if any(identifier not in actual_set for identifier in completed):
+        raise ValueError('container aggregate completed IDs must be actual Run identities')
+    if any(identifier not in requested_set for identifier in untouched):
+        raise ValueError('container aggregate untouched IDs must be requested Run identities')
+    failed_requested = failed.get('requested_run_id') if failed is not None else None
+    if failed_requested is not None and failed_requested not in requested_set:
+        raise ValueError('container aggregate failed member is not a requested member')
+    completed_set = set(completed)
+    completed_requested = {
+        row['requested_run_id'] for row in result['members']
+        if row.get('actual_run_id') in completed_set
+    }
+    groups = (completed_requested, {failed_requested} if failed_requested is not None else set(), set(untouched))
+    if any(set(left) & set(right) for index, left in enumerate(groups) for right in groups[index + 1:]):
+        raise ValueError('container aggregate member outcome groups overlap')
+    if set().union(*groups) != requested_set:
+        raise ValueError('container aggregate member outcome groups are incomplete')
+    if failed is not None and failed.get('actual_run_id') is not None:
+        failed_row = next(row for row in result['members'] if row['requested_run_id'] == failed_requested)
+        if failed_row.get('actual_run_id') != failed['actual_run_id']:
+            raise ValueError('container aggregate failed member actual Run identity differs from its member')
+    for row in result['members']:
+        requested_id = row['requested_run_id']
+        if requested_id in completed_requested and row.get('outcome') not in {'completed', 'no_op'}:
+            raise ValueError('container aggregate completed member outcome is invalid')
+        if requested_id in untouched and row.get('actual_run_id') is not None:
+            raise ValueError('container aggregate untouched member has an actual Run identity')
+    return completed, failed, untouched
+
+
+def _validate_container_aggregate(result, marker, run_id):
+    if not isinstance(result, Mapping):
+        raise ValueError('container lifecycle aggregate is not a mapping')
+    if result.get('schema') != CONTAINER_LIFECYCLE_SCHEMA:
+        raise ValueError('container lifecycle aggregate schema is invalid')
+    if 'terminal_runs' in result or 'rootworkflow_run_id' in result:
+        raise ValueError('container lifecycle aggregate carries a root Workflow terminal')
+    if result.get('coordinator_id') != run_id:
+        raise ValueError('container lifecycle coordinator does not match the requested Run')
+    marker_coordinator = marker.get('coordinator_id')
+    if marker_coordinator is not None and marker_coordinator != run_id:
+        raise ValueError('container lifecycle seal coordinator does not match the requested Run')
+    if result.get('original_requested_root_run_started') is not False:
+        raise ValueError('container lifecycle aggregate incorrectly started the requested root Run')
+    parent_requested_id = result.get('parent_requested_run_id')
+    if not isinstance(parent_requested_id, str) or not parent_requested_id or parent_requested_id == run_id:
+        raise ValueError('container lifecycle parent requested Run identity is invalid')
+    members, requested_ids, actual_ids = _container_member_rows(result.get('members'))
+    if requested_ids[-1] != parent_requested_id or run_id in requested_ids:
+        raise ValueError('container lifecycle member identities do not bind the requested parent')
+    if run_id in actual_ids:
+        raise ValueError('container lifecycle member actual Run identity claims the technical coordinator')
+    parent_run_id = result.get('parent_run_id')
+    if parent_run_id is not None and (not isinstance(parent_run_id, str) or not parent_run_id or parent_run_id == run_id):
+        raise ValueError('container lifecycle actual parent Run identity is invalid')
+    completed, failed, untouched = _container_outcome_groups(
+        {'members': members, 'completed': result.get('completed'), 'failed': result.get('failed'),
+         'untouched': result.get('untouched')}, requested_ids, actual_ids,
+    )
+    parent_member = members[-1]
+    if parent_run_id != parent_member.get('actual_run_id'):
+        raise ValueError('container lifecycle actual parent Run identity is not bound to its member')
+    effect_refs = result.get('effect_refs')
+    if not isinstance(effect_refs, list) or any(not isinstance(item, str) or not item for item in effect_refs):
+        raise ValueError('container lifecycle effect references are invalid')
+    outcome = result.get('outcome')
+    disposition = result.get('disposition')
+    if not isinstance(outcome, str) or not outcome or not isinstance(disposition, str) or not disposition:
+        raise ValueError('container lifecycle aggregate outcome is incomplete')
+    return {
+        'coordinator_id': run_id,
+        'parent_requested_run_id': parent_requested_id,
+        'parent_run_id': parent_run_id,
+        'members': members,
+        'completed': completed,
+        'failed': failed,
+        'untouched': untouched,
+        'effect_refs': list(effect_refs),
+        'outcome': outcome,
+        'disposition': disposition,
+    }
+
+
+def _container_public_outcome(result, marker, run_id):
+    try:
+        aggregate = _validate_container_aggregate(result, marker, run_id)
+    except ValueError as error:
+        return 'interrupted_pending', 'recording_pending', str(error), None
+    if aggregate['disposition'] != 'terminal' and aggregate['outcome'] in {'completed', 'no_op'}:
+        return 'interrupted_pending', 'recording_pending', None, aggregate
+    return aggregate['outcome'], aggregate['disposition'], None, aggregate
+
+
+def _verify_container_lifecycle_seal(root, execution):
+    """Require the exact root preview seal before direct queue admission."""
+    marker = _container_lifecycle_marker({'request': {'execution': execution}})
+    if marker is None:
+        return
+    if execution.get('operation_route') != 'change_atom_status':
+        raise RuntimeError('container lifecycle seal is only valid for change_atom_status')
+    from container_lifecycle_admission import seal_contained_status_changes
+    from selected_execution import preflight_selected_lifecycle
+
+    admission = preflight_selected_lifecycle(root, 'change_atom_status', execution.get('parameters'))
+    if admission is None:
+        raise RuntimeError('container lifecycle parent admission is missing')
+    current = seal_contained_status_changes(root, execution.get('parameters'), admission)
+    if not isinstance(current, Mapping) or canonical_json(dict(current)) != canonical_json(dict(marker)):
+        raise RuntimeError('container lifecycle preview seal is stale or invalid')
 
 
 def _selected_public_outcome(frozen, result, run_id):
@@ -82,6 +287,10 @@ def _selected_public_outcome(frozen, result, run_id):
     Action terminal.  Older direct result envelopes predate ``terminal_runs``;
     retain their existing public shape unchanged.
     """
+    marker = _container_lifecycle_marker(frozen)
+    if marker is not None:
+        outcome, disposition, reason, _aggregate = _container_public_outcome(result, marker, run_id)
+        return outcome, disposition, reason
     if not isinstance(result, dict):
         return None, None, "selected result is not a mapping"
     if "terminal_runs" not in result:
@@ -128,8 +337,18 @@ def status(root, request):
     selected_request = selected_directory / 'selected_request.json'
     if selected_request.is_file():
         frozen = selected._read(selected_request)
-        response.update({'workflow_id': frozen['graph']['workflow']['atom_id'],
-                         'selected_route': frozen['graph']['route']})
+        marker = _container_lifecycle_marker(frozen)
+        container = marker is not None
+        if container:
+            response.pop('workflow_run_id', None)
+            response.pop('workflow_id', None)
+            response.pop('result', None)
+            response.update({'coordinator_id': request.run_id,
+                             'identity_kind': CONTAINER_IDENTITY_KIND,
+                             'selected_route': frozen['graph']['route']})
+        else:
+            response.update({'workflow_id': frozen['graph']['workflow']['atom_id'],
+                             'selected_route': frozen['graph']['route']})
         batch_progress = selected_directory / 'subject_batch_progress.json'
         if batch_progress.is_file():
             from subject_batch import subject_batch_progress_summary
@@ -139,9 +358,16 @@ def status(root, request):
         accepted = selected_directory / 'accepted.json'
         uncertain = selected_directory / 'dispatch_uncertain.json'
         if accepted.is_file():
-            result = selected._read(accepted)['result']
+            if container:
+                try:
+                    accepted_value = selected._read(accepted)
+                    result = accepted_value.get('result') if isinstance(accepted_value, Mapping) else None
+                except (OSError, TypeError, ValueError):
+                    result = None
+            else:
+                result = selected._read(accepted)['result']
             reconciliation_reason = None
-            if (frozen['graph'].get('route') in {'build_entities_graph', 'build_terms_graph'}
+            if (not container and frozen['graph'].get('route') in {'build_entities_graph', 'build_terms_graph'}
                     and isinstance(result, dict)
                     and result.get('disposition') in {'recording_pending', 'started'}):
                 try:
@@ -155,6 +381,14 @@ def status(root, request):
             outcome, disposition, terminal_reason = _selected_public_outcome(frozen, result, request.run_id)
             response.update({'selected_result': result, 'outcome': outcome,
                              'disposition': disposition})
+            if container:
+                _outcome, _disposition, _reason, aggregate = _container_public_outcome(
+                    result, marker, request.run_id,
+                )
+                if aggregate is not None:
+                    response.update({key: aggregate[key] for key in (
+                        'parent_requested_run_id', 'parent_run_id', 'members', 'completed',
+                        'failed', 'untouched', 'effect_refs')})
             if batch_progress.is_file():
                 response['selected_result'] = {'outcome': outcome, 'disposition': disposition,
                                               'result_ref': accepted.relative_to(selected.root).as_posix()}
@@ -166,7 +400,11 @@ def status(root, request):
             response.update({'outcome': 'interrupted_pending', 'disposition': 'recording_pending',
                              'reason': selected._read(uncertain).get('reason')})
         else:
-            response.setdefault('outcome', 'queued')
+            if container and queue_status.status not in ('ENQUEUED', 'PENDING'):
+                response.update({'outcome': 'interrupted_pending', 'disposition': 'recording_pending',
+                                 'reason': 'container lifecycle aggregate is not recorded'})
+            else:
+                response.setdefault('outcome', 'queued')
         return response
     engine = Coordinator(root, None)
     try:

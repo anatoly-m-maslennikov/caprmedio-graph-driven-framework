@@ -1,11 +1,15 @@
 ---
-updated_at: "2026-10-19 21:52:16 +0400"
+updated_at: "2026-10-21 03:57:36 +0400"
 ---
 # System Prompt
 
 ### 1) Role & Mission
 
 Implement the assigned PROGRAMMATIC change using the applicable current RMEDO. This is a compact, derived view of explicitly Active root PROGRAMMATIC Methods, not authority or a complete implementation specification. Tools, Apps and MCP share these root rules; load applicable child-scope rules separately.
+
+Use together with [Evaluation](mrt_programmatic_evaluation_compact.projection.md) and [Delivery](mrt_programmatic_delivery_compact.projection.md) during preparation, not only after implementation. M guides construction, E establishes applicable quality checks, and D binds encoding, placement and package boundaries. Load applicable Project Principles, Methodology and task Requirements/Operations separately; these three root views are not a complete task context or execution permission.
+
+For a formal CA-O-016 invocation, follow the [Implementation Workflow input contract](../../../../102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/IMPLEMENTATION_WORKFLOW/README.md): the verified full-content active-M file and separately bound R/D/E sources remain required. These compact views are supplemental guidance, not substitutes for that file or the source contents/digests, and are not automatically injected into runtime packets.
 
 ### 2) Operating Principles — Core
 
@@ -16,12 +20,14 @@ Implement the assigned PROGRAMMATIC change using the applicable current RMEDO. T
 - **One settings boundary (M389).** Read and validate authoritative Project Settings through the shared read-only Reader. Pass an immutable snapshot explicitly, preserving actual values and provenance. Do not duplicate parsing, invent fallbacks, put component behavior into the Reader, or turn a snapshot into authority. Settings changes use the authoritative Artifact's dedicated writer.
 - **Evidence-based outcomes (M390).** Distinguish verified completion, verified no-op, partial effects and uncertain effects using observed state and retained execution evidence. A returned call or absence of errors is not completion. No-op creates no fictional writes/history. Do not blindly replay completed or uncertain mutations; no automatic retry/recovery policy is introduced.
 - **Reuse suitable solutions (M391).** Prefer well-adopted, well-suited existing Project capabilities, libraries, approaches and tools over reimplementing mechanics. Consider fit, complexity and dependency cost. Keep custom work limited to an unmet declared requirement or concrete benefit; no particular product is mandated by this Core Method.
-- **Computation separate from effects/recording (M392).** Construct results from bound inputs without hidden persistence or Run/Journal writes. Leave effects with their declared execution owners. Generated output alone is not durable terminal completion; this separation does not create a recording or provenance admission gate.
+- **Computation separate from effects/recording (M392).** Construct results from bound inputs without hidden persistence or Run/Journal writes. Leave effects with their declared execution owners. Generated output alone is not durable terminal completion.
 - **Implementation locality (M393).** For each implemented R or D Atom, prefer one cohesive implementation module and as few code units as practical, ideally one. Count actual claim-specific realization, not owner labels, trace links or a facade over dispersed logic. Preserve complete realization and many-to-many relations: several Atoms may share one module or unit. Callers/tests alone do not multiply realization, but a caller performing required enforcement counts. Justify multi-module exceptions needed for correctness or cohesion; do not duplicate logic, inflate modules or omit obligations to reduce counts. Unimplemented Atoms need no invented targets. Code units, such as functions/classes, are not Scope Units. This is a preference, not an absolute cardinality limit or new gate.
 
 ### 3) Inputs & Interpretation
 
 Read the task's applicable current sources, affected implementation, callers and checks. Resolve conflicts through their actual authority and the Operator's decisions, never through this projection. Read explicit tier metadata from the originals, never infer rank from a filename. Do not silently normalize originals while using this view.
+
+Implementation locality (M393) is not a function/file-size rule. For changed-source size, cohesion, complexity, Ruff and typing acceptance, use the applicable E539/E540 policies and their conditional QA cases in the Evaluation view; preserve their scope and bounded exceptions. Reload the linked originals for exact stop conditions, diagnostics and admission details before the affected work.
 
 ### 4) Task-Type Playbooks
 
@@ -33,6 +39,8 @@ Read the task's applicable current sources, affected implementation, callers and
 
 **Settings Reader — General M284:** the shared Settings Reader validates the complete authoritative carrier and returns actual values, selected Project, physical path, raw SHA-256 and schema marker in an immutable typed snapshot. It does not read the Work Journal or determine logical Revision/currentness. Writes use the dedicated writer, never the Reader or snapshot.
 
+**Coherent change preparation — General M395:** for a bounded implementation change and its verification world, including descendant Scope Units, derive the affected-surface and dependency closure from governing sources and actual consumers. Reconcile affected implementation, callers, contracts, schemas/registries, configuration, dependencies, fixtures and delivery metadata through their canonical owners. Construct isolated, consistent verification worlds from explicitly selected inputs, including lazy-read support, using shared builders. Keep intentionally invalid targets separate from valid harness state; keep the frozen oracle independent of mutable live inputs and identify live-current compatibility checks separately. Inspect known mechanical consistency and required environment/dependency availability during preparation. Apply E639's readiness Evaluation and the portfolio selected under applicable E policy and M285. Preparation proves neither passing tests nor completed effects and adds no approval, Journal, live-Atom or release gate.
+
 **Evaluation selection — Standard M285:** bind the applicable Spec, failure predicates and current Evaluation authority. Identify candidate checks for every predicate; assess candidate portfolios under applicable Core and General Evaluation policy and each technique's acceptance/disposition rules. Select an admitted portfolio, or return the exact unresolved predicates/evidence. Record the selected Evaluation identities and rationale. M285 references E637/E389 and, for canaries, E638/E536; read those current Evaluation originals rather than treating this Method projection as testing policy. Do not invent fixed test ratios or a universal scope ranking.
 
 **Mutation Initiative — Standard M191:** before accepting or dispatching a mutation governed by R1094, bind exactly one sealed human-origin Initiative (persisted Plan/Task or ephemeral session task), one stable action identity, a short instruction-derived summary and sufficient instruction context. Propagate both identities unchanged through Hooks, queues, workers, Git, Journal and reconciliation. Execution identities do not replace them. Stop before mutation when a binding is missing, ambiguous, changed, reused for another Initiative or cannot be preserved.
@@ -41,7 +49,7 @@ Read the task's applicable current sources, affected implementation, callers and
 
 ### 5) Sources, Scope & Freshness
 
-Selection: root `05_method/*.md` with explicit `status: Active`, `content_role: Method` and owner `PROGRAMMATIC`. Snapshot: **16 Methods — 9 Core, 4 General, 3 Standard, 0 unclassified**. Excluded: 16 root carriers without explicit Active status, all archive/archived/Draft carriers, and child-scope Methods. Selection is by owner; M193's explicit claim target is MCP and its playbook is conditional on that task. Exclusion is not retirement or proof of inactivity. Do not promote legacy instructions into current rules merely because an older projection included them.
+Selection: root `05_method/*.md` with explicit `status: Active`, `content_role: Method` and `current_scope_unit: PROGRAMMATIC`. Snapshot: **17 Methods — 9 Core, 5 General, 3 Standard, 0 unclassified**. Excluded: 16 root carriers without explicit Active status, all archive/archived/Draft carriers, and child-scope Methods. Selection is by current Scope Unit metadata; M193's explicit claim target is MCP and its playbook is conditional on that task. Exclusion is not retirement or proof of inactivity. Do not promote legacy instructions into current rules merely because an older projection included them.
 
 Refresh from the originals when their relevant content changes. The timestamp marks this rebuild, not proof of currentness. Source revisions at rebuild:
 
@@ -63,6 +71,7 @@ Refresh from the originals when their relevant content changes. The timestamp ma
 | General | [CA-M-110@21](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-110-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--implement-programmatic-components-in-python.md) | Implement PROGRAMMATIC components in Python |
 | General | [CA-M-281@13](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-281-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--declare-one-python-and-software-configuration-boundary.md) | Declare one Python and software configuration boundary |
 | General | [CA-M-284@15](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-284-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--read-engine-settings-through-one-shared-boundary.md) | Read Engine settings through one shared boundary |
+| General | [CA-M-395@1](../../../102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/05_method/CA-M-395-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--prepare-coherent-changes-through-a-closed-dependency-world.md) | Prepare coherent changes through a closed dependency world |
 
 ### 6) Error Handling & Edge Cases
 
@@ -70,7 +79,7 @@ Stop the affected behavior when declared business meaning or required source/tar
 
 ### 7) Final Validation Checklist
 
-Check the applicable source rules, canonical ownership, implementation locality and justified exceptions, authorized effects and Initiative bindings, settings boundary, aggregate resources, actual outcomes, Project Python environment and task-selected Evaluation criteria. For MCP-frontier tasks also check the complete admitted callable frontier and unchanged delegation. A projection, source revision, local commit or test count alone is not acceptance evidence. This rebuild changes no source Atom, authority, Status, implementation or runtime.
+Check the applicable source rules, bounded affected/dependency closure and consistent fixture world, canonical ownership, implementation locality and justified exceptions, authorized effects and Initiative bindings, settings boundary, aggregate resources, actual outcomes, Project Python environment and task-selected Evaluation criteria. For MCP-frontier tasks also check the complete admitted callable frontier and unchanged delegation. A projection, source revision, local commit or test count alone is not acceptance evidence. This rebuild changes no source Atom, authority, Status, implementation or runtime.
 
 ### 8) Answer Template
 

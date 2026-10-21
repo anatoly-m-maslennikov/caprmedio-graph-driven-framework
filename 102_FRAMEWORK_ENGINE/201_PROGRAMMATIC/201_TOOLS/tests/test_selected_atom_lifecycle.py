@@ -162,6 +162,13 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(frozen_source_bytes(source_path, entry["sha256"]))
             self.assertEqual(entry["sha256"], hashlib.sha256(destination.read_bytes()).hexdigest())
+        for atom_id in ("CA-D-288", "CA-D-378"):
+            entry = support_sources()[atom_id]
+            payload = frozen_authority_fixture_bytes(atom_id)
+            self.assertEqual(entry["sha256"], hashlib.sha256(payload).hexdigest())
+            destination = self.root / entry["source_path"]
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(payload)
         for relative in (
             ".caprmedio_caprmedio/project_structure.toml",
             ".caprmedio_caprmedio/operators_registry.toml",

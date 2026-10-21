@@ -110,4 +110,11 @@ class SelectedNativeProviders:
     def dispatch(self, run_id: str) -> dict[str, Any]:
         """Load one persisted request and use the existing shared Run dispatcher."""
         frozen = SelectedExecution(self.root).load(run_id)
-        return self.execution(frozen).dispatch(frozen)
+        selected = self.execution(frozen)
+        execution = frozen["request"]["execution"]
+        observed = execution.get("proposal_receipt", {}).get("source_freshness", {}).get("observed", {})
+        if "container_lifecycle" in observed:
+            from container_lifecycle_composition import coordinate_container_lifecycle
+
+            return coordinate_container_lifecycle(selected, frozen)
+        return selected.dispatch(frozen)

@@ -20,9 +20,11 @@ from authoritative_status_models import StatusModelError, resolve_status_model
 from artifact_metadata import current_timestamp, project_identity
 from atom_operations import (
     Atom,
+    DraftMarker,
     _atomic_write,
     ToolError as AtomToolError,
     archive_atom_revision,
+    archive_revision_destination,
     atom_id_has_preserved_history_evidence,
     atom_identity_lock,
     atom_digest,
@@ -931,6 +933,8 @@ def _status_destination(root: Path, atom: Atom, status: str, *, filename: str | 
     stem = re.sub(r"@[0-9]+$", "", Path(filename or atom.filename).stem)
     next_version = atom_version(atom) + 1 if version is None else version
     name = f"{stem}@{next_version}.md" if status == "Archived" else f"{stem}.md"
+    if frontmatter_scalar(atom.frontmatter, "content_role") == "Plan" and status == "Archived":
+        return archive_revision_destination(root, atom, next_version).relative_to(root).as_posix()
     if frontmatter_scalar(atom.frontmatter, "content_role") in {"Plan", "Operations"}:
         local = atom.path.parent
         if local.name in {"001_backlog", "done", "canceled", "archived", "draft"}:
@@ -1000,8 +1004,8 @@ def _existing_marker_status_preflight(
         if "canonical_target" in request or "proposed_version" in request:
             raise LifecycleError("canonical-target-unadmitted", "only existing Draft markers accept canonical target evidence")
         return None
-    if requested != "Active" or "canonical_target" not in request:
-        raise LifecycleError("canonical-target-required", "existing Draft promotion requires its exact Active canonical target")
+    if "canonical_target" not in request:
+        raise LifecycleError("canonical-target-required", "existing Draft promotion requires its exact canonical target")
     if "proposed_version" not in request:
         raise LifecycleError("draft-proposed-version-required", "existing Draft promotion requires one explicit proposed_version")
     canonical_target = _resolve_descriptor(root, request["canonical_target"], name="canonical_target", active=False)
@@ -1143,6 +1147,64 @@ def create_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
             "effects": [_effect("changed", carrier=observed)], "history": {"prior": None}}
 
 
+def _draft_update_marker_state(root: Path, target: Atom, proposed: Mapping[str, Any]) -> tuple[DraftMarker | None, bool]:
+    if target.lifecycle != "draft":
+        return None, False
+    try:
+        target_marker = _draft_marker_identity(root, target.path, target.frontmatter)
+        proposed_marker = _draft_marker_identity(root, target.path, proposed["frontmatter"])
+    except AtomToolError as error:
+        raise _translate(error) from error
+    return target_marker, target_marker is not None and proposed_marker == target_marker
+
+
+def _update_status_parameters(request: Mapping[str, Any], prior: Mapping[str, Any], new_status: str | None,
+                              status_change: bool) -> dict[str, Any]:
+    parameters = {"target": prior, "status": new_status}
+    for field in ("canonical_target", "proposed_version"):
+        if field in request:
+            parameters[field] = request[field]
+    if not status_change and ("canonical_target" in request or "proposed_version" in request):
+        raise LifecycleError("canonical-target-unadmitted", "canonical target evidence requires one actual Status change")
+    return parameters
+
+
+def _update_status_result(root: Path, observed: Mapping[str, Any], predecessor: Atom | None, publication_no_op: bool,
+                          prior: Mapping[str, Any], change_class: str, status_model: Mapping[str, Any],
+                          assessment_evidence: Mapping[str, Any]) -> dict[str, Any]:
+    if publication_no_op:
+        return {"operation": "update", "outcome": "no-op", "observed": observed,
+                "effects": [_effect("unchanged", carrier=observed, reason="equivalent-canonical-carrier")],
+                "history": {"prior": prior, "preserved": True}, "status_model": status_model,
+                **assessment_evidence}
+    history: dict[str, Any] = {"prior": prior, "revision_class": change_class}
+    if predecessor is not None:
+        history["prior_revision"] = carrier_descriptor(root, predecessor)
+    return {"operation": "update", "outcome": "applied", "observed": observed,
+            "effects": [_effect("changed", carrier=observed)], "history": history,
+            "status_model": status_model, **assessment_evidence}
+
+
+def _write_updated_draft_revision(root: Path, target: Atom, marker: DraftMarker | None, frontmatter: str,
+                                  content: str, version: int) -> Atom:
+    destination = target.path
+    if (marker is not None and marker.canonical_id is not None
+            and marker.proposed_version is not None):
+        next_marker = f"{marker.canonical_id}@{version}-draft"
+        frontmatter = replace_frontmatter_scalar(frontmatter, "atom_id", next_marker)
+        filename = target.filename.replace(marker.value, next_marker, 1)
+        if filename == target.filename:
+            raise LifecycleError("draft-marker-invalid", "version-qualified Draft filename has no matching marker")
+        destination = target.path.with_name(filename)
+    if destination != target.path:
+        return rename_draft_revision(
+            root, target, destination.relative_to(root).as_posix(), frontmatter, content,
+            expected_bundle=status_bundle_snapshot(root, target),
+        )
+    write_atom_revision(target, frontmatter, content)
+    return atom_from_path(root, target.path)
+
+
 def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool = False, authorized: bool = False,
                        assessment: Mapping[str, Any] | None = None, session: object | None = None,
                        action_run_id: str | None = None, prior: Mapping[str, Any] | None = None) -> dict[str, Any]:
@@ -1180,17 +1242,10 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
     change_class = request["change_class"]
     if change_class not in _UPDATE_CLASSES:
         raise LifecycleError("change-class-unadmitted", "update change_class is not identity-preserving")
-    target_marker = proposed_marker = None
-    if target.lifecycle == "draft":
-        try:
-            target_marker = _draft_marker_identity(root, target.path, target.frontmatter)
-            proposed_marker = _draft_marker_identity(root, target.path, proposed["frontmatter"])
-        except AtomToolError as error:
-            raise _translate(error) from error
+    target_marker, same_draft_marker = _draft_update_marker_state(root, target, proposed)
     expected_identity = mapping["atom_id"] if mapping else target.atom_id
     proposed_identity = frontmatter_scalar(proposed["frontmatter"], "atom_id")
     requested_draft = (frontmatter_scalar(proposed["frontmatter"], "status") or "").casefold() == "draft"
-    same_draft_marker = target.lifecycle == "draft" and target_marker is not None and proposed_marker == target_marker
     if proposed_identity != expected_identity and not same_draft_marker and not (
             not legacy and requested_draft and target.atom_id is not None and proposed_identity is None):
         raise LifecycleError("atom-identity-changed", "same-identity update must retain the current atom_id")
@@ -1206,15 +1261,10 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
     old_status = frontmatter_scalar(target.frontmatter, "status")
     new_status = frontmatter_scalar(proposed["frontmatter"], "status")
     status_change = new_status != old_status and not (legacy and old_status is None and new_status == "Active")
-    status_parameters = {"target": prior, "status": new_status}
-    for field in ("canonical_target", "proposed_version"):
-        if field in request:
-            status_parameters[field] = request[field]
+    status_parameters = _update_status_parameters(request, prior, new_status, status_change)
     status_preflight = None
     if status_change:
         status_preflight = preflight_atom_lifecycle(root, "change_status", status_parameters)
-    elif "canonical_target" in request or "proposed_version" in request:
-        raise LifecycleError("canonical-target-unadmitted", "canonical target evidence requires one actual Status change")
     if not legacy and frontmatter_scalar(proposed["frontmatter"], "content_role") != frontmatter_scalar(target.frontmatter, "content_role"):
         raise LifecycleError("atom-role-changed", "same-identity Update must retain the current Content Role")
     prior_summary = _source_summary(target, legacy=legacy)
@@ -1338,17 +1388,10 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
                                        if existing_promotion is not None else None),
         )
         observed = carrier_descriptor(root, observed_atom)
-        if publication_no_op:
-            return {"operation": "update", "outcome": "no-op", "observed": observed,
-                    "effects": [_effect("unchanged", carrier=observed, reason="equivalent-canonical-carrier")],
-                    "history": {"prior": prior, "preserved": True}, "status_model": status_preflight["status_model"],
-                    **assessment_evidence}
-        history = {"prior": prior, "revision_class": change_class}
-        if predecessor is not None:
-            history["prior_revision"] = carrier_descriptor(root, predecessor)
-        return {"operation": "update", "outcome": "applied", "observed": observed,
-                "effects": [_effect("changed", carrier=observed)], "history": history,
-                "status_model": status_preflight["status_model"], **assessment_evidence}
+        return _update_status_result(
+            root, observed, predecessor, publication_no_op, prior, change_class,
+            status_preflight["status_model"], assessment_evidence,
+        )
     identified_current = (not mapping and target.atom_id is not None
                           and target.lifecycle != "draft")
     next_version = atom_version(target) + 1
@@ -1361,15 +1404,6 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
         raise LifecycleError("carrier-stale", "same-ID Update current bytes changed before publication")
     try:
         frontmatter = _refresh_frontmatter(root, proposed["frontmatter"], version=next_version)
-        draft_destination = target.path
-        if (target_marker is not None and target_marker.canonical_id is not None
-                and target_marker.proposed_version is not None):
-            next_marker = f"{target_marker.canonical_id}@{next_version}-draft"
-            frontmatter = replace_frontmatter_scalar(frontmatter, "atom_id", next_marker)
-            filename = target.filename.replace(target_marker.value, next_marker, 1)
-            if filename == target.filename:
-                raise LifecycleError("draft-marker-invalid", "version-qualified Draft filename has no matching marker")
-            draft_destination = target.path.with_name(filename)
         if target.atom_id is not None and (identified_current or change_class == "semantic_revision" or legacy):
             prior_revision = preserve_atom_revision(
                 root, target, allow_nonactive=identified_current, allow_legacy_identity=bool(mapping)
@@ -1380,14 +1414,9 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
         if mapping:
             observed_atom = migrate_atom_identity_revision(root, target, mapping["destination"], frontmatter, proposed["content"])
         else:
-            if draft_destination != target.path:
-                observed_atom = rename_draft_revision(
-                    root, target, draft_destination.relative_to(root).as_posix(), frontmatter, proposed["content"],
-                    expected_bundle=status_bundle_snapshot(root, target),
-                )
-            else:
-                write_atom_revision(target, frontmatter, proposed["content"])
-                observed_atom = atom_from_path(root, target.path)
+            observed_atom = _write_updated_draft_revision(
+                root, target, target_marker, frontmatter, proposed["content"], next_version,
+            )
             observed = carrier_descriptor(root, observed_atom)
             if prior_revision is not None:
                 prior_revision_carrier = carrier_descriptor(root, prior_revision)
@@ -1427,7 +1456,7 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
                 current_ref = {"path": target.relative, "verification": "unknown"}
                 retained_history: dict[str, Any] | None = None
                 effects = [_effect("unknown", carrier=current_ref, reason="update-rollback-uncertain")]
-                history = {"prior": prior}
+                history: dict[str, Any] = {"prior": prior}
                 if prior_revision is not None:
                     creation_known = prior_revision_owner is not None
                     retained_history = {
@@ -1858,8 +1887,15 @@ def _publish_status_change(root: Path, target: Atom, requested: str, frontmatter
                     raise LifecycleError("draft-promotion-invalid", "Draft filename has no admitted role prefix")
                 separator = "-" if "--" in match.group(2) else "--"
                 filename = f"{identity}{separator}{match.group(2)}"
-                destination = _status_destination(root, target, requested, filename=filename,
-                                                  version=int(frontmatter_scalar(frontmatter, "version")))
+                prospective = replace(
+                    target,
+                    path=target.path.with_name(filename),
+                    relative=target.path.with_name(filename).relative_to(root).as_posix(),
+                    filename=filename,
+                )
+                destination = _status_destination(
+                    root, prospective, requested, version=int(frontmatter_scalar(frontmatter, "version")),
+                )
                 observed = promote_draft_atom(root, target, identity, frontmatter, content, relative_path=destination,
                                                expected_bundle=expected_bundle)
         else:

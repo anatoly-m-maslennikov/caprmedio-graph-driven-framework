@@ -100,7 +100,7 @@ class SubjectBatchProject:
 
     def execution(self, run_id="subject-batch-fixture", *, request_transform=None):
         request = self.golden.request(request_id=run_id)
-        frontier, effects = subject_batch_frontier(self.packet)
+        frontier, effects = subject_batch_frontier(self.packet, root=self.root)
         request.update(
             target_frontier=frontier,
             target_frontier_digest=digest(frontier),
@@ -135,7 +135,7 @@ class SubjectBatchProject:
     def archives(self):
         return [
             self.root / effect["path"]
-            for effect in subject_batch_frontier(self.packet)[1]
+            for effect in subject_batch_frontier(self.packet, root=self.root)[1]
             if effect["type"] == "predecessorArchive"
         ]
 

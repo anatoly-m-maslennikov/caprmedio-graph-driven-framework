@@ -14,8 +14,8 @@ subjects:
   depends_on: []
 relations:
   concern_about: [CA-P-2401, CA-O-127, CA-O-145]
-version: 2
-updated_at: "2026-10-20T16:01:28.000Z"
+version: 3
+updated_at: "2026-10-20T19:57:22.658Z"
 ---
 # Summary
 
@@ -36,3 +36,9 @@ No effect request, guessed payload or further route attempt was made. Manual pla
 ## Blast radius
 
 Callers cannot determine the supported selected lifecycle request shape from the advertised discovery/context handoff. Inspect the current-entry O145 context and governed request/schema owner under CA-P-2460, preserving the exact route refusal and refusing to infer a target, proposal or effect. This Concern does not alter validation, routing, Workflow semantics or release status.
+
+### Refined evidence after P2460
+
+Root read-only normal planning lookup by the discovered public route name update_atom succeeds: selected_route=true, context_complete=true, input_schema contains the generic route envelope with operation_route fixed to update_atom. Thus a blanket statement that discovery/context exposes no route schema is superseded. Workflow O127 and Step O145 still return null input_schema and no currentStep; source-only review explains the shared-Workflow ambiguity and omission of Step IDs from selected-route matching. The route envelope leaves parameters as an unstructured object and does not itself expose current-Step inputs, exact effect schema or an executable Step handoff. This narrower gap remains Active; no supported Update effect has been attempted in this follow-up.
+
+A separately inspected old host installation rejects a stale pinned source path. That host artifact test is not evidence that the serving MCP is stale, is not a current production incident, and is not proof that a release fixes this Concern. P2460 diagnosis is Done; implementation of any additional context contract requires a separately reviewed bounded Task. No policy, authority, request fields or route should be guessed.

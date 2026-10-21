@@ -14,8 +14,8 @@ subjects:
   depends_on: []
 relations:
   concern_about: [CA-D-461, CA-E-502, CA-P-2401, CA-C-536]
-version: 1
-updated_at: "2026-10-20 17:32:00 +0400"
+version: 2
+updated_at: "2026-10-20T21:16:20.300Z"
 ---
 # Summary
 
@@ -32,3 +32,7 @@ The Operator answered No—flatten archived Plans. The Methodology owner is alig
 ## Blast radius
 
 Nested Plan archive/status/container operations need a bounded source-bound implementation and functional tests. Plan physical migration separately, preserve immutable older bytes and non-Plan accompanying data, and do not infer incoming-link removal/retargeting or new Status/cascade policy. Existing carriers and held drafts must not be flattened automatically as part of the parser release. Root archived carrier creation is a narrower acceptance case, not proof of nested flattening.
+
+## Current disposition
+
+The bounded source-level mechanics are accepted at atom_operations537863a8261c38cf560098949d44a057b0fa7b95cf203c6b6b0a123ca5245284: root/nested-leaf flat destinations, Draft identity routing, flat exact Plan predecessors, singleton current-child safety, source-bound validator placement and Subject predictions. Independent native71, Subject21, validator544 and CLI11 passed; code review APPROVE. C549 is answered and C550/C552 source defects are resolved. This does not complete a recursive container request: no calling Workflow currently composes the required descendant Runs. Active C551 and Backlog P2494/P2495 own that missing behavior and acceptance. This Problem therefore remains Active for full user-facing nested archival; no live migration, installed-runtime repair or production proof is claimed.

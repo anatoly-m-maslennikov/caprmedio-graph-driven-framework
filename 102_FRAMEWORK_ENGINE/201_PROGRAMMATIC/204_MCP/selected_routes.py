@@ -664,6 +664,7 @@ class _QueueBackedSelectedSupport:
         module = importlib.import_module("workflow_run_support")
 
         def observe(request: dict[str, Any]) -> dict[str, Any]:
+            container_lifecycle = None
             try:
                 manifest = load_selected_manifest(self.root)
                 selected = request.get("operation_route") in {entry["route"] for entry in manifest["routes"]}
@@ -679,13 +680,20 @@ class _QueueBackedSelectedSupport:
                     lifecycle_admission = selected_execution.preflight_selected_lifecycle(
                         self.root, "change_atom_status", request.get("parameters"),
                     )
+                    admission = importlib.import_module("container_lifecycle_admission")
+                    container_lifecycle = admission.seal_contained_status_changes(
+                        self.root, request.get("parameters"), lifecycle_admission,
+                    )
             except (ImportError, SelectedRouteError, TypeError, ValueError, RuntimeError):
                 selected, current, lifecycle_admission = False, False, None
+                container_lifecycle = None
             return {"selected": selected, "current": current, "observed": {
                 "manifest_ref": request.get("definition_manifest", {}).get("manifest_ref") if isinstance(request.get("definition_manifest"), Mapping) else None,
                 "manifest_digest": request.get("definition_manifest", {}).get("manifest_digest") if isinstance(request.get("definition_manifest"), Mapping) else None,
                 **({"lifecycle_admission": lifecycle_admission}
                    if lifecycle_admission is not None else {}),
+                **({"container_lifecycle": container_lifecycle}
+                   if container_lifecycle is not None else {}),
             }}
 
         def never_execute(_request: dict[str, Any], _session: Any) -> Mapping[str, Any]:

@@ -369,8 +369,8 @@
     "schema_authority": {
       "CA-D-289": {
         "fixture": "schema_authority/CA-D-289.md",
-        "sha256": "8489ccfb75f951effff4b61a1abe97e4d52001524c6d1ce87192e290e5cb0efb",
-        "version": 12
+        "sha256": "37825a9b828fe2015f2fa5eadf54f233091def0529cbf5c79060ec865403c8f0",
+        "version": 13
       },
       "CA-D-378": {
         "fixture": "schema_authority/CA-D-378.md",
@@ -586,8 +586,8 @@
       },
       "CA-D-461": {
         "fixture": "structure_authority/CA-D-461.md",
-        "sha256": "d0d938144a99f273b96c53afd630b12480a6b2af5f05e2396ba03d91156a7f1d",
-        "version": 13
+        "sha256": "96282d2eaf40d663de404d5ef03cb8682a0506733f0c239308731198de0bd373",
+        "version": 16
       },
       "CA-D-466": {
         "fixture": "structure_authority/CA-D-466.md",

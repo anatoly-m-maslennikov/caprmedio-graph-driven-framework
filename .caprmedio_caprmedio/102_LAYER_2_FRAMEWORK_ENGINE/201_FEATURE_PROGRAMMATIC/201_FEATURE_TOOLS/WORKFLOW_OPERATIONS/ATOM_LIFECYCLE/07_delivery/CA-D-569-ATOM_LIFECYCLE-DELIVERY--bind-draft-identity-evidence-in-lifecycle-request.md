@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Workflow Operations/Atom Lifecycle/Request Parameters/Draft Identity Evidence"
   depends_on: ["Tool", "Workflow Operations/Atom Lifecycle/Dispatch Interface", "Atom/Revision/Status: Draft", "Atom/Revision/History"]
-version: 8
-updated_at: "2026-10-20 22:20:57 +0400"
+version: 9
+updated_at: "2026-10-20T20:42:54.541Z"
 relations:
   relates_to: [CA-D-531, CA-D-532, CA-D-568]
 ---
@@ -37,7 +37,7 @@ For Draft markers, bind the exact Draft path/digest and filename marker to the r
 
 ### Existing-marker request bindings
 
-For an existing-marker Draft through the lifecycle `change_status` route, `request.parameters` carries exactly `{target: <full Draft descriptor>, status: "Active", canonical_target: <full Current descriptor>, proposed_version: <positive integer>}`. The full Draft descriptor includes the exact Draft path, filename marker, carried Version, digest, lifecycle and Status; the full Current descriptor includes the canonical ID, current path, filename, current Version, digest, lifecycle, current admitted Status, Content Role and Type. `canonical_target` is the current predecessor, not a second target or an instruction to allocate an ID.
+For an existing-marker Draft through the lifecycle `change_status` route, `request.parameters` carries exactly `{target: <full Draft descriptor>, status: <requested qualified model-admitted non-Draft Status>, canonical_target: <full Current descriptor>, proposed_version: <positive integer>}`. Resolve that requested Status from the current qualified Role/Type model; do not hardcode Active or a Plan-specific exception. The unchanged source Draft Status uses ordinary no-op handling and does not admit canonical-target evidence or a publication. Native `ATOM_PROMOTE` remains the distinct Draft-to-Active capability under CA-R-869; this generic lifecycle binding does not broaden that shortcut. The full Draft descriptor includes the exact Draft path, filename marker, carried Version, digest, lifecycle and Status; the full Current descriptor includes the canonical ID, current path, filename, current Version, digest, lifecycle, current admitted Status, Content Role and Type. `canonical_target` is the current predecessor, not a second target or an instruction to allocate an ID.
 
 For an existing-marker item through native `ATOM_PROMOTE`, the item carries exactly `{selector: <Draft path>, target: <full Draft descriptor>, atom_id: <canonical ID>, canonical_target: <full Current descriptor>, proposed_version: <positive integer>}`. The selector, Draft descriptor path, marker-derived canonical ID, explicit `atom_id`, canonical-target ID/path and all Version/digest/currentness pins must agree. A duplicate ID, path or Version representation that disagrees with another bound representation refuses before effects. `proposed_version` is a positive integer; Boolean values are invalid even where the host language treats them as integers. The carried marker, proposed Version, current predecessor digest and currentness checks are authoritative preconditions, not advisory hints.
 

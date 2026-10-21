@@ -378,6 +378,9 @@ class SubjectBatchDraftTests(unittest.TestCase):
     def test_promotion_restores_canonical_identity_and_done_status_with_exact_history(self):
         project = SubjectBatchProject(self, count=1, role="Plan", status="Done")
         path, archive = project.paths[0], project.archives()[0]
+        self.assertEqual("archived", archive.parent.name)
+        self.assertEqual("03_plan", archive.parent.parent.name)
+        self.assertEqual(f"{path.stem}@{project.targets[0]['version']}.md", archive.name)
         with patch.object(
             operations,
             "_validate_complete_carrier",

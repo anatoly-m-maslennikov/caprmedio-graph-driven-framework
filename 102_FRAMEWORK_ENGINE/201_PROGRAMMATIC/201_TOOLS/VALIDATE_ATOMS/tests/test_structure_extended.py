@@ -370,6 +370,77 @@ class StructureExtendedTest(unittest.TestCase):
         nested = {**plan, "relations": {"is_decomposition_of": ["EX-P-9"]}}
         self.assertTrue(self.check("status.placement", metadata=nested, inputs={"path": path}).gaps)
 
+    def test_archived_plan_placement_is_flat_and_versioned(self) -> None:
+        plan = {
+            **self.metadata,
+            "content_role": "Plan",
+            "type": "Plan",
+            "status": "Archived",
+            "version": 4,
+            "relations": {"is_decomposition_of": ["EX-P-9"]},
+        }
+        base = self.path.parents[1] / "03_plan"
+        good = self.check(
+            "status.placement",
+            metadata=plan,
+            inputs={"path": base / "archived/EX-P-1-PLAN--test-claim@4.md"},
+        )
+        self.assertFalse(good.findings)
+        self.assertFalse(good.gaps)
+        for filename in ("EX-P-1-PLAN--test-claim.md", "EX-P-1-PLAN--test-claim@3.md"):
+            with self.subTest(filename=filename):
+                bad = self.check(
+                    "status.placement",
+                    metadata=plan,
+                    inputs={"path": base / "archived" / filename},
+                )
+                self.assertTrue(any(row["property"] == "version" for row in bad.findings))
+        nested = self.check(
+            "status.placement",
+            metadata=plan,
+            inputs={"path": base / "archived/parent/EX-P-1-PLAN--test-claim@4.md"},
+        )
+        self.assertTrue(any(row["code"] == "STATUS_PLACEMENT" for row in nested.findings))
+        same_stem_nested = self.check(
+            "status.placement",
+            metadata=plan,
+            inputs={
+                "path": base / "archived/EX-P-1-PLAN--test-claim@4/EX-P-1-PLAN--test-claim@4.md",
+            },
+        )
+        self.assertTrue(any(row["code"] == "STATUS_PLACEMENT" for row in same_stem_nested.findings))
+        legacy = self.check(
+            "status.placement",
+            metadata=plan,
+            inputs={"path": base / "archive/EX-P-1-PLAN--test-claim@4.md"},
+        )
+        self.assertTrue(any(row["code"] == "STATUS_PLACEMENT" for row in legacy.findings))
+
+    def test_archived_plan_suffix_requires_exact_d289_authority(self) -> None:
+        plan = {
+            **self.metadata,
+            "content_role": "Plan",
+            "type": "Plan",
+            "status": "Archived",
+            "version": 4,
+            "relations": {},
+        }
+        sources = [
+            source
+            for source in self.authorities
+            if source["binding"]["atom_id"] != "CA-D-289"
+        ]
+        check = self.check(
+            "status.placement",
+            metadata=plan,
+            inputs={
+                "path": self.path.parents[1] / "03_plan/archived/EX-P-1@4.md",
+            },
+            sources_override=sources,
+        )
+        self.assertFalse(check.findings)
+        self.assertTrue(any(gap["property"] == "authority" for gap in check.gaps))
+
     def test_plan_draft_placement_uses_source_mapping(self) -> None:
         plan = {**self.metadata, "content_role": "Plan", "type": "Plan", "status": "Draft"}
         path = self.path.parents[1] / "03_plan/draft/EX-P-1-PLAN--test-claim.md"

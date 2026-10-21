@@ -14,6 +14,7 @@ import sys
 import threading
 import time
 from contextlib import nullcontext
+from contextvars import ContextVar
 from typing import Literal
 
 from jsonschema import Draft202012Validator
@@ -25,6 +26,7 @@ from pydantic import BaseModel, ConfigDict
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / '201_TOOLS'))
 from project_selection import ProjectSelection, bind_selection, resolve_project, rebind_selection
 from project_settings_schema import mcp_tool_blacklist
+from health_observations import HealthObservations
 
 
 def startup_selection(root, control_root=None, instance_id=None, host_root=None):
@@ -84,6 +86,7 @@ _INSTANCE_ID = re.compile(r'[0-9a-f]{64}\Z')
 _PROCESS_QUERY_MAX_BYTES = 64 * 1024
 _PROCESS_QUERY_MAX_SECONDS = 2.0
 _GATEWAY_ENTRYPOINTS = frozenset(('server.py', 'http_server.py'))
+_INNER_CALL_ERROR = ContextVar('mcp_inner_call_error', default=None)
 
 
 def _startup_telemetry_enabled() -> bool:
@@ -316,6 +319,7 @@ class Gateway:
         self.tool_blacklist = mcp_tool_blacklist(selection.settings) if selection is not None else frozenset()
         self.implementation = Path(implementation or Path(__file__).with_name('implementation_server.py'))
         self.active, self.generations = None, []
+        self.health_observations = HealthObservations()
         self.subject_stages = {}
         self.reload_lock, self.receipts = asyncio.Lock(), {}
         self.generation_fence = threading.Lock()
@@ -546,10 +550,31 @@ class Gateway:
             return result({'outcome': 'rejected', 'diagnostics': [str(error)]}, True)
 
     async def call(self, context, params):
-        if params.name in self.tool_blacklist:
-            return result({'outcome': 'rejected', 'diagnostics': ['Unknown Tool']}, True)
-        with bind_selection(self.selection) if self.selection is not None else nullcontext():
-            return await self._call(context, params)
+        token = _INNER_CALL_ERROR.set(None)
+        response = None
+        error = None
+        try:
+            if params.name in self.tool_blacklist:
+                response = result({'outcome': 'rejected', 'diagnostics': ['Unknown Tool']}, True)
+            else:
+                with bind_selection(self.selection) if self.selection is not None else nullcontext():
+                    response = await self._call(context, params)
+            error = _INNER_CALL_ERROR.get()
+            return response
+        except asyncio.CancelledError as caught:
+            error = caught
+            raise
+        except Exception as caught:
+            error = caught
+            raise
+        finally:
+            try:
+                self.health_observations.record(
+                    params.name, getattr(params, 'arguments', None), response, error=error,
+                )
+            except Exception:
+                pass
+            _INNER_CALL_ERROR.reset(token)
 
     def _retain_subject_stage(self, context, response):
         # The SDK makes a fresh Session proxy per request around this Connection.
@@ -670,7 +695,8 @@ class Gateway:
             elif marker is not None:
                 attach_receipt(response, {**marker, 'outcome': 'recreation_required'})
             return response
-        except Exception:
+        except Exception as error:
+            _INNER_CALL_ERROR.set(error)
             return result({'outcome': 'uncertain', 'generation': generation.fingerprint,
                            'diagnostics': ['Implementation call failed; no automatic replay']}, True)
         finally:

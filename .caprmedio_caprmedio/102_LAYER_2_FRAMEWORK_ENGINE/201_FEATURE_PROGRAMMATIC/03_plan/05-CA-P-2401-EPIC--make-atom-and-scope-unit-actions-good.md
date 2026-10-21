@@ -14,8 +14,8 @@ subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Property, Relation, Artifact/Carrier, Project Structure, Tool, Workflow]
 relations: {}
-version: 22
-updated_at: "2026-10-20T19:11:22.202Z"
+version: 34
+updated_at: "2026-10-21T00:33:42Z"
 ---
 # Summary
 
@@ -23,7 +23,7 @@ Make Atom and Scope Unit Actions Good
 
 ## Objective
 
-Make the PROGRAMMATIC Atom and Scope Unit actions complete, coherent and usable through the existing connectors, Workflows and MCP. This Epic records the Operator's decisions from this session; it is not evidence that the implementation already provides them. Its operating-context work now also covers configurable model composition and a shared multi-Project Docker/MCP runtime, with explicit adoption and implementation gates.
+Make the PROGRAMMATIC Atom actions complete, coherent and usable through the existing connectors, Workflows and MCP. Scope Unit operations, structure validation/reconciliation and topology mutations are deferred to separate peer Epic CA-P-2480, Make Atom and Scope Unit Actions Good — Stage 2. This Epic records the Operator's decisions from this session; it is not evidence that the implementation already provides them. Its operating-context work now also covers configurable model composition and a shared multi-Project Docker/MCP runtime, with explicit adoption and implementation gates.
 
 ## Details
 
@@ -60,15 +60,13 @@ The implementation tasks must reconcile existing TOOLS, CONNECTOR_TOOLS, TOOL_WO
 - Promote ID-free Drafts to Active with a fresh unused identity; no restoration of a previous ID or history/Journal admission gate.
 - Cover ordinary file Atoms and folder-backed Plan and Operations containers, including Plan/Epic, Workflow and Step. Preserve exact prior bundles and current container semantics; compose explicitly selected per-Atom operations for bulk work rather than promising a cross-Atom transaction.
 
-### Scope Unit actions
+### Scope Unit actions — deferred to Stage 2
 
-Create, rename, move and delete Scope Units coherently across authoritative project_structure.toml and both declared governing and delivery folder bindings. Preserve references and admitted relative/path semantics, distinguish declaration from intentional non-materialization, and never infer that root delivery and governing places are identical.
-
-Delete must refuse a Scope Unit containing any Atoms or child Scope Units. It must also refuse when either affected folder contains code, other non-Atom files or any other content that would need deletion or preservation. No recursive deletion or removal of a declaration while abandoning nonempty delivery content is authorized. This is the Operator's explicit resolution of the deletion question.
+CA-P-2480 owns Scope Unit create/rename/move/delete, Project Structure and governing/delivery folder validation/reconciliation, and physical/declaration topology migration. Its first inventory Task CA-P-2483 is Backlog. The empty-only deletion decision remains binding there. Historical completed Scope Unit audits retain their original parent/history and are reused as evidence, not moved or claimed as Stage 2 completion.
 
 ### Validation and reconciliation
 
-Validate YAML syntax, applicable Role/Type keys, mandatory properties and typed values; exact Markdown heading set and order; and coherence among carried properties, filename and actual placement. Validate Project Structure declarations and actual governing/delivery places together, recognizing declared unmaterialized places separately from drift.
+Validate YAML syntax, applicable Role/Type keys, mandatory properties and typed values; exact Markdown heading set and order; and coherence among carried properties, filename and actual placement. Stage 1 consumes existing valid Scope Unit bindings for Atom placement safety; Scope Unit and Project Structure validation/reconciliation belong to Stage 2. Deferral does not waive normal Atom placement or unsafe-binding refusal.
 
 Validate registered relation/placement invariants. For example, the current task membership of an Epic's folder must equal its declared direct decomposition membership, applying reserved status-directory and current-revision rules. Use the registered direct relation and derive inverses; do not add a second independent child list, infer Workflow control flow from containment, or count archived predecessor files as extra current members.
 
@@ -128,13 +126,13 @@ Acceptance requires positive and negative golden cases, exact predecessor preser
 
 These are unchecked planning packages, not newly created child Task Atoms or execution results. Before executing a package, create its own Task/subtask files under this Epic's matching directory; split until each has at most 15 minutes of own work and one observable acceptance condition. Keep registered direct decomposition and actual folder membership synchronized; do not invent a contains list for files that do not exist.
 
-1. [ ] Capture current scope/binding/caller inventory and reconcile the agreed unordered topology and affected RMEDO. Acceptance: one reviewed target mapping with no duplicate owners, plus verified governing/delivery and declaration changes when separately executed.
+1. [ ] Deferred to CA-P-2480 Stage 2: capture current scope/binding/caller inventory and reconcile the agreed unordered topology and affected RMEDO. Acceptance: one reviewed target mapping with no duplicate owners, plus verified governing/delivery and declaration changes when separately executed.
 2. [ ] Resolve model adoption dependencies: protected definitions, Core permission, configurable override surfaces and precedence. Acceptance: explicit source-bound decisions or C/Question holds; no silent adoption of the four Drafts.
 3. [ ] Specify model carrier/composition/refresh and its functional acceptance corpus. Acceptance: versioned contract and independent positive/negative golden cases, including inactive providers, conflicting configuration and torn/invalid refresh.
 4. [ ] Implement the smallest supported effective-model path against the admitted contracts. Acceptance: exact-input provenance and generation consistency; verify the claimed no-code/no-image-rebuild data-change boundary rather than assume it.
 5. [ ] Specify multi-Project client binding, registration, state ownership and Docker mount lifecycle. Acceptance: an explicit supported protocol and two-Project denial/interleaving cases before runtime changes.
 6. [ ] Implement shared Docker/MCP routing and Project-scoped dependent execution, reusing the existing orchestrator and Tools. Acceptance: one container/endpoint actually serves two Projects with correct identity and no cross-Project fallback/effects.
-7. [ ] Verify the scoped Atom/Scope Unit operations, applicable Workflows and MCP through the delivered Docker path. Acceptance: functional evidence for supported Role/Type/status/container cases and two-Project model/state isolation, identical record IDs, continuation/rebind, refresh/removal and path-escape refusals.
+7. [ ] Verify scoped Atom operations, applicable Workflows and MCP through the delivered Docker path; Scope Unit operation acceptance belongs to CA-P-2480. Acceptance: functional evidence for supported Role/Type/status/container cases and two-Project model/state isolation, identical record IDs, continuation/rebind, refresh/removal and path-escape refusals.
 8. [ ] Deliver contracts, operational instructions and attributable acceptance records; perform deployment/release only under separate explicit authorization. Acceptance: actual supported limits and unresolved gaps are visible, without turning projections or test reports into source authority.
 
 After every completed Task/subtask, review and update its dependent successor before execution. Blocked work is postponed and recorded as a C/Problem; unresolved decisions are C/Questions. This Epic update starts none of these packages, promotes none of the eight Drafts and claims no new runtime capability. Prefer cohesive implementation of each R/D in one module/few code units under CA-M-393, without sacrificing complete realization or forcing inappropriate coupling.
@@ -173,9 +171,9 @@ Creation of this Epic and its task records does not start implementation, a full
 
 ### Definition of Done
 
-False if any scoped Atom or Scope Unit operation, validation invariant or reconciliation policy lacks aligned current contracts and implemented, independently checked functional evidence; or if container/ordinary Atom behavior diverges, predecessor content is lost, empty-only deletion is violated, or required relation/filename/folder/property coherence remains unreported; or the agreed framework/project Tool separation and App hierarchy are not reflected coherently in governing declarations and delivery carriers.
+Stage 1 is not Done while a scoped Atom operation, Atom validation/reconciliation invariant or container behavior lacks aligned current contracts and independently checked functional evidence, or required predecessor/body/filename/property/placement coherence is lost or unreported. Atom connector, Tool, Workflow and MCP ownership must be coherent against existing valid declarations; deferred physical topology migration is not a Stage 1 completion requirement.
 
-The Epic is also not Done while the agreed topology is unreconciled, model adoption/override permissions are unresolved, or the claimed shared Docker/MCP path lacks attributable two-Project functional evidence and declared operational limits. The eight Drafts and this plan are not that evidence.
+Configurable-model adoption and the claimed shared Docker/MCP Atom path remain Stage 1 responsibilities with attributable acceptance and declared limits. Scope Unit CRUD, Project Structure/folder validation and repair, empty-only Scope Unit deletion and topology mutations are owned by CA-P-2480 Stage 2. Neither Epic is completed by this split or by its Drafts.
 
 ### Operator-authorized manual fallback — 2026-10-20
 
@@ -271,3 +269,95 @@ The bounded published-Draft source increment is implemented and accepted. ID-fre
 P2462-P2466 and bounded promotion children are Done with exact history and complete container moves. P2467/P2477 remain Active for C546/P2478 residual source-quality follow-up: configured C901 is 12 versus HEAD 13, no newly complex function remains, but _run_create 13->14 and update_atom_action 61->71 are explicit retained increases. No lint-clean or all-work-complete claim is made. C533 remains Active for separately authorized installed-runtime adoption/held-carrier reconciliation. The six Core dependencies and P1959 v130 Journal clarification are verified and included in the expressly approved scoped local commit.
 
 This checkpoint authorizes no release, push, deployment, installed-mirror refresh, migration or held-batch replay. Production tests were not used. Full release suite and full live-project validation were not run for this source increment; the earlier settings-limit invocation failure was caller configuration, not proven project corruption. Root is sole Git/index owner; the local commit follows this accepted evidence. The broader Epic remains Active.
+
+### Current queue and Stage 2 deferral
+
+The latest Operator decision defers Scope Unit operations to separate peer Epic CA-P-2480 (Backlog), with first inventory Task CA-P-2483. This split overrides the broader Stage 1 scope in historical checkpoints and earlier topology paragraphs. No Scope Unit mutation, audit reparenting or completion is claimed. Atom file/container operations, including flat Plan archival, remain Stage 1. Configurable models and multi-Project runtime remain here insofar as they do not execute deferred Scope Unit operations.
+
+Current queue after this verified increment: P2484-P2487 implement and independently accept C539 flat Plan archival in bounded dependent Tasks. C545 retains the narrower current-Step/parameters handoff gap; P2460 diagnosis is Done and the supported route-name context lookup is confirmed. C542 interruption cleanup remains Active after P2482 source diagnosis. Wider audit/planning, model and multi-Project runtime acceptance continue afterward; runtime adoption under C533 still requires its separate authorized flow. C548 tracks inherited lifecycle typing debt, not a new regression. P2478/P2477/P2467 and P2488 are Done; C546 and C547 are resolved. Stage 2 P2480/P2483 remains Backlog.
+
+Fresh discovery and O127/O145 context still return input_schema=null, so planning records use the standing Operator-authorized manual fallback. No effect packet, guessed route or Run replay was sent. Every Task has at most 15 minutes own work; source writes are exclusive and root owns planning/Git integration. No release, push, deployment, migration, production test traffic or held-batch replay is authorized by this continuation.
+
+### Verified Stage 1 increment and next dependency review
+
+Final frozen independent acceptance passed 124/124: native promotion 8, semantic assessment 7, Draft promotion golden 22, Atom cohort 30, selected lifecycle 48 and version history 9. Every final receipt is a fresh run bound before/after to atom_operations SHA-256 4d25dae0e7efb8e6d36755902af1ae11178d18a982f54d6a926e7aa71d11d31e, lifecycle_intents 568516545c8bbd870d9022d157bcdb6382a394da46420458251cd341a7aff4ea and shared fixture 79925d47d09c43a524bab2cb0928460e0dad308b009029743a3db6059daf92be. Independent exact-diff review passed. P2488 repaired only the frozen D288/D378 materialization gap; exact HEAD reproduced the prior failure set. No production guard relaxation, live port, MCP effect, Docker, release, deployment, migration or held-batch replay.
+
+The three read-only investigations are Done: P2460 route-name context diagnosis, P2481 flat archive source boundary, and P2482 ownership-safe interruption cleanup boundary. Their findings are retained in the Task files and bounded P2484-P2487 archive follow-ups. Stage 2 P2480 is the separate Backlog Epic Make Atom and Scope Unit Actions Good — Stage 2; P2483 owns its first inventory. The independent planning review accepted the split. No Project Structure declaration, Scope Unit governing/delivery topology or Scope Unit operation was changed.
+
+Exact current predecessors are retained. This turn uses only new shared flat 03_plan/archived Plan history carriers; older legacy archive/ trees are not migrated or rewritten. Completing P2467 moved its matching current Plan container with 20 byte-identical contained/history files, not Scope Units. Manual planning/provenance publication is within the Operator-approved fallback; no native effect or release receipt is fabricated. Changes remain uncommitted and no new release/deployment authority is inferred.
+
+### Flat Plan archival continuation started
+
+Operator requested continuation. P2484 is Active for the shared Plan archive destination resolver; P2485 bundle safety, P2486 validation/Subject prediction alignment and P2487 independent acceptance remain dependent Backlog work. Four initial ready lanes cover publication owner implementation, frozen functional tests, read-only validator inspection and read-only Subject-history predictions. A fifth independent read-only lane adjudicates optional container assets/history boundaries before P2485 behavior is admitted. Root alone owns planning/provenance and Git. Source changes remain uncommitted; all prior P2478/P2488 edits and exact histories are preserved.
+
+Current Core D461@15 and E502@13 govern flat owning-scope Plan archive placement; General R1521@9 does not restore a conflicting Archived Plan hierarchy. Non-Archived hierarchy, separate descendant actions, exact older bytes, immutable legacy trees and Scope Unit deferral remain unchanged. MCP discovery and route-name context were refreshed read-only: the envelope is available but current-Step/inner parameters remain incomplete under C545. Use the standing manual planning fallback, never guessed effect payloads. The selected locked managed CPython 3.14 environment was synchronized; tests use disposable frozen Project fixtures and no production port. No release, deployment, migration or held-batch replay.
+
+### Latest container lifecycle decision — no modes
+
+The Operator rejected an optional with/without-descendants mode. Archive a container always selects all recursively contained latest Atoms, including descendants already Done, for independently admitted Archive Actions. Requesting Done on a container leaves contained latest Plans already Done unchanged and requests Canceled for every other contained latest Plan. This is a target-Done rule, not an exception for a Done container being archived. Preserve exact older Revision bytes and metadata; retained-history subtrees and non-Atom assets may move byte-for-byte with their matching Directory Carrier. References outside containment are not cascade targets. Keep newly Archived Plan Markdown flat in the owning shared 03_plan/archived area. No new mode, per-child confirmation, transition matrix, cross-Atom rollback, migration or deployment is introduced.
+
+C549 is answered. Reconcile original Methodology R1521/D461/E502 before dependent Engine contracts and implementation. P2485 remains the low-level no-silent-current-child-move guard; new bounded P2494 owns the always-recursive calling Workflow and P2495 its focused frozen functional acceptance. The existing mechanical P2491/P2486 changes have positive bounded checks but final integrated acceptance remains pending. No current request claims this new recursive Workflow implemented or installed.
+
+### Latest accepted mechanical increment and next queue
+
+This checkpoint supersedes earlier pending/blocker/queue notes for the bounded flat-archive mechanics. P2484-P2487 and P2489/P2490-P2493/P2496 are Done. The final replacement freeze passed independent native14+48+9, Subject12+4+5, validator544 and CLI11; exact-code review APPROVE. Prior positive receipts were not accepted after C552 exposed an uncovered branch: one shared Status-predecessor owner fixed it and fresh tests covered non-Plan markerActive, nested Plan markerDone and byte-exact cleanup rollback. Production atom_operations537863a8261c38cf560098949d44a057b0fa7b95cf203c6b6b0a123ca5245284 and lifecycle9e8f56400d8141f1e190f19dd499f2a39dd6346330e383d46ea7be1067107f0d are unchanged across final acceptance. Configured C901 remains12 inherited diagnostics; no lint/type-clean claim is made.
+
+The latest Operator simplification is recorded in project planning, original Core R1521@10/D461@16/E502@14, lifecycle O127@15/O128@15, then Engine O029@10/E306@15. There is one recursive behavior, no mode or per-child confirmation: Archive selects all contained latest Atoms, including Done; target Done leaves contained latest Plans already Done unchanged and cancels other contained latest Plans. Exact older bytes and metadata remain unchanged. C549 is Resolved@3; C550/C552 are Resolved@3 for bounded source defects. Resolved carriers are correctly under resolved/ with exact predecessor histories. Completed P2484/P2487 matching directories moved with all5 contained files byte-identical.
+
+Next dependency is still Backlog P2494@2, then P2495@1, under Active C551: implement the missing narrow O127 calling-Workflow composition above SelectedExecution.freeze/dispatch, keeping each Action/Run single-Atom, deepest descendants first with fresh rebinding after preceding moves. The singleton safety guard is not that caller; recursive execution and target-Done composition are NOT implemented or accepted. C539 remains Active for full user-facing nested archival until this gap is closed. Review/split P2494 before extending15minutes own work, and review P2495 after implementation before execution. C545/C542/C533/C548 remain separately open. Stage2 P2480/P2483 is Backlog.
+
+No new commit, release, push, deployment, installed-mirror refresh, production test traffic, Scope Unit mutation, legacy migration or historical/held-batch replay occurred. All source changes remain uncommitted. The Epic remains Active.
+
+### Recursive caller continuation started
+
+P2494 is Active after dependency review. Four independent read-only lanes establish the actual ingress, reusable containment boundary, frozen functional fixture and applicable source/Method constraints before exclusive implementation. The previous mechanical increment remains accepted at atom_operations537863a8261c38cf560098949d44a057b0fa7b95cf203c6b6b0a123ca5245284; all prior dirty work and exact histories remain preserved. P2495 stays Backlog until reviewed implementation; C551 and C539 remain Active. No new release, deployment, production tests, migration or replay is authorized by this continuation.
+
+### Current bounded caller lanes
+
+P2494 is Active@4 and supersedes its earlier Backlog checkpoint. Reviewed pure planner P2497 is Done: 6 semantic tests and 10 adjacent discovery tests passed; independent APPROVE after malformed identity/status refusal was added. P2498 remains Active: initial fixture self-check was not accepted because live Atom/projection reads violate the frozen-corpus requirement; C553 records the defect and a dedicated frozen-source correction is in progress. P2499 is Active for the narrow technical coordinator, P2500 for pure source-derived preview scope sealing, and P2501 for actual MCP/provider/status wiring. These are separate own-work bounds of at most15minutes; split before extending. P2495 remains dependent acceptance, not yet a completion receipt.
+
+The reviewed implementation direction preserves ordinary one-Atom lifecycle admission. Only root MCP preview adds an independently source-derived sibling observed.container_lifecycle seal. Its immutable queued request is a technical authorization envelope, never a fabricated O127 Run. Every descendant and the final parent get distinct fresh ordinary preview/freeze/dispatch admissions, with exact subset authorization, Initiative and actual lineage preserved. Inline member dispatch avoids deadlock in the existing concurrency-one DBOS queue. No currentness exception, extra mode, per-child confirmation, generic orchestrator or new queue is authorized. Marked aggregate status must distinguish technical coordinator identity from actual Source Runs, retain partial effects and stop without replay on an uncertain frontier.
+
+Exclusive lanes: P2500 admission module/tests; P2499 composition module/tests; P2498 frozen fixture/corpus; backend/status owned by the backend worker; root owns MCP/provider entrypoints, planning and integration. Functional acceptance prepares only isolated disposable Projects and waits for these freezes. C551/C539 remain Active; no caller completion, production MCP use, release, deployment or migration is claimed.
+
+### MCP health visibility and authorized local release — 2026-10-21
+
+The Operator requested diagnosis of the currently failing MCP, a same-listener `/health` browser page with health checks, recent Tool calls, recent Workflow statuses and useful safe errors, followed by the normal local release. This latest instruction authorizes that local release after isolated verification and all normal release gates, superseding earlier no-release wording only for this bounded continuation. It authorizes no public release, push/merge, held-batch replay, unrelated Scope Unit mutation or production mutation testing. The normal local release commits all eligible current checkout changes before its gates; preserve unrelated work and report any gate failure without bypass.
+
+Fresh connected discovery returned `outcome: uncertain` / `Implementation call failed; no automatic replay`, while the read-only Gateway status succeeded and reported a serving process. This proves partial failure, not a total outage or completed repair. The current JSON `/health` checks only generation task availability; it does not prove Tool, Workflow or worker health. Do not replay that failed/uncertain call or the prior pending selected Run.
+
+Implement the smallest bounded read-only observation path: preserve the existing JSON ready/status contract for default and machine clients, and render escaped HTML for explicit browser Accept on the same `/health` route and port. Reuse loopback Host/Origin protection. Retain at most 32 process-local Tool observations and 32 Workflow observations derived from actual Gateway calls/results; label since-start coverage and unknown/unobserved/stale state. Keep scheduler state separate from actual Workflow outcome/disposition. Show safe error categories, not raw arguments, outputs, credentials, paths or provider exception text. A health GET does not invoke Tools/Workflows, initialize DBOS/Docker, read broad Journals, reload/recover or create authority/effects. Persistent or cross-process history is outside this first increment.
+
+Update active MCP R/E/D before implementation, using the PROGRAMMATIC M/E/D projections as supplemental guidance and the current originals as authority. Independently test positive and negative behavior using synthetic isolated fixtures, not the live port or mutable Atom corpus. Record real blockers as C/Problems and semantic uncertainty as C/Questions. Existing C545/C551/C554 and C533 are not resolved by a dashboard or a source edit. Each Task below owns at most15 minutes and must be reviewed/split before extending. After each completion, review/update its dependent successor before execution. Root owns governed records, Git/index and release; Luna workers own disjoint code/test lanes.
+
+- [x] [CA-P-2508 — Diagnose MCP failures and admit the health contract](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/68-CA-P-2508-TASK--diagnose-mcp-failures-and-admit-the-health-contract.md)
+- [x] [CA-P-2509 — Observe bounded MCP Tool and Workflow outcomes](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/69-CA-P-2509-TASK--observe-bounded-mcp-tool-and-workflow-outcomes.md)
+- [x] [CA-P-2510 — Render the same-port MCP health page](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/70-CA-P-2510-TASK--render-the-same-port-mcp-health-page.md)
+- [x] [CA-P-2511 — Verify MCP health and history in isolated fixtures](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/71-CA-P-2511-TASK--verify-mcp-health-and-history-in-isolated-fixtures.md)
+- [x] [CA-P-2512 — Prepare the authorized local release gate](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/72-CA-P-2512-TASK--prepare-the-authorized-local-release-gate.md)
+- [ ] [CA-P-2513 — Run local release and verify the installed MCP health page](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/73-CA-P-2513-TASK--run-local-release-and-verify-the-installed-mcp-health-page.md)
+
+### Health contract admitted and implementation lanes opened
+
+P2508 is Done after bounded live/read-only diagnosis and canonical publication of Active MCP R2007/E640/D639 plus Active Problem C555. The actual failed connected request used scope_unit=MCP, not an invalid scope field. Native discovery succeeds from current and deployed code; only the gateway-child call boundary is implicated, and the exact inner cause remains unknown. Preserve that uncertainty rather than asserting a provider-code or image defect. A local release is now explicitly authorized to deliver the health increment after the complete normal gates, not as an unverified cure.
+
+The reviewed source semantics inherit actual Workflow/Step/Tool-call meanings from Core through R1848. Registry observations use only existing generation.tools/snapshot state, never a health probe. New E evidence is fixture/test and post-release observation evidence, not a Journal prerequisite or an additional release gate. P2509 and P2510 are Active with disjoint observer versus HTTP-view ownership; P2511 is Active for independent fixture preparation and waits for their reviewed code before acceptance. P2512/P2513 remain Backlog until dependent review. Use the new PROGRAMMATIC M/E/D views as supplemental guidance; formal packets still require current full source bindings. No code, health-page deployment or release success is claimed by this planning checkpoint.
+
+### Release precheck blocker and independent continuation
+
+The fresh isolated C554 precheck passed3/5 but failed positive Archive(interrupted_pending) and target-Done(partial) with unchanged candidate/fixture hashes. Its frozen D378 pin is already correct; exact nested refusal is still under diagnosis. Reuse Active P2507/C554 for a bounded fixture/expectation repair only when current evidence confirms that cause; do not waive checks, modify live source Atoms as fixtures, weaken production admission or invent an ID naming rule. This is not a failure of the new health page and does not establish a production incident.
+
+P2510 source work is frozen with7 existing HTTP tests and bounded renderer/negotiation checks passed; independent HTTP/security review and P2511 integrated acceptance are pending. P2509 observations continue independently. P2512/P2513 remain dependent on their reviewed outcomes, the C554 precheck and the complete normal local-release gates. The Operator's explicit local-release authorization remains recorded; no release has started, no live mutation test or uncertain-call replay occurred. Root remains sole planning/Git/release owner.
+
+
+### Final health review and release dependency checkpoint
+
+The bounded C554 fixture repair now passes all5 functional and5 adjacent composition cases. Independent review approves the contract-aligned fixture correction: Objective/Details headings, preserved requested Run identity and canonical Done/canceled relocation expectations. Frozen production and D378 source hashes remain unchanged. This is bounded fixture acceptance, not resolution of the wider recursive-caller or installed-runtime Concerns.
+
+P2510 HTTP/security review is APPROVE after explicit Accept specificity and generation-only readiness wording were corrected. Fourteen focused health tests passed including cancellation propagation, but final observer review found Action results with a parent workflow_run_id could be mistaken for actual Workflow outcomes. P2509 and P2511 remain Active for a minimal identity gate and three isolated regressions; never infer Workflow outcome from an Action or technical coordinator. The final hash-bound gate, dependent Task review, full local release and installed read-only verification remain pending. No release has started and no uncertain call or held Run has been replayed.
+
+### Final source acceptance and release activation
+
+P2509/P2510/P2511/P2512 and bounded fixture-repair P2507 are Done with exact predecessors retained. Final frozen health18/18, existing hot-reload21/21, HTTP7/7, native container functional5/5 and adjacent composition5/5 all pass; overlapping checks are not summed. Independent observer/HTTP and fixture-diff reviews APPROVE. Actual Workflow identity is validated and cannot be inferred from nested Action/Step/coordinator results, invalid identities or scheduler SUCCESS. Health implementation/test hashes are stable across root acceptance.
+
+P2513 is Active after dependent review for the explicitly authorized normal full local release, run ID local-20261021-mcp-health-0434. Use the selected locked launcher virtualenv and all existing commit/full-test/build/install/startup gates; include all eligible current nonignored changes as authorized. Only one production MCP container is running, healthy at127.0.0.1:56317. The gateway-child discovery cause C555 is still unknown; the release delivers new visibility and is not a claimed causal cure. No release has started at this checkpoint. No production mutation test, held Run or uncertain-call replay, public push/merge or Stage2 Scope Unit operation is authorized.

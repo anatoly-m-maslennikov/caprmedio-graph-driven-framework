@@ -36,7 +36,7 @@ def capture_batch_admission(runner: Any, frozen: Mapping[str, Any]) -> dict[str,
 
     execution = frozen["request"]["execution"]
     packet = load_subject_batch(runner.root, execution["parameters"])
-    require_subject_batch_frontier(packet, execution)
+    require_subject_batch_frontier(packet, execution, root=runner.root)
     require_git_checkpoint(runner.root, packet)
     control = operations.control_root(runner.root)
     paths = set(

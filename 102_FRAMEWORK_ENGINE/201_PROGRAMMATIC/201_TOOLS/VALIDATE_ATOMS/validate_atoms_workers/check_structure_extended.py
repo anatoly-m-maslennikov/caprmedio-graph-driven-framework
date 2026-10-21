@@ -535,7 +535,7 @@ def _placement(metadata: Record, body: str, check: Check) -> None:
         if not _authority(check, "CA-D-461", "CA-D-469"):
             return
         relations = metadata.get("relations", {})
-        if not isinstance(relations, dict) or relations.get("is_decomposition_of"):
+        if not isinstance(relations, dict) or _plan_requires_target(metadata, relations):
             check.gap(
                 "status",
                 "A decomposed Plan requires its resolved immediate target and admitted matching Directory Carrier.",
@@ -557,13 +557,15 @@ def _placement(metadata: Record, body: str, check: Check) -> None:
             )
             return
         expected = base / "03_plan" / directory
-        container = path.parent.parent if path.parent.name == path.stem else path.parent
+        container = _plan_container(metadata, path)
         if container != expected:
             check.fail(
                 "STATUS_PLACEMENT",
                 "status",
                 "Plan placement disagrees with its carried Status and local-container mapping.",
             )
+            return
+        _archived_plan_version_suffix(metadata, path, check)
         return
     # Applying the fallback as a failure would presume that no more-specific
     # Type mapping exists. That exclusion needs a resolved placement registry.
@@ -571,6 +573,35 @@ def _placement(metadata: Record, body: str, check: Check) -> None:
         "status",
         "Canonical role-directory placement and absence of a more-specific Type mapping are not resolved by the supplied Project Structure.",
     )
+
+
+def _archived_plan_version_suffix(metadata: Record, path: Path, check: Check) -> None:
+    if metadata.get("status") != "Archived":
+        return
+    if not _authority(check, "CA-D-289"):
+        return
+    version = metadata.get("version")
+    if not _integer(version) or version < 1:
+        check.gap("version", "Archived Plan filename validation needs its carried positive Version.")
+        return
+    extension = path.suffix
+    expected = f"@{version}{extension}" if extension else f"@{version}"
+    if not path.name.endswith(expected):
+        check.fail(
+            "ADDRESS_VERSION",
+            "version",
+            "Archived Plan filename must carry its exact Version suffix immediately before the extension.",
+        )
+
+
+def _plan_requires_target(metadata: Record, relations: dict[object, object]) -> bool:
+    return metadata.get("status") != "Archived" and bool(relations.get("is_decomposition_of"))
+
+
+def _plan_container(metadata: Record, path: Path) -> Path:
+    if metadata.get("status") == "Archived":
+        return path.parent
+    return path.parent.parent if path.parent.name == path.stem else path.parent
 
 
 def _summary(body: str) -> str | None:
